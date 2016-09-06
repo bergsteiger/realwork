@@ -1,0 +1,104 @@
+// daGUITypes 55963E9101B2 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55963E9101B2
+
+FORWARD ME_5513AC280059
+
+FORWARD ME_5513AC580001
+
+ME ME_55C320FE02E7
+ MEPROP Name 'aConfig'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B990F100126' '4B990EDE031A.ms.model.script' // TddAppConfiguration
+ ;
+
+ENDME // ME_55C320FE02E7 aConfig
+
+ME ME_55C33293034F
+ MEPROP Name 'aProviderKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MEPROP Value ''''''
+ MELINK ValueType WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_55C33293034F aProviderKey
+
+ME ME_55C320FE02F7
+ MEPROP Name 'ForInfoOnly'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_55C320FE02F7 ForInfoOnly
+
+ME ME_5513AC580001
+ MEPROP UID '5513AC580001'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5513AC280059 // TBuildConfigProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C320FE02E7 // aConfig
+ ME_55C33293034F // aProviderKey
+ ME_55C320FE02F7 // ForInfoOnly
+ )
+ ; // Parameters
+
+ENDME // ME_5513AC580001 DoIt
+
+ME ME_5513AC280059
+ MEPROP UID '5513AC280059'
+ MEPROP Name 'TBuildConfigProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55963E9101B2 // daGUITypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5513AC580001 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_5513AC280059 TBuildConfigProc
+
+ME ME_55963E9101B2
+ MEPROP UID '55963E9101B2'
+ MEPROP Name 'daGUITypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_543244050044' '543244050044.ms.model.script' // DA
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5513AC280059 // TBuildConfigProc
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daGUITypes.pas'
+
+ENDME // ME_55963E9101B2 daGUITypes

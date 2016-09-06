@@ -1,0 +1,2019 @@
+// TvcmToolbar 5028A4C0019B GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50289DB9036F
+
+FORWARD ME_5028A4C0019B
+
+ME ME_5029211401C2
+ MEPROP UID '5029211401C2'
+ MEPROP Name 'TvcmDockDefPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5028DD12007F' '5028898902A2.ms.model.script' // TDock97
+ )
+ ; // Inherits
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DockDefPrim'
+
+ENDME // ME_5029211401C2 TvcmDockDefPrim
+
+ME ME_52A9916D000C
+ MEPROP UID '52A9916D000C'
+ MEPROP Name 'Pos'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50289DB9036F // TvcmToolbarDef
+ ;
+ MELINK Target WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A9916D000C Pos
+
+ME ME_52A991A201C8
+ MEPROP UID '52A991A201C8'
+ MEPROP Name 'ButtonCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50289DB9036F // TvcmToolbarDef
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+
+ENDME // ME_52A991A201C8 ButtonCount
+
+ME ME_50289E6F021D
+ MEPROP UID '50289E6F021D'
+ MEPROP Name 'vcmDeleteLastIfSeparator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50289DB9036F // TvcmToolbarDef
+ ;
+ UP extprop:rc:SelfName 'DeleteLastIfSeparator'
+
+ENDME // ME_50289E6F021D vcmDeleteLastIfSeparator
+
+ME ME_50289E7E0162
+ MEPROP UID '50289E7E0162'
+ MEPROP Name 'DeleteControls'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50289DB9036F // TvcmToolbarDef
+ ;
+
+ENDME // ME_50289E7E0162 DeleteControls
+
+ME ME_50289F8500B8
+ MEPROP UID '50289F8500B8'
+ MEPROP Name 'LockDock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50289DB9036F // TvcmToolbarDef
+ ;
+
+ENDME // ME_50289F8500B8 LockDock
+
+ME ME_502BC79B0090
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50289DB9036F // TvcmToolbarDef
+ ;
+ MELINK Target WL 'ME_502BC6DC00F4' '502BC6B600F3.ms.model.script' // vcmToolbarUtils
+ ;
+
+ENDME // ME_502BC79B0090 
+
+ME ME_52AB150D03C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50289DB9036F // TvcmToolbarDef
+ ;
+ MELINK Target WL 'ME_52A1F4A201F9' '4AADF9450143.ms.model.script' // TvcmBaseMenuManager
+ ;
+
+ENDME // ME_52AB150D03C6 
+
+ME ME_479731C50290_ME_50289DB9036F
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_50289DB9036F Cleanup
+
+ME ME_4CC8658C017B_ME_50289DB9036F
+ MELINK Original WL 'ME_4CC8658C017B' '4799D29F033F.ms.model.script' // VisibleChanging
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8658C017B_ME_50289DB9036F VisibleChanging
+
+ME ME_5028A00600B5_ME_50289DB9036F
+ MELINK Original WL 'ME_5028A00600B5' '5028887002FD.ms.model.script' // ExecuteHandler
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A00600B5_ME_50289DB9036F ExecuteHandler
+
+ME ME_5028A09900D5_ME_50289DB9036F
+ MELINK Original WL 'ME_5028A09900D5' '5028887002FD.ms.model.script' // ExecuteDefered
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A09900D5_ME_50289DB9036F ExecuteDefered
+
+ME ME_5028A1220383_ME_50289DB9036F
+ MELINK Original WL 'ME_5028A1220383' '5028898902A2.ms.model.script' // UpdateEmpty
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A1220383_ME_50289DB9036F UpdateEmpty
+
+ME ME_50289DB9036F
+ MEPROP UID '50289DB9036F'
+ MEPROP Name 'TvcmToolbarDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_502888D60048' '5028887002FD.ms.model.script' // TToolbar97
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A9916D000C // Pos
+ HWL ME_52A991A201C8 // ButtonCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50289E6F021D // vcmDeleteLastIfSeparator
+ HWL ME_50289E7E0162 // DeleteControls
+ HWL ME_50289F8500B8 // LockDock
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_50289DB9036F // Cleanup
+ ME_4CC8658C017B_ME_50289DB9036F // VisibleChanging
+ ME_5028A00600B5_ME_50289DB9036F // ExecuteHandler
+ ME_5028A09900D5_ME_50289DB9036F // ExecuteDefered
+ ME_5028A1220383_ME_50289DB9036F // UpdateEmpty
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_502BC79B0090 // vcmToolbarUtils
+ ME_52AB150D03C6 // TvcmBaseMenuManager
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarDef'
+
+ENDME // ME_50289DB9036F TvcmToolbarDef
+
+FORWARD ME_5028DD5E0384
+
+FORWARD ME_5028A43300CE
+
+ME ME_52A9944D0272
+ MEPROP UID '52A9944D0272'
+ MEPROP Name 'ToolbarDock'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028A43300CE // TvcmToolbarDockPanel
+ ;
+ MELINK Target HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A9944D0272 ToolbarDock
+
+FORWARD ME_5028A6450052
+
+FORWARD ME_5028A660013F
+
+ME ME_5028A66402C7
+ MEPROP Name 'AOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_5028A66402C7 AOwner
+
+ME ME_5028A66402E1
+ MEPROP Name 'aDock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5028A66402E1 aDock
+
+ME ME_5028A660013F
+ MEPROP UID '5028A660013F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028A6450052 // Make
+ ;
+ MELINK Target HWL ME_5028A43300CE // TvcmToolbarDockPanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028A66402C7 // AOwner
+ ME_5028A66402E1 // aDock
+ )
+ ; // Parameters
+
+ENDME // ME_5028A660013F DoIt
+
+ME ME_5028A6450052
+ MEPROP UID '5028A6450052'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028A43300CE // TvcmToolbarDockPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028A660013F // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5028A6450052 Make
+
+ME ME_5028A60300AD_ME_5028A43300CE
+ MELINK Original WL 'ME_5028A60300AD' '4799D29F033F.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A60300AD_ME_5028A43300CE Paint
+
+ME ME_5028A43300CE
+ MEPROP UID '5028A43300CE'
+ MEPROP Name 'TvcmToolbarDockPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5028A3E60050' '4799D29F033F.ms.model.script' // TCustomPanel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A9944D0272 // ToolbarDock
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5028A6450052 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_5028A60300AD_ME_5028A43300CE // Paint
+ )
+ ; // Overridden
+ MELIST Forwarded
+   Seq: ( HWL ME_5028DD5E0384 // TvcmDockDef
+ )
+ ; // Forwarded
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarDockPanel'
+
+ENDME // ME_5028A43300CE TvcmToolbarDockPanel
+
+FORWARD ME_5028DEDB021D
+
+ME ME_52A993C302DF
+ MEPROP UID '52A993C302DF'
+ MEPROP Name 'f_AllowGripSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A993C302DF f_AllowGripSize
+
+ME ME_52A993D001E7
+ MEPROP UID '52A993D001E7'
+ MEPROP Name 'Pos'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELINK Target WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ ;
+ UP "inherits getter from some ancestor" True
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_52A993D001E7 Pos
+
+ME ME_52A993E4006D
+ MEPROP UID '52A993E4006D'
+ MEPROP Name 'DockPanel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELINK Target HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A993E4006D DockPanel
+
+FORWARD ME_5028DE76021E
+
+FORWARD ME_5028DE8100B7
+
+ME ME_5028DE8401BD
+ MEPROP Name 'aMaximizedLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028DE8401BD aMaximizedLink
+
+ME ME_5028DE8401D8
+ MEPROP Name 'aOpenLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028DE8401D8 aOpenLink
+
+ME ME_5028DE84020D
+ MEPROP Name 'aCloseLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028DE84020D aCloseLink
+
+ME ME_5028DE8100B7
+ MEPROP UID '5028DE8100B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DE76021E // SetHandlers
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028DE8401BD // aMaximizedLink
+ ME_5028DE8401D8 // aOpenLink
+ ME_5028DE84020D // aCloseLink
+ )
+ ; // Parameters
+
+ENDME // ME_5028DE8100B7 DoIt
+
+ME ME_5028DE76021E
+ MEPROP UID '5028DE76021E'
+ MEPROP Name 'SetHandlers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028DE8100B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028DE76021E SetHandlers
+
+FORWARD ME_502912550218
+
+FORWARD ME_502912620245
+
+ME ME_50291265013D
+ MEPROP Name 'aFasten'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_50291265013D aFasten
+
+ME ME_502912620245
+ MEPROP UID '502912620245'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502912550218 // SetFasten
+ ;
+ MELIST Parameters
+   Seq: ( ME_50291265013D // aFasten
+ )
+ ; // Parameters
+
+ENDME // ME_502912620245 DoIt
+
+ME ME_502912550218
+ MEPROP UID '502912550218'
+ MEPROP Name 'SetFasten'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502912620245 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_502912550218 SetFasten
+
+FORWARD ME_502912730225
+
+FORWARD ME_5029129803DA
+
+ME ME_502924600023
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_502924600023 anOwner
+
+ME ME_502924600040
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_502924600040 aName
+
+ME ME_50292460005F
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ ;
+
+ENDME // ME_50292460005F aPos
+
+ME ME_5029129803DA
+ MEPROP UID '5029129803DA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502912730225 // Make
+ ;
+ MELINK Target HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_502924600023 // anOwner
+ ME_502924600040 // aName
+ ME_50292460005F // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_5029129803DA DoIt
+
+ME ME_502912730225
+ MEPROP UID '502912730225'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5029129803DA // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_502912730225 Make
+
+FORWARD ME_502912E4004F
+
+ME ME_502912F40164
+ MEPROP UID '502912F40164'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502912E4004F // SizeGripValid
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_502912F40164 DoIt
+
+ME ME_502912E4004F
+ MEPROP UID '502912E4004F'
+ MEPROP Name 'SizeGripValid'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502912F40164 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_502912E4004F SizeGripValid
+
+FORWARD ME_502913210162
+
+ME ME_502913300231
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E9574A2008E' '476F78840219.ms.model.script' // TWMSize
+ ;
+
+ENDME // ME_502913300231 Message
+
+ME ME_502913210162
+ MEPROP UID '502913210162'
+ MEPROP Name 'WMSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_502913300231 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SIZE'
+
+ENDME // ME_502913210162 WMSize
+
+FORWARD ME_5029133D01B2
+
+ME ME_5029135001B5
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50291A020241' '476F78840219.ms.model.script' // TWMNCCalcSize
+ ;
+
+ENDME // ME_5029135001B5 Message
+
+ME ME_5029133D01B2
+ MEPROP UID '5029133D01B2'
+ MEPROP Name 'WMNCCalcSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_5029135001B5 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCCALCSIZE'
+
+ENDME // ME_5029133D01B2 WMNCCalcSize
+
+FORWARD ME_502913B0004C
+
+ME ME_502913C00049
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_502913C00049 Message
+
+ME ME_502913B0004C
+ MEPROP UID '502913B0004C'
+ MEPROP Name 'WMNCPaint'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_502913C00049 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCPAINT'
+
+ENDME // ME_502913B0004C WMNCPaint
+
+FORWARD ME_502913DA02DA
+
+ME ME_502913EB0225
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50291A30019C' '476F78840219.ms.model.script' // TWMNCHitTest
+ ;
+
+ENDME // ME_502913EB0225 Msg
+
+ME ME_502913DA02DA
+ MEPROP UID '502913DA02DA'
+ MEPROP Name 'WMNChitTest'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_502913EB0225 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCHITTEST'
+
+ENDME // ME_502913DA02DA WMNChitTest
+
+ME ME_52AAEC310376
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ MELINK Target WL 'ME_4B30EC81021A' '4B30EC67025A.ms.model.script' // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52AAEC310376 
+
+ME ME_49930330017B_ME_5028DD5E0384
+ MELINK Original WL 'ME_49930330017B' '49942FB2017D.ms.model.script' // FullWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49930330017B_ME_5028DD5E0384 FullWidth
+
+ME ME_4993033E03CC_ME_5028DD5E0384
+ MELINK Original WL 'ME_4993033E03CC' '49942FB2017D.ms.model.script' // FullHeight
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4993033E03CC_ME_5028DD5E0384 FullHeight
+
+ME ME_4993035101C9_ME_5028DD5E0384
+ MELINK Original WL 'ME_4993035101C9' '49942FB2017D.ms.model.script' // Pos
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4993035101C9_ME_5028DD5E0384 Pos
+
+ME ME_479731C50290_ME_5028DD5E0384
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5028DD5E0384 Cleanup
+
+ME ME_4F2A599E0283_ME_5028DD5E0384
+ MELINK Original WL 'ME_4F2A599E0283' '4799D29F033F.ms.model.script' // SetBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A599E0283_ME_5028DD5E0384 SetBounds
+
+ME ME_5028A60300AD_ME_5028DD5E0384
+ MELINK Original WL 'ME_5028A60300AD' '4799D29F033F.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A60300AD_ME_5028DD5E0384 Paint
+
+ME ME_5028DD25024B_ME_5028DD5E0384
+ MELINK Original WL 'ME_5028DD25024B' '5028898902A2.ms.model.script' // SizeGripWidth
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028DD25024B_ME_5028DD5E0384 SizeGripWidth
+
+ME ME_5028DD5E0384
+ MEPROP UID '5028DD5E0384'
+ MEPROP Name 'TvcmDockDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5029211401C2 // TvcmDockDefPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_499303230362' '49942FB2017D.ms.model.script' // IvcmDock
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_52A993C302DF // f_AllowGripSize
+ HWL ME_52A993D001E7 // Pos
+ HWL ME_52A993E4006D // DockPanel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5028DE76021E // SetHandlers
+ HWL ME_502912550218 // SetFasten
+ HWL ME_502912730225 // Make
+ HWL ME_502912E4004F // SizeGripValid
+ HWL ME_502913210162 // WMSize
+ HWL ME_5029133D01B2 // WMNCCalcSize
+ HWL ME_502913B0004C // WMNCPaint
+ HWL ME_502913DA02DA // WMNChitTest
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49930330017B_ME_5028DD5E0384 // FullWidth
+ ME_4993033E03CC_ME_5028DD5E0384 // FullHeight
+ ME_4993035101C9_ME_5028DD5E0384 // Pos
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5028DD5E0384 // Cleanup
+ ME_4F2A599E0283_ME_5028DD5E0384 // SetBounds
+ ME_5028A60300AD_ME_5028DD5E0384 // Paint
+ ME_5028DD25024B_ME_5028DD5E0384 // SizeGripWidth
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52AAEC310376 // TvcmCustomMenuManager
+ )
+ ; // Dependencies
+ MELIST Forwarded
+   Seq: ( HWL ME_5028DEDB021D // TvcmDockPanel
+ )
+ ; // Forwarded
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DockDef'
+
+ENDME // ME_5028DD5E0384 TvcmDockDef
+
+ME ME_5028A32E02C2
+ MEPROP UID '5028A32E02C2'
+ MEPROP Name 'TvcmSeparatorDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5028A2FC03A5' '5028887002FD.ms.model.script' // TToolbarSep97
+ )
+ ; // Inherits
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SeparatorDef'
+
+ENDME // ME_5028A32E02C2 TvcmSeparatorDef
+
+FORWARD ME_5028E443024E
+
+ME ME_52A991CE0016
+ MEPROP UID '52A991CE0016'
+ MEPROP Name 'Toolbar'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target WL 'ME_5028E54C0057' '4799D29F033F.ms.model.script' // TToolbar
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A991CE0016 Toolbar
+
+ME ME_52A99201025B
+ MEPROP UID '52A99201025B'
+ MEPROP Name 'ToolbarDock'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target HWL ME_5029211401C2 // TvcmDockDefPrim
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A99201025B ToolbarDock
+
+ME ME_52A99224023F
+ MEPROP UID '52A99224023F'
+ MEPROP Name 'f_BtnClose'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+
+ENDME // ME_52A99224023F f_BtnClose
+
+ME ME_52A9922E01AC
+ MEPROP UID '52A9922E01AC'
+ MEPROP Name 'f_BtnOpen'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+
+ENDME // ME_52A9922E01AC f_BtnOpen
+
+ME ME_52A9923802BF
+ MEPROP UID '52A9923802BF'
+ MEPROP Name 'f_BtnMaximized'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+
+ENDME // ME_52A9923802BF f_BtnMaximized
+
+ME ME_52A992420387
+ MEPROP UID '52A992420387'
+ MEPROP Name 'f_ImageList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target WL 'ME_5028E799021D' '4799D29F033F.ms.model.script' // TImageList
+ ;
+
+ENDME // ME_52A992420387 f_ImageList
+
+ME ME_52A992520339
+ MEPROP UID '52A992520339'
+ MEPROP Name 'f_pnlToolbar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target HWL ME_5028A43300CE // TvcmToolbarDockPanel
+ ;
+
+ENDME // ME_52A992520339 f_pnlToolbar
+
+ME ME_52A99263000A
+ MEPROP UID '52A99263000A'
+ MEPROP Name 'f_pnlDock'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target WL 'ME_5028E84F00EE' '4799D29F033F.ms.model.script' // TPanel
+ ;
+
+ENDME // ME_52A99263000A f_pnlDock
+
+ME ME_52A9927B0360
+ MEPROP UID '52A9927B0360'
+ MEPROP Name 'f_PrevHeight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A9927B0360 f_PrevHeight
+
+ME ME_52A992850017
+ MEPROP UID '52A992850017'
+ MEPROP Name 'f_PrevWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A992850017 f_PrevWidth
+
+FORWARD ME_5028E3DB0203
+
+FORWARD ME_5028E3EA00D2
+
+ME ME_5028FE9900B8
+ MEPROP Name 'aLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028FE9900B8 aLink
+
+ME ME_5028E3EA00D2
+ MEPROP UID '5028E3EA00D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028E3DB0203 // CreateMaximizedBtn
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028FE9900B8 // aLink
+ )
+ ; // Parameters
+
+ENDME // ME_5028E3EA00D2 DoIt
+
+ME ME_5028E3DB0203
+ MEPROP UID '5028E3DB0203'
+ MEPROP Name 'CreateMaximizedBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028E3EA00D2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028E3DB0203 CreateMaximizedBtn
+
+FORWARD ME_5028E403004C
+
+FORWARD ME_5028E40C009E
+
+ME ME_5028FE9D039F
+ MEPROP Name 'aLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028FE9D039F aLink
+
+ME ME_5028E40C009E
+ MEPROP UID '5028E40C009E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028E403004C // CreateCloseBtn
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028FE9D039F // aLink
+ )
+ ; // Parameters
+
+ENDME // ME_5028E40C009E DoIt
+
+ME ME_5028E403004C
+ MEPROP UID '5028E403004C'
+ MEPROP Name 'CreateCloseBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028E40C009E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028E403004C CreateCloseBtn
+
+FORWARD ME_5028E41E0384
+
+FORWARD ME_5028E427006D
+
+ME ME_5028FEAE01DD
+ MEPROP Name 'aLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028FEAE01DD aLink
+
+ME ME_5028E427006D
+ MEPROP UID '5028E427006D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028E41E0384 // CreateOpenBtn
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028FEAE01DD // aLink
+ )
+ ; // Parameters
+
+ENDME // ME_5028E427006D DoIt
+
+ME ME_5028E41E0384
+ MEPROP UID '5028E41E0384'
+ MEPROP Name 'CreateOpenBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028E427006D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028E41E0384 CreateOpenBtn
+
+FORWARD ME_5028E4BD038B
+
+FORWARD ME_5028E4C50295
+
+ME ME_5028FE8500EC
+ MEPROP Name 'aLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028FE8500EC aLink
+
+ME ME_5028E4C50295
+ MEPROP UID '5028E4C50295'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028E4BD038B // CheckLink
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028FE8500EC // aLink
+ )
+ ; // Parameters
+
+ENDME // ME_5028E4C50295 DoIt
+
+ME ME_5028E4BD038B
+ MEPROP UID '5028E4BD038B'
+ MEPROP Name 'CheckLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028E4C50295 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028E4BD038B CheckLink
+
+FORWARD ME_5028E4DB0207
+
+FORWARD ME_5028E4E30320
+
+ME ME_5028E4E6035F
+ MEPROP Name 'aImageIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5028E4E6035F aImageIndex
+
+ME ME_5028FE8E00E1
+ MEPROP Name 'aLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028FE8E00E1 aLink
+
+ME ME_5028FE8E0129
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5028FE8E0129 aName
+
+ME ME_5028E4E30320
+ MEPROP UID '5028E4E30320'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028E4DB0207 // CreateBtn
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028E4E6035F // aImageIndex
+ ME_5028FE8E00E1 // aLink
+ ME_5028FE8E0129 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_5028E4E30320 DoIt
+
+ME ME_5028E4DB0207
+ MEPROP UID '5028E4DB0207'
+ MEPROP Name 'CreateBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028E4E30320 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028E4DB0207 CreateBtn
+
+FORWARD ME_5028E4FB030F
+
+FORWARD ME_5028E50402F8
+
+ME ME_5028E5190270
+ MEPROP Name 'ALeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5028E5190270 ALeft
+
+ME ME_5028E519028C
+ MEPROP Name 'ATop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5028E519028C ATop
+
+ME ME_5028E51902A8
+ MEPROP Name 'AWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5028E51902A8 AWidth
+
+ME ME_5028E51902C4
+ MEPROP Name 'AHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5028E51902C4 AHeight
+
+ME ME_5028E50402F8
+ MEPROP UID '5028E50402F8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028E4FB030F // SetDockBounds
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028E5190270 // ALeft
+ ME_5028E519028C // ATop
+ ME_5028E51902A8 // AWidth
+ ME_5028E51902C4 // AHeight
+ )
+ ; // Parameters
+
+ENDME // ME_5028E50402F8 DoIt
+
+ME ME_5028E4FB030F
+ MEPROP UID '5028E4FB030F'
+ MEPROP Name 'SetDockBounds'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028E50402F8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028E4FB030F SetDockBounds
+
+ME ME_5028E59700E9
+ MEPROP UID '5028E59700E9'
+ MEPROP Name 'CreateToolbar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+
+ENDME // ME_5028E59700E9 CreateToolbar
+
+ME ME_5028E59F005F
+ MEPROP UID '5028E59F005F'
+ MEPROP Name 'UpdateToolbarSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+
+ENDME // ME_5028E59F005F UpdateToolbarSize
+
+FORWARD ME_5028E6C80331
+
+ME ME_5028E6DC021C
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E9574A2008E' '476F78840219.ms.model.script' // TWMSize
+ ;
+
+ENDME // ME_5028E6DC021C Message
+
+ME ME_5028E6C80331
+ MEPROP UID '5028E6C80331'
+ MEPROP Name 'WMSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028E6DC021C // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SIZE'
+
+ENDME // ME_5028E6C80331 WMSize
+
+FORWARD ME_5028E6ED005E
+
+ME ME_5028E6FE0032
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4F86F32B0299' '476F78840219.ms.model.script' // TWMEraseBkgnd
+ ;
+
+ENDME // ME_5028E6FE0032 Message
+
+ME ME_5028E6ED005E
+ MEPROP UID '5028E6ED005E'
+ MEPROP Name 'WMEraseBkgnd'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028E6FE0032 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_ERASEBKGND'
+
+ENDME // ME_5028E6ED005E WMEraseBkgnd
+
+ME ME_479731C50290_ME_5028DEDB021D
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5028DEDB021D Cleanup
+
+ME ME_47D1602000C6_ME_5028DEDB021D
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_5028DEDB021D Create
+
+ME ME_4F88469E0021_ME_5028DEDB021D
+ MELINK Original WL 'ME_4F88469E0021' '4799D29F033F.ms.model.script' // Click
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F88469E0021_ME_5028DEDB021D Click
+
+ME ME_5028E66702B0_ME_5028DEDB021D
+ MELINK Original WL 'ME_5028E66702B0' '4799D29F033F.ms.model.script' // AlignControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028E66702B0_ME_5028DEDB021D AlignControls
+
+ME ME_5028DEDB021D
+ MEPROP UID '5028DEDB021D'
+ MEPROP Name 'TvcmDockPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5028DFB00090' '5028DFB00090.ms.model.script' // TvcmControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A991CE0016 // Toolbar
+ HWL ME_52A99201025B // ToolbarDock
+ HWL ME_52A99224023F // f_BtnClose
+ HWL ME_52A9922E01AC // f_BtnOpen
+ HWL ME_52A9923802BF // f_BtnMaximized
+ HWL ME_52A992420387 // f_ImageList
+ HWL ME_52A992520339 // f_pnlToolbar
+ HWL ME_52A99263000A // f_pnlDock
+ HWL ME_52A9927B0360 // f_PrevHeight
+ HWL ME_52A992850017 // f_PrevWidth
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5028E3DB0203 // CreateMaximizedBtn
+ HWL ME_5028E403004C // CreateCloseBtn
+ HWL ME_5028E41E0384 // CreateOpenBtn
+ HWL ME_5028E4BD038B // CheckLink
+ HWL ME_5028E4DB0207 // CreateBtn
+ HWL ME_5028E4FB030F // SetDockBounds
+ HWL ME_5028E59700E9 // CreateToolbar
+ HWL ME_5028E59F005F // UpdateToolbarSize
+ HWL ME_5028E6C80331 // WMSize
+ HWL ME_5028E6ED005E // WMEraseBkgnd
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5028DEDB021D // Cleanup
+ ME_47D1602000C6_ME_5028DEDB021D // Create
+ ME_4F88469E0021_ME_5028DEDB021D // Click
+ ME_5028E66702B0_ME_5028DEDB021D // AlignControls
+ )
+ ; // Overridden
+ MELIST Forwarded
+   Seq: ( HWL ME_5028E443024E // TvcmDockPanelButton
+ )
+ ; // Forwarded
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DockPanel'
+
+ENDME // ME_5028DEDB021D TvcmDockPanel
+
+ME ME_52A9948401B1
+ MEPROP UID '52A9948401B1'
+ MEPROP Name 'Link'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+ UP "pm" True
+
+ENDME // ME_52A9948401B1 Link
+
+ME ME_52A994B00209
+ MEPROP UID '52A994B00209'
+ MEPROP Name 'DockPanel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELINK Target HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A994B00209 DockPanel
+
+ME ME_52A994C40210
+ MEPROP UID '52A994C40210'
+ MEPROP Name 'f_Form'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELINK Target WL 'ME_484529DC0276' '4799D29F033F.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_52A994C40210 f_Form
+
+FORWARD ME_5028EA1900C1
+
+FORWARD ME_5028EA250065
+
+ME ME_5028EA27017F
+ MEPROP Name 'aOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_5028EA27017F aOwner
+
+ME ME_5028EA270199
+ MEPROP Name 'aLink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47D0DE52037F' '467BAB7F021E.ms.model.script' // IvcmFormHandler
+ ;
+
+ENDME // ME_5028EA270199 aLink
+
+ME ME_5028EA2701B4
+ MEPROP Name 'aDockPanel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5028DEDB021D // TvcmDockPanel
+ ;
+
+ENDME // ME_5028EA2701B4 aDockPanel
+
+ME ME_5028EA2701D0
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5028EA2701D0 aName
+
+ME ME_5028EA250065
+ MEPROP UID '5028EA250065'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028EA1900C1 // Make
+ ;
+ MELINK Target HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028EA27017F // aOwner
+ ME_5028EA270199 // aLink
+ ME_5028EA2701B4 // aDockPanel
+ ME_5028EA2701D0 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_5028EA250065 DoIt
+
+ME ME_5028EA1900C1
+ MEPROP UID '5028EA1900C1'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028E443024E // TvcmDockPanelButton
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028EA250065 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5028EA1900C1 Make
+
+ME ME_479731C50290_ME_5028E443024E
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5028E443024E Cleanup
+
+ME ME_4F884378016A_ME_5028E443024E
+ MELINK Original WL 'ME_4F884378016A' '4AB0997B00A2.ms.model.script' // Notification
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F884378016A_ME_5028E443024E Notification
+
+ME ME_5028E443024E
+ MEPROP UID '5028E443024E'
+ MEPROP Name 'TvcmDockPanelButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.ms.model.script' // TCustomToolbarButton97
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A9948401B1 // Link
+ HWL ME_52A994B00209 // DockPanel
+ HWL ME_52A994C40210 // f_Form
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5028EA1900C1 // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5028E443024E // Cleanup
+ ME_4F884378016A_ME_5028E443024E // Notification
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DockPanelButton'
+
+ENDME // ME_5028E443024E TvcmDockPanelButton
+
+ME ME_502BBE1202CE
+ MEPROP UID '502BBE1202CE'
+ MEPROP Name 'TvcmToolbarOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A9A2B3038D' '4AADF9450143.ms.model.script' // TvcmToolbarOptions
+ )
+ ; // Inherits
+
+ENDME // ME_502BBE1202CE TvcmToolbarOptions
+
+ME ME_502BBD950299
+ MEPROP UID '502BBD950299'
+ MEPROP Name 'TvcmToolbarOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A08D9D00F2' '4AADF9450143.ms.model.script' // TvcmToolbarOption
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_502BBD950299 TvcmToolbarOption
+
+FORWARD ME_502BBE6301DA
+
+ME ME_502BBE850356
+ MEPROP UID '502BBE850356'
+ MEPROP Name 'vcm_DefaultToolbarOptions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_502BBE6301DA // Константы vcmToolbar
+ ;
+ MEPROP Value '[vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar]'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '[vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar]'
+
+ENDME // ME_502BBE850356 vcm_DefaultToolbarOptions
+
+ME ME_502BBE6301DA
+ MEPROP UID '502BBE6301DA'
+ MEPROP Name 'Константы vcmToolbar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_502BBE850356 // vcm_DefaultToolbarOptions
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_502BBE6301DA Константы vcmToolbar
+
+ME ME_5028A6900216
+ MEPROP UID '5028A6900216'
+ MEPROP Name 'DockDef'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5028A6900216 DockDef
+
+FORWARD ME_5028A7DE0329
+
+FORWARD ME_5028A7FA0163
+
+ME ME_5028A7FD031F
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_5028A7FD031F anOwner
+
+ME ME_5028A7FD0339
+ MEPROP Name 'aDock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5028DD5E0384 // TvcmDockDef
+ ;
+
+ENDME // ME_5028A7FD0339 aDock
+
+ME ME_5028A7FA0163
+ MEPROP UID '5028A7FA0163'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028A7DE0329 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028A7FD031F // anOwner
+ ME_5028A7FD0339 // aDock
+ )
+ ; // Parameters
+
+ENDME // ME_5028A7FA0163 DoIt
+
+ME ME_5028A7DE0329
+ MEPROP UID '5028A7DE0329'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028A7FA0163 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028A7DE0329 Create
+
+ME ME_502919E301B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_502919E301B8 
+
+ME ME_502CE36A0340
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_502CE36A0340 
+
+ME ME_502CE39B0391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_4799ECBF00D6' '4799EC9300AF.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_502CE39B0391 
+
+ME ME_502CE4B30035
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_502CE49803C3' '4799D29F033F.ms.model.script' // ToolWin
+ ;
+
+ENDME // ME_502CE4B30035 
+
+ME ME_502CE5180368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ ;
+
+ENDME // ME_502CE5180368 
+
+ME ME_502CE54A0303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_502BC72401EC' '47D0E1500033.ms.model.script' // TvcmObjectList
+ ;
+
+ENDME // ME_502CE54A0303 
+
+ME ME_502CE5E402BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_502CE5D0026E' '4AB0C3F60375.ms.model.script' // CopyRect
+ ;
+
+ENDME // ME_502CE5E402BA 
+
+ME ME_502CE6AA02F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_4994514401A7' '49944A1502FE.ms.model.script' // vcm_NotContainedForm
+ ;
+
+ENDME // ME_502CE6AA02F9 
+
+ME ME_502CE6E5006E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_4992F763038E' '4683F37902CF.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_502CE6E5006E 
+
+ME ME_502CE7020094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_4E2579780027' '474144E20301.ms.model.script' // afwDrawing
+ ;
+
+ENDME // ME_502CE7020094 
+
+ME ME_502CF08D0122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_502CEFC803B2' '502BC6B600F3.ms.model.script' // TvcmToolbarDockListManager
+ ;
+
+ENDME // ME_502CF08D0122 
+
+ME ME_552E1E6F02C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_54EFFC7602E3' '467823B7002C.ms.model.script' // TafwTabInterfaceType
+ ;
+
+ENDME // ME_552E1E6F02C1 
+
+ME ME_552E1E7503CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5028A4C0019B // TvcmToolbar
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_552E1E7503CA 
+
+ME ME_5022104B03A6_ME_5028A4C0019B
+ MELINK Original WL 'ME_5022104B03A6' '4799D29F033F.ms.model.script' // RequestAlign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5022104B03A6_ME_5028A4C0019B RequestAlign
+
+ME ME_5028A78000B6_ME_5028A4C0019B
+ MELINK Original WL 'ME_5028A78000B6' '5028898902A2.ms.model.script' // BeginUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A78000B6_ME_5028A4C0019B BeginUpdate
+
+ME ME_5028A78B015A_ME_5028A4C0019B
+ MELINK Original WL 'ME_5028A78B015A' '5028898902A2.ms.model.script' // EndUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A78B015A_ME_5028A4C0019B EndUpdate
+
+ME ME_552E0FD5016D_ME_5028A4C0019B
+ MELINK Original WL 'ME_552E0FD5016D' '5028898902A2.ms.model.script' // NeedActivateMainForm
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_552E0FD5016D_ME_5028A4C0019B NeedActivateMainForm
+
+ME ME_552E10010067_ME_5028A4C0019B
+ MELINK Original WL 'ME_552E10010067' '5028898902A2.ms.model.script' // ActivateMainForm
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_552E10010067_ME_5028A4C0019B ActivateMainForm
+
+ME ME_5028A4C0019B
+ MEPROP UID '5028A4C0019B'
+ MEPROP Name 'TvcmToolbar'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50289DB9036F // TvcmToolbarDef
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5028A6900216 // DockDef
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5028A7DE0329 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_5022104B03A6_ME_5028A4C0019B // RequestAlign
+ ME_5028A78000B6_ME_5028A4C0019B // BeginUpdate
+ ME_5028A78B015A_ME_5028A4C0019B // EndUpdate
+ ME_552E0FD5016D_ME_5028A4C0019B // NeedActivateMainForm
+ ME_552E10010067_ME_5028A4C0019B // ActivateMainForm
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5029211401C2 // TvcmDockDefPrim
+ HWL ME_50289DB9036F // TvcmToolbarDef
+ HWL ME_5028A43300CE // TvcmToolbarDockPanel
+ HWL ME_5028DD5E0384 // TvcmDockDef
+ HWL ME_5028A32E02C2 // TvcmSeparatorDef
+ HWL ME_5028DEDB021D // TvcmDockPanel
+ HWL ME_5028E443024E // TvcmDockPanelButton
+ HWL ME_502BBE1202CE // TvcmToolbarOptions
+ HWL ME_502BBD950299 // TvcmToolbarOption
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_502BBE6301DA // Константы vcmToolbar
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_502919E301B8 // IvcmOperationalIdentifiedUserFriendlyControl
+ ME_502CE36A0340 // Supports
+ ME_502CE39B0391 // Defaults
+ ME_502CE4B30035 // ToolWin
+ ME_502CE5180368 // Colors
+ ME_502CE54A0303 // TvcmObjectList
+ ME_502CE5E402BA // CopyRect
+ ME_502CE6AA02F9 // vcm_NotContainedForm
+ ME_502CE6E5006E // TvcmZoneType
+ ME_502CE7020094 // afwDrawing
+ ME_502CF08D0122 // TvcmToolbarDockListManager
+ ME_552E1E6F02C1 // TafwTabInterfaceType
+ ME_552E1E7503CA // afwFacade
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP "register in scripts" True
+ UP extprop:pas:UnitName 'vcmToolbar'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Toolbar'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmToolbar.pas'
+
+ENDME // ME_5028A4C0019B TvcmToolbar

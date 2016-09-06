@@ -1,0 +1,66 @@
+// ddRTFConst 52D37724022D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52D37724022D
+
+FORWARD ME_52D3773600D6
+
+ME ME_52D377540030
+ MEPROP UID '52D377540030'
+ MEPROP Name 'langRussian'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52D3773600D6 // RTFLangConts
+ ;
+ MEPROP Value '$0419'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '$0419'
+
+ENDME // ME_52D377540030 langRussian
+
+ME ME_52D3773600D6
+ MEPROP UID '52D3773600D6'
+ MEPROP Name 'RTFLangConts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52D37724022D // ddRTFConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52D377540030 // langRussian
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52D3773600D6 RTFLangConts
+
+ME ME_52D37724022D
+ MEPROP UID '52D37724022D'
+ MEPROP Name 'ddRTFConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_52D3773600D6 // RTFLangConts
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "finished" False
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFConst.pas'
+
+ENDME // ME_52D37724022D ddRTFConst

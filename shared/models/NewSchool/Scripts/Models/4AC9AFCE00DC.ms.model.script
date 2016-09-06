@@ -1,0 +1,59 @@
+// nscInterfaces 4AC9AFCE00DC Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC9AFCE00DC
+
+ME ME_4AC9AFDC013C
+ MEPROP UID '4AC9AFDC013C'
+ MEPROP GUID 'CF244F53-75D1-4817-816B-B9E5E9E51FD0'
+ MEPROP Name 'InscArrangeGrid'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC9AFCE00DC // nscInterfaces
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArrangeGrid'
+
+ENDME // ME_4AC9AFDC013C InscArrangeGrid
+
+ME ME_4AC9CB3003B4
+ MEPROP UID '4AC9CB3003B4'
+ MEPROP GUID '511A2195-53E3-4933-8061-D46C12DF9B13'
+ MEPROP Name 'InscTabTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC9AFCE00DC // nscInterfaces
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TabTable'
+
+ENDME // ME_4AC9CB3003B4 InscTabTable
+
+ME ME_4AC9AFCE00DC
+ MEPROP UID '4AC9AFCE00DC'
+ MEPROP Name 'nscInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_490838AA02D0' '490838AA02D0.ms.model.script' // Nemesis
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AC9AFDC013C // InscArrangeGrid
+ HWL ME_4AC9CB3003B4 // InscTabTable
+ )
+ ; // Children
+ UP "finished" False
+ UP "is namespace" True
+ UP "UseNewGen" True
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscInterfaces.pas'
+
+ENDME // ME_4AC9AFCE00DC nscInterfaces

@@ -1,0 +1,465 @@
+// PrimWorkJournal 4BD6D6EA0075 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BD6D6EA0075
+
+ME ME_4BD6D74C0111
+ MEPROP UID '4BD6D74C0111'
+ MEPROP Name 'utWorkJournal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Журнал работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ UP "ImageIndex" 128
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimWorkJournal_utWorkJournal_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_utWorkJournal_UserType.pas'
+
+ENDME // ME_4BD6D74C0111 utWorkJournal
+
+ME ME_4C3F30AF012E
+ MEPROP UID '4C3F30AF012E'
+ MEPROP Name 'JournalTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4C3F30AF012E JournalTree
+
+ME ME_527D09DB0041
+ MEPROP UID '527D09DB0041'
+ MEPROP Name 'JournalTreeMakeTreeSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5199D8F700DB' '494B949E022B.ms.model.script' // TeeMakeTreeSource
+ )
+ ; // Inherits
+
+ENDME // ME_527D09DB0041 JournalTreeMakeTreeSource
+
+ME ME_527D09E502F1
+ MEPROP UID '527D09E502F1'
+ MEPROP Name 'JournalTreeGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_527D09E502F1 JournalTreeGetItemImage
+
+ME ME_527D09F100BA
+ MEPROP UID '527D09F100BA'
+ MEPROP Name 'JournalTreeActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_527D09F100BA JournalTreeActionElement
+
+ME ME_4C3F383E01C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_4C3F3813031B' '4A7C0BB70162.ms.model.script' // TnsFoldersRes
+ ;
+
+ENDME // ME_4C3F383E01C2 
+
+ME ME_4C3F40110184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4C3F40110184 
+
+ME ME_4C3F405D03DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4C3F405D03DA 
+
+ME ME_4C3F40AB0214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
+ ;
+
+ENDME // ME_4C3F40AB0214 
+
+ME ME_4C3F40CE0162
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_4C3F40CE0162 
+
+ME ME_4C3F411E00F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4C3F411E00F0 
+
+ME ME_4C3F41820034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_49895C3C02D6' '48F747EC0073.ms.model.script' // nsOpenUtils
+ ;
+
+ENDME // ME_4C3F41820034 
+
+ME ME_4C3F41BB03BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_4AE864B801C5' '4EEA07CA0360.ms.model.script' // nsQueryUtils
+ ;
+
+ENDME // ME_4C3F41BB03BB 
+
+ME ME_4C3F42F9029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4C3F42F9029F 
+
+ME ME_4C3F435700B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_4C3F434301AA' '4AB0C3F60375.ms.model.script' // SetFocus
+ ;
+
+ENDME // ME_4C3F435700B2 
+
+ME ME_527D0B8D0294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_527D0B8D0294 
+
+ME ME_527D1DCC00FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ContextMenuWeight::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ ;
+ UP "Value" 1
+
+ENDME // ME_527D1DCC00FD 
+
+ME ME_527D1F770134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_484D2CBA0213' '484A470100DD.ms.model.script' // TextStyle
+ ;
+
+ENDME // ME_527D1F770134 
+
+ME ME_527D1F7A005D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_46A61AF500BE' '4677FBA70343.ms.model.script' // Tl3SetBitType
+ ;
+
+ENDME // ME_527D1F7A005D 
+
+ME ME_527D1F7B0274
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_527D1F7B0274 
+
+ME ME_527D1F7D008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_527D1F7D008D 
+
+ME ME_5289C95C021E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD6D6EA0075 // PrimWorkJournal
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5289C95C021E 
+
+ME ME_494F89C30197_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_494F89C30197_ME_4BD6D6EA0075 Delete
+
+ME ME_4BDAF7880236_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" True
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4BDAF7880236_ME_4BD6D6EA0075 ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" True
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4BDAF7A2005C_ME_4BD6D6EA0075 CollapseAll
+
+ME ME_4C3F3421036A_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_4C3F3421036A' '4A9807DB01A5.ms.model.script' // OpenQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C3F3421036A_ME_4BD6D6EA0075 OpenQuery
+
+ME ME_4C3F342E02AF_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_4C3F342E02AF' '4A9807DB01A5.ms.model.script' // ExecuteQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C3F342E02AF_ME_4BD6D6EA0075 ExecuteQuery
+
+ME ME_4C3F348402AC_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_4C3F348402AC' '4C3F34640373.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C3F348402AC_ME_4BD6D6EA0075 Clear
+
+ME ME_49803F5503AA_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4BD6D6EA0075 DoInit
+
+ME ME_4A8E8F2E0195_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4BD6D6EA0075 InitControls
+
+ME ME_4AC3803A03CD_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_4AC3803A03CD' '4AADF9450143.ms.model.script' // SetActiveControl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AC3803A03CD_ME_4BD6D6EA0075 SetActiveControl
+
+ME ME_529332B40230_ME_4BD6D6EA0075
+ MELINK Original WL 'ME_529332B40230' '4AADF9450143.ms.model.script' // SetupFormLayout
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_529332B40230_ME_4BD6D6EA0075 SetupFormLayout
+
+ME ME_4BD6D6EA0075
+ MEPROP UID '4BD6D6EA0075'
+ MEPROP Name 'PrimWorkJournal'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A811BCC031F' '4A811BCC031F.ms.model.script' // WorkJournal
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ WL 'ME_4C3F34120084' '4A9807DB01A5.ms.model.script' // SavedQuery
+ WL 'ME_4C3F347A0168' '4C3F34640373.ms.model.script' // Journal
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C3F30AF012E // JournalTree
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_527D09DB0041 // JournalTreeMakeTreeSource
+ HWL ME_527D09E502F1 // JournalTreeGetItemImage
+ HWL ME_527D09F100BA // JournalTreeActionElement
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_4BD6D6EA0075 // Delete
+ ME_4BDAF7880236_ME_4BD6D6EA0075 // ExpandAll
+ ME_4BDAF7A2005C_ME_4BD6D6EA0075 // CollapseAll
+ ME_4C3F3421036A_ME_4BD6D6EA0075 // OpenQuery
+ ME_4C3F342E02AF_ME_4BD6D6EA0075 // ExecuteQuery
+ ME_4C3F348402AC_ME_4BD6D6EA0075 // Clear
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4BD6D6EA0075 // DoInit
+ ME_4A8E8F2E0195_ME_4BD6D6EA0075 // InitControls
+ ME_4AC3803A03CD_ME_4BD6D6EA0075 // SetActiveControl
+ ME_529332B40230_ME_4BD6D6EA0075 // SetupFormLayout
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD6D74C0111 // utWorkJournal
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C3F383E01C2 // TnsFoldersRes
+ ME_4C3F40110184 // NodeBase
+ ME_4C3F405D03DA // Supports
+ ME_4C3F40AB0214 // JournalObjectType
+ ME_4C3F40CE0162 // IeeNode
+ ME_4C3F411E00F0 // CanNotFindData
+ ME_4C3F41820034 // nsOpenUtils
+ ME_4C3F41BB03BB // nsQueryUtils
+ ME_4C3F42F9029F // Query
+ ME_4C3F435700B2 // SetFocus
+ ME_527D0B8D0294 // Controls
+ ME_527D1DCC00FD // Tree
+ ME_527D1F770134 // TextStyle
+ ME_527D1F7A005D // Tl3SetBitType
+ ME_527D1F7B0274 // nsConst
+ ME_527D1F7D008D // afwFacade
+ ME_5289C95C021E // Forms
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '27.04.2010 16:22'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimWorkJournalForm'
+ UP extprop:pas:UnitName 'PrimWorkJournal_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimWorkJournalForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms\PrimWorkJournal_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\WorkJournal\Forms'
+
+ENDME // ME_4BD6D6EA0075 PrimWorkJournal

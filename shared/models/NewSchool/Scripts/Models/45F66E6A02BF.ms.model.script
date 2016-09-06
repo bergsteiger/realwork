@@ -1,0 +1,51 @@
+// DynamicTreeDefines 45F66E6A02BF Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45F66E6A02BF
+
+ME ME_45F80B600000
+ MEPROP UID '45F80B600000'
+ MEPROP Name 'FlagMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'флаги на ноде' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45F66E6A02BF // DynamicTreeDefines
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_3DBFFDC502B0' '3DBFDB23006E.ms.model.script' // unsigned short
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TFlagMask'
+
+ENDME // ME_45F80B600000 FlagMask
+
+ME ME_45F66E6A02BF
+ MEPROP UID '45F66E6A02BF'
+ MEPROP Name 'DynamicTreeDefines'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45F80B600000 // FlagMask
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\DynamicTreeDefines'
+ UP extprop:pas:UnitName 'DynamicTreeDefinesUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\DynamicTreeDefines\DynamicTreeDefines.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\DynamicTreeDefines'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DynamicTreeDefinesUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\DynamicTreeDefinesUnit.pas'
+
+ENDME // ME_45F66E6A02BF DynamicTreeDefines

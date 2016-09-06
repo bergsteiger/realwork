@@ -1,0 +1,63 @@
+// m3Interfaces 472082A400B8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_472082A400B8
+
+ME ME_467813E40207_ME_472082DD036D
+ MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_467813E40207_ME_472082DD036D CheckStamp
+
+ME ME_472082DD036D
+ MEPROP UID '472082DD036D'
+ MEPROP GUID '8E7746C0-8B49-420B-910A-67A033ADC5C5'
+ MEPROP Name 'Im3Base'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_472082A400B8 // m3Interfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_467813B3024D' '4677FBA70343.ms.model.script' // Il3Base
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_467813E40207_ME_472082DD036D // CheckStamp
+ )
+ ; // Implemented
+ UP "is default ancestor" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3Base'
+
+ENDME // ME_472082DD036D Im3Base
+
+ME ME_472082A400B8
+ MEPROP UID '472082A400B8'
+ MEPROP Name 'm3Interfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Базовые интерфейсы библиотеки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_472082480337' '472082480337.ms.model.script' // m3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_472082DD036D // Im3Base
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '18.08.2004 19:38'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3Interfaces.pas'
+
+ENDME // ME_472082A400B8 m3Interfaces

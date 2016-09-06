@@ -33,6 +33,8 @@ uses
  , atSearchHelper
  , BaseTypesUnit
  , SysUtils
+ //#UC START# *4FC8B0A8002Eimpl_uses*
+ //#UC END# *4FC8B0A8002Eimpl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atExecutesQueryAddOn.imp.pas}

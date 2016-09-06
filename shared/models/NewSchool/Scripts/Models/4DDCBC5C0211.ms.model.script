@@ -1,0 +1,161 @@
+// ViewChangedFragments$FSF 4DDCBC5C0211 VCMFormSetFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDCBC5C0211
+
+FORWARD ME_4DDCD6BB0231
+
+ME ME_BB4E7F470CF2
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DDCD6BB0231 // Parent
+ ;
+ MELINK Target WL 'ME_18DFDA8DC53A' '4DDCD6800267.ms.model.script' // ChangesBetweenEditons$Def
+ ;
+
+ENDME // ME_BB4E7F470CF2 
+
+ME ME_4DDCE9110130_ME_4DDCD6BB0231
+ MELINK Original WL 'ME_4DDCE9110130' '4DDCD71E027C.ms.model.script' // RightEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4DDCE9110130_ME_4DDCD6BB0231 RightEdition
+
+ME ME_4DDD0C170344_ME_4DDCD6BB0231
+ MELINK Original WL 'ME_4DDD0C170344' '4DDCD71E027C.ms.model.script' // DocumentContainer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4DDD0C170344_ME_4DDCD6BB0231 DocumentContainer
+
+ME ME_4DF9D63B0360_ME_4DDCD6BB0231
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ UP "reflectable" True
+ENDME // ME_4DF9D63B0360_ME_4DDCD6BB0231 DocInfo
+
+ME ME_4F2BF187026F_ME_4DDCD6BB0231
+ MELINK Original WL 'ME_4F2BF187026F' '4DDCD71E027C.ms.model.script' // LeftEdition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4F2BF187026F_ME_4DDCD6BB0231 LeftEdition
+
+ME ME_4DDCD6BB0231
+ MEPROP UID '4DDCD6BB0231'
+ MEPROP Name 'Parent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DDCD6800267' '4DDCD6800267.ms.model.script' // ChangesBetweenEditons
+ WL 'ME_4DDCDE8F01B8' '4DDCD636016C.ms.model.script' // DocumentChanges
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4DDCD7520351' '4DDCD71E027C.ms.model.script' // Changes
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4DDCE9110130_ME_4DDCD6BB0231 // RightEdition
+ ME_4DDD0C170344_ME_4DDCD6BB0231 // DocumentContainer
+ ME_4DF9D63B0360_ME_4DDCD6BB0231 // DocInfo
+ ME_4F2BF187026F_ME_4DDCD6BB0231 // LeftEdition
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_BB4E7F470CF2 // ChangesBetweenEditons$Def
+ )
+ ; // Dependencies
+ UP "ActivateIfUpdate" 'None'
+ UP "Need GetFormCount" False
+ UP "Need OnFormWeight" 'undefined'
+ UP "ZoneType" 'Parent'
+
+ENDME // ME_4DDCD6BB0231 Parent
+
+ME ME_9C7EE9D70E75
+ MEPROP UID '9C7EE9D70E75'
+ MEPROP Name 'Parent_Parent_DocumentChanges_NeedMakeForm'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для Parent' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DDCBC5C0211 // ViewChangedFragments$FSF
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.ms.model.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ UPLINK Speller HWL ME_4DDCD6BB0231 // Parent
+ ;
+
+ENDME // ME_9C7EE9D70E75 Parent_Parent_DocumentChanges_NeedMakeForm
+
+ME ME_47A042E100E2_ME_4DDCBC5C0211
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4DDCBC5C0211 InitFields
+
+ME ME_4FFE854A009B_ME_4DDCBC5C0211
+ MELINK Original WL 'ME_4FFE854A009B' '47B9727603BE.ms.model.script' // GetInstance
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_4FFE854A009B_ME_4DDCBC5C0211 GetInstance
+
+ME ME_4DDCBC5C0211
+ MEPROP UID '4DDCBC5C0211'
+ MEPROP Name 'ViewChangedFragments'
+ MEPROP OriginalName 'ViewChangedFragments$FSF'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormSetFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DDBAF2B0028' '4DDBAF2B0028.ms.model.script' // ChangesBetweenEditions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_9C7EE9D70E75 // Parent_Parent_DocumentChanges_NeedMakeForm
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4DDCBC5C0211 // InitFields
+ ME_4FFE854A009B_ME_4DDCBC5C0211 // GetInstance
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DDCD6BB0231 // Parent
+ )
+ ; // Children
+ UP "DefaultStatusForm" '-1'
+ UP "finished dfm" True
+ UP "Need GetMainCaption" False
+ UP "Need GetMainImageIndex" False
+ UP "singleton" True
+ UP extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''Parent'', vcm_ztParent, fm_ChangesBetweenEditonsForm) do'#13#10' begin'#13#10'  UserType := DocumentChanges;'#13#10'  OnNeedMakeForm := ParentParentDocumentChangesNeedMakeForm;'#13#10' end;'#13#10' OwnerForm := 0;'
+ UP extprop:pas:TypeName 'Tfs_ViewChangedFragments'
+ UP extprop:pas:UnitName 'fsViewChangedFragments'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'fs_ViewChangedFragments'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ChangesBetweenEditons\fsViewChangedFragments.pas'
+
+ENDME // ME_4DDCBC5C0211 ViewChangedFragments$FSF

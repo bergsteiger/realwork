@@ -1,0 +1,35 @@
+// Tips 4AA0D56B027A VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AA0D56B027A
+ MEPROP UID '4AA0D56B027A'
+ MEPROP Name 'Tips'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA0D4850203' '4AA0D4850203.ms.model.script' // DayTips
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA0D5380056' '4AA0D5380056.ms.model.script' // DayTips
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_483D1B8F00CA' '48205420005C.ms.model.script' // Совет дня
+ )
+ ; // Implements
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/02/20 11:00:21'
+ UP extprop:pas:TypeName 'Tmo_Tips'
+ UP extprop:pas:UnitName 'moTips'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_Tips'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moTips.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4AA0D56B027A Tips

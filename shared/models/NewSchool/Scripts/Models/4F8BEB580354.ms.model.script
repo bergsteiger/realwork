@@ -1,0 +1,340 @@
+// vtInterfaces 4F8BEB580354 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F8BEB580354
+
+FORWARD ME_4FD06F5A01D8
+
+ME ME_4FD06F6E0255
+ MEPROP UID '4FD06F6E0255'
+ MEPROP Name 'bpp24'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD06F5A01D8 // TvtPILBpp
+ ;
+
+ENDME // ME_4FD06F6E0255 bpp24
+
+ME ME_4FD06F75008E
+ MEPROP UID '4FD06F75008E'
+ MEPROP Name 'bpp8'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD06F5A01D8 // TvtPILBpp
+ ;
+
+ENDME // ME_4FD06F75008E bpp8
+
+ME ME_4FD06F7D001B
+ MEPROP UID '4FD06F7D001B'
+ MEPROP Name 'bpp4'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD06F5A01D8 // TvtPILBpp
+ ;
+
+ENDME // ME_4FD06F7D001B bpp4
+
+ME ME_4FD06F5A01D8
+ MEPROP UID '4FD06F5A01D8'
+ MEPROP Name 'TvtPILBpp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8BEB580354 // vtInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FD06F6E0255 // bpp24
+ HWL ME_4FD06F75008E // bpp8
+ HWL ME_4FD06F7D001B // bpp4
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4FD06F5A01D8 TvtPILBpp
+
+FORWARD ME_4FD06F1F020E
+
+ME ME_4FD06F340178
+ MEPROP UID '4FD06F340178'
+ MEPROP Name 'ps16x16'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD06F1F020E // TvtPILSize
+ ;
+
+ENDME // ME_4FD06F340178 ps16x16
+
+ME ME_4FD06F3C001C
+ MEPROP UID '4FD06F3C001C'
+ MEPROP Name 'ps32x32'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD06F1F020E // TvtPILSize
+ ;
+
+ENDME // ME_4FD06F3C001C ps32x32
+
+ME ME_4FD06F47025A
+ MEPROP UID '4FD06F47025A'
+ MEPROP Name 'ps24x24'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD06F1F020E // TvtPILSize
+ ;
+
+ENDME // ME_4FD06F47025A ps24x24
+
+ME ME_4FD06F1F020E
+ MEPROP UID '4FD06F1F020E'
+ MEPROP Name 'TvtPILSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8BEB580354 // vtInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FD06F340178 // ps16x16
+ HWL ME_4FD06F3C001C // ps32x32
+ HWL ME_4FD06F47025A // ps24x24
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4FD06F1F020E TvtPILSize
+
+ME ME_4FD06FF6027F
+ MEPROP UID '4FD06FF6027F'
+ MEPROP Name 'TvtPILSizes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8BEB580354 // vtInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FD06F1F020E // TvtPILSize
+ )
+ ; // Inherits
+
+ENDME // ME_4FD06FF6027F TvtPILSizes
+
+FORWARD ME_4F950C5102A8
+
+FORWARD ME_53282D3E0350
+
+FORWARD ME_53282D8A02D8
+
+ME ME_53282DB601DD
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '4AB0997B00A2.ms.model.script' // TStream
+ ;
+
+ENDME // ME_53282DB601DD aStream
+
+ME ME_53282DB601F6
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+
+ENDME // ME_53282DB601F6 aIndex
+
+ME ME_53282DB6020F
+ MEPROP Name 'aBpp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4FD06F5A01D8 // TvtPILBpp
+ ;
+
+ENDME // ME_53282DB6020F aBpp
+
+ME ME_53282D8A02D8
+ MEPROP UID '53282D8A02D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53282D3E0350 // SaveImageToStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_53282DB601DD // aStream
+ ME_53282DB601F6 // aIndex
+ ME_53282DB6020F // aBpp
+ )
+ ; // Parameters
+
+ENDME // ME_53282D8A02D8 DoIt
+
+ME ME_53282D3E0350
+ MEPROP UID '53282D3E0350'
+ MEPROP Name 'SaveImageToStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F950C5102A8 // IvtFlashImageList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53282D8A02D8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53282D3E0350 SaveImageToStream
+
+FORWARD ME_4F950C6D03BE
+
+ME ME_4F950E74024D
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A4659D003A' '55C4AEC801CA.ms.model.script' // TCanvas$Stub
+ ;
+
+ENDME // ME_4F950E74024D Canvas
+
+ME ME_4F950E74029B
+ MEPROP Name 'X'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F950E74029B X
+
+ME ME_4F950E7402F5
+ MEPROP Name 'Y'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F950E7402F5 Y
+
+ME ME_4F950E74033F
+ MEPROP Name 'Index'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+
+ENDME // ME_4F950E74033F Index
+
+ME ME_4F950E740392
+ MEPROP Name 'Enabled'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4F950E740392 Enabled
+
+ME ME_4F950E750008
+ MEPROP Name 'HalfTransparent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4F950E750008 HalfTransparent
+
+ME ME_4F950C6D03BE
+ MEPROP UID '4F950C6D03BE'
+ MEPROP Name 'Draw'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F950C5102A8 // IvtFlashImageList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F950E74024D // Canvas
+ ME_4F950E74029B // X
+ ME_4F950E7402F5 // Y
+ ME_4F950E74033F // Index
+ ME_4F950E740392 // Enabled
+ ME_4F950E750008 // HalfTransparent
+ )
+ ; // Parameters
+
+ENDME // ME_4F950C6D03BE Draw
+
+ME ME_4F950C5102A8
+ MEPROP UID '4F950C5102A8'
+ MEPROP GUID 'D0EB2AAD-4D5B-44F4-8A99-D20950095AA0'
+ MEPROP Name 'IvtFlashImageList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8BEB580354 // vtInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53282D3E0350 // SaveImageToStream
+ HWL ME_4F950C6D03BE // Draw
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FlashImageList'
+
+ENDME // ME_4F950C5102A8 IvtFlashImageList
+
+ME ME_4F8BEB580354
+ MEPROP UID '4F8BEB580354'
+ MEPROP Name 'vtInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FD078CD00F6' '4FD078CD00F6.ms.model.script' // VT$ImgList
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4FD06F5A01D8 // TvtPILBpp
+ HWL ME_4FD06F1F020E // TvtPILSize
+ HWL ME_4FD06FF6027F // TvtPILSizes
+ HWL ME_4F950C5102A8 // IvtFlashImageList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtInterfaces.pas'
+
+ENDME // ME_4F8BEB580354 vtInterfaces

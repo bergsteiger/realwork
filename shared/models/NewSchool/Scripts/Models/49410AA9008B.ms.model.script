@@ -1,0 +1,53 @@
+// Drug 49410AA9008B VCMControllers Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_49410AA9008B
+ MEPROP UID '49410AA9008B'
+ MEPROP Name 'Drug'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControllers ;
+ %SUMMARY 'Препараты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_495497AC0169' '495497AC0169.ms.model.script' // Inpharm
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4A9FCCDB035B' '4A9FCCDB035B.ms.model.script' // DrugData
+ WL 'ME_47F075910035' '47F075910035.ms.model.script' // sdsDrugDocument
+ WL 'ME_47EA01EA0070' '47EA01EA0070.ms.model.script' // sdsDrugList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ WL 'ME_4677FF4B0036' '4677FF4B0036.ms.model.script' // Data
+ WL 'ME_4680C57D01E9' '4680C57D01E9.ms.model.script' // Business
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
+ WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ WL 'ME_494106E500F3' '494106E500F3.ms.model.script' // Medic
+ WL 'ME_4954F58900E8' '4954F58900E8.ms.model.script' // List
+ WL 'ME_4954FAA00232' '4954FAA00232.ms.model.script' // Search
+ WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ABB680E0218' '4ABB680E0218.ms.model.script' // Common$Lib
+ WL 'ME_4C6A65ED0374' '4C6A65ED0374.ms.model.script' // F1DocumentProcessing
+ WL 'ME_4D1B64E70031' '4D1B64E70031.ms.model.script' // BusinessInterfaces
+ WL 'ME_4D1B6BAB022D' '4D1B6BAB022D.ms.model.script' // F1DocumentProcessingInterfaces
+ WL 'ME_4DC170560325' '4DC170560325.ms.model.script' // PrimListControllers
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
+ WL 'ME_53BA5A5D03A0' '53BA5A5D03A0.ms.model.script' // TabInterface
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'prj'
+ UP "is namespace" True
+ UP "vendor" 'none'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Drug'
+
+ENDME // ME_49410AA9008B Drug

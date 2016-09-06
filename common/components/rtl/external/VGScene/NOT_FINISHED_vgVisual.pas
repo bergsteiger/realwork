@@ -32,6 +32,8 @@ implementation
 {$If NOT Defined(NoVGScene)}
 uses
  l3ImplUses
+ //#UC START# *4D5EB9330192impl_uses*
+ //#UC END# *4D5EB9330192impl_uses*
 ;
 
 function TvgVisual.pm_GetVisualObject: TvgVisualObject;

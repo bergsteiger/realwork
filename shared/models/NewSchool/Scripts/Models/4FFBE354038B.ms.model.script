@@ -1,0 +1,74 @@
+// DocumentWithFlashUserTypes 4FFBE354038B VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFBE354038B
+
+ME ME_4BD6EE980118
+ MEPROP UID '4BD6EE980118'
+ MEPROP Name 'dwftMain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '—хема' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFBE354038B // DocumentWithFlashUserTypes
+ ;
+ UP "ImageIndex" 21
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'DocumentWithFlashUserTypes_dwftMain_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes_dwftMain_UserType.pas'
+
+ENDME // ME_4BD6EE980118 dwftMain
+
+ME ME_4BD6EEB20161
+ MEPROP UID '4BD6EEB20161'
+ MEPROP Name 'dwftSynchro'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '—хема (синхронный просмотр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFBE354038B // DocumentWithFlashUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD6EE980118 // dwftMain
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" '—инхронный просмотр: —хема'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'DocumentWithFlashUserTypes_dwftSynchro_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes_dwftSynchro_UserType.pas'
+
+ENDME // ME_4BD6EEB20161 dwftSynchro
+
+ME ME_4FFBE354038B
+ MEPROP UID '4FFBE354038B'
+ MEPROP Name 'DocumentWithFlashUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BD6EE980118 // dwftMain
+ HWL ME_4BD6EEB20161 // dwftSynchro
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_DocumentWithFlashUserTypes_'
+ UP extprop:pas:UnitName 'DocumentWithFlashUserTypes.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentWithFlashUserTypes.imp.pas'
+
+ENDME // ME_4FFBE354038B DocumentWithFlashUserTypes

@@ -1,0 +1,118 @@
+// List 4A8921960298 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8921960298
+
+ME ME_CD29B19EB4E4
+ MEPROP UID 'CD29B19EB4E4'
+ MEPROP Name 'Ini_FormFactory_List'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы List' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8921960298 // List
+ ;
+ UPLINK SpelledFor HWL ME_4A8921960298 // List
+ ;
+
+ENDME // ME_CD29B19EB4E4 Ini_FormFactory_List
+
+ME ME_4A8921B10132
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8921960298 // List
+ ;
+ MELINK Target WL 'ME_4990374602FC' '49804E310263.ms.model.script' // TnsSaveDialogListTarget
+ ;
+
+ENDME // ME_4A8921B10132 
+
+ME ME_4AAA22920251
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8921960298 // List
+ ;
+ MELINK Target WL 'ME_4AAA21AA02D0' '4AAA216F032C.ms.model.script' // TnsWarnImages
+ ;
+
+ENDME // ME_4AAA22920251 
+
+ME ME_4C810AC302FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8921960298 // List
+ ;
+ MELINK Target WL 'ME_4C810A2702D9' '4A9807DB01A5.ms.model.script' // SearchInList
+ ;
+
+ENDME // ME_4C810AC302FA 
+
+ME ME_4C8119F302A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8921960298 // List
+ ;
+ MELINK Target WL 'ME_4C81191003E5' '4AE89F8A004B.ms.model.script' // FiltersListOpen
+ ;
+
+ENDME // ME_4C8119F302A3 
+
+ME ME_4D185AB60072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8921960298 // List
+ ;
+ MELINK Target WL 'ME_4D185A3B0195' '4C371629008F.ms.model.script' // Sort
+ ;
+
+ENDME // ME_4D185AB60072 
+
+ME ME_4A8921960298
+ MEPROP UID '4A8921960298'
+ MEPROP Name 'List'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalContainer ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A9BF42601A9' '4A9BF42601A9.ms.model.script' // List$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C46AA3401DB' '4C46AA3401DB.ms.model.script' // PrimListOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD96F4C0025' '4BD856E802F9.ms.model.script' // List
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_CD29B19EB4E4 // Ini_FormFactory_List
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A8921B10132 // TnsSaveDialogListTarget
+ ME_4AAA22920251 // TnsWarnImages
+ ME_4C810AC302FA // SearchInList
+ ME_4C8119F302A3 // FiltersListOpen
+ ME_4D185AB60072 // Sort
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "form name prefix" 'ef'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TefList'
+ UP extprop:pas:UnitName 'List_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'efList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\List_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+
+ENDME // ME_4A8921960298 List

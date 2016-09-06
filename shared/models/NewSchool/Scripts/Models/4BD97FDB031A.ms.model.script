@@ -1,0 +1,88 @@
+// FormDefinitions 4BD97FDB031A VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BD97FDB031A
+
+ME ME_4BD97FFF0005
+ MEPROP UID '4BD97FFF0005'
+ MEPROP GUID '5BDE6F09-5CC9-41E0-9B14-B0F2D62D4D46'
+ MEPROP Name 'QueryCard'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BD97FDB031A // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4AA9393C0164' '4AA9393C0164.ms.model.script' // QueryCard
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'QueryCardFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4BD97FFF0005 QueryCard
+
+ME ME_4BD989CB0049
+ MEPROP UID '4BD989CB0049'
+ MEPROP GUID 'C817C51B-CC87-4935-94AC-50A78B3E7C66'
+ MEPROP Name 'Preview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BD97FDB031A // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4AAF6F8100DB' '4AAF6F8100DB.ms.model.script' // PreviewForm
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'PreviewFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4BD989CB0049 Preview
+
+ME ME_4D77A59D03E6
+ MEPROP UID '4D77A59D03E6'
+ MEPROP GUID '24C35E19-224B-474C-B34F-32E5FFB04B34'
+ MEPROP Name 'SaveLoad'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BD97FDB031A // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4AA931BF023D' '4AA931BF023D.ms.model.script' // SaveLoad
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'SaveLoadFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4D77A59D03E6 SaveLoad
+
+ME ME_4BD97FDB031A
+ MEPROP UID '4BD97FDB031A'
+ MEPROP Name 'FormDefinitions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BD97FFF0005 // QueryCard
+ HWL ME_4BD989CB0049 // Preview
+ HWL ME_4D77A59D03E6 // SaveLoad
+ )
+ ; // Children
+ UP "is namespace" True
+ UP "UseNewGen" True
+ UP extprop:pas:UnitName 'Search_FormDefinitions_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search_FormDefinitions_Controls.pas'
+
+ENDME // ME_4BD97FDB031A FormDefinitions

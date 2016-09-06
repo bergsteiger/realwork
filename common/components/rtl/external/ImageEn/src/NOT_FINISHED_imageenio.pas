@@ -23,6 +23,8 @@ implementation
 {$If NOT Defined(NoImageEn)}
 uses
  l3ImplUses
+ //#UC START# *4ACDBE7800FDimpl_uses*
+ //#UC END# *4ACDBE7800FDimpl_uses*
 ;
 
 procedure FindStreamFormat;

@@ -29,6 +29,8 @@ uses
  , UnderControlUnit
  , SysUtils
  , l3Base
+ //#UC START# *504F47A401F7impl_uses*
+ //#UC END# *504F47A401F7impl_uses*
 ;
 
 var g_TatControlStatusConverter: TatControlStatusConverter = nil;

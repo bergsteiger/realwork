@@ -1,0 +1,545 @@
+// Text 495127DD017C VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_495127DD017C
+
+FORWARD ME_4951282D0269
+
+FORWARD ME_4C7D0C7B0185
+
+ME ME_4C7D0C8F019F
+ MEPROP UID '4C7D0C8F019F'
+ MEPROP Name 'AttributesCopy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Копировать все атрибуты документа в буфер обмена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7D0C7B0185 // Copy
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7D0C8F019F AttributesCopy
+
+ME ME_4C7D0C7B0185
+ MEPROP UID '4C7D0C7B0185'
+ MEPROP Name 'Copy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Копировать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7D0C8F019F // AttributesCopy
+ )
+ ; // Children
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C7D0C7B0185 Copy
+
+ME ME_4951284902BD
+ MEPROP UID '4951284902BD'
+ MEPROP Name 'Copy'
+ MEPROP Class class_Operation
+ %SUMMARY 'Копировать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4951284902BD Copy
+
+ME ME_4951285702E1
+ MEPROP UID '4951285702E1'
+ MEPROP Name 'Cut'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вырезать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4951285702E1 Cut
+
+ME ME_49512B5D0009
+ MEPROP UID '49512B5D0009'
+ MEPROP Name 'FindContext'
+ MEPROP Class class_Operation
+ %SUMMARY 'Поиск' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49512B5D0009 FindContext
+
+ME ME_495130C40123
+ MEPROP UID '495130C40123'
+ MEPROP Name 'FindNext'
+ MEPROP Class class_Operation
+ %SUMMARY 'Найти далее' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_495130C40123 FindNext
+
+ME ME_49EDFA3701B0
+ MEPROP UID '49EDFA3701B0'
+ MEPROP Name 'Paste'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вставка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49EDFA3701B0 Paste
+
+ME ME_49EDFCA2006D
+ MEPROP UID '49EDFCA2006D'
+ MEPROP Name 'Undo'
+ MEPROP Class class_Operation
+ %SUMMARY 'Отмена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49EDFCA2006D Undo
+
+ME ME_49EDFCB100BC
+ MEPROP UID '49EDFCB100BC'
+ MEPROP Name 'Redo'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возврат' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49EDFCB100BC Redo
+
+ME ME_49EE01AA02BE
+ MEPROP UID '49EE01AA02BE'
+ MEPROP Name 'SelectAll'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выделить всё' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49EE01AA02BE SelectAll
+
+ME ME_49EE01BC022E
+ MEPROP UID '49EE01BC022E'
+ MEPROP Name 'Deselect'
+ MEPROP Class class_Operation
+ %SUMMARY 'Снять выделение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49EE01BC022E Deselect
+
+ME ME_49FEDE4703B8
+ MEPROP UID '49FEDE4703B8'
+ MEPROP Name 'FindPrev'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4951282D0269 // Edit
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49FEDE4703B8 FindPrev
+
+ME ME_4951282D0269
+ MEPROP UID '4951282D0269'
+ MEPROP Name 'Edit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495127DD017C // Text
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7D0C7B0185 // Copy
+ HWL ME_4951284902BD // Copy
+ HWL ME_4951285702E1 // Cut
+ HWL ME_49512B5D0009 // FindContext
+ HWL ME_495130C40123 // FindNext
+ HWL ME_49EDFA3701B0 // Paste
+ HWL ME_49EDFCA2006D // Undo
+ HWL ME_49EDFCB100BC // Redo
+ HWL ME_49EE01AA02BE // SelectAll
+ HWL ME_49EE01BC022E // Deselect
+ HWL ME_49FEDE4703B8 // FindPrev
+ )
+ ; // Operations
+
+ENDME // ME_4951282D0269 Edit
+
+FORWARD ME_4C3B562D017C
+
+ME ME_4C3B563A03CA
+ MEPROP UID '4C3B563A03CA'
+ MEPROP Name 'Insert'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B562D017C // Table
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B563A03CA Insert
+
+ME ME_4C3B564601EF
+ MEPROP UID '4C3B564601EF'
+ MEPROP Name 'InsertRow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B562D017C // Table
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B564601EF InsertRow
+
+ME ME_4C3B565101D9
+ MEPROP UID '4C3B565101D9'
+ MEPROP Name 'DeleteRow'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B562D017C // Table
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B565101D9 DeleteRow
+
+ME ME_4C3B565D02E7
+ MEPROP UID '4C3B565D02E7'
+ MEPROP Name 'InsertColumn'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B562D017C // Table
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B565D02E7 InsertColumn
+
+ME ME_4C3B566800F0
+ MEPROP UID '4C3B566800F0'
+ MEPROP Name 'DeleteColumn'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B562D017C // Table
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B566800F0 DeleteColumn
+
+ME ME_4C3B562D017C
+ MEPROP UID '4C3B562D017C'
+ MEPROP Name 'Table'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495127DD017C // Text
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C3B563A03CA // Insert
+ HWL ME_4C3B564601EF // InsertRow
+ HWL ME_4C3B565101D9 // DeleteRow
+ HWL ME_4C3B565D02E7 // InsertColumn
+ HWL ME_4C3B566800F0 // DeleteColumn
+ )
+ ; // Operations
+
+ENDME // ME_4C3B562D017C Table
+
+FORWARD ME_4C3B56A30038
+
+ME ME_4C3B56AC03CA
+ MEPROP UID '4C3B56AC03CA'
+ MEPROP Name 'Bold'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B56A30038 // Font
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B56AC03CA Bold
+
+ME ME_4C3B56BA01AE
+ MEPROP UID '4C3B56BA01AE'
+ MEPROP Name 'Italic'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B56A30038 // Font
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B56BA01AE Italic
+
+ME ME_4C3B56C4028F
+ MEPROP UID '4C3B56C4028F'
+ MEPROP Name 'Underline'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B56A30038 // Font
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B56C4028F Underline
+
+ME ME_4C3B56CE0091
+ MEPROP UID '4C3B56CE0091'
+ MEPROP Name 'Strikeout'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C3B56A30038 // Font
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C3B56CE0091 Strikeout
+
+ME ME_4C3B56A30038
+ MEPROP UID '4C3B56A30038'
+ MEPROP Name 'Font'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495127DD017C // Text
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C3B56AC03CA // Bold
+ HWL ME_4C3B56BA01AE // Italic
+ HWL ME_4C3B56C4028F // Underline
+ HWL ME_4C3B56CE0091 // Strikeout
+ )
+ ; // Operations
+
+ENDME // ME_4C3B56A30038 Font
+
+ME ME_495127DD017C
+ MEPROP UID '495127DD017C'
+ MEPROP Name 'Text'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Операции с текстом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4951282D0269 // Edit
+ HWL ME_4C3B562D017C // Table
+ HWL ME_4C3B56A30038 // Font
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '23.12.2008 21:03'
+ UP extprop:pas:UnitName 'OfficeLike_Text_Controls'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_Text_Controls.pas'
+
+ENDME // ME_495127DD017C Text

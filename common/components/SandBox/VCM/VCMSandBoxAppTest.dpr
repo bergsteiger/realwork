@@ -124,16 +124,37 @@ uses
  , tfwIteratableParent in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ , tfwIteratableParentPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParentPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ , tfwSafeArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwSafeArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
+ , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValuesStack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwCompiledWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrim.pas'
@@ -147,6 +168,24 @@ uses
  , tfwKeyWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeyWordPrim.pas'
  {$If NOT Defined(NoScripts)}
  , tfwWordRefList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordRefList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVar in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVar.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVarPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVarPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Parser in 'w:\common\components\rtl\Garant\L3\l3Parser.pas'
  , l3ProtoPersistent in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistent.pas'
@@ -164,15 +203,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwDictionary in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionary.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Math {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Math.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
@@ -272,18 +302,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwKeywordsIterator in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeywordsIterator.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwLeftParam in 'w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas'
@@ -427,6 +445,25 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwWordInfoWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
+ , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
+ , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
+ , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
+ , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
+ , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
+ , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
+ , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
+ , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
+ , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
+ , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
+ , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
+ , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
+ , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
+ , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
+ {$If NOT Defined(NoScripts)}
+ , tfwCS in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCS.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ArrayProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ArrayProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -441,9 +478,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwRevertedArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwFilteredArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas'
@@ -482,15 +516,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
- , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
- , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
- , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
- , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
- , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
- , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
- , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -597,13 +622,14 @@ uses
  , l3DataObject in 'w:\common\components\rtl\Garant\L3\l3DataObject.pas'
  , l3LongintList in 'w:\common\components\rtl\Garant\L3\l3LongintList.pas'
  , l3LongintListPrim in 'w:\common\components\rtl\Garant\L3\l3LongintListPrim.pas'
- , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
- , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
- , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
- , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
- , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
  , l3DataObjectEnum in 'w:\common\components\rtl\Garant\L3\l3DataObjectEnum.pas'
  , ShlObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShlObj.pas' {$EndIf}
+ {$If NOT Defined(NoScripts)}
+ , tfwWordDeleteListeners in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordDeleteListeners.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ItfwWordListenerList in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwWordListenerList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , WordsRTTIPack in 'w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -727,139 +753,45 @@ uses
  {$If NOT Defined(NoVCM)}
  , vcmMakeParams in 'w:\common\components\gui\Garant\VCM\implementation\vcmMakeParams.pas'
  {$IfEnd} // NOT Defined(NoVCM)
- , DocumentPrintAndExportSettingRes in 'w:\common\components\SandBox\VCM\View\Document\DocumentPrintAndExportSettingRes.pas'
- , DocumentPrintAndExportFontSizeSettingRes in 'w:\common\components\SandBox\VCM\View\Document\DocumentPrintAndExportFontSizeSettingRes.pas'
- , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
- {$If NOT Defined(NoVCL)}
- , Dialogs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
- , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
- , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
- , stDocumentPrintAndExportFontSizeItem in 'w:\common\components\SandBox\VCM\View\Document\stDocumentPrintAndExportFontSizeItem.pas'
- , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
- , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
- , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'
- , ddAppConfigBase in 'w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas'
- , l3ProtoPersistentRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas'
- , vtLabel in 'w:\common\components\gui\Garant\VT\vtLabel.pas'
- {$If NOT Defined(NoVCL)}
- , StdCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\StdCtrls.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , RadioButtonWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , vtComboBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , vtComboTree in 'w:\common\components\gui\Garant\VT\ComboTree\vtComboTree.pas'
- , FakeBox in 'w:\common\components\gui\Garant\VT\ComboTree\FakeBox.pas'
- , EditableBox in 'w:\common\components\gui\Garant\VT\ComboTree\EditableBox.pas'
- , DropDownTree in 'w:\common\components\gui\Garant\VT\ComboTree\DropDownTree.pas'
- , AbstractDropDown in 'w:\common\components\gui\Garant\VT\ComboTree\AbstractDropDown.pas'
- , ctAbstractEdit in 'w:\common\components\gui\Garant\VT\ComboTree\ctAbstractEdit.pas'
- , ctButtonEdit in 'w:\common\components\gui\Garant\Everest\ctButtonEdit.pas'
- , elCustomButtonEdit in 'w:\common\components\gui\Garant\Everest\elCustomButtonEdit.pas'
- , elCustomEdit in 'w:\common\components\gui\Garant\Everest\elCustomEdit.pas'
- , evCustomEdit in 'w:\common\components\gui\Garant\Everest\evCustomEdit.pas'
- , evCustomMemo in 'w:\common\components\gui\Garant\Everest\evCustomMemo.pas'
- , evEditorWithOperations in 'w:\common\components\gui\Garant\Everest\evEditorWithOperations.pas'
- , evCustomEditor in 'w:\common\components\gui\Garant\Everest\evCustomEditor.pas'
- , evCustomEditorModelPart in 'w:\common\components\gui\Garant\Everest\evCustomEditorModelPart.pas'
- , evMultiSelectEditorWindow in 'w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindow.pas'
- , evCustomEditorWindowModelPart in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindowModelPart.pas'
- , evCustomEditorWindow in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindow.pas'
- , evCustomEditorWindowPrim in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindowPrim.pas'
- , nevControl in 'w:\common\components\gui\Garant\Everest\nevControl.pas'
- , afwControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwControl.pas'
- , afwBaseControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwBaseControl.pas'
- , afwControlPrim in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwControlPrim.pas'
- , OvcBase in 'w:\common\components\rtl\external\Orpheus\OvcBase.pas'
- , OvcController in 'w:\common\components\rtl\external\Orpheus\OvcController.pas'
- , l3WinControlCanvas in 'w:\common\components\rtl\Garant\L3\l3WinControlCanvas.pas'
- , l3ControlCanvas in 'w:\common\components\rtl\Garant\L3\l3ControlCanvas.pas'
- , l3Canvas in 'w:\common\components\rtl\Garant\L3\l3Canvas.pas'
- , l3CanvasPrim in 'w:\common\components\rtl\Garant\L3\l3CanvasPrim.pas'
- , l3RectList in 'w:\common\components\rtl\Garant\L3\l3RectList.pas'
- , l3Region in 'w:\common\components\rtl\Garant\L3\l3Region.pas'
- , l3Defaults in 'w:\common\components\rtl\Garant\L3\l3Defaults.pas'
- , l3CacheableBase in 'w:\common\components\rtl\Garant\L3\l3CacheableBase.pas'
- , l3CanvasUtils in 'w:\common\components\rtl\Garant\L3\l3CanvasUtils.pas'
- , l3ScreenIC in 'w:\common\components\rtl\Garant\L3\l3ScreenIC.pas'
- , l3LogFont in 'w:\common\components\rtl\Garant\L3\l3LogFont.pas'
- , l3FontManager in 'w:\common\components\rtl\Garant\L3\l3FontManager.pas'
- , l3FontManagerPrim in 'w:\common\components\rtl\Garant\L3\l3FontManagerPrim.pas'
- , l3FontManagerPrimPrim in 'w:\common\components\rtl\Garant\L3\l3FontManagerPrimPrim.pas'
- , l3FontTools in 'w:\common\components\rtl\Garant\L3\l3FontTools.pas'
- , l3FormattedLines in 'w:\common\components\rtl\Garant\L3\l3FormattedLines.pas'
- , l3ProtoObjectRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectRefList.pas'
- , l3LineArray in 'w:\common\components\rtl\Garant\L3\l3LineArray.pas'
- , l3VirtualCanvas in 'w:\common\components\rtl\Garant\L3\l3VirtualCanvas.pas'
- , l3Bitmap in 'w:\common\components\rtl\Garant\L3\l3Bitmap.pas'
- {$If Defined(l3Requires_m0)}
- , m2XLtLib in 'w:\common\components\rtl\Garant\L3\m2\m2XLtLib.pas'
- {$IfEnd} // Defined(l3Requires_m0)
- , l3FrameLines in 'w:\common\components\rtl\Garant\L3\l3FrameLines.pas'
- , l3FrameObjectList in 'w:\common\components\rtl\Garant\L3\l3FrameObjectList.pas'
- , l3FrameObject in 'w:\common\components\rtl\Garant\L3\l3FrameObject.pas'
- , l3CoordinateMap in 'w:\common\components\rtl\Garant\L3\l3CoordinateMap.pas'
- , l3FrameLineList in 'w:\common\components\rtl\Garant\L3\l3FrameLineList.pas'
- , l3FrameLine in 'w:\common\components\rtl\Garant\L3\l3FrameLine.pas'
- , l3UnitsTools in 'w:\common\components\rtl\Garant\L3\l3UnitsTools.pas'
- , l3InterfacedIntegerList in 'w:\common\components\rtl\Garant\L3\l3InterfacedIntegerList.pas'
- , l3ProtoIntegerList in 'w:\common\components\rtl\Garant\L3\l3ProtoIntegerList.pas'
- , l3FrameLinesSpy in 'w:\common\components\rtl\Garant\L3\l3FrameLinesSpy.pas'
- , l3Operations in 'w:\common\components\rtl\Garant\L3\l3Operations.pas'
- , l3DropTarget in 'w:\common\components\rtl\Garant\L3\l3DropTarget.pas'
- , l3DropSource in 'w:\common\components\rtl\Garant\L3\l3DropSource.pas'
- , afwVCL in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwVCL.pas'
- , afwFont in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas'
- , afwHintManager in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwHintManager.pas'
- {$If NOT Defined(NoVCL)}
- , ExtCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ExtCtrls.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , PanelProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\PanelProcessingPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , RadioGroupWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioGroupWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , k2OperationContainer in 'w:\common\components\rtl\Garant\K2\k2OperationContainer.pas'
- , k2OpRefList in 'w:\common\components\rtl\Garant\K2\k2OpRefList.pas'
- , k2Op in 'w:\common\components\rtl\Garant\K2\k2Op.pas'
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleContractImplementation in 'w:\common\components\gui\Garant\VCM\implementation\vcmModuleContractImplementation.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModulesForRegister in 'w:\common\components\gui\Garant\VCM\vcmModulesForRegister.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
+ , vcmModuleOperationsForRegister in 'w:\common\components\gui\Garant\VCM\vcmModuleOperationsForRegister.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ , moList in 'w:\common\components\SandBox\VCM\View\moList.pas'
+ , List_Module in 'w:\common\components\SandBox\VCM\View\List\List_Module.pas'
+ , evExtFormat in 'w:\common\components\gui\Garant\Everest\ext\evExtFormat.pas'
+ , evdScriptHyperlinkEliminator in 'w:\common\components\gui\Garant\Everest\evdScriptHyperlinkEliminator.pas'
+ , evdHyperlinkEliminator in 'w:\common\components\rtl\Garant\EVD\evdHyperlinkEliminator.pas'
+ , evdLeafParaFilter in 'w:\common\components\rtl\Garant\EVD\evdLeafParaFilter.pas'
+ , k2TagFilter in 'w:\common\components\rtl\Garant\K2\k2TagFilter.pas'
+ , k2TagTerminator in 'w:\common\components\rtl\Garant\K2\k2TagTerminator.pas'
+ , k2CustomStackGeneratorEx in 'w:\common\components\rtl\Garant\K2\k2CustomStackGeneratorEx.pas'
+ , k2CustomStackGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomStackGenerator.pas'
+ , k2BaseStackGenerator in 'w:\common\components\rtl\Garant\K2\k2BaseStackGenerator.pas'
+ , k2TagGen in 'w:\common\components\rtl\Garant\K2\k2TagGen.pas'
+ , k2VariantImpl in 'w:\common\components\rtl\Garant\K2\k2VariantImpl.pas'
+ , k2Interfaces in 'w:\common\components\rtl\Garant\K2\k2Interfaces.pas'
+ , k2PureMixIns in 'w:\common\components\rtl\Garant\K2\k2PureMixIns.pas'
  , k2Prim in 'w:\common\components\rtl\Garant\K2\k2Prim.pas'
+ , l3ProtoIntegerList in 'w:\common\components\rtl\Garant\L3\l3ProtoIntegerList.pas'
  , k2PropertyArray in 'w:\common\components\rtl\Garant\K2\k2PropertyArray.pas'
  , k2TypeTableCreatedListeners in 'w:\common\components\rtl\Garant\K2\k2TypeTableCreatedListeners.pas'
  , k2Attributes in 'w:\common\components\rtl\Garant\K2\k2Attributes.pas'
  , k2Tags in 'w:\common\components\rtl\Garant\K2\k2Tags.pas'
  , k2Empty_Const in 'w:\common\components\rtl\Garant\K2\k2Empty_Const.pas'
  , k2BaseHack in 'w:\common\components\rtl\Garant\K2\k2BaseHack.pas'
- , k2NilOp in 'w:\common\components\rtl\Garant\K2\k2NilOp.pas'
- , l3IntegerValueMapManager in 'w:\common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas'
- , l3ValueMapManager in 'w:\common\components\rtl\Garant\L3\l3ValueMapManager.pas'
- , l3ValueMapManagerPrim in 'w:\common\components\rtl\Garant\L3\l3ValueMapManagerPrim.pas'
- , l3ValueMap in 'w:\common\components\rtl\Garant\L3\l3ValueMap.pas'
- , l3BaseWithIDList in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDList.pas'
- , l3BaseWithIDListPrim in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDListPrim.pas'
- , l3BaseWithID in 'w:\common\components\rtl\Garant\L3\l3BaseWithID.pas'
- , l3CustomControlCanvas in 'w:\common\components\rtl\Garant\L3\l3CustomControlCanvas.pas'
- , nevBase in 'w:\common\components\gui\Garant\Everest\new\nevBase.pas'
- , k2Interfaces in 'w:\common\components\rtl\Garant\K2\k2Interfaces.pas'
- , k2PureMixIns in 'w:\common\components\rtl\Garant\K2\k2PureMixIns.pas'
- , evdTypes in 'w:\common\components\rtl\Garant\EVD\evdTypes.pas'
- , evdStyles in 'w:\common\components\rtl\Garant\EVD\evdStyles.pas'
- , evConst in 'w:\common\components\gui\Garant\Everest\evConst.pas'
- , l3Tree_TLB in 'w:\common\components\rtl\Garant\L3\l3Tree_TLB.pas'
- , evdInterfaces in 'w:\common\components\rtl\Garant\EVD\evdInterfaces.pas'
- , nevTypes in 'w:\common\components\gui\Garant\Everest\new\nevTypes.pas'
- , k2BaseStruct in 'w:\common\components\rtl\Garant\K2\k2BaseStruct.pas'
+ , k2String_Const in 'w:\common\components\rtl\Garant\K2\k2String_Const.pas'
+ , k2SomeDataContainer_Const in 'w:\common\components\rtl\Garant\K2\k2SomeDataContainer_Const.pas'
+ , k2Object_Const in 'w:\common\components\rtl\Garant\K2\k2Object_Const.pas'
  , k2Base in 'w:\common\components\rtl\Garant\K2\k2Base.pas'
  , k2TypeModelPart in 'w:\common\components\rtl\Garant\K2\k2TypeModelPart.pas'
  , k2SortTagsList in 'w:\common\components\rtl\Garant\K2\k2SortTagsList.pas'
  , k2SortTagsListPrim in 'w:\common\components\rtl\Garant\K2\k2SortTagsListPrim.pas'
- , k2String_Const in 'w:\common\components\rtl\Garant\K2\k2String_Const.pas'
- , k2SomeDataContainer_Const in 'w:\common\components\rtl\Garant\K2\k2SomeDataContainer_Const.pas'
- , k2Object_Const in 'w:\common\components\rtl\Garant\K2\k2Object_Const.pas'
  , k2AtomWrapPrim in 'w:\common\components\rtl\Garant\K2\k2AtomWrapPrim.pas'
  , k2PropSorter in 'w:\common\components\rtl\Garant\K2\k2PropSorter.pas'
  , k2NullTagImpl in 'w:\common\components\rtl\Garant\K2\k2NullTagImpl.pas'
@@ -868,21 +800,31 @@ uses
  , k2NotStructuredTag in 'w:\common\components\rtl\Garant\K2\k2NotStructuredTag.pas'
  , k2Tag in 'w:\common\components\rtl\Garant\K2\k2Tag.pas'
  , k2Strings in 'w:\common\components\rtl\Garant\K2\k2Strings.pas'
- , evResultFontInterfaces in 'w:\common\components\gui\Garant\Everest\evResultFontInterfaces.pas'
- , evResultFont in 'w:\common\components\gui\Garant\Everest\evResultFont.pas'
- , nevTools in 'w:\common\components\gui\Garant\Everest\new\nevTools.pas'
- , evTypes in 'w:\common\components\gui\Garant\Everest\evTypes.pas'
- , afwNavigation in 'w:\common\components\gui\Garant\AFW\afwNavigation.pas'
- , nevFacade in 'w:\common\components\gui\Garant\Everest\new\nevFacade.pas'
- , TextPara_Const in 'w:\common\components\gui\Garant\Everest\TextPara_Const.pas'
- , StyledLeafPara_Const in 'w:\common\components\gui\Garant\Everest\StyledLeafPara_Const.pas'
- , LeafPara_Const in 'w:\common\components\rtl\Garant\EVD\LeafPara_Const.pas'
- , Para_Const in 'w:\common\components\rtl\Garant\EVD\Para_Const.pas'
+ , k2Long_Const in 'w:\common\components\rtl\Garant\K2\k2Long_Const.pas'
+ {$If NOT Defined(NoScripts)}
+ , kwFiltersAndGeneratorsPack in 'w:\common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , k2EVDReaderService in 'w:\common\components\rtl\Garant\K2\k2EVDReaderService.pas'
+ , k2CustomFileReader in 'w:\common\components\rtl\Garant\K2\k2CustomFileReader.pas'
+ , k2CustomReader in 'w:\common\components\rtl\Garant\K2\k2CustomReader.pas'
+ , k2EVDWriterService in 'w:\common\components\rtl\Garant\K2\k2EVDWriterService.pas'
+ , k2CustomFileGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomFileGenerator.pas'
+ , HyperLink_Const in 'w:\common\components\rtl\Garant\EVD\HyperLink_Const.pas'
+ , SegmentWithChildren_Const in 'w:\common\components\rtl\Garant\EVD\SegmentWithChildren_Const.pas'
+ , TextSegment_Const in 'w:\common\components\rtl\Garant\EVD\TextSegment_Const.pas'
+ , Segment_Const in 'w:\common\components\rtl\Garant\EVD\Segment_Const.pas'
  , k2Tag_Const in 'w:\common\components\rtl\Garant\K2\k2Tag_Const.pas'
+ , Position_Const in 'w:\common\components\rtl\Garant\EVD\Position_Const.pas'
  , k2Bool_Const in 'w:\common\components\rtl\Garant\K2\k2Bool_Const.pas'
  , k2Enum_Const in 'w:\common\components\rtl\Garant\K2\k2Enum_Const.pas'
- , k2Long_Const in 'w:\common\components\rtl\Garant\K2\k2Long_Const.pas'
+ , Style_Const in 'w:\common\components\rtl\Garant\EVD\Style_Const.pas'
+ , ObjectWithHandle_Const in 'w:\common\components\rtl\Garant\EVD\ObjectWithHandle_Const.pas'
+ , k2Handle_Const in 'w:\common\components\rtl\Garant\K2\k2Handle_Const.pas'
+ , evdTextStyle_Const in 'w:\common\components\rtl\Garant\EVD\evdTextStyle_Const.pas'
+ , Justification_Const in 'w:\common\components\rtl\Garant\EVD\Justification_Const.pas'
+ , evdTypes in 'w:\common\components\rtl\Garant\EVD\evdTypes.pas'
  , k2Inch_Const in 'w:\common\components\rtl\Garant\K2\k2Inch_Const.pas'
+ , Para_Const in 'w:\common\components\rtl\Garant\EVD\Para_Const.pas'
  , k2Color_Const in 'w:\common\components\rtl\Garant\K2\k2Color_Const.pas'
  , evdFrame_Const in 'w:\common\components\rtl\Garant\EVD\evdFrame_Const.pas'
  , FramePart_Const in 'w:\common\components\rtl\Garant\EVD\FramePart_Const.pas'
@@ -893,21 +835,69 @@ uses
  , DictItem_Const in 'w:\common\components\rtl\Garant\EVD\DictItem_Const.pas'
  , DictRec_Const in 'w:\common\components\rtl\Garant\EVD\DictRec_Const.pas'
  , AutoClass_Const in 'w:\common\components\rtl\Garant\EVD\AutoClass_Const.pas'
- , evdTextStyle_Const in 'w:\common\components\rtl\Garant\EVD\evdTextStyle_Const.pas'
- , Style_Const in 'w:\common\components\rtl\Garant\EVD\Style_Const.pas'
- , ObjectWithHandle_Const in 'w:\common\components\rtl\Garant\EVD\ObjectWithHandle_Const.pas'
- , k2Handle_Const in 'w:\common\components\rtl\Garant\K2\k2Handle_Const.pas'
- , Justification_Const in 'w:\common\components\rtl\Garant\EVD\Justification_Const.pas'
  , Font_Const in 'w:\common\components\rtl\Garant\EVD\Font_Const.pas'
  , k2FontName_Const in 'w:\common\components\rtl\Garant\K2\k2FontName_Const.pas'
+ , l3FontManager in 'w:\common\components\rtl\Garant\L3\l3FontManager.pas'
+ , l3FontManagerPrim in 'w:\common\components\rtl\Garant\L3\l3FontManagerPrim.pas'
+ , l3FontManagerPrimPrim in 'w:\common\components\rtl\Garant\L3\l3FontManagerPrimPrim.pas'
+ , l3LogFont in 'w:\common\components\rtl\Garant\L3\l3LogFont.pas'
+ , evdStyles in 'w:\common\components\rtl\Garant\EVD\evdStyles.pas'
  , evdStyleContainer in 'w:\common\components\rtl\Garant\EVD\evdStyleContainer.pas'
  , k2DictionaryEx in 'w:\common\components\rtl\Garant\K2\k2DictionaryEx.pas'
  , k2Dictionary in 'w:\common\components\rtl\Garant\K2\k2Dictionary.pas'
  , k2DictionaryPrim in 'w:\common\components\rtl\Garant\K2\k2DictionaryPrim.pas'
  , k2NonOptimizeContext in 'w:\common\components\rtl\Garant\K2\k2NonOptimizeContext.pas'
  , k2Context in 'w:\common\components\rtl\Garant\K2\k2Context.pas'
+ , k2OperationContainer in 'w:\common\components\rtl\Garant\K2\k2OperationContainer.pas'
+ , k2OpRefList in 'w:\common\components\rtl\Garant\K2\k2OpRefList.pas'
+ , k2Op in 'w:\common\components\rtl\Garant\K2\k2Op.pas'
+ , l3CacheableBase in 'w:\common\components\rtl\Garant\L3\l3CacheableBase.pas'
+ , k2NilOp in 'w:\common\components\rtl\Garant\K2\k2NilOp.pas'
+ , l3IntegerValueMapManager in 'w:\common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas'
+ , l3ValueMapManager in 'w:\common\components\rtl\Garant\L3\l3ValueMapManager.pas'
+ , l3ValueMapManagerPrim in 'w:\common\components\rtl\Garant\L3\l3ValueMapManagerPrim.pas'
+ , l3ValueMap in 'w:\common\components\rtl\Garant\L3\l3ValueMap.pas'
+ , l3BaseWithIDList in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDList.pas'
+ , l3BaseWithIDListPrim in 'w:\common\components\rtl\Garant\L3\l3BaseWithIDListPrim.pas'
+ , l3BaseWithID in 'w:\common\components\rtl\Garant\L3\l3BaseWithID.pas'
  , k2DictionaryIDIndex in 'w:\common\components\rtl\Garant\K2\k2DictionaryIDIndex.pas'
  , k2DictionaryIDIndexPrim in 'w:\common\components\rtl\Garant\K2\k2DictionaryIDIndexPrim.pas'
+ , Address_Const in 'w:\common\components\rtl\Garant\EVD\Address_Const.pas'
+ , Type_Const in 'w:\common\components\rtl\Garant\EVD\Type_Const.pas'
+ , evPDFWriter in 'w:\common\components\gui\Garant\Everest\evPDFWriter.pas'
+ , evCustomPDFWriter in 'w:\common\components\gui\Garant\Everest\evCustomPDFWriter.pas'
+ , k2DocumentBuffer in 'w:\common\components\rtl\Garant\K2\k2DocumentBuffer.pas'
+ , k2DocumentGenerator in 'w:\common\components\rtl\Garant\K2\k2DocumentGenerator.pas'
+ , nevTools in 'w:\common\components\gui\Garant\Everest\new\nevTools.pas'
+ , nevBase in 'w:\common\components\gui\Garant\Everest\new\nevBase.pas'
+ , evConst in 'w:\common\components\gui\Garant\Everest\evConst.pas'
+ , l3Tree_TLB in 'w:\common\components\rtl\Garant\L3\l3Tree_TLB.pas'
+ , evdInterfaces in 'w:\common\components\rtl\Garant\EVD\evdInterfaces.pas'
+ , nevTypes in 'w:\common\components\gui\Garant\Everest\new\nevTypes.pas'
+ , k2BaseStruct in 'w:\common\components\rtl\Garant\K2\k2BaseStruct.pas'
+ , evResultFontInterfaces in 'w:\common\components\gui\Garant\Everest\evResultFontInterfaces.pas'
+ , evResultFont in 'w:\common\components\gui\Garant\Everest\evResultFont.pas'
+ , evTypes in 'w:\common\components\gui\Garant\Everest\evTypes.pas'
+ , afwNavigation in 'w:\common\components\gui\Garant\AFW\afwNavigation.pas'
+ , evDocumentPreview in 'w:\common\components\gui\Garant\Everest\evDocumentPreview.pas'
+ , evDocumentPreviewPrim in 'w:\common\components\gui\Garant\Everest\evDocumentPreviewPrim.pas'
+ , nevObjectHolderPrim in 'w:\common\components\gui\Garant\Everest\nevObjectHolderPrim.pas'
+ , nevDocumentContainerPrim in 'w:\common\components\gui\Garant\Everest\nevDocumentContainerPrim.pas'
+ , nevDocumentContainerPrimPrim in 'w:\common\components\gui\Garant\Everest\nevDocumentContainerPrimPrim.pas'
+ , DocumentContainer_Const in 'w:\common\components\gui\Garant\Everest\DocumentContainer_Const.pas'
+ , k2Facade in 'w:\common\components\rtl\Garant\K2\k2Facade.pas'
+ , nevFormatPool in 'w:\common\components\gui\Garant\Everest\new\nevFormatPool.pas'
+ , nevFormatPoolBase in 'w:\common\components\gui\Garant\Everest\new\nevFormatPoolBase.pas'
+ , nevRootFormatInfoListPrim in 'w:\common\components\gui\Garant\Everest\new\nevRootFormatInfoListPrim.pas'
+ , nevRootFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevRootFormatInfo.pas'
+ , nevDocumentFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevDocumentFormatInfo.pas'
+ , nevListFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevListFormatInfo.pas'
+ , nevParaFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevParaFormatInfo.pas'
+ , nevFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfo.pas'
+ , nevFormatInfoFactory in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfoFactory.pas'
+ , TextPara_Const in 'w:\common\components\gui\Garant\Everest\TextPara_Const.pas'
+ , StyledLeafPara_Const in 'w:\common\components\gui\Garant\Everest\StyledLeafPara_Const.pas'
+ , LeafPara_Const in 'w:\common\components\rtl\Garant\EVD\LeafPara_Const.pas'
  , evStyleInterfaceEx in 'w:\common\components\gui\Garant\Everest\evStyleInterfaceEx.pas'
  , evStyleInterface in 'w:\common\components\gui\Garant\Everest\evStyleInterface.pas'
  , evStyles_SH in 'w:\common\components\gui\Garant\Everest\evStyles_SH.pas'
@@ -916,9 +906,15 @@ uses
  , evStyleTableSpy in 'w:\common\components\gui\Garant\Everest\evStyleTableSpy.pas'
  {$IfEnd} // NOT Defined(DesignTimeLibrary)
  , l3InterfacePtrList in 'w:\common\components\rtl\Garant\L3\l3InterfacePtrList.pas'
- , k2Facade in 'w:\common\components\rtl\Garant\K2\k2Facade.pas'
  , evStylesPrintAndExportSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas'
  , evStylesPrintAndExportFontSizeSettingRes in 'w:\common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas'
+ , l3MessageID in 'w:\common\components\rtl\Garant\L3\l3MessageID.pas'
+ {$If NOT Defined(NoVCL)}
+ , Dialogs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Dialogs.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ , Pl3StringIDExList in 'w:\common\components\rtl\Garant\L3\Pl3StringIDExList.pas'
+ , Pl3MessageIDList in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDList.pas'
+ , Pl3MessageIDListPrim in 'w:\common\components\rtl\Garant\L3\Pl3MessageIDListPrim.pas'
  , evFontInterface in 'w:\common\components\gui\Garant\Everest\evFontInterface.pas'
  , l3Nodes in 'w:\common\components\rtl\Garant\L3\l3Nodes.pas'
  , k2SimpleTagList in 'w:\common\components\rtl\Garant\K2\k2SimpleTagList.pas'
@@ -926,75 +922,30 @@ uses
  , k2TagListPrim in 'w:\common\components\rtl\Garant\K2\k2TagListPrim.pas'
  , k2ListTag in 'w:\common\components\rtl\Garant\K2\k2ListTag.pas'
  , k2NonAtomicTag in 'w:\common\components\rtl\Garant\K2\k2NonAtomicTag.pas'
- , k2DocumentGenerator in 'w:\common\components\rtl\Garant\K2\k2DocumentGenerator.pas'
- , k2BaseStackGenerator in 'w:\common\components\rtl\Garant\K2\k2BaseStackGenerator.pas'
- , k2TagGen in 'w:\common\components\rtl\Garant\K2\k2TagGen.pas'
- , k2VariantImpl in 'w:\common\components\rtl\Garant\K2\k2VariantImpl.pas'
- {$If NOT Defined(NoScripts)}
- , kwFiltersAndGeneratorsPack in 'w:\common\components\rtl\Garant\ScriptEngine\kwFiltersAndGeneratorsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , k2EVDReaderService in 'w:\common\components\rtl\Garant\K2\k2EVDReaderService.pas'
- , k2CustomFileReader in 'w:\common\components\rtl\Garant\K2\k2CustomFileReader.pas'
- , k2CustomReader in 'w:\common\components\rtl\Garant\K2\k2CustomReader.pas'
- , k2CustomStackGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomStackGenerator.pas'
- , k2EVDWriterService in 'w:\common\components\rtl\Garant\K2\k2EVDWriterService.pas'
- , k2CustomFileGenerator in 'w:\common\components\rtl\Garant\K2\k2CustomFileGenerator.pas'
- , k2CustomStackGeneratorEx in 'w:\common\components\rtl\Garant\K2\k2CustomStackGeneratorEx.pas'
  , nevInternalInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevInternalInterfaces.pas'
  , evOpProc in 'w:\common\components\gui\Garant\Everest\evOpProc.pas'
  , evdNativeReader in 'w:\common\components\rtl\Garant\EVD\evdNativeReader.pas'
  , k2CustomFileParser in 'w:\common\components\rtl\Garant\K2\k2CustomFileParser.pas'
  , evdNativeReaderServices in 'w:\common\components\rtl\Garant\EVD\evdNativeReaderServices.pas'
  , evStyleTableFontSizeCorrector in 'w:\common\components\gui\Garant\Everest\evStyleTableFontSizeCorrector.pas'
- , evdLeafParaFilter in 'w:\common\components\rtl\Garant\EVD\evdLeafParaFilter.pas'
- , k2TagFilter in 'w:\common\components\rtl\Garant\K2\k2TagFilter.pas'
- , k2TagTerminator in 'w:\common\components\rtl\Garant\K2\k2TagTerminator.pas'
  , evDefaultStylesFontSizes in 'w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizes.pas'
  , evDefaultStylesFontSizesPrim1 in 'w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim1.pas'
  , evDefaultStylesFontSizesPrim in 'w:\common\components\gui\Garant\Everest\evDefaultStylesFontSizesPrim.pas'
  , evDef in 'w:\common\components\gui\Garant\Everest\evDef.pas'
+ , l3Defaults in 'w:\common\components\rtl\Garant\L3\l3Defaults.pas'
  , evdNativeWriter in 'w:\common\components\rtl\Garant\EVD\evdNativeWriter.pas'
  , evdCustomNativeWriter in 'w:\common\components\rtl\Garant\EVD\evdCustomNativeWriter.pas'
  , evdCustomNativeWriterServices in 'w:\common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas'
  , Bullet_Const in 'w:\common\components\rtl\Garant\EVD\Bullet_Const.pas'
  , SegmentsLayer_Const in 'w:\common\components\rtl\Garant\EVD\SegmentsLayer_Const.pas'
- , TextSegment_Const in 'w:\common\components\rtl\Garant\EVD\TextSegment_Const.pas'
- , Segment_Const in 'w:\common\components\rtl\Garant\EVD\Segment_Const.pas'
- , Position_Const in 'w:\common\components\rtl\Garant\EVD\Position_Const.pas'
  , TabStop_Const in 'w:\common\components\rtl\Garant\EVD\TabStop_Const.pas'
- {$If NOT Defined(NoScripts)}
- , evSchemaWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , evEvdRd in 'w:\common\components\gui\Garant\Everest\evEvdRd.pas'
- {$If NOT Defined(NoScripts)}
- , evParaWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\evParaWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , k2OpMisc in 'w:\common\components\rtl\Garant\K2\k2OpMisc.pas'
- {$If NOT Defined(NoScripts)}
- , EditorFromStackKeyWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\EditorFromStackKeyWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorSelectCells in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCells.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwSelectCellsWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwSelectCellsWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwEditorFromStackWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , nevGUIInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevGUIInterfaces.pas'
- , Table_Const in 'w:\common\components\gui\Garant\Everest\Table_Const.pas'
- , ParaList_Const in 'w:\common\components\gui\Garant\Everest\ParaList_Const.pas'
- , TableRow_Const in 'w:\common\components\gui\Garant\Everest\TableRow_Const.pas'
- , TableCell_Const in 'w:\common\components\gui\Garant\Everest\TableCell_Const.pas'
- , TableTextPara_Const in 'w:\common\components\gui\Garant\Everest\TableTextPara_Const.pas'
- , QueryCard_Const in 'w:\common\components\gui\Garant\Everest\QueryCard_Const.pas'
- , Document_Const in 'w:\common\components\gui\Garant\Everest\Document_Const.pas'
+ , CommentPara_Const in 'w:\common\components\gui\Garant\Everest\CommentPara_Const.pas'
  , Block_Const in 'w:\common\components\gui\Garant\Everest\Block_Const.pas'
+ , ParaList_Const in 'w:\common\components\gui\Garant\Everest\ParaList_Const.pas'
  {$If Defined(k2ForEditor)}
  , evDocumentPart in 'w:\common\components\gui\Garant\Everest\evDocumentPart.pas'
  {$IfEnd} // Defined(k2ForEditor)
- , Type_Const in 'w:\common\components\rtl\Garant\EVD\Type_Const.pas'
+ , Document_Const in 'w:\common\components\gui\Garant\Everest\Document_Const.pas'
  , Date_Const in 'w:\common\components\rtl\Garant\EVD\Date_Const.pas'
  , PageProperties_Const in 'w:\common\components\rtl\Garant\EVD\PageProperties_Const.pas'
  , DocSubLayer_Const in 'w:\common\components\rtl\Garant\EVD\DocSubLayer_Const.pas'
@@ -1002,7 +953,6 @@ uses
  , NumANDDate_Const in 'w:\common\components\rtl\Garant\EVD\NumANDDate_Const.pas'
  , LogRecordPrim_Const in 'w:\common\components\rtl\Garant\EVD\LogRecordPrim_Const.pas'
  , NSRCTag_Const in 'w:\common\components\rtl\Garant\EVD\NSRCTag_Const.pas'
- , Address_Const in 'w:\common\components\rtl\Garant\EVD\Address_Const.pas'
  , LogRecord_Const in 'w:\common\components\rtl\Garant\EVD\LogRecord_Const.pas'
  , Time_Const in 'w:\common\components\rtl\Garant\EVD\Time_Const.pas'
  , Version_Const in 'w:\common\components\gui\Garant\Everest\Version_Const.pas'
@@ -1017,59 +967,25 @@ uses
  , k2Int64_Const in 'w:\common\components\rtl\Garant\K2\k2Int64_Const.pas'
  , k2RawData_Const in 'w:\common\components\rtl\Garant\K2\k2RawData_Const.pas'
  , EditablePart_Const in 'w:\common\components\gui\Garant\Everest\EditablePart_Const.pas'
- , evQueryCardInt in 'w:\common\components\gui\Garant\Everest\qf\evQueryCardInt.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorWheelScroll in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorWheelScroll.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorSelectColumn in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectColumn.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If Defined(k2ForEditor)}
- , evCursorTools in 'w:\common\components\gui\Garant\Everest\evCursorTools.pas'
- {$IfEnd} // Defined(k2ForEditor)
- , evInternalInterfaces in 'w:\common\components\gui\Garant\Everest\evInternalInterfaces.pas'
- , evMsgCode in 'w:\common\components\gui\Garant\Everest\evMsgCode.pas'
- , evOp in 'w:\common\components\gui\Garant\Everest\evOp.pas'
- , k2InterfaceFactory in 'w:\common\components\rtl\Garant\K2\k2InterfaceFactory.pas'
- , k2InterfaceCache in 'w:\common\components\rtl\Garant\K2\k2InterfaceCache.pas'
- , k2InterfaceList in 'w:\common\components\rtl\Garant\K2\k2InterfaceList.pas'
- , k2ToolPrim in 'w:\common\components\rtl\Garant\K2\k2ToolPrim.pas'
- , k2ToolCacheList in 'w:\common\components\rtl\Garant\K2\k2ToolCacheList.pas'
- , k2ToolPrimList in 'w:\common\components\rtl\Garant\K2\k2ToolPrimList.pas'
- , k2TagPointer in 'w:\common\components\rtl\Garant\K2\k2TagPointer.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorSelectCellsVertical in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellsVertical.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorJumpToHyperlink in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorJumpToHyperlink.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , nevNavigation in 'w:\common\components\gui\Garant\Everest\new\nevNavigation.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorRepaintTableLinesAndCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintTableLinesAndCheckWithEtalon.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorPrintAcnhor in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintAcnhor.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorPrintTableCellsParams in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintTableCellsParams.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , nevFormatInfoUtils in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfoUtils.pas'
- , nevTableCellFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevTableCellFormatInfo.pas'
- , nevListFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevListFormatInfo.pas'
- , nevParaFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevParaFormatInfo.pas'
- , nevFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfo.pas'
- , nevFormatInfoFactory in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfoFactory.pas'
- , CommentPara_Const in 'w:\common\components\gui\Garant\Everest\CommentPara_Const.pas'
  , SBS_Const in 'w:\common\components\gui\Garant\Everest\SBS_Const.pas'
+ , Table_Const in 'w:\common\components\gui\Garant\Everest\Table_Const.pas'
+ , TableRow_Const in 'w:\common\components\gui\Garant\Everest\TableRow_Const.pas'
+ , TableCell_Const in 'w:\common\components\gui\Garant\Everest\TableCell_Const.pas'
+ , TableTextPara_Const in 'w:\common\components\gui\Garant\Everest\TableTextPara_Const.pas'
+ , QueryCard_Const in 'w:\common\components\gui\Garant\Everest\QueryCard_Const.pas'
+ , evQueryCardInt in 'w:\common\components\gui\Garant\Everest\qf\evQueryCardInt.pas'
  , SBSRow_Const in 'w:\common\components\gui\Garant\Everest\SBSRow_Const.pas'
  , SBSCell_Const in 'w:\common\components\gui\Garant\Everest\SBSCell_Const.pas'
  , ReqRow_Const in 'w:\common\components\gui\Garant\Everest\ReqRow_Const.pas'
  , k2IUnknown_Const in 'w:\common\components\rtl\Garant\K2\k2IUnknown_Const.pas'
  , ReqCell_Const in 'w:\common\components\gui\Garant\Everest\ReqCell_Const.pas'
  , ControlPara_Const in 'w:\common\components\gui\Garant\Everest\ControlPara_Const.pas'
+ , nevFacade in 'w:\common\components\gui\Garant\Everest\new\nevFacade.pas'
+ , nevTableCellFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevTableCellFormatInfo.pas'
  {$If Defined(k2ForEditor)}
  , evParaTools in 'w:\common\components\gui\Garant\Everest\evParaTools.pas'
  {$IfEnd} // Defined(k2ForEditor)
+ , evInternalInterfaces in 'w:\common\components\gui\Garant\Everest\evInternalInterfaces.pas'
  , evSearch in 'w:\common\components\gui\Garant\Everest\evSearch.pas'
  , nevConfirm in 'w:\common\components\gui\Garant\Everest\new\nevConfirm.pas'
  , evExcept in 'w:\common\components\gui\Garant\Everest\evExcept.pas'
@@ -1081,8 +997,23 @@ uses
  {$IfEnd} // Defined(k2ForEditor) AND Defined(evNeedEditableCursors)
  , k2ProcessorTagTool in 'w:\common\components\rtl\Garant\K2\k2ProcessorTagTool.pas'
  , k2TagTool in 'w:\common\components\rtl\Garant\K2\k2TagTool.pas'
+ , k2TagPointer in 'w:\common\components\rtl\Garant\K2\k2TagPointer.pas'
+ , k2ToolPrim in 'w:\common\components\rtl\Garant\K2\k2ToolPrim.pas'
+ , k2InterfaceFactory in 'w:\common\components\rtl\Garant\K2\k2InterfaceFactory.pas'
+ , k2InterfaceCache in 'w:\common\components\rtl\Garant\K2\k2InterfaceCache.pas'
+ , k2InterfaceList in 'w:\common\components\rtl\Garant\K2\k2InterfaceList.pas'
+ , k2ToolCacheList in 'w:\common\components\rtl\Garant\K2\k2ToolCacheList.pas'
+ , k2ToolPrimList in 'w:\common\components\rtl\Garant\K2\k2ToolPrimList.pas'
+ , l3ProtoObjectRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoObjectRefList.pas'
  , evEditorInterfaces in 'w:\common\components\gui\Garant\Everest\evEditorInterfaces.pas'
+ , nevNavigation in 'w:\common\components\gui\Garant\Everest\new\nevNavigation.pas'
  , evEditorInterfacesTypes in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesTypes.pas'
+ {$If Defined(k2ForEditor)}
+ , evCursorTools in 'w:\common\components\gui\Garant\Everest\evCursorTools.pas'
+ {$IfEnd} // Defined(k2ForEditor)
+ , k2OpMisc in 'w:\common\components\rtl\Garant\K2\k2OpMisc.pas'
+ , evMsgCode in 'w:\common\components\gui\Garant\Everest\evMsgCode.pas'
+ , evOp in 'w:\common\components\gui\Garant\Everest\evOp.pas'
  {$If NOT Defined(NoScripts)}
  , IedTableWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\IedTableWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1096,14 +1027,15 @@ uses
  {$If Defined(k2ForEditor)}
  , evTableCellUtils in 'w:\common\components\gui\Garant\Everest\evTableCellUtils.pas'
  {$IfEnd} // Defined(k2ForEditor)
+ , l3UnitsTools in 'w:\common\components\rtl\Garant\L3\l3UnitsTools.pas'
  , ObjectSegment_Const in 'w:\common\components\rtl\Garant\EVD\ObjectSegment_Const.pas'
- , SegmentWithChildren_Const in 'w:\common\components\rtl\Garant\EVD\SegmentWithChildren_Const.pas'
  , nevTextParaRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevTextParaRenderInfo.pas'
  , nevLeafRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevLeafRenderInfo.pas'
  , nevFormatInfoList in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfoList.pas'
  {$If Defined(k2ForEditor)}
  , evSegLst in 'w:\common\components\gui\Garant\Everest\evSegLst.pas'
  {$IfEnd} // Defined(k2ForEditor)
+ , l3LineArray in 'w:\common\components\rtl\Garant\L3\l3LineArray.pas'
  , evTextParaConst in 'w:\common\components\gui\Garant\Everest\evTextParaConst.pas'
  , nevSegmentObject in 'w:\common\components\gui\Garant\Everest\nevSegmentObject.pas'
  , l3SingleLineInfo in 'w:\common\components\rtl\Garant\L3\l3SingleLineInfo.pas'
@@ -1124,7 +1056,6 @@ uses
  {$If Defined(k2ForEditor)}
  , evAACContentUtils in 'w:\common\components\gui\Garant\Everest\evAACContentUtils.pas'
  {$IfEnd} // Defined(k2ForEditor)
- , HyperLink_Const in 'w:\common\components\rtl\Garant\EVD\HyperLink_Const.pas'
  , nevZoomedCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevZoomedCellsRenderInfo.pas'
  , nevZoomedRubberCellsRenderInfo in 'w:\common\components\gui\Garant\Everest\new\nevZoomedRubberCellsRenderInfo.pas'
  , nevDocumentPartFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevDocumentPartFormatInfo.pas'
@@ -1162,7 +1093,6 @@ uses
  , nevObjectSegmentFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevObjectSegmentFormatInfo.pas'
  , evGlyphFont in 'w:\common\components\gui\Garant\Everest\evGlyphFont.pas'
  , evCustomFont in 'w:\common\components\gui\Garant\Everest\evCustomFont.pas'
- , nevDocumentFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevDocumentFormatInfo.pas'
  , nevSBSCellFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevSBSCellFormatInfo.pas'
  , nevSBSRowFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevSBSRowFormatInfo.pas'
  , nevTableRowRenderInfoEx in 'w:\common\components\gui\Garant\Everest\new\nevTableRowRenderInfoEx.pas'
@@ -1177,333 +1107,68 @@ uses
  , evStandardStylesListPrim in 'w:\common\components\gui\Garant\Everest\evStandardStylesListPrim.pas'
  , evdStylesRes in 'w:\common\components\rtl\Garant\EVD\evdStylesRes.pas'
  , l3ImageList in 'w:\common\components\rtl\Garant\L3\l3ImageList.pas'
+ , l3Bitmap in 'w:\common\components\rtl\Garant\L3\l3Bitmap.pas'
+ , l3Canvas in 'w:\common\components\rtl\Garant\L3\l3Canvas.pas'
+ , l3CanvasPrim in 'w:\common\components\rtl\Garant\L3\l3CanvasPrim.pas'
+ , l3RectList in 'w:\common\components\rtl\Garant\L3\l3RectList.pas'
+ , l3Region in 'w:\common\components\rtl\Garant\L3\l3Region.pas'
+ , l3CanvasUtils in 'w:\common\components\rtl\Garant\L3\l3CanvasUtils.pas'
+ , l3ScreenIC in 'w:\common\components\rtl\Garant\L3\l3ScreenIC.pas'
+ , l3FontTools in 'w:\common\components\rtl\Garant\L3\l3FontTools.pas'
+ , l3FormattedLines in 'w:\common\components\rtl\Garant\L3\l3FormattedLines.pas'
+ , l3VirtualCanvas in 'w:\common\components\rtl\Garant\L3\l3VirtualCanvas.pas'
+ {$If Defined(l3Requires_m0)}
+ , m2XLtLib in 'w:\common\components\rtl\Garant\L3\m2\m2XLtLib.pas'
+ {$IfEnd} // Defined(l3Requires_m0)
+ , l3FrameLines in 'w:\common\components\rtl\Garant\L3\l3FrameLines.pas'
+ , l3FrameObjectList in 'w:\common\components\rtl\Garant\L3\l3FrameObjectList.pas'
+ , l3FrameObject in 'w:\common\components\rtl\Garant\L3\l3FrameObject.pas'
+ , l3CoordinateMap in 'w:\common\components\rtl\Garant\L3\l3CoordinateMap.pas'
+ , l3FrameLineList in 'w:\common\components\rtl\Garant\L3\l3FrameLineList.pas'
+ , l3FrameLine in 'w:\common\components\rtl\Garant\L3\l3FrameLine.pas'
+ , l3InterfacedIntegerList in 'w:\common\components\rtl\Garant\L3\l3InterfacedIntegerList.pas'
+ , l3FrameLinesSpy in 'w:\common\components\rtl\Garant\L3\l3FrameLinesSpy.pas'
  , nevFormatInfoArray in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfoArray.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorLP2DP in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorLP2DP.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorDP2LP in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDP2LP.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorCheckContinueCells in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckContinueCells.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , evTableSearch in 'w:\common\components\gui\Garant\EverestCommon\evTableSearch.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorGetLeftIndentDelta in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLeftIndentDelta.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorParaDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaDown.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwEditorFromStackCursorWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorParaUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaUp.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorParaEnd in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEnd.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorParaHome in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaHome.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorSelectTable in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectTable.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorHasComment in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorHasComment.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwEditorFromStackNextParaWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackNextParaWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwEditorFromStackTextParaWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTextParaWord.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorDeleteUserComment in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDeleteUserComment.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorCurrentText in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCurrentText.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorUpdateCursorFromHotSpot in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpot.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorUpdateCursorFromHotSpotEx in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpotEx.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorTextToFile in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorTextToFile.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , evdMarkEliminator in 'w:\common\components\rtl\Garant\EVD\evdMarkEliminator.pas'
- , Mark_Const in 'w:\common\components\rtl\Garant\EVD\Mark_Const.pas'
- , evdDocumentMarksEliminator in 'w:\common\components\rtl\Garant\EVD\evdDocumentMarksEliminator.pas'
- , evdDocumentBookmarksEliminator in 'w:\common\components\rtl\Garant\EVD\evdDocumentBookmarksEliminator.pas'
- , evdDocumentSubsEliminator in 'w:\common\components\rtl\Garant\EVD\evdDocumentSubsEliminator.pas'
- , evDocumentSubsChildrenCountEliminator in 'w:\common\components\gui\Garant\EverestCommon\evDocumentSubsChildrenCountEliminator.pas'
- , evdHypelinkDocIDEliminator in 'w:\common\components\rtl\Garant\EVD\evdHypelinkDocIDEliminator.pas'
- , evdEmptySubsEliminator in 'w:\common\components\rtl\Garant\EVD\evdEmptySubsEliminator.pas'
- , evdBufferedFilter in 'w:\common\components\rtl\Garant\EVD\evdBufferedFilter.pas'
- , evdStartAndTimeEliminator in 'w:\common\components\gui\Garant\Everest\evdStartAndTimeEliminator.pas'
- , evBitmapEliminator4Tests in 'w:\common\components\gui\Garant\Everest\evBitmapEliminator4Tests.pas'
- {$If NOT Defined(NoImageEn)}
- , imageenio in 'w:\common\components\rtl\external\ImageEn\src\imageenio.pas'
- {$IfEnd} // NOT Defined(NoImageEn)
- , ddPicturePathListner in 'w:\common\components\rtl\Garant\dd\ddPicturePathListner.pas'
- , l3PicturePathService in 'w:\common\components\rtl\Garant\L3\l3PicturePathService.pas'
- {$If NOT Defined(NoScripts)}
- , PictureEtalonsWorkingPack in 'w:\common\components\rtl\Garant\ScriptEngine\PictureEtalonsWorkingPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , ddConst in 'w:\common\components\rtl\Garant\dd\ddConst.pas'
- , ddUtils in 'w:\common\components\rtl\Garant\dd\ddUtils.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorGetSelectionText in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionText.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorGetParaByID in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetParaByID.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorGetSelectionTextInFormat in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionTextInFormat.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , evdBlockNameAdder in 'w:\common\components\gui\Garant\Everest\evdBlockNameAdder.pas'
- , evdHeaderHyperlinkAdder in 'w:\common\components\gui\Garant\Everest\evdHeaderHyperlinkAdder.pas'
- , ContentsElement_Const in 'w:\common\components\gui\Garant\Everest\ContentsElement_Const.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorBlockResize in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResize.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwBlockResize in 'w:\common\components\rtl\Garant\ScriptEngine\kwBlockResize.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorSelectCellByMouse in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellByMouse.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorSetTextParaStyle in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetTextParaStyle.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorSetCursorByPoint in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetCursorByPoint.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If Defined(nsTest) AND NOT Defined(NoScripts)}
- , kwPopEditorRepaintAndCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintAndCheckWithEtalon.pas'
- {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
- , nevShapesPaintedSpy in 'w:\common\components\gui\Garant\Everest\new\nevShapesPaintedSpy.pas'
- , nevShapesPainted in 'w:\common\components\gui\Garant\Everest\new\nevShapesPainted.pas'
- , nevShapePrim in 'w:\common\components\gui\Garant\Everest\new\nevShapePrim.pas'
- , nevShapePrimRefList in 'w:\common\components\gui\Garant\Everest\new\nevShapePrimRefList.pas'
- {$If NOT Defined(NoScripts)}
- , kwPopEditorCopyAndPaste2DocumentBottom in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCopyAndPaste2DocumentBottom.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorResizeTableColumn in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumn.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwEditorFromStackTableColumnResize in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTableColumnResize.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorResizeTableColumnEX in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumnEX.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckWithEtalon.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCheckWithEtalon.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorGetLMargin in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLMargin.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorGetWrapLimit in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetWrapLimit.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorBlockResizeEX in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResizeEX.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorPasteRTF in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteRTF.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwInsertFromStreamCommon in 'w:\common\components\rtl\Garant\ScriptEngine\kwInsertFromStreamCommon.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorInsertStream in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorInsertStream.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorPasteEVDTroughClipboard in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteEVDTroughClipboard.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If Defined(nsTest) AND NOT Defined(NoScripts)}
- , kwBeginWaitPrint in 'w:\common\components\rtl\Garant\ScriptEngine\kwBeginWaitPrint.pas'
- {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
- {$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
- , kwPrintDataSaver in 'w:\common\components\rtl\Garant\ScriptEngine\kwPrintDataSaver.pas'
- {$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
- {$If Defined(InsiderTest)}
- , evCustomPrintDataSaver in 'w:\common\components\gui\Garant\Everest\evCustomPrintDataSaver.pas'
- {$IfEnd} // Defined(InsiderTest)
- {$If Defined(nsTest)}
- , afwPreviewPageSpy in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas'
- {$IfEnd} // Defined(nsTest)
- , afwPreviewPage in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPage.pas'
- , l3Metafile in 'w:\common\components\rtl\Garant\L3\l3Metafile.pas'
- , Consts {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Consts.pas' {$EndIf}
- , l3MetafileHeader in 'w:\common\components\rtl\Garant\L3\l3MetafileHeader.pas'
- , afwPreviewPageList in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageList.pas'
- , l3DataCache in 'w:\common\components\rtl\Garant\L3\l3DataCache.pas'
- {$If Defined(nsTest) AND NOT Defined(NoScripts)}
- , kwEndWaitPrint in 'w:\common\components\rtl\Garant\ScriptEngine\kwEndWaitPrint.pas'
- {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , TevCustomEditorWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TevCustomEditorWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , IedRangeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\IedRangeWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , EditorParaCoordsToScreenPack in 'w:\common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorParaCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaCoordsToScreen.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwParaCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreen.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorParaEndCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEndCoordsToScreen.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorParaMiddleCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaMiddleCoordsToScreen.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwPopEditorCursorCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCursorCoordsToScreen.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , evCustomTextSource in 'w:\common\components\gui\Garant\Everest\evCustomTextSource.pas'
- , evEditorWindowHotSpot in 'w:\common\components\gui\Garant\Everest\evEditorWindowHotSpot.pas'
- , l3Tool in 'w:\common\components\rtl\Garant\L3\l3Tool.pas'
- , evDataObject in 'w:\common\components\gui\Garant\Everest\evDataObject.pas'
- , nevSelection in 'w:\common\components\gui\Garant\Everest\nevSelection.pas'
- , evBlockCursor in 'w:\common\components\gui\Garant\Everest\evBlockCursor.pas'
- , evWindowCursor in 'w:\common\components\gui\Garant\Everest\evWindowCursor.pas'
- , evCursorController in 'w:\common\components\gui\Garant\Everest\evCursorController.pas'
- , evDocumentPartGenerator in 'w:\common\components\gui\Garant\Everest\evDocumentPartGenerator.pas'
- , evDocumentPartGeneratorPrim in 'w:\common\components\gui\Garant\Everest\evDocumentPartGeneratorPrim.pas'
- , evHighLevelDocumentGenerator in 'w:\common\components\gui\Garant\Everest\evHighLevelDocumentGenerator.pas'
- , evGeneratorsInterfaces in 'w:\common\components\gui\Garant\Everest\evGeneratorsInterfaces.pas'
- , afwCaret in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaret.pas'
- , afwCaretPair in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaretPair.pas'
- , afwSingleCaret in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas'
- , afwCustomCaretType in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCaretType.pas'
- , afwInsCaretType in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwInsCaretType.pas'
- , afwOvrCaretType in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwOvrCaretType.pas'
- , nevBasePointList in 'w:\common\components\gui\Garant\Everest\new\nevBasePointList.pas'
- , evRange in 'w:\common\components\gui\Garant\Everest\evRange.pas'
- , k2ProcTagTool in 'w:\common\components\rtl\Garant\K2\k2ProcTagTool.pas'
- , evEditorInterfacesMisc in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesMisc.pas'
- , evBitmapReader in 'w:\common\components\gui\Garant\Everest\evBitmapReader.pas'
- {$If Defined(k2ForEditor)}
- , evUsialParagraph in 'w:\common\components\gui\Garant\Everest\evUsialParagraph.pas'
- {$IfEnd} // Defined(k2ForEditor)
- {$If Defined(k2ForEditor)}
- , evParaFrame in 'w:\common\components\gui\Garant\Everest\evParaFrame.pas'
- {$IfEnd} // Defined(k2ForEditor)
- , evSelectConst in 'w:\common\components\gui\Garant\Everest\evSelectConst.pas'
- , nevView in 'w:\common\components\gui\Garant\Everest\new\nevView.pas'
- , nevBaseDrawView in 'w:\common\components\gui\Garant\Everest\new\nevBaseDrawView.pas'
- , nevBaseView in 'w:\common\components\gui\Garant\Everest\new\nevBaseView.pas'
- , nevObjectList in 'w:\common\components\gui\Garant\Everest\new\nevObjectList.pas'
  , l3PrinterIC in 'w:\common\components\rtl\Garant\L3\l3PrinterIC.pas'
  , Printers {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Printers.pas' {$EndIf}
  , l3Printer in 'w:\common\components\rtl\Garant\L3\l3Printer.pas'
- , nevRealTools in 'w:\common\components\gui\Garant\Everest\new\nevRealTools.pas'
- , nevViewInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevViewInterfaces.pas'
- , l3ProcessMessagesManager in 'w:\common\components\rtl\Garant\L3\l3ProcessMessagesManager.pas'
- , evMultiSelection in 'w:\common\components\gui\Garant\Everest\evMultiSelection.pas'
- , nevRangeList in 'w:\common\components\gui\Garant\Everest\new\nevRangeList.pas'
- , evMultiSelectionBlock in 'w:\common\components\gui\Garant\Everest\evMultiSelectionBlock.pas'
- , evMultiSelectionText in 'w:\common\components\gui\Garant\Everest\evMultiSelectionText.pas'
- , evMultiSelectionDataFormatting in 'w:\common\components\gui\Garant\Everest\evMultiSelectionDataFormatting.pas'
- , evMultiSelectionRange in 'w:\common\components\gui\Garant\Everest\evMultiSelectionRange.pas'
- , evMultiSelectionLocation in 'w:\common\components\gui\Garant\Everest\evMultiSelectionLocation.pas'
- , evLeafParaMultiSelectionBlock in 'w:\common\components\gui\Garant\Everest\evLeafParaMultiSelectionBlock.pas'
- , evTextParaMultiSelectionBlock in 'w:\common\components\gui\Garant\Everest\evTextParaMultiSelectionBlock.pas'
- , evdSegmentsLayerJoiner in 'w:\common\components\rtl\Garant\EVD\evdSegmentsLayerJoiner.pas'
- , k2DocumentBuffer in 'w:\common\components\rtl\Garant\K2\k2DocumentBuffer.pas'
- , evTextParaPartFilter in 'w:\common\components\gui\Garant\Everest\evTextParaPartFilter.pas'
- , nevRangeListTools in 'w:\common\components\gui\Garant\Everest\new\nevRangeListTools.pas'
- , evRangeTools in 'w:\common\components\gui\Garant\Everest\new\evRangeTools.pas'
- , evMultiSelectEditorWindowHotSpot in 'w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindowHotSpot.pas'
- , evCustomMemoTextSource in 'w:\common\components\gui\Garant\Everest\evCustomMemoTextSource.pas'
- , evTextSource in 'w:\common\components\gui\Garant\Everest\evTextSource.pas'
- , evCustomMemoContainer in 'w:\common\components\gui\Garant\Everest\evCustomMemoContainer.pas'
- , nevPrintableDocumentContainer in 'w:\common\components\gui\Garant\Everest\new\nevPrintableDocumentContainer.pas'
- , nevPersistentDocumentContainer in 'w:\common\components\gui\Garant\Everest\new\nevPersistentDocumentContainer.pas'
- , evDocumentContainerWithProcessor in 'w:\common\components\gui\Garant\Everest\new\evDocumentContainerWithProcessor.pas'
- , nevDocumentContainer in 'w:\common\components\gui\Garant\Everest\new\nevDocumentContainer.pas'
- , nevObjectHolderPrim in 'w:\common\components\gui\Garant\Everest\nevObjectHolderPrim.pas'
- , nevDocumentContainerPrim in 'w:\common\components\gui\Garant\Everest\nevDocumentContainerPrim.pas'
- , nevDocumentContainerPrimPrim in 'w:\common\components\gui\Garant\Everest\nevDocumentContainerPrimPrim.pas'
- , DocumentContainer_Const in 'w:\common\components\gui\Garant\Everest\DocumentContainer_Const.pas'
- , nevFormatPool in 'w:\common\components\gui\Garant\Everest\new\nevFormatPool.pas'
- , nevFormatPoolBase in 'w:\common\components\gui\Garant\Everest\new\nevFormatPoolBase.pas'
- , nevRootFormatInfoListPrim in 'w:\common\components\gui\Garant\Everest\new\nevRootFormatInfoListPrim.pas'
- , nevRootFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevRootFormatInfo.pas'
+ , Consts {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Consts.pas' {$EndIf}
  , m2MemLib in 'w:\common\components\rtl\Garant\L3\m2\m2MemLib.pas'
  , nevPrintingRootFormatInfo in 'w:\common\components\gui\Garant\Everest\new\nevPrintingRootFormatInfo.pas'
  , nevSectionBreakList in 'w:\common\components\gui\Garant\Everest\nevSectionBreakList.pas'
  , nevSectionBreakListPrim in 'w:\common\components\gui\Garant\Everest\nevSectionBreakListPrim.pas'
  , l3NotifyPtrList in 'w:\common\components\rtl\Garant\L3\l3NotifyPtrList.pas'
  , SectionBreak_Const in 'w:\common\components\rtl\Garant\EVD\SectionBreak_Const.pas'
- , nevWaiterList in 'w:\common\components\gui\Garant\Everest\new\nevWaiterList.pas'
- , evDocumentPreviewInfoList in 'w:\common\components\gui\Garant\Everest\new\evDocumentPreviewInfoList.pas'
- , k2InternalInterfaces in 'w:\common\components\rtl\Garant\K2\k2InternalInterfaces.pas'
- , nevInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevInterfaces.pas'
- , evDocumentsCache in 'w:\common\components\gui\Garant\Everest\new\evDocumentsCache.pas'
- , evDocumentsCachePrim in 'w:\common\components\gui\Garant\Everest\new\evDocumentsCachePrim.pas'
- , l3DocumentsCacheService in 'w:\common\components\rtl\Garant\L3\l3DocumentsCacheService.pas'
- , nevDocumentContainerList in 'w:\common\components\gui\Garant\Everest\new\nevDocumentContainerList.pas'
- , nevDocumentContainerListPrim in 'w:\common\components\gui\Garant\Everest\new\nevDocumentContainerListPrim.pas'
- , nevTextSourcePool in 'w:\common\components\gui\Garant\Everest\new\nevTextSourcePool.pas'
- , afwComplexDocumentPreviewFactory in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreviewFactory.pas'
- , afwComplexDocumentPreview in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreview.pas'
- , afwPreviewNotifierPtrList in 'w:\common\components\gui\Garant\AFW\implementation\afwPreviewNotifierPtrList.pas'
- , evSubImplementation in 'w:\common\components\gui\Garant\Everest\new\evSubImplementation.pas'
- , evSubNode in 'w:\common\components\gui\Garant\Everest\new\evSubNode.pas'
- , evNode in 'w:\common\components\gui\Garant\Everest\new\evNode.pas'
- , l3NodesModelPart in 'w:\common\components\rtl\Garant\L3\l3NodesModelPart.pas'
- , l3DatLst in 'w:\common\components\rtl\Garant\L3\l3DatLst.pas'
- {$If NOT Defined(NoScripts)}
- , l3NodesKeyWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\l3NodesKeyWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , l3Bits in 'w:\common\components\rtl\Garant\L3\l3Bits.pas'
- {$If NOT Defined(NoScripts)}
- , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
- , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
- , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
- , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
- , evCustomTextFormatter in 'w:\common\components\gui\Garant\Everest\evCustomTextFormatter.pas'
- , evCustomTextFormatterModelPart in 'w:\common\components\gui\Garant\Everest\evCustomTextFormatterModelPart.pas'
- , evdDocumentFilter in 'w:\common\components\rtl\Garant\EVD\evdDocumentFilter.pas'
- , evdPlainTextWriter in 'w:\common\components\rtl\Garant\EVD\evdPlainTextWriter.pas'
- , evdCustomPlainTextWriter in 'w:\common\components\rtl\Garant\EVD\evdCustomPlainTextWriter.pas'
- , evMergedCellFilter in 'w:\common\components\gui\Garant\Everest\evMergedCellFilter.pas'
- , evCellsOffsets in 'w:\common\components\gui\Garant\Everest\evCellsOffsets.pas'
- , evEpsilonLongIntList in 'w:\common\components\gui\Garant\Everest\evEpsilonLongIntList.pas'
- , ShellAPI {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShellAPI.pas' {$EndIf}
- , evCustomWikiReader in 'w:\common\components\gui\Garant\Everest\evCustomWikiReader.pas'
- , evStyleTableTools in 'w:\common\components\gui\Garant\Everest\evStyleTableTools.pas'
- , evStyleHeaderAdder in 'w:\common\components\gui\Garant\Everest\evStyleHeaderAdder.pas'
- , evdNativeUnpackedWriter in 'w:\common\components\rtl\Garant\EVD\evdNativeUnpackedWriter.pas'
- , evDocumentPreview in 'w:\common\components\gui\Garant\Everest\evDocumentPreview.pas'
- , evDocumentPreviewPrim in 'w:\common\components\gui\Garant\Everest\evDocumentPreviewPrim.pas'
  , l3TimeEstimation in 'w:\common\components\rtl\Garant\L3\l3TimeEstimation.pas'
+ , afwPreviewNotifierPtrList in 'w:\common\components\gui\Garant\AFW\implementation\afwPreviewNotifierPtrList.pas'
+ , nevRealTools in 'w:\common\components\gui\Garant\Everest\new\nevRealTools.pas'
+ , nevViewInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevViewInterfaces.pas'
  , afwPreviewCanvas in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewCanvas.pas'
+ , afwPreviewPageList in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageList.pas'
  , l3BaseWithLargeIDList in 'w:\common\components\rtl\Garant\L3\l3BaseWithLargeIDList.pas'
  , l3BaseWithLargeIDListPrim in 'w:\common\components\rtl\Garant\L3\l3BaseWithLargeIDListPrim.pas'
+ , afwPreviewPage in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPage.pas'
+ , l3Metafile in 'w:\common\components\rtl\Garant\L3\l3Metafile.pas'
+ , l3MetafileHeader in 'w:\common\components\rtl\Garant\L3\l3MetafileHeader.pas'
+ , l3DataCache in 'w:\common\components\rtl\Garant\L3\l3DataCache.pas'
+ {$If Defined(nsTest)}
+ , afwPreviewPageSpy in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwPreviewPageSpy.pas'
+ {$IfEnd} // Defined(nsTest)
  , evPreviewProcessor in 'w:\common\components\gui\Garant\Everest\evPreviewProcessor.pas'
  , evNotifiedProcessor in 'w:\common\components\gui\Garant\Everest\evNotifiedProcessor.pas'
+ , nevInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevInterfaces.pas'
  , evParaDrawTools in 'w:\common\components\gui\Garant\Everest\evParaDrawTools.pas'
+ , evdBlockNameAdder in 'w:\common\components\gui\Garant\Everest\evdBlockNameAdder.pas'
+ , evdHeaderHyperlinkAdder in 'w:\common\components\gui\Garant\Everest\evdHeaderHyperlinkAdder.pas'
+ , ContentsElement_Const in 'w:\common\components\gui\Garant\Everest\ContentsElement_Const.pas'
  , nevDocumentProvider in 'w:\common\components\gui\Garant\Everest\nevDocumentProvider.pas'
  , evPreviewForTestsTuning in 'w:\common\components\gui\Garant\Everest\evPreviewForTestsTuning.pas'
  {$If Defined(nsTest)}
  , PrintRowHeightsSpy in 'w:\common\components\gui\Garant\Everest\new\PrintRowHeightsSpy.pas'
  {$IfEnd} // Defined(nsTest)
+ {$If Defined(InsiderTest)}
+ , evCustomPrintDataSaver in 'w:\common\components\gui\Garant\Everest\evCustomPrintDataSaver.pas'
+ {$IfEnd} // Defined(InsiderTest)
  {$If NOT Defined(NoScripts)}
  , afwAnswer in 'w:\common\components\rtl\Garant\L3\afwAnswer.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1516,143 +1181,16 @@ uses
  , afwCanvasEx in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCanvasEx.pas'
  , nevPrintView in 'w:\common\components\gui\Garant\Everest\new\nevPrintView.pas'
  , nevBaseDetachedView in 'w:\common\components\gui\Garant\Everest\new\nevBaseDetachedView.pas'
+ , nevBaseView in 'w:\common\components\gui\Garant\Everest\new\nevBaseView.pas'
+ , nevShapesPainted in 'w:\common\components\gui\Garant\Everest\new\nevShapesPainted.pas'
+ , nevShapePrim in 'w:\common\components\gui\Garant\Everest\new\nevShapePrim.pas'
+ , nevShapePrimRefList in 'w:\common\components\gui\Garant\Everest\new\nevShapePrimRefList.pas'
+ , nevShapesPaintedSpy in 'w:\common\components\gui\Garant\Everest\new\nevShapesPaintedSpy.pas'
  , l3Prg in 'w:\common\components\rtl\Garant\L3\l3Prg.pas'
  , evAbortFilter in 'w:\common\components\gui\Garant\Everest\evAbortFilter.pas'
  , evHiddenFilter in 'w:\common\components\gui\Garant\Everest\evHiddenFilter.pas'
  , evCommentsEliminator in 'w:\common\components\gui\Garant\Everest\evCommentsEliminator.pas'
  , evdPageParamsFilter in 'w:\common\components\rtl\Garant\EVD\evdPageParamsFilter.pas'
- , evHAFPainterEx in 'w:\common\components\gui\Garant\Everest\evHAFPainterEx.pas'
- , evHAFPainter in 'w:\common\components\gui\Garant\Everest\evHAFPainter.pas'
- , evHAFPainterMacros in 'w:\common\components\gui\Garant\Everest\evHAFPainterMacros.pas'
- {$If Defined(k2ForEditor)}
- , evSBSPar in 'w:\common\components\gui\Garant\Everest\evSBSPar.pas'
- {$IfEnd} // Defined(k2ForEditor)
- , nevHAFPainterView in 'w:\common\components\gui\Garant\Everest\new\nevHAFPainterView.pas'
- , nevVirtualDrawView in 'w:\common\components\gui\Garant\Everest\new\nevVirtualDrawView.pas'
- , nevObjectHolder in 'w:\common\components\gui\Garant\Everest\nevObjectHolder.pas'
- , evEditorWindowProcessor in 'w:\common\components\gui\Garant\Everest\evEditorWindowProcessor.pas'
- , evCustomEditorWindowProcessor in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindowProcessor.pas'
- , evFormatHAFMacroReplacer in 'w:\common\components\gui\Garant\Everest\evFormatHAFMacroReplacer.pas'
- , evCustomHAFMacroReplacer in 'w:\common\components\gui\Garant\Everest\evCustomHAFMacroReplacer.pas'
- , evFixedHAFMacroReplacer in 'w:\common\components\gui\Garant\Everest\new\evFixedHAFMacroReplacer.pas'
- , nevDocumentProviderEx in 'w:\common\components\gui\Garant\Everest\nevDocumentProviderEx.pas'
- , evTagsListFilter in 'w:\common\components\gui\Garant\Everest\evTagsListFilter.pas'
- , evMemoProcessor in 'w:\common\components\gui\Garant\Everest\evMemoProcessor.pas'
- , SimpleDocument_Const in 'w:\common\components\gui\Garant\Everest\SimpleDocument_Const.pas'
- , SimpleDocumentTextPara_Const in 'w:\common\components\gui\Garant\Everest\SimpleDocumentTextPara_Const.pas'
- , evMemoContextMenu in 'w:\common\components\gui\Garant\Everest\evMemoContextMenu.pas'
- , evCustomEditTextSource in 'w:\common\components\gui\Garant\Everest\evCustomEditTextSource.pas'
- , evEditDocumentContainer in 'w:\common\components\gui\Garant\Everest\evEditDocumentContainer.pas'
- , evCustomEditDocumentContainer in 'w:\common\components\gui\Garant\Everest\evCustomEditDocumentContainer.pas'
- , evEditProcessor in 'w:\common\components\gui\Garant\Everest\evEditProcessor.pas'
- , TinyDocument_Const in 'w:\common\components\gui\Garant\Everest\TinyDocument_Const.pas'
- , evConvertTextTools in 'w:\common\components\gui\Garant\Everest\evConvertTextTools.pas'
- {$If NOT Defined(NoVCL)}
- , Themes {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Themes.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- , CustomElGraphicButton in 'w:\common\components\gui\Garant\Everest\CustomElGraphicButton.pas'
- , ctTypes in 'w:\common\components\gui\Garant\VT\ComboTree\ctTypes.pas'
- , ElUxTheme in 'w:\common\components\gui\Garant\VT\elClone\Source\ElUxTheme.pas'
- , l3ListenersManager in 'w:\common\components\rtl\Garant\L3\l3ListenersManager.pas'
- , l3WndProcListenersList in 'w:\common\components\rtl\Garant\L3\l3WndProcListenersList.pas'
- , l3CBTListenersList in 'w:\common\components\rtl\Garant\L3\l3CBTListenersList.pas'
- , l3GetMessageListenersList in 'w:\common\components\rtl\Garant\L3\l3GetMessageListenersList.pas'
- , l3WndProcRetListenersList in 'w:\common\components\rtl\Garant\L3\l3WndProcRetListenersList.pas'
- , l3MouseListenersList in 'w:\common\components\rtl\Garant\L3\l3MouseListenersList.pas'
- , l3MouseWheelListenersList in 'w:\common\components\rtl\Garant\L3\l3MouseWheelListenersList.pas'
- , l3ListenersHooks in 'w:\common\components\rtl\Garant\L3\l3ListenersHooks.pas'
- , ElPopBtn in 'w:\common\components\gui\Garant\Everest\ElPopBtn.pas'
- , ElVclUtils in 'w:\common\components\gui\Garant\Everest\ElVclUtils.pas'
- {$If NOT Defined(NoVCL)}
- , l3GetCaptureHelper in 'w:\common\components\rtl\Garant\L3\l3GetCaptureHelper.pas'
- {$IfEnd} // NOT Defined(NoVCL)
- , l3ControlsTypes in 'w:\common\components\rtl\Garant\L3\l3ControlsTypes.pas'
- , AbsSubTree in 'w:\common\components\gui\Garant\VT\ComboTree\AbsSubTree.pas'
- , vtOutlinerWithQuickSearch in 'w:\common\components\gui\Garant\VT\vtOutlinerWithQuickSearch.pas'
- , vtOutliner in 'w:\common\components\gui\Garant\VT\vtOutliner.pas'
- , vtLister in 'w:\common\components\gui\Garant\VT\vtLister.pas'
- , vtHeader in 'w:\common\components\gui\Garant\VT\vtHeader.pas'
- , afwInputControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwInputControl.pas'
- , l3LogicalArray in 'w:\common\components\rtl\Garant\L3\l3LogicalArray.pas'
- , OvcColor in 'w:\common\components\rtl\external\Orpheus\OvcColor.pas'
- , OvcCmd in 'w:\common\components\rtl\external\Orpheus\OvcCmd.pas'
- , OvcConst in 'w:\common\components\rtl\external\Orpheus\OvcConst.pas'
- , OvcData in 'w:\common\components\rtl\external\Orpheus\OvcData.pas'
- , OvcExcpt in 'w:\common\components\rtl\external\Orpheus\OvcExcpt.pas'
- , vtStdRes in 'w:\common\components\gui\Garant\VT\vtStdRes.pas'
- , l3TabStops in 'w:\common\components\rtl\Garant\L3\l3TabStops.pas'
- , vtMultilineHint in 'w:\common\components\gui\Garant\VT\vtMultilineHint.pas'
- , vtHintManager in 'w:\common\components\gui\Garant\VT\vtHintManager.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , vtHintWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , l3FontInfo in 'w:\common\components\rtl\Garant\L3\l3FontInfo.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , ListerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , vtTreeSource in 'w:\common\components\gui\Garant\VT\vtTreeSource.pas'
- , l3Tree in 'w:\common\components\rtl\Garant\L3\l3Tree.pas'
- , l3ItemsStorage in 'w:\common\components\rtl\Garant\L3\l3ItemsStorage.pas'
- , l3TreeUtils in 'w:\common\components\rtl\Garant\L3\l3TreeUtils.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , vtOutlinerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtOutlinerWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , l3SimpleTree in 'w:\common\components\rtl\Garant\L3\l3SimpleTree.pas'
- , ctFakeBoxStrings in 'w:\common\components\gui\Garant\VT\ComboTree\ctFakeBoxStrings.pas'
- , ComboBoxStrings in 'w:\common\components\gui\Garant\VT\ComboTree\ComboBoxStrings.pas'
- , ctComboBoxStringsItemNode in 'w:\common\components\gui\Garant\VT\ComboTree\ctComboBoxStringsItemNode.pas'
- {$If NOT Defined(NoScripts)}
- , vtComboTreeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , vtComboBoxQS in 'w:\common\components\gui\Garant\VT\vtComboBoxQS.pas'
- , l3GraphicControlCanvas in 'w:\common\components\rtl\Garant\L3\l3GraphicControlCanvas.pas'
- {$If NOT Defined(NoVCL)}
- , ComCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ComCtrls.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , TreeNodeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TreeNodeWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , TreeViewWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , Contnrs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Contnrs.pas' {$EndIf}
- , ddAppConfigTypesRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypesRes.pas'
- , vtSpinEdit in 'w:\common\components\gui\Garant\VT\vtSpinEdit.pas'
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , SpinEditWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , vtRadioButton in 'w:\common\components\gui\Garant\VT\vtRadioButton.pas'
- , vtGroupBox in 'w:\common\components\gui\Garant\VT\vtGroupBox.pas'
- , vtPanel in 'w:\common\components\gui\Garant\VT\vtPanel.pas'
- , afwTextControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControl.pas'
- , afwTextControlPrim in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControlPrim.pas'
- , vtButton in 'w:\common\components\gui\Garant\VT\vtButton.pas'
- , eeButton in 'w:\common\components\gui\Garant\VT\eeButton.pas'
- , vtCheckBox in 'w:\common\components\gui\Garant\VT\vtCheckBox.pas'
- , eeCheckBox in 'w:\common\components\gui\Garant\VT\eeCheckBox.pas'
- {$If NOT Defined(NoVCL)}
- , CheckLst {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CheckLst.pas' {$EndIf}
- {$IfEnd} // NOT Defined(NoVCL)
- {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
- , CheckListBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
- , ddAppConfigRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigRes.pas'
- {$If NOT Defined(NoVCM)}
- , vcmModulesForRegister in 'w:\common\components\gui\Garant\VCM\vcmModulesForRegister.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- {$If NOT Defined(NoVCM)}
- , vcmModuleOperationsForRegister in 'w:\common\components\gui\Garant\VCM\vcmModuleOperationsForRegister.pas'
- {$IfEnd} // NOT Defined(NoVCM)
- , moList in 'w:\common\components\SandBox\VCM\View\moList.pas'
- , List_Module in 'w:\common\components\SandBox\VCM\View\List\List_Module.pas'
- , ListPrintAndExportSettingRes in 'w:\common\components\SandBox\VCM\View\List\ListPrintAndExportSettingRes.pas'
- , ListPrintAndExportFontSizeSettingRes in 'w:\common\components\SandBox\VCM\View\List\ListPrintAndExportFontSizeSettingRes.pas'
- , stListPrintAndExportFontSizeItem in 'w:\common\components\SandBox\VCM\View\List\stListPrintAndExportFontSizeItem.pas'
- , evExtFormat in 'w:\common\components\gui\Garant\Everest\ext\evExtFormat.pas'
- , evdScriptHyperlinkEliminator in 'w:\common\components\gui\Garant\Everest\evdScriptHyperlinkEliminator.pas'
- , evdHyperlinkEliminator in 'w:\common\components\rtl\Garant\EVD\evdHyperlinkEliminator.pas'
- , evPDFWriter in 'w:\common\components\gui\Garant\Everest\evPDFWriter.pas'
- , evCustomPDFWriter in 'w:\common\components\gui\Garant\Everest\evCustomPDFWriter.pas'
  , ddPDFExporter in 'w:\common\components\rtl\Garant\dd\ddPDFExporter.pas'
  , GarantPDFDocument in 'w:\common\components\rtl\external\SynPDF\GarantPDFDocument.pas'
  , SynPDF in 'w:\common\components\rtl\external\SynPDF\SynPDF.pas'
@@ -1661,11 +1199,27 @@ uses
  , SynZip in 'w:\common\components\rtl\external\SynPDF\SynZip.pas'
  , SynGdiPlus in 'w:\common\components\rtl\external\SynPDF\SynGdiPlus.pas'
  , SynLZ in 'w:\common\components\rtl\external\SynPDF\SynLZ.pas'
+ , ddPicturePathListner in 'w:\common\components\rtl\Garant\dd\ddPicturePathListner.pas'
+ , l3PicturePathService in 'w:\common\components\rtl\Garant\L3\l3PicturePathService.pas'
+ {$If NOT Defined(NoScripts)}
+ , PictureEtalonsWorkingPack in 'w:\common\components\rtl\Garant\ScriptEngine\PictureEtalonsWorkingPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , ddConst in 'w:\common\components\rtl\Garant\dd\ddConst.pas'
+ , ddUtils in 'w:\common\components\rtl\Garant\dd\ddUtils.pas'
  , nevDocumentProvider4PDF in 'w:\common\components\gui\Garant\Everest\nevDocumentProvider4PDF.pas'
+ , nevDocumentProviderEx in 'w:\common\components\gui\Garant\Everest\nevDocumentProviderEx.pas'
  {$If NOT Defined(NoVCM)}
  , StdRes in 'StdRes.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  , l3MouseWheelHelper in 'w:\common\components\rtl\Garant\L3\l3MouseWheelHelper.pas'
+ , l3ListenersManager in 'w:\common\components\rtl\Garant\L3\l3ListenersManager.pas'
+ , l3WndProcListenersList in 'w:\common\components\rtl\Garant\L3\l3WndProcListenersList.pas'
+ , l3CBTListenersList in 'w:\common\components\rtl\Garant\L3\l3CBTListenersList.pas'
+ , l3GetMessageListenersList in 'w:\common\components\rtl\Garant\L3\l3GetMessageListenersList.pas'
+ , l3WndProcRetListenersList in 'w:\common\components\rtl\Garant\L3\l3WndProcRetListenersList.pas'
+ , l3MouseListenersList in 'w:\common\components\rtl\Garant\L3\l3MouseListenersList.pas'
+ , l3MouseWheelListenersList in 'w:\common\components\rtl\Garant\L3\l3MouseWheelListenersList.pas'
+ , l3ListenersHooks in 'w:\common\components\rtl\Garant\L3\l3ListenersHooks.pas'
  , VCMSandBoxTestRes in 'w:\common\components\SandBox\VCM\VCMSandBoxTestRes.pas'
  {$If Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NotTunedDUnit) AND NOT Defined(NoScripts)}
  , tfwScriptDebugger in 'w:\common\components\rtl\Garant\DUnitTuning\tfwScriptDebugger.pas'
@@ -1762,6 +1316,12 @@ uses
  , tfwKConst in 'w:\common\components\rtl\Garant\DUnitTuning\tfwKConst.pas'
  {$IfEnd} // Defined(nsTest) AND NOT Defined(NotTunedDUnit)
  , l3ImageUtils in 'w:\common\components\rtl\Garant\L3\l3ImageUtils.pas'
+ {$If Defined(InsiderTest) AND NOT Defined(NoScripts)}
+ , kwPrintDataSaver in 'w:\common\components\rtl\Garant\ScriptEngine\kwPrintDataSaver.pas'
+ {$IfEnd} // Defined(InsiderTest) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoImageEn)}
+ , imageenio in 'w:\common\components\rtl\external\ImageEn\src\imageenio.pas'
+ {$IfEnd} // NOT Defined(NoImageEn)
  , l3EtalonsService in 'w:\common\components\rtl\Garant\L3\l3EtalonsService.pas'
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine in 'w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngine.pas'
@@ -1815,16 +1375,11 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , tfwParser in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas'
  , tfwCachedTokens in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
- , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
- , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ItfwParserExWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserExWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwStoredValuesStack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , seThreadSupport in 'w:\common\components\rtl\Garant\ScriptEngine\seThreadSupport.pas'
@@ -1876,9 +1431,443 @@ uses
  {$If Defined(nsTest)}
  , GUITestRunner in 'w:\common\components\rtl\external\DUnit\src\GUITestRunner.pas'
  {$IfEnd} // Defined(nsTest)
+ , vtComboBoxQS in 'w:\common\components\gui\Garant\VT\vtComboBoxQS.pas'
+ , vtComboTree in 'w:\common\components\gui\Garant\VT\ComboTree\vtComboTree.pas'
+ , FakeBox in 'w:\common\components\gui\Garant\VT\ComboTree\FakeBox.pas'
+ , EditableBox in 'w:\common\components\gui\Garant\VT\ComboTree\EditableBox.pas'
+ , DropDownTree in 'w:\common\components\gui\Garant\VT\ComboTree\DropDownTree.pas'
+ , AbstractDropDown in 'w:\common\components\gui\Garant\VT\ComboTree\AbstractDropDown.pas'
+ , ctAbstractEdit in 'w:\common\components\gui\Garant\VT\ComboTree\ctAbstractEdit.pas'
+ , ctButtonEdit in 'w:\common\components\gui\Garant\Everest\ctButtonEdit.pas'
+ , elCustomButtonEdit in 'w:\common\components\gui\Garant\Everest\elCustomButtonEdit.pas'
+ , elCustomEdit in 'w:\common\components\gui\Garant\Everest\elCustomEdit.pas'
+ , evCustomEdit in 'w:\common\components\gui\Garant\Everest\evCustomEdit.pas'
+ , evCustomMemo in 'w:\common\components\gui\Garant\Everest\evCustomMemo.pas'
+ , evEditorWithOperations in 'w:\common\components\gui\Garant\Everest\evEditorWithOperations.pas'
+ , evCustomEditor in 'w:\common\components\gui\Garant\Everest\evCustomEditor.pas'
+ , evCustomEditorModelPart in 'w:\common\components\gui\Garant\Everest\evCustomEditorModelPart.pas'
+ , evMultiSelectEditorWindow in 'w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindow.pas'
+ , evCustomEditorWindowModelPart in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindowModelPart.pas'
+ , evCustomEditorWindow in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindow.pas'
+ , evCustomEditorWindowPrim in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindowPrim.pas'
+ , nevControl in 'w:\common\components\gui\Garant\Everest\nevControl.pas'
+ , afwControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwControl.pas'
+ , afwBaseControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwBaseControl.pas'
+ , afwControlPrim in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwControlPrim.pas'
+ , OvcBase in 'w:\common\components\rtl\external\Orpheus\OvcBase.pas'
+ , OvcController in 'w:\common\components\rtl\external\Orpheus\OvcController.pas'
+ , l3WinControlCanvas in 'w:\common\components\rtl\Garant\L3\l3WinControlCanvas.pas'
+ , l3ControlCanvas in 'w:\common\components\rtl\Garant\L3\l3ControlCanvas.pas'
+ {$If NOT Defined(NoVCL)}
+ , StdCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\StdCtrls.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RadioButtonWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioButtonWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , vtComboBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtComboBoxWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3Operations in 'w:\common\components\rtl\Garant\L3\l3Operations.pas'
+ , l3DropTarget in 'w:\common\components\rtl\Garant\L3\l3DropTarget.pas'
+ , l3DropSource in 'w:\common\components\rtl\Garant\L3\l3DropSource.pas'
+ , afwVCL in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwVCL.pas'
+ , afwFont in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas'
+ , afwHintManager in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwHintManager.pas'
+ {$If NOT Defined(NoVCL)}
+ , ExtCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ExtCtrls.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , PanelProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\PanelProcessingPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , RadioGroupWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\RadioGroupWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3CustomControlCanvas in 'w:\common\components\rtl\Garant\L3\l3CustomControlCanvas.pas'
+ {$If NOT Defined(NoScripts)}
+ , evSchemaWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\evSchemaWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evEvdRd in 'w:\common\components\gui\Garant\Everest\evEvdRd.pas'
+ {$If NOT Defined(NoScripts)}
+ , evParaWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\evParaWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , EditorFromStackKeyWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\EditorFromStackKeyWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorSelectCells in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCells.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwSelectCellsWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwSelectCellsWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwEditorFromStackWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , nevGUIInterfaces in 'w:\common\components\gui\Garant\Everest\new\nevGUIInterfaces.pas'
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorWheelScroll in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorWheelScroll.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorSelectColumn in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectColumn.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorSelectCellsVertical in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellsVertical.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorJumpToHyperlink in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorJumpToHyperlink.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorRepaintTableLinesAndCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintTableLinesAndCheckWithEtalon.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorPrintAcnhor in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintAcnhor.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorPrintTableCellsParams in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPrintTableCellsParams.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , nevFormatInfoUtils in 'w:\common\components\gui\Garant\Everest\new\nevFormatInfoUtils.pas'
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorLP2DP in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorLP2DP.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorDP2LP in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDP2LP.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorCheckContinueCells in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckContinueCells.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evTableSearch in 'w:\common\components\gui\Garant\EverestCommon\evTableSearch.pas'
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorGetLeftIndentDelta in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLeftIndentDelta.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorParaDown in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaDown.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwEditorFromStackCursorWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackCursorWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorParaUp in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaUp.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorParaEnd in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEnd.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorParaHome in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaHome.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorSelectTable in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectTable.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorHasComment in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorHasComment.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwEditorFromStackNextParaWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackNextParaWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwEditorFromStackTextParaWord in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTextParaWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorDeleteUserComment in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorDeleteUserComment.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorCurrentText in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCurrentText.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorUpdateCursorFromHotSpot in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpot.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorUpdateCursorFromHotSpotEx in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorUpdateCursorFromHotSpotEx.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorTextToFile in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorTextToFile.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evdMarkEliminator in 'w:\common\components\rtl\Garant\EVD\evdMarkEliminator.pas'
+ , Mark_Const in 'w:\common\components\rtl\Garant\EVD\Mark_Const.pas'
+ , evdDocumentMarksEliminator in 'w:\common\components\rtl\Garant\EVD\evdDocumentMarksEliminator.pas'
+ , evdDocumentBookmarksEliminator in 'w:\common\components\rtl\Garant\EVD\evdDocumentBookmarksEliminator.pas'
+ , evdDocumentSubsEliminator in 'w:\common\components\rtl\Garant\EVD\evdDocumentSubsEliminator.pas'
+ , evDocumentSubsChildrenCountEliminator in 'w:\common\components\gui\Garant\EverestCommon\evDocumentSubsChildrenCountEliminator.pas'
+ , evdHypelinkDocIDEliminator in 'w:\common\components\rtl\Garant\EVD\evdHypelinkDocIDEliminator.pas'
+ , evdEmptySubsEliminator in 'w:\common\components\rtl\Garant\EVD\evdEmptySubsEliminator.pas'
+ , evdBufferedFilter in 'w:\common\components\rtl\Garant\EVD\evdBufferedFilter.pas'
+ , evdStartAndTimeEliminator in 'w:\common\components\gui\Garant\Everest\evdStartAndTimeEliminator.pas'
+ , evBitmapEliminator4Tests in 'w:\common\components\gui\Garant\Everest\evBitmapEliminator4Tests.pas'
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorGetSelectionText in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionText.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorGetParaByID in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetParaByID.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorGetSelectionTextInFormat in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetSelectionTextInFormat.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorBlockResize in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResize.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwBlockResize in 'w:\common\components\rtl\Garant\ScriptEngine\kwBlockResize.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorSelectCellByMouse in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSelectCellByMouse.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorSetTextParaStyle in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetTextParaStyle.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorSetCursorByPoint in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorSetCursorByPoint.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If Defined(nsTest) AND NOT Defined(NoScripts)}
+ , kwPopEditorRepaintAndCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorRepaintAndCheckWithEtalon.pas'
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorCopyAndPaste2DocumentBottom in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCopyAndPaste2DocumentBottom.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorResizeTableColumn in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumn.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwEditorFromStackTableColumnResize in 'w:\common\components\rtl\Garant\ScriptEngine\kwEditorFromStackTableColumnResize.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorResizeTableColumnEX in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorResizeTableColumnEX.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCheckWithEtalon.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledCheckWithEtalon in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledCheckWithEtalon.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorGetLMargin in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetLMargin.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorGetWrapLimit in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorGetWrapLimit.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorBlockResizeEX in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorBlockResizeEX.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorPasteRTF in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteRTF.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwInsertFromStreamCommon in 'w:\common\components\rtl\Garant\ScriptEngine\kwInsertFromStreamCommon.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorInsertStream in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorInsertStream.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorPasteEVDTroughClipboard in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorPasteEVDTroughClipboard.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If Defined(nsTest) AND NOT Defined(NoScripts)}
+ , kwBeginWaitPrint in 'w:\common\components\rtl\Garant\ScriptEngine\kwBeginWaitPrint.pas'
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+ {$If Defined(nsTest) AND NOT Defined(NoScripts)}
+ , kwEndWaitPrint in 'w:\common\components\rtl\Garant\ScriptEngine\kwEndWaitPrint.pas'
+ {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TevCustomEditorWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TevCustomEditorWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , IedRangeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\IedRangeWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , EditorParaCoordsToScreenPack in 'w:\common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorParaCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaCoordsToScreen.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwParaCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreen.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorParaEndCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaEndCoordsToScreen.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorParaMiddleCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorParaMiddleCoordsToScreen.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPopEditorCursorCoordsToScreen in 'w:\common\components\rtl\Garant\ScriptEngine\kwPopEditorCursorCoordsToScreen.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evCustomTextSource in 'w:\common\components\gui\Garant\Everest\evCustomTextSource.pas'
+ , evEditorWindowHotSpot in 'w:\common\components\gui\Garant\Everest\evEditorWindowHotSpot.pas'
+ , l3Tool in 'w:\common\components\rtl\Garant\L3\l3Tool.pas'
+ , evDataObject in 'w:\common\components\gui\Garant\Everest\evDataObject.pas'
+ , nevSelection in 'w:\common\components\gui\Garant\Everest\nevSelection.pas'
+ , evBlockCursor in 'w:\common\components\gui\Garant\Everest\evBlockCursor.pas'
+ , evWindowCursor in 'w:\common\components\gui\Garant\Everest\evWindowCursor.pas'
+ , evCursorController in 'w:\common\components\gui\Garant\Everest\evCursorController.pas'
+ , evDocumentPartGenerator in 'w:\common\components\gui\Garant\Everest\evDocumentPartGenerator.pas'
+ , evDocumentPartGeneratorPrim in 'w:\common\components\gui\Garant\Everest\evDocumentPartGeneratorPrim.pas'
+ , evHighLevelDocumentGenerator in 'w:\common\components\gui\Garant\Everest\evHighLevelDocumentGenerator.pas'
+ , evGeneratorsInterfaces in 'w:\common\components\gui\Garant\Everest\evGeneratorsInterfaces.pas'
+ , afwCaret in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaret.pas'
+ , afwCaretPair in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCaretPair.pas'
+ , afwSingleCaret in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwSingleCaret.pas'
+ , afwCustomCaretType in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwCustomCaretType.pas'
+ , afwInsCaretType in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwInsCaretType.pas'
+ , afwOvrCaretType in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwOvrCaretType.pas'
+ , nevBasePointList in 'w:\common\components\gui\Garant\Everest\new\nevBasePointList.pas'
+ , evRange in 'w:\common\components\gui\Garant\Everest\evRange.pas'
+ , k2ProcTagTool in 'w:\common\components\rtl\Garant\K2\k2ProcTagTool.pas'
+ , evEditorInterfacesMisc in 'w:\common\components\gui\Garant\Everest\evEditorInterfacesMisc.pas'
+ , evBitmapReader in 'w:\common\components\gui\Garant\Everest\evBitmapReader.pas'
+ {$If Defined(k2ForEditor)}
+ , evUsialParagraph in 'w:\common\components\gui\Garant\Everest\evUsialParagraph.pas'
+ {$IfEnd} // Defined(k2ForEditor)
+ {$If Defined(k2ForEditor)}
+ , evParaFrame in 'w:\common\components\gui\Garant\Everest\evParaFrame.pas'
+ {$IfEnd} // Defined(k2ForEditor)
+ , evSelectConst in 'w:\common\components\gui\Garant\Everest\evSelectConst.pas'
+ , nevView in 'w:\common\components\gui\Garant\Everest\new\nevView.pas'
+ , nevBaseDrawView in 'w:\common\components\gui\Garant\Everest\new\nevBaseDrawView.pas'
+ , nevObjectList in 'w:\common\components\gui\Garant\Everest\new\nevObjectList.pas'
+ , l3ProcessMessagesManager in 'w:\common\components\rtl\Garant\L3\l3ProcessMessagesManager.pas'
+ , evMultiSelection in 'w:\common\components\gui\Garant\Everest\evMultiSelection.pas'
+ , nevRangeList in 'w:\common\components\gui\Garant\Everest\new\nevRangeList.pas'
+ , evMultiSelectionBlock in 'w:\common\components\gui\Garant\Everest\evMultiSelectionBlock.pas'
+ , evMultiSelectionText in 'w:\common\components\gui\Garant\Everest\evMultiSelectionText.pas'
+ , evMultiSelectionDataFormatting in 'w:\common\components\gui\Garant\Everest\evMultiSelectionDataFormatting.pas'
+ , evMultiSelectionRange in 'w:\common\components\gui\Garant\Everest\evMultiSelectionRange.pas'
+ , evMultiSelectionLocation in 'w:\common\components\gui\Garant\Everest\evMultiSelectionLocation.pas'
+ , evLeafParaMultiSelectionBlock in 'w:\common\components\gui\Garant\Everest\evLeafParaMultiSelectionBlock.pas'
+ , evTextParaMultiSelectionBlock in 'w:\common\components\gui\Garant\Everest\evTextParaMultiSelectionBlock.pas'
+ , evdSegmentsLayerJoiner in 'w:\common\components\rtl\Garant\EVD\evdSegmentsLayerJoiner.pas'
+ , evTextParaPartFilter in 'w:\common\components\gui\Garant\Everest\evTextParaPartFilter.pas'
+ , nevRangeListTools in 'w:\common\components\gui\Garant\Everest\new\nevRangeListTools.pas'
+ , evRangeTools in 'w:\common\components\gui\Garant\Everest\new\evRangeTools.pas'
+ , evMultiSelectEditorWindowHotSpot in 'w:\common\components\gui\Garant\Everest\evMultiSelectEditorWindowHotSpot.pas'
+ , evCustomMemoTextSource in 'w:\common\components\gui\Garant\Everest\evCustomMemoTextSource.pas'
+ , evTextSource in 'w:\common\components\gui\Garant\Everest\evTextSource.pas'
+ , evCustomMemoContainer in 'w:\common\components\gui\Garant\Everest\evCustomMemoContainer.pas'
+ , nevPrintableDocumentContainer in 'w:\common\components\gui\Garant\Everest\new\nevPrintableDocumentContainer.pas'
+ , nevPersistentDocumentContainer in 'w:\common\components\gui\Garant\Everest\new\nevPersistentDocumentContainer.pas'
+ , evDocumentContainerWithProcessor in 'w:\common\components\gui\Garant\Everest\new\evDocumentContainerWithProcessor.pas'
+ , nevDocumentContainer in 'w:\common\components\gui\Garant\Everest\new\nevDocumentContainer.pas'
+ , nevWaiterList in 'w:\common\components\gui\Garant\Everest\new\nevWaiterList.pas'
+ , evDocumentPreviewInfoList in 'w:\common\components\gui\Garant\Everest\new\evDocumentPreviewInfoList.pas'
+ , k2InternalInterfaces in 'w:\common\components\rtl\Garant\K2\k2InternalInterfaces.pas'
+ , evDocumentsCache in 'w:\common\components\gui\Garant\Everest\new\evDocumentsCache.pas'
+ , evDocumentsCachePrim in 'w:\common\components\gui\Garant\Everest\new\evDocumentsCachePrim.pas'
+ , l3DocumentsCacheService in 'w:\common\components\rtl\Garant\L3\l3DocumentsCacheService.pas'
+ , nevDocumentContainerList in 'w:\common\components\gui\Garant\Everest\new\nevDocumentContainerList.pas'
+ , nevDocumentContainerListPrim in 'w:\common\components\gui\Garant\Everest\new\nevDocumentContainerListPrim.pas'
+ , nevTextSourcePool in 'w:\common\components\gui\Garant\Everest\new\nevTextSourcePool.pas'
+ , afwComplexDocumentPreviewFactory in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreviewFactory.pas'
+ , afwComplexDocumentPreview in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwComplexDocumentPreview.pas'
+ , evSubImplementation in 'w:\common\components\gui\Garant\Everest\new\evSubImplementation.pas'
+ , evSubNode in 'w:\common\components\gui\Garant\Everest\new\evSubNode.pas'
+ , evNode in 'w:\common\components\gui\Garant\Everest\new\evNode.pas'
+ , l3NodesModelPart in 'w:\common\components\rtl\Garant\L3\l3NodesModelPart.pas'
+ , l3DatLst in 'w:\common\components\rtl\Garant\L3\l3DatLst.pas'
+ {$If NOT Defined(NoScripts)}
+ , l3NodesKeyWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\l3NodesKeyWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , l3Bits in 'w:\common\components\rtl\Garant\L3\l3Bits.pas'
+ {$If NOT Defined(NoScripts)}
+ , InterfacedNodeWords in 'w:\common\components\rtl\Garant\ScriptEngine\InterfacedNodeWords.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , Bookmark_Const in 'w:\common\components\rtl\Garant\EVD\Bookmark_Const.pas'
+ , evDefaultContext in 'w:\common\components\gui\Garant\Everest\evDefaultContext.pas'
+ , evCustomTxtReader in 'w:\common\components\gui\Garant\Everest\evCustomTxtReader.pas'
+ , evTextFormatter in 'w:\common\components\gui\Garant\Everest\evTextFormatter.pas'
+ , evCustomTextFormatter in 'w:\common\components\gui\Garant\Everest\evCustomTextFormatter.pas'
+ , evCustomTextFormatterModelPart in 'w:\common\components\gui\Garant\Everest\evCustomTextFormatterModelPart.pas'
+ , evdDocumentFilter in 'w:\common\components\rtl\Garant\EVD\evdDocumentFilter.pas'
+ , evdPlainTextWriter in 'w:\common\components\rtl\Garant\EVD\evdPlainTextWriter.pas'
+ , evdCustomPlainTextWriter in 'w:\common\components\rtl\Garant\EVD\evdCustomPlainTextWriter.pas'
+ , evMergedCellFilter in 'w:\common\components\gui\Garant\Everest\evMergedCellFilter.pas'
+ , evCellsOffsets in 'w:\common\components\gui\Garant\Everest\evCellsOffsets.pas'
+ , evEpsilonLongIntList in 'w:\common\components\gui\Garant\Everest\evEpsilonLongIntList.pas'
+ , ShellAPI {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShellAPI.pas' {$EndIf}
+ , evCustomWikiReader in 'w:\common\components\gui\Garant\Everest\evCustomWikiReader.pas'
+ , evStyleTableTools in 'w:\common\components\gui\Garant\Everest\evStyleTableTools.pas'
+ , evStyleHeaderAdder in 'w:\common\components\gui\Garant\Everest\evStyleHeaderAdder.pas'
+ , evdNativeUnpackedWriter in 'w:\common\components\rtl\Garant\EVD\evdNativeUnpackedWriter.pas'
+ , evHAFPainterEx in 'w:\common\components\gui\Garant\Everest\evHAFPainterEx.pas'
+ , evHAFPainter in 'w:\common\components\gui\Garant\Everest\evHAFPainter.pas'
+ , evHAFPainterMacros in 'w:\common\components\gui\Garant\Everest\evHAFPainterMacros.pas'
+ {$If Defined(k2ForEditor)}
+ , evSBSPar in 'w:\common\components\gui\Garant\Everest\evSBSPar.pas'
+ {$IfEnd} // Defined(k2ForEditor)
+ , nevHAFPainterView in 'w:\common\components\gui\Garant\Everest\new\nevHAFPainterView.pas'
+ , nevVirtualDrawView in 'w:\common\components\gui\Garant\Everest\new\nevVirtualDrawView.pas'
+ , nevObjectHolder in 'w:\common\components\gui\Garant\Everest\nevObjectHolder.pas'
+ , evEditorWindowProcessor in 'w:\common\components\gui\Garant\Everest\evEditorWindowProcessor.pas'
+ , evCustomEditorWindowProcessor in 'w:\common\components\gui\Garant\Everest\evCustomEditorWindowProcessor.pas'
+ , evFormatHAFMacroReplacer in 'w:\common\components\gui\Garant\Everest\evFormatHAFMacroReplacer.pas'
+ , evCustomHAFMacroReplacer in 'w:\common\components\gui\Garant\Everest\evCustomHAFMacroReplacer.pas'
+ , evFixedHAFMacroReplacer in 'w:\common\components\gui\Garant\Everest\new\evFixedHAFMacroReplacer.pas'
+ , evTagsListFilter in 'w:\common\components\gui\Garant\Everest\evTagsListFilter.pas'
+ , evMemoProcessor in 'w:\common\components\gui\Garant\Everest\evMemoProcessor.pas'
+ , SimpleDocument_Const in 'w:\common\components\gui\Garant\Everest\SimpleDocument_Const.pas'
+ , SimpleDocumentTextPara_Const in 'w:\common\components\gui\Garant\Everest\SimpleDocumentTextPara_Const.pas'
+ , evMemoContextMenu in 'w:\common\components\gui\Garant\Everest\evMemoContextMenu.pas'
+ , evCustomEditTextSource in 'w:\common\components\gui\Garant\Everest\evCustomEditTextSource.pas'
+ , evEditDocumentContainer in 'w:\common\components\gui\Garant\Everest\evEditDocumentContainer.pas'
+ , evCustomEditDocumentContainer in 'w:\common\components\gui\Garant\Everest\evCustomEditDocumentContainer.pas'
+ , evEditProcessor in 'w:\common\components\gui\Garant\Everest\evEditProcessor.pas'
+ , TinyDocument_Const in 'w:\common\components\gui\Garant\Everest\TinyDocument_Const.pas'
+ , evConvertTextTools in 'w:\common\components\gui\Garant\Everest\evConvertTextTools.pas'
+ {$If NOT Defined(NoVCL)}
+ , Themes {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\Themes.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ , CustomElGraphicButton in 'w:\common\components\gui\Garant\Everest\CustomElGraphicButton.pas'
+ , ctTypes in 'w:\common\components\gui\Garant\VT\ComboTree\ctTypes.pas'
+ , ElUxTheme in 'w:\common\components\gui\Garant\VT\elClone\Source\ElUxTheme.pas'
+ , ElPopBtn in 'w:\common\components\gui\Garant\Everest\ElPopBtn.pas'
+ , ElVclUtils in 'w:\common\components\gui\Garant\Everest\ElVclUtils.pas'
+ {$If NOT Defined(NoVCL)}
+ , l3GetCaptureHelper in 'w:\common\components\rtl\Garant\L3\l3GetCaptureHelper.pas'
+ {$IfEnd} // NOT Defined(NoVCL)
+ , l3ControlsTypes in 'w:\common\components\rtl\Garant\L3\l3ControlsTypes.pas'
+ , AbsSubTree in 'w:\common\components\gui\Garant\VT\ComboTree\AbsSubTree.pas'
+ , vtOutlinerWithQuickSearch in 'w:\common\components\gui\Garant\VT\vtOutlinerWithQuickSearch.pas'
+ , vtOutliner in 'w:\common\components\gui\Garant\VT\vtOutliner.pas'
+ , vtLister in 'w:\common\components\gui\Garant\VT\vtLister.pas'
+ , vtHeader in 'w:\common\components\gui\Garant\VT\vtHeader.pas'
+ , afwInputControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwInputControl.pas'
+ , l3LogicalArray in 'w:\common\components\rtl\Garant\L3\l3LogicalArray.pas'
+ , OvcColor in 'w:\common\components\rtl\external\Orpheus\OvcColor.pas'
+ , OvcCmd in 'w:\common\components\rtl\external\Orpheus\OvcCmd.pas'
+ , OvcConst in 'w:\common\components\rtl\external\Orpheus\OvcConst.pas'
+ , OvcData in 'w:\common\components\rtl\external\Orpheus\OvcData.pas'
+ , OvcExcpt in 'w:\common\components\rtl\external\Orpheus\OvcExcpt.pas'
+ , vtStdRes in 'w:\common\components\gui\Garant\VT\vtStdRes.pas'
+ , l3TabStops in 'w:\common\components\rtl\Garant\L3\l3TabStops.pas'
+ , vtMultilineHint in 'w:\common\components\gui\Garant\VT\vtMultilineHint.pas'
+ , vtHintManager in 'w:\common\components\gui\Garant\VT\vtHintManager.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , vtHintWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3FontInfo in 'w:\common\components\rtl\Garant\L3\l3FontInfo.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , ListerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ListerWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , vtTreeSource in 'w:\common\components\gui\Garant\VT\vtTreeSource.pas'
+ , l3Tree in 'w:\common\components\rtl\Garant\L3\l3Tree.pas'
+ , l3ItemsStorage in 'w:\common\components\rtl\Garant\L3\l3ItemsStorage.pas'
+ , l3TreeUtils in 'w:\common\components\rtl\Garant\L3\l3TreeUtils.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , vtOutlinerWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtOutlinerWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , l3SimpleTree in 'w:\common\components\rtl\Garant\L3\l3SimpleTree.pas'
+ , ctFakeBoxStrings in 'w:\common\components\gui\Garant\VT\ComboTree\ctFakeBoxStrings.pas'
+ , ComboBoxStrings in 'w:\common\components\gui\Garant\VT\ComboTree\ComboBoxStrings.pas'
+ , ctComboBoxStringsItemNode in 'w:\common\components\gui\Garant\VT\ComboTree\ctComboBoxStringsItemNode.pas'
+ {$If NOT Defined(NoScripts)}
+ , vtComboTreeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , kwKeyWordsPack in 'w:\common\components\rtl\Garant\DUnit_Script_Support\kwKeyWordsPack.pas'
  {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoVCL)}
+ , ComCtrls {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\ComCtrls.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TreeNodeWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TreeNodeWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , TreeViewWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  {$If Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , TTreeNodeForTestsWordsPack in 'w:\common\components\rtl\Garant\DUnit_Script_Support\TTreeNodeForTestsWordsPack.pas'
  {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

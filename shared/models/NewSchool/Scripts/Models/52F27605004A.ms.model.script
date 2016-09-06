@@ -1,0 +1,286 @@
+// TasksProcessing 52F27605004A TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F27605004A
+
+FORWARD ME_52F2763F0320
+
+ME ME_52F2765601BE
+ MEPROP UID '52F2765601BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+
+ENDME // ME_52F2765601BE DoIt
+
+ME ME_52F8BAB80171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_4B990EF000AA' '4B990EDE031A.ms.model.script' // ddAppConfig
+ ;
+
+ENDME // ME_52F8BAB80171 
+
+ME ME_52F8BB010238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_52F8BB010238 
+
+ME ME_52F8BB1B00EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_52E8DF0A03BA' '52E8D676018A.ms.model.script' // TAutoPipeServerForm
+ ;
+
+ENDME // ME_52F8BB1B00EF 
+
+ME ME_52F8BDD70293
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_4F191FDD0358' '47D0290B016D.ms.model.script' // ConcatDirName
+ ;
+
+ENDME // ME_52F8BDD70293 
+
+ME ME_52F8BE48022A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_52F8BE3100F5' '53D656130130.ms.model.script' // alcuTaskManager
+ ;
+
+ENDME // ME_52F8BE48022A 
+
+ME ME_52F8C2DF01B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_52F8C2DF01B1 
+
+ME ME_52F8CA22022D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_52F8C9E00037' '53D656130130.ms.model.script' // TalcuServer
+ ;
+
+ENDME // ME_52F8CA22022D 
+
+ME ME_52F8E8C40225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_52F8E8A101EC' '52F8E847028C.ms.model.script' // TddServerTaskManagerForTests
+ ;
+
+ENDME // ME_52F8E8C40225 
+
+ME ME_52FB8C230261
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47913B47006E.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_52FB8C230261 
+
+ME ME_52FB8C500029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F2763F0320 // K515862135
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_52FB8C500029 
+
+ME ME_52F2763F0320
+ MEPROP UID '52F2763F0320'
+ MEPROP Name 'K515862135'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:515862135}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F27605004A // TasksProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52F2765601BE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52F8BAB80171 // ddAppConfig
+ ME_52F8BB010238 // FreeAndNil
+ ME_52F8BB1B00EF // TAutoPipeServerForm
+ ME_52F8BDD70293 // ConcatDirName
+ ME_52F8BE48022A // alcuTaskManager
+ ME_52F8C2DF01B1 // TddProcessTask
+ ME_52F8CA22022D // TalcuServer
+ ME_52F8E8C40225 // TddServerTaskManagerForTests
+ ME_52FB8C230261 // Tl3FileStream
+ ME_52FB8C500029 // Tl3FileMode
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TK515862135'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K515862135'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K515862135.pas'
+
+ENDME // ME_52F2763F0320 K515862135
+
+FORWARD ME_54785B8603B8
+
+ME ME_54785B9A00C8
+ MEPROP UID '54785B9A00C8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54785B8603B8 // K578892941
+ ;
+
+ENDME // ME_54785B9A00C8 DoIt
+
+ME ME_54785BB60238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54785B8603B8 // K578892941
+ ;
+ MELINK Target WL 'ME_54645E0D0246' '546457E203C0.ms.model.script' // TncsGetReadyToDeliveryTasksReply
+ ;
+
+ENDME // ME_54785BB60238 
+
+ME ME_54785BC50238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54785B8603B8 // K578892941
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54785BC50238 
+
+ME ME_547863810313
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54785B8603B8 // K578892941
+ ;
+ MELINK Target WL 'ME_5461F0A303D6' '484A470100DD.ms.model.script' // evdNcsTypes
+ ;
+
+ENDME // ME_547863810313 
+
+ME ME_547863A8030B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54785B8603B8 // K578892941
+ ;
+ MELINK Target WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_547863A8030B 
+
+ME ME_54785B8603B8
+ MEPROP UID '54785B8603B8'
+ MEPROP Name 'K578892941'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:578892941}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F27605004A // TasksProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54785B9A00C8 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54785BB60238 // TncsGetReadyToDeliveryTasksReply
+ ME_54785BC50238 // FreeAndNil
+ ME_547863810313 // evdNcsTypes
+ ME_547863A8030B // TncsMessage
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TK578892941'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K578892941'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\Processing\K578892941.pas'
+
+ENDME // ME_54785B8603B8 K578892941
+
+ME ME_52F27605004A
+ MEPROP UID '52F27605004A'
+ MEPROP Name 'TasksProcessing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ %SUMMARY 'Обработка очереди заданий' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52F275D40238' '52F275D40238.ms.model.script' // Low Level Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52F2763F0320 // K515862135
+ HWL ME_54785B8603B8 // K578892941
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ WL 'ME_52E8D676018A' '52E8D676018A.ms.model.script' // AutoPipeServer
+ WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ WL 'ME_52F8E847028C' '52F8E847028C.ms.model.script' // TaskProcessingTuningForTests
+ WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
+ WL 'ME_53D656130130' '53D656130130.ms.model.script' // Server
+ WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
+ WL 'ME_546457E203C0' '546457E203C0.ms.model.script' // ResultDelivery
+ )
+ ; // Depends
+ UP "path prefix" '/Tasks/Processing'
+ UP intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests\Tasks\Processing'
+ UP Version 0
+
+ENDME // ME_52F27605004A TasksProcessing

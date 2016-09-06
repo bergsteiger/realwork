@@ -1,0 +1,59 @@
+// FoldersTree 4ABCD29401B2 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABCD29401B2
+
+ME ME_43526C095459
+ MEPROP UID '43526C095459'
+ MEPROP Name 'Ini_FormFactory_FoldersTree'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы FoldersTree' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABCD29401B2 // FoldersTree
+ ;
+ UPLINK SpelledFor HWL ME_4ABCD29401B2 // FoldersTree
+ ;
+
+ENDME // ME_43526C095459 Ini_FormFactory_FoldersTree
+
+ME ME_4ABCD29401B2
+ MEPROP UID '4ABCD29401B2'
+ MEPROP Name 'FoldersTree'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A96B68A03B1' '4A96B68A03B1.ms.model.script' // PrimFolders$UC
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7E651B0179' '4C7E651B0179.ms.model.script' // PrimFoldersTreeOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFAA5C70362' '4BD856E802F9.ms.model.script' // FoldersTree
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_43526C095459 // Ini_FormFactory_FoldersTree
+ )
+ ; // Operations
+ UP "finished dfm" True
+ UP "form name prefix" 'en'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TenFoldersTree'
+ UP extprop:pas:UnitName 'FoldersTree_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'enFoldersTree'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\FoldersTree_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms'
+
+ENDME // ME_4ABCD29401B2 FoldersTree

@@ -32,6 +32,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *517C11C6019Aimpl_uses*
+ //#UC END# *517C11C6019Aimpl_uses*
 ;
 
 procedure TRoundedControlsTest.DoIt;

@@ -37,6 +37,8 @@ uses
  , evSBSCellPainter
  {$IfEnd} // Defined(evNeedPainters)
  , SBSCell_Const
+ //#UC START# *4857D1860221impl_uses*
+ //#UC END# *4857D1860221impl_uses*
 ;
 
 function TevSBSCellInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

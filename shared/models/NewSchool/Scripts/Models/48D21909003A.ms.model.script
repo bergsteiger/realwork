@@ -1,0 +1,66 @@
+// OvcConst 48D21909003A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48D21909003A
+
+FORWARD ME_48D2191902CB
+
+ME ME_4AF81A0B005F
+ MEPROP UID '4AF81A0B005F'
+ MEPROP Name 'ccActionItem'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48D2191902CB // ActionCodes
+ ;
+ MEPROP Value '!'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '!'
+
+ENDME // ME_4AF81A0B005F ccActionItem
+
+ME ME_48D2191902CB
+ MEPROP UID '48D2191902CB'
+ MEPROP Name 'ActionCodes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D21909003A // OvcConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AF81A0B005F // ccActionItem
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_48D2191902CB ActionCodes
+
+ME ME_48D21909003A
+ MEPROP UID '48D21909003A'
+ MEPROP Name 'OvcConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47540FF802AC' '47540FF802AC.ms.model.script' // Orpheus
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_48D2191902CB // ActionCodes
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "finished" False
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcConst.pas'
+
+ENDME // ME_48D21909003A OvcConst

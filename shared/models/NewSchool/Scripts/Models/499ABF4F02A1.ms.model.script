@@ -1,0 +1,407 @@
+// elClone 499ABF4F02A1 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499ABF4F02A1
+
+ME ME_52B993FB000A
+ MEPROP UID '52B993FB000A'
+ MEPROP Name 'TElXPThemedControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF4F02A1 // elClone
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48BBE37E00A2' '48BBE37E00A2.ms.model.script' // TafwCustomCommonControl
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:pas:UnitName 'ElXPThemedControl'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ElXPThemedControl'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElXPThemedControl.pas'
+
+ENDME // ME_52B993FB000A TElXPThemedControl
+
+FORWARD ME_499ABF6E01B5
+
+ME ME_499ABF8400FF
+ MEPROP UID '499ABF8400FF'
+ MEPROP Name 'TElTabPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF6E01B5 // ElPgCtl
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_499ABF8400FF TElTabPosition
+
+ME ME_499ABF9802AC
+ MEPROP UID '499ABF9802AC'
+ MEPROP Name 'TElTabSheet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF6E01B5 // ElPgCtl
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ElTabSheet'
+
+ENDME // ME_499ABF9802AC TElTabSheet
+
+FORWARD ME_4E36C0C3014B
+
+FORWARD ME_52B9A7B2027D
+
+ME ME_9B180FFE55CF
+ MEPROP UID '9B180FFE55CF'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода RequestTabPosition' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B9A7B2027D // RequestTabPosition
+ ;
+
+ENDME // ME_9B180FFE55CF DoIt
+
+ME ME_52B9A7B2027D
+ MEPROP UID '52B9A7B2027D'
+ MEPROP Name 'RequestTabPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E36C0C3014B // TElCustomPageControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_9B180FFE55CF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52B9A7B2027D RequestTabPosition
+
+FORWARD ME_52B9A85201C2
+
+ME ME_0618BA809CBA
+ MEPROP UID '0618BA809CBA'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoActivePrevPage' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B9A85201C2 // DoActivePrevPage
+ ;
+
+ENDME // ME_0618BA809CBA DoIt
+
+ME ME_52B9A85201C2
+ MEPROP UID '52B9A85201C2'
+ MEPROP Name 'DoActivePrevPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E36C0C3014B // TElCustomPageControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_0618BA809CBA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52B9A85201C2 DoActivePrevPage
+
+ME ME_4E36C0C3014B
+ MEPROP UID '4E36C0C3014B'
+ MEPROP Name 'TElCustomPageControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF6E01B5 // ElPgCtl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52B993FB000A // TElXPThemedControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E36C0310173' '4E36C0130013.ms.model.script' // Возможность выполнения действия по нажатию на страницу, а не переключение на неё
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_52B9A7B2027D // RequestTabPosition
+ HWL ME_52B9A85201C2 // DoActivePrevPage
+ )
+ ; // Operations
+ UP "finished" False
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PageControl'
+
+ENDME // ME_4E36C0C3014B TElCustomPageControl
+
+ME ME_499ABF6E01B5
+ MEPROP UID '499ABF6E01B5'
+ MEPROP Name 'ElPgCtl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499ABF4F02A1 // elClone
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499ABF8400FF // TElTabPosition
+ HWL ME_499ABF9802AC // TElTabSheet
+ HWL ME_4E36C0C3014B // TElCustomPageControl
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtl.pas'
+
+ENDME // ME_499ABF6E01B5 ElPgCtl
+
+FORWARD ME_52BD7A930246
+
+FORWARD ME_52BD7AF80057
+
+ME ME_52BD7B0F00B2
+ MEPROP UID '52BD7B0F00B2'
+ MEPROP Name 'PM_ACTIVEPREVPAGE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52BD7AF80057 // ElPgCtlConsts
+ ;
+ MEPROP Value 'WM_USER + 7435'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'WM_USER + 7435'
+
+ENDME // ME_52BD7B0F00B2 PM_ACTIVEPREVPAGE
+
+ME ME_52BD7B180248
+ MEPROP UID '52BD7B180248'
+ MEPROP Name 'PM_ISACTIVECONTROL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52BD7AF80057 // ElPgCtlConsts
+ ;
+ MEPROP Value 'WM_USER + 7436'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'WM_USER + 7436'
+
+ENDME // ME_52BD7B180248 PM_ISACTIVECONTROL
+
+ME ME_52BD7B2D0255
+ MEPROP UID '52BD7B2D0255'
+ MEPROP Name 'PM_SETACTIVEPAGEWITHCONTROL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52BD7AF80057 // ElPgCtlConsts
+ ;
+ MEPROP Value 'WM_USER + 7437'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'WM_USER + 7437'
+
+ENDME // ME_52BD7B2D0255 PM_SETACTIVEPAGEWITHCONTROL
+
+ME ME_52BD7B3602C4
+ MEPROP UID '52BD7B3602C4'
+ MEPROP Name 'PM_ACTIVATEANDSHOW'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52BD7AF80057 // ElPgCtlConsts
+ ;
+ MEPROP Value 'WM_USER + 7438'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'WM_USER + 7438'
+
+ENDME // ME_52BD7B3602C4 PM_ACTIVATEANDSHOW
+
+ME ME_52BD7B3E0297
+ MEPROP UID '52BD7B3E0297'
+ MEPROP Name 'PM_SETFIRSTACTIVE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52BD7AF80057 // ElPgCtlConsts
+ ;
+ MEPROP Value 'WM_USER + 7439'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'WM_USER + 7439'
+
+ENDME // ME_52BD7B3E0297 PM_SETFIRSTACTIVE
+
+ME ME_52BD7AF80057
+ MEPROP UID '52BD7AF80057'
+ MEPROP Name 'ElPgCtlConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52BD7A930246 // ElPgCtlConsts
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52BD7B0F00B2 // PM_ACTIVEPREVPAGE
+ HWL ME_52BD7B180248 // PM_ISACTIVECONTROL
+ HWL ME_52BD7B2D0255 // PM_SETACTIVEPAGEWITHCONTROL
+ HWL ME_52BD7B3602C4 // PM_ACTIVATEANDSHOW
+ HWL ME_52BD7B3E0297 // PM_SETFIRSTACTIVE
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52BD7AF80057 ElPgCtlConsts
+
+ME ME_52BD8C190245
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52BD7A930246 // ElPgCtlConsts
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_52BD8C190245 
+
+ME ME_52BD7A930246
+ MEPROP UID '52BD7A930246'
+ MEPROP Name 'ElPgCtlConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499ABF4F02A1 // elClone
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_52BD7AF80057 // ElPgCtlConsts
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_52BD8C190245 // Msg Codes
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtlConsts.pas'
+
+ENDME // ME_52BD7A930246 ElPgCtlConsts
+
+FORWARD ME_53EDD07F033C
+
+FORWARD ME_53EDD10102AA
+
+ME ME_53EDD18200D6
+ MEPROP UID '53EDD18200D6'
+ MEPROP Name 'EL_THEMECHANGED'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53EDD10102AA // константы
+ ;
+ MEPROP Value '$B528'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '$B528'
+
+ENDME // ME_53EDD18200D6 EL_THEMECHANGED
+
+ME ME_53EDD10102AA
+ MEPROP UID '53EDD10102AA'
+ MEPROP Name 'константы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53EDD07F033C // ElUxTheme
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53EDD18200D6 // EL_THEMECHANGED
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_53EDD10102AA константы
+
+ME ME_53EDD07F033C
+ MEPROP UID '53EDD07F033C'
+ MEPROP Name 'ElUxTheme'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_499ABF4F02A1 // elClone
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_53EDD10102AA // константы
+ )
+ ; // Constants
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElUxTheme.pas'
+
+ENDME // ME_53EDD07F033C ElUxTheme
+
+ME ME_499ABF4F02A1
+ MEPROP UID '499ABF4F02A1'
+ MEPROP Name 'elClone'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52B993FB000A // TElXPThemedControl
+ HWL ME_499ABF6E01B5 // ElPgCtl
+ HWL ME_52BD7A930246 // ElPgCtlConsts
+ HWL ME_53EDD07F033C // ElUxTheme
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_4E36C0130013' '4E36C0130013.ms.model.script' // Контролы с закладками
+ )
+ ; // Depends
+ UP "path prefix" '/elClone/Source'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VT\elClone\Source'
+
+ENDME // ME_499ABF4F02A1 elClone

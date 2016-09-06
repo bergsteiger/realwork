@@ -1,0 +1,1297 @@
+// Implementation 51360760006C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51360760006C
+
+FORWARD ME_513607DC03D4
+
+FORWARD ME_51371A9402FA
+
+ME ME_51371DFC01C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_513607DC03D4 // nsIntegration
+ ;
+ MELINK Target HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+
+ENDME // ME_51371DFC01C0 
+
+ME ME_513607DC03D4
+ MEPROP UID '513607DC03D4'
+ MEPROP Name 'nsIntegration'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51360760006C // Implementation
+ ;
+ MELIST Dependencies
+   Seq: ( ME_51371DFC01C0 // nsIntegrationModelPart
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:SelfName 'Integration'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\NOT_FINISHED_nsIntegration.pas'
+
+ENDME // ME_513607DC03D4 nsIntegration
+
+FORWARD ME_513764EB0113
+
+ME ME_51376529024C
+ MEPROP UID '51376529024C'
+ MEPROP Name 'a'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_513764EB0113 // TLongArrayRange
+ ;
+ MEPROP Value 0
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 0
+
+ENDME // ME_51376529024C a
+
+ME ME_513765860011
+ MEPROP UID '513765860011'
+ MEPROP Name 'b'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_513764EB0113 // TLongArrayRange
+ ;
+ MEPROP Value 2147483646
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 2147483646
+
+ENDME // ME_513765860011 b
+
+ME ME_513764EB0113
+ MEPROP UID '513764EB0113'
+ MEPROP Name 'TLongArrayRange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51376529024C // a
+ HWL ME_513765860011 // b
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_513764EB0113 TLongArrayRange
+
+FORWARD ME_513741F400F3
+
+ME ME_513764C40124
+ MEPROP UID '513764C40124'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_513741F400F3 // TLongArray
+ ;
+ MELINK Target WL 'ME_476130E5023C' '4AB0C3C60310.ms.model.script' // Byte
+ ;
+
+ENDME // ME_513764C40124 
+
+ME ME_513741F400F3
+ MEPROP UID '513741F400F3'
+ MEPROP Name 'TLongArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_513764EB0113 // TLongArrayRange
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_513764C40124 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_513741F400F3 TLongArray
+
+ME ME_51374490038B
+ MEPROP UID '51374490038B'
+ MEPROP Name 'ELauncherError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_51374490038B ELauncherError
+
+FORWARD ME_513744C2039F
+
+ME ME_51376934013A
+ MEPROP UID '51376934013A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_513744C2039F // TRunWaitFunc
+ ;
+
+ENDME // ME_51376934013A DoIt
+
+ME ME_513744C2039F
+ MEPROP UID '513744C2039F'
+ MEPROP Name 'TRunWaitFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51376934013A // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_513744C2039F TRunWaitFunc
+
+ME ME_5137427B0361
+ MEPROP UID '5137427B0361'
+ MEPROP Name 'PLongArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_513741F400F3 // TLongArray
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_5137427B0361 PLongArray
+
+FORWARD ME_51371FE20287
+
+ME ME_5137200B039C
+ MEPROP UID '5137200B039C'
+ MEPROP Name 'CDefaultIniValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''ApplicationAdapterOptions'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''ApplicationAdapterOptions'''
+
+ENDME // ME_5137200B039C CDefaultIniValue
+
+ME ME_5137201802F7
+ MEPROP UID '5137201802F7'
+ MEPROP Name 'CDefaultIniParamName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''-GCMConfigFile'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''-GCMConfigFile'''
+
+ENDME // ME_5137201802F7 CDefaultIniParamName
+
+ME ME_513720280205
+ MEPROP UID '513720280205'
+ MEPROP Name 'CLauncher'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''garant.exe'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''garant.exe'''
+
+ENDME // ME_513720280205 CLauncher
+
+ME ME_51372034001F
+ MEPROP UID '51372034001F'
+ MEPROP Name 'CMainWindowClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''TnsMainWindow'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''TnsMainWindow'''
+
+ENDME // ME_51372034001F CMainWindowClass
+
+ME ME_5137203C0357
+ MEPROP UID '5137203C0357'
+ MEPROP Name 'CPrimeWindowClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''TnsEmptyMainForm'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''TnsEmptyMainForm'''
+
+ENDME // ME_5137203C0357 CPrimeWindowClass
+
+ME ME_5137204D02A4
+ MEPROP UID '5137204D02A4'
+ MEPROP Name 'CStartupSupportClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''TnsStartupSupport:{65591D5E-77E5-4699-BF40-E7B1FB186037}'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''TnsStartupSupport:{65591D5E-77E5-4699-BF40-E7B1FB186037}'''
+
+ENDME // ME_5137204D02A4 CStartupSupportClass
+
+ME ME_513748D10145
+ MEPROP UID '513748D10145'
+ MEPROP Name 'CDefaultRootKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value 'HKEY_CURRENT_USER'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'HKEY_CURRENT_USER'
+
+ENDME // ME_513748D10145 CDefaultRootKey
+
+ME ME_513748DB02F7
+ MEPROP UID '513748DB02F7'
+ MEPROP Name 'CDefaultPathKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''SOFTWARE\GARANT.F1'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''SOFTWARE\GARANT.F1'''
+
+ENDME // ME_513748DB02F7 CDefaultPathKey
+
+ME ME_513748E300BA
+ MEPROP UID '513748E300BA'
+ MEPROP Name 'CDefaultLocaleIDValueName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''Locale'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Locale'''
+
+ENDME // ME_513748E300BA CDefaultLocaleIDValueName
+
+ME ME_51374BED030F
+ MEPROP UID '51374BED030F'
+ MEPROP Name 'c_SomeError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value 1
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1
+
+ENDME // ME_51374BED030F c_SomeError
+
+ME ME_51374BF60081
+ MEPROP UID '51374BF60081'
+ MEPROP Name 'c_AnotherInstanceRunning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value 2
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 2
+
+ENDME // ME_51374BF60081 c_AnotherInstanceRunning
+
+ME ME_5416996E0300
+ MEPROP UID '5416996E0300'
+ MEPROP Name 'CMainTabbedWindowClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371FE20287 // Integration Constants
+ ;
+ MEPROP Value '''TvcmTabbedContainerForm'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''TvcmTabbedContainerForm'''
+
+ENDME // ME_5416996E0300 CMainTabbedWindowClass
+
+ME ME_51371FE20287
+ MEPROP UID '51371FE20287'
+ MEPROP Name 'Integration Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5137200B039C // CDefaultIniValue
+ HWL ME_5137201802F7 // CDefaultIniParamName
+ HWL ME_513720280205 // CLauncher
+ HWL ME_51372034001F // CMainWindowClass
+ HWL ME_5137203C0357 // CPrimeWindowClass
+ HWL ME_5137204D02A4 // CStartupSupportClass
+ HWL ME_513748D10145 // CDefaultRootKey
+ HWL ME_513748DB02F7 // CDefaultPathKey
+ HWL ME_513748E300BA // CDefaultLocaleIDValueName
+ HWL ME_51374BED030F // c_SomeError
+ HWL ME_51374BF60081 // c_AnotherInstanceRunning
+ HWL ME_5416996E0300 // CMainTabbedWindowClass
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_51371FE20287 Integration Constants
+
+ME ME_51371CB5024F
+ MEPROP UID '51371CB5024F'
+ MEPROP Name 'g_QueueLock'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_499D303B02E8' '4AB0C3F60375.ms.model.script' // TRTLCriticalSection
+ ;
+
+ENDME // ME_51371CB5024F g_QueueLock
+
+ME ME_51371D4E0382
+ MEPROP UID '51371D4E0382'
+ MEPROP Name 'g_Message'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_51371D4E0382 g_Message
+
+ME ME_51371D5C0319
+ MEPROP UID '51371D5C0319'
+ MEPROP Name 'g_LastMainWindowMessage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_46A465F9028C' '4AB0C3F60375.ms.model.script' // THandle
+ ;
+
+ENDME // ME_51371D5C0319 g_LastMainWindowMessage
+
+FORWARD ME_51371BFC01BD
+
+FORWARD ME_51371C2D02B3
+
+ME ME_51371DA601B9
+ MEPROP Name 'aRef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4AB0C3C60310.ms.model.script' // PChar
+ ;
+
+ENDME // ME_51371DA601B9 aRef
+
+ME ME_51371F7F03E2
+ MEPROP Name 'aOpenInNewWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51371F7F03E2 aOpenInNewWindow
+
+ME ME_51371DA601F7
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49B14F3C0099' '4728A7020026.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_51371DA601F7 aTimeOut
+
+ME ME_51371C2D02B3
+ MEPROP UID '51371C2D02B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371BFC01BD // GarantShowLink
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_51371DA601B9 // aRef
+ ME_51371F7F03E2 // aOpenInNewWindow
+ ME_51371DA601F7 // aTimeOut
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_51371C2D02B3 DoIt
+
+ME ME_51371BFC01BD
+ MEPROP UID '51371BFC01BD'
+ MEPROP Name 'GarantShowLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51371C2D02B3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51371BFC01BD GarantShowLink
+
+FORWARD ME_51371F1602E9
+
+FORWARD ME_51371F5A00CB
+
+ME ME_543671CE0387
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E95755B0162' '4AB0C3F60375.ms.model.script' // HWND
+ ;
+
+ENDME // ME_543671CE0387 aWnd
+
+ME ME_543671CE0395
+ MEPROP Name 'aTimeOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49B14F3C0099' '4728A7020026.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_543671CE0395 aTimeOut
+
+ME ME_543671CE03A2
+ MEPROP Name 'aJustLaunched'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_543671CE03A2 aJustLaunched
+
+ME ME_543671CE03B0
+ MEPROP Name 'aLauncherPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MEPROP Value ''''''
+ MELINK ValueType WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_543671CE03B0 aLauncherPath
+
+ME ME_51371F5A00CB
+ MEPROP UID '51371F5A00CB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371F1602E9 // AquireGarant
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_543671CE0387 // aWnd
+ ME_543671CE0395 // aTimeOut
+ ME_543671CE03A2 // aJustLaunched
+ ME_543671CE03B0 // aLauncherPath
+ )
+ ; // Parameters
+
+ENDME // ME_51371F5A00CB DoIt
+
+ME ME_51371F1602E9
+ MEPROP UID '51371F1602E9'
+ MEPROP Name 'AquireGarant'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51371F5A00CB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51371F1602E9 AquireGarant
+
+FORWARD ME_513720A3039A
+
+FORWARD ME_513720B700A0
+
+ME ME_513720B90007
+ MEPROP Name 'aRef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4AB0C3C60310.ms.model.script' // PChar
+ ;
+
+ENDME // ME_513720B90007 aRef
+
+ME ME_513720B90026
+ MEPROP Name 'aOpenInNewWindow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_513720B90026 aOpenInNewWindow
+
+ME ME_513720B90045
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_513720B90045 aSize
+
+ME ME_513720B700A0
+ MEPROP UID '513720B700A0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_513720A3039A // BuildLink
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+ MELIST Parameters
+   Seq: ( ME_513720B90007 // aRef
+ ME_513720B90026 // aOpenInNewWindow
+ ME_513720B90045 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_513720B700A0 DoIt
+
+ME ME_513720A3039A
+ MEPROP UID '513720A3039A'
+ MEPROP Name 'BuildLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_513720B700A0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_513720A3039A BuildLink
+
+FORWARD ME_51373C010355
+
+FORWARD ME_51373C16002F
+
+ME ME_51373C18017B
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E95755B0162' '4AB0C3F60375.ms.model.script' // HWND
+ ;
+
+ENDME // ME_51373C18017B aWnd
+
+ME ME_51373C18019B
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_51373C18019B aData
+
+ME ME_51373C1801BA
+ MEPROP Name 'aDataSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51373C1801BA aDataSize
+
+ME ME_51373C16002F
+ MEPROP UID '51373C16002F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51373C010355 // TrySend
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_51373C18017B // aWnd
+ ME_51373C18019B // aData
+ ME_51373C1801BA // aDataSize
+ )
+ ; // Parameters
+
+ENDME // ME_51373C16002F DoIt
+
+ME ME_51373C010355
+ MEPROP UID '51373C010355'
+ MEPROP Name 'TrySend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51373C16002F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51373C010355 TrySend
+
+FORWARD ME_5137406E02B6
+
+ME ME_513740750222
+ MEPROP UID '513740750222'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5137406E02B6 // AquireLauncher
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_513740750222 DoIt
+
+ME ME_5137406E02B6
+ MEPROP UID '5137406E02B6'
+ MEPROP Name 'AquireLauncher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_513740750222 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5137406E02B6 AquireLauncher
+
+FORWARD ME_5137451100D9
+
+FORWARD ME_51374543002B
+
+ME ME_5137454A0388
+ MEPROP Name 'aApplication'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5137454A0388 aApplication
+
+ME ME_5137454A03BD
+ MEPROP Name 'aCommandLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5137454A03BD aCommandLine
+
+ME ME_5137454B0016
+ MEPROP Name 'aCurrentDirectory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5137454B0016 aCurrentDirectory
+
+ME ME_5137454B0058
+ MEPROP Name 'aWaitForExit'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_5137454B0058 aWaitForExit
+
+ME ME_5137454B00A4
+ MEPROP Name 'aWaitFunc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_513744C2039F // TRunWaitFunc
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_513744C2039F // TRunWaitFunc
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5137454B00A4 aWaitFunc
+
+ME ME_51374543002B
+ MEPROP UID '51374543002B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5137451100D9 // RunProcess
+ ;
+ MELINK Target WL 'ME_49B14F3C0099' '4728A7020026.ms.model.script' // DWORD
+ ;
+ MELIST Parameters
+   Seq: ( ME_5137454A0388 // aApplication
+ ME_5137454A03BD // aCommandLine
+ ME_5137454B0016 // aCurrentDirectory
+ ME_5137454B0058 // aWaitForExit
+ ME_5137454B00A4 // aWaitFunc
+ )
+ ; // Parameters
+
+ENDME // ME_51374543002B DoIt
+
+ME ME_5137451100D9
+ MEPROP UID '5137451100D9'
+ MEPROP Name 'RunProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51374543002B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5137451100D9 RunProcess
+
+FORWARD ME_5137495300DB
+
+FORWARD ME_513749650177
+
+ME ME_5137499400F5
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E21A8A0324' '4AB0997B00A2.ms.model.script' // TStrings
+ ;
+
+ENDME // ME_5137499400F5 aList
+
+ME ME_513749940116
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_513749940116 aValue
+
+ME ME_513749940135
+ MEPROP Name 'aSeparator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482C48430205' '4AB0C3C60310.ms.model.script' // Char
+ ;
+
+ENDME // ME_513749940135 aSeparator
+
+ME ME_513749650177
+ MEPROP UID '513749650177'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5137495300DB // FillFixCommaText
+ ;
+ MELIST Parameters
+   Seq: ( ME_5137499400F5 // aList
+ ME_513749940116 // aValue
+ ME_513749940135 // aSeparator
+ )
+ ; // Parameters
+
+ENDME // ME_513749650177 DoIt
+
+ME ME_5137495300DB
+ MEPROP UID '5137495300DB'
+ MEPROP Name 'FillFixCommaText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_513749650177 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5137495300DB FillFixCommaText
+
+FORWARD ME_513744E00069
+
+FORWARD ME_513744FF0107
+
+ME ME_513745070177
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_513745070177 aString
+
+ME ME_513744FF0107
+ MEPROP UID '513744FF0107'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_513744E00069 // QuoteStringIfNeed
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_513745070177 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_513744FF0107 DoIt
+
+ME ME_513744E00069
+ MEPROP UID '513744E00069'
+ MEPROP Name 'QuoteStringIfNeed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_513744FF0107 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_513744E00069 QuoteStringIfNeed
+
+ME ME_5137215D0134
+ MEPROP UID '5137215D0134'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+
+ENDME // ME_5137215D0134 Init
+
+ME ME_5137217100C6
+ MEPROP UID '5137217100C6'
+ MEPROP Name 'Fin'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_fini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+
+ENDME // ME_5137217100C6 Fin
+
+ME ME_51371FA801E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_51371FA801E8 
+
+ME ME_513721030274
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_4F86C0140332' '4F86C008009E.ms.model.script' // nsIntegrationSupport
+ ;
+
+ENDME // ME_513721030274 
+
+ME ME_5137400600D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5137400600D1 
+
+ME ME_51374119031F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_51374119031F 
+
+ME ME_5137474F02B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_5137474F02B7 
+
+ME ME_513747F70248
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_513747E00025' '4AB0997B00A2.ms.model.script' // Registry
+ ;
+
+ENDME // ME_513747F70248 
+
+ME ME_5137482E00D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_5137482E00D7 
+
+FORWARD ME_51374B740366
+
+ME ME_51374B8800A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+ MELINK Target HWL ME_51374B740366 // LocaleMessages
+ ;
+
+ENDME // ME_51374B8800A8 
+
+ME ME_51371A9402FA
+ MEPROP UID '51371A9402FA'
+ MEPROP Name 'nsIntegrationModelPart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51360760006C // Implementation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51371CB5024F // g_QueueLock
+ HWL ME_51371D4E0382 // g_Message
+ HWL ME_51371D5C0319 // g_LastMainWindowMessage
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51371BFC01BD // GarantShowLink
+ HWL ME_51371F1602E9 // AquireGarant
+ HWL ME_513720A3039A // BuildLink
+ HWL ME_51373C010355 // TrySend
+ HWL ME_5137406E02B6 // AquireLauncher
+ HWL ME_5137451100D9 // RunProcess
+ HWL ME_5137495300DB // FillFixCommaText
+ HWL ME_513744E00069 // QuoteStringIfNeed
+ HWL ME_5137215D0134 // Init
+ HWL ME_5137217100C6 // Fin
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_513764EB0113 // TLongArrayRange
+ HWL ME_513741F400F3 // TLongArray
+ HWL ME_51374490038B // ELauncherError
+ HWL ME_513744C2039F // TRunWaitFunc
+ HWL ME_5137427B0361 // PLongArray
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_51371FE20287 // Integration Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_51371FA801E8 // Windows
+ ME_513721030274 // nsIntegrationSupport
+ ME_5137400600D1 // SysUtils
+ ME_51374119031F // l3Base
+ ME_5137474F02B7 // Msg Codes
+ ME_513747F70248 // Registry
+ ME_5137482E00D7 // Classes
+ ME_51374B8800A8 // LocaleMessages
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'IntegrationModelPart'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\nsIntegrationModelPart.pas'
+
+ENDME // ME_51371A9402FA nsIntegrationModelPart
+
+ME ME_51374B740366
+ MEPROP UID '51374B740366'
+ MEPROP Name 'LocaleMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51360760006C // Implementation
+ ;
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\NOT_FINISHED_LocaleMessages.pas'
+
+ENDME // ME_51374B740366 LocaleMessages
+
+FORWARD ME_5135EFD80062
+
+FORWARD ME_5135F0090070
+
+ME ME_5135F029035E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5135F0090070 // integration_OpenLink
+ ;
+ MELINK Target WL 'ME_5135ECC0016B' '4F86C008009E.ms.model.script' // TIntegrationData
+ ;
+
+ENDME // ME_5135F029035E 
+
+ME ME_51371E4800F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5135F0090070 // integration_OpenLink
+ ;
+ MELINK Target HWL ME_51371A9402FA // nsIntegrationModelPart
+ ;
+
+ENDME // ME_51371E4800F0 
+
+ME ME_5135F0090070
+ MEPROP UID '5135F0090070'
+ MEPROP Name 'integration_OpenLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5135EFD80062 // IntegrationWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5135F029035E // TIntegrationData
+ ME_51371E4800F0 // nsIntegrationModelPart
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwIntegrationOpenLink'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegrationOpenLink'
+
+ENDME // ME_5135F0090070 integration_OpenLink
+
+ME ME_5135F02401D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5135EFD80062 // IntegrationWordsPack
+ ;
+ MELINK Target HWL ME_5135F0090070 // integration_OpenLink
+ ;
+
+ENDME // ME_5135F02401D6 
+
+ME ME_571A2F2601FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_5135EFD80062 // IntegrationWordsPack
+ ;
+ MELINK Target WL 'ME_4F86C0140332' '4F86C008009E.ms.model.script' // nsIntegrationSupport
+ ;
+
+ENDME // ME_571A2F2601FA 
+
+ME ME_5135EFD80062
+ MEPROP UID '5135EFD80062'
+ MEPROP Name 'IntegrationWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51360760006C // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5135F0090070 // integration_OpenLink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5135F02401D6 // integration_OpenLink
+ ME_571A2F2601FA // nsIntegrationSupport
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "need UC" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\IntegrationWordsPack.pas'
+
+ENDME // ME_5135EFD80062 IntegrationWordsPack
+
+ME ME_51360760006C
+ MEPROP UID '51360760006C'
+ MEPROP Name 'Implementation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5136072C0274' '5136072C0274.ms.model.script' // Integration
+ ;
+ MELIST Children
+   Seq: ( HWL ME_513607DC03D4 // nsIntegration
+ HWL ME_51371A9402FA // nsIntegrationModelPart
+ HWL ME_51374B740366 // LocaleMessages
+ HWL ME_5135EFD80062 // IntegrationWordsPack
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4F86C008009E' '4F86C008009E.ms.model.script' // Integration
+ )
+ ; // Depends
+ UP "path prefix" '/Implementation'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Integration\Implementation'
+
+ENDME // ME_51360760006C Implementation

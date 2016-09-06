@@ -23,6 +23,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *489B0B86039Cimpl_uses*
+ //#UC END# *489B0B86039Cimpl_uses*
 ;
 
 procedure TatCycleOperation.ExecuteSelf;

@@ -27,6 +27,8 @@ uses
  , UnderControlUnit
  , DocumentUnit
  , atControlStatusConverter
+ //#UC START# *50507A250036impl_uses*
+ //#UC END# *50507A250036impl_uses*
 ;
 
 procedure TatIterateDocumentsUnderControlOperation.ExecuteSelf;

@@ -1,0 +1,164 @@
+// CheckFilesInFolderTest 51B1ADB40318 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51B1ADB40318
+
+FORWARD ME_51B1ADF20017
+
+FORWARD ME_51B1AEC2015B
+
+ME ME_51B1B82602D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51B1AEC2015B // DoIt
+ ;
+ MELINK Target WL 'ME_4BA7BE3B0114' '47913B47006E.ms.model.script' // l3LocalStub
+ ;
+
+ENDME // ME_51B1B82602D1 
+
+ME ME_51B1B84602EC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51B1AEC2015B // DoIt
+ ;
+ MELINK Target WL 'ME_4DC25D9502BB' '47D0290B016D.ms.model.script' // ProcessFilesWithMask
+ ;
+
+ENDME // ME_51B1B84602EC 
+
+ME ME_51B1BD640320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51B1AEC2015B // DoIt
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '4AB0C3C60310.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_51B1BD640320 
+
+ME ME_51B1AEC2015B
+ MEPROP UID '51B1AEC2015B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B1ADF20017 // TCheckingFilesInFolderTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_51B1B82602D1 // l3LocalStub
+ ME_51B1B84602EC // ProcessFilesWithMask
+ ME_51B1BD640320 // ChangeFileExt
+ )
+ ; // Dependencies
+
+ENDME // ME_51B1AEC2015B DoIt
+
+FORWARD ME_51B1C57B014C
+
+ME ME_51B1C5970199
+ MEPROP UID '51B1C5970199'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B1C57B014C // DoDoit
+ ;
+
+ENDME // ME_51B1C5970199 DoIt
+
+ME ME_51B1C57B014C
+ MEPROP UID '51B1C57B014C'
+ MEPROP Name 'DoDoit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_51B1ADF20017 // TCheckingFilesInFolderTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B1C5970199 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51B1C57B014C DoDoit
+
+ME ME_4C937013031D_ME_51B1ADF20017
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_51B1ADF20017 GetFolder
+
+ME ME_4DAED6F60146_ME_51B1ADF20017
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_51B1ADF20017 GetModelElementGUID
+
+ME ME_51B1A75D0367_ME_51B1ADF20017
+ MELINK Original WL 'ME_51B1A75D0367' '4B2A112B011A.ms.model.script' // OutputFolderName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51B1A75D0367_ME_51B1ADF20017 OutputFolderName
+
+ME ME_51B1ADF20017
+ MEPROP UID '51B1ADF20017'
+ MEPROP Name 'TCheckingFilesInFolderTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_51B1ADB40318 // CheckFilesInFolderTest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_51B1AEC2015B // DoIt
+ HWL ME_51B1C57B014C // DoDoit
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_51B1ADF20017 // GetFolder
+ ME_4DAED6F60146_ME_51B1ADF20017 // GetModelElementGUID
+ ME_51B1A75D0367_ME_51B1ADF20017 // OutputFolderName
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'CheckingFilesInFolderTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CheckingFilesInFolderTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\CheckingFilesInFolderTest.pas'
+
+ENDME // ME_51B1ADF20017 TCheckingFilesInFolderTest
+
+ME ME_51B1ADB40318
+ MEPROP UID '51B1ADB40318'
+ MEPROP Name 'CheckFilesInFolderTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D02561D01C8' '4D02561D01C8.ms.model.script' // Abstract Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51B1ADF20017 // TCheckingFilesInFolderTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_51B1ADB40318 CheckFilesInFolderTest

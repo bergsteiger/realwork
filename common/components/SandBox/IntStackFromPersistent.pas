@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *515584EB0339impl_uses*
+ //#UC END# *515584EB0339impl_uses*
 ;
 
 {$Include w:\common\components\SandBox\StackPrim.imp.pas}

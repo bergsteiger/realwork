@@ -29,6 +29,8 @@ uses
  , atLogger
  , Classes
  , atCommon
+ //#UC START# *4B7155A4014Aimpl_uses*
+ //#UC END# *4B7155A4014Aimpl_uses*
 ;
 
 procedure TatTestChatOperation.ExecuteSelf;

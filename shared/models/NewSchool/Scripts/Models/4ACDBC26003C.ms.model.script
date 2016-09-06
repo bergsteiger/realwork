@@ -1,0 +1,299 @@
+// Source 4ACDBC26003C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ACDBC26003C
+
+FORWARD ME_4ACDBC4A0003
+
+ME ME_4ACDBC6101A6
+ MEPROP UID '4ACDBC6101A6'
+ MEPROP Name 'TImageEnView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ACDBC4A0003 // imageenview
+ ;
+ MELIST Injected
+   Seq: ( WL 'ME_54F4642100D0' '52E20E0E0059.ms.model.script' // ImageEnPack
+ )
+ ; // Injected
+ UP "finished" False
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ImageEnView'
+
+ENDME // ME_4ACDBC6101A6 TImageEnView
+
+ME ME_4ACDBC4A0003
+ MEPROP UID '4ACDBC4A0003'
+ MEPROP Name 'imageenview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBC26003C // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ACDBC6101A6 // TImageEnView
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenview.pas'
+
+ENDME // ME_4ACDBC4A0003 imageenview
+
+FORWARD ME_4ACDBE7800FD
+
+ME ME_4ACDBE8801BE
+ MEPROP UID '4ACDBE8801BE'
+ MEPROP Name 'TImageEnIO'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ACDBE7800FD // imageenio
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ImageEnIO'
+
+ENDME // ME_4ACDBE8801BE TImageEnIO
+
+ME ME_53733D6C036D
+ MEPROP UID '53733D6C036D'
+ MEPROP Name 'FindStreamFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBE7800FD // imageenio
+ ;
+
+ENDME // ME_53733D6C036D FindStreamFormat
+
+ME ME_4ACDBE7800FD
+ MEPROP UID '4ACDBE7800FD'
+ MEPROP Name 'imageenio'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBC26003C // Source
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53733D6C036D // FindStreamFormat
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4ACDBE8801BE // TImageEnIO
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenio.pas'
+
+ENDME // ME_4ACDBE7800FD imageenio
+
+FORWARD ME_4ACDC3F80345
+
+ME ME_4ACDC40F0227
+ MEPROP UID '4ACDC40F0227'
+ MEPROP Name 'TIEMMouseInteractItems'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ACDC3F80345 // iemview
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4ACDC40F0227 TIEMMouseInteractItems
+
+ME ME_4ACDC3F80345
+ MEPROP UID '4ACDC3F80345'
+ MEPROP Name 'iemview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBC26003C // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ACDC40F0227 // TIEMMouseInteractItems
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_iemview.pas'
+
+ENDME // ME_4ACDC3F80345 iemview
+
+FORWARD ME_4ACDC4220115
+
+ME ME_4ACDC43503CA
+ MEPROP UID '4ACDC43503CA'
+ MEPROP Name 'TResampleFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ACDC4220115 // hyiedefs
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4ACDC43503CA TResampleFilter
+
+ME ME_4ACDC4220115
+ MEPROP UID '4ACDC4220115'
+ MEPROP Name 'hyiedefs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBC26003C // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ACDC43503CA // TResampleFilter
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyiedefs.pas'
+
+ENDME // ME_4ACDC4220115 hyiedefs
+
+FORWARD ME_4B0FFBFC0188
+
+ME ME_4B0FFC0A03CA
+ MEPROP UID '4B0FFC0A03CA'
+ MEPROP Name 'TIEMouseWheelParamsAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0FFBFC0188 // hyieutils
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4B0FFC0A03CA TIEMouseWheelParamsAction
+
+ME ME_4FD0890501F9
+ MEPROP UID '4FD0890501F9'
+ MEPROP Name 'TIEBitmap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0FFBFC0188 // hyieutils
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEBitmap'
+
+ENDME // ME_4FD0890501F9 TIEBitmap
+
+ME ME_4B0FFBFC0188
+ MEPROP UID '4B0FFBFC0188'
+ MEPROP Name 'hyieutils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBC26003C // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B0FFC0A03CA // TIEMouseWheelParamsAction
+ HWL ME_4FD0890501F9 // TIEBitmap
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyieutils.pas'
+
+ENDME // ME_4B0FFBFC0188 hyieutils
+
+FORWARD ME_4C8778C80111
+
+ME ME_4C8778D802F6
+ MEPROP UID '4C8778D802F6'
+ MEPROP Name 'TImageEnProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C8778C80111 // imageenproc
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ImageEnProc'
+
+ENDME // ME_4C8778D802F6 TImageEnProc
+
+ME ME_4C8778C80111
+ MEPROP UID '4C8778C80111'
+ MEPROP Name 'imageenproc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBC26003C // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C8778D802F6 // TImageEnProc
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_imageenproc.pas'
+
+ENDME // ME_4C8778C80111 imageenproc
+
+ME ME_524970860109
+ MEPROP UID '524970860109'
+ MEPROP Name 'giflzw'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ACDBC26003C // Source
+ ;
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_giflzw.pas'
+
+ENDME // ME_524970860109 giflzw
+
+ME ME_4ACDBC26003C
+ MEPROP UID '4ACDBC26003C'
+ MEPROP Name 'Source'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ACDBBED0241' '4ACDBBED0241.ms.model.script' // ImageEn
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ACDBC4A0003 // imageenview
+ HWL ME_4ACDBE7800FD // imageenio
+ HWL ME_4ACDC3F80345 // iemview
+ HWL ME_4ACDC4220115 // hyiedefs
+ HWL ME_4B0FFBFC0188 // hyieutils
+ HWL ME_4C8778C80111 // imageenproc
+ HWL ME_524970860109 // giflzw
+ )
+ ; // Children
+ UP "path prefix" '/src'
+ UP intf.pas:PathOnly '\common\components\rtl\external\ImageEn\src'
+
+ENDME // ME_4ACDBC26003C Source

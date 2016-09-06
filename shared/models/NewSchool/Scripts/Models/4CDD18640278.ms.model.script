@@ -1,0 +1,156 @@
+// Controls 4CDD18640278 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDD18640278
+
+FORWARD ME_4CDD188900C5
+
+ME ME_4CDD18A20143
+ MEPROP UID '4CDD18A20143'
+ MEPROP Name 'MakeHyperlinkToDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создать ссылку на документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CDD188900C5 // File
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4CDD18A20143 MakeHyperlinkToDocument
+
+ME ME_4CDD188900C5
+ MEPROP UID '4CDD188900C5'
+ MEPROP Name 'File'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDD18640278 // Controls
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDD18A20143 // MakeHyperlinkToDocument
+ )
+ ; // Operations
+
+ENDME // ME_4CDD188900C5 File
+
+FORWARD ME_4CDD5C020288
+
+ME ME_4CDD5C3901E0
+ MEPROP UID '4CDD5C3901E0'
+ MEPROP Name 'MakeHyperlinkToDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создать ссылку на документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CDD5C020288 // Text
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4CDD5C3901E0 MakeHyperlinkToDocument
+
+ME ME_4CDD5C020288
+ MEPROP UID '4CDD5C020288'
+ MEPROP Name 'Text'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текст' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDD18640278 // Controls
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDD5C3901E0 // MakeHyperlinkToDocument
+ )
+ ; // Operations
+
+ENDME // ME_4CDD5C020288 Text
+
+FORWARD ME_4CDE7C1E020F
+
+ME ME_4CDE7C2C0258
+ MEPROP UID '4CDE7C2C0258'
+ MEPROP Name 'MakeHyperlinkToDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создать ссылку на документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CDE7C1E020F // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4CDE7C2C0258 MakeHyperlinkToDocument
+
+ME ME_4CDE7C1E020F
+ MEPROP UID '4CDE7C1E020F'
+ MEPROP Name 'Document'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDD18640278 // Controls
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDE7C2C0258 // MakeHyperlinkToDocument
+ )
+ ; // Operations
+
+ENDME // ME_4CDE7C1E020F Document
+
+ME ME_4CDD18640278
+ MEPROP UID '4CDD18640278'
+ MEPROP Name 'Controls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CDD182B02B9' '4CDD182B02B9.ms.model.script' // LinksToGarant
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CDD188900C5 // File
+ HWL ME_4CDD5C020288 // Text
+ HWL ME_4CDE7C1E020F // Document
+ )
+ ; // Children
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'Hypertext_Controls_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\LinksToGarant\Hypertext_Controls_Controls.pas'
+
+ENDME // ME_4CDD18640278 Controls

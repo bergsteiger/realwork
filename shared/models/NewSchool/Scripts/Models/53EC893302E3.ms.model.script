@@ -1,0 +1,163 @@
+// arInterfaces 53EC893302E3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53EC893302E3
+
+FORWARD ME_53EC895B0384
+
+FORWARD ME_53EC896701E5
+
+ME ME_53EC898D028D
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_53EC898D028D aStr
+
+ME ME_53EC898D029C
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ MEPROP Value 'cf_Text'
+ MELINK ValueType WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ UP extprop:pas:Value 'cf_Text'
+
+ENDME // ME_53EC898D029C aFormat
+
+ME ME_53EC896701E5
+ MEPROP UID '53EC896701E5'
+ MEPROP Name 'AddString'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53EC895B0384 // IInfoOut
+ ;
+ MELIST Parameters
+   Seq: ( ME_53EC898D028D // aStr
+ ME_53EC898D029C // aFormat
+ )
+ ; // Parameters
+
+ENDME // ME_53EC896701E5 AddString
+
+ME ME_53EC89920323
+ MEPROP UID '53EC89920323'
+ MEPROP Name 'StartData'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53EC895B0384 // IInfoOut
+ ;
+
+ENDME // ME_53EC89920323 StartData
+
+ME ME_53EC899E0103
+ MEPROP UID '53EC899E0103'
+ MEPROP Name 'EndData'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53EC895B0384 // IInfoOut
+ ;
+
+ENDME // ME_53EC899E0103 EndData
+
+ME ME_53EC895B0384
+ MEPROP UID '53EC895B0384'
+ MEPROP GUID '6F7B46BD-A994-43D8-B879-BACC11B55687'
+ MEPROP Name 'IInfoOut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53EC893302E3 // arInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53EC896701E5 // AddString
+ HWL ME_53EC89920323 // StartData
+ HWL ME_53EC899E0103 // EndData
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InfoOut'
+
+ENDME // ME_53EC895B0384 IInfoOut
+
+FORWARD ME_53EC89AF0157
+
+FORWARD ME_53EC89CB0048
+
+ME ME_53EC89DA00E0
+ MEPROP Name 'lInfoOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_53EC895B0384 // IInfoOut
+ ;
+
+ENDME // ME_53EC89DA00E0 lInfoOut
+
+ME ME_53EC89CB0048
+ MEPROP UID '53EC89CB0048'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53EC89AF0157 // TarFillDocInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_53EC89DA00E0 // lInfoOut
+ )
+ ; // Parameters
+
+ENDME // ME_53EC89CB0048 DoIt
+
+ME ME_53EC89AF0157
+ MEPROP UID '53EC89AF0157'
+ MEPROP Name 'TarFillDocInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53EC893302E3 // arInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53EC89CB0048 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_53EC89AF0157 TarFillDocInfo
+
+ME ME_53EC893302E3
+ MEPROP UID '53EC893302E3'
+ MEPROP Name 'arInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E004D0B033A' '4E004D0B033A.ms.model.script' // Editor
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53EC895B0384 // IInfoOut
+ HWL ME_53EC89AF0157 // TarFillDocInfo
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\arInterfaces.pas'
+
+ENDME // ME_53EC893302E3 arInterfaces

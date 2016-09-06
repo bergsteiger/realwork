@@ -1,0 +1,200 @@
+// Strange 4CCACDDC0101 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CCACDDC0101
+
+FORWARD ME_4C7E4B6E02BF
+
+ME ME_4C7E4B830292
+ MEPROP UID '4C7E4B830292'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7E4B6E02BF // ControlCenter
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C7E4B830292 Add
+
+ME ME_4C7E4BA000A6
+ MEPROP UID '4C7E4BA000A6'
+ MEPROP Name 'CreateList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7E4B6E02BF // ControlCenter
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C7E4BA000A6 CreateList
+
+ME ME_4C7E4BB800D4
+ MEPROP UID '4C7E4BB800D4'
+ MEPROP Name 'Sort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7E4B6E02BF // ControlCenter
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C7E4BB800D4 Sort
+
+ME ME_4C7E4BD301B7
+ MEPROP UID '4C7E4BD301B7'
+ MEPROP Name 'ClearAllStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7E4B6E02BF // ControlCenter
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C7E4BD301B7 ClearAllStatus
+
+ME ME_4C7E4B6E02BF
+ MEPROP UID '4C7E4B6E02BF'
+ MEPROP Name 'ControlCenter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CCACDDC0101 // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7E4B830292 // Add
+ HWL ME_4C7E4BA000A6 // CreateList
+ HWL ME_4C7E4BB800D4 // Sort
+ HWL ME_4C7E4BD301B7 // ClearAllStatus
+ )
+ ; // Operations
+
+ENDME // ME_4C7E4B6E02BF ControlCenter
+
+FORWARD ME_4C7E4C2102E6
+
+ME ME_4C7E4C3001B6
+ MEPROP UID '4C7E4C3001B6'
+ MEPROP Name 'Open'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7E4C2102E6 // ControledObject
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C7E4C3001B6 Open
+
+ME ME_4C7E4C470330
+ MEPROP UID '4C7E4C470330'
+ MEPROP Name 'ClearStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7E4C2102E6 // ControledObject
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C7E4C470330 ClearStatus
+
+ME ME_4C7E4C2102E6
+ MEPROP UID '4C7E4C2102E6'
+ MEPROP Name 'ControledObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CCACDDC0101 // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7E4C3001B6 // Open
+ HWL ME_4C7E4C470330 // ClearStatus
+ )
+ ; // Operations
+
+ENDME // ME_4C7E4C2102E6 ControledObject
+
+ME ME_4CCACDDC0101
+ MEPROP UID '4CCACDDC0101'
+ MEPROP Name 'Strange'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CCAC6EF001D' '4CCAC6EF001D.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7E4B6E02BF // ControlCenter
+ HWL ME_4C7E4C2102E6 // ControledObject
+ )
+ ; // Children
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'UnderControl_Strange_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\UnderControl_Strange_Controls.pas'
+
+ENDME // ME_4CCACDDC0101 Strange

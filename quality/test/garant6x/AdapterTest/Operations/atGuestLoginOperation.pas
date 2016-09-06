@@ -22,6 +22,8 @@ implementation
 uses
  l3ImplUses
  , atOperationEnv
+ //#UC START# *4808AF7B0011impl_uses*
+ //#UC END# *4808AF7B0011impl_uses*
 ;
 
 procedure TatGuestLoginOperation.ExecuteSelf;

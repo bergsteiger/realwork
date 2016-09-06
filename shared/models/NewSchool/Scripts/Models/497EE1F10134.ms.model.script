@@ -1,0 +1,395 @@
+// PrimMedicListSynchroView 497EE1F10134 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497EE1F10134
+
+ME ME_4BD6C82400DF
+ MEPROP UID '4BD6C82400DF'
+ MEPROP Name 'mlsfDrugList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ UP "ImageIndex" 84
+ UP "NeedOnQueryClose" True
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimMedicListSynchroView_mlsfDrugList_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_mlsfDrugList_UserType.pas'
+
+ENDME // ME_4BD6C82400DF mlsfDrugList
+
+ME ME_4BD6C85300DB
+ MEPROP UID '4BD6C85300DB'
+ MEPROP Name 'mlsfMedicFirm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD6C82400DF // mlsfDrugList
+ )
+ ; // Inherits
+ UP "ImageIndex" 84
+ UP "NeedOnQueryClose" True
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimMedicListSynchroView_mlsfMedicFirm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_mlsfMedicFirm_UserType.pas'
+
+ENDME // ME_4BD6C85300DB mlsfMedicFirm
+
+FORWARD ME_4C52EC3F027D
+
+ME ME_4C52ECB90313
+ MEPROP UID '4C52ECB90313'
+ MEPROP Name 'ChildZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C52EC3F027D // ztChild
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" False
+ UP "MergeTopTollbarWithContainer" True
+ UP "ZoneType" 'Child'
+
+ENDME // ME_4C52ECB90313 ChildZone
+
+ME ME_4C52EC3F027D
+ MEPROP UID '4C52EC3F027D'
+ MEPROP Name 'ztChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_4C52ECB90313 // ChildZone
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4C52EC3F027D ztChild
+
+ME ME_497EE25C0268
+ MEPROP UID '497EE25C0268'
+ MEPROP Name 'dsSimpleListSynchroView'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELINK Target WL 'ME_494690E5004E' '4922BFA000DD.ms.model.script' // IdsSimpleListSynchroView
+ ;
+
+ENDME // ME_497EE25C0268 dsSimpleListSynchroView
+
+FORWARD ME_65F272629DB8
+
+ME ME_B0B84967D8F8
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_B0B84967D8F8 aSender
+
+ME ME_65F272629DB8
+ MEPROP UID '65F272629DB8'
+ MEPROP Name 'mlsfDrugListQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события mlsfDrugList.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELIST Parameters
+   Seq: ( ME_B0B84967D8F8 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_65F272629DB8 mlsfDrugListQueryClose
+
+FORWARD ME_C155D2625A02
+
+ME ME_4587846F006A
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4587846F006A aSender
+
+ME ME_C155D2625A02
+ MEPROP UID 'C155D2625A02'
+ MEPROP Name 'mlsfMedicFirmQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события mlsfMedicFirm.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELIST Parameters
+   Seq: ( ME_4587846F006A // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_C155D2625A02 mlsfMedicFirmQueryClose
+
+ME ME_4BD6C8CE02DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELINK Target WL 'ME_4AE836C303BC' '4F71AD0E01FE.ms.model.script' // Switcher$SetCaption
+ ;
+
+ENDME // ME_4BD6C8CE02DE 
+
+ME ME_4C52E87F0310
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELINK Target WL 'ME_4AEF281F0394' '4A9807DB01A5.ms.model.script' // List
+ ;
+
+ENDME // ME_4C52E87F0310 
+
+ME ME_4C52F356010E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4C52F356010E 
+
+ME ME_523FF50F0136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EE1F10134 // PrimMedicListSynchroView
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_523FF50F0136 
+
+ME ME_4AE9E3CC03C7_ME_497EE1F10134
+ MELINK Original WL 'ME_4AE9E3CC03C7' '4A9807DB01A5.ms.model.script' // BecomeActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_4AE9E3CC03C7_ME_497EE1F10134 BecomeActive
+
+ME ME_4C52E5D702B0_ME_497EE1F10134
+ MELINK Original WL 'ME_4C52E5D702B0' '4C52E591003F.ms.model.script' // OpenDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C52E5D702B0_ME_497EE1F10134 OpenDocument
+
+ME ME_4C52E5F203CC_ME_497EE1F10134
+ MELINK Original WL 'ME_4C52E5F203CC' '4C52E591003F.ms.model.script' // OpenAttributesForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C52E5F203CC_ME_497EE1F10134 OpenAttributesForm
+
+ME ME_4C52E61002B5_ME_497EE1F10134
+ MELINK Original WL 'ME_4C52E61002B5' '4C52E591003F.ms.model.script' // OpenList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C52E61002B5_ME_497EE1F10134 OpenList
+
+ME ME_4C7D373900D0_ME_497EE1F10134
+ MELINK Original WL 'ME_4C7D373900D0' '4C52E591003F.ms.model.script' // OpenDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C7D373900D0_ME_497EE1F10134 OpenDocument
+
+ME ME_4C7D37C20388_ME_497EE1F10134
+ MELINK Original WL 'ME_4C7D37C20388' '4C52E591003F.ms.model.script' // OpenList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C7D37C20388_ME_497EE1F10134 OpenList
+
+ME ME_4A8E8F2E0195_ME_497EE1F10134
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_497EE1F10134 InitControls
+
+ME ME_4AC497FD00A2_ME_497EE1F10134
+ MELINK Original WL 'ME_4AC497FD00A2' '4AADF9450143.ms.model.script' // DoGetTabInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AC497FD00A2_ME_497EE1F10134 DoGetTabInfo
+
+ME ME_4C52E8030278_ME_497EE1F10134
+ MELINK Original WL 'ME_4C52E8030278' '4AADF9450143.ms.model.script' // PageActive
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C52E8030278_ME_497EE1F10134 PageActive
+
+ME ME_4C52E81603A9_ME_497EE1F10134
+ MELINK Original WL 'ME_4C52E81603A9' '4AADF9450143.ms.model.script' // PageInactive
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C52E81603A9_ME_497EE1F10134 PageInactive
+
+ME ME_497EE1F10134
+ MEPROP UID '497EE1F10134'
+ MEPROP Name 'PrimMedicListSynchroView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4958E49A023A' '4958E49A023A.ms.model.script' // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525C240170' '4AADF9450143.ms.model.script' // TvcmContainerForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4AE9E3C2031C' '4A9807DB01A5.ms.model.script' // SynchroView
+ WL 'ME_4C52E5C9005D' '4C52E591003F.ms.model.script' // MedicListSynchroView
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C52EC3F027D // ztChild
+ HWL ME_497EE25C0268 // dsSimpleListSynchroView
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_65F272629DB8 // mlsfDrugListQueryClose
+ HWL ME_C155D2625A02 // mlsfMedicFirmQueryClose
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AE9E3CC03C7_ME_497EE1F10134 // BecomeActive
+ ME_4C52E5D702B0_ME_497EE1F10134 // OpenDocument
+ ME_4C52E5F203CC_ME_497EE1F10134 // OpenAttributesForm
+ ME_4C52E61002B5_ME_497EE1F10134 // OpenList
+ ME_4C7D373900D0_ME_497EE1F10134 // OpenDocument
+ ME_4C7D37C20388_ME_497EE1F10134 // OpenList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_497EE1F10134 // InitControls
+ ME_4AC497FD00A2_ME_497EE1F10134 // DoGetTabInfo
+ ME_4C52E8030278_ME_497EE1F10134 // PageActive
+ ME_4C52E81603A9_ME_497EE1F10134 // PageInactive
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD6C82400DF // mlsfDrugList
+ HWL ME_4BD6C85300DB // mlsfMedicFirm
+ HWL ME_4C52ECB90313 // ChildZone
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BD6C8CE02DE // Switcher$SetCaption
+ ME_4C52E87F0310 // List
+ ME_4C52F356010E // afwFacade
+ ME_523FF50F0136 // Controls
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '27.01.2009 13:29'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimMedicListSynchroViewForm'
+ UP extprop:pas:UnitName 'PrimMedicListSynchroView_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimMedicListSynchroViewForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\PrimMedicListSynchroView_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms'
+
+ENDME // ME_497EE1F10134 PrimMedicListSynchroView

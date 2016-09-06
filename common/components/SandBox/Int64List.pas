@@ -27,6 +27,8 @@ uses
  l3ImplUses
  , RTLConsts
  , l3MemorySizeUtils
+ //#UC START# *51DEE8B7025Bimpl_uses*
+ //#UC END# *51DEE8B7025Bimpl_uses*
 ;
 
 {$Include w:\common\components\SandBox\StandardAtomicList.imp.pas}

@@ -1,0 +1,124 @@
+// FiltersInterfaces 4CCAACC703B8 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CCAACC703B8
+
+FORWARD ME_4CB6C915011C
+
+ME ME_4CB6C9330040
+ MEPROP UID '4CB6C9330040'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4CB6C915011C // IdsCreateFilter
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" False
+
+ENDME // ME_4CB6C9330040 Name
+
+FORWARD ME_4CB6C9490358
+
+ME ME_4CB6C95F0141
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CB6C95F0141 aName
+
+ME ME_4CB6C9490358
+ MEPROP UID '4CB6C9490358'
+ MEPROP Name 'CreateFilter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CB6C915011C // IdsCreateFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6C95F0141 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6C9490358 CreateFilter
+
+FORWARD ME_4CB6C966029D
+
+ME ME_4CB6C96F00BB
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4CB6C96F00BB aName
+
+ME ME_4CB6C966029D
+ MEPROP UID '4CB6C966029D'
+ MEPROP Name 'RenameFilter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4CB6C915011C // IdsCreateFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB6C96F00BB // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4CB6C966029D RenameFilter
+
+ME ME_4CB6C915011C
+ MEPROP UID '4CB6C915011C'
+ MEPROP GUID '0A1955B6-7882-4A4C-919E-F6B89BED5BE2'
+ MEPROP Name 'IdsCreateFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CCAACC703B8 // FiltersInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CB6C9330040 // Name
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CB6C9490358 // CreateFilter
+ HWL ME_4CB6C966029D // RenameFilter
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsCreateFilter'
+
+ENDME // ME_4CB6C915011C IdsCreateFilter
+
+ME ME_4CCAACC703B8
+ MEPROP UID '4CCAACC703B8'
+ MEPROP Name 'FiltersInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CCAACB5024D' '4CCAACB5024D.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CB6C915011C // IdsCreateFilter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\FiltersInterfaces.pas'
+
+ENDME // ME_4CCAACC703B8 FiltersInterfaces

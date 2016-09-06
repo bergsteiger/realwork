@@ -1,0 +1,159 @@
+// TsdsAutoreferat 492FDB1603A9 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492FDB1603A9
+
+ME ME_494166980337
+ MEPROP UID '494166980337'
+ MEPROP Name 'SetDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ MELINK Target WL 'ME_47EB3BD9015F' '491B305A0096.ms.model.script' // IdBaseDocument
+ ;
+
+ENDME // ME_494166980337 SetDataType
+
+ME ME_4947B0ED0257
+ MEPROP UID '4947B0ED0257'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_4947B0ED0257 InitDataType
+
+ME ME_492FDB5A0045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ MELINK Target WL 'ME_491C3B8D00D8' '491C3B8D00D8.ms.model.script' // TdsAutoreferat
+ ;
+
+ENDME // ME_492FDB5A0045 
+
+ME ME_492FDCBF00F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ MELINK Target WL 'ME_492FDE91018F' '492FDE91018F.ms.model.script' // TdsNewsLine
+ ;
+
+ENDME // ME_492FDCBF00F3 
+
+ME ME_4B220CE40177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ MELINK Target WL 'ME_4B220C2B001F' '47EA50050263.ms.model.script' // TdBaseDocument
+ ;
+
+ENDME // ME_4B220CE40177 
+
+ME ME_53D7681800D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FDB1603A9 // TsdsAutoreferat
+ ;
+ MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ ;
+
+ENDME // ME_53D7681800D2 
+
+ME ME_47F3778403D9_ME_492FDB1603A9
+ MELINK Original WL 'ME_47F3778403D9' '47D0E1500033.ms.model.script' // MakeData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F3778403D9_ME_492FDB1603A9 MakeData
+
+ME ME_4925B1EC0100_ME_492FDB1603A9
+ MELINK Original WL 'ME_4925B1EC0100' '47EA106D035E.ms.model.script' // BaseDocumentClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925B1EC0100_ME_492FDB1603A9 BaseDocumentClass
+
+ME ME_492F060800A2_ME_492FDB1603A9
+ MELINK Original WL 'ME_492F060800A2' '492F0586030C.ms.model.script' // MakeNewsLineFakeDS
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_492F060800A2_ME_492FDB1603A9 MakeNewsLineFakeDS
+
+ME ME_47F37DF001FE_ME_492FDB1603A9
+ MELINK Original WL 'ME_47F37DF001FE' '47D0E1500033.ms.model.script' // DataExchange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F37DF001FE_ME_492FDB1603A9 DataExchange
+
+ME ME_53B3BF9C00EF_ME_492FDB1603A9
+ MELINK Original WL 'ME_53B3BF9C00EF' '47D0E1500033.ms.model.script' // DoGetFormSetImageIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53B3BF9C00EF_ME_492FDB1603A9 DoGetFormSetImageIndex
+
+ME ME_492FDB1603A9
+ MEPROP UID '492FDB1603A9'
+ MEPROP Name 'TsdsAutoreferat'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект сборки "Автореферат"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491C3ADB03A5' '491C3ADB03A5.ms.model.script' // Autoreferat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA106D035E' '47EA106D035E.ms.model.script' // sdsBaseDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492F071B02AC' '492F0586030C.ms.model.script' // IsdsAutoreferat
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_494166980337 // SetDataType
+ HWL ME_4947B0ED0257 // InitDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F3778403D9_ME_492FDB1603A9 // MakeData
+ ME_4925B1EC0100_ME_492FDB1603A9 // BaseDocumentClass
+ ME_492F060800A2_ME_492FDB1603A9 // MakeNewsLineFakeDS
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47F37DF001FE_ME_492FDB1603A9 // DataExchange
+ ME_53B3BF9C00EF_ME_492FDB1603A9 // DoGetFormSetImageIndex
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_492FDB5A0045 // TdsAutoreferat
+ ME_492FDCBF00F3 // TdsNewsLine
+ ME_4B220CE40177 // TdBaseDocument
+ ME_53D7681800D2 // nsTabbedInterfaceTypes
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2005/10/06 12:32:24'
+ UP extprop:pas:UnitName 'sdsAutoreferat'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsAutoreferat'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\sdsAutoreferat.pas'
+
+ENDME // ME_492FDB1603A9 TsdsAutoreferat

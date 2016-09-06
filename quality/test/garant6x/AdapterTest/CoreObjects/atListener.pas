@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4807838102C9impl_uses*
+ //#UC END# *4807838102C9impl_uses*
 ;
 
 function TatListener.IsListen(const notifier: IatNotifier): Boolean;

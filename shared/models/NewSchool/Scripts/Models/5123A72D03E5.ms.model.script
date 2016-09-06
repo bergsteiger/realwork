@@ -1,0 +1,80 @@
+// Admin 5123A72D03E5 VCMTestTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5123A72D03E5
+
+ME ME_4B7AB0B6016E_ME_5123A75E00D5
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7AB0B6016E_ME_5123A75E00D5 CommandLineKey
+
+ME ME_4B7C0B43005B_ME_5123A75E00D5
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A112B011A.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7C0B43005B_ME_5123A75E00D5 TimesPage
+
+ME ME_4B7C0B670215_ME_5123A75E00D5
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A112B011A.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7C0B670215_ME_5123A75E00D5 ResultsPage
+
+ME ME_5123A75E00D5
+ MEPROP UID '5123A75E00D5'
+ MEPROP Name 'toKAdmin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5123A72D03E5 // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.ms.model.script' // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_5123A75E00D5 // CommandLineKey
+ ME_4B7C0B43005B_ME_5123A75E00D5 // TimesPage
+ ME_4B7C0B670215_ME_5123A75E00D5 // ResultsPage
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TtoKAdmin'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'toKAdmin'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\toKAdmin.pas'
+
+ENDME // ME_5123A75E00D5 toKAdmin
+
+ME ME_5123A72D03E5
+ MEPROP UID '5123A72D03E5'
+ MEPROP Name 'Admin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMTestTarget ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5123A6AF023B' '5123A6AF023B.ms.model.script' // F1 Ежедневные тесты Администратора
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_5123A74700E2' '5123A74700E2.ms.model.script' // AdminTest
+ HWL ME_5123A75E00D5 // toKAdmin
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AA5181600DC' '4AA5181600DC.ms.model.script' // Admin$Shell
+ WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4F6B65EA0392' '4F6B65EA0392.ms.model.script' // F1Like
+ WL 'ME_4F79CCD4016C' '4F79CCD4016C.ms.model.script' // VCM$ Applications Testing
+ WL 'ME_4F79CD2603DF' '4F79CD2603DF.ms.model.script' // AppTestingSupport
+ )
+ ; // Depends
+ UP extprop:pas:UnitName 'AdminAppTest'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminAppTest.dpr'
+ UP Version 0
+
+ENDME // ME_5123A72D03E5 Admin

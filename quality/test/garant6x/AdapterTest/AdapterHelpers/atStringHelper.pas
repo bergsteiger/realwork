@@ -23,6 +23,8 @@ implementation
 uses
  l3ImplUses
  , atGblAdapterWorker
+ //#UC START# *48B5671301C7impl_uses*
+ //#UC END# *48B5671301C7impl_uses*
 ;
 
 class function TatStringHelper.AStr2DStr(const aString: IString): AnsiString;

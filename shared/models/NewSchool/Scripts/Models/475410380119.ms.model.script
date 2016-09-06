@@ -1,0 +1,48 @@
+// TOvcBase 475410380119 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_475410380119
+
+ME ME_475416990003
+ MEPROP UID '475416990003'
+ MEPROP Name 'Controller'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Контроллер команд.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_475410380119 // TOvcBase
+ ;
+ MELINK Target WL 'ME_475415C50224' '4754101B004F.ms.model.script' // TOvcController
+ ;
+
+ENDME // ME_475416990003 Controller
+
+ME ME_475410380119
+ MEPROP UID '475410380119'
+ MEPROP Name 'TOvcBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'base class for Orpheus components. Provides controller access.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4754101B004F' '4754101B004F.ms.model.script' // OvcBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E1388A03A7' '4799D29F033F.ms.model.script' // TCustomControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_475416990003 // Controller
+ )
+ ; // Attributes
+ UP "finished" False
+ UP extprop:pas:UnitName 'OvcBase'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OvcBase'
+ UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcBase.pas'
+
+ENDME // ME_475410380119 TOvcBase

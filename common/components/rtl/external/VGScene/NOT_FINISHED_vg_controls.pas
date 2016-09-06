@@ -80,6 +80,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4CFCE531013Aimpl_uses*
+ //#UC END# *4CFCE531013Aimpl_uses*
 ;
 
 procedure TvgTextControl.SetText(const Value: WideString);

@@ -93,6 +93,8 @@ uses
  , SysUtils
  , Classes
  , l3Base
+ //#UC START# *48078D230277impl_uses*
+ //#UC END# *48078D230277impl_uses*
 ;
 
 var g_TatTreeTagConverter: TatTreeTagConverter = nil;

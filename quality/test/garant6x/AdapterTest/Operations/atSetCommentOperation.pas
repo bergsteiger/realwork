@@ -28,6 +28,8 @@ uses
  , SysUtils
  , ActiveX
  , atUserComment
+ //#UC START# *483FF1480190impl_uses*
+ //#UC END# *483FF1480190impl_uses*
 ;
 
 procedure TatSetCommentOperation.ExecuteSelf;

@@ -30,6 +30,8 @@ uses
  l3ImplUses
  , RTLConsts
  , l3MemorySizeUtils
+ //#UC START# *51E80A960173impl_uses*
+ //#UC END# *51E80A960173impl_uses*
 ;
 
 {$Include w:\common\components\SandBox\InterfaceRefList.imp.pas}

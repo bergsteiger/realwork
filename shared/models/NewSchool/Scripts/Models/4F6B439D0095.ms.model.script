@@ -1,0 +1,182 @@
+// System 4F6B439D0095 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B439D0095
+
+FORWARD ME_4C8A309F03AE
+
+ME ME_4C8A30B60087
+ MEPROP UID '4C8A30B60087'
+ MEPROP Name 'OpenNewWindowByUser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C8A309F03AE // Common$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" True
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" True
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8A30B60087 OpenNewWindowByUser
+
+ME ME_4C8A30DB001D
+ MEPROP UID '4C8A30DB001D'
+ MEPROP Name 'GetWindowList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C8A309F03AE // Common$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8A30DB001D GetWindowList
+
+ME ME_4C8A30F30115
+ MEPROP UID '4C8A30F30115'
+ MEPROP Name 'CascadeWindows'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C8A309F03AE // Common$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8A30F30115 CascadeWindows
+
+ME ME_4C8A3114001E
+ MEPROP UID '4C8A3114001E'
+ MEPROP Name 'TileWindowsHorizontal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C8A309F03AE // Common$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8A3114001E TileWindowsHorizontal
+
+ME ME_4C8A312F018D
+ MEPROP UID '4C8A312F018D'
+ MEPROP Name 'TileWindowsVertical'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C8A309F03AE // Common$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8A312F018D TileWindowsVertical
+
+ME ME_4C8A31770143
+ MEPROP UID '4C8A31770143'
+ MEPROP Name 'CloseAllWindows'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C8A309F03AE // Common$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8A31770143 CloseAllWindows
+
+ME ME_4C8A309F03AE
+ MEPROP UID '4C8A309F03AE'
+ MEPROP Name 'Common'
+ MEPROP OriginalName 'Common$UI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6B439D0095 // System
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8A30B60087 // OpenNewWindowByUser
+ HWL ME_4C8A30DB001D // GetWindowList
+ HWL ME_4C8A30F30115 // CascadeWindows
+ HWL ME_4C8A3114001E // TileWindowsHorizontal
+ HWL ME_4C8A312F018D // TileWindowsVertical
+ HWL ME_4C8A31770143 // CloseAllWindows
+ )
+ ; // Operations
+
+ENDME // ME_4C8A309F03AE Common$UI
+
+ME ME_4F6B439D0095
+ MEPROP UID '4F6B439D0095'
+ MEPROP Name 'System'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C8A309F03AE // Common$UI
+ )
+ ; // Children
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'OfficeLike_System_Controls'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_System_Controls.pas'
+
+ENDME // ME_4F6B439D0095 System

@@ -1,0 +1,59 @@
+// TsdsSendConsultation 492FF1C500B5 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492FF1C500B5
+
+ME ME_492FF1F80082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FF1C500B5 // TsdsSendConsultation
+ ;
+ MELINK Target WL 'ME_491DD030014A' '491DD030014A.ms.model.script' // TdsSendConsultation
+ ;
+
+ENDME // ME_492FF1F80082 
+
+ME ME_492FEE0000FD_ME_492FF1C500B5
+ MELINK Original WL 'ME_492FEE0000FD' '492FECE300EA.ms.model.script' // GetQueryClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492FEE0000FD_ME_492FF1C500B5 GetQueryClass
+
+ME ME_492FF1C500B5
+ MEPROP UID '492FF1C500B5'
+ MEPROP Name 'TsdsSendConsultation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект прецедента "Запрос на консультацию"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492FECE300EA' '492FECE300EA.ms.model.script' // TsdsQuery
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492F01200192' '491C3E540050.ms.model.script' // IsdsSendConsultation
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_492FEE0000FD_ME_492FF1C500B5 // GetQueryClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_492FF1F80082 // TdsSendConsultation
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А'
+ UP "no hands" True
+ UP "started" '2006/04/07 08:15:44'
+ UP extprop:pas:UnitName 'sdsSendConsultation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsSendConsultation'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\sdsSendConsultation.pas'
+
+ENDME // ME_492FF1C500B5 TsdsSendConsultation

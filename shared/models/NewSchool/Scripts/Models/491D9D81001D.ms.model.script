@@ -1,0 +1,156 @@
+// TdsForbidAutoregistration 491D9D81001D ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D9D81001D
+
+FORWARD ME_491D9DFC0019
+
+ME ME_491D9E0F01A4
+ MEPROP UID '491D9E0F01A4'
+ MEPROP Name 'c_MaxLength'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D9DFC0019 // Limits
+ ;
+ MEPROP Value 50
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 50
+
+ENDME // ME_491D9E0F01A4 c_MaxLength
+
+ME ME_491D9DFC0019
+ MEPROP UID '491D9DFC0019'
+ MEPROP Name 'Limits'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491D9D81001D // TdsForbidAutoregistration
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_491D9E0F01A4 // c_MaxLength
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_491D9DFC0019 Limits
+
+ME ME_4B02D8A60167
+ MEPROP UID '4B02D8A60167'
+ MEPROP Name 'f_NeedForbid'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491D9D81001D // TdsForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B02D8A60167 f_NeedForbid
+
+ME ME_491D9E2B031F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D9D81001D // TdsForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_491D9E2B031F 
+
+ME ME_491DA04703CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D9D81001D // TdsForbidAutoregistration
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_491DA04703CD 
+
+ME ME_491D96B9006E_ME_491D9D81001D
+ MELINK Original WL 'ME_491D96B9006E' '491D961C0122.ms.model.script' // Phone
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_491D96B9006E_ME_491D9D81001D Phone
+
+ME ME_491D96D0039F_ME_491D9D81001D
+ MELINK Original WL 'ME_491D96D0039F' '491D961C0122.ms.model.script' // Email
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_491D96D0039F_ME_491D9D81001D Email
+
+ME ME_4B02D4DD00FC_ME_491D9D81001D
+ MELINK Original WL 'ME_4B02D4DD00FC' '491D961C0122.ms.model.script' // NeedForbid
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B02D4DD00FC_ME_491D9D81001D NeedForbid
+
+ME ME_47A042E100E2_ME_491D9D81001D
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_491D9D81001D InitFields
+
+ME ME_491D9D81001D
+ MEPROP UID '491D9D81001D'
+ MEPROP Name 'TdsForbidAutoregistration'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Запрет авторегистрации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491D9414002B' '491D9414002B.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_491D962D01DA' '491D961C0122.ms.model.script' // IdsForbidAutoregistration
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B02D8A60167 // f_NeedForbid
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491D96B9006E_ME_491D9D81001D // Phone
+ ME_491D96D0039F_ME_491D9D81001D // Email
+ ME_4B02D4DD00FC_ME_491D9D81001D // NeedForbid
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_491D9D81001D // InitFields
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_491D9DFC0019 // Limits
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_491D9E2B031F // DataAdapter
+ ME_491DA04703CD // l3String
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '20.05.2007'
+ UP extprop:pas:UnitName 'dsForbidAutoregistration'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsForbidAutoregistration'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\dsForbidAutoregistration.pas'
+
+ENDME // ME_491D9D81001D TdsForbidAutoregistration

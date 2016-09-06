@@ -73,6 +73,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48089D120398impl_uses*
+ //#UC END# *48089D120398impl_uses*
 ;
 
 function TatOperationBase.pm_GetParameters(const aName: AnsiString): TatOperationParameter;

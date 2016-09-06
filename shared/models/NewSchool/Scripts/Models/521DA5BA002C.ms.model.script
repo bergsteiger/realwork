@@ -1,0 +1,33 @@
+// List$UC 521DA5BA002C VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_521DA5BA002C
+ MEPROP UID '521DA5BA002C'
+ MEPROP Name 'List'
+ MEPROP OriginalName 'List$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_521DA5750380' '521DA5750380.ms.model.script' // List
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_521DA6370197' '521DA6370197.ms.model.script' // List
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
+ )
+ ; // Implements
+ UP extprop:pas:TypeName 'Tmo_List'
+ UP extprop:pas:UnitName 'moList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_List'
+ UP intf.pas:Path 'common\components\SandBox\VCM\View\moList.pas'
+ UP intf.pas:PathOnly '\common\components\SandBox\VCM\View'
+
+ENDME // ME_521DA5BA002C List$UC

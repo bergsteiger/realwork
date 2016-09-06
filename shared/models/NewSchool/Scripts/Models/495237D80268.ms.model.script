@@ -1,0 +1,165 @@
+// F1Specific 495237D80268 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_495237D80268
+
+FORWARD ME_4952380301A6
+
+ME ME_495238EB0160
+ MEPROP UID '495238EB0160'
+ MEPROP Name 'ToMSWord'
+ MEPROP Class class_Operation
+ %SUMMARY 'Экспорт в Word' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4952380301A6 // File
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_495238EB0160 ToMSWord
+
+ME ME_495253870002
+ MEPROP UID '495253870002'
+ MEPROP Name 'SendMailAsAttachment'
+ MEPROP Class class_Operation
+ %SUMMARY 'Послать по e-mail' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4952380301A6 // File
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" True
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_495253870002 SendMailAsAttachment
+
+ME ME_49521D8E0295_ME_4952380301A6
+ MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49521D8E0295_ME_4952380301A6 Print
+
+ME ME_495220DE0298_ME_4952380301A6
+ MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495220DE0298_ME_4952380301A6 PrintDialog
+
+ME ME_495220F2033A_ME_4952380301A6
+ MELINK Original WL 'ME_495220F2033A' '494F898C013E.ms.model.script' // PrintPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495220F2033A_ME_4952380301A6 PrintPreview
+
+ME ME_495235F401C0_ME_4952380301A6
+ MELINK Original WL 'ME_495235F401C0' '494F898C013E.ms.model.script' // Save
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495235F401C0_ME_4952380301A6 Save
+
+ME ME_4952380301A6
+ MEPROP UID '4952380301A6'
+ MEPROP Name 'File'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495237D80268 // F1Specific
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_495238EB0160 // ToMSWord
+ HWL ME_495253870002 // SendMailAsAttachment
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49521D8E0295_ME_4952380301A6 // Print
+ ME_495220DE0298_ME_4952380301A6 // PrintDialog
+ ME_495220F2033A_ME_4952380301A6 // PrintPreview
+ ME_495235F401C0_ME_4952380301A6 // Save
+ )
+ ; // Implemented
+
+ENDME // ME_4952380301A6 File
+
+ME ME_495237D80268
+ MEPROP UID '495237D80268'
+ MEPROP Name 'F1Specific'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Операции, специфичные для F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4952380301A6 // File
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_494F898C013E' '494F898C013E.ms.model.script' // Usual
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'Base_Operations_F1Specific_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_F1Specific_Controls.pas'
+
+ENDME // ME_495237D80268 F1Specific

@@ -1,0 +1,900 @@
+// TevCustomMemo 4829D81D02E5 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829D81D02E5
+
+ME ME_482D9D420205
+ MEPROP UID '482D9D420205'
+ MEPROP Name 'RevCustomMemoTextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482D98A20190' '4829D7D50156.ms.model.script' // TevCustomMemoTextSource
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_482D9D420205 RevCustomMemoTextSource
+
+FORWARD ME_484522B20174
+
+ME ME_484522BD035C
+ MEPROP UID '484522BD035C'
+ MEPROP Name 'def_MemoLMargin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484522B20174 // Defaults
+ ;
+ MEPROP Value 8
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 8
+
+ENDME // ME_484522BD035C def_MemoLMargin
+
+ME ME_484550300370
+ MEPROP UID '484550300370'
+ MEPROP Name 'def_MemoScrollStyle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_484522B20174 // Defaults
+ ;
+ MEPROP Value 'def_MemoScrollStyle'
+ MELINK ValueType WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'evDef.def_MemoScrollStyle'
+
+ENDME // ME_484550300370 def_MemoScrollStyle
+
+ME ME_484522B20174
+ MEPROP UID '484522B20174'
+ MEPROP Name 'Defaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_484522BD035C // def_MemoLMargin
+ HWL ME_484550300370 // def_MemoScrollStyle
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_484522B20174 Defaults
+
+ME ME_484517360371
+ MEPROP UID '484517360371'
+ MEPROP Name 'NeedDefaultPopupMenu'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value True
+
+ENDME // ME_484517360371 NeedDefaultPopupMenu
+
+ME ME_4845175D022D
+ MEPROP UID '4845175D022D'
+ MEPROP Name 'KeepAllFormatting'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+ UP extprop:pas:Value False
+
+ENDME // ME_4845175D022D KeepAllFormatting
+
+ME ME_484517BD02FF
+ MEPROP UID '484517BD02FF'
+ MEPROP Name 'TextLen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'размер текста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_484517BD02FF TextLen
+
+ME ME_484517DD032E
+ MEPROP UID '484517DD032E'
+ MEPROP Name 'Buffer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'текст мемо-поля.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_484517DD032E Buffer
+
+ME ME_484518050194
+ MEPROP UID '484518050194'
+ MEPROP Name 'Wrap'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'переносить ли слова по размеру мемо-поля.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+ UP extprop:pas:Value True
+
+ENDME // ME_484518050194 Wrap
+
+ME ME_4864C60D01F5
+ MEPROP UID '4864C60D01F5'
+ MEPROP Name 'NeedReplaceQuotes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+ UP extprop:pas:Value True
+
+ENDME // ME_4864C60D01F5 NeedReplaceQuotes
+
+ME ME_48451D580379
+ MEPROP UID '48451D580379'
+ MEPROP Name 'f_Buf'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_48451D410179' '47913B47006E.ms.model.script' // Tl3MemoryPool
+ ;
+
+ENDME // ME_48451D580379 f_Buf
+
+ME ME_48451DC000CE
+ MEPROP UID '48451DC000CE'
+ MEPROP Name 'f_PlainText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48451DC000CE f_PlainText
+
+FORWARD ME_4D6B97CB00AA
+
+ME ME_4D6B97E602BD
+ MEPROP UID '4D6B97E602BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6B97CB00AA // UseMemoFontForParagraphs
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6B97E602BD DoIt
+
+ME ME_4D6B97CB00AA
+ MEPROP UID '4D6B97CB00AA'
+ MEPROP Name 'UseMemoFontForParagraphs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D6B97E602BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D6B97CB00AA UseMemoFontForParagraphs
+
+ME ME_482D9D1701E0
+ MEPROP UID '482D9D1701E0'
+ MEPROP Name 'TextSourceClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target HWL ME_482D9D420205 // RevCustomMemoTextSource
+ ;
+
+ENDME // ME_482D9D1701E0 TextSourceClass
+
+FORWARD ME_484524F103B7
+
+ME ME_484524FD0003
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F793C0385' '46A5E026007E.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_484524FD0003 Msg
+
+ME ME_484524F103B7
+ MEPROP UID '484524F103B7'
+ MEPROP Name 'WMGetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Parameters
+   Seq: ( ME_484524FD0003 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GetText'
+
+ENDME // ME_484524F103B7 WMGetText
+
+FORWARD ME_4845250E02BE
+
+ME ME_48452517021E
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F793C0385' '46A5E026007E.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_48452517021E Msg
+
+ME ME_4845250E02BE
+ MEPROP UID '4845250E02BE'
+ MEPROP Name 'WMGetTextLength'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Parameters
+   Seq: ( ME_48452517021E // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GetTextLength'
+
+ENDME // ME_4845250E02BE WMGetTextLength
+
+FORWARD ME_484525250384
+
+ME ME_4845252A03D0
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F793C0385' '46A5E026007E.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4845252A03D0 Msg
+
+ME ME_484525250384
+ MEPROP UID '484525250384'
+ MEPROP Name 'WMSetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4845252A03D0 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SetText'
+
+ENDME // ME_484525250384 WMSetText
+
+FORWARD ME_484525330040
+
+ME ME_48452538032D
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F793C0385' '46A5E026007E.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_48452538032D Msg
+
+ME ME_484525330040
+ MEPROP UID '484525330040'
+ MEPROP Name 'CMFONTCHANGED'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Parameters
+   Seq: ( ME_48452538032D // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_FONTCHANGED'
+
+ENDME // ME_484525330040 CMFONTCHANGED
+
+FORWARD ME_484525510319
+
+ME ME_484525560090
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C7C9F8039E' '476F78840219.ms.model.script' // TWMKeyDown
+ ;
+
+ENDME // ME_484525560090 Msg
+
+ME ME_484525510319
+ MEPROP UID '484525510319'
+ MEPROP Name 'WMKeyDown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Parameters
+   Seq: ( ME_484525560090 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'CN_KEYDOWN'
+
+ENDME // ME_484525510319 WMKeyDown
+
+ME ME_4860F5DF026F
+ MEPROP UID '4860F5DF026F'
+ MEPROP Name 'Validate'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+
+ENDME // ME_4860F5DF026F Validate
+
+FORWARD ME_4A8A6D4701CC
+
+ME ME_4A8A6DA10058
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8A6DA10058 aTag
+
+ME ME_4A8A6D4701CC
+ MEPROP UID '4A8A6D4701CC'
+ MEPROP Name 'KeepParaFormattingTag'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранять ли элемент оформления' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8A6DA10058 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4A8A6D4701CC KeepParaFormattingTag
+
+FORWARD ME_4C35BF1F02D2
+
+ME ME_4C35BF330018
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4C35BEF20229' '4799D29F033F.ms.model.script' // TCMEnter
+ ;
+
+ENDME // ME_4C35BF330018 Message
+
+ME ME_4C35BF1F02D2
+ MEPROP UID '4C35BF1F02D2'
+ MEPROP Name 'CMEnter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C35BF330018 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_ENTER'
+
+ENDME // ME_4C35BF1F02D2 CMEnter
+
+FORWARD ME_4C35C19200EC
+
+ME ME_4C35C19E0140
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4C35C1730235' '4799D29F033F.ms.model.script' // TCMExit
+ ;
+
+ENDME // ME_4C35C19E0140 Message
+
+ME ME_4C35C19200EC
+ MEPROP UID '4C35C19200EC'
+ MEPROP Name 'CMExit'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C35C19E0140 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_EXIT'
+
+ENDME // ME_4C35C19200EC CMExit
+
+ME ME_482DA0BE027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_482D98A20190' '4829D7D50156.ms.model.script' // TevCustomMemoTextSource
+ ;
+
+ENDME // ME_482DA0BE027B 
+
+ME ME_48451CD703DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_48451CD703DC 
+
+ME ME_48451CED007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_48451CED007B 
+
+ME ME_48451D1800CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_48451D1800CE 
+
+ME ME_48451D890396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_476BEEFC018E' '48F4E61C0060.ms.model.script' // evd_DefaultStoreFlags
+ ;
+
+ENDME // ME_48451D890396 
+
+ME ME_48451F570242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_48451F570242 
+
+ME ME_48451FEA0348
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47F245BD01E1' '47F2458300E4.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_48451FEA0348 
+
+ME ME_48452029039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_48452014010D' '4829D7D50156.ms.model.script' // TevMemoContextMenu
+ ;
+
+ENDME // ME_48452029039C 
+
+ME ME_484523B9026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_484523B9026B 
+
+ME ME_484523D1002E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ ;
+
+ENDME // ME_484523D1002E 
+
+ME ME_484527C50097
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_484527C50097 
+
+ME ME_484528C70102
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_484528C70102 
+
+ME ME_4845290D019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_480DBA760390' '480DBA6900E6.ms.model.script' // k2Facade
+ ;
+
+ENDME // ME_4845290D019C 
+
+ME ME_484529F200A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_484529DC0276' '4799D29F033F.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_484529F200A7 
+
+ME ME_48452A3C01DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47D00B7F0171' '4AB0C3F60375.ms.model.script' // Key Codes
+ ;
+
+ENDME // ME_48452A3C01DB 
+
+ME ME_48452BEC00B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_48452BD40093' '48452B7D0314.ms.model.script' // EevLimitReached
+ ;
+
+ENDME // ME_48452BEC00B7 
+
+ME ME_48F4EC08032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_476BED00024F' '48F4E61C0060.ms.model.script' // StoreFlag
+ ;
+
+ENDME // ME_48F4EC08032C 
+
+ME ME_4C35C0B803B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4C35C0B803B5 
+
+ME ME_530777E703E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D81D02E5 // TevCustomMemo
+ ;
+ MELINK Target WL 'ME_484CEE9A0170' '484A470100DD.ms.model.script' // Font
+ ;
+
+ENDME // ME_530777E703E0 
+
+ME ME_479731C50290_ME_4829D81D02E5
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4829D81D02E5 Cleanup
+
+ME ME_47D1602000C6_ME_4829D81D02E5
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4829D81D02E5 Create
+
+ME ME_482BFB0A00E0_ME_4829D81D02E5
+ MELINK Original WL 'ME_482BFB0A00E0' '4829D92A037B.ms.model.script' // MakeTextSource
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFB0A00E0_ME_4829D81D02E5 MakeTextSource
+
+ME ME_482BFBEE00D5_ME_4829D81D02E5
+ MELINK Original WL 'ME_482BFBEE00D5' '4829D92A037B.ms.model.script' // AllowDrawDocumentEdge
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFBEE00D5_ME_4829D81D02E5 AllowDrawDocumentEdge
+
+ME ME_482BFC8E036F_ME_4829D81D02E5
+ MELINK Original WL 'ME_482BFC8E036F' '4829D92A037B.ms.model.script' // RightIndentMul
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFC8E036F_ME_4829D81D02E5 RightIndentMul
+
+ME ME_482BFCA000E4_ME_4829D81D02E5
+ MELINK Original WL 'ME_482BFCA000E4' '4829D92A037B.ms.model.script' // WantEnter
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFCA000E4_ME_4829D81D02E5 WantEnter
+
+ME ME_482BFCAE0072_ME_4829D81D02E5
+ MELINK Original WL 'ME_482BFCAE0072' '4829D92A037B.ms.model.script' // WantTab
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFCAE0072_ME_4829D81D02E5 WantTab
+
+ME ME_482BFD8601F3_ME_4829D81D02E5
+ MELINK Original WL 'ME_482BFD8601F3' '4829D92A037B.ms.model.script' // MakeExportFilters
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFD8601F3_ME_4829D81D02E5 MakeExportFilters
+
+ME ME_482C26D6006A_ME_4829D81D02E5
+ MELINK Original WL 'ME_482C26D6006A' '4829D92A037B.ms.model.script' // TextChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482C26D6006A_ME_4829D81D02E5 TextChange
+
+ME ME_4831634B00FF_ME_4829D81D02E5
+ MELINK Original WL 'ME_4831634B00FF' '4829D92A037B.ms.model.script' // SetTextColor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4831634B00FF_ME_4829D81D02E5 SetTextColor
+
+ME ME_484515B3012E_ME_4829D81D02E5
+ MELINK Original WL 'ME_484515B3012E' '4829D92A037B.ms.model.script' // PlainText
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_484515B3012E_ME_4829D81D02E5 PlainText
+
+ME ME_484516C00214_ME_4829D81D02E5
+ MELINK Original WL 'ME_484516C00214' '4AB0997B00A2.ms.model.script' // Loaded
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484516C00214_ME_4829D81D02E5 Loaded
+
+ME ME_48E22AD302CE_ME_4829D81D02E5
+ MELINK Original WL 'ME_48E22AD302CE' '4829D92A037B.ms.model.script' // SelectWhenUnfocused
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E22AD302CE_ME_4829D81D02E5 SelectWhenUnfocused
+
+ME ME_4B877E7B0330_ME_4829D81D02E5
+ MELINK Original WL 'ME_4B877E7B0330' '4B877C5101C1.ms.model.script' // AllowParaType
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_4B877E7B0330_ME_4829D81D02E5 AllowParaType
+
+ME ME_4C346719001A_ME_4829D81D02E5
+ MELINK Original WL 'ME_4C346719001A' '4829D89703D2.ms.model.script' // AllowAutoSelectByMouse
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C346719001A_ME_4829D81D02E5 AllowAutoSelectByMouse
+
+ME ME_4829D81D02E5
+ MEPROP UID '4829D81D02E5'
+ MEPROP Name 'TevCustomMemo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мемо-поле.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D85C03C1' '4829D85C03C1.ms.model.script' // TevEditorWithOperations
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_484517360371 // NeedDefaultPopupMenu
+ HWL ME_4845175D022D // KeepAllFormatting
+ HWL ME_484517BD02FF // TextLen
+ HWL ME_484517DD032E // Buffer
+ HWL ME_484518050194 // Wrap
+ HWL ME_4864C60D01F5 // NeedReplaceQuotes
+ HWL ME_48451D580379 // f_Buf
+ HWL ME_48451DC000CE // f_PlainText
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D6B97CB00AA // UseMemoFontForParagraphs
+ HWL ME_482D9D1701E0 // TextSourceClass
+ HWL ME_484524F103B7 // WMGetText
+ HWL ME_4845250E02BE // WMGetTextLength
+ HWL ME_484525250384 // WMSetText
+ HWL ME_484525330040 // CMFONTCHANGED
+ HWL ME_484525510319 // WMKeyDown
+ HWL ME_4860F5DF026F // Validate
+ HWL ME_4A8A6D4701CC // KeepParaFormattingTag
+ HWL ME_4C35BF1F02D2 // CMEnter
+ HWL ME_4C35C19200EC // CMExit
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4829D81D02E5 // Cleanup
+ ME_47D1602000C6_ME_4829D81D02E5 // Create
+ ME_482BFB0A00E0_ME_4829D81D02E5 // MakeTextSource
+ ME_482BFBEE00D5_ME_4829D81D02E5 // AllowDrawDocumentEdge
+ ME_482BFC8E036F_ME_4829D81D02E5 // RightIndentMul
+ ME_482BFCA000E4_ME_4829D81D02E5 // WantEnter
+ ME_482BFCAE0072_ME_4829D81D02E5 // WantTab
+ ME_482BFD8601F3_ME_4829D81D02E5 // MakeExportFilters
+ ME_482C26D6006A_ME_4829D81D02E5 // TextChange
+ ME_4831634B00FF_ME_4829D81D02E5 // SetTextColor
+ ME_484515B3012E_ME_4829D81D02E5 // PlainText
+ ME_484516C00214_ME_4829D81D02E5 // Loaded
+ ME_48E22AD302CE_ME_4829D81D02E5 // SelectWhenUnfocused
+ ME_4B877E7B0330_ME_4829D81D02E5 // AllowParaType
+ ME_4C346719001A_ME_4829D81D02E5 // AllowAutoSelectByMouse
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_482D9D420205 // RevCustomMemoTextSource
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_484522B20174 // Defaults
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_482DA0BE027B // TevCustomMemoTextSource
+ ME_48451CD703DC // l3MinMax
+ ME_48451CED007B // Ext Chars
+ ME_48451D1800CE // l3String
+ ME_48451D890396 // evd_DefaultStoreFlags
+ ME_48451F570242 // Tl3PCharLen
+ ME_48451FEA0348 // Defaults
+ ME_48452029039C // TevMemoContextMenu
+ ME_484523B9026B // SysUtils
+ ME_484523D1002E // Colors
+ ME_484527C50097 // InevParaList
+ ME_484528C70102 // Tk2TagID
+ ME_4845290D019C // k2Facade
+ ME_484529F200A7 // TCustomForm
+ ME_48452A3C01DB // Key Codes
+ ME_48452BEC00B7 // EevLimitReached
+ ME_48F4EC08032C // StoreFlag
+ ME_4C35C0B803B5 // InevSelection
+ ME_530777E703E0 // Font
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '23.05.1997 09:10'
+ UP extprop:pas:UnitName 'evCustomMemo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Memo'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomMemo.pas'
+
+ENDME // ME_4829D81D02E5 TevCustomMemo

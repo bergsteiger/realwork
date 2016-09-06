@@ -1,0 +1,64 @@
+// TvcmMainMenuStripForChromeLike 545C521A0358 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545C521A0358
+
+ME ME_545C537A01C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C521A0358 // TvcmMainMenuStripForChromeLike
+ ;
+ MELINK Target WL 'ME_545C535201B3' '533D53FF00C2.ms.model.script' // TvcmMenuForChromeLikeItems
+ ;
+
+ENDME // ME_545C537A01C1 
+
+ME ME_545C68F000C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C521A0358 // TvcmMainMenuStripForChromeLike
+ ;
+ MELINK Target WL 'ME_545C51F90170' '545C51F90170.ms.model.script' // TvcmDropDownMenuForChromeLike
+ ;
+
+ENDME // ME_545C68F000C6 
+
+ME ME_5587BD9E0045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C521A0358 // TvcmMainMenuStripForChromeLike
+ ;
+ MELINK Target WL 'ME_5587AAF10290' '533D53FF00C2.ms.model.script' // vcmPopupControlWindowService
+ ;
+
+ENDME // ME_5587BD9E0045 
+
+ME ME_545C521A0358
+ MEPROP UID '545C521A0358'
+ MEPROP Name 'TvcmMainMenuStripForChromeLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_545C537A01C1 // TvcmMenuForChromeLikeItems
+ ME_545C68F000C6 // TvcmDropDownMenuForChromeLike
+ ME_5587BD9E0045 // vcmPopupControlWindowService
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'vcmMainMenuStripForChromeLike'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainMenuStripForChromeLike'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmMainMenuStripForChromeLike.pas'
+
+ENDME // ME_545C521A0358 TvcmMainMenuStripForChromeLike

@@ -1,0 +1,62 @@
+// SaveLoad 4AA931BF023D VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA931BF023D
+
+ME ME_86B9C6DEB8EC
+ MEPROP UID '86B9C6DEB8EC'
+ MEPROP Name 'Ini_FormFactory_SaveLoad'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы SaveLoad' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA931BF023D // SaveLoad
+ ;
+ UPLINK SpelledFor HWL ME_4AA931BF023D // SaveLoad
+ ;
+
+ENDME // ME_86B9C6DEB8EC Ini_FormFactory_SaveLoad
+
+ME ME_4AA931BF023D
+ MEPROP UID '4AA931BF023D'
+ MEPROP Name 'SaveLoad'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA931390118' '4AA931390118.ms.model.script' // CommonSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F5D9FFA031B' '4F5D9FFA031B.ms.model.script' // PrimSaveLoadOptionsWithUserTypes
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D77A59D03E6' '4BD97FDB031A.ms.model.script' // SaveLoad
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_86B9C6DEB8EC // Ini_FormFactory_SaveLoad
+ )
+ ; // Operations
+ UP "author" 'Тучнин Д.А.'
+ UP "finished dfm" True
+ UP "form name prefix" 'cf'
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '2003/10/13 14:47:21'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TcfSaveLoad'
+ UP extprop:pas:UnitName 'SaveLoad_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'cfSaveLoad'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\SaveLoad_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+
+ENDME // ME_4AA931BF023D SaveLoad

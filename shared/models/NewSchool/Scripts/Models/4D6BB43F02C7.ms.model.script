@@ -1,0 +1,72 @@
+// Editor 4D6BB43F02C7 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D6BB43F02C7
+
+FORWARD ME_4D6BB45600F0
+
+ME ME_4D6BB4690207
+ MEPROP UID '4D6BB4690207'
+ MEPROP Name 'Buffer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4D6BB45600F0 // TnscSimpleEditor$ForTests
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4D6BB4690207 Buffer
+
+ME ME_4D6BB45600F0
+ MEPROP UID '4D6BB45600F0'
+ MEPROP Name 'TnscSimpleEditor'
+ MEPROP OriginalName 'TnscSimpleEditor$ForTests'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6BB43F02C7 // Editor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CFF6CF60266' '4CFF6CF60266.ms.model.script' // TnscSimpleEditor
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D6BB4690207 // Buffer
+ )
+ ; // Attributes
+ UP "is friend" False
+ UP extprop:pas:UnitName 'nscSimpleEditor_p'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscSimpleEditor_p.pas'
+
+ENDME // ME_4D6BB45600F0 TnscSimpleEditor$ForTests
+
+ME ME_4D6BB43F02C7
+ MEPROP UID '4D6BB43F02C7'
+ MEPROP Name 'Editor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499ABFAA038C' '499ABFAA038C.ms.model.script' // NemesisTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D6BB45600F0 // TnscSimpleEditor$ForTests
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_495119A901CE' '495119A901CE.ms.model.script' // Editor
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4E1352A60292' '4E1352A60292.ms.model.script' // Editors
+ )
+ ; // Depends
+ UP "UseNewGen" True
+ UP Version 0
+
+ENDME // ME_4D6BB43F02C7 Editor

@@ -1,0 +1,60 @@
+// UserProperty 4AA8E47C0065 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA8E47C0065
+
+ME ME_9543B3E5D549
+ MEPROP UID '9543B3E5D549'
+ MEPROP Name 'Ini_FormFactory_UserProperty'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы UserProperty' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA8E47C0065 // UserProperty
+ ;
+ UPLINK SpelledFor HWL ME_4AA8E47C0065 // UserProperty
+ ;
+
+ENDME // ME_9543B3E5D549 Ini_FormFactory_UserProperty
+
+ME ME_4AA8E47C0065
+ MEPROP UID '4AA8E47C0065'
+ MEPROP Name 'UserProperty'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Свойства пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA5120303E5' '4AA5120303E5.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8A0B4500F0' '4C8A0B4500F0.ms.model.script' // PrimUserPropertyOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFC002E00A0' '4FFBFDCA01DE.ms.model.script' // UserProperty
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_9543B3E5D549 // Ini_FormFactory_UserProperty
+ )
+ ; // Operations
+ UP "finished dfm" True
+ UP "form name prefix" 'ef'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Child'
+ UP extprop:pas:TypeName 'TefUserProperty'
+ UP extprop:pas:UnitName 'UserProperty_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'efUserProperty'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\UserProperty_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+
+ENDME // ME_4AA8E47C0065 UserProperty

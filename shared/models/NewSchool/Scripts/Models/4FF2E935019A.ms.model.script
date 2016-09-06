@@ -1,0 +1,557 @@
+// AACContainerPrim 4FF2E935019A VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF2E935019A
+
+FORWARD ME_4FF2EA2200B3
+
+ME ME_4FF2E9C50114
+ MEPROP UID '4FF2E9C50114'
+ MEPROP Name 'Left'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FF2EA2200B3 // pnLeft
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" False
+ UP "MergeTopTollbarWithContainer" False
+ UP "ZoneType" 'Child'
+
+ENDME // ME_4FF2E9C50114 Left
+
+FORWARD ME_4FF2EA3A02C6
+
+ME ME_4FF2E9E50337
+ MEPROP UID '4FF2E9E50337'
+ MEPROP Name 'Right'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FF2EA3A02C6 // pnRight
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" False
+ UP "MergeTopTollbarWithContainer" False
+ UP "ZoneType" 'Main'
+
+ENDME // ME_4FF2E9E50337 Right
+
+ME ME_4FF2EADD02A4
+ MEPROP UID '4FF2EADD02A4'
+ MEPROP Name 'AACContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ UP "ImageIndex" 21
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'AACContainerPrim_AACContainer_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContainer_UserType.pas'
+
+ENDME // ME_4FF2EADD02A4 AACContainer
+
+ME ME_504879B60226
+ MEPROP UID '504879B60226'
+ MEPROP Name 'AACContentsContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FF2EADD02A4 // AACContainer
+ )
+ ; // Inherits
+ UP "ImageIndex" 21
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'AACContainerPrim_AACContentsContainer_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_AACContentsContainer_UserType.pas'
+
+ENDME // ME_504879B60226 AACContentsContainer
+
+FORWARD ME_4FF405D1019B
+
+FORWARD ME_503CBA9200CC
+
+FORWARD ME_503CD4E9014C
+
+ME ME_4FF2EA3A02C6
+ MEPROP UID '4FF2EA3A02C6'
+ MEPROP Name 'pnRight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CD4E9014C // pnRightForScroll
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_4FF2E9E50337 // Right
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4FF2EA3A02C6 pnRight
+
+ME ME_503CB1240162
+ MEPROP UID '503CB1240162'
+ MEPROP Name 'pnlRightTop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CD4E9014C // pnRightForScroll
+ ;
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CB1240162 pnlRightTop
+
+ME ME_503CD4E9014C
+ MEPROP UID '503CD4E9014C'
+ MEPROP Name 'pnRightForScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CBA9200CC // pnRightEx
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FF2EA3A02C6 // pnRight
+ HWL ME_503CB1240162 // pnlRightTop
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CD4E9014C pnRightForScroll
+
+ME ME_503CD5210135
+ MEPROP UID '503CD5210135'
+ MEPROP Name 'scrRight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CBA9200CC // pnRightEx
+ ;
+ UP "ControlClass" 'TvtScrollBar'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CD5210135 scrRight
+
+ME ME_503CBA9200CC
+ MEPROP UID '503CBA9200CC'
+ MEPROP Name 'pnRightEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF405D1019B // pnBack
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503CD4E9014C // pnRightForScroll
+ HWL ME_503CD5210135 // scrRight
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CBA9200CC pnRightEx
+
+FORWARD ME_503CBB1800D0
+
+FORWARD ME_503CD53B02F9
+
+ME ME_503CB0C80233
+ MEPROP UID '503CB0C80233'
+ MEPROP Name 'pnlLeftTop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CD53B02F9 // pnLeftForScroll
+ ;
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CB0C80233 pnlLeftTop
+
+ME ME_4FF2EA2200B3
+ MEPROP UID '4FF2EA2200B3'
+ MEPROP Name 'pnLeft'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CD53B02F9 // pnLeftForScroll
+ ;
+ MELIST Zones
+   Seq: ( HWL ME_4FF2E9C50114 // Left
+ )
+ ; // Zones
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4FF2EA2200B3 pnLeft
+
+ME ME_503CD53B02F9
+ MEPROP UID '503CD53B02F9'
+ MEPROP Name 'pnLeftForScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CBB1800D0 // pnLeftEx
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503CB0C80233 // pnlLeftTop
+ HWL ME_4FF2EA2200B3 // pnLeft
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CD53B02F9 pnLeftForScroll
+
+ME ME_503CD55E0038
+ MEPROP UID '503CD55E0038'
+ MEPROP Name 'scrLeft'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CBB1800D0 // pnLeftEx
+ ;
+ UP "ControlClass" 'TvtScrollBar'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CD55E0038 scrLeft
+
+ME ME_503CBB1800D0
+ MEPROP UID '503CBB1800D0'
+ MEPROP Name 'pnLeftEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF405D1019B // pnBack
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503CD53B02F9 // pnLeftForScroll
+ HWL ME_503CD55E0038 // scrLeft
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtSizeablePanel'
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_503CBB1800D0 pnLeftEx
+
+ME ME_4FF405D1019B
+ MEPROP UID '4FF405D1019B'
+ MEPROP Name 'pnBack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7AD11C028B' '4A7AD11C028B.ms.model.script' // TvtProportionalPanel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_503CBA9200CC // pnRightEx
+ HWL ME_503CBB1800D0 // pnLeftEx
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4FF405D1019B pnBack
+
+ME ME_542A6E2F0204
+ MEPROP UID '542A6E2F0204'
+ MEPROP Name 'f_TabCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_542A6E2F0204 f_TabCaption
+
+FORWARD ME_503CE2E2021B
+
+FORWARD ME_503CE312021A
+
+ME ME_503CE32700A7
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_503CE32700A7 aLeft
+
+ME ME_503CE312021A
+ MEPROP UID '503CE312021A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CE2E2021B // DoGetVScrollBar
+ ;
+ MELINK Target WL 'ME_50220B0E0061' '50220B0E0061.ms.model.script' // TvtScrollBar
+ ;
+ MELIST Parameters
+   Seq: ( ME_503CE32700A7 // aLeft
+ )
+ ; // Parameters
+
+ENDME // ME_503CE312021A DoIt
+
+ME ME_503CE2E2021B
+ MEPROP UID '503CE2E2021B'
+ MEPROP Name 'DoGetVScrollBar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_503CE312021A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_503CE2E2021B DoGetVScrollBar
+
+FORWARD ME_503CE3500038
+
+FORWARD ME_503CE36D0185
+
+ME ME_503CE3700373
+ MEPROP Name 'aJumpTo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ ;
+
+ENDME // ME_503CE3700373 aJumpTo
+
+ME ME_503CE36D0185
+ MEPROP UID '503CE36D0185'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503CE3500038 // DoSetJumpTo
+ ;
+ MELIST Parameters
+   Seq: ( ME_503CE3700373 // aJumpTo
+ )
+ ; // Parameters
+
+ENDME // ME_503CE36D0185 DoIt
+
+ME ME_503CE3500038
+ MEPROP UID '503CE3500038'
+ MEPROP Name 'DoSetJumpTo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_503CE36D0185 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_503CE3500038 DoSetJumpTo
+
+ME ME_4FF409FB01A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_4FF409FB01A7 
+
+ME ME_5048978601F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELINK Target WL 'ME_50489740018C' '48F747EC0073.ms.model.script' // Colors
+ ;
+
+ENDME // ME_5048978601F9 
+
+ME ME_542A76F103D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FF2E935019A // AACContainerPrim
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_542A76F103D8 
+
+ME ME_5005237D0210_ME_4FF2E935019A
+ MELINK Original WL 'ME_5005237D0210' '50052359008A.ms.model.script' // GetVScrollBar
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_5005237D0210_ME_4FF2E935019A GetVScrollBar
+
+ME ME_5006ED2300F9_ME_4FF2E935019A
+ MELINK Original WL 'ME_5006ED2300F9' '50052359008A.ms.model.script' // SetJumpTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_5006ED2300F9_ME_4FF2E935019A SetJumpTo
+
+ME ME_4A8E8F2E0195_ME_4FF2E935019A
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4FF2E935019A InitControls
+
+ME ME_53F1C6EF02C9_ME_4FF2E935019A
+ MELINK Original WL 'ME_53F1C6EF02C9' '4AADF9450143.ms.model.script' // DoGetTabCaption
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53F1C6EF02C9_ME_4FF2E935019A DoGetTabCaption
+
+ME ME_542A6DA20026_ME_4FF2E935019A
+ MELINK Original WL 'ME_542A6DA20026' '4AADF9450143.ms.model.script' // SetTabCaption
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_542A6DA20026_ME_4FF2E935019A SetTabCaption
+
+ME ME_4FF2E935019A
+ MEPROP UID '4FF2E935019A'
+ MEPROP Name 'AACContainerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FF2E5B80387' '4FF2E5B80387.ms.model.script' // AAC
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A97E71A0270' '4AADF9450143.ms.model.script' // MvcmContainerForm
+ WL 'ME_500523660003' '50052359008A.ms.model.script' // AACTextContainer
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FF405D1019B // pnBack
+ HWL ME_542A6E2F0204 // f_TabCaption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_503CE2E2021B // DoGetVScrollBar
+ HWL ME_503CE3500038 // DoSetJumpTo
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5005237D0210_ME_4FF2E935019A // GetVScrollBar
+ ME_5006ED2300F9_ME_4FF2E935019A // SetJumpTo
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4FF2E935019A // InitControls
+ ME_53F1C6EF02C9_ME_4FF2E935019A // DoGetTabCaption
+ ME_542A6DA20026_ME_4FF2E935019A // SetTabCaption
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4FF2E9C50114 // Left
+ HWL ME_4FF2E9E50337 // Right
+ HWL ME_4FF2EADD02A4 // AACContainer
+ HWL ME_504879B60226 // AACContentsContainer
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4FF409FB01A7 // TAlign
+ ME_5048978601F9 // Colors
+ ME_542A76F103D8 // IvcmCString
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TAACContainerPrimForm'
+ UP extprop:pas:UnitName 'AACContainerPrim_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AACContainerPrimForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainerPrim_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms'
+
+ENDME // ME_4FF2E935019A AACContainerPrim

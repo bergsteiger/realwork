@@ -1,0 +1,852 @@
+// ImportExport 51948EC4015D TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51948EC4015D
+
+FORWARD ME_51948F2601E9
+
+ME ME_5194BE87016F
+ MEPROP UID '5194BE87016F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+
+ENDME // ME_5194BE87016F DoIt
+
+FORWARD ME_5195F5F7001A
+
+ME ME_5195F6070020
+ MEPROP UID '5195F6070020'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+
+ENDME // ME_5195F6070020 DoIt
+
+ME ME_51AC71AA0212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+ MELINK Target WL 'ME_4C9CD0E8038A' '4C9CD07701E6.ms.model.script' // dt_AttrSchema
+ ;
+
+ENDME // ME_51AC71AA0212 
+
+ME ME_55F1356C00A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+ MELINK Target WL 'ME_52E8BA5101A7' '519B797A0048.ms.model.script' // LinkServer
+ ;
+
+ENDME // ME_55F1356C00A0 
+
+ME ME_55F2CF960140
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+ MELINK Target WL 'ME_52E8BA5101A7' '519B797A0048.ms.model.script' // LinkServer
+ ;
+
+ENDME // ME_55F2CF960140 
+
+ME ME_55F2D03F029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_55F2D03F029F 
+
+ME ME_55F2D18B037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+ MELINK Target WL 'ME_55E6E03B01A7' '519A10AF03DE.ms.model.script' // cFamily
+ ;
+
+ENDME // ME_55F2D18B037E 
+
+ME ME_55F2D3600042
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+ MELINK Target WL 'ME_519B719002F1' '519B70FC02AB.ms.model.script' // dt_Sab
+ ;
+
+ENDME // ME_55F2D3600042 
+
+ME ME_55F2D4280255
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F5F7001A // DoImport
+ ;
+ MELINK Target WL 'ME_519A15650330' '47BC51FE018B.ms.model.script' // TddPipeInputFileType
+ ;
+
+ENDME // ME_55F2D4280255 
+
+ME ME_5195F5F7001A
+ MEPROP UID '5195F5F7001A'
+ MEPROP Name 'DoImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F6070020 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_51AC71AA0212 // dt_AttrSchema
+ ME_55F1356C00A0 // LinkServer
+ ME_55F2CF960140 // LinkServer
+ ME_55F2D03F029F // SysUtils
+ ME_55F2D18B037E // cFamily
+ ME_55F2D3600042 // dt_Sab
+ ME_55F2D4280255 // TddPipeInputFileType
+ )
+ ; // Dependencies
+
+ENDME // ME_5195F5F7001A DoImport
+
+FORWARD ME_5195F62700C7
+
+ME ME_5195F637038B
+ MEPROP UID '5195F637038B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F62700C7 // DoExport
+ ;
+
+ENDME // ME_5195F637038B DoIt
+
+ME ME_519B9492032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F62700C7 // DoExport
+ ;
+ MELINK Target WL 'ME_519B8D8D00E7' '50598FD9019C.ms.model.script' // ExportPipe
+ ;
+
+ENDME // ME_519B9492032C 
+
+ME ME_5617AE420325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F62700C7 // DoExport
+ ;
+ MELINK Target WL 'ME_560A4D4F01AE' '5603ED3D011B.ms.model.script' // TddExportDivideBy
+ ;
+
+ENDME // ME_5617AE420325 
+
+ME ME_5195F62700C7
+ MEPROP UID '5195F62700C7'
+ MEPROP Name 'DoExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F637038B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_519B9492032C // ExportPipe
+ ME_5617AE420325 // TddExportDivideBy
+ )
+ ; // Dependencies
+
+ENDME // ME_5195F62700C7 DoExport
+
+FORWARD ME_5195F6E701B6
+
+ME ME_5195F6EE00FF
+ MEPROP UID '5195F6EE00FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F6E701B6 // CompareResults
+ ;
+
+ENDME // ME_5195F6EE00FF DoIt
+
+ME ME_5195F6E701B6
+ MEPROP UID '5195F6E701B6'
+ MEPROP Name 'CompareResults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F6EE00FF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5195F6E701B6 CompareResults
+
+FORWARD ME_5195F73400EE
+
+FORWARD ME_5195F7490030
+
+ME ME_5199EDA400CA
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_5199EFF70361' '5199EF4C0227.ms.model.script' // TddImportPipe
+ ;
+
+ENDME // ME_5199EDA400CA aPipe
+
+ME ME_5195F7490030
+ MEPROP UID '5195F7490030'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F73400EE // DoBeforeImport
+ ;
+ MELIST Parameters
+   Seq: ( ME_5199EDA400CA // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_5195F7490030 DoIt
+
+ME ME_5195F73400EE
+ MEPROP UID '5195F73400EE'
+ MEPROP Name 'DoBeforeImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F7490030 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5195F73400EE DoBeforeImport
+
+FORWARD ME_5195F75F02CB
+
+FORWARD ME_5195F7760258
+
+ME ME_5199ED9B024A
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_5199EFF70361' '5199EF4C0227.ms.model.script' // TddImportPipe
+ ;
+
+ENDME // ME_5199ED9B024A aPipe
+
+ME ME_5195F7760258
+ MEPROP UID '5195F7760258'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F75F02CB // DoAfterImport
+ ;
+ MELIST Parameters
+   Seq: ( ME_5199ED9B024A // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_5195F7760258 DoIt
+
+ME ME_5195F75F02CB
+ MEPROP UID '5195F75F02CB'
+ MEPROP Name 'DoAfterImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F7760258 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5195F75F02CB DoAfterImport
+
+FORWARD ME_5195F795012D
+
+FORWARD ME_5195F7A402E9
+
+ME ME_519C8095036F
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_519B8DB20186' '50598FD9019C.ms.model.script' // TExportPipe
+ ;
+
+ENDME // ME_519C8095036F aPipe
+
+ME ME_5195F7A402E9
+ MEPROP UID '5195F7A402E9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F795012D // DoBeforeExport
+ ;
+ MELIST Parameters
+   Seq: ( ME_519C8095036F // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_5195F7A402E9 DoIt
+
+ME ME_5195F795012D
+ MEPROP UID '5195F795012D'
+ MEPROP Name 'DoBeforeExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F7A402E9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5195F795012D DoBeforeExport
+
+FORWARD ME_5195F7BA0056
+
+FORWARD ME_5195F8BB033D
+
+ME ME_519C80B102A7
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_519B8DB20186' '50598FD9019C.ms.model.script' // TExportPipe
+ ;
+
+ENDME // ME_519C80B102A7 aPipe
+
+ME ME_5195F8BB033D
+ MEPROP UID '5195F8BB033D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F7BA0056 // DoAfterExport
+ ;
+ MELIST Parameters
+   Seq: ( ME_519C80B102A7 // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_5195F8BB033D DoIt
+
+ME ME_5195F7BA0056
+ MEPROP UID '5195F7BA0056'
+ MEPROP Name 'DoAfterExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F8BB033D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5195F7BA0056 DoAfterExport
+
+FORWARD ME_519A1C2700C4
+
+FORWARD ME_519A1C4A033D
+
+ME ME_519A1C6A03CE
+ MEPROP Name 'aTopicNo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_519A1C6A03CE aTopicNo
+
+ME ME_519A1C6A03E5
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_519A1C6A03E5 aMessage
+
+ME ME_519A1C4A033D
+ MEPROP UID '519A1C4A033D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519A1C2700C4 // TopicEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_519A1C6A03CE // aTopicNo
+ ME_519A1C6A03E5 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_519A1C4A033D DoIt
+
+ME ME_519B764D0323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519A1C2700C4 // TopicEvent
+ ;
+ MELINK Target WL 'ME_519B75E200C7' '519B75D1009E.ms.model.script' // dt_Renum
+ ;
+
+ENDME // ME_519B764D0323 
+
+ME ME_519A1C2700C4
+ MEPROP UID '519A1C2700C4'
+ MEPROP Name 'TopicEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_519A1C4A033D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_519B764D0323 // dt_Renum
+ )
+ ; // Dependencies
+
+ENDME // ME_519A1C2700C4 TopicEvent
+
+FORWARD ME_519C80CD01E4
+
+ME ME_519C80F300A3
+ MEPROP UID '519C80F300A3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519C80CD01E4 // GetOutputPath
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_519C80F300A3 DoIt
+
+ME ME_519C80CD01E4
+ MEPROP UID '519C80CD01E4'
+ MEPROP Name 'GetOutputPath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_519C80F300A3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_519C80CD01E4 GetOutputPath
+
+FORWARD ME_51CBE62E006B
+
+ME ME_51CBFAE203B0
+ MEPROP UID '51CBFAE203B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51CBE62E006B // GetOutputFormat
+ ;
+ MELINK Target WL 'ME_51CBFE650178' '484A470100DD.ms.model.script' // TepSupportFileType
+ ;
+
+ENDME // ME_51CBFAE203B0 DoIt
+
+ME ME_51CBE62E006B
+ MEPROP UID '51CBE62E006B'
+ MEPROP Name 'GetOutputFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51CBFAE203B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51CBE62E006B GetOutputFormat
+
+ME ME_51960C6D00B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELINK Target WL 'ME_4D199AE40101' '4B2A112B011A.ms.model.script' // GetCVSTestSetPath
+ ;
+
+ENDME // ME_51960C6D00B5 
+
+ME ME_519612A3023B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELINK Target WL 'ME_4D199AE40101' '4B2A112B011A.ms.model.script' // GetCVSTestSetPath
+ ;
+
+ENDME // ME_519612A3023B 
+
+ME ME_55F12F85037F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51948F2601E9 // TietBaseTest
+ ;
+ MELINK Target WL 'ME_51BAE2BF011A' '47D0290B016D.ms.model.script' // l3IniFile
+ ;
+
+ENDME // ME_55F12F85037F 
+
+ME ME_4C937013031D_ME_51948F2601E9
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_51948F2601E9 GetFolder
+
+ME ME_4DAED6F60146_ME_51948F2601E9
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_51948F2601E9 GetModelElementGUID
+
+ME ME_51B1A75D0367_ME_51948F2601E9
+ MELINK Original WL 'ME_51B1A75D0367' '4B2A112B011A.ms.model.script' // OutputFolderName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51B1A75D0367_ME_51948F2601E9 OutputFolderName
+
+ME ME_51948F2601E9
+ MEPROP UID '51948F2601E9'
+ MEPROP Name 'TietBaseTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_51948EC4015D // ImportExport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55F29BD60218' '55F29BB0025D.ms.model.script' // TarchiDBTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5194BE87016F // DoIt
+ HWL ME_5195F5F7001A // DoImport
+ HWL ME_5195F62700C7 // DoExport
+ HWL ME_5195F6E701B6 // CompareResults
+ HWL ME_5195F73400EE // DoBeforeImport
+ HWL ME_5195F75F02CB // DoAfterImport
+ HWL ME_5195F795012D // DoBeforeExport
+ HWL ME_5195F7BA0056 // DoAfterExport
+ HWL ME_519A1C2700C4 // TopicEvent
+ HWL ME_519C80CD01E4 // GetOutputPath
+ HWL ME_51CBE62E006B // GetOutputFormat
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_51948F2601E9 // GetFolder
+ ME_4DAED6F60146_ME_51948F2601E9 // GetModelElementGUID
+ ME_51B1A75D0367_ME_51948F2601E9 // OutputFolderName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51960C6D00B5 // GetCVSTestSetPath
+ ME_519612A3023B // GetCVSTestSetPath
+ ME_55F12F85037F // l3IniFile
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'ietBaseTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ietBaseTest'
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\ietBaseTest.pas'
+
+ENDME // ME_51948F2601E9 TietBaseTest
+
+FORWARD ME_519CA57101A1
+
+ME ME_51B1C3DF028C
+ MEPROP UID '51B1C3DF028C'
+ MEPROP Name 'f_LockJournal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_51B6C83A03E4' '519B797A0048.ms.model.script' // TAbstractJournal
+ ;
+
+ENDME // ME_51B1C3DF028C f_LockJournal
+
+ME ME_51B1BE6D01E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_519A10DD036F' '519A10AF03DE.ms.model.script' // dt_Const
+ ;
+
+ENDME // ME_51B1BE6D01E1 
+
+ME ME_51B1C8520054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_51B1C74F010F' '51B1C73B0056.ms.model.script' // dt_IFltr
+ ;
+
+ENDME // ME_51B1C8520054 
+
+ME ME_51B6CB0C01FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ ;
+
+ENDME // ME_51B6CB0C01FC 
+
+ME ME_51B6CCCF03DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_51B1B8BD018E' '519B797A0048.ms.model.script' // dt_Lock
+ ;
+
+ENDME // ME_51B6CCCF03DF 
+
+ME ME_51B6CD3E02F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_519B79940228' '519B797A0048.ms.model.script' // dt_LinkServ
+ ;
+
+ENDME // ME_51B6CD3E02F4 
+
+ME ME_51B6CF7D019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_51B6CE6100D8' '519B797A0048.ms.model.script' // dt_Doc
+ ;
+
+ENDME // ME_51B6CF7D019C 
+
+ME ME_51B6D19103AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519CA57101A1 // TK455105826
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_51B6D19103AB 
+
+ME ME_4C937013031D_ME_519CA57101A1
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_519CA57101A1 GetFolder
+
+ME ME_4DAED6F60146_ME_519CA57101A1
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_519CA57101A1 GetModelElementGUID
+
+ME ME_5195F73400EE_ME_519CA57101A1
+ MELINK Original HWL ME_5195F73400EE // DoBeforeImport
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5195F73400EE_ME_519CA57101A1 DoBeforeImport
+
+ME ME_5195F75F02CB_ME_519CA57101A1
+ MELINK Original HWL ME_5195F75F02CB // DoAfterImport
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5195F75F02CB_ME_519CA57101A1 DoAfterImport
+
+ME ME_519CA57101A1
+ MEPROP UID '519CA57101A1'
+ MEPROP Name 'TK455105826'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51948EC4015D // ImportExport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51948F2601E9 // TietBaseTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51B1C3DF028C // f_LockJournal
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_519CA57101A1 // GetFolder
+ ME_4DAED6F60146_ME_519CA57101A1 // GetModelElementGUID
+ ME_5195F73400EE_ME_519CA57101A1 // DoBeforeImport
+ ME_5195F75F02CB_ME_519CA57101A1 // DoAfterImport
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51B1BE6D01E1 // dt_Const
+ ME_51B1C8520054 // dt_IFltr
+ ME_51B6CB0C01FC // TDocID
+ ME_51B6CCCF03DF // dt_Lock
+ ME_51B6CD3E02F4 // dt_LinkServ
+ ME_51B6CF7D019C // dt_Doc
+ ME_51B6D19103AB // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'K455105826'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K455105826'
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\K455105826.pas'
+
+ENDME // ME_519CA57101A1 TK455105826
+
+ME ME_51CBE62E006B_ME_51CC0A110114
+ MELINK Original HWL ME_51CBE62E006B // GetOutputFormat
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51CBE62E006B_ME_51CC0A110114 GetOutputFormat
+
+ME ME_51CC0A110114
+ MEPROP UID '51CC0A110114'
+ MEPROP Name 'TK465700807'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51948EC4015D // ImportExport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51948F2601E9 // TietBaseTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_51CBE62E006B_ME_51CC0A110114 // GetOutputFormat
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'K465700807'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K465700807'
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\K465700807.pas'
+
+ENDME // ME_51CC0A110114 TK465700807
+
+ME ME_51948EC4015D
+ MEPROP UID '51948EC4015D'
+ MEPROP Name 'ImportExport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_519465D90095' '519465D90095.ms.model.script' // ImportExportTestLibrary
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51948F2601E9 // TietBaseTest
+ HWL ME_519CA57101A1 // TK455105826
+ HWL ME_51CC0A110114 // TK465700807
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_4A4DE16302A2' '4A4DE16302A2.ms.model.script' // k2Core
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4B72BEC80036' '4B72BEC80036.ms.model.script' // Windows
+ WL 'ME_4C9CD07701E6' '4C9CD07701E6.ms.model.script' // AttrSchema
+ WL 'ME_4E4B5C5E0032' '4E4B5C5E0032.ms.model.script' // DataBase
+ WL 'ME_50598FD9019C' '50598FD9019C.ms.model.script' // PipeOut
+ WL 'ME_5199EF4C0227' '5199EF4C0227.ms.model.script' // PipeIn
+ WL 'ME_519A10AF03DE' '519A10AF03DE.ms.model.script' // dt_Const
+ WL 'ME_519B70FC02AB' '519B70FC02AB.ms.model.script' // DataAccess
+ WL 'ME_519B75D1009E' '519B75D1009E.ms.model.script' // Tables
+ WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
+ WL 'ME_51B1C73B0056' '51B1C73B0056.ms.model.script' // ImportExport
+ WL 'ME_559D0BE101B4' '559D0BE101B4.ms.model.script' // dtIntf
+ WL 'ME_55F29BB0025D' '55F29BB0025D.ms.model.script' // ArchiDBTests
+ WL 'ME_5603ED3D011B' '5603ED3D011B.ms.model.script' // ddPipeOutInterfaces
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP Version 0
+
+ENDME // ME_51948EC4015D ImportExport

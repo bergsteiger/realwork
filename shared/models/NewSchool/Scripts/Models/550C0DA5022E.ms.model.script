@@ -1,0 +1,55 @@
+// TdsInpharmMainMenu 550C0DA5022E ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_550C0DA5022E
+
+ME ME_55113FC40368
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550C0DA5022E // TdsInpharmMainMenu
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_55113FC40368 
+
+ME ME_55097FF5008E_ME_550C0DA5022E
+ MELINK Original WL 'ME_55097FF5008E' '47D0E1500033.ms.model.script' // GetIsDataAvailable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55097FF5008E_ME_550C0DA5022E GetIsDataAvailable
+
+ME ME_550C0DA5022E
+ MEPROP UID '550C0DA5022E'
+ MEPROP Name 'TdsInpharmMainMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_550AA7200370' '550AA7200370.ms.model.script' // InpharmMainMenuControllerRealization
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_550C0CF90324' '4AC241AC01FC.ms.model.script' // IdsInpharmMainMenu
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_55097FF5008E_ME_550C0DA5022E // GetIsDataAvailable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55113FC40368 // DataAdapter
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'dsInpharmMainMenu'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsInpharmMainMenu'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\dsInpharmMainMenu.pas'
+
+ENDME // ME_550C0DA5022E TdsInpharmMainMenu

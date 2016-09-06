@@ -26,6 +26,8 @@ uses
  , SysUtils
  , atDocumentHelper
  , DocumentUnit
+ //#UC START# *4817437E02D8impl_uses*
+ //#UC END# *4817437E02D8impl_uses*
 ;
 
 procedure TatDeleteCommentOperation.ExecuteSelf;

@@ -1,0 +1,208 @@
+// arCommonTypes 52E788B40110 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E788B40110
+
+FORWARD ME_52E788D202D8
+
+ME ME_52E788FD0249
+ MEPROP UID '52E788FD0249'
+ MEPROP Name 'stSub'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52E788D202D8 // TSubType
+ ;
+
+ENDME // ME_52E788FD0249 stSub
+
+ME ME_52E789060354
+ MEPROP UID '52E789060354'
+ MEPROP Name 'stBlock'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52E788D202D8 // TSubType
+ ;
+
+ENDME // ME_52E789060354 stBlock
+
+ME ME_52E788D202D8
+ MEPROP UID '52E788D202D8'
+ MEPROP Name 'TSubType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52E788B40110 // arCommonTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52E788FD0249 // stSub
+ HWL ME_52E789060354 // stBlock
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_52E788D202D8 TSubType
+
+FORWARD ME_52738AF30116
+
+FORWARD ME_52738B050043
+
+ME ME_52738B12025A
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52738B12025A aLeft
+
+ME ME_52738B050043
+ MEPROP UID '52738B050043'
+ MEPROP Name 'HasAACBlock'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52738AF30116 // IarCheckLeftOrRightBlock
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52738B12025A // aLeft
+ )
+ ; // Parameters
+
+ENDME // ME_52738B050043 HasAACBlock
+
+FORWARD ME_52738B2F02B7
+
+ME ME_52738ED50170
+ MEPROP Name 'aOldSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52738ED50170 aOldSubID
+
+ME ME_52738ED5018F
+ MEPROP Name 'aNewSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52738ED5018F aNewSubID
+
+ME ME_52738ED501AF
+ MEPROP Name 'aBlockKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4FBE15CD02C7' '469D0AC7005E.ms.model.script' // BlockViewKind
+ ;
+
+ENDME // ME_52738ED501AF aBlockKind
+
+ME ME_52738B2F02B7
+ MEPROP UID '52738B2F02B7'
+ MEPROP Name 'SetBlockKind'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52738AF30116 // IarCheckLeftOrRightBlock
+ ;
+ MELIST Parameters
+   Seq: ( ME_52738ED50170 // aOldSubID
+ ME_52738ED5018F // aNewSubID
+ ME_52738ED501AF // aBlockKind
+ )
+ ; // Parameters
+
+ENDME // ME_52738B2F02B7 SetBlockKind
+
+ME ME_52738AF30116
+ MEPROP UID '52738AF30116'
+ MEPROP GUID '994BAAA2-978D-4CB7-B149-87D84CF4423A'
+ MEPROP Name 'IarCheckLeftOrRightBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52E788B40110 // arCommonTypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52738B050043 // HasAACBlock
+ HWL ME_52738B2F02B7 // SetBlockKind
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arCheckLeftOrRightBlock'
+
+ENDME // ME_52738AF30116 IarCheckLeftOrRightBlock
+
+FORWARD ME_530738B30048
+
+ME ME_530738BE0116
+ MEPROP UID '530738BE0116'
+ MEPROP Name 'ClearPreview'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_530738B30048 // IevClearPreviewLink
+ ;
+
+ENDME // ME_530738BE0116 ClearPreview
+
+ME ME_530738B30048
+ MEPROP UID '530738B30048'
+ MEPROP GUID '2D16504C-B2BF-4480-84CA-C068F041C296'
+ MEPROP Name 'IevClearPreviewLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52E788B40110 // arCommonTypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_530738BE0116 // ClearPreview
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearPreviewLink'
+
+ENDME // ME_530738B30048 IevClearPreviewLink
+
+ME ME_52E788B40110
+ MEPROP UID '52E788B40110'
+ MEPROP Name 'arCommonTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'ќбщие типы дл€ јрчи и Ёвереста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E25512D01C0' '4E25512D01C0.ms.model.script' // Utils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52E788D202D8 // TSubType
+ HWL ME_52738AF30116 // IarCheckLeftOrRightBlock
+ HWL ME_530738B30048 // IevClearPreviewLink
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arCommonTypes.pas'
+
+ENDME // ME_52E788B40110 arCommonTypes

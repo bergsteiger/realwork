@@ -45,6 +45,8 @@ uses
  , atSyncedStringFileReader
  , atOperationEnv
  , atSearchHelper
+ //#UC START# *50085F6E0099impl_uses*
+ //#UC END# *50085F6E0099impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atIterateThroughFilesAddOn.imp.pas}

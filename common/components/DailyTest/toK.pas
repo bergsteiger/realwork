@@ -53,6 +53,8 @@ uses
  {$If NOT Defined(InsiderTest)}
  , SHDTestScriptEngine
  {$IfEnd} // NOT Defined(InsiderTest)
+ //#UC START# *4B7BFDB40015impl_uses*
+ //#UC END# *4B7BFDB40015impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -1,0 +1,1867 @@
+// Start 456FF1DD031C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_456FF1DD031C
+
+ME ME_45EEE02203CE
+ MEPROP UID '45EEE02203CE'
+ MEPROP Name 'IPAddressNotFound'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возбуждается, когда не надено ни одного IP адреса для машины клиента (вероятные причины: нет активных сетевых соединений).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEE02203CE IPAddressNotFound
+
+ME ME_45EEE02203D8
+ MEPROP UID '45EEE02203D8'
+ MEPROP Name 'InvalidBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отсутствует или неверная база.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEE02203D8 InvalidBase
+
+ME ME_45EEE02203DA
+ MEPROP UID '45EEE02203DA'
+ MEPROP Name 'NoServer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возбуждается в случае, когда по каким-то причинам сервер оказался недоступным.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEE02203DA NoServer
+
+ME ME_45EEE02203DC
+ MEPROP UID '45EEE02203DC'
+ MEPROP Name 'BadNetworkConfig'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возбуждается, если в течении 10 секунд не пришел ответ от сервера ни на один из IP адрессов на машине-клиенте (вероятные причины: firewall блокирует `incoming connection` на порты, которые использует ACE/TAO при обратном вызове).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEE02203DC BadNetworkConfig
+
+ME ME_45EEE02203DE
+ MEPROP UID '45EEE02203DE'
+ MEPROP Name 'SMTPServerAddressNotDefined'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Не задан адрес SMTP сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_45EEE02203DE SMTPServerAddressNotDefined
+
+ME ME_45EEE02203E0
+ MEPROP UID '45EEE02203E0'
+ MEPROP Name 'SMTPServerNotFound'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Приложение не может соединиться c SMTP сервером. Возможно была допущена ошибка в при вводе адреса сервера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_45EEE02203E0 SMTPServerNotFound
+
+ME ME_45EEE02203E2
+ MEPROP UID '45EEE02203E2'
+ MEPROP Name 'UserNotFound'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пользователь не найден' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_45EEE02203E2 UserNotFound
+
+ME ME_45EEE02203E4
+ MEPROP UID '45EEE02203E4'
+ MEPROP Name 'ServerVersionNotValid'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEE02203E4 ServerVersionNotValid
+
+ME ME_45EEE0230000
+ MEPROP UID '45EEE0230000'
+ MEPROP Name 'InternalServerError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Внутренняя ошибка сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEE0230000 InternalServerError
+
+ME ME_45EEE0230002
+ MEPROP UID '45EEE0230002'
+ MEPROP Name 'WorkingParamsNotFound'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Не найдены параметры, необходимые для работы приложения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_45EEE0230002 WorkingParamsNotFound
+
+ME ME_45EEE0230004
+ MEPROP UID '45EEE0230004'
+ MEPROP Name 'BadSMTPReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_45EEE0230004 BadSMTPReply
+
+ME ME_45EEE0230006
+ MEPROP UID '45EEE0230006'
+ MEPROP Name 'SettingsRestoreFails'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEE0230006 SettingsRestoreFails
+
+ME ME_45EEE0230008
+ MEPROP UID '45EEE0230008'
+ MEPROP Name 'ExternalApplicationError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ошибка при работе внешнего приложения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_45EEE0230008 ExternalApplicationError
+
+ME ME_46092B23000F
+ MEPROP UID '46092B23000F'
+ MEPROP Name 'AlreadyLogged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_46092B23000F AlreadyLogged
+
+FORWARD ME_4AFC16F802C6
+
+ME ME_4AFC215100C3
+ MEPROP UID '4AFC215100C3'
+ MEPROP Name 'C_32'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AFC16F802C6 // Capacity
+ ;
+
+ENDME // ME_4AFC215100C3 C_32
+
+ME ME_4AFC215D0234
+ MEPROP UID '4AFC215D0234'
+ MEPROP Name 'C_64'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AFC16F802C6 // Capacity
+ ;
+
+ENDME // ME_4AFC215D0234 C_64
+
+ME ME_4AFC16F802C6
+ MEPROP UID '4AFC16F802C6'
+ MEPROP Name 'Capacity'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Разрядность' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AFC215100C3 // C_32
+ HWL ME_4AFC215D0234 // C_64
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TCapacity'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4AFC16F802C6 Capacity
+
+FORWARD ME_4715FF2800EA
+
+ME ME_4715FF2800EB
+ MEPROP UID '4715FF2800EB'
+ MEPROP Name 'PT_UNKNOWN'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_4715FF2800EB PT_UNKNOWN
+
+ME ME_4715FF2800EC
+ MEPROP UID '4715FF2800EC'
+ MEPROP Name 'PT_DVD'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_4715FF2800EC PT_DVD
+
+ME ME_47BAB8F401CF
+ MEPROP UID '47BAB8F401CF'
+ MEPROP Name 'PT_MOBILE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_47BAB8F401CF PT_MOBILE
+
+ME ME_4715FF2800ED
+ MEPROP UID '4715FF2800ED'
+ MEPROP Name 'PT_FILESERVER'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_4715FF2800ED PT_FILESERVER
+
+ME ME_4715FF2800EE
+ MEPROP UID '4715FF2800EE'
+ MEPROP Name 'PT_DESKTOP'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_4715FF2800EE PT_DESKTOP
+
+ME ME_4715FF2800EF
+ MEPROP UID '4715FF2800EF'
+ MEPROP Name 'PT_CLIENTSERVER'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_4715FF2800EF PT_CLIENTSERVER
+
+ME ME_4C188FE8011B
+ MEPROP UID '4C188FE8011B'
+ MEPROP Name 'PT_SUPERMOBILE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_4C188FE8011B PT_SUPERMOBILE
+
+ME ME_4715FF2800EA
+ MEPROP UID '4715FF2800EA'
+ MEPROP Name 'ProductType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тип продукта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4715FF2800EB // PT_UNKNOWN
+ HWL ME_4715FF2800EC // PT_DVD
+ HWL ME_47BAB8F401CF // PT_MOBILE
+ HWL ME_4715FF2800ED // PT_FILESERVER
+ HWL ME_4715FF2800EE // PT_DESKTOP
+ HWL ME_4715FF2800EF // PT_CLIENTSERVER
+ HWL ME_4C188FE8011B // PT_SUPERMOBILE
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TProductType'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4715FF2800EA ProductType
+
+ME ME_46092B7B035B
+ MEPROP UID '46092B7B035B'
+ MEPROP Name 'AccountDisabled'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_46092B7B035B AccountDisabled
+
+ME ME_4628DED80157
+ MEPROP UID '4628DED80157'
+ MEPROP Name 'NoMoreConnections'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_4628DED80157 NoMoreConnections
+
+ME ME_480C8B04039B
+ MEPROP UID '480C8B04039B'
+ MEPROP Name 'SMTPAuthorizationFailed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Неудачная авторизация на почтовом сервере' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_480C8B04039B SMTPAuthorizationFailed
+
+ME ME_4669565D00FA
+ MEPROP UID '4669565D00FA'
+ MEPROP Name 'MorphoNotExists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'отсутствует морфоиндекс.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_4669565D00FA MorphoNotExists
+
+FORWARD ME_494B8DF90183
+
+ME ME_494B8E2303A7
+ MEPROP UID '494B8E2303A7'
+ MEPROP Name 'BT_UNKNOWN'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Неизвестный тип (отсутствует data.org)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494B8DF90183 // BaseType
+ ;
+
+ENDME // ME_494B8E2303A7 BT_UNKNOWN
+
+ME ME_494B8E510257
+ MEPROP UID '494B8E510257'
+ MEPROP Name 'BT_TRIAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ознакомительная версия' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494B8DF90183 // BaseType
+ ;
+
+ENDME // ME_494B8E510257 BT_TRIAL
+
+ME ME_494B8E6B0093
+ MEPROP UID '494B8E6B0093'
+ MEPROP Name 'BT_COMMERCIAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Коммерческая база' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494B8DF90183 // BaseType
+ ;
+
+ENDME // ME_494B8E6B0093 BT_COMMERCIAL
+
+ME ME_494B8E8A00D1
+ MEPROP UID '494B8E8A00D1'
+ MEPROP Name 'BT_NON_COMMERCIAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Не коммерческая база' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494B8DF90183 // BaseType
+ ;
+
+ENDME // ME_494B8E8A00D1 BT_NON_COMMERCIAL
+
+ME ME_4A3F5786020C
+ MEPROP UID '4A3F5786020C'
+ MEPROP Name 'BT_DEMO'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Демоверсия' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494B8DF90183 // BaseType
+ ;
+
+ENDME // ME_4A3F5786020C BT_DEMO
+
+ME ME_494B8DF90183
+ MEPROP UID '494B8DF90183'
+ MEPROP Name 'BaseType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип оболочки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_494B8E2303A7 // BT_UNKNOWN
+ HWL ME_494B8E510257 // BT_TRIAL
+ HWL ME_494B8E6B0093 // BT_COMMERCIAL
+ HWL ME_494B8E8A00D1 // BT_NON_COMMERCIAL
+ HWL ME_4A3F5786020C // BT_DEMO
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TBaseType'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_494B8DF90183 BaseType
+
+ME ME_4726F93503AA
+ MEPROP UID '4726F93503AA'
+ MEPROP Name 'InternalApplicationError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ошибка в механизме gcm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_4726F93503AA InternalApplicationError
+
+ME ME_4815D1ED03B0
+ MEPROP UID '4815D1ED03B0'
+ MEPROP Name 'InvalidUserDatastore'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'может быть брошено только на desktop версии - сигнализирует о битой базе пользовалетя (что-то из содержимого каталога settings)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ UP "force usage" True
+
+ENDME // ME_4815D1ED03B0 InvalidUserDatastore
+
+FORWARD ME_45EEE3D303C8
+
+ME ME_45EEE3D303DB
+ MEPROP UID '45EEE3D303DB'
+ MEPROP Name 'protection_error'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Ошибка защиты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEE3D303DB protection_error
+
+ME ME_45EEE3D303DC
+ MEPROP UID '45EEE3D303DC'
+ MEPROP Name 'rest_trial_days_count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Колличество оставшихся триальных дней. Если `== 0` - триальный период истек; если `< 0` триальный период не установлен.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEE3D303DC rest_trial_days_count
+
+ME ME_4639B43901BF
+ MEPROP UID '4639B43901BF'
+ MEPROP Name 'autoregistration_status'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'статус авторегистрации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaiseInSet
+   Seq: ( WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ )
+ ; // CanRaiseInSet
+ UP "pm" False
+
+ENDME // ME_4639B43901BF autoregistration_status
+
+ME ME_467006CB035C
+ MEPROP UID '467006CB035C'
+ MEPROP Name 'administrator_email'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Почта администратора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_467006CB035C administrator_email
+
+ME ME_467006E60158
+ MEPROP UID '467006E60158'
+ MEPROP Name 'administrator_phone'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Телефон администратора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_467006E60158 administrator_phone
+
+FORWARD ME_45EEE3D303C9
+
+ME ME_4628DF120280
+ MEPROP Name 'login'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4628DF120280 login
+
+ME ME_4628DF12030D
+ MEPROP Name 'password'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4628DF12030D password
+
+ME ME_45EEE3D303C9
+ MEPROP UID '45EEE3D303C9'
+ MEPROP Name 'login'
+ MEPROP Class class_Operation
+ %SUMMARY 'Начало работы с системой. При успешном завершении подключается к базе, прописанной в параметрах, как база по умолчанию и возвращает интерфейс ICommon.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_45EED4A10222' '45EEAA96039C.ms.model.script' // WrongAuthentication
+ WL 'ME_45EED4A10224' '45EEAA96039C.ms.model.script' // NoMoreProfiles
+ WL 'ME_45EED4A10232' '45EEAA96039C.ms.model.script' // XMLImportRunning
+ WL 'ME_45EED4A10236' '45EEAA96039C.ms.model.script' // ShutdownInited
+ WL 'ME_45EED8E0009C' '45EEAA96039C.ms.model.script' // TrialPeriodExpired
+ HWL ME_46092B23000F // AlreadyLogged
+ HWL ME_46092B7B035B // AccountDisabled
+ HWL ME_4628DED80157 // NoMoreConnections
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4628DF120280 // login
+ ME_4628DF12030D // password
+ )
+ ; // Parameters
+
+ENDME // ME_45EEE3D303C9 login
+
+ME ME_45EEE3D303CD
+ MEPROP UID '45EEE3D303CD'
+ MEPROP Name 'guest_login'
+ MEPROP Class class_Operation
+ %SUMMARY 'Начало работы с системой пользователя-гостя. При успешном завершении подключается к базе, прописанной в параметрах, как база по умолчанию и возвращает интерфейс ICommon.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_45EED4A10224' '45EEAA96039C.ms.model.script' // NoMoreProfiles
+ WL 'ME_45EED4A10228' '45EEAA96039C.ms.model.script' // LicenceViolation
+ WL 'ME_45EED4A10232' '45EEAA96039C.ms.model.script' // XMLImportRunning
+ WL 'ME_45EED4A10236' '45EEAA96039C.ms.model.script' // ShutdownInited
+ WL 'ME_45EED8E0009C' '45EEAA96039C.ms.model.script' // TrialPeriodExpired
+ HWL ME_4628DED80157 // NoMoreConnections
+ )
+ ; // CanRaise
+
+ENDME // ME_45EEE3D303CD guest_login
+
+ME ME_45EEE3D303CF
+ MEPROP UID '45EEE3D303CF'
+ MEPROP Name 'logout'
+ MEPROP Class class_Operation
+ %SUMMARY 'Окончание работы с системой.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+
+ENDME // ME_45EEE3D303CF logout
+
+FORWARD ME_45EEE3D303D0
+
+ME ME_4639B517026A
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4639B517026A name
+
+ME ME_4639B51702B9
+ MEPROP Name 'login'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4639B51702B9 login
+
+ME ME_4639B5170316
+ MEPROP Name 'password'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4639B5170316 password
+
+ME ME_4639B5170364
+ MEPROP Name 'email'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4639B5170364 email
+
+ME ME_45EEE3D303D0
+ MEPROP UID '45EEE3D303D0'
+ MEPROP Name 'autoregistration'
+ MEPROP Class class_Operation
+ %SUMMARY 'Аналогично login но с регистрацией нового пользователя. email - адрес, на который в последствии может быть выслана информация о пользователе (логин, пароль)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_45EED4A10222' '45EEAA96039C.ms.model.script' // WrongAuthentication
+ WL 'ME_45EED4A10224' '45EEAA96039C.ms.model.script' // NoMoreProfiles
+ WL 'ME_45EED4A10228' '45EEAA96039C.ms.model.script' // LicenceViolation
+ WL 'ME_45EED4A10232' '45EEAA96039C.ms.model.script' // XMLImportRunning
+ WL 'ME_45EED4A10236' '45EEAA96039C.ms.model.script' // ShutdownInited
+ WL 'ME_45EED8E0009C' '45EEAA96039C.ms.model.script' // TrialPeriodExpired
+ HWL ME_4628DED80157 // NoMoreConnections
+ WL 'ME_4639B499020D' '45EEAA96039C.ms.model.script' // AutoregistrationDisabled
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4639B517026A // name
+ ME_4639B51702B9 // login
+ ME_4639B5170316 // password
+ ME_4639B5170364 // email
+ )
+ ; // Parameters
+
+ENDME // ME_45EEE3D303D0 autoregistration
+
+FORWARD ME_45EEE3D303D6
+
+ME ME_46092FD60000
+ MEPROP Name 'email'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_46092FD60000 email
+
+ME ME_45EEE3D303D6
+ MEPROP UID '45EEE3D303D6'
+ MEPROP Name 'send_user_info_by_email'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет наличие указанного адреса в базе. Если адрес найден,  высылает на него информацию о пользователе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEE02203DE // SMTPServerAddressNotDefined
+ HWL ME_45EEE02203E0 // SMTPServerNotFound
+ HWL ME_45EEE02203E2 // UserNotFound
+ HWL ME_45EEE0230004 // BadSMTPReply
+ HWL ME_480C8B04039B // SMTPAuthorizationFailed
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_46092FD60000 // email
+ )
+ ; // Parameters
+
+ENDME // ME_45EEE3D303D6 send_user_info_by_email
+
+ME ME_45EEE3D303D9
+ MEPROP UID '45EEE3D303D9'
+ MEPROP Name 'is_server_alive'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true если сервер доступен, false иначе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45EEE3D303D9 is_server_alive
+
+ME ME_4609270F03C8
+ MEPROP UID '4609270F03C8'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_45EED4A10232' '45EEAA96039C.ms.model.script' // XMLImportRunning
+ )
+ ; // CanRaise
+ UP "const_type" 'read-write'
+
+ENDME // ME_4609270F03C8 make
+
+ME ME_4E23D8250328
+ MEPROP UID '4E23D8250328'
+ MEPROP Name 'logout_without_xml_backup'
+ MEPROP Class class_Operation
+ %SUMMARY 'K274827650' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE3D303C8 // Authorization
+ ;
+
+ENDME // ME_4E23D8250328 logout_without_xml_backup
+
+ME ME_45EEE3D303C8
+ MEPROP UID '45EEE3D303C8'
+ MEPROP GUID 'A49B3BF6-B27F-4D79-A67E-C51AF7F67855'
+ MEPROP Name 'Authorization'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс обеспечивает начальную авторизацию в системе, открытие выбранного комплекта данных, получение информации о комплекте.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEE3D303DB // protection_error
+ HWL ME_45EEE3D303DC // rest_trial_days_count
+ HWL ME_4639B43901BF // autoregistration_status
+ HWL ME_467006CB035C // administrator_email
+ HWL ME_467006E60158 // administrator_phone
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45EEE3D303C9 // login
+ HWL ME_45EEE3D303CD // guest_login
+ HWL ME_45EEE3D303CF // logout
+ HWL ME_45EEE3D303D0 // autoregistration
+ HWL ME_45EEE3D303D6 // send_user_info_by_email
+ HWL ME_45EEE3D303D9 // is_server_alive
+ HWL ME_4609270F03C8 // make
+ HWL ME_4E23D8250328 // logout_without_xml_backup
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IAuthorization'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Authorization'
+
+ENDME // ME_45EEE3D303C8 Authorization
+
+ME ME_4A93B0F00377
+ MEPROP UID '4A93B0F00377'
+ MEPROP Name 'ServerIsStarting'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'сервер запущен, находится в процессе инициализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+
+ENDME // ME_4A93B0F00377 ServerIsStarting
+
+FORWARD ME_4A1D2A31026C
+
+ME ME_4A1D2DD3024A
+ MEPROP UID '4A1D2DD3024A'
+ MEPROP Name 'users'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Разрешенное количество обычных пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A1D2A31026C // LicenseRestrictions
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4A1D2DD3024A users
+
+ME ME_4A1D2E590150
+ MEPROP UID '4A1D2E590150'
+ MEPROP Name 'permanent_users'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Разрешенное количество пользователей с постоянным доступом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A1D2A31026C // LicenseRestrictions
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4A1D2E590150 permanent_users
+
+ME ME_4A1D2A31026C
+ MEPROP UID '4A1D2A31026C'
+ MEPROP Name 'LicenseRestrictions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Различные лицензионные счетчики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A1D2DD3024A // users
+ HWL ME_4A1D2E590150 // permanent_users
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TLicenseRestrictions'
+
+ENDME // ME_4A1D2A31026C LicenseRestrictions
+
+FORWARD ME_45EEE473005D
+
+ME ME_460A6A50031C
+ MEPROP UID '460A6A50031C'
+ MEPROP Name 'base_date'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_456EA6F00109' '456EA56002BF.ms.model.script' // Date
+ ;
+ UP "pm" False
+
+ENDME // ME_460A6A50031C base_date
+
+ME ME_4A1D2E8202E3
+ MEPROP UID '4A1D2E8202E3'
+ MEPROP Name 'license_restrictions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Лицензионные ограничения на количество пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target HWL ME_4A1D2A31026C // LicenseRestrictions
+ ;
+ UP "pm" False
+
+ENDME // ME_4A1D2E8202E3 license_restrictions
+
+FORWARD ME_45EEE473005E
+
+ME ME_488700F8006A
+ MEPROP Name 'number'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_488700F8006A number
+
+ME ME_488700F80078
+ MEPROP Name 'document'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_488700F80078 document
+
+ME ME_488700F80086
+ MEPROP Name 'missing_info'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45EEB6520309' '4570511E038A.ms.model.script' // MissingInfo
+ ;
+
+ENDME // ME_488700F80086 missing_info
+
+ME ME_45EEE473005E
+ MEPROP UID '45EEE473005E'
+ MEPROP Name 'get_document_on_number'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает документ (Document) по заданному внутреннему ("гарантовскому") номеру.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_488700F8006A // number
+ ME_488700F80078 // document
+ ME_488700F80086 // missing_info
+ )
+ ; // Parameters
+
+ENDME // ME_45EEE473005E get_document_on_number
+
+FORWARD ME_45EEE4730065
+
+ME ME_462CB6070271
+ MEPROP Name 'notifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EEDD7A0179' '4570501E037A.ms.model.script' // ExternalFoldersChangeNotifier
+ ;
+
+ENDME // ME_462CB6070271 notifier
+
+ME ME_45EEE4730065
+ MEPROP UID '45EEE4730065'
+ MEPROP Name 'start_processing_folder_notification'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Установить нотификацию изменения папок.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELIST Parameters
+   Seq: ( ME_462CB6070271 // notifier
+ )
+ ; // Parameters
+
+ENDME // ME_45EEE4730065 start_processing_folder_notification
+
+ME ME_45EEE4730067
+ MEPROP UID '45EEE4730067'
+ MEPROP Name 'is_explanatory_dictionary_exist'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет существует (доступен) ли в системе Толковый словарь.'#13#10'Возвращает true в случае, если толковый словарь существует.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45EEE4730067 is_explanatory_dictionary_exist
+
+ME ME_47D00A9402BF
+ MEPROP UID '47D00A9402BF'
+ MEPROP Name 'is_pharm_exist'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_47D00A9402BF is_pharm_exist
+
+ME ME_45EEE4730077
+ MEPROP UID '45EEE4730077'
+ MEPROP Name 'check_internal'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверка является ли база с лицензионными настройками - "для внутреннего использования"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45EEE4730077 check_internal
+
+FORWARD ME_45EEE4730078
+
+ME ME_460B8321006D
+ MEPROP Name 'number'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_460B8321006D number
+
+ME ME_45EEE4730078
+ MEPROP UID '45EEE4730078'
+ MEPROP Name 'show_pictures_on_number'
+ MEPROP Class class_Operation
+ %SUMMARY 'показывает рисунки для заданного топика (функциональность внутренней версии)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEE0230002 // WorkingParamsNotFound
+ HWL ME_45EEE0230008 // ExternalApplicationError
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_460B8321006D // number
+ )
+ ; // Parameters
+
+ENDME // ME_45EEE4730078 show_pictures_on_number
+
+ME ME_460A43770251
+ MEPROP UID '460A43770251'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_460A43770251 make
+
+ME ME_460A4B1C008C
+ MEPROP UID '460A4B1C008C'
+ MEPROP Name 'get_complect_name'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_460A4B1C008C get_complect_name
+
+ME ME_46F22CA50148
+ MEPROP UID '46F22CA50148'
+ MEPROP Name 'auto_show_help'
+ MEPROP Class class_Operation
+ %SUMMARY 'показывать ли помощь при первом запуске после инсталяции.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_46F22CA50148 auto_show_help
+
+ME ME_4715FD8D01C5
+ MEPROP UID '4715FD8D01C5'
+ MEPROP Name 'get_product_type'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить тип установленного продукта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target HWL ME_4715FF2800EA // ProductType
+ ;
+
+ENDME // ME_4715FD8D01C5 get_product_type
+
+FORWARD ME_47A84A470118
+
+ME ME_4890548B01CF
+ MEPROP Name 'is_start'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4890548B01CF is_start
+
+ME ME_4890548B01DE
+ MEPROP Name 'x'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.ms.model.script' // short
+ ;
+
+ENDME // ME_4890548B01DE x
+
+ME ME_4890548B01EC
+ MEPROP Name 'y'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD5402AE' '3DBFDB23006E.ms.model.script' // short
+ ;
+
+ENDME // ME_4890548B01EC y
+
+ME ME_4890548B01FB
+ MEPROP Name 'flash_available'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4890548B01FB flash_available
+
+ME ME_47A84A470118
+ MEPROP UID '47A84A470118'
+ MEPROP Name 'get_splash_screen'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить сплеш' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_45ED939E0218' '45ED922F00A4.ms.model.script' // SplashScreen
+ ;
+ MELIST Parameters
+   Seq: ( ME_4890548B01CF // is_start
+ ME_4890548B01DE // x
+ ME_4890548B01EC // y
+ ME_4890548B01FB // flash_available
+ )
+ ; // Parameters
+
+ENDME // ME_47A84A470118 get_splash_screen
+
+ME ME_47A84BF100A3
+ MEPROP UID '47A84BF100A3'
+ MEPROP Name 'get_settings_manager'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить менеджер настроек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_45EEDBE30119' '45EEAA69036E.ms.model.script' // SettingsManager
+ ;
+
+ENDME // ME_47A84BF100A3 get_settings_manager
+
+ME ME_489AE01901E0
+ MEPROP UID '489AE01901E0'
+ MEPROP Name 'is_eo_enabled'
+ MEPROP Class class_Operation
+ %SUMMARY 'доступен ли модуль ЭО.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_489AE01901E0 is_eo_enabled
+
+ME ME_494B8EB70150
+ MEPROP UID '494B8EB70150'
+ MEPROP Name 'get_base_type'
+ MEPROP Class class_Operation
+ %SUMMARY 'Тип базы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target HWL ME_494B8DF90183 // BaseType
+ ;
+
+ENDME // ME_494B8EB70150 get_base_type
+
+ME ME_49DEFB6403B8
+ MEPROP UID '49DEFB6403B8'
+ MEPROP Name 'create_folder_notification_queue'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Создать очередь обработки папочных нотификаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+
+ENDME // ME_49DEFB6403B8 create_folder_notification_queue
+
+ME ME_4ACC7293034A
+ MEPROP UID '4ACC7293034A'
+ MEPROP Name 'get_banner'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить баннер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_4ACC6DD00230' '4ACC6D940387.ms.model.script' // Banner
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+
+ENDME // ME_4ACC7293034A get_banner
+
+ME ME_4B4C52210165
+ MEPROP UID '4B4C52210165'
+ MEPROP Name 'is_trimmed_publish_source_exists'
+ MEPROP Class class_Operation
+ %SUMMARY 'Есть ли усеченный индекс Источник опубликования' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B4C52210165 is_trimmed_publish_source_exists
+
+ME ME_4E0C248F0243
+ MEPROP UID '4E0C248F0243'
+ MEPROP Name 'get_scripts_system_dictionary'
+ MEPROP Class class_Operation
+ %SUMMARY 'словарь для скриптов (К271754146)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_4423FB5903D8' '4423F94903C8.ms.model.script' // Stream
+ ;
+
+ENDME // ME_4E0C248F0243 get_scripts_system_dictionary
+
+FORWARD ME_4F3CE8840273
+
+ME ME_4F3CE9430181
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4F3CE9430181 id
+
+ME ME_4F3CE8840273
+ MEPROP UID '4F3CE8840273'
+ MEPROP Name 'get_picture'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_45ED932A0044' '45ED922F00A4.ms.model.script' // ExternalObject
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4F3CE9430181 // id
+ )
+ ; // Parameters
+
+ENDME // ME_4F3CE8840273 get_picture
+
+ME ME_4F547E5602BC
+ MEPROP UID '4F547E5602BC'
+ MEPROP Name 'is_erase_of_inactive_users_enabled'
+ MEPROP Class class_Operation
+ %SUMMARY 'включена ли поддержка удаления пользователей, которые давно не пользовались системой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4F547E5602BC is_erase_of_inactive_users_enabled
+
+ME ME_51ADE9F9011C
+ MEPROP UID '51ADE9F9011C'
+ MEPROP Name 'get_encrypted_complect_id'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить зашифрованный идентификатор комплекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_51ADE9F9011C get_encrypted_complect_id
+
+ME ME_57BC6042019E
+ MEPROP UID '57BC6042019E'
+ MEPROP Name 'is_early_installed'
+ MEPROP Class class_Operation
+ %SUMMARY 'признак ранее установленной версии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE473005D // Common
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_57BC6042019E is_early_installed
+
+ME ME_45EEE473005D
+ MEPROP UID '45EEE473005D'
+ MEPROP GUID 'E07B0F92-C20B-4AB2-84A3-33BC2AF4659C'
+ MEPROP Name 'Common'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс обеспечивает доступ к основной функциональности системы, доступной из "Основного меню" или навигатора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_460A6A50031C // base_date
+ HWL ME_4A1D2E8202E3 // license_restrictions
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45EEE473005E // get_document_on_number
+ HWL ME_45EEE4730065 // start_processing_folder_notification
+ HWL ME_45EEE4730067 // is_explanatory_dictionary_exist
+ HWL ME_47D00A9402BF // is_pharm_exist
+ HWL ME_45EEE4730077 // check_internal
+ HWL ME_45EEE4730078 // show_pictures_on_number
+ HWL ME_460A43770251 // make
+ HWL ME_460A4B1C008C // get_complect_name
+ HWL ME_46F22CA50148 // auto_show_help
+ HWL ME_4715FD8D01C5 // get_product_type
+ HWL ME_47A84A470118 // get_splash_screen
+ HWL ME_47A84BF100A3 // get_settings_manager
+ HWL ME_489AE01901E0 // is_eo_enabled
+ HWL ME_494B8EB70150 // get_base_type
+ HWL ME_49DEFB6403B8 // create_folder_notification_queue
+ HWL ME_4ACC7293034A // get_banner
+ HWL ME_4B4C52210165 // is_trimmed_publish_source_exists
+ HWL ME_4E0C248F0243 // get_scripts_system_dictionary
+ HWL ME_4F3CE8840273 // get_picture
+ HWL ME_4F547E5602BC // is_erase_of_inactive_users_enabled
+ HWL ME_51ADE9F9011C // get_encrypted_complect_id
+ HWL ME_57BC6042019E // is_early_installed
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'ICommon'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Common'
+
+ENDME // ME_45EEE473005D Common
+
+FORWARD ME_474C0E2703A6
+
+ME ME_474C0E5E0042
+ MEPROP UID '474C0E5E0042'
+ MEPROP Name 'start'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_474C0E2703A6 // ComponentManager
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB4540186' '456EA56002BF.ms.model.script' // StorageLocked
+ WL 'ME_45EED4A10228' '45EEAA96039C.ms.model.script' // LicenceViolation
+ WL 'ME_45EEDDFF006F' '45EEAA69036E.ms.model.script' // ConfigurationsNotDefined
+ HWL ME_45EEE02203CE // IPAddressNotFound
+ HWL ME_45EEE02203D8 // InvalidBase
+ HWL ME_45EEE02203DA // NoServer
+ HWL ME_45EEE02203DC // BadNetworkConfig
+ HWL ME_45EEE02203E4 // ServerVersionNotValid
+ HWL ME_45EEE0230002 // WorkingParamsNotFound
+ HWL ME_4628DED80157 // NoMoreConnections
+ HWL ME_4669565D00FA // MorphoNotExists
+ HWL ME_4726F93503AA // InternalApplicationError
+ HWL ME_4815D1ED03B0 // InvalidUserDatastore
+ HWL ME_4A93B0F00377 // ServerIsStarting
+ )
+ ; // CanRaise
+
+ENDME // ME_474C0E5E0042 start
+
+ME ME_474C0E7501F1
+ MEPROP UID '474C0E7501F1'
+ MEPROP Name 'stop'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_474C0E2703A6 // ComponentManager
+ ;
+
+ENDME // ME_474C0E7501F1 stop
+
+ME ME_474C117B0280
+ MEPROP UID '474C117B0280'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_474C0E2703A6 // ComponentManager
+ ;
+ MEPROP TargetStereotype 'cached'
+ UP "const_type" 'read-write'
+
+ENDME // ME_474C117B0280 make
+
+ME ME_474C0E2703A6
+ MEPROP UID '474C0E2703A6'
+ MEPROP GUID 'C92D07EF-D91F-4CDD-BD8E-FC8DF18CC42C'
+ MEPROP Name 'ComponentManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_474C0E5E0042 // start
+ HWL ME_474C0E7501F1 // stop
+ HWL ME_474C117B0280 // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IComponentManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComponentManager'
+
+ENDME // ME_474C0E2703A6 ComponentManager
+
+FORWARD ME_45EEE44100BB
+
+ME ME_45EEE44100BC
+ MEPROP UID '45EEE44100BC'
+ MEPROP Name 'is_debug'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE44100BB // AssemblyInfo
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEE44100BC is_debug
+
+ME ME_45EEE44100BD
+ MEPROP UID '45EEE44100BD'
+ MEPROP Name 'is_desktop'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE44100BB // AssemblyInfo
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEE44100BD is_desktop
+
+ME ME_45EEE44100BE
+ MEPROP UID '45EEE44100BE'
+ MEPROP Name 'is_commerce'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE44100BB // AssemblyInfo
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEE44100BE is_commerce
+
+ME ME_45EEE44100BF
+ MEPROP UID '45EEE44100BF'
+ MEPROP Name 'first_start'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE44100BB // AssemblyInfo
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEE44100BF first_start
+
+ME ME_4AFC2189030C
+ MEPROP UID '4AFC2189030C'
+ MEPROP Name 'server_capacity'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Разрядность сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEE44100BB // AssemblyInfo
+ ;
+ MELINK Target HWL ME_4AFC16F802C6 // Capacity
+ ;
+ UP "pm" False
+
+ENDME // ME_4AFC2189030C server_capacity
+
+ME ME_460919DE03B9
+ MEPROP UID '460919DE03B9'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE44100BB // AssemblyInfo
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_460919DE03B9 make
+
+ME ME_45EEE44100BB
+ MEPROP UID '45EEE44100BB'
+ MEPROP GUID 'D5DBA4D0-D3CD-43ED-9E01-CC854B442DA1'
+ MEPROP Name 'AssemblyInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEE44100BC // is_debug
+ HWL ME_45EEE44100BD // is_desktop
+ HWL ME_45EEE44100BE // is_commerce
+ HWL ME_45EEE44100BF // first_start
+ HWL ME_4AFC2189030C // server_capacity
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_460919DE03B9 // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IAssemblyInfo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AssemblyInfo'
+
+ENDME // ME_45EEE44100BB AssemblyInfo
+
+FORWARD ME_45EEE4240196
+
+ME ME_45EEE4240197
+ MEPROP UID '45EEE4240197'
+ MEPROP Name 'PATH_TO_PICTURES'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45EEE4240196 // PICTURES_CONSTANTS
+ ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP Value '-PathToPictures'
+ MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '-PathToPictures'
+
+ENDME // ME_45EEE4240197 PATH_TO_PICTURES
+
+ME ME_45EEE4240198
+ MEPROP UID '45EEE4240198'
+ MEPROP Name 'PATH_TO_EXECUTABLE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45EEE4240196 // PICTURES_CONSTANTS
+ ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP Value '-PathToPicturesExecutable'
+ MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '-PathToPicturesExecutable'
+
+ENDME // ME_45EEE4240198 PATH_TO_EXECUTABLE
+
+ME ME_45EEE4240196
+ MEPROP UID '45EEE4240196'
+ MEPROP Name 'PICTURES_CONSTANTS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметры инишника для отображения картинок во внешнем приложении' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEE4240197 // PATH_TO_PICTURES
+ HWL ME_45EEE4240198 // PATH_TO_EXECUTABLE
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_45EEE4240196 PICTURES_CONSTANTS
+
+FORWARD ME_489AE11C0220
+
+ME ME_489AE2090028
+ MEPROP UID '489AE2090028'
+ MEPROP Name 'EO_ENABLED'
+ MEPROP Class class_Attribute
+ %SUMMARY 'подключён ли модуль ЭО. По-умолчанию считаем, что подключён.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_489AE11C0220 // EO_CONSTANTS
+ ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP Value '-EOEnable'
+ MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '-EOEnable'
+
+ENDME // ME_489AE2090028 EO_ENABLED
+
+ME ME_489AE11C0220
+ MEPROP UID '489AE11C0220'
+ MEPROP Name 'EO_CONSTANTS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константы для электронной отчётности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456FF1DD031C // Start
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_489AE2090028 // EO_ENABLED
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_489AE11C0220 EO_CONSTANTS
+
+ME ME_456FF1DD031C
+ MEPROP UID '456FF1DD031C'
+ MEPROP Name 'Start'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEE02203CE // IPAddressNotFound
+ HWL ME_45EEE02203D8 // InvalidBase
+ HWL ME_45EEE02203DA // NoServer
+ HWL ME_45EEE02203DC // BadNetworkConfig
+ HWL ME_45EEE02203DE // SMTPServerAddressNotDefined
+ HWL ME_45EEE02203E0 // SMTPServerNotFound
+ HWL ME_45EEE02203E2 // UserNotFound
+ HWL ME_45EEE02203E4 // ServerVersionNotValid
+ HWL ME_45EEE0230000 // InternalServerError
+ HWL ME_45EEE0230002 // WorkingParamsNotFound
+ HWL ME_45EEE0230004 // BadSMTPReply
+ HWL ME_45EEE0230006 // SettingsRestoreFails
+ HWL ME_45EEE0230008 // ExternalApplicationError
+ HWL ME_46092B23000F // AlreadyLogged
+ HWL ME_4AFC16F802C6 // Capacity
+ HWL ME_4715FF2800EA // ProductType
+ HWL ME_46092B7B035B // AccountDisabled
+ HWL ME_4628DED80157 // NoMoreConnections
+ HWL ME_480C8B04039B // SMTPAuthorizationFailed
+ HWL ME_4669565D00FA // MorphoNotExists
+ HWL ME_494B8DF90183 // BaseType
+ HWL ME_4726F93503AA // InternalApplicationError
+ HWL ME_4815D1ED03B0 // InvalidUserDatastore
+ HWL ME_45EEE3D303C8 // Authorization
+ HWL ME_4A93B0F00377 // ServerIsStarting
+ HWL ME_4A1D2A31026C // LicenseRestrictions
+ HWL ME_45EEE473005D // Common
+ HWL ME_474C0E2703A6 // ComponentManager
+ HWL ME_45EEE44100BB // AssemblyInfo
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_45EEE4240196 // PICTURES_CONSTANTS
+ HWL ME_489AE11C0220 // EO_CONSTANTS
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_4570501E037A' '4570501E037A.ms.model.script' // Folders
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_45ED922F00A4' '45ED922F00A4.ms.model.script' // ExternalObject
+ WL 'ME_45EEAA69036E' '45EEAA69036E.ms.model.script' // Settings
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_45EEAA96039C' '45EEAA96039C.ms.model.script' // Security
+ WL 'ME_4ACC6D940387' '4ACC6D940387.ms.model.script' // Banner
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Start\Start.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Start'
+ UP extprop:pas:UnitName 'StartUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Start\Start.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Start'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\StartUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\StartUnit.pas'
+
+ENDME // ME_456FF1DD031C Start

@@ -1,0 +1,69 @@
+// evMsgCode 47ECAB0B0265 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47ECAB0B0265
+
+FORWARD ME_47ECAB310336
+
+ME ME_53FF09590070
+ MEPROP UID '53FF09590070'
+ MEPROP Name 'ev_msgLast'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47ECAB310336 // Msg Codes
+ ;
+ MEPROP Value ''''''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_53FF09590070 ev_msgLast
+
+ME ME_47ECAB310336
+ MEPROP UID '47ECAB310336'
+ MEPROP Name 'Msg Codes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAB0B0265 // evMsgCode
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53FF09590070 // ev_msgLast
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47ECAB310336 Msg Codes
+
+ME ME_47ECAB0B0265
+ MEPROP UID '47ECAB0B0265'
+ MEPROP Name 'evMsgCode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Сообщения Everest''а. Наследие тяжкого безинтерфейсного прошлого.'#13#10'   Планируется со временем убить.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47ECAB310336 // Msg Codes
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "is namespace" True
+ UP "started" '09.07.2002 17:09'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evMsgCode.pas'
+
+ENDME // ME_47ECAB0B0265 evMsgCode

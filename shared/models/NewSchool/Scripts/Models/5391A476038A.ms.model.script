@@ -1,0 +1,473 @@
+// MemoryUsagePrim 5391A476038A VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5391A476038A
+
+FORWARD ME_5391A59F0107
+
+ME ME_5391A60302BA
+ MEPROP UID '5391A60302BA'
+ MEPROP Name 'TagTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A59F0107 // pnTagTree
+ ;
+ UP "ControlClass" 'TeeTreeView'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391A60302BA TagTree
+
+FORWARD ME_5391A622022C
+
+ME ME_5391A6530279
+ MEPROP UID '5391A6530279'
+ MEPROP Name 'memClasses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A622022C // pnMemClasses
+ ;
+ UP "ControlClass" 'TevMemo'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391A6530279 memClasses
+
+ME ME_5391A622022C
+ MEPROP UID '5391A622022C'
+ MEPROP Name 'pnMemClasses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A59F0107 // pnTagTree
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5391A6530279 // memClasses
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtSizeablePanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391A622022C pnMemClasses
+
+ME ME_5391A59F0107
+ MEPROP UID '5391A59F0107'
+ MEPROP Name 'pnTagTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5391A60302BA // TagTree
+ HWL ME_5391A622022C // pnMemClasses
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391A59F0107 pnTagTree
+
+FORWARD ME_5391A5CA039C
+
+ME ME_5391AA9402A6
+ MEPROP UID '5391AA9402A6'
+ MEPROP Name 'lbLocalMemory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A5CA039C // pnSummary
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391AA9402A6 lbLocalMemory
+
+ME ME_5391AAC00004
+ MEPROP UID '5391AAC00004'
+ MEPROP Name 'lbObjectMemory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A5CA039C // pnSummary
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391AAC00004 lbObjectMemory
+
+ME ME_5391AACB02CA
+ MEPROP UID '5391AACB02CA'
+ MEPROP Name 'lbObjectCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A5CA039C // pnSummary
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391AACB02CA lbObjectCount
+
+ME ME_5391AB090171
+ MEPROP UID '5391AB090171'
+ MEPROP Name 'lbGlobalMemory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A5CA039C // pnSummary
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391AB090171 lbGlobalMemory
+
+ME ME_5391AB1403C4
+ MEPROP UID '5391AB1403C4'
+ MEPROP Name 'lbDocumentsInCacheCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A5CA039C // pnSummary
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391AB1403C4 lbDocumentsInCacheCount
+
+ME ME_5391AB770069
+ MEPROP UID '5391AB770069'
+ MEPROP Name 'lbAllLocalMemory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A5CA039C // pnSummary
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391AB770069 lbAllLocalMemory
+
+ME ME_5391AB8602D4
+ MEPROP UID '5391AB8602D4'
+ MEPROP Name 'lbTotalMemory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A5CA039C // pnSummary
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391AB8602D4 lbTotalMemory
+
+ME ME_5391A5CA039C
+ MEPROP UID '5391A5CA039C'
+ MEPROP Name 'pnSummary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5391AA9402A6 // lbLocalMemory
+ HWL ME_5391AAC00004 // lbObjectMemory
+ HWL ME_5391AACB02CA // lbObjectCount
+ HWL ME_5391AB090171 // lbGlobalMemory
+ HWL ME_5391AB1403C4 // lbDocumentsInCacheCount
+ HWL ME_5391AB770069 // lbAllLocalMemory
+ HWL ME_5391AB8602D4 // lbTotalMemory
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtSizeablePanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5391A5CA039C pnSummary
+
+ME ME_5391C4630189
+ MEPROP UID '5391C4630189'
+ MEPROP Name 'UpdateDocumentsInCacheCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+
+ENDME // ME_5391C4630189 UpdateDocumentsInCacheCount
+
+ME ME_5391C41B00B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ToolbarAtBottom::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ ;
+
+ENDME // ME_5391C41B00B2 
+
+ME ME_5391F805021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_5391F805021C 
+
+ME ME_5391F80B0375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_47F100430323' '47F086170200.ms.model.script' // TevDocumentsCache
+ ;
+
+ENDME // ME_5391F80B0375 
+
+ME ME_5391F8E000C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5391F8E000C3 
+
+ME ME_5391F8E202C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5391F8E202C2 
+
+ME ME_5391F8E50009
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_5391F8E50009 
+
+ME ME_5391F916019B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_467821770204' '4678209200A6.ms.model.script' // InevBase
+ ;
+
+ENDME // ME_5391F916019B 
+
+ME ME_5391F9330176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5391F9330176 
+
+ME ME_5391F96302AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_5391F96302AD 
+
+ME ME_5391F9720087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_5391F9720087 
+
+ME ME_5392FFD100F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5391A476038A // MemoryUsagePrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5392FFD100F6 
+
+ME ME_4C762A1501FC_ME_5391A476038A
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" True
+ENDME // ME_4C762A1501FC_ME_5391A476038A Ok
+
+ME ME_5391D18801D6_ME_5391A476038A
+ MELINK Original WL 'ME_5391D18801D6' '5391D16303CD.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "ImageIndex" 5
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" True
+ENDME // ME_5391D18801D6_ME_5391A476038A Clear
+
+ME ME_5391D193004A_ME_5391A476038A
+ MELINK Original WL 'ME_5391D193004A' '5391D16303CD.ms.model.script' // Disable
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "ImageIndex" 26
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" True
+ENDME // ME_5391D193004A_ME_5391A476038A Disable
+
+ME ME_49803F5503AA_ME_5391A476038A
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_5391A476038A DoInit
+
+ME ME_4A8E8F2E0195_ME_5391A476038A
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_5391A476038A InitControls
+
+ME ME_5391A476038A
+ MEPROP UID '5391A476038A'
+ MEPROP Name 'MemoryUsagePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Используемые ресурсы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA7E9B9016C' '4AA7E9B9016C.ms.model.script' // Main
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ WL 'ME_5391D17C0073' '5391D16303CD.ms.model.script' // DocumentsCache
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5391A59F0107 // pnTagTree
+ HWL ME_5391A5CA039C // pnSummary
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5391C4630189 // UpdateDocumentsInCacheCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C762A1501FC_ME_5391A476038A // Ok
+ ME_5391D18801D6_ME_5391A476038A // Clear
+ ME_5391D193004A_ME_5391A476038A // Disable
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_5391A476038A // DoInit
+ ME_4A8E8F2E0195_ME_5391A476038A // InitControls
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5391C41B00B2 // Result$Ok
+ ME_5391F805021C // vcmBase
+ ME_5391F80B0375 // TevDocumentsCache
+ ME_5391F8E000C3 // Forms
+ ME_5391F8E202C2 // Controls
+ ME_5391F8E50009 // Classes
+ ME_5391F916019B // InevBase
+ ME_5391F9330176 // l3Base
+ ME_5391F96302AD // InevObject
+ ME_5391F9720087 // Operations
+ ME_5392FFD100F6 // SysUtils
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Modal'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TMemoryUsagePrimForm'
+ UP extprop:pas:UnitName 'MemoryUsagePrim_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MemoryUsagePrimForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MemoryUsagePrim_Form.pas'
+
+ENDME // ME_5391A476038A MemoryUsagePrim

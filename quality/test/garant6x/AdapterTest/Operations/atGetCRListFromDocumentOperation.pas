@@ -32,6 +32,8 @@ uses
  , BaseTypesUnit
  , atListHelper
  , atNodeHelper
+ //#UC START# *4A4CA0DD02F9impl_uses*
+ //#UC END# *4A4CA0DD02F9impl_uses*
 ;
 
 procedure TatGetCRListFromDocumentOperation.ExecuteSelf;

@@ -1,0 +1,32 @@
+// AAC 4FF2E5990355 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4FF2E5990355
+ MEPROP UID '4FF2E5990355'
+ MEPROP Name 'AAC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Актуальная аналитика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4FF2E55B02CF' '4FF2E55B02CF.ms.model.script' // AAC
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FF2E5C70060' '4FF2E5C70060.ms.model.script' // AACPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FBB5FF302D2' '484FA67302D7.ms.model.script' // Актуальная аналитика
+ )
+ ; // Implements
+ UP extprop:pas:TypeName 'Tmo_AAC'
+ UP extprop:pas:UnitName 'moAAC'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_AAC'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moAAC.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4FF2E5990355 AAC

@@ -32,6 +32,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *491D8DFA00BBimpl_uses*
+ //#UC END# *491D8DFA00BBimpl_uses*
 ;
 
 constructor TatNamedMutex.Create(const aName: AnsiString);

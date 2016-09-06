@@ -1,0 +1,29 @@
+// Специальные версии и возможности 48561E5A01F7 Requirements Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_48561E5A01F7
+ MEPROP UID '48561E5A01F7'
+ MEPROP Name 'Специальные версии и возможности'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Requirements ;
+ %SUMMARY 'Описание вариантов поставки F1 и специализированных версий и возможностей, созданных не для непосредственных потребителей системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E366CA201C2' '4E366CA201C2.ms.model.script' // F1 Требования
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_48561FA8027F' '48561FA8027F.ms.model.script' // Версии системы
+ WL 'ME_485622500074' '485622500074.ms.model.script' // Специальные возможности
+ WL 'ME_485779A6032B' '485779A6032B.ms.model.script' // Утилиты анализа данных
+ WL 'ME_4A56F01D02E4' '4A56F01D02E4.ms.model.script' // Перспективные исследования
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ WL 'ME_4E7C6F7902DB' '4E7C6F7902DB.ms.model.script' // Решения
+ )
+ ; // Depends
+
+ENDME // ME_48561E5A01F7 Специальные версии и возможности

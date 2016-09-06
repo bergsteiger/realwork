@@ -1,0 +1,65 @@
+// Readers 4C9CD483018B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C9CD483018B
+
+FORWARD ME_4B59EBB503DA
+
+ME ME_4C9CD190013F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B59EBB503DA // TevdNSRCReader
+ ;
+ MELINK Target WL 'ME_4C9CD11901BD' '48EA3D1F0232.ms.model.script' // ddNSRC_r
+ ;
+
+ENDME // ME_4C9CD190013F 
+
+ME ME_4B59EBB503DA
+ MEPROP UID '4B59EBB503DA'
+ MEPROP Name 'TevdNSRCReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C9CD483018B // Readers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483E81520007' '482D6E960087.ms.model.script' // Tk2CustomFileParser
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4C9CD190013F // ddNSRC_r
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'evdNSRCReader'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dNSRCReader'
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\NOT_FINISHED_evdNSRCReader.pas'
+
+ENDME // ME_4B59EBB503DA TevdNSRCReader
+
+ME ME_4C9CD483018B
+ MEPROP UID '4C9CD483018B'
+ MEPROP Name 'Readers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48EEE54C0072' '48EEE54C0072.ms.model.script' // EverestCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B59EBB503DA // TevdNSRCReader
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_482D6E960087' '482D6E960087.ms.model.script' // Readers
+ WL 'ME_48EA3D1F0232' '48EA3D1F0232.ms.model.script' // Readers
+ )
+ ; // Depends
+
+ENDME // ME_4C9CD483018B Readers

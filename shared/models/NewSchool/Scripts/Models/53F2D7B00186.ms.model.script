@@ -1,0 +1,390 @@
+// ChromeLikeInterfaces 53F2D7B00186 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53F2D7B00186
+
+FORWARD ME_551552FA002B
+
+ME ME_5515545B0391
+ MEPROP UID '5515545B0391'
+ MEPROP Name 'rCloseButtonImages'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551552FA002B // TChromeLikeTabSetParams
+ ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_5515545B0391 rCloseButtonImages
+
+ME ME_551554740201
+ MEPROP UID '551554740201'
+ MEPROP Name 'rTabImages'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551552FA002B // TChromeLikeTabSetParams
+ ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_551554740201 rTabImages
+
+ME ME_5515549A0051
+ MEPROP UID '5515549A0051'
+ MEPROP Name 'rCloseButtonImageIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551552FA002B // TChromeLikeTabSetParams
+ ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+
+ENDME // ME_5515549A0051 rCloseButtonImageIndex
+
+ME ME_551554A203A1
+ MEPROP UID '551554A203A1'
+ MEPROP Name 'rCloseButtonHotImageIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551552FA002B // TChromeLikeTabSetParams
+ ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+
+ENDME // ME_551554A203A1 rCloseButtonHotImageIndex
+
+FORWARD ME_5518DC3B0065
+
+FORWARD ME_5518DC8500BD
+
+ME ME_5518E08902B1
+ MEPROP Name 'aTabImages'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_5518E08902B1 aTabImages
+
+ME ME_5518E08902E0
+ MEPROP Name 'aCloseButtonImages'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_5518E08902E0 aCloseButtonImages
+
+ME ME_5518E089030F
+ MEPROP Name 'aCloseButtonImageIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+
+ENDME // ME_5518E089030F aCloseButtonImageIndex
+
+ME ME_5518E089033D
+ MEPROP Name 'aCloseButtonHotImageIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+
+ENDME // ME_5518E089033D aCloseButtonHotImageIndex
+
+ME ME_5518DC8500BD
+ MEPROP UID '5518DC8500BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5518DC3B0065 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_5518E08902B1 // aTabImages
+ ME_5518E08902E0 // aCloseButtonImages
+ ME_5518E089030F // aCloseButtonImageIndex
+ ME_5518E089033D // aCloseButtonHotImageIndex
+ )
+ ; // Parameters
+
+ENDME // ME_5518DC8500BD DoIt
+
+ME ME_5518DC3B0065
+ MEPROP UID '5518DC3B0065'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551552FA002B // TChromeLikeTabSetParams
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5518DC8500BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5518DC3B0065 C
+
+ME ME_551552FA002B
+ MEPROP UID '551552FA002B'
+ MEPROP Name 'TChromeLikeTabSetParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F2D7B00186 // ChromeLikeInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5515545B0391 // rCloseButtonImages
+ HWL ME_551554740201 // rTabImages
+ HWL ME_5515549A0051 // rCloseButtonImageIndex
+ HWL ME_551554A203A1 // rCloseButtonHotImageIndex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5518DC3B0065 // C
+ )
+ ; // Operations
+
+ENDME // ME_551552FA002B TChromeLikeTabSetParams
+
+FORWARD ME_551CF39201BE
+
+FORWARD ME_551CF3CE0322
+
+ME ME_551CF3D6036C
+ MEPROP UID '551CF3D6036C'
+ MEPROP Name 'cl_cmkSystem'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Показывать системное меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
+ ;
+
+ENDME // ME_551CF3D6036C cl_cmkSystem
+
+ME ME_551CF3E101E1
+ MEPROP UID '551CF3E101E1'
+ MEPROP Name 'cl_cmkCustom'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Показывать свое меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
+ ;
+
+ENDME // ME_551CF3E101E1 cl_cmkCustom
+
+ME ME_551CF3EB03D8
+ MEPROP UID '551CF3EB03D8'
+ MEPROP Name 'cl_cmkNone'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Не показывать никакого меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
+ ;
+
+ENDME // ME_551CF3EB03D8 cl_cmkNone
+
+ME ME_551CF3CE0322
+ MEPROP UID '551CF3CE0322'
+ MEPROP Name 'TChromeLikeCaptionMenuKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип попап-меню в заголовочном контроле' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_551CF39201BE // IChromeLikeCaptionControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_551CF3D6036C // cl_cmkSystem
+ HWL ME_551CF3E101E1 // cl_cmkCustom
+ HWL ME_551CF3EB03D8 // cl_cmkNone
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_551CF3CE0322 TChromeLikeCaptionMenuKind
+
+ME ME_551CFF5B003E
+ MEPROP UID '551CFF5B003E'
+ MEPROP Name 'VCLWinControl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551CF39201BE // IChromeLikeCaptionControl
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+ UP "pm" True
+
+ENDME // ME_551CFF5B003E VCLWinControl
+
+FORWARD ME_551CF43B027E
+
+FORWARD ME_551CF56901EB
+
+ME ME_551CF5790002
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_551CF5790002 aPoint
+
+ME ME_551CF56901EB
+ MEPROP UID '551CF56901EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551CF43B027E // GetMenuKindAtPoint
+ ;
+ MELINK Target HWL ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
+ ;
+ MELIST Parameters
+   Seq: ( ME_551CF5790002 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_551CF56901EB DoIt
+
+ME ME_551CF43B027E
+ MEPROP UID '551CF43B027E'
+ MEPROP Name 'GetMenuKindAtPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_551CF39201BE // IChromeLikeCaptionControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551CF56901EB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_551CF43B027E GetMenuKindAtPoint
+
+FORWARD ME_553E5CB602FF
+
+FORWARD ME_553E65540053
+
+ME ME_553E655700B7
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_553E655700B7 aPoint
+
+ME ME_553E65540053
+ MEPROP UID '553E65540053'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553E5CB602FF // ShowContextMenu
+ ;
+ MELIST Parameters
+   Seq: ( ME_553E655700B7 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_553E65540053 DoIt
+
+ME ME_553E5CB602FF
+ MEPROP UID '553E5CB602FF'
+ MEPROP Name 'ShowContextMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_551CF39201BE // IChromeLikeCaptionControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_553E65540053 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_553E5CB602FF ShowContextMenu
+
+ME ME_551CF39201BE
+ MEPROP UID '551CF39201BE'
+ MEPROP GUID 'A051CA0C-AA42-42C4-B5BE-0A024F9C99BC'
+ MEPROP Name 'IChromeLikeCaptionControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53F2D7B00186 // ChromeLikeInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_551CFF5B003E // VCLWinControl
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_551CF43B027E // GetMenuKindAtPoint
+ HWL ME_553E5CB602FF // ShowContextMenu
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_551CF3CE0322 // TChromeLikeCaptionMenuKind
+ )
+ ; // Children
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeCaptionControl'
+
+ENDME // ME_551CF39201BE IChromeLikeCaptionControl
+
+ME ME_53F2D7B00186
+ MEPROP UID '53F2D7B00186'
+ MEPROP Name 'ChromeLikeInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D017702F1' '533D017702F1.ms.model.script' // ChromeLikeControls
+ ;
+ MELIST Children
+   Seq: ( HWL ME_551552FA002B // TChromeLikeTabSetParams
+ HWL ME_551CF39201BE // IChromeLikeCaptionControl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ )
+ ; // Depends
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeInterfaces.pas'
+
+ENDME // ME_53F2D7B00186 ChromeLikeInterfaces

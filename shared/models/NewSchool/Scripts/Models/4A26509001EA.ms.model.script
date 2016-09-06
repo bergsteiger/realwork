@@ -1,0 +1,367 @@
+// TevCustomEditorWindowModelPart 4A26509001EA GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A26509001EA
+
+FORWARD ME_556F262E022F
+
+ME ME_556F263801BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_556F262E022F // TevCustomEditorWindowModelPartFontInfo
+ ;
+ MELINK Target WL 'ME_556F24A80035' '55001317029B.ms.model.script' // Tl3ControlFontService
+ ;
+
+ENDME // ME_556F263801BB 
+
+ME ME_556F262E022F
+ MEPROP UID '556F262E022F'
+ MEPROP Name 'TevCustomEditorWindowModelPartFontInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_556F263801BB // Tl3ControlFontService
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditorWindowModelPartFontInfo'
+
+ENDME // ME_556F262E022F TevCustomEditorWindowModelPartFontInfo
+
+FORWARD ME_4C0CBE390243
+
+ME ME_4C0CBE570280
+ MEPROP UID '4C0CBE570280'
+ MEPROP Name 'TME_NONCLIENT'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C0CBE390243 // TrackMouseEventDefs
+ ;
+ MEPROP Value '0x00000010'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '$00000010'
+
+ENDME // ME_4C0CBE570280 TME_NONCLIENT
+
+ME ME_4C0CBE390243
+ MEPROP UID '4C0CBE390243'
+ MEPROP Name 'TrackMouseEventDefs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C0CBE570280 // TME_NONCLIENT
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4C0CBE390243 TrackMouseEventDefs
+
+ME ME_4A27C6400137
+ MEPROP UID '4A27C6400137'
+ MEPROP Name 'ActiveElement'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_4A27C46801A9' '47C5207602D1.ms.model.script' // InevActiveElement
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4A27C6400137 ActiveElement
+
+ME ME_4B59AB0F0338
+ MEPROP UID '4B59AB0F0338'
+ MEPROP Name 'ForceDrawFocusRect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Рисовать ли рамку вокруг активного параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4B59AB0F0338 ForceDrawFocusRect
+
+ME ME_4BDAAF0A0285
+ MEPROP UID '4BDAAF0A0285'
+ MEPROP Name 'PersistentSelection'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY '"Постоянное" выделение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4BDAAF0A0285 PersistentSelection
+
+ME ME_4A265562032B
+ MEPROP UID '4A265562032B'
+ MEPROP Name 'ClearUpper'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очистить информацию о попадании мыши в HotSpot' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+
+ENDME // ME_4A265562032B ClearUpper
+
+FORWARD ME_4C0CBB3B028A
+
+ME ME_4C0CBB4D005B
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4C0CBB4D005B Msg
+
+ME ME_4C0CBB3B028A
+ MEPROP UID '4C0CBB3B028A'
+ MEPROP Name 'WMNCMouseLeave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C0CBB4D005B // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCMouseLeave'
+
+ENDME // ME_4C0CBB3B028A WMNCMouseLeave
+
+FORWARD ME_4C0CC2FC0272
+
+ME ME_4C0CC30D0302
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4C0CC47E0075' '476F78840219.ms.model.script' // TWMNCMouseMove
+ ;
+
+ENDME // ME_4C0CC30D0302 Msg
+
+ME ME_4C0CC2FC0272
+ MEPROP UID '4C0CC2FC0272'
+ MEPROP Name 'WMNCMouseMove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C0CC30D0302 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCMouseMove'
+
+ENDME // ME_4C0CC2FC0272 WMNCMouseMove
+
+ME ME_4A26510F0387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4A26510F0387 
+
+ME ME_4A26511900B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_48E2637D0296' '4A1FCBA0014C.ms.model.script' // IevMouseMoveHandler
+ ;
+
+ENDME // ME_4A26511900B8 
+
+ME ME_4A26517D0043
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_4A26517D0043 
+
+ME ME_4A2654110136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A2654110136 
+
+ME ME_4A26589F037B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4A26589F037B 
+
+ME ME_4C0CC01603BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4C0CC01603BB 
+
+ME ME_4C0CC9B3005B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A26509001EA // TevCustomEditorWindowModelPart
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4C0CC9B3005B 
+
+ME ME_479731C50290_ME_4A26509001EA
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A26509001EA Cleanup
+
+ME ME_482BFA9401ED_ME_4A26509001EA
+ MELINK Original WL 'ME_482BFA9401ED' '4829D92A037B.ms.model.script' // MakeCursor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFA9401ED_ME_4A26509001EA MakeCursor
+
+ME ME_48E22B250241_ME_4A26509001EA
+ MELINK Original WL 'ME_48E22B250241' '4799D29F033F.ms.model.script' // MouseMove
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E22B250241_ME_4A26509001EA MouseMove
+
+ME ME_4A27CF530106_ME_4A26509001EA
+ MELINK Original WL 'ME_4A27CF530106' '48E0E5C1032A.ms.model.script' // ActiveElementPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_4A27CF530106_ME_4A26509001EA ActiveElementPrim
+
+ME ME_4B59AA4700E5_ME_4A26509001EA
+ MELINK Original WL 'ME_4B59AA4700E5' '48E0E5C1032A.ms.model.script' // ForceDrawFocusRectPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_4B59AA4700E5_ME_4A26509001EA ForceDrawFocusRectPrim
+
+ME ME_4A26509001EA
+ MEPROP UID '4A26509001EA'
+ MEPROP Name 'TevCustomEditorWindowModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Часть TevCustomEditorWindow, перенесённая на модель' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A27C6400137 // ActiveElement
+ HWL ME_4B59AB0F0338 // ForceDrawFocusRect
+ HWL ME_4BDAAF0A0285 // PersistentSelection
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A265562032B // ClearUpper
+ HWL ME_4C0CBB3B028A // WMNCMouseLeave
+ HWL ME_4C0CC2FC0272 // WMNCMouseMove
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A26509001EA // Cleanup
+ ME_482BFA9401ED_ME_4A26509001EA // MakeCursor
+ ME_48E22B250241_ME_4A26509001EA // MouseMove
+ ME_4A27CF530106_ME_4A26509001EA // ActiveElementPrim
+ ME_4B59AA4700E5_ME_4A26509001EA // ForceDrawFocusRectPrim
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_556F262E022F // TevCustomEditorWindowModelPartFontInfo
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4C0CBE390243 // TrackMouseEventDefs
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4A26510F0387 // IevHotSpot
+ ME_4A26511900B8 // IevMouseMoveHandler
+ ME_4A26517D0043 // TevMouseState
+ ME_4A2654110136 // SysUtils
+ ME_4A26589F037B // l3Base
+ ME_4C0CC01603BB // Windows
+ ME_4C0CC9B3005B // l3MinMax
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '03.06.2009 14:30'
+ UP extprop:pas:UnitName 'evCustomEditorWindowModelPart'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditorWindowModelPart'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomEditorWindowModelPart.pas'
+
+ENDME // ME_4A26509001EA TevCustomEditorWindowModelPart

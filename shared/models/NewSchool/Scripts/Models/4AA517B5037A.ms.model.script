@@ -1,0 +1,115 @@
+// AdminApp 4AA517B5037A VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA517B5037A
+
+FORWARD ME_4F79AF370350
+
+ME ME_4F79AF3E036E
+ MEPROP UID '4F79AF3E036E'
+ MEPROP Name 'AdminTitle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F79AF370350 // AdminTitle
+ ;
+ MEPROP Value '''ÃÀÐÀÍÒ àýðî'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''ÃÀÐÀÍÒ àýðî'''
+
+ENDME // ME_4F79AF3E036E AdminTitle
+
+ME ME_4F79AF370350
+ MEPROP UID '4F79AF370350'
+ MEPROP Name 'AdminTitle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA517B5037A // AdminApp
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F79AF3E036E // AdminTitle
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4F79AF370350 AdminTitle
+
+ME ME_4AA5186D0213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA517B5037A // AdminApp
+ ;
+ MELINK Target WL 'ME_4AA5122E03B2' '4AA5122E03B2.ms.model.script' // Admin$UC
+ ;
+
+ENDME // ME_4AA5186D0213 
+
+ME ME_4AA7C9A700FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA517B5037A // AdminApp
+ ;
+ MELINK Target WL 'ME_4AA7C26401C4' '48F747EC0073.ms.model.script' // TnsStartupSupport
+ ;
+
+ENDME // ME_4AA7C9A700FE 
+
+ME ME_4AA7E4DC0047_ME_4AA517B5037A
+ MELINK Original WL 'ME_4AA7E4DC0047' '4A92BBDF0126.ms.model.script' // DoRun
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AA7E4DC0047_ME_4AA517B5037A DoRun
+
+ME ME_4AA517B5037A
+ MEPROP UID '4AA517B5037A'
+ MEPROP Name 'AdminApp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Îáîëî÷êà Admin' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA5181600DC' '4AA5181600DC.ms.model.script' // Admin$Shell
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A92BBDF0126' '4A92BBDF0126.ms.model.script' // PrimF1
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4AA7E4DC0047_ME_4AA517B5037A // DoRun
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( WL 'ME_4AA518EB039C' '4AA518EB039C.ms.model.script' // PrimAdminMain
+ WL 'ME_4F7C3C0B035C' '4F7C3C0B035C.ms.model.script' // AdminMain
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4F79AF370350 // AdminTitle
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AA5186D0213 // Admin$UC
+ ME_4AA7C9A700FE // TnsStartupSupport
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '07.09.2009 18:25'
+ UP extprop:pas:TypeName 'TAdminAppRes'
+ UP extprop:pas:UnitName 'AdminAppRes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AdminAppRes'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminAppRes.pas'
+
+ENDME // ME_4AA517B5037A AdminApp

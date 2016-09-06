@@ -1,0 +1,84 @@
+// TeeEditor 495268900201 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4952687202A0
+
+FORWARD ME_495268900201
+
+ME ME_54C231250045
+ MEPROP UID '54C231250045'
+ MEPROP Name 'Editor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4952687202A0 // TeeCustomEditor
+ ;
+ MELINK Target WL 'ME_4A8C09B70219' '4912DD020283.ms.model.script' // IeeEditor
+ ;
+ UP "pm" True
+
+ENDME // ME_54C231250045 Editor
+
+ME ME_47D1602000C6_ME_4952687202A0
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4952687202A0 Create
+
+ME ME_4952687202A0
+ MEPROP UID '4952687202A0'
+ MEPROP Name 'TeeCustomEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495268900201 // TeeEditor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4952693000EA' '4952693000EA.ms.model.script' // TeeEditorExport
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54C231250045 // Editor
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4952687202A0 // Create
+ )
+ ; // Overridden
+ UP "need UC" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeCustomEditor'
+
+ENDME // ME_4952687202A0 TeeCustomEditor
+
+ME ME_495268900201
+ MEPROP UID '495268900201'
+ MEPROP Name 'TeeEditor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4952687202A0 // TeeCustomEditor
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4952687202A0 // TeeCustomEditor
+ )
+ ; // Children
+ UP "need UC" True
+ UP extprop:pas:UnitName 'eeEditor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeEditor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeEditor.pas'
+
+ENDME // ME_495268900201 TeeEditor

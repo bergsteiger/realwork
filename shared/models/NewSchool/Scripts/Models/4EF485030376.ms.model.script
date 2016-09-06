@@ -1,0 +1,65 @@
+// TdsCRWarning 4EF485030376 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EF485030376
+
+ME ME_4EF485E601FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF485030376 // TdsCRWarning
+ ;
+ MELINK Target WL 'ME_4DB97E660273' '4F5E12C20114.ms.model.script' // remListModified
+ ;
+
+ENDME // ME_4EF485E601FB 
+
+ME ME_4EF4862A013F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EF485030376 // TdsCRWarning
+ ;
+ MELINK Target WL 'ME_4EDCFD4D037C' '4DC1708D032D.ms.model.script' // TnsListWarningGenerator
+ ;
+
+ENDME // ME_4EF4862A013F 
+
+ME ME_4EF4849D01C9_ME_4EF485030376
+ MELINK Original WL 'ME_4EF4849D01C9' '492189D90209.ms.model.script' // DoGenerateWarning
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4EF4849D01C9_ME_4EF485030376 DoGenerateWarning
+
+ME ME_4EF485030376
+ MEPROP UID '4EF485030376'
+ MEPROP Name 'TdsCRWarning'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9F83AD0235' '4A9F83AD0235.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492189D90209' '492189D90209.ms.model.script' // TdsWarning
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4EF4849D01C9_ME_4EF485030376 // DoGenerateWarning
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EF485E601FB // remListModified
+ ME_4EF4862A013F // TnsListWarningGenerator
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '23.12.2011 17:41'
+ UP extprop:pas:UnitName 'dsCRWarning'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsCRWarning'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Document\dsCRWarning.pas'
+
+ENDME // ME_4EF485030376 TdsCRWarning

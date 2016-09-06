@@ -28,6 +28,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4807752C025Aimpl_uses*
+ //#UC END# *4807752C025Aimpl_uses*
 ;
 
 constructor TatStringListWithOwn.Create(ownsObjects: Boolean);

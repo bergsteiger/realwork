@@ -1,0 +1,240 @@
+// IntegrationProject 463F4DE5003E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_463F4DE5003E
+
+FORWARD ME_45EEE40B0138
+
+ME ME_45EEE40B0139
+ MEPROP UID '45EEE40B0139'
+ MEPROP Name 'IT_LISTENTRYINFO'
+ MEPROP Class class_Attribute
+ %SUMMARY 'закладка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE40B0138 // IntegrationType
+ ;
+
+ENDME // ME_45EEE40B0139 IT_LISTENTRYINFO
+
+ME ME_45EEE40B013A
+ MEPROP UID '45EEE40B013A'
+ MEPROP Name 'IT_LIST'
+ MEPROP Class class_Attribute
+ %SUMMARY 'список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE40B0138 // IntegrationType
+ ;
+
+ENDME // ME_45EEE40B013A IT_LIST
+
+ME ME_45EEE40B013B
+ MEPROP UID '45EEE40B013B'
+ MEPROP Name 'IT_QUERY'
+ MEPROP Class class_Attribute
+ %SUMMARY 'запрос' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE40B0138 // IntegrationType
+ ;
+
+ENDME // ME_45EEE40B013B IT_QUERY
+
+ME ME_45EEE40B0138
+ MEPROP UID '45EEE40B0138'
+ MEPROP Name 'IntegrationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тип объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_463F4DE5003E // IntegrationProject
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEE40B0139 // IT_LISTENTRYINFO
+ HWL ME_45EEE40B013A // IT_LIST
+ HWL ME_45EEE40B013B // IT_QUERY
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TIntegrationType'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_45EEE40B0138 IntegrationType
+
+ME ME_463F5105003E
+ MEPROP UID '463F5105003E'
+ MEPROP Name 'CantCreateObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'в базе недостаточно данных для построения объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_463F4DE5003E // IntegrationProject
+ ;
+
+ENDME // ME_463F5105003E CantCreateObject
+
+FORWARD ME_463F4EAD0000
+
+ME ME_4AB9D0030054
+ MEPROP UID '4AB9D0030054'
+ MEPROP Name 'integration_enabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'доступны ли в версии возможности для внешних интеграторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_463F4EAD0000 // Integration
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_4AB9D0030054 integration_enabled
+
+ME ME_463F4FA3006D
+ MEPROP UID '463F4FA3006D'
+ MEPROP Name 'get_integration_complect_id'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает идентификатор комлекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_463F4EAD0000 // Integration
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+
+ENDME // ME_463F4FA3006D get_integration_complect_id
+
+FORWARD ME_463F4FF5032C
+
+ME ME_464041D30222
+ MEPROP Name 'xml'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_464041D30222 xml
+
+ME ME_464041D30251
+ MEPROP Name 'result'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_464041D30251 result
+
+ME ME_463F4FF5032C
+ MEPROP UID '463F4FF5032C'
+ MEPROP Name 'get_object_by_xml'
+ MEPROP Class class_Operation
+ %SUMMARY 'метод возвращает объект по поданному xml-у' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_463F4EAD0000 // Integration
+ ;
+ MELINK Target HWL ME_45EEE40B0138 // IntegrationType
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ WL 'ME_456EB4540197' '456EA56002BF.ms.model.script' // InvalidXMLType
+ HWL ME_463F5105003E // CantCreateObject
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_464041D30222 // xml
+ ME_464041D30251 // result
+ )
+ ; // Parameters
+
+ENDME // ME_463F4FF5032C get_object_by_xml
+
+ME ME_463F5060029F
+ MEPROP UID '463F5060029F'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_463F4EAD0000 // Integration
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_463F5060029F make
+
+ME ME_463F4EAD0000
+ MEPROP UID '463F4EAD0000'
+ MEPROP GUID '7D2AE9F6-BB67-44E2-B9AC-705E2293178D'
+ MEPROP Name 'Integration'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'интерфейс для работы с проектом интеграции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_463F4DE5003E // IntegrationProject
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AB9D0030054 // integration_enabled
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_463F4FA3006D // get_integration_complect_id
+ HWL ME_463F4FF5032C // get_object_by_xml
+ HWL ME_463F5060029F // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IIntegration'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Integration'
+
+ENDME // ME_463F4EAD0000 Integration
+
+ME ME_463F4DE5003E
+ MEPROP UID '463F4DE5003E'
+ MEPROP Name 'IntegrationProject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Пакет для проекта интеграции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEE40B0138 // IntegrationType
+ HWL ME_463F5105003E // CantCreateObject
+ HWL ME_463F4EAD0000 // Integration
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\IntegrationProject\IntegrationProject.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\IntegrationProject'
+ UP extprop:pas:UnitName 'IntegrationProjectUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\IntegrationProject\IntegrationProject.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\IntegrationProject'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\IntegrationProjectUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\IntegrationProjectUnit.pas'
+
+ENDME // ME_463F4DE5003E IntegrationProject

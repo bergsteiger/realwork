@@ -1,0 +1,212 @@
+// AbstractImportTasks 5372262D0275 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5372262D0275
+
+FORWARD ME_5372265401B9
+
+ME ME_537226BB0284
+ MEPROP UID '537226BB0284'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+
+ENDME // ME_537226BB0284 DoIt
+
+ME ME_5372267F028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_52F8C9E00037' '53D656130130.ms.model.script' // TalcuServer
+ ;
+
+ENDME // ME_5372267F028A 
+
+ME ME_537226F20282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_530356B20280' '52F8C298005C.ms.model.script' // TcsImportTaskItem
+ ;
+
+ENDME // ME_537226F20282 
+
+ME ME_537233460012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_537233460012 
+
+ME ME_5372362B02E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_519C8DFA0223' '5199EF4C0227.ms.model.script' // TddFileIterator
+ ;
+
+ENDME // ME_5372362B02E5 
+
+ME ME_53723A350356
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_5305AFFB01F5' '52FA3DD30094.ms.model.script' // TalcuImport
+ ;
+
+ENDME // ME_53723A350356 
+
+ME ME_53723D0E01C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_53723D0E01C1 
+
+ME ME_537240DA016A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_4B990EF000AA' '4B990EDE031A.ms.model.script' // ddAppConfig
+ ;
+
+ENDME // ME_537240DA016A 
+
+ME ME_53724DA500EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_4B57004201BD' '47D0290B016D.ms.model.script' // l3FileUtils
+ ;
+
+ENDME // ME_53724DA500EA 
+
+ME ME_5374C7F30358
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_495230C40219' '47913B47006E.ms.model.script' // Tl3NamedTextStream
+ ;
+
+ENDME // ME_5374C7F30358 
+
+ME ME_5374C8040398
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_5374C8040398 
+
+ME ME_538DF87F0367
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5372265401B9 // TalcuImportTest
+ ;
+ MELINK Target WL 'ME_538DF3CC00C8' '538DF39702F4.ms.model.script' // TcsLoopBack
+ ;
+
+ENDME // ME_538DF87F0367 
+
+ME ME_5372265401B9
+ MEPROP UID '5372265401B9'
+ MEPROP Name 'TalcuImportTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5372262D0275 // AbstractImportTasks
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53739B29005D' '53739AE1025E.ms.model.script' // TaskSaver
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_537226BB0284 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5372267F028A // TalcuServer
+ ME_537226F20282 // TcsImportTaskItem
+ ME_537233460012 // FreeAndNil
+ ME_5372362B02E5 // TddFileIterator
+ ME_53723A350356 // TalcuImport
+ ME_53723D0E01C1 // afwFacade
+ ME_537240DA016A // ddAppConfig
+ ME_53724DA500EA // l3FileUtils
+ ME_5374C7F30358 // Tl3NamedTextStream
+ ME_5374C8040398 // Tl3FileMode
+ ME_538DF87F0367 // TcsLoopBack
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '13.05.2014 18:07'
+ UP extprop:pas:UnitName 'alcuImportTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuImportTest'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\Import\Abstract\alcuImportTest.pas'
+
+ENDME // ME_5372265401B9 TalcuImportTest
+
+ME ME_5372262D0275
+ MEPROP UID '5372262D0275'
+ MEPROP Name 'AbstractImportTasks'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52F275D40238' '52F275D40238.ms.model.script' // Low Level Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5372265401B9 // TalcuImportTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ WL 'ME_5199EF4C0227' '5199EF4C0227.ms.model.script' // PipeIn
+ WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ WL 'ME_52FA3DD30094' '52FA3DD30094.ms.model.script' // Lists
+ WL 'ME_52FBB2FC0386' '52FBB2FC0386.ms.model.script' // Core
+ WL 'ME_53739AE1025E' '53739AE1025E.ms.model.script' // TaskSaveLoadMixIns
+ WL 'ME_538DF39702F4' '538DF39702F4.ms.model.script' // LoopBack
+ WL 'ME_53D656130130' '53D656130130.ms.model.script' // Server
+ )
+ ; // Depends
+ UP "path prefix" '/Tasks/Import/Abstract'
+ UP intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests\Tasks\Import\Abstract'
+ UP Version 0
+
+ENDME // ME_5372262D0275 AbstractImportTasks

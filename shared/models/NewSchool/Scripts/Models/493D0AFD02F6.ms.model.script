@@ -1,0 +1,102 @@
+// TsdsTips 493D0AFD02F6 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493D0AFD02F6
+
+ME ME_493D0B3002B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ MELINK Target WL 'ME_491D56370182' '491D56370182.ms.model.script' // TdsTipsDocument
+ ;
+
+ENDME // ME_493D0B3002B4 
+
+ME ME_493D0B3D00BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ MELINK Target WL 'ME_49254BC1019C' '49254BC1019C.ms.model.script' // TdsTips
+ ;
+
+ENDME // ME_493D0B3D00BB 
+
+ME ME_493D0B780263
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ MELINK Target WL 'ME_49254B6F0325' '491D560F01F4.ms.model.script' // TdeTips
+ ;
+
+ENDME // ME_493D0B780263 
+
+ME ME_493D0BE8015F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493D0AFD02F6 // TsdsTips
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_493D0BE8015F 
+
+ME ME_4925B1EC0100_ME_493D0AFD02F6
+ MELINK Original WL 'ME_4925B1EC0100' '47EA106D035E.ms.model.script' // BaseDocumentClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925B1EC0100_ME_493D0AFD02F6 BaseDocumentClass
+
+ME ME_4936B89C037F_ME_493D0AFD02F6
+ MELINK Original WL 'ME_4936B89C037F' '4936B666032A.ms.model.script' // MakeDocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4936B89C037F_ME_493D0AFD02F6 MakeDocInfo
+
+ME ME_4936BA0D0286_ME_493D0AFD02F6
+ MELINK Original WL 'ME_4936BA0D0286' '4936B666032A.ms.model.script' // MakeContents
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4936BA0D0286_ME_493D0AFD02F6 MakeContents
+
+ME ME_493D0AFD02F6
+ MEPROP UID '493D0AFD02F6'
+ MEPROP Name 'TsdsTips'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект сборки "Совет дня"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491D560F01F4' '491D560F01F4.ms.model.script' // DayTips
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4941654603E7' '4941654603E7.ms.model.script' // TsdsCommonDiction
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4925B1EC0100_ME_493D0AFD02F6 // BaseDocumentClass
+ ME_4936B89C037F_ME_493D0AFD02F6 // MakeDocInfo
+ ME_4936BA0D0286_ME_493D0AFD02F6 // MakeContents
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_493D0B3002B4 // TdsTipsDocument
+ ME_493D0B3D00BB // TdsTips
+ ME_493D0B780263 // TdeTips
+ ME_493D0BE8015F // SysUtils
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/02/20 13:01:22'
+ UP extprop:pas:UnitName 'sdsTips'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsTips'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\sdsTips.pas'
+
+ENDME // ME_493D0AFD02F6 TsdsTips

@@ -62,6 +62,8 @@ uses
  , nevTableIevChangeParamToolMapper
  {$IfEnd} // Defined(evNeedHotSpot)
  , Table_Const
+ //#UC START# *4857E163036Bimpl_uses*
+ //#UC END# *4857E163036Bimpl_uses*
 ;
 
 function TevTableInterfaceFactory.QueryTool(aTag: Tl3Variant;

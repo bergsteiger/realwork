@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , IntStack
  , SysUtils
+ //#UC START# *5155CA4E0028impl_uses*
+ //#UC END# *5155CA4E0028impl_uses*
 ;
 
 procedure TIntStackTest.DoIt;

@@ -1,0 +1,109 @@
+// AttributesUserTypes 4D776CFE031E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D776CFE031E
+
+ME ME_4BD6BA11008E
+ MEPROP UID '4BD6BA11008E'
+ MEPROP Name 'fDocAttribute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D776CFE031E // AttributesUserTypes
+ ;
+ UP "ImageIndex" 19
+ UP "NeedOnQueryClose" True
+ UP "VisibleToUser" False
+ UP "Weight" 20
+ UP extprop:pas:UnitName 'AttributesUserTypes_fDocAttribute_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fDocAttribute_UserType.pas'
+
+ENDME // ME_4BD6BA11008E fDocAttribute
+
+ME ME_4BD6BA270181
+ MEPROP UID '4BD6BA270181'
+ MEPROP Name 'fAttributeSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о документе (синхронный просмотр)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D776CFE031E // AttributesUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD6BA11008E // fDocAttribute
+ )
+ ; // Inherits
+ UP "ImageIndex" 19
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'AttributesUserTypes_fAttributeSynchroView_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes_fAttributeSynchroView_UserType.pas'
+
+ENDME // ME_4BD6BA270181 fAttributeSynchroView
+
+FORWARD ME_37BE60CD03ED
+
+ME ME_16C032E5C750
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_16C032E5C750 aSender
+
+ME ME_37BE60CD03ED
+ MEPROP UID '37BE60CD03ED'
+ MEPROP Name 'fDocAttributeQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события fDocAttribute.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D776CFE031E // AttributesUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_16C032E5C750 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_37BE60CD03ED fDocAttributeQueryClose
+
+ME ME_4D776CFE031E
+ MEPROP UID '4D776CFE031E'
+ MEPROP Name 'AttributesUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_37BE60CD03ED // fDocAttributeQueryClose
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4BD6BA11008E // fDocAttribute
+ HWL ME_4BD6BA270181 // fAttributeSynchroView
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_AttributesUserTypes_'
+ UP extprop:pas:UnitName 'AttributesUserTypes.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AttributesUserTypes.imp.pas'
+
+ENDME // ME_4D776CFE031E AttributesUserTypes

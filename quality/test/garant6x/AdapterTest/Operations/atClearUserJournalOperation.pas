@@ -23,6 +23,8 @@ uses
  l3ImplUses
  , atUserJournalHelper
  , atLogger
+ //#UC START# *4FCCF88E0303impl_uses*
+ //#UC END# *4FCCF88E0303impl_uses*
 ;
 
 procedure TatClearUserJournalOperation.ExecuteSelf;

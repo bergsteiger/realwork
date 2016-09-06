@@ -1,0 +1,252 @@
+// ResultEx 4A8AD3DE0008 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8AD3DE0008
+
+FORWARD ME_4A8AD4260126
+
+FORWARD ME_4C762D9B0224
+
+ME ME_4C7BB92503A9
+ MEPROP UID '4C7BB92503A9'
+ MEPROP Name 'Search'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Искать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C762D9B0224 // OkExt
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Hint" 'Провести поиск по выбранным параметрам'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BB92503A9 Search
+
+ME ME_4C7BB944001B
+ MEPROP UID '4C7BB944001B'
+ MEPROP Name 'Save'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохранить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C762D9B0224 // OkExt
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Hint" 'Сохранить'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BB944001B Save
+
+ME ME_4C7BB95D0276
+ MEPROP UID '4C7BB95D0276'
+ MEPROP Name 'AttributesSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C762D9B0224 // OkExt
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BB95D0276 AttributesSelect
+
+ME ME_4C7BB9690030
+ MEPROP UID '4C7BB9690030'
+ MEPROP Name 'Consult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отправить запрос' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C762D9B0224 // OkExt
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "ImageIndex" 154
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BB9690030 Consult
+
+ME ME_4C7BB98001BC
+ MEPROP UID '4C7BB98001BC'
+ MEPROP Name 'Chat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отправить (Ctrl+Enter)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C762D9B0224 // OkExt
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BB98001BC Chat
+
+ME ME_54255CEB0383
+ MEPROP UID '54255CEB0383'
+ MEPROP Name 'SaveAndSend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохранить и отправить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C762D9B0224 // OkExt
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Hint" 'Сохранить и отправить'
+ UP "ifndef" 'Monitorings'
+ UP "Visible" 'undefined'
+
+ENDME // ME_54255CEB0383 SaveAndSend
+
+ME ME_4C762D9B0224
+ MEPROP UID '4C762D9B0224'
+ MEPROP Name 'OkExt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'OK' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8AD4260126 // Result
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7BB92503A9 // Search
+ HWL ME_4C7BB944001B // Save
+ HWL ME_4C7BB95D0276 // AttributesSelect
+ HWL ME_4C7BB9690030 // Consult
+ HWL ME_4C7BB98001BC // Chat
+ HWL ME_54255CEB0383 // SaveAndSend
+ )
+ ; // Children
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C762D9B0224 OkExt
+
+ME ME_4A8AD47D0357
+ MEPROP UID '4A8AD47D0357'
+ MEPROP Name 'OkExt'
+ MEPROP Class class_Operation
+ %SUMMARY 'OK' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8AD4260126 // Result
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A8AD47D0357 OkExt
+
+ME ME_4AC5D61E0284_ME_4A8AD4260126
+ MELINK Original WL 'ME_4AC5D61E0284' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4AC5D61E0284_ME_4A8AD4260126 Cancel
+
+ME ME_4C762C910358_ME_4A8AD4260126
+ MELINK Original WL 'ME_4C762C910358' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C762C910358_ME_4A8AD4260126 Cancel
+
+ME ME_4A8AD4260126
+ MEPROP UID '4A8AD4260126'
+ MEPROP Name 'Result'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат диалога' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8AD3DE0008 // ResultEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC5D5FB0293' '4A8AD3C70195.ms.model.script' // Result$CancelWithState
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C762D9B0224 // OkExt
+ HWL ME_4A8AD47D0357 // OkExt
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AC5D61E0284_ME_4A8AD4260126 // Cancel
+ ME_4C762C910358_ME_4A8AD4260126 // Cancel
+ )
+ ; // Implemented
+
+ENDME // ME_4A8AD4260126 Result
+
+ME ME_4A8AD3DE0008
+ MEPROP UID '4A8AD3DE0008'
+ MEPROP Name 'ResultEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Результат диалога' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A8AD4260126 // Result
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4A8AD3C70195' '4A8AD3C70195.ms.model.script' // Result
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'OfficeLike_ResultEx_Controls'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLike_ResultEx_Controls.pas'
+
+ENDME // ME_4A8AD3DE0008 ResultEx

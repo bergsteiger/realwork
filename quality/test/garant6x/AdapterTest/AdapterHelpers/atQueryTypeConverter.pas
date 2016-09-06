@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , TypInfo
  , l3Base
+ //#UC START# *50045BDB00CAimpl_uses*
+ //#UC END# *50045BDB00CAimpl_uses*
 ;
 
 var g_TatQueryTypeConverter: TatQueryTypeConverter = nil;

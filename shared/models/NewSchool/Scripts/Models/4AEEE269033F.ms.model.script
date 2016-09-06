@@ -1,0 +1,438 @@
+// PrimNavigator 4AEEE269033F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AEEE269033F
+
+ME ME_4BD72ACA02F6
+ MEPROP UID '4BD72ACA02F6'
+ MEPROP Name 'utNavigator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ UP "ImageIndex" 44
+ UP "SettingsCaption" 'Меню (вкладка)'
+ UP "Weight" 10
+ UP extprop:pas:UnitName 'PrimNavigator_utNavigator_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_utNavigator_UserType.pas'
+
+ENDME // ME_4BD72ACA02F6 utNavigator
+
+FORWARD ME_524006E10126
+
+ME ME_524007060294
+ MEPROP UID '524007060294'
+ MEPROP Name 'ContextFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524006E10126 // BackgroundPanel
+ ;
+ UP "ControlClass" 'TnscContextFilter'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_524007060294 ContextFilter
+
+ME ME_4AEEE33B0320
+ MEPROP UID '4AEEE33B0320'
+ MEPROP Name 'NavigatorTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_524006E10126 // BackgroundPanel
+ ;
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4AEEE33B0320 NavigatorTree
+
+ME ME_524006E10126
+ MEPROP UID '524006E10126'
+ MEPROP Name 'BackgroundPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_524007060294 // ContextFilter
+ HWL ME_4AEEE33B0320 // NavigatorTree
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_524006E10126 BackgroundPanel
+
+ME ME_4AEEE3280186
+ MEPROP UID '4AEEE3280186'
+ MEPROP Name 'f_Lock'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4AEEE3280186 f_Lock
+
+ME ME_5240075C038B
+ MEPROP UID '5240075C038B'
+ MEPROP Name 'NavigatorTreeActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_5240075C038B NavigatorTreeActionElement
+
+ME ME_524007670210
+ MEPROP UID '524007670210'
+ MEPROP Name 'NavigatorTreeGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_524007670210 NavigatorTreeGetItemImage
+
+ME ME_5240077701D5
+ MEPROP UID '5240077701D5'
+ MEPROP Name 'NavigatorTreeNewCharPressed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5143230F01E4' '494B949E022B.ms.model.script' // TeeNewCharPressed
+ )
+ ; // Inherits
+
+ENDME // ME_5240077701D5 NavigatorTreeNewCharPressed
+
+ME ME_524007800305
+ MEPROP UID '524007800305'
+ MEPROP Name 'NavigatorTreeMakeTreeSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5199D8F700DB' '494B949E022B.ms.model.script' // TeeMakeTreeSource
+ )
+ ; // Inherits
+
+ENDME // ME_524007800305 NavigatorTreeMakeTreeSource
+
+ME ME_5240078A00F5
+ MEPROP UID '5240078A00F5'
+ MEPROP Name 'ContextFilterChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5240078A00F5 ContextFilterChange
+
+ME ME_5240079601A2
+ MEPROP UID '5240079601A2'
+ MEPROP Name 'NavigatorTreeTreeChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5146EBE00019' '515DA5860015.ms.model.script' // TvtTreeChangedEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5240079601A2 NavigatorTreeTreeChanged
+
+ME ME_524007A00200
+ MEPROP UID '524007A00200'
+ MEPROP Name 'ContextFilterWrongContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_524007A00200 ContextFilterWrongContext
+
+FORWARD ME_4C87A9640232
+
+ME ME_4C87A96C02A2
+ MEPROP UID '4C87A96C02A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C87A9640232 // ExecuteCurrentElement
+ ;
+
+ENDME // ME_4C87A96C02A2 DoIt
+
+ME ME_4C87A9640232
+ MEPROP UID '4C87A9640232'
+ MEPROP Name 'ExecuteCurrentElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C87A96C02A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C87A9640232 ExecuteCurrentElement
+
+ME ME_52402ED303AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_52400BCF03D1' '497ED74F0032.ms.model.script' // NavigatorUtils
+ ;
+
+ENDME // ME_52402ED303AF 
+
+ME ME_52402EE20221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_52402EE20221 
+
+ME ME_52402EE602BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_52402EE602BE 
+
+ME ME_52402EE900D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_52402EE900D2 
+
+ME ME_52402EEB01E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_52402EEB01E5 
+
+ME ME_52402EED0377
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_52402EED0377 
+
+ME ME_52402EF000F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_52402E6C002E' '4907236C0171.ms.model.script' // NavigatorRes
+ ;
+
+ENDME // ME_52402EF000F0 
+
+ME ME_52402EF202E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_490723DC0096' '4907236C0171.ms.model.script' // TnsNavigatorTreeStruct
+ ;
+
+ENDME // ME_52402EF202E2 
+
+ME ME_52402EF5011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AEEE269033F // PrimNavigator
+ ;
+ MELINK Target WL 'ME_45EEDB5602C3' '456EA56002BF.ms.model.script' // ListNodeType
+ ;
+
+ENDME // ME_52402EF5011D 
+
+ME ME_4AEEE2D40157_ME_4AEEE269033F
+ MELINK Original WL 'ME_4AEEE2D40157' '4AEEE2A40281.ms.model.script' // SetCurrent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_4AEEE2D40157_ME_4AEEE269033F SetCurrent
+
+ME ME_479731C50290_ME_4AEEE269033F
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AEEE269033F Cleanup
+
+ME ME_4A8E8F2E0195_ME_4AEEE269033F
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AEEE269033F InitControls
+
+ME ME_4AEEE269033F
+ MEPROP UID '4AEEE269033F'
+ MEPROP Name 'PrimNavigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_48FF6D050234' '47ECAAF901F8.ms.model.script' // InsTreeDataListener
+ WL 'ME_4AEEE2C402DC' '4AEEE2A40281.ms.model.script' // Navigator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_524006E10126 // BackgroundPanel
+ HWL ME_4AEEE3280186 // f_Lock
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5240075C038B // NavigatorTreeActionElement
+ HWL ME_524007670210 // NavigatorTreeGetItemImage
+ HWL ME_5240077701D5 // NavigatorTreeNewCharPressed
+ HWL ME_524007800305 // NavigatorTreeMakeTreeSource
+ HWL ME_5240078A00F5 // ContextFilterChange
+ HWL ME_5240079601A2 // NavigatorTreeTreeChanged
+ HWL ME_524007A00200 // ContextFilterWrongContext
+ HWL ME_4C87A9640232 // ExecuteCurrentElement
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AEEE2D40157_ME_4AEEE269033F // SetCurrent
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AEEE269033F // Cleanup
+ ME_4A8E8F2E0195_ME_4AEEE269033F // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD72ACA02F6 // utNavigator
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52402ED303AF // NavigatorUtils
+ ME_52402EE20221 // NodeBase
+ ME_52402EE602BE // nsUtils
+ ME_52402EE900D2 // SysUtils
+ ME_52402EEB01E5 // Forms
+ ME_52402EED0377 // Controls
+ ME_52402EF000F0 // NavigatorRes
+ ME_52402EF202E2 // TnsNavigatorTreeStruct
+ ME_52402EF5011D // ListNodeType
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '02.11.2009 16:45'
+ UP "ZoneType" 'Navigator'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimNavigatorForm'
+ UP extprop:pas:UnitName 'PrimNavigator_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimNavigatorForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimNavigator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_4AEEE269033F PrimNavigator

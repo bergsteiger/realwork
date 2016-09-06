@@ -1,0 +1,66 @@
+// arConst 4E255287019F Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E255287019F
+
+FORWARD ME_4E005E5500A7
+
+ME ME_4E005E70010B
+ MEPROP UID '4E005E70010B'
+ MEPROP Name 'nfContens'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E005E5500A7 // ContentsTreeConst
+ ;
+ MEPROP Value '$8000'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '$8000'
+
+ENDME // ME_4E005E70010B nfContens
+
+ME ME_4E005E5500A7
+ MEPROP UID '4E005E5500A7'
+ MEPROP Name 'ContentsTreeConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E255287019F // arConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E005E70010B // nfContens
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4E005E5500A7 ContentsTreeConst
+
+ME ME_4E255287019F
+ MEPROP UID '4E255287019F'
+ MEPROP Name 'arConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Общие константы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E25512D01C0' '4E25512D01C0.ms.model.script' // Utils
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4E005E5500A7 // ContentsTreeConst
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arConst.pas'
+
+ENDME // ME_4E255287019F arConst

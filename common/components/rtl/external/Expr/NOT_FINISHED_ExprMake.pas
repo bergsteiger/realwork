@@ -91,6 +91,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4739A8C90148impl_uses*
+ //#UC END# *4739A8C90148impl_uses*
 ;
 
 function BuildExpr(const Expr: AnsiString): Tl3Expr; { can raise EIncorrectExpr }

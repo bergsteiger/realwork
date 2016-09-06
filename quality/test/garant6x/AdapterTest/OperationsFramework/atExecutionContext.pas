@@ -50,6 +50,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *480869EE029Eimpl_uses*
+ //#UC END# *480869EE029Eimpl_uses*
 ;
 
 function TatExecutionContext.pm_GetGblAdapterWorker: TatGblAdapterWorker;

@@ -58,6 +58,8 @@ uses
  , evTableCellCursorPair
  {$IfEnd} // Defined(evUseVisibleCursors)
  , TableCell_Const
+ //#UC START# *4857CDBF0197impl_uses*
+ //#UC END# *4857CDBF0197impl_uses*
 ;
 
 function TevTableCellInterfaceFactory.QueryTool(aTag: Tl3Variant;

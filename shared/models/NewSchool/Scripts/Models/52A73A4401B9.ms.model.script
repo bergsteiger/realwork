@@ -1,0 +1,209 @@
+// Operations 52A73A4401B9 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52A73A4401B9
+
+FORWARD ME_52A73A5900E2
+
+FORWARD ME_52A73AE40326
+
+FORWARD ME_52A73C7103C7
+
+FORWARD ME_52A73C7B0327
+
+ME ME_52A73C7D01F5
+ MEPROP Name 'anEn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DDBBD1103C3' '4AB34028023E.ms.model.script' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ENDME // ME_52A73C7D01F5 anEn
+
+ME ME_52A73C7D020D
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_52A73C7D020D anOp
+
+ME ME_52A73C7B0327
+ MEPROP UID '52A73C7B0327'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A73C7103C7 // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A73C7D01F5 // anEn
+ ME_52A73C7D020D // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_52A73C7B0327 DoIt
+
+ME ME_52A73C7103C7
+ MEPROP UID '52A73C7103C7'
+ MEPROP Name 'Register'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52A73AE40326 // IvcmOperationsRegistrar
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A73C7B0327 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A73C7103C7 Register
+
+ME ME_52A73AE40326
+ MEPROP UID '52A73AE40326'
+ MEPROP GUID '3E98A7F7-A01F-4D5A-8AB2-2C731A6E8CB5'
+ MEPROP Name 'IvcmOperationsRegistrar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A73C7103C7 // Register
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationsRegistrar'
+
+ENDME // ME_52A73AE40326 IvcmOperationsRegistrar
+
+ME ME_52A73BF00215
+ MEPROP UID '52A73BF00215'
+ MEPROP Name 'Registrar'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ MELINK Target HWL ME_52A73AE40326 // IvcmOperationsRegistrar
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A73BF00215 Registrar
+
+FORWARD ME_52A73ABA0304
+
+FORWARD ME_52A73AC1001D
+
+ME ME_52A73AC40013
+ MEPROP Name 'anEn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DDBBD1103C3' '4AB34028023E.ms.model.script' // TvcmBaseEntitiesCollectionItem
+ ;
+
+ENDME // ME_52A73AC40013 anEn
+
+ME ME_52A73AC4002B
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_52A73AC4002B anOp
+
+ME ME_52A73AC1001D
+ MEPROP UID '52A73AC1001D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A73ABA0304 // Register
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A73AC40013 // anEn
+ ME_52A73AC4002B // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_52A73AC1001D DoIt
+
+ME ME_52A73ABA0304
+ MEPROP UID '52A73ABA0304'
+ MEPROP Name 'Register'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A73A5900E2 // TvcmOperationsManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A73AC1001D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A73ABA0304 Register
+
+ME ME_52A73A5900E2
+ MEPROP UID '52A73A5900E2'
+ MEPROP Name 'TvcmOperationsManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A73A4401B9 // Operations
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A73BF00215 // Registrar
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52A73ABA0304 // Register
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_52A73AE40326 // IvcmOperationsRegistrar
+ )
+ ; // Children
+ UP "singleton" True
+ UP extprop:pas:UnitName 'vcmOperationsManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationsManager'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmOperationsManager.pas'
+
+ENDME // ME_52A73A5900E2 TvcmOperationsManager
+
+ME ME_52A73A4401B9
+ MEPROP UID '52A73A4401B9'
+ MEPROP Name 'Operations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52A73A5900E2 // TvcmOperationsManager
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB34028023E' '4AB34028023E.ms.model.script' // Components
+ )
+ ; // Depends
+
+ENDME // ME_52A73A4401B9 Operations

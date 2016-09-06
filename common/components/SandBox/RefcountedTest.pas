@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , Refcounted
  , SysUtils
+ //#UC START# *5161393802B7impl_uses*
+ //#UC END# *5161393802B7impl_uses*
 ;
 
 procedure TRefcountedTest.DoIt;

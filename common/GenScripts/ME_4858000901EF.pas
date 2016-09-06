@@ -58,6 +58,8 @@ uses
  , nevControlParaIevControlFriendMapper
  , nevControlParaModelControlMapper
  , ControlPara_Const
+ //#UC START# *4858000901EFimpl_uses*
+ //#UC END# *4858000901EFimpl_uses*
 ;
 
 function TevControlParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

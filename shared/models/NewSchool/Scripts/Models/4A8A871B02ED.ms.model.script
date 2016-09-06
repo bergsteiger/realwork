@@ -1,0 +1,406 @@
+// TnscCustomChatMemo 4A8A871B02ED GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8A871B02ED
+
+FORWARD ME_4A8C12F70348
+
+ME ME_4A8C19080282
+ MEPROP UID '4A8C19080282'
+ MEPROP Name 'Doc'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8C12F70348 // ValidateInsertionPoint
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A8C19080282 Doc
+
+ME ME_4A8C19730220
+ MEPROP UID '4A8C19730220'
+ MEPROP Name 'Point'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8C12F70348 // ValidateInsertionPoint
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A8C19730220 Point
+
+ME ME_4A8C1D370070
+ MEPROP UID '4A8C1D370070'
+ MEPROP Name 'Op'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8C12F70348 // ValidateInsertionPoint
+ ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A8C1D370070 Op
+
+ME ME_4A8C132400BF
+ MEPROP UID '4A8C132400BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8C12F70348 // ValidateInsertionPoint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A8C132400BF DoIt
+
+ME ME_4A8C1B7600B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8C12F70348 // ValidateInsertionPoint
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4A8C1B7600B2 
+
+ME ME_4A8C1C9F01F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8C12F70348 // ValidateInsertionPoint
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4A8C1C9F01F9 
+
+ME ME_4A8C12F70348
+ MEPROP UID '4A8C12F70348'
+ MEPROP Name 'ValidateInsertionPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверить точку вставки на возможность оной, и если невозможно, то сместить курсор' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8A871B02ED // TnscCustomChatMemo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8C19080282 // Doc
+ HWL ME_4A8C19730220 // Point
+ HWL ME_4A8C1D370070 // Op
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8C132400BF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A8C1B7600B2 // Operations
+ ME_4A8C1C9F01F9 // TextPara
+ )
+ ; // Dependencies
+
+ENDME // ME_4A8C12F70348 ValidateInsertionPoint
+
+FORWARD ME_4A8C16790143
+
+ME ME_4A8C1A9003D6
+ MEPROP UID '4A8C1A9003D6'
+ MEPROP Name 'Doc'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8C16790143 // IsParaInF1Doc
+ ;
+ MELINK Target WL 'ME_534572370056' '47913B47006E.ms.model.script' // Tl3Tag
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A8C1A9003D6 Doc
+
+FORWARD ME_4A8C16CA0034
+
+ME ME_4A8C251E0098
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4A8C251E0098 aPara
+
+ME ME_4A8C258602AD
+ MEPROP Name 'theDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4A8C258602AD theDoc
+
+ME ME_4A8C16CA0034
+ MEPROP UID '4A8C16CA0034'
+ MEPROP Name 'IsParaInF1Doc'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8C16790143 // IsParaInF1Doc
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8C251E0098 // aPara
+ ME_4A8C258602AD // theDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4A8C16CA0034 IsParaInF1Doc
+
+ME ME_4A8C171900A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8C16790143 // IsParaInF1Doc
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4A8C171900A0 
+
+ME ME_4A8C171C003E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8C16790143 // IsParaInF1Doc
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4A8C171C003E 
+
+ME ME_4A8C171D02C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8C16790143 // IsParaInF1Doc
+ ;
+ MELINK Target WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+
+ENDME // ME_4A8C171D02C8 
+
+ME ME_4A8C172502FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8C16790143 // IsParaInF1Doc
+ ;
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ ;
+
+ENDME // ME_4A8C172502FF 
+
+ME ME_4A8C16790143
+ MEPROP UID '4A8C16790143'
+ MEPROP Name 'IsParaInF1Doc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Находится параграф ли в документе, скопированном из F1' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8A871B02ED // TnscCustomChatMemo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8C1A9003D6 // Doc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8C16CA0034 // IsParaInF1Doc
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A8C171900A0 // Tk2TagID
+ ME_4A8C171C003E // Document
+ ME_4A8C171D02C8 // Para
+ ME_4A8C172502FF // evParaTools
+ )
+ ; // Dependencies
+
+ENDME // ME_4A8C16790143 IsParaInF1Doc
+
+FORWARD ME_4A8C249D02F4
+
+FORWARD ME_4A8C250302A8
+
+ME ME_4A8C25080108
+ MEPROP Name 'theDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4A8C25080108 theDoc
+
+ME ME_4A8C250302A8
+ MEPROP UID '4A8C250302A8'
+ MEPROP Name 'IsInF1Doc'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8C249D02F4 // IsInF1Doc
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8C25080108 // theDoc
+ )
+ ; // Parameters
+
+ENDME // ME_4A8C250302A8 IsInF1Doc
+
+ME ME_4A8C249D02F4
+ MEPROP UID '4A8C249D02F4'
+ MEPROP Name 'IsInF1Doc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Находимся ли в документе, скопированном из F1' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8A871B02ED // TnscCustomChatMemo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A8C250302A8 // IsInF1Doc
+ )
+ ; // Operations
+
+ENDME // ME_4A8C249D02F4 IsInF1Doc
+
+ME ME_4A8BB2A30063
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8A871B02ED // TnscCustomChatMemo
+ ;
+ MELINK Target WL 'ME_4A8BB2760229' '4A8A86C301BE.ms.model.script' // TnscCustomChatMemoTextSource
+ ;
+
+ENDME // ME_4A8BB2A30063 
+
+ME ME_4A8C21240259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8A871B02ED // TnscCustomChatMemo
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4A8C21240259 
+
+ME ME_4A8C083300C3_ME_4A8A871B02ED
+ MELINK Original WL 'ME_4A8C083300C3' '47F088300159.ms.model.script' // CanInsertParaOnMove
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A8C083300C3_ME_4A8A871B02ED CanInsertParaOnMove
+
+ME ME_4A8C24130193_ME_4A8A871B02ED
+ MELINK Original WL 'ME_4A8C24130193' '47F088300159.ms.model.script' // IsInReadOnlyPara
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A8C24130193_ME_4A8A871B02ED IsInReadOnlyPara
+
+ME ME_47A042E100E2_ME_4A8A871B02ED
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4A8A871B02ED InitFields
+
+ME ME_482BFCBF01F0_ME_4A8A871B02ED
+ MELINK Original WL 'ME_482BFCBF01F0' '4829D92A037B.ms.model.script' // DoBreakPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFCBF01F0_ME_4A8A871B02ED DoBreakPara
+
+ME ME_482D9D1701E0_ME_4A8A871B02ED
+ MELINK Original WL 'ME_482D9D1701E0' '4829D81D02E5.ms.model.script' // TextSourceClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482D9D1701E0_ME_4A8A871B02ED TextSourceClass
+
+ME ME_48735C4A03C3_ME_4A8A871B02ED
+ MELINK Original WL 'ME_48735C4A03C3' '4829D85C03C1.ms.model.script' // DefineProvideOperations
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48735C4A03C3_ME_4A8A871B02ED DefineProvideOperations
+
+ME ME_48C7C1A2010C_ME_4A8A871B02ED
+ MELINK Original WL 'ME_48C7C1A2010C' '48BD1975029B.ms.model.script' // Paste
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7C1A2010C_ME_4A8A871B02ED Paste
+
+ME ME_4A8A871B02ED
+ MEPROP UID '4A8A871B02ED'
+ MEPROP Name 'TnscCustomChatMemo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мемо-поле для чата F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A8A86C301BE' '4A8A86C301BE.ms.model.script' // Memos
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A8A6DD700CC' '4A8A6DD700CC.ms.model.script' // TevCustomChatMemo
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A8C065802BD' '47F088300159.ms.model.script' // IevF1LikeEditor
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4A8C12F70348 // ValidateInsertionPoint
+ HWL ME_4A8C16790143 // IsParaInF1Doc
+ HWL ME_4A8C249D02F4 // IsInF1Doc
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A8C083300C3_ME_4A8A871B02ED // CanInsertParaOnMove
+ ME_4A8C24130193_ME_4A8A871B02ED // IsInReadOnlyPara
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4A8A871B02ED // InitFields
+ ME_482BFCBF01F0_ME_4A8A871B02ED // DoBreakPara
+ ME_482D9D1701E0_ME_4A8A871B02ED // TextSourceClass
+ ME_48735C4A03C3_ME_4A8A871B02ED // DefineProvideOperations
+ ME_48C7C1A2010C_ME_4A8A871B02ED // Paste
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A8BB2A30063 // TnscCustomChatMemoTextSource
+ ME_4A8C21240259 // Msg Codes
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '18.08.2009 14:48'
+ UP extprop:pas:UnitName 'nscCustomChatMemo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChatMemo'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomChatMemo.pas'
+
+ENDME // ME_4A8A871B02ED TnscCustomChatMemo

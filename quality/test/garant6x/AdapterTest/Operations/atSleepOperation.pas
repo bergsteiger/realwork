@@ -24,6 +24,8 @@ uses
  l3ImplUses
  , SysUtils
  , atLogger
+ //#UC START# *4808B0320120impl_uses*
+ //#UC END# *4808B0320120impl_uses*
 ;
 
 procedure TatSleepOperation.ExecuteSelf;

@@ -48,6 +48,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4AC3488802F7impl_uses*
+ //#UC END# *4AC3488802F7impl_uses*
 ;
 
 function TatAdapterTest.Init: Boolean;

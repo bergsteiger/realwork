@@ -1,0 +1,211 @@
+// PrimListAnalize 4E369558035D VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E369558035D
+
+ME ME_4E369638023B
+ MEPROP UID '4E369638023B'
+ MEPROP Name 'ViewArea'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4E369558035D // PrimListAnalize
+ ;
+ MELINK Target WL 'ME_4E36893700E8' '4D1B444C015E.ms.model.script' // IdsListAnalize
+ ;
+
+ENDME // ME_4E369638023B ViewArea
+
+ME ME_4E36B0650166
+ MEPROP UID '4E36B0650166'
+ MEPROP Name 'sdsList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E369558035D // PrimListAnalize
+ ;
+ MELINK Target WL 'ME_4922A6C502D3' '4D1B444C015E.ms.model.script' // IsdsList
+ ;
+
+ENDME // ME_4E36B0650166 sdsList
+
+FORWARD ME_4E36B621000E
+
+FORWARD ME_4E36B62F02DA
+
+ME ME_4E36B6380364
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4E36B6380364 aSender
+
+ME ME_4E36B62F02DA
+ MEPROP UID '4E36B62F02DA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E36B621000E // UpdateTabAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E36B6380364 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4E36B62F02DA DoIt
+
+ME ME_4E36B621000E
+ MEPROP UID '4E36B621000E'
+ MEPROP Name 'UpdateTabAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E369558035D // PrimListAnalize
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E36BD3B02C9' '484CE48E02E6.ms.model.script' // Анализ списка из вкладки
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E36B62F02DA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E36B621000E UpdateTabAction
+
+FORWARD ME_4E36B63D016B
+
+FORWARD ME_4E36B64802AE
+
+ME ME_4E36B64A0236
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4E36B64A0236 aSender
+
+ME ME_4E36B64802AE
+ MEPROP UID '4E36B64802AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E36B63D016B // ExecuteTabAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E36B64A0236 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4E36B64802AE DoIt
+
+ME ME_4E36B63D016B
+ MEPROP UID '4E36B63D016B'
+ MEPROP Name 'ExecuteTabAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E369558035D // PrimListAnalize
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E36BD3B02C9' '484CE48E02E6.ms.model.script' // Анализ списка из вкладки
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E36B64802AE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E36B63D016B ExecuteTabAction
+
+ME ME_4E36B5D6004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E369558035D // PrimListAnalize
+ ;
+ MELINK Target WL 'ME_4AC0EFDD029A' '4799D29F033F.ms.model.script' // TAction
+ ;
+
+ENDME // ME_4E36B5D6004D 
+
+ME ME_49803F5503AA_ME_4E369558035D
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4E369558035D DoInit
+
+ME ME_4A8AE0FA03B2_ME_4E369558035D
+ MELINK Original WL 'ME_4A8AE0FA03B2' '4AADF9450143.ms.model.script' // BecomeActive
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8AE0FA03B2_ME_4E369558035D BecomeActive
+
+ME ME_4E369558035D
+ MEPROP UID '4E369558035D'
+ MEPROP Name 'PrimListAnalize'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497DDB0A0168' '497DDB0A0168.ms.model.script' // List
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFBDE68006D' '4FFBDE68006D.ms.model.script' // ListAnalizeUserTypes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E369638023B // ViewArea
+ HWL ME_4E36B0650166 // sdsList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E36B621000E // UpdateTabAction
+ HWL ME_4E36B63D016B // ExecuteTabAction
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4E369558035D // DoInit
+ ME_4A8AE0FA03B2_ME_4E369558035D // BecomeActive
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E36B5D6004D // TAction
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '01.08.2011 16:01'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TPrimListAnalizeForm'
+ UP extprop:pas:UnitName 'PrimListAnalize_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimListAnalizeForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalize_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+
+ENDME // ME_4E369558035D PrimListAnalize

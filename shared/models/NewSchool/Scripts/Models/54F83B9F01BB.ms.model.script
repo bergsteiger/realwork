@@ -1,0 +1,111 @@
+// TreeAttributeSelectSaveLoadRealization 54F83B9F01BB Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F83B9F01BB
+
+FORWARD ME_54F83BC9036B
+
+ME ME_54F83BEF0258
+ MEPROP UID '54F83BEF0258'
+ MEPROP Name 'new_ini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+
+ENDME // ME_54F83BEF0258 new_ini_op
+
+ME ME_54F83C2F0123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F83BC9036B // TtasSaveLoadRealization
+ ;
+ MELINK Target WL 'ME_4AE864B801C5' '4EEA07CA0360.ms.model.script' // nsQueryUtils
+ ;
+
+ENDME // ME_54F83C2F0123 
+
+ME ME_54F839B602DC_ME_54F83BC9036B
+ MELINK Original WL 'ME_54F839B602DC' '4A85282C0252.ms.model.script' // LoadFromQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_54F839B602DC_ME_54F83BC9036B LoadFromQuery
+
+ME ME_54F839D803D3_ME_54F83BC9036B
+ MELINK Original WL 'ME_54F839D803D3' '4A85282C0252.ms.model.script' // SaveToQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_54F839D803D3_ME_54F83BC9036B SaveToQuery
+
+ME ME_54F85E5A00B4_ME_54F83BC9036B
+ MELINK Original WL 'ME_54F85E5A00B4' '4A85282C0252.ms.model.script' // IsQuerySaved
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_54F85E5A00B4_ME_54F83BC9036B IsQuerySaved
+
+ME ME_54F83BC9036B
+ MEPROP UID '54F83BC9036B'
+ MEPROP Name 'TtasSaveLoadRealization'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54F83B9F01BB // TreeAttributeSelectSaveLoadRealization
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_54F836540343' '4A85282C0252.ms.model.script' // ItasSaveLoadProcessor
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_54F83BEF0258 // new_ini_op
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54F839B602DC_ME_54F83BC9036B // LoadFromQuery
+ ME_54F839D803D3_ME_54F83BC9036B // SaveToQuery
+ ME_54F85E5A00B4_ME_54F83BC9036B // IsQuerySaved
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_54F83C2F0123 // nsQueryUtils
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:pas:UnitName 'tasSaveLoadRealization'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'tasSaveLoadRealization'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\tasSaveLoadRealization.pas'
+
+ENDME // ME_54F83BC9036B TtasSaveLoadRealization
+
+ME ME_54F83B9F01BB
+ MEPROP UID '54F83B9F01BB'
+ MEPROP Name 'TreeAttributeSelectSaveLoadRealization'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5257E836001C' '5257E836001C.ms.model.script' // View$Strange
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54F83BC9036B // TtasSaveLoadRealization
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4A85282C0252' '4A85282C0252.ms.model.script' // LiteSearch
+ WL 'ME_4EEA07CA0360' '4EEA07CA0360.ms.model.script' // nsQueryAttributes
+ )
+ ; // Depends
+
+ENDME // ME_54F83B9F01BB TreeAttributeSelectSaveLoadRealization

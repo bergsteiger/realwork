@@ -1,0 +1,1675 @@
+// Strange 4AE89F8A004B VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AE89F8A004B
+
+FORWARD ME_4AE8A0D10108
+
+FORWARD ME_4AE8A0E10254
+
+ME ME_4AE8A0FA0247
+ MEPROP Name 'aNotClearRange'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE8A0FA0247 aNotClearRange
+
+ME ME_4AE8A0E10254
+ MEPROP UID '4AE8A0E10254'
+ MEPROP Name 'ClearAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE8A0D10108 // Query
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE8A0FA0247 // aNotClearRange
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AE8A0E10254 ClearAll
+
+FORWARD ME_4AE96F6C0191
+
+ME ME_4AE96F8F031B
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+
+ENDME // ME_4AE96F8F031B aList
+
+ME ME_4AE9713102BB
+ MEPROP Name 'aInList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AE9713102BB aInList
+
+ME ME_4AE96F6C0191
+ MEPROP UID '4AE96F6C0191'
+ MEPROP Name 'SetList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE8A0D10108 // Query
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AE96F8F031B // aList
+ ME_4AE9713102BB // aInList
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AE96F6C0191 SetList
+
+ME ME_4AF2AA2100CF
+ MEPROP UID '4AF2AA2100CF'
+ MEPROP Name 'GetList'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE8A0D10108 // Query
+ ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF2AA2100CF GetList
+
+ME ME_4AE8A0D10108
+ MEPROP UID '4AE8A0D10108'
+ MEPROP Name 'Query'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AE8A0E10254 // ClearAll
+ HWL ME_4AE96F6C0191 // SetList
+ HWL ME_4AF2AA2100CF // GetList
+ )
+ ; // Operations
+
+ENDME // ME_4AE8A0D10108 Query
+
+FORWARD ME_4AE9C8CC0055
+
+FORWARD ME_4AEF0BF70306
+
+ME ME_4AEF0BF7035D
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_4AEF0BF7035D aFilter
+
+ME ME_4AEF0BF70306
+ MEPROP UID '4AEF0BF70306'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE9C8CC0055 // Filterable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AEF0BF7035D // aFilter
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" True
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AEF0BF70306 Add
+
+FORWARD ME_4AEF0D1A01C3
+
+ME ME_4AEF0D26012C
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+
+ENDME // ME_4AEF0D26012C aFilter
+
+ME ME_4AEF0D1A01C3
+ MEPROP UID '4AEF0D1A01C3'
+ MEPROP Name 'Delete'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE9C8CC0055 // Filterable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AEF0D26012C // aFilter
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" True
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AEF0D1A01C3 Delete
+
+ME ME_4AF80DB80383
+ MEPROP UID '4AF80DB80383'
+ MEPROP Name 'ClearAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE9C8CC0055 // Filterable
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" True
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF80DB80383 ClearAll
+
+ME ME_4AF810230307
+ MEPROP UID '4AF810230307'
+ MEPROP Name 'Refresh'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE9C8CC0055 // Filterable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF810230307 Refresh
+
+ME ME_4F99403A00A5
+ MEPROP UID '4F99403A00A5'
+ MEPROP Name 'GetListType'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AE9C8CC0055 // Filterable
+ ;
+ MELINK Target WL 'ME_47F5C59F0135' '47EA07FA02CE.ms.model.script' // TbsListType
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4F99403A00A5 GetListType
+
+ME ME_4AE9C8CC0055
+ MEPROP UID '4AE9C8CC0055'
+ MEPROP Name 'Filterable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AEF0BF70306 // Add
+ HWL ME_4AEF0D1A01C3 // Delete
+ HWL ME_4AF80DB80383 // ClearAll
+ HWL ME_4AF810230307 // Refresh
+ HWL ME_4F99403A00A5 // GetListType
+ )
+ ; // Operations
+
+ENDME // ME_4AE9C8CC0055 Filterable
+
+ME ME_4AE9CE790344
+ MEPROP UID '4AE9CE790344'
+ MEPROP Name 'TNodesArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ )
+ ; // Inherits
+
+ENDME // ME_4AE9CE790344 TNodesArray
+
+FORWARD ME_498959F103C4
+
+FORWARD ME_49895A2102E8
+
+ME ME_4AEAC69D027D
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_4AEAC69D027D aNode
+
+ME ME_4AEAC69D02CF
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4AB0C3C60310.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_4AEAC69D02CF aData
+
+ME ME_4AEAC69D031D
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2791D019A' '47F2170002B2.ms.model.script' // TListLogicOperation
+ ;
+ MEPROP Value 'LLO_NONE'
+ MELINK ValueType WL 'ME_47F2791D019A' '47F2170002B2.ms.model.script' // TListLogicOperation
+ ;
+ UP extprop:pas:Value 'LLO_NONE'
+
+ENDME // ME_4AEAC69D031D anOp
+
+ME ME_49895A2102E8
+ MEPROP UID '49895A2102E8'
+ MEPROP Name 'Load'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Коллеги, кто может описать этот метод?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_498959F103C4 // Loadable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AEAC69D027D // aNode
+ ME_4AEAC69D02CF // aData
+ ME_4AEAC69D031D // anOp
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_49895A2102E8 Load
+
+ME ME_498959F103C4
+ MEPROP UID '498959F103C4'
+ MEPROP Name 'Loadable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Это первый кандидат на превращение в Facet. Который нужно вызвать вот тут:'#13#10'f_RequestingForm.Entity.Operation(op_Loadable_Load, l_Params).Done' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49895A2102E8 // Load
+ )
+ ; // Operations
+
+ENDME // ME_498959F103C4 Loadable
+
+FORWARD ME_4AEECB2001BB
+
+ME ME_4AF2B1AC02F8
+ MEPROP UID '4AF2B1AC02F8'
+ MEPROP Name 'GetSelected'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AEECB2001BB // Filters
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF2B1AC02F8 GetSelected
+
+ME ME_4AEECB2001BB
+ MEPROP UID '4AEECB2001BB'
+ MEPROP Name 'Filters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AF2B1AC02F8 // GetSelected
+ )
+ ; // Operations
+ UP "ifndef" 'Monitorings'
+
+ENDME // ME_4AEECB2001BB Filters
+
+FORWARD ME_4AF4067A01D0
+
+ME ME_4AF9370C012B
+ MEPROP UID '4AF9370C012B'
+ MEPROP Name 'QueryNotSaved'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AF4067A01D0 // SearchParameter
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF9370C012B QueryNotSaved
+
+ME ME_4AF9373C02B6
+ MEPROP UID '4AF9373C02B6'
+ MEPROP Name 'ClearMistakes'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AF4067A01D0 // SearchParameter
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF9373C02B6 ClearMistakes
+
+ME ME_4AF9393802B0
+ MEPROP UID '4AF9393802B0'
+ MEPROP Name 'QuerySaved'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AF4067A01D0 // SearchParameter
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF9393802B0 QuerySaved
+
+ME ME_4AF4067A01D0
+ MEPROP UID '4AF4067A01D0'
+ MEPROP Name 'SearchParameter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AF9370C012B // QueryNotSaved
+ HWL ME_4AF9373C02B6 // ClearMistakes
+ HWL ME_4AF9393802B0 // QuerySaved
+ )
+ ; // Operations
+
+ENDME // ME_4AF4067A01D0 SearchParameter
+
+FORWARD ME_4AF8265602EC
+
+ME ME_4AF82660008B
+ MEPROP UID '4AF82660008B'
+ MEPROP Name 'UpdatePrinter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AF8265602EC // PrintParams
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" True
+ UP "no prefix" False
+
+ENDME // ME_4AF82660008B UpdatePrinter
+
+ME ME_4AF8265602EC
+ MEPROP UID '4AF8265602EC'
+ MEPROP Name 'PrintParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AF82660008B // UpdatePrinter
+ )
+ ; // Operations
+
+ENDME // ME_4AF8265602EC PrintParams
+
+FORWARD ME_4AF81DD60134
+
+ME ME_4AF81DE902B6
+ MEPROP UID '4AF81DE902B6'
+ MEPROP Name 'SetNewContent'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AF81DD60134 // List
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF81DE902B6 SetNewContent
+
+ME ME_4AF81DD60134
+ MEPROP UID '4AF81DD60134'
+ MEPROP Name 'List'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AF81DE902B6 // SetNewContent
+ )
+ ; // Operations
+
+ENDME // ME_4AF81DD60134 List
+
+FORWARD ME_4C2E115C00A5
+
+ME ME_4C2E116E0315
+ MEPROP UID '4C2E116E0315'
+ MEPROP Name 'ExpandCollapse'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2E115C00A5 // CardOperation
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C2E116E0315 ExpandCollapse
+
+ME ME_4C2E117F022C
+ MEPROP UID '4C2E117F022C'
+ MEPROP Name 'DeleteAll'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2E115C00A5 // CardOperation
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C2E117F022C DeleteAll
+
+ME ME_4C2E118B010B
+ MEPROP UID '4C2E118B010B'
+ MEPROP Name 'CreateAttr'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2E115C00A5 // CardOperation
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C2E118B010B CreateAttr
+
+ME ME_4C2E11960124
+ MEPROP UID '4C2E11960124'
+ MEPROP Name 'OpenTreeSelection'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2E115C00A5 // CardOperation
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C2E11960124 OpenTreeSelection
+
+ME ME_4C2E115C00A5
+ MEPROP UID '4C2E115C00A5'
+ MEPROP Name 'CardOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C2E116E0315 // ExpandCollapse
+ HWL ME_4C2E117F022C // DeleteAll
+ HWL ME_4C2E118B010B // CreateAttr
+ HWL ME_4C2E11960124 // OpenTreeSelection
+ )
+ ; // Operations
+
+ENDME // ME_4C2E115C00A5 CardOperation
+
+FORWARD ME_49885C2500AE
+
+ME ME_49885D540232
+ MEPROP UID '49885D540232'
+ MEPROP Name 'SaveToFolder'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить в папки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49885C2500AE // File
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49885D540232 SaveToFolder
+
+ME ME_49885D59018D
+ MEPROP UID '49885D59018D'
+ MEPROP Name 'LoadFromFolder'
+ MEPROP Class class_Operation
+ %SUMMARY 'Загрузить из папок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49885C2500AE // File
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_49885D59018D LoadFromFolder
+
+ME ME_49885C2500AE
+ MEPROP UID '49885C2500AE'
+ MEPROP Name 'File'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49885D540232 // SaveToFolder
+ HWL ME_49885D59018D // LoadFromFolder
+ )
+ ; // Operations
+
+ENDME // ME_49885C2500AE File
+
+FORWARD ME_4C31A4E203BA
+
+ME ME_4C31A4EC023F
+ MEPROP UID '4C31A4EC023F'
+ MEPROP Name 'GetOldQuery'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C31A4E203BA // Query$GetOldQuery
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C31A4EC023F GetOldQuery
+
+ME ME_4C31A4E203BA
+ MEPROP UID '4C31A4E203BA'
+ MEPROP Name 'Query'
+ MEPROP OriginalName 'Query$GetOldQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C31A4EC023F // GetOldQuery
+ )
+ ; // Operations
+
+ENDME // ME_4C31A4E203BA Query$GetOldQuery
+
+FORWARD ME_4C31A67E037B
+
+ME ME_4C31A68800FA
+ MEPROP UID '4C31A68800FA'
+ MEPROP Name 'SearchType'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C31A67E037B // Query$SearchType
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C31A68800FA SearchType
+
+ME ME_4C31A67E037B
+ MEPROP UID '4C31A67E037B'
+ MEPROP Name 'Query'
+ MEPROP OriginalName 'Query$SearchType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C31A68800FA // SearchType
+ )
+ ; // Operations
+
+ENDME // ME_4C31A67E037B Query$SearchType
+
+FORWARD ME_4C31B4810385
+
+ME ME_4C31B48D03BB
+ MEPROP UID '4C31B48D03BB'
+ MEPROP Name 'LogicOr'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C31B4810385 // LogicOperation
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C31B48D03BB LogicOr
+
+ME ME_4C31B4990225
+ MEPROP UID '4C31B4990225'
+ MEPROP Name 'LogicAnd'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C31B4810385 // LogicOperation
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C31B4990225 LogicAnd
+
+ME ME_4C31B4A90088
+ MEPROP UID '4C31B4A90088'
+ MEPROP Name 'LogicNot'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C31B4810385 // LogicOperation
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C31B4A90088 LogicNot
+
+ME ME_4C31B4810385
+ MEPROP UID '4C31B4810385'
+ MEPROP Name 'LogicOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C31B48D03BB // LogicOr
+ HWL ME_4C31B4990225 // LogicAnd
+ HWL ME_4C31B4A90088 // LogicNot
+ )
+ ; // Operations
+
+ENDME // ME_4C31B4810385 LogicOperation
+
+FORWARD ME_4B6BEE5800CE
+
+ME ME_4C81191003E5
+ MEPROP UID '4C81191003E5'
+ MEPROP Name 'FiltersListOpen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтры (вкладка)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B6BEE5800CE // Filters$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C81191003E5 FiltersListOpen
+
+ME ME_4B6BEE5800CE
+ MEPROP UID '4B6BEE5800CE'
+ MEPROP Name 'Filters'
+ MEPROP OriginalName 'Filters$UI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C81191003E5 // FiltersListOpen
+ )
+ ; // Operations
+
+ENDME // ME_4B6BEE5800CE Filters$UI
+
+FORWARD ME_4C43D0420032
+
+ME ME_4C43D04C01D8
+ MEPROP UID '4C43D04C01D8'
+ MEPROP Name 'ZoomIn'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D0420032 // Preview
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C43D04C01D8 ZoomIn
+
+ME ME_4C43D058000A
+ MEPROP UID '4C43D058000A'
+ MEPROP Name 'ZoomOut'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D0420032 // Preview
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C43D058000A ZoomOut
+
+ME ME_4C43D0610127
+ MEPROP UID '4C43D0610127'
+ MEPROP Name 'ZoomWidth'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D0420032 // Preview
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C43D0610127 ZoomWidth
+
+ME ME_4C43D06C0150
+ MEPROP UID '4C43D06C0150'
+ MEPROP Name 'ZoomPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D0420032 // Preview
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C43D06C0150 ZoomPage
+
+ME ME_4C43D0420032
+ MEPROP UID '4C43D0420032'
+ MEPROP Name 'Preview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C43D04C01D8 // ZoomIn
+ HWL ME_4C43D058000A // ZoomOut
+ HWL ME_4C43D0610127 // ZoomWidth
+ HWL ME_4C43D06C0150 // ZoomPage
+ )
+ ; // Operations
+
+ENDME // ME_4C43D0420032 Preview
+
+FORWARD ME_4C43D09C03C7
+
+ME ME_4C43D0A70151
+ MEPROP UID '4C43D0A70151'
+ MEPROP Name 'FullSelectedSwitch'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D09C03C7 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C43D0A70151 FullSelectedSwitch
+
+ME ME_4C43D0B20376
+ MEPROP UID '4C43D0B20376'
+ MEPROP Name 'RGBGrayscaleSwitch'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D09C03C7 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C43D0B20376 RGBGrayscaleSwitch
+
+ME ME_4C43D0C20003
+ MEPROP UID '4C43D0C20003'
+ MEPROP Name 'PrintInfoSwitch'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C43D09C03C7 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C43D0C20003 PrintInfoSwitch
+
+ME ME_4C43D09C03C7
+ MEPROP UID '4C43D09C03C7'
+ MEPROP Name 'Document'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C43D0A70151 // FullSelectedSwitch
+ HWL ME_4C43D0B20376 // RGBGrayscaleSwitch
+ HWL ME_4C43D0C20003 // PrintInfoSwitch
+ )
+ ; // Operations
+
+ENDME // ME_4C43D09C03C7 Document
+
+FORWARD ME_4A7C1889033B
+
+ME ME_4A7C18B20241
+ MEPROP UID '4A7C18B20241'
+ MEPROP Name 'ShowSpecial'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показывать спецсимволы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C1889033B // SubPanelSettings
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A7C18B20241 ShowSpecial
+
+ME ME_4A7C1F420169
+ MEPROP UID '4A7C1F420169'
+ MEPROP Name 'ShowInfo'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показывать блоки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C1889033B // SubPanelSettings
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A7C1F420169 ShowInfo
+
+ME ME_4A7C1889033B
+ MEPROP UID '4A7C1889033B'
+ MEPROP Name 'SubPanelSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройки панели меток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A7C18B20241 // ShowSpecial
+ HWL ME_4A7C1F420169 // ShowInfo
+ )
+ ; // Operations
+
+ENDME // ME_4A7C1889033B SubPanelSettings
+
+FORWARD ME_4C52B3310159
+
+ME ME_4C52B34E0125
+ MEPROP UID '4C52B34E0125'
+ MEPROP Name 'Restore'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C52B3310159 // Result$ForStyleEditorContainer
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C52B34E0125 Restore
+
+ME ME_4C52B36B01B3
+ MEPROP UID '4C52B36B01B3'
+ MEPROP Name 'SaveAsDefault'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C52B3310159 // Result$ForStyleEditorContainer
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C52B36B01B3 SaveAsDefault
+
+ME ME_4C52B3310159
+ MEPROP UID '4C52B3310159'
+ MEPROP Name 'Result'
+ MEPROP OriginalName 'Result$ForStyleEditorContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C52B34E0125 // Restore
+ HWL ME_4C52B36B01B3 // SaveAsDefault
+ )
+ ; // Operations
+
+ENDME // ME_4C52B3310159 Result$ForStyleEditorContainer
+
+FORWARD ME_4C88D3FB02D1
+
+ME ME_4C88D40C0029
+ MEPROP UID '4C88D40C0029'
+ MEPROP Name 'AppTitle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D40C0029 AppTitle
+
+ME ME_4C88D42001C2
+ MEPROP UID '4C88D42001C2'
+ MEPROP Name 'DocName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D42001C2 DocName
+
+ME ME_4C88D43300C7
+ MEPROP UID '4C88D43300C7'
+ MEPROP Name 'DocFullName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C88D43300C7 DocFullName
+
+ME ME_4C88D44401B5
+ MEPROP UID '4C88D44401B5'
+ MEPROP Name 'DocRedactionDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D44401B5 DocRedactionDate
+
+ME ME_4C88D46203BD
+ MEPROP UID '4C88D46203BD'
+ MEPROP Name 'DocCurrentPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D46203BD DocCurrentPage
+
+ME ME_4C88D4770266
+ MEPROP UID '4C88D4770266'
+ MEPROP Name 'DocPagesCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D4770266 DocPagesCount
+
+ME ME_4C88D48B0325
+ MEPROP UID '4C88D48B0325'
+ MEPROP Name 'CurrentDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D48B0325 CurrentDate
+
+ME ME_4C88D4A6032C
+ MEPROP UID '4C88D4A6032C'
+ MEPROP Name 'CurrentTime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D4A6032C CurrentTime
+
+ME ME_4C88D4BF0213
+ MEPROP UID '4C88D4BF0213'
+ MEPROP Name 'InternalDocNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D4BF0213 InternalDocNumber
+
+ME ME_4C88D4D202BA
+ MEPROP UID '4C88D4D202BA'
+ MEPROP Name 'DocumentSIze'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D4D202BA DocumentSIze
+
+ME ME_4C88D4E8007C
+ MEPROP UID '4C88D4E8007C'
+ MEPROP Name 'FilePosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D3FB02D1 // ColontitulMacro
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C88D4E8007C FilePosition
+
+ME ME_4C88D3FB02D1
+ MEPROP UID '4C88D3FB02D1'
+ MEPROP Name 'ColontitulMacro'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C88D40C0029 // AppTitle
+ HWL ME_4C88D42001C2 // DocName
+ HWL ME_4C88D43300C7 // DocFullName
+ HWL ME_4C88D44401B5 // DocRedactionDate
+ HWL ME_4C88D46203BD // DocCurrentPage
+ HWL ME_4C88D4770266 // DocPagesCount
+ HWL ME_4C88D48B0325 // CurrentDate
+ HWL ME_4C88D4A6032C // CurrentTime
+ HWL ME_4C88D4BF0213 // InternalDocNumber
+ HWL ME_4C88D4D202BA // DocumentSIze
+ HWL ME_4C88D4E8007C // FilePosition
+ )
+ ; // Operations
+
+ENDME // ME_4C88D3FB02D1 ColontitulMacro
+
+FORWARD ME_4C7F8DE70364
+
+ME ME_4C7F8DFF02BF
+ MEPROP UID '4C7F8DFF02BF'
+ MEPROP Name 'Show'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показывать метки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C7F8DE70364 // SubPanelSettings$ShowSubNumbers
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C7F8DFF02BF Show
+
+ME ME_4C7F8DE70364
+ MEPROP UID '4C7F8DE70364'
+ MEPROP Name 'SubPanelSettings'
+ MEPROP OriginalName 'SubPanelSettings$ShowSubNumbers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройки панели меток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7F8DFF02BF // Show
+ )
+ ; // Operations
+
+ENDME // ME_4C7F8DE70364 SubPanelSettings$ShowSubNumbers
+
+FORWARD ME_528373C80349
+
+ME ME_528373EC0026
+ MEPROP UID '528373EC0026'
+ MEPROP Name 'ShowByShortCut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_528373C80349 // SubPanelSettings$WithShowByShortCut
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_528373EC0026 ShowByShortCut
+
+ME ME_528373C80349
+ MEPROP UID '528373C80349'
+ MEPROP Name 'SubPanelSettings'
+ MEPROP OriginalName 'SubPanelSettings$WithShowByShortCut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE89F8A004B // Strange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528373EC0026 // ShowByShortCut
+ )
+ ; // Operations
+
+ENDME // ME_528373C80349 SubPanelSettings$WithShowByShortCut
+
+ME ME_4AE89F8A004B
+ MEPROP UID '4AE89F8A004B'
+ MEPROP Name 'Strange'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5257E836001C' '5257E836001C.ms.model.script' // View$Strange
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AE8A0D10108 // Query
+ HWL ME_4AE9C8CC0055 // Filterable
+ HWL ME_4AE9CE790344 // TNodesArray
+ HWL ME_498959F103C4 // Loadable
+ HWL ME_4AEECB2001BB // Filters
+ HWL ME_4AF4067A01D0 // SearchParameter
+ HWL ME_4AF8265602EC // PrintParams
+ HWL ME_4AF81DD60134 // List
+ HWL ME_4C2E115C00A5 // CardOperation
+ HWL ME_49885C2500AE // File
+ HWL ME_4C31A4E203BA // Query$GetOldQuery
+ HWL ME_4C31A67E037B // Query$SearchType
+ HWL ME_4C31B4810385 // LogicOperation
+ HWL ME_4B6BEE5800CE // Filters$UI
+ HWL ME_4C43D0420032 // Preview
+ HWL ME_4C43D09C03C7 // Document
+ HWL ME_4A7C1889033B // SubPanelSettings
+ HWL ME_4C52B3310159 // Result$ForStyleEditorContainer
+ HWL ME_4C88D3FB02D1 // ColontitulMacro
+ HWL ME_4C7F8DE70364 // SubPanelSettings$ShowSubNumbers
+ HWL ME_528373C80349 // SubPanelSettings$WithShowByShortCut
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456F02A50196' '456F02A50196.ms.model.script' // BaseTreeSupport
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEA48F011F' '45EEA48F011F.ms.model.script' // Filters
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_47EA07FA02CE' '47EA07FA02CE.ms.model.script' // bsTypes
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_4912DD020283' '4912DD020283.ms.model.script' // eeInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B1D3D250382' '4B1D3D250382.ms.model.script' // PrimPrimListInterfaces
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'Search_Strange_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search_Strange_Controls.pas'
+
+ENDME // ME_4AE89F8A004B Strange

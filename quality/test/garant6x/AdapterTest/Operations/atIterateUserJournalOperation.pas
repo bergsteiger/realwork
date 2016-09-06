@@ -30,6 +30,8 @@ uses
  , Contnrs
  , SysUtils
  , atLogger
+ //#UC START# *5006EE59000Eimpl_uses*
+ //#UC END# *5006EE59000Eimpl_uses*
 ;
 
 procedure TatIterateUserJournalOperation.ExecuteSelf;

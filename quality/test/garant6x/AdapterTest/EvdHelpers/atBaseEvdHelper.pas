@@ -27,6 +27,8 @@ uses
  , k2TagGen
  , ActiveX
  , SysUtils
+ //#UC START# *48400B220217impl_uses*
+ //#UC END# *48400B220217impl_uses*
 ;
 
 procedure TatBaseEvdHelper.Generate;

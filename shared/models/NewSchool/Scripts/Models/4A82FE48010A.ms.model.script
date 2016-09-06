@@ -1,0 +1,45 @@
+// Shared Delphi Operations 4A82FE48010A VCMDomain Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4A82FE48010A
+ MEPROP UID '4A82FE48010A'
+ MEPROP Name 'Shared Delphi Operations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMDomain ;
+ %SUMMARY 'Базовые пользовательские операции для реализации формами и контролами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELIST Children
+   Seq: ( WL 'ME_4C8DD86C03C8' '4C8DD86C03C8.ms.model.script' // VCMCustomization
+ WL 'ME_4954C00703D0' '4954C00703D0.ms.model.script' // OfficeLike
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ WL 'ME_49B1511700CA' '49B1511700CA.ms.model.script' // Shared Delphi Core
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.ms.model.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ WL 'ME_4B30CC420206' '4B30CC420206.ms.model.script' // Shared Delphi Testing Framework
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_562E251101C2' '562E251101C2.ms.model.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ UP "create project" True
+ UP "defines" 'sdoDefine.inc'
+ UP "fix version" 0
+ UP "force usage" True
+ UP "full constraint" True
+ UP "Full MDP" False
+ UP "ifndef" 'NoVCM'
+ UP "major version" 1
+ UP "minor version" 0
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/components/gui'
+ UP "space key" 'SHD'
+ UP "space name" 'Shared (delphi)'
+ UP intf.pas:PathOnly '\common\components\gui'
+
+ENDME // ME_4A82FE48010A Shared Delphi Operations

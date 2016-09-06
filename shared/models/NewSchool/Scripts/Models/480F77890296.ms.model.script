@@ -1,0 +1,87 @@
+// evTextParaConst 480F77890296 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480F77890296
+
+FORWARD ME_480F77D40153
+
+ME ME_480F77DE0366
+ MEPROP UID '480F77DE0366'
+ MEPROP Name 'evHyphenWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480F77D40153 // TextParaConst
+ ;
+ MEPROP Value 'l3Inch div 32'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'l3Inch div 32'
+
+ENDME // ME_480F77DE0366 evHyphenWidth
+
+ME ME_55D4508802C8
+ MEPROP UID '55D4508802C8'
+ MEPROP Name 'cnPlusIconSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_480F77D40153 // TextParaConst
+ ;
+ MEPROP Value 270
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 270
+
+ENDME // ME_55D4508802C8 cnPlusIconSpace
+
+ME ME_480F77D40153
+ MEPROP UID '480F77D40153'
+ MEPROP Name 'TextParaConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480F77890296 // evTextParaConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_480F77DE0366 // evHyphenWidth
+ HWL ME_55D4508802C8 // cnPlusIconSpace
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_480F77D40153 TextParaConst
+
+ME ME_480F77890296
+ MEPROP UID '480F77890296'
+ MEPROP Name 'evTextParaConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_480F77D40153 // TextParaConst
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ )
+ ; // Depends
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '24.12.2002 17:18'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaConst.pas'
+
+ENDME // ME_480F77890296 evTextParaConst

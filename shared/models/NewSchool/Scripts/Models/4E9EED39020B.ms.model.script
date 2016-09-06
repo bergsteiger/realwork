@@ -1,0 +1,36 @@
+// Автоматическое тестирование 4E9EED39020B UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E9EED39020B
+
+ME ME_4E9EED4F0171
+ MEPROP UID '4E9EED4F0171'
+ MEPROP Name 'Обеспечение стабильности процесса разработки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'К данному прецеденту привязываются ошибки по результатам разбора ежедневных тестов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E9EED39020B // Автоматическое тестирование
+ ;
+
+ENDME // ME_4E9EED4F0171 Обеспечение стабильности процесса разработки
+
+ME ME_4E9EED39020B
+ MEPROP UID '4E9EED39020B'
+ MEPROP Name 'Автоматическое тестирование'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E9EED4F0171 // Обеспечение стабильности процесса разработки
+ )
+ ; // Children
+
+ENDME // ME_4E9EED39020B Автоматическое тестирование

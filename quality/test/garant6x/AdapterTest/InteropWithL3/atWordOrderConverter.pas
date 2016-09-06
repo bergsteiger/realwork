@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , TypInfo
  , l3Base
+ //#UC START# *503E615E0377impl_uses*
+ //#UC END# *503E615E0377impl_uses*
 ;
 
 var g_TatWordOrderConverter: TatWordOrderConverter = nil;

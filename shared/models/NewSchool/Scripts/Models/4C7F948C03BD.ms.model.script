@@ -1,0 +1,73 @@
+// TeeSubPanel 4C7F948C03BD GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5481CCAE029D
+
+FORWARD ME_4C7F948C03BD
+
+ME ME_5481CD0A031C
+ MEPROP UID '5481CD0A031C'
+ MEPROP Name 'SubPanel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5481CCAE029D // TeeCustomSubPanel
+ ;
+ MELINK Target WL 'ME_5481A06803E5' '4912DD020283.ms.model.script' // IeeSubPanel
+ ;
+ UP "pm" True
+
+ENDME // ME_5481CD0A031C SubPanel
+
+ME ME_5481CCAE029D
+ MEPROP UID '5481CCAE029D'
+ MEPROP Name 'TeeCustomSubPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C7F948C03BD // TeeSubPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7F94A9028D' '4C7F94A9028D.ms.model.script' // TeeSubPanelExport
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5481CD0A031C // SubPanel
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeCustomSubPanel'
+
+ENDME // ME_5481CCAE029D TeeCustomSubPanel
+
+ME ME_4C7F948C03BD
+ MEPROP UID '4C7F948C03BD'
+ MEPROP Name 'TeeSubPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54817B05034F' '54817B05034F.ms.model.script' // eeSubPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5481CCAE029D // TeeCustomSubPanel
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_5481CCAE029D // TeeCustomSubPanel
+ )
+ ; // Children
+ UP "need UC" True
+ UP extprop:pas:UnitName 'eeSubPanel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeSubPanel'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeSubPanel.pas'
+
+ENDME // ME_4C7F948C03BD TeeSubPanel

@@ -1,0 +1,842 @@
+// MainWithReminders 4F7DAC14027A VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7DAC14027A
+
+FORWARD ME_4F7DC58F01A7
+
+ME ME_4F7DC6A801BA
+ MEPROP UID '4F7DC6A801BA'
+ MEPROP Name 'RemindersZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F7DC58F01A7 // RemindersLine
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" False
+ UP "MergeTopTollbarWithContainer" False
+ UP "ZoneType" 'Reminder'
+
+ENDME // ME_4F7DC6A801BA RemindersZone
+
+FORWARD ME_5368FF710274
+
+ME ME_5369010100E5
+ MEPROP UID '5369010100E5'
+ MEPROP Name 'ControlledChangingWarningHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Внимание! Документы на контроле изменились'''
+
+ENDME // ME_5369010100E5 ControlledChangingWarningHint
+
+ME ME_5369013E03D1
+ MEPROP UID '5369013E03D1'
+ MEPROP Name 'OldBaseWarningHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Внимание! Информационный банк устарел'''
+
+ENDME // ME_5369013E03D1 OldBaseWarningHint
+
+ME ME_5369015C0290
+ MEPROP UID '5369015C0290'
+ MEPROP Name 'TrialModeWarningHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Вы работаете с ознакомительной версией системы ГАРАНТ'''
+
+ENDME // ME_5369015C0290 TrialModeWarningHint
+
+ME ME_5369017300ED
+ MEPROP UID '5369017300ED'
+ MEPROP Name 'remUnreadConsultationsHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Получены ответы или уведомления от службы Правовой поддержки онлайн'''
+
+ENDME // ME_5369017300ED remUnreadConsultationsHint
+
+ME ME_536901A301FC
+ MEPROP UID '536901A301FC'
+ MEPROP Name 'remOnlineDeadHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5368FF710274 // Reminders' Hints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''С момента последнего обновления Вашего информационного банка прошло более 6 месяцев. Онлайн-проверка актуальности документов будет отключена.'''
+
+ENDME // ME_536901A301FC remOnlineDeadHint
+
+ME ME_5368FF710274
+ MEPROP UID '5368FF710274'
+ MEPROP Name 'Reminders'' Hints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5369010100E5 // ControlledChangingWarningHint
+ HWL ME_5369013E03D1 // OldBaseWarningHint
+ HWL ME_5369015C0290 // TrialModeWarningHint
+ HWL ME_5369017300ED // remUnreadConsultationsHint
+ HWL ME_536901A301FC // remOnlineDeadHint
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_5368FF710274 Reminders' Hints
+
+ME ME_4F7DC5620193
+ MEPROP UID '4F7DC5620193'
+ MEPROP Name 'remOnlineDead'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DC58F01A7 // RemindersLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.ms.model.script' // TnscReminder
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4F7DC5620193 remOnlineDead
+
+ME ME_4F7DC54C038D
+ MEPROP UID '4F7DC54C038D'
+ MEPROP Name 'remNewChatMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DC58F01A7 // RemindersLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.ms.model.script' // TnscReminder
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4F7DC54C038D remNewChatMessages
+
+ME ME_4F7DC52402D9
+ MEPROP UID '4F7DC52402D9'
+ MEPROP Name 'TrialModeWarning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DC58F01A7 // RemindersLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.ms.model.script' // TnscReminder
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4F7DC52402D9 TrialModeWarning
+
+ME ME_4F7DC51002CE
+ MEPROP UID '4F7DC51002CE'
+ MEPROP Name 'OldBaseWarning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DC58F01A7 // RemindersLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C52A66C0209' '4C52A6610123.ms.model.script' // TnscReminder
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4F7DC51002CE OldBaseWarning
+
+ME ME_4F7DC58F01A7
+ MEPROP UID '4F7DC58F01A7'
+ MEPROP Name 'RemindersLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_535E8A4D017F' '4C8A29700261.ms.model.script' // RemindersLine
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F7DC5620193 // remOnlineDead
+ HWL ME_4F7DC54C038D // remNewChatMessages
+ HWL ME_4F7DC52402D9 // TrialModeWarning
+ HWL ME_4F7DC51002CE // OldBaseWarning
+ )
+ ; // Attributes
+ MELIST Zones
+   Seq: ( HWL ME_4F7DC6A801BA // RemindersZone
+ )
+ ; // Zones
+ UP "ControlClass" 'none'
+ UP "need Caption" False
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4F7DC58F01A7 RemindersLine
+
+ME ME_4F7DD365020D
+ MEPROP UID '4F7DD365020D'
+ MEPROP Name 'f_Flashing'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F7DD365020D f_Flashing
+
+ME ME_4F7DD6B9038B
+ MEPROP UID '4F7DD6B9038B'
+ MEPROP Name 'f_remOnlineDeadHidden'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F7DD6B9038B f_remOnlineDeadHidden
+
+ME ME_4F86B06301F7
+ MEPROP UID '4F86B06301F7'
+ MEPROP Name 'f_OldBaseWarningString'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4F86B06301F7 f_OldBaseWarningString
+
+FORWARD ME_4F7DCAFE028B
+
+FORWARD ME_4F7DCB1D01E4
+
+ME ME_4F7DCB250143
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4F7DCB250143 Sender
+
+ME ME_4F7DCB1D01E4
+ MEPROP UID '4F7DCB1D01E4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DCAFE028B // ControlledChangingWarningBecomeVisible
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7DCB250143 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4F7DCB1D01E4 DoIt
+
+ME ME_4F7DCAFE028B
+ MEPROP UID '4F7DCAFE028B'
+ MEPROP Name 'ControlledChangingWarningBecomeVisible'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7DCB1D01E4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7DCAFE028B ControlledChangingWarningBecomeVisible
+
+FORWARD ME_4F7DCB4E032C
+
+FORWARD ME_4F7DCB5B003D
+
+ME ME_4F7DCB5F0150
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4F7DCB5F0150 Sender
+
+ME ME_4F7DCB5B003D
+ MEPROP UID '4F7DCB5B003D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DCB4E032C // ControlledChangingWarningAfterBaloonShowed
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7DCB5F0150 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4F7DCB5B003D DoIt
+
+ME ME_4F7DCB4E032C
+ MEPROP UID '4F7DCB4E032C'
+ MEPROP Name 'ControlledChangingWarningAfterBaloonShowed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7DCB5B003D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7DCB4E032C ControlledChangingWarningAfterBaloonShowed
+
+FORWARD ME_4F7DCB68009E
+
+FORWARD ME_4F7DCB74000D
+
+ME ME_4F7DCB7702C6
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4F7DCB7702C6 Sender
+
+ME ME_4F7DCB74000D
+ MEPROP UID '4F7DCB74000D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DCB68009E // ControlledChangingWarningAfterBaloonHidden
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7DCB7702C6 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4F7DCB74000D DoIt
+
+ME ME_4F7DCB68009E
+ MEPROP UID '4F7DCB68009E'
+ MEPROP Name 'ControlledChangingWarningAfterBaloonHidden'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7DCB74000D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7DCB68009E ControlledChangingWarningAfterBaloonHidden
+
+FORWARD ME_4F7DCB83012B
+
+FORWARD ME_4F7DCB90017E
+
+ME ME_4F7DCB9500DD
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4F7DCB9500DD Sender
+
+ME ME_4F7DCB90017E
+ MEPROP UID '4F7DCB90017E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DCB83012B // remOnlineDeadAfterBaloonHidden
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7DCB9500DD // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4F7DCB90017E DoIt
+
+ME ME_4F7DCB83012B
+ MEPROP UID '4F7DCB83012B'
+ MEPROP Name 'remOnlineDeadAfterBaloonHidden'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7DCB90017E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7DCB83012B remOnlineDeadAfterBaloonHidden
+
+ME ME_4F7DCBD0031A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4AAA21970352' '4AAA216F032C.ms.model.script' // resWarnImages
+ ;
+
+ENDME // ME_4F7DCBD0031A 
+
+ME ME_4F7DD08C0056
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4F7DD08C0056 
+
+ME ME_4F7DD4F201DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_4F7DD4F201DD 
+
+ME ME_4F7DD4F90133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4F7DD4F90133 
+
+ME ME_4F7DD5C70137
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4F7DD5C70137 
+
+ME ME_4F7DD5DA028E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4F7DD5DA028E 
+
+ME ME_4F86B0970284
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4F86B0970284 
+
+ME ME_4F86B0B401F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4F86B0B401F2 
+
+ME ME_4F8BEF6001CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4F8BEF6001CC 
+
+ME ME_535E912903D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4DBFF6FD020F' '4F5E12C20114.ms.model.script' // ControlledChangingWarning
+ ;
+
+ENDME // ME_535E912903D8 
+
+ME ME_535E913A0168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4DBFF6CD00D0' '4F5E12C20114.ms.model.script' // OldBaseWarning
+ ;
+
+ENDME // ME_535E913A0168 
+
+ME ME_535E91480369
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4DBFF62502F4' '4F5E12C20114.ms.model.script' // TrialModeWarning
+ ;
+
+ENDME // ME_535E91480369 
+
+ME ME_535E916101A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4DBFF59201D0' '4F5E12C20114.ms.model.script' // remUnreadConsultations
+ ;
+
+ENDME // ME_535E916101A1 
+
+ME ME_535E96410068
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_4DBFF5D40211' '4F5E12C20114.ms.model.script' // remOnlineDead
+ ;
+
+ENDME // ME_535E96410068 
+
+ME ME_543802AC00C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7DAC14027A // MainWithReminders
+ ;
+ MELINK Target WL 'ME_537AEB96006C' '533D53FF00C2.ms.model.script' // vcmTabbedContainerFormDispatcher
+ ;
+
+ENDME // ME_543802AC00C1 
+
+ME ME_4F7DCF74032D_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F7DCF74032D' '467BAB7F021E.ms.model.script' // StartFlashing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F7DCF74032D_ME_4F7DAC14027A StartFlashing
+
+ME ME_4F7DCF8D03CC_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F7DCF8D03CC' '467BAB7F021E.ms.model.script' // StopFlashing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F7DCF8D03CC_ME_4F7DAC14027A StopFlashing
+
+ME ME_4F86AAF903B5_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F86AAF903B5' '4A8E792A0108.ms.model.script' // RemMWControlledChangingWarning
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4F86AAF903B5_ME_4F7DAC14027A RemMWControlledChangingWarning
+
+ME ME_4F86AB3A03E4_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F86AB3A03E4' '4A8E792A0108.ms.model.script' // RemMWOldBaseWarning
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4F86AB3A03E4_ME_4F7DAC14027A RemMWOldBaseWarning
+
+ME ME_4F86AB490283_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F86AB490283' '4A8E792A0108.ms.model.script' // RemMWTrialModeWarning
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4F86AB490283_ME_4F7DAC14027A RemMWTrialModeWarning
+
+ME ME_4F86AB5600B9_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F86AB5600B9' '4A8E792A0108.ms.model.script' // RemNewChatMessages
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4F86AB5600B9_ME_4F7DAC14027A RemNewChatMessages
+
+ME ME_4F86AB6502AA_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F86AB6502AA' '4A8E792A0108.ms.model.script' // RemOnlineDead
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4F86AB6502AA_ME_4F7DAC14027A RemOnlineDead
+
+ME ME_4F8BED97037A_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F8BED97037A' '4A952BA3006D.ms.model.script' // FillOldBaseWarning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F8BED97037A_ME_4F7DAC14027A FillOldBaseWarning
+
+ME ME_542D70330042_ME_4F7DAC14027A
+ MELINK Original WL 'ME_542D70330042' '4A8E792A0108.ms.model.script' // remUnreadConsultations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_542D70330042_ME_4F7DAC14027A remUnreadConsultations
+
+ME ME_4A8E8F2E0195_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4F7DAC14027A InitControls
+
+ME ME_4AE1948900DE_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4AE1948900DE' '5000041101C8.ms.model.script' // EntitiesInited
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AE1948900DE_ME_4F7DAC14027A EntitiesInited
+
+ME ME_4F7C808A0349_ME_4F7DAC14027A
+ MELINK Original WL 'ME_4F7C808A0349' '4F22CB1E0009.ms.model.script' // BecomeVisible
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F7C808A0349_ME_4F7DAC14027A BecomeVisible
+
+ME ME_537C9007038A_ME_4F7DAC14027A
+ MELINK Original WL 'ME_537C9007038A' '4F22CB1E0009.ms.model.script' // BecomeInvisible
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_537C9007038A_ME_4F7DAC14027A BecomeInvisible
+
+ME ME_4F7DAC14027A
+ MEPROP UID '4F7DAC14027A'
+ MEPROP Name 'MainWithReminders'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMMainForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A925AFF01BA' '4A925AFF01BA.ms.model.script' // PrimNemesis
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A952BA3006D' '4A952BA3006D.ms.model.script' // Main
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F7DCF5E0198' '467BAB7F021E.ms.model.script' // IvcmFlashingWindow
+ WL 'ME_4F86AADE0325' '4A8E792A0108.ms.model.script' // Reminder$ForMainWindow
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F7DC58F01A7 // RemindersLine
+ HWL ME_4F7DD365020D // f_Flashing
+ HWL ME_4F7DD6B9038B // f_remOnlineDeadHidden
+ HWL ME_4F86B06301F7 // f_OldBaseWarningString
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F7DCAFE028B // ControlledChangingWarningBecomeVisible
+ HWL ME_4F7DCB4E032C // ControlledChangingWarningAfterBaloonShowed
+ HWL ME_4F7DCB68009E // ControlledChangingWarningAfterBaloonHidden
+ HWL ME_4F7DCB83012B // remOnlineDeadAfterBaloonHidden
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F7DCF74032D_ME_4F7DAC14027A // StartFlashing
+ ME_4F7DCF8D03CC_ME_4F7DAC14027A // StopFlashing
+ ME_4F86AAF903B5_ME_4F7DAC14027A // RemMWControlledChangingWarning
+ ME_4F86AB3A03E4_ME_4F7DAC14027A // RemMWOldBaseWarning
+ ME_4F86AB490283_ME_4F7DAC14027A // RemMWTrialModeWarning
+ ME_4F86AB5600B9_ME_4F7DAC14027A // RemNewChatMessages
+ ME_4F86AB6502AA_ME_4F7DAC14027A // RemOnlineDead
+ ME_4F8BED97037A_ME_4F7DAC14027A // FillOldBaseWarning
+ ME_542D70330042_ME_4F7DAC14027A // remUnreadConsultations
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4F7DAC14027A // InitControls
+ ME_4AE1948900DE_ME_4F7DAC14027A // EntitiesInited
+ ME_4F7C808A0349_ME_4F7DAC14027A // BecomeVisible
+ ME_537C9007038A_ME_4F7DAC14027A // BecomeInvisible
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F7DC6A801BA // RemindersZone
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_5368FF710274 // Reminders' Hints
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4F7DCBD0031A // resWarnImages
+ ME_4F7DD08C0056 // Windows
+ ME_4F7DD4F201DD // Controls
+ ME_4F7DD4F90133 // Forms
+ ME_4F7DD5C70137 // SysUtils
+ ME_4F7DD5DA028E // l3Base
+ ME_4F86B0970284 // DefDataAdapter
+ ME_4F86B0B401F2 // l3String
+ ME_4F8BEF6001CC // Ext Chars
+ ME_535E912903D8 // ControlledChangingWarning
+ ME_535E913A0168 // OldBaseWarning
+ ME_535E91480369 // TrialModeWarning
+ ME_535E916101A1 // remUnreadConsultations
+ ME_535E96410068 // remOnlineDead
+ ME_543802AC00C1 // vcmTabbedContainerFormDispatcher
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TMainWithRemindersForm'
+ UP extprop:pas:UnitName 'MainWithReminders_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainWithRemindersForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainWithReminders_Form.pas'
+
+ENDME // ME_4F7DAC14027A MainWithReminders

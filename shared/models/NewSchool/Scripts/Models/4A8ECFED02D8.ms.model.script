@@ -1,0 +1,153 @@
+// InternalOperations 4A8ECFED02D8 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8ECFED02D8
+
+FORWARD ME_4AF822A80071
+
+ME ME_4AF822B302C4
+ MEPROP UID '4AF822B302C4'
+ MEPROP Name 'OpenInt'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AF822A80071 // DateInterval
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AF822B302C4 OpenInt
+
+ME ME_4AF822A80071
+ MEPROP UID '4AF822A80071'
+ MEPROP Name 'DateInterval'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8ECFED02D8 // InternalOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AF822B302C4 // OpenInt
+ )
+ ; // Operations
+
+ENDME // ME_4AF822A80071 DateInterval
+
+FORWARD ME_4C87BBE70334
+
+ME ME_4C87BBFF0313
+ MEPROP UID '4C87BBFF0313'
+ MEPROP Name 'SelectCurrent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C87BBE70334 // NewsThemes
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C87BBFF0313 SelectCurrent
+
+ME ME_4C87BBE70334
+ MEPROP UID '4C87BBE70334'
+ MEPROP Name 'NewsThemes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8ECFED02D8 // InternalOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C87BBFF0313 // SelectCurrent
+ )
+ ; // Operations
+
+ENDME // ME_4C87BBE70334 NewsThemes
+
+FORWARD ME_4C87BC4C0388
+
+ME ME_4C87BC6502B9
+ MEPROP UID '4C87BC6502B9'
+ MEPROP Name 'Open'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C87BC4C0388 // DateInterval$UI
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C87BC6502B9 Open
+
+ME ME_4C87BC4C0388
+ MEPROP UID '4C87BC4C0388'
+ MEPROP Name 'DateInterval'
+ MEPROP OriginalName 'DateInterval$UI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8ECFED02D8 // InternalOperations
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C87BC6502B9 // Open
+ )
+ ; // Operations
+
+ENDME // ME_4C87BC4C0388 DateInterval$UI
+
+ME ME_4A8ECFED02D8
+ MEPROP UID '4A8ECFED02D8'
+ MEPROP Name 'InternalOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A92D5D30100' '4A92D5D30100.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AF822A80071 // DateInterval
+ HWL ME_4C87BBE70334 // NewsThemes
+ HWL ME_4C87BC4C0388 // DateInterval$UI
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'Autoreferat_InternalOperations_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Autoreferat_InternalOperations_Controls.pas'
+
+ENDME // ME_4A8ECFED02D8 InternalOperations

@@ -1,0 +1,190 @@
+// LoggingInterfaces 49913F2C020C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49913F2C020C
+
+FORWARD ME_4B0FA5B8011B
+
+ME ME_4B0FA5CB0254
+ MEPROP UID '4B0FA5CB0254'
+ MEPROP Name 'FireLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B0FA5B8011B // InsDefferedEvent
+ ;
+
+ENDME // ME_4B0FA5CB0254 FireLog
+
+ME ME_4B0FA5B8011B
+ MEPROP UID '4B0FA5B8011B'
+ MEPROP GUID 'DC0ACD6B-F180-4720-8CC0-500683B03458'
+ MEPROP Name 'InsDefferedEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49913F2C020C // LoggingInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B0FA5CB0254 // FireLog
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DefferedEvent'
+
+ENDME // ME_4B0FA5B8011B InsDefferedEvent
+
+FORWARD ME_499140AB00DE
+
+FORWARD ME_499140B20354
+
+ME ME_499140B60282
+ MEPROP Name 'anEvent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B0FA5B8011B // InsDefferedEvent
+ ;
+
+ENDME // ME_499140B60282 anEvent
+
+ME ME_499140B20354
+ MEPROP UID '499140B20354'
+ MEPROP Name 'SetEvent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499140AB00DE // InsEventHolder
+ ;
+ MELIST Parameters
+   Seq: ( ME_499140B60282 // anEvent
+ )
+ ; // Parameters
+
+ENDME // ME_499140B20354 SetEvent
+
+ME ME_499140AB00DE
+ MEPROP UID '499140AB00DE'
+ MEPROP GUID 'E97E1666-E2E3-4661-B773-40EC6B8F6940'
+ MEPROP Name 'InsEventHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49913F2C020C // LoggingInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_499140B20354 // SetEvent
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EventHolder'
+
+ENDME // ME_499140AB00DE InsEventHolder
+
+FORWARD ME_4B139E41024C
+
+FORWARD ME_4B139E6B00C1
+
+ME ME_4B139E7D0066
+ MEPROP Name 'aEvent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B0FA5B8011B // InsDefferedEvent
+ ;
+
+ENDME // ME_4B139E7D0066 aEvent
+
+ME ME_4B139E6B00C1
+ MEPROP UID '4B139E6B00C1'
+ MEPROP Name 'RegisterEvent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B139E41024C // InsCachedEventsProcessor
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B139E7D0066 // aEvent
+ )
+ ; // Parameters
+
+ENDME // ME_4B139E6B00C1 RegisterEvent
+
+ME ME_4B139E860009
+ MEPROP UID '4B139E860009'
+ MEPROP Name 'RequestWriteCache'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B139E41024C // InsCachedEventsProcessor
+ ;
+
+ENDME // ME_4B139E860009 RequestWriteCache
+
+ME ME_56D435B2018B
+ MEPROP UID '56D435B2018B'
+ MEPROP Name 'ForceWriteCache'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B139E41024C // InsCachedEventsProcessor
+ ;
+
+ENDME // ME_56D435B2018B ForceWriteCache
+
+ME ME_4B139E41024C
+ MEPROP UID '4B139E41024C'
+ MEPROP GUID 'A5A50743-4275-4C7F-AD87-945799C7EF03'
+ MEPROP Name 'InsCachedEventsProcessor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49913F2C020C // LoggingInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B139E6B00C1 // RegisterEvent
+ HWL ME_4B139E860009 // RequestWriteCache
+ HWL ME_56D435B2018B // ForceWriteCache
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CachedEventsProcessor'
+
+ENDME // ME_4B139E41024C InsCachedEventsProcessor
+
+ME ME_49913F2C020C
+ MEPROP UID '49913F2C020C'
+ MEPROP Name 'LoggingInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Регистрация событий системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B0FA5B8011B // InsDefferedEvent
+ HWL ME_499140AB00DE // InsEventHolder
+ HWL ME_4B139E41024C // InsCachedEventsProcessor
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45ED58CF03E6' '45ED58CF03E6.ms.model.script' // Logging
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ )
+ ; // Depends
+ UP "author" 'Морозов М.А.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '2007/07/17 13:26:42'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\LoggingInterfaces.pas'
+
+ENDME // ME_49913F2C020C LoggingInterfaces

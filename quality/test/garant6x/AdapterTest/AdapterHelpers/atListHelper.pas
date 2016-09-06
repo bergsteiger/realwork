@@ -66,6 +66,8 @@ uses
  , atStringHelper
  , StrUtils
  , IOUnit
+ //#UC START# *4A4CDD01023Fimpl_uses*
+ //#UC END# *4A4CDD01023Fimpl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}

@@ -1,0 +1,73 @@
+// TdsAACDocumentPrim 500E749D0046 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_500E749D0046
+
+FORWARD ME_500E74C30088
+
+ME ME_500E74CD0101
+ MEPROP UID '500E74CD0101'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_500E74C30088 // BlockViewKind
+ ;
+ MELINK Target WL 'ME_4FBE15CD02C7' '469D0AC7005E.ms.model.script' // BlockViewKind
+ ;
+
+ENDME // ME_500E74CD0101 DoIt
+
+ME ME_500E74C30088
+ MEPROP UID '500E74C30088'
+ MEPROP Name 'BlockViewKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_500E749D0046 // TdsAACDocumentPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_500E74CD0101 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_500E74C30088 BlockViewKind
+
+ME ME_49147B4602C0_ME_500E749D0046
+ MELINK Original WL 'ME_49147B4602C0' '47D0E1500033.ms.model.script' // GetIsNeedChangePosition
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49147B4602C0_ME_500E749D0046 GetIsNeedChangePosition
+
+ME ME_500E749D0046
+ MEPROP UID '500E749D0046'
+ MEPROP Name 'TdsAACDocumentPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FF2E66802B4' '4FF2E66802B4.ms.model.script' // AACImplementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_493D63D20049' '493D63D20049.ms.model.script' // TdsDocument
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_500E74C30088 // BlockViewKind
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_49147B4602C0_ME_500E749D0046 // GetIsNeedChangePosition
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'dsAACDocumentPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsAACDocumentPrim'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AAC\dsAACDocumentPrim.pas'
+
+ENDME // ME_500E749D0046 TdsAACDocumentPrim

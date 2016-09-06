@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *48A2A3F10001impl_uses*
+ //#UC END# *48A2A3F10001impl_uses*
 ;
 
 procedure TatAbortOperation.ExecuteSelf;

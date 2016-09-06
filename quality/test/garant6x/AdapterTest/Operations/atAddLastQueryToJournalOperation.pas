@@ -29,6 +29,8 @@ uses
  , atQueryTypeConverter
  , Contnrs
  , SysUtils
+ //#UC START# *500D895D02A3impl_uses*
+ //#UC END# *500D895D02A3impl_uses*
 ;
 
 procedure TatAddLastQueryToJournalOperation.ExecuteSelf;

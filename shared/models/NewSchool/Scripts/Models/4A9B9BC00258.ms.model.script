@@ -1,0 +1,73 @@
+// TvtFocusLabel 4A9B9BC00258 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9B9BC00258
+
+ME ME_4B61371503B9
+ MEPROP UID '4B61371503B9'
+ MEPROP Name 'NeedUnderLine'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9B9BC00258 // TvtFocusLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B61371503B9 NeedUnderLine
+
+ME ME_4C03EAA20362
+ MEPROP UID '4C03EAA20362'
+ MEPROP Name 'AllowClickByKeyBoard'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9B9BC00258 // TvtFocusLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C03EAA20362 AllowClickByKeyBoard
+
+ME ME_4C03EAB40015
+ MEPROP UID '4C03EAB40015'
+ MEPROP Name 'AllowTranslateReturn'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9B9BC00258 // TvtFocusLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C03EAB40015 AllowTranslateReturn
+
+ME ME_4A9B9BC00258
+ MEPROP UID '4A9B9BC00258'
+ MEPROP Name 'TvtFocusLabel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.ms.model.script' // Labels
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48BBF1470238' '48BBF1470238.ms.model.script' // TafwTextControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B61371503B9 // NeedUnderLine
+ HWL ME_4C03EAA20362 // AllowClickByKeyBoard
+ HWL ME_4C03EAB40015 // AllowTranslateReturn
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:pas:UnitName 'vtFocusLabel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FocusLabel'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtFocusLabel.pas'
+
+ENDME // ME_4A9B9BC00258 TvtFocusLabel

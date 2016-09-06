@@ -1,0 +1,218 @@
+// SettingsUtils 4F7D8B3A03A0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F7D8B3A03A0
+
+FORWARD ME_4AD5BB450335
+
+FORWARD ME_4E32B50601F3
+
+ME ME_4E32B5130231
+ MEPROP UID '4E32B5130231'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ ;
+
+ENDME // ME_4E32B5130231 DoIt
+
+ME ME_4E32B50601F3
+ MEPROP UID '4E32B50601F3'
+ MEPROP Name 'InitialLoadStyleTableFromSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E32B5130231 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E32B50601F3 InitialLoadStyleTableFromSettings
+
+ME ME_4AD5BB7002A2
+ MEPROP UID '4AD5BB7002A2'
+ MEPROP Name 'LoadStyleTableFromSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+
+ENDME // ME_4AD5BB7002A2 LoadStyleTableFromSettings
+
+ME ME_4AD5BB7F00E5
+ MEPROP UID '4AD5BB7F00E5'
+ MEPROP Name 'SaveStyleTableToSettings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+
+ENDME // ME_4AD5BB7F00E5 SaveStyleTableToSettings
+
+ME ME_4AD5BC670387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELINK Target WL 'ME_4991656C024F' '499164F501ED.ms.model.script' // InsEditSettingsInfo
+ ;
+
+ENDME // ME_4AD5BC670387 
+
+FORWARD ME_4ABA139D014D
+
+ME ME_4AD5BECA02D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELINK Target HWL ME_4ABA139D014D // TnsStyleTableSettingsInfo
+ ;
+
+ENDME // ME_4AD5BECA02D1 
+
+ME ME_4E32B4A20220
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD5BB450335 // nsSettingsUtils
+ ;
+ MELINK Target WL 'ME_4E31743D01F8' '47ECB2870309.ms.model.script' // TevDefaultStylesFontSizes
+ ;
+
+ENDME // ME_4E32B4A20220 
+
+ME ME_4AD5BB450335
+ MEPROP UID '4AD5BB450335'
+ MEPROP Name 'nsSettingsUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7D8B3A03A0 // SettingsUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E32B50601F3 // InitialLoadStyleTableFromSettings
+ HWL ME_4AD5BB7002A2 // LoadStyleTableFromSettings
+ HWL ME_4AD5BB7F00E5 // SaveStyleTableToSettings
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AD5BC670387 // InsEditSettingsInfo
+ ME_4AD5BECA02D1 // TnsStyleTableSettingsInfo
+ ME_4E32B4A20220 // TevDefaultStylesFontSizes
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'SettingsUtils'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsSettingsUtils.pas'
+
+ENDME // ME_4AD5BB450335 nsSettingsUtils
+
+FORWARD ME_4ABA13880316
+
+ME ME_4ABA139D014D
+ MEPROP UID '4ABA139D014D'
+ MEPROP Name 'TnsStyleTableSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABA13880316 // nsStyleEditor
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StyleTableSettingsInfo'
+
+ENDME // ME_4ABA139D014D TnsStyleTableSettingsInfo
+
+ME ME_4ABA13880316
+ MEPROP UID '4ABA13880316'
+ MEPROP Name 'nsStyleEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7D8B3A03A0 // SettingsUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ABA139D014D // TnsStyleTableSettingsInfo
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:rc:SelfName 'StyleEditor'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsStyleEditor.pas'
+
+ENDME // ME_4ABA13880316 nsStyleEditor
+
+FORWARD ME_4F8BF9B20239
+
+ME ME_5231862D00E6
+ MEPROP UID '5231862D00E6'
+ MEPROP Name 'TnsEditSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8BF9B20239 // nsConfiguration
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditSettingsInfo'
+
+ENDME // ME_5231862D00E6 TnsEditSettingsInfo
+
+ME ME_4F8BF9B20239
+ MEPROP UID '4F8BF9B20239'
+ MEPROP Name 'nsConfiguration'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7D8B3A03A0 // SettingsUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5231862D00E6 // TnsEditSettingsInfo
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:rc:SelfName 'Configuration'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsConfiguration.pas'
+
+ENDME // ME_4F8BF9B20239 nsConfiguration
+
+ME ME_4F7D8B3A03A0
+ MEPROP UID '4F7D8B3A03A0'
+ MEPROP Name 'SettingsUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F7D7B980383' '4F7D7B980383.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD5BB450335 // nsSettingsUtils
+ HWL ME_4ABA13880316 // nsStyleEditor
+ HWL ME_4F8BF9B20239 // nsConfiguration
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ WL 'ME_499164F501ED' '499164F501ED.ms.model.script' // ConfigInterfaces
+ )
+ ; // Depends
+
+ENDME // ME_4F7D8B3A03A0 SettingsUtils

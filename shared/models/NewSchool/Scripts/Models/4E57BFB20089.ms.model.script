@@ -1,0 +1,61 @@
+// Работа с текстом документа 4E57BFB20089 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E57BFB20089
+
+FORWARD ME_4E6A1CBB03D4
+
+ME ME_4E57BFF3006E
+ MEPROP UID '4E57BFF3006E'
+ MEPROP Name 'Межстрочный интервал должен быть равен 1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278833302}'#13#10'{RequestLink:352454487}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E6A1CBB03D4 // Отображение документа в F1
+ ;
+
+ENDME // ME_4E57BFF3006E Межстрочный интервал должен быть равен 1
+
+ME ME_4E6A1CBB03D4
+ MEPROP UID '4E6A1CBB03D4'
+ MEPROP Name 'Отображение документа в F1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E57BFB20089 // Работа с текстом документа
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E57BFF3006E // Межстрочный интервал должен быть равен 1
+ )
+ ; // Children
+
+ENDME // ME_4E6A1CBB03D4 Отображение документа в F1
+
+ME ME_4E57BFB20089
+ MEPROP UID '4E57BFB20089'
+ MEPROP Name 'Работа с текстом документа'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E57BF810311' '4E57BF810311.ms.model.script' // Требования к системным библиотекам для F1
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E6A1CBB03D4 // Отображение документа в F1
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4E5BBABD028A' '4E5BBABD028A.ms.model.script' // Базовые механизмы отображения объектов
+ WL 'ME_4E5CF70B01E2' '4E5CF70B01E2.ms.model.script' // Требования к редактору Эверест
+ WL 'ME_4E6A1F2D0336' '4E6A1F2D0336.ms.model.script' // Требования к схеме документа в F1
+ )
+ ; // Depends
+
+ENDME // ME_4E57BFB20089 Работа с текстом документа

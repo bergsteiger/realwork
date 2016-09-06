@@ -1,0 +1,86 @@
+// Start_i 45702A7F01F4 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45702A7F01F4
+
+FORWARD ME_46F23A16030D
+
+ME ME_46F23C180157
+ MEPROP UID '46F23C180157'
+ MEPROP Name 'AUTO_SHOW_HELP_OPTION'
+ MEPROP Class class_Attribute
+ %SUMMARY 'показывать ли информацию об обновлениях при старте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_46F23A16030D // INI_OPTION_NAMES
+ ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ MEPROP Value '-AutoShowHelp'
+ MELINK ValueType WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '-AutoShowHelp'
+
+ENDME // ME_46F23C180157 AUTO_SHOW_HELP_OPTION
+
+ME ME_46F23A16030D
+ MEPROP UID '46F23A16030D'
+ MEPROP Name 'INI_OPTION_NAMES'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'названия опций из инишника' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45702A7F01F4 // Start_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_46F23C180157 // AUTO_SHOW_HELP_OPTION
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_46F23A16030D INI_OPTION_NAMES
+
+ME ME_45702A7F01F4
+ MEPROP UID '45702A7F01F4'
+ MEPROP Name 'Start_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ MEPROP Visibility 3
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_46F23A16030D // INI_OPTION_NAMES
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_456FF1DD031C' '456FF1DD031C.ms.model.script' // Start
+ WL 'ME_457050830399' '457050830399.ms.model.script' // Folders_i
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_45EEA4490239' '45EEA4490239.ms.model.script' // DynamicTree_i
+ WL 'ME_45EEA85502B4' '45EEA85502B4.ms.model.script' // Notify
+ WL 'ME_45F12104037C' '45F12104037C.ms.model.script' // PrefixTree_i
+ WL 'ME_45F66C67007D' '45F66C67007D.ms.model.script' // SearchDefines
+ WL 'ME_460B8FB00186' '460B8FB00186.ms.model.script' // Convertors
+ WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ WL 'ME_4628939B0216' '4628939B0216.ms.model.script' // DocumentHelper
+ WL 'ME_4A40991F003F' '4A40991F003F.ms.model.script' // ChatInterfaces
+ WL 'ME_4ACC6D940387' '4ACC6D940387.ms.model.script' // Banner
+ WL 'ME_4DD24BD40021' '4DD24BD40021.ms.model.script' // MainMenu
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Start_i'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Start_i\Start_i.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Start_i'
+
+ENDME // ME_45702A7F01F4 Start_i

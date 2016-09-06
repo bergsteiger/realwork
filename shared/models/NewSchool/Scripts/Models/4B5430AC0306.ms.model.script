@@ -1,0 +1,110 @@
+// SelfInfo 4B5430AC0306 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_2064DE968804
+
+FORWARD ME_4B5430AC0306
+
+ME ME_2A1D3736B42C
+ MEPROP UID '2A1D3736B42C'
+ MEPROP Name 'ut_SelfInfo'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Регистрационные данные' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430AC0306 // SelfInfo
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'SelfInfo_ut_SelfInfo_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfo_ut_SelfInfo_UserType.pas'
+
+ENDME // ME_2A1D3736B42C ut_SelfInfo
+
+ME ME_2064DE968804
+ MEPROP UID '2064DE968804'
+ MEPROP GUID '58609172-F191-4A45-BABF-5983A3CBE791'
+ MEPROP Name 'SelfInfo'
+ MEPROP OriginalName 'SelfInfo$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы SelfInfo' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B5430AC0306 // SelfInfo
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4B5430AC0306 // SelfInfo
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'SelfInfoFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_2064DE968804 SelfInfo$Def
+
+ME ME_8ED360669695
+ MEPROP UID '8ED360669695'
+ MEPROP Name 'Ini_FormFactory_SelfInfo'
+ MEPROP OriginalName 'Ini_FormFactory_SelfInfo$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы SelfInfo' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430AC0306 // SelfInfo
+ ;
+ UPLINK SpelledFor HWL ME_4B5430AC0306 // SelfInfo
+ ;
+
+ENDME // ME_8ED360669695 Ini_FormFactory_SelfInfo$Def
+
+ME ME_4B5430AC0306
+ MEPROP UID '4B5430AC0306'
+ MEPROP Name 'SelfInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Регистрационные данные' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA79F72010A' '4AA79F72010A.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B5430390380' '4B5430390380.ms.model.script' // PrimSelfInfo
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_2064DE968804 // SelfInfo$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_8ED360669695 // Ini_FormFactory_SelfInfo$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_2A1D3736B42C // ut_SelfInfo
+ HWL ME_2064DE968804 // SelfInfo$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Modal'
+ UP extprop:pas:TypeName 'TSelfInfoForm'
+ UP extprop:pas:UnitName 'SelfInfo_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SelfInfoForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\SelfInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+
+ENDME // ME_4B5430AC0306 SelfInfo

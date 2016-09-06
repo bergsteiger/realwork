@@ -1,0 +1,73 @@
+// TdsMedicDictionDocument 491D8571015D ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D8571015D
+
+ME ME_4D358DF30102
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D8571015D // TdsMedicDictionDocument
+ ;
+ MELINK Target WL 'ME_4CE662B803DA' '4D358BD90052.ms.model.script' // TnsDictionDocumentContainer
+ ;
+
+ENDME // ME_4D358DF30102 
+
+ME ME_4D3598CC00F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D8571015D // TdsMedicDictionDocument
+ ;
+ MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ ;
+
+ENDME // ME_4D3598CC00F1 
+
+ME ME_491C264C02C2_ME_491D8571015D
+ MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C264C02C2_ME_491D8571015D GetTimeMachineOff
+
+ME ME_4C6AB38800F3_ME_491D8571015D
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_491D8571015D MakeContainer
+
+ME ME_491D8571015D
+ MEPROP UID '491D8571015D'
+ MEPROP Name 'TdsMedicDictionDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'для словаря медицинских терминов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.ms.model.script' // dsBaseDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_491C264C02C2_ME_491D8571015D // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491D8571015D // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D358DF30102 // TnsDictionDocumentContainer
+ ME_4D3598CC00F1 // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/03/06 10:02:57'
+ UP extprop:pas:UnitName 'dsMedicDictionDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsMedicDictionDocument'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicDictionDocument.pas'
+
+ENDME // ME_491D8571015D TdsMedicDictionDocument

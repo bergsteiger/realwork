@@ -1,0 +1,379 @@
+// CustomStyle 53AC08AA02C7 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53AC08AA02C7
+
+FORWARD ME_53AC08C900D0
+
+FORWARD ME_53AD54E80320
+
+ME ME_53AD54FC03C2
+ MEPROP UID '53AD54FC03C2'
+ MEPROP Name 'aSeg'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53AD54E80320 // LinkViewKind
+ ;
+ MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53AD54FC03C2 aSeg
+
+ME ME_53AD54E80320
+ MEPROP UID '53AD54E80320'
+ MEPROP Name 'LinkViewKind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_47C7F2A703C6' '469D0AC7005E.ms.model.script' // LinkViewKind
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53AD54FC03C2 // aSeg
+ )
+ ; // Attributes
+ UP "pm" True
+
+ENDME // ME_53AD54E80320 LinkViewKind
+
+FORWARD ME_53AC3FF3021A
+
+FORWARD ME_53AC40140208
+
+ME ME_53AC5851036A
+ MEPROP Name 'aSeg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53AC5851036A aSeg
+
+ME ME_53AC5B8702A3
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_53AC5B8702A3 aPara
+
+ME ME_53AC40140208
+ MEPROP UID '53AC40140208'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC3FF3021A // ReadLinkInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_53AC5851036A // aSeg
+ ME_53AC5B8702A3 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_53AC40140208 DoIt
+
+ME ME_53AC3FF3021A
+ MEPROP UID '53AC3FF3021A'
+ MEPROP Name 'ReadLinkInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53AC40140208 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53AC3FF3021A ReadLinkInfo
+
+FORWARD ME_5542334A00E6
+
+FORWARD ME_5542336C020D
+
+ME ME_554233740088
+ MEPROP Name 'aSeg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_554233740088 aSeg
+
+ME ME_5542336C020D
+ MEPROP UID '5542336C020D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5542334A00E6 // GetLinkAddress
+ ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+ MELIST Parameters
+   Seq: ( ME_554233740088 // aSeg
+ )
+ ; // Parameters
+
+ENDME // ME_5542336C020D DoIt
+
+ME ME_5542334A00E6
+ MEPROP UID '5542334A00E6'
+ MEPROP Name 'GetLinkAddress'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5542336C020D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5542334A00E6 GetLinkAddress
+
+ME ME_53AC09D30037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_53ABD7AF0090' '484A470100DD.ms.model.script' // AbolishedDocumentLink
+ ;
+
+ENDME // ME_53AC09D30037 
+
+ME ME_53AC0A630282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_53AC0A630282 
+
+ME ME_53AC58F90329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_53AC58F90329 
+
+ME ME_53AC592800F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_47AC7BD90281' '47AC7B760263.ms.model.script' // Tag Consts
+ ;
+
+ENDME // ME_53AC592800F1 
+
+ME ME_53AC597201AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_484AB2B9034D' '469D0AC7005E.ms.model.script' // Address Defaults
+ ;
+
+ENDME // ME_53AC597201AE 
+
+ME ME_53AC59A20237
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_53AC59A20237 
+
+ME ME_53AC5A3D021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_53AC5A3D021C 
+
+ME ME_53AC5A6C03CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_53AC5A6C03CA 
+
+ME ME_53AC5A83029E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ ;
+
+ENDME // ME_53AC5A83029E 
+
+ME ME_53AC5ABA0039
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_53AC5ABA0039 
+
+ME ME_53AC5AFD0160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_456EA5EF01A5' '456EA56002BF.ms.model.script' // ObjectId
+ ;
+
+ENDME // ME_53AC5AFD0160 
+
+ME ME_53AC5B360152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+
+ENDME // ME_53AC5B360152 
+
+ME ME_53AD481402E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_53AD481402E6 
+
+ME ME_5540D4BF01D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_53D2281F0048' '53D227F702DF.ms.model.script' // TnscDocumentHistory
+ ;
+
+ENDME // ME_5540D4BF01D0 
+
+ME ME_5549E2B403AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ ;
+ MELINK Target WL 'ME_53AABE1F0383' '53AABD9F02D1.ms.model.script' // TevCustomStyleManager
+ ;
+
+ENDME // ME_5549E2B403AD 
+
+ME ME_53AC08C900D0
+ MEPROP UID '53AC08C900D0'
+ MEPROP Name 'TnsCustomStyleProcessor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC08AA02C7 // CustomStyle
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53AD54E80320 // LinkViewKind
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53AC3FF3021A // ReadLinkInfo
+ HWL ME_5542334A00E6 // GetLinkAddress
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53AC09D30037 // AbolishedDocumentLink
+ ME_53AC0A630282 // Tk2TagID
+ ME_53AC58F90329 // TevAddress
+ ME_53AC592800F1 // Tag Consts
+ ME_53AC597201AE // Address Defaults
+ ME_53AC59A20237 // InevPara
+ ME_53AC5A3D021C // Document
+ ME_53AC5A6C03CA // SysUtils
+ ME_53AC5A83029E // evParaTools
+ ME_53AC5ABA0039 // Document
+ ME_53AC5AFD0160 // ObjectId
+ ME_53AC5B360152 // HyperLink
+ ME_53AD481402E6 // InevPara
+ ME_5540D4BF01D0 // TnscDocumentHistory
+ ME_5549E2B403AD // TevCustomStyleManager
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:pas:UnitName 'nsCustomStyleProcessor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StyleProcessor'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCustomStyleProcessor.pas'
+
+ENDME // ME_53AC08C900D0 TnsCustomStyleProcessor
+
+ME ME_53AC08AA02C7
+ MEPROP UID '53AC08AA02C7'
+ MEPROP Name 'CustomStyle'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CEBA36A00AA' '4CEBA36A00AA.ms.model.script' // f1DocumentTagsImplementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53AC08C900D0 // TnsCustomStyleProcessor
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47AC7B760263' '47AC7B760263.ms.model.script' // k2Const
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_4A23935A0282' '4A23935A0282.ms.model.script' // afwNavigation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_53AABD9F02D1' '53AABD9F02D1.ms.model.script' // CustomStyleManager
+ WL 'ME_53D227F702DF' '53D227F702DF.ms.model.script' // DocumentHistory
+ )
+ ; // Depends
+
+ENDME // ME_53AC08AA02C7 CustomStyle

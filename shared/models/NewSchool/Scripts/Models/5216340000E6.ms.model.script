@@ -1,0 +1,33 @@
+// Document$UC 5216340000E6 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_5216340000E6
+ MEPROP UID '5216340000E6'
+ MEPROP Name 'Document'
+ MEPROP OriginalName 'Document$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_521633EF023C' '521633EF023C.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5216345D004A' '5216345D004A.ms.model.script' // Document
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
+ )
+ ; // Implements
+ UP extprop:pas:TypeName 'Tmo_Document'
+ UP extprop:pas:UnitName 'moDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_Document'
+ UP intf.pas:Path 'common\components\SandBox\VCM\View\moDocument.pas'
+ UP intf.pas:PathOnly '\common\components\SandBox\VCM\View'
+
+ENDME // ME_5216340000E6 Document$UC

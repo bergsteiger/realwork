@@ -29,6 +29,8 @@ implementation
 {$If NOT Defined(NoVGScene)}
 uses
  l3ImplUses
+ //#UC START# *4CFE2C72021Cimpl_uses*
+ //#UC END# *4CFE2C72021Cimpl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVGScene)
 

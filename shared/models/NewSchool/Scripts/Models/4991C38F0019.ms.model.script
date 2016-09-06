@@ -1,0 +1,424 @@
+// DataAdapterInterfaces 4991C38F0019 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4991C38F0019
+
+FORWARD ME_4991C3C10331
+
+ME ME_4991C3CD0077
+ MEPROP UID '4991C3CD0077'
+ MEPROP Name 'Updated'
+ MEPROP Class class_Operation
+ %SUMMARY 'данные адаптера были обновлен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C3C10331 // InsDataAdapterListener
+ ;
+
+ENDME // ME_4991C3CD0077 Updated
+
+ME ME_4991C3C10331
+ MEPROP UID '4991C3C10331'
+ MEPROP GUID 'FF1A9777-1D65-4D93-84E5-48F29F5B1F83'
+ MEPROP Name 'InsDataAdapterListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий данных адаптера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4991C38F0019 // DataAdapterInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680CF330338' '4677FBA70343.ms.model.script' // Il3Notify
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4991C3CD0077 // Updated
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataAdapterListener'
+
+ENDME // ME_4991C3C10331 InsDataAdapterListener
+
+FORWARD ME_4991C4280185
+
+ME ME_4991C42D02FF
+ MEPROP UID '4991C42D02FF'
+ MEPROP Name 'tmwNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4991C4280185 // TTMWarningType
+ ;
+
+ENDME // ME_4991C42D02FF tmwNone
+
+ME ME_4991C4320119
+ MEPROP UID '4991C4320119'
+ MEPROP Name 'tmwError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4991C4280185 // TTMWarningType
+ ;
+
+ENDME // ME_4991C4320119 tmwError
+
+ME ME_4991C4360236
+ MEPROP UID '4991C4360236'
+ MEPROP Name 'tmwWarning'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4991C4280185 // TTMWarningType
+ ;
+
+ENDME // ME_4991C4360236 tmwWarning
+
+ME ME_4991C4280185
+ MEPROP UID '4991C4280185'
+ MEPROP Name 'TTMWarningType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4991C38F0019 // DataAdapterInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4991C42D02FF // tmwNone
+ HWL ME_4991C4320119 // tmwError
+ HWL ME_4991C4360236 // tmwWarning
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4991C4280185 TTMWarningType
+
+FORWARD ME_4991C3E402FD
+
+ME ME_4991C54201B3
+ MEPROP UID '4991C54201B3'
+ MEPROP Name 'IsOn'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_4991C54201B3 IsOn
+
+ME ME_4991C50D010B
+ MEPROP UID '4991C50D010B'
+ MEPROP Name 'Date'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_456EA6F00109' '456EA56002BF.ms.model.script' // Date
+ ;
+ UP "pm" True
+
+ENDME // ME_4991C50D010B Date
+
+ME ME_4991C52C03DD
+ MEPROP UID '4991C52C03DD'
+ MEPROP Name 'DateStr'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" True
+
+ENDME // ME_4991C52C03DD DateStr
+
+ME ME_4991C56403B0
+ MEPROP UID '4991C56403B0'
+ MEPROP Name 'NotSureHelp'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ UP "pm" True
+
+ENDME // ME_4991C56403B0 NotSureHelp
+
+FORWARD ME_4991C3EE032D
+
+ME ME_4991C3F40251
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4991C3F40251 aDocument
+
+ME ME_4991C3EE032D
+ MEPROP UID '4991C3EE032D'
+ MEPROP Name 'HasTimeMachineWarning'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991C3F40251 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4991C3EE032D HasTimeMachineWarning
+
+FORWARD ME_4991C4510277
+
+ME ME_4991C45B02AF
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4991C45B02AF aDocument
+
+ME ME_4991C45B02CE
+ MEPROP Name 'aWarning'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4991C45B02CE aWarning
+
+ME ME_4991C4510277
+ MEPROP UID '4991C4510277'
+ MEPROP Name 'GetTimeMachineWarning'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target HWL ME_4991C4280185 // TTMWarningType
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991C45B02AF // aDocument
+ ME_4991C45B02CE // aWarning
+ )
+ ; // Parameters
+
+ENDME // ME_4991C4510277 GetTimeMachineWarning
+
+FORWARD ME_4991C47200DD
+
+ME ME_4991C47702A0
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4991C47702A0 aDocument
+
+ME ME_4991C47200DD
+ MEPROP UID '4991C47200DD'
+ MEPROP Name 'HasNotSureWarning'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991C47702A0 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4991C47200DD HasNotSureWarning
+
+FORWARD ME_4991C47C03DF
+
+ME ME_4991C48A0167
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4991C48A0167 aDocument
+
+ME ME_4991C48A018A
+ MEPROP Name 'aComment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4991C48A018A aComment
+
+ME ME_4991C47C03DF
+ MEPROP UID '4991C47C03DF'
+ MEPROP Name 'GetNotSureWarning'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991C48A0167 // aDocument
+ ME_4991C48A018A // aComment
+ )
+ ; // Parameters
+
+ENDME // ME_4991C47C03DF GetNotSureWarning
+
+FORWARD ME_4991C4CE0320
+
+ME ME_4991C4D50328
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4991C4D50328 aDocument
+
+ME ME_4991C4CE0320
+ MEPROP UID '4991C4CE0320'
+ MEPROP Name 'CorrectDocumentEdition'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991C4D50328 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4991C4CE0320 CorrectDocumentEdition
+
+FORWARD ME_4991C4E201AB
+
+ME ME_4991C4E50063
+ MEPROP Name 'StayInCurrentRedaction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4991C4E50063 StayInCurrentRedaction
+
+ME ME_4991C4E201AB
+ MEPROP UID '4991C4E201AB'
+ MEPROP Name 'SwitchOff'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4991C3E402FD // InsTimeMachine
+ ;
+ MELIST Parameters
+   Seq: ( ME_4991C4E50063 // StayInCurrentRedaction
+ )
+ ; // Parameters
+
+ENDME // ME_4991C4E201AB SwitchOff
+
+ME ME_4991C3E402FD
+ MEPROP UID '4991C3E402FD'
+ MEPROP GUID '02F64798-095B-406B-B75D-A4D4C9FE7C7E'
+ MEPROP Name 'InsTimeMachine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4991C38F0019 // DataAdapterInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4991C54201B3 // IsOn
+ HWL ME_4991C50D010B // Date
+ HWL ME_4991C52C03DD // DateStr
+ HWL ME_4991C56403B0 // NotSureHelp
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4991C3EE032D // HasTimeMachineWarning
+ HWL ME_4991C4510277 // GetTimeMachineWarning
+ HWL ME_4991C47200DD // HasNotSureWarning
+ HWL ME_4991C47C03DF // GetNotSureWarning
+ HWL ME_4991C4CE0320 // CorrectDocumentEdition
+ HWL ME_4991C4E201AB // SwitchOff
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TimeMachine'
+
+ENDME // ME_4991C3E402FD InsTimeMachine
+
+ME ME_4991C38F0019
+ MEPROP UID '4991C38F0019'
+ MEPROP Name 'DataAdapterInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Работа с адаптером' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4991C3C10331 // InsDataAdapterListener
+ HWL ME_4991C4280185 // TTMWarningType
+ HWL ME_4991C3E402FD // InsTimeMachine
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'Admin,Monitorings'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '10.02.2009 21:13'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\DataAdapterInterfaces.pas'
+
+ENDME // ME_4991C38F0019 DataAdapterInterfaces

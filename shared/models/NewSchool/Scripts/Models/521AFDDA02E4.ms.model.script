@@ -1,0 +1,66 @@
+// ddConst 521AFDDA02E4 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_521AFDDA02E4
+
+FORWARD ME_521AFDE50046
+
+ME ME_521AFE0403B5
+ MEPROP UID '521AFE0403B5'
+ MEPROP Name 'pictNONE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_521AFDE50046 // PictureFormat
+ ;
+ MEPROP Value 'ioUnknown'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'ioUnknown'
+
+ENDME // ME_521AFE0403B5 pictNONE
+
+ME ME_521AFDE50046
+ MEPROP UID '521AFDE50046'
+ MEPROP Name 'PictureFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_521AFDDA02E4 // ddConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_521AFE0403B5 // pictNONE
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_521AFDE50046 PictureFormat
+
+ME ME_521AFDDA02E4
+ MEPROP UID '521AFDDA02E4'
+ MEPROP Name 'ddConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_521AFDE50046 // PictureFormat
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "finished" False
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddConst.pas'
+
+ENDME // ME_521AFDDA02E4 ddConst

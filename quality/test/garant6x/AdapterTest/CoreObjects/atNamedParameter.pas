@@ -36,6 +36,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *480890870368impl_uses*
+ //#UC END# *480890870368impl_uses*
 ;
 
 constructor TatNamedParameter.Create(const name: AnsiString;

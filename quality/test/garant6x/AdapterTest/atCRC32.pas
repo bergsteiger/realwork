@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4A4B91810237impl_uses*
+ //#UC END# *4A4B91810237impl_uses*
 ;
 
 var CRC32Table: array of Longword;

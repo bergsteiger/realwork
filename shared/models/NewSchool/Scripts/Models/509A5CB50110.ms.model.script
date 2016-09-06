@@ -1,0 +1,200 @@
+// SupportWords 509A5CB50110 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_509A5CB50110
+
+ME ME_509A5CCB022A
+ MEPROP UID '509A5CCB022A'
+ MEPROP Name 'LoadFromFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Загружает файл в форму дочернего класса TPrimTextLoadForm. '#13#10'*Формат:* имя_файла LoadFromFile'#13#10'*Примечание:* Создан специально для тестов DailyTests в результате переделок form:Needs. Имя файла можно подавать без пути - будет автоматически добавлен путь к данным для тестов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_509A5CB50110 // SupportWords
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_509B4CC20221' '4E2955E50377.ms.model.script' // LoadUnits
+ )
+ ; // Implements
+ UP extprop:pas:TypeName 'TkwLoadFromFile'
+ UP extprop:pas:UnitName 'kwLoadFromFile'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LoadFromFile'
+ UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwLoadFromFile.pas'
+
+ENDME // ME_509A5CCB022A LoadFromFile
+
+FORWARD ME_509A5D0D0141
+
+ME ME_509A5D18026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
+ ;
+ MELINK Target HWL ME_509A5CCB022A // LoadFromFile
+ ;
+
+ENDME // ME_509A5D18026B 
+
+FORWARD ME_509B8C5A0200
+
+ME ME_509B8C6B00EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
+ ;
+ MELINK Target HWL ME_509B8C5A0200 // SetFontSize
+ ;
+
+ENDME // ME_509B8C6B00EE 
+
+FORWARD ME_509B9A8A0270
+
+ME ME_509B9A9F02E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
+ ;
+ MELINK Target HWL ME_509B9A8A0270 // GetFontSize
+ ;
+
+ENDME // ME_509B9A9F02E3 
+
+ME ME_509A5D0D0141
+ MEPROP UID '509A5D0D0141'
+ MEPROP Name 'SupportKeyWords'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_509A5CB50110 // SupportWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509A5D18026B // LoadFromFile
+ ME_509B8C6B00EE // SetFontSize
+ ME_509B9A9F02E3 // GetFontSize
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\SupportKeyWords.pas'
+
+ENDME // ME_509A5D0D0141 SupportKeyWords
+
+ME ME_509B92AC027B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B8C5A0200 // SetFontSize
+ ;
+ MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ ;
+
+ENDME // ME_509B92AC027B 
+
+ME ME_509B9AEC03D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B8C5A0200 // SetFontSize
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_509B9AEC03D3 
+
+ME ME_509B8C5A0200
+ MEPROP UID '509B8C5A0200'
+ MEPROP Name 'SetFontSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Устанавливает размер шрифта для стиля "Нормальный".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_509A5CB50110 // SupportWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509B92AC027B // TevStyleInterface
+ ME_509B9AEC03D3 // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwSetFontSize'
+ UP extprop:pas:UnitName 'kwSetFontSize'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SetFontSize'
+ UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas'
+
+ENDME // ME_509B8C5A0200 SetFontSize
+
+ME ME_509B9AC5027F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B9A8A0270 // GetFontSize
+ ;
+ MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ ;
+
+ENDME // ME_509B9AC5027F 
+
+ME ME_509B9AE3017C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B9A8A0270 // GetFontSize
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_509B9AE3017C 
+
+ME ME_509B9A8A0270
+ MEPROP UID '509B9A8A0270'
+ MEPROP Name 'GetFontSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает установленный размер шрифта для стиля "Нормальный".' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_509A5CB50110 // SupportWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509B9AC5027F // TevStyleInterface
+ ME_509B9AE3017C // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwGetFontSize'
+ UP extprop:pas:UnitName 'kwGetFontSize'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GetFontSize'
+ UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwGetFontSize.pas'
+
+ENDME // ME_509B9A8A0270 GetFontSize
+
+ME ME_509A5CB50110
+ MEPROP UID '509A5CB50110'
+ MEPROP Name 'SupportWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_509A5C8903C7' '509A5C8903C7.ms.model.script' // Keywords4Daily
+ ;
+ MELIST Children
+   Seq: ( HWL ME_509A5CCB022A // LoadFromFile
+ HWL ME_509A5D0D0141 // SupportKeyWords
+ HWL ME_509B8C5A0200 // SetFontSize
+ HWL ME_509B9A8A0270 // GetFontSize
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4E2955E50377' '4E2955E50377.ms.model.script' // AutoTestSupport
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_509A5CB50110 SupportWords

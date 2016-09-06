@@ -1,0 +1,453 @@
+// PrimListAnalizer 4AA0CE2B0073 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0CE2B0073
+
+ME ME_4BD71C5800C2
+ MEPROP UID '4BD71C5800C2'
+ MEPROP Name 'listAnalize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ UP "CanClose" False
+ UP "ImageIndex" '-1'
+ UP "Weight" 0
+ UP extprop:pas:UnitName 'PrimListAnalizer_listAnalize_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_listAnalize_UserType.pas'
+
+ENDME // ME_4BD71C5800C2 listAnalize
+
+FORWARD ME_51C062B8030D
+
+ME ME_4AA0D02303C3
+ MEPROP UID '4AA0D02303C3'
+ MEPROP Name 'ListTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51C062B8030D // BackgroundPanel
+ ;
+ UP "ControlClass" 'TeeTreeView'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4AA0D02303C3 ListTree
+
+ME ME_51C062B8030D
+ MEPROP UID '51C062B8030D'
+ MEPROP Name 'BackgroundPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AA0D02303C3 // ListTree
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_51C062B8030D BackgroundPanel
+
+ME ME_51C06313011B
+ MEPROP UID '51C06313011B'
+ MEPROP Name 'ListTreeActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_51C06313011B ListTreeActionElement
+
+ME ME_51C063260008
+ MEPROP UID '51C063260008'
+ MEPROP Name 'ListTreeCanBeginDrag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51BB14E6006F' '4B97E8130272.ms.model.script' // Tl3CanBeginDrag
+ )
+ ; // Inherits
+
+ENDME // ME_51C063260008 ListTreeCanBeginDrag
+
+ME ME_51C0635E00EF
+ MEPROP UID '51C0635E00EF'
+ MEPROP Name 'ListTreeGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_51C0635E00EF ListTreeGetItemImage
+
+FORWARD ME_4AA0CE5D036E
+
+ME ME_4AA0CE7102C1
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4AA0CE7102C1 aNode
+
+ME ME_4AA0CE5D036E
+ MEPROP UID '4AA0CE5D036E'
+ MEPROP Name 'CanOpen'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA0CE7102C1 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4AA0CE5D036E CanOpen
+
+FORWARD ME_4AA0CE940142
+
+ME ME_4AA1091A0005
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4AA1091A0005 aNode
+
+ME ME_4AA0CE940142
+ MEPROP UID '4AA0CE940142'
+ MEPROP Name 'TryOpen'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA1091A0005 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4AA0CE940142 TryOpen
+
+FORWARD ME_4AC4FB28001B
+
+ME ME_4AC4FB30036E
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4AC4FB30036E aData
+
+ME ME_4AC4FB28001B
+ MEPROP UID '4AC4FB28001B'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC4FB30036E // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4FB28001B Make
+
+ME ME_4AA0D2A801AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_4A9F6C04024D' '45700BFD0251.ms.model.script' // DynListFlags
+ ;
+
+ENDME // ME_4AA0D2A801AE 
+
+ME ME_4AA0D2C50160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4AA0D2C50160 
+
+ME ME_4AA0D2DC0216
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4AA0D2DC0216 
+
+ME ME_4AA0D34C00A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_4AA0D34C00A7 
+
+ME ME_4AA0DDDE0292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4AA0DDDE0292 
+
+ME ME_4AA0DDFC034C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AA0DDFC034C 
+
+ME ME_4AA0DE4001E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4AA0DE4001E6 
+
+ME ME_51C06D58024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_51C06D58024C 
+
+ME ME_51C06DDF0396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_4EC391C00307' '4EEA0958023A.ms.model.script' // SearchRes
+ ;
+
+ENDME // ME_51C06DDF0396 
+
+ME ME_51C06F3D0105
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0CE2B0073 // PrimListAnalizer
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_51C06F3D0105 
+
+ME ME_4A8AD46D0226_ME_4AA0CE2B0073
+ MELINK Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4A8AD46D0226_ME_4AA0CE2B0073 Cancel
+
+ME ME_4A97EBE702F8_ME_4AA0CE2B0073
+ MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4A97EBE702F8_ME_4AA0CE2B0073 Ok
+
+ME ME_4C762A1501FC_ME_4AA0CE2B0073
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C762A1501FC_ME_4AA0CE2B0073 Ok
+
+ME ME_4C762AB601E1_ME_4AA0CE2B0073
+ MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C762AB601E1_ME_4AA0CE2B0073 Cancel
+
+ME ME_47EA4E9002C6_ME_4AA0CE2B0073
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA4E9002C6_ME_4AA0CE2B0073 FinishDataUpdate
+
+ME ME_49803F5503AA_ME_4AA0CE2B0073
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4AA0CE2B0073 DoInit
+
+ME ME_4A8E8F2E0195_ME_4AA0CE2B0073
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AA0CE2B0073 InitControls
+
+ME ME_4AA0CE2B0073
+ MEPROP UID '4AA0CE2B0073'
+ MEPROP Name 'PrimListAnalizer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497DDB0A0168' '497DDB0A0168.ms.model.script' // List
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51C062B8030D // BackgroundPanel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51C06313011B // ListTreeActionElement
+ HWL ME_51C063260008 // ListTreeCanBeginDrag
+ HWL ME_51C0635E00EF // ListTreeGetItemImage
+ HWL ME_4AA0CE5D036E // CanOpen
+ HWL ME_4AA0CE940142 // TryOpen
+ HWL ME_4AC4FB28001B // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A8AD46D0226_ME_4AA0CE2B0073 // Cancel
+ ME_4A97EBE702F8_ME_4AA0CE2B0073 // Ok
+ ME_4C762A1501FC_ME_4AA0CE2B0073 // Ok
+ ME_4C762AB601E1_ME_4AA0CE2B0073 // Cancel
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47EA4E9002C6_ME_4AA0CE2B0073 // FinishDataUpdate
+ ME_49803F5503AA_ME_4AA0CE2B0073 // DoInit
+ ME_4A8E8F2E0195_ME_4AA0CE2B0073 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD71C5800C2 // listAnalize
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AA0D2A801AE // DynListFlags
+ ME_4AA0D2C50160 // DynList
+ ME_4AA0D2DC0216 // EntityBase
+ ME_4AA0D34C00A7 // nsUtils
+ ME_4AA0DDDE0292 // NodeBase
+ ME_4AA0DDFC034C // SysUtils
+ ME_4AA0DE4001E6 // ModalResults
+ ME_51C06D58024C // IStream
+ ME_51C06DDF0396 // SearchRes
+ ME_51C06F3D0105 // Forms
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Modal'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimListAnalizerForm'
+ UP extprop:pas:UnitName 'PrimListAnalizer_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimListAnalizerForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\PrimListAnalizer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+
+ENDME // ME_4AA0CE2B0073 PrimListAnalizer

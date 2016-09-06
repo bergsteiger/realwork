@@ -1,0 +1,40 @@
+// msmViewUtilsInterfaces 57B6CF34012E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B6CF34012E
+
+ME ME_57B6CF4C01BA
+ MEPROP UID '57B6CF4C01BA'
+ MEPROP GUID '41C9F315-5CF1-4469-B704-884D6BC09F85'
+ MEPROP Name 'ImsmWaitCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B6CF34012E // msmViewUtilsInterfaces
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmWaitCursor'
+
+ENDME // ME_57B6CF4C01BA ImsmWaitCursor
+
+ME ME_57B6CF34012E
+ MEPROP UID '57B6CF34012E'
+ MEPROP Name 'msmViewUtilsInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57B6B04503AB' '57B6B04503AB.ms.model.script' // msm$Usual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57B6CF4C01BA // ImsmWaitCursor
+ )
+ ; // Children
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmViewUtilsInterfaces.pas'
+
+ENDME // ME_57B6CF34012E msmViewUtilsInterfaces

@@ -1,0 +1,235 @@
+// TnscFocusLabel 4B6019A601D8 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B6019A601D8
+
+ME ME_4B6139E202A8
+ MEPROP UID '4B6139E202A8'
+ MEPROP Name 'HotTruck'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4B6139E202A8 HotTruck
+
+ME ME_4B613A0400DC
+ MEPROP UID '4B613A0400DC'
+ MEPROP Name 'AllowTrucking'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4B613A0400DC AllowTrucking
+
+FORWARD ME_4B613A180222
+
+ME ME_4B613A1F0043
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B613A1F0043 aValue
+
+ME ME_4B613A180222
+ MEPROP UID '4B613A180222'
+ MEPROP Name 'SetHotTruck'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B613A1F0043 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4B613A180222 SetHotTruck
+
+ME ME_4B613A2A035D
+ MEPROP UID '4B613A2A035D'
+ MEPROP Name 'UpdateTruckFromCursor'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+
+ENDME // ME_4B613A2A035D UpdateTruckFromCursor
+
+FORWARD ME_4B613A38003A
+
+ME ME_4B613A48034C
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4B613A48034C Message
+
+ME ME_4B613A38003A
+ MEPROP UID '4B613A38003A'
+ MEPROP Name 'CMMouseEnter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B613A48034C // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_MOUSEENTER'
+
+ENDME // ME_4B613A38003A CMMouseEnter
+
+FORWARD ME_4B613A4E0094
+
+ME ME_4B613A5D029E
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4B613A5D029E Message
+
+ME ME_4B613A4E0094
+ MEPROP UID '4B613A4E0094'
+ MEPROP Name 'CMMouseLeave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B613A5D029E // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_MOUSELEAVE'
+
+ENDME // ME_4B613A4E0094 CMMouseLeave
+
+FORWARD ME_4B613A6900B7
+
+ME ME_4B613A730365
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4B613A730365 Message
+
+ME ME_4B613A6900B7
+ MEPROP UID '4B613A6900B7'
+ MEPROP Name 'WMWindowPosChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B613A730365 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_WINDOWPOSCHANGED'
+
+ENDME // ME_4B613A6900B7 WMWindowPosChanged
+
+ME ME_4B613C610167
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B6019A601D8 // TnscFocusLabel
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4B613C610167 
+
+ME ME_4B61371503B9_ME_4B6019A601D8
+ MELINK Original WL 'ME_4B61371503B9' '4A9B9BC00258.ms.model.script' // NeedUnderLine
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B61371503B9_ME_4B6019A601D8 NeedUnderLine
+
+ME ME_4C03EAA20362_ME_4B6019A601D8
+ MELINK Original WL 'ME_4C03EAA20362' '4A9B9BC00258.ms.model.script' // AllowClickByKeyBoard
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C03EAA20362_ME_4B6019A601D8 AllowClickByKeyBoard
+
+ME ME_4C03EAB40015_ME_4B6019A601D8
+ MELINK Original WL 'ME_4C03EAB40015' '4A9B9BC00258.ms.model.script' // AllowTranslateReturn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C03EAB40015_ME_4B6019A601D8 AllowTranslateReturn
+
+ME ME_4B6019A601D8
+ MEPROP UID '4B6019A601D8'
+ MEPROP Name 'TnscFocusLabel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B601984005A' '4B601984005A.ms.model.script' // Labels
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A9B9BC00258' '4A9B9BC00258.ms.model.script' // TvtFocusLabel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B6139E202A8 // HotTruck
+ HWL ME_4B613A0400DC // AllowTrucking
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B613A180222 // SetHotTruck
+ HWL ME_4B613A2A035D // UpdateTruckFromCursor
+ HWL ME_4B613A38003A // CMMouseEnter
+ HWL ME_4B613A4E0094 // CMMouseLeave
+ HWL ME_4B613A6900B7 // WMWindowPosChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4B61371503B9_ME_4B6019A601D8 // NeedUnderLine
+ ME_4C03EAA20362_ME_4B6019A601D8 // AllowClickByKeyBoard
+ ME_4C03EAB40015_ME_4B6019A601D8 // AllowTranslateReturn
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B613C610167 // Windows
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'nscFocusLabel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FocusLabel'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFocusLabel.pas'
+
+ENDME // ME_4B6019A601D8 TnscFocusLabel

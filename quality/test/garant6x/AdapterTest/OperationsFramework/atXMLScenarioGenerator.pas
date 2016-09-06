@@ -42,6 +42,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *483EC52400C9impl_uses*
+ //#UC END# *483EC52400C9impl_uses*
 ;
 
 function TatXMLScenarioGenerator.FillScenario(aScenario: TatScenario;

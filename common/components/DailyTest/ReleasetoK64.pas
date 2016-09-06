@@ -50,6 +50,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *18F018C495DAimpl_uses*
+ //#UC END# *18F018C495DAimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

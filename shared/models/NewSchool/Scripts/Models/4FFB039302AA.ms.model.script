@@ -1,0 +1,85 @@
+// ContentsUserTypes 4FFB039302AA VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFB039302AA
+
+ME ME_4BD71CAC000C
+ MEPROP UID '4BD71CAC000C'
+ MEPROP Name 'utContents'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Структура документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFB039302AA // ContentsUserTypes
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E7A0C450082' '484900780017.ms.model.script' // Должна быть кнопка закрытия окна
+ )
+ ; // Implements
+ UP "CanClose" True
+ UP "ImageIndex" 66
+ UP "SettingsCaption" 'Документ: Структура (вкладка)'
+ UP "Weight" 40
+ UP extprop:pas:UnitName 'ContentsUserTypes_utContents_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes_utContents_UserType.pas'
+
+ENDME // ME_4BD71CAC000C utContents
+
+ME ME_4BD71CDB00F5
+ MEPROP UID '4BD71CDB00F5'
+ MEPROP Name 'utDrugContents'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Структура препарата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FFB039302AA // ContentsUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD71CAC000C // utContents
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E7A0C450082' '484900780017.ms.model.script' // Должна быть кнопка закрытия окна
+ )
+ ; // Implements
+ UP "CanClose" True
+ UP "ImageIndex" 66
+ UP "SettingsCaption" 'Препарат: Структура (вкладка)'
+ UP "Weight" 40
+ UP extprop:pas:UnitName 'ContentsUserTypes_utDrugContents_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes_utDrugContents_UserType.pas'
+
+ENDME // ME_4BD71CDB00F5 utDrugContents
+
+ME ME_4FFB039302AA
+ MEPROP UID '4FFB039302AA'
+ MEPROP Name 'ContentsUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BD71CAC000C // utContents
+ HWL ME_4BD71CDB00F5 // utDrugContents
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_ContentsUserTypes_'
+ UP extprop:pas:UnitName 'ContentsUserTypes.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ContentsUserTypes.imp.pas'
+
+ENDME // ME_4FFB039302AA ContentsUserTypes

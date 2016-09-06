@@ -31,6 +31,8 @@ uses
  l3ImplUses
  , TypInfo
  , l3Base
+ //#UC START# *503E51C002D7impl_uses*
+ //#UC END# *503E51C002D7impl_uses*
 ;
 
 var g_TatNonATQueryLogicOperationConverter: TatNonATQueryLogicOperationConverter = nil;

@@ -1,0 +1,239 @@
+// nevGarbageInterfaces 4F4B74180276 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4B74180276
+
+FORWARD ME_4E7202E403E1
+
+FORWARD ME_476BFAA60313
+
+ME ME_4E563DE3035F
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467821CA019F' '4678209200A6.ms.model.script' // InevViewMetrics
+ ;
+
+ENDME // ME_4E563DE3035F aView
+
+ME ME_5343F4B302D4
+ MEPROP Name 'Para'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_533D31A90231' '4678209200A6.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5343F4B302D4 Para
+
+ME ME_476BFAD001E5
+ MEPROP Name 'IsSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_476BFAD001E5 IsSegment
+
+ME ME_4BED7D6E0098
+ MEPROP Name 'aFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4BED7D6E0098 aFI
+
+ME ME_4E54C668024F
+ MEPROP Name 'CorrectItalic'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4E54C668024F CorrectItalic
+
+ME ME_476BFAA60313
+ MEPROP UID '476BFAA60313'
+ MEPROP Name 'GetObjRealFont'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить шрифт объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E7202E403E1 // MnevFontTool
+ ;
+ MELINK Target WL 'ME_476BF8E202B0' '4678209200A6.ms.model.script' // InevFont
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E563DE3035F // aView
+ ME_5343F4B302D4 // Para
+ ME_476BFAD001E5 // IsSegment
+ ME_4BED7D6E0098 // aFI
+ ME_4E54C668024F // CorrectItalic
+ )
+ ; // Parameters
+
+ENDME // ME_476BFAA60313 GetObjRealFont
+
+FORWARD ME_486CB85C01FD
+
+ME ME_4E563DEB012E
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467821CA019F' '4678209200A6.ms.model.script' // InevViewMetrics
+ ;
+
+ENDME // ME_4E563DEB012E aView
+
+ME ME_4E53CC90001D
+ MEPROP Name 'Para'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_533D31A90231' '4678209200A6.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4E53CC90001D Para
+
+ME ME_486CBF1E02E8
+ MEPROP Name 'IsSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_486CBF1E02E8 IsSegment
+
+ME ME_486CBF1E036B
+ MEPROP Name 'aParentFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_486CBF1E036B aParentFI
+
+ME ME_4E54C66D0228
+ MEPROP Name 'CorrectItalic'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4E54C66D0228 CorrectItalic
+
+ME ME_486CB85C01FD
+ MEPROP UID '486CB85C01FD'
+ MEPROP Name 'GetObjIFont'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить шрифт объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E7202E403E1 // MnevFontTool
+ ;
+ MELINK Target WL 'ME_476BF8E202B0' '4678209200A6.ms.model.script' // InevFont
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E563DEB012E // aView
+ ME_4E53CC90001D // Para
+ ME_486CBF1E02E8 // IsSegment
+ ME_486CBF1E036B // aParentFI
+ ME_4E54C66D0228 // CorrectItalic
+ )
+ ; // Parameters
+
+ENDME // ME_486CB85C01FD GetObjIFont
+
+ME ME_4E7202E403E1
+ MEPROP UID '4E7202E403E1'
+ MEPROP Name 'MnevFontTool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4B74180276 // nevGarbageInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_476BFAA60313 // GetObjRealFont
+ HWL ME_486CB85C01FD // GetObjIFont
+ )
+ ; // Operations
+
+ENDME // ME_4E7202E403E1 MnevFontTool
+
+ME ME_476BFAA60313_ME_467D2AA900F1
+ MELINK Original HWL ME_476BFAA60313 // GetObjRealFont
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476BFAA60313_ME_467D2AA900F1 GetObjRealFont
+
+ME ME_486CB85C01FD_ME_467D2AA900F1
+ MELINK Original HWL ME_486CB85C01FD // GetObjIFont
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_486CB85C01FD_ME_467D2AA900F1 GetObjIFont
+
+ME ME_467D2AA900F1
+ MEPROP UID '467D2AA900F1'
+ MEPROP GUID '18AC2452-9182-4E5E-A089-AEDFDD334089'
+ MEPROP Name 'InevFontTool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Кэш шрифтов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4B74180276 // nevGarbageInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_467D2A5403B6' '467823B7002C.ms.model.script' // IafwFontCache
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4E7202E403E1 // MnevFontTool
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_476BFAA60313_ME_467D2AA900F1 // GetObjRealFont
+ ME_486CB85C01FD_ME_467D2AA900F1 // GetObjIFont
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FontTool'
+
+ENDME // ME_467D2AA900F1 InevFontTool
+
+ME ME_4F4B74180276
+ MEPROP UID '4F4B74180276'
+ MEPROP Name 'nevGarbageInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E7202E403E1 // MnevFontTool
+ HWL ME_467D2AA900F1 // InevFontTool
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevGarbageInterfaces.pas'
+
+ENDME // ME_4F4B74180276 nevGarbageInterfaces

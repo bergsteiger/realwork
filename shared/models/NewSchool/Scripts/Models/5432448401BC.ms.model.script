@@ -1,0 +1,3463 @@
+// daTypes 5432448401BC Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5432448401BC
+
+ME ME_543244A30197
+ MEPROP UID '543244A30197'
+ MEPROP Name 'TdaUserID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_543244A30197 TdaUserID
+
+FORWARD ME_54EEE09D02BE
+
+FORWARD ME_54EEE0AD02F3
+
+ME ME_54EEE0F801D0
+ MEPROP Name 'aLogin'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_54EEE0F801D0 aLogin
+
+ME ME_54EEE0F801EF
+ MEPROP Name 'aPassword'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_54EEE0F801EF aPassword
+
+ME ME_54EEE0AD02F3
+ MEPROP UID '54EEE0AD02F3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54EEE09D02BE // TGetLoginPasswordProc
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54EEE0F801D0 // aLogin
+ ME_54EEE0F801EF // aPassword
+ )
+ ; // Parameters
+
+ENDME // ME_54EEE0AD02F3 DoIt
+
+ME ME_54EEE09D02BE
+ MEPROP UID '54EEE09D02BE'
+ MEPROP Name 'TGetLoginPasswordProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54EEE0AD02F3 // DoIt
+ )
+ ; // Operations
+ UP "of object" False
+
+ENDME // ME_54EEE09D02BE TGetLoginPasswordProc
+
+FORWARD ME_551145D303E1
+
+ME ME_551145DF016D
+ MEPROP UID '551145DF016D'
+ MEPROP Name 'bfAAC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551145D303E1 // TdaBaseFlag
+ ;
+
+ENDME // ME_551145DF016D bfAAC
+
+ME ME_56E7FC180084
+ MEPROP UID '56E7FC180084'
+ MEPROP Name 'bfAutoLink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551145D303E1 // TdaBaseFlag
+ ;
+
+ENDME // ME_56E7FC180084 bfAutoLink
+
+ME ME_551145D303E1
+ MEPROP UID '551145D303E1'
+ MEPROP Name 'TdaBaseFlag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_551145DF016D // bfAAC
+ HWL ME_56E7FC180084 // bfAutoLink
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_551145D303E1 TdaBaseFlag
+
+ME ME_551145F40033
+ MEPROP UID '551145F40033'
+ MEPROP Name 'TdaBaseFlags'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_551145D303E1 // TdaBaseFlag
+ )
+ ; // Inherits
+
+ENDME // ME_551145F40033 TdaBaseFlags
+
+ME ME_551A931F0071
+ MEPROP UID '551A931F0071'
+ MEPROP Name 'TdaRegionID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_476130E5023C' '4AB0C3C60310.ms.model.script' // Byte
+ )
+ ; // Inherits
+
+ENDME // ME_551A931F0071 TdaRegionID
+
+FORWARD ME_551BE28600E9
+
+ME ME_551BE2980223
+ MEPROP UID '551BE2980223'
+ MEPROP Name 'da_leOk'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551BE28600E9 // TdaLoginError
+ ;
+
+ENDME // ME_551BE2980223 da_leOk
+
+ME ME_551BE2A802E4
+ MEPROP UID '551BE2A802E4'
+ MEPROP Name 'da_leInsufficientRights'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551BE28600E9 // TdaLoginError
+ ;
+
+ENDME // ME_551BE2A802E4 da_leInsufficientRights
+
+ME ME_551BE2BB0094
+ MEPROP UID '551BE2BB0094'
+ MEPROP Name 'da_leUserParamsWrong'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551BE28600E9 // TdaLoginError
+ ;
+
+ENDME // ME_551BE2BB0094 da_leUserParamsWrong
+
+ME ME_562F5BAC0329
+ MEPROP UID '562F5BAC0329'
+ MEPROP Name 'da_leConnectionError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551BE28600E9 // TdaLoginError
+ ;
+
+ENDME // ME_562F5BAC0329 da_leConnectionError
+
+ME ME_562F7374006E
+ MEPROP UID '562F7374006E'
+ MEPROP Name 'da_leSQLError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551BE28600E9 // TdaLoginError
+ ;
+
+ENDME // ME_562F7374006E da_leSQLError
+
+ME ME_551BE28600E9
+ MEPROP UID '551BE28600E9'
+ MEPROP Name 'TdaLoginError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_551BE2980223 // da_leOk
+ HWL ME_551BE2A802E4 // da_leInsufficientRights
+ HWL ME_551BE2BB0094 // da_leUserParamsWrong
+ HWL ME_562F5BAC0329 // da_leConnectionError
+ HWL ME_562F7374006E // da_leSQLError
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_551BE28600E9 TdaLoginError
+
+ME ME_551E7DC1024B
+ MEPROP UID '551E7DC1024B'
+ MEPROP Name 'TdaDocID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_551E7DC1024B TdaDocID
+
+ME ME_551E7DD302E0
+ MEPROP UID '551E7DD302E0'
+ MEPROP Name 'TdaFamilyID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ )
+ ; // Inherits
+
+ENDME // ME_551E7DD302E0 TdaFamilyID
+
+ME ME_551E88DF0073
+ MEPROP UID '551E88DF0073'
+ MEPROP Name 'TdaPathStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_551E883400A5' '47BC51FE018B.ms.model.script' // TPathStr
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_551E88DF0073 TdaPathStr
+
+FORWARD ME_5524CFE701C5
+
+ME ME_5524CFFB00EA
+ MEPROP UID '5524CFFB00EA'
+ MEPROP Name 'da_psStart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5524CFE701C5 // TdaProcessState
+ ;
+
+ENDME // ME_5524CFFB00EA da_psStart
+
+ME ME_5524D00B0302
+ MEPROP UID '5524D00B0302'
+ MEPROP Name 'da_psCurrent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5524CFE701C5 // TdaProcessState
+ ;
+
+ENDME // ME_5524D00B0302 da_psCurrent
+
+ME ME_5524D01902FB
+ MEPROP UID '5524D01902FB'
+ MEPROP Name 'da_psEnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5524CFE701C5 // TdaProcessState
+ ;
+
+ENDME // ME_5524D01902FB da_psEnd
+
+ME ME_5524CFE701C5
+ MEPROP UID '5524CFE701C5'
+ MEPROP Name 'TdaProcessState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5524CFFB00EA // da_psStart
+ HWL ME_5524D00B0302 // da_psCurrent
+ HWL ME_5524D01902FB // da_psEnd
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5524CFE701C5 TdaProcessState
+
+FORWARD ME_5524D04900F4
+
+FORWARD ME_5524D06702E6
+
+ME ME_5524D07700F8
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5524CFE701C5 // TdaProcessState
+ ;
+
+ENDME // ME_5524D07700F8 aState
+
+ME ME_5524D06702E6
+ MEPROP UID '5524D06702E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5524D04900F4 // TdaOnLongProcessEvent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5524D07700F8 // aState
+ )
+ ; // Parameters
+
+ENDME // ME_5524D06702E6 DoIt
+
+ME ME_5524D04900F4
+ MEPROP UID '5524D04900F4'
+ MEPROP Name 'TdaOnLongProcessEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5524D06702E6 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_5524D04900F4 TdaOnLongProcessEvent
+
+FORWARD ME_5535180A0366
+
+ME ME_553518200039
+ MEPROP UID '553518200039'
+ MEPROP Name 'da_dtChar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_553518200039 da_dtChar
+
+ME ME_55351830025C
+ MEPROP UID '55351830025C'
+ MEPROP Name 'da_dtByte'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_55351830025C da_dtByte
+
+ME ME_5535183D016D
+ MEPROP UID '5535183D016D'
+ MEPROP Name 'da_dtDate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_5535183D016D da_dtDate
+
+ME ME_553518470191
+ MEPROP UID '553518470191'
+ MEPROP Name 'da_dtTime'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_553518470191 da_dtTime
+
+ME ME_5535185E03D3
+ MEPROP UID '5535185E03D3'
+ MEPROP Name 'da_dtDWord'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_5535185E03D3 da_dtDWord
+
+ME ME_553518730373
+ MEPROP UID '553518730373'
+ MEPROP Name 'da_dtWord'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_553518730373 da_dtWord
+
+ME ME_5535187E00C3
+ MEPROP UID '5535187E00C3'
+ MEPROP Name 'da_dtInteger'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_5535187E00C3 da_dtInteger
+
+ME ME_553E2028027F
+ MEPROP UID '553E2028027F'
+ MEPROP Name 'da_dtBoolean'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_553E2028027F da_dtBoolean
+
+ME ME_55929018001A
+ MEPROP UID '55929018001A'
+ MEPROP Name 'da_dtQWord'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5535180A0366 // TdaDataType
+ ;
+
+ENDME // ME_55929018001A da_dtQWord
+
+ME ME_5535180A0366
+ MEPROP UID '5535180A0366'
+ MEPROP Name 'TdaDataType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы данных полей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_553518200039 // da_dtChar
+ HWL ME_55351830025C // da_dtByte
+ HWL ME_5535183D016D // da_dtDate
+ HWL ME_553518470191 // da_dtTime
+ HWL ME_5535185E03D3 // da_dtDWord
+ HWL ME_553518730373 // da_dtWord
+ HWL ME_5535187E00C3 // da_dtInteger
+ HWL ME_553E2028027F // da_dtBoolean
+ HWL ME_55929018001A // da_dtQWord
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5535180A0366 TdaDataType
+
+FORWARD ME_55377C9C0289
+
+ME ME_552FAD950195
+ MEPROP UID '552FAD950195'
+ MEPROP Name 'da_mtAccess'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Права доступа к документам' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FAD950195 da_mtAccess
+
+ME ME_552FC5FB01EE
+ MEPROP UID '552FC5FB01EE'
+ MEPROP Name 'da_mtPassword'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Пароли пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC5FB01EE da_mtPassword
+
+ME ME_552FC61502AF
+ MEPROP UID '552FC61502AF'
+ MEPROP Name 'da_mtUsers'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Пользователи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC61502AF da_mtUsers
+
+ME ME_552FC62D0131
+ MEPROP UID '552FC62D0131'
+ MEPROP Name 'da_mtGroups'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Группы (mtGUDt)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC62D0131 da_mtGroups
+
+ME ME_552FC6A302C5
+ MEPROP UID '552FC6A302C5'
+ MEPROP Name 'da_mtGroupMembers'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Члены группы (mtGULnk)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC6A302C5 da_mtGroupMembers
+
+ME ME_552FC6EF004C
+ MEPROP UID '552FC6EF004C'
+ MEPROP Name 'da_mtFamily'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Семейства (не прижилось)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC6EF004C da_mtFamily
+
+ME ME_552FC71103E7
+ MEPROP UID '552FC71103E7'
+ MEPROP Name 'da_mtFree'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Список диапазонов для ID' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC71103E7 da_mtFree
+
+ME ME_552FC7390189
+ MEPROP UID '552FC7390189'
+ MEPROP Name 'da_mtJournal'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Журнал работы (mtBBLog)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC7390189 da_mtJournal
+
+ME ME_552FC767015B
+ MEPROP UID '552FC767015B'
+ MEPROP Name 'da_mtControl'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Флажок эксклюзивного доступа (mtCtrl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC767015B da_mtControl
+
+ME ME_552FC79F027A
+ MEPROP UID '552FC79F027A'
+ MEPROP Name 'da_mtRegions'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь регионов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FC79F027A da_mtRegions
+
+ME ME_552FADB50191
+ MEPROP UID '552FADB50191'
+ MEPROP Name 'da_ftNone'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Фэйковая таблица' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_552FADB50191 da_ftNone
+
+ME ME_5530B44502C2
+ MEPROP UID '5530B44502C2'
+ MEPROP Name 'da_ftDocuments'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Документы (ftFile)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B44502C2 da_ftDocuments
+
+ME ME_5530B47703A5
+ MEPROP UID '5530B47703A5'
+ MEPROP Name 'da_ftHyperlinks'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Гиперссылки (ftHLink)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B47703A5 da_ftHyperlinks
+
+ME ME_5530B5950206
+ MEPROP UID '5530B5950206'
+ MEPROP Name 'da_ftSubs'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Сабы (ftSub)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B5950206 da_ftSubs
+
+ME ME_5530B5B703D8
+ MEPROP UID '5530B5B703D8'
+ MEPROP Name 'da_ftFree'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Список диапазонов для ID' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B5B703D8 da_ftFree
+
+ME ME_5530B5E70276
+ MEPROP UID '5530B5E70276'
+ MEPROP Name 'da_ftSources'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Исходящие органы (ftDt1)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B5E70276 da_ftSources
+
+ME ME_5530B63300BC
+ MEPROP UID '5530B63300BC'
+ MEPROP Name 'da_ftTypes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Типы (ftDt2)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B63300BC da_ftTypes
+
+ME ME_5530B67B0177
+ MEPROP UID '5530B67B0177'
+ MEPROP Name 'da_ftClasses'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Классы (ftDt3)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B67B0177 da_ftClasses
+
+ME ME_5530B709009F
+ MEPROP UID '5530B709009F'
+ MEPROP Name 'da_ftKeywords'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Ключевые слова (ftDt5)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B709009F da_ftKeywords
+
+ME ME_5530B7950020
+ MEPROP UID '5530B7950020'
+ MEPROP Name 'da_ftBelongs'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Группы (ftDt6)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B7950020 da_ftBelongs
+
+ME ME_5530B8020330
+ MEPROP UID '5530B8020330'
+ MEPROP Name 'da_ftDateCodes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Номеров и Дат (ftDt7)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530B8020330 da_ftDateCodes
+
+ME ME_5530BE2400A7
+ MEPROP UID '5530BE2400A7'
+ MEPROP Name 'da_ftWarnings'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Предупреждений (ftDt8)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530BE2400A7 da_ftWarnings
+
+ME ME_5530BE4900F3
+ MEPROP UID '5530BE4900F3'
+ MEPROP Name 'da_ftCorrections'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Вычитка (ftDt9)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530BE4900F3 da_ftCorrections
+
+ME ME_5530BFA50248
+ MEPROP UID '5530BFA50248'
+ MEPROP Name 'da_ftCoSources'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Изданий (ftDtA)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530BFA50248 da_ftCoSources
+
+ME ME_5530BFF800F3
+ MEPROP UID '5530BFF800F3'
+ MEPROP Name 'da_ftPiblishedIn'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Источников опубликования (ftDtB)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530BFF800F3 da_ftPiblishedIn
+
+ME ME_5530C04F0209
+ MEPROP UID '5530C04F0209'
+ MEPROP Name 'da_ftPrefixes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Видов информации (ftDtC)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530C04F0209 da_ftPrefixes
+
+ME ME_5530C0970252
+ MEPROP UID '5530C0970252'
+ MEPROP Name 'da_ftTerritories'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Территорий (ftDtD)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530C0970252 da_ftTerritories
+
+ME ME_5530C0D30036
+ MEPROP UID '5530C0D30036'
+ MEPROP Name 'da_ftNorms'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Нормы права (ftDtE)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530C0D30036 da_ftNorms
+
+ME ME_5530C10A02D6
+ MEPROP UID '5530C10A02D6'
+ MEPROP Name 'da_ftExtClasses'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Дополнение Словаря Классов (ftDt3E)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530C10A02D6 da_ftExtClasses
+
+ME ME_5530C1870117
+ MEPROP UID '5530C1870117'
+ MEPROP Name 'da_ftAccessGroups'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Группы доступа (ftDtF)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530C1870117 da_ftAccessGroups
+
+ME ME_5530E2FA0204
+ MEPROP UID '5530E2FA0204'
+ MEPROP Name 'da_ftAnnoClasses'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Классы аннотаций (ftDtI)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530E2FA0204 da_ftAnnoClasses
+
+ME ME_5530E3E9029B
+ MEPROP UID '5530E3E9029B'
+ MEPROP Name 'da_ftServiceInfo'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь Вид справочной информации (ftDtJ)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530E3E9029B da_ftServiceInfo
+
+ME ME_5530F01E003F
+ MEPROP UID '5530F01E003F'
+ MEPROP Name 'da_ftDocSources'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Исходящие органы документа (ftLnk1)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F01E003F da_ftDocSources
+
+ME ME_5530F06001CB
+ MEPROP UID '5530F06001CB'
+ MEPROP Name 'da_ftDocTypes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Типы документа (ftLnk2)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F06001CB da_ftDocTypes
+
+ME ME_5530F08B00E6
+ MEPROP UID '5530F08B00E6'
+ MEPROP Name 'da_ftDocClasses'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Классы документа (ftLnk3)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F08B00E6 da_ftDocClasses
+
+ME ME_5530F0BB01BD
+ MEPROP UID '5530F0BB01BD'
+ MEPROP Name 'da_ftDocKeywords'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ключевые слова документа (ftLnk5)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F0BB01BD da_ftDocKeywords
+
+ME ME_5530F12F00EB
+ MEPROP UID '5530F12F00EB'
+ MEPROP Name 'da_ftDocBelongs'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Группы документа (ftLnk6)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F12F00EB da_ftDocBelongs
+
+ME ME_5530F15F00D8
+ MEPROP UID '5530F15F00D8'
+ MEPROP Name 'da_ftDocDateCodes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Номера и даты документа (ftLnk7) - не нужен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F15F00D8 da_ftDocDateCodes
+
+ME ME_5530F19303DD
+ MEPROP UID '5530F19303DD'
+ MEPROP Name 'da_ftDocWarnings'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Предупреждения документа (ftLnk8)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F19303DD da_ftDocWarnings
+
+ME ME_5530F1C9001C
+ MEPROP UID '5530F1C9001C'
+ MEPROP Name 'da_ftDocCorrections'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Вычитка документа (ftLnk9) - не нужен' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5530F1C9001C da_ftDocCorrections
+
+ME ME_5534D68200B3
+ MEPROP UID '5534D68200B3'
+ MEPROP Name 'da_ftDocPublishedIn'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Источники опубликования документа (ftLnkB)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D68200B3 da_ftDocPublishedIn
+
+ME ME_5534D864036C
+ MEPROP UID '5534D864036C'
+ MEPROP Name 'da_ftDocPrefixes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Виды информации документа (ftLnkC)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D864036C da_ftDocPrefixes
+
+ME ME_5534D8A10105
+ MEPROP UID '5534D8A10105'
+ MEPROP Name 'da_ftDocTerritories'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Территория документа (ftLnkD)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D8A10105 da_ftDocTerritories
+
+ME ME_5534D8F10266
+ MEPROP UID '5534D8F10266'
+ MEPROP Name 'da_ftDocNorms'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Нормы права документа (ftLnkE)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D8F10266 da_ftDocNorms
+
+ME ME_5534D929010A
+ MEPROP UID '5534D929010A'
+ MEPROP Name 'da_ftDocAccessGroups'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Группы доступа документа (ftLnkF)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D929010A da_ftDocAccessGroups
+
+ME ME_5534D9540398
+ MEPROP UID '5534D9540398'
+ MEPROP Name 'da_ftDocAnnoClasses'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Классы аннотации документа (ftLnkI)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D9540398 da_ftDocAnnoClasses
+
+ME ME_5534D99F0346
+ MEPROP UID '5534D99F0346'
+ MEPROP Name 'da_ftDocServiceInfo'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Вид справочной информации документа (ftLnkJ)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D99F0346 da_ftDocServiceInfo
+
+ME ME_5534D9F40006
+ MEPROP UID '5534D9F40006'
+ MEPROP Name 'da_ftDoc2DocLink'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Связи между документами (ftLnkK)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534D9F40006 da_ftDoc2DocLink
+
+ME ME_5534DA800218
+ MEPROP UID '5534DA800218'
+ MEPROP Name 'da_ftPriority'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Словарь приоритетов (ftPriority)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534DA800218 da_ftPriority
+
+ME ME_5534DAAA0234
+ MEPROP UID '5534DAAA0234'
+ MEPROP Name 'da_ftRenum'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Соответствие внешних и внутренних номеров (ftRenum)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534DAAA0234 da_ftRenum
+
+ME ME_5534DAF70103
+ MEPROP UID '5534DAF70103'
+ MEPROP Name 'da_ftDocStages'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Этапы обработки документа (ftStage)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534DAF70103 da_ftDocStages
+
+ME ME_5534DB2B0047
+ MEPROP UID '5534DB2B0047'
+ MEPROP Name 'da_ftDocLog'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Журнал изменения документа (ftLog)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534DB2B0047 da_ftDocLog
+
+ME ME_5534E1D20321
+ MEPROP UID '5534E1D20321'
+ MEPROP Name 'da_ftDocActivity'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Интервалы действия документа (ftActiv)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534E1D20321 da_ftDocActivity
+
+ME ME_5534E21D0281
+ MEPROP UID '5534E21D0281'
+ MEPROP Name 'da_ftDocAlarm'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Служебные предупреждения к документу (ftAlarm)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534E21D0281 da_ftDocAlarm
+
+ME ME_5534E2CD00AB
+ MEPROP UID '5534E2CD00AB'
+ MEPROP Name 'da_ftControl'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Флажок эксклюзивного доступа (ftCtrl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5534E2CD00AB da_ftControl
+
+ME ME_5535025D009D
+ MEPROP UID '5535025D009D'
+ MEPROP Name 'da_ftDocumentsDub1'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Дубликат таблицы документов - для связывания в запросах (ftFileDup1)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_5535025D009D da_ftDocumentsDub1
+
+ME ME_55350292013E
+ MEPROP UID '55350292013E'
+ MEPROP Name 'da_ftDocumentsDub2'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Дубликат таблицы документов - для связывания в запросах (ftFileDup2)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_55350292013E da_ftDocumentsDub2
+
+ME ME_569E1C1F0185
+ MEPROP UID '569E1C1F0185'
+ MEPROP Name 'da_ftAutolinkDocumentsLocal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_569E1C1F0185 da_ftAutolinkDocumentsLocal
+
+ME ME_569E1D77029C
+ MEPROP UID '569E1D77029C'
+ MEPROP Name 'da_ftAutolinkEditionsLocal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_569E1D77029C da_ftAutolinkEditionsLocal
+
+ME ME_569E20390283
+ MEPROP UID '569E20390283'
+ MEPROP Name 'da_ftAutolinkDocumentsRemote'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_569E20390283 da_ftAutolinkDocumentsRemote
+
+ME ME_569E20450212
+ MEPROP UID '569E20450212'
+ MEPROP Name 'da_ftAutolinkEditionsRemote'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55377C9C0289 // TdaTables
+ ;
+
+ENDME // ME_569E20450212 da_ftAutolinkEditionsRemote
+
+ME ME_55377C9C0289
+ MEPROP UID '55377C9C0289'
+ MEPROP Name 'TdaTables'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_552FAD950195 // da_mtAccess
+ HWL ME_552FC5FB01EE // da_mtPassword
+ HWL ME_552FC61502AF // da_mtUsers
+ HWL ME_552FC62D0131 // da_mtGroups
+ HWL ME_552FC6A302C5 // da_mtGroupMembers
+ HWL ME_552FC6EF004C // da_mtFamily
+ HWL ME_552FC71103E7 // da_mtFree
+ HWL ME_552FC7390189 // da_mtJournal
+ HWL ME_552FC767015B // da_mtControl
+ HWL ME_552FC79F027A // da_mtRegions
+ HWL ME_552FADB50191 // da_ftNone
+ HWL ME_5530B44502C2 // da_ftDocuments
+ HWL ME_5530B47703A5 // da_ftHyperlinks
+ HWL ME_5530B5950206 // da_ftSubs
+ HWL ME_5530B5B703D8 // da_ftFree
+ HWL ME_5530B5E70276 // da_ftSources
+ HWL ME_5530B63300BC // da_ftTypes
+ HWL ME_5530B67B0177 // da_ftClasses
+ HWL ME_5530B709009F // da_ftKeywords
+ HWL ME_5530B7950020 // da_ftBelongs
+ HWL ME_5530B8020330 // da_ftDateCodes
+ HWL ME_5530BE2400A7 // da_ftWarnings
+ HWL ME_5530BE4900F3 // da_ftCorrections
+ HWL ME_5530BFA50248 // da_ftCoSources
+ HWL ME_5530BFF800F3 // da_ftPiblishedIn
+ HWL ME_5530C04F0209 // da_ftPrefixes
+ HWL ME_5530C0970252 // da_ftTerritories
+ HWL ME_5530C0D30036 // da_ftNorms
+ HWL ME_5530C10A02D6 // da_ftExtClasses
+ HWL ME_5530C1870117 // da_ftAccessGroups
+ HWL ME_5530E2FA0204 // da_ftAnnoClasses
+ HWL ME_5530E3E9029B // da_ftServiceInfo
+ HWL ME_5530F01E003F // da_ftDocSources
+ HWL ME_5530F06001CB // da_ftDocTypes
+ HWL ME_5530F08B00E6 // da_ftDocClasses
+ HWL ME_5530F0BB01BD // da_ftDocKeywords
+ HWL ME_5530F12F00EB // da_ftDocBelongs
+ HWL ME_5530F15F00D8 // da_ftDocDateCodes
+ HWL ME_5530F19303DD // da_ftDocWarnings
+ HWL ME_5530F1C9001C // da_ftDocCorrections
+ HWL ME_5534D68200B3 // da_ftDocPublishedIn
+ HWL ME_5534D864036C // da_ftDocPrefixes
+ HWL ME_5534D8A10105 // da_ftDocTerritories
+ HWL ME_5534D8F10266 // da_ftDocNorms
+ HWL ME_5534D929010A // da_ftDocAccessGroups
+ HWL ME_5534D9540398 // da_ftDocAnnoClasses
+ HWL ME_5534D99F0346 // da_ftDocServiceInfo
+ HWL ME_5534D9F40006 // da_ftDoc2DocLink
+ HWL ME_5534DA800218 // da_ftPriority
+ HWL ME_5534DAAA0234 // da_ftRenum
+ HWL ME_5534DAF70103 // da_ftDocStages
+ HWL ME_5534DB2B0047 // da_ftDocLog
+ HWL ME_5534E1D20321 // da_ftDocActivity
+ HWL ME_5534E21D0281 // da_ftDocAlarm
+ HWL ME_5534E2CD00AB // da_ftControl
+ HWL ME_5535025D009D // da_ftDocumentsDub1
+ HWL ME_55350292013E // da_ftDocumentsDub2
+ HWL ME_569E1C1F0185 // da_ftAutolinkDocumentsLocal
+ HWL ME_569E1D77029C // da_ftAutolinkEditionsLocal
+ HWL ME_569E20390283 // da_ftAutolinkDocumentsRemote
+ HWL ME_569E20450212 // da_ftAutolinkEditionsRemote
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_55377C9C0289 TdaTables
+
+FORWARD ME_553F86E201D2
+
+ME ME_553F8BED0288
+ MEPROP UID '553F8BED0288'
+ MEPROP Name 'da_oobNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8BED0288 da_oobNone
+
+ME ME_553F8C320097
+ MEPROP UID '553F8C320097'
+ MEPROP Name 'da_oobPause'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Длина паузы в Additional' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8C320097 da_oobPause
+
+ME ME_553F8C580107
+ MEPROP UID '553F8C580107'
+ MEPROP Name 'da_oobSessionBegin'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID Пользователя в ID_Ext' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8C580107 da_oobSessionBegin
+
+ME ME_553F8C9B03AB
+ MEPROP UID '553F8C9B03AB'
+ MEPROP Name 'da_oobSessionEnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8C9B03AB da_oobSessionEnd
+
+ME ME_553F8CAE0284
+ MEPROP UID '553F8CAE0284'
+ MEPROP Name 'da_oobOpenDoc'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID документа в ID_Ext' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8CAE0284 da_oobOpenDoc
+
+ME ME_553F8CD6007F
+ MEPROP UID '553F8CD6007F'
+ MEPROP Name 'da_oobCreateDoc'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID Документа в ID_Ext' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8CD6007F da_oobCreateDoc
+
+ME ME_553F8CFD013C
+ MEPROP UID '553F8CFD013C'
+ MEPROP Name 'da_oobDeleteDoc'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID Документа в ID_Ext' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8CFD013C da_oobDeleteDoc
+
+ME ME_553F8DA5023B
+ MEPROP UID '553F8DA5023B'
+ MEPROP Name 'da_oobEditDoc'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID Документа в ID_Ext, TdaDocEditRec в Additional' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8DA5023B da_oobEditDoc
+
+ME ME_553F8DFD0239
+ MEPROP UID '553F8DFD0239'
+ MEPROP Name 'da_oobPrintDoc'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID Документа в ID_Ext' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8DFD0239 da_oobPrintDoc
+
+ME ME_553F8E32030F
+ MEPROP UID '553F8E32030F'
+ MEPROP Name 'da_oobSaveDoc'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ID Документа в ID_Ext' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8E32030F da_oobSaveDoc
+
+ME ME_553F8E5901E8
+ MEPROP UID '553F8E5901E8'
+ MEPROP Name 'da_oobEditDictionary'
+ MEPROP Class class_Attribute
+ %SUMMARY 'TdaDictEditRec в Additional' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8E5901E8 da_oobEditDictionary
+
+ME ME_553F8EA70314
+ MEPROP UID '553F8EA70314'
+ MEPROP Name 'da_oobExport'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Количество документов в Additional' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8EA70314 da_oobExport
+
+ME ME_553F8ED501C4
+ MEPROP UID '553F8ED501C4'
+ MEPROP Name 'da_oobImport'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8ED501C4 da_oobImport
+
+ME ME_553F8EEA001E
+ MEPROP UID '553F8EEA001E'
+ MEPROP Name 'da_oobSearch_Deprecated'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8EEA001E da_oobSearch_Deprecated
+
+ME ME_553F8F0601F4
+ MEPROP UID '553F8F0601F4'
+ MEPROP Name 'da_oobAutoClass'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Количество документов в Additional' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553F86E201D2 // TdaJournalOperation
+ ;
+
+ENDME // ME_553F8F0601F4 da_oobAutoClass
+
+ME ME_553F86E201D2
+ MEPROP UID '553F86E201D2'
+ MEPROP Name 'TdaJournalOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_553F8BED0288 // da_oobNone
+ HWL ME_553F8C320097 // da_oobPause
+ HWL ME_553F8C580107 // da_oobSessionBegin
+ HWL ME_553F8C9B03AB // da_oobSessionEnd
+ HWL ME_553F8CAE0284 // da_oobOpenDoc
+ HWL ME_553F8CD6007F // da_oobCreateDoc
+ HWL ME_553F8CFD013C // da_oobDeleteDoc
+ HWL ME_553F8DA5023B // da_oobEditDoc
+ HWL ME_553F8DFD0239 // da_oobPrintDoc
+ HWL ME_553F8E32030F // da_oobSaveDoc
+ HWL ME_553F8E5901E8 // da_oobEditDictionary
+ HWL ME_553F8EA70314 // da_oobExport
+ HWL ME_553F8ED501C4 // da_oobImport
+ HWL ME_553F8EEA001E // da_oobSearch_Deprecated
+ HWL ME_553F8F0601F4 // da_oobAutoClass
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_553F86E201D2 TdaJournalOperation
+
+FORWARD ME_55409BB900B2
+
+ME ME_55409BDC0111
+ MEPROP UID '55409BDC0111'
+ MEPROP Name 'da_detText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409BB900B2 // TdaDocEditType
+ ;
+
+ENDME // ME_55409BDC0111 da_detText
+
+ME ME_55409BEE0268
+ MEPROP UID '55409BEE0268'
+ MEPROP Name 'da_detAttribute'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409BB900B2 // TdaDocEditType
+ ;
+
+ENDME // ME_55409BEE0268 da_detAttribute
+
+ME ME_55409BFD01F0
+ MEPROP UID '55409BFD01F0'
+ MEPROP Name 'da_detHyperLink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409BB900B2 // TdaDocEditType
+ ;
+
+ENDME // ME_55409BFD01F0 da_detHyperLink
+
+ME ME_55409C0E006C
+ MEPROP UID '55409C0E006C'
+ MEPROP Name 'da_detSub'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409BB900B2 // TdaDocEditType
+ ;
+
+ENDME // ME_55409C0E006C da_detSub
+
+ME ME_55409C1C019B
+ MEPROP UID '55409C1C019B'
+ MEPROP Name 'da_detDiction'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409BB900B2 // TdaDocEditType
+ ;
+
+ENDME // ME_55409C1C019B da_detDiction
+
+ME ME_55409BB900B2
+ MEPROP UID '55409BB900B2'
+ MEPROP Name 'TdaDocEditType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55409BDC0111 // da_detText
+ HWL ME_55409BEE0268 // da_detAttribute
+ HWL ME_55409BFD01F0 // da_detHyperLink
+ HWL ME_55409C0E006C // da_detSub
+ HWL ME_55409C1C019B // da_detDiction
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_55409BB900B2 TdaDocEditType
+
+FORWARD ME_55409C310280
+
+ME ME_55409C3B0250
+ MEPROP UID '55409C3B0250'
+ MEPROP Name 'da_eoNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409C310280 // TdaEditOperation
+ ;
+
+ENDME // ME_55409C3B0250 da_eoNone
+
+ME ME_55409C70017D
+ MEPROP UID '55409C70017D'
+ MEPROP Name 'da_eoAdd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409C310280 // TdaEditOperation
+ ;
+
+ENDME // ME_55409C70017D da_eoAdd
+
+ME ME_55409C810103
+ MEPROP UID '55409C810103'
+ MEPROP Name 'da_eoEdit'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409C310280 // TdaEditOperation
+ ;
+
+ENDME // ME_55409C810103 da_eoEdit
+
+ME ME_55409C9101F3
+ MEPROP UID '55409C9101F3'
+ MEPROP Name 'da_eoDelete'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409C310280 // TdaEditOperation
+ ;
+
+ENDME // ME_55409C9101F3 da_eoDelete
+
+ME ME_55409C310280
+ MEPROP UID '55409C310280'
+ MEPROP Name 'TdaEditOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55409C3B0250 // da_eoNone
+ HWL ME_55409C70017D // da_eoAdd
+ HWL ME_55409C810103 // da_eoEdit
+ HWL ME_55409C9101F3 // da_eoDelete
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_55409C310280 TdaEditOperation
+
+FORWARD ME_55409CB903D4
+
+ME ME_5593AAE200DB
+ MEPROP UID '5593AAE200DB'
+ MEPROP Name 'da_dlNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AAE200DB da_dlNone
+
+ME ME_5593AAF60157
+ MEPROP UID '5593AAF60157'
+ MEPROP Name 'da_dlSources'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AAF60157 da_dlSources
+
+ME ME_5593AB030181
+ MEPROP UID '5593AB030181'
+ MEPROP Name 'da_dlTypes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB030181 da_dlTypes
+
+ME ME_5593AB130261
+ MEPROP UID '5593AB130261'
+ MEPROP Name 'da_dlClasses'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB130261 da_dlClasses
+
+ME ME_5593AB210096
+ MEPROP UID '5593AB210096'
+ MEPROP Name 'da_dlKeyWords'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB210096 da_dlKeyWords
+
+ME ME_5593AB2E0024
+ MEPROP UID '5593AB2E0024'
+ MEPROP Name 'da_dlBases'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB2E0024 da_dlBases
+
+ME ME_5593AB3A01D5
+ MEPROP UID '5593AB3A01D5'
+ MEPROP Name 'da_dlDateNums'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB3A01D5 da_dlDateNums
+
+ME ME_5593AB470069
+ MEPROP UID '5593AB470069'
+ MEPROP Name 'da_dlWarnings'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB470069 da_dlWarnings
+
+ME ME_5593AB550351
+ MEPROP UID '5593AB550351'
+ MEPROP Name 'da_dlCorrects'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB550351 da_dlCorrects
+
+ME ME_5593AB620071
+ MEPROP UID '5593AB620071'
+ MEPROP Name 'da_dlCorSources'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB620071 da_dlCorSources
+
+ME ME_5593AB6E0169
+ MEPROP UID '5593AB6E0169'
+ MEPROP Name 'da_dlPublisheds'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB6E0169 da_dlPublisheds
+
+ME ME_5593AB8501A5
+ MEPROP UID '5593AB8501A5'
+ MEPROP Name 'da_dlPrefixes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB8501A5 da_dlPrefixes
+
+ME ME_5593AB920386
+ MEPROP UID '5593AB920386'
+ MEPROP Name 'da_dlTerritories'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB920386 da_dlTerritories
+
+ME ME_5593AB9E02CA
+ MEPROP UID '5593AB9E02CA'
+ MEPROP Name 'da_dlNorms'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593AB9E02CA da_dlNorms
+
+ME ME_5593ABAB0298
+ MEPROP UID '5593ABAB0298'
+ MEPROP Name 'da_dlAccGroups'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593ABAB0298 da_dlAccGroups
+
+ME ME_5593ABB80360
+ MEPROP UID '5593ABB80360'
+ MEPROP Name 'da_dlNewClasses_Deprecated'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593ABB80360 da_dlNewClasses_Deprecated
+
+ME ME_5593ABCC0027
+ MEPROP UID '5593ABCC0027'
+ MEPROP Name 'da_dlAnnoClasses'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593ABCC0027 da_dlAnnoClasses
+
+ME ME_5593ABE900BB
+ MEPROP UID '5593ABE900BB'
+ MEPROP Name 'da_dlServiceInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593ABE900BB da_dlServiceInfo
+
+ME ME_5593ABF9020B
+ MEPROP UID '5593ABF9020B'
+ MEPROP Name 'da_dlTextInsert'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_5593ABF9020B da_dlTextInsert
+
+ME ME_55409CB903D4
+ MEPROP UID '55409CB903D4'
+ MEPROP Name 'TdaDictionaryType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5593AAE200DB // da_dlNone
+ HWL ME_5593AAF60157 // da_dlSources
+ HWL ME_5593AB030181 // da_dlTypes
+ HWL ME_5593AB130261 // da_dlClasses
+ HWL ME_5593AB210096 // da_dlKeyWords
+ HWL ME_5593AB2E0024 // da_dlBases
+ HWL ME_5593AB3A01D5 // da_dlDateNums
+ HWL ME_5593AB470069 // da_dlWarnings
+ HWL ME_5593AB550351 // da_dlCorrects
+ HWL ME_5593AB620071 // da_dlCorSources
+ HWL ME_5593AB6E0169 // da_dlPublisheds
+ HWL ME_5593AB8501A5 // da_dlPrefixes
+ HWL ME_5593AB920386 // da_dlTerritories
+ HWL ME_5593AB9E02CA // da_dlNorms
+ HWL ME_5593ABAB0298 // da_dlAccGroups
+ HWL ME_5593ABB80360 // da_dlNewClasses_Deprecated
+ HWL ME_5593ABCC0027 // da_dlAnnoClasses
+ HWL ME_5593ABE900BB // da_dlServiceInfo
+ HWL ME_5593ABF9020B // da_dlTextInsert
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_55409CB903D4 TdaDictionaryType
+
+FORWARD ME_5549C6C402CB
+
+ME ME_5549C6CD001D
+ MEPROP UID '5549C6CD001D'
+ MEPROP Name 'da_jkInner'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5549C6C402CB // TdaJoinKind
+ ;
+
+ENDME // ME_5549C6CD001D da_jkInner
+
+ME ME_5549C6DC01AB
+ MEPROP UID '5549C6DC01AB'
+ MEPROP Name 'da_jkLeftOuter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5549C6C402CB // TdaJoinKind
+ ;
+
+ENDME // ME_5549C6DC01AB da_jkLeftOuter
+
+ME ME_5549C707001F
+ MEPROP UID '5549C707001F'
+ MEPROP Name 'da_jkRightOuter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5549C6C402CB // TdaJoinKind
+ ;
+
+ENDME // ME_5549C707001F da_jkRightOuter
+
+ME ME_5549C71900EC
+ MEPROP UID '5549C71900EC'
+ MEPROP Name 'da_jkFullOuter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5549C6C402CB // TdaJoinKind
+ ;
+
+ENDME // ME_5549C71900EC da_jkFullOuter
+
+ME ME_5549C6C402CB
+ MEPROP UID '5549C6C402CB'
+ MEPROP Name 'TdaJoinKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип соединения таблиц в запросах' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5549C6CD001D // da_jkInner
+ HWL ME_5549C6DC01AB // da_jkLeftOuter
+ HWL ME_5549C707001F // da_jkRightOuter
+ HWL ME_5549C71900EC // da_jkFullOuter
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5549C6C402CB TdaJoinKind
+
+ME ME_5549D14D035E
+ MEPROP UID '5549D14D035E'
+ MEPROP Name 'TdaSessionID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5549D14D035E TdaSessionID
+
+FORWARD ME_5552F87B029E
+
+ME ME_5552F8960264
+ MEPROP UID '5552F8960264'
+ MEPROP Name 'da_copEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5552F87B029E // TdaCompareOperation
+ ;
+
+ENDME // ME_5552F8960264 da_copEqual
+
+ME ME_564067500069
+ MEPROP UID '564067500069'
+ MEPROP Name 'da_copGreaterOrEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5552F87B029E // TdaCompareOperation
+ ;
+
+ENDME // ME_564067500069 da_copGreaterOrEqual
+
+ME ME_56407716037C
+ MEPROP UID '56407716037C'
+ MEPROP Name 'da_copLessOrEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5552F87B029E // TdaCompareOperation
+ ;
+
+ENDME // ME_56407716037C da_copLessOrEqual
+
+ME ME_5642F10F025F
+ MEPROP UID '5642F10F025F'
+ MEPROP Name 'da_copNotEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5552F87B029E // TdaCompareOperation
+ ;
+
+ENDME // ME_5642F10F025F da_copNotEqual
+
+ME ME_5552F87B029E
+ MEPROP UID '5552F87B029E'
+ MEPROP Name 'TdaCompareOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5552F8960264 // da_copEqual
+ HWL ME_564067500069 // da_copGreaterOrEqual
+ HWL ME_56407716037C // da_copLessOrEqual
+ HWL ME_5642F10F025F // da_copNotEqual
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5552F87B029E TdaCompareOperation
+
+ME ME_5555D51A02D2
+ MEPROP UID '5555D51A02D2'
+ MEPROP Name 'EdaError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_5555D51A02D2 EdaError
+
+ME ME_555C8EC2018E
+ MEPROP UID '555C8EC2018E'
+ MEPROP Name 'TdaTablesSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55377C9C0289 // TdaTables
+ )
+ ; // Inherits
+
+ENDME // ME_555C8EC2018E TdaTablesSet
+
+ME ME_559390220212
+ MEPROP UID '559390220212'
+ MEPROP Name 'LargeInt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47208C70028B' '4AB0C3C60310.ms.model.script' // Int64
+ )
+ ; // Inherits
+
+ENDME // ME_559390220212 LargeInt
+
+ME ME_5593AC1101CA
+ MEPROP UID '5593AC1101CA'
+ MEPROP Name 'TdaDictionaryTypeSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55409CB903D4 // TdaDictionaryType
+ )
+ ; // Inherits
+
+ENDME // ME_5593AC1101CA TdaDictionaryTypeSet
+
+FORWARD ME_559A844300F1
+
+ME ME_559A846702A7
+ MEPROP UID '559A846702A7'
+ MEPROP Name 'void'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_switch::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_559A844300F1 // TdaDocEditRecUnion
+ ;
+ MELINK Target WL 'ME_476130E5023C' '4AB0C3C60310.ms.model.script' // Byte
+ ;
+
+ENDME // ME_559A846702A7 void
+
+ME ME_559A847600EC
+ MEPROP UID '559A847600EC'
+ MEPROP Name 'Operation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559A844300F1 // TdaDocEditRecUnion
+ ;
+ MELINK Target HWL ME_55409C310280 // TdaEditOperation
+ ;
+ MEPROP Value 1
+ MELINK ValueType HWL ME_55409C310280 // TdaEditOperation
+ ;
+ UP extprop:pas:Value 1
+
+ENDME // ME_559A847600EC Operation
+
+ME ME_559A8488014E
+ MEPROP UID '559A8488014E'
+ MEPROP Name 'DictType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559A844300F1 // TdaDocEditRecUnion
+ ;
+ MELINK Target HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+ MEPROP Value 2
+ MELINK ValueType HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+ UP extprop:pas:Value 2
+
+ENDME // ME_559A8488014E DictType
+
+ME ME_559A844300F1
+ MEPROP UID '559A844300F1'
+ MEPROP Name 'TdaDocEditRecUnion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Union ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_559A846702A7 // void
+ HWL ME_559A847600EC // Operation
+ HWL ME_559A8488014E // DictType
+ )
+ ; // Attributes
+ UP "Need less" False
+
+ENDME // ME_559A844300F1 TdaDocEditRecUnion
+
+FORWARD ME_559A84A50297
+
+ME ME_559A84B800F3
+ MEPROP UID '559A84B800F3'
+ MEPROP Name 'EditType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559A84A50297 // TdaDocEditRec
+ ;
+ MELINK Target HWL ME_55409BB900B2 // TdaDocEditType
+ ;
+
+ENDME // ME_559A84B800F3 EditType
+
+ME ME_559A84C903C7
+ MEPROP UID '559A84C903C7'
+ MEPROP Name 'Details'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559A84A50297 // TdaDocEditRec
+ ;
+ MELINK Target HWL ME_559A844300F1 // TdaDocEditRecUnion
+ ;
+
+ENDME // ME_559A84C903C7 Details
+
+ME ME_559A84A50297
+ MEPROP UID '559A84A50297'
+ MEPROP Name 'TdaDocEditRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_559A84B800F3 // EditType
+ HWL ME_559A84C903C7 // Details
+ )
+ ; // Attributes
+
+ENDME // ME_559A84A50297 TdaDocEditRec
+
+FORWARD ME_559B639B0067
+
+ME ME_559B63B703BF
+ MEPROP UID '559B63B703BF'
+ MEPROP Name 'DictType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559B639B0067 // TdaDictEditRec
+ ;
+ MELINK Target HWL ME_55409CB903D4 // TdaDictionaryType
+ ;
+
+ENDME // ME_559B63B703BF DictType
+
+ME ME_559B63C60378
+ MEPROP UID '559B63C60378'
+ MEPROP Name 'Operation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559B639B0067 // TdaDictEditRec
+ ;
+ MELINK Target HWL ME_55409C310280 // TdaEditOperation
+ ;
+
+ENDME // ME_559B63C60378 Operation
+
+ME ME_559B639B0067
+ MEPROP UID '559B639B0067'
+ MEPROP Name 'TdaDictEditRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_559B63B703BF // DictType
+ HWL ME_559B63C60378 // Operation
+ )
+ ; // Attributes
+
+ENDME // ME_559B639B0067 TdaDictEditRec
+
+ME ME_559BB25F0050
+ MEPROP UID '559BB25F0050'
+ MEPROP Name 'PdaDocEditRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_559A84A50297 // TdaDocEditRec
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_559BB25F0050 PdaDocEditRec
+
+ME ME_559BB27301CB
+ MEPROP UID '559BB27301CB'
+ MEPROP Name 'PdaDictEditRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_559B639B0067 // TdaDictEditRec
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_559BB27301CB PdaDictEditRec
+
+ME ME_55FA7F3302A8
+ MEPROP UID '55FA7F3302A8'
+ MEPROP Name 'PLargeInt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_559390220212 // LargeInt
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_55FA7F3302A8 PLargeInt
+
+FORWARD ME_56405001019D
+
+ME ME_56405011029D
+ MEPROP UID '56405011029D'
+ MEPROP Name 'da_loAnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56405001019D // TdaLogicOperation
+ ;
+
+ENDME // ME_56405011029D da_loAnd
+
+ME ME_564050200208
+ MEPROP UID '564050200208'
+ MEPROP Name 'da_loOr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56405001019D // TdaLogicOperation
+ ;
+
+ENDME // ME_564050200208 da_loOr
+
+ME ME_56405001019D
+ MEPROP UID '56405001019D'
+ MEPROP Name 'TdaLogicOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56405011029D // da_loAnd
+ HWL ME_564050200208 // da_loOr
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_56405001019D TdaLogicOperation
+
+ME ME_564591F20226
+ MEPROP UID '564591F20226'
+ MEPROP Name 'TdaDictID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC52180382' '47BC51FE018B.ms.model.script' // TDictID
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_564591F20226 TdaDictID
+
+FORWARD ME_56667A4D00EA
+
+ME ME_56667A5A0384
+ MEPROP UID '56667A5A0384'
+ MEPROP Name 'da_ptInput'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56667A4D00EA // TdaParamType
+ ;
+
+ENDME // ME_56667A5A0384 da_ptInput
+
+ME ME_56667A69015A
+ MEPROP UID '56667A69015A'
+ MEPROP Name 'da_ptOutput'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56667A4D00EA // TdaParamType
+ ;
+
+ENDME // ME_56667A69015A da_ptOutput
+
+ME ME_56667A760230
+ MEPROP UID '56667A760230'
+ MEPROP Name 'da_ptInOut'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56667A4D00EA // TdaParamType
+ ;
+
+ENDME // ME_56667A760230 da_ptInOut
+
+ME ME_56667A4D00EA
+ MEPROP UID '56667A4D00EA'
+ MEPROP Name 'TdaParamType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56667A5A0384 // da_ptInput
+ HWL ME_56667A69015A // da_ptOutput
+ HWL ME_56667A760230 // da_ptInOut
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_56667A4D00EA TdaParamType
+
+FORWARD ME_567CF81B01BA
+
+ME ME_567CF82801BA
+ MEPROP UID '567CF82801BA'
+ MEPROP Name 'da_soAscending'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_567CF81B01BA // TdaSortOrder
+ ;
+
+ENDME // ME_567CF82801BA da_soAscending
+
+ME ME_567CF83800AA
+ MEPROP UID '567CF83800AA'
+ MEPROP Name 'da_soDescending'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_567CF81B01BA // TdaSortOrder
+ ;
+
+ENDME // ME_567CF83800AA da_soDescending
+
+ME ME_567CF81B01BA
+ MEPROP UID '567CF81B01BA'
+ MEPROP Name 'TdaSortOrder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_567CF82801BA // da_soAscending
+ HWL ME_567CF83800AA // da_soDescending
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_567CF81B01BA TdaSortOrder
+
+FORWARD ME_571DB8E5025A
+
+ME ME_571DB9620383
+ MEPROP UID '571DB9620383'
+ MEPROP Name 'prLowest'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_571DB8E5025A // TdaPriority
+ ;
+ MEPROP Value '-2'
+ UP extprop:pas:Value '-2'
+
+ENDME // ME_571DB9620383 prLowest
+
+ME ME_571DB974006B
+ MEPROP UID '571DB974006B'
+ MEPROP Name 'prLow'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_571DB8E5025A // TdaPriority
+ ;
+ MEPROP Value '-1'
+ UP extprop:pas:Value '-1'
+
+ENDME // ME_571DB974006B prLow
+
+ME ME_571DB97F0079
+ MEPROP UID '571DB97F0079'
+ MEPROP Name 'prNormal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_571DB8E5025A // TdaPriority
+ ;
+ MEPROP Value 0
+ UP extprop:pas:Value 0
+
+ENDME // ME_571DB97F0079 prNormal
+
+ME ME_571DB98A02F7
+ MEPROP UID '571DB98A02F7'
+ MEPROP Name 'prHigh'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_571DB8E5025A // TdaPriority
+ ;
+ MEPROP Value 1
+ UP extprop:pas:Value 1
+
+ENDME // ME_571DB98A02F7 prHigh
+
+ME ME_571DB99300C7
+ MEPROP UID '571DB99300C7'
+ MEPROP Name 'prHighest'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_571DB8E5025A // TdaPriority
+ ;
+ MEPROP Value 2
+ UP extprop:pas:Value 2
+
+ENDME // ME_571DB99300C7 prHighest
+
+ME ME_571DB8E5025A
+ MEPROP UID '571DB8E5025A'
+ MEPROP Name 'TdaPriority'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_571DB9620383 // prLowest
+ HWL ME_571DB974006B // prLow
+ HWL ME_571DB97F0079 // prNormal
+ HWL ME_571DB98A02F7 // prHigh
+ HWL ME_571DB99300C7 // prHighest
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_571DB8E5025A TdaPriority
+
+FORWARD ME_575530A80134
+
+ME ME_575530B90010
+ MEPROP UID '575530B90010'
+ MEPROP Name 'da_aopCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ENDME // ME_575530B90010 da_aopCount
+
+ME ME_575530ED03E2
+ MEPROP UID '575530ED03E2'
+ MEPROP Name 'da_aopMin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ENDME // ME_575530ED03E2 da_aopMin
+
+ME ME_575530F7025B
+ MEPROP UID '575530F7025B'
+ MEPROP Name 'da_aopMax'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ENDME // ME_575530F7025B da_aopMax
+
+ME ME_57553101021C
+ MEPROP UID '57553101021C'
+ MEPROP Name 'da_aopAverage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ENDME // ME_57553101021C da_aopAverage
+
+ME ME_5755310E00D0
+ MEPROP UID '5755310E00D0'
+ MEPROP Name 'da_aopSum'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_575530A80134 // TdaAggregateOperation
+ ;
+
+ENDME // ME_5755310E00D0 da_aopSum
+
+ME ME_575530A80134
+ MEPROP UID '575530A80134'
+ MEPROP Name 'TdaAggregateOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_575530B90010 // da_aopCount
+ HWL ME_575530ED03E2 // da_aopMin
+ HWL ME_575530F7025B // da_aopMax
+ HWL ME_57553101021C // da_aopAverage
+ HWL ME_5755310E00D0 // da_aopSum
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_575530A80134 TdaAggregateOperation
+
+ME ME_575A8C9F006A
+ MEPROP UID '575A8C9F006A'
+ MEPROP Name 'TdaUserGroupID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ )
+ ; // Inherits
+
+ENDME // ME_575A8C9F006A TdaUserGroupID
+
+FORWARD ME_575FCC550212
+
+ME ME_575FEBA9020E
+ MEPROP UID '575FEBA9020E'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_575FCC550212 // TdaUserIDArray
+ ;
+ MELINK Target HWL ME_543244A30197 // TdaUserID
+ ;
+
+ENDME // ME_575FEBA9020E 
+
+ME ME_575FCC550212
+ MEPROP UID '575FCC550212'
+ MEPROP Name 'TdaUserIDArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_575FEBA9020E // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_575FCC550212 TdaUserIDArray
+
+FORWARD ME_575FCC70032F
+
+ME ME_575FE6700236
+ MEPROP UID '575FE6700236'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_575FCC70032F // TdaUserGroupIDArray
+ ;
+ MELINK Target HWL ME_575A8C9F006A // TdaUserGroupID
+ ;
+
+ENDME // ME_575FE6700236 
+
+ME ME_575FCC70032F
+ MEPROP UID '575FCC70032F'
+ MEPROP Name 'TdaUserGroupIDArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_575FE6700236 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_575FCC70032F TdaUserGroupIDArray
+
+ME ME_575FF19701AF
+ MEPROP UID '575FF19701AF'
+ MEPROP Name 'PdaUserID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_543244A30197 // TdaUserID
+ )
+ ; // Inherits
+ UP "isPointer" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_575FF19701AF PdaUserID
+
+ME ME_5760EEBC01BE
+ MEPROP UID '5760EEBC01BE'
+ MEPROP Name 'PdaFamilyID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_551E7DD302E0 // TdaFamilyID
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_5760EEBC01BE PdaFamilyID
+
+ME ME_5760F8470393
+ MEPROP UID '5760F8470393'
+ MEPROP Name 'PdaUserGroupID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_575A8C9F006A // TdaUserGroupID
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_5760F8470393 PdaUserGroupID
+
+ME ME_576105D902E4
+ MEPROP UID '576105D902E4'
+ MEPROP Name 'TdaSubID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DFB4CD10172' '47BC51FE018B.ms.model.script' // TSubID
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_576105D902E4 TdaSubID
+
+FORWARD ME_576105890018
+
+ME ME_5761059D00C3
+ MEPROP UID '5761059D00C3'
+ MEPROP Name 'Family'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_576105890018 // TdaGlobalCoordinateRec
+ ;
+ MELINK Target HWL ME_551E7DD302E0 // TdaFamilyID
+ ;
+
+ENDME // ME_5761059D00C3 Family
+
+ME ME_576105AD0156
+ MEPROP UID '576105AD0156'
+ MEPROP Name 'Doc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_576105890018 // TdaGlobalCoordinateRec
+ ;
+ MELINK Target HWL ME_551E7DC1024B // TdaDocID
+ ;
+
+ENDME // ME_576105AD0156 Doc
+
+ME ME_576105C0032B
+ MEPROP UID '576105C0032B'
+ MEPROP Name 'Sub'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_576105890018 // TdaGlobalCoordinateRec
+ ;
+ MELINK Target HWL ME_576105D902E4 // TdaSubID
+ ;
+
+ENDME // ME_576105C0032B Sub
+
+ME ME_576105890018
+ MEPROP UID '576105890018'
+ MEPROP Name 'TdaGlobalCoordinateRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5761059D00C3 // Family
+ HWL ME_576105AD0156 // Doc
+ HWL ME_576105C0032B // Sub
+ )
+ ; // Attributes
+
+ENDME // ME_576105890018 TdaGlobalCoordinateRec
+
+ME ME_576122F10051
+ MEPROP UID '576122F10051'
+ MEPROP Name 'PdaGlobalCoordinateRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_576105890018 // TdaGlobalCoordinateRec
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_576122F10051 PdaGlobalCoordinateRec
+
+FORWARD ME_5784BD8F00CA
+
+ME ME_5784BD9B029A
+ MEPROP UID '5784BD9B029A'
+ MEPROP Name 'LoginName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5784BD8F00CA // TdaUserEditMask
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5784BD9B029A LoginName
+
+ME ME_5784BDAA02A1
+ MEPROP UID '5784BDAA02A1'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5784BD8F00CA // TdaUserEditMask
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5784BDAA02A1 Name
+
+ME ME_5784BDB602EC
+ MEPROP UID '5784BDB602EC'
+ MEPROP Name 'ActivFlag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5784BD8F00CA // TdaUserEditMask
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5784BDB602EC ActivFlag
+
+ME ME_5784BD8F00CA
+ MEPROP UID '5784BD8F00CA'
+ MEPROP Name 'TdaUserEditMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5784BD9B029A // LoginName
+ HWL ME_5784BDAA02A1 // Name
+ HWL ME_5784BDB602EC // ActivFlag
+ )
+ ; // Attributes
+
+ENDME // ME_5784BD8F00CA TdaUserEditMask
+
+FORWARD ME_57A9A62800C9
+
+ME ME_57A9A63C009A
+ MEPROP UID '57A9A63C009A'
+ MEPROP Name 'da_bwAnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9A62800C9 // TdaBitwiseOperator
+ ;
+
+ENDME // ME_57A9A63C009A da_bwAnd
+
+ME ME_57A9A647003A
+ MEPROP UID '57A9A647003A'
+ MEPROP Name 'da_bwOr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9A62800C9 // TdaBitwiseOperator
+ ;
+
+ENDME // ME_57A9A647003A da_bwOr
+
+ME ME_57A9A62800C9
+ MEPROP UID '57A9A62800C9'
+ MEPROP Name 'TdaBitwiseOperator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57A9A63C009A // da_bwAnd
+ HWL ME_57A9A647003A // da_bwOr
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_57A9A62800C9 TdaBitwiseOperator
+
+ME ME_57A9B9000301
+ MEPROP UID '57A9B9000301'
+ MEPROP Name 'TdaDataTypesSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5535180A0366 // TdaDataType
+ )
+ ; // Inherits
+
+ENDME // ME_57A9B9000301 TdaDataTypesSet
+
+ME ME_57AC49D002F2
+ MEPROP UID '57AC49D002F2'
+ MEPROP Name 'TdaUserGroupAccessMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ UP "need UC" True
+
+ENDME // ME_57AC49D002F2 TdaUserGroupAccessMask
+
+ME ME_57AC49E801E2
+ MEPROP UID '57AC49E801E2'
+ MEPROP Name 'PdaUserGroupAccessMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57AC49D002F2 // TdaUserGroupAccessMask
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_57AC49E801E2 PdaUserGroupAccessMask
+
+FORWARD ME_57330A8D03D6
+
+ME ME_57330A9B03B0
+ MEPROP UID '57330A9B03B0'
+ MEPROP Name 'cDeprecatedDicts'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57330A8D03D6 // DeprecatedDicts
+ ;
+ MELINK Target HWL ME_5593AC1101CA // TdaDictionaryTypeSet
+ ;
+ MEPROP Value '[da_dlNewClasses_Deprecated]'
+ MELINK ValueType HWL ME_5593AC1101CA // TdaDictionaryTypeSet
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '[da_dlNewClasses_Deprecated]'
+
+ENDME // ME_57330A9B03B0 cDeprecatedDicts
+
+ME ME_57330A8D03D6
+ MEPROP UID '57330A8D03D6'
+ MEPROP Name 'DeprecatedDicts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57330A9B03B0 // cDeprecatedDicts
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_57330A8D03D6 DeprecatedDicts
+
+FORWARD ME_573B0B9402F1
+
+ME ME_573B0BC00118
+ MEPROP UID '573B0BC00118'
+ MEPROP Name 'c_UnknownLogin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573B0B9402F1 // cUserNames
+ ;
+ MEPROP Value '''UNKNOWN USER'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''UNKNOWN USER'''
+
+ENDME // ME_573B0BC00118 c_UnknownLogin
+
+ME ME_573B0BE4012E
+ MEPROP UID '573B0BE4012E'
+ MEPROP Name 'c_UnknownUserName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573B0B9402F1 // cUserNames
+ ;
+ MEPROP Value '''Пользователь %s.%d'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Пользователь %s.%d'''
+
+ENDME // ME_573B0BE4012E c_UnknownUserName
+
+ME ME_573B0B9402F1
+ MEPROP UID '573B0B9402F1'
+ MEPROP Name 'cUserNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_573B0BC00118 // c_UnknownLogin
+ HWL ME_573B0BE4012E // c_UnknownUserName
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_573B0B9402F1 cUserNames
+
+FORWARD ME_57A9B4E4031B
+
+ME ME_57A9B4F0028C
+ MEPROP UID '57A9B4F0028C'
+ MEPROP Name 'da_dtIntegers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A9B4E4031B // cDataTypes
+ ;
+ MELINK Target HWL ME_57A9B9000301 // TdaDataTypesSet
+ ;
+ MEPROP Value '[da_dtByte, da_dtDWord, da_dtWord, da_dtInteger, da_dtQWord]'
+ MELINK ValueType HWL ME_57A9B9000301 // TdaDataTypesSet
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '[da_dtByte, da_dtDWord, da_dtWord, da_dtInteger, da_dtQWord]'
+
+ENDME // ME_57A9B4F0028C da_dtIntegers
+
+ME ME_57A9B4E4031B
+ MEPROP UID '57A9B4E4031B'
+ MEPROP Name 'cDataTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5432448401BC // daTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57A9B4F0028C // da_dtIntegers
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_57A9B4E4031B cDataTypes
+
+ME ME_5432448401BC
+ MEPROP UID '5432448401BC'
+ MEPROP Name 'daTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_543244050044' '543244050044.ms.model.script' // DA
+ ;
+ MELIST Children
+   Seq: ( HWL ME_543244A30197 // TdaUserID
+ HWL ME_54EEE09D02BE // TGetLoginPasswordProc
+ HWL ME_551145D303E1 // TdaBaseFlag
+ HWL ME_551145F40033 // TdaBaseFlags
+ HWL ME_551A931F0071 // TdaRegionID
+ HWL ME_551BE28600E9 // TdaLoginError
+ HWL ME_551E7DC1024B // TdaDocID
+ HWL ME_551E7DD302E0 // TdaFamilyID
+ HWL ME_551E88DF0073 // TdaPathStr
+ HWL ME_5524CFE701C5 // TdaProcessState
+ HWL ME_5524D04900F4 // TdaOnLongProcessEvent
+ HWL ME_5535180A0366 // TdaDataType
+ HWL ME_55377C9C0289 // TdaTables
+ HWL ME_553F86E201D2 // TdaJournalOperation
+ HWL ME_55409BB900B2 // TdaDocEditType
+ HWL ME_55409C310280 // TdaEditOperation
+ HWL ME_55409CB903D4 // TdaDictionaryType
+ HWL ME_5549C6C402CB // TdaJoinKind
+ HWL ME_5549D14D035E // TdaSessionID
+ HWL ME_5552F87B029E // TdaCompareOperation
+ HWL ME_5555D51A02D2 // EdaError
+ HWL ME_555C8EC2018E // TdaTablesSet
+ HWL ME_559390220212 // LargeInt
+ HWL ME_5593AC1101CA // TdaDictionaryTypeSet
+ HWL ME_559A844300F1 // TdaDocEditRecUnion
+ HWL ME_559A84A50297 // TdaDocEditRec
+ HWL ME_559B639B0067 // TdaDictEditRec
+ HWL ME_559BB25F0050 // PdaDocEditRec
+ HWL ME_559BB27301CB // PdaDictEditRec
+ HWL ME_55FA7F3302A8 // PLargeInt
+ HWL ME_56405001019D // TdaLogicOperation
+ HWL ME_564591F20226 // TdaDictID
+ HWL ME_56667A4D00EA // TdaParamType
+ HWL ME_567CF81B01BA // TdaSortOrder
+ HWL ME_571DB8E5025A // TdaPriority
+ HWL ME_575530A80134 // TdaAggregateOperation
+ HWL ME_575A8C9F006A // TdaUserGroupID
+ HWL ME_575FCC550212 // TdaUserIDArray
+ HWL ME_575FCC70032F // TdaUserGroupIDArray
+ HWL ME_575FF19701AF // PdaUserID
+ HWL ME_5760EEBC01BE // PdaFamilyID
+ HWL ME_5760F8470393 // PdaUserGroupID
+ HWL ME_576105D902E4 // TdaSubID
+ HWL ME_576105890018 // TdaGlobalCoordinateRec
+ HWL ME_576122F10051 // PdaGlobalCoordinateRec
+ HWL ME_5784BD8F00CA // TdaUserEditMask
+ HWL ME_57A9A62800C9 // TdaBitwiseOperator
+ HWL ME_57A9B9000301 // TdaDataTypesSet
+ HWL ME_57AC49D002F2 // TdaUserGroupAccessMask
+ HWL ME_57AC49E801E2 // PdaUserGroupAccessMask
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_57330A8D03D6 // DeprecatedDicts
+ HWL ME_573B0B9402F1 // cUserNames
+ HWL ME_57A9B4E4031B // cDataTypes
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daTypes.pas'
+
+ENDME // ME_5432448401BC daTypes

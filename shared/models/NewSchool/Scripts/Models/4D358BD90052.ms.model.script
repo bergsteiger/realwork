@@ -1,0 +1,138 @@
+// DocumentContainers 4D358BD90052 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D358BD90052
+
+FORWARD ME_4CE662B803DA
+
+ME ME_4CE663D10309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4CE663D10309 
+
+ME ME_4CE668E0000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4CE668E0000F 
+
+ME ME_4CE669DA0170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4CE669DA0170 
+
+ME ME_4CE670F802AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_4C6A750F024E' '467FC9F80281.ms.model.script' // TnsF1DocumentTagNode
+ ;
+
+ENDME // ME_4CE670F802AC 
+
+ME ME_5065AB4B02F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_4857CB7D0340' '48492FC0029D.ms.model.script' // DictEntry
+ ;
+
+ENDME // ME_5065AB4B02F5 
+
+ME ME_524A936B0153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_524A936B0153 
+
+ME ME_47F27DA80172_ME_4CE662B803DA
+ MELINK Original WL 'ME_47F27DA80172' '47F086170200.ms.model.script' // GetDocument
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F27DA80172_ME_4CE662B803DA GetDocument
+
+ME ME_4CE662B803DA
+ MEPROP UID '4CE662B803DA'
+ MEPROP Name 'TnsDictionDocumentContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер документа толкового словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D358BD90052 // DocumentContainers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680E83D00C8' '4680E826036D.ms.model.script' // TeeDocumentContainer
+ WL 'ME_4C6A955F00D6' '4C6A7BA001A5.ms.model.script' // nsDocumentContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47F27DA80172_ME_4CE662B803DA // GetDocument
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CE663D10309 // Document
+ ME_4CE668E0000F // Block
+ ME_4CE669DA0170 // Tk2TagID
+ ME_4CE670F802AC // TnsF1DocumentTagNode
+ ME_5065AB4B02F5 // DictEntry
+ ME_524A936B0153 // CanNotFindData
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '19.11.2010 14:43'
+ UP extprop:pas:UnitName 'nsDictionDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionDocumentContainer'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DictionLikeDocumentProcessing\nsDictionDocumentContainer.pas'
+
+ENDME // ME_4CE662B803DA TnsDictionDocumentContainer
+
+ME ME_4D358BD90052
+ MEPROP UID '4D358BD90052'
+ MEPROP Name 'DocumentContainers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D358BAD038E' '4D358BAD038E.ms.model.script' // DictionLikeDocumentProcessing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CE662B803DA // TnsDictionDocumentContainer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_467FC9F80281' '467FC9F80281.ms.model.script' // DocumentTagNodes
+ WL 'ME_4680E826036D' '4680E826036D.ms.model.script' // eeDocumentContainer
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_4C6A7BA001A5' '4C6A7BA001A5.ms.model.script' // F1DocumentContainers
+ )
+ ; // Depends
+
+ENDME // ME_4D358BD90052 DocumentContainers

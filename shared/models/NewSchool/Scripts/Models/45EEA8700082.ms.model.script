@@ -1,0 +1,148 @@
+// Profile 45EEA8700082 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEA8700082
+
+FORWARD ME_45EEDF6D007A
+
+FORWARD ME_45F6ABAD0006
+
+ME ME_45F6ABB203BF
+ MEPROP Name 'context'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_45F6ABB203BF context
+
+ME ME_45F6ABAD0006
+ MEPROP UID '45F6ABAD0006'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDF6D007A // StopWatch
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F6ABB203BF // context
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+
+ENDME // ME_45F6ABAD0006 make
+
+ME ME_45EEDF6D007A
+ MEPROP UID '45EEDF6D007A'
+ MEPROP GUID 'B162C5E6-8FE2-44B5-B806-F1E65F17587E'
+ MEPROP Name 'StopWatch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA8700082 // Profile
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_45F6ABAD0006 // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IStopWatch'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StopWatch'
+
+ENDME // ME_45EEDF6D007A StopWatch
+
+FORWARD ME_45EEDF7303A7
+
+FORWARD ME_45F6AB6201EB
+
+ME ME_45F6AB810006
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_45F6AB810006 id
+
+ME ME_45F6AB810026
+ MEPROP Name 'context'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_45F6AB810026 context
+
+ME ME_45F6AB6201EB
+ MEPROP UID '45F6AB6201EB'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDF7303A7 // StopWatchEx
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F6AB810006 // id
+ ME_45F6AB810026 // context
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+
+ENDME // ME_45F6AB6201EB make
+
+ME ME_45EEDF7303A7
+ MEPROP UID '45EEDF7303A7'
+ MEPROP GUID '266C0FFA-01E6-4FA4-A4D6-BC620B8B7F76'
+ MEPROP Name 'StopWatchEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA8700082 // Profile
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_45F6AB6201EB // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IStopWatchEx'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StopWatchEx'
+
+ENDME // ME_45EEDF7303A7 StopWatchEx
+
+ME ME_45EEA8700082
+ MEPROP UID '45EEA8700082'
+ MEPROP Name 'Profile'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEDF6D007A // StopWatch
+ HWL ME_45EEDF7303A7 // StopWatchEx
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Profile\Profile.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Profile'
+ UP extprop:pas:UnitName 'ProfileUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Profile\Profile.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Profile'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ProfileUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\ProfileUnit.pas'
+
+ENDME // ME_45EEA8700082 Profile

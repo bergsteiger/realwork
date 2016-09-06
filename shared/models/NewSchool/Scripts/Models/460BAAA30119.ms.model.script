@@ -1,0 +1,1147 @@
+// ApplicationHelper 460BAAA30119 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_460BAAA30119
+
+FORWARD ME_4746FD4401F3
+
+FORWARD ME_4746FDB603AC
+
+ME ME_4746FDE602D3
+ MEPROP Name 'facet'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4746FDE602D3 facet
+
+ME ME_4746FDB603AC
+ MEPROP UID '4746FDB603AC'
+ MEPROP Name 'get_server_interface'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4746FD4401F3 // ServerFacade
+ ;
+ MELINK Target WL 'ME_4503D60201A5' '4503D5DC0290.ms.model.script' // Object
+ ;
+ MELIST Parameters
+   Seq: ( ME_4746FDE602D3 // facet
+ )
+ ; // Parameters
+
+ENDME // ME_4746FDB603AC get_server_interface
+
+ME ME_4746FD4401F3
+ MEPROP UID '4746FD4401F3'
+ MEPROP Name 'ServerFacade'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_460BAAA30119 // ApplicationHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4746FDB603AC // get_server_interface
+ )
+ ; // Operations
+ UP "Refcount" 'standard'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\ServerFacade.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ServerFacade.pas'
+
+ENDME // ME_4746FD4401F3 ServerFacade
+
+FORWARD ME_460A6EF8024B
+
+FORWARD ME_460A80090380
+
+ME ME_460A801C0323
+ MEPROP UID '460A801C0323'
+ MEPROP Name 'stamp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_460A80090380 // BaseId
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_460A801C0323 stamp
+
+ME ME_460A80090380
+ MEPROP UID '460A80090380'
+ MEPROP Name 'BaseId'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_460A801C0323 // stamp
+ )
+ ; // Attributes
+ UP "force usage" True
+ UP "need UC" True
+
+ENDME // ME_460A80090380 BaseId
+
+ME ME_460BC33000DA
+ MEPROP UID '460BC33000DA'
+ MEPROP Name 'base_id'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ MELINK Target HWL ME_460A80090380 // BaseId
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460BC33000DA base_id
+
+ME ME_460CC91401D4
+ MEPROP UID '460CC91401D4'
+ MEPROP Name 'function_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CC91401D4 function_manager
+
+ME ME_460CCA2602EE
+ MEPROP UID '460CCA2602EE'
+ MEPROP Name 'contract_form'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCA2602EE contract_form
+
+ME ME_460CCA470167
+ MEPROP UID '460CCA470167'
+ MEPROP Name 'search_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCA470167 search_manager
+
+ME ME_460CCA69006D
+ MEPROP UID '460CCA69006D'
+ MEPROP Name 'user_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCA69006D user_manager
+
+ME ME_460CCAC50157
+ MEPROP UID '460CCAC50157'
+ MEPROP Name 'folders'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCAC50157 folders
+
+ME ME_460CCAEB01C5
+ MEPROP UID '460CCAEB01C5'
+ MEPROP Name 'under_control_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCAEB01C5 under_control_manager
+
+ME ME_460CCB0802BF
+ MEPROP UID '460CCB0802BF'
+ MEPROP Name 'settings'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCB0802BF settings
+
+ME ME_460CCB1D02AF
+ MEPROP UID '460CCB1D02AF'
+ MEPROP Name 'settings_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCB1D02AF settings_manager
+
+ME ME_460CCB300000
+ MEPROP UID '460CCB300000'
+ MEPROP Name 'life_cycle_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCB300000 life_cycle_manager
+
+ME ME_460CCB48005D
+ MEPROP UID '460CCB48005D'
+ MEPROP Name 'consultation_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCB48005D consultation_manager
+
+ME ME_460CCB730203
+ MEPROP UID '460CCB730203'
+ MEPROP Name 'logging_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_460CCB730203 logging_manager
+
+ME ME_463F5B1A0271
+ MEPROP UID '463F5B1A0271'
+ MEPROP Name 'integration'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_463F5B1A0271 integration
+
+ME ME_468271160271
+ MEPROP UID '468271160271'
+ MEPROP Name 'xml_save'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_468271160271 xml_save
+
+ME ME_47C2A4010112
+ MEPROP UID '47C2A4010112'
+ MEPROP Name 'prime'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_47C2A4010112 prime
+
+ME ME_47C697EC013B
+ MEPROP UID '47C697EC013B'
+ MEPROP Name 'prime_xml_save'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_47C697EC013B prime_xml_save
+
+ME ME_47470A6C0354
+ MEPROP UID '47470A6C0354'
+ MEPROP Name 'server_facade'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ MELINK Target HWL ME_4746FD4401F3 // ServerFacade
+ ;
+ MEPROP TargetStereotype 'const'
+
+ENDME // ME_47470A6C0354 server_facade
+
+ME ME_4A80366B032E
+ MEPROP UID '4A80366B032E'
+ MEPROP Name 'user_journal'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Журнал работы' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4A80366B032E user_journal
+
+ME ME_4ABB42BE005E
+ MEPROP UID '4ABB42BE005E'
+ MEPROP Name 'tree_factory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4ABB42BE005E tree_factory
+
+ME ME_4AC4AAD502D8
+ MEPROP UID '4AC4AAD502D8'
+ MEPROP Name 'property_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4AC4AAD502D8 property_manager
+
+ME ME_4AD31BDC01C8
+ MEPROP UID '4AD31BDC01C8'
+ MEPROP Name 'banner_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4AD31BDC01C8 banner_manager
+
+ME ME_4AEE9F4A02BF
+ MEPROP UID '4AEE9F4A02BF'
+ MEPROP Name 'uid'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'uid текущего пользователя' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4AEE9F4A02BF uid
+
+ME ME_4AF00C6203B8
+ MEPROP UID '4AF00C6203B8'
+ MEPROP Name 'group_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4AF00C6203B8 group_manager
+
+ME ME_4BD555DD0100
+ MEPROP UID '4BD555DD0100'
+ MEPROP Name 'remote_support'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4BD555DD0100 remote_support
+
+ME ME_4CA5C3B902CF
+ MEPROP UID '4CA5C3B902CF'
+ MEPROP Name 'filters_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4CA5C3B902CF filters_manager
+
+ME ME_4D3EE90700C5
+ MEPROP UID '4D3EE90700C5'
+ MEPROP Name 'context_filter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4D3EE90700C5 context_filter
+
+ME ME_4DD4FD16037F
+ MEPROP UID '4DD4FD16037F'
+ MEPROP Name 'main_menu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4DD4FD16037F main_menu
+
+ME ME_4F71D30F03A9
+ MEPROP UID '4F71D30F03A9'
+ MEPROP Name 'decisions_archive_support'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4F71D30F03A9 decisions_archive_support
+
+ME ME_4FE86F45030E
+ MEPROP UID '4FE86F45030E'
+ MEPROP Name 'document_type_resolver'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_4FE86F45030E document_type_resolver
+
+ME ME_55952CC10360
+ MEPROP UID '55952CC10360'
+ MEPROP Name 'link_manager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ UP "is mutable" True
+
+ENDME // ME_55952CC10360 link_manager
+
+ME ME_460A806C0214
+ MEPROP UID '460A806C0214'
+ MEPROP Name 'clear_cache_and_regenerate_base_id'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460A806C0214 clear_cache_and_regenerate_base_id
+
+FORWARD ME_460A80AB0254
+
+ME ME_462F69F80357
+ MEPROP Name 'base_id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_460A80090380 // BaseId
+ ;
+
+ENDME // ME_462F69F80357 base_id
+
+ME ME_460A80AB0254
+ MEPROP UID '460A80AB0254'
+ MEPROP Name 'compare_and_update_base_id'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_462F69F80357 // base_id
+ )
+ ; // Parameters
+
+ENDME // ME_460A80AB0254 compare_and_update_base_id
+
+ME ME_460A80C603C1
+ MEPROP UID '460A80C603C1'
+ MEPROP Name 'get_cached_function_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460A80C603C1 get_cached_function_manager
+
+ME ME_4D3EE8C701C0
+ MEPROP UID '4D3EE8C701C0'
+ MEPROP Name 'get_cached_context_filter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4D3EE8C701C0 get_cached_context_filter
+
+ME ME_460A819B01DA
+ MEPROP UID '460A819B01DA'
+ MEPROP Name 'get_cached_contract_form'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460A819B01DA get_cached_contract_form
+
+ME ME_460B91AE00DA
+ MEPROP UID '460B91AE00DA'
+ MEPROP Name 'get_cached_user_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460B91AE00DA get_cached_user_manager
+
+ME ME_460B91FC0157
+ MEPROP UID '460B91FC0157'
+ MEPROP Name 'get_cached_folders'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460B91FC0157 get_cached_folders
+
+ME ME_460B92A701F4
+ MEPROP UID '460B92A701F4'
+ MEPROP Name 'get_cached_under_control_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460B92A701F4 get_cached_under_control_manager
+
+ME ME_460B94F80232
+ MEPROP UID '460B94F80232'
+ MEPROP Name 'get_cached_settings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460B94F80232 get_cached_settings
+
+ME ME_460B95AC03D8
+ MEPROP UID '460B95AC03D8'
+ MEPROP Name 'get_cached_settings_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460B95AC03D8 get_cached_settings_manager
+
+ME ME_460B95D9004E
+ MEPROP UID '460B95D9004E'
+ MEPROP Name 'get_cached_life_cycle_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460B95D9004E get_cached_life_cycle_manager
+
+ME ME_4682713102DE
+ MEPROP UID '4682713102DE'
+ MEPROP Name 'get_cached_xml_save'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4682713102DE get_cached_xml_save
+
+ME ME_460BA6F801D4
+ MEPROP UID '460BA6F801D4'
+ MEPROP Name 'thr_mgr'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460BA6F801D4 thr_mgr
+
+ME ME_460BA70A0157
+ MEPROP UID '460BA70A0157'
+ MEPROP Name 'is_configurations_exist'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_460BA70A0157 is_configurations_exist
+
+ME ME_460BA7220280
+ MEPROP UID '460BA7220280'
+ MEPROP Name 'get_cached_search_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460BA7220280 get_cached_search_manager
+
+ME ME_460BA73401D4
+ MEPROP UID '460BA73401D4'
+ MEPROP Name 'get_cached_consultation_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460BA73401D4 get_cached_consultation_manager
+
+ME ME_460BA77D007D
+ MEPROP UID '460BA77D007D'
+ MEPROP Name 'get_cached_logging_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460BA77D007D get_cached_logging_manager
+
+ME ME_463F5B37009C
+ MEPROP UID '463F5B37009C'
+ MEPROP Name 'get_cached_integration'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_463F5B37009C get_cached_integration
+
+ME ME_47C2A4670007
+ MEPROP UID '47C2A4670007'
+ MEPROP Name 'get_cached_prime'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_47C2A4670007 get_cached_prime
+
+ME ME_47C695540167
+ MEPROP UID '47C695540167'
+ MEPROP Name 'get_cached_prime_xml_save'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_47C695540167 get_cached_prime_xml_save
+
+ME ME_460CD7A6038A
+ MEPROP UID '460CD7A6038A'
+ MEPROP Name 'start_listen_for_me'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Заставляем NotifyManager слушать нотификации только для меня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460CD7A6038A start_listen_for_me
+
+ME ME_460CD7D402FD
+ MEPROP UID '460CD7D402FD'
+ MEPROP Name 'stop_listen_for_me'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Прекратить слушать нотификации для меня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460CD7D402FD stop_listen_for_me
+
+ME ME_460CDD6C0399
+ MEPROP UID '460CDD6C0399'
+ MEPROP Name 'clear_cache'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очистка кешированных серверных объектов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_460CDD6C0399 clear_cache
+
+FORWARD ME_4746FE3B0046
+
+ME ME_474702A100AE
+ MEPROP Name 'server_facade'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4746FD4401F3 // ServerFacade
+ ;
+
+ENDME // ME_474702A100AE server_facade
+
+ME ME_4746FE3B0046
+ MEPROP UID '4746FE3B0046'
+ MEPROP Name 'init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_474702A100AE // server_facade
+ )
+ ; // Parameters
+
+ENDME // ME_4746FE3B0046 init
+
+ME ME_474704110312
+ MEPROP UID '474704110312'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_474704110312 make
+
+ME ME_474705300058
+ MEPROP UID '474705300058'
+ MEPROP Name 'server_facade'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+ MELINK Target HWL ME_4746FD4401F3 // ServerFacade
+ ;
+ MEPROP TargetStereotype 'const,cached'
+
+ENDME // ME_474705300058 server_facade
+
+ME ME_4A80371200CE
+ MEPROP UID '4A80371200CE'
+ MEPROP Name 'get_cached_user_journal'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4A80371200CE get_cached_user_journal
+
+ME ME_4ABB429C0210
+ MEPROP UID '4ABB429C0210'
+ MEPROP Name 'get_cached_tree_factory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4ABB429C0210 get_cached_tree_factory
+
+ME ME_4AC4AB0C01BC
+ MEPROP UID '4AC4AB0C01BC'
+ MEPROP Name 'get_cached_property_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4AC4AB0C01BC get_cached_property_manager
+
+ME ME_4ACF446803B9
+ MEPROP UID '4ACF446803B9'
+ MEPROP Name 'get_cached_banner_manager'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить баннер с сервера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4ACF446803B9 get_cached_banner_manager
+
+ME ME_4AEE9E0E01D3
+ MEPROP UID '4AEE9E0E01D3'
+ MEPROP Name 'get_cached_current_user_id'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает идентификатор текущего пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4AEE9E0E01D3 get_cached_current_user_id
+
+ME ME_4AF00C4B02A1
+ MEPROP UID '4AF00C4B02A1'
+ MEPROP Name 'get_cached_group_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4AF00C4B02A1 get_cached_group_manager
+
+ME ME_4BD5566102F9
+ MEPROP UID '4BD5566102F9'
+ MEPROP Name 'get_cached_remote_document_support'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4BD5566102F9 get_cached_remote_document_support
+
+ME ME_4CA5C3E1000C
+ MEPROP UID '4CA5C3E1000C'
+ MEPROP Name 'get_cached_filters_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4CA5C3E1000C get_cached_filters_manager
+
+ME ME_4DD4FCEF01B0
+ MEPROP UID '4DD4FCEF01B0'
+ MEPROP Name 'get_cached_main_menu'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4DD4FCEF01B0 get_cached_main_menu
+
+ME ME_4F71D2D20136
+ MEPROP UID '4F71D2D20136'
+ MEPROP Name 'get_cached_decisions_archive_support'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4F71D2D20136 get_cached_decisions_archive_support
+
+ME ME_4FE86FAD00A3
+ MEPROP UID '4FE86FAD00A3'
+ MEPROP Name 'get_cached_document_type_resolver'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_4FE86FAD00A3 get_cached_document_type_resolver
+
+ME ME_55952CE501E5
+ MEPROP UID '55952CE501E5'
+ MEPROP Name 'get_cached_link_manager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_55952CE501E5 get_cached_link_manager
+
+ME ME_46272E6103D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_460A6EF8024B // ApplicationHelper
+ ;
+
+ENDME // ME_46272E6103D4 
+
+ME ME_460A6EF8024B
+ MEPROP UID '460A6EF8024B'
+ MEPROP Name 'ApplicationHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460BAAA30119 // ApplicationHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_460BC33000DA // base_id
+ HWL ME_460CC91401D4 // function_manager
+ HWL ME_460CCA2602EE // contract_form
+ HWL ME_460CCA470167 // search_manager
+ HWL ME_460CCA69006D // user_manager
+ HWL ME_460CCAC50157 // folders
+ HWL ME_460CCAEB01C5 // under_control_manager
+ HWL ME_460CCB0802BF // settings
+ HWL ME_460CCB1D02AF // settings_manager
+ HWL ME_460CCB300000 // life_cycle_manager
+ HWL ME_460CCB48005D // consultation_manager
+ HWL ME_460CCB730203 // logging_manager
+ HWL ME_463F5B1A0271 // integration
+ HWL ME_468271160271 // xml_save
+ HWL ME_47C2A4010112 // prime
+ HWL ME_47C697EC013B // prime_xml_save
+ HWL ME_47470A6C0354 // server_facade
+ HWL ME_4A80366B032E // user_journal
+ HWL ME_4ABB42BE005E // tree_factory
+ HWL ME_4AC4AAD502D8 // property_manager
+ HWL ME_4AD31BDC01C8 // banner_manager
+ HWL ME_4AEE9F4A02BF // uid
+ HWL ME_4AF00C6203B8 // group_manager
+ HWL ME_4BD555DD0100 // remote_support
+ HWL ME_4CA5C3B902CF // filters_manager
+ HWL ME_4D3EE90700C5 // context_filter
+ HWL ME_4DD4FD16037F // main_menu
+ HWL ME_4F71D30F03A9 // decisions_archive_support
+ HWL ME_4FE86F45030E // document_type_resolver
+ HWL ME_55952CC10360 // link_manager
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_460A806C0214 // clear_cache_and_regenerate_base_id
+ HWL ME_460A80AB0254 // compare_and_update_base_id
+ HWL ME_460A80C603C1 // get_cached_function_manager
+ HWL ME_4D3EE8C701C0 // get_cached_context_filter
+ HWL ME_460A819B01DA // get_cached_contract_form
+ HWL ME_460B91AE00DA // get_cached_user_manager
+ HWL ME_460B91FC0157 // get_cached_folders
+ HWL ME_460B92A701F4 // get_cached_under_control_manager
+ HWL ME_460B94F80232 // get_cached_settings
+ HWL ME_460B95AC03D8 // get_cached_settings_manager
+ HWL ME_460B95D9004E // get_cached_life_cycle_manager
+ HWL ME_4682713102DE // get_cached_xml_save
+ HWL ME_460BA6F801D4 // thr_mgr
+ HWL ME_460BA70A0157 // is_configurations_exist
+ HWL ME_460BA7220280 // get_cached_search_manager
+ HWL ME_460BA73401D4 // get_cached_consultation_manager
+ HWL ME_460BA77D007D // get_cached_logging_manager
+ HWL ME_463F5B37009C // get_cached_integration
+ HWL ME_47C2A4670007 // get_cached_prime
+ HWL ME_47C695540167 // get_cached_prime_xml_save
+ HWL ME_460CD7A6038A // start_listen_for_me
+ HWL ME_460CD7D402FD // stop_listen_for_me
+ HWL ME_460CDD6C0399 // clear_cache
+ HWL ME_4746FE3B0046 // init
+ HWL ME_474704110312 // make
+ HWL ME_474705300058 // server_facade
+ HWL ME_4A80371200CE // get_cached_user_journal
+ HWL ME_4ABB429C0210 // get_cached_tree_factory
+ HWL ME_4AC4AB0C01BC // get_cached_property_manager
+ HWL ME_4ACF446803B9 // get_cached_banner_manager
+ HWL ME_4AEE9E0E01D3 // get_cached_current_user_id
+ HWL ME_4AF00C4B02A1 // get_cached_group_manager
+ HWL ME_4BD5566102F9 // get_cached_remote_document_support
+ HWL ME_4CA5C3E1000C // get_cached_filters_manager
+ HWL ME_4DD4FCEF01B0 // get_cached_main_menu
+ HWL ME_4F71D2D20136 // get_cached_decisions_archive_support
+ HWL ME_4FE86FAD00A3 // get_cached_document_type_resolver
+ HWL ME_55952CE501E5 // get_cached_link_manager
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_460A80090380 // BaseId
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_46272E6103D4 // 
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP "singleton" True
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\ApplicationHelper.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\ApplicationHelper.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ApplicationHelper.pas'
+
+ENDME // ME_460A6EF8024B ApplicationHelper
+
+FORWARD ME_47711DA00052
+
+ME ME_47711DCF03A0
+ MEPROP UID '47711DCF03A0'
+ MEPROP Name 'is_session_active'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47711DA00052 // SessionHelper
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_47711DCF03A0 is_session_active
+
+ME ME_477129B00039
+ MEPROP UID '477129B00039'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47711DA00052 // SessionHelper
+ ;
+
+ENDME // ME_477129B00039 make
+
+ME ME_47711DA00052
+ MEPROP UID '47711DA00052'
+ MEPROP Name 'SessionHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460BAAA30119 // ApplicationHelper
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47711DCF03A0 // is_session_active
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_477129B00039 // make
+ )
+ ; // Operations
+ UP "singleton" True
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\SessionHelper.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper\SessionHelper.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SessionHelper.pas'
+
+ENDME // ME_47711DA00052 SessionHelper
+
+ME ME_460BAAA30119
+ MEPROP UID '460BAAA30119'
+ MEPROP Name 'ApplicationHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4746FD4401F3 // ServerFacade
+ HWL ME_460A6EF8024B // ApplicationHelper
+ HWL ME_47711DA00052 // SessionHelper
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+  )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ApplicationHelper'
+
+ENDME // ME_460BAAA30119 ApplicationHelper

@@ -1,0 +1,39 @@
+// F1 Проблемы и решения 4E78CD64017F Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4E78CD64017F
+ MEPROP UID '4E78CD64017F'
+ MEPROP Name 'F1 Проблемы и решения'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Project ;
+ %SUMMARY 'Описание решаемых проблем и способов их решения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELIST Children
+   Seq: ( WL 'ME_4E7C6DD6025E' '4E7C6DD6025E.ms.model.script' // Проблемы
+ WL 'ME_4E7C6F7902DB' '4E7C6F7902DB.ms.model.script' // Решения
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4E5BC2810343' '4E5BC2810343.ms.model.script' // Shared Delphi Требования для F1
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_4E78C3EC018D' '4E78C3EC018D.ms.model.script' // Shared Delphi Требования
+ )
+ ; // Depends
+ UP "create project" True
+ UP "defines" 'nsDefine.inc'
+ UP "fix version" 0
+ UP "full constraint" False
+ UP "Full MDP" False
+ UP "major version" 8
+ UP "minor version" 1
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/implementation/Garant'
+ UP "space key" 'NMS'
+ UP "space name" 'Nemesis'
+ UP "UseNewGen" True
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant'
+
+ENDME // ME_4E78CD64017F F1 Проблемы и решения

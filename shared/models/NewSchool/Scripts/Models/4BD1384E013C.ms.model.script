@@ -1,0 +1,26 @@
+// InternetSupport_i 4BD1384E013C Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4BD1384E013C
+ MEPROP UID '4BD1384E013C'
+ MEPROP Name 'InternetSupport_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ %SUMMARY '¬озможности, доступные через интернет' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+  WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ WL 'ME_4BD132D103B9' '4BD132D103B9.ms.model.script' // InternetSupport
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\InternetSupport_i'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\InternetSupport_i'
+
+ENDME // ME_4BD1384E013C InternetSupport_i

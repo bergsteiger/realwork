@@ -1,0 +1,513 @@
+// BridgeToKviaCORBA 4CA0BB31027B Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA0BB31027B
+
+FORWARD ME_4CA0BB8600CF
+
+ME ME_4CA1C49E0245
+ MEPROP UID '4CA1C49E0245'
+ MEPROP Name 'f_orb'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C4840186' '4CA1C4660358.ms.model.script' // IORB
+ ;
+
+ENDME // ME_4CA1C49E0245 f_orb
+
+ME ME_4CA1C666017B
+ MEPROP UID '4CA1C666017B'
+ MEPROP Name 'f_session'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C64B0264' '4CA0DCFB017A.ms.model.script' // ICoreSrv_SecuritySrv_SessionManager
+ ;
+
+ENDME // ME_4CA1C666017B f_session
+
+ME ME_4CA1D39202C2
+ MEPROP UID '4CA1D39202C2'
+ MEPROP Name 'f_NC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C7DB0156' '4CA0D13D017F.ms.model.script' // INamingContext
+ ;
+
+ENDME // ME_4CA1D39202C2 f_NC
+
+FORWARD ME_4CA1D3B10250
+
+ME ME_4CA1D3BB016D
+ MEPROP UID '4CA1D3BB016D'
+ MEPROP Name 'anID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CA1D3B10250 // Page
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CA1D3BB016D anID
+
+ME ME_4CA1D3B10250
+ MEPROP UID '4CA1D3B10250'
+ MEPROP Name 'Page'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C00E03B3' '4CA1BFF9036D.ms.model.script' // IServerGate_Contents_KPage
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CA1D3BB016D // anID
+ )
+ ; // Attributes
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4CA1D3B10250 Page
+
+ME ME_4CA1D4A00134
+ MEPROP UID '4CA1D4A00134'
+ MEPROP Name 'f_KPageFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1D48F0229' '4CA1BFF9036D.ms.model.script' // IServerGate_Contents_KPageFactoryManagerSrv
+ ;
+
+ENDME // ME_4CA1D4A00134 f_KPageFactory
+
+FORWARD ME_4CA1E04300B7
+
+ME ME_4CA1E04E003F
+ MEPROP UID '4CA1E04E003F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA1E04300B7 // Logout
+ ;
+
+ENDME // ME_4CA1E04E003F DoIt
+
+ME ME_4CA1E04300B7
+ MEPROP UID '4CA1E04300B7'
+ MEPROP Name 'Logout'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA1E04E003F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CA1E04300B7 Logout
+
+FORWARD ME_4CA335E50024
+
+ME ME_4CA335F403D5
+ MEPROP UID '4CA335F403D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA335E50024 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CA335F403D5 DoIt
+
+ME ME_4CA335E50024
+ MEPROP UID '4CA335E50024'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA335F403D5 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4CA335E50024 Exists
+
+FORWARD ME_4CAC9C6100E7
+
+ME ME_4CAC9F4C0250
+ MEPROP UID '4CAC9F4C0250'
+ MEPROP Name 'F'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CAC9C6100E7 // AttachFile
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4CAC9F4C0250 F
+
+FORWARD ME_4CAC9C6E004D
+
+ME ME_4CAC9C7A0199
+ MEPROP Name 'aPage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CAC9C7A0199 aPage
+
+ME ME_4CAC9C7A01C8
+ MEPROP Name 'aFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4CAC9C7A01C8 aFile
+
+ME ME_4CAC9C6E004D
+ MEPROP UID '4CAC9C6E004D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CAC9C6100E7 // AttachFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CAC9C7A0199 // aPage
+ ME_4CAC9C7A01C8 // aFile
+ )
+ ; // Parameters
+
+ENDME // ME_4CAC9C6E004D DoIt
+
+ME ME_4CAC9E220070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC9C6100E7 // AttachFile
+ ;
+ MELINK Target WL 'ME_4B57004201BD' '47D0290B016D.ms.model.script' // l3FileUtils
+ ;
+
+ENDME // ME_4CAC9E220070 
+
+ME ME_4CAC9F630325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC9C6100E7 // AttachFile
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CAC9F630325 
+
+ME ME_4CAC9F75012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CAC9C6100E7 // AttachFile
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4CAC9F75012D 
+
+ME ME_4CAC9C6100E7
+ MEPROP UID '4CAC9C6100E7'
+ MEPROP Name 'AttachFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CAC9F4C0250 // F
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CAC9C6E004D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CAC9E220070 // l3FileUtils
+ ME_4CAC9F630325 // FreeAndNil
+ ME_4CAC9F75012D // Tl3FileMode
+ )
+ ; // Dependencies
+
+ENDME // ME_4CAC9C6100E7 AttachFile
+
+ME ME_4CA0D5C802FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA0D1B8017C' '4CA0D18B0351.ms.model.script' // TGarORBInitializerImpl
+ ;
+
+ENDME // ME_4CA0D5C802FD 
+
+ME ME_4CA1C0B501D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C00E03B3' '4CA1BFF9036D.ms.model.script' // IServerGate_Contents_KPage
+ ;
+
+ENDME // ME_4CA1C0B501D9 
+
+ME ME_4CA1C4DA0126
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4807756101FE' '4AB0997B00A2.ms.model.script' // TStringList
+ ;
+
+ENDME // ME_4CA1C4DA0126 
+
+ME ME_4CA1C54300EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C5300391' '4CA0D13D017F.ms.model.script' // TNamingContext
+ ;
+
+ENDME // ME_4CA1C54300EE 
+
+ME ME_4CA1C57101D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C5650080' '4CA1C4660358.ms.model.script' // IORBObject
+ ;
+
+ENDME // ME_4CA1C57101D1 
+
+ME ME_4CA1C7E9023A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1C7DB0156' '4CA0D13D017F.ms.model.script' // INamingContext
+ ;
+
+ENDME // ME_4CA1C7E9023A 
+
+ME ME_4CA1C9C50373
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CA1C9C50373 
+
+ME ME_4CA1CC060375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1CBF401AD' '4CA0D13D017F.ms.model.script' // TName
+ ;
+
+ENDME // ME_4CA1CC060375 
+
+ME ME_4CA1CEF40205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1CCDD0268' '4CA0D33A02D6.ms.model.script' // ORB__Init
+ ;
+
+ENDME // ME_4CA1CEF40205 
+
+ME ME_4CA1D0FE000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1D0ED000F' '4CA0DCFB017A.ms.model.script' // TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
+ ;
+
+ENDME // ME_4CA1D0FE000F 
+
+ME ME_4CA1D11F0094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA0D4C90266' '4CA0D18B0351.ms.model.script' // TGarClientSecurity
+ ;
+
+ENDME // ME_4CA1D11F0094 
+
+ME ME_4CA1D18A01C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4CA1D17B0245' '4CA1D154012C.ms.model.script' // TServerGate_Contents_KPage
+ ;
+
+ENDME // ME_4CA1D18A01C8 
+
+ME ME_4DF79CD1004B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA0BB8600CF // TKBridge
+ ;
+ MELINK Target WL 'ME_4DF79C8702EF' '4DF79C0F03A9.ms.model.script' // Nemesis
+ ;
+
+ENDME // ME_4DF79CD1004B 
+
+ME ME_479731C50290_ME_4CA0BB8600CF
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CA0BB8600CF Cleanup
+
+ME ME_47A042E100E2_ME_4CA0BB8600CF
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4CA0BB8600CF InitFields
+
+ME ME_4CA0BB8600CF
+ MEPROP UID '4CA0BB8600CF'
+ MEPROP Name 'TKBridge'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мост к К' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA0BB31027B // BridgeToKviaCORBA
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CA1C49E0245 // f_orb
+ HWL ME_4CA1C666017B // f_session
+ HWL ME_4CA1D39202C2 // f_NC
+ HWL ME_4CA1D3B10250 // Page
+ HWL ME_4CA1D4A00134 // f_KPageFactory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CA1E04300B7 // Logout
+ HWL ME_4CA335E50024 // Exists
+ HWL ME_4CAC9C6100E7 // AttachFile
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CA0BB8600CF // Cleanup
+ ME_47A042E100E2_ME_4CA0BB8600CF // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CA0D5C802FD // TGarORBInitializerImpl
+ ME_4CA1C0B501D9 // IServerGate_Contents_KPage
+ ME_4CA1C4DA0126 // TStringList
+ ME_4CA1C54300EE // TNamingContext
+ ME_4CA1C57101D1 // IORBObject
+ ME_4CA1C7E9023A // INamingContext
+ ME_4CA1C9C50373 // FreeAndNil
+ ME_4CA1CC060375 // TName
+ ME_4CA1CEF40205 // ORB__Init
+ ME_4CA1D0FE000F // TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
+ ME_4CA1D11F0094 // TGarClientSecurity
+ ME_4CA1D18A01C8 // TServerGate_Contents_KPage
+ ME_4DF79CD1004B // Nemesis
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '27.09.2010 19:43'
+ UP extprop:pas:UnitName 'KBridge'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'KBridge'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\KBridge.pas'
+
+ENDME // ME_4CA0BB8600CF TKBridge
+
+ME ME_4CA0BB31027B
+ MEPROP UID '4CA0BB31027B'
+ MEPROP Name 'BridgeToKviaCORBA'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Мост к К через CORBA' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA0BB8600CF // TKBridge
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4CA0D13D017F' '4CA0D13D017F.ms.model.script' // idl
+ WL 'ME_4CA0D18B0351' '4CA0D18B0351.ms.model.script' // IniAndFini
+ WL 'ME_4CA0D33A02D6' '4CA0D33A02D6.ms.model.script' // orb
+ WL 'ME_4CA0DCFB017A' '4CA0DCFB017A.ms.model.script' // build
+ WL 'ME_4CA1BFF9036D' '4CA1BFF9036D.ms.model.script' // Contents_int
+ WL 'ME_4CA1C4660358' '4CA1C4660358.ms.model.script' // orb_int
+ WL 'ME_4CA1D154012C' '4CA1D154012C.ms.model.script' // Impl
+ WL 'ME_4DF79C0F03A9' '4DF79C0F03A9.ms.model.script' // tfwKConst
+ )
+ ; // Depends
+ UP "ifdef" 'MTDORB,NoKPageTool'
+
+ENDME // ME_4CA0BB31027B BridgeToKviaCORBA

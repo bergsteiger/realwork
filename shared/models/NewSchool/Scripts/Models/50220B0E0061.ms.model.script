@@ -1,0 +1,667 @@
+// TvtScrollBar 50220B0E0061 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50220B0E0061
+
+FORWARD ME_50220BCB013C
+
+ME ME_50220BEA0361
+ MEPROP UID '50220BEA0361'
+ MEPROP Name 'sbalNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220BCB013C // TvtScrollBarAlign
+ ;
+
+ENDME // ME_50220BEA0361 sbalNone
+
+ME ME_50220BF003DA
+ MEPROP UID '50220BF003DA'
+ MEPROP Name 'sbalTop'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220BCB013C // TvtScrollBarAlign
+ ;
+
+ENDME // ME_50220BF003DA sbalTop
+
+ME ME_50220BF7034B
+ MEPROP UID '50220BF7034B'
+ MEPROP Name 'sbalRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220BCB013C // TvtScrollBarAlign
+ ;
+
+ENDME // ME_50220BF7034B sbalRight
+
+ME ME_50220BFF021E
+ MEPROP UID '50220BFF021E'
+ MEPROP Name 'sbalBottom'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220BCB013C // TvtScrollBarAlign
+ ;
+
+ENDME // ME_50220BFF021E sbalBottom
+
+ME ME_50220C0A0015
+ MEPROP UID '50220C0A0015'
+ MEPROP Name 'sbalLeft'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220BCB013C // TvtScrollBarAlign
+ ;
+
+ENDME // ME_50220C0A0015 sbalLeft
+
+ME ME_50220BCB013C
+ MEPROP UID '50220BCB013C'
+ MEPROP Name 'TvtScrollBarAlign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_50220BEA0361 // sbalNone
+ HWL ME_50220BF003DA // sbalTop
+ HWL ME_50220BF7034B // sbalRight
+ HWL ME_50220BFF021E // sbalBottom
+ HWL ME_50220C0A0015 // sbalLeft
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_50220BCB013C TvtScrollBarAlign
+
+ME ME_50220C6501B2
+ MEPROP UID '50220C6501B2'
+ MEPROP Name 'ScrollBarKind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_500427160316' '4799D29F033F.ms.model.script' // TScrollBarKind
+ ;
+ UP "pm" False
+
+ENDME // ME_50220C6501B2 ScrollBarKind
+
+ME ME_50220D2E023F
+ MEPROP UID '50220D2E023F'
+ MEPROP Name 'SmallChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_50220CFD0326' '4799D29F033F.ms.model.script' // TScrollBarInc
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_50220D2E023F SmallChange
+
+ME ME_50220D5300F9
+ MEPROP UID '50220D5300F9'
+ MEPROP Name 'LargeChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_50220CFD0326' '4799D29F033F.ms.model.script' // TScrollBarInc
+ ;
+ UP "pm" False
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_50220D5300F9 LargeChange
+
+ME ME_50220D98014D
+ MEPROP UID '50220D98014D'
+ MEPROP Name 'Align'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target HWL ME_50220BCB013C // TvtScrollBarAlign
+ ;
+ UP "pm" False
+
+ENDME // ME_50220D98014D Align
+
+ME ME_50220DCD01C1
+ MEPROP UID '50220DCD01C1'
+ MEPROP Name 'Min'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ UP "pm" False
+ UP "reads field" True
+
+ENDME // ME_50220DCD01C1 Min
+
+ME ME_50220DD70207
+ MEPROP UID '50220DD70207'
+ MEPROP Name 'Max'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ UP "pm" False
+ UP "reads field" True
+
+ENDME // ME_50220DD70207 Max
+
+ME ME_50220DE00328
+ MEPROP UID '50220DE00328'
+ MEPROP Name 'Position'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ UP "pm" False
+ UP "reads field" True
+
+ENDME // ME_50220DE00328 Position
+
+ME ME_50220DF801D8
+ MEPROP UID '50220DF801D8'
+ MEPROP Name 'PageSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ UP "pm" False
+ UP "reads field" True
+
+ENDME // ME_50220DF801D8 PageSize
+
+ME ME_50220EFC008A
+ MEPROP UID '50220EFC008A'
+ MEPROP Name 'OnChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_50220EFC008A OnChange
+
+ME ME_50220FB9004A
+ MEPROP UID '50220FB9004A'
+ MEPROP Name 'OnScroll'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_50220F69008D' '4799D29F033F.ms.model.script' // TScrollEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_50220FB9004A OnScroll
+
+FORWARD ME_502210E20375
+
+FORWARD ME_502210F10211
+
+ME ME_502210F500BD
+ MEPROP Name 'ScrollCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_502211F903A8' '4799D29F033F.ms.model.script' // TScrollCode
+ ;
+
+ENDME // ME_502210F500BD ScrollCode
+
+ME ME_502210F500E6
+ MEPROP Name 'ScrollPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_502210F500E6 ScrollPos
+
+ME ME_502210F10211
+ MEPROP UID '502210F10211'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502210E20375 // DoScroll
+ ;
+ MELIST Parameters
+   Seq: ( ME_502210F500BD // ScrollCode
+ ME_502210F500E6 // ScrollPos
+ )
+ ; // Parameters
+
+ENDME // ME_502210F10211 DoIt
+
+ME ME_502210E20375
+ MEPROP UID '502210E20375'
+ MEPROP Name 'DoScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502210F10211 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_502210E20375 DoScroll
+
+ME ME_50221120038F
+ MEPROP UID '50221120038F'
+ MEPROP Name 'DoChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+
+ENDME // ME_50221120038F DoChange
+
+FORWARD ME_502211340371
+
+FORWARD ME_5022113D0001
+
+ME ME_50221149035F
+ MEPROP Name 'APosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50221149035F APosition
+
+ME ME_5022114903A9
+ MEPROP Name 'AMin'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5022114903A9 AMin
+
+ME ME_5022114A0025
+ MEPROP Name 'AMax'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5022114A0025 AMax
+
+ME ME_5022113D0001
+ MEPROP UID '5022113D0001'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502211340371 // SetParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_50221149035F // APosition
+ ME_5022114903A9 // AMin
+ ME_5022114A0025 // AMax
+ )
+ ; // Parameters
+
+ENDME // ME_5022113D0001 DoIt
+
+ME ME_502211340371
+ MEPROP UID '502211340371'
+ MEPROP Name 'SetParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5022113D0001 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_502211340371 SetParams
+
+FORWARD ME_5022115C02AE
+
+FORWARD ME_502211670261
+
+ME ME_5022116A0257
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50221189037F' '476F78840219.ms.model.script' // TWMScroll
+ ;
+
+ENDME // ME_5022116A0257 Msg
+
+ME ME_502211670261
+ MEPROP UID '502211670261'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5022115C02AE // DoWMScroll
+ ;
+ MELIST Parameters
+   Seq: ( ME_5022116A0257 // Msg
+ )
+ ; // Parameters
+
+ENDME // ME_502211670261 DoIt
+
+ME ME_5022115C02AE
+ MEPROP UID '5022115C02AE'
+ MEPROP Name 'DoWMScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502211670261 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5022115C02AE DoWMScroll
+
+FORWARD ME_505894EC0371
+
+ME ME_505894FD0388
+ MEPROP UID '505894FD0388'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505894EC0371 // InUpdating
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_505894FD0388 DoIt
+
+ME ME_505894EC0371
+ MEPROP UID '505894EC0371'
+ MEPROP Name 'InUpdating'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_505894FD0388 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_505894EC0371 InUpdating
+
+FORWARD ME_502228CB009D
+
+ME ME_502228E60103
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_5022119A010F' '476F78840219.ms.model.script' // TWMHScroll
+ ;
+
+ENDME // ME_502228E60103 Msg
+
+ME ME_502228CB009D
+ MEPROP UID '502228CB009D'
+ MEPROP Name 'WMHScroll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELIST Parameters
+   Seq: ( ME_502228E60103 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_HSCROLL'
+
+ENDME // ME_502228CB009D WMHScroll
+
+FORWARD ME_502228F70076
+
+ME ME_5022290503AD
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_502211A50263' '476F78840219.ms.model.script' // TWMVScroll
+ ;
+
+ENDME // ME_5022290503AD Msg
+
+ME ME_502228F70076
+ MEPROP UID '502228F70076'
+ MEPROP Name 'WMVScroll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELIST Parameters
+   Seq: ( ME_5022290503AD // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_VSCROLL'
+
+ENDME // ME_502228F70076 WMVScroll
+
+ME ME_5022124C00CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_4C2D9FF00326' '55C4AF3F02EE.ms.model.script' // Consts
+ ;
+
+ENDME // ME_5022124C00CA 
+
+ME ME_50222C9B00F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_50222C8103A5' '4AB0C3F60375.ms.model.script' // TScrollInfo
+ ;
+
+ENDME // ME_50222C9B00F7 
+
+ME ME_505894C60267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50220B0E0061 // TvtScrollBar
+ ;
+ MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_505894C60267 
+
+ME ME_47D1602000C6_ME_50220B0E0061
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_50220B0E0061 Create
+
+ME ME_47E136A80191_ME_50220B0E0061
+ MELINK Original WL 'ME_47E136A80191' '4799D29F033F.ms.model.script' // WndProc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47E136A80191_ME_50220B0E0061 WndProc
+
+ME ME_48C7925A02E5_ME_50220B0E0061
+ MELINK Original WL 'ME_48C7925A02E5' '4799D29F033F.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7925A02E5_ME_50220B0E0061 CreateParams
+
+ME ME_4A97E78202FC_ME_50220B0E0061
+ MELINK Original WL 'ME_4A97E78202FC' '4799D29F033F.ms.model.script' // SetParent
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A97E78202FC_ME_50220B0E0061 SetParent
+
+ME ME_4CC8414403B8_ME_50220B0E0061
+ MELINK Original WL 'ME_4CC8414403B8' '4799D29F033F.ms.model.script' // CreateWnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8414403B8_ME_50220B0E0061 CreateWnd
+
+ME ME_4F2A599E0283_ME_50220B0E0061
+ MELINK Original WL 'ME_4F2A599E0283' '4799D29F033F.ms.model.script' // SetBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A599E0283_ME_50220B0E0061 SetBounds
+
+ME ME_5022104B03A6_ME_50220B0E0061
+ MELINK Original WL 'ME_5022104B03A6' '4799D29F033F.ms.model.script' // RequestAlign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5022104B03A6_ME_50220B0E0061 RequestAlign
+
+ME ME_50220B0E0061
+ MEPROP UID '50220B0E0061'
+ MEPROP Name 'TvtScrollBar'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_50220AA101CA' '50220AA101CA.ms.model.script' // Scrollbar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50220C6501B2 // ScrollBarKind
+ HWL ME_50220D2E023F // SmallChange
+ HWL ME_50220D5300F9 // LargeChange
+ HWL ME_50220D98014D // Align
+ HWL ME_50220DCD01C1 // Min
+ HWL ME_50220DD70207 // Max
+ HWL ME_50220DE00328 // Position
+ HWL ME_50220DF801D8 // PageSize
+ HWL ME_50220EFC008A // OnChange
+ HWL ME_50220FB9004A // OnScroll
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_502210E20375 // DoScroll
+ HWL ME_50221120038F // DoChange
+ HWL ME_502211340371 // SetParams
+ HWL ME_5022115C02AE // DoWMScroll
+ HWL ME_505894EC0371 // InUpdating
+ HWL ME_502228CB009D // WMHScroll
+ HWL ME_502228F70076 // WMVScroll
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_50220B0E0061 // Create
+ ME_47E136A80191_ME_50220B0E0061 // WndProc
+ ME_48C7925A02E5_ME_50220B0E0061 // CreateParams
+ ME_4A97E78202FC_ME_50220B0E0061 // SetParent
+ ME_4CC8414403B8_ME_50220B0E0061 // CreateWnd
+ ME_4F2A599E0283_ME_50220B0E0061 // SetBounds
+ ME_5022104B03A6_ME_50220B0E0061 // RequestAlign
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_50220BCB013C // TvtScrollBarAlign
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5022124C00CA // Consts
+ ME_50222C9B00F7 // TScrollInfo
+ ME_505894C60267 // Tafw
+ )
+ ; // Dependencies
+ UP "author" 'Костицын'
+ UP "no hands" True
+ UP "started" '07.08.12'
+ UP extprop:pas:UnitName 'vtScrollBar'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ScrollBar'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtScrollBar.pas'
+
+ENDME // ME_50220B0E0061 TvtScrollBar

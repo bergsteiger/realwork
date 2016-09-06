@@ -1,0 +1,193 @@
+// TdsConsultationMark 49216B3C02E8 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49216B3C02E8
+
+ME ME_49216C45028E
+ MEPROP UID '49216C45028E'
+ MEPROP Name 'f_Comment'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_4773DED9004C' '47913B47006E.ms.model.script' // Tl3_String
+ ;
+
+ENDME // ME_49216C45028E f_Comment
+
+ME ME_49216C6300F7
+ MEPROP UID '49216C6300F7'
+ MEPROP Name 'f_Mark'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_4921639C00DB' '47EA07FA02CE.ms.model.script' // TbsConsultationMark
+ ;
+
+ENDME // ME_49216C6300F7 f_Mark
+
+ME ME_4978A6B0036D
+ MEPROP UID '4978A6B0036D'
+ MEPROP Name 'Consultation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_4921732002D9' '4ABCF04F00DF.ms.model.script' // IsdsConsultation
+ ;
+
+ENDME // ME_4978A6B0036D Consultation
+
+ME ME_49216C840250
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_49216C840250 
+
+ME ME_492173100088
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_4570081E002E' '457007DB002E.ms.model.script' // Estimation
+ ;
+
+ENDME // ME_492173100088 
+
+ME ME_4921746F0201
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_47F9CF5500D1' '48F747EC0073.ms.model.script' // bsConvert
+ ;
+
+ENDME // ME_4921746F0201 
+
+ME ME_4921747D0235
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4921747D0235 
+
+ME ME_492175C60048
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49216B3C02E8 // TdsConsultationMark
+ ;
+ MELINK Target WL 'ME_48FF569700F6' '47F2170002B2.ms.model.script' // StringRoutines
+ ;
+
+ENDME // ME_492175C60048 
+
+ME ME_49216508016D_ME_49216B3C02E8
+ MELINK Original WL 'ME_49216508016D' '4ABCF04F00DF.ms.model.script' // Send
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49216508016D_ME_49216B3C02E8 Send
+
+ME ME_49216542034E_ME_49216B3C02E8
+ MELINK Original WL 'ME_49216542034E' '4ABCF04F00DF.ms.model.script' // Mark
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49216542034E_ME_49216B3C02E8 Mark
+
+ME ME_49216552037B_ME_49216B3C02E8
+ MELINK Original WL 'ME_49216552037B' '4ABCF04F00DF.ms.model.script' // Comment
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49216552037B_ME_49216B3C02E8 Comment
+
+ME ME_49216566017F_ME_49216B3C02E8
+ MELINK Original WL 'ME_49216566017F' '4ABCF04F00DF.ms.model.script' // CanSend
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49216566017F_ME_49216B3C02E8 CanSend
+
+ME ME_479731C50290_ME_49216B3C02E8
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_49216B3C02E8 Cleanup
+
+ME ME_47A042E100E2_ME_49216B3C02E8
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_49216B3C02E8 InitFields
+
+ME ME_49216B3C02E8
+ MEPROP UID '49216B3C02E8'
+ MEPROP Name 'TdsConsultationMark'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОС оценки консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492164C302A6' '4ABCF04F00DF.ms.model.script' // IdsConsultationMark
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49216C45028E // f_Comment
+ HWL ME_49216C6300F7 // f_Mark
+ HWL ME_4978A6B0036D // Consultation
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_49216508016D_ME_49216B3C02E8 // Send
+ ME_49216542034E_ME_49216B3C02E8 // Mark
+ ME_49216552037B_ME_49216B3C02E8 // Comment
+ ME_49216566017F_ME_49216B3C02E8 // CanSend
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49216B3C02E8 // Cleanup
+ ME_47A042E100E2_ME_49216B3C02E8 // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49216C840250 // l3Base
+ ME_492173100088 // Estimation
+ ME_4921746F0201 // bsConvert
+ ME_4921747D0235 // DataAdapter
+ ME_492175C60048 // StringRoutines
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2006/04/07 08:16:08'
+ UP extprop:pas:UnitName 'dsConsultationMark'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsConsultationMark'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationMark.pas'
+
+ENDME // ME_49216B3C02E8 TdsConsultationMark

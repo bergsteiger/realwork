@@ -1,0 +1,260 @@
+// TChromeLikeBaseThemedWindowCaptionButton 533D07A201C1 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533D07A201C1
+
+FORWARD ME_533D08920033
+
+ME ME_533D08B5038B
+ MEPROP UID '533D08B5038B'
+ MEPROP Name 'rPartID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_533D08B5038B rPartID
+
+ME ME_533D08C20067
+ MEPROP UID '533D08C20067'
+ MEPROP Name 'rStateID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_533D08C20067 rStateID
+
+ME ME_533D08920033
+ MEPROP UID '533D08920033'
+ MEPROP Name 'TChromeLikeThemedWindowCaptionButtonPaintParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметры отрисовки кнопок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_533D08B5038B // rPartID
+ HWL ME_533D08C20067 // rStateID
+ )
+ ; // Attributes
+
+ENDME // ME_533D08920033 TChromeLikeThemedWindowCaptionButtonPaintParams
+
+ME ME_533D09010204
+ MEPROP UID '533D09010204'
+ MEPROP Name 'Theme'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_533D08DE039A' '4AB0C3F60375.ms.model.script' // HTHEME
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_533D09010204 Theme
+
+FORWARD ME_533D091902B8
+
+ME ME_533D092C00AB
+ MEPROP UID '533D092C00AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D091902B8 // GetPaintParams
+ ;
+ MELINK Target HWL ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
+ ;
+
+ENDME // ME_533D092C00AB DoIt
+
+ME ME_533D091902B8
+ MEPROP UID '533D091902B8'
+ MEPROP Name 'GetPaintParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533D092C00AB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_533D091902B8 GetPaintParams
+
+FORWARD ME_533D08600262
+
+ME ME_533D087000D3
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_533D087000D3 aMessage
+
+ME ME_533D08600262
+ MEPROP UID '533D08600262'
+ MEPROP Name 'WMThemeChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELIST Parameters
+   Seq: ( ME_533D087000D3 // aMessage
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_THEMECHANGED'
+
+ENDME // ME_533D08600262 WMThemeChanged
+
+ME ME_533D0A6F02A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_533BC8E40286' '4AB0C3F60375.ms.model.script' // UxTheme
+ ;
+
+ENDME // ME_533D0A6F02A4 
+
+ME ME_533D0A810334
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_533D0A810334 
+
+ME ME_533D0AAA032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_533D0AAA032C 
+
+ME ME_533D0AB402F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_533D0AB402F4 
+
+ME ME_533D0AD900C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_533D0AD900C4 
+
+ME ME_533D1DE8005C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D07A201C1 // TChromeLikeBaseThemedWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_533D1DE8005C 
+
+ME ME_47D1602000C6_ME_533D07A201C1
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_533D07A201C1 Create
+
+ME ME_4CC841540158_ME_533D07A201C1
+ MELINK Original WL 'ME_4CC841540158' '4799D29F033F.ms.model.script' // DestroyWnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC841540158_ME_533D07A201C1 DestroyWnd
+
+ME ME_5028A60300AD_ME_533D07A201C1
+ MELINK Original WL 'ME_5028A60300AD' '4799D29F033F.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A60300AD_ME_533D07A201C1 Paint
+
+ME ME_533D07A201C1
+ MEPROP UID '533D07A201C1'
+ MEPROP Name 'TChromeLikeBaseThemedWindowCaptionButton'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D01A201A9' '533D01A201A9.ms.model.script' // ChromeLikeWindowCaptionButtons
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_533D01CB01B1' '533D01CB01B1.ms.model.script' // TChromeLikeBaseWindowCaptionButton
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_533D09010204 // Theme
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_533D091902B8 // GetPaintParams
+ HWL ME_533D08600262 // WMThemeChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_533D07A201C1 // Create
+ ME_4CC841540158_ME_533D07A201C1 // DestroyWnd
+ ME_5028A60300AD_ME_533D07A201C1 // Paint
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_533D08920033 // TChromeLikeThemedWindowCaptionButtonPaintParams
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_533D0A6F02A4 // UxTheme
+ ME_533D0A810334 // Windows
+ ME_533D0AAA032C // SysUtils
+ ME_533D0AB402F4 // Controls
+ ME_533D0AD900C4 // Graphics
+ ME_533D1DE8005C // l3Base
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP extprop:pas:UnitName 'ChromeLikeBaseThemedWindowCaptionButton'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeBaseThemedWindowCaptionButton'
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeBaseThemedWindowCaptionButton.pas'
+
+ENDME // ME_533D07A201C1 TChromeLikeBaseThemedWindowCaptionButton

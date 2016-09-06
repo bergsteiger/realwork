@@ -1,0 +1,221 @@
+// Списки 484CE48E02E6 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484CE48E02E6
+
+ME ME_484CE59A0140
+ MEPROP UID '484CE59A0140'
+ MEPROP Name 'Работа с древовидными структурами'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный прецедент. Содержит все типовые функции доступные пользователю при работе с древовидными (и линейными, как частный случай) структурами (словари, папки, списки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_484CE59A0140 Работа с древовидными структурами
+
+FORWARD ME_484CE5E503D4
+
+ME ME_4E36BD3B02C9
+ MEPROP UID '4E36BD3B02C9'
+ MEPROP Name 'Анализ списка из вкладки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:274825697}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE5E503D4 // Просмотр списка
+ ;
+
+ENDME // ME_4E36BD3B02C9 Анализ списка из вкладки
+
+ME ME_484CE5E503D4
+ MEPROP UID '484CE5E503D4'
+ MEPROP Name 'Просмотр списка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нахождение в списке нужного документа или нескольких документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484CE59A0140 // Работа с древовидными структурами
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4E36BD3B02C9 // Анализ списка из вкладки
+ )
+ ; // Children
+
+ENDME // ME_484CE5E503D4 Просмотр списка
+
+ME ME_484D04FC007B
+ MEPROP UID '484D04FC007B'
+ MEPROP Name 'Фильтрация сохраненными запросами'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтрация списка документов с использованием сохраненных запросов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_484D04FC007B Фильтрация сохраненными запросами
+
+ME ME_484D053B0064
+ MEPROP UID '484D053B0064'
+ MEPROP Name 'Логические операции со списками'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Логические операции с текущим списком и сохраненными списками.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_484D053B0064 Логические операции со списками
+
+ME ME_484E382C0133
+ MEPROP UID '484E382C0133'
+ MEPROP Name 'Синхронный просмотр'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр текста документа при работе со списком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_484E382C0133 Синхронный просмотр
+
+ME ME_484E387100D4
+ MEPROP UID '484E387100D4'
+ MEPROP Name 'Справочная информация'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Просмотр справочной информации о списке, способе его получения и последующей модификации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_484E387100D4 Справочная информация
+
+FORWARD ME_484E38C600D8
+
+ME ME_4F7301C6006A
+ MEPROP UID '4F7301C6006A'
+ MEPROP Name 'Операций Undo и Redo (Отмена изменений и Возврат изменений) в списке быть не должно'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:296626765}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484E38C600D8 // Модификация списка
+ ;
+
+ENDME // ME_4F7301C6006A Операций Undo и Redo (Отмена изменений и Возврат изменений) в списке быть не должно
+
+ME ME_484E38C600D8
+ MEPROP UID '484E38C600D8'
+ MEPROP Name 'Модификация списка'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Добавление и удаление элементов из текущего списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F7301C6006A // Операций Undo и Redo (Отмена изменений и Возврат изменений) в списке быть не должно
+ )
+ ; // Children
+
+ENDME // ME_484E38C600D8 Модификация списка
+
+ME ME_484F7F710337
+ MEPROP UID '484F7F710337'
+ MEPROP Name 'Контекстный фильтр'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтрация элементов дерева "на лету" при помощи ввода текстовой строки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_484F7F710337 Контекстный фильтр
+
+ME ME_48608C5B03AD
+ MEPROP UID '48608C5B03AD'
+ MEPROP Name 'Постоянное применение фильтров'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность для самого пользователя настроить автоматическое применение фильтров ко всем спискам, для которых эти фильтры предназначены' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_48608C5B03AD Постоянное применение фильтров
+
+ME ME_4AC1CB730178
+ MEPROP UID '4AC1CB730178'
+ MEPROP Name 'Анализ списка найденных документов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Анализ найденного списка по видам информации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE48E02E6 // Списки
+ ;
+
+ENDME // ME_4AC1CB730178 Анализ списка найденных документов
+
+ME ME_484CE48E02E6
+ MEPROP UID '484CE48E02E6'
+ MEPROP Name 'Списки'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Работа с абстрактными древовидными структурами и конкретная реализация списка документов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484CE59A0140 // Работа с древовидными структурами
+ HWL ME_484CE5E503D4 // Просмотр списка
+ HWL ME_484D04FC007B // Фильтрация сохраненными запросами
+ HWL ME_484D053B0064 // Логические операции со списками
+ HWL ME_484E382C0133 // Синхронный просмотр
+ HWL ME_484E387100D4 // Справочная информация
+ HWL ME_484E38C600D8 // Модификация списка
+ HWL ME_484F7F710337 // Контекстный фильтр
+ HWL ME_48608C5B03AD // Постоянное применение фильтров
+ HWL ME_4AC1CB730178 // Анализ списка найденных документов
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4E365B6002CA' '4E365B6002CA.ms.model.script' // Отображение списков
+ WL 'ME_4E36C0130013' '4E36C0130013.ms.model.script' // Контролы с закладками
+ )
+ ; // Depends
+
+ENDME // ME_484CE48E02E6 Списки

@@ -1,0 +1,46 @@
+// NSRC+ 4836C56901A6 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4836C56901A6
+
+ME ME_4836C5E303B9
+ MEPROP UID '4836C5E303B9'
+ MEPROP Name 'Выливка в формат NSRC+'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4836C56901A6 // NSRC+
+ ;
+ MELIST Depends
+   Seq: ( WL 'ME_4836C450038D' '47ECACA70141.ms.model.script' // TevSimpleTextPainter
+ WL 'ME_4836CFF1028E' '47ECACA70141.ms.model.script' // TevNSRCPlusWriter
+ )
+ ; // Depends
+
+ENDME // ME_4836C5E303B9 Выливка в формат NSRC+
+
+ME ME_4836C56901A6
+ MEPROP UID '4836C56901A6'
+ MEPROP Name 'NSRC+'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4836C4E2003A' '4836C4E2003A.ms.model.script' // Форматы обмена
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4836C5E303B9 // Выливка в формат NSRC+
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ WL 'ME_4BBB34C600E6' '4BBB34C600E6.ms.model.script' // NSRC
+ WL 'ME_4F266203018F' '4F266203018F.ms.model.script' // NSRC
+ )
+ ; // Depends
+
+ENDME // ME_4836C56901A6 NSRC+

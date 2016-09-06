@@ -1,0 +1,155 @@
+// TFormFrameDecorator 54211E830399 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54211E830399
+
+FORWARD ME_54B4B9A20339
+
+FORWARD ME_54B4B9C40282
+
+ME ME_54B4B9D900D9
+ MEPROP Name 'aDecorator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+
+ENDME // ME_54B4B9D900D9 aDecorator
+
+ME ME_54B4B9C40282
+ MEPROP UID '54B4B9C40282'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B4B9A20339 // TFormFrameDecoratorNeedRecreateButtonsEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B4B9D900D9 // aDecorator
+ )
+ ; // Parameters
+
+ENDME // ME_54B4B9C40282 DoIt
+
+ME ME_54B4B9A20339
+ MEPROP UID '54B4B9A20339'
+ MEPROP Name 'TFormFrameDecoratorNeedRecreateButtonsEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B4B9C40282 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_54B4B9A20339 TFormFrameDecoratorNeedRecreateButtonsEvent
+
+ME ME_545B65B10112
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELINK Target WL 'ME_54211E9E038E' '54211E53007C.ms.model.script' // TChromeLikeFormFramePainter
+ ;
+
+ENDME // ME_545B65B10112 
+
+ME ME_545B65C9032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELINK Target WL 'ME_545B531C026F' '533D01A201A9.ms.model.script' // ChromeLikeWindowCaptionButtonsRes
+ ;
+
+ENDME // ME_545B65C9032D 
+
+ME ME_54B4CD4C01CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELINK Target WL 'ME_533D343C02FF' '533D01A201A9.ms.model.script' // TChromeLikeFormCaptionData
+ ;
+
+ENDME // ME_54B4CD4C01CD 
+
+ME ME_54B4CD6C01E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELINK Target WL 'ME_533D01CB01B1' '533D01CB01B1.ms.model.script' // TChromeLikeBaseWindowCaptionButton
+ ;
+
+ENDME // ME_54B4CD6C01E5 
+
+ME ME_54B4CD9C0145
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELINK Target WL 'ME_53C4BB200287' '533D01A201A9.ms.model.script' // ChromeLikeTypes
+ ;
+
+ENDME // ME_54B4CD9C0145 
+
+ME ME_54B4D23D023D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELINK Target WL 'ME_533D14960061' '533D01A201A9.ms.model.script' // ChromeLikeLegacyWindowCaptionButtons
+ ;
+
+ENDME // ME_54B4D23D023D 
+
+ME ME_54B4D25C0205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54211E830399 // TFormFrameDecorator
+ ;
+ MELINK Target WL 'ME_533D1518032F' '533D01A201A9.ms.model.script' // ChromeLikeThemedWindowCaptionButtons
+ ;
+
+ENDME // ME_54B4D25C0205 
+
+ME ME_54211E830399
+ MEPROP UID '54211E830399'
+ MEPROP Name 'TFormFrameDecorator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54211E53007C' '54211E53007C.ms.model.script' // ChromeLikeFormFrameDecorator
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54B4B9A20339 // TFormFrameDecoratorNeedRecreateButtonsEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_545B65B10112 // TChromeLikeFormFramePainter
+ ME_545B65C9032D // ChromeLikeWindowCaptionButtonsRes
+ ME_54B4CD4C01CD // TChromeLikeFormCaptionData
+ ME_54B4CD6C01E5 // TChromeLikeBaseWindowCaptionButton
+ ME_54B4CD9C0145 // ChromeLikeTypes
+ ME_54B4D23D023D // ChromeLikeLegacyWindowCaptionButtons
+ ME_54B4D25C0205 // ChromeLikeThemedWindowCaptionButtons
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP extprop:pas:UnitName 'FormFrameDecorator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormFrameDecorator'
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_FormFrameDecorator.pas'
+
+ENDME // ME_54211E830399 TFormFrameDecorator

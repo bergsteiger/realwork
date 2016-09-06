@@ -1,0 +1,34 @@
+// WorkJournal$UC 4A811E460199 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4A811E460199
+ MEPROP UID '4A811E460199'
+ MEPROP Name 'WorkJournal'
+ MEPROP OriginalName 'WorkJournal$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Журнал работы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A811B590020' '4A811B590020.ms.model.script' // WorkJournal
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A811C1A0293' '4A811C1A0293.ms.model.script' // BaseWorkJournal
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_484F7A5501AB' '48563BA400A9.ms.model.script' // История навигации
+ )
+ ; // Implements
+ UP "ifndef" 'Admin,Monitorings'
+ UP extprop:pas:TypeName 'Tmo_WorkJournal'
+ UP extprop:pas:UnitName 'moWorkJournal'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_WorkJournal'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moWorkJournal.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4A811E460199 WorkJournal$UC

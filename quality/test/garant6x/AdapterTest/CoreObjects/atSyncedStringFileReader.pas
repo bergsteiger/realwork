@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *502A4763011Bimpl_uses*
+ //#UC END# *502A4763011Bimpl_uses*
 ;
 
 constructor TatSyncedStringFileReader.Create(const aStringFile: AnsiString;

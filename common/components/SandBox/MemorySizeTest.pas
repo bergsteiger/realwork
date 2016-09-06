@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , l3MemorySizeUtils
  , SysUtils
+ //#UC START# *51DAE6E20300impl_uses*
+ //#UC END# *51DAE6E20300impl_uses*
 ;
 
 procedure TMemorySizeTest.DoIt;

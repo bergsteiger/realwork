@@ -1,0 +1,68 @@
+// DocumentNotifications 4EAAE5A1005E VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EAAE5A1005E
+
+FORWARD ME_4EAAE5B2005F
+
+ME ME_4EAAE5C40089
+ MEPROP UID '4EAAE5C40089'
+ MEPROP Name 'Changed'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4EAAE5B2005F // Comment
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" True
+ UP "no prefix" False
+
+ENDME // ME_4EAAE5C40089 Changed
+
+ME ME_4EAAE5B2005F
+ MEPROP UID '4EAAE5B2005F'
+ MEPROP Name 'Comment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EAAE5A1005E // DocumentNotifications
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EAAE5C40089 // Changed
+ )
+ ; // Operations
+
+ENDME // ME_4EAAE5B2005F Comment
+
+ME ME_4EAAE5A1005E
+ MEPROP UID '4EAAE5A1005E'
+ MEPROP Name 'DocumentNotifications'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4EAAE543007F' '4EAAE543007F.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EAAE5B2005F // Comment
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'LegalDomain_DocumentNotifications_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LegalDomain_DocumentNotifications_Controls.pas'
+
+ENDME // ME_4EAAE5A1005E DocumentNotifications

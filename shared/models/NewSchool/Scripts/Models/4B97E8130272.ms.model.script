@@ -1,0 +1,325 @@
+// TvtOutlinerWithDragDrop 4B97E8130272 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97E8130272
+
+FORWARD ME_51BB14E6006F
+
+FORWARD ME_51BB154A0151
+
+ME ME_51BB1554038A
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_51BB1554038A aNode
+
+ME ME_51BB155403A2
+ MEPROP Name 'aOkEffect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_51BB155403A2 aOkEffect
+
+ME ME_51BB154A0151
+ MEPROP UID '51BB154A0151'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB14E6006F // Tl3CanBeginDrag
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB1554038A // aNode
+ ME_51BB155403A2 // aOkEffect
+ )
+ ; // Parameters
+
+ENDME // ME_51BB154A0151 DoIt
+
+ME ME_51BB14E6006F
+ MEPROP UID '51BB14E6006F'
+ MEPROP Name 'Tl3CanBeginDrag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB154A0151 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_51BB14E6006F Tl3CanBeginDrag
+
+FORWARD ME_51BB152A02AD
+
+FORWARD ME_51BB157703A6
+
+ME ME_51BB4AE802AA
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A0E6FF037E' '46A0E6C5023A.ms.model.script' // IDataObject
+ ;
+
+ENDME // ME_51BB4AE802AA aData
+
+ME ME_51BB157703A6
+ MEPROP UID '51BB157703A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB152A02AD // Tl3CanAcceptData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB4AE802AA // aData
+ )
+ ; // Parameters
+
+ENDME // ME_51BB157703A6 DoIt
+
+ME ME_51BB152A02AD
+ MEPROP UID '51BB152A02AD'
+ MEPROP Name 'Tl3CanAcceptData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB157703A6 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_51BB152A02AD Tl3CanAcceptData
+
+FORWARD ME_51BB15370161
+
+FORWARD ME_51BB1593024E
+
+ME ME_51BB159E036C
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_51BB159E036C aData
+
+ME ME_51BB159E0383
+ MEPROP Name 'aWantMenu'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51BB159E0383 aWantMenu
+
+ME ME_51BB159E0399
+ MEPROP Name 'dwEffect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_51BB159E0399 dwEffect
+
+ME ME_51BB1593024E
+ MEPROP UID '51BB1593024E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB15370161 // Tl3DoDrop
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB159E036C // aData
+ ME_51BB159E0383 // aWantMenu
+ ME_51BB159E0399 // dwEffect
+ )
+ ; // Parameters
+
+ENDME // ME_51BB1593024E DoIt
+
+ME ME_51BB15370161
+ MEPROP UID '51BB15370161'
+ MEPROP Name 'Tl3DoDrop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB1593024E // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_51BB15370161 Tl3DoDrop
+
+ME ME_52DD104003A6
+ MEPROP UID '52DD104003A6'
+ MEPROP Name 'RvtNodeDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52DD104003A6 RvtNodeDataObject
+
+FORWARD ME_51EEB81F017C
+
+FORWARD ME_58CCEA387BBD
+
+ME ME_D0E06EDB5EF3
+ MEPROP Name 'aData'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A0E6FF037E' '46A0E6C5023A.ms.model.script' // IDataObject
+ ;
+
+ENDME // ME_D0E06EDB5EF3 aData
+
+ME ME_58CCEA387BBD
+ MEPROP UID '58CCEA387BBD'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51EEB81F017C // CanAcceptData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_D0E06EDB5EF3 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_58CCEA387BBD DoIt
+
+ME ME_51EEB81F017C
+ MEPROP UID '51EEB81F017C'
+ MEPROP Name 'CanAcceptData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51BB152A02AD // Tl3CanAcceptData
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_58CCEA387BBD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51EEB81F017C CanAcceptData
+
+FORWARD ME_52DD106403D3
+
+ME ME_52DD107201CC
+ MEPROP UID '52DD107201CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52DD106403D3 // DataObjectClass
+ ;
+ MELINK Target HWL ME_52DD104003A6 // RvtNodeDataObject
+ ;
+
+ENDME // ME_52DD107201CC DoIt
+
+ME ME_52DD106403D3
+ MEPROP UID '52DD106403D3'
+ MEPROP Name 'DataObjectClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52DD107201CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52DD106403D3 DataObjectClass
+
+ME ME_4B97E841019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B97E8130272 // TvtOutlinerWithDragDrop
+ ;
+ MELINK Target WL 'ME_4B97E82200D4' '4B97E7FD006C.ms.model.script' // vtOutlinerWithDragDropRes
+ ;
+
+ENDME // ME_4B97E841019C 
+
+ME ME_4B97E8130272
+ MEPROP UID '4B97E8130272'
+ MEPROP Name 'TvtOutlinerWithDragDrop'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B97EA0802EB' '4B97EA0802EB.ms.model.script' // TvtOutlinerWithQuickSearch
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_51EEB81F017C // CanAcceptData
+ HWL ME_52DD106403D3 // DataObjectClass
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_51BB14E6006F // Tl3CanBeginDrag
+ HWL ME_51BB152A02AD // Tl3CanAcceptData
+ HWL ME_51BB15370161 // Tl3DoDrop
+ HWL ME_52DD104003A6 // RvtNodeDataObject
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B97E841019C // vtOutlinerWithDragDropRes
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'vtOutlinerWithDragDrop'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OutlinerWithDragDrop'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtOutlinerWithDragDrop.pas'
+
+ENDME // ME_4B97E8130272 TvtOutlinerWithDragDrop

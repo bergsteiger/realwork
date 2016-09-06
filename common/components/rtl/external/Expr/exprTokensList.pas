@@ -56,6 +56,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4BB3497F03CCimpl_uses*
+ //#UC END# *4BB3497F03CCimpl_uses*
 ;
 
 function TexprTokenInfo_C(aChar: Integer;

@@ -1,0 +1,921 @@
+// PrimSelfInfo 4B5430390380 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B5430390380
+
+FORWARD ME_52614FCC03D8
+
+ME ME_52614FE4011B
+ MEPROP UID '52614FE4011B'
+ MEPROP Name 'edPasswordHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
+ ;
+ MEPROP Value '''Введите пароль для авторизации в системе'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Введите пароль для авторизации в системе'''
+
+ENDME // ME_52614FE4011B edPasswordHint
+
+ME ME_52614FFB014C
+ MEPROP UID '52614FFB014C'
+ MEPROP Name 'edUserNameHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
+ ;
+ MEPROP Value '''Введите свои имя, фамилию и отчество'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Введите свои имя, фамилию и отчество'''
+
+ENDME // ME_52614FFB014C edUserNameHint
+
+ME ME_5261502600FB
+ MEPROP UID '5261502600FB'
+ MEPROP Name 'edLoginHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
+ ;
+ MEPROP Value '''Введите имя для работы в системе ГАРАНТ'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Введите имя для работы в системе ГАРАНТ'''
+
+ENDME // ME_5261502600FB edLoginHint
+
+ME ME_5261504002C9
+ MEPROP UID '5261504002C9'
+ MEPROP Name 'edEmailHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
+ ;
+ MEPROP Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Электронная почта: адрес, на который будет выслан забытый Вами пароль'''
+
+ENDME // ME_5261504002C9 edEmailHint
+
+ME ME_5261505C036D
+ MEPROP UID '5261505C036D'
+ MEPROP Name 'edConfirmHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52614FCC03D8 // SelfInfo Hints
+ ;
+ MEPROP Value '''Подтвердите пароль, введенный в предыдущей строке'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Подтвердите пароль, введенный в предыдущей строке'''
+
+ENDME // ME_5261505C036D edConfirmHint
+
+ME ME_52614FCC03D8
+ MEPROP UID '52614FCC03D8'
+ MEPROP Name 'SelfInfo Hints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52614FE4011B // edPasswordHint
+ HWL ME_52614FFB014C // edUserNameHint
+ HWL ME_5261502600FB // edLoginHint
+ HWL ME_5261504002C9 // edEmailHint
+ HWL ME_5261505C036D // edConfirmHint
+ )
+ ; // Attributes
+ UP "elements prefix" 'PrimSelfInfo'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'PrimSelfInfo_'
+ UP extprop:pas:ElementPrefixBase 'PrimSelfInfo'
+
+ENDME // ME_52614FCC03D8 SelfInfo Hints
+
+FORWARD ME_52614D6D0167
+
+ME ME_52614DE000E0
+ MEPROP UID '52614DE000E0'
+ MEPROP Name 'UserNameLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ФИО пользователя:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52614DE000E0 UserNameLabel
+
+ME ME_52614DE80142
+ MEPROP UID '52614DE80142'
+ MEPROP Name 'PasswordLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пароль:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52614DE80142 PasswordLabel
+
+ME ME_52614DF10377
+ MEPROP UID '52614DF10377'
+ MEPROP Name 'LoginLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Регистрационное имя:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52614DF10377 LoginLabel
+
+ME ME_52614DFE023D
+ MEPROP UID '52614DFE023D'
+ MEPROP Name 'InfoLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '* - поля, обязательные для заполнения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52614DFE023D InfoLabel
+
+ME ME_52614E060349
+ MEPROP UID '52614E060349'
+ MEPROP Name 'EMailLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Электронная почта:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52614E060349 EMailLabel
+
+ME ME_52614E0F011F
+ MEPROP UID '52614E0F011F'
+ MEPROP Name 'ConfirmPasswordLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подтверждение пароля:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52614E0F011F ConfirmPasswordLabel
+
+ME ME_52614E1B0288
+ MEPROP UID '52614E1B0288'
+ MEPROP Name 'vtAsteriskLabelLogin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+ UP extprop:rc:SelfName 'AsteriskLabelLogin'
+
+ENDME // ME_52614E1B0288 vtAsteriskLabelLogin
+
+ME ME_52614E34016A
+ MEPROP UID '52614E34016A'
+ MEPROP Name 'vtAsteriskLabelFIO'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '*' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+ UP extprop:rc:SelfName 'AsteriskLabelFIO'
+
+ENDME // ME_52614E34016A vtAsteriskLabelFIO
+
+ME ME_52614E5401CC
+ MEPROP UID '52614E5401CC'
+ MEPROP Name 'edPassword'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TnscComboBoxWithPwdChar'
+ UP "pm" True
+ UP "put to dfm" False
+ UP extprop:rc:SelfName 'Password'
+
+ENDME // ME_52614E5401CC edPassword
+
+ME ME_52614E5F01DC
+ MEPROP UID '52614E5F01DC'
+ MEPROP Name 'edUserName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TnscEdit'
+ UP "pm" True
+ UP "put to dfm" False
+ UP extprop:rc:SelfName 'UserName'
+
+ENDME // ME_52614E5F01DC edUserName
+
+ME ME_52614E6A018B
+ MEPROP UID '52614E6A018B'
+ MEPROP Name 'edLogin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TnscEdit'
+ UP "pm" True
+ UP "put to dfm" False
+ UP extprop:rc:SelfName 'Login'
+
+ENDME // ME_52614E6A018B edLogin
+
+ME ME_52614E7800A3
+ MEPROP UID '52614E7800A3'
+ MEPROP Name 'edEmail'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TnscEdit'
+ UP "pm" True
+ UP "put to dfm" False
+ UP extprop:rc:SelfName 'Email'
+
+ENDME // ME_52614E7800A3 edEmail
+
+ME ME_52614E8001B4
+ MEPROP UID '52614E8001B4'
+ MEPROP Name 'edConfirm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52614D6D0167 // pnMainData
+ ;
+ UP "ControlClass" 'TnscComboBoxWithPwdChar'
+ UP "pm" True
+ UP "put to dfm" False
+ UP extprop:rc:SelfName 'Confirm'
+
+ENDME // ME_52614E8001B4 edConfirm
+
+ME ME_52614D6D0167
+ MEPROP UID '52614D6D0167'
+ MEPROP Name 'pnMainData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52614DE000E0 // UserNameLabel
+ HWL ME_52614DE80142 // PasswordLabel
+ HWL ME_52614DF10377 // LoginLabel
+ HWL ME_52614DFE023D // InfoLabel
+ HWL ME_52614E060349 // EMailLabel
+ HWL ME_52614E0F011F // ConfirmPasswordLabel
+ HWL ME_52614E1B0288 // vtAsteriskLabelLogin
+ HWL ME_52614E34016A // vtAsteriskLabelFIO
+ HWL ME_52614E5401CC // edPassword
+ HWL ME_52614E5F01DC // edUserName
+ HWL ME_52614E6A018B // edLogin
+ HWL ME_52614E7800A3 // edEmail
+ HWL ME_52614E8001B4 // edConfirm
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52614D6D0167 pnMainData
+
+FORWARD ME_5261506E0057
+
+ME ME_526150890250
+ MEPROP UID '526150890250'
+ MEPROP Name 'RegisterButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохранить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5261506E0057 // BottomPanel
+ ;
+ UP "ControlClass" 'TElPopupButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_526150890250 RegisterButton
+
+FORWARD ME_526150A60110
+
+ME ME_526150BA01F7
+ MEPROP UID '526150BA01F7'
+ MEPROP Name 'HelpPaintBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526150A60110 // HelpPanel
+ ;
+ UP "ControlClass" 'TPaintBox'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_526150BA01F7 HelpPaintBox
+
+ME ME_526150CB039D
+ MEPROP UID '526150CB039D'
+ MEPROP Name 'HelpLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помощь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526150A60110 // HelpPanel
+ ;
+ UP "ControlClass" 'TvtFocusLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_526150CB039D HelpLabel
+
+ME ME_526150A60110
+ MEPROP UID '526150A60110'
+ MEPROP Name 'HelpPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5261506E0057 // BottomPanel
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_526150BA01F7 // HelpPaintBox
+ HWL ME_526150CB039D // HelpLabel
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_526150A60110 HelpPanel
+
+ME ME_5261506E0057
+ MEPROP UID '5261506E0057'
+ MEPROP Name 'BottomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_526150890250 // RegisterButton
+ HWL ME_526150A60110 // HelpPanel
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5261506E0057 BottomPanel
+
+ME ME_5261513C008C
+ MEPROP UID '5261513C008C'
+ MEPROP Name 'Info'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_4B50250E0139' '49903C95009E.ms.model.script' // InsUserProperty
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5261513C008C Info
+
+ME ME_526151DB02A8
+ MEPROP UID '526151DB02A8'
+ MEPROP Name 'f_PasswordChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_526151DB02A8 f_PasswordChanged
+
+ME ME_5261516401F6
+ MEPROP UID '5261516401F6'
+ MEPROP Name 'edPasswordChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'PasswordChange'
+
+ENDME // ME_5261516401F6 edPasswordChange
+
+ME ME_5261516C030F
+ MEPROP UID '5261516C030F'
+ MEPROP Name 'edConfirmChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ConfirmChange'
+
+ENDME // ME_5261516C030F edConfirmChange
+
+ME ME_5261517401D4
+ MEPROP UID '5261517401D4'
+ MEPROP Name 'edUserNameChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'UserNameChange'
+
+ENDME // ME_5261517401D4 edUserNameChange
+
+ME ME_5261517B03B9
+ MEPROP UID '5261517B03B9'
+ MEPROP Name 'RegisterButtonClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5261517B03B9 RegisterButtonClick
+
+ME ME_5261518F02B3
+ MEPROP UID '5261518F02B3'
+ MEPROP Name 'HelpLabelClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5261518F02B3 HelpLabelClick
+
+ME ME_526151A2028E
+ MEPROP UID '526151A2028E'
+ MEPROP Name 'HelpPaintBoxPaint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_526151A2028E HelpPaintBoxPaint
+
+ME ME_5261520B011E
+ MEPROP UID '5261520B011E'
+ MEPROP Name 'CheckFields'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+
+ENDME // ME_5261520B011E CheckFields
+
+ME ME_5261521202EE
+ MEPROP UID '5261521202EE'
+ MEPROP Name 'InitUserFields'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+
+ENDME // ME_5261521202EE InitUserFields
+
+ME ME_5261521D0133
+ MEPROP UID '5261521D0133'
+ MEPROP Name 'Save'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+
+ENDME // ME_5261521D0133 Save
+
+FORWARD ME_526152250198
+
+ME ME_5261523502F6
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4F914CD400A4' '4799D29F033F.ms.model.script' // TCMDialogKey
+ ;
+
+ENDME // ME_5261523502F6 Message
+
+ME ME_526152250198
+ MEPROP UID '526152250198'
+ MEPROP Name 'CMDialogKey'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_5261523502F6 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_DIALOGKEY'
+
+ENDME // ME_526152250198 CMDialogKey
+
+ME ME_4B5430F80126
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_4B5038B80195' '4ACF68160358.ms.model.script' // TnsUserProperty
+ ;
+
+ENDME // ME_4B5430F80126 
+
+ME ME_4B54312300A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4B54312300A3 
+
+ME ME_4B54314401E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_45EED78501B5' '45EEAA96039C.ms.model.script' // UserProfile
+ ;
+
+ENDME // ME_4B54314401E4 
+
+ME ME_52615A3901D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_52615A3901D0 
+
+ME ME_52615A3C00F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_52615A3C00F1 
+
+ME ME_52615A3E0028
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_52615A3E0028 
+
+ME ME_52616428006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_4EC391C00307' '4EEA0958023A.ms.model.script' // SearchRes
+ ;
+
+ENDME // ME_52616428006B 
+
+ME ME_5261643F01B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_5261643F01B4 
+
+ME ME_52616453034F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_4C88F30900A7' '48F747EC0073.ms.model.script' // nsVerifyValue
+ ;
+
+ENDME // ME_52616453034F 
+
+ME ME_5261647300CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5261647300CA 
+
+ME ME_5261647600F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_5261647600F7 
+
+ME ME_52616492002D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_52616492002D 
+
+ME ME_526164A6001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_526164A6001B 
+
+ME ME_5261650B00A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_5261650B00A5 
+
+ME ME_5261652B008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B5430390380 // PrimSelfInfo
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5261652B008A 
+
+ME ME_479731C50290_ME_4B5430390380
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4B5430390380 Cleanup
+
+ME ME_4A8E8F2E0195_ME_4B5430390380
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4B5430390380 InitControls
+
+ME ME_529332B40230_ME_4B5430390380
+ MELINK Original WL 'ME_529332B40230' '4AADF9450143.ms.model.script' // SetupFormLayout
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_529332B40230_ME_4B5430390380 SetupFormLayout
+
+ME ME_4B5430390380
+ MEPROP UID '4B5430390380'
+ MEPROP Name 'PrimSelfInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Регистрационные данные' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA79F630309' '4AA79F630309.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52614D6D0167 // pnMainData
+ HWL ME_5261506E0057 // BottomPanel
+ HWL ME_5261513C008C // Info
+ HWL ME_526151DB02A8 // f_PasswordChanged
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5261516401F6 // edPasswordChange
+ HWL ME_5261516C030F // edConfirmChange
+ HWL ME_5261517401D4 // edUserNameChange
+ HWL ME_5261517B03B9 // RegisterButtonClick
+ HWL ME_5261518F02B3 // HelpLabelClick
+ HWL ME_526151A2028E // HelpPaintBoxPaint
+ HWL ME_5261520B011E // CheckFields
+ HWL ME_5261521202EE // InitUserFields
+ HWL ME_5261521D0133 // Save
+ HWL ME_526152250198 // CMDialogKey
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B5430390380 // Cleanup
+ ME_4A8E8F2E0195_ME_4B5430390380 // InitControls
+ ME_529332B40230_ME_4B5430390380 // SetupFormLayout
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_52614FCC03D8 // SelfInfo Hints
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4B5430F80126 // TnsUserProperty
+ ME_4B54312300A3 // DataAdapter
+ ME_4B54314401E4 // UserProfile
+ ME_52615A3901D0 // Controls
+ ME_52615A3C00F1 // Forms
+ ME_52615A3E0028 // Graphics
+ ME_52616428006B // SearchRes
+ ME_5261643F01B4 // nsConst
+ ME_52616453034F // nsVerifyValue
+ ME_5261647300CA // l3Base
+ ME_5261647600F7 // l3String
+ ME_52616492002D // nsTypes
+ ME_526164A6001B // vcmMessagesSupport
+ ME_5261650B00A5 // Ext Chars
+ ME_5261652B008A // Windows
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Modal'
+ UP extprop:pas:TypeName 'TPrimSelfInfoForm'
+ UP extprop:pas:UnitName 'PrimSelfInfo_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimSelfInfoForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimSelfInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+
+ENDME // ME_4B5430390380 PrimSelfInfo

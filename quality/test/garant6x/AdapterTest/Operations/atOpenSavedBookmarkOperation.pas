@@ -35,6 +35,8 @@ uses
  , atLogger
  , SysUtils
  , atNodeHelper
+ //#UC START# *4FD0D1B203CDimpl_uses*
+ //#UC END# *4FD0D1B203CDimpl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}

@@ -42,6 +42,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *491D776401B4impl_uses*
+ //#UC END# *491D776401B4impl_uses*
 ;
 
 function TatSharedBuffer.pm_GetValue: Pointer;

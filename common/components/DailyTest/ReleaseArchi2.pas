@@ -45,6 +45,8 @@ implementation
 {$If Defined(nsTest) AND NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ //#UC START# *6B92D0808EA8impl_uses*
+ //#UC END# *6B92D0808EA8impl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

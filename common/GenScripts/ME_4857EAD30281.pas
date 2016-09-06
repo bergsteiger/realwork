@@ -43,6 +43,8 @@ uses
  {$IfEnd} // Defined(evNeedHotSpot) AND NOT Defined(evCanEditControlsAsText)
  , evReqRowModelControlMapper
  , ReqRow_Const
+ //#UC START# *4857EAD30281impl_uses*
+ //#UC END# *4857EAD30281impl_uses*
 ;
 
 function TevReqRowInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

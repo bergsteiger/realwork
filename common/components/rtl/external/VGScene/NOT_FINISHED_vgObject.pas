@@ -39,6 +39,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D4956480326impl_uses*
+ //#UC END# *4D4956480326impl_uses*
 ;
 
 procedure TvgObject.AddObjectsToList(aList: TvgCustomObjectList);

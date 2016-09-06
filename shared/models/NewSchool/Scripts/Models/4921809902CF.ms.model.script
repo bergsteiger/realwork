@@ -1,0 +1,87 @@
+// TdsEditions 4921809902CF ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4921809902CF
+
+ME ME_49788BA60289
+ MEPROP UID '49788BA60289'
+ MEPROP Name 'UseCaseControllerType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4921809902CF // TdsEditions
+ ;
+ MELINK Target WL 'ME_4ED8ECEE00EE' '491B305A0096.ms.model.script' // IsdsPrimDocument
+ ;
+
+ENDME // ME_49788BA60289 UseCaseControllerType
+
+ME ME_492182EF021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4921809902CF // TdsEditions
+ ;
+ MELINK Target WL 'ME_492182D60225' '4908545802CA.ms.model.script' // TnsEditionsRoot
+ ;
+
+ENDME // ME_492182EF021A 
+
+ME ME_49217DB001A7_ME_4921809902CF
+ MELINK Original WL 'ME_49217DB001A7' '491B305A0096.ms.model.script' // GetEditionsRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49217DB001A7_ME_4921809902CF GetEditionsRoot
+
+ME ME_49147FB4028C_ME_4921809902CF
+ MELINK Original WL 'ME_49147FB4028C' '47D0E1500033.ms.model.script' // GetIsSame
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49147FB4028C_ME_4921809902CF GetIsSame
+
+ME ME_4921809902CF
+ MEPROP UID '4921809902CF'
+ MEPROP Name 'TdsEditions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5017EAF4027D' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49217D9D00BD' '491B305A0096.ms.model.script' // IdsEditions
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49788BA60289 // UseCaseControllerType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_49217DB001A7_ME_4921809902CF // GetEditionsRoot
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_49147FB4028C_ME_4921809902CF // GetIsSame
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_492182EF021A // TnsEditionsRoot
+ )
+ ; // Dependencies
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" True
+ UP "started" '2005/09/23 17:08:24'
+ UP extprop:pas:UnitName 'dsEditions'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsEditions'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsEditions.pas'
+
+ENDME // ME_4921809902CF TdsEditions

@@ -35,6 +35,8 @@ uses
  , nevTools
  , nevAutoreferatDocumentAnchor
  , AutoreferatDocument_Const
+ //#UC START# *4D6E6BA90279impl_uses*
+ //#UC END# *4D6E6BA90279impl_uses*
 ;
 
 function TevAutoreferatDocumentInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

@@ -1,0 +1,88 @@
+// EverestLiteInsiderTest 512DAFB70392 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512DAFB70392
+
+FORWARD ME_512DB031030F
+
+ME ME_512DB0670276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DB031030F // TEverestLiteTestSuite
+ ;
+ MELINK Target WL 'ME_512D9BE30122' '512D9BBE0307.ms.model.script' // EverestLiteKeyWords
+ ;
+
+ENDME // ME_512DB0670276 
+
+ME ME_512DFDDE03D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DB031030F // TEverestLiteTestSuite
+ ;
+ MELINK Target WL 'ME_4F5DA0BF025A' '4F5DA07B02CD.ms.model.script' // kwEditorKeyWordsPack
+ ;
+
+ENDME // ME_512DFDDE03D4 
+
+ME ME_5166B28E0215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DB031030F // TEverestLiteTestSuite
+ ;
+ MELINK Target WL 'ME_5166AFC5017A' '5166AF3800B5.ms.model.script' // kwArchiEverestWordsPack
+ ;
+
+ENDME // ME_5166B28E0215 
+
+ME ME_512DB031030F
+ MEPROP UID '512DB031030F'
+ MEPROP Name 'TEverestLiteTestSuite'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_512DAFB70392 // EverestLiteInsiderTest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DE342FA0300' '4DE3425B01DA.ms.model.script' // TArchiAutoTestSuite
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_512DB0670276 // EverestLiteKeyWords
+ ME_512DFDDE03D4 // kwEditorKeyWordsPack
+ ME_5166B28E0215 // kwArchiEverestWordsPack
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'EverestLiteTestSuite'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EverestLiteTestSuite'
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestInsiderTests\EverestLiteTestSuite.pas'
+
+ENDME // ME_512DB031030F TEverestLiteTestSuite
+
+ME ME_512DAFB70392
+ MEPROP UID '512DAFB70392'
+ MEPROP Name 'EverestLiteInsiderTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_512DAF9001E3' '512DAF9001E3.ms.model.script' // EverestInsiderTests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_512DB031030F // TEverestLiteTestSuite
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4DE3425B01DA' '4DE3425B01DA.ms.model.script' // ArchiScriptSupport
+ WL 'ME_4F5DA07B02CD' '4F5DA07B02CD.ms.model.script' // EditorKeyWords
+ WL 'ME_512D9BBE0307' '512D9BBE0307.ms.model.script' // EverestLiteKeyWords
+ WL 'ME_5166AF3800B5' '5166AF3800B5.ms.model.script' // EverestArchiWords
+ )
+ ; // Depends
+
+ENDME // ME_512DAFB70392 EverestLiteInsiderTest

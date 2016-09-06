@@ -1,0 +1,36 @@
+// Inpharm 4AA0D69601AB VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AA0D69601AB
+ MEPROP UID '4AA0D69601AB'
+ MEPROP Name 'Inpharm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Инфарм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_495497AC0169' '495497AC0169.ms.model.script' // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA0D66F0159' '4AA0D66F0159.ms.model.script' // Inpharm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4856410E0295' '484F80CF0274.ms.model.script' // Инфарм
+ WL 'ME_4F68A075031B' '484F80CF0274.ms.model.script' // Работа со списком препаратов
+ )
+ ; // Implements
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/03/12 11:01:35'
+ UP extprop:pas:TypeName 'Tmo_Inpharm'
+ UP extprop:pas:UnitName 'moInpharm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_Inpharm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moInpharm.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4AA0D69601AB Inpharm

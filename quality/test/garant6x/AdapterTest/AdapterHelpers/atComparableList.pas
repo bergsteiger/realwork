@@ -78,6 +78,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5397269D015Fimpl_uses*
+ //#UC END# *5397269D015Fimpl_uses*
 ;
 
 const

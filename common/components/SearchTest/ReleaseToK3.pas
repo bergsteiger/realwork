@@ -43,6 +43,8 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
+ //#UC START# *3337505C7D4Eimpl_uses*
+ //#UC END# *3337505C7D4Eimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

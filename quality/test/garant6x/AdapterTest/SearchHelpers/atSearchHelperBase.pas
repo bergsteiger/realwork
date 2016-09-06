@@ -40,6 +40,8 @@ uses
  , SysUtils
  , BaseTypesUnit
  , atUserJournalHelper
+ //#UC START# *4B90F31A02F5impl_uses*
+ //#UC END# *4B90F31A02F5impl_uses*
 ;
 
 constructor TatSearchHelperBase.Create(const aSearch: ISearch);

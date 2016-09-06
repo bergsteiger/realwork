@@ -1,0 +1,77 @@
+// Filters 4D53DF0D03B0 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D53DF0D03B0
+
+FORWARD ME_4EA5382F006A
+
+ME ME_4EA5644C0099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EA5382F006A // K294595323
+ ;
+ MELINK Target WL 'ME_4EA538D60064' '4EA538A203C7.ms.model.script' // TK294595323Suite
+ ;
+
+ENDME // ME_4EA5644C0099 
+
+ME ME_4EA553E901DB_ME_4EA5382F006A
+ MELINK Original WL 'ME_4EA553E901DB' '4B2A0D6A0077.ms.model.script' // Suite
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_4EA553E901DB_ME_4EA5382F006A Suite
+
+ME ME_4EA5382F006A
+ MEPROP UID '4EA5382F006A'
+ MEPROP Name 'K294595323'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:294595323}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D53DF0D03B0 // Filters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA5222A020E' '4D53DE3F00D1.ms.model.script' // AACFiltersTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4EA553E901DB_ME_4EA5382F006A // Suite
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4EA5644C0099 // TK294595323Suite
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TK294595323'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K294595323'
+ UP intf.pas:Path 'common\components\rtl\Garant\Archi_Tests\K294595323.pas'
+
+ENDME // ME_4EA5382F006A K294595323
+
+ME ME_4D53DF0D03B0
+ MEPROP UID '4D53DF0D03B0'
+ MEPROP Name 'Filters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D53DEED0062' '4D53DEED0062.ms.model.script' // Archi Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA5382F006A // K294595323
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4D53DE3F00D1' '4D53DE3F00D1.ms.model.script' // Filters
+ WL 'ME_4EA538A203C7' '4EA538A203C7.ms.model.script' // MultyFileTests
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_4D53DF0D03B0 Filters

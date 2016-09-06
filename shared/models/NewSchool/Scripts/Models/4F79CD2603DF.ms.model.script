@@ -1,0 +1,156 @@
+// AppTestingSupport 4F79CD2603DF Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F79CD2603DF
+
+FORWARD ME_4F79CD9F015F
+
+ME ME_4F79CF960087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
+ ;
+ MELINK Target WL 'ME_4C8A2ADD01B1' '4799D29F033F.ms.model.script' // Application
+ ;
+
+ENDME // ME_4F79CF960087 
+
+ME ME_4F79CFC901AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
+ ;
+ MELINK Target WL 'ME_4B2A6D4303A9' '4B2A112B011A.ms.model.script' // KTestRunner
+ ;
+
+ENDME // ME_4F79CFC901AB 
+
+ME ME_4F79D00200F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4F79D00200F7 
+
+ME ME_4F79D07902E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
+ ;
+ MELINK Target WL 'ME_4F72CAA90045' '528E3DE20137.ms.model.script' // Tl3ComponentInfoHelper
+ ;
+
+ENDME // ME_4F79D07902E1 
+
+ME ME_4F79D5FE0054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
+ ;
+ MELINK Target WL 'ME_4E03119F00B2' '4E030FC801EB.ms.model.script' // afwAnswer
+ ;
+
+ENDME // ME_4F79D5FE0054 
+
+ME ME_51238BA9026E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
+ ;
+ MELINK Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.ms.model.script' // TestFrameWork
+ ;
+
+ENDME // ME_51238BA9026E 
+
+ME ME_51238F56033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F79CD9F015F // VCMAppTester
+ ;
+ MELINK Target WL 'ME_4DEF306102FF' '4DEF302C0007.ms.model.script' // TtfwScriptEngineEX
+ ;
+
+ENDME // ME_51238F56033F 
+
+ME ME_52F2269B0373_ME_4F79CD9F015F
+ MELINK Original WL 'ME_52F2269B0373' '50883A2E00B3.ms.model.script' // BeforeApplicationRun
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_52F2269B0373_ME_4F79CD9F015F BeforeApplicationRun
+
+ME ME_4F79CD9F015F
+ MEPROP UID '4F79CD9F015F'
+ MEPROP Name 'VCMAppTester'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь для тестирования приложений, построенных на VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F79CD2603DF // AppTestingSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52F21A610247' '51309A4A02FB.ms.model.script' // GUIAppTester
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_523040FB01AA' '50883A2E00B3.ms.model.script' // MvcmApplication
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_52F2269B0373_ME_4F79CD9F015F // BeforeApplicationRun
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F79CF960087 // Application
+ ME_4F79CFC901AB // KTestRunner
+ ME_4F79D00200F7 // l3Base
+ ME_4F79D07902E1 // Tl3ComponentInfoHelper
+ ME_4F79D5FE0054 // afwAnswer
+ ME_51238BA9026E // TestFrameWork
+ ME_51238F56033F // TtfwScriptEngineEX
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName '_VCMAppTester_'
+ UP extprop:pas:UnitName 'VCMAppTester.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\AppTesting\VCMAppTester.imp.pas'
+
+ENDME // ME_4F79CD9F015F VCMAppTester
+
+ME ME_4F79CD2603DF
+ MEPROP UID '4F79CD2603DF'
+ MEPROP Name 'AppTestingSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F79CCD4016C' '4F79CCD4016C.ms.model.script' // VCM$ Applications Testing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F79CD9F015F // VCMAppTester
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4DB14DDC01A9' '4DB14DDC01A9.ms.model.script' // ScriptDebugger
+ WL 'ME_4DEF302C0007' '4DEF302C0007.ms.model.script' // ScriptEngine
+ WL 'ME_4E030FC801EB' '4E030FC801EB.ms.model.script' // BatchServices
+ WL 'ME_4F635E1901E5' '4F635E1901E5.ms.model.script' // l3Listeners
+ WL 'ME_50883A2E00B3' '50883A2E00B3.ms.model.script' // Application
+ WL 'ME_51309A4A02FB' '51309A4A02FB.ms.model.script' // Tests Res Common
+ WL 'ME_528E3DE20137' '528E3DE20137.ms.model.script' // Component Info
+ )
+ ; // Depends
+ UP "path prefix" '/AppTesting'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\AppTesting'
+
+ENDME // ME_4F79CD2603DF AppTestingSupport

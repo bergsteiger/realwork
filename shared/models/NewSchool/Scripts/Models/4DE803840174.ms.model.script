@@ -1,0 +1,40 @@
+// Dlg 4DE803840174 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4DE803840174
+ MEPROP UID '4DE803840174'
+ MEPROP Name 'Dlg'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY '—юда складываем диалоги или заглушки от них' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DE7F62B000D' '4DE7F62B000D.ms.model.script' // archi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4E202A4A01B6' '4E202A4A01B6.ms.model.script' // ChildWindow
+ WL 'ME_4E4B61B000D4' '4E4B61B000D4.ms.model.script' // Wizards
+ WL 'ME_4ECB871B0028' '4ECB871B0028.ms.model.script' // Dialogs
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ WL 'ME_4E202B8C01A0' '4E202B8C01A0.ms.model.script' // MetaForms
+ WL 'ME_4F8D735200EE' '4F8D735200EE.ms.model.script' // Frames
+ WL 'ME_54ECA252008F' '54ECA252008F.ms.model.script' // ScriptEngine$Everest
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'prj'
+ UP "is namespace" True
+ UP "vendor" 'none'
+ UP intf.pas:PathOnly '\archi\source\projects\Archi\Dlg'
+
+ENDME // ME_4DE803840174 Dlg

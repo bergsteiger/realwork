@@ -24,6 +24,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4869FC3401AEimpl_uses*
+ //#UC END# *4869FC3401AEimpl_uses*
 ;
 
 procedure CpToUtf16(const in: AnsiString;

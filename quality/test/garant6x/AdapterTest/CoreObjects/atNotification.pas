@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *480781120349impl_uses*
+ //#UC END# *480781120349impl_uses*
 ;
 
 constructor TatNotification.Create(const data: Variant);

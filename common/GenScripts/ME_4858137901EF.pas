@@ -49,6 +49,8 @@ uses
  {$IfEnd} // Defined(evNeedPainters)
  , nevBitmapParaAnchor
  , BitmapPara_Const
+ //#UC START# *4858137901EFimpl_uses*
+ //#UC END# *4858137901EFimpl_uses*
 ;
 
 function TevBitmapParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

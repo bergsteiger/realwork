@@ -1,0 +1,197 @@
+// vcmToolbarsInterfaces 499465EE030A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499465EE030A
+
+FORWARD ME_49525BCE0355
+
+ME ME_4992FC5700E5
+ MEPROP UID '4992FC5700E5'
+ MEPROP Name 'BeforeCustomize'
+ MEPROP Class class_Operation
+ %SUMMARY 'вызывается перед вызовом окна редактирования панелей инструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ ;
+
+ENDME // ME_4992FC5700E5 BeforeCustomize
+
+ME ME_49525BCE0355
+ MEPROP UID '49525BCE0355'
+ MEPROP GUID '68687746-F997-4BEC-BD6B-BDCFBD82726B'
+ MEPROP Name 'IvcmToolbarsCustomizeListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слушатель событий настройки панелей инструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499465EE030A // vcmToolbarsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4992FC5700E5 // BeforeCustomize
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarsCustomizeListener'
+
+ENDME // ME_49525BCE0355 IvcmToolbarsCustomizeListener
+
+FORWARD ME_4992FC6D03E1
+
+FORWARD ME_4992FC7A0212
+
+ME ME_4992FC7D0152
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ ;
+
+ENDME // ME_4992FC7D0152 aListener
+
+ME ME_4992FC7A0212
+ MEPROP UID '4992FC7A0212'
+ MEPROP Name 'AddListener'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FC7D0152 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_4992FC7A0212 AddListener
+
+FORWARD ME_4992FC8900E1
+
+ME ME_4992FC8C0020
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ ;
+
+ENDME // ME_4992FC8C0020 aListener
+
+ME ME_4992FC8900E1
+ MEPROP UID '4992FC8900E1'
+ MEPROP Name 'RemoveListener'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ ;
+ MELIST Parameters
+   Seq: ( ME_4992FC8C0020 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_4992FC8900E1 RemoveListener
+
+ME ME_4992FC6D03E1
+ MEPROP UID '4992FC6D03E1'
+ MEPROP GUID '30A12550-6409-4E0E-B7FD-817414AE3CC2'
+ MEPROP Name 'IvcmToolbarsCustomizeNotify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Уведомляет о событиях редактирования панели инструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499465EE030A // vcmToolbarsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4992FC7A0212 // AddListener
+ HWL ME_4992FC8900E1 // RemoveListener
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarsCustomizeNotify'
+
+ENDME // ME_4992FC6D03E1 IvcmToolbarsCustomizeNotify
+
+FORWARD ME_4992FC9F029B
+
+ME ME_4992FCAD02D1
+ MEPROP UID '4992FCAD02D1'
+ MEPROP Name 'Notify'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4992FC9F029B // IvcmToolbarsCustomize
+ ;
+ MELINK Target HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ ;
+ UP "pm" True
+
+ENDME // ME_4992FCAD02D1 Notify
+
+ME ME_4992FC9F029B
+ MEPROP UID '4992FC9F029B'
+ MEPROP GUID '4A5A5457-01CE-4FFF-B872-7633827158D4'
+ MEPROP Name 'IvcmToolbarsCustomize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка панелей инструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499465EE030A // vcmToolbarsInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4992FCAD02D1 // Notify
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarsCustomize'
+
+ENDME // ME_4992FC9F029B IvcmToolbarsCustomize
+
+ME ME_499465EE030A
+ MEPROP UID '499465EE030A'
+ MEPROP Name 'vcmToolbarsInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для работы с панелями инструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49525BCE0355 // IvcmToolbarsCustomizeListener
+ HWL ME_4992FC6D03E1 // IvcmToolbarsCustomizeNotify
+ HWL ME_4992FC9F029B // IvcmToolbarsCustomize
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '12.02.2008 21:10'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmToolbarsInterfaces.pas'
+
+ENDME // ME_499465EE030A vcmToolbarsInterfaces

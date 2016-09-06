@@ -1,0 +1,57 @@
+// F1 Пользовательские сервисы 4C852A4201E6 VCMUseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4C852A4201E6
+ MEPROP UID '4C852A4201E6'
+ MEPROP Name 'F1 Пользовательские сервисы'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMUseCases ;
+ %SUMMARY 'Сервисы Гаранта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELIST Children
+   Seq: ( WL 'ME_4A6D566201F3' '4A6D566201F3.ms.model.script' // CompareEditions
+ WL 'ME_4ABCFA76015C' '4ABCFA76015C.ms.model.script' // Consultation
+ WL 'ME_4A92CF230269' '4A92CF230269.ms.model.script' // Autoreferat
+ WL 'ME_4DDBA9CD0006' '4DDBA9CD0006.ms.model.script' // ChangesBetweenEditions
+ WL 'ME_4FF2E55B02CF' '4FF2E55B02CF.ms.model.script' // AAC
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_442BEDF00290' '442BEDF00290.ms.model.script' // garant6x
+ WL 'ME_45ED6F0303D2' '45ED6F0303D2.ms.model.script' // shared
+ WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ WL 'ME_498B35810374' '498B35810374.ms.model.script' // F1 Базовые определения предметной области
+ WL 'ME_49B1511700CA' '49B1511700CA.ms.model.script' // Shared Delphi Core
+ WL 'ME_4A82FE48010A' '4A82FE48010A.ms.model.script' // Shared Delphi Operations
+ WL 'ME_4A856C6B0338' '4A856C6B0338.ms.model.script' // F1 Common For Shell And Monitoring
+ WL 'ME_4A92C561015D' '4A92C561015D.ms.model.script' // Common
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.ms.model.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ WL 'ME_4AC23B8E0397' '4AC23B8E0397.ms.model.script' // F1 Core
+ WL 'ME_4CDAB8D70377' '4CDAB8D70377.ms.model.script' // F1 Aspects
+ WL 'ME_4E366CA201C2' '4E366CA201C2.ms.model.script' // F1 Требования
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ WL 'ME_4E78CD64017F' '4E78CD64017F.ms.model.script' // F1 Проблемы и решения
+ WL 'ME_4FF4110A03C8' '4FF4110A03C8.ms.model.script' // F1 Контроллер работы с документом и абстрактная фабрика документа
+ WL 'ME_562E251101C2' '562E251101C2.ms.model.script' // Shared Delphi Rtl
+ )
+ ; // Depends
+ UP "create project" True
+ UP "defines" 'nsDefine.inc'
+ UP "fix version" 0
+ UP "full constraint" False
+ UP "Full MDP" False
+ UP "ifndef" 'Admin,Monitorings'
+ UP "major version" 8
+ UP "minor version" 1
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/implementation/Garant'
+ UP "space key" 'NMS'
+ UP "space name" 'Nemesis'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant'
+
+ENDME // ME_4C852A4201E6 F1 Пользовательские сервисы

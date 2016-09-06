@@ -71,6 +71,8 @@ uses
  , atStringHelper
  , SearchUnit
  , atNodeHelper
+ //#UC START# *483C01430224impl_uses*
+ //#UC END# *483C01430224impl_uses*
 ;
 
 procedure TatBaseSearchHelper.pm_SetContext(const aValue: AnsiString);

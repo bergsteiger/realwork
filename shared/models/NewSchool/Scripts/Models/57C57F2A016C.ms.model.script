@@ -1,0 +1,59 @@
+// Filters 57C57F2A016C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C57F2A016C
+
+ME ME_57C57F4601BD
+ MEPROP UID '57C57F4601BD'
+ MEPROP Name 'TarDocObjectMixer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C57F2A016C // Filters
+ ;
+ UP "finished" False
+ UP extprop:pas:UnitName 'arDocObjectMixer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arDocObjectMixer'
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\NOT_FINISHED_arDocObjectMixer.pas'
+
+ENDME // ME_57C57F4601BD TarDocObjectMixer
+
+ME ME_57C57F77023C
+ MEPROP UID '57C57F77023C'
+ MEPROP Name 'TarFoundSelectionFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C57F2A016C // Filters
+ ;
+ UP "finished" False
+ UP extprop:pas:UnitName 'arFoundSelectionFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arFoundSelectionFilter'
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\NOT_FINISHED_arFoundSelectionFilter.pas'
+
+ENDME // ME_57C57F77023C TarFoundSelectionFilter
+
+ME ME_57C57F2A016C
+ MEPROP UID '57C57F2A016C'
+ MEPROP Name 'Filters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E25512D01C0' '4E25512D01C0.ms.model.script' // Utils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57C57F4601BD // TarDocObjectMixer
+ HWL ME_57C57F77023C // TarFoundSelectionFilter
+ )
+ ; // Children
+
+ENDME // ME_57C57F2A016C Filters

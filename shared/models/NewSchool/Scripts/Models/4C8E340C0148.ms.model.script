@@ -1,0 +1,443 @@
+// PrimToolbarMenu 4C8E340C0148 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C8E340C0148
+
+FORWARD ME_4C90B27C032C
+
+ME ME_4C90B2B20022
+ MEPROP UID '4C90B2B20022'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ ;
+ MELINK Target WL 'ME_49525BCE0355' '499465EE030A.ms.model.script' // IvcmToolbarsCustomizeListener
+ ;
+
+ENDME // ME_4C90B2B20022 ItemType
+
+ME ME_4C90B27C032C
+ MEPROP UID '4C90B27C032C'
+ MEPROP Name 'TIvcmToolbarsCustomizeListenerPtrList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список указателей на IvcmToolbarsCustomizeListener' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C90B2B20022 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '15.09.2010 15:48'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IvcmToolbarsCustomizeListenerPtrList'
+
+ENDME // ME_4C90B27C032C TIvcmToolbarsCustomizeListenerPtrList
+
+ME ME_4C8E3C930236
+ MEPROP UID '4C8E3C930236'
+ MEPROP Name 'f_CustomizeVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C8E3C930236 f_CustomizeVisible
+
+ME ME_4C8E3D110055
+ MEPROP UID '4C8E3D110055'
+ MEPROP Name 'f_LargeIconsVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C8E3D110055 f_LargeIconsVisible
+
+ME ME_4C8E46EA0263
+ MEPROP UID '4C8E46EA0263'
+ MEPROP Name 'MenuManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_52A1F4A201F9' '4AADF9450143.ms.model.script' // TvcmBaseMenuManager
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4C8E46EA0263 MenuManager
+
+ME ME_4C90B2CB0258
+ MEPROP UID '4C90B2CB0258'
+ MEPROP Name 'f_Listeners'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target HWL ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ ;
+
+ENDME // ME_4C90B2CB0258 f_Listeners
+
+FORWARD ME_4C90B2F500F9
+
+ME ME_4C90B2FB0204
+ MEPROP UID '4C90B2FB0204'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C90B2F500F9 // DoNotify
+ ;
+
+ENDME // ME_4C90B2FB0204 DoIt
+
+ME ME_4C90B2F500F9
+ MEPROP UID '4C90B2F500F9'
+ MEPROP Name 'DoNotify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C90B2FB0204 // DoIt
+ )
+ ; // Operations
+ UP "is static" False
+
+ENDME // ME_4C90B2F500F9 DoNotify
+
+FORWARD ME_4C90C066016F
+
+FORWARD ME_4C90C0770192
+
+ME ME_4C90C07A03AA
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4C90C07A03AA Sender
+
+ME ME_4C90C0770192
+ MEPROP UID '4C90C0770192'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C90C066016F // pmToolbarPopup
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C90C07A03AA // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_4C90C0770192 DoIt
+
+ME ME_4C90C066016F
+ MEPROP UID '4C90C066016F'
+ MEPROP Name 'pmToolbarPopup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C90C0770192 // DoIt
+ )
+ ; // Operations
+ UP "is static" False
+
+ENDME // ME_4C90C066016F pmToolbarPopup
+
+ME ME_4C8E3C850196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4C8E3C850196 
+
+ME ME_4C8E411900BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_4B9777000394' '4B8E967100D5.ms.model.script' // vcmToolbarMenuRes
+ ;
+
+ENDME // ME_4C8E411900BE 
+
+ME ME_4C8E412B02E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_467BABAA00D5' '467BAB7F021E.ms.model.script' // IvcmOperationsProvider
+ ;
+
+ENDME // ME_4C8E412B02E7 
+
+ME ME_4C8E42040253
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_4B30EC81021A' '4B30EC67025A.ms.model.script' // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_4C8E42040253 
+
+ME ME_4C90B1CB0235
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_4C90B1CB0235 
+
+ME ME_4C90B1ED00C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4C90B1ED00C4 
+
+ME ME_4C90B9420050
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4C90B9420050 
+
+ME ME_4C90B9A102F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_4C90B98901EB' '4AADF9450143.ms.model.script' // TvcmCustAvailableToolbarOps
+ ;
+
+ENDME // ME_4C90B9A102F1 
+
+ME ME_4C90BF160135
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_4C90BF160135 
+
+ME ME_4C90C1D70358
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_4992F80B015F' '499EAAE502A8.ms.model.script' // TvcmToolBarPos
+ ;
+
+ENDME // ME_4C90C1D70358 
+
+ME ME_4C90DAF603CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_4C8F78FC0067' '4AADF9450143.ms.model.script' // vcmMakeModuleMenu
+ ;
+
+ENDME // ME_4C90DAF603CC 
+
+ME ME_52AEC687026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_5028A4C0019B' '5028A4C0019B.ms.model.script' // TvcmToolbar
+ ;
+
+ENDME // ME_52AEC687026D 
+
+ME ME_552BAE5401BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_552BADA90096' '4B30EC67025A.ms.model.script' // TvcmToolbarGlyphService
+ ;
+
+ENDME // ME_552BAE5401BF 
+
+ME ME_578E03EB0003
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_578E02D603D1' '578E02C50241.ms.model.script' // TTaskPanelService
+ ;
+
+ENDME // ME_578E03EB0003 
+
+ME ME_57924C30039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4C8E340C0148 // PrimToolbarMenu
+ ;
+ MELINK Target WL 'ME_57924C1400CF' '578E02C50241.ms.model.script' // TToolbarMenuService
+ ;
+
+ENDME // ME_57924C30039C 
+
+ME ME_4992FC7A0212_ME_4C8E340C0148
+ MELINK Original WL 'ME_4992FC7A0212' '499465EE030A.ms.model.script' // AddListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4992FC7A0212_ME_4C8E340C0148 AddListener
+
+ME ME_4992FC8900E1_ME_4C8E340C0148
+ MELINK Original WL 'ME_4992FC8900E1' '499465EE030A.ms.model.script' // RemoveListener
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4992FC8900E1_ME_4C8E340C0148 RemoveListener
+
+ME ME_4992FCAD02D1_ME_4C8E340C0148
+ MELINK Original WL 'ME_4992FCAD02D1' '499465EE030A.ms.model.script' // Notify
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4992FCAD02D1_ME_4C8E340C0148 Notify
+
+ME ME_479731C50290_ME_4C8E340C0148
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4C8E340C0148 Cleanup
+
+ME ME_47D1602000C6_ME_4C8E340C0148
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4C8E340C0148 Create
+
+ME ME_4C8E340C0148
+ MEPROP UID '4C8E340C0148'
+ MEPROP Name 'PrimToolbarMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4C8E33F40186' '4C8E33F40186.ms.model.script' // ToolbarMenu
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4992FC6D03E1' '499465EE030A.ms.model.script' // IvcmToolbarsCustomizeNotify
+ WL 'ME_4992FC9F029B' '499465EE030A.ms.model.script' // IvcmToolbarsCustomize
+ WL 'ME_4C8F785C005B' '47D0E1500033.ms.model.script' // MvcmModule
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C8E3C930236 // f_CustomizeVisible
+ HWL ME_4C8E3D110055 // f_LargeIconsVisible
+ HWL ME_4C8E46EA0263 // MenuManager
+ HWL ME_4C90B2CB0258 // f_Listeners
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C90B2F500F9 // DoNotify
+ HWL ME_4C90C066016F // pmToolbarPopup
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4992FC7A0212_ME_4C8E340C0148 // AddListener
+ ME_4992FC8900E1_ME_4C8E340C0148 // RemoveListener
+ ME_4992FCAD02D1_ME_4C8E340C0148 // Notify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4C8E340C0148 // Cleanup
+ ME_47D1602000C6_ME_4C8E340C0148 // Create
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( WL 'ME_4C8E42D40131' '4C8E42D40131.ms.model.script' // CustomizeTools
+ HWL ME_4C90B27C032C // TIvcmToolbarsCustomizeListenerPtrList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C8E3C850196 // afwFacade
+ ME_4C8E411900BE // vcmToolbarMenuRes
+ ME_4C8E412B02E7 // IvcmOperationsProvider
+ ME_4C8E42040253 // TvcmCustomMenuManager
+ ME_4C90B1CB0235 // TComponent
+ ME_4C90B1ED00C4 // IvcmEntityForm
+ ME_4C90B9420050 // TControl
+ ME_4C90B9A102F1 // TvcmCustAvailableToolbarOps
+ ME_4C90BF160135 // TvcmEntityForm
+ ME_4C90C1D70358 // TvcmToolBarPos
+ ME_4C90DAF603CC // vcmMakeModuleMenu
+ ME_52AEC687026D // TvcmToolbar
+ ME_552BAE5401BF // TvcmToolbarGlyphService
+ ME_578E03EB0003 // TTaskPanelService
+ ME_57924C30039C // TToolbarMenuService
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '13.09.2010 18:24'
+ UP extprop:pas:TypeName 'TPrimToolbarMenuModule'
+ UP extprop:pas:UnitName 'PrimToolbarMenu_Module'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimToolbarMenuModule'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ToolbarMenu\PrimToolbarMenu_Module.pas'
+
+ENDME // ME_4C8E340C0148 PrimToolbarMenu

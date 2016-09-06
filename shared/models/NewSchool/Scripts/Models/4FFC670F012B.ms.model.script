@@ -1,0 +1,88 @@
+// FormDefinitions 4FFC670F012B VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFC670F012B
+
+ME ME_4FFC67440230
+ MEPROP UID '4FFC67440230'
+ MEPROP GUID 'A9A78553-D6D6-41FE-8759-46E9B97592B8'
+ MEPROP Name 'LeftEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFC670F012B // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4A6EC02E00EA' '4A6EC02E00EA.ms.model.script' // LeftEdition
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'LeftEditionFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4FFC67440230 LeftEdition
+
+ME ME_4FFC674F004A
+ MEPROP UID '4FFC674F004A'
+ MEPROP GUID '8C64309E-56E0-427B-B77E-E76372E73FA7'
+ MEPROP Name 'RightEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFC670F012B // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4A6EC062005F' '4A6EC062005F.ms.model.script' // RightEdition
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'RightEditionFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4FFC674F004A RightEdition
+
+ME ME_4FFC675B03C3
+ MEPROP UID '4FFC675B03C3'
+ MEPROP GUID '9E38EC35-34E1-49E2-B2C9-6D12062610C7'
+ MEPROP Name 'EditionsContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FFC670F012B // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4A6EC095039C' '4A6EC095039C.ms.model.script' // EditionsContainer
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'EditionsContainerFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4FFC675B03C3 EditionsContainer
+
+ME ME_4FFC670F012B
+ MEPROP UID '4FFC670F012B'
+ MEPROP Name 'FormDefinitions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A6D59C9005C' '4A6D59C9005C.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4FFC67440230 // LeftEdition
+ HWL ME_4FFC674F004A // RightEdition
+ HWL ME_4FFC675B03C3 // EditionsContainer
+ )
+ ; // Children
+ UP "is namespace" True
+ UP "UseNewGen" True
+ UP extprop:pas:UnitName 'CompareEditions_FormDefinitions_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\CompareEditions_FormDefinitions_Controls.pas'
+
+ENDME // ME_4FFC670F012B FormDefinitions

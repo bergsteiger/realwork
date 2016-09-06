@@ -1,0 +1,209 @@
+// Rubricator 4AA7800100B4 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA7800100B4
+
+FORWARD ME_4AA7803101E2
+
+FORWARD ME_4AA7805301DC
+
+ME ME_4AA7805E03E2
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4AA7805E03E2 aNode
+
+ME ME_4E7B020B01CB
+ MEPROP Name 'aRootToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E7B020B01CB aRootToKeep
+
+ME ME_4E7B020B023A
+ MEPROP Name 'aMenuSectionItemToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
+ ;
+
+ENDME // ME_4E7B020B023A aMenuSectionItemToKeep
+
+ME ME_4AA7805301DC
+ MEPROP UID '4AA7805301DC'
+ MEPROP Name 'SetListRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AA7803101E2 // Rubricator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA7805E03E2 // aNode
+ ME_4E7B020B01CB // aRootToKeep
+ ME_4E7B020B023A // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AA7805301DC SetListRoot
+
+FORWARD ME_4AA7806601AE
+
+ME ME_4AA7806C02DE
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4AA7806C02DE aNode
+
+ME ME_4E7B02150291
+ MEPROP Name 'aRootToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4E7B02150291 aRootToKeep
+
+ME ME_4E7B02150317
+ MEPROP Name 'aMenuSectionItemToKeep'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E36C7D80396' '4DD24BD40021.ms.model.script' // SectionItem
+ ;
+
+ENDME // ME_4E7B02150317 aMenuSectionItemToKeep
+
+ME ME_4AA7806601AE
+ MEPROP UID '4AA7806601AE'
+ MEPROP Name 'InitListRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AA7803101E2 // Rubricator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA7806C02DE // aNode
+ ME_4E7B02150291 // aRootToKeep
+ ME_4E7B02150317 // aMenuSectionItemToKeep
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AA7806601AE InitListRoot
+
+ME ME_4AA7809901AE
+ MEPROP UID '4AA7809901AE'
+ MEPROP Name 'Synchronize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AA7803101E2 // Rubricator
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4AA7809901AE Synchronize
+
+ME ME_4B02CFA303DA
+ MEPROP UID '4B02CFA303DA'
+ MEPROP Name 'GetRoot'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AA7803101E2 // Rubricator
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4B02CFA303DA GetRoot
+
+ME ME_4AA7803101E2
+ MEPROP UID '4AA7803101E2'
+ MEPROP Name 'Rubricator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7800100B4 // Rubricator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA7805301DC // SetListRoot
+ HWL ME_4AA7806601AE // InitListRoot
+ HWL ME_4AA7809901AE // Synchronize
+ HWL ME_4B02CFA303DA // GetRoot
+ )
+ ; // Operations
+
+ENDME // ME_4AA7803101E2 Rubricator
+
+ME ME_4AA7800100B4
+ MEPROP UID '4AA7800100B4'
+ MEPROP Name 'Rubricator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A92C59801C7' '4A92C59801C7.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AA7803101E2 // Rubricator
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4DD24BD40021' '4DD24BD40021.ms.model.script' // MainMenu
+ )
+ ; // Depends
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '09.09.2009 14:14'
+ UP extprop:pas:UnitName 'Common_Rubricator_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common_Rubricator_Controls.pas'
+
+ENDME // ME_4AA7800100B4 Rubricator

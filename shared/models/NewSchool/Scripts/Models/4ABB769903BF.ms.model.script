@@ -1,0 +1,85 @@
+// CompInfo 4ABB769903BF VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABB769903BF
+
+ME ME_A462190E3592
+ MEPROP UID 'A462190E3592'
+ MEPROP Name 'ut_CompInfo'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о комплекте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABB769903BF // CompInfo
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'CompInfo_ut_CompInfo_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_ut_CompInfo_UserType.pas'
+
+ENDME // ME_A462190E3592 ut_CompInfo
+
+ME ME_CDF88B3B13A1
+ MEPROP UID 'CDF88B3B13A1'
+ MEPROP Name 'Ini_FormFactory_CompInfo'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы CompInfo' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABB769903BF // CompInfo
+ ;
+ UPLINK SpelledFor HWL ME_4ABB769903BF // CompInfo
+ ;
+
+ENDME // ME_CDF88B3B13A1 Ini_FormFactory_CompInfo
+
+ME ME_4ABB769903BF
+ MEPROP UID '4ABB769903BF'
+ MEPROP Name 'CompInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о комплекте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_516FC52E034F' '516FC52E034F.ms.model.script' // PrimCompInfo
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD872BF0058' '4BD856E802F9.ms.model.script' // CompInfo
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_CDF88B3B13A1 // Ini_FormFactory_CompInfo
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_A462190E3592 // ut_CompInfo
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "form name prefix" 'en'
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TenCompInfo'
+ UP extprop:pas:UnitName 'CompInfo_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'enCompInfo'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\CompInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_4ABB769903BF CompInfo

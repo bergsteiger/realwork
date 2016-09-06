@@ -1,0 +1,175 @@
+// PrimLeftEdition 4A6D5A80013C VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6D5A80013C
+
+ME ME_4BD7056800D3
+ MEPROP UID '4BD7056800D3'
+ MEPROP Name 'utLeftEdition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предыдущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6D5A80013C // PrimLeftEdition
+ ;
+ UP "ImageIndex" '-1'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimLeftEdition_utLeftEdition_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_utLeftEdition_UserType.pas'
+
+ENDME // ME_4BD7056800D3 utLeftEdition
+
+FORWARD ME_4A83F7ED031D
+
+ME ME_4A9BA1C90083
+ MEPROP UID '4A9BA1C90083'
+ MEPROP Name 'pnCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A83F7ED031D // Header
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A9BA17E02F0' '4A6EBE900233.ms.model.script' // pnCaption
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "need Caption" False
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_4A9BA1C90083 pnCaption
+
+ME ME_4A83F7ED031D
+ MEPROP UID '4A83F7ED031D'
+ MEPROP Name 'Header'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ControlOverride ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6D5A80013C // PrimLeftEdition
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A83EEAC00B7' '4A6EBE900233.ms.model.script' // Header
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A9BA1C90083 // pnCaption
+ )
+ ; // Attributes
+ UP "ControlClass" 'none'
+ UP "need Caption" False
+ UP "pm" True
+ UP "put to dfm" True
+
+ENDME // ME_4A83F7ED031D Header
+
+ME ME_4A6D5B000178
+ MEPROP UID '4A6D5B000178'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A6D5A80013C // PrimLeftEdition
+ ;
+ MELINK Target WL 'ME_4A6D57560240' '4A6D56B00065.ms.model.script' // IdsLeftEdition
+ ;
+
+ENDME // ME_4A6D5B000178 
+
+ME ME_4B69B5EF03B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5A80013C // PrimLeftEdition
+ ;
+ MELINK Target WL 'ME_4B1E38210086' '4A897A0F0097.ms.model.script' // RightEdition
+ ;
+
+ENDME // ME_4B69B5EF03B1 
+
+ME ME_4B55ADAD0005_ME_4A6D5A80013C
+ MELINK Original WL 'ME_4B55ADAD0005' '4A6EBE900233.ms.model.script' // EditionsChooseRoot
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B55ADAD0005_ME_4A6D5A80013C EditionsChooseRoot
+
+ME ME_4B55BB7F0172_ME_4A6D5A80013C
+ MELINK Original WL 'ME_4B55BB7F0172' '4A6EBE900233.ms.model.script' // DoEditionChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B55BB7F0172_ME_4A6D5A80013C DoEditionChanged
+
+ME ME_497469C90140_ME_4A6D5A80013C
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_4A6D5A80013C NotifyDataSourceChanged
+
+ME ME_4A8E8F2E0195_ME_4A6D5A80013C
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A6D5A80013C InitControls
+
+ME ME_4A6D5A80013C
+ MEPROP UID '4A6D5A80013C'
+ MEPROP Name 'PrimLeftEdition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A6D5A220389' '4A6D5A220389.ms.model.script' // Editions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7F6D8800EE' '4C7F6D8800EE.ms.model.script' // DiffOptions
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A83F7ED031D // Header
+ HWL ME_4A6D5B000178 // 
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4B55ADAD0005_ME_4A6D5A80013C // EditionsChooseRoot
+ ME_4B55BB7F0172_ME_4A6D5A80013C // DoEditionChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_497469C90140_ME_4A6D5A80013C // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_4A6D5A80013C // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD7056800D3 // utLeftEdition
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B69B5EF03B1 // RightEdition
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '27.07.2009 11:43'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TPrimLeftEditionForm'
+ UP extprop:pas:UnitName 'PrimLeftEdition_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimLeftEditionForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms\PrimLeftEdition_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Editions\Forms'
+
+ENDME // ME_4A6D5A80013C PrimLeftEdition

@@ -1,0 +1,295 @@
+// ChromeLike 53D125AE02CB TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53D125AE02CB
+
+FORWARD ME_54776921001A
+
+ME ME_547769DD0375
+ MEPROP UID '547769DD0375'
+ MEPROP Name 'ItemCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_54776921001A // TvcmBaseMenuForChromeLike
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_547769DD0375 ItemCount
+
+FORWARD ME_54779C5903A7
+
+ME ME_54779C5F02BC
+ MEPROP UID '54779C5F02BC'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54779C5903A7 // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54779C5F02BC Index
+
+ME ME_54779C5903A7
+ MEPROP UID '54779C5903A7'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_54776921001A // TvcmBaseMenuForChromeLike
+ ;
+ MELINK Target WL 'ME_5477971800CE' '5477970600C6.ms.model.script' // TvcmMenuForChromeLikeItemWrap
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54779C5F02BC // Index
+ )
+ ; // Attributes
+
+ENDME // ME_54779C5903A7 Items
+
+ME ME_54776921001A
+ MEPROP UID '54776921001A'
+ MEPROP Name 'TvcmBaseMenuForChromeLike'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D125AE02CB // ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_547769DD0375 // ItemCount
+ HWL ME_54779C5903A7 // Items
+ )
+ ; // Attributes
+ UP "ifndef" 'NoTabs'
+ UP "is friend" True
+ UP extprop:pas:UnitName 'vcmBaseMenuForChromeLike_p'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmBaseMenuForChromeLike_p.pas'
+
+ENDME // ME_54776921001A TvcmBaseMenuForChromeLike
+
+FORWARD ME_551D53DB0049
+
+ME ME_551D543A00E5
+ MEPROP UID '551D543A00E5'
+ MEPROP Name 'TabCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551D53DB0049 // TChromeLikeTabSetControl
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D543A00E5 TabCount
+
+FORWARD ME_551D5407013B
+
+ME ME_551D540B020E
+ MEPROP UID '551D540B020E'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551D5407013B // Tabs
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D540B020E Index
+
+ME ME_551D5407013B
+ MEPROP UID '551D5407013B'
+ MEPROP Name 'Tabs'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551D53DB0049 // TChromeLikeTabSetControl
+ ;
+ MELINK Target WL 'ME_5507F22E0057' '533E6F73014E.ms.model.script' // TChromeLikeTab
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_551D540B020E // Index
+ )
+ ; // Attributes
+
+ENDME // ME_551D5407013B Tabs
+
+ME ME_551D53DB0049
+ MEPROP UID '551D53DB0049'
+ MEPROP Name 'TChromeLikeTabSetControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D125AE02CB // ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5507EFFD01FE' '533E6F73014E.ms.model.script' // TChromeLikeTabSetControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_551D543A00E5 // TabCount
+ HWL ME_551D5407013B // Tabs
+ )
+ ; // Attributes
+ UP "is friend" False
+ UP extprop:pas:UnitName 'ChromeLikeTabSetControl_p'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\ChromeLikeTabSetControl_p.pas'
+
+ENDME // ME_551D53DB0049 TChromeLikeTabSetControl
+
+FORWARD ME_551D67AC02C4
+
+ME ME_551D692303AB
+ MEPROP UID '551D692303AB'
+ MEPROP Name 'Text'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551D67AC02C4 // TChromeLikeTab
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_551D692303AB Text
+
+ME ME_551D693400A4
+ MEPROP UID '551D693400A4'
+ MEPROP Name 'IsSelected'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551D67AC02C4 // TChromeLikeTab
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_551D693400A4 IsSelected
+
+ME ME_551D69B60184
+ MEPROP UID '551D69B60184'
+ MEPROP Name 'Visible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551D67AC02C4 // TChromeLikeTab
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_551D69B60184 Visible
+
+ME ME_551D69EA00CA
+ MEPROP UID '551D69EA00CA'
+ MEPROP Name 'Hint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551D67AC02C4 // TChromeLikeTab
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_551D69EA00CA Hint
+
+ME ME_551D72CA0359
+ MEPROP UID '551D72CA0359'
+ MEPROP Name 'PositionRect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_551D67AC02C4 // TChromeLikeTab
+ ;
+ MELINK Target WL 'ME_547869730335' '5477970600C6.ms.model.script' // TRectWrap
+ ;
+
+ENDME // ME_551D72CA0359 PositionRect
+
+ME ME_551D67AC02C4
+ MEPROP UID '551D67AC02C4'
+ MEPROP Name 'TChromeLikeTab'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D125AE02CB // ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5507F22E0057' '533E6F73014E.ms.model.script' // TChromeLikeTab
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_551D692303AB // Text
+ HWL ME_551D693400A4 // IsSelected
+ HWL ME_551D69B60184 // Visible
+ HWL ME_551D69EA00CA // Hint
+ HWL ME_551D72CA0359 // PositionRect
+ )
+ ; // Attributes
+ UP "is friend" False
+ UP extprop:pas:UnitName 'ChromeLikeTab_p'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\ChromeLikeTab_p.pas'
+
+ENDME // ME_551D67AC02C4 TChromeLikeTab
+
+ME ME_53D125AE02CB
+ MEPROP UID '53D125AE02CB'
+ MEPROP Name 'ChromeLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499AA43A012F' '499AA43A012F.ms.model.script' // VCMTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54776921001A // TvcmBaseMenuForChromeLike
+ HWL ME_551D53DB0049 // TChromeLikeTabSetControl
+ HWL ME_551D67AC02C4 // TChromeLikeTab
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ WL 'ME_533E6F73014E' '533E6F73014E.ms.model.script' // ChromeLikeTabSet
+ WL 'ME_5477970600C6' '5477970600C6.ms.model.script' // Wrap
+ )
+ ; // Depends
+ UP "defines" 'vcmDefine.inc'
+ UP "ifndef" 'NoTabs'
+ UP Version 0
+
+ENDME // ME_53D125AE02CB ChromeLike

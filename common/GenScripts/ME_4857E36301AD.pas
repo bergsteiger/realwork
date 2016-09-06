@@ -37,6 +37,8 @@ uses
  , evSBSPainter
  {$IfEnd} // Defined(evNeedPainters)
  , SBS_Const
+ //#UC START# *4857E36301ADimpl_uses*
+ //#UC END# *4857E36301ADimpl_uses*
 ;
 
 function TevSBSInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

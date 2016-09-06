@@ -1,0 +1,1272 @@
+// vcmUserControls 499EAAE502A8 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499EAAE502A8
+
+FORWARD ME_499560120345
+
+ME ME_499E958E03B0
+ MEPROP UID '499E958E03B0'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'пользовательское имя объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499560120345 // IvcmBaseObjectDef
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" False
+
+ENDME // ME_499E958E03B0 Caption
+
+ME ME_499E95A60064
+ MEPROP UID '499E95A60064'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'имя объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499560120345 // IvcmBaseObjectDef
+ ;
+ MELINK Target WL 'ME_4683CDED0141' '467BAB7F021E.ms.model.script' // TvcmString
+ ;
+ UP "pm" False
+
+ENDME // ME_499E95A60064 Name
+
+ME ME_499560120345
+ MEPROP UID '499560120345'
+ MEPROP GUID 'C2874075-FAA7-4C00-B3BE-F6FD56ED5433'
+ MEPROP Name 'IvcmBaseObjectDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499EAAE502A8 // vcmUserControls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499E958E03B0 // Caption
+ HWL ME_499E95A60064 // Name
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ObjectDef'
+
+ENDME // ME_499560120345 IvcmBaseObjectDef
+
+FORWARD ME_499301BF0067
+
+ME ME_499561850334
+ MEPROP UID '499561850334'
+ MEPROP Name 'ImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499301BF0067 // IvcmUserFriendlyControl
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_499561850334 ImageIndex
+
+ME ME_4995616701BB
+ MEPROP UID '4995616701BB'
+ MEPROP Name 'Hint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'подсказка для пункта меню, представляющего объект' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499301BF0067 // IvcmUserFriendlyControl
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" False
+
+ENDME // ME_4995616701BB Hint
+
+ME ME_4995617802E8
+ MEPROP UID '4995617802E8'
+ MEPROP Name 'LongHint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'детальная подсказка для пункта меню, представляющего объект' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499301BF0067 // IvcmUserFriendlyControl
+ ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+ UP "pm" False
+
+ENDME // ME_4995617802E8 LongHint
+
+ME ME_499E958E03B0_ME_499301BF0067
+ MELINK Original HWL ME_499E958E03B0 // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E958E03B0_ME_499301BF0067 Caption
+
+ME ME_499E95A60064_ME_499301BF0067
+ MELINK Original HWL ME_499E95A60064 // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E95A60064_ME_499301BF0067 Name
+
+ME ME_499301BF0067
+ MEPROP UID '499301BF0067'
+ MEPROP GUID 'F12A7495-DA83-4EEE-A5C1-77957F72E98A'
+ MEPROP Name 'IvcmUserFriendlyControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс для объектов имеющих отображение для пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499EAAE502A8 // vcmUserControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499560120345 // IvcmBaseObjectDef
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499561850334 // ImageIndex
+ HWL ME_4995616701BB // Hint
+ HWL ME_4995617802E8 // LongHint
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_499E958E03B0_ME_499301BF0067 // Caption
+ ME_499E95A60064_ME_499301BF0067 // Name
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UserFriendlyControl'
+
+ENDME // ME_499301BF0067 IvcmUserFriendlyControl
+
+FORWARD ME_4995619C030A
+
+ME ME_499561F90285
+ MEPROP UID '499561F90285'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'идентификатор объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995619C030A // IvcmIdentifiedUserFriendlyControl
+ ;
+ MELINK Target WL 'ME_4683C8750015' '467BAB7F021E.ms.model.script' // TvcmControlID
+ ;
+ UP "pm" False
+
+ENDME // ME_499561F90285 ID
+
+ME ME_4995616701BB_ME_4995619C030A
+ MELINK Original HWL ME_4995616701BB // Hint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4995616701BB_ME_4995619C030A Hint
+
+ME ME_4995617802E8_ME_4995619C030A
+ MELINK Original HWL ME_4995617802E8 // LongHint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4995617802E8_ME_4995619C030A LongHint
+
+ME ME_499561850334_ME_4995619C030A
+ MELINK Original HWL ME_499561850334 // ImageIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499561850334_ME_4995619C030A ImageIndex
+
+ME ME_499E958E03B0_ME_4995619C030A
+ MELINK Original HWL ME_499E958E03B0 // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E958E03B0_ME_4995619C030A Caption
+
+ME ME_499E95A60064_ME_4995619C030A
+ MELINK Original HWL ME_499E95A60064 // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E95A60064_ME_4995619C030A Name
+
+ME ME_4995619C030A
+ MEPROP UID '4995619C030A'
+ MEPROP GUID '218D3AE5-6CA7-4CF3-B27B-B277C74C4165'
+ MEPROP Name 'IvcmIdentifiedUserFriendlyControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс для объектов имеющих отображение для пользователя и идентификатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499EAAE502A8 // vcmUserControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499301BF0067 // IvcmUserFriendlyControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499561F90285 // ID
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4995616701BB_ME_4995619C030A // Hint
+ ME_4995617802E8_ME_4995619C030A // LongHint
+ ME_499561850334_ME_4995619C030A // ImageIndex
+ ME_499E958E03B0_ME_4995619C030A // Caption
+ ME_499E95A60064_ME_4995619C030A // Name
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IdentifiedUserFriendlyControl'
+
+ENDME // ME_4995619C030A IvcmIdentifiedUserFriendlyControl
+
+FORWARD ME_4995624100A6
+
+FORWARD ME_4683F5BC0213
+
+ME ME_4683F5CE0205
+ MEPROP UID '4683F5CE0205'
+ MEPROP Name 'vcm_ooShowInMainToolbar'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Операция будет показана на панели'#13#10'                                  инструментов главной формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5BC0213 // TvcmOperationOption
+ ;
+
+ENDME // ME_4683F5CE0205 vcm_ooShowInMainToolbar
+
+ME ME_4683F5DC03BE
+ MEPROP UID '4683F5DC03BE'
+ MEPROP Name 'vcm_ooShowInChildToolbar'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Операция будет показана на панели'#13#10'                                  инструментов формы сущности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5BC0213 // TvcmOperationOption
+ ;
+
+ENDME // ME_4683F5DC03BE vcm_ooShowInChildToolbar
+
+ME ME_4683F5EB021B
+ MEPROP UID '4683F5EB021B'
+ MEPROP Name 'vcm_ooShowInContextMenu'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Операция будет показана в контекстном меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5BC0213 // TvcmOperationOption
+ ;
+
+ENDME // ME_4683F5EB021B vcm_ooShowInContextMenu
+
+ME ME_4683F5FE0150
+ MEPROP UID '4683F5FE0150'
+ MEPROP Name 'vcm_ooShowInMainMenu'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Операция будет показана в главном меню'#13#10'                                  главной формы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5BC0213 // TvcmOperationOption
+ ;
+
+ENDME // ME_4683F5FE0150 vcm_ooShowInMainMenu
+
+ME ME_4683F63302BF
+ MEPROP UID '4683F63302BF'
+ MEPROP Name 'vcm_ooShowInChildMenu'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Операция будет показана в меню формы'#13#10'                                  сущности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5BC0213 // TvcmOperationOption
+ ;
+
+ENDME // ME_4683F63302BF vcm_ooShowInChildMenu
+
+ME ME_4683F5BC0213
+ MEPROP UID '4683F5BC0213'
+ MEPROP Name 'TvcmOperationOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Режим отбражения операции в меню и на панели инструментов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4683F5CE0205 // vcm_ooShowInMainToolbar
+ HWL ME_4683F5DC03BE // vcm_ooShowInChildToolbar
+ HWL ME_4683F5EB021B // vcm_ooShowInContextMenu
+ HWL ME_4683F5FE0150 // vcm_ooShowInMainMenu
+ HWL ME_4683F63302BF // vcm_ooShowInChildMenu
+ )
+ ; // Attributes
+ UP "force usage" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4683F5BC0213 TvcmOperationOption
+
+FORWARD ME_4683F5860071
+
+ME ME_4683F59301F6
+ MEPROP UID '4683F59301F6'
+ MEPROP Name 'vcm_omTest'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Режим проверки доступности операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5860071 // TvcmOperationMode
+ ;
+
+ENDME // ME_4683F59301F6 vcm_omTest
+
+ME ME_4683F5A100A2
+ MEPROP UID '4683F5A100A2'
+ MEPROP Name 'vcm_omExecute'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Режим непосредственного выполенения'#13#10'                      операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5860071 // TvcmOperationMode
+ ;
+
+ENDME // ME_4683F5A100A2 vcm_omExecute
+
+ME ME_4683F5AD0027
+ MEPROP UID '4683F5AD0027'
+ MEPROP Name 'vcm_omAggregateExecute'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4683F5860071 // TvcmOperationMode
+ ;
+
+ENDME // ME_4683F5AD0027 vcm_omAggregateExecute
+
+ME ME_4683F5860071
+ MEPROP UID '4683F5860071'
+ MEPROP Name 'TvcmOperationMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Режим выполнения операции.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4683F59301F6 // vcm_omTest
+ HWL ME_4683F5A100A2 // vcm_omExecute
+ HWL ME_4683F5AD0027 // vcm_omAggregateExecute
+ )
+ ; // Attributes
+ UP "force usage" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4683F5860071 TvcmOperationMode
+
+FORWARD ME_4992F7350274
+
+ME ME_4992F73C02B1
+ MEPROP UID '4992F73C02B1'
+ MEPROP Name 'vcm_octShortCut'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F7350274 // TvcmOperationCallType
+ ;
+
+ENDME // ME_4992F73C02B1 vcm_octShortCut
+
+ME ME_4992F7410143
+ MEPROP UID '4992F7410143'
+ MEPROP Name 'vcm_octMainMenu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F7350274 // TvcmOperationCallType
+ ;
+
+ENDME // ME_4992F7410143 vcm_octMainMenu
+
+ME ME_4992F74600EC
+ MEPROP UID '4992F74600EC'
+ MEPROP Name 'vcm_octContextMenu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F7350274 // TvcmOperationCallType
+ ;
+
+ENDME // ME_4992F74600EC vcm_octContextMenu
+
+ME ME_4992F74C0019
+ MEPROP UID '4992F74C0019'
+ MEPROP Name 'vcm_octToolbar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F7350274 // TvcmOperationCallType
+ ;
+
+ENDME // ME_4992F74C0019 vcm_octToolbar
+
+ME ME_4992F7350274
+ MEPROP UID '4992F7350274'
+ MEPROP Name 'TvcmOperationCallType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4992F73C02B1 // vcm_octShortCut
+ HWL ME_4992F7410143 // vcm_octMainMenu
+ HWL ME_4992F74600EC // vcm_octContextMenu
+ HWL ME_4992F74C0019 // vcm_octToolbar
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4992F7350274 TvcmOperationCallType
+
+FORWARD ME_47F2534B010F
+
+ME ME_4992F8F40195
+ MEPROP UID '4992F8F40195'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F2534B010F // TvcmUserType
+ ;
+ MEPROP Value 0
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 0
+
+ENDME // ME_4992F8F40195 First
+
+ME ME_4992F8FC03BF
+ MEPROP UID '4992F8FC03BF'
+ MEPROP Name 'Last'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F2534B010F // TvcmUserType
+ ;
+ MEPROP Value 31
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 31
+
+ENDME // ME_4992F8FC03BF Last
+
+ME ME_47F2534B010F
+ MEPROP UID '47F2534B010F'
+ MEPROP Name 'TvcmUserType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип формы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4992F8F40195 // First
+ HWL ME_4992F8FC03BF // Last
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47F2534B010F TvcmUserType
+
+ME ME_4992F915036D
+ MEPROP UID '4992F915036D'
+ MEPROP Name 'TvcmUserTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47F2534B010F // TvcmUserType
+ )
+ ; // Inherits
+
+ENDME // ME_4992F915036D TvcmUserTypes
+
+ME ME_51E00A6B0010
+ MEPROP UID '51E00A6B0010'
+ MEPROP Name 'TvcmOperationOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4683F5BC0213 // TvcmOperationOption
+ )
+ ; // Inherits
+
+ENDME // ME_51E00A6B0010 TvcmOperationOptions
+
+ME ME_49956402012E
+ MEPROP UID '49956402012E'
+ MEPROP Name 'VisibleToUser'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_49956402012E VisibleToUser
+
+ME ME_4995640A00AE
+ MEPROP UID '4995640A00AE'
+ MEPROP Name 'IsCaptionUnique'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'определяет является ли имя операции уникальным в пределах всех'#13#10'             операций формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_4995640A00AE IsCaptionUnique
+
+ME ME_49956423028E
+ MEPROP UID '49956423028E'
+ MEPROP Name 'StatesCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_49956423028E StatesCount
+
+ME ME_499564440267
+ MEPROP UID '499564440267'
+ MEPROP Name 'IsDefault'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_499564440267 IsDefault
+
+ME ME_499D8B6E01F5
+ MEPROP UID '499D8B6E01F5'
+ MEPROP Name 'GroupID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'группа внутри категории' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_499D8B6E01F5 GroupID
+
+ME ME_4995621C01EE
+ MEPROP UID '4995621C01EE'
+ MEPROP Name 'Category'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'категория объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_4683CDED0141' '467BAB7F021E.ms.model.script' // TvcmString
+ ;
+ UP "pm" False
+
+ENDME // ME_4995621C01EE Category
+
+ME ME_499562870140
+ MEPROP UID '499562870140'
+ MEPROP Name 'OperationType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_4683CC350070' '467BAB7F021E.ms.model.script' // TvcmOperationType
+ ;
+ UP "pm" False
+
+ENDME // ME_499562870140 OperationType
+
+ME ME_499562ED0005
+ MEPROP UID '499562ED0005'
+ MEPROP Name 'ShortCut'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_499562B802E7' '4AB0997B00A2.ms.model.script' // TShortCut
+ ;
+ UP "pm" False
+
+ENDME // ME_499562ED0005 ShortCut
+
+ME ME_499563A80185
+ MEPROP UID '499563A80185'
+ MEPROP Name 'SecondaryShortCuts'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_499563790006' '4799D29F033F.ms.model.script' // TShortCutList
+ ;
+ UP "pm" False
+
+ENDME // ME_499563A80185 SecondaryShortCuts
+
+ME ME_499563F6016E
+ MEPROP UID '499563F6016E'
+ MEPROP Name 'ExcludeUserTypes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target HWL ME_4992F915036D // TvcmUserTypes
+ ;
+ UP "pm" False
+
+ENDME // ME_499563F6016E ExcludeUserTypes
+
+FORWARD ME_4995642C012A
+
+ME ME_49956433019E
+ MEPROP UID '49956433019E'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4995642C012A // State
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49956433019E anIndex
+
+ME ME_4995642C012A
+ MEPROP UID '4995642C012A'
+ MEPROP Name 'State'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target HWL ME_499301BF0067 // IvcmUserFriendlyControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49956433019E // anIndex
+ )
+ ; // Attributes
+ UP "pm" False
+
+ENDME // ME_4995642C012A State
+
+ME ME_51D14A30003C
+ MEPROP UID '51D14A30003C'
+ MEPROP Name 'ContextMenuWeight'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_51D14A30003C ContextMenuWeight
+
+ME ME_51E00A7A0129
+ MEPROP UID '51E00A7A0129'
+ MEPROP Name 'Options'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ MELINK Target HWL ME_51E00A6B0010 // TvcmOperationOptions
+ ;
+ UP "pm" False
+
+ENDME // ME_51E00A7A0129 Options
+
+ME ME_4995616701BB_ME_4995624100A6
+ MELINK Original HWL ME_4995616701BB // Hint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4995616701BB_ME_4995624100A6 Hint
+
+ME ME_4995617802E8_ME_4995624100A6
+ MELINK Original HWL ME_4995617802E8 // LongHint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4995617802E8_ME_4995624100A6 LongHint
+
+ME ME_499561850334_ME_4995624100A6
+ MELINK Original HWL ME_499561850334 // ImageIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499561850334_ME_4995624100A6 ImageIndex
+
+ME ME_499561F90285_ME_4995624100A6
+ MELINK Original HWL ME_499561F90285 // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499561F90285_ME_4995624100A6 ID
+
+ME ME_499E958E03B0_ME_4995624100A6
+ MELINK Original HWL ME_499E958E03B0 // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E958E03B0_ME_4995624100A6 Caption
+
+ME ME_499E95A60064_ME_4995624100A6
+ MELINK Original HWL ME_499E95A60064 // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E95A60064_ME_4995624100A6 Name
+
+ME ME_4995624100A6
+ MEPROP UID '4995624100A6'
+ MEPROP GUID '1563410C-852B-4365-A993-8A50640BADA1'
+ MEPROP Name 'IvcmOperationDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499EAAE502A8 // vcmUserControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4995619C030A // IvcmIdentifiedUserFriendlyControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49956402012E // VisibleToUser
+ HWL ME_4995640A00AE // IsCaptionUnique
+ HWL ME_49956423028E // StatesCount
+ HWL ME_499564440267 // IsDefault
+ HWL ME_499D8B6E01F5 // GroupID
+ HWL ME_4995621C01EE // Category
+ HWL ME_499562870140 // OperationType
+ HWL ME_499562ED0005 // ShortCut
+ HWL ME_499563A80185 // SecondaryShortCuts
+ HWL ME_499563F6016E // ExcludeUserTypes
+ HWL ME_4995642C012A // State
+ HWL ME_51D14A30003C // ContextMenuWeight
+ HWL ME_51E00A7A0129 // Options
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4995616701BB_ME_4995624100A6 // Hint
+ ME_4995617802E8_ME_4995624100A6 // LongHint
+ ME_499561850334_ME_4995624100A6 // ImageIndex
+ ME_499561F90285_ME_4995624100A6 // ID
+ ME_499E958E03B0_ME_4995624100A6 // Caption
+ ME_499E95A60064_ME_4995624100A6 // Name
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4683F5BC0213 // TvcmOperationOption
+ HWL ME_4683F5860071 // TvcmOperationMode
+ HWL ME_4992F7350274 // TvcmOperationCallType
+ HWL ME_47F2534B010F // TvcmUserType
+ HWL ME_4992F915036D // TvcmUserTypes
+ HWL ME_51E00A6B0010 // TvcmOperationOptions
+ )
+ ; // Children
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationDef'
+
+ENDME // ME_4995624100A6 IvcmOperationDef
+
+FORWARD ME_499566D90215
+
+FORWARD ME_4992F80B015F
+
+ME ME_4992F81501B2
+ MEPROP UID '4992F81501B2'
+ MEPROP Name 'vcm_tbpTop'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F80B015F // TvcmToolBarPos
+ ;
+
+ENDME // ME_4992F81501B2 vcm_tbpTop
+
+ME ME_4992F81A02E1
+ MEPROP UID '4992F81A02E1'
+ MEPROP Name 'vcm_tbpBottom'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F80B015F // TvcmToolBarPos
+ ;
+
+ENDME // ME_4992F81A02E1 vcm_tbpBottom
+
+ME ME_4992F81F025D
+ MEPROP UID '4992F81F025D'
+ MEPROP Name 'vcm_tbpLeft'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F80B015F // TvcmToolBarPos
+ ;
+
+ENDME // ME_4992F81F025D vcm_tbpLeft
+
+ME ME_4992F825017B
+ MEPROP UID '4992F825017B'
+ MEPROP Name 'vcm_tbpRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F80B015F // TvcmToolBarPos
+ ;
+
+ENDME // ME_4992F825017B vcm_tbpRight
+
+ME ME_4992F82A0100
+ MEPROP UID '4992F82A0100'
+ MEPROP Name 'vcm_tbpNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F80B015F // TvcmToolBarPos
+ ;
+
+ENDME // ME_4992F82A0100 vcm_tbpNone
+
+ME ME_4992F80B015F
+ MEPROP UID '4992F80B015F'
+ MEPROP Name 'TvcmToolBarPos'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4992F81501B2 // vcm_tbpTop
+ HWL ME_4992F81A02E1 // vcm_tbpBottom
+ HWL ME_4992F81F025D // vcm_tbpLeft
+ HWL ME_4992F825017B // vcm_tbpRight
+ HWL ME_4992F82A0100 // vcm_tbpNone
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4992F80B015F TvcmToolBarPos
+
+ME ME_4992F8670231
+ MEPROP UID '4992F8670231'
+ MEPROP Name 'TvcmToolBarPoses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4992F80B015F // TvcmToolBarPos
+ )
+ ; // Inherits
+
+ENDME // ME_4992F8670231 TvcmToolBarPoses
+
+FORWARD ME_4992F83801C5
+
+ME ME_4992F8460258
+ MEPROP UID '4992F8460258'
+ MEPROP Name 'First'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F83801C5 // TvcmEffectiveToolBarPos
+ ;
+ MEPROP Value 'Low(TvcmToolBarPos)'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'Low(TvcmToolBarPos)'
+
+ENDME // ME_4992F8460258 First
+
+ME ME_4992F8520006
+ MEPROP UID '4992F8520006'
+ MEPROP Name 'Last'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4992F83801C5 // TvcmEffectiveToolBarPos
+ ;
+ MEPROP Value 'Pred(High(TvcmToolBarPos))'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'Pred(High(TvcmToolBarPos))'
+
+ENDME // ME_4992F8520006 Last
+
+ME ME_4992F83801C5
+ MEPROP UID '4992F83801C5'
+ MEPROP Name 'TvcmEffectiveToolBarPos'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4992F80B015F // TvcmToolBarPos
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4992F8460258 // First
+ HWL ME_4992F8520006 // Last
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4992F83801C5 TvcmEffectiveToolBarPos
+
+ME ME_4992F87800BC
+ MEPROP UID '4992F87800BC'
+ MEPROP Name 'TvcmEffectiveToolBarPoses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4992F83801C5 // TvcmEffectiveToolBarPos
+ )
+ ; // Inherits
+
+ENDME // ME_4992F87800BC TvcmEffectiveToolBarPoses
+
+FORWARD ME_4995644E03A9
+
+ME ME_4995645B02C7
+ MEPROP UID '4995645B02C7'
+ MEPROP Name 'Next'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'следующий описатель операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4995644E03A9 // IvcmOperationsDefIterator
+ ;
+ MELINK Target HWL ME_4995624100A6 // IvcmOperationDef
+ ;
+ UP "pm" False
+
+ENDME // ME_4995645B02C7 Next
+
+ME ME_4995644E03A9
+ MEPROP UID '4995644E03A9'
+ MEPROP GUID '3B8CFB31-F1BF-469A-A248-1C613BA636C9'
+ MEPROP Name 'IvcmOperationsDefIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Итератор описаний операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4995645B02C7 // Next
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationsDefIterator'
+
+ENDME // ME_4995644E03A9 IvcmOperationsDefIterator
+
+ME ME_499566FA0159
+ MEPROP UID '499566FA0159'
+ MEPROP Name 'OperationsDefIterator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'итератор описаний операций. Может быть nil' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+ MELINK Target HWL ME_4995644E03A9 // IvcmOperationsDefIterator
+ ;
+ UP "pm" False
+
+ENDME // ME_499566FA0159 OperationsDefIterator
+
+ME ME_4995671E031A
+ MEPROP UID '4995671E031A'
+ MEPROP Name 'ToolbarPos'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'любой объект, обладающий набором операций, может отображать их в тулбаре' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+ MELINK Target HWL ME_4992F80B015F // TvcmToolBarPos
+ ;
+ UP "pm" False
+
+ENDME // ME_4995671E031A ToolbarPos
+
+ME ME_4995616701BB_ME_499566D90215
+ MELINK Original HWL ME_4995616701BB // Hint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4995616701BB_ME_499566D90215 Hint
+
+ME ME_4995617802E8_ME_499566D90215
+ MELINK Original HWL ME_4995617802E8 // LongHint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4995617802E8_ME_499566D90215 LongHint
+
+ME ME_499561850334_ME_499566D90215
+ MELINK Original HWL ME_499561850334 // ImageIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499561850334_ME_499566D90215 ImageIndex
+
+ME ME_499561F90285_ME_499566D90215
+ MELINK Original HWL ME_499561F90285 // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499561F90285_ME_499566D90215 ID
+
+ME ME_499E958E03B0_ME_499566D90215
+ MELINK Original HWL ME_499E958E03B0 // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E958E03B0_ME_499566D90215 Caption
+
+ME ME_499E95A60064_ME_499566D90215
+ MELINK Original HWL ME_499E95A60064 // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_499E95A60064_ME_499566D90215 Name
+
+ME ME_499566D90215
+ MEPROP UID '499566D90215'
+ MEPROP GUID '0F52E633-4306-4D75-93D1-5F259A9B3D45'
+ MEPROP Name 'IvcmOperationalIdentifiedUserFriendlyControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс для объектов имеющих отображение для пользователя и операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499EAAE502A8 // vcmUserControls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4995619C030A // IvcmIdentifiedUserFriendlyControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499566FA0159 // OperationsDefIterator
+ HWL ME_4995671E031A // ToolbarPos
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4995616701BB_ME_499566D90215 // Hint
+ ME_4995617802E8_ME_499566D90215 // LongHint
+ ME_499561850334_ME_499566D90215 // ImageIndex
+ ME_499561F90285_ME_499566D90215 // ID
+ ME_499E958E03B0_ME_499566D90215 // Caption
+ ME_499E95A60064_ME_499566D90215 // Name
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4992F80B015F // TvcmToolBarPos
+ HWL ME_4992F8670231 // TvcmToolBarPoses
+ HWL ME_4992F83801C5 // TvcmEffectiveToolBarPos
+ HWL ME_4992F87800BC // TvcmEffectiveToolBarPoses
+ HWL ME_4995644E03A9 // IvcmOperationsDefIterator
+ )
+ ; // Children
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationalIdentifiedUserFriendlyControl'
+
+ENDME // ME_499566D90215 IvcmOperationalIdentifiedUserFriendlyControl
+
+ME ME_499EAAE502A8
+ MEPROP UID '499EAAE502A8'
+ MEPROP Name 'vcmUserControls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Управляющие элементы, взаимодействующие с пользователем' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499560120345 // IvcmBaseObjectDef
+ HWL ME_499301BF0067 // IvcmUserFriendlyControl
+ HWL ME_4995619C030A // IvcmIdentifiedUserFriendlyControl
+ HWL ME_4995624100A6 // IvcmOperationDef
+ HWL ME_499566D90215 // IvcmOperationalIdentifiedUserFriendlyControl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '20.02.2009 16:07'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmUserControls.pas'
+
+ENDME // ME_499EAAE502A8 vcmUserControls

@@ -1,0 +1,127 @@
+// Images 4AAA216F032C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAA216F032C
+
+FORWARD ME_4AAA21970352
+
+ME ME_4AAA21AA02D0
+ MEPROP UID '4AAA21AA02D0'
+ MEPROP Name 'TnsWarnImages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAA21970352 // resWarnImages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WarnImages'
+
+ENDME // ME_4AAA21AA02D0 TnsWarnImages
+
+ME ME_4AAA21970352
+ MEPROP UID '4AAA21970352'
+ MEPROP Name 'resWarnImages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAA216F032C // Images
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AAA21AA02D0 // TnsWarnImages
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_resWarnImages.pas'
+
+ENDME // ME_4AAA21970352 resWarnImages
+
+FORWARD ME_4AA7E9E60251
+
+ME ME_4AC230980283
+ MEPROP UID '4AC230980283'
+ MEPROP Name 'TdmMainMenuNew'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7E9E60251 // MainMenuNewRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dmMainMenuNew'
+
+ENDME // ME_4AC230980283 TdmMainMenuNew
+
+ME ME_4AA7E9EE013A
+ MEPROP UID '4AA7E9EE013A'
+ MEPROP Name 'fake'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA7E9E60251 // MainMenuNewRes
+ ;
+ UP "finished" False
+
+ENDME // ME_4AA7E9EE013A fake
+
+ME ME_4AA7E9E60251
+ MEPROP UID '4AA7E9E60251'
+ MEPROP Name 'MainMenuNewRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAA216F032C // Images
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA7E9EE013A // fake
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AC230980283 // TdmMainMenuNew
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_MainMenuNewRes.pas'
+
+ENDME // ME_4AA7E9E60251 MainMenuNewRes
+
+ME ME_4AAA216F032C
+ MEPROP UID '4AAA216F032C'
+ MEPROP Name 'Images'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY '»конки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AAA21970352 // resWarnImages
+ HWL ME_4AA7E9E60251 // MainMenuNewRes
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ )
+ ; // Depends
+
+ENDME // ME_4AAA216F032C Images

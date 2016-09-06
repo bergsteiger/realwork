@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *516D572B0131impl_uses*
+ //#UC END# *516D572B0131impl_uses*
 ;
 
 class function TmyReferenceCountGuard.Make: ImyReferenceCountGuard;

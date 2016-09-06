@@ -1,0 +1,89 @@
+// OldTreeInterfaces 4AC22E040232 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC22E040232
+
+FORWARD ME_49904D800350
+
+ME ME_49904DAD00EB
+ MEPROP UID '49904DAD00EB'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49904D800350 // InsWrapperNode
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ UP "pm" True
+
+ENDME // ME_49904DAD00EB Name
+
+ME ME_49904DBF02F0
+ MEPROP UID '49904DBF02F0'
+ MEPROP Name 'Comment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49904D800350 // InsWrapperNode
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ UP "pm" True
+
+ENDME // ME_49904DBF02F0 Comment
+
+ME ME_49904D800350
+ MEPROP UID '49904D800350'
+ MEPROP GUID '056B6F80-4891-4D37-AA3B-0979EC152427'
+ MEPROP Name 'InsWrapperNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'описывает общее для объектов оберток адаптерных интерфейсов поведение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC22E040232 // OldTreeInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49904DAD00EB // Name
+ HWL ME_49904DBF02F0 // Comment
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WrapperNode'
+
+ENDME // ME_49904D800350 InsWrapperNode
+
+ME ME_4AC22E040232
+ MEPROP UID '4AC22E040232'
+ MEPROP Name 'OldTreeInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для работы со старыми деревьями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49904D800350 // InsWrapperNode
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'Admin'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '29.09.2009 19:56'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\OldTreeInterfaces.pas'
+
+ENDME // ME_4AC22E040232 OldTreeInterfaces

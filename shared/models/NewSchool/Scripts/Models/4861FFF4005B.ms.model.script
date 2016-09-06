@@ -1,0 +1,78 @@
+// Concret 4861FFF4005B Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4861FFF4005B
+
+FORWARD ME_4862008C0017
+
+ME ME_486200F902AB
+ MEPROP UID '486200F902AB'
+ MEPROP Name 'T'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4862008C0017 // Concret
+ ;
+ MELINK Target HWL ME_4862008C0017 // Concret
+ ;
+
+ENDME // ME_486200F902AB T
+
+ME ME_48620066005A_ME_4862008C0017
+ MELINK Original WL 'ME_48620066005A' '4861FFE8022A.ms.model.script' // compare
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48620066005A_ME_4862008C0017 compare
+
+ME ME_4862008C0017
+ MEPROP UID '4862008C0017'
+ MEPROP GUID '14AF2DBE-A147-42ED-82B8-C7B7360DB3A8'
+ MEPROP Name 'Concret'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4861FFF4005B // Concret
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4862003B01A0' '4861FFE8022A.ms.model.script' // Comparable
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_486200F902AB // T
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_48620066005A_ME_4862008C0017 // compare
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4862008C0017 Concret
+
+ME ME_4861FFF4005B
+ MEPROP UID '4861FFF4005B'
+ MEPROP Name 'Concret'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.ms.model.script' // SandBox
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4862008C0017 // Concret
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4861FFE8022A' '4861FFE8022A.ms.model.script' // Pure
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\SandBox\Concret.pas'
+
+ENDME // ME_4861FFF4005B Concret

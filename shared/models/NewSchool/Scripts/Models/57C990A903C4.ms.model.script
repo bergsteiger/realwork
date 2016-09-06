@@ -1,0 +1,136 @@
+// ViewUtils 57C990A903C4 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C990A903C4
+
+FORWARD ME_57B6CFEE0159
+
+ME ME_57B6D8DA025A
+ MEPROP UID '57B6D8DA025A'
+ MEPROP Name 'f_PrevCursor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6CFEE0159 // TmsmWaitCursor
+ ;
+ MELINK Target WL 'ME_4E788E98006B' '4799D29F033F.ms.model.script' // TCursor
+ ;
+
+ENDME // ME_57B6D8DA025A f_PrevCursor
+
+ME ME_57B6DFFB012F
+ MEPROP UID '57B6DFFB012F'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B6CFEE0159 // TmsmWaitCursor
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_57B6CF4C01BA' '57B6CF34012E.ms.model.script' // ImsmWaitCursor
+ )
+ ; // Implements
+
+ENDME // ME_57B6DFFB012F Make
+
+ME ME_57B6D02E0052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B6CFEE0159 // TmsmWaitCursor
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_57B6D02E0052 
+
+ME ME_57B6D0310022
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B6CFEE0159 // TmsmWaitCursor
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_57B6D0310022 
+
+ME ME_479731C50290_ME_57B6CFEE0159
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57B6CFEE0159 Cleanup
+
+ME ME_47A042E100E2_ME_57B6CFEE0159
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_57B6CFEE0159 InitFields
+
+ME ME_57B6CFEE0159
+ MEPROP UID '57B6CFEE0159'
+ MEPROP Name 'TmsmWaitCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C990A903C4 // ViewUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.ms.model.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B6CF4C01BA' '57B6CF34012E.ms.model.script' // ImsmWaitCursor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57B6D8DA025A // f_PrevCursor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B6DFFB012F // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57B6CFEE0159 // Cleanup
+ ME_47A042E100E2_ME_57B6CFEE0159 // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57B6D02E0052 // Controls
+ ME_57B6D0310022 // Forms
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'msmWaitCursor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmWaitCursor'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmWaitCursor.pas'
+
+ENDME // ME_57B6CFEE0159 TmsmWaitCursor
+
+ME ME_57C990A903C4
+ MEPROP UID '57C990A903C4'
+ MEPROP Name 'ViewUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57B6B04503AB' '57B6B04503AB.ms.model.script' // msm$Usual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57B6CFEE0159 // TmsmWaitCursor
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_57B6CF34012E' '57B6CF34012E.ms.model.script' // msmViewUtilsInterfaces
+ )
+ ; // Depends
+
+ENDME // ME_57C990A903C4 ViewUtils

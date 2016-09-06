@@ -36,6 +36,8 @@ uses
  , atControlStatusConverter
  , TypInfo
  , l3Base
+ //#UC START# *504F1A8B004Bimpl_uses*
+ //#UC END# *504F1A8B004Bimpl_uses*
 ;
 
 type

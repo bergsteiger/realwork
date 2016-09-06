@@ -1,0 +1,143 @@
+// PrimWarningBaloonOptions 4EA599F501CF VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA599F501CF
+
+ME ME_49521D8E0295_ME_4F5E19AD0174
+ MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49521D8E0295_ME_4F5E19AD0174 Print
+
+ME ME_495220DE0298_ME_4F5E19AD0174
+ MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495220DE0298_ME_4F5E19AD0174 PrintDialog
+
+ME ME_495220F2033A_ME_4F5E19AD0174
+ MELINK Original WL 'ME_495220F2033A' '494F898C013E.ms.model.script' // PrintPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495220F2033A_ME_4F5E19AD0174 PrintPreview
+
+ME ME_4F5E19AD0174
+ MEPROP UID '4F5E19AD0174'
+ MEPROP Name 'IncludePrint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_IncludeUserTypes ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EA599F501CF // PrimWarningBaloonOptions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F5E13160332' '4F5E12C20114.ms.model.script' // Fake
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_49521D8E0295_ME_4F5E19AD0174 // Print
+ ME_495220DE0298_ME_4F5E19AD0174 // PrintDialog
+ ME_495220F2033A_ME_4F5E19AD0174 // PrintPreview
+ )
+ ; // Implemented
+
+ENDME // ME_4F5E19AD0174 IncludePrint
+
+ME ME_4C7F753E02BC_ME_4EA599F501CF
+ MELINK Original WL 'ME_4C7F753E02BC' '498874B90391.ms.model.script' // TimeMachineOffAndReset
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+ENDME // ME_4C7F753E02BC_ME_4EA599F501CF TimeMachineOffAndReset
+
+ME ME_4F748C5A00CB_ME_4EA599F501CF
+ MELINK Original WL 'ME_4F748C5A00CB' '4F22CB1E0009.ms.model.script' // IsBaloon
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F748C5A00CB_ME_4EA599F501CF IsBaloon
+
+ME ME_4EA599F501CF
+ MEPROP UID '4EA599F501CF'
+ MEPROP Name 'PrimWarningBaloonOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D396FDD0344' '4D396FDD0344.ms.model.script' // Warning
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7F738D033E' '4C7F738D033E.ms.model.script' // PrimWarningOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F5E12C20114' '4F5E12C20114.ms.model.script' // BaloonWarningUserTypes
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4C7F753E02BC_ME_4EA599F501CF // TimeMachineOffAndReset
+ ME_4F748C5A00CB_ME_4EA599F501CF // IsBaloon
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F5E19AD0174 // IncludePrint
+ )
+ ; // Children
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '24.10.2011 21:04'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimWarningBaloonOptionsForm'
+ UP extprop:pas:UnitName 'PrimWarningBaloonOptions_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimWarningBaloonOptionsForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimWarningBaloonOptions_Form.pas'
+
+ENDME // ME_4EA599F501CF PrimWarningBaloonOptions

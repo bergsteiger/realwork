@@ -1,0 +1,85 @@
+// TdsRightEdition 4A717FA60328 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A717FA60328
+
+ME ME_4B55B20B02D1
+ MEPROP UID '4B55B20B02D1'
+ MEPROP Name 'f_NextEditions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A717FA60328 // TdsRightEdition
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_4B55B20B02D1 f_NextEditions
+
+ME ME_4B55B2270084
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A717FA60328 // TdsRightEdition
+ ;
+ MELINK Target WL 'ME_492182D60225' '4908545802CA.ms.model.script' // TnsEditionsRoot
+ ;
+
+ENDME // ME_4B55B2270084 
+
+ME ME_4A8443C30125_ME_4A717FA60328
+ MELINK Original WL 'ME_4A8443C30125' '4A7188E40294.ms.model.script' // IsLeft
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A8443C30125_ME_4A717FA60328 IsLeft
+
+ME ME_4B55B0DE0078_ME_4A717FA60328
+ MELINK Original WL 'ME_4B55B0DE0078' '4A6D56B00065.ms.model.script' // NextEditions
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4B55B0DE0078_ME_4A717FA60328 NextEditions
+
+ME ME_4A717FA60328
+ MEPROP UID '4A717FA60328'
+ MEPROP Name 'TdsRightEdition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Текущая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A717F3D0221' '4A717F3D0221.ms.model.script' // Editions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7188E40294' '4A7188E40294.ms.model.script' // dsEditionDiff
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A6D576D0247' '4A6D56B00065.ms.model.script' // IdsRightEdition
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B55B20B02D1 // f_NextEditions
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4A8443C30125_ME_4A717FA60328 // IsLeft
+ ME_4B55B0DE0078_ME_4A717FA60328 // NextEditions
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4B55B2270084 // TnsEditionsRoot
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '30.07.2009 15:51'
+ UP extprop:pas:UnitName 'dsRightEdition'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsRightEdition'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\dsRightEdition.pas'
+
+ENDME // ME_4A717FA60328 TdsRightEdition

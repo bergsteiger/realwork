@@ -1,0 +1,3402 @@
+// DataObjects 4802FF41005C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4802FF41005C
+
+FORWARD ME_48EA32DB03E6
+
+FORWARD ME_48EA34990191
+
+ME ME_48EA34BC0117
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48EA34BC0117 G
+
+ME ME_48EA34BC013F
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BED2603D7' '48F4E61C0060.ms.model.script' // StoreFlags
+ ;
+
+ENDME // ME_48EA34BC013F aFlags
+
+ME ME_48EA34990191
+ MEPROP UID '48EA34990191'
+ MEPROP Name 'DoStore'
+ MEPROP Class class_Operation
+ %SUMMARY 'сохраняет поток в G' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48EA32DB03E6 // TevStreamedDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EA34BC0117 // G
+ ME_48EA34BC013F // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_48EA34990191 DoStore
+
+ME ME_47C68BFD011C_ME_48EA32DB03E6
+ MELINK Original WL 'ME_47C68BFD011C' '47C5207602D1.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" True
+ENDME // ME_47C68BFD011C_ME_48EA32DB03E6 Store
+
+ME ME_48EA32DB03E6
+ MEPROP UID '48EA32DB03E6'
+ MEPROP Name 'TevStreamedDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48EA34990191 // DoStore
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C68BFD011C_ME_48EA32DB03E6 // Store
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '16.12.2004 14:32'
+ UP extprop:pas:UnitName 'evStreamedDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StreamedDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStreamedDataObject.pas'
+
+ENDME // ME_48EA32DB03E6 TevStreamedDataObject
+
+FORWARD ME_48EB6945012D
+
+ME ME_48EB69920154
+ MEPROP UID '48EB69920154'
+ MEPROP Name 'Rk2CustomReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482D6EB4003A' '482D6E960087.ms.model.script' // Tk2CustomFileReader
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_48EB69920154 Rk2CustomReader
+
+ME ME_4D3EDD3500E1
+ MEPROP UID '4D3EDD3500E1'
+ MEPROP Name 'f_Stream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4D3EDD3500E1 f_Stream
+
+FORWARD ME_4D3EDD5301AA
+
+FORWARD ME_4D3EDD5C00FA
+
+ME ME_4D3EDD6A00CA
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_4D3EDD6A00CA aStream
+
+ME ME_4D3EDD5C00FA
+ MEPROP UID '4D3EDD5C00FA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EDD5301AA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EDD6A00CA // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EDD5C00FA DoIt
+
+ME ME_4D3EDD5301AA
+ MEPROP UID '4D3EDD5301AA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D3EDD5C00FA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D3EDD5301AA Create
+
+ME ME_4D3EDD7701A0
+ MEPROP UID '4D3EDD7701A0'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D3EDD5301AA // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ )
+ ; // Implements
+
+ENDME // ME_4D3EDD7701A0 Make
+
+ME ME_48EB6A0700D9
+ MEPROP UID '48EB6A0700D9'
+ MEPROP Name 'ReaderClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target HWL ME_48EB69920154 // Rk2CustomReader
+ ;
+
+ENDME // ME_48EB6A0700D9 ReaderClass
+
+ME ME_48EB69CA00A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48EB69CA00A7 
+
+ME ME_48EB69D70339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL 'ME_48C6811302CB' '47913B47006E.ms.model.script' // l3SysUtils
+ ;
+
+ENDME // ME_48EB69D70339 
+
+ME ME_48EB69F20199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EB6945012D // TevReaderDataObject
+ ;
+ MELINK Target WL 'ME_48EA3BDD0023' '4678193C009C.ms.model.script' // ActiveXConsts
+ ;
+
+ENDME // ME_48EB69F20199 
+
+ME ME_48EA34990191_ME_48EB6945012D
+ MELINK Original HWL ME_48EA34990191 // DoStore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48EA34990191_ME_48EB6945012D DoStore
+
+ME ME_48EB6945012D
+ MEPROP UID '48EB6945012D'
+ MEPROP Name 'TevReaderDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EA32DB03E6 // TevStreamedDataObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D3EDD3500E1 // f_Stream
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D3EDD5301AA // Create
+ HWL ME_4D3EDD7701A0 // Make
+ HWL ME_48EB6A0700D9 // ReaderClass
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48EA34990191_ME_48EB6945012D // DoStore
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48EB69920154 // Rk2CustomReader
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48EB69CA00A7 // l3Base
+ ME_48EB69D70339 // l3SysUtils
+ ME_48EB69F20199 // ActiveXConsts
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В'
+ UP "no hands" True
+ UP "started" '07.10.2008 17:51'
+ UP extprop:pas:UnitName 'evReaderDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ReaderDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evReaderDataObject.pas'
+
+ENDME // ME_48EB6945012D TevReaderDataObject
+
+FORWARD ME_48EA3A2A0142
+
+ME ME_48EA3A72006A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EA3A2A0142 // TevEvdDataObject
+ ;
+ MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ ;
+
+ENDME // ME_48EA3A72006A 
+
+ME ME_48EB6A0700D9_ME_48EA3A2A0142
+ MELINK Original HWL ME_48EB6A0700D9 // ReaderClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48EB6A0700D9_ME_48EA3A2A0142 ReaderClass
+
+ME ME_48EA3A2A0142
+ MEPROP UID '48EA3A2A0142'
+ MEPROP Name 'TevEvdDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EB6945012D // TevReaderDataObject
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48EB6A0700D9_ME_48EA3A2A0142 // ReaderClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48EA3A72006A // TevdNativeReader
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '28.09.1999 10:18'
+ UP extprop:pas:UnitName 'evEvdDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EvdDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evEvdDataObject.pas'
+
+ENDME // ME_48EA3A2A0142 TevEvdDataObject
+
+FORWARD ME_4802FF6101DE
+
+ME ME_48EA3D670329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4802FF6101DE // TevHTMLDataObject
+ ;
+ MELINK Target WL 'ME_48EA3D2E0054' '48EA3D1F0232.ms.model.script' // TddHTMLReader
+ ;
+
+ENDME // ME_48EA3D670329 
+
+ME ME_48EB6A0700D9_ME_4802FF6101DE
+ MELINK Original HWL ME_48EB6A0700D9 // ReaderClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48EB6A0700D9_ME_4802FF6101DE ReaderClass
+
+ME ME_4802FF6101DE
+ MEPROP UID '4802FF6101DE'
+ MEPROP Name 'TevHTMLDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EB6945012D // TevReaderDataObject
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_48EB6A0700D9_ME_4802FF6101DE // ReaderClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48EA3D670329 // TddHTMLReader
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '16.12.2004 14:48'
+ UP extprop:pas:UnitName 'evHTMLDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HTMLDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evHTMLDataObject.pas'
+
+ENDME // ME_4802FF6101DE TevHTMLDataObject
+
+FORWARD ME_48EF3978008D
+
+ME ME_48F4685000ED
+ MEPROP UID '48F4685000ED'
+ MEPROP Name 'Block'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48EF3978008D // TevDataObject
+ ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48F4685000ED Block
+
+ME ME_48F468670155
+ MEPROP UID '48F468670155'
+ MEPROP Name 'f_Filters'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48EF3978008D // TevDataObject
+ ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F468670155 f_Filters
+
+FORWARD ME_48F4687B02D0
+
+ME ME_48F4688E015F
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+
+ENDME // ME_48F4688E015F aBlock
+
+ME ME_48F4688E0188
+ MEPROP Name 'aFormats'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+
+ENDME // ME_48F4688E0188 aFormats
+
+ME ME_48F4688E01AF
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F4688E01AF aFilters
+
+ME ME_48F4687B02D0
+ MEPROP UID '48F4687B02D0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EF3978008D // TevDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F4688E015F // aBlock
+ ME_48F4688E0188 // aFormats
+ ME_48F4688E01AF // aFilters
+ )
+ ; // Parameters
+
+ENDME // ME_48F4687B02D0 Create
+
+ME ME_48F37AC50290_ME_48EF3978008D
+ MELINK Original WL 'ME_48F37AC50290' '4680F5600033.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48F37AC50290_ME_48EF3978008D Store
+
+ME ME_479731C50290_ME_48EF3978008D
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48EF3978008D Cleanup
+
+ME ME_48F359680368_ME_48EF3978008D
+ MELINK Original WL 'ME_48F359680368' '4680F5600033.ms.model.script' // DoQueryGetData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F359680368_ME_48EF3978008D DoQueryGetData
+
+ME ME_4A60B23E00C3_ME_48EF3978008D
+ MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A60B23E00C3_ME_48EF3978008D COMQueryInterface
+
+ME ME_48EF3978008D
+ MEPROP UID '48EF3978008D'
+ MEPROP Name 'TevDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация интерфейса IDataObject для выделения текста редактора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4680F7E70110' '4680F5600033.ms.model.script' // Tl3StorableDataObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F4685000ED // Block
+ HWL ME_48F468670155 // f_Filters
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48F4687B02D0 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48F37AC50290_ME_48EF3978008D // Store
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48EF3978008D // Cleanup
+ ME_48F359680368_ME_48EF3978008D // DoQueryGetData
+ ME_4A60B23E00C3_ME_48EF3978008D // COMQueryInterface
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '06.04.2001 14:55'
+ UP extprop:pas:UnitName 'evDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDataObject.pas'
+
+ENDME // ME_48EF3978008D TevDataObject
+
+FORWARD ME_48F4732803C8
+
+ME ME_48F4760B015E
+ MEPROP UID '48F4760B015E'
+ MEPROP Name 'RevDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EF3978008D // TevDataObject
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_48F4760B015E RevDataObject
+
+ME ME_48F476320149
+ MEPROP UID '48F476320149'
+ MEPROP Name 'Format'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48F476320149 Format
+
+ME ME_48F478D5019F
+ MEPROP UID '48F478D5019F'
+ MEPROP Name 'f_TagStorageR'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F478D5019F f_TagStorageR
+
+ME ME_48F478DE01CF
+ MEPROP UID '48F478DE01CF'
+ MEPROP Name 'f_TagStorageW'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_47C6AF6900AE' '47C5207602D1.ms.model.script' // InevTagWriter
+ ;
+
+ENDME // ME_48F478DE01CF f_TagStorageW
+
+ME ME_48F478E5013B
+ MEPROP UID '48F478E5013B'
+ MEPROP Name 'f_Formats'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+
+ENDME // ME_48F478E5013B f_Formats
+
+ME ME_48F478EE03D1
+ MEPROP UID '48F478EE03D1'
+ MEPROP Name 'f_SameFormat'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48F478EE03D1 f_SameFormat
+
+FORWARD ME_48F475A20016
+
+ME ME_48F475DD022B
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+
+ENDME // ME_48F475DD022B aBlock
+
+ME ME_48F475DD024E
+ MEPROP Name 'anInternal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48F475DD024E anInternal
+
+ME ME_48F475DD0272
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+
+ENDME // ME_48F475DD0272 aFormat
+
+ME ME_48F475DD02C6
+ MEPROP Name 'aTagStorageR'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F475DD02C6 aTagStorageR
+
+ME ME_48F475DD0309
+ MEPROP Name 'aTagStorageW'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AF6900AE' '47C5207602D1.ms.model.script' // InevTagWriter
+ ;
+
+ENDME // ME_48F475DD0309 aTagStorageW
+
+ME ME_48F47D7C0084
+ MEPROP Name 'aFormats'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+
+ENDME // ME_48F47D7C0084 aFormats
+
+ME ME_48F475DD0391
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F475DD0391 aFilters
+
+ME ME_48F475A20016
+ MEPROP UID '48F475A20016'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F475DD022B // aBlock
+ ME_48F475DD024E // anInternal
+ ME_48F475DD0272 // aFormat
+ ME_48F475DD02C6 // aTagStorageR
+ ME_48F475DD0309 // aTagStorageW
+ ME_48F47D7C0084 // aFormats
+ ME_48F475DD0391 // aFilters
+ )
+ ; // Parameters
+
+ENDME // ME_48F475A20016 Create
+
+FORWARD ME_48F4764A01A0
+
+ME ME_48F4765C03C9
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_477266BB000B' '46A5E026007E.ms.model.script' // THandle
+ ;
+
+ENDME // ME_48F4765C03C9 aData
+
+ME ME_48F4765D0013
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+
+ENDME // ME_48F4765D0013 aFormat
+
+ME ME_48F4765D0043
+ MEPROP Name 'aTagStorageR'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F4765D0043 aTagStorageR
+
+ME ME_48F4765D0075
+ MEPROP Name 'aTagStorageW'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AF6900AE' '47C5207602D1.ms.model.script' // InevTagWriter
+ ;
+
+ENDME // ME_48F4765D0075 aTagStorageW
+
+ME ME_48F47D780035
+ MEPROP Name 'aFormats'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+
+ENDME // ME_48F47D780035 aFormats
+
+ME ME_48F4764A01A0
+ MEPROP UID '48F4764A01A0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F4765C03C9 // aData
+ ME_48F4765D0013 // aFormat
+ ME_48F4765D0043 // aTagStorageR
+ ME_48F4765D0075 // aTagStorageW
+ ME_48F47D780035 // aFormats
+ )
+ ; // Parameters
+
+ENDME // ME_48F4764A01A0 Create
+
+FORWARD ME_48F4766502E6
+
+ME ME_48F476AD0251
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+
+ENDME // ME_48F476AD0251 aBlock
+
+ME ME_48F476910148
+ MEPROP Name 'anInternal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48F476910148 anInternal
+
+ME ME_48F47691017F
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+
+ENDME // ME_48F47691017F aFormat
+
+ME ME_48F4769101C0
+ MEPROP Name 'aTagStorageR'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F4769101C0 aTagStorageR
+
+ME ME_48F4769101FD
+ MEPROP Name 'aTagStorageW'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AF6900AE' '47C5207602D1.ms.model.script' // InevTagWriter
+ ;
+
+ENDME // ME_48F4769101FD aTagStorageW
+
+ME ME_48F47D5B02C5
+ MEPROP Name 'aFormats'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+
+ENDME // ME_48F47D5B02C5 aFormats
+
+ME ME_48F476910272
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F476910272 aFilters
+
+ME ME_48F4766502E6
+ MEPROP UID '48F4766502E6'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F476AD0251 // aBlock
+ ME_48F476910148 // anInternal
+ ME_48F47691017F // aFormat
+ ME_48F4769101C0 // aTagStorageR
+ ME_48F4769101FD // aTagStorageW
+ ME_48F47D5B02C5 // aFormats
+ ME_48F476910272 // aFilters
+ )
+ ; // Parameters
+
+ENDME // ME_48F4766502E6 Make
+
+FORWARD ME_48F476BB0365
+
+ME ME_48F476CB03A9
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_477266BB000B' '46A5E026007E.ms.model.script' // THandle
+ ;
+
+ENDME // ME_48F476CB03A9 aData
+
+ME ME_48F476CC0006
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+
+ENDME // ME_48F476CC0006 aFormat
+
+ME ME_48F476CC0044
+ MEPROP Name 'aTagStorageR'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F476CC0044 aTagStorageR
+
+ME ME_48F476CC0083
+ MEPROP Name 'aTagStorageW'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AF6900AE' '47C5207602D1.ms.model.script' // InevTagWriter
+ ;
+
+ENDME // ME_48F476CC0083 aTagStorageW
+
+ME ME_48F47D6002DB
+ MEPROP Name 'aFormats'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+
+ENDME // ME_48F47D6002DB aFormats
+
+ME ME_48F476BB0365
+ MEPROP UID '48F476BB0365'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F476CB03A9 // aData
+ ME_48F476CC0006 // aFormat
+ ME_48F476CC0044 // aTagStorageR
+ ME_48F476CC0083 // aTagStorageW
+ ME_48F47D6002DB // aFormats
+ )
+ ; // Parameters
+
+ENDME // ME_48F476BB0365 Make
+
+ME ME_48F4795901B5
+ MEPROP UID '48F4795901B5'
+ MEPROP Name 'DataObjectClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target HWL ME_48F4760B015E // RevDataObject
+ ;
+
+ENDME // ME_48F4795901B5 DataObjectClass
+
+ME ME_48F479680376
+ MEPROP UID '48F479680376'
+ MEPROP Name 'Sharp'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48F479680376 Sharp
+
+ME ME_48F4818300A5
+ MEPROP UID '48F4818300A5'
+ MEPROP Name 'GetIsQuestionNeedBeforeFlush'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48F4818300A5 GetIsQuestionNeedBeforeFlush
+
+FORWARD ME_48F481B6035B
+
+ME ME_48F481D30177
+ MEPROP Name 'aFormat'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF8B50147' '4678209200A6.ms.model.script' // TnevFormat
+ ;
+
+ENDME // ME_48F481D30177 aFormat
+
+ME ME_48F481D301DE
+ MEPROP Name 'aPool'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_48F481D301DE aPool
+
+ME ME_48F481D30255
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F481D30255 aFilters
+
+ME ME_48F481D302BB
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BED2603D7' '48F4E61C0060.ms.model.script' // StoreFlags
+ ;
+
+ENDME // ME_48F481D302BB aFlags
+
+ME ME_48F481B6035B
+ MEPROP UID '48F481B6035B'
+ MEPROP Name 'DoStore'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F481D30177 // aFormat
+ ME_48F481D301DE // aPool
+ ME_48F481D30255 // aFilters
+ ME_48F481D302BB // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_48F481B6035B DoStore
+
+ME ME_48F47B2A0036
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_47F116A600A9' '47F11670007B.ms.model.script' // Ik2FilerSource
+ ;
+
+ENDME // ME_48F47B2A0036 
+
+ME ME_48F47BC9025F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_48F47BC9025F 
+
+ME ME_48F47BD803B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F47BD803B2 
+
+ME ME_48F47BF102F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_47A080670100' '47913B47006E.ms.model.script' // l3Stream
+ ;
+
+ENDME // ME_48F47BF102F0 
+
+ME ME_48F47CA3026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_48F47C8001FF' '4AB0997B00A2.ms.model.script' // TSeekOrigin
+ ;
+
+ENDME // ME_48F47CA3026B 
+
+ME ME_48F4EA5703C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4732803C8 // TevPersistentDataObject
+ ;
+ MELINK Target WL 'ME_476BED00024F' '48F4E61C0060.ms.model.script' // StoreFlag
+ ;
+
+ENDME // ME_48F4EA5703C3 
+
+ME ME_4680FC190114_ME_48F4732803C8
+ MELINK Original WL 'ME_4680FC190114' '4677FBA70343.ms.model.script' // IsQuestionNeedBeforeFlush
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4680FC190114_ME_48F4732803C8 IsQuestionNeedBeforeFlush
+
+ME ME_47C68BFD011C_ME_48F4732803C8
+ MELINK Original WL 'ME_47C68BFD011C' '47C5207602D1.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" True
+ENDME // ME_47C68BFD011C_ME_48F4732803C8 Store
+
+ME ME_47C68C6701AF_ME_48F4732803C8
+ MELINK Original WL 'ME_47C68C6701AF' '48F4E61C0060.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" True
+ENDME // ME_47C68C6701AF_ME_48F4732803C8 Store
+
+ME ME_47C6962E028E_ME_48F4732803C8
+ MELINK Original WL 'ME_47C6962E028E' '47C5207602D1.ms.model.script' // Borders
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47C6962E028E_ME_48F4732803C8 Borders
+
+ME ME_479731C50290_ME_48F4732803C8
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48F4732803C8 Cleanup
+
+ME ME_48F475350256_ME_48F4732803C8
+ MELINK Original WL 'ME_48F475350256' '47913B47006E.ms.model.script' // COMQueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F475350256_ME_48F4732803C8 COMQueryInterface
+
+ME ME_48F4732803C8
+ MEPROP UID '48F4732803C8'
+ MEPROP Name 'TevPersistentDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F473650362' '47913B47006E.ms.model.script' // Tl3MemoryStream
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4680FBF2003C' '4677FBA70343.ms.model.script' // Il3DataObjectInfo
+ WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48F476320149 // Format
+ HWL ME_48F478D5019F // f_TagStorageR
+ HWL ME_48F478DE01CF // f_TagStorageW
+ HWL ME_48F478E5013B // f_Formats
+ HWL ME_48F478EE03D1 // f_SameFormat
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48F475A20016 // Create
+ HWL ME_48F4764A01A0 // Create
+ HWL ME_48F4766502E6 // Make
+ HWL ME_48F476BB0365 // Make
+ HWL ME_48F4795901B5 // DataObjectClass
+ HWL ME_48F479680376 // Sharp
+ HWL ME_48F4818300A5 // GetIsQuestionNeedBeforeFlush
+ HWL ME_48F481B6035B // DoStore
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4680FC190114_ME_48F4732803C8 // IsQuestionNeedBeforeFlush
+ ME_47C68BFD011C_ME_48F4732803C8 // Store
+ ME_47C68C6701AF_ME_48F4732803C8 // Store
+ ME_47C6962E028E_ME_48F4732803C8 // Borders
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48F4732803C8 // Cleanup
+ ME_48F475350256_ME_48F4732803C8 // COMQueryInterface
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_48F4760B015E // RevDataObject
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48F47B2A0036 // Ik2FilerSource
+ ME_48F47BC9025F // SysUtils
+ ME_48F47BD803B2 // l3Base
+ ME_48F47BF102F0 // l3Stream
+ ME_48F47CA3026B // TSeekOrigin
+ ME_48F4EA5703C3 // StoreFlag
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '11.10.2001 18:09'
+ UP extprop:pas:UnitName 'evPersistentDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PersistentDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evPersistentDataObject.pas'
+
+ENDME // ME_48F4732803C8 TevPersistentDataObject
+
+FORWARD ME_48F48A7E033C
+
+ME ME_48F48AFA0198
+ MEPROP UID '48F48AFA0198'
+ MEPROP Name 'f_Reader'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F48A7E033C // TevStorable
+ ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F48AFA0198 f_Reader
+
+FORWARD ME_48F48B0A02D1
+
+ME ME_48F48B0E005B
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F48B0E005B aReader
+
+ME ME_48F48B0A02D1
+ MEPROP UID '48F48B0A02D1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F48A7E033C // TevStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F48B0E005B // aReader
+ )
+ ; // Parameters
+
+ENDME // ME_48F48B0A02D1 Create
+
+FORWARD ME_48F48C6E02F4
+
+ME ME_48F48C8A0215
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F48C8A0215 G
+
+ME ME_48F48C8A0239
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BED2603D7' '48F4E61C0060.ms.model.script' // StoreFlags
+ ;
+
+ENDME // ME_48F48C8A0239 aFlags
+
+ME ME_48F48C6E02F4
+ MEPROP UID '48F48C6E02F4'
+ MEPROP Name 'DoStore'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48F48A7E033C // TevStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F48C8A0215 // G
+ ME_48F48C8A0239 // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_48F48C6E02F4 DoStore
+
+ME ME_48F48CEA01F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F48A7E033C // TevStorable
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F48CEA01F2 
+
+ME ME_47C68BFD011C_ME_48F48A7E033C
+ MELINK Original WL 'ME_47C68BFD011C' '47C5207602D1.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" True
+ENDME // ME_47C68BFD011C_ME_48F48A7E033C Store
+
+ME ME_47C68C6701AF_ME_48F48A7E033C
+ MELINK Original WL 'ME_47C68C6701AF' '48F4E61C0060.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" True
+ENDME // ME_47C68C6701AF_ME_48F48A7E033C Store
+
+ME ME_47C6962E028E_ME_48F48A7E033C
+ MELINK Original WL 'ME_47C6962E028E' '47C5207602D1.ms.model.script' // Borders
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47C6962E028E_ME_48F48A7E033C Borders
+
+ME ME_479731C50290_ME_48F48A7E033C
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48F48A7E033C Cleanup
+
+ME ME_48F48A7E033C
+ MEPROP UID '48F48A7E033C'
+ MEPROP Name 'TevStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48F48AFA0198 // f_Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48F48B0A02D1 // Create
+ HWL ME_48F48C6E02F4 // DoStore
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C68BFD011C_ME_48F48A7E033C // Store
+ ME_47C68C6701AF_ME_48F48A7E033C // Store
+ ME_47C6962E028E_ME_48F48A7E033C // Borders
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48F48A7E033C // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F48CEA01F2 // l3Base
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.12.2006 14:17'
+ UP extprop:pas:UnitName 'evStorable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Storable'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStorable.pas'
+
+ENDME // ME_48F48A7E033C TevStorable
+
+FORWARD ME_48F4945A02FF
+
+FORWARD ME_48F494F102DD
+
+ME ME_48F494F503A8
+ MEPROP Name 'Addr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_48F494F503A8 Addr
+
+ME ME_48F494F102DD
+ MEPROP UID '48F494F102DD'
+ MEPROP Name 'GetAddress'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F494F503A8 // Addr
+ )
+ ; // Parameters
+
+ENDME // ME_48F494F102DD GetAddress
+
+ME ME_48F494FD001D
+ MEPROP UID '48F494FD001D'
+ MEPROP Name 'Text'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_48F494FD001D Text
+
+ME ME_48F495100156
+ MEPROP UID '48F495100156'
+ MEPROP Name 'Address'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_48F4940C01C0' '4A23935A0282.ms.model.script' // TevAddress
+ ;
+
+ENDME // ME_48F495100156 Address
+
+ME ME_48F495760182
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48F495760182 
+
+ME ME_48F4962700DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_484AB26803DB' '469D0AC7005E.ms.model.script' // Hyperlink Const
+ ;
+
+ENDME // ME_48F4962700DC 
+
+ME ME_48F4968202FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F4968202FC 
+
+ME ME_49AE3DA80267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_49AE3DA80267 
+
+ME ME_49AE3DB40233
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_49AE3DB40233 
+
+ME ME_49AE3DCB0382
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_485649E10305' '484A470100DD.ms.model.script' // HyperLink
+ ;
+
+ENDME // ME_49AE3DCB0382 
+
+ME ME_49AE3DDB0147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4945A02FF // TevStringStorable
+ ;
+ MELINK Target WL 'ME_48495E29035B' '484A470100DD.ms.model.script' // Address
+ ;
+
+ENDME // ME_49AE3DDB0147 
+
+ME ME_48F48C6E02F4_ME_48F4945A02FF
+ MELINK Original HWL ME_48F48C6E02F4 // DoStore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48F48C6E02F4_ME_48F4945A02FF DoStore
+
+ME ME_48F4945A02FF
+ MEPROP UID '48F4945A02FF'
+ MEPROP Name 'TevStringStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объекты реализующие возможность укладки в клипборд константной строки ([CQ 25894|$96482711])' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F48A7E033C // TevStorable
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48F494F102DD // GetAddress
+ HWL ME_48F494FD001D // Text
+ HWL ME_48F495100156 // Address
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48F48C6E02F4_ME_48F4945A02FF // DoStore
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48F495760182 // Tk2TagID
+ ME_48F4962700DC // Hyperlink Const
+ ME_48F4968202FC // l3Base
+ ME_49AE3DA80267 // Document
+ ME_49AE3DB40233 // TextPara
+ ME_49AE3DCB0382 // HyperLink
+ ME_49AE3DDB0147 // Address
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '16.07.2007'
+ UP extprop:pas:UnitName 'evStringStorable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringStorable'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStringStorable.pas'
+
+ENDME // ME_48F4945A02FF TevStringStorable
+
+FORWARD ME_48F49EEA0008
+
+ME ME_4CDD3F1B0368
+ MEPROP UID '4CDD3F1B0368'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F49EEA0008 // TevConstStringStorable
+ ;
+ MELINK Target WL 'ME_4CDD38560217' '48F4E61C0060.ms.model.script' // HyperlinkInfo
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4CDD3F1B0368 Data
+
+FORWARD ME_4CDD2A59034A
+
+FORWARD ME_4CDD2A6302E5
+
+ME ME_4CDD2A6A00DA
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CDD38560217' '48F4E61C0060.ms.model.script' // HyperlinkInfo
+ ;
+
+ENDME // ME_4CDD2A6A00DA aData
+
+ME ME_4CDD2A6A010D
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_4CDD2A6A010D aReader
+
+ME ME_4CDD2A6302E5
+ MEPROP UID '4CDD2A6302E5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD2A59034A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CDD2A6A00DA // aData
+ ME_4CDD2A6A010D // aReader
+ )
+ ; // Parameters
+
+ENDME // ME_4CDD2A6302E5 DoIt
+
+ME ME_4CDD2A59034A
+ MEPROP UID '4CDD2A59034A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F49EEA0008 // TevConstStringStorable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDD2A6302E5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CDD2A59034A Create
+
+ME ME_4CDD2A7103C0
+ MEPROP UID '4CDD2A7103C0'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F49EEA0008 // TevConstStringStorable
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CDD2A59034A // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ )
+ ; // Implements
+
+ENDME // ME_4CDD2A7103C0 Make
+
+ME ME_48F49F16003C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F49EEA0008 // TevConstStringStorable
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F49F16003C 
+
+ME ME_48F49F1E020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F49EEA0008 // TevConstStringStorable
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_48F49F1E020D 
+
+ME ME_48F494FD001D_ME_48F49EEA0008
+ MELINK Original HWL ME_48F494FD001D // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48F494FD001D_ME_48F49EEA0008 Text
+
+ME ME_479731C50290_ME_48F49EEA0008
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48F49EEA0008 Cleanup
+
+ME ME_48F494F102DD_ME_48F49EEA0008
+ MELINK Original HWL ME_48F494F102DD // GetAddress
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F494F102DD_ME_48F49EEA0008 GetAddress
+
+ME ME_48F49EEA0008
+ MEPROP UID '48F49EEA0008'
+ MEPROP Name 'TevConstStringStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4945A02FF // TevStringStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CDD3F1B0368 // Data
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CDD2A59034A // Create
+ HWL ME_4CDD2A7103C0 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48F494FD001D_ME_48F49EEA0008 // Text
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48F49EEA0008 // Cleanup
+ ME_48F494F102DD_ME_48F49EEA0008 // GetAddress
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F49F16003C // l3Base
+ ME_48F49F1E020D // l3String
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '16.07.2007'
+ UP extprop:pas:UnitName 'evConstStringStorable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ConstStringStorable'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evConstStringStorable.pas'
+
+ENDME // ME_48F49EEA0008 TevConstStringStorable
+
+FORWARD ME_48F89F4302E3
+
+ME ME_48F89F810133
+ MEPROP UID '48F89F810133'
+ MEPROP Name 'Holder'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F89F4302E3 // TevPersistentDataObjectEx
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_48F89F810133 Holder
+
+ME ME_48F89FC002B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F89F4302E3 // TevPersistentDataObjectEx
+ ;
+ MELINK Target WL 'ME_47F351160396' '47F086170200.ms.model.script' // TnevPersistentDocumentContainer
+ ;
+
+ENDME // ME_48F89FC002B4 
+
+ME ME_48F479680376_ME_48F89F4302E3
+ MELINK Original HWL ME_48F479680376 // Sharp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F479680376_ME_48F89F4302E3 Sharp
+
+ME ME_48F89F4302E3
+ MEPROP UID '48F89F4302E3'
+ MEPROP Name 'TevPersistentDataObjectEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4732803C8 // TevPersistentDataObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48F89F810133 // Holder
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48F479680376_ME_48F89F4302E3 // Sharp
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48F89FC002B4 // TnevPersistentDocumentContainer
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '17.10.2008 18:21'
+ UP extprop:pas:UnitName 'evPersistentDataObjectEx'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PersistentDataObjectEx'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evPersistentDataObjectEx.pas'
+
+ENDME // ME_48F89F4302E3 TevPersistentDataObjectEx
+
+FORWARD ME_48F4A60000E4
+
+ME ME_48F4A62A00F5
+ MEPROP UID '48F4A62A00F5'
+ MEPROP Name 'evPlainTextFormats'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4A60000E4 // evFormats
+ ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F4A62A00F5 evPlainTextFormats
+
+ME ME_48F4A6450308
+ MEPROP UID '48F4A6450308'
+ MEPROP Name 'evAllFormats'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4A60000E4 // evFormats
+ ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F4A6450308 evAllFormats
+
+ME ME_48F4A667010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4A60000E4 // evFormats
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F4A667010A 
+
+ME ME_48F4A60000E4
+ MEPROP UID '48F4A60000E4'
+ MEPROP Name 'evFormats'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48F4A62A00F5 // evPlainTextFormats
+ HWL ME_48F4A6450308 // evAllFormats
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_48F4A667010A // l3Base
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '27.12.2006 17:28 '
+ UP extprop:rc:SelfName 'Formats'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evFormats.pas'
+
+ENDME // ME_48F4A60000E4 evFormats
+
+FORWARD ME_48F4D8230366
+
+ME ME_48F4D8540219
+ MEPROP UID '48F4D8540219'
+ MEPROP Name 'Node'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4D8230366 // TevNodeStorable
+ ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48F4D8540219 Node
+
+FORWARD ME_48F4D87E0393
+
+ME ME_48F4D88C01F6
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_48F4D88C01F6 aData
+
+ME ME_48F4D88C021B
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F4D88C021B aReader
+
+ME ME_48F4D87E0393
+ MEPROP UID '48F4D87E0393'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4D8230366 // TevNodeStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F4D88C01F6 // aData
+ ME_48F4D88C021B // aReader
+ )
+ ; // Parameters
+
+ENDME // ME_48F4D87E0393 Create
+
+FORWARD ME_48F4D8910134
+
+ME ME_48F4D8B40291
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_48F4D8B40291 aData
+
+ME ME_48F4D8B402C1
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F4D8B402C1 aReader
+
+ME ME_48F4D8910134
+ MEPROP UID '48F4D8910134'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4D8230366 // TevNodeStorable
+ ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F4D8B40291 // aData
+ ME_48F4D8B402C1 // aReader
+ )
+ ; // Parameters
+
+ENDME // ME_48F4D8910134 Make
+
+ME ME_48F494FD001D_ME_48F4D8230366
+ MELINK Original HWL ME_48F494FD001D // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48F494FD001D_ME_48F4D8230366 Text
+
+ME ME_479731C50290_ME_48F4D8230366
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48F4D8230366 Cleanup
+
+ME ME_48F4D8230366
+ MEPROP UID '48F4D8230366'
+ MEPROP Name 'TevNodeStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4945A02FF // TevStringStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F4D8540219 // Node
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48F4D87E0393 // Create
+ HWL ME_48F4D8910134 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48F494FD001D_ME_48F4D8230366 // Text
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48F4D8230366 // Cleanup
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.12.2006 14:45'
+ UP extprop:pas:UnitName 'evNodeStorable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NodeStorable'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evNodeStorable.pas'
+
+ENDME // ME_48F4D8230366 TevNodeStorable
+
+FORWARD ME_48F8C3780325
+
+ME ME_48F8C8FC01FD
+ MEPROP UID '48F8C8FC01FD'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ UP extprop:pas:TypeName '_StorableClass_'
+
+ENDME // ME_48F8C8FC01FD StorableClass
+
+ME ME_48F8CA5502C3
+ MEPROP UID '48F8CA5502C3'
+ MEPROP Name 'RStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F8C8FC01FD // StorableClass
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_48F8CA5502C3 RStorable
+
+ME ME_48F8C8D50256
+ MEPROP UID '48F8C8D50256'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target WL 'ME_48F8C8C201F0' '4680F5600033.ms.model.script' // DataType
+ ;
+
+ENDME // ME_48F8C8D50256 DataType
+
+ME ME_48F8C90A033F
+ MEPROP UID '48F8C90A033F'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target HWL ME_48F8C8FC01FD // StorableClass
+ ;
+
+ENDME // ME_48F8C90A033F StorableClass
+
+ME ME_4CDD6E4600A8
+ MEPROP UID '4CDD6E4600A8'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target WL 'ME_48F8C8C201F0' '4680F5600033.ms.model.script' // DataType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4CDD6E4600A8 Data
+
+FORWARD ME_4CDD6F4403CD
+
+FORWARD ME_4CDD6F4B0345
+
+ME ME_4CDD6F530183
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F8C8C201F0' '4680F5600033.ms.model.script' // DataType
+ ;
+
+ENDME // ME_4CDD6F530183 aData
+
+ME ME_4CDD6F4B0345
+ MEPROP UID '4CDD6F4B0345'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDD6F4403CD // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CDD6F530183 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4CDD6F4B0345 DoIt
+
+ME ME_4CDD6F4403CD
+ MEPROP UID '4CDD6F4403CD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDD6F4B0345 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CDD6F4403CD Create
+
+ME ME_4CDD6F670138
+ MEPROP UID '4CDD6F670138'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CDD6F4403CD // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
+ )
+ ; // Implements
+ UP "need As" True
+
+ENDME // ME_4CDD6F670138 Make
+
+ME ME_48F8CD5401AD
+ MEPROP UID '48F8CD5401AD'
+ MEPROP Name 'DataClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target HWL ME_48F8CA5502C3 // RStorable
+ ;
+
+ENDME // ME_48F8CD5401AD DataClass
+
+ME ME_48F4A61E00C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target HWL ME_48F4A60000E4 // evFormats
+ ;
+
+ENDME // ME_48F4A61E00C3 
+
+ME ME_48F8CC2E0040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_48F8CC2E0040 
+
+ME ME_48F8CC740310
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_48F8CC740310 
+
+ME ME_48F8D340016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8C3780325 // evDataObjectFromStorable
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F8D340016B 
+
+ME ME_479731C50290_ME_48F8C3780325
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48F8C3780325 Cleanup
+
+ME ME_48F8C3780325
+ MEPROP UID '48F8C3780325'
+ MEPROP Name 'evDataObjectFromStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F89F4302E3 // TevPersistentDataObjectEx
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F8C8D50256 // DataType
+ HWL ME_48F8C90A033F // StorableClass
+ HWL ME_4CDD6E4600A8 // Data
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CDD6F4403CD // Create
+ HWL ME_4CDD6F670138 // Make
+ HWL ME_48F8CD5401AD // DataClass
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48F8C3780325 // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_48F8C8FC01FD // StorableClass
+ HWL ME_48F8CA5502C3 // RStorable
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48F4A61E00C3 // evFormats
+ ME_48F8CC2E0040 // Clipboard Formats
+ ME_48F8CC740310 // InevObjectHolder
+ ME_48F8D340016B // l3Base
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName '_evDataObjectFromStorable_'
+ UP extprop:pas:UnitName 'evDataObjectFromStorable.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDataObjectFromStorable.imp.pas'
+
+ENDME // ME_48F8C3780325 evDataObjectFromStorable
+
+FORWARD ME_48F48A23007D
+
+ME ME_48F8CAA000F0
+ MEPROP UID '48F8CAA000F0'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target HWL ME_48F49EEA0008 // TevConstStringStorable
+ ;
+
+ENDME // ME_48F8CAA000F0 StorableClass
+
+ME ME_4CDD3EDD00F2
+ MEPROP UID '4CDD3EDD00F2'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL 'ME_4CDD38560217' '48F4E61C0060.ms.model.script' // HyperlinkInfo
+ ;
+
+ENDME // ME_4CDD3EDD00F2 DataType
+
+ME ME_4CDD2E84001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4CDD2E84001D 
+
+ME ME_4CDD6CCE012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL 'ME_483E708900B4' '47C695A10172.ms.model.script' // Clipboard Formats
+ ;
+
+ENDME // ME_4CDD6CCE012E 
+
+ME ME_4CDD7D9602D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F48A23007D // TevConstStringDataObject
+ ;
+ MELINK Target WL 'ME_4CDD7C01013F' '47ECB8BD00A8.ms.model.script' // TevdTextToFirstParaAdder
+ ;
+
+ENDME // ME_4CDD7D9602D6 
+
+ME ME_48F4818300A5_ME_48F48A23007D
+ MELINK Original HWL ME_48F4818300A5 // GetIsQuestionNeedBeforeFlush
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F4818300A5_ME_48F48A23007D GetIsQuestionNeedBeforeFlush
+
+ME ME_48F481B6035B_ME_48F48A23007D
+ MELINK Original HWL ME_48F481B6035B // DoStore
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48F481B6035B_ME_48F48A23007D DoStore
+
+ME ME_48F48A23007D
+ MEPROP UID '48F48A23007D'
+ MEPROP Name 'TevConstStringDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F8C3780325 // evDataObjectFromStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F8CAA000F0 // StorableClass
+ HWL ME_4CDD3EDD00F2 // DataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_48F4818300A5_ME_48F48A23007D // GetIsQuestionNeedBeforeFlush
+ ME_48F481B6035B_ME_48F48A23007D // DoStore
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CDD2E84001D // l3String
+ ME_4CDD6CCE012E // Clipboard Formats
+ ME_4CDD7D9602D6 // TevdTextToFirstParaAdder
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '16.07.2007'
+ UP extprop:pas:UnitName 'evConstStringDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ConstStringDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evConstStringDataObject.pas'
+
+ENDME // ME_48F48A23007D TevConstStringDataObject
+
+FORWARD ME_48F8A8480224
+
+FORWARD ME_48FC655F025C
+
+ME ME_48FC657800CE
+ MEPROP UID '48FC657800CE'
+ MEPROP Name 'rTree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+ MELINK Target WL 'ME_476BF1DD0075' '4678209200A6.ms.model.script' // InevSimpleTree
+ ;
+
+ENDME // ME_48FC657800CE rTree
+
+ME ME_48FC6587007C
+ MEPROP UID '48FC6587007C'
+ MEPROP Name 'rLevelTag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FC6587007C rLevelTag
+
+ME ME_48FC6595022E
+ MEPROP UID '48FC6595022E'
+ MEPROP Name 'rFlag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+
+ENDME // ME_48FC6595022E rFlag
+
+FORWARD ME_48FC65A403CF
+
+ME ME_48FC683F03D8
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1DD0075' '4678209200A6.ms.model.script' // InevSimpleTree
+ ;
+
+ENDME // ME_48FC683F03D8 aTree
+
+ME ME_48FC68400024
+ MEPROP Name 'aLevelTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 'k2_tiVoid'
+ MELINK ValueType WL 'ME_47AC7BD90281' '47AC7B760263.ms.model.script' // Tag Consts
+ ;
+ UP extprop:pas:Value 'k2_tiVoid'
+
+ENDME // ME_48FC68400024 aLevelTag
+
+ME ME_48FC6840005A
+ MEPROP Name 'aFlag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_48FC6840005A aFlag
+
+ME ME_48FC65A403CF
+ MEPROP UID '48FC65A403CF'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FC683F03D8 // aTree
+ ME_48FC68400024 // aLevelTag
+ ME_48FC6840005A // aFlag
+ )
+ ; // Parameters
+
+ENDME // ME_48FC65A403CF C
+
+ME ME_48FC655F025C
+ MEPROP UID '48FC655F025C'
+ MEPROP Name 'TevTreeStorableData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48FC657800CE // rTree
+ HWL ME_48FC6587007C // rLevelTag
+ HWL ME_48FC6595022E // rFlag
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48FC65A403CF // C
+ )
+ ; // Operations
+
+ENDME // ME_48FC655F025C TevTreeStorableData
+
+ME ME_48F8A8A70125
+ MEPROP UID '48F8A8A70125'
+ MEPROP Name 'LevelIndent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_48F8A8A70125 LevelIndent
+
+ME ME_48F8AADD022E
+ MEPROP UID '48F8AADD022E'
+ MEPROP Name 'f_LevelTag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F8AADD022E f_LevelTag
+
+ME ME_48F8AAE503D9
+ MEPROP UID '48F8AAE503D9'
+ MEPROP Name 'f_Flag'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+
+ENDME // ME_48F8AAE503D9 f_Flag
+
+ME ME_48F8AAF101B1
+ MEPROP UID '48F8AAF101B1'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_476BF1DD0075' '4678209200A6.ms.model.script' // InevSimpleTree
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48F8AAF101B1 Data
+
+ME ME_48F8AAFE0210
+ MEPROP UID '48F8AAFE0210'
+ MEPROP Name 'SubRoot'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_48F8AAFE0210 SubRoot
+
+FORWARD ME_48F8A8CD00D9
+
+ME ME_48F8A8EC014B
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_48F8A8EC014B aNode
+
+ME ME_48F8A8EC0171
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F8A8EC0171 G
+
+ME ME_48F8A8EC019E
+ MEPROP Name 'aLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F8A8EC019E aLevel
+
+ME ME_48F8A8CD00D9
+ MEPROP UID '48F8A8CD00D9'
+ MEPROP Name 'DoStoreNode'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F8A8EC014B // aNode
+ ME_48F8A8EC0171 // G
+ ME_48F8A8EC019E // aLevel
+ )
+ ; // Parameters
+
+ENDME // ME_48F8A8CD00D9 DoStoreNode
+
+FORWARD ME_48F8A8F501DD
+
+ME ME_48F8A90D00B2
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_48F8A90D00B2 G
+
+ME ME_48F8A90D00DB
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F5B6D600BD' '4678209200A6.ms.model.script' // TevStoreFlags
+ ;
+ MEPROP Value 'evDefaultStoreFlags'
+ MELINK ValueType WL 'ME_48F5B6D600BD' '4678209200A6.ms.model.script' // TevStoreFlags
+ ;
+ UP extprop:pas:Value 'evDefaultStoreFlags'
+
+ENDME // ME_48F8A90D00DB aFlags
+
+ME ME_48F8A8F501DD
+ MEPROP UID '48F8A8F501DD'
+ MEPROP Name 'DoIterateTree'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F8A90D00B2 // G
+ ME_48F8A90D00DB // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_48F8A8F501DD DoIterateTree
+
+FORWARD ME_48F8A91F004B
+
+ME ME_48F8A9440112
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+
+ENDME // ME_48F8A9440112 aData
+
+ME ME_48F8A94401A3
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_48F8A94401A3 aReader
+
+ME ME_48F8A94401D4
+ MEPROP Name 'aLevelIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48F8A94401D4 aLevelIndent
+
+ME ME_48F8A9440207
+ MEPROP Name 'aSubRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_48F8A9440207 aSubRoot
+
+ME ME_48F8A91F004B
+ MEPROP UID '48F8A91F004B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F8A9440112 // aData
+ ME_48F8A94401A3 // aReader
+ ME_48F8A94401D4 // aLevelIndent
+ ME_48F8A9440207 // aSubRoot
+ )
+ ; // Parameters
+
+ENDME // ME_48F8A91F004B Create
+
+FORWARD ME_48F8A952021F
+
+ME ME_48F8A9F402CA
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+
+ENDME // ME_48F8A9F402CA aData
+
+ME ME_48F8A9F4038E
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F8A9F4038E aReader
+
+ME ME_48F8A9F403D1
+ MEPROP Name 'aLevelIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 2
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 2
+
+ENDME // ME_48F8A9F403D1 aLevelIndent
+
+ME ME_48F8A9F5002D
+ MEPROP Name 'aSubRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F8A9F5002D aSubRoot
+
+ME ME_48F8A952021F
+ MEPROP UID '48F8A952021F'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F8A9F402CA // aData
+ ME_48F8A9F4038E // aReader
+ ME_48F8A9F403D1 // aLevelIndent
+ ME_48F8A9F5002D // aSubRoot
+ )
+ ; // Parameters
+
+ENDME // ME_48F8A952021F Make
+
+FORWARD ME_48F8A9880295
+
+ME ME_48F8A9E501A0
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+
+ENDME // ME_48F8A9E501A0 aData
+
+ME ME_48F8A9E5025D
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F8A9E5025D aReader
+
+ME ME_48F8A9E502A1
+ MEPROP Name 'aLevelIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 2
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 2
+
+ENDME // ME_48F8A9E502A1 aLevelIndent
+
+ME ME_48F8A9E502E3
+ MEPROP Name 'aSubRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F8A9E502E3 aSubRoot
+
+ME ME_48F8A9880295
+ MEPROP UID '48F8A9880295'
+ MEPROP Name 'MakeStorable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F8A9E501A0 // aData
+ ME_48F8A9E5025D // aReader
+ ME_48F8A9E502A1 // aLevelIndent
+ ME_48F8A9E502E3 // aSubRoot
+ )
+ ; // Parameters
+
+ENDME // ME_48F8A9880295 MakeStorable
+
+ME ME_48F8AB8B014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_4799ED060093' '4799EC9300AF.ms.model.script' // l3Defaults
+ ;
+
+ENDME // ME_48F8AB8B014B 
+
+ME ME_48F8ABC90073
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F8ABC90073 
+
+ME ME_48F8AC1E038E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_47F351160396' '47F086170200.ms.model.script' // TnevPersistentDocumentContainer
+ ;
+
+ENDME // ME_48F8AC1E038E 
+
+ME ME_48F8AC35004A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48F8AC35004A 
+
+ME ME_48F8ADE70329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_48F8ADE70329 
+
+ME ME_48F8AF170152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_46825CE0014B' '4682595B0268.ms.model.script' // Il3ExpandedSimpleTree
+ ;
+
+ENDME // ME_48F8AF170152 
+
+ME ME_48F8AF560161
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_47F25741021C' '47E246C90144.ms.model.script' // l3Nodes
+ ;
+
+ENDME // ME_48F8AF560161 
+
+ME ME_49AE717503D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_49AE717503D8 
+
+ME ME_49AE7183039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_49AE7183039C 
+
+ME ME_48F48C6E02F4_ME_48F8A8480224
+ MELINK Original HWL ME_48F48C6E02F4 // DoStore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48F48C6E02F4_ME_48F8A8480224 DoStore
+
+ME ME_479731C50290_ME_48F8A8480224
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48F8A8480224 Cleanup
+
+ME ME_48F8A8480224
+ MEPROP UID '48F8A8480224'
+ MEPROP Name 'TevTreeStorable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F48A7E033C // TevStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F8A8A70125 // LevelIndent
+ HWL ME_48F8AADD022E // f_LevelTag
+ HWL ME_48F8AAE503D9 // f_Flag
+ HWL ME_48F8AAF101B1 // Data
+ HWL ME_48F8AAFE0210 // SubRoot
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48F8A8CD00D9 // DoStoreNode
+ HWL ME_48F8A8F501DD // DoIterateTree
+ HWL ME_48F8A91F004B // Create
+ HWL ME_48F8A952021F // Make
+ HWL ME_48F8A9880295 // MakeStorable
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48F48C6E02F4_ME_48F8A8480224 // DoStore
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48F8A8480224 // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_48FC655F025C // TevTreeStorableData
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48F8AB8B014B // l3Defaults
+ ME_48F8ABC90073 // l3Base
+ ME_48F8AC1E038E // TnevPersistentDocumentContainer
+ ME_48F8AC35004A // Tk2TagID
+ ME_48F8ADE70329 // SysUtils
+ ME_48F8AF170152 // Il3ExpandedSimpleTree
+ ME_48F8AF560161 // l3Nodes
+ ME_49AE717503D8 // TextPara
+ ME_49AE7183039C // Document
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '16.12.2004 18:48'
+ UP extprop:pas:UnitName 'evTreeStorable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TreeStorable'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTreeStorable.pas'
+
+ENDME // ME_48F8A8480224 TevTreeStorable
+
+FORWARD ME_48F4DC5A018D
+
+ME ME_48F8CA81035D
+ MEPROP UID '48F8CA81035D'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4DC5A018D // TevNodeDataObject
+ ;
+ MELINK Target HWL ME_48F4D8230366 // TevNodeStorable
+ ;
+
+ENDME // ME_48F8CA81035D StorableClass
+
+ME ME_48F8CAFC0156
+ MEPROP UID '48F8CAFC0156'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4DC5A018D // TevNodeDataObject
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_48F8CAFC0156 DataType
+
+ME ME_48F4DC5A018D
+ MEPROP UID '48F4DC5A018D'
+ MEPROP Name 'TevNodeDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F8C3780325 // evDataObjectFromStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48F8CA81035D // StorableClass
+ HWL ME_48F8CAFC0156 // DataType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.12.2006 16:16'
+ UP extprop:pas:UnitName 'evNodeDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NodeDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evNodeDataObject.pas'
+
+ENDME // ME_48F4DC5A018D TevNodeDataObject
+
+FORWARD ME_48FC8B3D01BC
+
+ME ME_48FC8BA30315
+ MEPROP UID '48FC8BA30315'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC8B3D01BC // TevTreeDataObject
+ ;
+ MELINK Target HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+
+ENDME // ME_48FC8BA30315 DataType
+
+ME ME_48FC8BB700A7
+ MEPROP UID '48FC8BB700A7'
+ MEPROP Name 'StorableClass'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC8B3D01BC // TevTreeDataObject
+ ;
+ MELINK Target HWL ME_48F8A8480224 // TevTreeStorable
+ ;
+
+ENDME // ME_48FC8BB700A7 StorableClass
+
+FORWARD ME_48FC8C4E001B
+
+ME ME_48FC8C5702EC
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48FC655F025C // TevTreeStorableData
+ ;
+
+ENDME // ME_48FC8C5702EC aData
+
+ME ME_48FC8C4E001B
+ MEPROP UID '48FC8C4E001B'
+ MEPROP Name 'MakeStorable'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FC8B3D01BC // TevTreeDataObject
+ ;
+ MELINK Target WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FC8C5702EC // aData
+ )
+ ; // Parameters
+
+ENDME // ME_48FC8C4E001B MakeStorable
+
+ME ME_48FC8B3D01BC
+ MEPROP UID '48FC8B3D01BC'
+ MEPROP Name 'TevTreeDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F8C3780325 // evDataObjectFromStorable
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48FC8BA30315 // DataType
+ HWL ME_48FC8BB700A7 // StorableClass
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48FC8C4E001B // MakeStorable
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "started" '27.12.2006 18:32'
+ UP extprop:pas:UnitName 'evTreeDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TreeDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTreeDataObject.pas'
+
+ENDME // ME_48FC8B3D01BC TevTreeDataObject
+
+FORWARD ME_4D3EE0C6003E
+
+ME ME_4D3EE1000344
+ MEPROP UID '4D3EE1000344'
+ MEPROP Name 'f_Holder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4D3EE0C6003E // TevHolderDataObject
+ ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_4D3EE1000344 f_Holder
+
+FORWARD ME_4D3EE11B022F
+
+FORWARD ME_4D3EE12D0355
+
+ME ME_4D3EE1340362
+ MEPROP Name 'aHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C699BD0247' '47C5207602D1.ms.model.script' // InevObjectHolder
+ ;
+
+ENDME // ME_4D3EE1340362 aHolder
+
+ME ME_4D3EE12D0355
+ MEPROP UID '4D3EE12D0355'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EE11B022F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EE1340362 // aHolder
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EE12D0355 DoIt
+
+ME ME_4D3EE11B022F
+ MEPROP UID '4D3EE11B022F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EE0C6003E // TevHolderDataObject
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D3EE12D0355 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D3EE11B022F Create
+
+ME ME_4D3EE13B0146
+ MEPROP UID '4D3EE13B0146'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D3EE0C6003E // TevHolderDataObject
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D3EE11B022F // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ )
+ ; // Implements
+
+ENDME // ME_4D3EE13B0146 Make
+
+ME ME_48EA34990191_ME_4D3EE0C6003E
+ MELINK Original HWL ME_48EA34990191 // DoStore
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48EA34990191_ME_4D3EE0C6003E DoStore
+
+ME ME_4D3EE0C6003E
+ MEPROP UID '4D3EE0C6003E'
+ MEPROP Name 'TevHolderDataObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4802FF41005C // DataObjects
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48EA32DB03E6 // TevStreamedDataObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D3EE1000344 // f_Holder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D3EE11B022F // Create
+ HWL ME_4D3EE13B0146 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48EA34990191_ME_4D3EE0C6003E // DoStore
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '25.01.2011 17:40'
+ UP extprop:pas:UnitName 'evHolderDataObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HolderDataObject'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evHolderDataObject.pas'
+
+ENDME // ME_4D3EE0C6003E TevHolderDataObject
+
+ME ME_4802FF41005C
+ MEPROP UID '4802FF41005C'
+ MEPROP Name 'DataObjects'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48EA32DB03E6 // TevStreamedDataObject
+ HWL ME_48EB6945012D // TevReaderDataObject
+ HWL ME_48EA3A2A0142 // TevEvdDataObject
+ HWL ME_4802FF6101DE // TevHTMLDataObject
+ HWL ME_48EF3978008D // TevDataObject
+ HWL ME_48F4732803C8 // TevPersistentDataObject
+ HWL ME_48F48A7E033C // TevStorable
+ HWL ME_48F4945A02FF // TevStringStorable
+ HWL ME_48F49EEA0008 // TevConstStringStorable
+ HWL ME_48F89F4302E3 // TevPersistentDataObjectEx
+ HWL ME_48F4A60000E4 // evFormats
+ HWL ME_48F4D8230366 // TevNodeStorable
+ HWL ME_48F8C3780325 // evDataObjectFromStorable
+ HWL ME_48F48A23007D // TevConstStringDataObject
+ HWL ME_48F8A8480224 // TevTreeStorable
+ HWL ME_48F4DC5A018D // TevNodeDataObject
+ HWL ME_48FC8B3D01BC // TevTreeDataObject
+ HWL ME_4D3EE0C6003E // TevHolderDataObject
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_4680F5600033' '4680F5600033.ms.model.script' // l3DataObject
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799EC9300AF' '4799EC9300AF.ms.model.script' // l3Defaults
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47AC7B760263' '47AC7B760263.ms.model.script' // k2Const
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47C695A10172' '47C695A10172.ms.model.script' // evTypes
+ WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ WL 'ME_47F086170200' '47F086170200.ms.model.script' // DocumentContainers
+ WL 'ME_47F088300159' '47F088300159.ms.model.script' // evInternalInterfaces
+ WL 'ME_47F11670007B' '47F11670007B.ms.model.script' // k2InternalInterfaces
+ WL 'ME_482D6E960087' '482D6E960087.ms.model.script' // Readers
+ WL 'ME_483E80C9025F' '483E80C9025F.ms.model.script' // Readers
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_48EA3D1F0232' '48EA3D1F0232.ms.model.script' // Readers
+ WL 'ME_48F4E61C0060' '48F4E61C0060.ms.model.script' // Interfaces
+ WL 'ME_4A23935A0282' '4A23935A0282.ms.model.script' // afwNavigation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ )
+ ; // Depends
+
+ENDME // ME_4802FF41005C DataObjects

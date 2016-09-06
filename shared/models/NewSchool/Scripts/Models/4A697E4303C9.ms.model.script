@@ -1,0 +1,34 @@
+// Chat$UC 4A697E4303C9 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4A697E4303C9
+ MEPROP UID '4A697E4303C9'
+ MEPROP Name 'Chat'
+ MEPROP OriginalName 'Chat$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Чат' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A66B8720216' '4A66B8720216.ms.model.script' // Chat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6971B802A6' '4A6971B802A6.ms.model.script' // BaseChat
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49EC560D03E0' '484F80CF0274.ms.model.script' // Совещание онлайн
+ )
+ ; // Implements
+ UP "ifndef" 'Admin,Monitorings'
+ UP extprop:pas:TypeName 'Tmo_Chat'
+ UP extprop:pas:UnitName 'moChat'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_Chat'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moChat.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4A697E4303C9 Chat$UC

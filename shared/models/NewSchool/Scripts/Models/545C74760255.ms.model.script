@@ -1,0 +1,1109 @@
+// ExportDelivery 545C74760255 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545C74760255
+
+FORWARD ME_545C749003C2
+
+ME ME_545C74C40316
+ MEPROP UID '545C74C40316'
+ MEPROP Name 'ClientID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_537F4A04037C' '52FBB2FC0386.ms.model.script' // TCsClientId
+ ;
+ UP "pm" True
+
+ENDME // ME_545C74C40316 ClientID
+
+ME ME_545C8DEE0360
+ MEPROP UID '545C8DEE0360'
+ MEPROP Name 'ServerHost'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_545C8DEE0360 ServerHost
+
+ME ME_545C8E0C03BD
+ MEPROP UID '545C8E0C03BD'
+ MEPROP Name 'ServerPort'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_545C8E0C03BD ServerPort
+
+ME ME_545C88B50351
+ MEPROP UID '545C88B50351'
+ MEPROP Name 'f_RequestCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_545C88B50351 f_RequestCounter
+
+ME ME_545C8DB902E3
+ MEPROP UID '545C8DB902E3'
+ MEPROP Name 'f_Transporter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_5465A598039E' '544E0148010D.ms.model.script' // IncsClientTransporter
+ ;
+
+ENDME // ME_545C8DB902E3 f_Transporter
+
+ME ME_549AA06700E2
+ MEPROP UID '549AA06700E2'
+ MEPROP Name 'f_Listener'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Weak IarResultDelivererListner' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_549AA06700E2 f_Listener
+
+FORWARD ME_549A9A51038D
+
+ME ME_549AA07C02A4
+ MEPROP UID '549AA07C02A4'
+ MEPROP Name 'Listener'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ UP "pm" True
+
+ENDME // ME_549AA07C02A4 Listener
+
+FORWARD ME_5465FDD1009D
+
+FORWARD ME_5465FDDA015C
+
+ME ME_5465FDEB0376
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5465FDEB0376 aTaskID
+
+ME ME_5465FDDA015C
+ MEPROP UID '5465FDDA015C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5465FDD1009D // ReceiveTaskResult
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5465FDEB0376 // aTaskID
+ )
+ ; // Parameters
+
+ENDME // ME_5465FDDA015C DoIt
+
+FORWARD ME_546AFE0D01CB
+
+ME ME_546AFE39008F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5465FDD1009D // ReceiveTaskResult
+ ;
+ MELINK Target HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+
+ENDME // ME_546AFE39008F 
+
+ME ME_5465FDD1009D
+ MEPROP UID '5465FDD1009D'
+ MEPROP Name 'ReceiveTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5465FDDA015C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_546AFE39008F // TarOneTaskDeliverer
+ )
+ ; // Dependencies
+
+ENDME // ME_5465FDD1009D ReceiveTaskResult
+
+FORWARD ME_546AF1220010
+
+FORWARD ME_546AF12C01F4
+
+ME ME_549AA03C024F
+ MEPROP Name 'aWeakListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+
+ENDME // ME_549AA03C024F aWeakListener
+
+ME ME_546AF12C01F4
+ MEPROP UID '546AF12C01F4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546AF1220010 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_549AA03C024F // aWeakListener
+ )
+ ; // Parameters
+
+ENDME // ME_546AF12C01F4 DoIt
+
+ME ME_546AF1220010
+ MEPROP UID '546AF1220010'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_546AF12C01F4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_546AF1220010 Create
+
+ME ME_545C84E90055
+ MEPROP UID '545C84E90055'
+ MEPROP Name 'TerminateProcess'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+
+ENDME // ME_545C84E90055 TerminateProcess
+
+ME ME_545C88760010
+ MEPROP UID '545C88760010'
+ MEPROP Name 'RequestDelivery'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+
+ENDME // ME_545C88760010 RequestDelivery
+
+ME ME_545C888301CF
+ MEPROP UID '545C888301CF'
+ MEPROP Name 'CanRequestDelivery'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_545C888301CF CanRequestDelivery
+
+ME ME_549BB1B501D5
+ MEPROP UID '549BB1B501D5'
+ MEPROP Name 'HasReadyToDeliveryData'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_549BB1B501D5 HasReadyToDeliveryData
+
+ME ME_545C907F018E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_545C907F018E 
+
+ME ME_545C9A520028
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_538DDC890328' '52FBB2FC0386.ms.model.script' // TcsIdIOHandlerAbstractAdapter
+ ;
+
+ENDME // ME_545C9A520028 
+
+ME ME_546464A700B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_54645E7C0285' '546457E203C0.ms.model.script' // ncsClientRegister
+ ;
+
+ENDME // ME_546464A700B6 
+
+ME ME_546495AF020D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_54645E0D0246' '546457E203C0.ms.model.script' // TncsGetReadyToDeliveryTasksReply
+ ;
+
+ENDME // ME_546495AF020D 
+
+ME ME_546495B402E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_54645DEC03E4' '546457E203C0.ms.model.script' // TncsGetReadyToDeliveryTasks
+ ;
+
+ENDME // ME_546495B402E7 
+
+ME ME_546495CC003D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_546495CC003D 
+
+ME ME_5465C38D020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_547708500384' '544E0148010D.ms.model.script' // TncsCompatibilityClientTransporter
+ ;
+
+ENDME // ME_5465C38D020E 
+
+ME ME_5481A87A013C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ ;
+
+ENDME // ME_5481A87A013C 
+
+ME ME_548ACCB701D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_548AC7FB0046' '544E0148010D.ms.model.script' // ncsProfile
+ ;
+
+ENDME // ME_548ACCB701D9 
+
+ME ME_548ACCD40238
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_548007530030' '47D0290B016D.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_548ACCD40238 
+
+ME ME_548FF7B1003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_54509FEC02EB' '47D0290B016D.ms.model.script' // l3CreateStringGUID
+ ;
+
+ENDME // ME_548FF7B1003B 
+
+ME ME_549A7C7902E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_54996019037A' '484A470100DD.ms.model.script' // TncsResultKind
+ ;
+
+ENDME // ME_549A7C7902E2 
+
+ME ME_549AAC3102C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_549AA9CE0345' '546457E203C0.ms.model.script' // TncsCorrectFolder
+ ;
+
+ENDME // ME_549AAC3102C3 
+
+ME ME_549AAC3501C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_547582EC02E0' '546457E203C0.ms.model.script' // TncsDeliveryResult
+ ;
+
+ENDME // ME_549AAC3501C3 
+
+ME ME_549BB7F50141
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_4F8C0CE20242' '4AB0C3F60375.ms.model.script' // PostMessage
+ ;
+
+ENDME // ME_549BB7F50141 
+
+ME ME_549BBB740215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_549BBB740215 
+
+ME ME_54B8DE3603E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_54B7B2F900C2' '537B83AD01F0.ms.model.script' // l3Interlocked
+ ;
+
+ENDME // ME_54B8DE3603E4 
+
+ME ME_54E343B00031
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C749003C2 // TarResultDeliverer
+ ;
+ MELINK Target WL 'ME_54E33DBC0063' '544E0148010D.ms.model.script' // TncsSynchroCompatibilityClientTransporter
+ ;
+
+ENDME // ME_54E343B00031 
+
+ME ME_4911B69E037D_ME_545C749003C2
+ MELINK Original WL 'ME_4911B69E037D' '47913B47006E.ms.model.script' // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4911B69E037D_ME_545C749003C2 DoExecute
+
+ME ME_479731C50290_ME_545C749003C2
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_545C749003C2 Cleanup
+
+ME ME_47A042E100E2_ME_545C749003C2
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_545C749003C2 InitFields
+
+ME ME_545C749003C2
+ MEPROP UID '545C749003C2'
+ MEPROP Name 'TarResultDeliverer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545C74760255 // ExportDelivery
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4911B24C01F6' '47913B47006E.ms.model.script' // Tl3ThreadContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_545C74C40316 // ClientID
+ HWL ME_545C8DEE0360 // ServerHost
+ HWL ME_545C8E0C03BD // ServerPort
+ HWL ME_545C88B50351 // f_RequestCounter
+ HWL ME_545C8DB902E3 // f_Transporter
+ HWL ME_549AA06700E2 // f_Listener
+ HWL ME_549AA07C02A4 // Listener
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5465FDD1009D // ReceiveTaskResult
+ HWL ME_546AF1220010 // Create
+ HWL ME_545C84E90055 // TerminateProcess
+ HWL ME_545C88760010 // RequestDelivery
+ HWL ME_545C888301CF // CanRequestDelivery
+ HWL ME_549BB1B501D5 // HasReadyToDeliveryData
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4911B69E037D_ME_545C749003C2 // DoExecute
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_545C749003C2 // Cleanup
+ ME_47A042E100E2_ME_545C749003C2 // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_545C907F018E // FreeAndNil
+ ME_545C9A520028 // TcsIdIOHandlerAbstractAdapter
+ ME_546464A700B6 // ncsClientRegister
+ ME_546495AF020D // TncsGetReadyToDeliveryTasksReply
+ ME_546495B402E7 // TncsGetReadyToDeliveryTasks
+ ME_546495CC003D // TncsMessage
+ ME_5465C38D020E // TncsCompatibilityClientTransporter
+ ME_5481A87A013C // TCsQueryId
+ ME_548ACCB701D9 // ncsProfile
+ ME_548ACCD40238 // Tl3StopWatch
+ ME_548FF7B1003B // l3CreateStringGUID
+ ME_549A7C7902E2 // TncsResultKind
+ ME_549AAC3102C3 // TncsCorrectFolder
+ ME_549AAC3501C3 // TncsDeliveryResult
+ ME_549BB7F50141 // PostMessage
+ ME_549BBB740215 // Msg Codes
+ ME_54B8DE3603E4 // l3Interlocked
+ ME_54E343B00031 // TncsSynchroCompatibilityClientTransporter
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'arResultDeliverer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arResultDeliverer'
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arResultDeliverer.pas'
+
+ENDME // ME_545C749003C2 TarResultDeliverer
+
+ME ME_546AFEAB00E6
+ MEPROP UID '546AFEAB00E6'
+ MEPROP Name 'TargetFolder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP "pm" True
+
+ENDME // ME_546AFEAB00E6 TargetFolder
+
+ME ME_546AFEE3039B
+ MEPROP UID '546AFEE3039B'
+ MEPROP Name 'f_Transporter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_5464B4730055' '544E0148010D.ms.model.script' // IncsTransporter
+ ;
+
+ENDME // ME_546AFEE3039B f_Transporter
+
+ME ME_546AFF660105
+ MEPROP UID '546AFF660105'
+ MEPROP Name 'f_TaskID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_546AFF660105 f_TaskID
+
+ME ME_546B4A7802CB
+ MEPROP UID '546B4A7802CB'
+ MEPROP Name 'f_Reply'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_546B442D0343' '546457E203C0.ms.model.script' // TncsGetTaskDescriptionReply
+ ;
+
+ENDME // ME_546B4A7802CB f_Reply
+
+ME ME_547452B4010B
+ MEPROP UID '547452B4010B'
+ MEPROP Name 'f_ProgressDescription'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_547452B4010B f_ProgressDescription
+
+ME ME_547452DB0250
+ MEPROP UID '547452DB0250'
+ MEPROP Name 'f_ProgressPercent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_547452DB0250 f_ProgressPercent
+
+ME ME_54746A32012A
+ MEPROP UID '54746A32012A'
+ MEPROP Name 'f_Progressor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_53A2EFA901C0' '53A2EF7E0117.ms.model.script' // TddProgressObject
+ ;
+
+ENDME // ME_54746A32012A f_Progressor
+
+FORWARD ME_546AFEF1001C
+
+FORWARD ME_546AFEFA02CC
+
+ME ME_546AFF540009
+ MEPROP Name 'aTransporter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5464B4730055' '544E0148010D.ms.model.script' // IncsTransporter
+ ;
+
+ENDME // ME_546AFF540009 aTransporter
+
+ME ME_546AFF540018
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_546AFF540018 aTaskID
+
+ME ME_546AFEFA02CC
+ MEPROP UID '546AFEFA02CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546AFEF1001C // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_546AFF540009 // aTransporter
+ ME_546AFF540018 // aTaskID
+ )
+ ; // Parameters
+
+ENDME // ME_546AFEFA02CC DoIt
+
+ME ME_546AFEF1001C
+ MEPROP UID '546AFEF1001C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_546AFEFA02CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_546AFEF1001C Create
+
+ME ME_5474528D0320
+ MEPROP UID '5474528D0320'
+ MEPROP Name 'ProgressUpdate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547450770024' '53A2EF7E0117.ms.model.script' // TddProgressEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5474528D0320 ProgressUpdate
+
+FORWARD ME_547452F8012B
+
+FORWARD ME_5474532E00FA
+
+ME ME_547453340041
+ MEPROP Name 'aNewPercent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_547453340041 aNewPercent
+
+ME ME_547453340050
+ MEPROP Name 'aNewDescription'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_547453340050 aNewDescription
+
+ME ME_5474532E00FA
+ MEPROP UID '5474532E00FA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547452F8012B // SetProgress
+ ;
+ MELIST Parameters
+   Seq: ( ME_547453340041 // aNewPercent
+ ME_547453340050 // aNewDescription
+ )
+ ; // Parameters
+
+ENDME // ME_5474532E00FA DoIt
+
+ME ME_54746D990034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_547452F8012B // SetProgress
+ ;
+ MELINK Target WL 'ME_54746A670337' '546457E203C0.ms.model.script' // TncsTaskProgress
+ ;
+
+ENDME // ME_54746D990034 
+
+ME ME_547452F8012B
+ MEPROP UID '547452F8012B'
+ MEPROP Name 'SetProgress'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5474532E00FA // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54746D990034 // TncsTaskProgress
+ )
+ ; // Dependencies
+
+ENDME // ME_547452F8012B SetProgress
+
+ME ME_546AFE51021F
+ MEPROP UID '546AFE51021F'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_54996019037A' '484A470100DD.ms.model.script' // TncsResultKind
+ ;
+
+ENDME // ME_546AFE51021F Execute
+
+ME ME_546AFF94011B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_546AFF94011B 
+
+ME ME_546B4AAD01F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_546B444D012F' '546457E203C0.ms.model.script' // TncsGetTaskDescription
+ ;
+
+ENDME // ME_546B4AAD01F5 
+
+ME ME_546B5279023F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+ ;
+
+ENDME // ME_546B5279023F 
+
+ME ME_546F3A0A031F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_546F398E0203' '546457E203C0.ms.model.script' // TncsFileListDeliverer
+ ;
+
+ENDME // ME_546F3A0A031F 
+
+ME ME_5501A55B0053
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_5472D9D7003A' '546457E203C0.ms.model.script' // EncsEmptyResults
+ ;
+
+ENDME // ME_5501A55B0053 
+
+ME ME_55927E05039B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '47913B47006E.ms.model.script' // l3System
+ ;
+
+ENDME // ME_55927E05039B 
+
+ME ME_479731C50290_ME_546AFE0D01CB
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_546AFE0D01CB Cleanup
+
+ME ME_546AFE0D01CB
+ MEPROP UID '546AFE0D01CB'
+ MEPROP Name 'TarOneTaskDeliverer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545C74760255 // ExportDelivery
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_546AFEAB00E6 // TargetFolder
+ HWL ME_546AFEE3039B // f_Transporter
+ HWL ME_546AFF660105 // f_TaskID
+ HWL ME_546B4A7802CB // f_Reply
+ HWL ME_547452B4010B // f_ProgressDescription
+ HWL ME_547452DB0250 // f_ProgressPercent
+ HWL ME_54746A32012A // f_Progressor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_546AFEF1001C // Create
+ HWL ME_5474528D0320 // ProgressUpdate
+ HWL ME_547452F8012B // SetProgress
+ HWL ME_546AFE51021F // Execute
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_546AFE0D01CB // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_546AFF94011B // FreeAndNil
+ ME_546B4AAD01F5 // TncsGetTaskDescription
+ ME_546B5279023F // TncsMessage
+ ME_546F3A0A031F // TncsFileListDeliverer
+ ME_5501A55B0053 // EncsEmptyResults
+ ME_55927E05039B // l3System
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'arOneTaskDeliverer'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arOneTaskDeliverer'
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arOneTaskDeliverer.pas'
+
+ENDME // ME_546AFE0D01CB TarOneTaskDeliverer
+
+FORWARD ME_549A9AB80233
+
+FORWARD ME_549A9AE800C6
+
+ME ME_549A9B0E004D
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B0E004D aTaskID
+
+ME ME_549A9AE800C6
+ MEPROP UID '549A9AE800C6'
+ MEPROP Name 'CheckTaskExistance'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B0E004D // aTaskID
+ )
+ ; // Parameters
+
+ENDME // ME_549A9AE800C6 CheckTaskExistance
+
+FORWARD ME_549A9B150284
+
+ME ME_549A9B2A0154
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B2A0154 aMessage
+
+ME ME_549A9B150284
+ MEPROP UID '549A9B150284'
+ MEPROP Name 'RequestSendMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B2A0154 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_549A9B150284 RequestSendMessage
+
+FORWARD ME_549A9B310008
+
+ME ME_549A9B5D001B
+ MEPROP Name 'aFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B5D001B aFolder
+
+ME ME_549A9B310008
+ MEPROP UID '549A9B310008'
+ MEPROP Name 'RequestNewFolder'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B5D001B // aFolder
+ )
+ ; // Parameters
+
+ENDME // ME_549A9B310008 RequestNewFolder
+
+FORWARD ME_549A9B630197
+
+ME ME_549A9B8E029F
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B8E029F aTaskID
+
+ME ME_549A9B8E02BA
+ MEPROP Name 'aNewFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B8E02BA aNewFolder
+
+ME ME_549A9B630197
+ MEPROP UID '549A9B630197'
+ MEPROP Name 'ChangeResultFolder'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B8E029F // aTaskID
+ ME_549A9B8E02BA // aNewFolder
+ )
+ ; // Parameters
+
+ENDME // ME_549A9B630197 ChangeResultFolder
+
+ME ME_549A9A51038D
+ MEPROP UID '549A9A51038D'
+ MEPROP GUID 'E71B8A5D-E73D-4FA6-B569-41304F6F79EE'
+ MEPROP Name 'IarResultDelivererListner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_549A9AB80233 // arResultDeliveryInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_549A9AE800C6 // CheckTaskExistance
+ HWL ME_549A9B150284 // RequestSendMessage
+ HWL ME_549A9B310008 // RequestNewFolder
+ HWL ME_549A9B630197 // ChangeResultFolder
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arResultDelivererListner'
+
+ENDME // ME_549A9A51038D IarResultDelivererListner
+
+ME ME_549A9AB80233
+ MEPROP UID '549A9AB80233'
+ MEPROP Name 'arResultDeliveryInterfaces'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545C74760255 // ExportDelivery
+ ;
+ MELIST Children
+   Seq: ( HWL ME_549A9A51038D // IarResultDelivererListner
+ )
+ ; // Children
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arResultDeliveryInterfaces.pas'
+
+ENDME // ME_549A9AB80233 arResultDeliveryInterfaces
+
+ME ME_545C74760255
+ MEPROP UID '545C74760255'
+ MEPROP Name 'ExportDelivery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_545C744800D9' '545C744800D9.ms.model.script' // Processing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_545C749003C2 // TarResultDeliverer
+ HWL ME_546AFE0D01CB // TarOneTaskDeliverer
+ HWL ME_549A9AB80233 // arResultDeliveryInterfaces
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_52FBB2FC0386' '52FBB2FC0386.ms.model.script' // Core
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_53A038340371' '53A038340371.ms.model.script' // MultiThread
+ WL 'ME_53A2EF7E0117' '53A2EF7E0117.ms.model.script' // Progress
+ WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
+ WL 'ME_546457E203C0' '546457E203C0.ms.model.script' // ResultDelivery
+ )
+ ; // Depends
+
+ENDME // ME_545C74760255 ExportDelivery

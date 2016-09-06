@@ -1,0 +1,93 @@
+// VCMSandBox 521649770277 VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_521649770277
+
+FORWARD ME_52164E4B0028
+
+ME ME_52164E880101
+ MEPROP UID '52164E880101'
+ MEPROP Name 'VCMSandBoxTitle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52164E4B0028 // Local
+ ;
+ MEPROP Value '''Тестовое приложение VCM'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Тестовое приложение VCM'''
+
+ENDME // ME_52164E880101 VCMSandBoxTitle
+
+ME ME_52164E4B0028
+ MEPROP UID '52164E4B0028'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521649770277 // VCMSandBox
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52164E880101 // VCMSandBoxTitle
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_52164E4B0028 Local
+
+ME ME_521649AB009E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_521649770277 // VCMSandBox
+ ;
+ MELINK Target WL 'ME_5216340000E6' '5216340000E6.ms.model.script' // Document$UC
+ ;
+
+ENDME // ME_521649AB009E 
+
+ME ME_521DA6AD01CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_521649770277 // VCMSandBox
+ ;
+ MELINK Target WL 'ME_521DA5BA002C' '521DA5BA002C.ms.model.script' // List$UC
+ ;
+
+ENDME // ME_521DA6AD01CA 
+
+ME ME_521649770277
+ MEPROP UID '521649770277'
+ MEPROP Name 'VCMSandBox'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тестовое приложение VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_521649450152' '521649450152.ms.model.script' // VCMSandBox
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_52164E4B0028 // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_521649AB009E // Document$UC
+ ME_521DA6AD01CA // List$UC
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TVCMSandBoxRes'
+ UP extprop:pas:UnitName 'VCMSandBoxRes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VCMSandBoxRes'
+ UP intf.pas:Path 'common\components\SandBox\VCM\VCMSandBoxRes.pas'
+
+ENDME // ME_521649770277 VCMSandBox

@@ -1,0 +1,424 @@
+// Runner 4AC347B00177 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC347B00177
+
+FORWARD ME_4AC347FD023D
+
+FORWARD ME_4AC34A32013D
+
+ME ME_4AC34A3C014C
+ MEPROP UID '4AC34A3C014C'
+ MEPROP Name 'CLP_LOGIN'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''login'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''login'''
+
+ENDME // ME_4AC34A3C014C CLP_LOGIN
+
+ME ME_4AC34A47014C
+ MEPROP UID '4AC34A47014C'
+ MEPROP Name 'CLP_PASSWORD'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''password'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''password'''
+
+ENDME // ME_4AC34A47014C CLP_PASSWORD
+
+ME ME_4AC34A570044
+ MEPROP UID '4AC34A570044'
+ MEPROP Name 'CLP_LOGFILENAME'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''log_file'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''log_file'''
+
+ENDME // ME_4AC34A570044 CLP_LOGFILENAME
+
+ME ME_4AC34A630040
+ MEPROP UID '4AC34A630040'
+ MEPROP Name 'CLP_SCENARIOFILENAME'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC34A32013D // CLP
+ ;
+ MEPROP Value '''scenario_file'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''scenario_file'''
+
+ENDME // ME_4AC34A630040 CLP_SCENARIOFILENAME
+
+ME ME_4AC34A32013D
+ MEPROP UID '4AC34A32013D'
+ MEPROP Name 'CLP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AC34A3C014C // CLP_LOGIN
+ HWL ME_4AC34A47014C // CLP_PASSWORD
+ HWL ME_4AC34A570044 // CLP_LOGFILENAME
+ HWL ME_4AC34A630040 // CLP_SCENARIOFILENAME
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4AC34A32013D CLP
+
+ME ME_4AC3513A02A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+ MELINK Target WL 'ME_480893AD00F5' '48076E7F0260.ms.model.script' // TCLPType
+ ;
+
+ENDME // ME_4AC3513A02A0 
+
+ME ME_4808976C00AF_ME_4AC347FD023D
+ MELINK Original WL 'ME_4808976C00AF' '48076E7F0260.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4808976C00AF_ME_4AC347FD023D InitParamList
+
+ME ME_4AC347FD023D
+ MEPROP UID '4AC347FD023D'
+ MEPROP Name 'TatAdapterTestCommandLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для  разбора командной строки тестов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC347B00177 // Runner
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4808971F0196' '48076E7F0260.ms.model.script' // TatCommandLine
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4808976C00AF_ME_4AC347FD023D // InitParamList
+ )
+ ; // Implemented
+ MELIST Constants
+   Seq: ( HWL ME_4AC34A32013D // CLP
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AC3513A02A0 // TCLPType
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'atAdapterTestCommandLine'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atAdapterTestCommandLine'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Runner\atAdapterTestCommandLine.pas'
+
+ENDME // ME_4AC347FD023D TatAdapterTestCommandLine
+
+FORWARD ME_4AC3488802F7
+
+ME ME_4AC3496C017D
+ MEPROP UID '4AC3496C017D'
+ MEPROP Name 'ECantCreateScenario'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4AC3496C017D ECantCreateScenario
+
+ME ME_4AC3490A03B0
+ MEPROP UID '4AC3490A03B0'
+ MEPROP Name 'f_UserName'
+ MEPROP Class class_Attribute
+ %SUMMARY 'имя пользователя' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4AC3490A03B0 f_UserName
+
+ME ME_4AC349140120
+ MEPROP UID '4AC349140120'
+ MEPROP Name 'f_Password'
+ MEPROP Class class_Attribute
+ %SUMMARY 'пароль пользователя' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4AC349140120 f_Password
+
+ME ME_4AC348CF02E7
+ MEPROP UID '4AC348CF02E7'
+ MEPROP Name 'f_CommandLine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target HWL ME_4AC347FD023D // TatAdapterTestCommandLine
+ ;
+
+ENDME // ME_4AC348CF02E7 f_CommandLine
+
+ME ME_4AC348F50102
+ MEPROP UID '4AC348F50102'
+ MEPROP Name 'f_Scenario'
+ MEPROP Class class_Attribute
+ %SUMMARY 'выполняемый сценарий (последовательность операций)' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_4808A3EC021F' '480865840083.ms.model.script' // TatScenario
+ ;
+
+ENDME // ME_4AC348F50102 f_Scenario
+
+ME ME_4AC3492402F9
+ MEPROP UID '4AC3492402F9'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4AC3492402F9 Init
+
+ME ME_4AC349310110
+ MEPROP UID '4AC349310110'
+ MEPROP Name 'CreateScenario'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ENDME // ME_4AC349310110 CreateScenario
+
+ME ME_4AC3494000AA
+ MEPROP UID '4AC3494000AA'
+ MEPROP Name 'PlayScenario'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ENDME // ME_4AC3494000AA PlayScenario
+
+ME ME_4AC3494903C7
+ MEPROP UID '4AC3494903C7'
+ MEPROP Name 'Start'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ENDME // ME_4AC3494903C7 Start
+
+ME ME_4AC3495102C1
+ MEPROP UID '4AC3495102C1'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+
+ENDME // ME_4AC3495102C1 Create
+
+ME ME_4AC349E00380
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_4808B6A20344' '48076E7F0260.ms.model.script' // atLogger
+ ;
+
+ENDME // ME_4AC349E00380 
+
+ME ME_4AC34A7D03AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target HWL ME_4AC34A32013D // CLP
+ ;
+
+ENDME // ME_4AC34A7D03AF 
+
+ME ME_4AC34AA002F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AC34AA002F2 
+
+ME ME_4AC351D70222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_483EC52400C9' '480865840083.ms.model.script' // TatXMLScenarioGenerator
+ ;
+
+ENDME // ME_4AC351D70222 
+
+ME ME_4AC351F20032
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC3488802F7 // TatAdapterTest
+ ;
+ MELINK Target WL 'ME_4808A6A50028' '480865840083.ms.model.script' // TatScenarioPlayer
+ ;
+
+ENDME // ME_4AC351F20032 
+
+ME ME_48077504027E_ME_4AC3488802F7
+ MELINK Original WL 'ME_48077504027E' '4AB0C3C60310.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_4AC3488802F7 Destroy
+
+ME ME_4AC3488802F7
+ MEPROP UID '4AC3488802F7'
+ MEPROP Name 'TatAdapterTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс, через который пускается приложение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC347B00177 // Runner
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC3490A03B0 // f_UserName
+ HWL ME_4AC349140120 // f_Password
+ HWL ME_4AC348CF02E7 // f_CommandLine
+ HWL ME_4AC348F50102 // f_Scenario
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC3492402F9 // Init
+ HWL ME_4AC349310110 // CreateScenario
+ HWL ME_4AC3494000AA // PlayScenario
+ HWL ME_4AC3494903C7 // Start
+ HWL ME_4AC3495102C1 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4AC3488802F7 // Destroy
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4AC3496C017D // ECantCreateScenario
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AC349E00380 // atLogger
+ ME_4AC34A7D03AF // CLP
+ ME_4AC34AA002F2 // SysUtils
+ ME_4AC351D70222 // TatXMLScenarioGenerator
+ ME_4AC351F20032 // TatScenarioPlayer
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'atAdapterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'atAdapterTest'
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Runner\atAdapterTest.pas'
+
+ENDME // ME_4AC3488802F7 TatAdapterTest
+
+ME ME_4AC347B00177
+ MEPROP UID '4AC347B00177'
+ MEPROP Name 'Runner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48075C0E02DE' '48075C0E02DE.ms.model.script' // AdapterTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AC347FD023D // TatAdapterTestCommandLine
+ HWL ME_4AC3488802F7 // TatAdapterTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_48076E7F0260' '48076E7F0260.ms.model.script' // CoreObjects
+ WL 'ME_480865840083' '480865840083.ms.model.script' // OperationsFramework
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "path prefix" '/Runner'
+ UP intf.pas:PathOnly '\quality\test\garant6x\AdapterTest\Runner'
+
+ENDME // ME_4AC347B00177 Runner

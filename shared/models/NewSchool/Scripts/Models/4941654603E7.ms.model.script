@@ -1,0 +1,74 @@
+// TsdsCommonDiction 4941654603E7 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4941654603E7
+
+ME ME_4941657B03CE
+ MEPROP UID '4941657B03CE'
+ MEPROP Name 'SetDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4941654603E7 // TsdsCommonDiction
+ ;
+ MELINK Target WL 'ME_492545F700BF' '492540AF02CD.ms.model.script' // IdCommonDiction
+ ;
+
+ENDME // ME_4941657B03CE SetDataType
+
+ME ME_4D81DFB400BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4941654603E7 // TsdsCommonDiction
+ ;
+ MELINK Target WL 'ME_4923F66E0262' '4923F66E0262.ms.model.script' // TdsSaveLoad
+ ;
+
+ENDME // ME_4D81DFB400BD 
+
+ME ME_47F3778403D9_ME_4941654603E7
+ MELINK Original WL 'ME_47F3778403D9' '47D0E1500033.ms.model.script' // MakeData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F3778403D9_ME_4941654603E7 MakeData
+
+ME ME_4941654603E7
+ MEPROP UID '4941654603E7'
+ MEPROP Name 'TsdsCommonDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обобщённый словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_492543E30278' '492543E30278.ms.model.script' // CommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4936B666032A' '4936B666032A.ms.model.script' // sdsCommonDiction
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4941657B03CE // SetDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F3778403D9_ME_4941654603E7 // MakeData
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4D81DFB400BD // TdsSaveLoad
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '11.12.2008 22:09'
+ UP extprop:pas:UnitName 'sdsCommonDiction'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsCommonDiction'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\CommonDiction\sdsCommonDiction.pas'
+
+ENDME // ME_4941654603E7 TsdsCommonDiction

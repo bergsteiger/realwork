@@ -88,6 +88,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4808B6A20344impl_uses*
+ //#UC END# *4808B6A20344impl_uses*
 ;
 
 procedure TatLogger.AddMessage(msgType: TatLogMessageType;

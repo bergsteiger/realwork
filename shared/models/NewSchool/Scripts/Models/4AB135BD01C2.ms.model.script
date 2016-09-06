@@ -1,0 +1,90 @@
+// TurnOnTimeMachine 4AB135BD01C2 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_09001A7C3CCE
+
+FORWARD ME_4AB135BD01C2
+
+ME ME_6E555D981AA9
+ MEPROP UID '6E555D981AA9'
+ MEPROP Name 'ut_TurnOnTimeMachine'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Включить Машину времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB135BD01C2 // TurnOnTimeMachine
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_ut_TurnOnTimeMachine_UserType.pas'
+
+ENDME // ME_6E555D981AA9 ut_TurnOnTimeMachine
+
+ME ME_09001A7C3CCE
+ MEPROP UID '09001A7C3CCE'
+ MEPROP GUID 'A410D5AE-D083-4A07-A820-B7E6DCB07A55'
+ MEPROP Name 'TurnOnTimeMachine'
+ MEPROP OriginalName 'TurnOnTimeMachine$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы TurnOnTimeMachine' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB135BD01C2 // TurnOnTimeMachine
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AB135BD01C2 // TurnOnTimeMachine
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'TurnOnTimeMachineFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_09001A7C3CCE TurnOnTimeMachine$Def
+
+ME ME_4AB135BD01C2
+ MEPROP UID '4AB135BD01C2'
+ MEPROP Name 'TurnOnTimeMachine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Включить Машину времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8A1B5C0356' '4C8A1B5C0356.ms.model.script' // PrimTurnOnTimeMachineOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_09001A7C3CCE // TurnOnTimeMachine$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_6E555D981AA9 // ut_TurnOnTimeMachine
+ HWL ME_09001A7C3CCE // TurnOnTimeMachine$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "form name prefix" 'en_'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Modal'
+ UP extprop:pas:TypeName 'Ten_TurnOnTimeMachine'
+ UP extprop:pas:UnitName 'TurnOnTimeMachine_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'en_TurnOnTimeMachine'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\TurnOnTimeMachine_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_4AB135BD01C2 TurnOnTimeMachine

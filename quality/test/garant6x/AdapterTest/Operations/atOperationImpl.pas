@@ -62,6 +62,8 @@ uses
  , atJurQueryTestOperation
  , atSaveListToFileOperation
  , atCompareSavedListOperation
+ //#UC START# *4AC1FBBB0248impl_uses*
+ //#UC END# *4AC1FBBB0248impl_uses*
 ;
 
 initialization

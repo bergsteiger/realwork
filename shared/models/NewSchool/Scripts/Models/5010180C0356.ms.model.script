@@ -1,0 +1,30 @@
+// TsdsDocument 5010180C0356 UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_5010180C0356
+ MEPROP UID '5010180C0356'
+ MEPROP Name 'TsdsDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контроллер прецедента "Просмотр документа"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9F83AD0235' '4A9F83AD0235.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_493E5C580280' '493E5C580280.ms.model.script' // sdsDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_48490152021B' '484900780017.ms.model.script' // Просмотр документа
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'sdsDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsDocument'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Document\sdsDocument.pas'
+
+ENDME // ME_5010180C0356 TsdsDocument

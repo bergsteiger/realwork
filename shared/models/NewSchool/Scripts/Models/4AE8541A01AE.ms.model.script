@@ -1,0 +1,882 @@
+// TvtLabel 4AE8541A01AE GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F29240F0204
+
+FORWARD ME_4AE8541A01AE
+
+FORWARD ME_4F2923CF0065
+
+ME ME_4F2923E3022B
+ MEPROP UID '4F2923E3022B'
+ MEPROP Name 'ddHorizontal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2923CF0065 // TvtDrawDirection
+ ;
+
+ENDME // ME_4F2923E3022B ddHorizontal
+
+ME ME_4F2923FE001F
+ MEPROP UID '4F2923FE001F'
+ MEPROP Name 'ddVertical'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2923CF0065 // TvtDrawDirection
+ ;
+
+ENDME // ME_4F2923FE001F ddVertical
+
+ME ME_4F2923CF0065
+ MEPROP UID '4F2923CF0065'
+ MEPROP Name 'TvtDrawDirection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F2923E3022B // ddHorizontal
+ HWL ME_4F2923FE001F // ddVertical
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4F2923CF0065 TvtDrawDirection
+
+FORWARD ME_50253C0401F1
+
+ME ME_4F292A6A030D
+ MEPROP UID '4F292A6A030D'
+ MEPROP Name '_UnknownIsComponent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50253C0401F1 // TvtCustomLabelPrim
+ ;
+
+ENDME // ME_4F292A6A030D _UnknownIsComponent
+
+ME ME_50253C0401F1
+ MEPROP UID '50253C0401F1'
+ MEPROP Name 'TvtCustomLabelPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
+ WL 'ME_4F29268F035C' '4799D29F033F.ms.model.script' // TCustomLabel
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4F292A6A030D // _UnknownIsComponent
+ )
+ ; // Children
+ UP "need UC" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LabelPrim'
+
+ENDME // ME_50253C0401F1 TvtCustomLabelPrim
+
+ME ME_4F3001650077
+ MEPROP UID '4F3001650077'
+ MEPROP Name 'THackLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48BBF59C024E' '4799D29F033F.ms.model.script' // TControlActionLink
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackLink'
+
+ENDME // ME_4F3001650077 THackLink
+
+ME ME_4F2A579F0395
+ MEPROP UID '4F2A579F0395'
+ MEPROP Name 'EndEllipsis'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP extprop:pas:Value False
+
+ENDME // ME_4F2A579F0395 EndEllipsis
+
+ME ME_4F292C0E0226
+ MEPROP UID '4F292C0E0226'
+ MEPROP Name 'CCaption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "inherits setter from some ancestor" True
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4F292C0E0226 CCaption
+
+ME ME_4F292C9602CF
+ MEPROP UID '4F292C9602CF'
+ MEPROP Name 'VerticalAligment'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_467BC89800B9' '469D0AC7005E.ms.model.script' // VerticalAligment
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4F292C9602CF VerticalAligment
+
+ME ME_4F29378D03C8
+ MEPROP UID '4F29378D03C8'
+ MEPROP Name 'f_Canvas'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_4F29376B00C7' '473C3BEE0334.ms.model.script' // Tl3GraphicControlCanvas
+ ;
+
+ENDME // ME_4F29378D03C8 f_Canvas
+
+ME ME_4F2938060364
+ MEPROP UID '4F2938060364'
+ MEPROP Name 'f_InAdjustBounds'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F2938060364 f_InAdjustBounds
+
+ME ME_4F29387A0298
+ MEPROP UID '4F29387A0298'
+ MEPROP Name 'DrawDirection'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target HWL ME_4F2923CF0065 // TvtDrawDirection
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4F29387A0298 DrawDirection
+
+ME ME_4F2A554F01F4
+ MEPROP UID '4F2A554F01F4'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_46A616080197' '4677FBA70343.ms.model.script' // Tl3DString
+ ;
+ UP "needs field" True
+ UP "needs stored directive" True
+ UP "pm" True
+
+ENDME // ME_4F2A554F01F4 Caption
+
+FORWARD ME_4F2932F103B5
+
+ME ME_4F29330D01C2
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4F29330D01C2 Msg
+
+ME ME_4F2932F103B5
+ MEPROP UID '4F2932F103B5'
+ MEPROP Name 'WMGetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F29330D01C2 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GetText'
+
+ENDME // ME_4F2932F103B5 WMGetText
+
+FORWARD ME_4F2933200190
+
+ME ME_4F29332D0041
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4F29332D0041 Msg
+
+ME ME_4F2933200190
+ MEPROP UID '4F2933200190'
+ MEPROP Name 'WMGetTextLength'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F29332D0041 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_GetTextLength'
+
+ENDME // ME_4F2933200190 WMGetTextLength
+
+FORWARD ME_4F293E2A012A
+
+ME ME_4F293E510080
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4F293E510080 Msg
+
+ME ME_4F293E2A012A
+ MEPROP UID '4F293E2A012A'
+ MEPROP Name 'WMSetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F293E510080 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SetText'
+
+ENDME // ME_4F293E2A012A WMSetText
+
+FORWARD ME_4F293EBE00D9
+
+ME ME_4F2A51A101EE
+ MEPROP Name 'aGUID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_4F2A51A101EE aGUID
+
+ME ME_4F293EBE00D9
+ MEPROP UID '4F293EBE00D9'
+ MEPROP Name 'CheckStamp'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2A51A101EE // aGUID
+ )
+ ; // Parameters
+ UP "ifdef" 'DesignTimeLibrary'
+
+ENDME // ME_4F293EBE00D9 CheckStamp
+
+ME ME_4F2FF7FC03C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_4CF4D5F9022D' '54B90AC6014B.ms.model.script' // l3DStr
+ ;
+
+ENDME // ME_4F2FF7FC03C8 
+
+ME ME_4F300668000C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_47E1227902E1' '47877A6F000A.ms.model.script' // afwVCL
+ ;
+
+ENDME // ME_4F300668000C 
+
+ME ME_4F300C5600DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_46A61216025F' '55C4AEC801CA.ms.model.script' // TFontStyles
+ ;
+
+ENDME // ME_4F300C5600DA 
+
+ME ME_4F300CB30148
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_4F300CB30148 
+
+ME ME_4F30F698003A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F29240F0204 // TvtCustomLabel
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4F30F698003A 
+
+ME ME_473DAC05025F_ME_4F29240F0204
+ MELINK Original WL 'ME_473DAC05025F' '467823B7002C.ms.model.script' // CCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_473DAC05025F_ME_4F29240F0204 CCaption
+
+ME ME_479731C50290_ME_4F29240F0204
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4F29240F0204 Cleanup
+
+ME ME_47D1602000C6_ME_4F29240F0204
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4F29240F0204 Create
+
+ME ME_4F2A44BC0297_ME_4F29240F0204
+ MELINK Original WL 'ME_4F2A44BC0297' '4799D29F033F.ms.model.script' // AdjustBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A44BC0297_ME_4F29240F0204 AdjustBounds
+
+ME ME_4F2A45C40091_ME_4F29240F0204
+ MELINK Original WL 'ME_4F2A45C40091' '4799D29F033F.ms.model.script' // GetLabelText
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef" 'l3HackedVCL'
+ENDME // ME_4F2A45C40091_ME_4F29240F0204 GetLabelText
+
+ME ME_4F2A461702D8_ME_4F29240F0204
+ MELINK Original WL 'ME_4F2A461702D8' '4799D29F033F.ms.model.script' // DoDrawText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A461702D8_ME_4F29240F0204 DoDrawText
+
+ME ME_4F2A599E0283_ME_4F29240F0204
+ MELINK Original WL 'ME_4F2A599E0283' '4799D29F033F.ms.model.script' // SetBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A599E0283_ME_4F29240F0204 SetBounds
+
+ME ME_4F29240F0204
+ MEPROP UID '4F29240F0204'
+ MEPROP Name 'TvtCustomLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50253C0401F1 // TvtCustomLabelPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_473DABFA029F' '467823B7002C.ms.model.script' // IafwTextControl
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F2A579F0395 // EndEllipsis
+ HWL ME_4F292C0E0226 // CCaption
+ HWL ME_4F292C9602CF // VerticalAligment
+ HWL ME_4F29378D03C8 // f_Canvas
+ HWL ME_4F2938060364 // f_InAdjustBounds
+ HWL ME_4F29387A0298 // DrawDirection
+ HWL ME_4F2A554F01F4 // Caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F2932F103B5 // WMGetText
+ HWL ME_4F2933200190 // WMGetTextLength
+ HWL ME_4F293E2A012A // WMSetText
+ HWL ME_4F293EBE00D9 // CheckStamp
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_473DAC05025F_ME_4F29240F0204 // CCaption
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F29240F0204 // Cleanup
+ ME_47D1602000C6_ME_4F29240F0204 // Create
+ ME_4F2A44BC0297_ME_4F29240F0204 // AdjustBounds
+ ME_4F2A45C40091_ME_4F29240F0204 // GetLabelText
+ ME_4F2A461702D8_ME_4F29240F0204 // DoDrawText
+ ME_4F2A599E0283_ME_4F29240F0204 // SetBounds
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F2FF7FC03C8 // l3DStr
+ ME_4F300668000C // afwVCL
+ ME_4F300C5600DA // TFontStyles
+ ME_4F300CB30148 // Tl3PCharLen
+ ME_4F30F698003A // l3MinMax
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '03.02.2012'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Label'
+
+ENDME // ME_4F29240F0204 TvtCustomLabel
+
+FORWARD ME_5703BF610068
+
+ME ME_5703BFB901D4
+ MEPROP UID '5703BFB901D4'
+ MEPROP Name 'StyleId'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ MELINK Target WL 'ME_46A107D600F2' '4677FBA70343.ms.model.script' // Tl3StyleId
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5703BFB901D4 StyleId
+
+ME ME_5703C05700F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ ;
+
+ENDME // ME_5703C05700F1 
+
+ME ME_5703C11F028E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_5703C11F028E 
+
+ME ME_5703C1B30268
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ MELINK Target WL 'ME_47ECB297037D' '47ECB2870309.ms.model.script' // evStyleTableSpy
+ ;
+
+ENDME // ME_5703C1B30268 
+
+ME ME_5703C26B01A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5703BF610068 // TvtStyledLabel
+ ;
+ MELINK Target WL 'ME_484D2CBA0213' '484A470100DD.ms.model.script' // TextStyle
+ ;
+
+ENDME // ME_5703C26B01A6 
+
+ME ME_467D2CB10135_ME_5703BF610068
+ MELINK Original WL 'ME_467D2CB10135' '467823B7002C.ms.model.script' // StyleTableChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_467D2CB10135_ME_5703BF610068 StyleTableChanged
+
+ME ME_479731C50290_ME_5703BF610068
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5703BF610068 Cleanup
+
+ME ME_47D1602000C6_ME_5703BF610068
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_5703BF610068 Create
+
+ME ME_5703BF610068
+ MEPROP UID '5703BF610068'
+ MEPROP Name 'TvtStyledLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метка, которая следит за таблицей стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F29240F0204 // TvtCustomLabel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5703BFB901D4 // StyleId
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_467D2CB10135_ME_5703BF610068 // StyleTableChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5703BF610068 // Cleanup
+ ME_47D1602000C6_ME_5703BF610068 // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5703C05700F1 // TevStyleInterface
+ ME_5703C11F028E // TextPara
+ ME_5703C1B30268 // evStyleTableSpy
+ ME_5703C26B01A6 // TextStyle
+ )
+ ; // Dependencies
+ UP "author" 'Костицын'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '05.04.2016'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StyledLabel'
+
+ENDME // ME_5703BF610068 TvtStyledLabel
+
+FORWARD ME_57039747002E
+
+FORWARD ME_570397920075
+
+ME ME_570397A5009A
+ MEPROP UID '570397A5009A'
+ MEPROP Name 'ipLeft'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_570397920075 // TvtImagePosition
+ ;
+
+ENDME // ME_570397A5009A ipLeft
+
+ME ME_570397AB038D
+ MEPROP UID '570397AB038D'
+ MEPROP Name 'ipRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_570397920075 // TvtImagePosition
+ ;
+
+ENDME // ME_570397AB038D ipRight
+
+ME ME_570397920075
+ MEPROP UID '570397920075'
+ MEPROP Name 'TvtImagePosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_570397A5009A // ipLeft
+ HWL ME_570397AB038D // ipRight
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_570397920075 TvtImagePosition
+
+ME ME_570397B90044
+ MEPROP UID '570397B90044'
+ MEPROP Name 'ImagePosition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ MELINK Target HWL ME_570397920075 // TvtImagePosition
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_570397B90044 ImagePosition
+
+ME ME_570397F60218
+ MEPROP UID '570397F60218'
+ MEPROP Name 'ImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_570397F60218 ImageIndex
+
+ME ME_5703987900FF
+ MEPROP UID '5703987900FF'
+ MEPROP Name 'ImageList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5703987900FF ImageList
+
+ME ME_5703992E00B1
+ MEPROP UID '5703992E00B1'
+ MEPROP Name 'f_ImageChangeLink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ MELINK Target WL 'ME_47881A17009F' '4799D29F033F.ms.model.script' // TChangeLink
+ ;
+
+ENDME // ME_5703992E00B1 f_ImageChangeLink
+
+ME ME_5703994301BB
+ MEPROP UID '5703994301BB'
+ MEPROP Name 'ImageIndent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5703994301BB ImageIndent
+
+ME ME_570398B70100
+ MEPROP UID '570398B70100'
+ MEPROP Name 'OnImageListChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57039747002E // TvtImageLabel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_570398B70100 OnImageListChange
+
+ME ME_479731C50290_ME_57039747002E
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57039747002E Cleanup
+
+ME ME_47D1602000C6_ME_57039747002E
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57039747002E Create
+
+ME ME_4F2A44BC0297_ME_57039747002E
+ MELINK Original WL 'ME_4F2A44BC0297' '4799D29F033F.ms.model.script' // AdjustBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A44BC0297_ME_57039747002E AdjustBounds
+
+ME ME_4F2A461702D8_ME_57039747002E
+ MELINK Original WL 'ME_4F2A461702D8' '4799D29F033F.ms.model.script' // DoDrawText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A461702D8_ME_57039747002E DoDrawText
+
+ME ME_57039747002E
+ MEPROP UID '57039747002E'
+ MEPROP Name 'TvtImageLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метка с иконкой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8541A01AE // TvtLabel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5703BF610068 // TvtStyledLabel
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_570397B90044 // ImagePosition
+ HWL ME_570397F60218 // ImageIndex
+ HWL ME_5703987900FF // ImageList
+ HWL ME_5703992E00B1 // f_ImageChangeLink
+ HWL ME_5703994301BB // ImageIndent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_570398B70100 // OnImageListChange
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57039747002E // Cleanup
+ ME_47D1602000C6_ME_57039747002E // Create
+ ME_4F2A44BC0297_ME_57039747002E // AdjustBounds
+ ME_4F2A461702D8_ME_57039747002E // DoDrawText
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_570397920075 // TvtImagePosition
+ )
+ ; // Children
+ UP "author" 'Костицын'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '05.04.2016'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ImageLabel'
+
+ENDME // ME_57039747002E TvtImageLabel
+
+ME ME_4AE8541A01AE
+ MEPROP UID '4AE8541A01AE'
+ MEPROP Name 'TvtLabel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9B9BAA0207' '4A9B9BAA0207.ms.model.script' // Labels
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F29240F0204 // TvtCustomLabel
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4F2923CF0065 // TvtDrawDirection
+ HWL ME_50253C0401F1 // TvtCustomLabelPrim
+ HWL ME_4F3001650077 // THackLink
+ HWL ME_4F29240F0204 // TvtCustomLabel
+ HWL ME_5703BF610068 // TvtStyledLabel
+ HWL ME_57039747002E // TvtImageLabel
+ )
+ ; // Children
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '03.02.2012'
+ UP extprop:pas:UnitName 'vtLabel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Label'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtLabel.pas'
+
+ENDME // ME_4AE8541A01AE TvtLabel

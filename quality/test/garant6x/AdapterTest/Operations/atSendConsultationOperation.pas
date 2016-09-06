@@ -29,6 +29,8 @@ uses
  , SysUtils
  , Math
  , atCommon
+ //#UC START# *4A54BDC0001Eimpl_uses*
+ //#UC END# *4A54BDC0001Eimpl_uses*
 ;
 
 procedure TatSendConsultationOperation.ExecuteSelf;

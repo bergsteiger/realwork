@@ -1,0 +1,147 @@
+// TdsDictionDocument 491D5BE30111 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D5BE30111
+
+ME ME_4978A9500393
+ MEPROP UID '4978A9500393'
+ MEPROP Name 'Diction'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
+ ;
+ MELINK Target WL 'ME_493682F9024E' '491D57C802CD.ms.model.script' // IsdsDiction
+ ;
+
+ENDME // ME_4978A9500393 Diction
+
+ME ME_491D5F6F0205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_491D5F6F0205 
+
+ME ME_4CE662DB0093
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
+ ;
+ MELINK Target WL 'ME_4CE662B803DA' '4D358BD90052.ms.model.script' // TnsDictionDocumentContainer
+ ;
+
+ENDME // ME_4CE662DB0093 
+
+ME ME_4D82228902B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
+ ;
+ MELINK Target WL 'ME_47FAFA9601C8' '48F747EC0073.ms.model.script' // bsConst
+ ;
+
+ENDME // ME_4D82228902B1 
+
+ME ME_4D8222A50084
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4D8222A50084 
+
+ME ME_4D8222C700CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D5BE30111 // TdsDictionDocument
+ ;
+ MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ ;
+
+ENDME // ME_4D8222C700CA 
+
+ME ME_491D58670154_ME_491D5BE30111
+ MELINK Original WL 'ME_491D58670154' '4AC238AF03B8.ms.model.script' // OpenLiteratureList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_491D58670154_ME_491D5BE30111 OpenLiteratureList
+
+ME ME_491D58890177_ME_491D5BE30111
+ MELINK Original WL 'ME_491D58890177' '4AC238AF03B8.ms.model.script' // IsMainDiction
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_491D58890177_ME_491D5BE30111 IsMainDiction
+
+ME ME_491C264C02C2_ME_491D5BE30111
+ MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C264C02C2_ME_491D5BE30111 GetTimeMachineOff
+
+ME ME_4C6AB38800F3_ME_491D5BE30111
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_491D5BE30111 MakeContainer
+
+ME ME_491D5BE30111
+ MEPROP UID '491D5BE30111'
+ MEPROP Name 'TdsDictionDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ толкового словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491D5B360381' '491D5B360381.ms.model.script' // Diction
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA20430108' '47EA20430108.ms.model.script' // dsBaseDocumentPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_491D5824017E' '4AC238AF03B8.ms.model.script' // IdsDictionDocument
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4978A9500393 // Diction
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491D58670154_ME_491D5BE30111 // OpenLiteratureList
+ ME_491D58890177_ME_491D5BE30111 // IsMainDiction
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_491C264C02C2_ME_491D5BE30111 // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491D5BE30111 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_491D5F6F0205 // DataAdapter
+ ME_4CE662DB0093 // TnsDictionDocumentContainer
+ ME_4D82228902B1 // bsConst
+ ME_4D8222A50084 // nsConst
+ ME_4D8222C700CA // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '07.10.2005 17.02'
+ UP extprop:pas:UnitName 'dsDictionDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsDictionDocument'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Diction\dsDictionDocument.pas'
+
+ENDME // ME_491D5BE30111 TdsDictionDocument

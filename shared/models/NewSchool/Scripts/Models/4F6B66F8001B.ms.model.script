@@ -1,0 +1,67 @@
+// FormDefinitions 4F6B66F8001B VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B66F8001B
+
+ME ME_4F6B670E017C
+ MEPROP UID '4F6B670E017C'
+ MEPROP GUID 'CFF21CFB-D277-44C2-940B-C1A99F33511F'
+ MEPROP Name 'Child'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6B66F8001B // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4F6B66DB0384' '4F6B66DB0384.ms.model.script' // Child
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ChildFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4F6B670E017C Child
+
+ME ME_4F6B6714032D
+ MEPROP UID '4F6B6714032D'
+ MEPROP GUID 'DEC20464-3FB2-4ABC-921C-08A93E75DAD5'
+ MEPROP Name 'Parent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6B66F8001B // FormDefinitions
+ ;
+ MELIST Implementors
+   Seq: ( WL 'ME_4F6B66CB0200' '4F6B66CB0200.ms.model.script' // Parent
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ParentFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4F6B6714032D Parent
+
+ME ME_4F6B66F8001B
+ MEPROP UID '4F6B66F8001B'
+ MEPROP Name 'FormDefinitions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F6B660100D5' '4F6B660100D5.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F6B670E017C // Child
+ HWL ME_4F6B6714032D // Parent
+ )
+ ; // Children
+ UP "is namespace" True
+ UP "UseNewGen" True
+ UP extprop:pas:UnitName 'F1Like_FormDefinitions_Controls'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\F1Like_FormDefinitions_Controls.pas'
+
+ENDME // ME_4F6B66F8001B FormDefinitions

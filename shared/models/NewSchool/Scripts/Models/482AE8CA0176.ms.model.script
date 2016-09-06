@@ -1,0 +1,65 @@
+// TctButtonEdit 482AE8CA0176 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482AE8CA0176
+
+ME ME_482AE97A02F7
+ MEPROP UID '482AE97A02F7'
+ MEPROP Name 'Text'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_482AE8CA0176 // TctButtonEdit
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_482AE97A02F7 Text
+
+ME ME_487B571601F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_482AE8CA0176 // TctButtonEdit
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_487B571601F2 
+
+ME ME_482AE8CA0176
+ MEPROP UID '482AE8CA0176'
+ MEPROP Name 'TctButtonEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48342A280198' '48342A280198.ms.model.script' // elClone
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482ACFA703C2' '482ACFA703C2.ms.model.script' // TelCustomButtonEdit
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_482AE97A02F7 // Text
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_487B571601F2 // l3String
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '14.05.2008 17:28'
+ UP extprop:pas:UnitName 'ctButtonEdit'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ctButtonEdit'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\ctButtonEdit.pas'
+
+ENDME // ME_482AE8CA0176 TctButtonEdit

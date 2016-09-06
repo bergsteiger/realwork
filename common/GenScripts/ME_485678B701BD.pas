@@ -64,6 +64,8 @@ uses
  , evInevDrawingShapeMapper
  {$IfEnd} // Defined(evNeedPainters)
  , evInevParaMapper
+ //#UC START# *485678B701BDimpl_uses*
+ //#UC END# *485678B701BDimpl_uses*
 ;
 
 function TevParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

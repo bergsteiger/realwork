@@ -42,6 +42,8 @@ uses
  , evdStyles
  , k2Tags
  , TextPara_Const
+ //#UC START# *4B6AE7650002impl_uses*
+ //#UC END# *4B6AE7650002impl_uses*
 ;
 
 class function TatUserComment.Make: IatUserComment;

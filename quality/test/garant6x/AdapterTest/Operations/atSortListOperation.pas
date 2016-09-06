@@ -28,6 +28,8 @@ uses
  , atLogger
  , BaseTypesUnit
  , atListHelper
+ //#UC START# *4A4CDBBD01E5impl_uses*
+ //#UC END# *4A4CDBBD01E5impl_uses*
 ;
 
 procedure TatSortListOperation.ExecuteSelf;

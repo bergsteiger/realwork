@@ -1,0 +1,80 @@
+// PipeIn 5199EF4C0227 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5199EF4C0227
+
+FORWARD ME_5199EF87030A
+
+ME ME_5199EFF70361
+ MEPROP UID '5199EFF70361'
+ MEPROP Name 'TddImportPipe'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5199EF87030A // ddImportPipe
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddImportPipe'
+
+ENDME // ME_5199EFF70361 TddImportPipe
+
+ME ME_5199EF87030A
+ MEPROP UID '5199EF87030A'
+ MEPROP Name 'ddImportPipe'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5199EF4C0227 // PipeIn
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5199EFF70361 // TddImportPipe
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddImportPipe.pas'
+
+ENDME // ME_5199EF87030A ddImportPipe
+
+ME ME_519C8DFA0223
+ MEPROP UID '519C8DFA0223'
+ MEPROP Name 'TddFileIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5199EF4C0227 // PipeIn
+ ;
+ UP "finished" False
+ UP extprop:pas:UnitName 'ddFileIterator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddFileIterator'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\PipeIn\NOT_FINISHED_ddFileIterator.pas'
+
+ENDME // ME_519C8DFA0223 TddFileIterator
+
+ME ME_5199EF4C0227
+ MEPROP UID '5199EF4C0227'
+ MEPROP Name 'PipeIn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5199EF87030A // ddImportPipe
+ HWL ME_519C8DFA0223 // TddFileIterator
+ )
+ ; // Children
+ UP "path prefix" '/PipeIn'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\dd\PipeIn'
+
+ENDME // ME_5199EF4C0227 PipeIn

@@ -1,0 +1,51 @@
+// TdsDrugListDocument 4933E8FF02C7 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4933E8FF02C7
+
+ME ME_4D357C2102B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4933E8FF02C7 // TdsDrugListDocument
+ ;
+ MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ ;
+
+ENDME // ME_4D357C2102B8 
+
+ME ME_4C6AB38800F3_ME_4933E8FF02C7
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_4933E8FF02C7 MakeContainer
+
+ME ME_4933E8FF02C7
+ MEPROP UID '4933E8FF02C7'
+ MEPROP Name 'TdsDrugListDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47EA01EA0070' '47EA01EA0070.ms.model.script' // sdsDrugList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.ms.model.script' // dsBaseDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C6AB38800F3_ME_4933E8FF02C7 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4D357C2102B8 // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'dsDrugListDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsDrugListDocument'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dsDrugListDocument.pas'
+
+ENDME // ME_4933E8FF02C7 TdsDrugListDocument

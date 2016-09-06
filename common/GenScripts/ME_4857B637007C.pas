@@ -58,6 +58,8 @@ uses
  , nevDocument
  , evDocumentAnchorIndex
  , Document_Const
+ //#UC START# *4857B637007Cimpl_uses*
+ //#UC END# *4857B637007Cimpl_uses*
 ;
 
 function TevDocumentInterfaceFactory.QueryTool(aTag: Tl3Variant;

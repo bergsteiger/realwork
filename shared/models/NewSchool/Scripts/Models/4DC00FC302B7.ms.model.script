@@ -1,0 +1,122 @@
+// MainWindowInterfaces 4DC00FC302B7 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC00FC302B7
+
+FORWARD ME_4DC0100200B7
+
+ME ME_492186B0008F_ME_4DC010300124
+ MELINK Original WL 'ME_492186B0008F' '491B305A0096.ms.model.script' // GenerateWarning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492186B0008F_ME_4DC010300124 GenerateWarning
+
+ME ME_492186D101E0_ME_4DC010300124
+ MELINK Original WL 'ME_492186D101E0' '491B305A0096.ms.model.script' // WarningContent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_492186D101E0_ME_4DC010300124 WarningContent
+
+ME ME_4DF9D63B0360_ME_4DC010300124
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ UP "reflectable" True
+ENDME // ME_4DF9D63B0360_ME_4DC010300124 DocInfo
+
+ME ME_4EFC5A31016E_ME_4DC010300124
+ MELINK Original WL 'ME_4EFC5A31016E' '491B305A0096.ms.model.script' // ForSynchroView
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4EFC5A31016E_ME_4DC010300124 ForSynchroView
+
+ME ME_4DC010300124
+ MEPROP UID '4DC010300124'
+ MEPROP Name 'dsBaloonWarning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Area ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DC0100200B7 // IsdsMainWindow
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4921869901CF' '491B305A0096.ms.model.script' // IdsWarning
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_492186B0008F_ME_4DC010300124 // GenerateWarning
+ ME_492186D101E0_ME_4DC010300124 // WarningContent
+ ME_4DF9D63B0360_ME_4DC010300124 // DocInfo
+ ME_4EFC5A31016E_ME_4DC010300124 // ForSynchroView
+ )
+ ; // Implemented
+ UP "pm" True
+
+ENDME // ME_4DC010300124 dsBaloonWarning
+
+ME ME_493E4F7E039B_ME_4DC0100200B7
+ MELINK Original WL 'ME_493E4F7E039B' '491B305A0096.ms.model.script' // Generate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_493E4F7E039B_ME_4DC0100200B7 Generate
+
+ME ME_4DC0100200B7
+ MEPROP UID '4DC0100200B7'
+ MEPROP GUID '4BABE209-5CE4-4408-B307-6EF460A071E8'
+ MEPROP Name 'IsdsMainWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Основное окно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC00FC302B7 // MainWindowInterfaces
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49218BD80300' '491B305A0096.ms.model.script' // InsWarningGenerator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4DC010300124 // dsBaloonWarning
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_493E4F7E039B_ME_4DC0100200B7 // Generate
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsMainWindow'
+
+ENDME // ME_4DC0100200B7 IsdsMainWindow
+
+ME ME_4DC00FC302B7
+ MEPROP UID '4DC00FC302B7'
+ MEPROP Name 'MainWindowInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DC01054023C' '4DC01054023C.ms.model.script' // MainWindowControllers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DC0100200B7 // IsdsMainWindow
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_4A9F98B901A5' '4A9F98B901A5.ms.model.script' // BaseSearchInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '03.05.2011 18:23'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\MainWindowControllers\MainWindowInterfaces.pas'
+
+ENDME // ME_4DC00FC302B7 MainWindowInterfaces

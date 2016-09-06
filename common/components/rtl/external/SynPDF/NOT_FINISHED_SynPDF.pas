@@ -50,6 +50,8 @@ uses
  , SynZip
  , SynGdiPlus
  , SynLZ
+ //#UC START# *545CBD310006impl_uses*
+ //#UC END# *545CBD310006impl_uses*
 ;
 
 procedure GDICommentStatAAC;

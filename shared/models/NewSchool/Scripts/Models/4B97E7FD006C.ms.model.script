@@ -1,0 +1,293 @@
+// Outliner 4B97E7FD006C Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97E7FD006C
+
+FORWARD ME_514B3C57001F
+
+ME ME_514B3E420328
+ MEPROP UID '514B3E420328'
+ MEPROP Name 'TvtCustomHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_514B3C57001F // vtHeader
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Header'
+
+ENDME // ME_514B3E420328 TvtCustomHeader
+
+ME ME_514B3E4D016E
+ MEPROP UID '514B3E4D016E'
+ MEPROP Name 'TvtHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_514B3C57001F // vtHeader
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_514B3E420328 // TvtCustomHeader
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Header'
+
+ENDME // ME_514B3E4D016E TvtHeader
+
+FORWARD ME_51506507008E
+
+FORWARD ME_515065260173
+
+ME ME_515065300264
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_515065300264 Sender
+
+ME ME_51506530027C
+ MEPROP Name 'Index'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_51506530027C Index
+
+ME ME_515065260173
+ MEPROP UID '515065260173'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51506507008E // TGetItemImageIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_515065300264 // Sender
+ ME_51506530027C // Index
+ )
+ ; // Parameters
+
+ENDME // ME_515065260173 DoIt
+
+ME ME_51506507008E
+ MEPROP UID '51506507008E'
+ MEPROP Name 'TGetItemImageIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_514B3C57001F // vtHeader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_515065260173 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_51506507008E TGetItemImageIndex
+
+ME ME_514B3C57001F
+ MEPROP UID '514B3C57001F'
+ MEPROP Name 'vtHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97E7FD006C // Outliner
+ ;
+ MELIST Children
+   Seq: ( HWL ME_514B3E420328 // TvtCustomHeader
+ HWL ME_514B3E4D016E // TvtHeader
+ HWL ME_51506507008E // TGetItemImageIndex
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:rc:SelfName 'Header'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtHeader.pas'
+
+ENDME // ME_514B3C57001F vtHeader
+
+FORWARD ME_4B97E82200D4
+
+FORWARD ME_4B97E8570381
+
+ME ME_4B97E86702AE
+ MEPROP UID '4B97E86702AE'
+ MEPROP Name 'MultiSelectDraggingText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97E8570381 // TreeViewMessages
+ ;
+ MEPROP Value '''Всего: %d'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Всего: %d'''
+
+ENDME // ME_4B97E86702AE MultiSelectDraggingText
+
+ME ME_4B97E8570381
+ MEPROP UID '4B97E8570381'
+ MEPROP Name 'TreeViewMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97E82200D4 // vtOutlinerWithDragDropRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B97E86702AE // MultiSelectDraggingText
+ )
+ ; // Attributes
+ UP "children prefix" 'nsc_'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'nsc_'
+
+ENDME // ME_4B97E8570381 TreeViewMessages
+
+ME ME_4B97E82200D4
+ MEPROP UID '4B97E82200D4'
+ MEPROP Name 'vtOutlinerWithDragDropRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы для TvtOutlinerWithDragDrop' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97E7FD006C // Outliner
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B97E8570381 // TreeViewMessages
+ )
+ ; // Constants
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.03.2010 21:43'
+ UP extprop:rc:SelfName 'OutlinerWithDragDropRes'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas'
+
+ENDME // ME_4B97E82200D4 vtOutlinerWithDragDropRes
+
+FORWARD ME_515DC39E020D
+
+ME ME_515DC3C003CA
+ MEPROP UID '515DC3C003CA'
+ MEPROP Name 'TvtCustomTreeSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515DC39E020D // TvtTreeSource
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TreeSource'
+
+ENDME // ME_515DC3C003CA TvtCustomTreeSource
+
+ME ME_515DC39E020D
+ MEPROP UID '515DC39E020D'
+ MEPROP Name 'TvtTreeSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B97E7FD006C // Outliner
+ ;
+ MELIST Children
+   Seq: ( HWL ME_515DC3C003CA // TvtCustomTreeSource
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:pas:UnitName 'vtTreeSource'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TreeSource'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtTreeSource.pas'
+
+ENDME // ME_515DC39E020D TvtTreeSource
+
+ME ME_4B97E7FD006C
+ MEPROP UID '4B97E7FD006C'
+ MEPROP Name 'Outliner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
+ ;
+ MELIST Children
+   Seq: ( HWL ME_514B3C57001F // vtHeader
+ HWL ME_4B97E82200D4 // vtOutlinerWithDragDropRes
+ WL 'ME_4CFFE3470249' '4CFFE3470249.ms.model.script' // TvtLister
+ WL 'ME_4B97EA0802EB' '4B97EA0802EB.ms.model.script' // TvtOutlinerWithQuickSearch
+ WL 'ME_4B97E8130272' '4B97E8130272.ms.model.script' // TvtOutlinerWithDragDrop
+ WL 'ME_4D46A125003A' '4D46A125003A.ms.model.script' // TvtOutlinerControl
+ WL 'ME_515DA5860015' '515DA5860015.ms.model.script' // TvtOutliner
+ HWL ME_515DC39E020D // TvtTreeSource
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.ms.model.script' // l3InternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_46A0E6C5023A' '46A0E6C5023A.ms.model.script' // ActiveX
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ WL 'ME_4754101B004F' '4754101B004F.ms.model.script' // OvcBase
+ WL 'ME_476BE98C01B8' '476BE98C01B8.ms.model.script' // l3Chars
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47877A6F000A' '47877A6F000A.ms.model.script' // Visual
+ WL 'ME_4787B0A8007B' '4787B0A8007B.ms.model.script' // l3Except
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4799EC9300AF' '4799EC9300AF.ms.model.script' // l3Defaults
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_47D036150077' '47D036150077.ms.model.script' // l3ControlsTypes
+ WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
+ WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_48D21909003A' '48D21909003A.ms.model.script' // OvcConst
+ WL 'ME_48F4E61C0060' '48F4E61C0060.ms.model.script' // Interfaces
+ WL 'ME_4A3FAF1003DA' '4A3FAF1003DA.ms.model.script' // OvcCmd
+ WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4CC81FAC02D6' '4CC81FAC02D6.ms.model.script' // Core
+ WL 'ME_4E1447600037' '4E1447600037.ms.model.script' // Common
+ WL 'ME_50C61A7F0303' '50C61A7F0303.ms.model.script' // Hints
+ WL 'ME_5159968C00D8' '5159968C00D8.ms.model.script' // TabStops
+ WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+
+ENDME // ME_4B97E7FD006C Outliner

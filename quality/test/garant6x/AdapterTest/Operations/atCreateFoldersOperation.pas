@@ -46,6 +46,8 @@ uses
  , SysUtils
  , Math
  , atCommon
+ //#UC START# *4846994F0144impl_uses*
+ //#UC END# *4846994F0144impl_uses*
 ;
 
 function TatCreateFoldersOperation.CreateAsNTree(const aRootNode: IFoldersNode;

@@ -1,0 +1,1040 @@
+// BaseTreeSupport 456F02A50196 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_456F02A50196
+
+ME ME_456FE6270222
+ MEPROP UID '456FE6270222'
+ MEPROP Name 'EntityType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'идентификатор типа сущности лежащей в Ноде. В каждом конкретном дереве определяется как AdapterEnum' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TEntityType'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_456FE6270222 EntityType
+
+ME ME_456FEB35000F
+ MEPROP UID '456FEB35000F'
+ MEPROP Name 'CopyDisabled'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращается если нода не может быть скопирована.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+
+ENDME // ME_456FEB35000F CopyDisabled
+
+ME ME_456FEB350011
+ MEPROP UID '456FEB350011'
+ MEPROP Name 'InvalidContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вызывается при попытке использовать нодй не являющуюся контенером как контейнер.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+
+ENDME // ME_456FEB350011 InvalidContainer
+
+ME ME_456FEB350013
+ MEPROP UID '456FEB350013'
+ MEPROP Name 'MoveDisabled'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращается если нода не может быть перенесена.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+
+ENDME // ME_456FEB350013 MoveDisabled
+
+ME ME_456FEB350015
+ MEPROP UID '456FEB350015'
+ MEPROP Name 'InvalidEntityType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращается при попытке присвоить одной сущности сущность другого типа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+
+ENDME // ME_456FEB350015 InvalidEntityType
+
+ME ME_456FEB760128
+ MEPROP UID '456FEB760128'
+ MEPROP Name 'InvalidIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращается при попытке получить элемент списка по несуществующему индексу. Т.е. index<0 или index>=count.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+
+ENDME // ME_456FEB760128 InvalidIndex
+
+ME ME_456FEB8C00AB
+ MEPROP UID '456FEB8C00AB'
+ MEPROP Name 'NotEntityElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращается при попытке вызвать операцию open у элемента каталога, не являющегося сущностью (в частности у папки).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+
+ENDME // ME_456FEB8C00AB NotEntityElement
+
+FORWARD ME_456FE63B01D4
+
+ME ME_456FE63B01EF
+ MEPROP UID '456FE63B01EF'
+ MEPROP Name 'level'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Уровень вложенности элемента в древовидной структуре.'#13#10'У root_node=0.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE63B01EF level
+
+ME ME_456FE63B01F0
+ MEPROP UID '456FE63B01F0'
+ MEPROP Name 'child_count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Количество вложенных элементов для текущего (один уровень).'#13#10'У листьевых элементов =0.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE63B01F0 child_count
+
+ME ME_456FE63B01F1
+ MEPROP UID '456FE63B01F1'
+ MEPROP Name 'all_child_count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Количество вложенных элементов для текущего с учетом всех уровней вложенности.'#13#10'У листьевых элементов =0.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE63B01F1 all_child_count
+
+ME ME_456FE63B01F4
+ MEPROP UID '456FE63B01F4'
+ MEPROP Name 'flags'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Поле для передачи дополнительной винарной информации о статусе элемента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE63B01F4 flags
+
+ME ME_456FE63B01F5
+ MEPROP UID '456FE63B01F5'
+ MEPROP Name 'index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Позиция текущего элемента в предке (parent).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE63B01F5 index
+
+ME ME_456FE63B01F6
+ MEPROP UID '456FE63B01F6'
+ MEPROP Name 'through_index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Сквозная позиция элемента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE63B01F6 through_index
+
+ME ME_456FE7BC03C8
+ MEPROP UID '456FE7BC03C8'
+ MEPROP Name 'parent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'родитель' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE7BC03C8 parent
+
+ME ME_456FE82903C8
+ MEPROP UID '456FE82903C8'
+ MEPROP Name 'previous_node'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'предыдущая нода в дереве' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE82903C8 previous_node
+
+ME ME_456FE84E033C
+ MEPROP UID '456FE84E033C'
+ MEPROP Name 'next_node'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'следующая нода в дереве' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ UP "pm" False
+
+ENDME // ME_456FE84E033C next_node
+
+ME ME_457025090261
+ MEPROP UID '457025090261'
+ MEPROP Name 'caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'название' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MELIST CanRaiseInSet
+   Seq: ( WL 'ME_456EB4540177' '456EA56002BF.ms.model.script' // ConstantModify
+ WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ )
+ ; // CanRaiseInSet
+ UP "pm" False
+
+ENDME // ME_457025090261 caption
+
+ME ME_4570251D0119
+ MEPROP UID '4570251D0119'
+ MEPROP Name 'hint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'информация о ноде' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ MELIST CanRaiseInSet
+   Seq: ( WL 'ME_456EB4540177' '456EA56002BF.ms.model.script' // ConstantModify
+ WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ )
+ ; // CanRaiseInSet
+ UP "pm" False
+
+ENDME // ME_4570251D0119 hint
+
+ME ME_457025CB033C
+ MEPROP UID '457025CB033C'
+ MEPROP Name 'object_type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'тип сущности, представляемой нодой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE6270222 // EntityType
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ )
+ ; // CanRaise
+ UP "pm" False
+
+ENDME // ME_457025CB033C object_type
+
+FORWARD ME_456FE63B01D6
+
+ME ME_4628755F034B
+ MEPROP Name 'index'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4628755F034B index
+
+ME ME_456FE63B01D6
+ MEPROP UID '456FE63B01D6'
+ MEPROP Name 'get_child'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Получить интерфейс на один из вложенных элементов.'#13#10'Параметр должен принимать значения из диапазона: 0<=index<=(child_coun-1)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_456FEB760128 // InvalidIndex
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4628755F034B // index
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01D6 get_child
+
+FORWARD ME_456FE63B01D9
+
+ME ME_456FE63B01DA
+ MEPROP Name 'node'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+
+ENDME // ME_456FE63B01DA node
+
+ME ME_456FE63B01D9
+ MEPROP UID '456FE63B01D9'
+ MEPROP Name 'is_same_node'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сравнивает текущий элемент с элементом, поданным в параметре node.'#13#10'Возвращает true в случае совпадения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_456FE63B01DA // node
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01D9 is_same_node
+
+ME ME_456FE63B01DB
+ MEPROP UID '456FE63B01DB'
+ MEPROP Name 'open'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Возвращает интерфейс для работы с конкретным элементом (сущностью) системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ HWL ME_456FEB8C00AB // NotEntityElement
+ )
+ ; // CanRaise
+
+ENDME // ME_456FE63B01DB open
+
+ME ME_456FE63B01DD
+ MEPROP UID '456FE63B01DD'
+ MEPROP Name 'delete_node'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Удаляет указанные узел из списка/дерева.'#13#10'Если указан элемент, имеющий вложенные элементы, то они тоже удаляются. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB4540177' '456EA56002BF.ms.model.script' // ConstantModify
+ WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ WL 'ME_456EC825009C' '456EA56002BF.ms.model.script' // EmptyResult
+ )
+ ; // CanRaise
+
+ENDME // ME_456FE63B01DD delete_node
+
+FORWARD ME_456FE63B01DE
+
+ME ME_46028CE90148
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_46028CE90148 entity
+
+ME ME_456FE63B01DE
+ MEPROP UID '456FE63B01DE'
+ MEPROP Name 'add_child_node'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавляет сущность как ребенка к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify. Если нода не может содержать детей возвращается исключение InvalidContainer' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB4540177' '456EA56002BF.ms.model.script' // ConstantModify
+ WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ WL 'ME_456EB4540194' '456EA56002BF.ms.model.script' // DuplicateNode
+ HWL ME_456FEB350015 // InvalidEntityType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_46028CE90148 // entity
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01DE add_child_node
+
+FORWARD ME_456FE63B01E0
+
+ME ME_46028D1B02FD
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_46028D1B02FD entity
+
+ME ME_456FE63B01E0
+ MEPROP UID '456FE63B01E0'
+ MEPROP Name 'add_sibling_node'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавляет сущность как "соседа" справа к указанной ноде, возвращает новую созданную ноду. Если список/дерево созданно как константное (неизменяемое) то генерится исключение ConstantModify' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB4540177' '456EA56002BF.ms.model.script' // ConstantModify
+ WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ WL 'ME_456EB4540194' '456EA56002BF.ms.model.script' // DuplicateNode
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_46028D1B02FD // entity
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01E0 add_sibling_node
+
+FORWARD ME_456FE63B01E2
+
+ME ME_461CD03C00CB
+ MEPROP Name 'destination'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+
+ENDME // ME_461CD03C00CB destination
+
+ME ME_456FE63B01E2
+ MEPROP UID '456FE63B01E2'
+ MEPROP Name 'move_to_location'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Переносит текущую ноду в указанный узел, делая ее его ребенком. Если узел не может пнринять ноду (т.е. вставить ее в себя), то генерируется исключение InvalidContainer. Если операция перемещения узлов не доступна, генерируется исключение MoveDisabled' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_456FEB350011 // InvalidContainer
+ HWL ME_456FEB350013 // MoveDisabled
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_461CD03C00CB // destination
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01E2 move_to_location
+
+FORWARD ME_456FE63B01E4
+
+ME ME_46287B75034B
+ MEPROP Name 'destination'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+
+ENDME // ME_46287B75034B destination
+
+ME ME_456FE63B01E4
+ MEPROP UID '456FE63B01E4'
+ MEPROP Name 'copy_to_location'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Сопирует текущую ноду и оекурсивно все ее содержимое, в указанный узел, делая ее его ребенком. Если узел не может пнринять ноду (т.е. вставить ее в себя), то генерируется исключение InvalidContainer. Если операция копирования узлов не доступна, генерируется исключение CopyDisabled' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_456FEB35000F // CopyDisabled
+ HWL ME_456FEB350011 // InvalidContainer
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_46287B75034B // destination
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01E4 copy_to_location
+
+ME ME_456FE63B01E6
+ MEPROP UID '456FE63B01E6'
+ MEPROP Name 'can_move'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли переместить ноду' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_456FE63B01E6 can_move
+
+ME ME_456FE63B01E7
+ MEPROP UID '456FE63B01E7'
+ MEPROP Name 'can_copy'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли скопировать ноду' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_456FE63B01E7 can_copy
+
+FORWARD ME_456FE63B01E8
+
+ME ME_46028DDB005D
+ MEPROP Name 'source'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+
+ENDME // ME_46028DDB005D source
+
+ME ME_456FE63B01E8
+ MEPROP UID '456FE63B01E8'
+ MEPROP Name 'can_insert'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли вставить ноду' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_46028DDB005D // source
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01E8 can_insert
+
+ME ME_456FE63B01EA
+ MEPROP UID '456FE63B01EA'
+ MEPROP Name 'is_last'
+ MEPROP Class class_Operation
+ %SUMMARY 'Последнией элемент.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_456FE63B01EA is_last
+
+ME ME_456FE63B01EB
+ MEPROP UID '456FE63B01EB'
+ MEPROP Name 'is_first'
+ MEPROP Class class_Operation
+ %SUMMARY 'Первый элемент.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_456FE63B01EB is_first
+
+ME ME_456FE63B01EC
+ MEPROP UID '456FE63B01EC'
+ MEPROP Name 'has_child'
+ MEPROP Class class_Operation
+ %SUMMARY 'Есть ли дочерние элементы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_456FE63B01EC has_child
+
+FORWARD ME_456FE63B01ED
+
+ME ME_46028E2A0232
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_46028E2A0232 entity
+
+ME ME_456FE63B01ED
+ MEPROP UID '456FE63B01ED'
+ MEPROP Name 'override_child_node'
+ MEPROP Class class_Operation
+ %SUMMARY 'перезаписать дочернюю ноду' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB4540177' '456EA56002BF.ms.model.script' // ConstantModify
+ WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ WL 'ME_456EB4540194' '456EA56002BF.ms.model.script' // DuplicateNode
+ HWL ME_456FEB350015 // InvalidEntityType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_46028E2A0232 // entity
+ )
+ ; // Parameters
+
+ENDME // ME_456FE63B01ED override_child_node
+
+ME ME_4602879E0119
+ MEPROP UID '4602879E0119'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ %SUMMARY 'фабрика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_4602879E0119 make
+
+ME ME_4AA55863036D
+ MEPROP UID '4AA55863036D'
+ MEPROP Name 'can_modify'
+ MEPROP Class class_Operation
+ %SUMMARY 'можно ли модифицировать ноду' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FE63B01D4 // Node
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AA55863036D can_modify
+
+ME ME_461636870045_ME_456FE63B01D4
+ MELINK Original WL 'ME_461636870045' '456EA56002BF.ms.model.script' // get_content_type
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "dll export" False
+ENDME // ME_461636870045_ME_456FE63B01D4 get_content_type
+
+ME ME_4616371B010F_ME_456FE63B01D4
+ MELINK Original WL 'ME_4616371B010F' '456EA56002BF.ms.model.script' // get_cached_content
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "dll export" False
+ENDME // ME_4616371B010F_ME_456FE63B01D4 get_cached_content
+
+ME ME_456FE63B01D4
+ MEPROP UID '456FE63B01D4'
+ MEPROP GUID 'A050343E-CA33-4D63-8385-2FFBD9B012DA'
+ MEPROP Name 'Node'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для чтения данных об элементе древовидной структуры.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_456EC7C300DA' '456EA56002BF.ms.model.script' // EntityStorage
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_456FE63B01EF // level
+ HWL ME_456FE63B01F0 // child_count
+ HWL ME_456FE63B01F1 // all_child_count
+ HWL ME_456FE63B01F4 // flags
+ HWL ME_456FE63B01F5 // index
+ HWL ME_456FE63B01F6 // through_index
+ HWL ME_456FE7BC03C8 // parent
+ HWL ME_456FE82903C8 // previous_node
+ HWL ME_456FE84E033C // next_node
+ HWL ME_457025090261 // caption
+ HWL ME_4570251D0119 // hint
+ HWL ME_457025CB033C // object_type
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_456FE63B01D6 // get_child
+ HWL ME_456FE63B01D9 // is_same_node
+ HWL ME_456FE63B01DB // open
+ HWL ME_456FE63B01DD // delete_node
+ HWL ME_456FE63B01DE // add_child_node
+ HWL ME_456FE63B01E0 // add_sibling_node
+ HWL ME_456FE63B01E2 // move_to_location
+ HWL ME_456FE63B01E4 // copy_to_location
+ HWL ME_456FE63B01E6 // can_move
+ HWL ME_456FE63B01E7 // can_copy
+ HWL ME_456FE63B01E8 // can_insert
+ HWL ME_456FE63B01EA // is_last
+ HWL ME_456FE63B01EB // is_first
+ HWL ME_456FE63B01EC // has_child
+ HWL ME_456FE63B01ED // override_child_node
+ HWL ME_4602879E0119 // make
+ HWL ME_4AA55863036D // can_modify
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_461636870045_ME_456FE63B01D4 // get_content_type
+ ME_4616371B010F_ME_456FE63B01D4 // get_cached_content
+ )
+ ; // Implemented
+ UP "single impl" False
+ UP extprop:pas:TypeName 'INode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Node'
+
+ENDME // ME_456FE63B01D4 Node
+
+FORWARD ME_456FEA67007D
+
+ME ME_456FEA7A03B9
+ MEPROP UID '456FEA7A03B9'
+ MEPROP Name 'root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'корень дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_456FEA67007D // BaseCatalog
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ UP "pm" False
+
+ENDME // ME_456FEA7A03B9 root
+
+ME ME_457024AB002E
+ MEPROP UID '457024AB002E'
+ MEPROP Name 'filter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'наложенный фильтр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_456FEA67007D // BaseCatalog
+ ;
+ MELINK Target HWL ME_456FE6270222 // EntityType
+ ;
+ UP "pm" False
+
+ENDME // ME_457024AB002E filter
+
+FORWARD ME_456FEA67007E
+
+ME ME_456FEA67007F
+ MEPROP Name 'entity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ %SUMMARY 'Искомый элемент.' ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_456FEA67007F entity
+
+ME ME_456FEA67007E
+ MEPROP UID '456FEA67007E'
+ MEPROP Name 'find'
+ MEPROP Class class_Operation
+ %SUMMARY 'Найти узел по его элементу.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FEA67007D // BaseCatalog
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_456FEA67007F // entity
+ )
+ ; // Parameters
+
+ENDME // ME_456FEA67007E find
+
+FORWARD ME_456FEA670080
+
+ME ME_456FEA670081
+ MEPROP Name 'mask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_456FEA670081 mask
+
+ME ME_456FEA670082
+ MEPROP Name 'mode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456FED800399' '456FED4903D8.ms.model.script' // SearchMode
+ ;
+
+ENDME // ME_456FEA670082 mode
+
+ME ME_456FEA670083
+ MEPROP Name 'cur_item'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+
+ENDME // ME_456FEA670083 cur_item
+
+ME ME_456FEA670084
+ MEPROP Name 'result'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ %SUMMARY 'Результат поиска. При этом возвращается сквозной индекс.' ;
+ MELINK Target WL 'ME_456FED6B00BB' '456FED4903D8.ms.model.script' // ContextSearchResult
+ ;
+
+ENDME // ME_456FEA670084 result
+
+ME ME_456FEA670080
+ MEPROP UID '456FEA670080'
+ MEPROP Name 'find_context'
+ MEPROP Class class_Operation
+ %SUMMARY 'Поиск контекста среди элементов списка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FEA67007D // BaseCatalog
+ ;
+ MELINK Target HWL ME_456FE63B01D4 // Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_456FEA670081 // mask
+ ME_456FEA670082 // mode
+ ME_456FEA670083 // cur_item
+ ME_456FEA670084 // result
+ )
+ ; // Parameters
+
+ENDME // ME_456FEA670080 find_context
+
+ME ME_456FEA670085
+ MEPROP UID '456FEA670085'
+ MEPROP Name 'reset_type_filter'
+ MEPROP Class class_Operation
+ %SUMMARY 'сбрасывает все установленные фильтры по типам' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456FEA67007D // BaseCatalog
+ ;
+
+ENDME // ME_456FEA670085 reset_type_filter
+
+ME ME_456FEA67007D
+ MEPROP UID '456FEA67007D'
+ MEPROP GUID 'B41C62C4-F733-4465-9B22-3D4C52162F8A'
+ MEPROP Name 'BaseCatalog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс для работы с древовидными и/или линейными списками различных сущностей системы. Навигация по структуре (дерево или линейный список) осуществляется через экземпляры интерфейса Node. При этом каждый екземпляр Node может быть приведен к интерфейсу необходимой сущности через метод open интерфейса BaseCatalog. Для того что бы сущность можно было привести таким образом, ее экземпляр должен реализовывать интерфейс BaseEntity.'#13#10'В случае если конкретное дерево не поддерживает тех или иных операция определенных на BaseCatalog, то при их вызове должно генерироваться исключение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_456FEA7A03B9 // root
+ HWL ME_457024AB002E // filter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_456FEA67007E // find
+ HWL ME_456FEA670080 // find_context
+ HWL ME_456FEA670085 // reset_type_filter
+ )
+ ; // Operations
+ UP "single impl" False
+ UP "TODO" 'depricated by CatalogBase from DynamicTree'
+ UP extprop:pas:TypeName 'IBaseCatalog'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseCatalog'
+
+ENDME // ME_456FEA67007D BaseCatalog
+
+ME ME_460281B50290
+ MEPROP UID '460281B50290'
+ MEPROP Name 'BaseTreeNodeMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'флаги на старой ноде' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_456F02A50196 // BaseTreeSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TBaseTreeNodeMask'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_460281B50290 BaseTreeNodeMask
+
+ME ME_456F02A50196
+ MEPROP UID '456F02A50196'
+ MEPROP Name 'BaseTreeSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Поддержка старого дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_456FE6270222 // EntityType
+ HWL ME_456FEB35000F // CopyDisabled
+ HWL ME_456FEB350011 // InvalidContainer
+ HWL ME_456FEB350013 // MoveDisabled
+ HWL ME_456FEB350015 // InvalidEntityType
+ HWL ME_456FEB760128 // InvalidIndex
+ HWL ME_456FEB8C00AB // NotEntityElement
+ HWL ME_456FE63B01D4 // Node
+ HWL ME_456FEA67007D // BaseCatalog
+ HWL ME_460281B50290 // BaseTreeNodeMask
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_456FED4903D8' '456FED4903D8.ms.model.script' // ContextSearchSupport
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\BaseTreeSupport\BaseTreeSupport.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\BaseTreeSupport'
+ UP extprop:pas:UnitName 'BaseTreeSupportUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\BaseTreeSupport\BaseTreeSupport.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\BaseTreeSupport'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\BaseTreeSupportUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\BaseTreeSupportUnit.pas'
+
+ENDME // ME_456F02A50196 BaseTreeSupport

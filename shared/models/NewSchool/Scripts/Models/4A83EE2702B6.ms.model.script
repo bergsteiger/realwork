@@ -1,0 +1,107 @@
+// TvtComboBoxQS 4A83EE2702B6 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5538D1CB00A7
+
+FORWARD ME_4A83EE2702B6
+
+ME ME_5538D2910363
+ MEPROP UID '5538D2910363'
+ MEPROP Name 'OnEndTextPrint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5538D1CB00A7 // TCustomComboTree
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_5538D2910363 OnEndTextPrint
+
+ME ME_5538D2D2035B
+ MEPROP UID '5538D2D2035B'
+ MEPROP Name 'EndTextPrint'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5538D1CB00A7 // TCustomComboTree
+ ;
+
+ENDME // ME_5538D2D2035B EndTextPrint
+
+ME ME_482AE42802AE_ME_5538D1CB00A7
+ MELINK Original WL 'ME_482AE42802AE' '482ACC330173.ms.model.script' // Change
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482AE42802AE_ME_5538D1CB00A7 Change
+
+ME ME_53EE0A730393_ME_5538D1CB00A7
+ MELINK Original WL 'ME_53EE0A730393' '53F1DC8F01AD.ms.model.script' // ProcessTreeSelect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53EE0A730393_ME_5538D1CB00A7 ProcessTreeSelect
+
+ME ME_5538D1CB00A7
+ MEPROP UID '5538D1CB00A7'
+ MEPROP Name 'TCustomComboTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A83EE2702B6 // TvtComboBoxQS
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5538D2910363 // OnEndTextPrint
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5538D2D2035B // EndTextPrint
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_482AE42802AE_ME_5538D1CB00A7 // Change
+ ME_53EE0A730393_ME_5538D1CB00A7 // ProcessTreeSelect
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComboTree'
+
+ENDME // ME_5538D1CB00A7 TCustomComboTree
+
+ME ME_4A83EE2702B6
+ MEPROP UID '4A83EE2702B6'
+ MEPROP Name 'TvtComboBoxQS'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A83EE0E0002' '4A83EE0E0002.ms.model.script' // Combos
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5538D1CB00A7 // TCustomComboTree
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_5538D1CB00A7 // TCustomComboTree
+ )
+ ; // Children
+ UP "need UC" True
+ UP extprop:pas:UnitName 'vtComboBoxQS'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComboBoxQS'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtComboBoxQS.pas'
+
+ENDME // ME_4A83EE2702B6 TvtComboBoxQS

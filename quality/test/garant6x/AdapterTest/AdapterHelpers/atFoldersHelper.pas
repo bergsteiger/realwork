@@ -148,6 +148,8 @@ uses
  , DocumentUnit
  , DynamicDocListUnit
  , SearchUnit
+ //#UC START# *480864400141impl_uses*
+ //#UC END# *480864400141impl_uses*
 ;
 
 function TatFolderNodeMatcherBase.pm_GetFoldersNode: IFoldersNode;

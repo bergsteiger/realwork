@@ -1,0 +1,181 @@
+// Chat 4A8AE21B0210 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8AE21B0210
+
+FORWARD ME_4A8AE2340069
+
+ME ME_4A8AE24D003F
+ MEPROP UID '4A8AE24D003F'
+ MEPROP Name 'ClearHistory'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очистить историю' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A8AE2340069 // Chat
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A8AE24D003F ClearHistory
+
+ME ME_4A8AE2340069
+ MEPROP UID '4A8AE2340069'
+ MEPROP Name 'Chat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Чат' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8AE21B0210 // Chat
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A8AE24D003F // ClearHistory
+ )
+ ; // Operations
+
+ENDME // ME_4A8AE2340069 Chat
+
+FORWARD ME_4C2B24490026
+
+ME ME_4C84CC2E0253
+ MEPROP UID '4C84CC2E0253'
+ MEPROP Name 'History'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2B24490026 // Chat$Contacts
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C84CC2E0253 History
+
+ME ME_4C84D2AD01D0
+ MEPROP UID '4C84D2AD01D0'
+ MEPROP Name 'UserFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2B24490026 // Chat$Contacts
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+
+ENDME // ME_4C84D2AD01D0 UserFilter
+
+ME ME_4C84D2C001D5
+ MEPROP UID '4C84D2C001D5'
+ MEPROP Name 'OpenChatWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2B24490026 // Chat$Contacts
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C84D2C001D5 OpenChatWindow
+
+ME ME_4C2B245F01F2
+ MEPROP UID '4C2B245F01F2'
+ MEPROP Name 'Add'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C2B24490026 // Chat$Contacts
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C2B245F01F2 Add
+
+ME ME_4C2B24490026
+ MEPROP UID '4C2B24490026'
+ MEPROP Name 'Chat'
+ MEPROP OriginalName 'Chat$Contacts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8AE21B0210 // Chat
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C84CC2E0253 // History
+ HWL ME_4C84D2AD01D0 // UserFilter
+ HWL ME_4C84D2C001D5 // OpenChatWindow
+ HWL ME_4C2B245F01F2 // Add
+ )
+ ; // Operations
+
+ENDME // ME_4C2B24490026 Chat$Contacts
+
+ME ME_4A8AE21B0210
+ MEPROP UID '4A8AE21B0210'
+ MEPROP Name 'Chat'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Чат' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A8AE2340069 // Chat
+ HWL ME_4C2B24490026 // Chat$Contacts
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'Base_Operations_Chat_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_Chat_Controls.pas'
+
+ENDME // ME_4A8AE21B0210 Chat

@@ -1,0 +1,67 @@
+// HyperlinkProcessorWithOwnLocalLink 4A8AC2DB0210 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8AC2DB0210
+
+ME ME_57A0BC5D0094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8AC2DB0210 // HyperlinkProcessorWithOwnLocalLink
+ ;
+ MELINK Target WL 'ME_57A0977900D6' '5795D66F0385.ms.model.script' // TDocumentService
+ ;
+
+ENDME // ME_57A0BC5D0094 
+
+ME ME_4A815E860391_ME_4A8AC2DB0210
+ MELINK Original WL 'ME_4A815E860391' '4A815C200111.ms.model.script' // DoProcessExternalOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A815E860391_ME_4A8AC2DB0210 DoProcessExternalOperation
+
+ME ME_4A81650B014A_ME_4A8AC2DB0210
+ MELINK Original WL 'ME_4A81650B014A' '4A815C200111.ms.model.script' // OpenRedactionLocalLink
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A81650B014A_ME_4A8AC2DB0210 OpenRedactionLocalLink
+
+ME ME_4A8AC2DB0210
+ MEPROP UID '4A8AC2DB0210'
+ MEPROP Name 'HyperlinkProcessorWithOwnLocalLink'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик ссылок с собственной обработкой локальных ссылок (сейчас пустой)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A815BFF0168' '4A815BFF0168.ms.model.script' // Navigation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A815C200111' '4A815C200111.ms.model.script' // HyperlinkProcessor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4A815E860391_ME_4A8AC2DB0210 // DoProcessExternalOperation
+ ME_4A81650B014A_ME_4A8AC2DB0210 // OpenRedactionLocalLink
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57A0BC5D0094 // TDocumentService
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '18.08.2009 19:04'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_HyperlinkProcessorWithOwnLocalLink_'
+ UP extprop:pas:UnitName 'HyperlinkProcessorWithOwnLocalLink.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\HyperlinkProcessorWithOwnLocalLink.imp.pas'
+
+ENDME // ME_4A8AC2DB0210 HyperlinkProcessorWithOwnLocalLink

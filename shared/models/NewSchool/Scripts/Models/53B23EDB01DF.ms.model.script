@@ -1,0 +1,70 @@
+// OvcKeyDataListeners 53B23EDB01DF Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B23EDB01DF
+
+FORWARD ME_53B23EFD0347
+
+ME ME_53B23FB902BA
+ MEPROP UID '53B23FB902BA'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53B23EFD0347 // TOvcKeyDataListenerList
+ ;
+ MELINK Target WL 'ME_53B11944038A' '467C0CAA02AB.ms.model.script' // Il3KeyDataListener
+ ;
+
+ENDME // ME_53B23FB902BA ItemType
+
+ME ME_53B23EFD0347
+ MEPROP UID '53B23EFD0347'
+ MEPROP Name 'TOvcKeyDataListenerList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53B23EDB01DF // OvcKeyDataListeners
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53B23FB902BA // ItemType
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'OvcKeyDataListenerList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OvcKeyDataListenerList'
+ UP intf.pas:Path 'common\components\rtl\external\Orpheus\OvcKeyDataListenerList.pas'
+
+ENDME // ME_53B23EFD0347 TOvcKeyDataListenerList
+
+ME ME_53B23EDB01DF
+ MEPROP UID '53B23EDB01DF'
+ MEPROP Name 'OvcKeyDataListeners'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47540FF802AC' '47540FF802AC.ms.model.script' // Orpheus
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53B23EFD0347 // TOvcKeyDataListenerList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_467C0CAA02AB' '467C0CAA02AB.ms.model.script' // l3InternalInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ )
+ ; // Depends
+
+ENDME // ME_53B23EDB01DF OvcKeyDataListeners

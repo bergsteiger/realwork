@@ -42,6 +42,8 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
+ //#UC START# *4B2A0D8A03A0impl_uses*
+ //#UC END# *4B2A0D8A03A0impl_uses*
 ;
 
 procedure RunRegisteredTests;

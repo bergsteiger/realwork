@@ -63,6 +63,8 @@ uses
  , atLogger
  , SysUtils
  , atQuery
+ //#UC START# *4D0A033202D2impl_uses*
+ //#UC END# *4D0A033202D2impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas}

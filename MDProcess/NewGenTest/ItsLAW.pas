@@ -43,6 +43,8 @@ implementation
 {$If Defined(NewGen) AND Defined(nsTest)}
 uses
  l3ImplUses
+ //#UC START# *4F5F53F900ABimpl_uses*
+ //#UC END# *4F5F53F900ABimpl_uses*
 ;
 
 {$If NOT Defined(NotTunedDUnit)}

@@ -1,0 +1,126 @@
+// Banner 4ACC6D940387 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ACC6D940387
+
+FORWARD ME_4ACC6DD00230
+
+ME ME_4ACC6E5F00E5
+ MEPROP UID '4ACC6E5F00E5'
+ MEPROP Name 'open_link'
+ MEPROP Class class_Operation
+ %SUMMARY 'Открыть ссылку баннера (возвращает или IDocument или ExternalLink)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4ACC6DD00230 // Banner
+ ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+
+ENDME // ME_4ACC6E5F00E5 open_link
+
+FORWARD ME_4ACC72770345
+
+ME ME_571F758F02D9
+ MEPROP Name 'server_banner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_571F758F02D9 server_banner
+
+ME ME_4ACC72770345
+ MEPROP UID '4ACC72770345'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4ACC6DD00230 // Banner
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_571F758F02D9 // server_banner
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" False
+
+ENDME // ME_4ACC72770345 make
+
+ME ME_4ACC85A303E1
+ MEPROP UID '4ACC85A303E1'
+ MEPROP Name 'get_picture'
+ MEPROP Class class_Operation
+ %SUMMARY 'Картинка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4ACC6DD00230 // Banner
+ ;
+ MELINK Target WL 'ME_45ED932A0044' '45ED922F00A4.ms.model.script' // ExternalObject
+ ;
+
+ENDME // ME_4ACC85A303E1 get_picture
+
+ME ME_4ACC6DD00230
+ MEPROP UID '4ACC6DD00230'
+ MEPROP GUID 'B869F2FF-7971-44F1-BAA5-F664C978EF7F'
+ MEPROP Name 'Banner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Баннер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ACC6D940387 // Banner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ACC6E5F00E5 // open_link
+ HWL ME_4ACC72770345 // make
+ HWL ME_4ACC85A303E1 // get_picture
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IBanner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Banner'
+
+ENDME // ME_4ACC6DD00230 Banner
+
+ME ME_4ACC6D940387
+ MEPROP UID '4ACC6D940387'
+ MEPROP Name 'Banner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Баннеры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ACC6DD00230 // Banner
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_45ED922F00A4' '45ED922F00A4.ms.model.script' // ExternalObject
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Banner\Banner.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Banner'
+ UP extprop:pas:UnitName 'BannerUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Banner\Banner.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Banner'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\BannerUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\BannerUnit.pas'
+
+ENDME // ME_4ACC6D940387 Banner

@@ -1,0 +1,90 @@
+// Picture 4AAFCF930362 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_6CFD2C21BC7B
+
+FORWARD ME_4AAFCF930362
+
+ME ME_6CFD2C21BC7B
+ MEPROP UID '6CFD2C21BC7B'
+ MEPROP GUID '9794D84D-10DE-4BC6-A05D-F4C88FBEEBC7'
+ MEPROP Name 'Picture'
+ MEPROP OriginalName 'Picture$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы Picture' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AAFCF930362 // Picture
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AAFCF930362 // Picture
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'PictureFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_6CFD2C21BC7B Picture$Def
+
+ME ME_7171E291CB0D
+ MEPROP UID '7171E291CB0D'
+ MEPROP Name 'Ini_FormFactory_Picture'
+ MEPROP OriginalName 'Ini_FormFactory_Picture$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Picture' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAFCF930362 // Picture
+ ;
+ UPLINK SpelledFor HWL ME_4AAFCF930362 // Picture
+ ;
+
+ENDME // ME_7171E291CB0D Ini_FormFactory_Picture$Def
+
+ME ME_4AAFCF930362
+ MEPROP UID '4AAFCF930362'
+ MEPROP Name 'Picture'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Рисунок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8768010125' '4C8768010125.ms.model.script' // PrimPictureOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_6CFD2C21BC7B // Picture$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_7171E291CB0D // Ini_FormFactory_Picture$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_6CFD2C21BC7B // Picture$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "need UC" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TPictureForm'
+ UP extprop:pas:UnitName 'Picture_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PictureForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Picture_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_4AAFCF930362 Picture

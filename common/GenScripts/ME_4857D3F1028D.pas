@@ -45,6 +45,8 @@ uses
  , evSBSRowHotSpotTester
  {$IfEnd} // Defined(evNeedHotSpot)
  , SBSRow_Const
+ //#UC START# *4857D3F1028Dimpl_uses*
+ //#UC END# *4857D3F1028Dimpl_uses*
 ;
 
 function TevSBSRowInterfaceFactory.QueryTool(aTag: Tl3Variant;

@@ -1,0 +1,89 @@
+// ShutDown 4A8EC8950152 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_1A411FFFF792
+
+FORWARD ME_4A8EC8950152
+
+ME ME_1A411FFFF792
+ MEPROP UID '1A411FFFF792'
+ MEPROP GUID '30C1FF00-6CA8-4565-BDC9-191E8237EFAD'
+ MEPROP Name 'ShutDown'
+ MEPROP OriginalName 'ShutDown$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы ShutDown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8EC8950152 // ShutDown
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A8EC8950152 // ShutDown
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'ShutDownFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_1A411FFFF792 ShutDown$Def
+
+ME ME_1EB5D6700624
+ MEPROP UID '1EB5D6700624'
+ MEPROP Name 'Ini_FormFactory_ShutDown'
+ MEPROP OriginalName 'Ini_FormFactory_ShutDown$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ShutDown' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EC8950152 // ShutDown
+ ;
+ UPLINK SpelledFor HWL ME_4A8EC8950152 // ShutDown
+ ;
+
+ENDME // ME_1EB5D6700624 Ini_FormFactory_ShutDown$Def
+
+ME ME_4A8EC8950152
+ MEPROP UID '4A8EC8950152'
+ MEPROP Name 'ShutDown'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Предупреждение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A8EC78503BB' '4A8EC78503BB.ms.model.script' // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A8EC8AC02EE' '4A8EC8AC02EE.ms.model.script' // PrimShutDown
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_1A411FFFF792 // ShutDown$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_1EB5D6700624 // Ini_FormFactory_ShutDown$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_1A411FFFF792 // ShutDown$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Floating'
+ UP extprop:pas:TypeName 'TShutDownForm'
+ UP extprop:pas:UnitName 'ShutDown_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShutDownForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\ShutDown_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms'
+
+ENDME // ME_4A8EC8950152 ShutDown

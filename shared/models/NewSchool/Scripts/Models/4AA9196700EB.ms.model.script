@@ -1,0 +1,183 @@
+// Monitorings 4AA9196700EB VCMModule Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA9196700EB
+
+FORWARD ME_4AAF996900DC
+
+FORWARD ME_4AAF99C703C7
+
+ME ME_4AAF99E00261
+ MEPROP Name 'aWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5DA1F0255' '4AB0C3F60375.ms.model.script' // hWnd
+ ;
+
+ENDME // ME_4AAF99E00261 aWnd
+
+ME ME_4AAF99E00285
+ MEPROP Name 'aParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_4AAF99E00285 aParam
+
+ME ME_4AAF99C703C7
+ MEPROP UID '4AAF99C703C7'
+ MEPROP Name 'FindSelectDialog'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
+ ;
+ MELINK Target WL 'ME_47726BE30305' '46A5E026007E.ms.model.script' // WinBool
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AAF99E00261 // aWnd
+ ME_4AAF99E00285 // aParam
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_4AAF99C703C7 FindSelectDialog
+
+ME ME_4AAF9A190399
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4AAF9A190399 
+
+ME ME_4AAF9B5A028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4AAF9B5A028C 
+
+ME ME_4AAF9C2E03AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
+ ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4AAF9C2E03AB 
+
+ME ME_4AAF9D0D0330
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
+ ;
+ MELINK Target WL 'ME_4AAF9CFA0263' '4799D29F033F.ms.model.script' // FindControl
+ ;
+
+ENDME // ME_4AAF9D0D0330 
+
+ME ME_4AAF996900DC
+ MEPROP UID '4AAF996900DC'
+ MEPROP Name 'nsFindSelectDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA9196700EB // Monitorings
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAF99C703C7 // FindSelectDialog
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AAF9A190399 // Windows
+ ME_4AAF9B5A028C // Forms
+ ME_4AAF9C2E03AB // TMessage
+ ME_4AAF9D0D0330 // FindControl
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '15.09.2009 17:41'
+ UP extprop:rc:SelfName 'FindSelectDialog'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas'
+
+ENDME // ME_4AAF996900DC nsFindSelectDialog
+
+ME ME_4AA9196700EB
+ MEPROP UID '4AA9196700EB'
+ MEPROP Name 'Monitorings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMModule ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA9194D0280' '4AA9194D0280.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4AAFA13C01B0' '4AAFA13C01B0.ms.model.script' // PrimPostingsList
+ HWL ME_4AAF996900DC // nsFindSelectDialog
+ WL 'ME_4DF789BF02EF' '4DF789BF02EF.ms.model.script' // PrimPostingsListOptions
+ WL 'ME_4AA919B200AB' '4AA919B200AB.ms.model.script' // CommonPost
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_46837A08002C' '46837A08002C.ms.model.script' // nsQueryInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47BECCB801BE' '47BECCB801BE.ms.model.script' // Prime
+ WL 'ME_47D036150077' '47D036150077.ms.model.script' // l3ControlsTypes
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_484E610E0335' '484E610E0335.ms.model.script' // Информационная поддержка
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_4908A8A20107' '4908A8A20107.ms.model.script' // OldTree
+ WL 'ME_4912DD020283' '4912DD020283.ms.model.script' // eeInterfaces
+ WL 'ME_494B947D0127' '494B947D0127.ms.model.script' // Tree
+ WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4AC22E040232' '4AC22E040232.ms.model.script' // OldTreeInterfaces
+ WL 'ME_4ADF3FBB00C3' '4ADF3FBB00C3.ms.model.script' // PrimeDomainInterfaces
+ WL 'ME_4AE831B30019' '4AE831B30019.ms.model.script' // Strange
+ WL 'ME_4AE89F8A004B' '4AE89F8A004B.ms.model.script' // Strange
+ WL 'ME_4B8E675402AB' '4B8E675402AB.ms.model.script' // Dialogs
+ WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
+ WL 'ME_4BD97FDB031A' '4BD97FDB031A.ms.model.script' // FormDefinitions
+ WL 'ME_4BD98A8C0110' '4BD98A8C0110.ms.model.script' // FormDefinitions
+ WL 'ME_4BDAF7510113' '4BDAF7510113.ms.model.script' // Tree
+ WL 'ME_4C84EDB403D2' '4C84EDB403D2.ms.model.script' // Strange
+ WL 'ME_4EEA0958023A' '4EEA0958023A.ms.model.script' // SearchRes
+ WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
+ WL 'ME_5267C3880201' '5267C3880201.ms.model.script' // Search
+ WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_553213B80041' '553213B80041.ms.model.script' // TabbedInterfaceServices
+ WL 'ME_57A2E803024D' '57A2E803024D.ms.model.script' // Services
+ )
+ ; // Depends
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Monitorings'
+
+ENDME // ME_4AA9196700EB Monitorings

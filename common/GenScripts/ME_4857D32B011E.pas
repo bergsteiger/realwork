@@ -62,6 +62,8 @@ uses
  , nevTableRowBaseLine4Anchor
  {$IfEnd} // Defined(evUseVisibleCursors)
  , TableRow_Const
+ //#UC START# *4857D32B011Eimpl_uses*
+ //#UC END# *4857D32B011Eimpl_uses*
 ;
 
 function TevTableRowInterfaceFactory.QueryTool(aTag: Tl3Variant;

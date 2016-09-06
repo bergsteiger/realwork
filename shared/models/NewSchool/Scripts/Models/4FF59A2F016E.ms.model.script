@@ -1,0 +1,2094 @@
+// ListUserTypes 4FF59A2F016E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FF59A2F016E
+
+ME ME_4BD5879903AE
+ MEPROP UID '4BD5879903AE'
+ MEPROP Name 'lftNone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ UP "ImageIndex" 64
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftNone_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftNone_UserType.pas'
+
+ENDME // ME_4BD5879903AE lftNone
+
+ME ME_4BD587B60291
+ MEPROP UID '4BD587B60291'
+ MEPROP Name 'lftRespondent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылки из документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5879903AE // lftNone
+ )
+ ; // Inherits
+ UP "ImageIndex" 17
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Ссылки из документа (все)/Ссылки на документ (все)'
+ UP "Weight" 40
+ UP extprop:pas:UnitName 'ListUserTypes_lftRespondent_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRespondent_UserType.pas'
+
+ENDME // ME_4BD587B60291 lftRespondent
+
+FORWARD ME_4BD5880300BF
+
+ME ME_4BD588600256
+ MEPROP UID '4BD588600256'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BD5880300BF // lftCorrespondent
+ ;
+ MELINK Target HWL ME_4BD587B60291 // lftRespondent
+ ;
+
+ENDME // ME_4BD588600256 UseToolbarOfUserTypeName
+
+ME ME_4BD5880300BF
+ MEPROP UID '4BD5880300BF'
+ MEPROP Name 'lftCorrespondent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылки на документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD587B60291 // lftRespondent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BD588600256 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ UP "ImageIndex" 18
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Ссылки на документ'
+ UP "Weight" 50
+ UP extprop:pas:UnitName 'ListUserTypes_lftCorrespondent_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCorrespondent_UserType.pas'
+
+ENDME // ME_4BD5880300BF lftCorrespondent
+
+ME ME_4BD5888802BA
+ MEPROP UID '4BD5888802BA'
+ MEPROP Name 'lftSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (ссылки из документа, ссылки на документ)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5880300BF // lftCorrespondent
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Списки ссылок из документа/на документ'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftSynchroView_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSynchroView_UserType.pas'
+
+ENDME // ME_4BD5888802BA lftSynchroView
+
+FORWARD ME_4BD588C1029B
+
+ME ME_4BD588FA02E3
+ MEPROP UID '4BD588FA02E3'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BD588C1029B // lftCToPart
+ ;
+ MELINK Target HWL ME_4BD587B60291 // lftRespondent
+ ;
+
+ENDME // ME_4BD588FA02E3 UseToolbarOfUserTypeName
+
+ME ME_4BD588C1029B
+ MEPROP UID '4BD588C1029B'
+ MEPROP Name 'lftCToPart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылки на фрагмент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5888802BA // lftSynchroView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BD588FA02E3 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Ссылки на фрагмент'
+ UP "VisibleToUser" False
+ UP "Weight" 60
+ UP extprop:pas:UnitName 'ListUserTypes_lftCToPart_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCToPart_UserType.pas'
+
+ENDME // ME_4BD588C1029B lftCToPart
+
+ME ME_4BD5892F01D4
+ MEPROP UID '4BD5892F01D4'
+ MEPROP Name 'lftUserCR1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настраиваемая вкладка связанных документов 1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD588C1029B // lftCToPart
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Ссылки из документа (вид информации)/Ссылки на документ (вид информации)'
+ UP "Weight" 80
+ UP extprop:pas:UnitName 'ListUserTypes_lftUserCR1_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCR1_UserType.pas'
+
+ENDME // ME_4BD5892F01D4 lftUserCR1
+
+FORWARD ME_4BD589720381
+
+ME ME_4BD5899E034D
+ MEPROP UID '4BD5899E034D'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4BD589720381 // lftUserCR2
+ ;
+ MELINK Target HWL ME_4BD5892F01D4 // lftUserCR1
+ ;
+
+ENDME // ME_4BD5899E034D UseToolbarOfUserTypeName
+
+ME ME_4BD589720381
+ MEPROP UID '4BD589720381'
+ MEPROP Name 'lftUserCR2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настраиваемая вкладка связанных документов 2' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5892F01D4 // lftUserCR1
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BD5899E034D // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Пользовательская вкладка ссылки на документ (ссылки из документа) 2'
+ UP "Weight" 100
+ UP extprop:pas:UnitName 'ListUserTypes_lftUserCR2_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCR2_UserType.pas'
+
+ENDME // ME_4BD589720381 lftUserCR2
+
+ME ME_4BD589B50312
+ MEPROP UID '4BD589B50312'
+ MEPROP Name 'lftConsultation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Консультация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD589720381 // lftUserCR2
+ )
+ ; // Inherits
+ UP "ImageIndex" 64
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Консультация'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftConsultation_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftConsultation_UserType.pas'
+
+ENDME // ME_4BD589B50312 lftConsultation
+
+ME ME_4BD589E40083
+ MEPROP UID '4BD589E40083'
+ MEPROP Name 'lftSimilarDocuments'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Похожие документы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD589B50312 // lftConsultation
+ )
+ ; // Inherits
+ UP "ImageIndex" 166
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Похожие документы'
+ UP "Weight" 120
+ UP extprop:pas:UnitName 'ListUserTypes_lftSimilarDocuments_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocuments_UserType.pas'
+
+ENDME // ME_4BD589E40083 lftSimilarDocuments
+
+ME ME_4BD58A120226
+ MEPROP UID '4BD58A120226'
+ MEPROP Name 'lftSimilarDocumentsSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (похожие документы)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD589E40083 // lftSimilarDocuments
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Похожие документы'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftSimilarDocumentsSynchroView_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocumentsSynchroView_UserType.pas'
+
+ENDME // ME_4BD58A120226 lftSimilarDocumentsSynchroView
+
+ME ME_4BD58A460089
+ MEPROP UID '4BD58A460089'
+ MEPROP Name 'lftCorrespondentsSynchroForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (ссылки на документ)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58A120226 // lftSimilarDocumentsSynchroView
+ )
+ ; // Inherits
+ UP "ImageIndex" 18
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Списки ссылок на документ'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftCorrespondentsSynchroForm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftCorrespondentsSynchroForm_UserType.pas'
+
+ENDME // ME_4BD58A460089 lftCorrespondentsSynchroForm
+
+ME ME_4BD58A780204
+ MEPROP UID '4BD58A780204'
+ MEPROP Name 'lftRespondentsSynchroForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (ссылка из документа)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58A460089 // lftCorrespondentsSynchroForm
+ )
+ ; // Inherits
+ UP "ImageIndex" 17
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Списки ссылок из документа'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftRespondentsSynchroForm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRespondentsSynchroForm_UserType.pas'
+
+ENDME // ME_4BD58A780204 lftRespondentsSynchroForm
+
+ME ME_4BD58AB1025D
+ MEPROP UID '4BD58AB1025D'
+ MEPROP Name 'lftUserCRList1_SynchorForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (настраиваемая вкладка связанных документов 1)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58A780204 // lftRespondentsSynchroForm
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Первая пользовательская вкладка списка ссылкок на документ\\из документа'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftUserCRList1_SynchorForm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCRList1_SynchorForm_UserType.pas'
+
+ENDME // ME_4BD58AB1025D lftUserCRList1_SynchorForm
+
+ME ME_4BD58B080255
+ MEPROP UID '4BD58B080255'
+ MEPROP Name 'lftUserCRList2_SynchorForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (настраиваемая вкладка связанных документов 2)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58AB1025D // lftUserCRList1_SynchorForm
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Вторая пользовательская вкладка списка ссылкок на документ\\из документа'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftUserCRList2_SynchorForm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftUserCRList2_SynchorForm_UserType.pas'
+
+ENDME // ME_4BD58B080255 lftUserCRList2_SynchorForm
+
+ME ME_4BD58B4002A1
+ MEPROP UID '4BD58B4002A1'
+ MEPROP Name 'lftDrugList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список препаратов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58B080255 // lftUserCRList2_SynchorForm
+ )
+ ; // Inherits
+ UP "ImageIndex" 180
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftDrugList_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugList_UserType.pas'
+
+ENDME // ME_4BD58B4002A1 lftDrugList
+
+ME ME_4BD58B5D0377
+ MEPROP UID '4BD58B5D0377'
+ MEPROP Name 'lftDrugInternationalNameSynonyms'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синонимы по международному названию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58B4002A1 // lftDrugList
+ )
+ ; // Inherits
+ UP "ImageIndex" 181
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftDrugInternationalNameSynonyms_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugInternationalNameSynonyms_UserType.pas'
+
+ENDME // ME_4BD58B5D0377 lftDrugInternationalNameSynonyms
+
+ME ME_4BD58B810263
+ MEPROP UID '4BD58B810263'
+ MEPROP Name 'lftProducedDrugs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выпускаемые препараты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58B5D0377 // lftDrugInternationalNameSynonyms
+ )
+ ; // Inherits
+ UP "ImageIndex" 183
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftProducedDrugs_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftProducedDrugs_UserType.pas'
+
+ENDME // ME_4BD58B810263 lftProducedDrugs
+
+ME ME_4BD58BA502EE
+ MEPROP UID '4BD58BA502EE'
+ MEPROP Name 'lftProducedDrugsSynchroForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (выпускаемые препараты)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58B810263 // lftProducedDrugs
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Выпускаемые препараты'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftProducedDrugsSynchroForm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftProducedDrugsSynchroForm_UserType.pas'
+
+ENDME // ME_4BD58BA502EE lftProducedDrugsSynchroForm
+
+ME ME_4BD58BC90275
+ MEPROP UID '4BD58BC90275'
+ MEPROP Name 'lftDrugInternationalNameSynonymsSynchroForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр (синонимы по международному названию)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58BA502EE // lftProducedDrugsSynchroForm
+ )
+ ; // Inherits
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Синхронный просмотр: Синонимы по международному названию'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftDrugInternationalNameSynonymsSynchroForm_UserType.pas'
+
+ENDME // ME_4BD58BC90275 lftDrugInternationalNameSynonymsSynchroForm
+
+FORWARD ME_5236CE6D00AC
+
+ME ME_5236CEBB025F
+ MEPROP UID '5236CEBB025F'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5236CE6D00AC // lftRToPart
+ ;
+ MELINK Target HWL ME_4BD587B60291 // lftRespondent
+ ;
+
+ENDME // ME_5236CEBB025F UseToolbarOfUserTypeName
+
+ME ME_5236CE6D00AC
+ MEPROP UID '5236CE6D00AC'
+ MEPROP Name 'lftRToPart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ссылки из фрагмента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD58BC90275 // lftDrugInternationalNameSynonymsSynchroForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5236CEBB025F // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ UP "ImageIndex" '-1'
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Ссылки из фрагмента'
+ UP "VisibleToUser" False
+ UP "Weight" 61
+ UP extprop:pas:UnitName 'ListUserTypes_lftRToPart_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftRToPart_UserType.pas'
+
+ENDME // ME_5236CE6D00AC lftRToPart
+
+FORWARD ME_5594F3A50378
+
+ME ME_5594F3C302F9
+ MEPROP UID '5594F3C302F9'
+ MEPROP Name 'UseToolbarOfUserTypeName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_link::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5594F3A50378 // lftSimilarDocumentsToFragment
+ ;
+ MELINK Target HWL ME_4BD589E40083 // lftSimilarDocuments
+ ;
+
+ENDME // ME_5594F3C302F9 UseToolbarOfUserTypeName
+
+ME ME_5594F3A50378
+ MEPROP UID '5594F3A50378'
+ MEPROP Name 'lftSimilarDocumentsToFragment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Похожие к фрагменту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5236CE6D00AC // lftRToPart
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5594F3C302F9 // UseToolbarOfUserTypeName
+ )
+ ; // Attributes
+ UP "ImageIndex" 166
+ UP "NeedOnQueryClose" True
+ UP "NeedOnQueryMaximized" True
+ UP "NeedOnQueryOpen" True
+ UP "SettingsCaption" 'Список: Похожие к фрагменту'
+ UP "Weight" 25
+ UP extprop:pas:UnitName 'ListUserTypes_lftSimilarDocumentsToFragment_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes_lftSimilarDocumentsToFragment_UserType.pas'
+
+ENDME // ME_5594F3A50378 lftSimilarDocumentsToFragment
+
+FORWARD ME_631A220E9075
+
+ME ME_E2CA201CD4A6
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_E2CA201CD4A6 aSender
+
+ME ME_631A220E9075
+ MEPROP UID '631A220E9075'
+ MEPROP Name 'lftRespondentQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondent.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_E2CA201CD4A6 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_631A220E9075 lftRespondentQueryMaximized
+
+FORWARD ME_9FBF6C4D3127
+
+ME ME_95D55303F528
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_95D55303F528 aSender
+
+ME ME_9FBF6C4D3127
+ MEPROP UID '9FBF6C4D3127'
+ MEPROP Name 'lftRespondentQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondent.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_95D55303F528 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_9FBF6C4D3127 lftRespondentQueryOpen
+
+FORWARD ME_6784C69651CE
+
+ME ME_AC1336D65349
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_AC1336D65349 aSender
+
+ME ME_6784C69651CE
+ MEPROP UID '6784C69651CE'
+ MEPROP Name 'lftRespondentQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondent.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_AC1336D65349 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_6784C69651CE lftRespondentQueryClose
+
+FORWARD ME_AC1A36740EA8
+
+ME ME_B4EE34530D73
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_B4EE34530D73 aSender
+
+ME ME_AC1A36740EA8
+ MEPROP UID 'AC1A36740EA8'
+ MEPROP Name 'lftCorrespondentQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondent.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_B4EE34530D73 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_AC1A36740EA8 lftCorrespondentQueryMaximized
+
+FORWARD ME_7984D701603A
+
+ME ME_8D9FC29C24C7
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_8D9FC29C24C7 aSender
+
+ME ME_7984D701603A
+ MEPROP UID '7984D701603A'
+ MEPROP Name 'lftCorrespondentQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondent.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_8D9FC29C24C7 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_7984D701603A lftCorrespondentQueryOpen
+
+FORWARD ME_BAF9A43F64B1
+
+ME ME_5C267FE80E66
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5C267FE80E66 aSender
+
+ME ME_BAF9A43F64B1
+ MEPROP UID 'BAF9A43F64B1'
+ MEPROP Name 'lftCorrespondentQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondent.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_5C267FE80E66 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_BAF9A43F64B1 lftCorrespondentQueryClose
+
+FORWARD ME_BC1EF73BE90E
+
+ME ME_DBD3F9693DB7
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_DBD3F9693DB7 aSender
+
+ME ME_BC1EF73BE90E
+ MEPROP UID 'BC1EF73BE90E'
+ MEPROP Name 'lftSynchroViewQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSynchroView.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_DBD3F9693DB7 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_BC1EF73BE90E lftSynchroViewQueryMaximized
+
+FORWARD ME_7D78C9A85314
+
+ME ME_D9C940C18024
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_D9C940C18024 aSender
+
+ME ME_7D78C9A85314
+ MEPROP UID '7D78C9A85314'
+ MEPROP Name 'lftSynchroViewQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSynchroView.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_D9C940C18024 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_7D78C9A85314 lftSynchroViewQueryOpen
+
+FORWARD ME_FA04A3642350
+
+ME ME_358F57B558B1
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_358F57B558B1 aSender
+
+ME ME_FA04A3642350
+ MEPROP UID 'FA04A3642350'
+ MEPROP Name 'lftCToPartQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftCToPart.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_358F57B558B1 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_FA04A3642350 lftCToPartQueryMaximized
+
+FORWARD ME_FEE09FA84BC5
+
+ME ME_EC390659B573
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_EC390659B573 aSender
+
+ME ME_FEE09FA84BC5
+ MEPROP UID 'FEE09FA84BC5'
+ MEPROP Name 'lftCToPartQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftCToPart.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_EC390659B573 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_FEE09FA84BC5 lftCToPartQueryOpen
+
+FORWARD ME_79E93ABBEBFC
+
+ME ME_0BAC4B9EF7D3
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_0BAC4B9EF7D3 aSender
+
+ME ME_79E93ABBEBFC
+ MEPROP UID '79E93ABBEBFC'
+ MEPROP Name 'lftUserCR1QueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR1.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_0BAC4B9EF7D3 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_79E93ABBEBFC lftUserCR1QueryMaximized
+
+FORWARD ME_63544B6D4A1B
+
+ME ME_03CA53752E56
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_03CA53752E56 aSender
+
+ME ME_63544B6D4A1B
+ MEPROP UID '63544B6D4A1B'
+ MEPROP Name 'lftUserCR1QueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR1.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_03CA53752E56 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_63544B6D4A1B lftUserCR1QueryOpen
+
+FORWARD ME_7C26AE9268E7
+
+ME ME_414928516EA3
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_414928516EA3 aSender
+
+ME ME_7C26AE9268E7
+ MEPROP UID '7C26AE9268E7'
+ MEPROP Name 'lftUserCR1QueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR1.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_414928516EA3 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_7C26AE9268E7 lftUserCR1QueryClose
+
+FORWARD ME_68123CAC609E
+
+ME ME_DC6B49AAEE2D
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_DC6B49AAEE2D aSender
+
+ME ME_68123CAC609E
+ MEPROP UID '68123CAC609E'
+ MEPROP Name 'lftUserCR2QueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR2.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_DC6B49AAEE2D // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_68123CAC609E lftUserCR2QueryMaximized
+
+FORWARD ME_1095984F87C1
+
+ME ME_85D53607D000
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_85D53607D000 aSender
+
+ME ME_1095984F87C1
+ MEPROP UID '1095984F87C1'
+ MEPROP Name 'lftUserCR2QueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR2.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_85D53607D000 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_1095984F87C1 lftUserCR2QueryOpen
+
+FORWARD ME_5B815CDD8F87
+
+ME ME_C550C253C111
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_C550C253C111 aSender
+
+ME ME_5B815CDD8F87
+ MEPROP UID '5B815CDD8F87'
+ MEPROP Name 'lftUserCR2QueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCR2.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_C550C253C111 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_5B815CDD8F87 lftUserCR2QueryClose
+
+FORWARD ME_B8F5E8ADF26A
+
+ME ME_FA4A9D78A954
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_FA4A9D78A954 aSender
+
+ME ME_B8F5E8ADF26A
+ MEPROP UID 'B8F5E8ADF26A'
+ MEPROP Name 'lftConsultationQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftConsultation.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_FA4A9D78A954 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_B8F5E8ADF26A lftConsultationQueryMaximized
+
+FORWARD ME_5E40E10FD4BD
+
+ME ME_E77AB1B826A9
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_E77AB1B826A9 aSender
+
+ME ME_5E40E10FD4BD
+ MEPROP UID '5E40E10FD4BD'
+ MEPROP Name 'lftConsultationQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftConsultation.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_E77AB1B826A9 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_5E40E10FD4BD lftConsultationQueryOpen
+
+FORWARD ME_89247CD8E38D
+
+ME ME_5655090833E9
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5655090833E9 aSender
+
+ME ME_89247CD8E38D
+ MEPROP UID '89247CD8E38D'
+ MEPROP Name 'lftConsultationQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftConsultation.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_5655090833E9 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_89247CD8E38D lftConsultationQueryClose
+
+FORWARD ME_3E3ACC41CC2A
+
+ME ME_340D5586050B
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_340D5586050B aSender
+
+ME ME_3E3ACC41CC2A
+ MEPROP UID '3E3ACC41CC2A'
+ MEPROP Name 'lftSimilarDocumentsQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocuments.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_340D5586050B // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_3E3ACC41CC2A lftSimilarDocumentsQueryMaximized
+
+FORWARD ME_3D942CB394A8
+
+ME ME_46E145BDDBD1
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_46E145BDDBD1 aSender
+
+ME ME_3D942CB394A8
+ MEPROP UID '3D942CB394A8'
+ MEPROP Name 'lftSimilarDocumentsQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocuments.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_46E145BDDBD1 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_3D942CB394A8 lftSimilarDocumentsQueryOpen
+
+FORWARD ME_9144562E25FB
+
+ME ME_0AA7C8A3F905
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_0AA7C8A3F905 aSender
+
+ME ME_9144562E25FB
+ MEPROP UID '9144562E25FB'
+ MEPROP Name 'lftSimilarDocumentsQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocuments.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_0AA7C8A3F905 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_9144562E25FB lftSimilarDocumentsQueryClose
+
+FORWARD ME_7662726E4743
+
+ME ME_CE3A79653342
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_CE3A79653342 aSender
+
+ME ME_7662726E4743
+ MEPROP UID '7662726E4743'
+ MEPROP Name 'lftSimilarDocumentsSynchroViewQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsSynchroView.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_CE3A79653342 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_7662726E4743 lftSimilarDocumentsSynchroViewQueryMaximized
+
+FORWARD ME_D7AA4578D2D1
+
+ME ME_0EE7C9577024
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_0EE7C9577024 aSender
+
+ME ME_D7AA4578D2D1
+ MEPROP UID 'D7AA4578D2D1'
+ MEPROP Name 'lftSimilarDocumentsSynchroViewQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsSynchroView.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_0EE7C9577024 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_D7AA4578D2D1 lftSimilarDocumentsSynchroViewQueryOpen
+
+FORWARD ME_79CA491C075A
+
+ME ME_B88B078D5820
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_B88B078D5820 aSender
+
+ME ME_79CA491C075A
+ MEPROP UID '79CA491C075A'
+ MEPROP Name 'lftCorrespondentsSynchroFormQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondentsSynchroForm.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_B88B078D5820 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_79CA491C075A lftCorrespondentsSynchroFormQueryMaximized
+
+FORWARD ME_10133243E89D
+
+ME ME_44D0F8CFCAF2
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_44D0F8CFCAF2 aSender
+
+ME ME_10133243E89D
+ MEPROP UID '10133243E89D'
+ MEPROP Name 'lftCorrespondentsSynchroFormQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftCorrespondentsSynchroForm.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_44D0F8CFCAF2 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_10133243E89D lftCorrespondentsSynchroFormQueryOpen
+
+FORWARD ME_068F6EC47A8A
+
+ME ME_1293CD12F895
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_1293CD12F895 aSender
+
+ME ME_068F6EC47A8A
+ MEPROP UID '068F6EC47A8A'
+ MEPROP Name 'lftRespondentsSynchroFormQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondentsSynchroForm.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_1293CD12F895 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_068F6EC47A8A lftRespondentsSynchroFormQueryMaximized
+
+FORWARD ME_C576738B9A98
+
+ME ME_E55BC9AC4C8C
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_E55BC9AC4C8C aSender
+
+ME ME_C576738B9A98
+ MEPROP UID 'C576738B9A98'
+ MEPROP Name 'lftRespondentsSynchroFormQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftRespondentsSynchroForm.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_E55BC9AC4C8C // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_C576738B9A98 lftRespondentsSynchroFormQueryOpen
+
+FORWARD ME_536B8B1C39F1
+
+ME ME_D459B01E98EE
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_D459B01E98EE aSender
+
+ME ME_536B8B1C39F1
+ MEPROP UID '536B8B1C39F1'
+ MEPROP Name 'lftUserCRList1_SynchorFormQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList1_SynchorForm.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_D459B01E98EE // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_536B8B1C39F1 lftUserCRList1_SynchorFormQueryMaximized
+
+FORWARD ME_D51A85B5EA94
+
+ME ME_868F4CA584EC
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_868F4CA584EC aSender
+
+ME ME_D51A85B5EA94
+ MEPROP UID 'D51A85B5EA94'
+ MEPROP Name 'lftUserCRList1_SynchorFormQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList1_SynchorForm.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_868F4CA584EC // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_D51A85B5EA94 lftUserCRList1_SynchorFormQueryOpen
+
+FORWARD ME_D22B2108D1D7
+
+ME ME_AEFD58A5B13C
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_AEFD58A5B13C aSender
+
+ME ME_D22B2108D1D7
+ MEPROP UID 'D22B2108D1D7'
+ MEPROP Name 'lftUserCRList2_SynchorFormQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList2_SynchorForm.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_AEFD58A5B13C // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_D22B2108D1D7 lftUserCRList2_SynchorFormQueryMaximized
+
+FORWARD ME_4AE19D392515
+
+ME ME_502DD36CDE81
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_502DD36CDE81 aSender
+
+ME ME_4AE19D392515
+ MEPROP UID '4AE19D392515'
+ MEPROP Name 'lftUserCRList2_SynchorFormQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftUserCRList2_SynchorForm.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_502DD36CDE81 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_4AE19D392515 lftUserCRList2_SynchorFormQueryOpen
+
+FORWARD ME_DF8DF3016AAE
+
+ME ME_56FFF411F915
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_56FFF411F915 aSender
+
+ME ME_DF8DF3016AAE
+ MEPROP UID 'DF8DF3016AAE'
+ MEPROP Name 'lftDrugInternationalNameSynonymsQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonyms.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_56FFF411F915 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_DF8DF3016AAE lftDrugInternationalNameSynonymsQueryMaximized
+
+FORWARD ME_8829BBB9E33F
+
+ME ME_00A5276226FA
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_00A5276226FA aSender
+
+ME ME_8829BBB9E33F
+ MEPROP UID '8829BBB9E33F'
+ MEPROP Name 'lftDrugInternationalNameSynonymsQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonyms.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_00A5276226FA // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_8829BBB9E33F lftDrugInternationalNameSynonymsQueryOpen
+
+FORWARD ME_7CA1B2391F94
+
+ME ME_4E0883836674
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4E0883836674 aSender
+
+ME ME_7CA1B2391F94
+ MEPROP UID '7CA1B2391F94'
+ MEPROP Name 'lftDrugInternationalNameSynonymsQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonyms.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0883836674 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_7CA1B2391F94 lftDrugInternationalNameSynonymsQueryClose
+
+FORWARD ME_66C365C924D6
+
+ME ME_D59DBCD8B4C1
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_D59DBCD8B4C1 aSender
+
+ME ME_66C365C924D6
+ MEPROP UID '66C365C924D6'
+ MEPROP Name 'lftProducedDrugsQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugs.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_D59DBCD8B4C1 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_66C365C924D6 lftProducedDrugsQueryMaximized
+
+FORWARD ME_DD3CF6B9A1FE
+
+ME ME_E460817F74ED
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_E460817F74ED aSender
+
+ME ME_DD3CF6B9A1FE
+ MEPROP UID 'DD3CF6B9A1FE'
+ MEPROP Name 'lftProducedDrugsQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugs.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_E460817F74ED // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_DD3CF6B9A1FE lftProducedDrugsQueryOpen
+
+FORWARD ME_5487A60000CE
+
+ME ME_4CD8BBE84544
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4CD8BBE84544 aSender
+
+ME ME_5487A60000CE
+ MEPROP UID '5487A60000CE'
+ MEPROP Name 'lftProducedDrugsQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugs.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CD8BBE84544 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_5487A60000CE lftProducedDrugsQueryClose
+
+FORWARD ME_F8F8E6852550
+
+ME ME_FFA20315B53E
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_FFA20315B53E aSender
+
+ME ME_F8F8E6852550
+ MEPROP UID 'F8F8E6852550'
+ MEPROP Name 'lftProducedDrugsSynchroFormQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugsSynchroForm.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_FFA20315B53E // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_F8F8E6852550 lftProducedDrugsSynchroFormQueryMaximized
+
+FORWARD ME_B74FCF7BEB24
+
+ME ME_83B7ABE3903D
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_83B7ABE3903D aSender
+
+ME ME_B74FCF7BEB24
+ MEPROP UID 'B74FCF7BEB24'
+ MEPROP Name 'lftProducedDrugsSynchroFormQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftProducedDrugsSynchroForm.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_83B7ABE3903D // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_B74FCF7BEB24 lftProducedDrugsSynchroFormQueryOpen
+
+FORWARD ME_F57A05E9D1E3
+
+ME ME_BE29A90CB19F
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_BE29A90CB19F aSender
+
+ME ME_F57A05E9D1E3
+ MEPROP UID 'F57A05E9D1E3'
+ MEPROP Name 'lftDrugInternationalNameSynonymsSynchroFormQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_BE29A90CB19F // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_F57A05E9D1E3 lftDrugInternationalNameSynonymsSynchroFormQueryMaximized
+
+FORWARD ME_E163385C2B4E
+
+ME ME_911A849B0C8D
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_911A849B0C8D aSender
+
+ME ME_E163385C2B4E
+ MEPROP UID 'E163385C2B4E'
+ MEPROP Name 'lftDrugInternationalNameSynonymsSynchroFormQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftDrugInternationalNameSynonymsSynchroForm.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_911A849B0C8D // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_E163385C2B4E lftDrugInternationalNameSynonymsSynchroFormQueryOpen
+
+FORWARD ME_910DF1C1598C
+
+ME ME_2E2228D5A17C
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_2E2228D5A17C aSender
+
+ME ME_910DF1C1598C
+ MEPROP UID '910DF1C1598C'
+ MEPROP Name 'lftRToPartQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftRToPart.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_2E2228D5A17C // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_910DF1C1598C lftRToPartQueryMaximized
+
+FORWARD ME_0984ADDC3D53
+
+ME ME_3A47B3D905F3
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_3A47B3D905F3 aSender
+
+ME ME_0984ADDC3D53
+ MEPROP UID '0984ADDC3D53'
+ MEPROP Name 'lftRToPartQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftRToPart.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_3A47B3D905F3 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_0984ADDC3D53 lftRToPartQueryOpen
+
+FORWARD ME_9CAFD9A7C3BD
+
+ME ME_600A16ED8479
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_600A16ED8479 aSender
+
+ME ME_9CAFD9A7C3BD
+ MEPROP UID '9CAFD9A7C3BD'
+ MEPROP Name 'lftSimilarDocumentsToFragmentQueryMaximized'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsToFragment.OnQueryMaximized' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_600A16ED8479 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_9CAFD9A7C3BD lftSimilarDocumentsToFragmentQueryMaximized
+
+FORWARD ME_B3625EBE1EED
+
+ME ME_FBF80745F928
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_FBF80745F928 aSender
+
+ME ME_B3625EBE1EED
+ MEPROP UID 'B3625EBE1EED'
+ MEPROP Name 'lftSimilarDocumentsToFragmentQueryOpen'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsToFragment.OnQueryOpen' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_FBF80745F928 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_B3625EBE1EED lftSimilarDocumentsToFragmentQueryOpen
+
+FORWARD ME_E15AA3CCAAFD
+
+ME ME_2F7F6AC45E15
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_2F7F6AC45E15 aSender
+
+ME ME_E15AA3CCAAFD
+ MEPROP UID 'E15AA3CCAAFD'
+ MEPROP Name 'lftSimilarDocumentsToFragmentQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события lftSimilarDocumentsToFragment.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FF59A2F016E // ListUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_2F7F6AC45E15 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_E15AA3CCAAFD lftSimilarDocumentsToFragmentQueryClose
+
+ME ME_4FF59A2F016E
+ MEPROP UID '4FF59A2F016E'
+ MEPROP Name 'ListUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_631A220E9075 // lftRespondentQueryMaximized
+ HWL ME_9FBF6C4D3127 // lftRespondentQueryOpen
+ HWL ME_6784C69651CE // lftRespondentQueryClose
+ HWL ME_AC1A36740EA8 // lftCorrespondentQueryMaximized
+ HWL ME_7984D701603A // lftCorrespondentQueryOpen
+ HWL ME_BAF9A43F64B1 // lftCorrespondentQueryClose
+ HWL ME_BC1EF73BE90E // lftSynchroViewQueryMaximized
+ HWL ME_7D78C9A85314 // lftSynchroViewQueryOpen
+ HWL ME_FA04A3642350 // lftCToPartQueryMaximized
+ HWL ME_FEE09FA84BC5 // lftCToPartQueryOpen
+ HWL ME_79E93ABBEBFC // lftUserCR1QueryMaximized
+ HWL ME_63544B6D4A1B // lftUserCR1QueryOpen
+ HWL ME_7C26AE9268E7 // lftUserCR1QueryClose
+ HWL ME_68123CAC609E // lftUserCR2QueryMaximized
+ HWL ME_1095984F87C1 // lftUserCR2QueryOpen
+ HWL ME_5B815CDD8F87 // lftUserCR2QueryClose
+ HWL ME_B8F5E8ADF26A // lftConsultationQueryMaximized
+ HWL ME_5E40E10FD4BD // lftConsultationQueryOpen
+ HWL ME_89247CD8E38D // lftConsultationQueryClose
+ HWL ME_3E3ACC41CC2A // lftSimilarDocumentsQueryMaximized
+ HWL ME_3D942CB394A8 // lftSimilarDocumentsQueryOpen
+ HWL ME_9144562E25FB // lftSimilarDocumentsQueryClose
+ HWL ME_7662726E4743 // lftSimilarDocumentsSynchroViewQueryMaximized
+ HWL ME_D7AA4578D2D1 // lftSimilarDocumentsSynchroViewQueryOpen
+ HWL ME_79CA491C075A // lftCorrespondentsSynchroFormQueryMaximized
+ HWL ME_10133243E89D // lftCorrespondentsSynchroFormQueryOpen
+ HWL ME_068F6EC47A8A // lftRespondentsSynchroFormQueryMaximized
+ HWL ME_C576738B9A98 // lftRespondentsSynchroFormQueryOpen
+ HWL ME_536B8B1C39F1 // lftUserCRList1_SynchorFormQueryMaximized
+ HWL ME_D51A85B5EA94 // lftUserCRList1_SynchorFormQueryOpen
+ HWL ME_D22B2108D1D7 // lftUserCRList2_SynchorFormQueryMaximized
+ HWL ME_4AE19D392515 // lftUserCRList2_SynchorFormQueryOpen
+ HWL ME_DF8DF3016AAE // lftDrugInternationalNameSynonymsQueryMaximized
+ HWL ME_8829BBB9E33F // lftDrugInternationalNameSynonymsQueryOpen
+ HWL ME_7CA1B2391F94 // lftDrugInternationalNameSynonymsQueryClose
+ HWL ME_66C365C924D6 // lftProducedDrugsQueryMaximized
+ HWL ME_DD3CF6B9A1FE // lftProducedDrugsQueryOpen
+ HWL ME_5487A60000CE // lftProducedDrugsQueryClose
+ HWL ME_F8F8E6852550 // lftProducedDrugsSynchroFormQueryMaximized
+ HWL ME_B74FCF7BEB24 // lftProducedDrugsSynchroFormQueryOpen
+ HWL ME_F57A05E9D1E3 // lftDrugInternationalNameSynonymsSynchroFormQueryMaximized
+ HWL ME_E163385C2B4E // lftDrugInternationalNameSynonymsSynchroFormQueryOpen
+ HWL ME_910DF1C1598C // lftRToPartQueryMaximized
+ HWL ME_0984ADDC3D53 // lftRToPartQueryOpen
+ HWL ME_9CAFD9A7C3BD // lftSimilarDocumentsToFragmentQueryMaximized
+ HWL ME_B3625EBE1EED // lftSimilarDocumentsToFragmentQueryOpen
+ HWL ME_E15AA3CCAAFD // lftSimilarDocumentsToFragmentQueryClose
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4BD5879903AE // lftNone
+ HWL ME_4BD587B60291 // lftRespondent
+ HWL ME_4BD5880300BF // lftCorrespondent
+ HWL ME_4BD5888802BA // lftSynchroView
+ HWL ME_4BD588C1029B // lftCToPart
+ HWL ME_4BD5892F01D4 // lftUserCR1
+ HWL ME_4BD589720381 // lftUserCR2
+ HWL ME_4BD589B50312 // lftConsultation
+ HWL ME_4BD589E40083 // lftSimilarDocuments
+ HWL ME_4BD58A120226 // lftSimilarDocumentsSynchroView
+ HWL ME_4BD58A460089 // lftCorrespondentsSynchroForm
+ HWL ME_4BD58A780204 // lftRespondentsSynchroForm
+ HWL ME_4BD58AB1025D // lftUserCRList1_SynchorForm
+ HWL ME_4BD58B080255 // lftUserCRList2_SynchorForm
+ HWL ME_4BD58B4002A1 // lftDrugList
+ HWL ME_4BD58B5D0377 // lftDrugInternationalNameSynonyms
+ HWL ME_4BD58B810263 // lftProducedDrugs
+ HWL ME_4BD58BA502EE // lftProducedDrugsSynchroForm
+ HWL ME_4BD58BC90275 // lftDrugInternationalNameSynonymsSynchroForm
+ HWL ME_5236CE6D00AC // lftRToPart
+ HWL ME_5594F3A50378 // lftSimilarDocumentsToFragment
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_ListUserTypes_'
+ UP extprop:pas:UnitName 'ListUserTypes.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ListUserTypes.imp.pas'
+
+ENDME // ME_4FF59A2F016E ListUserTypes

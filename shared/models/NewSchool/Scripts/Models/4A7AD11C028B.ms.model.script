@@ -1,0 +1,47 @@
+// TvtProportionalPanel 4A7AD11C028B GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7AD11C028B
+
+ME ME_4F71F9080285
+ MEPROP UID '4F71F9080285'
+ MEPROP Name 'TvtProportionalCustomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A7AD11C028B // TvtProportionalPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A7AD11C028B // TvtProportionalPanel
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProportionalCustomPanel'
+
+ENDME // ME_4F71F9080285 TvtProportionalCustomPanel
+
+ME ME_4A7AD11C028B
+ MEPROP UID '4A7AD11C028B'
+ MEPROP Name 'TvtProportionalPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A7960CC03A4' '4A7960CC03A4.ms.model.script' //  Panels
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F71F9080285 // TvtProportionalCustomPanel
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:pas:UnitName 'vtProportionalPanel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProportionalPanel'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtProportionalPanel.pas'
+
+ENDME // ME_4A7AD11C028B TvtProportionalPanel

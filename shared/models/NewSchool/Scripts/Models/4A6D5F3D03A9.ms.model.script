@@ -1,0 +1,179 @@
+// BaseEditions 4A6D5F3D03A9 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6D5F3D03A9
+
+FORWARD ME_4B5F170E017C
+
+ME ME_4B5F174E0272
+ MEPROP UID '4B5F174E0272'
+ MEPROP Name 'NoPrevEdition'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B5F170E017C // Local
+ ;
+ MEPROP Value '''Нет редакции для сравнения. У изучаемого Вами документа нет более ранних действовавших когда-либо редакций.'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Нет редакции для сравнения. У изучаемого Вами документа нет более ранних действовавших когда-либо редакций.'''
+
+ENDME // ME_4B5F174E0272 NoPrevEdition
+
+ME ME_4B5F170E017C
+ MEPROP UID '4B5F170E017C'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B5F174E0272 // NoPrevEdition
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4B5F170E017C Local
+
+ME ME_4E01FBAE022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4E01FBAE022E 
+
+ME ME_5214A159007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_4BA763B0004B' '47F2170002B2.ms.model.script' // bsTypesNew
+ ;
+
+ENDME // ME_5214A159007F 
+
+ME ME_57A1C870033E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_57A1C81101B6' '5795D66F0385.ms.model.script' // TEditionsService
+ ;
+
+ENDME // ME_57A1C870033E 
+
+ME ME_4B5F196303B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_4A9D129E00FA' '4AADF9450143.ms.model.script' // Say
+ ;
+
+ENDME // ME_4B5F196303B2 
+
+ME ME_4A9BD2F203D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_4A78506900E2' '4A785027038D.ms.model.script' // TnsCompareEditionsInfo
+ ;
+
+ENDME // ME_4A9BD2F203D6 
+
+ME ME_4B5F17000073
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_45EED9780391' '4570511E038A.ms.model.script' // RedactionNotFound
+ ;
+
+ENDME // ME_4B5F17000073 
+
+ME ME_4A718B31012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4A718B31012A 
+
+ME ME_4A71954D0122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+ ;
+
+ENDME // ME_4A71954D0122 
+
+ME ME_4A71821C01D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6D5F3D03A9 // BaseEditions
+ ;
+ MELINK Target WL 'ME_4A7181A301E3' '4A7181A301E3.ms.model.script' // TsdsCompareEditions
+ ;
+
+ENDME // ME_4A71821C01D0 
+
+ME ME_4A6D5F3D03A9
+ MEPROP UID '4A6D5F3D03A9'
+ MEPROP Name 'BaseEditions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A6D5A220389' '4A6D5A220389.ms.model.script' // Editions
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4A6EC02E00EA' '4A6EC02E00EA.ms.model.script' // LeftEdition
+ WL 'ME_4A6EC062005F' '4A6EC062005F.ms.model.script' // RightEdition
+ WL 'ME_4A6EC095039C' '4A6EC095039C.ms.model.script' // EditionsContainer
+ WL 'ME_4A6EBF8301FA' '4A6EBF8301FA.ms.model.script' // CompareEditions
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4B5F170E017C // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4E01FBAE022E // vcmMessagesSupport
+ ME_5214A159007F // bsTypesNew
+ ME_57A1C870033E // TEditionsService
+ ME_4B5F196303B2 // Say
+ ME_4A9BD2F203D6 // TnsCompareEditionsInfo
+ ME_4B5F17000073 // RedactionNotFound
+ ME_4A718B31012A // StdRes
+ ME_4A71954D0122 // TvcmFormSetFactory
+ ME_4A71821C01D0 // TsdsCompareEditions
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '27.07.2009 12:03'
+ UP extprop:pas:TypeName 'TBaseEditionsModule'
+ UP extprop:pas:UnitName 'BaseEditions_Module'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseEditionsModule'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Editions\BaseEditions_Module.pas'
+
+ENDME // ME_4A6D5F3D03A9 BaseEditions

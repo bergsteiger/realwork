@@ -1,0 +1,69 @@
+// GroupProperty 4AA8E3E20024 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_71BC5A4EDB66
+
+FORWARD ME_4AA8E3E20024
+
+ME ME_71BC5A4EDB66
+ MEPROP UID '71BC5A4EDB66'
+ MEPROP GUID 'F213AE84-ECF9-427D-8B89-53C6221D1F27'
+ MEPROP Name 'GroupProperty'
+ MEPROP OriginalName 'GroupProperty$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы GroupProperty' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA8E3E20024 // GroupProperty
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AA8E3E20024 // GroupProperty
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'GroupPropertyFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_71BC5A4EDB66 GroupProperty$Def
+
+ME ME_4AA8E3E20024
+ MEPROP UID '4AA8E3E20024'
+ MEPROP Name 'GroupProperty'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Свойства группы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA5120303E5' '4AA5120303E5.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8A09E103B7' '4C8A09E103B7.ms.model.script' // PrimGroupPropertyOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_71BC5A4EDB66 // GroupProperty$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_71BC5A4EDB66 // GroupProperty$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "form name prefix" 'ef'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Modal'
+ UP extprop:pas:TypeName 'TefGroupProperty'
+ UP extprop:pas:UnitName 'GroupProperty_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'efGroupProperty'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\GroupProperty_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+
+ENDME // ME_4AA8E3E20024 GroupProperty

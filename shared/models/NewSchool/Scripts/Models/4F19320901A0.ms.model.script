@@ -1,0 +1,462 @@
+// DataBase 4F19320901A0 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F19320901A0
+
+FORWARD ME_4F193294011F
+
+FORWARD ME_4F193A4F034C
+
+ME ME_4F193A660008
+ MEPROP UID '4F193A660008'
+ MEPROP Name 'cFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F193A4F034C // DBNames
+ ;
+ MEPROP Value '''bserv001'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''bserv001'''
+
+ENDME // ME_4F193A660008 cFileName
+
+ME ME_4FC3795D015E
+ MEPROP UID '4FC3795D015E'
+ MEPROP Name 'cIndexFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F193A4F034C // DBNames
+ ;
+ MEPROP Value '''bserv001.idx'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''bserv001.idx'''
+
+ENDME // ME_4FC3795D015E cIndexFileName
+
+ME ME_4F193A4F034C
+ MEPROP UID '4F193A4F034C'
+ MEPROP Name 'DBNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F193294011F // TStgIndexTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F193A660008 // cFileName
+ HWL ME_4FC3795D015E // cIndexFileName
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4F193A4F034C DBNames
+
+FORWARD ME_4F19335D01E9
+
+ME ME_4F19337C00A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4F19108601F3' '4F19106E00E3.ms.model.script' // Tm3StorageIndexAdapter
+ ;
+
+ENDME // ME_4F19337C00A3 
+
+ME ME_4F197313019C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4DF870EA0062' '4AB0C3C60310.ms.model.script' // ChangeFileExt
+ ;
+
+ENDME // ME_4F197313019C 
+
+ME ME_4F197D720153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4BB3766601CC' '47D0290B016D.ms.model.script' // CopyFile
+ ;
+
+ENDME // ME_4F197D720153 
+
+ME ME_4FBF783100B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4742CA9702AE' '4742C9DB033A.ms.model.script' // Tm3DB
+ ;
+
+ENDME // ME_4FBF783100B0 
+
+ME ME_4FBF7AD8012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
+ ;
+
+ENDME // ME_4FBF7AD8012D 
+
+ME ME_4FBF9B0502F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_476BC039022B' '476BBF330336.ms.model.script' // Im4DB
+ ;
+
+ENDME // ME_4FBF9B0502F2 
+
+ME ME_4FBF9B4901E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4F191E6C0189' '4AB37BE502EA.ms.model.script' // Tm4DB
+ ;
+
+ENDME // ME_4FBF9B4901E6 
+
+ME ME_4FCC678C0037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4BA7BE3B0114' '47913B47006E.ms.model.script' // l3LocalStub
+ ;
+
+ENDME // ME_4FCC678C0037 
+
+ME ME_4FCC6A1C0092
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F19335D01E9 // DoIt
+ ;
+ MELINK Target WL 'ME_4FA4EF660273' '4742C9DB033A.ms.model.script' // Tm3StorageManager
+ ;
+
+ENDME // ME_4FCC6A1C0092 
+
+ME ME_4F19335D01E9
+ MEPROP UID '4F19335D01E9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F193294011F // TStgIndexTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F19337C00A3 // Tm3StorageIndexAdapter
+ ME_4F197313019C // ChangeFileExt
+ ME_4F197D720153 // CopyFile
+ ME_4FBF783100B0 // Tm3DB
+ ME_4FBF7AD8012D // Im3DB
+ ME_4FBF9B0502F2 // Im4DB
+ ME_4FBF9B4901E6 // Tm4DB
+ ME_4FCC678C0037 // l3LocalStub
+ ME_4FCC6A1C0092 // Tm3StorageManager
+ )
+ ; // Dependencies
+
+ENDME // ME_4F19335D01E9 DoIt
+
+ME ME_540F2BDE01F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F193294011F // TStgIndexTest
+ ;
+ MELINK Target WL 'ME_4FA278B00247' '5485B0D1026C.ms.model.script' // Tm3SplittedFileStream
+ ;
+
+ENDME // ME_540F2BDE01F0 
+
+ME ME_4B4F588B0241_ME_4F193294011F
+ MELINK Original WL 'ME_4B4F588B0241' '4B2A112B011A.ms.model.script' // FileForOutput
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B4F588B0241_ME_4F193294011F FileForOutput
+
+ME ME_4C937013031D_ME_4F193294011F
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4F193294011F GetFolder
+
+ME ME_4CA5DAD4014C_ME_4F193294011F
+ MELINK Original WL 'ME_4CA5DAD4014C' '4B2A112B011A.ms.model.script' // RaiseIfEtalonCreated
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CA5DAD4014C_ME_4F193294011F RaiseIfEtalonCreated
+
+ME ME_4DAED6F60146_ME_4F193294011F
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_4F193294011F GetModelElementGUID
+
+ME ME_4DCA41A20364_ME_4F193294011F
+ MELINK Original WL 'ME_4DCA41A20364' '4B2A112B011A.ms.model.script' // FileNameForOutput
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DCA41A20364_ME_4F193294011F FileNameForOutput
+
+ME ME_4F193294011F
+ MEPROP UID '4F193294011F'
+ MEPROP Name 'TStgIndexTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F19320901A0 // DataBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F19335D01E9 // DoIt
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4B4F588B0241_ME_4F193294011F // FileForOutput
+ ME_4C937013031D_ME_4F193294011F // GetFolder
+ ME_4CA5DAD4014C_ME_4F193294011F // RaiseIfEtalonCreated
+ ME_4DAED6F60146_ME_4F193294011F // GetModelElementGUID
+ ME_4DCA41A20364_ME_4F193294011F // FileNameForOutput
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4F193A4F034C // DBNames
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_540F2BDE01F0 // Tm3SplittedFileStream
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'StgIndexTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StgIndexTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\StgIndexTest.pas'
+
+ENDME // ME_4F193294011F TStgIndexTest
+
+FORWARD ME_54193E6A0023
+
+FORWARD ME_54193F6B00F8
+
+ME ME_541957C60009
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54193F6B00F8 // DoIt()
+ ;
+ MELINK Target WL 'ME_541957650320' '5419575202DB.ms.model.script' // TDataBaseTester
+ ;
+
+ENDME // ME_541957C60009 
+
+ME ME_542012F10323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54193F6B00F8 // DoIt()
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_542012F10323 
+
+ME ME_542015B80053
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54193F6B00F8 // DoIt()
+ ;
+ MELINK Target WL 'ME_4FA278B00247' '5485B0D1026C.ms.model.script' // Tm3SplittedFileStream
+ ;
+
+ENDME // ME_542015B80053 
+
+ME ME_54193F6B00F8
+ MEPROP UID '54193F6B00F8'
+ MEPROP Name 'DoIt()'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54193E6A0023 // TMultyOperationTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_541957C60009 // TDataBaseTester
+ ME_542012F10323 // FreeAndNil
+ ME_542015B80053 // Tm3SplittedFileStream
+ )
+ ; // Dependencies
+
+ENDME // ME_54193F6B00F8 DoIt()
+
+FORWARD ME_54200FFA01D8
+
+FORWARD ME_542010050087
+
+ME ME_5420100F0266
+ MEPROP Name 'aBasePath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_5420100F0266 aBasePath
+
+ME ME_542010050087
+ MEPROP UID '542010050087'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54200FFA01D8 // ClearBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_5420100F0266 // aBasePath
+ )
+ ; // Parameters
+
+ENDME // ME_542010050087 DoIt
+
+ME ME_542012A9013A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54200FFA01D8 // ClearBase
+ ;
+ MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
+ ;
+
+ENDME // ME_542012A9013A 
+
+ME ME_542012C8003A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54200FFA01D8 // ClearBase
+ ;
+ MELINK Target WL 'ME_4742CA9702AE' '4742C9DB033A.ms.model.script' // Tm3DB
+ ;
+
+ENDME // ME_542012C8003A 
+
+ME ME_54200FFA01D8
+ MEPROP UID '54200FFA01D8'
+ MEPROP Name 'ClearBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54193E6A0023 // TMultyOperationTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542010050087 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_542012A9013A // Im3DB
+ ME_542012C8003A // Tm3DB
+ )
+ ; // Dependencies
+
+ENDME // ME_54200FFA01D8 ClearBase
+
+ME ME_4C937013031D_ME_54193E6A0023
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_54193E6A0023 GetFolder
+
+ME ME_4DAED6F60146_ME_54193E6A0023
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_54193E6A0023 GetModelElementGUID
+
+ME ME_54193E6A0023
+ MEPROP UID '54193E6A0023'
+ MEPROP Name 'TMultyOperationTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F19320901A0 // DataBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54193F6B00F8 // DoIt()
+ HWL ME_54200FFA01D8 // ClearBase
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_54193E6A0023 // GetFolder
+ ME_4DAED6F60146_ME_54193E6A0023 // GetModelElementGUID
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'MultyOperationTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MultyOperationTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Archi_Tests\MultyOperationTest.pas'
+
+ENDME // ME_54193E6A0023 TMultyOperationTest
+
+ME ME_4F19320901A0
+ MEPROP UID '4F19320901A0'
+ MEPROP Name 'DataBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ %SUMMARY 'Тесты связанные с базой данных Арчи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D53DDBE00EE' '4D53DDBE00EE.ms.model.script' // Abstract Archi Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F193294011F // TStgIndexTest
+ HWL ME_54193E6A0023 // TMultyOperationTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4720831F012D' '4720831F012D.ms.model.script' // m3DBInterfaces
+ WL 'ME_4742C9DB033A' '4742C9DB033A.ms.model.script' // m3DB
+ WL 'ME_476BBF330336' '476BBF330336.ms.model.script' // m4DBInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_48294AA903A6' '48294AA903A6.ms.model.script' // m3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB37BE502EA' '4AB37BE502EA.ms.model.script' // Dict
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4F19106E00E3' '4F19106E00E3.ms.model.script' // m3TetsSupport
+ WL 'ME_5419575202DB' '5419575202DB.ms.model.script' // DataBaseTestUtils
+ WL 'ME_5485B0D1026C' '5485B0D1026C.ms.model.script' // Streams
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_4F19320901A0 DataBase

@@ -1,0 +1,87 @@
+// PrimAdminMain 4AA518EB039C VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA518EB039C
+
+ME ME_4BD84DBE0387
+ MEPROP UID '4BD84DBE0387'
+ MEPROP Name 'utEmptyMainWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Главное окно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA518EB039C // PrimAdminMain
+ ;
+ UP "ImageIndex" '-1'
+ UP "SettingsCaption" 'Главная панель инструментов'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimAdminMain_utEmptyMainWindow_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimAdminMain_utEmptyMainWindow_UserType.pas'
+
+ENDME // ME_4BD84DBE0387 utEmptyMainWindow
+
+ME ME_57A355B20136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA518EB039C // PrimAdminMain
+ ;
+ MELINK Target WL 'ME_57A3519700ED' '57A351800138.ms.model.script' // TAdminService
+ ;
+
+ENDME // ME_57A355B20136 
+
+ME ME_49803F5503AA_ME_4AA518EB039C
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_4AA518EB039C DoInit
+
+ME ME_4AA518EB039C
+ MEPROP UID '4AA518EB039C'
+ MEPROP Name 'PrimAdminMain'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMMainForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA517B5037A' '4AA517B5037A.ms.model.script' // AdminApp
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8A210E018C' '4C8A210E018C.ms.model.script' // PrimMainOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F7C1E96000A' '4F7C1E2803C5.ms.model.script' // AdminAndMonitoringsMainForm
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_4AA518EB039C // DoInit
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD84DBE0387 // utEmptyMainWindow
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_57A355B20136 // TAdminService
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '07.09.2009 18:30'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TPrimAdminMainForm'
+ UP extprop:pas:UnitName 'PrimAdminMain_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimAdminMainForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimAdminMain_Form.pas'
+
+ENDME // ME_4AA518EB039C PrimAdminMain

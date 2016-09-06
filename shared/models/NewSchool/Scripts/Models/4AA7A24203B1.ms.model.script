@@ -1,0 +1,39 @@
+// MainMenu$UC 4AA7A24203B1 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AA7A24203B1
+ MEPROP UID '4AA7A24203B1'
+ MEPROP Name 'MainMenu'
+ MEPROP OriginalName 'MainMenu$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Основное меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA0F7430020' '4AA0F7430020.ms.model.script' // MainMenu
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA7A1F80027' '4AA7A1F80027.ms.model.script' // MainMenu$FP
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_484F77120164' '48563BA400A9.ms.model.script' // Основное меню (устарел)
+ WL 'ME_48563E65020C' '48563BA400A9.ms.model.script' // Упрощенное Основное Меню (устарел)
+ WL 'ME_4AC1D84F0398' '48563BA400A9.ms.model.script' // Основное меню (2009)
+ WL 'ME_4E7344D40331' '48563BA400A9.ms.model.script' // Тип изменяемой части основного меню
+ )
+ ; // Implements
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '09.09.2009 16:34'
+ UP extprop:pas:TypeName 'Tmo_MainMenu'
+ UP extprop:pas:UnitName 'moMainMenu'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_MainMenu'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moMainMenu.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4AA7A24203B1 MainMenu$UC

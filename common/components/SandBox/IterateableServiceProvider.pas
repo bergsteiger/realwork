@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5519612B01D3impl_uses*
+ //#UC END# *5519612B01D3impl_uses*
 ;
 
 var g_TIterateableServiceImpl: TIterateableServiceImpl = nil;

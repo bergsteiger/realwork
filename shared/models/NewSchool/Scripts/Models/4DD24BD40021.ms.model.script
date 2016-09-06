@@ -1,0 +1,682 @@
+// MainMenu 4DD24BD40021 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DD24BD40021
+
+FORWARD ME_4E3011A101F7
+
+ME ME_4E30121D0200
+ MEPROP UID '4E30121D0200'
+ MEPROP Name 'ST_FINANCE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Налоги и финансы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_4E30121D0200 ST_FINANCE
+
+ME ME_4E30124C009C
+ MEPROP UID '4E30124C009C'
+ MEPROP Name 'ST_HR'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Раздел для кадровиков' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_4E30124C009C ST_HR
+
+ME ME_4E30125C0071
+ MEPROP UID '4E30125C0071'
+ MEPROP Name 'ST_LEGAL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Раздел для юристов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_4E30125C0071 ST_LEGAL
+
+ME ME_4E30126703E5
+ MEPROP UID '4E30126703E5'
+ MEPROP Name 'ST_BUDGET_ORGS'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Бюджетные организаций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_4E30126703E5 ST_BUDGET_ORGS
+
+ME ME_56E16FEA03BD
+ MEPROP UID '56E16FEA03BD'
+ MEPROP Name 'ST_GOS_ZAKUPKI'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Госзакупки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_56E16FEA03BD ST_GOS_ZAKUPKI
+
+ME ME_5226C7D90286
+ MEPROP UID '5226C7D90286'
+ MEPROP Name 'ST_LAW_FOR_ALL'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Право для всех' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_5226C7D90286 ST_LAW_FOR_ALL
+
+ME ME_4E3012760260
+ MEPROP UID '4E3012760260'
+ MEPROP Name 'ST_BUSINESS_REFERENCES'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Бизнес-справки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_4E3012760260 ST_BUSINESS_REFERENCES
+
+ME ME_4E3012830246
+ MEPROP UID '4E3012830246'
+ MEPROP Name 'ST_CHANGES_IN_LEGISLATION'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Изменения в законодательстве' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_4E3012830246 ST_CHANGES_IN_LEGISLATION
+
+ME ME_4E3011A101F7
+ MEPROP UID '4E3011A101F7'
+ MEPROP Name 'SectionType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип секции ОМ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD24BD40021 // MainMenu
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E30121D0200 // ST_FINANCE
+ HWL ME_4E30124C009C // ST_HR
+ HWL ME_4E30125C0071 // ST_LEGAL
+ HWL ME_4E30126703E5 // ST_BUDGET_ORGS
+ HWL ME_56E16FEA03BD // ST_GOS_ZAKUPKI
+ HWL ME_5226C7D90286 // ST_LAW_FOR_ALL
+ HWL ME_4E3012760260 // ST_BUSINESS_REFERENCES
+ HWL ME_4E3012830246 // ST_CHANGES_IN_LEGISLATION
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TSectionType'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4E3011A101F7 SectionType
+
+FORWARD ME_4E36C7D80396
+
+ME ME_4E36C7EB007C
+ MEPROP UID '4E36C7EB007C'
+ MEPROP Name 'caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Имя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4E36C7D80396 // SectionItem
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_4E36C7EB007C caption
+
+ME ME_4E36C80302E6
+ MEPROP UID '4E36C80302E6'
+ MEPROP Name 'open'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить сущность элемента (может быть IQuery, IDocument, INodeBase, IString, IBookmark)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E36C7D80396 // SectionItem
+ ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_4E36C80302E6 open
+
+FORWARD ME_4E36CAA4003F
+
+ME ME_4E37ADDB03C0
+ MEPROP Name 'section_item'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4E37ADDB03C0 section_item
+
+ME ME_4E36CAA4003F
+ MEPROP UID '4E36CAA4003F'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E36C7D80396 // SectionItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E37ADDB03C0 // section_item
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" False
+
+ENDME // ME_4E36CAA4003F make
+
+ME ME_4E36C7D80396
+ MEPROP UID '4E36C7D80396'
+ MEPROP GUID '257ACC4A-9B2A-4AD1-B238-0CDCE6A5406E'
+ MEPROP Name 'SectionItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Элемент раздела ОМ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD24BD40021 // MainMenu
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E36C7EB007C // caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E36C80302E6 // open
+ HWL ME_4E36CAA4003F // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'ISectionItem'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SectionItem'
+
+ENDME // ME_4E36C7D80396 SectionItem
+
+FORWARD ME_4E36C8550143
+
+ME ME_4E36CD5603B6
+ MEPROP UID '4E36CD5603B6'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E36C8550143 // SectionItemList
+ ;
+ MELINK Target HWL ME_4E36C7D80396 // SectionItem
+ ;
+
+ENDME // ME_4E36CD5603B6 
+
+ME ME_4E36C8550143
+ MEPROP UID '4E36C8550143'
+ MEPROP Name 'SectionItemList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD24BD40021 // MainMenu
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E36CD5603B6 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'ISectionItemList'
+
+ENDME // ME_4E36C8550143 SectionItemList
+
+FORWARD ME_4E36C7590390
+
+ME ME_4E37CA2A034B
+ MEPROP UID '4E37CA2A034B'
+ MEPROP Name 'caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'имя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4E36C7590390 // Section
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_4E37CA2A034B caption
+
+ME ME_4E37CA4300B7
+ MEPROP UID '4E37CA4300B7'
+ MEPROP Name 'get_items'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить элементы раздела ОМ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E36C7590390 // Section
+ ;
+ MELINK Target HWL ME_4E36C8550143 // SectionItemList
+ ;
+
+ENDME // ME_4E37CA4300B7 get_items
+
+FORWARD ME_56FD3A5700CD
+
+ME ME_56FD3A680217
+ MEPROP Name 'type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_56FD3A680217 type
+
+ME ME_56FD3A5700CD
+ MEPROP UID '56FD3A5700CD'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E36C7590390 // Section
+ ;
+ MELIST Parameters
+   Seq: ( ME_56FD3A680217 // type
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" False
+
+ENDME // ME_56FD3A5700CD make
+
+ME ME_4E36C7590390
+ MEPROP UID '4E36C7590390'
+ MEPROP GUID 'BBB2D3C6-226C-4A9F-AAC6-32775E30B7C7'
+ MEPROP Name 'Section'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD24BD40021 // MainMenu
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E37CA2A034B // caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E37CA4300B7 // get_items
+ HWL ME_56FD3A5700CD // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'ISection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Section'
+
+ENDME // ME_4E36C7590390 Section
+
+FORWARD ME_56FE518A027D
+
+ME ME_56FE579C031F
+ MEPROP UID '56FE579C031F'
+ MEPROP Name 'caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'имя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56FE518A027D // MainMenuSection
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_56FE579C031F caption
+
+FORWARD ME_56FE51B601CF
+
+ME ME_5702430502D9
+ MEPROP Name 'server_section'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_5702430502D9 server_section
+
+ME ME_56FE51B601CF
+ MEPROP UID '56FE51B601CF'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56FE518A027D // MainMenuSection
+ ;
+ MELIST Parameters
+   Seq: ( ME_5702430502D9 // server_section
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+ UP "dll export" False
+
+ENDME // ME_56FE51B601CF make
+
+ME ME_56FE579901A9
+ MEPROP UID '56FE579901A9'
+ MEPROP Name 'get_items'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить элементы раздела ОМ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56FE518A027D // MainMenuSection
+ ;
+ MELINK Target HWL ME_4E36C8550143 // SectionItemList
+ ;
+
+ENDME // ME_56FE579901A9 get_items
+
+ME ME_570D16D600A2
+ MEPROP UID '570D16D600A2'
+ MEPROP Name 'get_news_section_index'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить для проф. секции индекс в новостной секции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56FE518A027D // MainMenuSection
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_570D16D600A2 get_news_section_index
+
+ME ME_571F72D303BC
+ MEPROP UID '571F72D303BC'
+ MEPROP Name 'get_banner'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_56FE518A027D // MainMenuSection
+ ;
+ MELINK Target WL 'ME_4ACC6DD00230' '4ACC6D940387.ms.model.script' // Banner
+ ;
+
+ENDME // ME_571F72D303BC get_banner
+
+ME ME_56FE518A027D
+ MEPROP UID '56FE518A027D'
+ MEPROP GUID '9B596AAB-BF7B-41A0-978D-3FAD93DC180C'
+ MEPROP Name 'MainMenuSection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD24BD40021 // MainMenu
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56FE579C031F // caption
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56FE51B601CF // make
+ HWL ME_56FE579901A9 // get_items
+ HWL ME_570D16D600A2 // get_news_section_index
+ HWL ME_571F72D303BC // get_banner
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IMainMenuSection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainMenuSection'
+
+ENDME // ME_56FE518A027D MainMenuSection
+
+FORWARD ME_56FE606A033E
+
+ME ME_57025964005D
+ MEPROP UID '57025964005D'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_56FE606A033E // MainMenuSectionList
+ ;
+ MELINK Target HWL ME_56FE518A027D // MainMenuSection
+ ;
+
+ENDME // ME_57025964005D 
+
+ME ME_56FE606A033E
+ MEPROP UID '56FE606A033E'
+ MEPROP Name 'MainMenuSectionList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD24BD40021 // MainMenu
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57025964005D // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IMainMenuSectionList'
+
+ENDME // ME_56FE606A033E MainMenuSectionList
+
+FORWARD ME_4DD24C180204
+
+ME ME_4DD24C3000F5
+ MEPROP UID '4DD24C3000F5'
+ MEPROP Name 'get_base_search_panes'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить дерево вкладок Бзового поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DD24C180204 // MainMenu
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_4DD24C3000F5 get_base_search_panes
+
+ME ME_4DD251830230
+ MEPROP UID '4DD251830230'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DD24C180204 // MainMenu
+ ;
+ MEPROP TargetStereotype 'cached'
+ UP "const_type" 'read-write'
+
+ENDME // ME_4DD251830230 make
+
+FORWARD ME_4E3012910002
+
+ME ME_4E3012AE02D8
+ MEPROP Name 'type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4E3011A101F7 // SectionType
+ ;
+
+ENDME // ME_4E3012AE02D8 type
+
+ME ME_4E3012910002
+ MEPROP UID '4E3012910002'
+ MEPROP Name 'get_section'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить дерево секции ОМ по типу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DD24C180204 // MainMenu
+ ;
+ MELINK Target HWL ME_4E36C7590390 // Section
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E3012AE02D8 // type
+ )
+ ; // Parameters
+
+ENDME // ME_4E3012910002 get_section
+
+ME ME_56FE602B0126
+ MEPROP UID '56FE602B0126'
+ MEPROP Name 'get_profession_section_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'список секций проф. меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DD24C180204 // MainMenu
+ ;
+ MELINK Target HWL ME_56FE606A033E // MainMenuSectionList
+ ;
+
+ENDME // ME_56FE602B0126 get_profession_section_list
+
+ME ME_56FE609903B2
+ MEPROP UID '56FE609903B2'
+ MEPROP Name 'get_news_section_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'список новостных секций ОМ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DD24C180204 // MainMenu
+ ;
+ MELINK Target HWL ME_56FE606A033E // MainMenuSectionList
+ ;
+
+ENDME // ME_56FE609903B2 get_news_section_list
+
+ME ME_570273C401EB
+ MEPROP UID '570273C401EB'
+ MEPROP Name 'get_business_reference_section'
+ MEPROP Class class_Operation
+ %SUMMARY 'раздел бизнес-справки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DD24C180204 // MainMenu
+ ;
+ MELINK Target HWL ME_56FE518A027D // MainMenuSection
+ ;
+
+ENDME // ME_570273C401EB get_business_reference_section
+
+ME ME_5702741B0317
+ MEPROP UID '5702741B0317'
+ MEPROP Name 'get_changes_in_legislation_section'
+ MEPROP Class class_Operation
+ %SUMMARY 'раздел изменения в  законодательстве' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DD24C180204 // MainMenu
+ ;
+ MELINK Target HWL ME_56FE518A027D // MainMenuSection
+ ;
+
+ENDME // ME_5702741B0317 get_changes_in_legislation_section
+
+ME ME_4DD24C180204
+ MEPROP UID '4DD24C180204'
+ MEPROP GUID '7EAB7EE0-39FB-42FD-BE38-AF667AE0466E'
+ MEPROP Name 'MainMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Основное меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD24BD40021 // MainMenu
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD24C3000F5 // get_base_search_panes
+ HWL ME_4DD251830230 // make
+ HWL ME_4E3012910002 // get_section
+ HWL ME_56FE602B0126 // get_profession_section_list
+ HWL ME_56FE609903B2 // get_news_section_list
+ HWL ME_570273C401EB // get_business_reference_section
+ HWL ME_5702741B0317 // get_changes_in_legislation_section
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IMainMenu'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainMenu'
+
+ENDME // ME_4DD24C180204 MainMenu
+
+ME ME_4DD24BD40021
+ MEPROP UID '4DD24BD40021'
+ MEPROP Name 'MainMenu'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Основное меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E3011A101F7 // SectionType
+ HWL ME_4E36C7D80396 // SectionItem
+ HWL ME_4E36C8550143 // SectionItemList
+ HWL ME_4E36C7590390 // Section
+ HWL ME_56FE518A027D // MainMenuSection
+ HWL ME_56FE606A033E // MainMenuSectionList
+ HWL ME_4DD24C180204 // MainMenu
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ WL 'ME_4ACC6D940387' '4ACC6D940387.ms.model.script' // Banner
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\MainMenu\MainMenu.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\MainMenu'
+ UP extprop:pas:UnitName 'MainMenuUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\MainMenu\MainMenu.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\MainMenu'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\MainMenuUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\MainMenuUnit.pas'
+
+ENDME // ME_4DD24BD40021 MainMenu

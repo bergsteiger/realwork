@@ -1,0 +1,85 @@
+// RedactionsUserTypes 5009475801E4 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5009475801E4
+
+ME ME_4BD6BF000358
+ MEPROP UID '4BD6BF000358'
+ MEPROP Name 'utRedaction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редакции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5009475801E4 // RedactionsUserTypes
+ ;
+ UP "ImageIndex" 46
+ UP "NeedOnQueryClose" True
+ UP "SettingsCaption" 'Документ: Редакции (вкладка)'
+ UP "Weight" 60
+ UP extprop:pas:UnitName 'RedactionsUserTypes_utRedaction_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\RedactionsUserTypes_utRedaction_UserType.pas'
+
+ENDME // ME_4BD6BF000358 utRedaction
+
+FORWARD ME_E2975B7BD13F
+
+ME ME_023B4BBC6C0B
+ MEPROP Name 'aSender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_023B4BBC6C0B aSender
+
+ME ME_E2975B7BD13F
+ MEPROP UID 'E2975B7BD13F'
+ MEPROP Name 'utRedactionQueryClose'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик события utRedaction.OnQueryClose' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5009475801E4 // RedactionsUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_023B4BBC6C0B // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_E2975B7BD13F utRedactionQueryClose
+
+ME ME_5009475801E4
+ MEPROP UID '5009475801E4'
+ MEPROP Name 'RedactionsUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_E2975B7BD13F // utRedactionQueryClose
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4BD6BF000358 // utRedaction
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_RedactionsUserTypes_'
+ UP extprop:pas:UnitName 'RedactionsUserTypes.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\RedactionsUserTypes.imp.pas'
+
+ENDME // ME_5009475801E4 RedactionsUserTypes

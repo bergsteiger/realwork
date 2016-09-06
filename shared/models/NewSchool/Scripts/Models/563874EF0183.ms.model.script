@@ -1,0 +1,740 @@
+// SearchServices 563874EF0183 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_563874EF0183
+
+FORWARD ME_563875050317
+
+FORWARD ME_A7888A84DDDB
+
+FORWARD ME_5638753D025D
+
+FORWARD ME_4923CA8F0CFB
+
+ME ME_7404E4A30BF5
+ MEPROP Name 'aEntityForm'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_7404E4A30BF5 aEntityForm
+
+ME ME_4923CA8F0CFB
+ MEPROP UID '4923CA8F0CFB'
+ MEPROP Name 'GetBaseSearcher'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_496B5FCE02FD' '4A9F98B901A5.ms.model.script' // InsBaseSearcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_7404E4A30BF5 // aEntityForm
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5638753D025D // GetBaseSearcher
+ ;
+
+ENDME // ME_4923CA8F0CFB GetBaseSearcher
+
+FORWARD ME_563875610245
+
+FORWARD ME_CB784FFDCCE4
+
+ME ME_D256516C7255
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_D256516C7255 aContainer
+
+ME ME_D256516C7256
+ MEPROP Name 'aProvider'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5631AC50016C' '4A9F98B901A5.ms.model.script' // InsBaseSearcherProvider
+ ;
+
+ENDME // ME_D256516C7256 aProvider
+
+ME ME_CB784FFDCCE4
+ MEPROP UID 'CB784FFDCCE4'
+ MEPROP Name 'UnregisterBaseSearcherProvider'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_D256516C7255 // aContainer
+ ME_D256516C7256 // aProvider
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_563875610245 // UnregisterBaseSearcherProvider
+ ;
+
+ENDME // ME_CB784FFDCCE4 UnregisterBaseSearcherProvider
+
+FORWARD ME_5638758B005B
+
+FORWARD ME_B86FD3ED4532
+
+ME ME_0374E04F1125
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_0374E04F1125 aContainer
+
+ME ME_0374E04F1126
+ MEPROP Name 'aProvider'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5631AC50016C' '4A9F98B901A5.ms.model.script' // InsBaseSearcherProvider
+ ;
+
+ENDME // ME_0374E04F1126 aProvider
+
+ME ME_B86FD3ED4532
+ MEPROP UID 'B86FD3ED4532'
+ MEPROP Name 'RegisterBaseSearcherProvider'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_0374E04F1125 // aContainer
+ ME_0374E04F1126 // aProvider
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5638758B005B // RegisterBaseSearcherProvider
+ ;
+
+ENDME // ME_B86FD3ED4532 RegisterBaseSearcherProvider
+
+FORWARD ME_57060F970080
+
+FORWARD ME_5E9BD918F50B
+
+ME ME_40E4DC555349
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_40E4DC555349 aContainer
+
+ME ME_5E9BD918F50B
+ MEPROP UID '5E9BD918F50B'
+ MEPROP Name 'GetBaseSearchWindow'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_40E4DC555349 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57060F970080 // GetBaseSearchWindow
+ ;
+
+ENDME // ME_5E9BD918F50B GetBaseSearchWindow
+
+FORWARD ME_57062347014D
+
+FORWARD ME_5434702F7752
+
+ME ME_91BD61383401
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_91BD61383401 aContainer
+
+ME ME_91BD61383402
+ MEPROP Name 'aOpenKind'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49512DE00227' '4A9F98B901A5.ms.model.script' // TnsBaseSearchOpenKind
+ ;
+
+ENDME // ME_91BD61383402 aOpenKind
+
+ME ME_5434702F7752
+ MEPROP UID '5434702F7752'
+ MEPROP Name 'OpenBaseSearch'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_91BD61383401 // aContainer
+ ME_91BD61383402 // aOpenKind
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57062347014D // OpenBaseSearch
+ ;
+
+ENDME // ME_5434702F7752 OpenBaseSearch
+
+FORWARD ME_570623790185
+
+FORWARD ME_3ABD99A8B9EE
+
+ME ME_270139B5CED0
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_270139B5CED0 aContainer
+
+ME ME_3ABD99A8B9EE
+ MEPROP UID '3ABD99A8B9EE'
+ MEPROP Name 'GetBaseSearchModel'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_56D42F09009E' '4A9F98B901A5.ms.model.script' // InsBaseSearchModel
+ ;
+ MELIST Parameters
+   Seq: ( ME_270139B5CED0 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_570623790185 // GetBaseSearchModel
+ ;
+
+ENDME // ME_3ABD99A8B9EE GetBaseSearchModel
+
+FORWARD ME_5706239C01A7
+
+FORWARD ME_29D9062E385E
+
+ME ME_3E8A0014B368
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_3E8A0014B368 aContainer
+
+ME ME_29D9062E385E
+ MEPROP UID '29D9062E385E'
+ MEPROP Name 'GetBaseSearchController'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_56D696CD007B' '4A9F98B901A5.ms.model.script' // InsBaseSearchController
+ ;
+ MELIST Parameters
+   Seq: ( ME_3E8A0014B368 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_5706239C01A7 // GetBaseSearchController
+ ;
+
+ENDME // ME_29D9062E385E GetBaseSearchController
+
+FORWARD ME_570623BB029C
+
+FORWARD ME_130AF2617571
+
+ME ME_3BF436DB2D17
+ MEPROP Name 'aBaseSearchView'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56D42F1903CF' '4A9F98B901A5.ms.model.script' // InsBaseSearchView
+ ;
+
+ENDME // ME_3BF436DB2D17 aBaseSearchView
+
+ME ME_3BF436DB2D18
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_3BF436DB2D18 aContainer
+
+ME ME_130AF2617571
+ MEPROP UID '130AF2617571'
+ MEPROP Name 'RegisterBaseSearchView'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_3BF436DB2D17 // aBaseSearchView
+ ME_3BF436DB2D18 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_570623BB029C // RegisterBaseSearchView
+ ;
+
+ENDME // ME_130AF2617571 RegisterBaseSearchView
+
+FORWARD ME_57077EAC03CA
+
+FORWARD ME_48C239B7B9E8
+
+ME ME_6CCF3E792418
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_6CCF3E792418 aContainer
+
+ME ME_48C239B7B9E8
+ MEPROP UID '48C239B7B9E8'
+ MEPROP Name 'GetBaseSearchView'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_A7888A84DDDB // MnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_56D42F1903CF' '4A9F98B901A5.ms.model.script' // InsBaseSearchView
+ ;
+ MELIST Parameters
+   Seq: ( ME_6CCF3E792418 // aContainer
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57077EAC03CA // GetBaseSearchView
+ ;
+
+ENDME // ME_48C239B7B9E8 GetBaseSearchView
+
+ME ME_A7888A84DDDB
+ MEPROP UID 'A7888A84DDDB'
+ MEPROP Name 'MnsBaseSearchService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TnsBaseSearchService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4923CA8F0CFB // GetBaseSearcher
+ HWL ME_CB784FFDCCE4 // UnregisterBaseSearcherProvider
+ HWL ME_B86FD3ED4532 // RegisterBaseSearcherProvider
+ HWL ME_5E9BD918F50B // GetBaseSearchWindow
+ HWL ME_5434702F7752 // OpenBaseSearch
+ HWL ME_3ABD99A8B9EE // GetBaseSearchModel
+ HWL ME_29D9062E385E // GetBaseSearchController
+ HWL ME_130AF2617571 // RegisterBaseSearchView
+ HWL ME_48C239B7B9E8 // GetBaseSearchView
+ )
+ ; // Operations
+
+ENDME // ME_A7888A84DDDB MnsBaseSearchService
+
+ME ME_5638754F0166
+ MEPROP Name 'aEntityForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_5638754F0166 aEntityForm
+
+ME ME_5638753D025D
+ MEPROP UID '5638753D025D'
+ MEPROP Name 'GetBaseSearcher'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_496B5FCE02FD' '4A9F98B901A5.ms.model.script' // InsBaseSearcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_5638754F0166 // aEntityForm
+ )
+ ; // Parameters
+
+ENDME // ME_5638753D025D GetBaseSearcher
+
+ME ME_5638757C0077
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_5638757C0077 aContainer
+
+ME ME_5638757C0096
+ MEPROP Name 'aProvider'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5631AC50016C' '4A9F98B901A5.ms.model.script' // InsBaseSearcherProvider
+ ;
+
+ENDME // ME_5638757C0096 aProvider
+
+ME ME_563875610245
+ MEPROP UID '563875610245'
+ MEPROP Name 'UnregisterBaseSearcherProvider'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_5638757C0077 // aContainer
+ ME_5638757C0096 // aProvider
+ )
+ ; // Parameters
+
+ENDME // ME_563875610245 UnregisterBaseSearcherProvider
+
+ME ME_5638759000EF
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_5638759000EF aContainer
+
+ME ME_56387590010E
+ MEPROP Name 'aProvider'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5631AC50016C' '4A9F98B901A5.ms.model.script' // InsBaseSearcherProvider
+ ;
+
+ENDME // ME_56387590010E aProvider
+
+ME ME_5638758B005B
+ MEPROP UID '5638758B005B'
+ MEPROP Name 'RegisterBaseSearcherProvider'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_5638759000EF // aContainer
+ ME_56387590010E // aProvider
+ )
+ ; // Parameters
+
+ENDME // ME_5638758B005B RegisterBaseSearcherProvider
+
+ME ME_57060FB90065
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57060FB90065 aContainer
+
+ME ME_57060F970080
+ MEPROP UID '57060F970080'
+ MEPROP Name 'GetBaseSearchWindow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_57060FB90065 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_57060F970080 GetBaseSearchWindow
+
+ME ME_5706236601AE
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_5706236601AE aContainer
+
+ME ME_5706236601D5
+ MEPROP Name 'aOpenKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49512DE00227' '4A9F98B901A5.ms.model.script' // TnsBaseSearchOpenKind
+ ;
+
+ENDME // ME_5706236601D5 aOpenKind
+
+ME ME_57062347014D
+ MEPROP UID '57062347014D'
+ MEPROP Name 'OpenBaseSearch'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_5706236601AE // aContainer
+ ME_5706236601D5 // aOpenKind
+ )
+ ; // Parameters
+
+ENDME // ME_57062347014D OpenBaseSearch
+
+ME ME_5706238D0325
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_5706238D0325 aContainer
+
+ME ME_570623790185
+ MEPROP UID '570623790185'
+ MEPROP Name 'GetBaseSearchModel'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_56D42F09009E' '4A9F98B901A5.ms.model.script' // InsBaseSearchModel
+ ;
+ MELIST Parameters
+   Seq: ( ME_5706238D0325 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_570623790185 GetBaseSearchModel
+
+ME ME_570623A7039E
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_570623A7039E aContainer
+
+ME ME_5706239C01A7
+ MEPROP UID '5706239C01A7'
+ MEPROP Name 'GetBaseSearchController'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_56D696CD007B' '4A9F98B901A5.ms.model.script' // InsBaseSearchController
+ ;
+ MELIST Parameters
+   Seq: ( ME_570623A7039E // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_5706239C01A7 GetBaseSearchController
+
+ME ME_570623ED01E3
+ MEPROP Name 'aBaseSearchView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56D42F1903CF' '4A9F98B901A5.ms.model.script' // InsBaseSearchView
+ ;
+
+ENDME // ME_570623ED01E3 aBaseSearchView
+
+ME ME_570623ED020E
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_570623ED020E aContainer
+
+ME ME_570623BB029C
+ MEPROP UID '570623BB029C'
+ MEPROP Name 'RegisterBaseSearchView'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELIST Parameters
+   Seq: ( ME_570623ED01E3 // aBaseSearchView
+ ME_570623ED020E // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_570623BB029C RegisterBaseSearchView
+
+ME ME_57077EC60068
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57077EC60068 aContainer
+
+ME ME_57077EAC03CA
+ MEPROP UID '57077EAC03CA'
+ MEPROP Name 'GetBaseSearchView'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_56D42F1903CF' '4A9F98B901A5.ms.model.script' // InsBaseSearchView
+ ;
+ MELIST Parameters
+   Seq: ( ME_57077EC60068 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_57077EAC03CA GetBaseSearchView
+
+ME ME_563875E103DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_563875E103DB 
+
+ME ME_563875EC005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_563875050317 // TnsBaseSearchService
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_563875EC005F 
+
+ME ME_563875050317
+ MEPROP UID '563875050317'
+ MEPROP Name 'TnsBaseSearchService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_563874EF0183 // SearchServices
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5638753D025D // GetBaseSearcher
+ HWL ME_563875610245 // UnregisterBaseSearcherProvider
+ HWL ME_5638758B005B // RegisterBaseSearcherProvider
+ HWL ME_57060F970080 // GetBaseSearchWindow
+ HWL ME_57062347014D // OpenBaseSearch
+ HWL ME_570623790185 // GetBaseSearchModel
+ HWL ME_5706239C01A7 // GetBaseSearchController
+ HWL ME_570623BB029C // RegisterBaseSearchView
+ HWL ME_57077EAC03CA // GetBaseSearchView
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_A7888A84DDDB // MnsBaseSearchService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_563875E103DB // IvcmEntityForm
+ ME_563875EC005F // IvcmContainer
+ )
+ ; // Dependencies
+ UP "auto translate to alien" 'undefined'
+ UP extprop:pas:UnitName 'nsBaseSearchService'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseSearchService'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchService.pas'
+
+ENDME // ME_563875050317 TnsBaseSearchService
+
+ME ME_563874EF0183
+ MEPROP UID '563874EF0183'
+ MEPROP Name 'SearchServices'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
+ ;
+ MELIST Children
+   Seq: ( HWL ME_563875050317 // TnsBaseSearchService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4A9F98B901A5' '4A9F98B901A5.ms.model.script' // BaseSearchInterfaces
+ )
+ ; // Depends
+
+ENDME // ME_563874EF0183 SearchServices

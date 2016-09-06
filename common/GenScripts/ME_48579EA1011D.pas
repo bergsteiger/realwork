@@ -59,6 +59,8 @@ uses
  {$IfEnd} // Defined(evNeedHotSpot)
  , nevParaListInevParaListMapper
  , ParaList_Const
+ //#UC START# *48579EA1011Dimpl_uses*
+ //#UC END# *48579EA1011Dimpl_uses*
 ;
 
 function TevParaListInterfaceFactory.QueryTool(aTag: Tl3Variant;

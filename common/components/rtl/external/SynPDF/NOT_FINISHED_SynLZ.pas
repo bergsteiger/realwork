@@ -18,6 +18,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5549B8FF00EFimpl_uses*
+ //#UC END# *5549B8FF00EFimpl_uses*
 ;
 
 procedure CompressSynLZ;

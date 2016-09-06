@@ -2449,6 +2449,9 @@ uses
  {$If NOT Defined(Nemesis)}
  , ddServerTaskListPrim in 'w:\common\components\rtl\Garant\cs\ddServerTaskListPrim.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(ServerTasks)}
+ , alcuImmidiateRequestInterfaces in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuImmidiateRequestInterfaces.pas'
+ {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
  , ncsSendTask in 'w:\common\components\rtl\Garant\cs\ncsSendTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
@@ -2491,9 +2494,6 @@ uses
  , l3ProcessingEnabledService in 'w:\common\components\rtl\Garant\L3\l3ProcessingEnabledService.pas'
  {$If Defined(ServerTasks)}
  , alcuDownloadDocStreamExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocStreamExecutor.pas'
- {$IfEnd} // Defined(ServerTasks)
- {$If Defined(ServerTasks)}
- , alcuImmidiateRequestInterfaces in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuImmidiateRequestInterfaces.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
  , alcuDownloadDocRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocRequest.pas'

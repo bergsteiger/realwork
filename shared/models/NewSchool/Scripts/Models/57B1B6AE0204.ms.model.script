@@ -1,0 +1,130 @@
+// UseCases 57B1B6AE0204 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57B1B6AE0204
+
+FORWARD ME_57AD94F00212
+
+ME ME_57AD985F0163
+ MEPROP UID '57AD985F0163'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELINK Target WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+ ;
+
+ENDME // ME_57AD985F0163 ItemType
+
+ME ME_57B1AEDB0188
+ MEPROP UID '57B1AEDB0188'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+
+ENDME // ME_57B1AEDB0188 Create
+
+ME ME_57AD95590191
+ MEPROP UID '57AD95590191'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B1AEDB0188 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57AD9468006E' '57AAE8D403E5.ms.model.script' // ImsmUseCase
+ )
+ ; // Implements
+
+ENDME // ME_57AD95590191 Make
+
+ME ME_57AD949C0005_ME_57AD94F00212
+ MELINK Original WL 'ME_57AD949C0005' '57AAE8D403E5.ms.model.script' // AddController
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57AD949C0005_ME_57AD94F00212 AddController
+
+ME ME_57B1ABA800A6_ME_57AD94F00212
+ MELINK Original WL 'ME_57B1ABA800A6' '57AAE8D403E5.ms.model.script' // Activate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B1ABA800A6_ME_57AD94F00212 Activate
+
+ME ME_57AD94F00212
+ MEPROP UID '57AD94F00212'
+ MEPROP Name 'TmsmUseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B1B6AE0204 // UseCases
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57AD9468006E' '57AAE8D403E5.ms.model.script' // ImsmUseCase
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57AD985F0163 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B1AEDB0188 // Create
+ HWL ME_57AD95590191 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57AD949C0005_ME_57AD94F00212 // AddController
+ ME_57B1ABA800A6_ME_57AD94F00212 // Activate
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'msmUseCase'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmUseCase'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmUseCase.pas'
+
+ENDME // ME_57AD94F00212 TmsmUseCase
+
+ME ME_57B1B6AE0204
+ MEPROP UID '57B1B6AE0204'
+ MEPROP Name 'UseCases'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57AD94F00212 // TmsmUseCase
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+ )
+ ; // Depends
+
+ENDME // ME_57B1B6AE0204 UseCases

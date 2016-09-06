@@ -41,6 +41,8 @@ uses
  l3ImplUses
  , TextPara_Const
  , k2Tags
+ //#UC START# *4B6AE9CB00C2impl_uses*
+ //#UC END# *4B6AE9CB00C2impl_uses*
 ;
 
 class function TatChatMessage.Make: IatChatMessage;

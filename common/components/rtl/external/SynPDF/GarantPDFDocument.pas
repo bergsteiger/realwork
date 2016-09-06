@@ -43,6 +43,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *54632B090390impl_uses*
+ //#UC END# *54632B090390impl_uses*
 ;
 
 procedure TGarantPDFDocument.InitPrinterPxPerInch(anPPIX: Integer;

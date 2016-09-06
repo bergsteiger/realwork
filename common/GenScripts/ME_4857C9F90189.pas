@@ -55,6 +55,8 @@ uses
  , evCommentParaHotSpotTester
  {$IfEnd} // Defined(evNeedHotSpot)
  , CommentPara_Const
+ //#UC START# *4857C9F90189impl_uses*
+ //#UC END# *4857C9F90189impl_uses*
 ;
 
 function TevCommentParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

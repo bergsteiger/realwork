@@ -1,0 +1,128 @@
+// Tips 47B30C7D02F3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47B30C7D02F3
+
+FORWARD ME_47B30CD40027
+
+ME ME_47B30D8F0330
+ MEPROP UID '47B30D8F0330'
+ MEPROP Name 'tips_tree_root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Рут дерева совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47B30CD40027 // TipsManager
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+ UP "pm" False
+
+ENDME // ME_47B30D8F0330 tips_tree_root
+
+ME ME_47B30CFF0271
+ MEPROP UID '47B30CFF0271'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B30CD40027 // TipsManager
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_47B30CFF0271 make
+
+ME ME_47B572E3010B
+ MEPROP UID '47B572E3010B'
+ MEPROP Name 'get_current_tip'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить текущий (по сценарию) Совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B30CD40027 // TipsManager
+ ;
+ MELINK Target WL 'ME_45EEC8680109' '457450470167.ms.model.script' // NodeIndexPath
+ ;
+
+ENDME // ME_47B572E3010B get_current_tip
+
+ME ME_47B93A910257
+ MEPROP UID '47B93A910257'
+ MEPROP Name 'is_exist'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B30CD40027 // TipsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_47B93A910257 is_exist
+
+ME ME_47B30CD40027
+ MEPROP UID '47B30CD40027'
+ MEPROP GUID 'E7AFD5DA-77C8-4E4E-95C3-D54CBB8CD5D7'
+ MEPROP Name 'TipsManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Менеджер Советов дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B30C7D02F3 // Tips
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47B30D8F0330 // tips_tree_root
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47B30CFF0271 // make
+ HWL ME_47B572E3010B // get_current_tip
+ HWL ME_47B93A910257 // is_exist
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'ITipsManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TipsManager'
+
+ENDME // ME_47B30CD40027 TipsManager
+
+ME ME_47B30C7D02F3
+ MEPROP UID '47B30C7D02F3'
+ MEPROP Name 'Tips'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47B30CD40027 // TipsManager
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_457450470167' '457450470167.ms.model.script' // DynamicTree
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Tips\Tips.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Tips'
+ UP extprop:pas:UnitName 'TipsUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Tips\Tips.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Tips'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\TipsUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\TipsUnit.pas'
+
+ENDME // ME_47B30C7D02F3 Tips

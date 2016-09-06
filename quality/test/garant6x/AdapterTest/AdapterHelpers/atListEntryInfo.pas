@@ -35,6 +35,8 @@ uses
  l3ImplUses
  , SysUtils
  , IOUnit
+ //#UC START# *5051EA2101A5impl_uses*
+ //#UC END# *5051EA2101A5impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas}

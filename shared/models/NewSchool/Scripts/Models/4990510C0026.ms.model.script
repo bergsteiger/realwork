@@ -1,0 +1,301 @@
+// SearchDomainInterfaces 4990510C0026 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4990510C0026
+
+FORWARD ME_49006BB201CB
+
+ME ME_49006BCA029D
+ MEPROP UID '49006BCA029D'
+ MEPROP Name 'loNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49006BB201CB // TLogicOperation
+ ;
+
+ENDME // ME_49006BCA029D loNone
+
+ME ME_49006BD1039F
+ MEPROP UID '49006BD1039F'
+ MEPROP Name 'loOr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49006BB201CB // TLogicOperation
+ ;
+
+ENDME // ME_49006BD1039F loOr
+
+ME ME_49006BD80050
+ MEPROP UID '49006BD80050'
+ MEPROP Name 'loAnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49006BB201CB // TLogicOperation
+ ;
+
+ENDME // ME_49006BD80050 loAnd
+
+ME ME_49006BDE00B4
+ MEPROP UID '49006BDE00B4'
+ MEPROP Name 'loNot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49006BB201CB // TLogicOperation
+ ;
+
+ENDME // ME_49006BDE00B4 loNot
+
+ME ME_49006BB201CB
+ MEPROP UID '49006BB201CB'
+ MEPROP Name 'TLogicOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49006BCA029D // loNone
+ HWL ME_49006BD1039F // loOr
+ HWL ME_49006BD80050 // loAnd
+ HWL ME_49006BDE00B4 // loNot
+ )
+ ; // Attributes
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_49006BB201CB TLogicOperation
+
+FORWARD ME_4990513A00CF
+
+ME ME_499051B602D4
+ MEPROP UID '499051B602D4'
+ MEPROP Name 'Operation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4990513A00CF // InsLogicOperation
+ ;
+ MELINK Target HWL ME_49006BB201CB // TLogicOperation
+ ;
+ UP "pm" True
+
+ENDME // ME_499051B602D4 Operation
+
+ME ME_4990513A00CF
+ MEPROP UID '4990513A00CF'
+ MEPROP GUID '6FF60911-661A-4835-9C7D-D3A8553EDE96'
+ MEPROP Name 'InsLogicOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499051B602D4 // Operation
+ )
+ ; // Attributes
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LogicOperation'
+
+ENDME // ME_4990513A00CF InsLogicOperation
+
+ME ME_49006BE702D7
+ MEPROP UID '49006BE702D7'
+ MEPROP Name 'TLogicOperationSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49006BB201CB // TLogicOperation
+ )
+ ; // Inherits
+
+ENDME // ME_49006BE702D7 TLogicOperationSet
+
+FORWARD ME_49006C6F02C8
+
+ME ME_49006CA10328
+ MEPROP UID '49006CA10328'
+ MEPROP Name 'Tag'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" True
+
+ENDME // ME_49006CA10328 Tag
+
+ME ME_49006CB00191
+ MEPROP UID '49006CB00191'
+ MEPROP Name 'LogicOperations'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'допустимые для дерева логические операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ MELINK Target HWL ME_49006BE702D7 // TLogicOperationSet
+ ;
+ UP "pm" True
+
+ENDME // ME_49006CB00191 LogicOperations
+
+ME ME_49006CC30205
+ MEPROP UID '49006CC30205'
+ MEPROP Name 'ServerOneLevel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_49006CC30205 ServerOneLevel
+
+ME ME_49006CD60357
+ MEPROP UID '49006CD60357'
+ MEPROP Name 'IsOneLogicOperation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'количество логический операций - одна' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_49006CD60357 IsOneLogicOperation
+
+FORWARD ME_49006C7E0341
+
+ME ME_49006C820284
+ MEPROP Name 'aInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+
+ENDME // ME_49006C820284 aInfo
+
+ME ME_49006C7E0341
+ MEPROP UID '49006C7E0341'
+ MEPROP Name 'AssignInfo'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_49006C820284 // aInfo
+ )
+ ; // Parameters
+
+ENDME // ME_49006C7E0341 AssignInfo
+
+ME ME_49006C8A02D0
+ MEPROP UID '49006C8A02D0'
+ MEPROP Name 'IsDataOneLevel'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49006C8A02D0 IsDataOneLevel
+
+ME ME_49006C6F02C8
+ MEPROP UID '49006C6F02C8'
+ MEPROP GUID '255BD920-7322-4C04-A208-161C9656148B'
+ MEPROP Name 'InsTaggedTreeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4990510C0026 // SearchDomainInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49006CA10328 // Tag
+ HWL ME_49006CB00191 // LogicOperations
+ HWL ME_49006CC30205 // ServerOneLevel
+ HWL ME_49006CD60357 // IsOneLogicOperation
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49006C7E0341 // AssignInfo
+ HWL ME_49006C8A02D0 // IsDataOneLevel
+ )
+ ; // Operations
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TaggedTreeInfo'
+
+ENDME // ME_49006C6F02C8 InsTaggedTreeInfo
+
+ME ME_4990510C0026
+ MEPROP UID '4990510C0026'
+ MEPROP Name 'SearchDomainInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Поиск' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49006BB201CB // TLogicOperation
+ HWL ME_4990513A00CF // InsLogicOperation
+ HWL ME_49006BE702D7 // TLogicOperationSet
+ HWL ME_49006C6F02C8 // InsTaggedTreeInfo
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '09.02.2009 18:52'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\SearchDomainInterfaces.pas'
+
+ENDME // ME_4990510C0026 SearchDomainInterfaces

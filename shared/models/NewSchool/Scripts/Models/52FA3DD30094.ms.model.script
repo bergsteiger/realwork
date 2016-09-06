@@ -1,0 +1,1277 @@
+// Lists 52FA3DD30094 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FA3DD30094
+
+FORWARD ME_52FA3DE1003D
+
+ME ME_52FA3E58024C
+ MEPROP UID '52FA3E58024C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52FA3DE1003D // TalcuTaskListPrim
+ ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_52FA3E58024C ItemType
+
+ME ME_47B2C42A0163_ME_52FA3DE1003D
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_52FA3DE1003D AssignItem
+
+ME ME_47B99D4503A2_ME_52FA3DE1003D
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_52FA3DE1003D CompareExistingItems
+
+ME ME_52FA3DE1003D
+ MEPROP UID '52FA3DE1003D'
+ MEPROP Name 'TalcuTaskListPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52FA3E58024C // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_52FA3DE1003D // AssignItem
+ ME_47B99D4503A2_ME_52FA3DE1003D // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'alcuTaskListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuTaskListPrim'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuTaskListPrim.pas'
+
+ENDME // ME_52FA3DE1003D TalcuTaskListPrim
+
+FORWARD ME_5303549A038F
+
+ME ME_53E0D9150023_ME_530354C00376
+ MELINK Original WL 'ME_53E0D9150023' '52F8C298005C.ms.model.script' // TaskResult
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" True
+ UP "reads field" True
+ENDME // ME_53E0D9150023_ME_530354C00376 TaskResult
+
+ME ME_53E1CB0C03C9_ME_530354C00376
+ MELINK Original WL 'ME_53E1CB0C03C9' '52F8C298005C.ms.model.script' // GetTaskResultClass : TcsClassResultClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53E1CB0C03C9_ME_530354C00376 GetTaskResultClass : TcsClassResultClass
+
+ME ME_530354C00376
+ MEPROP UID '530354C00376'
+ MEPROP Name 'TalcuAutoClassTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5303549A038F // alcuAutoClassifier
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53F46C710363' '52F8C298005C.ms.model.script' // TcsAutoClassTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53E0D9150023_ME_530354C00376 // TaskResult
+ ME_53E1CB0C03C9_ME_530354C00376 // GetTaskResultClass : TcsClassResultClass
+ )
+ ; // Overridden
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoClassTask'
+
+ENDME // ME_530354C00376 TalcuAutoClassTask
+
+FORWARD ME_53F472280036
+
+ME ME_53F47244008E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5303549A038F // alcuAutoClassifier
+ ;
+ MELINK Target HWL ME_53F472280036 // TalcuAutoClassTaskResult
+ ;
+
+ENDME // ME_53F47244008E 
+
+ME ME_5303549A038F
+ MEPROP UID '5303549A038F'
+ MEPROP Name 'alcuAutoClassifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_530354C00376 // TalcuAutoClassTask
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53F47244008E // TalcuAutoClassTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoClassifier.pas'
+
+ENDME // ME_5303549A038F alcuAutoClassifier
+
+FORWARD ME_530356D90066
+
+ME ME_53059CC001ED
+ MEPROP UID '53059CC001ED'
+ MEPROP Name 'TalcuRelPublishTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_530356D90066 // alcuRelCorrector
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_530356B20280' '52F8C298005C.ms.model.script' // TcsImportTaskItem
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuRelPublishTask'
+
+ENDME // ME_53059CC001ED TalcuRelPublishTask
+
+FORWARD ME_53E328BF03DF
+
+ME ME_53E328E10011
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_530356D90066 // alcuRelCorrector
+ ;
+ MELINK Target HWL ME_53E328BF03DF // TalcuRelPublishTaskResult
+ ;
+
+ENDME // ME_53E328E10011 
+
+ME ME_530356D90066
+ MEPROP UID '530356D90066'
+ MEPROP Name 'alcuRelCorrector'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53059CC001ED // TalcuRelPublishTask
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53E328E10011 // TalcuRelPublishTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRelCorrector.pas'
+
+ENDME // ME_530356D90066 alcuRelCorrector
+
+FORWARD ME_5305AFD5014D
+
+ME ME_53E1CB0C03C9_ME_5305AFFB01F5
+ MELINK Original WL 'ME_53E1CB0C03C9' '52F8C298005C.ms.model.script' // GetTaskResultClass : TcsClassResultClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53E1CB0C03C9_ME_5305AFFB01F5 GetTaskResultClass : TcsClassResultClass
+
+ME ME_5305AFFB01F5
+ MEPROP UID '5305AFFB01F5'
+ MEPROP Name 'TalcuImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5305AFD5014D // alcuImport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_530356B20280' '52F8C298005C.ms.model.script' // TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53E1CB0C03C9_ME_5305AFFB01F5 // GetTaskResultClass : TcsClassResultClass
+ )
+ ; // Overridden
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuImport'
+
+ENDME // ME_5305AFFB01F5 TalcuImport
+
+FORWARD ME_53E1D0D00252
+
+ME ME_53E1D0F10033
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5305AFD5014D // alcuImport
+ ;
+ MELINK Target HWL ME_53E1D0D00252 // TalcuImportTaskResult
+ ;
+
+ENDME // ME_53E1D0F10033 
+
+ME ME_5305AFD5014D
+ MEPROP UID '5305AFD5014D'
+ MEPROP Name 'alcuImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5305AFFB01F5 // TalcuImport
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53E1D0F10033 // TalcuImportTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuImport.pas'
+
+ENDME // ME_5305AFD5014D alcuImport
+
+FORWARD ME_5305A7410332
+
+ME ME_5305A7620125
+ MEPROP UID '5305A7620125'
+ MEPROP Name 'TddCaseCodeTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5305A7410332 // ddCaseCodeMaker
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53BA6C3000F7' '52F8C298005C.ms.model.script' // TddCaseCodeTaskPrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddCaseCodeTask'
+
+ENDME // ME_5305A7620125 TddCaseCodeTask
+
+ME ME_5305A7410332
+ MEPROP UID '5305A7410332'
+ MEPROP Name 'ddCaseCodeMaker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5305A7620125 // TddCaseCodeTask
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_ddCaseCodeMaker.pas'
+
+ENDME // ME_5305A7410332 ddCaseCodeMaker
+
+ME ME_530355800106
+ MEPROP UID '530355800106'
+ MEPROP Name 'TalcuExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5303551501D6' '52F8C298005C.ms.model.script' // TcsExport
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuExport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuExport'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuExport.pas'
+
+ENDME // ME_530355800106 TalcuExport
+
+ME ME_53DB5CFF017D
+ MEPROP UID '53DB5CFF017D'
+ MEPROP Name 'TalcuAnoncedExportPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_530355800106 // TalcuExport
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53DB48550331' '484A470100DD.ms.model.script' // AnoncedExportTask
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuAnoncedExportPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAnoncedExportPrim'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAnoncedExportPrim.pas'
+
+ENDME // ME_53DB5CFF017D TalcuAnoncedExportPrim
+
+ME ME_53DF6A58036D
+ MEPROP UID '53DF6A58036D'
+ MEPROP Name 'TalcuHavanskyExportTaskPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_530355800106 // TalcuExport
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53DF66B20223' '484A470100DD.ms.model.script' // HavanskyExportTask
+ )
+ ; // Implements
+ UP "ifdef" 'HavanskyExport'
+ UP extprop:pas:UnitName 'alcuHavanskyExportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuHavanskyExportTaskPrim'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuHavanskyExportTaskPrim.pas'
+
+ENDME // ME_53DF6A58036D TalcuHavanskyExportTaskPrim
+
+ME ME_53E1D0D00252
+ MEPROP UID '53E1D0D00252'
+ MEPROP Name 'TalcuImportTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53E0C96903D4' '484A470100DD.ms.model.script' // ImportTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuImportTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuImportTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuImportTaskResult.pas'
+
+ENDME // ME_53E1D0D00252 TalcuImportTaskResult
+
+ME ME_53E328BF03DF
+ MEPROP UID '53E328BF03DF'
+ MEPROP Name 'TalcuRelPublishTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53E325370145' '484A470100DD.ms.model.script' // RelPublishTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuRelPublishTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuRelPublishTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRelPublishTaskResult.pas'
+
+ENDME // ME_53E328BF03DF TalcuRelPublishTaskResult
+
+FORWARD ME_53E48B8D038E
+
+FORWARD ME_53EB0E6000D4
+
+ME ME_53EB0E9403C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53E48B8D038E // TalcuAACImport
+ ;
+ MELINK Target HWL ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ ;
+
+ENDME // ME_53EB0E9403C8 
+
+ME ME_53E48B8D038E
+ MEPROP UID '53E48B8D038E'
+ MEPROP Name 'TalcuAACImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5317040F0257' '52F8C298005C.ms.model.script' // TcsAACImport
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53EB0E9403C8 // TalcuAACImportTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP "ifdef" 'AAC'
+ UP extprop:pas:UnitName 'alcuAACImport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAACImport'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAACImport.pas'
+
+ENDME // ME_53E48B8D038E TalcuAACImport
+
+ME ME_53EB0E6000D4
+ MEPROP UID '53EB0E6000D4'
+ MEPROP Name 'TalcuAACImportTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53EB0B5401DC' '484A470100DD.ms.model.script' // AACImportTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuAACImportTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAACImportTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAACImportTaskResult.pas'
+
+ENDME // ME_53EB0E6000D4 TalcuAACImportTaskResult
+
+ME ME_53F472280036
+ MEPROP UID '53F472280036'
+ MEPROP Name 'TalcuAutoClassTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53F465FA018E' '484A470100DD.ms.model.script' // AutoClassTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuAutoClassTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoClassTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoClassTaskResult.pas'
+
+ENDME // ME_53F472280036 TalcuAutoClassTaskResult
+
+ME ME_5305ABFD00F1
+ MEPROP UID '5305ABFD00F1'
+ MEPROP Name 'TalcuAnoncedExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_530355800106 // TalcuExport
+ HWL ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuAnoncedExport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAnoncedExport'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnoncedExport.pas'
+
+ENDME // ME_5305ABFD00F1 TalcuAnoncedExport
+
+ME ME_53FB28170339_ME_53F59F27018A
+ MELINK Original WL 'ME_53FB28170339' '52FA49B901D3.ms.model.script' // GetDescription
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53FB28170339_ME_53F59F27018A GetDescription
+
+ME ME_53F59F27018A
+ MEPROP UID '53F59F27018A'
+ MEPROP Name 'TalcuAutoAnnoExportTaskPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_530355800106 // TalcuExport
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53BA72FA0145' '484A470100DD.ms.model.script' // AutoAnnoExportTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53FB28170339_ME_53F59F27018A // GetDescription
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'alcuAutoAnnoExportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoAnnoExportTaskPrim'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoAnnoExportTaskPrim.pas'
+
+ENDME // ME_53F59F27018A TalcuAutoAnnoExportTaskPrim
+
+ME ME_53FB28170339_ME_53F59F6F0341
+ MELINK Original WL 'ME_53FB28170339' '52FA49B901D3.ms.model.script' // GetDescription
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53FB28170339_ME_53F59F6F0341 GetDescription
+
+ME ME_53F59F6F0341
+ MEPROP UID '53F59F6F0341'
+ MEPROP Name 'TalcuAutoAnnoExportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53FB28170339_ME_53F59F6F0341 // GetDescription
+ )
+ ; // Overridden
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuAutoAnnoExportTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoAnnoExportTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoAnnoExportTask.pas'
+
+ENDME // ME_53F59F6F0341 TalcuAutoAnnoExportTask
+
+ME ME_530355CF0057
+ MEPROP UID '530355CF0057'
+ MEPROP Name 'TalcuHavanskyExportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53DF6A58036D // TalcuHavanskyExportTaskPrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuHavanskyExportTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuHavanskyExportTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuHavanskyExportTask.pas'
+
+ENDME // ME_530355CF0057 TalcuHavanskyExportTask
+
+FORWARD ME_531705AC001C
+
+FORWARD ME_53F6EDF00042
+
+ME ME_53F6EE1A0025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531705AC001C // TalcuAnnotationTask
+ ;
+ MELINK Target HWL ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ ;
+
+ENDME // ME_53F6EE1A0025 
+
+ME ME_531705AC001C
+ MEPROP UID '531705AC001C'
+ MEPROP Name 'TalcuAnnotationTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B6A4F300DE' '52F8C298005C.ms.model.script' // TcsAnnotationTask
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53F6EE1A0025 // TalcuAnnotationTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuAnnotationTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAnnotationTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAnnotationTask.pas'
+
+ENDME // ME_531705AC001C TalcuAnnotationTask
+
+ME ME_53F6EDF00042
+ MEPROP UID '53F6EDF00042'
+ MEPROP Name 'TalcuAnnotationTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53F6EAC1000E' '484A470100DD.ms.model.script' // AnnotationTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuAnnotationTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAnnotationTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAnnotationTaskResult.pas'
+
+ENDME // ME_53F6EDF00042 TalcuAnnotationTaskResult
+
+ME ME_53FD813101B0
+ MEPROP UID '53FD813101B0'
+ MEPROP Name 'TalcuAutoSpellTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53FD7EBB0066' '484A470100DD.ms.model.script' // AutoSpellTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuAutoSpellTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoSpellTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoSpellTaskResult.pas'
+
+ENDME // ME_53FD813101B0 TalcuAutoSpellTaskResult
+
+FORWARD ME_53FD8188018E
+
+ME ME_53FD821B01FD
+ MEPROP UID '53FD821B01FD'
+ MEPROP Name 'TalcuAutoSpellTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FD8188018E // alcuAutoSpell
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_531706390030' '52F8C298005C.ms.model.script' // TcsAutoSpellTask
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoSpellTask'
+
+ENDME // ME_53FD821B01FD TalcuAutoSpellTask
+
+ME ME_53FD8203008E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FD8188018E // alcuAutoSpell
+ ;
+ MELINK Target HWL ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ ;
+
+ENDME // ME_53FD8203008E 
+
+ME ME_53FD8188018E
+ MEPROP UID '53FD8188018E'
+ MEPROP Name 'alcuAutoSpell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53FD821B01FD // TalcuAutoSpellTask
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53FD8203008E // TalcuAutoSpellTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoSpell.pas'
+
+ENDME // ME_53FD8188018E alcuAutoSpell
+
+ME ME_53FB28170339_ME_53B6A5FA0212
+ MELINK Original WL 'ME_53FB28170339' '52FA49B901D3.ms.model.script' // GetDescription
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53FB28170339_ME_53B6A5FA0212 GetDescription
+
+ME ME_53B6A5FA0212
+ MEPROP UID '53B6A5FA0212'
+ MEPROP Name 'TalcuAutoExportTaskPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53B6A5C200FA' '484A470100DD.ms.model.script' // AutoExportTask
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_53FB28170339_ME_53B6A5FA0212 // GetDescription
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'alcuAutoExportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoExportTaskPrim'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskPrim.pas'
+
+ENDME // ME_53B6A5FA0212 TalcuAutoExportTaskPrim
+
+FORWARD ME_5317054100F1
+
+FORWARD ME_54001C560310
+
+ME ME_54001C750042
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5317054100F1 // TalcuAutoExportTask
+ ;
+ MELINK Target HWL ME_54001C560310 // TalcuAutoExportTaskResult
+ ;
+
+ENDME // ME_54001C750042 
+
+ME ME_5317054100F1
+ MEPROP UID '5317054100F1'
+ MEPROP Name 'TalcuAutoExportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_54001C750042 // TalcuAutoExportTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuAutoExportTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoExportTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoExportTask.pas'
+
+ENDME // ME_5317054100F1 TalcuAutoExportTask
+
+ME ME_54001C560310
+ MEPROP UID '54001C560310'
+ MEPROP Name 'TalcuAutoExportTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_540018FF02F8' '484A470100DD.ms.model.script' // AutoExportTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuAutoExportTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoExportTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuAutoExportTaskResult.pas'
+
+ENDME // ME_54001C560310 TalcuAutoExportTaskResult
+
+ME ME_540466FA008B
+ MEPROP UID '540466FA008B'
+ MEPROP Name 'TalcuRegionAutoExportTaskPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5317054100F1 // TalcuAutoExportTask
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5404620A011C' '484A470100DD.ms.model.script' // RegionAutoExportTask
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuRegionAutoExportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuRegionAutoExportTaskPrim'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRegionAutoExportTaskPrim.pas'
+
+ENDME // ME_540466FA008B TalcuRegionAutoExportTaskPrim
+
+FORWARD ME_5404675C01D2
+
+ME ME_540571C00040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5404675C01D2 // TalcuRegionAutoExportTask
+ ;
+ MELINK Target WL 'ME_54041EF10040' '54041E840266.ms.model.script' // TalcuFTPBrowser
+ ;
+
+ENDME // ME_540571C00040 
+
+ME ME_540571C502F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5404675C01D2 // TalcuRegionAutoExportTask
+ ;
+ MELINK Target WL 'ME_54041EBF03C6' '54041E840266.ms.model.script' // TalcuFTPBrowserParams
+ ;
+
+ENDME // ME_540571C502F3 
+
+ME ME_5404675C01D2
+ MEPROP UID '5404675C01D2'
+ MEPROP Name 'TalcuRegionAutoExportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_540571C00040 // TalcuFTPBrowser
+ ME_540571C502F3 // TalcuFTPBrowserParams
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuRegionAutoExportTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuRegionAutoExportTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionAutoExportTask.pas'
+
+ENDME // ME_5404675C01D2 TalcuRegionAutoExportTask
+
+ME ME_5408670901C0
+ MEPROP UID '5408670901C0'
+ MEPROP Name 'TalcuRegionImportTaskPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5305AFFB01F5 // TalcuImport
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5406C7740109' '484A470100DD.ms.model.script' // RegionImportTask
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuRegionImportTaskPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuRegionImportTaskPrim'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRegionImportTaskPrim.pas'
+
+ENDME // ME_5408670901C0 TalcuRegionImportTaskPrim
+
+FORWARD ME_540867560194
+
+FORWARD ME_540867800117
+
+ME ME_540867AE00CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_540867560194 // TalcuRegionImportTask
+ ;
+ MELINK Target HWL ME_540867800117 // TalcuRegionImportTaskResult
+ ;
+
+ENDME // ME_540867AE00CE 
+
+ME ME_540867560194
+ MEPROP UID '540867560194'
+ MEPROP Name 'TalcuRegionImportTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5408670901C0 // TalcuRegionImportTaskPrim
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_540867AE00CE // TalcuRegionImportTaskResult
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuRegionImportTask'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuRegionImportTask'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuRegionImportTask.pas'
+
+ENDME // ME_540867560194 TalcuRegionImportTask
+
+ME ME_540867800117
+ MEPROP UID '540867800117'
+ MEPROP Name 'TalcuRegionImportTaskResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53E1D0D00252 // TalcuImportTaskResult
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5408637A0060' '484A470100DD.ms.model.script' // RegionImportTaskResult
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'alcuRegionImportTaskResult'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuRegionImportTaskResult'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuRegionImportTaskResult.pas'
+
+ENDME // ME_540867800117 TalcuRegionImportTaskResult
+
+FORWARD ME_55E978530295
+
+FORWARD ME_574D928F01C4
+
+ME ME_574D929D00CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E978530295 // TalcuMdpSyncDicts
+ ;
+ MELINK Target HWL ME_574D928F01C4 // alcuMdpSyncParamUtils
+ ;
+
+ENDME // ME_574D929D00CC 
+
+ME ME_55E978530295
+ MEPROP UID '55E978530295'
+ MEPROP Name 'TalcuMdpSyncDicts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55E9759603C8' '52F8C298005C.ms.model.script' // TcsMdpSyncDicts
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_574D929D00CC // alcuMdpSyncParamUtils
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuMdpSyncDicts'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMdpSyncDicts'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncDicts.pas'
+
+ENDME // ME_55E978530295 TalcuMdpSyncDicts
+
+ME ME_55EEC72501BF
+ MEPROP UID '55EEC72501BF'
+ MEPROP Name 'TalcuMdpImportDocs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55EEC220007F' '52F8C298005C.ms.model.script' // TcsMdpImportDocs
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuMdpImportDocs'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMdpImportDocs'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpImportDocs.pas'
+
+ENDME // ME_55EEC72501BF TalcuMdpImportDocs
+
+FORWARD ME_573D9F0A01BB
+
+ME ME_574D92A2002C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573D9F0A01BB // TalcuMdpSyncStages
+ ;
+ MELINK Target HWL ME_574D928F01C4 // alcuMdpSyncParamUtils
+ ;
+
+ENDME // ME_574D92A2002C 
+
+ME ME_574D92E3021E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_573D9F0A01BB // TalcuMdpSyncStages
+ ;
+ MELINK Target WL 'ME_574C0F390376' '54041E840266.ms.model.script' // TalcuMdpStagesSyncronizer
+ ;
+
+ENDME // ME_574D92E3021E 
+
+ME ME_573D9F0A01BB
+ MEPROP UID '573D9F0A01BB'
+ MEPROP Name 'TalcuMdpSyncStages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_573D91050026' '52F8C298005C.ms.model.script' // TcsMdpSyncStages
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_574D92A2002C // alcuMdpSyncParamUtils
+ ME_574D92E3021E // TalcuMdpStagesSyncronizer
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuMdpSyncStages'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMdpSyncStages'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncStages.pas'
+
+ENDME // ME_573D9F0A01BB TalcuMdpSyncStages
+
+FORWARD ME_574C213703E2
+
+ME ME_574D92A502C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C213703E2 // TalcuMdpSyncImport
+ ;
+ MELINK Target HWL ME_574D928F01C4 // alcuMdpSyncParamUtils
+ ;
+
+ENDME // ME_574D92A502C5 
+
+ME ME_574D93000030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_574C213703E2 // TalcuMdpSyncImport
+ ;
+ MELINK Target WL 'ME_574C0FA701BB' '54041E840266.ms.model.script' // TalcuMdpImportSyncronizer
+ ;
+
+ENDME // ME_574D93000030 
+
+ME ME_574C213703E2
+ MEPROP UID '574C213703E2'
+ MEPROP Name 'TalcuMdpSyncImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_574C16DD0300' '52F8C298005C.ms.model.script' // TcsMdpSyncImport
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_574D92A502C5 // alcuMdpSyncParamUtils
+ ME_574D93000030 // TalcuMdpImportSyncronizer
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'alcuMdpSyncImport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuMdpSyncImport'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncImport.pas'
+
+ENDME // ME_574C213703E2 TalcuMdpSyncImport
+
+ME ME_574D928F01C4
+ MEPROP UID '574D928F01C4'
+ MEPROP Name 'alcuMdpSyncParamUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA3DD30094 // Lists
+ ;
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuMdpSyncParamUtils.pas'
+
+ENDME // ME_574D928F01C4 alcuMdpSyncParamUtils
+
+ME ME_52FA3DD30094
+ MEPROP UID '52FA3DD30094'
+ MEPROP Name 'Lists'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52FA3DE1003D // TalcuTaskListPrim
+ HWL ME_5303549A038F // alcuAutoClassifier
+ HWL ME_530356D90066 // alcuRelCorrector
+ HWL ME_5305AFD5014D // alcuImport
+ HWL ME_5305A7410332 // ddCaseCodeMaker
+ HWL ME_530355800106 // TalcuExport
+ HWL ME_53DB5CFF017D // TalcuAnoncedExportPrim
+ HWL ME_53DF6A58036D // TalcuHavanskyExportTaskPrim
+ HWL ME_53E1D0D00252 // TalcuImportTaskResult
+ HWL ME_53E328BF03DF // TalcuRelPublishTaskResult
+ HWL ME_53E48B8D038E // TalcuAACImport
+ HWL ME_53EB0E6000D4 // TalcuAACImportTaskResult
+ HWL ME_53F472280036 // TalcuAutoClassTaskResult
+ HWL ME_5305ABFD00F1 // TalcuAnoncedExport
+ HWL ME_53F59F27018A // TalcuAutoAnnoExportTaskPrim
+ HWL ME_53F59F6F0341 // TalcuAutoAnnoExportTask
+ HWL ME_530355CF0057 // TalcuHavanskyExportTask
+ HWL ME_531705AC001C // TalcuAnnotationTask
+ HWL ME_53F6EDF00042 // TalcuAnnotationTaskResult
+ HWL ME_53FD813101B0 // TalcuAutoSpellTaskResult
+ HWL ME_53FD8188018E // alcuAutoSpell
+ HWL ME_53B6A5FA0212 // TalcuAutoExportTaskPrim
+ HWL ME_5317054100F1 // TalcuAutoExportTask
+ HWL ME_54001C560310 // TalcuAutoExportTaskResult
+ HWL ME_540466FA008B // TalcuRegionAutoExportTaskPrim
+ HWL ME_5404675C01D2 // TalcuRegionAutoExportTask
+ HWL ME_5408670901C0 // TalcuRegionImportTaskPrim
+ HWL ME_540867560194 // TalcuRegionImportTask
+ HWL ME_540867800117 // TalcuRegionImportTaskResult
+ HWL ME_55E978530295 // TalcuMdpSyncDicts
+ HWL ME_55EEC72501BF // TalcuMdpImportDocs
+ HWL ME_573D9F0A01BB // TalcuMdpSyncStages
+ HWL ME_574C213703E2 // TalcuMdpSyncImport
+ HWL ME_574D928F01C4 // alcuMdpSyncParamUtils
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ WL 'ME_53C51B390355' '53C51B390355.ms.model.script' // TasksTuning
+ WL 'ME_54041E840266' '54041E840266.ms.model.script' // Process
+ )
+ ; // Depends
+ UP "ifdef" 'ServerTasks'
+
+ENDME // ME_52FA3DD30094 Lists

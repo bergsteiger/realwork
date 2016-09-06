@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , StringStack
  , SysUtils
+ //#UC START# *5155CA6F0058impl_uses*
+ //#UC END# *5155CA6F0058impl_uses*
 ;
 
 procedure TStringStackTest.DoIt;

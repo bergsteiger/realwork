@@ -46,6 +46,8 @@ uses
  , SysUtils
  , afwSettingsChangePublisher
  , l3Base
+ //#UC START# *522ED9B4018Bimpl_uses*
+ //#UC END# *522ED9B4018Bimpl_uses*
 ;
 
 type
@@ -153,42 +155,36 @@ end;//SHevStyles.PrintAndExportFontSize
 
 class function SHevStyles.PrintAndExportDefaultSetting: Boolean;
  {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране" }
-//#UC START# *B4F9EAF1647A_522ED9B4018B_var*
-//#UC END# *B4F9EAF1647A_522ED9B4018B_var*
 begin
-//#UC START# *B4F9EAF1647A_522ED9B4018B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *B4F9EAF1647A_522ED9B4018B_impl*
+ if (afw.Settings = nil) then
+  Result := dv_SHevStyles_PrintAndExport
+ else
+  Result := afw.Settings.LoadBoolean(pi_SHevStyles_PrintAndExport, dv_SHevStyles_PrintAndExport);
 end;//SHevStyles.PrintAndExportDefaultSetting
 
 class function SHevStyles.PrintAndExportCustomSetting: Boolean;
  {* Метод для получения значения настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта" }
-//#UC START# *C4840679B5EF_522ED9B4018B_var*
-//#UC END# *C4840679B5EF_522ED9B4018B_var*
 begin
-//#UC START# *C4840679B5EF_522ED9B4018B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *C4840679B5EF_522ED9B4018B_impl*
+ if (afw.Settings = nil) then
+  Result := dv_SHevStyles_PrintAndExport
+ else
+  Result := afw.Settings.LoadBoolean(pi_SHevStyles_PrintAndExport, dv_SHevStyles_PrintAndExport);
 end;//SHevStyles.PrintAndExportCustomSetting
 
 class function SHevStyles.PrintAndExportFontSizeSetting: Integer;
  {* Метод для получения значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
-//#UC START# *71C286195AC6_522ED9B4018B_var*
-//#UC END# *71C286195AC6_522ED9B4018B_var*
 begin
-//#UC START# *71C286195AC6_522ED9B4018B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *71C286195AC6_522ED9B4018B_impl*
+ if (afw.Settings = nil) then
+  Result := dv_SHevStyles_PrintAndExportFontSize
+ else
+  Result := afw.Settings.LoadInteger(pi_SHevStyles_PrintAndExportFontSize, dv_SHevStyles_PrintAndExportFontSize);
 end;//SHevStyles.PrintAndExportFontSizeSetting
 
 class procedure SHevStyles.WritePrintAndExportFontSizeSetting(aValue: Integer);
  {* Метод для записи значения настройки "Использовать для экспорта и печати следующий размер шрифта" }
-//#UC START# *FF5063A3A440_522ED9B4018B_var*
-//#UC END# *FF5063A3A440_522ED9B4018B_var*
 begin
-//#UC START# *FF5063A3A440_522ED9B4018B_impl*
- !!! Needs to be implemented !!!
-//#UC END# *FF5063A3A440_522ED9B4018B_impl*
+ if (afw.Settings <> nil) then
+ afw.Settings.SaveInteger(pi_SHevStyles_PrintAndExportFontSize, aValue);
 end;//SHevStyles.WritePrintAndExportFontSizeSetting
 
 end.

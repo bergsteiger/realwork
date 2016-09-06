@@ -33,6 +33,8 @@ uses
  , BaseTypesUnit
  , DynamicDocListUnit
  , IOUnit
+ //#UC START# *4875E9B503DCimpl_uses*
+ //#UC END# *4875E9B503DCimpl_uses*
 ;
 
 procedure TatOpenDocumentsFromListOperation.ExecuteSelf;

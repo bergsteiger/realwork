@@ -1,0 +1,235 @@
+// F1LikeFormWithBS 4D6CB4B7035F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_92E41F918840
+
+FORWARD ME_4D6CB4B7035F
+
+ME ME_7865160AD7D7
+ MEPROP UID '7865160AD7D7'
+ MEPROP Name 'ut_F1LikeFormWithBS'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма с текстовым редактором с базовым поиском.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\F1LikeFormWithBS_ut_F1LikeFormWithBS_UserType.pas'
+
+ENDME // ME_7865160AD7D7 ut_F1LikeFormWithBS
+
+ME ME_92E41F918840
+ MEPROP UID '92E41F918840'
+ MEPROP GUID '08697FEC-7252-4923-BCAD-60B3AD27EC1F'
+ MEPROP Name 'F1LikeFormWithBS'
+ MEPROP OriginalName 'F1LikeFormWithBS$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы F1LikeFormWithBS' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'F1LikeFormWithBSFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_92E41F918840 F1LikeFormWithBS$Def
+
+ME ME_4D6CB56A0031
+ MEPROP UID '4D6CB56A0031'
+ MEPROP Name 'BaseSearchControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CF4D14700AE' '4CF4D14700AE.ms.model.script' // TnscTreeComboWithHistoryAndOperations
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "needs field" True
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4D6CB56A0031 BaseSearchControl
+
+ME ME_4D6CBF74024C
+ MEPROP UID '4D6CBF74024C'
+ MEPROP Name 'Text'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4952693000EA' '4952693000EA.ms.model.script' // TeeEditorExport
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "needs field" True
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4D6CBF74024C Text
+
+ME ME_4D6CBF8803B5
+ MEPROP UID '4D6CBF8803B5'
+ MEPROP Name 'TextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47542EDE038A' '47542EA70394.ms.model.script' // TeeTextSourceExport
+ )
+ ; // Inherits
+ UP "ComponentClass" 'none'
+ UP "need Caption" False
+ UP "needs field" True
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4D6CBF8803B5 TextSource
+
+ME ME_9758D60096D2
+ MEPROP UID '9758D60096D2'
+ MEPROP Name 'Ini_FormFactory_F1LikeFormWithBS'
+ MEPROP OriginalName 'Ini_FormFactory_F1LikeFormWithBS$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы F1LikeFormWithBS' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ UPLINK SpelledFor HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+
+ENDME // ME_9758D60096D2 Ini_FormFactory_F1LikeFormWithBS$Def
+
+ME ME_4D6CD49803CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_4D6CD49803CD 
+
+ME ME_4D6CF48D0045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D6CB4B7035F // F1LikeFormWithBS
+ ;
+ MELINK Target WL 'ME_476A77110209' '4799D29F033F.ms.model.script' // TWindowState
+ ;
+
+ENDME // ME_4D6CF48D0045 
+
+ME ME_4C9B21D20187_ME_4D6CB4B7035F
+ MELINK Original WL 'ME_4C9B21D20187' '4C9B20790302.ms.model.script' // TextSource
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_4C9B21D20187_ME_4D6CB4B7035F TextSource
+
+ME ME_4C9B21E400A4_ME_4D6CB4B7035F
+ MELINK Original WL 'ME_4C9B21E400A4' '4C9B20790302.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_4C9B21E400A4_ME_4D6CB4B7035F Text
+
+ME ME_4A8E8F2E0195_ME_4D6CB4B7035F
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4D6CB4B7035F InitControls
+
+ME ME_4D6CB4B7035F
+ MEPROP UID '4D6CB4B7035F'
+ MEPROP Name 'F1LikeFormWithBS'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма с текстовым редактором с базовым поиском.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B30C72000B3' '4B30C72000B3.ms.model.script' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C9B20790302' '4C9B20790302.ms.model.script' // PrimTextLoad
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_92E41F918840 // F1LikeFormWithBS$Def
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D6CB56A0031 // BaseSearchControl
+ HWL ME_4D6CBF74024C // Text
+ HWL ME_4D6CBF8803B5 // TextSource
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_9758D60096D2 // Ini_FormFactory_F1LikeFormWithBS$Def
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C9B21D20187_ME_4D6CB4B7035F // TextSource
+ ME_4C9B21E400A4_ME_4D6CB4B7035F // Text
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4D6CB4B7035F // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_7865160AD7D7 // ut_F1LikeFormWithBS
+ HWL ME_92E41F918840 // F1LikeFormWithBS$Def
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D6CD49803CD // TAlign
+ ME_4D6CF48D0045 // TWindowState
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TF1LikeFormWithBSForm'
+ UP extprop:pas:UnitName 'F1LikeFormWithBS_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'F1LikeFormWithBSForm'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\F1LikeFormWithBS_Form.pas'
+
+ENDME // ME_4D6CB4B7035F F1LikeFormWithBS

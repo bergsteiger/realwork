@@ -30,6 +30,8 @@ uses
  , SysUtils
  , Windows
  , atLogger
+ //#UC START# *4808A3EC021Fimpl_uses*
+ //#UC END# *4808A3EC021Fimpl_uses*
 ;
 
 procedure TatScenario.ExecuteSelf;

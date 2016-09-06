@@ -34,6 +34,8 @@ uses
  {$If NOT Defined(NoVCL)}
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
+ //#UC START# *551962080380impl_uses*
+ //#UC END# *551962080380impl_uses*
 ;
 
 procedure TServiceTest.DoIt;

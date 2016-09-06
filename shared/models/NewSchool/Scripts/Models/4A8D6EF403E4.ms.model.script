@@ -1,0 +1,763 @@
+// Containers 4A8D6EF403E4 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8D6EF403E4
+
+FORWARD ME_4A8D6F31034F
+
+FORWARD ME_4A8D70780075
+
+ME ME_4A8D70C60142
+ MEPROP UID '4A8D70C60142'
+ MEPROP Name 'rIsModule'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Модуль?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A8D70C60142 rIsModule
+
+ME ME_4A8D70D20080
+ MEPROP UID '4A8D70D20080'
+ MEPROP Name 'rItemID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Идентификатор элемента (модуля/сущности)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8D70D20080 rItemID
+
+ME ME_4A8D70F600F7
+ MEPROP UID '4A8D70F600F7'
+ MEPROP Name 'rOperationID'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Идентификатор операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8D70F600F7 rOperationID
+
+FORWARD ME_4A8D71180299
+
+ME ME_4A8D711E01B6
+ MEPROP Name 'aItemID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8D711E01B6 aItemID
+
+ME ME_4A8D711E01D5
+ MEPROP Name 'aIsModule'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A8D711E01D5 aIsModule
+
+ME ME_4A8D711E01F4
+ MEPROP Name 'aOperationID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8D711E01F4 aOperationID
+
+ME ME_4A8D71180299
+ MEPROP UID '4A8D71180299'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8D711E01B6 // aItemID
+ ME_4A8D711E01D5 // aIsModule
+ ME_4A8D711E01F4 // aOperationID
+ )
+ ; // Parameters
+
+ENDME // ME_4A8D71180299 C
+
+FORWARD ME_4A8D7588039F
+
+ME ME_4A8D75990329
+ MEPROP Name 'aB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+
+ENDME // ME_4A8D75990329 aB
+
+ME ME_4A8D7588039F
+ MEPROP UID '4A8D7588039F'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8D75990329 // aB
+ )
+ ; // Parameters
+
+ENDME // ME_4A8D7588039F EQ
+
+ME ME_4A8D70780075
+ MEPROP UID '4A8D70780075'
+ MEPROP Name 'TvcmCommandInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о команде' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8D6F31034F // TvcmCommandIDsListPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8D70C60142 // rIsModule
+ HWL ME_4A8D70D20080 // rItemID
+ HWL ME_4A8D70F600F7 // rOperationID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8D71180299 // C
+ HWL ME_4A8D7588039F // EQ
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CommandInfo'
+
+ENDME // ME_4A8D70780075 TvcmCommandInfo
+
+ME ME_4A8D709101B9
+ MEPROP UID '4A8D709101B9'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8D6F31034F // TvcmCommandIDsListPrim
+ ;
+ MELINK Target HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+
+ENDME // ME_4A8D709101B9 ItemType
+
+ME ME_47B2C42A0163_ME_4A8D6F31034F
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4A8D6F31034F AssignItem
+
+ME ME_47B99D4503A2_ME_4A8D6F31034F
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4A8D6F31034F CompareExistingItems
+
+ME ME_4A8D6F31034F
+ MEPROP UID '4A8D6F31034F'
+ MEPROP Name 'TvcmCommandIDsListPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список информации о командах' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8D6EF403E4 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223DB5024B' '47913B47006E.ms.model.script' // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A8D709101B9 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_4A8D6F31034F // AssignItem
+ ME_47B99D4503A2_ME_4A8D6F31034F // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4A8D70780075 // TvcmCommandInfo
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '20.08.2009 19:46'
+ UP extprop:pas:UnitName 'vcmCommandIDsListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommandIDsListPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmCommandIDsListPrim.pas'
+
+ENDME // ME_4A8D6F31034F TvcmCommandIDsListPrim
+
+ME ME_4A8D76720025
+ MEPROP UID '4A8D76720025'
+ MEPROP Name 'TvcmCommandIDsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D6EF403E4 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A8D6F31034F // TvcmCommandIDsListPrim
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '20.08.2009 20:15'
+ UP extprop:pas:UnitName 'vcmCommandIDsList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommandIDsList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmCommandIDsList.pas'
+
+ENDME // ME_4A8D76720025 TvcmCommandIDsList
+
+FORWARD ME_4A8D789702FA
+
+FORWARD ME_4A8D79FD0329
+
+ME ME_4A8D7A100010
+ MEPROP UID '4A8D7A100010'
+ MEPROP Name 'c_Offset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8D79FD0329 // Constants
+ ;
+ MEPROP Value 512
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 512
+
+ENDME // ME_4A8D7A100010 c_Offset
+
+ME ME_4A8D79FD0329
+ MEPROP UID '4A8D79FD0329'
+ MEPROP Name 'Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8D789702FA // vcmOVCCommands
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8D7A100010 // c_Offset
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4A8D79FD0329 Constants
+
+FORWARD ME_4A8D78F801FC
+
+ME ME_4A8D7AA100E6
+ MEPROP UID '4A8D7AA100E6'
+ MEPROP Name 'C'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8D78F801FC // CommandID
+ ;
+ MELINK Target HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A8D7AA100E6 C
+
+ME ME_4A8D7AB10312
+ MEPROP UID '4A8D7AB10312'
+ MEPROP Name 'L'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8D78F801FC // CommandID
+ ;
+ MELINK Target HWL ME_4A8D76720025 // TvcmCommandIDsList
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A8D7AB10312 L
+
+ME ME_4A8D7B2300F6
+ MEPROP UID '4A8D7B2300F6'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8D78F801FC // CommandID
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A8D7B2300F6 Index
+
+FORWARD ME_4A8D79050042
+
+ME ME_4A8D79080122
+ MEPROP Name 'aItemID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8D79080122 aItemID
+
+ME ME_4A8D79080140
+ MEPROP Name 'aIsModule'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A8D79080140 aIsModule
+
+ME ME_4A8D7908015D
+ MEPROP Name 'aOperationID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A8D7908015D aOperationID
+
+ME ME_4A8D79050042
+ MEPROP UID '4A8D79050042'
+ MEPROP Name 'vcmCommandID'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D78F801FC // CommandID
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8D79080122 // aItemID
+ ME_4A8D79080140 // aIsModule
+ ME_4A8D7908015D // aOperationID
+ )
+ ; // Parameters
+
+ENDME // ME_4A8D79050042 vcmCommandID
+
+ME ME_4A8D78F801FC
+ MEPROP UID '4A8D78F801FC'
+ MEPROP Name 'CommandID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D789702FA // vcmOVCCommands
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A8D7AA100E6 // C
+ HWL ME_4A8D7AB10312 // L
+ HWL ME_4A8D7B2300F6 // Index
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8D79050042 // vcmCommandID
+ )
+ ; // Operations
+
+ENDME // ME_4A8D78F801FC CommandID
+
+FORWARD ME_4A8D7BCE03E4
+
+FORWARD ME_4A8D7C00031D
+
+ME ME_4A8D7C20011C
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+
+ENDME // ME_4A8D7C20011C anID
+
+ME ME_4A8D7C00031D
+ MEPROP UID '4A8D7C00031D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D7BCE03E4 // CommandInfo
+ ;
+ MELINK Target HWL ME_4A8D70780075 // TvcmCommandInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8D7C20011C // anID
+ )
+ ; // Parameters
+
+ENDME // ME_4A8D7C00031D DoIt
+
+ME ME_4A8D80450309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8D7BCE03E4 // CommandInfo
+ ;
+ MELINK Target HWL ME_4A8D76720025 // TvcmCommandIDsList
+ ;
+
+ENDME // ME_4A8D80450309 
+
+ME ME_4A8D7BCE03E4
+ MEPROP UID '4A8D7BCE03E4'
+ MEPROP Name 'CommandInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D789702FA // vcmOVCCommands
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A8D7C00031D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A8D80450309 // TvcmCommandIDsList
+ )
+ ; // Dependencies
+
+ENDME // ME_4A8D7BCE03E4 CommandInfo
+
+ME ME_4A8D789702FA
+ MEPROP UID '4A8D789702FA'
+ MEPROP Name 'vcmOVCCommands'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Работа с командами OVC' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8D6EF403E4 // Containers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A8D78F801FC // CommandID
+ HWL ME_4A8D7BCE03E4 // CommandInfo
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4A8D79FD0329 // Constants
+ )
+ ; // Constants
+ UP "author" 'Люлин А.В.'
+ UP "children prefix" 'vcm'
+ UP "no hands" True
+ UP "started" '20.08.2009 20:24'
+ UP extprop:pas:ElementPrefix 'vcm'
+ UP extprop:rc:SelfName 'OVCCommands'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmOVCCommands.pas'
+
+ENDME // ME_4A8D789702FA vcmOVCCommands
+
+FORWARD ME_4AC4B66801FC
+
+ME ME_4AC4B6BB02C8
+ MEPROP UID '4AC4B6BB02C8'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC4B66801FC // TvcmIEntityFormList
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4AC4B6BB02C8 ItemType
+
+ME ME_4AC4B66801FC
+ MEPROP UID '4AC4B66801FC'
+ MEPROP Name 'TvcmIEntityFormList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список IvcmEntityForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8D6EF403E4 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC4B6BB02C8 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '01.10.2009 18:02'
+ UP extprop:pas:UnitName 'vcmIEntityFormList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEntityFormList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmIEntityFormList.pas'
+
+ENDME // ME_4AC4B66801FC TvcmIEntityFormList
+
+FORWARD ME_4AC4B82802E1
+
+ME ME_4AC4B88B01C2
+ MEPROP UID '4AC4B88B01C2'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC4B82802E1 // TvcmIEntityFormPtrList
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4AC4B88B01C2 ItemType
+
+ME ME_4AC4B82802E1
+ MEPROP UID '4AC4B82802E1'
+ MEPROP Name 'TvcmIEntityFormPtrList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список указателей на IvcmEntityForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8D6EF403E4 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC4B88B01C2 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '01.10.2009 18:10'
+ UP extprop:pas:UnitName 'vcmIEntityFormPtrList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEntityFormPtrList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmIEntityFormPtrList.pas'
+
+ENDME // ME_4AC4B82802E1 TvcmIEntityFormPtrList
+
+FORWARD ME_4F1ECEEE028F
+
+ME ME_4F1ECF230223
+ MEPROP UID '4F1ECF230223'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F1ECEEE028F // TvcmIEntityList
+ ;
+ MELINK Target WL 'ME_4991AD08005B' '4683F37902CF.ms.model.script' // IvcmEntity
+ ;
+
+ENDME // ME_4F1ECF230223 ItemType
+
+ME ME_4F1ECEEE028F
+ MEPROP UID '4F1ECEEE028F'
+ MEPROP Name 'TvcmIEntityList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список ссылок на IvcmEntity' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8D6EF403E4 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F1ECF230223 // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '24.01.2012 19:32'
+ UP extprop:pas:UnitName 'vcmIEntityList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEntityList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmIEntityList.pas'
+
+ENDME // ME_4F1ECEEE028F TvcmIEntityList
+
+FORWARD ME_53D1DC9C03E7
+
+FORWARD ME_53D1DEEA00E8
+
+ME ME_53D1DF170044
+ MEPROP UID '53D1DF170044'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D1DEEA00E8 // Make
+ ;
+
+ENDME // ME_53D1DF170044 DoIt
+
+ME ME_53D1DEEA00E8
+ MEPROP UID '53D1DEEA00E8'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53D1DC9C03E7 // TvcmEntityFormsIterable
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_53D1DAE2034D' '4683F37902CF.ms.model.script' // IvcmEntityFormsIterable
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53D1DF170044 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53D1DEEA00E8 Make
+
+ME ME_53D1DB0203E2_ME_53D1DC9C03E7
+ MELINK Original WL 'ME_53D1DB0203E2' '4683F37902CF.ms.model.script' // FormsCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_53D1DB0203E2_ME_53D1DC9C03E7 FormsCount
+
+ME ME_53D1DB1A0349_ME_53D1DC9C03E7
+ MELINK Original WL 'ME_53D1DB1A0349' '4683F37902CF.ms.model.script' // IterateFormsF
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53D1DB1A0349_ME_53D1DC9C03E7 IterateFormsF
+
+ME ME_53D1EB8703D2_ME_53D1DC9C03E7
+ MELINK Original WL 'ME_53D1EB8703D2' '4683F37902CF.ms.model.script' // AddForm
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53D1EB8703D2_ME_53D1DC9C03E7 AddForm
+
+ME ME_53D1DC9C03E7
+ MEPROP UID '53D1DC9C03E7'
+ MEPROP Name 'TvcmEntityFormsIterable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8D6EF403E4 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC4B82802E1 // TvcmIEntityFormPtrList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53D1DAE2034D' '4683F37902CF.ms.model.script' // IvcmEntityFormsIterable
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53D1DEEA00E8 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53D1DB0203E2_ME_53D1DC9C03E7 // FormsCount
+ ME_53D1DB1A0349_ME_53D1DC9C03E7 // IterateFormsF
+ ME_53D1EB8703D2_ME_53D1DC9C03E7 // AddForm
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'vcmEntityFormsIterable'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EntityFormsIterable'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmEntityFormsIterable.pas'
+
+ENDME // ME_53D1DC9C03E7 TvcmEntityFormsIterable
+
+ME ME_4A8D6EF403E4
+ MEPROP UID '4A8D6EF403E4'
+ MEPROP Name 'Containers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Различные контейнеры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A8D6F31034F // TvcmCommandIDsListPrim
+ HWL ME_4A8D76720025 // TvcmCommandIDsList
+ HWL ME_4A8D789702FA // vcmOVCCommands
+ HWL ME_4AC4B66801FC // TvcmIEntityFormList
+ HWL ME_4AC4B82802E1 // TvcmIEntityFormPtrList
+ HWL ME_4F1ECEEE028F // TvcmIEntityList
+ HWL ME_53D1DC9C03E7 // TvcmEntityFormsIterable
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "path prefix" '/implementation'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
+
+ENDME // ME_4A8D6EF403E4 Containers

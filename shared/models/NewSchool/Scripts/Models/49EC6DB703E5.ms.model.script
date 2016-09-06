@@ -1,0 +1,31 @@
+// InternetAgent 49EC6DB703E5 ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_49EC6DB703E5
+ MEPROP UID '49EC6DB703E5'
+ MEPROP Name 'InternetAgent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerUnit ;
+ %SUMMARY 'Реализация [Интернет-агента|$124453728]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49EC6D0903DD' '49EC6D0903DD.ms.model.script' // InternetAgent
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_49ECA984005F' '49ECA984005F.ms.model.script' // TsdsInternetAgent
+ WL 'ME_49ECA9AA0000' '49ECA9AA0000.ms.model.script' // TdsInternetAgent
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_476BE98C01B8' '476BE98C01B8.ms.model.script' // l3Chars
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_49EC6D9000EE' '49EC6D9000EE.ms.model.script' // InternetAgentInterfaces
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ )
+ ; // Depends
+
+ENDME // ME_49EC6DB703E5 InternetAgent

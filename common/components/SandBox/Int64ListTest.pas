@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *51DEE8E9025Aimpl_uses*
+ //#UC END# *51DEE8E9025Aimpl_uses*
 ;
 
 {$Include w:\common\components\SandBox\AtomicListTest.imp.pas}

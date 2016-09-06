@@ -28,6 +28,8 @@ implementation
 uses
  l3ImplUses
  , arList_Const
+ //#UC START# *4858EE3A00A3impl_uses*
+ //#UC END# *4858EE3A00A3impl_uses*
 ;
 
 {$IfEnd} // Defined(k2ForEditor) AND Defined(Archi)

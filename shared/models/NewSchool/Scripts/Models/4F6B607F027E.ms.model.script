@@ -1,0 +1,79 @@
+// F1Like 4F6B607F027E VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B607F027E
+
+ME ME_4F6B60940381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B607F027E // F1Like
+ ;
+ MELINK Target WL 'ME_4C8DE85601C4' '4C8DE85601C4.ms.model.script' // TasksPanelMenu
+ ;
+
+ENDME // ME_4F6B60940381 
+
+ME ME_4F6B6DE30202
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B607F027E // F1Like
+ ;
+ MELINK Target WL 'ME_4F6B663803AE' '4F6B663803AE.ms.model.script' // ParentAndChild
+ ;
+
+ENDME // ME_4F6B6DE30202 
+
+ME ME_4F7993C500C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B607F027E // F1Like
+ ;
+ MELINK Target WL 'ME_49213DFA02CB' '4E1447600037.ms.model.script' // vtStdRes
+ ;
+
+ENDME // ME_4F7993C500C2 
+
+ME ME_4F6AF5F00058_ME_4F6B607F027E
+ MELINK Original WL 'ME_4F6AF5F00058' '50883A2E00B3.ms.model.script' // MakeResources
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_4F6AF5F00058_ME_4F6B607F027E MakeResources
+
+ME ME_4F6B607F027E
+ MEPROP UID '4F6B607F027E'
+ MEPROP Name 'F1Like'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F6B660100D5' '4F6B660100D5.ms.model.script' // View
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4ADDCE970294' '4ADDCE970294.ms.model.script' // OfficeLike
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4F6AF5F00058_ME_4F6B607F027E // MakeResources
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( WL 'ME_4F6B382E00D9' '4F6B382E00D9.ms.model.script' // MainPrim
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F6B60940381 // TasksPanelMenu
+ ME_4F6B6DE30202 // ParentAndChild
+ ME_4F7993C500C2 // vtStdRes
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TF1LikeRes'
+ UP extprop:pas:UnitName 'F1LikeRes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'F1LikeRes'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\F1LikeRes.pas'
+
+ENDME // ME_4F6B607F027E F1Like

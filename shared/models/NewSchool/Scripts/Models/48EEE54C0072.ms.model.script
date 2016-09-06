@@ -1,0 +1,46 @@
+// EverestCommon 48EEE54C0072 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_48EEE54C0072
+ MEPROP UID '48EEE54C0072'
+ MEPROP Name 'EverestCommon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'Обобщающие функции для разных веток библиотеки Everest' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_48EEE9330072' '48EEE9330072.ms.model.script' // evCommonTypes
+ WL 'ME_48EEE7AE0313' '48EEE7AE0313.ms.model.script' // evFacade
+ WL 'ME_469C688102A3' '469C688102A3.ms.model.script' // DataObjects
+ WL 'ME_4C407B410029' '4C407B410029.ms.model.script' // Generators
+ WL 'ME_4C9CD483018B' '4C9CD483018B.ms.model.script' // Readers
+ WL 'ME_4CE3995C0300' '4CE3995C0300.ms.model.script' // Tools
+ WL 'ME_4E562FBF03B9' '4E562FBF03B9.ms.model.script' // Containers
+ WL 'ME_5075275701AF' '5075275701AF.ms.model.script' // Searchers
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
+ WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ )
+ ; // Depends
+ UP "defines" 'evDefine.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'gui'
+ UP "is namespace" True
+ UP "UseNewGen" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\EverestCommon'
+
+ENDME // ME_48EEE54C0072 EverestCommon

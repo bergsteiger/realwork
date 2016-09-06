@@ -43,6 +43,8 @@ uses
  , evReqGroupPainter
  {$IfEnd} // Defined(evNeedPainters) AND Defined(evReqGroupNeedsRadio)
  , ReqGroup_Const
+ //#UC START# *4D63C1860228impl_uses*
+ //#UC END# *4D63C1860228impl_uses*
 ;
 
 function TevReqGroupInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

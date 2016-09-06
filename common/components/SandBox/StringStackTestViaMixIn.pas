@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *515994210223impl_uses*
+ //#UC END# *515994210223impl_uses*
 ;
 
 {$Include w:\common\components\SandBox\StackTest.imp.pas}

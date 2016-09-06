@@ -29,6 +29,8 @@ uses
  , SysUtils
  , atDocumentHelper
  , IOUnit
+ //#UC START# *4811D5DD0028impl_uses*
+ //#UC END# *4811D5DD0028impl_uses*
 ;
 
 procedure TatLoadDocumentsByIDFromListOperation.ExecuteSelf;

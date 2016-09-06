@@ -1,0 +1,235 @@
+// Core 4D542052038D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D542052038D
+
+FORWARD ME_4D542078016E
+
+ME ME_4D5EAD10009D
+ MEPROP UID '4D5EAD10009D'
+ MEPROP Name 'IsVisual'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D542078016E // TvgCustomObject
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4D5EAD10009D IsVisual
+
+ME ME_4D542078016E
+ MEPROP UID '4D542078016E'
+ MEPROP Name 'TvgCustomObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D542052038D // Core
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.ms.model.script' // TvgComponent
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5EAD10009D // IsVisual
+ )
+ ; // Attributes
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '10.02.2011 20:29'
+ UP extprop:pas:UnitName 'vgCustomObject'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Object'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomObject.pas'
+
+ENDME // ME_4D542078016E TvgCustomObject
+
+ME ME_4D54299F035D
+ MEPROP UID '4D54299F035D'
+ MEPROP Name 'TvgCustomResources'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D542052038D // Core
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A881018B' '4D52A63D0365.ms.model.script' // TvgComponent
+ )
+ ; // Inherits
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '10.02.2011 21:08'
+ UP extprop:pas:UnitName 'vgCustomResources'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Resources'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomResources.pas'
+
+ENDME // ME_4D54299F035D TvgCustomResources
+
+ME ME_4D542A150195
+ MEPROP UID '4D542A150195'
+ MEPROP Name 'TvgCustomBitmap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D542052038D // Core
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D5413C00089' '4D52A63D0365.ms.model.script' // TvgInterfacedPersistent
+ )
+ ; // Inherits
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '10.02.2011 21:10'
+ UP extprop:pas:UnitName 'vgCustomBitmap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Bitmap'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomBitmap.pas'
+
+ENDME // ME_4D542A150195 TvgCustomBitmap
+
+ME ME_4D5435820356
+ MEPROP UID '4D5435820356'
+ MEPROP Name 'TvgCustomCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4D542052038D // Core
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D52A6B50343' '4D52A63D0365.ms.model.script' // TvgPersistent
+ )
+ ; // Inherits
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '10.02.2011 21:59'
+ UP extprop:pas:UnitName 'vgCustomCanvas'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Canvas'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgCustomCanvas.pas'
+
+ENDME // ME_4D5435820356 TvgCustomCanvas
+
+FORWARD ME_4D552A2E00A3
+
+FORWARD ME_4D5529D60358
+
+FORWARD ME_4D5529F4029A
+
+ME ME_4D552A1F00D2
+ MEPROP Name 'item1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D542078016E // TvgCustomObject
+ ;
+
+ENDME // ME_4D552A1F00D2 item1
+
+ME ME_4D552A1F00F1
+ MEPROP Name 'item2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4D542078016E // TvgCustomObject
+ ;
+
+ENDME // ME_4D552A1F00F1 item2
+
+ME ME_4D5529F4029A
+ MEPROP UID '4D5529F4029A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5529D60358 // TvgObjectSortCompare
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D552A1F00D2 // item1
+ ME_4D552A1F00F1 // item2
+ )
+ ; // Parameters
+
+ENDME // ME_4D5529F4029A DoIt
+
+ME ME_4D5529D60358
+ MEPROP UID '4D5529D60358'
+ MEPROP Name 'TvgObjectSortCompare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D552A2E00A3 // vgTypesPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5529F4029A // DoIt
+ )
+ ; // Operations
+ UP "of object" False
+
+ENDME // ME_4D5529D60358 TvgObjectSortCompare
+
+ME ME_4D552A2E00A3
+ MEPROP UID '4D552A2E00A3'
+ MEPROP Name 'vgTypesPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D542052038D // Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D5529D60358 // TvgObjectSortCompare
+ )
+ ; // Children
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '11.02.2011 15:23'
+ UP extprop:rc:SelfName 'TypesPrim'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgTypesPrim.pas'
+
+ENDME // ME_4D552A2E00A3 vgTypesPrim
+
+ME ME_4D542052038D
+ MEPROP UID '4D542052038D'
+ MEPROP Name 'Core'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CFCE4F203CE' '4CFCE4F203CE.ms.model.script' // VGScene
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D542078016E // TvgCustomObject
+ HWL ME_4D54299F035D // TvgCustomResources
+ HWL ME_4D542A150195 // TvgCustomBitmap
+ HWL ME_4D5435820356 // TvgCustomCanvas
+ HWL ME_4D552A2E00A3 // vgTypesPrim
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4D52A63D0365' '4D52A63D0365.ms.model.script' // lulin
+ WL 'ME_4D5420EC039D' '4D5420EC039D.ms.model.script' // vgTypes
+ )
+ ; // Depends
+
+ENDME // ME_4D542052038D Core

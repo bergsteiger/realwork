@@ -1,0 +1,173 @@
+// EVD Schema Tuning 4CEE659103B3 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CEE659103B3
+
+FORWARD ME_4CEE65B701A4
+
+ME ME_4CEE685E0003
+ MEPROP UID '4CEE685E0003'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEE65B701A4 // TnsParaModifier
+ ;
+
+ENDME // ME_4CEE685E0003 ini
+
+ME ME_4CEE6187015A_ME_4CEE65B701A4
+ MELINK Original WL 'ME_4CEE6187015A' '484A470100DD.ms.model.script' // MarkModified
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_4CEE6187015A_ME_4CEE65B701A4 MarkModified
+
+ME ME_4CEE65B701A4
+ MEPROP UID '4CEE65B701A4'
+ MEPROP Name 'TnsParaModifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CEE659103B3 // EVD Schema Tuning
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CEE60C90052' '484A470100DD.ms.model.script' // TevdParaModifier
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CEE685E0003 // ini
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4CEE6187015A_ME_4CEE65B701A4 // MarkModified
+ )
+ ; // Overridden
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '25.11.2010 16:34'
+ UP extprop:pas:UnitName 'nsParaModifier'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ParaModifier'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsParaModifier.pas'
+
+ENDME // ME_4CEE65B701A4 TnsParaModifier
+
+FORWARD ME_4CEE65C8015D
+
+ME ME_4CEE6865016F
+ MEPROP UID '4CEE6865016F'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+
+ENDME // ME_4CEE6865016F ini
+
+ME ME_4CEE66280329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+ MELINK Target WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+
+ENDME // ME_4CEE66280329 
+
+ME ME_4CEE69EC003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4CEE69EC003B 
+
+ME ME_4CEE69FD0291
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CEE65C8015D // TnsCommentModifier
+ ;
+ MELINK Target WL 'ME_4CEE380000F1' '4C6E92E9016E.ms.model.script' // If1CommentSink
+ ;
+
+ENDME // ME_4CEE69FD0291 
+
+ME ME_4CEE6187015A_ME_4CEE65C8015D
+ MELINK Original WL 'ME_4CEE6187015A' '484A470100DD.ms.model.script' // MarkModified
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_4CEE6187015A_ME_4CEE65C8015D MarkModified
+
+ME ME_4CEE65C8015D
+ MEPROP UID '4CEE65C8015D'
+ MEPROP Name 'TnsCommentModifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CEE659103B3 // EVD Schema Tuning
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CEE61DE01C6' '48492FC0029D.ms.model.script' // TevCommentModifier
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CEE6865016F // ini
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4CEE6187015A_ME_4CEE65C8015D // MarkModified
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CEE66280329 // If1CommentSink
+ ME_4CEE69EC003B // Supports
+ ME_4CEE69FD0291 // If1CommentSink
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '25.11.2010 16:34'
+ UP extprop:pas:UnitName 'nsCommentModifier'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CommentModifier'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsCommentModifier.pas'
+
+ENDME // ME_4CEE65C8015D TnsCommentModifier
+
+ME ME_4CEE659103B3
+ MEPROP UID '4CEE659103B3'
+ MEPROP Name 'EVD Schema Tuning'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CEBA36A00AA' '4CEBA36A00AA.ms.model.script' // f1DocumentTagsImplementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CEE65B701A4 // TnsParaModifier
+ HWL ME_4CEE65C8015D // TnsCommentModifier
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4C6E92E9016E' '4C6E92E9016E.ms.model.script' // F1TagDataProviderInterface
+ )
+ ; // Depends
+
+ENDME // ME_4CEE659103B3 EVD Schema Tuning

@@ -1,0 +1,64 @@
+// TvcmDropDownMenuForChromeLike 545C51F90170 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545C51F90170
+
+ME ME_545C538C0260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C51F90170 // TvcmDropDownMenuForChromeLike
+ ;
+ MELINK Target WL 'ME_545C535201B3' '533D53FF00C2.ms.model.script' // TvcmMenuForChromeLikeItems
+ ;
+
+ENDME // ME_545C538C0260 
+
+ME ME_545C5C5802F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C51F90170 // TvcmDropDownMenuForChromeLike
+ ;
+ MELINK Target WL 'ME_545C5B8703C7' '4799D29F033F.ms.model.script' // ShadowWnd
+ ;
+
+ENDME // ME_545C5C5802F6 
+
+ME ME_545C5C9E00B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545C51F90170 // TvcmDropDownMenuForChromeLike
+ ;
+ MELINK Target WL 'ME_53EB1F03021A' '4AB0C3F60375.ms.model.script' // multimon
+ ;
+
+ENDME // ME_545C5C9E00B2 
+
+ME ME_545C51F90170
+ MEPROP UID '545C51F90170'
+ MEPROP Name 'TvcmDropDownMenuForChromeLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_545C538C0260 // TvcmMenuForChromeLikeItems
+ ME_545C5C5802F6 // ShadowWnd
+ ME_545C5C9E00B2 // multimon
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'vcmDropDownMenuForChromeLike'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropDownMenuForChromeLike'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmDropDownMenuForChromeLike.pas'
+
+ENDME // ME_545C51F90170 TvcmDropDownMenuForChromeLike

@@ -1,0 +1,111 @@
+// EULA 4A93FB8C0121 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_31BA7EA01C27
+
+FORWARD ME_4A93FB8C0121
+
+ME ME_88631209C038
+ MEPROP UID '88631209C038'
+ MEPROP Name 'ut_EULA'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Условия использования' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93FB8C0121 // EULA
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'EULA_ut_EULA_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\EULA_ut_EULA_UserType.pas'
+
+ENDME // ME_88631209C038 ut_EULA
+
+ME ME_31BA7EA01C27
+ MEPROP UID '31BA7EA01C27'
+ MEPROP GUID 'DF5FBE77-74EC-44AD-8636-CBFDE4947FC7'
+ MEPROP Name 'EULA'
+ MEPROP OriginalName 'EULA$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы EULA' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93FB8C0121 // EULA
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A93FB8C0121 // EULA
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'EULAFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_31BA7EA01C27 EULA$Def
+
+ME ME_A02900702AB8
+ MEPROP UID 'A02900702AB8'
+ MEPROP Name 'Ini_FormFactory_EULA'
+ MEPROP OriginalName 'Ini_FormFactory_EULA$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы EULA' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93FB8C0121 // EULA
+ ;
+ UPLINK SpelledFor HWL ME_4A93FB8C0121 // EULA
+ ;
+
+ENDME // ME_A02900702AB8 Ini_FormFactory_EULA$Def
+
+ME ME_4A93FB8C0121
+ MEPROP UID '4A93FB8C0121'
+ MEPROP Name 'EULA'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Условия использования' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A93FB6B018F' '4A93FB6B018F.ms.model.script' // PrimEULA
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_31BA7EA01C27 // EULA$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_A02900702AB8 // Ini_FormFactory_EULA$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_88631209C038 // ut_EULA
+ HWL ME_31BA7EA01C27 // EULA$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "form name prefix" 'ef'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Modal'
+ UP extprop:pas:TypeName 'TefEULA'
+ UP extprop:pas:UnitName 'EULA_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'efEULA'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\EULA_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_4A93FB8C0121 EULA

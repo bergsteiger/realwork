@@ -1,0 +1,52 @@
+// TafwCustomCommonControlPrim 48BBE35E039F GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BBE35E039F
+
+ME ME_48BBE38D0061
+ MEPROP UID '48BBE38D0061'
+ MEPROP Name 'DoPaint'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48BBE35E039F // TafwCustomCommonControlPrim
+ ;
+
+ENDME // ME_48BBE38D0061 DoPaint
+
+ME ME_48C6C044025E_ME_48BBE35E039F
+ MELINK Original WL 'ME_48C6C044025E' '48BD1975029B.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C6C044025E_ME_48BBE35E039F Paint
+
+ME ME_48BBE35E039F
+ MEPROP UID '48BBE35E039F'
+ MEPROP Name 'TafwCustomCommonControlPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_467BA96E003C' '467BA96E003C.ms.model.script' // TafwControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48BBE38D0061 // DoPaint
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48C6C044025E_ME_48BBE35E039F // Paint
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'afwCustomCommonControlPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwCustomCommonControlPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControlPrim.pas'
+
+ENDME // ME_48BBE35E039F TafwCustomCommonControlPrim

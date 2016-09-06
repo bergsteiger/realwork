@@ -42,6 +42,8 @@ uses
  , l3MinMax
  , RTLConsts
  , SysUtils
+ //#UC START# *4D552B230161impl_uses*
+ //#UC END# *4D552B230161impl_uses*
 ;
 
 var f_CurrentComparer: TvgObjectSortCompare = nil;

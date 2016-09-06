@@ -1,0 +1,58 @@
+// Child 4F6B66DB0384 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B66DB0384
+
+ME ME_86D0CEDB2066
+ MEPROP UID '86D0CEDB2066'
+ MEPROP Name 'Ini_FormFactory_Child'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Child' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6B66DB0384 // Child
+ ;
+ UPLINK SpelledFor HWL ME_4F6B66DB0384 // Child
+ ;
+
+ENDME // ME_86D0CEDB2066 Ini_FormFactory_Child
+
+ME ME_4F6B66DB0384
+ MEPROP UID '4F6B66DB0384'
+ MEPROP Name 'Child'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6B66260326' '4F6B66260326.ms.model.script' // ParentAndChildPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F6B6646037F' '4F6B6646037F.ms.model.script' // PrimChild
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F6B670E017C' '4F6B66F8001B.ms.model.script' // Child
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_86D0CEDB2066 // Ini_FormFactory_Child
+ )
+ ; // Operations
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Child'
+ UP extprop:pas:TypeName 'TChildForm'
+ UP extprop:pas:UnitName 'Child_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChildForm'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\Forms\Child_Form.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\ParentAndChild\Forms'
+
+ENDME // ME_4F6B66DB0384 Child

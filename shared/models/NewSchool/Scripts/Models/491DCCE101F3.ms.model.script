@@ -1,0 +1,97 @@
+// TdsQuery 491DCCE101F3 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491DCCE101F3
+
+ME ME_491DCD6000CA
+ MEPROP UID '491DCD6000CA'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491DCCE101F3 // TdsQuery
+ ;
+ MELINK Target WL 'ME_491DAE5C011F' '4AA5503000D7.ms.model.script' // IdeQuery
+ ;
+
+ENDME // ME_491DCD6000CA InitDataType
+
+ME ME_491DCDA302BF
+ MEPROP UID '491DCDA302BF'
+ MEPROP Name 'f_IsQuerySaved'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491DCCE101F3 // TdsQuery
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_491DCDA302BF f_IsQuerySaved
+
+ME ME_491DC9970093_ME_491DCCE101F3
+ MELINK Original WL 'ME_491DC9970093' '4AA5503000D7.ms.model.script' // Query
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_491DC9970093_ME_491DCCE101F3 Query
+
+ME ME_491DC9AE0355_ME_491DCCE101F3
+ MELINK Original WL 'ME_491DC9AE0355' '4AA5503000D7.ms.model.script' // IsQuerySaved
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_491DC9AE0355_ME_491DCCE101F3 IsQuerySaved
+
+ME ME_479731C50290_ME_491DCCE101F3
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_491DCCE101F3 Cleanup
+
+ME ME_491DCCE101F3
+ MEPROP UID '491DCCE101F3'
+ MEPROP Name 'TdsQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492ACB4100B2' '47D0E1500033.ms.model.script' // vcmFormDataSource
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_491DC972029C' '4AA5503000D7.ms.model.script' // IdsQuery
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_491DCD6000CA // InitDataType
+ HWL ME_491DCDA302BF // f_IsQuerySaved
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_491DC9970093_ME_491DCCE101F3 // Query
+ ME_491DC9AE0355_ME_491DCCE101F3 // IsQuerySaved
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_491DCCE101F3 // Cleanup
+ )
+ ; // Overridden
+ UP "author" 'Морозов М.А'
+ UP "no hands" True
+ UP "started" '06.04.2006 17.27'
+ UP extprop:pas:UnitName 'dsQuery'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsQuery'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsQuery.pas'
+
+ENDME // ME_491DCCE101F3 TdsQuery

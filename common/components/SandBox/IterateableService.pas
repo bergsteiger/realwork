@@ -61,6 +61,8 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ //#UC START# *5519611903CFimpl_uses*
+ //#UC END# *5519611903CFimpl_uses*
 ;
 
 var g_TIterateableService: TIterateableService = nil;

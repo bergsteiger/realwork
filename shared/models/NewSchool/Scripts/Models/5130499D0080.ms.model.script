@@ -1,0 +1,41 @@
+// DUnit Script Support 5130499D0080 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_5130499D0080
+ MEPROP UID '5130499D0080'
+ MEPROP Name 'DUnit Script Support'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B30CC420206' '4B30CC420206.ms.model.script' // Shared Delphi Testing Framework
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_51304A0E0192' '51304A0E0192.ms.model.script' // DUnit Keywords
+ WL 'ME_5130776E01BE' '5130776E01BE.ms.model.script' // DUnitKeyWordsSupport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.ms.model.script' // DUnit
+ WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ WL 'ME_4DC3D1BC0060' '4DC3D1BC0060.ms.model.script' // ScriptTestLibrary
+ WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
+ WL 'ME_513098F2017C' '513098F2017C.ms.model.script' // Shared Delphi Tests Common
+ WL 'ME_54CF97B10370' '54CF97B10370.ms.model.script' // ScriptEngine$Core
+ )
+ ; // Depends
+ UP "defines" 'dsDefine.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "ifdef" 'nsTest'
+ UP "ifndef" 'NoScripts'
+ UP "is namespace" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\DUnit_Script_Support'
+
+ENDME // ME_5130499D0080 DUnit Script Support

@@ -1,0 +1,63 @@
+// PictureInfo 4AB12FA70146 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB12FA70146
+
+ME ME_42F354FB23DA
+ MEPROP UID '42F354FB23DA'
+ MEPROP Name 'ut_PictureInfo'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о картинке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB12FA70146 // PictureInfo
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PictureInfo_ut_PictureInfo_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfo_ut_PictureInfo_UserType.pas'
+
+ENDME // ME_42F354FB23DA ut_PictureInfo
+
+ME ME_4AB12FA70146
+ MEPROP UID '4AB12FA70146'
+ MEPROP Name 'PictureInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о картинке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C86319003CD' '4C86319003CD.ms.model.script' // PrimPictureInfoOptions
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_42F354FB23DA // ut_PictureInfo
+ )
+ ; // Children
+ UP "author" 'Лукьянец Р.В.'
+ UP "finished dfm" True
+ UP "form name prefix" 'en_'
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" True
+ UP "started" '11 июля 2007'
+ UP "ZoneType" 'Modal'
+ UP extprop:pas:TypeName 'Ten_PictureInfo'
+ UP extprop:pas:UnitName 'PictureInfo_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'en_PictureInfo'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\PictureInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_4AB12FA70146 PictureInfo

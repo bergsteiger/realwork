@@ -1,0 +1,153 @@
+// ProgressIndicatorSupport 45EEA87702A5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEA87702A5
+
+FORWARD ME_45EEE00A024E
+
+ME ME_45EEE02703C5
+ MEPROP UID '45EEE02703C5'
+ MEPROP Name 'max_count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEE00A024E // ProgressIndicator
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEE02703C5 max_count
+
+FORWARD ME_45EEE00A025D
+
+ME ME_45EEE00A025E
+ MEPROP Name 'cur_count'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45EEE00A025E cur_count
+
+ME ME_45EEE00A025F
+ MEPROP Name 'arg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ %SUMMARY 'Дополнительный параметр.' ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45EEE00A025F arg
+
+ME ME_45EEE00A025D
+ MEPROP UID '45EEE00A025D'
+ MEPROP Name 'set_current'
+ MEPROP Class class_Operation
+ %SUMMARY 'Изменение состояния длительного процесса.'#13#10'В качестве параметра cur_count подается либо число уже обработанных элементов, принимающих участие в длительном процессе, либо число <=100 (при индикации в %).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE00A024E // ProgressIndicator
+ ;
+ MELIST Parameters
+   Seq: ( ME_45EEE00A025E // cur_count
+ ME_45EEE00A025F // arg
+ )
+ ; // Parameters
+
+ENDME // ME_45EEE00A025D set_current
+
+ME ME_45EEE00A024E
+ MEPROP UID '45EEE00A024E'
+ MEPROP GUID '885E85E3-E74C-4413-8408-2FB7533E7F8A'
+ MEPROP Name 'ProgressIndicator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для обратной связи при длительных операциях на сервере.'#13#10'Должен реализовываться пользователем адаптера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEA87702A5 // ProgressIndicatorSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEE02703C5 // max_count
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45EEE00A025D // set_current
+ )
+ ; // Operations
+ UP "call way" 'back'
+ UP extprop:pas:TypeName 'IProgressIndicator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProgressIndicator'
+
+ENDME // ME_45EEE00A024E ProgressIndicator
+
+FORWARD ME_45EEE00D0329
+
+ME ME_45EEE00D032A
+ MEPROP UID '45EEE00D032A'
+ MEPROP Name 'cancel_process'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вызывается для прерывания длительного процесса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEE00D0329 // CancelLongProcess
+ ;
+
+ENDME // ME_45EEE00D032A cancel_process
+
+ME ME_45EEE00D0329
+ MEPROP UID '45EEE00D0329'
+ MEPROP GUID 'CD915CB2-6E7A-4788-A5B0-ED90959D8399'
+ MEPROP Name 'CancelLongProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для возможности прерывания длительных операций на сервере. Используется в интерфейсе IProgressIndicator.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEA87702A5 // ProgressIndicatorSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_45EEE00D032A // cancel_process
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'ICancelLongProcess'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CancelLongProcess'
+
+ENDME // ME_45EEE00D0329 CancelLongProcess
+
+ME ME_45EEA87702A5
+ MEPROP UID '45EEA87702A5'
+ MEPROP Name 'ProgressIndicatorSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEE00A024E // ProgressIndicator
+ HWL ME_45EEE00D0329 // CancelLongProcess
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ProgressIndicatorSupport'
+ UP extprop:pas:UnitName 'ProgressIndicatorSupportUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\ProgressIndicatorSupport\ProgressIndicatorSupport.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\ProgressIndicatorSupport'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ProgressIndicatorSupportUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\ProgressIndicatorSupportUnit.pas'
+
+ENDME // ME_45EEA87702A5 ProgressIndicatorSupport

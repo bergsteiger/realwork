@@ -1,0 +1,46 @@
+// Monitoring 4AA9032A002B VCMGUI Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AA9032A002B
+ MEPROP UID '4AA9032A002B'
+ MEPROP Name 'Monitoring'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMGUI ;
+ %SUMMARY 'Мониторинги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA902A10064' '4AA902A10064.ms.model.script' // F1 Утилита Прайм
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4AA9038C0387' '4AA9038C0387.ms.model.script' // Monitorings
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_447878770121' '447878770121.ms.model.script' // GCI
+ WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_49549627008C' '49549627008C.ms.model.script' // LegalDomain
+ WL 'ME_4986ECDF01F4' '4986ECDF01F4.ms.model.script' // View
+ WL 'ME_499AEC6A0372' '499AEC6A0372.ms.model.script' // F1Test
+ WL 'ME_4A78010000B7' '4A78010000B7.ms.model.script' // Search
+ WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ WL 'ME_4A8567F2039C' '4A8567F2039C.ms.model.script' // SearchLite
+ WL 'ME_4A9FD48B02A5' '4A9FD48B02A5.ms.model.script' // F1 Application Template
+ WL 'ME_4F7C1DF701C7' '4F7C1DF701C7.ms.model.script' // View
+ WL 'ME_4F7C1E2803C5' '4F7C1E2803C5.ms.model.script' // MainForm
+ WL 'ME_542015B5012C' '542015B5012C.ms.model.script' // PostingOrder
+ )
+ ; // Depends
+ UP "F1Like" 'undefined'
+ UP "HelpFile" 'F1Prime'
+ UP "needs second icon" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Monitoring.dpr'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ UP Version 65
+
+ENDME // ME_4AA9032A002B Monitoring

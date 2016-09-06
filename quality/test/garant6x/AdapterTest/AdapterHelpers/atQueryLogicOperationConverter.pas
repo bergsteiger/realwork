@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , TypInfo
  , l3Base
+ //#UC START# *50045C090310impl_uses*
+ //#UC END# *50045C090310impl_uses*
 ;
 
 var g_TatQueryLogicOperationConverter: TatQueryLogicOperationConverter = nil;

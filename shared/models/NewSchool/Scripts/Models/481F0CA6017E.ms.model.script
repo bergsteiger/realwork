@@ -1,0 +1,132 @@
+// Интерфейс Администратора 481F0CA6017E UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481F0CA6017E
+
+ME ME_481F0A680190
+ MEPROP UID '481F0A680190'
+ MEPROP Name 'Запрет создания учетной записи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Запрет самостоятельного создания учетной записи для пользователей - при работе с интерфейсом Администратора запрещаем всем пользователям системы создавать *новые* учетные записи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481F0CA6017E // Интерфейс Администратора
+ ;
+
+ENDME // ME_481F0A680190 Запрет создания учетной записи
+
+ME ME_481F0DEC0211
+ MEPROP UID '481F0DEC0211'
+ MEPROP Name 'Пакетные операции для пользователей'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выполнение однотипной операции над несколькими учетными записями одновременно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481F0CA6017E // Интерфейс Администратора
+ ;
+
+ENDME // ME_481F0DEC0211 Пакетные операции для пользователей
+
+FORWARD ME_484F8C0C0359
+
+ME ME_4E8079840038
+ MEPROP UID '4E8079840038'
+ MEPROP Name 'Возможность назначения пользователям общих фильтров в администраторе'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:278826721}.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484F8C0C0359 // Администрирование пользователей
+ ;
+
+ENDME // ME_4E8079840038 Возможность назначения пользователям общих фильтров в администраторе
+
+ME ME_484F8C0C0359
+ MEPROP UID '484F8C0C0359'
+ MEPROP Name 'Администрирование пользователей'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Работа со списком пользователей и изменение параметров их учетных записей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481F0CA6017E // Интерфейс Администратора
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E8079840038 // Возможность назначения пользователям общих фильтров в администраторе
+ )
+ ; // Children
+
+ENDME // ME_484F8C0C0359 Администрирование пользователей
+
+ME ME_485651A90102
+ MEPROP UID '485651A90102'
+ MEPROP Name 'Привилегированные учетные записи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация привилегированных рабочих мест и учетных записей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481F0CA6017E // Интерфейс Администратора
+ ;
+
+ENDME // ME_485651A90102 Привилегированные учетные записи
+
+ME ME_48608AEC0209
+ MEPROP UID '48608AEC0209'
+ MEPROP Name 'Ограничение спектра видимых пользователю баз '
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность администратора ограничить для конкретного пользователя(логина) спектр видимых ему баз' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481F0CA6017E // Интерфейс Администратора
+ ;
+
+ENDME // ME_48608AEC0209 Ограничение спектра видимых пользователю баз 
+
+ME ME_49EC49670160
+ MEPROP UID '49EC49670160'
+ MEPROP Name 'Группы пользователей'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группировка пользователей в интерфейсе Администратора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481F0CA6017E // Интерфейс Администратора
+ ;
+
+ENDME // ME_49EC49670160 Группы пользователей
+
+ME ME_481F0CA6017E
+ MEPROP UID '481F0CA6017E'
+ MEPROP Name 'Интерфейс Администратора'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Работа с интерфейсом администрирования пользовательских учетных записей и списком пользователей системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E312E2502AE' '4E312E2502AE.ms.model.script' // Требования
+ ;
+ MELIST Children
+   Seq: ( HWL ME_481F0A680190 // Запрет создания учетной записи
+ HWL ME_481F0DEC0211 // Пакетные операции для пользователей
+ HWL ME_484F8C0C0359 // Администрирование пользователей
+ HWL ME_485651A90102 // Привилегированные учетные записи
+ HWL ME_48608AEC0209 // Ограничение спектра видимых пользователю баз 
+ HWL ME_49EC49670160 // Группы пользователей
+ )
+ ; // Children
+
+ENDME // ME_481F0CA6017E Интерфейс Администратора

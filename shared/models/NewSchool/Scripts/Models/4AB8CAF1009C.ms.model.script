@@ -1,0 +1,92 @@
+// DefineSearchDate 4AB8CAF1009C VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_29734A60170A
+
+FORWARD ME_4AB8CAF1009C
+
+ME ME_7C299D84FEC0
+ MEPROP UID '7C299D84FEC0'
+ MEPROP Name 'ut_DefineSearchDate'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB8CAF1009C // DefineSearchDate
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'DefineSearchDate_ut_DefineSearchDate_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\DefineSearchDate_ut_DefineSearchDate_UserType.pas'
+
+ENDME // ME_7C299D84FEC0 ut_DefineSearchDate
+
+ME ME_29734A60170A
+ MEPROP UID '29734A60170A'
+ MEPROP GUID '95B053C2-B5BB-4EE7-9D05-E6333C48DF52'
+ MEPROP Name 'DefineSearchDate'
+ MEPROP OriginalName 'DefineSearchDate$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы DefineSearchDate' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB8CAF1009C // DefineSearchDate
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AB8CAF1009C // DefineSearchDate
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'DefineSearchDateFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_29734A60170A DefineSearchDate$Def
+
+ME ME_4AB8CAF1009C
+ MEPROP UID '4AB8CAF1009C'
+ MEPROP Name 'DefineSearchDate'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA641A3036C' '4AA641A3036C.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC6324502DA' '4AC6324502DA.ms.model.script' // PrimDefineSearchDate
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_29734A60170A // DefineSearchDate$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_7C299D84FEC0 // ut_DefineSearchDate
+ HWL ME_29734A60170A // DefineSearchDate$Def
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "form name prefix" 'en_'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '22.09.2009 16:49'
+ UP "ZoneType" 'Modal'
+ UP extprop:pas:TypeName 'Ten_DefineSearchDate'
+ UP extprop:pas:UnitName 'DefineSearchDate_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'en_DefineSearchDate'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\DefineSearchDate_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+
+ENDME // ME_4AB8CAF1009C DefineSearchDate

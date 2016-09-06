@@ -1,0 +1,401 @@
+// ArchiDBTests 55F29BB0025D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55F29BB0025D
+
+FORWARD ME_55F29BD60218
+
+ME ME_55F2B795017E
+ MEPROP UID '55F2B795017E'
+ MEPROP Name 'f_SabFiller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55F29BD60218 // TarchiDBTest
+ ;
+ MELINK Target WL 'ME_519B71FD024C' '519B70FC02AB.ms.model.script' // IValueSetFiller
+ ;
+
+ENDME // ME_55F2B795017E f_SabFiller
+
+ME ME_55F2B79A0087
+ MEPROP UID '55F2B79A0087'
+ MEPROP Name 'f_NumSab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55F29BD60218 // TarchiDBTest
+ ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_55F2B79A0087 f_NumSab
+
+FORWARD ME_5195F36403BC
+
+ME ME_5195F3990386
+ MEPROP UID '5195F3990386'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F36403BC // UnpackDatabase
+ ;
+
+ENDME // ME_5195F3990386 DoIt
+
+ME ME_519C997A0093
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F36403BC // UnpackDatabase
+ ;
+ MELINK Target WL 'ME_519C98F80363' '519C98B002F7.ms.model.script' // ZipForge
+ ;
+
+ENDME // ME_519C997A0093 
+
+ME ME_55F2CD62012F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F36403BC // UnpackDatabase
+ ;
+ MELINK Target WL 'ME_4B2A6D4303A9' '4B2A112B011A.ms.model.script' // KTestRunner
+ ;
+
+ENDME // ME_55F2CD62012F 
+
+ME ME_5195F36403BC
+ MEPROP UID '5195F36403BC'
+ MEPROP Name 'UnpackDatabase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F29BD60218 // TarchiDBTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F3990386 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_519C997A0093 // ZipForge
+ ME_55F2CD62012F // KTestRunner
+ )
+ ; // Dependencies
+
+ENDME // ME_5195F36403BC UnpackDatabase
+
+FORWARD ME_5195F59C007D
+
+ME ME_5195F5BE01EC
+ MEPROP UID '5195F5BE01EC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F59C007D // ConnectToDatabase
+ ;
+
+ENDME // ME_5195F5BE01EC DoIt
+
+ME ME_5199DD730333
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F59C007D // ConnectToDatabase
+ ;
+ MELINK Target WL 'ME_4E4B5C8E01C8' '4E4B5C5E0032.ms.model.script' // InitBaseEngine
+ ;
+
+ENDME // ME_5199DD730333 
+
+ME ME_519A120F010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F59C007D // ConnectToDatabase
+ ;
+ MELINK Target WL 'ME_519A10DD036F' '519A10AF03DE.ms.model.script' // dt_Const
+ ;
+
+ENDME // ME_519A120F010C 
+
+ME ME_519A16A2030E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F59C007D // ConnectToDatabase
+ ;
+ MELINK Target WL 'ME_519A15650330' '47BC51FE018B.ms.model.script' // TddPipeInputFileType
+ ;
+
+ENDME // ME_519A16A2030E 
+
+ME ME_55F2CDFA0286
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F59C007D // ConnectToDatabase
+ ;
+ MELINK Target WL 'ME_51BAE2BF011A' '47D0290B016D.ms.model.script' // l3IniFile
+ ;
+
+ENDME // ME_55F2CDFA0286 
+
+ME ME_5195F59C007D
+ MEPROP UID '5195F59C007D'
+ MEPROP Name 'ConnectToDatabase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F29BD60218 // TarchiDBTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F5BE01EC // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5199DD730333 // InitBaseEngine
+ ME_519A120F010C // dt_Const
+ ME_519A16A2030E // TddPipeInputFileType
+ ME_55F2CDFA0286 // l3IniFile
+ )
+ ; // Dependencies
+
+ENDME // ME_5195F59C007D ConnectToDatabase
+
+FORWARD ME_5195F6A9018D
+
+ME ME_5195F6C2005C
+ MEPROP UID '5195F6C2005C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F6A9018D // DeleteDatabase
+ ;
+
+ENDME // ME_5195F6C2005C DoIt
+
+ME ME_5199D99A0090
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F6A9018D // DeleteDatabase
+ ;
+ MELINK Target WL 'ME_5199D8D90011' '47D0290B016D.ms.model.script' // DelDir
+ ;
+
+ENDME // ME_5199D99A0090 
+
+ME ME_5195F6A9018D
+ MEPROP UID '5195F6A9018D'
+ MEPROP Name 'DeleteDatabase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F29BD60218 // TarchiDBTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F6C2005C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5199D99A0090 // DelDir
+ )
+ ; // Dependencies
+
+ENDME // ME_5195F6A9018D DeleteDatabase
+
+FORWARD ME_5195F68401A9
+
+ME ME_5195F68B0362
+ MEPROP UID '5195F68B0362'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+
+ENDME // ME_5195F68B0362 DoIt
+
+ME ME_55F1390500C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ MELINK Target WL 'ME_54352FD00015' '538DA20300A7.ms.model.script' // DoneClientBaseEngine
+ ;
+
+ENDME // ME_55F1390500C6 
+
+ME ME_55F13AAB00E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ MELINK Target WL 'ME_555481D1035F' '5486E32B0191.ms.model.script' // DropAll
+ ;
+
+ENDME // ME_55F13AAB00E8 
+
+ME ME_55F2E10D03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ MELINK Target WL 'ME_555481D1035F' '5486E32B0191.ms.model.script' // DropAll
+ ;
+
+ENDME // ME_55F2E10D03A0 
+
+ME ME_55F2E1110037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5195F68401A9 // DisconnectFromDatabase
+ ;
+ MELINK Target WL 'ME_54352FD00015' '538DA20300A7.ms.model.script' // DoneClientBaseEngine
+ ;
+
+ENDME // ME_55F2E1110037 
+
+ME ME_5195F68401A9
+ MEPROP UID '5195F68401A9'
+ MEPROP Name 'DisconnectFromDatabase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F29BD60218 // TarchiDBTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5195F68B0362 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55F1390500C6 // DoneClientBaseEngine
+ ME_55F13AAB00E8 // DropAll
+ ME_55F2E10D03A0 // DropAll
+ ME_55F2E1110037 // DoneClientBaseEngine
+ )
+ ; // Dependencies
+
+ENDME // ME_5195F68401A9 DisconnectFromDatabase
+
+FORWARD ME_519615B000D3
+
+ME ME_519615D702C7
+ MEPROP UID '519615D702C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519615B000D3 // GetDatabasePath
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_519615D702C7 DoIt
+
+ME ME_5199D6A90090
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_519615B000D3 // GetDatabasePath
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_5199D6A90090 
+
+ME ME_519615B000D3
+ MEPROP UID '519615B000D3'
+ MEPROP Name 'GetDatabasePath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55F29BD60218 // TarchiDBTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_519615D702C7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5199D6A90090 // ExtractFilePath
+ )
+ ; // Dependencies
+
+ENDME // ME_519615B000D3 GetDatabasePath
+
+ME ME_55F29BD60218
+ MEPROP UID '55F29BD60218'
+ MEPROP Name 'TarchiDBTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ѕазовый класс дл€ тестов, использующих базу данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55F29BB0025D // ArchiDBTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55F2B795017E // f_SabFiller
+ HWL ME_55F2B79A0087 // f_NumSab
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5195F36403BC // UnpackDatabase
+ HWL ME_5195F59C007D // ConnectToDatabase
+ HWL ME_5195F6A9018D // DeleteDatabase
+ HWL ME_5195F68401A9 // DisconnectFromDatabase
+ HWL ME_519615B000D3 // GetDatabasePath
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'archiDBTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'archiDBTest'
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\ArchiDBTests\archiDBTest.pas'
+
+ENDME // ME_55F29BD60218 TarchiDBTest
+
+ME ME_55F29BB0025D
+ MEPROP UID '55F29BB0025D'
+ MEPROP Name 'ArchiDBTests'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_55F29ABD02C2' '55F29ABD02C2.ms.model.script' // ArchiDBTests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55F29BD60218 // TarchiDBTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4E4B5C5E0032' '4E4B5C5E0032.ms.model.script' // DataBase
+ WL 'ME_519A10AF03DE' '519A10AF03DE.ms.model.script' // dt_Const
+ WL 'ME_519B70FC02AB' '519B70FC02AB.ms.model.script' // DataAccess
+ WL 'ME_519C98B002F7' '519C98B002F7.ms.model.script' // ZipForge
+ WL 'ME_538DA20300A7' '538DA20300A7.ms.model.script' // ClientSide
+ WL 'ME_5486E32B0191' '5486E32B0191.ms.model.script' // StorageHolder
+ WL 'ME_559D0BE101B4' '559D0BE101B4.ms.model.script' // dtIntf
+ )
+ ; // Depends
+
+ENDME // ME_55F29BB0025D ArchiDBTests

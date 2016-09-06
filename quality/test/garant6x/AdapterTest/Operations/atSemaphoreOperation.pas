@@ -28,6 +28,8 @@ uses
  , atFileBasedSemaphore
  , atLogger
  , SysUtils
+ //#UC START# *4A4DF86D0208impl_uses*
+ //#UC END# *4A4DF86D0208impl_uses*
 ;
 
 procedure TatSemaphoreOperation.ExecuteSelf;

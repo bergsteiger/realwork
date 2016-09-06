@@ -1,0 +1,214 @@
+// TB97ExtInterfaces 52A8439001F3 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52A8439001F3
+
+FORWARD ME_52A843B3028F
+
+ME ME_52A8447101AF
+ MEPROP UID '52A8447101AF'
+ MEPROP Name 'FullWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'обычный размер компонента, для вычисления и размещения компонентов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_52A843B3028F // ITB97Ctrl
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_52A8447101AF FullWidth
+
+ME ME_52A8448E0050
+ MEPROP UID '52A8448E0050'
+ MEPROP Name 'IsSizeable'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'компонент может изменять размеры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_52A843B3028F // ITB97Ctrl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_52A8448E0050 IsSizeable
+
+ME ME_52A844A300F5
+ MEPROP UID '52A844A300F5'
+ MEPROP Name 'MinWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'минимальный размер до которого может сжиматься компонент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_52A843B3028F // ITB97Ctrl
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_52A844A300F5 MinWidth
+
+FORWARD ME_52A844D303D9
+
+FORWARD ME_52A844D900E6
+
+ME ME_52A844DC011B
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A844DC011B aWidth
+
+ME ME_52A844D900E6
+ MEPROP UID '52A844D900E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A844D303D9 // DoFitToWidth
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A844DC011B // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_52A844D900E6 DoIt
+
+ME ME_52A844D303D9
+ MEPROP UID '52A844D303D9'
+ MEPROP Name 'DoFitToWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52A843B3028F // ITB97Ctrl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A844D900E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A844D303D9 DoFitToWidth
+
+FORWARD ME_52A844E6012E
+
+FORWARD ME_52A844EA02A6
+
+ME ME_52A844EC0287
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A844EC0287 aWidth
+
+ME ME_52A844EA02A6
+ MEPROP UID '52A844EA02A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A844E6012E // DoUnFitToWidth
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A844EC0287 // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_52A844EA02A6 DoIt
+
+ME ME_52A844E6012E
+ MEPROP UID '52A844E6012E'
+ MEPROP Name 'DoUnFitToWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52A843B3028F // ITB97Ctrl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A844EA02A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A844E6012E DoUnFitToWidth
+
+ME ME_52A844F600E6
+ MEPROP UID '52A844F600E6'
+ MEPROP Name 'Expand'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52A843B3028F // ITB97Ctrl
+ ;
+
+ENDME // ME_52A844F600E6 Expand
+
+ME ME_52A843B3028F
+ MEPROP UID '52A843B3028F'
+ MEPROP GUID '239FBDAE-69C9-4CC1-A677-638DBAFFC648'
+ MEPROP Name 'ITB97Ctrl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'интерфейс поддерживаемый по необходимости компонентами размещенными на toolbar-е' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A8439001F3 // TB97ExtInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A8447101AF // FullWidth
+ HWL ME_52A8448E0050 // IsSizeable
+ HWL ME_52A844A300F5 // MinWidth
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52A844D303D9 // DoFitToWidth
+ HWL ME_52A844E6012E // DoUnFitToWidth
+ HWL ME_52A844F600E6 // Expand
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TB97Ctrl'
+
+ENDME // ME_52A843B3028F ITB97Ctrl
+
+ME ME_52A8439001F3
+ MEPROP UID '52A8439001F3'
+ MEPROP Name 'TB97ExtInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C43E84F0304' '4C43E84F0304.ms.model.script' // tb97
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52A843B3028F // ITB97Ctrl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\external\tb97\TB97ExtInterfaces.pas'
+
+ENDME // ME_52A8439001F3 TB97ExtInterfaces

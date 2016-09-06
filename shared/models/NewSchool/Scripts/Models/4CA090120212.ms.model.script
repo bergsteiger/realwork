@@ -1,0 +1,264 @@
+// QFLikeTextLoad 4CA090120212 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_08FE3EE819BF
+
+FORWARD ME_4CA090120212
+
+ME ME_15CBBB7D03D3
+ MEPROP UID '15CBBB7D03D3'
+ MEPROP Name 'ut_QFLikeTextLoad'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для работы с КЗ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'QFLikeTextLoad_ut_QFLikeTextLoad_UserType'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_ut_QFLikeTextLoad_UserType.pas'
+
+ENDME // ME_15CBBB7D03D3 ut_QFLikeTextLoad
+
+ME ME_08FE3EE819BF
+ MEPROP UID '08FE3EE819BF'
+ MEPROP GUID '41C944FD-8129-43F8-89E8-75E7D231D870'
+ MEPROP Name 'QFLikeTextLoad'
+ MEPROP OriginalName 'QFLikeTextLoad$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы QFLikeTextLoad' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4CA090120212 // QFLikeTextLoad
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'QFLikeTextLoadFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_08FE3EE819BF QFLikeTextLoad$Def
+
+ME ME_4CA0906401D3
+ MEPROP UID '4CA0906401D3'
+ MEPROP Name 'TextSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Component ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482D98DE00A9' '482BFB50007B.ms.model.script' // TevTextSource
+ )
+ ; // Inherits
+ UP "ComponentClass" 'none'
+ UP "need Caption" False
+ UP "needs field" True
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4CA0906401D3 TextSource
+
+ME ME_4CA09097007F
+ MEPROP UID '4CA09097007F'
+ MEPROP Name 'Text'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48E22669037D' '48E22669037D.ms.model.script' // TevQueryCardEditor
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "needs field" True
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4CA09097007F Text
+
+ME ME_4F1546E9029B
+ MEPROP UID '4F1546E9029B'
+ MEPROP Name 'f_QueryCard'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELINK Target WL 'ME_47CD6F6D031D' '47CD5C7602CD.ms.model.script' // IevQueryCard
+ ;
+
+ENDME // ME_4F1546E9029B f_QueryCard
+
+ME ME_776CC0B72850
+ MEPROP UID '776CC0B72850'
+ MEPROP Name 'Ini_FormFactory_QFLikeTextLoad'
+ MEPROP OriginalName 'Ini_FormFactory_QFLikeTextLoad$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы QFLikeTextLoad' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ UPLINK SpelledFor HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+
+ENDME // ME_776CC0B72850 Ini_FormFactory_QFLikeTextLoad$Def
+
+ME ME_4F1543A60027
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELINK Target WL 'ME_48DB9DC1035C' '47CEBC900123.ms.model.script' // TevQueryDocumentContainer
+ ;
+
+ENDME // ME_4F1543A60027 
+
+ME ME_4F1543F400B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELINK Target WL 'ME_47D01F9801D8' '4DFA0AB5029C.ms.model.script' // TevControlContainerEX
+ ;
+
+ENDME // ME_4F1543F400B2 
+
+ME ME_4F15444C013F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELINK Target WL 'ME_47C6BA1C0055' '47C5207602D1.ms.model.script' // InevQueryDocumentContainer
+ ;
+
+ENDME // ME_4F15444C013F 
+
+ME ME_4F15446B0109
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CA090120212 // QFLikeTextLoad
+ ;
+ MELINK Target WL 'ME_4B17E8E10102' '47BB24D30205.ms.model.script' // l3IOK
+ ;
+
+ENDME // ME_4F15446B0109 
+
+ME ME_4C9B21D20187_ME_4CA090120212
+ MELINK Original WL 'ME_4C9B21D20187' '4C9B20790302.ms.model.script' // TextSource
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_4C9B21D20187_ME_4CA090120212 TextSource
+
+ME ME_4C9B21E400A4_ME_4CA090120212
+ MELINK Original WL 'ME_4C9B21E400A4' '4C9B20790302.ms.model.script' // Text
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" False
+ UP "pm" True
+ENDME // ME_4C9B21E400A4_ME_4CA090120212 Text
+
+ME ME_479731C50290_ME_4CA090120212
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CA090120212 Cleanup
+
+ME ME_4A8E8F2E0195_ME_4CA090120212
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4CA090120212 InitControls
+
+ME ME_4F15435202B5_ME_4CA090120212
+ MELINK Original WL 'ME_4F15435202B5' '4C9B20790302.ms.model.script' // AfterLoad
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F15435202B5_ME_4CA090120212 AfterLoad
+
+ME ME_4CA090120212
+ MEPROP UID '4CA090120212'
+ MEPROP Name 'QFLikeTextLoad'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма для работы с КЗ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B30C72000B3' '4B30C72000B3.ms.model.script' // Everest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C9B20790302' '4C9B20790302.ms.model.script' // PrimTextLoad
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_08FE3EE819BF // QFLikeTextLoad$Def
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CA0906401D3 // TextSource
+ HWL ME_4CA09097007F // Text
+ HWL ME_4F1546E9029B // f_QueryCard
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_776CC0B72850 // Ini_FormFactory_QFLikeTextLoad$Def
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4C9B21D20187_ME_4CA090120212 // TextSource
+ ME_4C9B21E400A4_ME_4CA090120212 // Text
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CA090120212 // Cleanup
+ ME_4A8E8F2E0195_ME_4CA090120212 // InitControls
+ ME_4F15435202B5_ME_4CA090120212 // AfterLoad
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_15CBBB7D03D3 // ut_QFLikeTextLoad
+ HWL ME_08FE3EE819BF // QFLikeTextLoad$Def
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F1543A60027 // TevQueryDocumentContainer
+ ME_4F1543F400B2 // TevControlContainerEX
+ ME_4F15444C013F // InevQueryDocumentContainer
+ ME_4F15446B0109 // l3IOK
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TQFLikeTextLoadForm'
+ UP extprop:pas:UnitName 'QFLikeTextLoad_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'QFLikeTextLoadForm'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\Forms\QFLikeTextLoad_Form.pas'
+
+ENDME // ME_4CA090120212 QFLikeTextLoad

@@ -38,6 +38,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4808971F0196impl_uses*
+ //#UC END# *4808971F0196impl_uses*
 ;
 
 function TatCommandLine.pm_GetParameters(const aName: AnsiString): TatCommandLineParameter;

@@ -1,0 +1,46 @@
+// F1 Требования 4E366CA201C2 VCMUseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4E366CA201C2
+ MEPROP UID '4E366CA201C2'
+ MEPROP Name 'F1 Требования'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMUseCases ;
+ %SUMMARY 'Требования к продукту F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELIST Children
+   Seq: ( WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ WL 'ME_48561E5A01F7' '48561E5A01F7.ms.model.script' // Специальные версии и возможности
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_442BEDF00290' '442BEDF00290.ms.model.script' // garant6x
+ WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ WL 'ME_4AB1071F01B0' '4AB1071F01B0.ms.model.script' // Shared Delphi For F1
+ WL 'ME_4ABCC25A0322' '4ABCC25A0322.ms.model.script' // Shared Delphi Low Level
+ WL 'ME_4E5BC2810343' '4E5BC2810343.ms.model.script' // Shared Delphi Требования для F1
+ WL 'ME_4E78C3EC018D' '4E78C3EC018D.ms.model.script' // Shared Delphi Требования
+ WL 'ME_4E78CD64017F' '4E78CD64017F.ms.model.script' // F1 Проблемы и решения
+ WL 'ME_4F6B65EA0392' '4F6B65EA0392.ms.model.script' // F1Like
+ WL 'ME_4F6CCC8800A0' '4F6CCC8800A0.ms.model.script' // Shared Delphi F1 Like Application
+ )
+ ; // Depends
+ UP "create project" True
+ UP "defines" 'nsDefine.inc'
+ UP "fix version" 0
+ UP "full constraint" True
+ UP "Full MDP" False
+ UP "ifndef" 'Admin,Momotorings'
+ UP "major version" 8
+ UP "minor version" 1
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/implementation/Garant'
+ UP "space key" 'NMS'
+ UP "space name" 'Nemesis'
+ UP "UseNewGen" True
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant'
+
+ENDME // ME_4E366CA201C2 F1 Требования

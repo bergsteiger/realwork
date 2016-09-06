@@ -1,0 +1,89 @@
+// nscTaskPanelInterfaces 499C1A100121 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499C1A100121
+
+FORWARD ME_499C1A4E03C8
+
+ME ME_499C1AA001FF
+ MEPROP UID '499C1AA001FF'
+ MEPROP Name 'Op'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499C1A4E03C8 // InscOperationNode
+ ;
+ MELINK Target WL 'ME_4992FDB10225' '49940C8E00DA.ms.model.script' // IvcmCustOpsGroupOperation
+ ;
+ UP "pm" True
+
+ENDME // ME_499C1AA001FF Op
+
+ME ME_499C1A5C03B4
+ MEPROP UID '499C1A5C03B4'
+ MEPROP Name 'CaptionChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'изменилось название операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_499C1A4E03C8 // InscOperationNode
+ ;
+
+ENDME // ME_499C1A5C03B4 CaptionChanged
+
+ME ME_499C1A4E03C8
+ MEPROP UID '499C1A4E03C8'
+ MEPROP GUID '6B165312-3701-4BB0-A2B2-9E73321E893C'
+ MEPROP Name 'InscOperationNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Узел операции панели задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499C1A100121 // nscTaskPanelInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499C1AA001FF // Op
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_499C1A5C03B4 // CaptionChanged
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OperationNode'
+
+ENDME // ME_499C1A4E03C8 InscOperationNode
+
+ME ME_499C1A100121
+ MEPROP UID '499C1A100121'
+ MEPROP Name 'nscTaskPanelInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для Панели Задач' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_490838AA02D0' '490838AA02D0.ms.model.script' // Nemesis
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499C1A4E03C8 // InscOperationNode
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_49940C8E00DA' '49940C8E00DA.ms.model.script' // vcmTaskPanelInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '18.02.2009 17:24'
+ UP "UseNewGen" True
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTaskPanelInterfaces.pas'
+
+ENDME // ME_499C1A100121 nscTaskPanelInterfaces

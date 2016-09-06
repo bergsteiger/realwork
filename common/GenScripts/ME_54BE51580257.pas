@@ -40,6 +40,8 @@ uses
  , eeDocumentCursor
  , eeDocumentCursorPair
  , Document
+ //#UC START# *54BE51580257impl_uses*
+ //#UC END# *54BE51580257impl_uses*
 ;
 
 {$If Defined(k2ForEditor)}

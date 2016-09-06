@@ -552,6 +552,8 @@ implementation
 uses
  l3ImplUses
  , l3Drawer
+ //#UC START# *4739B8DE0134impl_uses*
+ //#UC END# *4739B8DE0134impl_uses*
 ;
 
 procedure Tl3Expr.pm_SetNext(aValue: Tl3Expr);

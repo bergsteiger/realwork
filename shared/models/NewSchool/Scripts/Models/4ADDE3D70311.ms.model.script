@@ -1,0 +1,70 @@
+// OfficeLikeAppInterfaces 4ADDE3D70311 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADDE3D70311
+
+FORWARD ME_4991A60F0247
+
+ME ME_4991A633007F
+ MEPROP UID '4991A633007F'
+ MEPROP Name 'Form'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4991A60F0247 // InsWindow
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ UP "pm" False
+
+ENDME // ME_4991A633007F Form
+
+ME ME_4991A60F0247
+ MEPROP UID '4991A60F0247'
+ MEPROP GUID '8F95EBB5-E396-4AF3-9A6A-EFD0684A20C9'
+ MEPROP Name 'InsWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'интерфейс окна. Для работы с окнами системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ADDE3D70311 // OfficeLikeAppInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4991A633007F // Form
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Window'
+
+ENDME // ME_4991A60F0247 InsWindow
+
+ME ME_4ADDE3D70311
+ MEPROP UID '4ADDE3D70311'
+ MEPROP Name 'OfficeLikeAppInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4991A60F0247 // InsWindow
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '20.10.2009 20:23'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeAppInterfaces.pas'
+
+ENDME // ME_4ADDE3D70311 OfficeLikeAppInterfaces

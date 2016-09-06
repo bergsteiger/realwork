@@ -62,6 +62,8 @@ uses
  , nevTextParaAnchor
  , nevTextParaInevTextParaMapper
  , TextPara_Const
+ //#UC START# *48577C150116impl_uses*
+ //#UC END# *48577C150116impl_uses*
 ;
 
 function TevTextParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

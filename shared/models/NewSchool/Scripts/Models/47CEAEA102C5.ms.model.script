@@ -1,0 +1,206 @@
+// evQueryCardConst 47CEAEA102C5 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CEAEA102C5
+
+FORWARD ME_47CEAECA02BF
+
+ME ME_47CEAEDF003A
+ MEPROP UID '47CEAEDF003A'
+ MEPROP Name 'csLogicBTN'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEAECA02BF // Button Names
+ ;
+ MEPROP Value '''SelectBTN'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''SelectBTN'''
+
+ENDME // ME_47CEAEDF003A csLogicBTN
+
+ME ME_47CEAEE901E4
+ MEPROP UID '47CEAEE901E4'
+ MEPROP Name 'csAddBTN'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEAECA02BF // Button Names
+ ;
+ MEPROP Value '''AddBTN'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''AddBTN'''
+
+ENDME // ME_47CEAEE901E4 csAddBTN
+
+ME ME_47CEAEF002E6
+ MEPROP UID '47CEAEF002E6'
+ MEPROP Name 'csDeleteBTN'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEAECA02BF // Button Names
+ ;
+ MEPROP Value '''DeleteBTN'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''DeleteBTN'''
+
+ENDME // ME_47CEAEF002E6 csDeleteBTN
+
+ME ME_47CEAECA02BF
+ MEPROP UID '47CEAECA02BF'
+ MEPROP Name 'Button Names'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CEAEA102C5 // evQueryCardConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CEAEDF003A // csLogicBTN
+ HWL ME_47CEAEE901E4 // csAddBTN
+ HWL ME_47CEAEF002E6 // csDeleteBTN
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47CEAECA02BF Button Names
+
+FORWARD ME_47CEAF890349
+
+ME ME_47CEAF8F0321
+ MEPROP UID '47CEAF8F0321'
+ MEPROP Name 'cMinusKeyCode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEAF890349 // Keys
+ ;
+ MEPROP Value 189
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 189
+
+ENDME // ME_47CEAF8F0321 cMinusKeyCode
+
+ME ME_496F1AB8013A
+ MEPROP UID '496F1AB8013A'
+ MEPROP Name 'cPlusKeyCode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEAF890349 // Keys
+ ;
+ MEPROP Value 188
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 188
+
+ENDME // ME_496F1AB8013A cPlusKeyCode
+
+ME ME_47CEAF890349
+ MEPROP UID '47CEAF890349'
+ MEPROP Name 'Keys'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CEAEA102C5 // evQueryCardConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CEAF8F0321 // cMinusKeyCode
+ HWL ME_496F1AB8013A // cPlusKeyCode
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47CEAF890349 Keys
+
+FORWARD ME_47CEAF9E026A
+
+ME ME_47CEAFA600D0
+ MEPROP UID '47CEAFA600D0'
+ MEPROP Name 'ImgIndexArr'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив индексов иконки состояния для сворачиваемой панели (свернуто, развернуто).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEAF9E026A // Images
+ ;
+ MELINK Target WL 'ME_47CEB00B00F6' '4AB0C3C60310.ms.model.script' // array [Boolean] of Integer
+ ;
+ MEPROP Value '(114, 113)'
+ MELINK ValueType WL 'ME_47CEB00B00F6' '4AB0C3C60310.ms.model.script' // array [Boolean] of Integer
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(114, 113)'
+
+ENDME // ME_47CEAFA600D0 ImgIndexArr
+
+ME ME_47CEAF9E026A
+ MEPROP UID '47CEAF9E026A'
+ MEPROP Name 'Images'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CEAEA102C5 // evQueryCardConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CEAFA600D0 // ImgIndexArr
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47CEAF9E026A Images
+
+ME ME_47CEAEA102C5
+ MEPROP UID '47CEAEA102C5'
+ MEPROP Name 'evQueryCardConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47CEAECA02BF // Button Names
+ HWL ME_47CEAF890349 // Keys
+ HWL ME_47CEAF9E026A // Images
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Инишев Д.А.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "path prefix" '/qf'
+ UP "started" '28.09.1999 10:18'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evQueryCardConst.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+
+ENDME // ME_47CEAEA102C5 evQueryCardConst

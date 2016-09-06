@@ -26,6 +26,8 @@ uses
  , SysUtils
  , atLogger
  , atLockFile
+ //#UC START# *5397319401E6impl_uses*
+ //#UC END# *5397319401E6impl_uses*
 ;
 
 procedure TatCompareSavedListOperation.ExecuteSelf;

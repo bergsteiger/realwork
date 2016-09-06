@@ -1,0 +1,1181 @@
+// evQueryCardDropControlsInt 47CE9D27036D Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CE9D27036D
+
+ME ME_47CE9D9F019F
+ MEPROP UID '47CE9D9F019F'
+ MEPROP Name 'InevBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47C52228029C' '47C5207602D1.ms.model.script' // InevBase
+ )
+ ; // Inherits
+ UP "is default ancestor" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Base'
+
+ENDME // ME_47CE9D9F019F InevBase
+
+FORWARD ME_47CE9EBB0142
+
+ME ME_47CE9F560359
+ MEPROP UID '47CE9F560359'
+ MEPROP Name 'Down'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Нажата ли кнопка в редакторе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_47CE9F560359 Down
+
+ME ME_47CE9FA402DC
+ MEPROP UID '47CE9FA402DC'
+ MEPROP Name 'Para'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ UP "pm" False
+
+ENDME // ME_47CE9FA402DC Para
+
+ME ME_47CE9ECA031E
+ MEPROP UID '47CE9ECA031E'
+ MEPROP Name 'AfterHideControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ENDME // ME_47CE9ECA031E AfterHideControl
+
+ME ME_47CE9ED103AA
+ MEPROP UID '47CE9ED103AA'
+ MEPROP Name 'EscPressed'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик закрытия дерева по ESC.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ENDME // ME_47CE9ED103AA EscPressed
+
+ME ME_47CE9EE302A2
+ MEPROP UID '47CE9EE302A2'
+ MEPROP Name 'HideControl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Прячет выпадающий контрол.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ENDME // ME_47CE9EE302A2 HideControl
+
+FORWARD ME_47CE9EF3009B
+
+ME ME_47CE9EF90205
+ MEPROP Name 'aDown'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47CE9EF90205 aDown
+
+ME ME_47CE9EF3009B
+ MEPROP UID '47CE9EF3009B'
+ MEPROP Name 'MouseWheel'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик прокрутки колеса мыши.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CE9EF90205 // aDown
+ )
+ ; // Parameters
+
+ENDME // ME_47CE9EF3009B MouseWheel
+
+FORWARD ME_47CE9F040044
+
+ME ME_48034AD302A2
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_48034AD302A2 aView
+
+ME ME_48034AD302D5
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C7C9F8039E' '476F78840219.ms.model.script' // TWMKeyDown
+ ;
+
+ENDME // ME_48034AD302D5 Msg
+
+ME ME_47CE9F040044
+ MEPROP UID '47CE9F040044'
+ MEPROP Name 'KeyDown'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48034AD302A2 // aView
+ ME_48034AD302D5 // Msg
+ )
+ ; // Parameters
+
+ENDME // ME_47CE9F040044 KeyDown
+
+ME ME_47CE9F4300B1
+ MEPROP UID '47CE9F4300B1'
+ MEPROP Name 'CloseTree'
+ MEPROP Class class_Operation
+ %SUMMARY 'Прячет дерево как по нажатию Esc - с посылкой сообщения редактору.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ENDME // ME_47CE9F4300B1 CloseTree
+
+FORWARD ME_47CE9F82032D
+
+ME ME_486C75750363
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_486C75750363 aView
+
+ME ME_49D9B92502EF
+ MEPROP Name 'aTextPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_49D9B92502EF aTextPara
+
+ME ME_486C757503C1
+ MEPROP Name 'ByUser'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_486C757503C1 ByUser
+
+ME ME_47CE9F82032D
+ MEPROP UID '47CE9F82032D'
+ MEPROP Name 'DropDown'
+ MEPROP Class class_Operation
+ %SUMMARY 'Реализует выпадение дерева или календаря.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_486C75750363 // aView
+ ME_49D9B92502EF // aTextPara
+ ME_486C757503C1 // ByUser
+ )
+ ; // Parameters
+
+ENDME // ME_47CE9F82032D DropDown
+
+FORWARD ME_48845FB30308
+
+ME ME_49D9B92F02DF
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_49D9B92F02DF aNode
+
+ME ME_48845FB30308
+ MEPROP UID '48845FB30308'
+ MEPROP Name 'DropDownCurrentChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_49D9B92F02DF // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_48845FB30308 DropDownCurrentChanged
+
+ME ME_47CE9EBB0142
+ MEPROP UID '47CE9EBB0142'
+ MEPROP GUID '5E113509-2D7B-4E1F-B96E-18C6C4A0ACC1'
+ MEPROP Name 'IevDropControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CE9F560359 // Down
+ HWL ME_47CE9FA402DC // Para
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47CE9ECA031E // AfterHideControl
+ HWL ME_47CE9ED103AA // EscPressed
+ HWL ME_47CE9EE302A2 // HideControl
+ HWL ME_47CE9EF3009B // MouseWheel
+ HWL ME_47CE9F040044 // KeyDown
+ HWL ME_47CE9F4300B1 // CloseTree
+ HWL ME_47CE9F82032D // DropDown
+ HWL ME_48845FB30308 // DropDownCurrentChanged
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropControl'
+
+ENDME // ME_47CE9EBB0142 IevDropControl
+
+FORWARD ME_47CEA0BB00FA
+
+ME ME_47CEA0F901D9
+ MEPROP UID '47CEA0F901D9'
+ MEPROP Name 'IsList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CEA0BB00FA // IevDropCombo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_47CEA0F901D9 IsList
+
+FORWARD ME_47CEA0C8006E
+
+ME ME_47CEA0D10270
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47CEA0D10270 anIndex
+
+ME ME_47CEA0C8006E
+ MEPROP UID '47CEA0C8006E'
+ MEPROP Name 'GetNode'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает узел.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA0BB00FA // IevDropCombo
+ ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA0D10270 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA0C8006E GetNode
+
+FORWARD ME_47CEA0D903B6
+
+ME ME_4811C82C014A
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_4811C82C014A Value
+
+ME ME_4811C82C016A
+ MEPROP Name 'NeedHide'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_4811C82C016A NeedHide
+
+ME ME_47CEA0D903B6
+ MEPROP UID '47CEA0D903B6'
+ MEPROP Name 'ChooseNode'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик выбора узла в дереве при его закрытии.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA0BB00FA // IevDropCombo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4811C82C014A // Value
+ ME_4811C82C016A // NeedHide
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA0D903B6 ChooseNode
+
+ME ME_47CEA0BB00FA
+ MEPROP UID '47CEA0BB00FA'
+ MEPROP GUID '11B2B5C6-D288-41EF-AEA4-2E7971EADBA5'
+ MEPROP Name 'IevDropCombo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CEA0F901D9 // IsList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47CEA0C8006E // GetNode
+ HWL ME_47CEA0D903B6 // ChooseNode
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropCombo'
+
+ENDME // ME_47CEA0BB00FA IevDropCombo
+
+FORWARD ME_47CEA10A0216
+
+ME ME_47CEA19F031D
+ MEPROP UID '47CEA19F031D'
+ MEPROP Name 'aDate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Дата из контрола.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CEA10A0216 // IevDropCalendar
+ ;
+ MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ ;
+ UP "pm" False
+
+ENDME // ME_47CEA19F031D aDate
+
+FORWARD ME_47CEA11502B7
+
+ME ME_47CEA1180370
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_47CEA1180370 Value
+
+ME ME_47CEA11502B7
+ MEPROP UID '47CEA11502B7'
+ MEPROP Name 'ApplyDate'
+ MEPROP Class class_Operation
+ %SUMMARY 'Передаёт выбранную дату в календарь.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA10A0216 // IevDropCalendar
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA1180370 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA11502B7 ApplyDate
+
+FORWARD ME_47CEA18C01CD
+
+ME ME_47CEA18F0162
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_47CEA18F0162 Sender
+
+ME ME_47CEA18C01CD
+ MEPROP UID '47CEA18C01CD'
+ MEPROP Name 'ChooseDate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA10A0216 // IevDropCalendar
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA18F0162 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA18C01CD ChooseDate
+
+FORWARD ME_47CEA19600DE
+
+ME ME_47CEA199005E
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_47CEA199005E Sender
+
+ME ME_47CEA19600DE
+ MEPROP UID '47CEA19600DE'
+ MEPROP Name 'CancelDate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA10A0216 // IevDropCalendar
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA199005E // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA19600DE CancelDate
+
+ME ME_47CEA10A0216
+ MEPROP UID '47CEA10A0216'
+ MEPROP GUID 'D2B498FA-0D25-4054-906A-9927577F4636'
+ MEPROP Name 'IevDropCalendar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CEA19F031D // aDate
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47CEA11502B7 // ApplyDate
+ HWL ME_47CEA18C01CD // ChooseDate
+ HWL ME_47CEA19600DE // CancelDate
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropCalendar'
+
+ENDME // ME_47CEA10A0216 IevDropCalendar
+
+FORWARD ME_47CEA1BD002F
+
+ME ME_47CEA320015D
+ MEPROP UID '47CEA320015D'
+ MEPROP Name 'Tree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_476BF1DD0075' '4678209200A6.ms.model.script' // InevSimpleTree
+ ;
+ UP "pm" False
+
+ENDME // ME_47CEA320015D Tree
+
+ME ME_47CEA337008E
+ MEPROP UID '47CEA337008E'
+ MEPROP Name 'Current'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_47CEA337008E Current
+
+ME ME_47CEA3AC032E
+ MEPROP UID '47CEA3AC032E'
+ MEPROP Name 'ESCPressed'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Флаг, выставляемый для необходимости закрытия дерева без выбора узла.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_47CEA3AC032E ESCPressed
+
+ME ME_486CAA020214
+ MEPROP UID '486CAA020214'
+ MEPROP Name 'DropTextStyle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A107D600F2' '4677FBA70343.ms.model.script' // Tl3StyleId
+ ;
+ UP "pm" False
+
+ENDME // ME_486CAA020214 DropTextStyle
+
+ME ME_4884573F021D
+ MEPROP UID '4884573F021D'
+ MEPROP Name 'AllowEmptyCurrent'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_4884573F021D AllowEmptyCurrent
+
+ME ME_47CEA1CB02E7
+ MEPROP UID '47CEA1CB02E7'
+ MEPROP Name 'EditMask'
+ MEPROP Class class_Operation
+ %SUMMARY 'Шаблон маски.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_47CEA1CB02E7 EditMask
+
+ME ME_47CEA1DF0057
+ MEPROP UID '47CEA1DF0057'
+ MEPROP Name 'DateFormat'
+ MEPROP Class class_Operation
+ %SUMMARY 'Формат даты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_47CEA1DF0057 DateFormat
+
+FORWARD ME_47CEA2040056
+
+ME ME_47CEA20F030F
+ MEPROP Name 'ATreeDrop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ENDME // ME_47CEA20F030F ATreeDrop
+
+ME ME_47CEA20F0349
+ MEPROP Name 'ATagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_47CEA20F0349 ATagWrap
+
+ME ME_47CEA2040056
+ MEPROP UID '47CEA2040056'
+ MEPROP Name 'SetDropTree'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показывает/закрывает выпадающее дерево.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA20F030F // ATreeDrop
+ ME_47CEA20F0349 // ATagWrap
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA2040056 SetDropTree
+
+ME ME_47CEA2170217
+ MEPROP UID '47CEA2170217'
+ MEPROP Name 'IsDropTreeVisible'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет отображается ли окно календаря или дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47CEA2170217 IsDropTreeVisible
+
+FORWARD ME_47CEA22403D8
+
+ME ME_47CEA22D0306
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_47CEA22D0306 Value
+
+ME ME_47CEA22403D8
+ MEPROP UID '47CEA22403D8'
+ MEPROP Name 'ApplyDate'
+ MEPROP Class class_Operation
+ %SUMMARY 'Передаёт выбранную дату в календарь.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA22D0306 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA22403D8 ApplyDate
+
+FORWARD ME_47CEA2330343
+
+ME ME_47CEA23A0292
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F8577004B' '4AB0C3C60310.ms.model.script' // TObject$Stub
+ ;
+
+ENDME // ME_47CEA23A0292 Sender
+
+ME ME_47CEA2330343
+ MEPROP UID '47CEA2330343'
+ MEPROP Name 'ChooseDate'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик выбора текущей даты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA23A0292 // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA2330343 ChooseDate
+
+FORWARD ME_47CEA244025F
+
+ME ME_486C7525000C
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_486C7525000C aPoint
+
+ME ME_486C7525006A
+ MEPROP Name 'AInvert'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_486C7525006A AInvert
+
+ME ME_486C752500B8
+ MEPROP Name 'AWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_486C752500B8 AWidth
+
+ME ME_486C75250116
+ MEPROP Name 'ByUser'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_486C75250116 ByUser
+
+ME ME_47CEA244025F
+ MEPROP UID '47CEA244025F'
+ MEPROP Name 'DoDrop'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вываливает выпадающий контрол по указанным координатам.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_486C7525000C // aPoint
+ ME_486C7525006A // AInvert
+ ME_486C752500B8 // AWidth
+ ME_486C75250116 // ByUser
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA244025F DoDrop
+
+FORWARD ME_47CEA2640232
+
+ME ME_47CEA6DE0110
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_47CEA6DE0110 aPoint
+
+ME ME_47CEA6DE015F
+ MEPROP Name 'AInvert'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47CEA6DE015F AInvert
+
+ME ME_47CEA6DE01B0
+ MEPROP Name 'AWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5DB130102' '4677FBA70343.ms.model.script' // hWnd
+ ;
+
+ENDME // ME_47CEA6DE01B0 AWnd
+
+ME ME_47CEA6DE0208
+ MEPROP Name 'AWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47CEA6DE0208 AWidth
+
+ME ME_47CEA6DE0282
+ MEPROP Name 'AHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47CEA6DE0282 AHeight
+
+ME ME_47CEA2640232
+ MEPROP UID '47CEA2640232'
+ MEPROP Name 'ShowControl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вывод контрола на экран.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA6DE0110 // aPoint
+ ME_47CEA6DE015F // AInvert
+ ME_47CEA6DE01B0 // AWnd
+ ME_47CEA6DE0208 // AWidth
+ ME_47CEA6DE0282 // AHeight
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA2640232 ShowControl
+
+ME ME_47CEA29002BE
+ MEPROP UID '47CEA29002BE'
+ MEPROP Name 'DropControlHeigth'
+ MEPROP Class class_Operation
+ %SUMMARY 'Высота выпадающего контрола.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47CEA29002BE DropControlHeigth
+
+FORWARD ME_47CEA2A102E2
+
+ME ME_47CEA2A800D9
+ MEPROP Name 'NeedFocus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47CEA2A800D9 NeedFocus
+
+ME ME_47CEA2A102E2
+ MEPROP UID '47CEA2A102E2'
+ MEPROP Name 'HideControl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Прячет выпадающий котрол.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA2A800D9 // NeedFocus
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA2A102E2 HideControl
+
+FORWARD ME_47CEA2B20111
+
+ME ME_47CEA2B801FF
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47CEA2B801FF anIndex
+
+ME ME_47CEA2B20111
+ MEPROP UID '47CEA2B20111'
+ MEPROP Name 'GetDropTreeNode'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA2B801FF // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA2B20111 GetDropTreeNode
+
+FORWARD ME_47CEA2C30018
+
+ME ME_47CEA2CE03D3
+ MEPROP Name 'aDropControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47CE9EBB0142 // IevDropControl
+ ;
+
+ENDME // ME_47CEA2CE03D3 aDropControl
+
+ME ME_47CEA2C30018
+ MEPROP UID '47CEA2C30018'
+ MEPROP Name 'CheckControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEA2CE03D3 // aDropControl
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA2C30018 CheckControl
+
+ME ME_47CEA2D50381
+ MEPROP UID '47CEA2D50381'
+ MEPROP Name 'GetControl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает контрол.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_47756BD70222' '4799D29F033F.ms.model.script' // TControl$Stub
+ ;
+
+ENDME // ME_47CEA2D50381 GetControl
+
+FORWARD ME_47CEA30603C8
+
+ME ME_4811C89500F2
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4811C89500F2 aView
+
+ME ME_4811C8950171
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C7C9F8039E' '476F78840219.ms.model.script' // TWMKeyDown
+ ;
+
+ENDME // ME_4811C8950171 Msg
+
+ME ME_4811C89501EE
+ MEPROP Name 'aCurPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_533D31A90231' '4678209200A6.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4811C89501EE aCurPara
+
+ME ME_47CEA30603C8
+ MEPROP UID '47CEA30603C8'
+ MEPROP Name 'KeyDown'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработка нажатия на клавиатуру.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4811C89500F2 // aView
+ ME_4811C8950171 // Msg
+ ME_4811C89501EE // aCurPara
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA30603C8 KeyDown
+
+FORWARD ME_47CEA34501A1
+
+ME ME_4811C8A201CF
+ MEPROP Name 'aRoot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF2570274' '4678209200A6.ms.model.script' // InevNode
+ ;
+
+ENDME // ME_4811C8A201CF aRoot
+
+ME ME_47CEA34501A1
+ MEPROP UID '47CEA34501A1'
+ MEPROP Name 'IsSameTreeRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4811C8A201CF // aRoot
+ )
+ ; // Parameters
+
+ENDME // ME_47CEA34501A1 IsSameTreeRoot
+
+ME ME_47CEA381035A
+ MEPROP UID '47CEA381035A'
+ MEPROP Name 'DropControlChanging'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+
+ENDME // ME_47CEA381035A DropControlChanging
+
+ME ME_47CEA38803AE
+ MEPROP UID '47CEA38803AE'
+ MEPROP Name 'DropControlChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+
+ENDME // ME_47CEA38803AE DropControlChanged
+
+ME ME_47CEA39402F8
+ MEPROP UID '47CEA39402F8'
+ MEPROP Name 'GetCurrentNode'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_47CEA39402F8 GetCurrentNode
+
+ME ME_47CEA3A2030D
+ MEPROP UID '47CEA3A2030D'
+ MEPROP Name 'IsSimpleTree'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47CEA1BD002F // IevDropContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47CEA3A2030D IsSimpleTree
+
+ME ME_47CEA1BD002F
+ MEPROP UID '47CEA1BD002F'
+ MEPROP GUID '0E8CE655-459D-466F-BAF3-CFF3FFE2631A'
+ MEPROP Name 'IevDropContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контейнер для выпадающих контролов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47CE9D27036D // evQueryCardDropControlsInt
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CEA320015D // Tree
+ HWL ME_47CEA337008E // Current
+ HWL ME_47CEA3AC032E // ESCPressed
+ HWL ME_486CAA020214 // DropTextStyle
+ HWL ME_4884573F021D // AllowEmptyCurrent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47CEA1CB02E7 // EditMask
+ HWL ME_47CEA1DF0057 // DateFormat
+ HWL ME_47CEA2040056 // SetDropTree
+ HWL ME_47CEA2170217 // IsDropTreeVisible
+ HWL ME_47CEA22403D8 // ApplyDate
+ HWL ME_47CEA2330343 // ChooseDate
+ HWL ME_47CEA244025F // DoDrop
+ HWL ME_47CEA2640232 // ShowControl
+ HWL ME_47CEA29002BE // DropControlHeigth
+ HWL ME_47CEA2A102E2 // HideControl
+ HWL ME_47CEA2B20111 // GetDropTreeNode
+ HWL ME_47CEA2C30018 // CheckControl
+ HWL ME_47CEA2D50381 // GetControl
+ HWL ME_47CEA30603C8 // KeyDown
+ HWL ME_47CEA34501A1 // IsSameTreeRoot
+ HWL ME_47CEA381035A // DropControlChanging
+ HWL ME_47CEA38803AE // DropControlChanged
+ HWL ME_47CEA39402F8 // GetCurrentNode
+ HWL ME_47CEA3A2030D // IsSimpleTree
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DropContainer'
+
+ENDME // ME_47CEA1BD002F IevDropContainer
+
+ME ME_47CE9D27036D
+ MEPROP UID '47CE9D27036D'
+ MEPROP Name 'evQueryCardDropControlsInt'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY '//Чтобы не было путаницы: IevDropControl (IevDropCombo, IevDropCalendar) - '#13#10'//внутренние интерфейсы, предназначеные исключительно для использования внутри'#13#10'//модели, IevEditorControlXXXX - внешние, для использования во внешнем '#13#10'//представлении.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47CE9D9F019F // InevBase
+ HWL ME_47CE9EBB0142 // IevDropControl
+ HWL ME_47CEA0BB00FA // IevDropCombo
+ HWL ME_47CEA10A0216 // IevDropCalendar
+ HWL ME_47CEA1BD002F // IevDropContainer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "path prefix" '/qf'
+ UP "started" '28.09.1999 10:18'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evQueryCardDropControlsInt.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\Everest\qf'
+
+ENDME // ME_47CE9D27036D evQueryCardDropControlsInt

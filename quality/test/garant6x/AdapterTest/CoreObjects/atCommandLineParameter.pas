@@ -41,6 +41,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4808938A0159impl_uses*
+ //#UC END# *4808938A0159impl_uses*
 ;
 
 function TatCommandLineParameter.pm_GetIsRequired: Boolean;

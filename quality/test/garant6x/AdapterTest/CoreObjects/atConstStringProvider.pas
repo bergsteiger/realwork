@@ -26,6 +26,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5037D1DF03D8impl_uses*
+ //#UC END# *5037D1DF03D8impl_uses*
 ;
 
 constructor TatConstStringProvider.Create(const aString: AnsiString);

@@ -70,6 +70,8 @@ uses
  , atStringHelper
  , atGblAdapterWorker
  , IOUnit
+ //#UC START# *503F84050182impl_uses*
+ //#UC END# *503F84050182impl_uses*
 ;
 
 function TatContextFilter.pm_GetContext: AnsiString;

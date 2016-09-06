@@ -1,0 +1,175 @@
+// TdsDrugList 47E9EDD301A4 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E9EDD301A4
+
+ME ME_4978B1210088
+ MEPROP UID '4978B1210088'
+ MEPROP Name 'DrugList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_47EA026B024C' '491D7C9603B2.ms.model.script' // IsdsDrugList
+ ;
+
+ENDME // ME_4978B1210088 DrugList
+
+ME ME_4AC3273C0380
+ MEPROP UID '4AC3273C0380'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+
+ENDME // ME_4AC3273C0380 InitDataType
+
+ME ME_47F4D8240066
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47F4D8240066 
+
+ME ME_47F4F53D0123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_47F4F53D0123 
+
+ME ME_47F5B1DE0174
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_456EB2F1034B' '456EA56002BF.ms.model.script' // Languages
+ ;
+
+ENDME // ME_47F5B1DE0174 
+
+ME ME_482304230152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_47F4853203E7' '47F485150151.ms.model.script' // vtUtils
+ ;
+
+ENDME // ME_482304230152 
+
+ME ME_482304E30147
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_47F4764602B5' '47F475660140.ms.model.script' // TnsListRes
+ ;
+
+ENDME // ME_482304E30147 
+
+ME ME_55EEF03E018C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDD301A4 // TdsDrugList
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_55EEF03E018C 
+
+ME ME_47F0C98F020C_ME_47E9EDD301A4
+ MELINK Original WL 'ME_47F0C98F020C' '47E9EDA800FE.ms.model.script' // MakeDocInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F0C98F020C_ME_47E9EDD301A4 MakeDocInfo
+
+ME ME_47F465F80149_ME_47E9EDD301A4
+ MELINK Original WL 'ME_47F465F80149' '47F0C1410011.ms.model.script' // MakeImageList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F465F80149_ME_47E9EDD301A4 MakeImageList
+
+ME ME_47F4BDDB026E_ME_47E9EDD301A4
+ MELINK Original WL 'ME_47F4BDDB026E' '47E9EDA800FE.ms.model.script' // DoUpdateListInfo
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F4BDDB026E_ME_47E9EDD301A4 DoUpdateListInfo
+
+ME ME_47F9BFED004F_ME_47E9EDD301A4
+ MELINK Original WL 'ME_47F9BFED004F' '47E9EDA800FE.ms.model.script' // MarkNodeForExport
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F9BFED004F_ME_47E9EDD301A4 MarkNodeForExport
+
+ME ME_55097FF5008E_ME_47E9EDD301A4
+ MELINK Original WL 'ME_55097FF5008E' '47D0E1500033.ms.model.script' // GetIsDataAvailable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55097FF5008E_ME_47E9EDD301A4 GetIsDataAvailable
+
+ME ME_47E9EDD301A4
+ MEPROP UID '47E9EDD301A4'
+ MEPROP Name 'TdsDrugList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список лекарственных препаратов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E9EDA800FE' '47E9EDA800FE.ms.model.script' // dsList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47E9F0600135' '491D7C9603B2.ms.model.script' // IdsDrugList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4978B1210088 // DrugList
+ HWL ME_4AC3273C0380 // InitDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47F0C98F020C_ME_47E9EDD301A4 // MakeDocInfo
+ ME_47F465F80149_ME_47E9EDD301A4 // MakeImageList
+ ME_47F4BDDB026E_ME_47E9EDD301A4 // DoUpdateListInfo
+ ME_47F9BFED004F_ME_47E9EDD301A4 // MarkNodeForExport
+ ME_55097FF5008E_ME_47E9EDD301A4 // GetIsDataAvailable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47F4D8240066 // SysUtils
+ ME_47F4F53D0123 // bsUtils
+ ME_47F5B1DE0174 // Languages
+ ME_482304230152 // vtUtils
+ ME_482304E30147 // TnsListRes
+ ME_55EEF03E018C // DefDataAdapter
+ )
+ ; // Dependencies
+ UP "no hands" True
+ UP extprop:pas:UnitName 'dsDrugList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsDrugList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsDrugList.pas'
+
+ENDME // ME_47E9EDD301A4 TdsDrugList

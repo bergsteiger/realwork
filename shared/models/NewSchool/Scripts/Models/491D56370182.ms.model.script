@@ -1,0 +1,68 @@
+// TdsTipsDocument 491D56370182 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491D56370182
+
+ME ME_4CE53D1F00EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491D56370182 // TdsTipsDocument
+ ;
+ MELINK Target WL 'ME_4CE53CC80300' '491D560F01F4.ms.model.script' // TnsTipsDocumentContainer
+ ;
+
+ENDME // ME_4CE53D1F00EE 
+
+ME ME_491C263E03AF_ME_491D56370182
+ MELINK Original WL 'ME_491C263E03AF' '47EA20430108.ms.model.script' // GetIsReadOnly
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C263E03AF_ME_491D56370182 GetIsReadOnly
+
+ME ME_491C264C02C2_ME_491D56370182
+ MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C264C02C2_ME_491D56370182 GetTimeMachineOff
+
+ME ME_4C6AB38800F3_ME_491D56370182
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_491D56370182 MakeContainer
+
+ME ME_491D56370182
+ MEPROP UID '491D56370182'
+ MEPROP Name 'TdsTipsDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491D560F01F4' '491D560F01F4.ms.model.script' // DayTips
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.ms.model.script' // dsBaseDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_491C263E03AF_ME_491D56370182 // GetIsReadOnly
+ ME_491C264C02C2_ME_491D56370182 // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491D56370182 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CE53D1F00EE // TnsTipsDocumentContainer
+ )
+ ; // Dependencies
+ UP "author" 'Λσκόÿνεφ Π.Β.'
+ UP "no hands" True
+ UP "started" '2008/02/21 08:50:34'
+ UP extprop:pas:UnitName 'dsTipsDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsTipsDocument'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\dsTipsDocument.pas'
+
+ENDME // ME_491D56370182 TdsTipsDocument

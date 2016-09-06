@@ -30,6 +30,8 @@ uses
  , atLogger
  , SysUtils
  , Classes
+ //#UC START# *4B97918002C8impl_uses*
+ //#UC END# *4B97918002C8impl_uses*
 ;
 
 procedure TatOpenListByRubricatorOperation.ExecuteSelf;

@@ -1,0 +1,299 @@
+// eeSubExport 46834DB20230 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_46834DB20230
+
+ME ME_46834DC80065
+ MEPROP UID '46834DC80065'
+ MEPROP Name 'TeeSubExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_46834DB20230 // eeSubExport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C9B0A3D0184' '47F086170200.ms.model.script' // TevSubImplementation
+ )
+ ; // Inherits
+ UP extprop:pas:UnitName 'eeSubExport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeSubExport'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeSubExport.pas'
+
+ENDME // ME_46834DC80065 TeeSubExport
+
+FORWARD ME_5481DE430189
+
+FORWARD ME_5481DE6C03AA
+
+ME ME_54942ED1018E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5481DE6C03AA // TeeSubDescriptors
+ ;
+ MELINK Target WL 'ME_484CDAC302F7' '469D0AC7005E.ms.model.script' // Sub Layers
+ ;
+
+ENDME // ME_54942ED1018E 
+
+ME ME_5481A0350122_ME_5481DE6C03AA
+ MELINK Original WL 'ME_5481A0350122' '4912DD020283.ms.model.script' // Subs
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_5481A0350122_ME_5481DE6C03AA Subs
+
+ME ME_5481A03B01F9_ME_5481DE6C03AA
+ MELINK Original WL 'ME_5481A03B01F9' '4912DD020283.ms.model.script' // Markers
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_5481A03B01F9_ME_5481DE6C03AA Markers
+
+ME ME_5481A043035B_ME_5481DE6C03AA
+ MELINK Original WL 'ME_5481A043035B' '4912DD020283.ms.model.script' // Bookmarks
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_5481A043035B_ME_5481DE6C03AA Bookmarks
+
+ME ME_5481DE6C03AA
+ MEPROP UID '5481DE6C03AA'
+ MEPROP Name 'TeeSubDescriptors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5481DE430189 // eeSubDescriptorsExport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547DB8BC03D3' '547DB02F034B.ms.model.script' // TevSubDescriptors
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5481A0160157' '4912DD020283.ms.model.script' // IeeSubViewDescriptors
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_5481A0350122_ME_5481DE6C03AA // Subs
+ ME_5481A03B01F9_ME_5481DE6C03AA // Markers
+ ME_5481A043035B_ME_5481DE6C03AA // Bookmarks
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_54942ED1018E // Sub Layers
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeSubDescriptors'
+
+ENDME // ME_5481DE6C03AA TeeSubDescriptors
+
+FORWARD ME_5481DE6402F5
+
+ME ME_54940B82012B
+ MEPROP UID '54940B82012B'
+ MEPROP Name 'f_LayerID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5481DE6402F5 // TeeSubDescriptor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54940B82012B f_LayerID
+
+ME ME_54942F170022
+ MEPROP UID '54942F170022'
+ MEPROP Name 'f_Descriptors'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5481DE6402F5 // TeeSubDescriptor
+ ;
+ MELINK Target HWL ME_5481DE6C03AA // TeeSubDescriptors
+ ;
+
+ENDME // ME_54942F170022 f_Descriptors
+
+FORWARD ME_54940BE30056
+
+FORWARD ME_54940BE80143
+
+ME ME_54940BED0229
+ MEPROP Name 'aDescriptors'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5481DE6C03AA // TeeSubDescriptors
+ ;
+
+ENDME // ME_54940BED0229 aDescriptors
+
+ME ME_54940BED0244
+ MEPROP Name 'aLayerID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54940BED0244 aLayerID
+
+ME ME_54940BE80143
+ MEPROP UID '54940BE80143'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54940BE30056 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54940BED0229 // aDescriptors
+ ME_54940BED0244 // aLayerID
+ )
+ ; // Parameters
+
+ENDME // ME_54940BE80143 DoIt
+
+ME ME_54940BE30056
+ MEPROP UID '54940BE30056'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481DE6402F5 // TeeSubDescriptor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54940BE80143 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54940BE30056 Create
+
+ME ME_54940BF401C3
+ MEPROP UID '54940BF401C3'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5481DE6402F5 // TeeSubDescriptor
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54940BE30056 // Create
+ )
+ ; // Inherits
+
+ENDME // ME_54940BF401C3 Make
+
+ME ME_54819FF50172_ME_5481DE6402F5
+ MELINK Original WL 'ME_54819FF50172' '4912DD020283.ms.model.script' // Visible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_54819FF50172_ME_5481DE6402F5 Visible
+
+ME ME_479731C50290_ME_5481DE6402F5
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5481DE6402F5 Cleanup
+
+ME ME_5481DE6402F5
+ MEPROP UID '5481DE6402F5'
+ MEPROP Name 'TeeSubDescriptor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5481DE430189 // eeSubDescriptorsExport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780E690001' '47913B47006E.ms.model.script' // Tl3CacheableBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_54819FDB0116' '4912DD020283.ms.model.script' // IeeSubViewDescriptor
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54940B82012B // f_LayerID
+ HWL ME_54942F170022 // f_Descriptors
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54940BE30056 // Create
+ HWL ME_54940BF401C3 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_54819FF50172_ME_5481DE6402F5 // Visible
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5481DE6402F5 // Cleanup
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeSubDescriptor'
+
+ENDME // ME_5481DE6402F5 TeeSubDescriptor
+
+ME ME_5481DE430189
+ MEPROP UID '5481DE430189'
+ MEPROP Name 'eeSubDescriptorsExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_46834DB20230 // eeSubExport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5481DE6C03AA // TeeSubDescriptors
+ HWL ME_5481DE6402F5 // TeeSubDescriptor
+ )
+ ; // Children
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeSubDescriptorsExport.pas'
+
+ENDME // ME_5481DE430189 eeSubDescriptorsExport
+
+ME ME_46834DB20230
+ MEPROP UID '46834DB20230'
+ MEPROP Name 'eeSubExport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4680E7D50168' '4680E7D50168.ms.model.script' // Everest Engine
+ ;
+ MELIST Children
+   Seq: ( HWL ME_46834DC80065 // TeeSubExport
+ HWL ME_5481DE430189 // eeSubDescriptorsExport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47F086170200' '47F086170200.ms.model.script' // DocumentContainers
+ WL 'ME_4912DD020283' '4912DD020283.ms.model.script' // eeInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_547CB376012F' '547CB376012F.ms.model.script' // ToolPanel
+ )
+ ; // Depends
+ UP "ifdef" 'Nemesis'
+ UP "UseNewGen" True
+
+ENDME // ME_46834DB20230 eeSubExport

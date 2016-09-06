@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , atLogger
  , SysUtils
+ //#UC START# *492154F303D9impl_uses*
+ //#UC END# *492154F303D9impl_uses*
 ;
 
 procedure TatSynchroPointOperation.ExecuteSelf;

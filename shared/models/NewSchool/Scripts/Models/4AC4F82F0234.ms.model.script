@@ -1,0 +1,547 @@
+// PrimTurnOffTimeMachine 4AC4F82F0234 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AC4F82F0234
+
+ME ME_4AC5DA8103E3
+ MEPROP UID '4AC5DA8103E3'
+ MEPROP Name 'rb_totmChangeDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Изменить дату в Машине времени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_517941E500BF' '517941E500BF.ms.model.script' // TvtRadioButton
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4AC5DA8103E3 rb_totmChangeDate
+
+ME ME_4AC5DA910022
+ MEPROP UID '4AC5DA910022'
+ MEPROP Name 'rb_totmStayInCurrentRedaction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выключить Машину времени и остаться в данной редакции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_517941E500BF' '517941E500BF.ms.model.script' // TvtRadioButton
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4AC5DA910022 rb_totmStayInCurrentRedaction
+
+ME ME_4AC5DAA800A6
+ MEPROP UID '4AC5DAA800A6'
+ MEPROP Name 'rb_totmGotoActualRedaction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выключить Машину времени и перейти в актуальную редакцию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_517941E500BF' '517941E500BF.ms.model.script' // TvtRadioButton
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4AC5DAA800A6 rb_totmGotoActualRedaction
+
+ME ME_4AC5DAFC0131
+ MEPROP UID '4AC5DAFC0131'
+ MEPROP Name 'deChangeDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC5DAE50246' '4AC5DAE50246.ms.model.script' // TvtDblClickDateEdit
+ )
+ ; // Inherits
+ UP "ControlClass" 'none'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4AC5DAFC0131 deChangeDate
+
+ME ME_5279124801FF
+ MEPROP UID '5279124801FF'
+ MEPROP Name 'pbDialogIcon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ UP "ControlClass" 'TPaintBox'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5279124801FF pbDialogIcon
+
+ME ME_52791257034C
+ MEPROP UID '52791257034C'
+ MEPROP Name 'lblTurnOnTimeMachineInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выберите вариант выключения Машины времени или измените дату в Машине времени:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_52791257034C lblTurnOnTimeMachineInfo
+
+ME ME_5279136E017E
+ MEPROP UID '5279136E017E'
+ MEPROP Name 'btnOk'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'OK' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ UP "ControlClass" 'TvtButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5279136E017E btnOk
+
+ME ME_5279138D03C1
+ MEPROP UID '5279138D03C1'
+ MEPROP Name 'btnCancel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отмена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ UP "ControlClass" 'TvtButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5279138D03C1 btnCancel
+
+ME ME_4AC5D9AC00CC
+ MEPROP UID '4AC5D9AC00CC'
+ MEPROP Name 'Controller'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_49805ECD020F' '49804E310263.ms.model.script' // InsTurnOffTimeMachine
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4AC5D9AC00CC Controller
+
+ME ME_4AC5DC1900CE
+ MEPROP UID '4AC5DC1900CE'
+ MEPROP Name 'CheckControls'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+
+ENDME // ME_4AC5DC1900CE CheckControls
+
+ME ME_4AC5DDF603C3
+ MEPROP UID '4AC5DDF603C3'
+ MEPROP Name 'DoOk'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+
+ENDME // ME_4AC5DDF603C3 DoOk
+
+ME ME_527914350245
+ MEPROP UID '527914350245'
+ MEPROP Name 'btnOkClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_527914350245 btnOkClick
+
+ME ME_527914590396
+ MEPROP UID '527914590396'
+ MEPROP Name 'deChangeDateChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_527914590396 deChangeDateChange
+
+ME ME_527914660245
+ MEPROP UID '527914660245'
+ MEPROP Name 'pbDialogIconPaint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_527914660245 pbDialogIconPaint
+
+FORWARD ME_4AC4F87001FB
+
+ME ME_4AC4F87701C0
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49805ECD020F' '49804E310263.ms.model.script' // InsTurnOffTimeMachine
+ ;
+
+ENDME // ME_4AC4F87701C0 aData
+
+ME ME_4AC4F87001FB
+ MEPROP UID '4AC4F87001FB'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC4F87701C0 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4F87001FB Make
+
+ME ME_4AC5DF4E0197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4AC5DF4E0197 
+
+ME ME_4AC5DF700265
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AC5DF700265 
+
+ME ME_5279157603C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_5279157603C8 
+
+ME ME_5279157A02BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_47F9CF5500D1' '48F747EC0073.ms.model.script' // bsConvert
+ ;
+
+ENDME // ME_5279157A02BD 
+
+ME ME_527915CF03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_527915CF03DB 
+
+ME ME_527915DF0178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_527915DF0178 
+
+ME ME_5279288201BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_5279288201BC 
+
+ME ME_5279288C0285
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_5279288C0285 
+
+ME ME_5279289B0040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5279289B0040 
+
+ME ME_527928EF018E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AC4F82F0234 // PrimTurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_51B5C8CB00A0' '4A83EE0E0002.ms.model.script' // vtCombo
+ ;
+
+ENDME // ME_527928EF018E 
+
+ME ME_4A8AD46D0226_ME_4AC4F82F0234
+ MELINK Original WL 'ME_4A8AD46D0226' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4A8AD46D0226_ME_4AC4F82F0234 Cancel
+
+ME ME_4A97EBE702F8_ME_4AC4F82F0234
+ MELINK Original WL 'ME_4A97EBE702F8' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4A97EBE702F8_ME_4AC4F82F0234 Ok
+
+ME ME_4C762A1501FC_ME_4AC4F82F0234
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C762A1501FC_ME_4AC4F82F0234 Ok
+
+ME ME_4C762AB601E1_ME_4AC4F82F0234
+ MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C762AB601E1_ME_4AC4F82F0234 Cancel
+
+ME ME_479731C50290_ME_4AC4F82F0234
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AC4F82F0234 Cleanup
+
+ME ME_47A042E100E2_ME_4AC4F82F0234
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4AC4F82F0234 InitFields
+
+ME ME_4A8E8F2E0195_ME_4AC4F82F0234
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4AC4F82F0234 InitControls
+
+ME ME_529332B40230_ME_4AC4F82F0234
+ MELINK Original WL 'ME_529332B40230' '4AADF9450143.ms.model.script' // SetupFormLayout
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_529332B40230_ME_4AC4F82F0234 SetupFormLayout
+
+ME ME_4AC4F82F0234
+ MEPROP UID '4AC4F82F0234'
+ MEPROP Name 'PrimTurnOffTimeMachine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A8AD409003A' '4A8AD3C70195.ms.model.script' // Result$Cancel
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AC5DA8103E3 // rb_totmChangeDate
+ HWL ME_4AC5DA910022 // rb_totmStayInCurrentRedaction
+ HWL ME_4AC5DAA800A6 // rb_totmGotoActualRedaction
+ HWL ME_4AC5DAFC0131 // deChangeDate
+ HWL ME_5279124801FF // pbDialogIcon
+ HWL ME_52791257034C // lblTurnOnTimeMachineInfo
+ HWL ME_5279136E017E // btnOk
+ HWL ME_5279138D03C1 // btnCancel
+ HWL ME_4AC5D9AC00CC // Controller
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC5DC1900CE // CheckControls
+ HWL ME_4AC5DDF603C3 // DoOk
+ HWL ME_527914350245 // btnOkClick
+ HWL ME_527914590396 // deChangeDateChange
+ HWL ME_527914660245 // pbDialogIconPaint
+ HWL ME_4AC4F87001FB // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A8AD46D0226_ME_4AC4F82F0234 // Cancel
+ ME_4A97EBE702F8_ME_4AC4F82F0234 // Ok
+ ME_4C762A1501FC_ME_4AC4F82F0234 // Ok
+ ME_4C762AB601E1_ME_4AC4F82F0234 // Cancel
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AC4F82F0234 // Cleanup
+ ME_47A042E100E2_ME_4AC4F82F0234 // InitFields
+ ME_4A8E8F2E0195_ME_4AC4F82F0234 // InitControls
+ ME_529332B40230_ME_4AC4F82F0234 // SetupFormLayout
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4AC5DF4E0197 // ModalResults
+ ME_4AC5DF700265 // SysUtils
+ ME_5279157603C8 // DataAdapter
+ ME_5279157A02BD // bsConvert
+ ME_527915CF03DB // StdRes
+ ME_527915DF0178 // Forms
+ ME_5279288201BC // nsConst
+ ME_5279288C0285 // Graphics
+ ME_5279289B0040 // Windows
+ ME_527928EF018E // vtCombo
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '01.10.2009 22:43'
+ UP "ZoneType" 'Modal'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimTurnOffTimeMachineForm'
+ UP extprop:pas:UnitName 'PrimTurnOffTimeMachine_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimTurnOffTimeMachineForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTurnOffTimeMachine_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_4AC4F82F0234 PrimTurnOffTimeMachine

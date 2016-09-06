@@ -117,6 +117,8 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , ITestWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ //#UC START# *4B2A0DCE03A9impl_uses*
+ //#UC END# *4B2A0DCE03A9impl_uses*
 ;
 
 procedure RegisterTest;

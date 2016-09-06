@@ -1,0 +1,417 @@
+// View 4A7C0A8202A9 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A7C0A8202A9
+
+FORWARD ME_4A7C0AD001C5
+
+FORWARD ME_4C7BAA4800A7
+
+ME ME_4C7BAA540289
+ MEPROP UID '4C7BAA540289'
+ MEPROP Name 'Hide'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Скрыть комментарии ГАРАНТа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAA4800A7 // ShowJurorComments
+ ;
+ UP "Checked" True
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BAA540289 Hide
+
+ME ME_4C7BAA6E02D6
+ MEPROP UID '4C7BAA6E02D6'
+ MEPROP Name 'Show'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показать комментарии ГАРАНТа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAA4800A7 // ShowJurorComments
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BAA6E02D6 Show
+
+ME ME_4C7BAA4800A7
+ MEPROP UID '4C7BAA4800A7'
+ MEPROP Name 'ShowJurorComments'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показать/скрыть комментарии ГАРАНТа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7BAA540289 // Hide
+ HWL ME_4C7BAA6E02D6 // Show
+ )
+ ; // Children
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C7BAA4800A7 ShowJurorComments
+
+FORWARD ME_4C7BAA9102F7
+
+ME ME_4C7BAAA602FF
+ MEPROP UID '4C7BAAA602FF'
+ MEPROP Name 'Hide'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Скрыть мои комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAA9102F7 // ShowUserComments
+ ;
+ UP "Checked" True
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BAAA602FF Hide
+
+ME ME_4C7BAAB9025B
+ MEPROP UID '4C7BAAB9025B'
+ MEPROP Name 'Show'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показать мои комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAA9102F7 // ShowUserComments
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BAAB9025B Show
+
+ME ME_4C7BAA9102F7
+ MEPROP UID '4C7BAA9102F7'
+ MEPROP Name 'ShowUserComments'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показать/скрыть мои комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7BAAA602FF // Hide
+ HWL ME_4C7BAAB9025B // Show
+ )
+ ; // Children
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C7BAA9102F7 ShowUserComments
+
+FORWARD ME_4C7BAADA039E
+
+ME ME_4C7BAAFE0264
+ MEPROP UID '4C7BAAFE0264'
+ MEPROP Name 'Hide'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAADA039E // ShowTechComments
+ ;
+ UP "Checked" True
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BAAFE0264 Hide
+
+ME ME_4C7BAB0D003C
+ MEPROP UID '4C7BAB0D003C'
+ MEPROP Name 'Show'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAADA039E // ShowTechComments
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BAB0D003C Show
+
+ME ME_4C7BAADA039E
+ MEPROP UID '4C7BAADA039E'
+ MEPROP Name 'ShowTechComments'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показывать технические комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7BAAFE0264 // Hide
+ HWL ME_4C7BAB0D003C // Show
+ )
+ ; // Children
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C7BAADA039E ShowTechComments
+
+FORWARD ME_4C7BAC9C0105
+
+ME ME_4C7BACDF0325
+ MEPROP UID '4C7BACDF0325'
+ MEPROP Name 'Hide'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выключить информацию об изменениях документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAC9C0105 // ShowVersionComments
+ ;
+ UP "Checked" True
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BACDF0325 Hide
+
+ME ME_4C7BACF80144
+ MEPROP UID '4C7BACF80144'
+ MEPROP Name 'Show'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperationState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Включить информацию об изменениях документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C7BAC9C0105 // ShowVersionComments
+ ;
+ UP "Checked" 'undefined'
+ UP "Enabled" 'undefined'
+ UP "Visible" 'undefined'
+
+ENDME // ME_4C7BACF80144 Show
+
+ME ME_4C7BAC9C0105
+ MEPROP UID '4C7BAC9C0105'
+ MEPROP Name 'ShowVersionComments'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Включить/выключить информацию об изменениях документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C7BACDF0325 // Hide
+ HWL ME_4C7BACF80144 // Show
+ )
+ ; // Children
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4C7BAC9C0105 ShowVersionComments
+
+ME ME_4A7C0AFD02BA
+ MEPROP UID '4A7C0AFD02BA'
+ MEPROP Name 'ShowJurorComments'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показать юридические комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A7C0AFD02BA ShowJurorComments
+
+ME ME_4A7C0B1D0319
+ MEPROP UID '4A7C0B1D0319'
+ MEPROP Name 'ShowUserComments'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показать комментарии пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A7C0B1D0319 ShowUserComments
+
+ME ME_4A7C0B4503AB
+ MEPROP UID '4A7C0B4503AB'
+ MEPROP Name 'ShowVersionComments'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показать информацию о версии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A7C0B4503AB ShowVersionComments
+
+ME ME_4A7C14810289
+ MEPROP UID '4A7C14810289'
+ MEPROP Name 'ShowCommentsGroup'
+ MEPROP Class class_Operation
+ %SUMMARY 'Комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A7C14810289 ShowCommentsGroup
+
+ME ME_4A82C33A0105
+ MEPROP UID '4A82C33A0105'
+ MEPROP Name 'ShowTechComments'
+ MEPROP Class class_Operation
+ %SUMMARY 'Показать технические комментарии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A7C0AD001C5 // Document
+ ;
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+
+ENDME // ME_4A82C33A0105 ShowTechComments
+
+ME ME_4A7C0AD001C5
+ MEPROP UID '4A7C0AD001C5'
+ MEPROP Name 'Document'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMOperations ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A7C0A8202A9 // View
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7BAA4800A7 // ShowJurorComments
+ HWL ME_4C7BAA9102F7 // ShowUserComments
+ HWL ME_4C7BAADA039E // ShowTechComments
+ HWL ME_4C7BAC9C0105 // ShowVersionComments
+ HWL ME_4A7C0AFD02BA // ShowJurorComments
+ HWL ME_4A7C0B1D0319 // ShowUserComments
+ HWL ME_4A7C0B4503AB // ShowVersionComments
+ HWL ME_4A7C14810289 // ShowCommentsGroup
+ HWL ME_4A82C33A0105 // ShowTechComments
+ )
+ ; // Operations
+
+ENDME // ME_4A7C0AD001C5 Document
+
+ME ME_4A7C0A8202A9
+ MEPROP UID '4A7C0A8202A9'
+ MEPROP Name 'View'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ %SUMMARY 'Операции влияющие на визальное представление объектов системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A7C0AD001C5 // Document
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'Base_Operations_View_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Base_Operations_View_Controls.pas'
+
+ENDME // ME_4A7C0A8202A9 View

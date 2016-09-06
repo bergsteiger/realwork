@@ -54,6 +54,8 @@ uses
  , atFileInitializer
  , SysUtils
  , Classes
+ //#UC START# *50294ABA02B0impl_uses*
+ //#UC END# *50294ABA02B0impl_uses*
 ;
 
 function TatStringsFromFile.pm_GetCount: Integer;

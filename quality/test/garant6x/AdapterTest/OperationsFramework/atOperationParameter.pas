@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , atOperationEnv
  , Variants
+ //#UC START# *48089A46022Dimpl_uses*
+ //#UC END# *48089A46022Dimpl_uses*
 ;
 
 function TatOperationParameter.pm_GetIsRequired: Boolean;

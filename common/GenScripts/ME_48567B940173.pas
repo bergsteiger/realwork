@@ -45,6 +45,8 @@ uses
  {$If Defined(evUseVisibleCursors)}
  , evSolidParaCursorPair
  {$IfEnd} // Defined(evUseVisibleCursors)
+ //#UC START# *48567B940173impl_uses*
+ //#UC END# *48567B940173impl_uses*
 ;
 
 function TevSolidParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

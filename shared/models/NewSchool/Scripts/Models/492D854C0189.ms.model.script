@@ -1,0 +1,60 @@
+// TdsBaseContents 492D854C0189 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492D854C0189
+
+ME ME_492D85780340
+ MEPROP UID '492D85780340'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492D854C0189 // TdsBaseContents
+ ;
+ MELINK Target WL 'ME_4925661502AE' '491B305A0096.ms.model.script' // IdsBaseContents
+ ;
+
+ENDME // ME_492D85780340 FormDataSourceType
+
+ME ME_47F4C2B9014A_ME_492D854C0189
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_492D854C0189 MakeSimpleTree
+
+ME ME_492D854C0189
+ MEPROP UID '492D854C0189'
+ MEPROP Name 'TdsBaseContents'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Простое оглавление' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49256B3903E4' '49256B3903E4.ms.model.script' // dsBaseContents
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_492D85780340 // FormDataSourceType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F4C2B9014A_ME_492D854C0189 // MakeSimpleTree
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.11.2008 20:20'
+ UP extprop:pas:UnitName 'dsBaseContents'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsBaseContents'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContents.pas'
+
+ENDME // ME_492D854C0189 TdsBaseContents

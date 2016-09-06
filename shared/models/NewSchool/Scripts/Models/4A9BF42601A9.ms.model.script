@@ -1,0 +1,328 @@
+// List$FP 4A9BF42601A9 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9BF42601A9
+
+FORWARD ME_4AA4D7EA0094
+
+ME ME_4AA4D9750025
+ MEPROP UID '4AA4D9750025'
+ MEPROP Name 'Info'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ MELINK Target WL 'ME_4AA4D8A6012B' '47F475660140.ms.model.script' // TbsOpenListInfo
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4AA4D9750025 Info
+
+ME ME_52AEC5AD0135
+ MEPROP UID '52AEC5AD0135'
+ MEPROP Name 'DocInfo'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+ UP "IsResult" False
+
+ENDME // ME_52AEC5AD0135 DocInfo
+
+FORWARD ME_4AA4D7FC0119
+
+ME ME_4AA4D80900A4
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+
+ENDME // ME_4AA4D80900A4 aList
+
+ME ME_4AA4F1040159
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AA4F1040159 aContainer
+
+ME ME_4AA4D7FC0119
+ MEPROP UID '4AA4D7FC0119'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA4D80900A4 // aList
+ ME_4AA4F1040159 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_4AA4D7FC0119 DoIt
+
+ME ME_4AA4DA4D0106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA4D7EA0094 // TryOpenDocument
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AA4DA4D0106 
+
+ME ME_4AA4D7EA0094
+ MEPROP UID '4AA4D7EA0094'
+ MEPROP Name 'TryOpenDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AA4D9750025 // Info
+ HWL ME_52AEC5AD0135 // DocInfo
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AA4D7FC0119 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AA4DA4D0106 // SysUtils
+ )
+ ; // Dependencies
+
+ENDME // ME_4AA4D7EA0094 TryOpenDocument
+
+ME ME_4AA4D8AE00B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4AA4D8A6012B' '47F475660140.ms.model.script' // TbsOpenListInfo
+ ;
+
+ENDME // ME_4AA4D8AE00B8 
+
+ME ME_4BD1E8800011
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4B0410A102E1' '4BD1E3DE02FB.ms.model.script' // dftDrugSynchroView
+ ;
+
+ENDME // ME_4BD1E8800011 
+
+ME ME_4BD9620B0138
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4BD8574A03A5' '4BD856E802F9.ms.model.script' // Text
+ ;
+
+ENDME // ME_4BD9620B0138 
+
+ME ME_4DDFAE3B013F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4DDFAE3B013F 
+
+ME ME_4DDFBDC80229
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4A9D129E00FA' '4AADF9450143.ms.model.script' // Say
+ ;
+
+ENDME // ME_4DDFBDC80229 
+
+ME ME_4DE4A23A000C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4AB0EE02004E' '4799D29F033F.ms.model.script' // Dialogs
+ ;
+
+ENDME // ME_4DE4A23A000C 
+
+ME ME_4E033AAB0365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4E033AAB0365 
+
+ME ME_52A82341035B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_52A821F90360' '497DDB0A0168.ms.model.script' // nsListEvents
+ ;
+
+ENDME // ME_52A82341035B 
+
+ME ME_57A1D6500183
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_57A1D61C02F2' '5795D66F0385.ms.model.script' // TListService
+ ;
+
+ENDME // ME_57A1D6500183 
+
+ME ME_4AB23270026C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4AB23270026C 
+
+ME ME_4AA4E23F028D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4AA4E1BB00D0' '4AA4E182008E.ms.model.script' // TbsLinkType
+ ;
+
+ENDME // ME_4AA4E23F028D 
+
+ME ME_4AA4E6E00173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_47E228F401ED' '45700BFD0251.ms.model.script' // DynListContent
+ ;
+
+ENDME // ME_4AA4E6E00173 
+
+ME ME_4B1D48AC0345
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_47F274F101E1' '4B1D394B00E5.ms.model.script' // IdeDocumentList
+ ;
+
+ENDME // ME_4B1D48AC0345 
+
+ME ME_4AA4DDC60099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_493E78640269' '493E78640269.ms.model.script' // TsdsList
+ ;
+
+ENDME // ME_4AA4DDC60099 
+
+ME ME_57A1D71301D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_57A1D71301D2 
+
+ME ME_57A1D71C0282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9BF42601A9 // List$FP
+ ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_57A1D71C0282 
+
+ME ME_4A9BF42601A9
+ MEPROP UID '4A9BF42601A9'
+ MEPROP Name 'List'
+ MEPROP OriginalName 'List$FP'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Работа со списком документов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497DDB0A0168' '497DDB0A0168.ms.model.script' // List
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA4D7EA0094 // TryOpenDocument
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( WL 'ME_4A8921960298' '4A8921960298.ms.model.script' // List
+ WL 'ME_4A9BF56C0166' '4A9BF56C0166.ms.model.script' // ListInfo
+ WL 'ME_4AA0CE0E02C4' '4AA0CE0E02C4.ms.model.script' // ListAnalizer
+ WL 'ME_4AA4D6C7036F' '4AA4D6C7036F.ms.model.script' // List$FSF
+ WL 'ME_4E36959002CA' '4E36959002CA.ms.model.script' // ListAnalize
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AA4D8AE00B8 // TbsOpenListInfo
+ ME_4BD1E8800011 // dftDrugSynchroView
+ ME_4BD9620B0138 // Text
+ ME_4DDFAE3B013F // DefDataAdapter
+ ME_4DDFBDC80229 // Say
+ ME_4DE4A23A000C // Dialogs
+ ME_4E033AAB0365 // vcmMessagesSupport
+ ME_52A82341035B // nsListEvents
+ ME_57A1D6500183 // TListService
+ ME_4AB23270026C // Forms
+ ME_4AA4E23F028D // TbsLinkType
+ ME_4AA4E6E00173 // DynListContent
+ ME_4B1D48AC0345 // IdeDocumentList
+ ME_4AA4DDC60099 // TsdsList
+ ME_57A1D71301D2 // IvcmEntityForm
+ ME_57A1D71C0282 // IvcmContainer
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '31.08.2009 20:51'
+ UP extprop:pas:TypeName 'TListModule'
+ UP extprop:pas:UnitName 'List_Module'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListModule'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\List_Module.pas'
+
+ENDME // ME_4A9BF42601A9 List$FP

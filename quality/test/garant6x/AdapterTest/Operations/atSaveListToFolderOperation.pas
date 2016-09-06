@@ -32,6 +32,8 @@ uses
  , SysUtils
  , atCommon
  , atStringHelper
+ //#UC START# *484FDA86037Bimpl_uses*
+ //#UC END# *484FDA86037Bimpl_uses*
 ;
 
 procedure TatSaveListToFolderOperation.ExecuteSelf;

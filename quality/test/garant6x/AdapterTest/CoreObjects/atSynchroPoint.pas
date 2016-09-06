@@ -48,6 +48,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *491D9DFA0288impl_uses*
+ //#UC END# *491D9DFA0288impl_uses*
 ;
 
 constructor TatSynchroPoint.Create(const aName: AnsiString);

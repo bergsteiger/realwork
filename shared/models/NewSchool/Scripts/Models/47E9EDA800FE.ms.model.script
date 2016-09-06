@@ -1,0 +1,1997 @@
+// dsList 47E9EDA800FE ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47E9EDA800FE
+
+FORWARD ME_492D69CC016E
+
+ME ME_492D69E50332
+ MEPROP UID '492D69E50332'
+ MEPROP Name 'cExportFlag'
+ MEPROP Class class_Attribute
+ %SUMMARY 'флаг, которым помечаются узлы для экспорта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492D69CC016E // Flags
+ ;
+ MEPROP Value 'FM_FIRST_USER_FLAG'
+ MELINK ValueType WL 'ME_45EEC3DE0232' '457450470167.ms.model.script' // FlagsConst
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'DynamicTreeUnit.FM_FIRST_USER_FLAG'
+
+ENDME // ME_492D69E50332 cExportFlag
+
+ME ME_492D69CC016E
+ MEPROP UID '492D69CC016E'
+ MEPROP Name 'Flags'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_492D69E50332 // cExportFlag
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_492D69CC016E Flags
+
+ME ME_47F0CE0C02DC
+ MEPROP UID '47F0CE0C02DC'
+ MEPROP Name 'Current'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'текущий узел списка.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_47F0CE0C02DC Current
+
+ME ME_47F0D13300F7
+ MEPROP UID '47F0D13300F7'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_47F0D13300F7 Document
+
+ME ME_47F227080106
+ MEPROP UID '47F227080106'
+ MEPROP Name 'Preview'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY '- предварительный просмотр печати.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_473D8DF50230' '467823B7002C.ms.model.script' // IafwComplexDocumentPreview
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_47F227080106 Preview
+
+ME ME_47F24FFC018E
+ MEPROP UID '47F24FFC018E'
+ MEPROP Name 'PrintFirstLevel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_47F24FFC018E PrintFirstLevel
+
+ME ME_47F256CA03E5
+ MEPROP UID '47F256CA03E5'
+ MEPROP Name 'Root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY '- корень дерева списка.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_47F256CA03E5 Root
+
+ME ME_47F4E70C005E
+ MEPROP UID '47F4E70C005E'
+ MEPROP Name 'ListNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Текущий узел списка.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_47F4E70C005E ListNode
+
+ME ME_47F4F3410242
+ MEPROP UID '47F4F3410242'
+ MEPROP Name 'CurrentEntryInfo'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY '- сущность текущего элемента списка.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEDB87037E' '45700BFD0251.ms.model.script' // ListEntryInfo
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_47F4F3410242 CurrentEntryInfo
+
+ME ME_47FAE9AE03A3
+ MEPROP UID '47FAE9AE03A3'
+ MEPROP Name 'ImpList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Список используемый в реализации.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_47FAE9AE03A3 ImpList
+
+ME ME_482297350070
+ MEPROP UID '482297350070'
+ MEPROP Name 'SearchInfo'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Информация о поиске.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4822962A0071' '4B1D3D250382.ms.model.script' // IdeSearchInfo
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_482297350070 SearchInfo
+
+ME ME_4827CE2C0279
+ MEPROP UID '4827CE2C0279'
+ MEPROP Name 'f_AllDocumentFiltered'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4827CE2C0279 f_AllDocumentFiltered
+
+ME ME_569DDA5103BD
+ MEPROP UID '569DDA5103BD'
+ MEPROP Name 'f_IsChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_569DDA5103BD f_IsChanged
+
+ME ME_491DD1E703B5
+ MEPROP UID '491DD1E703B5'
+ MEPROP Name 'RootManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46835AE40039' '48FD8B2702F6.ms.model.script' // TnsRootManager
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_491DD1E703B5 RootManager
+
+ME ME_49788DBB0353
+ MEPROP UID '49788DBB0353'
+ MEPROP Name 'NodeForPositioningHolder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47FF1FDF0179' '4D1B444C015E.ms.model.script' // IucpNodeForPositioningHolder
+ ;
+
+ENDME // ME_49788DBB0353 NodeForPositioningHolder
+
+ME ME_49788E11007C
+ MEPROP UID '49788E11007C'
+ MEPROP Name 'BaseDocumentWithAttributes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F083E60105' '4D1B85BF03E4.ms.model.script' // IsdsBaseDocumentWithAttributes
+ ;
+
+ENDME // ME_49788E11007C BaseDocumentWithAttributes
+
+ME ME_49788E660228
+ MEPROP UID '49788E660228'
+ MEPROP Name 'BaseDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ ;
+
+ENDME // ME_49788E660228 BaseDocument
+
+ME ME_4AEEE71A0137
+ MEPROP UID '4AEEE71A0137'
+ MEPROP Name 'ActiveFilters'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+ UP "pm" False
+ UP "reads field" True
+
+ENDME // ME_4AEEE71A0137 ActiveFilters
+
+ME ME_5624AC6402E0
+ MEPROP UID '5624AC6402E0'
+ MEPROP Name 'f_InitialNeedApplyPermanentFilters'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5624AC6402E0 f_InitialNeedApplyPermanentFilters
+
+FORWARD ME_47F0C98F020C
+
+ME ME_492D71A7014B
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_492D71A7014B aNode
+
+ME ME_47F0C98F020C
+ MEPROP UID '47F0C98F020C'
+ MEPROP Name 'MakeDocInfo'
+ MEPROP Class class_Operation
+ %SUMMARY 'создать информацию о документе по узлу.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D71A7014B // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_47F0C98F020C MakeDocInfo
+
+ME ME_47F0D913030D
+ MEPROP UID '47F0D913030D'
+ MEPROP Name 'NotifyAboutChangeCurrent'
+ MEPROP Class class_Operation
+ %SUMMARY 'уведомлять бизнес объект прецедента о смене текущего.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47F0D913030D NotifyAboutChangeCurrent
+
+FORWARD ME_47F23393016B
+
+ME ME_492D71AF00AB
+ MEPROP Name 'aOnlyFirstLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_492D71AF00AB aOnlyFirstLevel
+
+ME ME_47F23393016B
+ MEPROP UID '47F23393016B'
+ MEPROP Name 'DocumentPreview'
+ MEPROP Class class_Operation
+ %SUMMARY '- предварительный просмотр списка.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D71AF00AB // aOnlyFirstLevel
+ )
+ ; // Parameters
+
+ENDME // ME_47F23393016B DocumentPreview
+
+ME ME_47F2441D01B8
+ MEPROP UID '47F2441D01B8'
+ MEPROP Name 'ResetChildrenCount'
+ MEPROP Class class_Operation
+ %SUMMARY '- очищаем кеши при изменении дерева.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+
+ENDME // ME_47F2441D01B8 ResetChildrenCount
+
+ME ME_47F249D10121
+ MEPROP UID '47F249D10121'
+ MEPROP Name 'InfoPreview'
+ MEPROP Class class_Operation
+ %SUMMARY '-' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+
+ENDME // ME_47F249D10121 InfoPreview
+
+ME ME_47F257CF00B6
+ MEPROP UID '47F257CF00B6'
+ MEPROP Name 'RootIsMaked'
+ MEPROP Class class_Operation
+ %SUMMARY '- вызывается при получении корня у списка.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+
+ENDME // ME_47F257CF00B6 RootIsMaked
+
+FORWARD ME_47F2661502C9
+
+ME ME_47F26636001F
+ MEPROP Name 'theDataInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_47F26636001F theDataInfo
+
+ME ME_47F2661502C9
+ MEPROP UID '47F2661502C9'
+ MEPROP Name 'DoOpenDocument'
+ MEPROP Class class_Operation
+ %SUMMARY '- возвращает SDS для открытия сборки документ.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F26636001F // theDataInfo
+ )
+ ; // Parameters
+
+ENDME // ME_47F2661502C9 DoOpenDocument
+
+FORWARD ME_47F33B990105
+
+ME ME_560CE67F015D
+ MEPROP Name 'aNewList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_560CE67F015D aNewList
+
+ME ME_560CE67F019B
+ MEPROP Name 'aAllDocumentsFiltered'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_560CE67F019B aAllDocumentsFiltered
+
+ME ME_47F33B990105
+ MEPROP UID '47F33B990105'
+ MEPROP Name 'DataForNewList'
+ MEPROP Class class_Operation
+ %SUMMARY '- данные для открытия списка в новом окне.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+ MELIST Parameters
+   Seq: ( ME_560CE67F015D // aNewList
+ ME_560CE67F019B // aAllDocumentsFiltered
+ )
+ ; // Parameters
+
+ENDME // ME_47F33B990105 DataForNewList
+
+ME ME_47F48E08017C
+ MEPROP UID '47F48E08017C'
+ MEPROP Name 'DoIsTimeMachineEnable'
+ MEPROP Class class_Operation
+ %SUMMARY '- доступна ли работа с машиной времени.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47F48E08017C DoIsTimeMachineEnable
+
+ME ME_47F48E3D029F
+ MEPROP UID '47F48E3D029F'
+ MEPROP Name 'NeedTimeMachineOff'
+ MEPROP Class class_Operation
+ %SUMMARY '- при открытии списка необходимо выключить машину времени.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47F48E3D029F NeedTimeMachineOff
+
+ME ME_47F4BDDB026E
+ MEPROP UID '47F4BDDB026E'
+ MEPROP Name 'DoUpdateListInfo'
+ MEPROP Class class_Operation
+ %SUMMARY '- обновить информацию о списке.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+
+ENDME // ME_47F4BDDB026E DoUpdateListInfo
+
+ME ME_47F4E87D0040
+ MEPROP UID '47F4E87D0040'
+ MEPROP Name 'RightListNode'
+ MEPROP Class class_Operation
+ %SUMMARY '- даже если нажали на вхождение, то в качестве узла полжен быть           передан узел первого уровня, чтобы преход к пред\следующему            документу работал в списке, а не в ветке.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_47F4E87D0040 RightListNode
+
+ME ME_47F4F4140263
+ MEPROP UID '47F4F4140263'
+ MEPROP Name 'ClearCurrent'
+ MEPROP Class class_Operation
+ %SUMMARY '- очистить информацию о текущем.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+
+ENDME // ME_47F4F4140263 ClearCurrent
+
+ME ME_47F61AD5022A
+ MEPROP UID '47F61AD5022A'
+ MEPROP Name 'DoDeleteNodes'
+ MEPROP Class class_Operation
+ %SUMMARY '- удалить узлы. Для перекрытия в потомках.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+
+ENDME // ME_47F61AD5022A DoDeleteNodes
+
+ME ME_47F61F910350
+ MEPROP UID '47F61F910350'
+ MEPROP Name 'FinishExporting'
+ MEPROP Class class_Operation
+ %SUMMARY '- закончить экспорт.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+
+ENDME // ME_47F61F910350 FinishExporting
+
+FORWARD ME_47F620AB0178
+
+ME ME_47F620EE021D
+ MEPROP Name 'aOnlyFirstLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47F620EE021D aOnlyFirstLevel
+
+ME ME_47F620EE028A
+ MEPROP Name 'aOnlySelection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47F620EE028A aOnlySelection
+
+ME ME_47F620AB0178
+ MEPROP UID '47F620AB0178'
+ MEPROP Name 'MarkDocumentsForExport'
+ MEPROP Class class_Operation
+ %SUMMARY '- пометить документы для экспорта.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F620EE021D // aOnlyFirstLevel
+ ME_47F620EE028A // aOnlySelection
+ )
+ ; // Parameters
+
+ENDME // ME_47F620AB0178 MarkDocumentsForExport
+
+FORWARD ME_47F9BFED004F
+
+ME ME_492D71D50398
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_492D71D50398 aNode
+
+ME ME_49538CBB0053
+ MEPROP Name 'aOnlyFirstLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49538CBB0053 aOnlyFirstLevel
+
+ME ME_47F9BFED004F
+ MEPROP UID '47F9BFED004F'
+ MEPROP Name 'MarkNodeForExport'
+ MEPROP Class class_Operation
+ %SUMMARY '- пометить узел для экспорта.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D71D50398 // aNode
+ ME_49538CBB0053 // aOnlyFirstLevel
+ )
+ ; // Parameters
+
+ENDME // ME_47F9BFED004F MarkNodeForExport
+
+FORWARD ME_47FA022002B5
+
+ME ME_492D71DA03AB
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_492D71DA03AB aDoc
+
+ME ME_47FA022002B5
+ MEPROP UID '47FA022002B5'
+ MEPROP Name 'DoMakeDocumentPreview'
+ MEPROP Class class_Operation
+ %SUMMARY '- предварительный просмотр для документа.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_473D8DF50230' '467823B7002C.ms.model.script' // IafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D71DA03AB // aDoc
+ )
+ ; // Parameters
+
+ENDME // ME_47FA022002B5 DoMakeDocumentPreview
+
+FORWARD ME_47FAF882023E
+
+ME ME_492D71E500F1
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_492D71E500F1 aNode
+
+ME ME_47FAF882023E
+ MEPROP UID '47FAF882023E'
+ MEPROP Name 'DoListNodeType'
+ MEPROP Class class_Operation
+ %SUMMARY '- определить тип узла.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F213990332' '47EA07FA02CE.ms.model.script' // TbsListNodeType
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D71E500F1 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_47FAF882023E DoListNodeType
+
+ME ME_47FAFE6F010D
+ MEPROP UID '47FAFE6F010D'
+ MEPROP Name 'DoOpenListFromSelectedNodes'
+ MEPROP Class class_Operation
+ %SUMMARY '- открыть список из выделенных элементов.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F20DEA0340' '4B1D3D250382.ms.model.script' // IdeList
+ ;
+
+ENDME // ME_47FAFE6F010D DoOpenListFromSelectedNodes
+
+ME ME_47FB00640212
+ MEPROP UID '47FB00640212'
+ MEPROP Name 'DoIsMain'
+ MEPROP Class class_Operation
+ %SUMMARY '- определяет список в основной зоне приложения.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47FB00640212 DoIsMain
+
+FORWARD ME_47FB05B90024
+
+ME ME_492D71ED010A
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_492D71ED010A aList
+
+ME ME_492D71ED01BC
+ MEPROP Name 'aOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2791D019A' '47F2170002B2.ms.model.script' // TListLogicOperation
+ ;
+
+ENDME // ME_492D71ED01BC aOperation
+
+ME ME_47FB05B90024
+ MEPROP UID '47FB05B90024'
+ MEPROP Name 'DoApplyLogicOperation'
+ MEPROP Class class_Operation
+ %SUMMARY '- выполнить логическую операцию со списком.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D71ED010A // aList
+ ME_492D71ED01BC // aOperation
+ )
+ ; // Parameters
+
+ENDME // ME_47FB05B90024 DoApplyLogicOperation
+
+ME ME_48034E6A01DD
+ MEPROP UID '48034E6A01DD'
+ MEPROP Name 'CanCreateBookmark'
+ MEPROP Class class_Operation
+ %SUMMARY '- можно ли создать закладку на текущий документ' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48034E6A01DD CanCreateBookmark
+
+ME ME_48034E86029A
+ MEPROP UID '48034E86029A'
+ MEPROP Name 'MakeDocumentFromBookmark'
+ MEPROP Class class_Operation
+ %SUMMARY '- получить документ для создания закладки.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_48034E86029A MakeDocumentFromBookmark
+
+FORWARD ME_4A4074FB0192
+
+ME ME_4A40751C018C
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_4A40751C018C aTree
+
+ME ME_4A4074FB0192
+ MEPROP UID '4A4074FB0192'
+ MEPROP Name 'DoSetupNewSimpleTree'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A40751C018C // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_4A4074FB0192 DoSetupNewSimpleTree
+
+ME ME_4BFA427801B4
+ MEPROP UID '4BFA427801B4'
+ MEPROP Name 'CheckFullList'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BFA427801B4 CheckFullList
+
+ME ME_525805880132
+ MEPROP UID '525805880132'
+ MEPROP Name 'ApplyFilters'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+
+ENDME // ME_525805880132 ApplyFilters
+
+FORWARD ME_525BC48802E6
+
+ME ME_525BC496033E
+ MEPROP Name 'aFilters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_525BC496033E aFilters
+
+ME ME_525BC48802E6
+ MEPROP UID '525BC48802E6'
+ MEPROP Name 'LoadActiveFilters'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELIST Parameters
+   Seq: ( ME_525BC496033E // aFilters
+ )
+ ; // Parameters
+
+ENDME // ME_525BC48802E6 LoadActiveFilters
+
+ME ME_52AEBAB800BF
+ MEPROP UID '52AEBAB800BF'
+ MEPROP Name 'GetPermanentFilters'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB14402F9' '45EEA48F011F.ms.model.script' // FiltersFromQuery
+ ;
+
+ENDME // ME_52AEBAB800BF GetPermanentFilters
+
+ME ME_52AEBF77037F
+ MEPROP UID '52AEBF77037F'
+ MEPROP Name 'NeedApplyPermanentFilters'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52AEBF77037F NeedApplyPermanentFilters
+
+ME ME_47F0C84C011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47F0C84C011A 
+
+ME ME_47F2202100EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_47F2202100EE 
+
+ME ME_47F22B350064
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47DF8F0402F7' '474144E20301.ms.model.script' // TafwComplexDocumentPreview
+ ;
+
+ENDME // ME_47F22B350064 
+
+ME ME_47F230EB0100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F230A0012C' '47F22C7501F6.ms.model.script' // TnsINodesClipboardDataObject
+ ;
+
+ENDME // ME_47F230EB0100 
+
+ME ME_47F231B1001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F2317F015E' '491DCA2C00A9.ms.model.script' // TnsHAFPainter
+ ;
+
+ENDME // ME_47F231B1001B 
+
+ME ME_47F23B8200CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F22D5701A7' '491DCA2C00A9.ms.model.script' // TnsDocumentPreview
+ ;
+
+ENDME // ME_47F23B8200CD 
+
+ME ME_47F23C400354
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F23C2A0219' '47F22C7501F6.ms.model.script' // TnsIListDataObject
+ ;
+
+ENDME // ME_47F23C400354 
+
+ME ME_47F24D620166
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_47F24D620166 
+
+ME ME_47F259C80135
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_47F259C80135 
+
+ME ME_47F25CAA008C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_47F25CAA008C 
+
+ME ME_47F2619A039E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_47F2619A039E 
+
+ME ME_47F26D6E01A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F244C1009A' '47F2170002B2.ms.model.script' // TreeConstants
+ ;
+
+ENDME // ME_47F26D6E01A9 
+
+ME ME_47F47DEF028D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F4760F0395' '47F475660140.ms.model.script' // ListRes
+ ;
+
+ENDME // ME_47F47DEF028D 
+
+ME ME_47F4863C024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F4853203E7' '47F485150151.ms.model.script' // vtUtils
+ ;
+
+ENDME // ME_47F4863C024F 
+
+ME ME_47F4ED0F03DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_47F4ED0F03DF 
+
+ME ME_47F4EDFD01FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_47F4EDFD01FC 
+
+ME ME_47F4EF93018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F4EED50062' '4AADF9450143.ms.model.script' // vcmForm
+ ;
+
+ENDME // ME_47F4EF93018B 
+
+ME ME_47F5E06C01A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB02C03A9' '45EEA48F011F.ms.model.script' // Filterable
+ ;
+
+ENDME // ME_47F5E06C01A0 
+
+ME ME_47F5E583020A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_47F5E583020A 
+
+ME ME_47F60F3902D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F60E8E019C' '4908A8A20107.ms.model.script' // nsNodes
+ ;
+
+ENDME // ME_47F60F3902D8 
+
+ME ME_47F61D1101CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F61C4C0040' '47F260DC003F.ms.model.script' // nsDocumentTools
+ ;
+
+ENDME // ME_47F61D1101CB 
+
+ME ME_47F9C6C70015
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F25741021C' '47E246C90144.ms.model.script' // l3Nodes
+ ;
+
+ENDME // ME_47F9C6C70015 
+
+ME ME_47F9C82D0263
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.ms.model.script' // nsExternalObjectPrim
+ ;
+
+ENDME // ME_47F9C82D0263 
+
+ME ME_47F9CFC90176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F9CF5500D1' '48F747EC0073.ms.model.script' // bsConvert
+ ;
+
+ENDME // ME_47F9CFC90176 
+
+ME ME_47F9D48A02C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F4853203E7' '47F485150151.ms.model.script' // vtUtils
+ ;
+
+ENDME // ME_47F9D48A02C1 
+
+ME ME_47F9D4AC0191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F9D43A03A7' '47F22C7501F6.ms.model.script' // TnsDocumentStreamWrapper
+ ;
+
+ENDME // ME_47F9D4AC0191 
+
+ME ME_47FA033102E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_47FA033102E2 
+
+ME ME_47FA04F000CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_47FA04F000CC 
+
+ME ME_47FA06C50210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47FA06400313' '47EA968D0155.ms.model.script' // TevMultiDocumentPreview
+ ;
+
+ENDME // ME_47FA06C50210 
+
+ME ME_47FAF93A0128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F213990332' '47EA07FA02CE.ms.model.script' // TbsListNodeType
+ ;
+
+ENDME // ME_47FAF93A0128 
+
+ME ME_47FAFBA6005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47FAFB8C0338' '48F747EC0073.ms.model.script' // cbsListNodeTypeMap
+ ;
+
+ENDME // ME_47FAFBA6005F 
+
+ME ME_4803049703BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4802FF6101DE' '4802FF41005C.ms.model.script' // TevHTMLDataObject
+ ;
+
+ENDME // ME_4803049703BA 
+
+ME ME_480305310092
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47AB1FDE03E4' '47913B47006E.ms.model.script' // l3Memory
+ ;
+
+ENDME // ME_480305310092 
+
+ME ME_4806F1A202D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4806F15703CF' '47ECAAF901F8.ms.model.script' // InsInternalFilterableTree
+ ;
+
+ENDME // ME_4806F1A202D2 
+
+ME ME_48228F4D015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_48228EF9010F' '48F747EC0073.ms.model.script' // nsFolders
+ ;
+
+ENDME // ME_48228F4D015D 
+
+ME ME_48901BDD01E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_48901B8E006E' '47F260DC003F.ms.model.script' // nsSuperComplexDocumentPreview
+ ;
+
+ENDME // ME_48901BDD01E3 
+
+ME ME_48F88ECC02F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F4D386036C' '47F475660140.ms.model.script' // TbsListTreeStruct
+ ;
+
+ENDME // ME_48F88ECC02F4 
+
+ME ME_48FF5755001D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_48FF5755001D 
+
+ME ME_494F999D00E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_494F75DF001B' '4678209200A6.ms.model.script' // TevPreviewCacheKey
+ ;
+
+ENDME // ME_494F999D00E0 
+
+ME ME_4954D0E3007A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4954CA1102DB' '47F475660140.ms.model.script' // TnsListHAFMacroReplacer
+ ;
+
+ENDME // ME_4954D0E3007A 
+
+ME ME_4954D4CF01B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4954878B03CF' '47EA968D0155.ms.model.script' // TevFormatHAFMacroReplacer
+ ;
+
+ENDME // ME_4954D4CF01B2 
+
+ME ME_4991491801C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_499140AB00DE' '49913F2C020C.ms.model.script' // InsEventHolder
+ ;
+
+ENDME // ME_4991491801C7 
+
+ME ME_4B0FA8E402AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4B0FA8D701F6' '47F22C7501F6.ms.model.script' // TnsListPrintEvent
+ ;
+
+ENDME // ME_4B0FA8E402AC 
+
+ME ME_4B1F93B20025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47F33E9E03C8' '491DCA2C00A9.ms.model.script' // TdeList
+ ;
+
+ENDME // ME_4B1F93B20025 
+
+ME ME_4B8BE9910306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_47CD3486030A' '47CD3441002F.ms.model.script' // TnevMiscMessages
+ ;
+
+ENDME // ME_4B8BE9910306 
+
+ME ME_4BA77502024B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA77502024B 
+
+ME ME_4CADBD050167
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4CAC5BD701BF' '4CAC5A7402DE.ms.model.script' // TnsFiltersContainer
+ ;
+
+ENDME // ME_4CADBD050167 
+
+ME ME_4D4C043B00A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4892DA33009F' '47F260DC003F.ms.model.script' // TnsTreeMultiDocumentPreviewContainer
+ ;
+
+ENDME // ME_4D4C043B00A6 
+
+ME ME_4E085BC301D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_4E085B110285' '4E085A9E00F0.ms.model.script' // TbsDocumentMissingMessage
+ ;
+
+ENDME // ME_4E085BC301D3 
+
+ME ME_512F4F89003F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_512CD70F03C7' '4F4B8FA60272.ms.model.script' // nsExternalObjectModelPart
+ ;
+
+ENDME // ME_512F4F89003F 
+
+ME ME_55A388B00052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_55A387E502D7' '4F4B8FA60272.ms.model.script' // TnsDocumentStreamList
+ ;
+
+ENDME // ME_55A388B00052 
+
+ME ME_55E438A40009
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_55E438930369' '47F22C7501F6.ms.model.script' // nsListExceptions
+ ;
+
+ENDME // ME_55E438A40009 
+
+ME ME_56444F8603B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_56443E71039A' '4CAC5A7402DE.ms.model.script' // TnsFiltersEnumerator
+ ;
+
+ENDME // ME_56444F8603B3 
+
+ME ME_56457677010D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_56443DCF0299' '4CAC58E50231.ms.model.script' // InsFiltersEnumerator
+ ;
+
+ENDME // ME_56457677010D 
+
+ME ME_5645E9B3035F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E9EDA800FE // dsList
+ ;
+ MELINK Target WL 'ME_5645E9550108' '47F22C7501F6.ms.model.script' // TnsDocumentWithSnippetList
+ ;
+
+ENDME // ME_5645E9B3035F 
+
+ME ME_46A4504B03C4_ME_47E9EDA800FE
+ MELINK Original WL 'ME_46A4504B03C4' '4677FBA70343.ms.model.script' // Notify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A4504B03C4_ME_47E9EDA800FE Notify
+
+ME ME_47F1E425028C_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1E425028C' '491B305A0096.ms.model.script' // IsSaved
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F1E425028C_ME_47E9EDA800FE IsSaved
+
+ME ME_47F1E48F03C7_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1E48F03C7' '491B305A0096.ms.model.script' // ListName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F1E48F03C7_ME_47E9EDA800FE ListName
+
+ME ME_47F1E4A901C7_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1E4A901C7' '491B305A0096.ms.model.script' // ShortListName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F1E4A901C7_ME_47E9EDA800FE ShortListName
+
+ME ME_47F1E7000276_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1E7000276' '491B305A0096.ms.model.script' // IsChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F1E7000276_ME_47E9EDA800FE IsChanged
+
+ME ME_47F1E722039F_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1E722039F' '491B305A0096.ms.model.script' // IsFiltered
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F1E722039F_ME_47E9EDA800FE IsFiltered
+
+ME ME_47F1EDFC0318_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1EDFC0318' '491B305A0096.ms.model.script' // UpdatePreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F1EDFC0318_ME_47E9EDA800FE UpdatePreview
+
+ME ME_47F1EE480019_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1EE480019' '491B305A0096.ms.model.script' // MakePreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F1EE480019_ME_47E9EDA800FE MakePreview
+
+ME ME_47F1EE960312_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1EE960312' '491B305A0096.ms.model.script' // OpenDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F1EE960312_ME_47E9EDA800FE OpenDocument
+
+ME ME_47F1EF0403E7_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F1EF0403E7' '491B305A0096.ms.model.script' // NewListFromSelected
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F1EF0403E7_ME_47E9EDA800FE NewListFromSelected
+
+ME ME_47F272B40292_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F272B40292' '491B305A0096.ms.model.script' // IsListEmpty
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F272B40292_ME_47E9EDA800FE IsListEmpty
+
+ME ME_47F32E5D01B0_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F32E5D01B0' '491B305A0096.ms.model.script' // NewList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F32E5D01B0_ME_47E9EDA800FE NewList
+
+ME ME_47F48D7C028E_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F48D7C028E' '491B305A0096.ms.model.script' // IsTimeMachineEnable
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F48D7C028E_ME_47E9EDA800FE IsTimeMachineEnable
+
+ME ME_47F48DF603AF_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F48DF603AF' '491B305A0096.ms.model.script' // TimeMachineOff
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F48DF603AF_ME_47E9EDA800FE TimeMachineOff
+
+ME ME_47F4BC8000F0_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F4BC8000F0' '491B305A0096.ms.model.script' // UpdateListInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4BC8000F0_ME_47E9EDA800FE UpdateListInfo
+
+ME ME_47F4C2B9014A_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_47E9EDA800FE MakeSimpleTree
+
+ME ME_47F5C5050227_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F5C5050227' '491B305A0096.ms.model.script' // ListType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F5C5050227_ME_47E9EDA800FE ListType
+
+ME ME_47F60913013E_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F60913013E' '491B305A0096.ms.model.script' // CheckList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F60913013E_ME_47E9EDA800FE CheckList
+
+ME ME_47F60D510152_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F60D510152' '491B305A0096.ms.model.script' // ApplyFilter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F60D510152_ME_47E9EDA800FE ApplyFilter
+
+ME ME_47F6121700FE_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F6121700FE' '491B305A0096.ms.model.script' // ClearFilters
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F6121700FE_ME_47E9EDA800FE ClearFilters
+
+ME ME_47F6180E0359_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F6180E0359' '491B305A0096.ms.model.script' // DeleteNodes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F6180E0359_ME_47E9EDA800FE DeleteNodes
+
+ME ME_47F61C3D03DE_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F61C3D03DE' '491B305A0096.ms.model.script' // ExportDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F61C3D03DE_ME_47E9EDA800FE ExportDocument
+
+ME ME_47F61FC00314_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F61FC00314' '491B305A0096.ms.model.script' // ExportDocuments
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F61FC00314_ME_47E9EDA800FE ExportDocuments
+
+ME ME_47F9CA3103AC_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F9CA3103AC' '491B305A0096.ms.model.script' // ListAsText
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F9CA3103AC_ME_47E9EDA800FE ListAsText
+
+ME ME_47F9D29C02D7_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F9D29C02D7' '491B305A0096.ms.model.script' // MergeDocuments
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F9D29C02D7_ME_47E9EDA800FE MergeDocuments
+
+ME ME_47F9F86A0108_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F9F86A0108' '491B305A0096.ms.model.script' // RefreshFilters
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F9F86A0108_ME_47E9EDA800FE RefreshFilters
+
+ME ME_47F9FABC001D_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F9FABC001D' '491B305A0096.ms.model.script' // IsActiveFilter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F9FABC001D_ME_47E9EDA800FE IsActiveFilter
+
+ME ME_47F9FADF033F_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F9FADF033F' '491B305A0096.ms.model.script' // NodeId
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F9FADF033F_ME_47E9EDA800FE NodeId
+
+ME ME_47FA0191035A_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FA0191035A' '491B305A0096.ms.model.script' // MakeDocumentPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FA0191035A_ME_47E9EDA800FE MakeDocumentPreview
+
+ME ME_47FA168B01FB_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FA168B01FB' '491B305A0096.ms.model.script' // List
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47FA168B01FB_ME_47E9EDA800FE List
+
+ME ME_47FAF80A0182_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FAF80A0182' '491B305A0096.ms.model.script' // ListNodeType
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FAF80A0182_ME_47E9EDA800FE ListNodeType
+
+ME ME_47FAFE3B0226_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FAFE3B0226' '491B305A0096.ms.model.script' // OpenListFromSelectedNodes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FAFE3B0226_ME_47E9EDA800FE OpenListFromSelectedNodes
+
+ME ME_47FB001703CE_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FB001703CE' '491B305A0096.ms.model.script' // IsMain
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47FB001703CE_ME_47E9EDA800FE IsMain
+
+ME ME_47FB059C02A3_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FB059C02A3' '491B305A0096.ms.model.script' // ApplyLogicOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FB059C02A3_ME_47E9EDA800FE ApplyLogicOperation
+
+ME ME_47FC76D302A2_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FC76D302A2' '491B305A0096.ms.model.script' // ApplyContextFilter
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FC76D302A2_ME_47E9EDA800FE ApplyContextFilter
+
+ME ME_47FC90B50037_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FC90B50037' '491B305A0096.ms.model.script' // SaveToFile
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FC90B50037_ME_47E9EDA800FE SaveToFile
+
+ME ME_47FF178F033D_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FF178F033D' '491B305A0096.ms.model.script' // NodeForPositioning
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47FF178F033D_ME_47E9EDA800FE NodeForPositioning
+
+ME ME_47FF44F20247_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FF44F20247' '491B305A0096.ms.model.script' // ReleaseNodeForPositioning
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FF44F20247_ME_47E9EDA800FE ReleaseNodeForPositioning
+
+ME ME_48034EC0013B_ME_47E9EDA800FE
+ MELINK Original WL 'ME_48034EC0013B' '491B305A0096.ms.model.script' // CreateBookmark
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48034EC0013B_ME_47E9EDA800FE CreateBookmark
+
+ME ME_4827DF180028_ME_47E9EDA800FE
+ MELINK Original WL 'ME_4827DF180028' '491B305A0096.ms.model.script' // AllDocumentFiltered
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4827DF180028_ME_47E9EDA800FE AllDocumentFiltered
+
+ME ME_4875E7B60332_ME_47E9EDA800FE
+ MELINK Original WL 'ME_4875E7B60332' '491B305A0096.ms.model.script' // HasAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4875E7B60332_ME_47E9EDA800FE HasAttributes
+
+ME ME_489015E10252_ME_47E9EDA800FE
+ MELINK Original WL 'ME_489015E10252' '491B305A0096.ms.model.script' // MakeSuperPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_489015E10252_ME_47E9EDA800FE MakeSuperPreview
+
+ME ME_48902C750320_ME_47E9EDA800FE
+ MELINK Original WL 'ME_48902C750320' '491B305A0096.ms.model.script' // MakeMultiDocumentPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48902C750320_ME_47E9EDA800FE MakeMultiDocumentPreview
+
+ME ME_4AEEE80202AD_ME_47E9EDA800FE
+ MELINK Original WL 'ME_4AEEE80202AD' '491B305A0096.ms.model.script' // ActiveFilters
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4AEEE80202AD_ME_47E9EDA800FE ActiveFilters
+
+ME ME_512B22E20169_ME_47E9EDA800FE
+ MELINK Original WL 'ME_512B22E20169' '491B305A0096.ms.model.script' // ListAsString
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_512B22E20169_ME_47E9EDA800FE ListAsString
+
+ME ME_479731C50290_ME_47E9EDA800FE
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47E9EDA800FE Cleanup
+
+ME ME_47F0C1BF0314_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47F0C1BF0314' '47F0C1410011.ms.model.script' // DoCurrentChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F0C1BF0314_ME_47E9EDA800FE DoCurrentChanged
+
+ME ME_47FC718400FA_ME_47E9EDA800FE
+ MELINK Original WL 'ME_47FC718400FA' '47F0C1410011.ms.model.script' // UpdateSimpleTree
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47FC718400FA_ME_47E9EDA800FE UpdateSimpleTree
+
+ME ME_492ACF630072_ME_47E9EDA800FE
+ MELINK Original WL 'ME_492ACF630072' '47D0E1500033.ms.model.script' // GotData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492ACF630072_ME_47E9EDA800FE GotData
+
+ME ME_492BF7900310_ME_47E9EDA800FE
+ MELINK Original WL 'ME_492BF7900310' '47D0E1500033.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492BF7900310_ME_47E9EDA800FE DoInit
+
+ME ME_47E9EDA800FE
+ MEPROP UID '47E9EDA800FE'
+ MEPROP Name 'dsList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый бизнес объект для формы со списком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4680CF1A0364' '4677FBA70343.ms.model.script' // Il3ItemNotifyRecipient
+ WL 'ME_47E9F00100A2' '491B305A0096.ms.model.script' // IdsList
+ WL 'ME_496F3F2500A8' '496F3F2500A8.ms.model.script' // dsBaseSearchSupportQuery
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47F0CE0C02DC // Current
+ HWL ME_47F0D13300F7 // Document
+ HWL ME_47F227080106 // Preview
+ HWL ME_47F24FFC018E // PrintFirstLevel
+ HWL ME_47F256CA03E5 // Root
+ HWL ME_47F4E70C005E // ListNode
+ HWL ME_47F4F3410242 // CurrentEntryInfo
+ HWL ME_47FAE9AE03A3 // ImpList
+ HWL ME_482297350070 // SearchInfo
+ HWL ME_4827CE2C0279 // f_AllDocumentFiltered
+ HWL ME_569DDA5103BD // f_IsChanged
+ HWL ME_491DD1E703B5 // RootManager
+ HWL ME_49788DBB0353 // NodeForPositioningHolder
+ HWL ME_49788E11007C // BaseDocumentWithAttributes
+ HWL ME_49788E660228 // BaseDocument
+ HWL ME_4AEEE71A0137 // ActiveFilters
+ HWL ME_5624AC6402E0 // f_InitialNeedApplyPermanentFilters
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47F0C98F020C // MakeDocInfo
+ HWL ME_47F0D913030D // NotifyAboutChangeCurrent
+ HWL ME_47F23393016B // DocumentPreview
+ HWL ME_47F2441D01B8 // ResetChildrenCount
+ HWL ME_47F249D10121 // InfoPreview
+ HWL ME_47F257CF00B6 // RootIsMaked
+ HWL ME_47F2661502C9 // DoOpenDocument
+ HWL ME_47F33B990105 // DataForNewList
+ HWL ME_47F48E08017C // DoIsTimeMachineEnable
+ HWL ME_47F48E3D029F // NeedTimeMachineOff
+ HWL ME_47F4BDDB026E // DoUpdateListInfo
+ HWL ME_47F4E87D0040 // RightListNode
+ HWL ME_47F4F4140263 // ClearCurrent
+ HWL ME_47F61AD5022A // DoDeleteNodes
+ HWL ME_47F61F910350 // FinishExporting
+ HWL ME_47F620AB0178 // MarkDocumentsForExport
+ HWL ME_47F9BFED004F // MarkNodeForExport
+ HWL ME_47FA022002B5 // DoMakeDocumentPreview
+ HWL ME_47FAF882023E // DoListNodeType
+ HWL ME_47FAFE6F010D // DoOpenListFromSelectedNodes
+ HWL ME_47FB00640212 // DoIsMain
+ HWL ME_47FB05B90024 // DoApplyLogicOperation
+ HWL ME_48034E6A01DD // CanCreateBookmark
+ HWL ME_48034E86029A // MakeDocumentFromBookmark
+ HWL ME_4A4074FB0192 // DoSetupNewSimpleTree
+ HWL ME_4BFA427801B4 // CheckFullList
+ HWL ME_525805880132 // ApplyFilters
+ HWL ME_525BC48802E6 // LoadActiveFilters
+ HWL ME_52AEBAB800BF // GetPermanentFilters
+ HWL ME_52AEBF77037F // NeedApplyPermanentFilters
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A4504B03C4_ME_47E9EDA800FE // Notify
+ ME_47F1E425028C_ME_47E9EDA800FE // IsSaved
+ ME_47F1E48F03C7_ME_47E9EDA800FE // ListName
+ ME_47F1E4A901C7_ME_47E9EDA800FE // ShortListName
+ ME_47F1E7000276_ME_47E9EDA800FE // IsChanged
+ ME_47F1E722039F_ME_47E9EDA800FE // IsFiltered
+ ME_47F1EDFC0318_ME_47E9EDA800FE // UpdatePreview
+ ME_47F1EE480019_ME_47E9EDA800FE // MakePreview
+ ME_47F1EE960312_ME_47E9EDA800FE // OpenDocument
+ ME_47F1EF0403E7_ME_47E9EDA800FE // NewListFromSelected
+ ME_47F272B40292_ME_47E9EDA800FE // IsListEmpty
+ ME_47F32E5D01B0_ME_47E9EDA800FE // NewList
+ ME_47F48D7C028E_ME_47E9EDA800FE // IsTimeMachineEnable
+ ME_47F48DF603AF_ME_47E9EDA800FE // TimeMachineOff
+ ME_47F4BC8000F0_ME_47E9EDA800FE // UpdateListInfo
+ ME_47F4C2B9014A_ME_47E9EDA800FE // MakeSimpleTree
+ ME_47F5C5050227_ME_47E9EDA800FE // ListType
+ ME_47F60913013E_ME_47E9EDA800FE // CheckList
+ ME_47F60D510152_ME_47E9EDA800FE // ApplyFilter
+ ME_47F6121700FE_ME_47E9EDA800FE // ClearFilters
+ ME_47F6180E0359_ME_47E9EDA800FE // DeleteNodes
+ ME_47F61C3D03DE_ME_47E9EDA800FE // ExportDocument
+ ME_47F61FC00314_ME_47E9EDA800FE // ExportDocuments
+ ME_47F9CA3103AC_ME_47E9EDA800FE // ListAsText
+ ME_47F9D29C02D7_ME_47E9EDA800FE // MergeDocuments
+ ME_47F9F86A0108_ME_47E9EDA800FE // RefreshFilters
+ ME_47F9FABC001D_ME_47E9EDA800FE // IsActiveFilter
+ ME_47F9FADF033F_ME_47E9EDA800FE // NodeId
+ ME_47FA0191035A_ME_47E9EDA800FE // MakeDocumentPreview
+ ME_47FA168B01FB_ME_47E9EDA800FE // List
+ ME_47FAF80A0182_ME_47E9EDA800FE // ListNodeType
+ ME_47FAFE3B0226_ME_47E9EDA800FE // OpenListFromSelectedNodes
+ ME_47FB001703CE_ME_47E9EDA800FE // IsMain
+ ME_47FB059C02A3_ME_47E9EDA800FE // ApplyLogicOperation
+ ME_47FC76D302A2_ME_47E9EDA800FE // ApplyContextFilter
+ ME_47FC90B50037_ME_47E9EDA800FE // SaveToFile
+ ME_47FF178F033D_ME_47E9EDA800FE // NodeForPositioning
+ ME_47FF44F20247_ME_47E9EDA800FE // ReleaseNodeForPositioning
+ ME_48034EC0013B_ME_47E9EDA800FE // CreateBookmark
+ ME_4827DF180028_ME_47E9EDA800FE // AllDocumentFiltered
+ ME_4875E7B60332_ME_47E9EDA800FE // HasAttributes
+ ME_489015E10252_ME_47E9EDA800FE // MakeSuperPreview
+ ME_48902C750320_ME_47E9EDA800FE // MakeMultiDocumentPreview
+ ME_4AEEE80202AD_ME_47E9EDA800FE // ActiveFilters
+ ME_512B22E20169_ME_47E9EDA800FE // ListAsString
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47E9EDA800FE // Cleanup
+ ME_47F0C1BF0314_ME_47E9EDA800FE // DoCurrentChanged
+ ME_47FC718400FA_ME_47E9EDA800FE // UpdateSimpleTree
+ ME_492ACF630072_ME_47E9EDA800FE // GotData
+ ME_492BF7900310_ME_47E9EDA800FE // DoInit
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_492D69CC016E // Flags
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_47F0C84C011A // SysUtils
+ ME_47F2202100EE // bsUtils
+ ME_47F22B350064 // TafwComplexDocumentPreview
+ ME_47F230EB0100 // TnsINodesClipboardDataObject
+ ME_47F231B1001B // TnsHAFPainter
+ ME_47F23B8200CD // TnsDocumentPreview
+ ME_47F23C400354 // TnsIListDataObject
+ ME_47F24D620166 // String
+ ME_47F259C80135 // CanNotFindData
+ ME_47F25CAA008C // vcmBase
+ ME_47F2619A039E // StdRes
+ ME_47F26D6E01A9 // TreeConstants
+ ME_47F47DEF028D // ListRes
+ ME_47F4863C024F // vtUtils
+ ME_47F4ED0F03DF // DataAdapter
+ ME_47F4EDFD01FC // l3String
+ ME_47F4EF93018B // vcmForm
+ ME_47F5E06C01A0 // Filterable
+ ME_47F5E583020A // Node
+ ME_47F60F3902D8 // nsNodes
+ ME_47F61D1101CB // nsDocumentTools
+ ME_47F9C6C70015 // l3Nodes
+ ME_47F9C82D0263 // nsExternalObjectPrim
+ ME_47F9CFC90176 // bsConvert
+ ME_47F9D48A02C1 // vtUtils
+ ME_47F9D4AC0191 // TnsDocumentStreamWrapper
+ ME_47FA033102E2 // Document
+ ME_47FA04F000CC // afwFacade
+ ME_47FA06C50210 // TevMultiDocumentPreview
+ ME_47FAF93A0128 // TbsListNodeType
+ ME_47FAFBA6005F // cbsListNodeTypeMap
+ ME_4803049703BA // TevHTMLDataObject
+ ME_480305310092 // l3Memory
+ ME_4806F1A202D2 // InsInternalFilterableTree
+ ME_48228F4D015D // nsFolders
+ ME_48901BDD01E3 // nsSuperComplexDocumentPreview
+ ME_48F88ECC02F4 // TbsListTreeStruct
+ ME_48FF5755001D // DataAdapter
+ ME_494F999D00E0 // TevPreviewCacheKey
+ ME_4954D0E3007A // TnsListHAFMacroReplacer
+ ME_4954D4CF01B2 // TevFormatHAFMacroReplacer
+ ME_4991491801C7 // InsEventHolder
+ ME_4B0FA8E402AC // TnsListPrintEvent
+ ME_4B1F93B20025 // TdeList
+ ME_4B8BE9910306 // TnevMiscMessages
+ ME_4BA77502024B // TDocumentPositionType
+ ME_4CADBD050167 // TnsFiltersContainer
+ ME_4D4C043B00A6 // TnsTreeMultiDocumentPreviewContainer
+ ME_4E085BC301D3 // TbsDocumentMissingMessage
+ ME_512F4F89003F // nsExternalObjectModelPart
+ ME_55A388B00052 // TnsDocumentStreamList
+ ME_55E438A40009 // nsListExceptions
+ ME_56444F8603B3 // TnsFiltersEnumerator
+ ME_56457677010D // InsFiltersEnumerator
+ ME_5645E9B3035F // TnsDocumentWithSnippetList
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP extprop:pas:TypeName '_dsList_'
+ UP extprop:pas:UnitName 'dsList.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas'
+
+ENDME // ME_47E9EDA800FE dsList

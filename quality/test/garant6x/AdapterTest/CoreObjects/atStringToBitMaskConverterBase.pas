@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , TypInfo
+ //#UC START# *504F268A02FDimpl_uses*
+ //#UC END# *504F268A02FDimpl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas}

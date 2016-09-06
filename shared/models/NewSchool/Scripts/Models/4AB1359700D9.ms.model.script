@@ -1,0 +1,63 @@
+// SynchroView 4AB1359700D9 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB1359700D9
+
+ME ME_BE031364C5E0
+ MEPROP UID 'BE031364C5E0'
+ MEPROP Name 'Ini_FormFactory_SynchroView'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы SynchroView' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB1359700D9 // SynchroView
+ ;
+ UPLINK SpelledFor HWL ME_4AB1359700D9 // SynchroView
+ ;
+
+ENDME // ME_BE031364C5E0 Ini_FormFactory_SynchroView
+
+ME ME_4AB1359700D9
+ MEPROP UID '4AB1359700D9'
+ MEPROP Name 'SynchroView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8604040234' '4C8604040234.ms.model.script' // PrimSynchroViewOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFBDD0903A1' '4BD856E802F9.ms.model.script' // SynchroView
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_BE031364C5E0 // Ini_FormFactory_SynchroView
+ )
+ ; // Operations
+ UP "author" 'Тучнин Д.А.'
+ UP "finished dfm" True
+ UP "form name prefix" 'fc'
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '2003/06/25 19:34:22'
+ UP "ZoneType" 'Child'
+ UP extprop:pas:TypeName 'TfcSynchroView'
+ UP extprop:pas:UnitName 'SynchroView_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'fcSynchroView'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_4AB1359700D9 SynchroView

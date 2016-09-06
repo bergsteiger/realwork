@@ -30,6 +30,8 @@ implementation
 uses
  l3ImplUses
  , atCommandLineParameter
+ //#UC START# *4AC347FD023Dimpl_uses*
+ //#UC END# *4AC347FD023Dimpl_uses*
 ;
 
 procedure TatAdapterTestCommandLine.InitParamList;

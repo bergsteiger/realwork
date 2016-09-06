@@ -20,6 +20,8 @@ implementation
 uses
  l3ImplUses
  , vgVisualObjectList
+ //#UC START# *4D5EB3940388impl_uses*
+ //#UC END# *4D5EB3940388impl_uses*
 ;
 {$IfEnd} // NOT Defined(NoVGScene)
 

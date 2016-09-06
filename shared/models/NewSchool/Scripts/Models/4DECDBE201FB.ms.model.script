@@ -1,0 +1,31 @@
+// Dialogs 4DECDBE201FB Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4DECDBE201FB
+ MEPROP UID '4DECDBE201FB'
+ MEPROP Name 'Dialogs'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DECDB4003E2' '4DECDB4003E2.ms.model.script' // archi$common
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
+ WL 'ME_55C8CD14003A' '55C8CD14003A.ms.model.script' // Dialogs
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4DECDC0100E9' '4DECDC0100E9.ms.model.script' // Meta
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'prj'
+ UP "is namespace" True
+ UP "vendor" 'none'
+ UP intf.pas:PathOnly '\archi\source\projects\Common\Dialogs'
+
+ENDME // ME_4DECDBE201FB Dialogs

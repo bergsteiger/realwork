@@ -1,0 +1,425 @@
+// XML 50363289039D TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50363289039D
+
+FORWARD ME_503632AC03D9
+
+FORWARD ME_503633240255
+
+ME ME_503633F6028D
+ MEPROP UID '503633F6028D'
+ MEPROP Name 'Writer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503633240255 // SomeFormatToXML
+ ;
+ MELINK Target WL 'ME_503633CE0211' '47ECB8BD00A8.ms.model.script' // TevdXMLWriter
+ ;
+ UP "IsResult" False
+
+ENDME // ME_503633F6028D Writer
+
+ME ME_50363403022C
+ MEPROP UID '50363403022C'
+ MEPROP Name 'Filer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_503633240255 // SomeFormatToXML
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" False
+
+ENDME // ME_50363403022C Filer
+
+FORWARD ME_5036333D0023
+
+ME ME_503633450065
+ MEPROP Name 'aReader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482D6EB4003A' '482D6E960087.ms.model.script' // Tk2CustomFileReader
+ ;
+
+ENDME // ME_503633450065 aReader
+
+ME ME_50363345009D
+ MEPROP Name 'NeedCheck'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_50363345009D NeedCheck
+
+ME ME_5036333D0023
+ MEPROP UID '5036333D0023'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503633240255 // SomeFormatToXML
+ ;
+ MELIST Parameters
+   Seq: ( ME_503633450065 // aReader
+ ME_50363345009D // NeedCheck
+ )
+ ; // Parameters
+
+ENDME // ME_5036333D0023 DoIt
+
+ME ME_503633240255
+ MEPROP UID '503633240255'
+ MEPROP Name 'SomeFormatToXML'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503632AC03D9 // XMLWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_503633F6028D // Writer
+ HWL ME_50363403022C // Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5036333D0023 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_503633240255 SomeFormatToXML
+
+FORWARD ME_5036334B00AD
+
+ME ME_5036350103D2
+ MEPROP UID '5036350103D2'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5036334B00AD // EVDtoXML
+ ;
+ MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_5036350103D2 Reader
+
+FORWARD ME_5036335F01AE
+
+ME ME_5036336402FD
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_5036336402FD aFileName
+
+ME ME_50363364032C
+ MEPROP Name 'NeedCheck'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_50363364032C NeedCheck
+
+ME ME_5036335F01AE
+ MEPROP UID '5036335F01AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5036334B00AD // EVDtoXML
+ ;
+ MELIST Parameters
+   Seq: ( ME_5036336402FD // aFileName
+ ME_50363364032C // NeedCheck
+ )
+ ; // Parameters
+
+ENDME // ME_5036335F01AE DoIt
+
+ME ME_503634FB03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5036334B00AD // EVDtoXML
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_503634FB03DB 
+
+ME ME_5036334B00AD
+ MEPROP UID '5036334B00AD'
+ MEPROP Name 'EVDtoXML'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503632AC03D9 // XMLWriterTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5036350103D2 // Reader
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5036335F01AE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_503634FB03DB // FreeAndNil
+ )
+ ; // Dependencies
+
+ENDME // ME_5036334B00AD EVDtoXML
+
+ME ME_503632AC03D9
+ MEPROP UID '503632AC03D9'
+ MEPROP Name 'XMLWriterTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50363289039D // XML
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BACDDB500CE' '4BACDD97014B.ms.model.script' // WriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_503633240255 // SomeFormatToXML
+ HWL ME_5036334B00AD // EVDtoXML
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'TXMLWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'XMLWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\XMLWriterTest.pas'
+
+ENDME // ME_503632AC03D9 XMLWriterTest
+
+FORWARD ME_503632E400D2
+
+ME ME_5036347502D4
+ MEPROP UID '5036347502D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_503632E400D2 // EVDtoXMLWiterTest
+ ;
+
+ENDME // ME_5036347502D4 DoIt
+
+ME ME_503632E400D2
+ MEPROP UID '503632E400D2'
+ MEPROP Name 'EVDtoXMLWiterTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_50363289039D // XML
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_503632AC03D9 // XMLWriterTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5036347502D4 // DoIt
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'TEVDtoXMLWiterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EVDtoXMLWiterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\EVDtoXMLWiterTest.pas'
+
+ENDME // ME_503632E400D2 EVDtoXMLWiterTest
+
+FORWARD ME_55AE3EAE00F3
+
+FORWARD ME_55AE3F340080
+
+ME ME_55AE3F490121
+ MEPROP UID '55AE3F490121'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+
+ENDME // ME_55AE3F490121 DoIt
+
+ME ME_55AE44030059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_46A456CF0239' '4677FBA70343.ms.model.script' // Il3XMLWriter
+ ;
+
+ENDME // ME_55AE44030059 
+
+ME ME_55AE452B03D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_55AE44E10097' '55AE44BA0133.ms.model.script' // Tl3XMLWriter
+ ;
+
+ENDME // ME_55AE452B03D4 
+
+ME ME_55AE7B4C03C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55AE7B4C03C6 
+
+ME ME_55AE7B7002BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_53A05AFD02CC' '47913B47006E.ms.model.script' // Tl3DOSFiler
+ ;
+
+ENDME // ME_55AE7B7002BF 
+
+ME ME_55AE7F050326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55AE3F340080 // BuildXML
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_55AE7F050326 
+
+ME ME_55AE3F340080
+ MEPROP UID '55AE3F340080'
+ MEPROP Name 'BuildXML'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE3EAE00F3 // L3XMLWriterTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55AE3F490121 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55AE44030059 // Il3XMLWriter
+ ME_55AE452B03D4 // Tl3XMLWriter
+ ME_55AE7B4C03C6 // FreeAndNil
+ ME_55AE7B7002BF // Tl3DOSFiler
+ ME_55AE7F050326 // Tl3FileMode
+ )
+ ; // Dependencies
+
+ENDME // ME_55AE3F340080 BuildXML
+
+ME ME_55AE76C10243
+ MEPROP UID '55AE76C10243'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE3EAE00F3 // L3XMLWriterTest
+ ;
+
+ENDME // ME_55AE76C10243 DoIt
+
+ME ME_55AE3EAE00F3
+ MEPROP UID '55AE3EAE00F3'
+ MEPROP Name 'L3XMLWriterTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50363289039D // XML
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55AE3F340080 // BuildXML
+ HWL ME_55AE76C10243 // DoIt
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'TL3XMLWriterTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'L3XMLWriterTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\L3XMLWriterTest.pas'
+
+ENDME // ME_55AE3EAE00F3 L3XMLWriterTest
+
+ME ME_50363289039D
+ MEPROP UID '50363289039D'
+ MEPROP Name 'XML'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B2A15810261' '4B2A15810261.ms.model.script' // DailyTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_503632AC03D9 // XMLWriterTest
+ HWL ME_503632E400D2 // EVDtoXMLWiterTest
+ HWL ME_55AE3EAE00F3 // L3XMLWriterTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ WL 'ME_482D6E960087' '482D6E960087.ms.model.script' // Readers
+ WL 'ME_483E80C9025F' '483E80C9025F.ms.model.script' // Readers
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4BACDD97014B' '4BACDD97014B.ms.model.script' // Write
+ WL 'ME_55AE44BA0133' '55AE44BA0133.ms.model.script' // XML
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_50363289039D XML

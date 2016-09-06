@@ -1,0 +1,345 @@
+// L10nInterfaces 499192F203B4 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499192F203B4
+
+ME ME_492438C90376
+ MEPROP UID '492438C90376'
+ MEPROP Name 'InsStringValueMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7E3203DE' '467823B7002C.ms.model.script' // IafwStringValueMap
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringValueMap'
+
+ENDME // ME_492438C90376 InsStringValueMap
+
+FORWARD ME_499193D2014D
+
+ME ME_499193EF0057
+ MEPROP UID '499193EF0057'
+ MEPROP Name 'SpecialDisplayName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499193D2014D // InsSpecialStringValueMap
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" False
+
+ENDME // ME_499193EF0057 SpecialDisplayName
+
+ME ME_499193FC022C
+ MEPROP UID '499193FC022C'
+ MEPROP Name 'SpecialValue'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499193D2014D // InsSpecialStringValueMap
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" False
+
+ENDME // ME_499193FC022C SpecialValue
+
+ME ME_499194050074
+ MEPROP UID '499194050074'
+ MEPROP Name 'MinValue'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499193D2014D // InsSpecialStringValueMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_499194050074 MinValue
+
+ME ME_4991940E0147
+ MEPROP UID '4991940E0147'
+ MEPROP Name 'MaxValue'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_499193D2014D // InsSpecialStringValueMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_4991940E0147 MaxValue
+
+ME ME_46A5EFE602DE_ME_499193D2014D
+ MELINK Original WL 'ME_46A5EFE602DE' '4677FBA70343.ms.model.script' // MapID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_46A5EFE602DE_ME_499193D2014D MapID
+
+ME ME_46A5F0130365_ME_499193D2014D
+ MELINK Original WL 'ME_46A5F0130365' '4677FBA70343.ms.model.script' // GetDisplayNames
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F0130365_ME_499193D2014D GetDisplayNames
+
+ME ME_46A5F03800A2_ME_499193D2014D
+ MELINK Original WL 'ME_46A5F03800A2' '4677FBA70343.ms.model.script' // MapSize
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F03800A2_ME_499193D2014D MapSize
+
+ME ME_46A5F155021E_ME_499193D2014D
+ MELINK Original WL 'ME_46A5F155021E' '4677FBA70343.ms.model.script' // DisplayNameToValue
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F155021E_ME_499193D2014D DisplayNameToValue
+
+ME ME_46A5F1700191_ME_499193D2014D
+ MELINK Original WL 'ME_46A5F1700191' '4677FBA70343.ms.model.script' // ValueToDisplayName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F1700191_ME_499193D2014D ValueToDisplayName
+
+ME ME_499193D2014D
+ MEPROP UID '499193D2014D'
+ MEPROP GUID '808A21E0-63EB-4659-AA60-9D0CB1EF937E'
+ MEPROP Name 'InsSpecialStringValueMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'мапа "<число> %"-"строковое число" со строковым спец значением "Во весь экран"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_492438C90376 // InsStringValueMap
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499193EF0057 // SpecialDisplayName
+ HWL ME_499193FC022C // SpecialValue
+ HWL ME_499194050074 // MinValue
+ HWL ME_4991940E0147 // MaxValue
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46A5EFE602DE_ME_499193D2014D // MapID
+ ME_46A5F0130365_ME_499193D2014D // GetDisplayNames
+ ME_46A5F03800A2_ME_499193D2014D // MapSize
+ ME_46A5F155021E_ME_499193D2014D // DisplayNameToValue
+ ME_46A5F1700191_ME_499193D2014D // ValueToDisplayName
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SpecialStringValueMap'
+
+ENDME // ME_499193D2014D InsSpecialStringValueMap
+
+ME ME_4991945C0196
+ MEPROP UID '4991945C0196'
+ MEPROP Name 'InsStringsSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_473D93190033' '467823B7002C.ms.model.script' // IafwStringsSource
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringsSource'
+
+ENDME // ME_4991945C0196 InsStringsSource
+
+ME ME_4991947702E9
+ MEPROP UID '4991947702E9'
+ MEPROP Name 'TnsValueMapID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7D540159' '467823B7002C.ms.model.script' // TafwValueMapID
+ )
+ ; // Inherits
+
+ENDME // ME_4991947702E9 TnsValueMapID
+
+ME ME_499194AE007A
+ MEPROP UID '499194AE007A'
+ MEPROP Name 'InsValueMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7E080385' '467823B7002C.ms.model.script' // IafwValueMap
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ValueMap'
+
+ENDME // ME_499194AE007A InsValueMap
+
+ME ME_499194C3028F
+ MEPROP UID '499194C3028F'
+ MEPROP Name 'InsStringValueMapFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7E4B0357' '467823B7002C.ms.model.script' // IafwStringValueMapFactory
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringValueMapFactory'
+
+ENDME // ME_499194C3028F InsStringValueMapFactory
+
+ME ME_499194D801B1
+ MEPROP UID '499194D801B1'
+ MEPROP Name 'InsStringValueMapManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7E670242' '467823B7002C.ms.model.script' // IafwStringValueMapManager
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringValueMapManager'
+
+ENDME // ME_499194D801B1 InsStringValueMapManager
+
+ME ME_499194F40273
+ MEPROP UID '499194F40273'
+ MEPROP Name 'InsIntegerValueMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7EA30269' '467823B7002C.ms.model.script' // IafwIntegerValueMap
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerValueMap'
+
+ENDME // ME_499194F40273 InsIntegerValueMap
+
+ME ME_499195060208
+ MEPROP UID '499195060208'
+ MEPROP Name 'InsIntegerValueMapFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7EE10252' '467823B7002C.ms.model.script' // IafwIntegerValueMapFactory
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerValueMapFactory'
+
+ENDME // ME_499195060208 InsIntegerValueMapFactory
+
+ME ME_49919596034A
+ MEPROP UID '49919596034A'
+ MEPROP Name 'InsIntegerValueMapManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499192F203B4 // L10nInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_475E7F100044' '467823B7002C.ms.model.script' // IafwIntegerValueMapManager
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerValueMapManager'
+
+ENDME // ME_49919596034A InsIntegerValueMapManager
+
+ME ME_499192F203B4
+ MEPROP UID '499192F203B4'
+ MEPROP Name 'L10nInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для локализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_492438C90376 // InsStringValueMap
+ HWL ME_499193D2014D // InsSpecialStringValueMap
+ HWL ME_4991945C0196 // InsStringsSource
+ HWL ME_4991947702E9 // TnsValueMapID
+ HWL ME_499194AE007A // InsValueMap
+ HWL ME_499194C3028F // InsStringValueMapFactory
+ HWL ME_499194D801B1 // InsStringValueMapManager
+ HWL ME_499194F40273 // InsIntegerValueMap
+ HWL ME_499195060208 // InsIntegerValueMapFactory
+ HWL ME_49919596034A // InsIntegerValueMapManager
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '10.02.2009 17:47'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\L10nInterfaces.pas'
+
+ENDME // ME_499192F203B4 L10nInterfaces

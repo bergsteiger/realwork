@@ -1,0 +1,237 @@
+// TreeInterfaces 491DD2830110 ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491DD2830110
+
+FORWARD ME_492D901E03E1
+
+ME ME_492D9071038D
+ MEPROP UID '492D9071038D'
+ MEPROP Name 'CurrentContextFilter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_492D901E03E1 // InsContextFilter
+ ;
+ MELINK Target WL 'ME_4908393001C5' '490838E10313.ms.model.script' // InscContextFilterState
+ ;
+ UP "pm" True
+
+ENDME // ME_492D9071038D CurrentContextFilter
+
+FORWARD ME_492D90AA0118
+
+ME ME_492D90B00089
+ MEPROP Name 'aTreeSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_492D90B00089 aTreeSource
+
+ME ME_492D90B000B5
+ MEPROP Name 'aCurrentNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_492D90B000B5 aCurrentNode
+
+ME ME_492D90B00102
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4908393001C5' '490838E10313.ms.model.script' // InscContextFilterState
+ ;
+
+ENDME // ME_492D90B00102 aFilter
+
+ME ME_492D90B0014B
+ MEPROP Name 'aCurrent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_492D90B0014B aCurrent
+
+ME ME_492D90AA0118
+ MEPROP UID '492D90AA0118'
+ MEPROP Name 'FiltrateByContext'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_492D901E03E1 // InsContextFilter
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_492D90B00089 // aTreeSource
+ ME_492D90B000B5 // aCurrentNode
+ ME_492D90B00102 // aFilter
+ ME_492D90B0014B // aCurrent
+ )
+ ; // Parameters
+
+ENDME // ME_492D90AA0118 FiltrateByContext
+
+ME ME_492D901E03E1
+ MEPROP UID '492D901E03E1'
+ MEPROP Name 'InsContextFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DD2830110 // TreeInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_492D9071038D // CurrentContextFilter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_492D90AA0118 // FiltrateByContext
+ )
+ ; // Operations
+
+ENDME // ME_492D901E03E1 InsContextFilter
+
+FORWARD ME_47E9F96B035A
+
+ME ME_491DD57603A3
+ MEPROP UID '491DD57603A3'
+ MEPROP Name 'ImageList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'иконки для дерева' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9F96B035A // IdsSimpleTree
+ ;
+ MELINK Target WL 'ME_4728C6AC0070' '467C0CAA02AB.ms.model.script' // Il3ImageList
+ ;
+ UP "pm" True
+
+ENDME // ME_491DD57603A3 ImageList
+
+ME ME_491DD5A10199
+ MEPROP UID '491DD5A10199'
+ MEPROP Name 'SimpleTree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'дерево. Почему не readonly?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47E9F96B035A // IdsSimpleTree
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ UP "pm" True
+
+ENDME // ME_491DD5A10199 SimpleTree
+
+FORWARD ME_491DD5C90095
+
+ME ME_491DD5DB002E
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_491DD5DB002E aNode
+
+ME ME_491DD5DB0074
+ MEPROP Name 'aUpdateWithDelay'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value True
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value True
+
+ENDME // ME_491DD5DB0074 aUpdateWithDelay
+
+ME ME_491DD5C90095
+ MEPROP UID '491DD5C90095'
+ MEPROP Name 'CurrentChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'изменился текущий узел дерева. По умолчанию включён режим отложенного'#13#10'           обновления текущего, чтобы не обновлялось свзянное представление при'#13#10'           быстром перемещении. Когда пользователь в дереве открывает элемент'#13#10'           отложенное обновление нужно выключать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47E9F96B035A // IdsSimpleTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_491DD5DB002E // aNode
+ ME_491DD5DB0074 // aUpdateWithDelay
+ )
+ ; // Parameters
+
+ENDME // ME_491DD5C90095 CurrentChanged
+
+ME ME_47E9F96B035A
+ MEPROP UID '47E9F96B035A'
+ MEPROP GUID '05B327B7-32D5-4BF3-A7C2-463B5813E61F'
+ MEPROP Name 'IdsSimpleTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объекта формы с деревом.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_491DD2830110 // TreeInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_491DD57603A3 // ImageList
+ HWL ME_491DD5A10199 // SimpleTree
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_491DD5C90095 // CurrentChanged
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsSimpleTree'
+
+ENDME // ME_47E9F96B035A IdsSimpleTree
+
+ME ME_491DD2830110
+ MEPROP UID '491DD2830110'
+ MEPROP Name 'TreeInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы для работы с деревьями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493FAECB025F' '493FAECB025F.ms.model.script' // Tree
+ ;
+ MELIST Children
+   Seq: ( HWL ME_492D901E03E1 // InsContextFilter
+ HWL ME_47E9F96B035A // IdsSimpleTree
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467C0CAA02AB' '467C0CAA02AB.ms.model.script' // l3InternalInterfaces
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_490838E10313' '490838E10313.ms.model.script' // nscNewInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '14.11.2008 22^23'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\TreeInterfaces.pas'
+
+ENDME // ME_491DD2830110 TreeInterfaces

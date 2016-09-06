@@ -40,6 +40,8 @@ uses
  , XMLIntf
  , atQueryTypeConverter
  , Windows
+ //#UC START# *5006FF3D006Cimpl_uses*
+ //#UC END# *5006FF3D006Cimpl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}

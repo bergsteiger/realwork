@@ -23,6 +23,8 @@ implementation
 uses
  l3ImplUses
  , Windows
+ //#UC START# *516D4F4E0326impl_uses*
+ //#UC END# *516D4F4E0326impl_uses*
 ;
 
 {$Include w:\common\components\rtl\Garant\L3\Unknown.imp.pas}

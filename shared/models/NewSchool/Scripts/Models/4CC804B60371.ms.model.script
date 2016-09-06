@@ -1,0 +1,212 @@
+// BaseSearch2010 4CC804B60371 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CC804B60371
+
+FORWARD ME_4CC85AA402DF
+
+ME ME_4CC85ABF0285
+ MEPROP UID '4CC85ABF0285'
+ MEPROP Name 'GradientStartColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CC85AA402DF // Colors
+ ;
+ MEPROP Value '$CF9560'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '$CF9560'
+
+ENDME // ME_4CC85ABF0285 GradientStartColor
+
+ME ME_4CC85AE40145
+ MEPROP UID '4CC85AE40145'
+ MEPROP Name 'GradientEndColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CC85AA402DF // Colors
+ ;
+ MEPROP Value '$E1B484'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '$E1B484'
+
+ENDME // ME_4CC85AE40145 GradientEndColor
+
+ME ME_4CC85AA402DF
+ MEPROP UID '4CC85AA402DF'
+ MEPROP Name 'Colors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC804B60371 // BaseSearch2010
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4CC85ABF0285 // GradientStartColor
+ HWL ME_4CC85AE40145 // GradientEndColor
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4CC85AA402DF Colors
+
+FORWARD ME_4CC95AAD0069
+
+ME ME_4CC95B07002B
+ MEPROP UID '4CC95B07002B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC95AAD0069 // BackColor1
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+
+ENDME // ME_4CC95B07002B DoIt
+
+ME ME_4CC95AAD0069
+ MEPROP UID '4CC95AAD0069'
+ MEPROP Name 'BackColor1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Начало градиента' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC804B60371 // BaseSearch2010
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC95B07002B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC95AAD0069 BackColor1
+
+FORWARD ME_4CC95B14022B
+
+ME ME_4CC95B3400B8
+ MEPROP UID '4CC95B3400B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC95B14022B // BackColor2
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+
+ENDME // ME_4CC95B3400B8 DoIt
+
+ME ME_4CC95B14022B
+ MEPROP UID '4CC95B14022B'
+ MEPROP Name 'BackColor2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конец градиента' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC804B60371 // BaseSearch2010
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC95B3400B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC95B14022B BackColor2
+
+ME ME_4CC857DC0340
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC804B60371 // BaseSearch2010
+ ;
+ MELINK Target WL 'ME_4728976B0154' '472745450206.ms.model.script' // Tl3SRect
+ ;
+
+ENDME // ME_4CC857DC0340 
+
+ME ME_4CC95BBF036E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC804B60371 // BaseSearch2010
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4CC95BBF036E 
+
+ME ME_4A8E8F2E0195_ME_4CC804B60371
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4CC804B60371 InitControls
+
+ME ME_4CC847800383_ME_4CC804B60371
+ MELINK Original WL 'ME_4CC847800383' '4CC81FAC02D6.ms.model.script' // TuneRegion
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC847800383_ME_4CC804B60371 TuneRegion
+
+ME ME_4CC804B60371
+ MEPROP UID '4CC804B60371'
+ MEPROP Name 'BaseSearch2010'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4CC7FF0E03BA' '4CC7FF0E03BA.ms.model.script' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CC809BC0082' '4CC809BC0082.ms.model.script' // RegionableForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ WL 'ME_4CC95A2201B5' '4CC95A2201B5.ms.model.script' // SkinnedForm
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4CC95AAD0069 // BackColor1
+ HWL ME_4CC95B14022B // BackColor2
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4CC804B60371 // InitControls
+ ME_4CC847800383_ME_4CC804B60371 // TuneRegion
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4CC85AA402DF // Colors
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4CC857DC0340 // Tl3SRect
+ ME_4CC95BBF036E // nsConst
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '27.10.2010'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_BaseSearch2010_'
+ UP extprop:pas:UnitName 'BaseSearch2010.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Skins\BaseSearch2010.imp.pas'
+
+ENDME // ME_4CC804B60371 BaseSearch2010

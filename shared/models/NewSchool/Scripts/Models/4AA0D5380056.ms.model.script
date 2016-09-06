@@ -1,0 +1,182 @@
+// DayTips 4AA0D5380056 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA0D5380056
+
+FORWARD ME_4AA52EC603DC
+
+FORWARD ME_4AA52F2B034F
+
+ME ME_4AA52F410310
+ MEPROP Name 'aSDS'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4936823400AE' '492540AF02CD.ms.model.script' // IsdsCommonDiction
+ ;
+
+ENDME // ME_4AA52F410310 aSDS
+
+ME ME_4AA52F410330
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_4AA52F410330 aContainer
+
+ME ME_4AA52F2B034F
+ MEPROP UID '4AA52F2B034F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA52EC603DC // OpenTipsPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AA52F410310 // aSDS
+ ME_4AA52F410330 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_4AA52F2B034F DoIt
+
+ME ME_4AA52EC603DC
+ MEPROP UID '4AA52EC603DC'
+ MEPROP Name 'OpenTipsPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA52F2B034F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AA52EC603DC OpenTipsPrim
+
+ME ME_4BD6F1DD01AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_4BD6F164037F' '497ED770029D.ms.model.script' // utTips
+ ;
+
+ENDME // ME_4BD6F1DD01AC 
+
+ME ME_4BD964F200B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_4BD964270238' '4BD856E802F9.ms.model.script' // CommonDiction
+ ;
+
+ENDME // ME_4BD964F200B5 
+
+ME ME_4AB9DB2B01A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_4992891800CF' '491D560F01F4.ms.model.script' // TnsStartupTips
+ ;
+
+ENDME // ME_4AB9DB2B01A7 
+
+ME ME_4AB9DB54023E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_47ECE41C00D2' '4799D29F033F.ms.model.script' // TApplication
+ ;
+
+ENDME // ME_4AB9DB54023E 
+
+ME ME_4AA11A8502D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_493D0AFD02F6' '493D0AFD02F6.ms.model.script' // TsdsTips
+ ;
+
+ENDME // ME_4AA11A8502D4 
+
+ME ME_4AB9DC3703C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4AB9DC3703C8 
+
+ME ME_4AB9DBD30159
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_4936823400AE' '492540AF02CD.ms.model.script' // IsdsCommonDiction
+ ;
+
+ENDME // ME_4AB9DBD30159 
+
+ME ME_57971EA701B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4AA0D5380056 // DayTips
+ ;
+ MELINK Target WL 'ME_57971D8D0315' '5795D66F0385.ms.model.script' // TDayTipsService
+ ;
+
+ENDME // ME_57971EA701B7 
+
+ME ME_4AA0D5380056
+ MEPROP UID '4AA0D5380056'
+ MEPROP Name 'DayTips'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA0D52202F3' '4AA0D52202F3.ms.model.script' // DayTips
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA52EC603DC // OpenTipsPrim
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( WL 'ME_4AA12AC20374' '4AA12AC20374.ms.model.script' // Tips
+ WL 'ME_4AB9DA410090' '4AB9DA410090.ms.model.script' // StartupTips
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BD6F1DD01AC // utTips
+ ME_4BD964F200B5 // CommonDiction
+ ME_4AB9DB2B01A7 // TnsStartupTips
+ ME_4AB9DB54023E // TApplication
+ ME_4AA11A8502D4 // TsdsTips
+ ME_4AB9DC3703C8 // DataAdapter
+ ME_4AB9DBD30159 // IsdsCommonDiction
+ ME_57971EA701B7 // TDayTipsService
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '04.09.2009 12:52'
+ UP extprop:pas:TypeName 'TDayTipsModule'
+ UP extprop:pas:UnitName 'DayTips_Module'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DayTipsModule'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DayTips\DayTips_Module.pas'
+
+ENDME // ME_4AA0D5380056 DayTips

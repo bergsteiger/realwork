@@ -1,0 +1,58 @@
+// Impl 4CA1D154012C Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CA1D154012C
+
+FORWARD ME_4CA1D1660385
+
+ME ME_4CA1D17B0245
+ MEPROP UID '4CA1D17B0245'
+ MEPROP Name 'TServerGate_Contents_KPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1D1660385 // Contents
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ServerGate_Contents_KPage'
+
+ENDME // ME_4CA1D17B0245 TServerGate_Contents_KPage
+
+ME ME_4CA1D1660385
+ MEPROP UID '4CA1D1660385'
+ MEPROP Name 'Contents'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA1D154012C // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1D17B0245 // TServerGate_Contents_KPage
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\ServerGate\NOT_FINISHED_Contents.pas'
+
+ENDME // ME_4CA1D1660385 Contents
+
+ME ME_4CA1D154012C
+ MEPROP UID '4CA1D154012C'
+ MEPROP Name 'Impl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CA1BFBC0259' '4CA1BFBC0259.ms.model.script' // ServerGate
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1D1660385 // Contents
+ )
+ ; // Children
+
+ENDME // ME_4CA1D154012C Impl

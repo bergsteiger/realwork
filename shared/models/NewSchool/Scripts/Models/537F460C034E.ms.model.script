@@ -1,0 +1,32 @@
+// Indy 537F460C034E Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_537F460C034E
+ MEPROP UID '537F460C034E'
+ MEPROP Name 'Indy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677DDBD0193' '4677DDBD0193.ms.model.script' // Shared Delphi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_537F464A0198' '537F464A0198.ms.model.script' // System
+ WL 'ME_538DAE950337' '538DAE950337.ms.model.script' // Core
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "is namespace" True
+ UP "UseNewGen" True
+ UP "vendor" '/external'
+ UP intf.pas:PathOnly '\common\components\rtl\external\Indy'
+
+ENDME // ME_537F460C034E Indy

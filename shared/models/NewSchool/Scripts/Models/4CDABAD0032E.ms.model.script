@@ -1,0 +1,307 @@
+// Printable 4CDABAD0032E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CDABAD0032E
+
+ME ME_4CDAC5E902FF
+ MEPROP UID '4CDAC5E902FF'
+ MEPROP Name 'Preview'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELINK Target WL 'ME_467BB4640328' '467823B7002C.ms.model.script' // IafwDocumentPreview
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4CDAC5E902FF Preview
+
+FORWARD ME_4CDAC581005C
+
+ME ME_4CDAC58A006B
+ MEPROP UID '4CDAC58A006B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDAC581005C // CanPrint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CDAC58A006B DoIt
+
+ME ME_4CDAC581005C
+ MEPROP UID '4CDAC581005C'
+ MEPROP Name 'CanPrint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDAC58A006B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CDAC581005C CanPrint
+
+FORWARD ME_4CDAC59301AC
+
+ME ME_4CDAC59D00E4
+ MEPROP UID '4CDAC59D00E4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CDAC59301AC // GetCanPrint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CDAC59D00E4 DoIt
+
+ME ME_4CDAC59301AC
+ MEPROP UID '4CDAC59301AC'
+ MEPROP Name 'GetCanPrint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CDAC59D00E4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CDAC59301AC GetCanPrint
+
+FORWARD ME_51A45199015E
+
+FORWARD ME_51A4550A0356
+
+ME ME_51A4551E017D
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
+ ;
+
+ENDME // ME_51A4551E017D aParams
+
+ME ME_51A4550A0356
+ MEPROP UID '51A4550A0356'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51A45199015E // DoPrintExecute
+ ;
+ MELIST Parameters
+   Seq: ( ME_51A4551E017D // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_51A4550A0356 DoIt
+
+ME ME_51A45199015E
+ MEPROP UID '51A45199015E'
+ MEPROP Name 'DoPrintExecute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51A4550A0356 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51A45199015E DoPrintExecute
+
+FORWARD ME_51A451E20376
+
+FORWARD ME_51A45528009E
+
+ME ME_51A4553401E4
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
+ ;
+
+ENDME // ME_51A4553401E4 aParams
+
+ME ME_51A45528009E
+ MEPROP UID '51A45528009E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51A451E20376 // DoPreviewExecute
+ ;
+ MELIST Parameters
+   Seq: ( ME_51A4553401E4 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_51A45528009E DoIt
+
+ME ME_51A451E20376
+ MEPROP UID '51A451E20376'
+ MEPROP Name 'DoPreviewExecute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51A45528009E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51A451E20376 DoPreviewExecute
+
+ME ME_4CDAC4B4035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4CDAC4B4035A 
+
+ME ME_51A44ADB006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELINK Target WL 'ME_4683E1AD0047' '467BAB7F021E.ms.model.script' // IvcmExecuteParamsPrim
+ ;
+
+ENDME // ME_51A44ADB006D 
+
+ME ME_57A30BCF023D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CDABAD0032E // Printable
+ ;
+ MELINK Target WL 'ME_4AAF73E6039E' '57A2E803024D.ms.model.script' // MakePreview
+ ;
+
+ENDME // ME_57A30BCF023D 
+
+ME ME_49521D8E0295_ME_4CDABAD0032E
+ MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49521D8E0295_ME_4CDABAD0032E Print
+
+ME ME_495220DE0298_ME_4CDABAD0032E
+ MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495220DE0298_ME_4CDABAD0032E PrintDialog
+
+ME ME_495220F2033A_ME_4CDABAD0032E
+ MELINK Original WL 'ME_495220F2033A' '494F898C013E.ms.model.script' // PrintPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495220F2033A_ME_4CDABAD0032E PrintPreview
+
+ME ME_4CDABAD0032E
+ MEPROP UID '4CDABAD0032E'
+ MEPROP Name 'Printable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма с поддержкой печати. [$234366957]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4CDABA8F024B' '4CDABA8F024B.ms.model.script' // Printing
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+ WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CDAC5E902FF // Preview
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CDAC581005C // CanPrint
+ HWL ME_4CDAC59301AC // GetCanPrint
+ HWL ME_51A45199015E // DoPrintExecute
+ HWL ME_51A451E20376 // DoPreviewExecute
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49521D8E0295_ME_4CDABAD0032E // Print
+ ME_495220DE0298_ME_4CDABAD0032E // PrintDialog
+ ME_495220F2033A_ME_4CDABAD0032E // PrintPreview
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4CDAC4B4035A // afwFacade
+ ME_51A44ADB006D // IvcmExecuteParamsPrim
+ ME_57A30BCF023D // MakePreview
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '10.11.2010'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName '_Printable_'
+ UP extprop:pas:UnitName 'Printable.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Printing\Printable.imp.pas'
+
+ENDME // ME_4CDABAD0032E Printable

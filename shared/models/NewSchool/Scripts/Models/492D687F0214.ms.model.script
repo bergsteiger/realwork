@@ -1,0 +1,60 @@
+// TdsDocumentListCR 492D687F0214 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492D687F0214
+
+ME ME_492D74ED009A
+ MEPROP UID '492D74ED009A'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492D687F0214 // TdsDocumentListCR
+ ;
+ MELINK Target WL 'ME_492D74C60183' '4B1D394B00E5.ms.model.script' // IdeDocumentListCR
+ ;
+
+ENDME // ME_492D74ED009A InitDataType
+
+ME ME_492ACF630072_ME_492D687F0214
+ MELINK Original WL 'ME_492ACF630072' '47D0E1500033.ms.model.script' // GotData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492ACF630072_ME_492D687F0214 GotData
+
+ME ME_492D687F0214
+ MEPROP UID '492D687F0214'
+ MEPROP Name 'TdsDocumentListCR'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список корреспондентов/респондентов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493D465902FA' '493D465902FA.ms.model.script' // DocumentAndList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E9EDC602B2' '47E9EDC602B2.ms.model.script' // dsDocumentList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_492D74ED009A // InitDataType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_492ACF630072_ME_492D687F0214 // GotData
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '26.11.2008 18:18'
+ UP extprop:pas:UnitName 'dsDocumentListCR'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsDocumentListCR'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentListCR.pas'
+
+ENDME // ME_492D687F0214 TdsDocumentListCR

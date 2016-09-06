@@ -1,0 +1,192 @@
+// TextWithComments 4A8AACAE0356 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8AACAE0356
+
+ME ME_4A8AAD450084
+ MEPROP UID '4A8AAD450084'
+ MEPROP Name 'TextWithComments'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Текст, содержащий комментарии' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A8AACAE0356 // TextWithComments
+ ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4A8AAD450084 TextWithComments
+
+FORWARD ME_4A8AACD503DC
+
+FORWARD ME_4A8AACDE01EB
+
+ME ME_4A8AAD170296
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4A8AAD170296 aSender
+
+ME ME_4A8AAD1702B8
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E25BB410189' '4678209200A6.ms.model.script' // TnevControlInfo
+ ;
+
+ENDME // ME_4A8AAD1702B8 aControl
+
+ME ME_4D593F1C0379
+ MEPROP Name 'theImageInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4D5936FC01A0' '4678209200A6.ms.model.script' // TnevControlImageInfo
+ ;
+
+ENDME // ME_4D593F1C0379 theImageInfo
+
+ME ME_4A8AACDE01EB
+ MEPROP UID '4A8AACDE01EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает иконку для контрола (комментария)' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8AAD170296 // aSender
+ ME_4A8AAD1702B8 // aControl
+ ME_4D593F1C0379 // theImageInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4A8AACDE01EB DoIt
+
+ME ME_4A8AAE8801A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
+ ;
+ MELINK Target WL 'ME_49256C760276' '47EA50050263.ms.model.script' // DocumentRes
+ ;
+
+ENDME // ME_4A8AAE8801A4 
+
+ME ME_4A8AB0380341
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
+ ;
+ MELINK Target WL 'ME_4A8AB028009E' '47F485150151.ms.model.script' // vtMakeImageListWrapper
+ ;
+
+ENDME // ME_4A8AB0380341 
+
+ME ME_4D59261502D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4D59261502D1 
+
+ME ME_4D5926360011
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D5926360011 
+
+ME ME_4E25B60100D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
+ ;
+ MELINK Target WL 'ME_4858116B0355' '48492FC0029D.ms.model.script' // BitmapPara
+ ;
+
+ENDME // ME_4E25B60100D1 
+
+ME ME_4A8AACD503DC
+ MEPROP UID '4A8AACD503DC'
+ MEPROP Name 'TextSourceGetControlItemImg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8AACAE0356 // TextWithComments
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A8AACDE01EB // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A8AAE8801A4 // DocumentRes
+ ME_4A8AB0380341 // vtMakeImageListWrapper
+ ME_4D59261502D1 // Standard
+ ME_4D5926360011 // Tk2TagID
+ ME_4E25B60100D1 // BitmapPara
+ )
+ ; // Dependencies
+
+ENDME // ME_4A8AACD503DC TextSourceGetControlItemImg
+
+ME ME_4A8E8F2E0195_ME_4A8AACAE0356
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A8AACAE0356 InitControls
+
+ME ME_4A8AACAE0356
+ MEPROP UID '4A8AACAE0356'
+ MEPROP Name 'TextWithComments'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A8AAD450084 // TextWithComments
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A8AACD503DC // TextSourceGetControlItemImg
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4A8AACAE0356 // InitControls
+ )
+ ; // Overridden
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_TextWithComments_'
+ UP extprop:pas:UnitName 'TextWithComments.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\TextWithComments.imp.pas'
+
+ENDME // ME_4A8AACAE0356 TextWithComments

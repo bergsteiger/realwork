@@ -1,0 +1,112 @@
+// Специальные возможности 485622500074 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_485622500074
+
+ME ME_485622AE0125
+ MEPROP UID '485622AE0125'
+ MEPROP Name 'Пользовательские логи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о событиях, записываемых в лог при работе пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485622500074 // Специальные возможности
+ ;
+
+ENDME // ME_485622AE0125 Пользовательские логи
+
+ME ME_485623000261
+ MEPROP UID '485623000261'
+ MEPROP Name 'Интеграция'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Библиотека интеграции для вызова F1 из внешних приложений.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485622500074 // Специальные возможности
+ ;
+
+ENDME // ME_485623000261 Интеграция
+
+ME ME_485656110116
+ MEPROP UID '485656110116'
+ MEPROP Name 'Логи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Логирование работы системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485622500074 // Специальные возможности
+ ;
+
+ENDME // ME_485656110116 Логи
+
+ME ME_48575FDF014F
+ MEPROP UID '48575FDF014F'
+ MEPROP Name 'Заливка-выливка настроек'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Механизм переноса и (или) резервного копирования настроек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485622500074 // Специальные возможности
+ ;
+
+ENDME // ME_48575FDF014F Заливка-выливка настроек
+
+ME ME_4892F5D201C3
+ MEPROP UID '4892F5D201C3'
+ MEPROP Name 'INI-файл'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Описание опций, использующихся сервером параметры которых могут быть изменены' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485622500074 // Специальные возможности
+ ;
+
+ENDME // ME_4892F5D201C3 INI-файл
+
+ME ME_4CE38DF50341
+ MEPROP UID '4CE38DF50341'
+ MEPROP Name 'Интеграция из продуктов MS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность вызова приложения F1 из продуктов MS (Windows, Word, Outlook и т.п.)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_485622500074 // Специальные возможности
+ ;
+
+ENDME // ME_4CE38DF50341 Интеграция из продуктов MS
+
+ME ME_485622500074
+ MEPROP UID '485622500074'
+ MEPROP Name 'Специальные возможности'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Специальные возможности системы, не нужные простому пользователю' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48561E5A01F7' '48561E5A01F7.ms.model.script' // Специальные версии и возможности
+ ;
+ MELIST Children
+   Seq: ( HWL ME_485622AE0125 // Пользовательские логи
+ HWL ME_485623000261 // Интеграция
+ HWL ME_485656110116 // Логи
+ HWL ME_48575FDF014F // Заливка-выливка настроек
+ HWL ME_4892F5D201C3 // INI-файл
+ HWL ME_4CE38DF50341 // Интеграция из продуктов MS
+ )
+ ; // Children
+
+ENDME // ME_485622500074 Специальные возможности

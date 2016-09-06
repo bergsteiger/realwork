@@ -1,0 +1,166 @@
+// PrimCommonDiction 497ED770029D VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497ED770029D
+
+ME ME_4BD6F164037F
+ MEPROP UID '4BD6F164037F'
+ MEPROP Name 'utTips'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Совет дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
+ ;
+ UP "CanClose" False
+ UP "ImageIndex" 175
+ UP "SettingsCaption" 'Совет дня: Список советов (вкладка)'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimCommonDiction_utTips_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_utTips_UserType.pas'
+
+ENDME // ME_4BD6F164037F utTips
+
+ME ME_4BD6F18301FD
+ MEPROP UID '4BD6F18301FD'
+ MEPROP Name 'utMedicDiction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Словарь медицинских терминов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD6F164037F // utTips
+ )
+ ; // Inherits
+ UP "CanClose" False
+ UP "ImageIndex" 182
+ UP "SettingsCaption" 'Словарь медицинских терминов: Список терминов (вкладка)'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimCommonDiction_utMedicDiction_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_utMedicDiction_UserType.pas'
+
+ENDME // ME_4BD6F18301FD utMedicDiction
+
+ME ME_497ED8080027
+ MEPROP UID '497ED8080027'
+ MEPROP Name 'dsCommonDiction'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
+ ;
+ MELINK Target WL 'ME_4925416003BC' '492540AF02CD.ms.model.script' // IdsCommonDiction
+ ;
+
+ENDME // ME_497ED8080027 dsCommonDiction
+
+ME ME_55EEA2F600EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
+ ;
+ MELINK Target WL 'ME_4BD964270238' '4BD856E802F9.ms.model.script' // CommonDiction
+ ;
+
+ENDME // ME_55EEA2F600EB 
+
+ME ME_55EEA2F900CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_55EEA2F900CD 
+
+ME ME_55EEA2FB0221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497ED770029D // PrimCommonDiction
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_55EEA2FB0221 
+
+ME ME_47EA4E9002C6_ME_497ED770029D
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA4E9002C6_ME_497ED770029D FinishDataUpdate
+
+ME ME_4A84183701B9_ME_497ED770029D
+ MELINK Original WL 'ME_4A84183701B9' '4AADF9450143.ms.model.script' // NeedDrawCaption
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A84183701B9_ME_497ED770029D NeedDrawCaption
+
+ME ME_55127A5401DE_ME_497ED770029D
+ MELINK Original WL 'ME_55127A5401DE' '4AADF9450143.ms.model.script' // IsAcceptable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55127A5401DE_ME_497ED770029D IsAcceptable
+
+ME ME_497ED770029D
+ MEPROP UID '497ED770029D'
+ MEPROP Name 'PrimCommonDiction'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4979D3B10102' '4979D3B10102.ms.model.script' // Diction
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49870A7E033E' '49870A7E033E.ms.model.script' // BaseDocument
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_497ED8080027 // dsCommonDiction
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47EA4E9002C6_ME_497ED770029D // FinishDataUpdate
+ ME_4A84183701B9_ME_497ED770029D // NeedDrawCaption
+ ME_55127A5401DE_ME_497ED770029D // IsAcceptable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD6F164037F // utTips
+ HWL ME_4BD6F18301FD // utMedicDiction
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55EEA2F600EB // CommonDiction
+ ME_55EEA2F900CD // DataAdapter
+ ME_55EEA2FB0221 // vcmBase
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '27.01.2009 12:45'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TPrimCommonDictionForm'
+ UP extprop:pas:UnitName 'PrimCommonDiction_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimCommonDictionForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms\PrimCommonDiction_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Diction\Forms'
+
+ENDME // ME_497ED770029D PrimCommonDiction

@@ -58,6 +58,8 @@ uses
  , nevDocumentPartAnchor
  , nevDocumentPart
  , Block_Const
+ //#UC START# *4857AA550220impl_uses*
+ //#UC END# *4857AA550220impl_uses*
 ;
 
 function TevBlockInterfaceFactory.QueryTool(aTag: Tl3Variant;

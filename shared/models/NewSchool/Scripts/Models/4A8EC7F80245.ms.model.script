@@ -1,0 +1,48 @@
+// Common$FP 4A8EC7F80245 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8EC7F80245
+
+ME ME_54FECF61028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8EC7F80245 // Common$FP
+ ;
+ MELINK Target WL 'ME_54FECC970155' '47EA50050263.ms.model.script' // TnsDataExchangeRealization
+ ;
+
+ENDME // ME_54FECF61028A 
+
+ME ME_4A8EC7F80245
+ MEPROP UID '4A8EC7F80245'
+ MEPROP Name 'Common'
+ MEPROP OriginalName 'Common$FP'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Окна' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C561015D' '4A92C561015D.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_54FECF61028A // TnsDataExchangeRealization
+ )
+ ; // Dependencies
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" True
+ UP "started" '2003/05/23 14:19:16'
+ UP extprop:pas:TypeName 'Tmo_Common'
+ UP extprop:pas:UnitName 'moCommon'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_Common'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moCommon.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4A8EC7F80245 Common$FP

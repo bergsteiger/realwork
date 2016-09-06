@@ -1,0 +1,535 @@
+// PrimListControllersRealization 4DC1708D032D ControllerUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC1708D032D
+
+FORWARD ME_4DC1671402AB
+
+ME ME_4DC167600076
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DA8763E0201' '4DA8763E0201.ms.model.script' // WarningUserTypes
+ ;
+
+ENDME // ME_4DC167600076 
+
+ME ME_4DC167670376
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4DC167670376 
+
+ME ME_4DC1676B024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DB988EC015B' '48F747EC0073.ms.model.script' // bsEditorAddPara
+ ;
+
+ENDME // ME_4DC1676B024D 
+
+ME ME_4DC1676E02F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4DC1676E02F7 
+
+ME ME_4DC167A4028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_4DC167A4028A 
+
+ME ME_4ED75A3100D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4ED7576E02F7' '4ED7573300EA.ms.model.script' // TnsDocumentWarningGenerator
+ ;
+
+ENDME // ME_4ED75A3100D0 
+
+ME ME_4ED773240143
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DB97E660273' '4F5E12C20114.ms.model.script' // remListModified
+ ;
+
+ENDME // ME_4ED773240143 
+
+ME ME_4ED7791A02B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.ms.model.script' // IucpUnderControl
+ ;
+
+ENDME // ME_4ED7791A02B3 
+
+FORWARD ME_4EDCFD4D037C
+
+ME ME_4EDCFD6E006F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1671402AB // nsListWarningGenerator
+ ;
+ MELINK Target HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+
+ENDME // ME_4EDCFD6E006F 
+
+ME ME_493E4F7E039B_ME_4DC1671402AB
+ MELINK Original WL 'ME_493E4F7E039B' '491B305A0096.ms.model.script' // Generate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_493E4F7E039B_ME_4DC1671402AB Generate
+
+ME ME_4DC1671402AB
+ MEPROP UID '4DC1671402AB'
+ MEPROP Name 'nsListWarningGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC1708D032D // PrimListControllersRealization
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4DC14229028D' '491B305A0096.ms.model.script' // WarningGenerator
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_493E4F7E039B_ME_4DC1671402AB // Generate
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4DC167600076 // WarningUserTypes
+ ME_4DC167670376 // Document
+ ME_4DC1676B024D // bsEditorAddPara
+ ME_4DC1676E02F7 // DefDataAdapter
+ ME_4DC167A4028A // vcmBase
+ ME_4ED75A3100D0 // TnsDocumentWarningGenerator
+ ME_4ED773240143 // remListModified
+ ME_4ED7791A02B3 // IucpUnderControl
+ ME_4EDCFD6E006F // TnsListWarningGenerator
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '04.05.2011 18:48'
+ UP extprop:pas:TypeName '_nsListWarningGenerator_'
+ UP extprop:pas:UnitName 'nsListWarningGenerator.imp'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.imp.pas'
+
+ENDME // ME_4DC1671402AB nsListWarningGenerator
+
+FORWARD ME_4DB98E7B0358
+
+ME ME_4DB98E85011C
+ MEPROP UID '4DB98E85011C'
+ MEPROP Name 'ListModified'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DB98E7B0358 // Local
+ ;
+ MEPROP Value '''Список изменён'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Список изменён'''
+
+ENDME // ME_4DB98E85011C ListModified
+
+ME ME_4DB992EB01F7
+ MEPROP UID '4DB992EB01F7'
+ MEPROP Name 'ListFiltered'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DB98E7B0358 // Local
+ ;
+ MEPROP Value '''Список отфильтрован. Отменить все фильтры'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Список отфильтрован. Отменить все фильтры'''
+
+ENDME // ME_4DB992EB01F7 ListFiltered
+
+ME ME_4DB99BB60038
+ MEPROP UID '4DB99BB60038'
+ MEPROP Name 'SwitchFiltersOff'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DB98E7B0358 // Local
+ ;
+ MEPROP Value '''Отменить все фильтры'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Отменить все фильтры'''
+
+ENDME // ME_4DB99BB60038 SwitchFiltersOff
+
+ME ME_4DBADBF300F4
+ MEPROP UID '4DBADBF300F4'
+ MEPROP Name 'TimeMachineOn'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DB98E7B0358 // Local
+ ;
+ MEPROP Value '''Машина времени включена на дату %s'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Машина времени включена на дату %s'''
+
+ENDME // ME_4DBADBF300F4 TimeMachineOn
+
+ME ME_4DB98E7B0358
+ MEPROP UID '4DB98E7B0358'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DB98E85011C // ListModified
+ HWL ME_4DB992EB01F7 // ListFiltered
+ HWL ME_4DB99BB60038 // SwitchFiltersOff
+ HWL ME_4DBADBF300F4 // TimeMachineOn
+ )
+ ; // Attributes
+ UP "children prefix" 'lst'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'lst'
+
+ENDME // ME_4DB98E7B0358 Local
+
+FORWARD ME_4EDCFD7E0323
+
+FORWARD ME_4EDCFD8C0171
+
+ME ME_4EDE035602CC
+ MEPROP Name 'aWarning'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4921869901CF' '491B305A0096.ms.model.script' // IdsWarning
+ ;
+
+ENDME // ME_4EDE035602CC aWarning
+
+ME ME_4EDCFD940066
+ MEPROP Name 'aDoc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4EDCFD940066 aDoc
+
+ME ME_4EDCFD9400B1
+ MEPROP Name 'aGen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CC38040095' '4678209200A6.ms.model.script' // InevTagGenerator
+ ;
+
+ENDME // ME_4EDCFD9400B1 aGen
+
+ME ME_4EDCFD9400FB
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_4EDCFD9400FB aUserType
+
+ME ME_4EDCFD940166
+ MEPROP Name 'anUnderControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.ms.model.script' // IucpUnderControl
+ ;
+
+ENDME // ME_4EDCFD940166 anUnderControl
+
+ME ME_4EDCFD8C0171
+ MEPROP UID '4EDCFD8C0171'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EDCFD7E0323 // Generate
+ ;
+ MELINK Target WL 'ME_4921866C01A1' '47F2170002B2.ms.model.script' // TWarningTypeSet
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EDE035602CC // aWarning
+ ME_4EDCFD940066 // aDoc
+ ME_4EDCFD9400B1 // aGen
+ ME_4EDCFD9400FB // aUserType
+ ME_4EDCFD940166 // anUnderControl
+ )
+ ; // Parameters
+
+ENDME // ME_4EDCFD8C0171 DoIt
+
+ME ME_4EDCFD7E0323
+ MEPROP UID '4EDCFD7E0323'
+ MEPROP Name 'Generate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EDCFD8C0171 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4EDCFD7E0323 Generate
+
+ME ME_4EDCFD67036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4ED7576E02F7' '4ED7573300EA.ms.model.script' // TnsDocumentWarningGenerator
+ ;
+
+ENDME // ME_4EDCFD67036F 
+
+ME ME_4EDCFDF80047
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DB97E660273' '4F5E12C20114.ms.model.script' // remListModified
+ ;
+
+ENDME // ME_4EDCFDF80047 
+
+ME ME_4EDCFDFA03E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DA8763E0201' '4DA8763E0201.ms.model.script' // WarningUserTypes
+ ;
+
+ENDME // ME_4EDCFDFA03E1 
+
+ME ME_4EDCFDFF005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_4EDCFDFF005F 
+
+ME ME_4EDCFE02013F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4ED7576E02F7' '4ED7573300EA.ms.model.script' // TnsDocumentWarningGenerator
+ ;
+
+ENDME // ME_4EDCFE02013F 
+
+ME ME_4EDCFE0500C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4EDCFE0500C8 
+
+ME ME_4EDCFE080228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.ms.model.script' // IucpUnderControl
+ ;
+
+ENDME // ME_4EDCFE080228 
+
+ME ME_4EDCFE0B0336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DB988EC015B' '48F747EC0073.ms.model.script' // bsEditorAddPara
+ ;
+
+ENDME // ME_4EDCFE0B0336 
+
+ME ME_4EDCFE0F013E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4EDCFE0F013E 
+
+ME ME_4EDD0573008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4EDD0573008A 
+
+ME ME_4EDD060F02E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DB993ED02C1' '491B305A0096.ms.model.script' // TnsWarningSub
+ ;
+
+ENDME // ME_4EDD060F02E9 
+
+ME ME_4EDD061701F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4DB9936C03DD' '491B305A0096.ms.model.script' // TnsWarningLinkHandle
+ ;
+
+ENDME // ME_4EDD061701F8 
+
+ME ME_4F5E21F901F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ ;
+ MELINK Target WL 'ME_4F5E12C20114' '4F5E12C20114.ms.model.script' // BaloonWarningUserTypes
+ ;
+
+ENDME // ME_4F5E21F901F2 
+
+ME ME_4EDCFD4D037C
+ MEPROP UID '4EDCFD4D037C'
+ MEPROP Name 'TnsListWarningGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC1708D032D // PrimListControllersRealization
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EDCFD7E0323 // Generate
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4DB98E7B0358 // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4EDCFD67036F // TnsDocumentWarningGenerator
+ ME_4EDCFDF80047 // remListModified
+ ME_4EDCFDFA03E1 // WarningUserTypes
+ ME_4EDCFDFF005F // vcmBase
+ ME_4EDCFE02013F // TnsDocumentWarningGenerator
+ ME_4EDCFE0500C8 // DefDataAdapter
+ ME_4EDCFE080228 // IucpUnderControl
+ ME_4EDCFE0B0336 // bsEditorAddPara
+ ME_4EDCFE0F013E // Document
+ ME_4EDD0573008A // Tk2TagID
+ ME_4EDD060F02E9 // TnsWarningSub
+ ME_4EDD061701F8 // TnsWarningLinkHandle
+ ME_4F5E21F901F2 // BaloonWarningUserTypes
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '05.12.2011 21:20'
+ UP extprop:pas:UnitName 'nsListWarningGenerator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListWarningGenerator'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\PrimListControllers\nsListWarningGenerator.pas'
+
+ENDME // ME_4EDCFD4D037C TnsListWarningGenerator
+
+ME ME_4DC1708D032D
+ MEPROP UID '4DC1708D032D'
+ MEPROP Name 'PrimListControllersRealization'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DC170560325' '4DC170560325.ms.model.script' // PrimListControllers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DC1671402AB // nsListWarningGenerator
+ HWL ME_4EDCFD4D037C // TnsListWarningGenerator
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ WL 'ME_48492FC0029D' '48492FC0029D.ms.model.script' // Standard
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_491B305A0096' '491B305A0096.ms.model.script' // DocumentAndListInterfaces
+ WL 'ME_499EAAE502A8' '499EAAE502A8.ms.model.script' // vcmUserControls
+ WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ WL 'ME_4B9A1E7F0036' '4B9A1E7F0036.ms.model.script' // UnderControlInterfaces
+ WL 'ME_4ED7573300EA' '4ED7573300EA.ms.model.script' // PrimListAndDocumentControllersRealization
+ )
+ ; // Depends
+
+ENDME // ME_4DC1708D032D PrimListControllersRealization

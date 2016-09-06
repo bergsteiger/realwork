@@ -1,0 +1,82 @@
+// ScriptSupport 4DC3B47F00B7 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DC3B47F00B7
+
+FORWARD ME_4DC3B4A603C9
+
+ME ME_4DC40C0C0175
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3B4A603C9 // TSHDTestScriptEngine
+ ;
+ MELINK Target WL 'ME_4DC24756009A' '5130776E01BE.ms.model.script' // TAutoTestsSuite
+ ;
+
+ENDME // ME_4DC40C0C0175 
+
+ME ME_509A5D2B0295
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC3B4A603C9 // TSHDTestScriptEngine
+ ;
+ MELINK Target WL 'ME_509A5D0D0141' '509A5CB50110.ms.model.script' // SupportKeyWords
+ ;
+
+ENDME // ME_509A5D2B0295 
+
+ME ME_4DC3B4A603C9
+ MEPROP UID '4DC3B4A603C9'
+ MEPROP Name 'TSHDTestScriptEngine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC3B47F00B7 // ScriptSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DEF306102FF' '4DEF302C0007.ms.model.script' // TtfwScriptEngineEX
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4DC40C0C0175 // TAutoTestsSuite
+ ME_509A5D2B0295 // SupportKeyWords
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'SHDTestScriptEngine'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SHDTestScriptEngine'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\SHDTestScriptEngine.pas'
+
+ENDME // ME_4DC3B4A603C9 TSHDTestScriptEngine
+
+ME ME_4DC3B47F00B7
+ MEPROP UID '4DC3B47F00B7'
+ MEPROP Name 'ScriptSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Поддержка выполняемых скриптов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B2A15810261' '4B2A15810261.ms.model.script' // DailyTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DC3B4A603C9 // TSHDTestScriptEngine
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
+ WL 'ME_4DC246E40002' '4DC246E40002.ms.model.script' // AutoTests
+ WL 'ME_4DEF302C0007' '4DEF302C0007.ms.model.script' // ScriptEngine
+ WL 'ME_4E2955E50377' '4E2955E50377.ms.model.script' // AutoTestSupport
+ WL 'ME_509A5CB50110' '509A5CB50110.ms.model.script' // SupportWords
+ WL 'ME_5130776E01BE' '5130776E01BE.ms.model.script' // DUnitKeyWordsSupport
+ )
+ ; // Depends
+ UP "ifndef" 'InsiderTest'
+
+ENDME // ME_4DC3B47F00B7 ScriptSupport

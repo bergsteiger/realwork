@@ -1,0 +1,59 @@
+// SynchroView_WarningBaloon 4EE223D80391 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EE223D80391
+
+ME ME_7706FF39C57D
+ MEPROP UID '7706FF39C57D'
+ MEPROP Name 'Ini_FormFactory_SynchroView_WarningBaloon'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы SynchroView_WarningBaloon' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EE223D80391 // SynchroView_WarningBaloon
+ ;
+ UPLINK SpelledFor HWL ME_4EE223D80391 // SynchroView_WarningBaloon
+ ;
+
+ENDME // ME_7706FF39C57D Ini_FormFactory_SynchroView_WarningBaloon
+
+ME ME_4EE223D80391
+ MEPROP UID '4EE223D80391'
+ MEPROP Name 'SynchroView_WarningBaloon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Баллон с предупреждением для документа в синхронном просмотре' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA599F501CF' '4EA599F501CF.ms.model.script' // PrimWarningBaloonOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EE2239F01FD' '4BD856E802F9.ms.model.script' // SynchroView_WarningBaloon
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_7706FF39C57D // Ini_FormFactory_SynchroView_WarningBaloon
+ )
+ ; // Operations
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TSynchroView_WarningBaloonForm'
+ UP extprop:pas:UnitName 'SynchroView_WarningBaloon_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SynchroView_WarningBaloonForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SynchroView_WarningBaloon_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_4EE223D80391 SynchroView_WarningBaloon

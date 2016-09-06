@@ -1,0 +1,433 @@
+// SimpleListInterfaces 4922BFA000DD ControllerInterfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4922BFA000DD
+
+FORWARD ME_47ECD4E8023E
+
+ME ME_47ECD54803CB
+ MEPROP UID '47ECD54803CB'
+ MEPROP Name 'HasDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Наличие документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_47ECD54803CB HasDocument
+
+ME ME_47ECD5490012
+ MEPROP UID '47ECD5490012'
+ MEPROP Name 'IsDocumentActive'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Текущим в зоне является документ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_47ECD5490012 IsDocumentActive
+
+ME ME_47F08A0E035F
+ MEPROP UID '47F08A0E035F'
+ MEPROP Name 'HasAttributes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Наличие атрибутов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_47F08A0E035F HasAttributes
+
+ME ME_47F08A2A03E6
+ MEPROP UID '47F08A2A03E6'
+ MEPROP Name 'IsAttributesActive'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Текущими в зоне являются атрибуты документа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_47F08A2A03E6 IsAttributesActive
+
+ME ME_47ECD5280007
+ MEPROP UID '47ECD5280007'
+ MEPROP Name 'OpenDocument'
+ MEPROP Class class_Operation
+ %SUMMARY 'Открыть документ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ ;
+
+ENDME // ME_47ECD5280007 OpenDocument
+
+ME ME_47F08A7F0108
+ MEPROP UID '47F08A7F0108'
+ MEPROP Name 'OpenAttributes'
+ MEPROP Class class_Operation
+ %SUMMARY 'Открыть атрибуты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ ;
+
+ENDME // ME_47F08A7F0108 OpenAttributes
+
+ME ME_47ECD4E8023E
+ MEPROP UID '47ECD4E8023E'
+ MEPROP GUID '92E3621F-75AE-4E7D-8BA5-9FA4E7478C0E'
+ MEPROP Name 'IdsSimpleListSynchroViewPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Спецификация синхронного просмотра для списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4922BFA000DD // SimpleListInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47ECD54803CB // HasDocument
+ HWL ME_47ECD5490012 // IsDocumentActive
+ HWL ME_47F08A0E035F // HasAttributes
+ HWL ME_47F08A2A03E6 // IsAttributesActive
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47ECD5280007 // OpenDocument
+ HWL ME_47F08A7F0108 // OpenAttributes
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsSimpleListSynchroViewPrim'
+
+ENDME // ME_47ECD4E8023E IdsSimpleListSynchroViewPrim
+
+FORWARD ME_494690E5004E
+
+ME ME_4946928403A8
+ MEPROP UID '4946928403A8'
+ MEPROP Name 'HasList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Наличие списка.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_494690E5004E // IdsSimpleListSynchroView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_4946928403A8 HasList
+
+ME ME_49469292003A
+ MEPROP UID '49469292003A'
+ MEPROP Name 'IsListActive'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Текущим в зоне является список.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_494690E5004E // IdsSimpleListSynchroView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_49469292003A IsListActive
+
+ME ME_494692790065
+ MEPROP UID '494692790065'
+ MEPROP Name 'OpenList'
+ MEPROP Class class_Operation
+ %SUMMARY 'Открыть список.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_494690E5004E // IdsSimpleListSynchroView
+ ;
+
+ENDME // ME_494692790065 OpenList
+
+ME ME_47ECD5280007_ME_494690E5004E
+ MELINK Original HWL ME_47ECD5280007 // OpenDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47ECD5280007_ME_494690E5004E OpenDocument
+
+ME ME_47ECD54803CB_ME_494690E5004E
+ MELINK Original HWL ME_47ECD54803CB // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47ECD54803CB_ME_494690E5004E HasDocument
+
+ME ME_47ECD5490012_ME_494690E5004E
+ MELINK Original HWL ME_47ECD5490012 // IsDocumentActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47ECD5490012_ME_494690E5004E IsDocumentActive
+
+ME ME_47F08A0E035F_ME_494690E5004E
+ MELINK Original HWL ME_47F08A0E035F // HasAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F08A0E035F_ME_494690E5004E HasAttributes
+
+ME ME_47F08A2A03E6_ME_494690E5004E
+ MELINK Original HWL ME_47F08A2A03E6 // IsAttributesActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_47F08A2A03E6_ME_494690E5004E IsAttributesActive
+
+ME ME_47F08A7F0108_ME_494690E5004E
+ MELINK Original HWL ME_47F08A7F0108 // OpenAttributes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F08A7F0108_ME_494690E5004E OpenAttributes
+
+ME ME_494690E5004E
+ MEPROP UID '494690E5004E'
+ MEPROP GUID '44989FBD-2A2E-4CB3-99C9-0B70D736FF76'
+ MEPROP Name 'IdsSimpleListSynchroView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Синхронный просмотр для списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4922BFA000DD // SimpleListInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4946928403A8 // HasList
+ HWL ME_49469292003A // IsListActive
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_494692790065 // OpenList
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47ECD5280007_ME_494690E5004E // OpenDocument
+ ME_47ECD54803CB_ME_494690E5004E // HasDocument
+ ME_47ECD5490012_ME_494690E5004E // IsDocumentActive
+ ME_47F08A0E035F_ME_494690E5004E // HasAttributes
+ ME_47F08A2A03E6_ME_494690E5004E // IsAttributesActive
+ ME_47F08A7F0108_ME_494690E5004E // OpenAttributes
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsSimpleListSynchroView'
+
+ENDME // ME_494690E5004E IdsSimpleListSynchroView
+
+FORWARD ME_4922D91D0027
+
+ME ME_4B1D15D203DC
+ MEPROP UID '4B1D15D203DC'
+ MEPROP Name 'Query'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4922D91D0027 // IdeFilter
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+ UP "pm" True
+
+ENDME // ME_4B1D15D203DC Query
+
+ME ME_4B1D160B00AC
+ MEPROP UID '4B1D160B00AC'
+ MEPROP Name 'Filter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'текущий узел фильтра выбранный в форме фильтров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4922D91D0027 // IdeFilter
+ ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+ UP "pm" True
+
+ENDME // ME_4B1D160B00AC Filter
+
+ME ME_4922D91D0027
+ MEPROP UID '4922D91D0027'
+ MEPROP GUID 'E22F664C-64D9-498F-B436-D3A7753BD702'
+ MEPROP Name 'IdeFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4922BFA000DD // SimpleListInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B1D15D203DC // Query
+ HWL ME_4B1D160B00AC // Filter
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'deFilter'
+
+ENDME // ME_4922D91D0027 IdeFilter
+
+FORWARD ME_47FB1D7601A6
+
+ME ME_47FB2086026D
+ MEPROP UID '47FB2086026D'
+ MEPROP Name 'Open'
+ MEPROP Class class_Operation
+ %SUMMARY 'открыть форму фильтры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47FB1D7601A6 // IucpFilters
+ ;
+
+ENDME // ME_47FB2086026D Open
+
+ME ME_47FB1D7601A6
+ MEPROP UID '47FB1D7601A6'
+ MEPROP GUID 'E3EF9091-08EE-47B6-9E0F-40436EE126D5'
+ MEPROP Name 'IucpFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseController ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Управляет открытием формы фильтров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4922BFA000DD // SimpleListInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47FB2086026D // Open
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ucpFilters'
+
+ENDME // ME_47FB1D7601A6 IucpFilters
+
+FORWARD ME_4922D94500FB
+
+FORWARD ME_4922D96003C8
+
+ME ME_4922D96A02C6
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4922D96A02C6 aNode
+
+ME ME_4922D96003C8
+ MEPROP UID '4922D96003C8'
+ MEPROP Name 'OpenFilter'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает данные необходимые редактироания фильтра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4922D94500FB // IdsFilters
+ ;
+ MELINK Target HWL ME_4922D91D0027 // IdeFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4922D96A02C6 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4922D96003C8 OpenFilter
+
+ME ME_4922D94500FB
+ MEPROP UID '4922D94500FB'
+ MEPROP GUID '8B4E6C35-7EC0-41FA-A1C2-380236FC2B43'
+ MEPROP Name 'IdsFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaController ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4922BFA000DD // SimpleListInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4922D96003C8 // OpenFilter
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsFilters'
+
+ENDME // ME_4922D94500FB IdsFilters
+
+ME ME_4922BFA000DD
+ MEPROP UID '4922BFA000DD'
+ MEPROP Name 'SimpleListInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ControllerInterfaces ;
+ %SUMMARY 'Интерфейсы "простого списка"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954F58900E8' '4954F58900E8.ms.model.script' // List
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47ECD4E8023E // IdsSimpleListSynchroViewPrim
+ HWL ME_494690E5004E // IdsSimpleListSynchroView
+ HWL ME_4922D91D0027 // IdeFilter
+ HWL ME_47FB1D7601A6 // IucpFilters
+ HWL ME_4922D94500FB // IdsFilters
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_456F02A50196' '456F02A50196.ms.model.script' // BaseTreeSupport
+ WL 'ME_45EEA48F011F' '45EEA48F011F.ms.model.script' // Filters
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_4682595B0268' '4682595B0268.ms.model.script' // l3TreeInterfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '18.11.2008 15:07'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\List\SimpleListInterfaces.pas'
+
+ENDME // ME_4922BFA000DD SimpleListInterfaces

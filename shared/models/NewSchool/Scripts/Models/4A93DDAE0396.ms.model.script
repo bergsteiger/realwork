@@ -1,0 +1,645 @@
+// PrimLongProcess 4A93DDAE0396 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A93DDAE0396
+
+FORWARD ME_498C7D4301A5
+
+ME ME_498C7D530175
+ MEPROP UID '498C7D530175'
+ MEPROP Name 'rMessage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_498C7D4301A5 // TnsLongProcessData
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_498C7D530175 rMessage
+
+ME ME_498C7D6A02E9
+ MEPROP UID '498C7D6A02E9'
+ MEPROP Name 'rMessageType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_498C7D4301A5 // TnsLongProcessData
+ ;
+ MELINK Target WL 'ME_498C7D1A035D' '47F2170002B2.ms.model.script' // TnsLongProcessType
+ ;
+
+ENDME // ME_498C7D6A02E9 rMessageType
+
+ME ME_498C7DA3019A
+ MEPROP UID '498C7DA3019A'
+ MEPROP Name 'rIconName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_498C7D4301A5 // TnsLongProcessData
+ ;
+ MELINK Target WL 'ME_4771179900D8' '4AB0C3C60310.ms.model.script' // PChar
+ ;
+
+ENDME // ME_498C7DA3019A rIconName
+
+FORWARD ME_4B17B6FA024F
+
+ME ME_4B17B70E0391
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4B17B70E0391 aMessage
+
+ME ME_4B17B70E03C8
+ MEPROP Name 'aMessageType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498C7D1A035D' '47F2170002B2.ms.model.script' // TnsLongProcessType
+ ;
+
+ENDME // ME_4B17B70E03C8 aMessageType
+
+ME ME_4B17B70F001A
+ MEPROP Name 'anIconName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4AB0C3C60310.ms.model.script' // PChar
+ ;
+
+ENDME // ME_4B17B70F001A anIconName
+
+ME ME_4B17B6FA024F
+ MEPROP UID '4B17B6FA024F'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_498C7D4301A5 // TnsLongProcessData
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B17B70E0391 // aMessage
+ ME_4B17B70E03C8 // aMessageType
+ ME_4B17B70F001A // anIconName
+ )
+ ; // Parameters
+
+ENDME // ME_4B17B6FA024F C
+
+ME ME_498C7D4301A5
+ MEPROP UID '498C7D4301A5'
+ MEPROP Name 'TnsLongProcessData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_498C7D530175 // rMessage
+ HWL ME_498C7D6A02E9 // rMessageType
+ HWL ME_498C7DA3019A // rIconName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B17B6FA024F // C
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'LongProcessData'
+
+ENDME // ME_498C7D4301A5 TnsLongProcessData
+
+FORWARD ME_523AC9F602BD
+
+ME ME_523ACA1603C8
+ MEPROP UID '523ACA1603C8'
+ MEPROP Name 'MessageLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523AC9F602BD // ClientPanel
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523ACA1603C8 MessageLabel
+
+ME ME_523AC9F602BD
+ MEPROP UID '523AC9F602BD'
+ MEPROP Name 'ClientPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_523ACA1603C8 // MessageLabel
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523AC9F602BD ClientPanel
+
+FORWARD ME_523ACA2D0179
+
+ME ME_523ACA420381
+ MEPROP UID '523ACA420381'
+ MEPROP Name 'ProgressBar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523ACA2D0179 // BottomPanel
+ ;
+ UP "ControlClass" 'TvtGradientWaitbar'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523ACA420381 ProgressBar
+
+ME ME_523ACA2D0179
+ MEPROP UID '523ACA2D0179'
+ MEPROP Name 'BottomPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_523ACA420381 // ProgressBar
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523ACA2D0179 BottomPanel
+
+FORWARD ME_523ACE4D0133
+
+ME ME_523ACE960302
+ MEPROP UID '523ACE960302'
+ MEPROP Name 'Image'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523ACE4D0133 // LeftPanel
+ ;
+ UP "ControlClass" 'TImage'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523ACE960302 Image
+
+ME ME_523ACE4D0133
+ MEPROP UID '523ACE4D0133'
+ MEPROP Name 'LeftPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_523ACE960302 // Image
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523ACE4D0133 LeftPanel
+
+FORWARD ME_523AD3BC034C
+
+ME ME_523AD40602E1
+ MEPROP UID '523AD40602E1'
+ MEPROP Name 'btnExit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выход' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523AD3BC034C // ButtonPanel
+ ;
+ UP "ControlClass" 'TvtButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523AD40602E1 btnExit
+
+ME ME_523AD3BC034C
+ MEPROP UID '523AD3BC034C'
+ MEPROP Name 'ButtonPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_523AD40602E1 // btnExit
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_523AD3BC034C ButtonPanel
+
+ME ME_4AC5FFB502AA
+ MEPROP UID '4AC5FFB502AA'
+ MEPROP Name 'f_Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target HWL ME_498C7D4301A5 // TnsLongProcessData
+ ;
+
+ENDME // ME_4AC5FFB502AA f_Data
+
+ME ME_523ADAA8017C
+ MEPROP UID '523ADAA8017C'
+ MEPROP Name 'f_InLongProcess'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_523ADAA8017C f_InLongProcess
+
+ME ME_523ABFDC0014
+ MEPROP UID '523ABFDC0014'
+ MEPROP Name 'Prepare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'подготовка формы к открытию на основе данных f_Data' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+
+ENDME // ME_523ABFDC0014 Prepare
+
+FORWARD ME_523AC0C700E6
+
+FORWARD ME_523AC0D70019
+
+ME ME_523AC0DA00A4
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_498C7D4301A5 // TnsLongProcessData
+ ;
+
+ENDME // ME_523AC0DA00A4 aData
+
+ME ME_523AC0D70019
+ MEPROP UID '523AC0D70019'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523AC0C700E6 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_523AC0DA00A4 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_523AC0D70019 DoIt
+
+ME ME_523AC0C700E6
+ MEPROP UID '523AC0C700E6'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523AC0D70019 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523AC0C700E6 Create
+
+ME ME_523AC9A902C2
+ MEPROP UID '523AC9A902C2'
+ MEPROP Name 'btnExitClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_523AC9A902C2 btnExitClick
+
+ME ME_523ADA5A023D
+ MEPROP UID '523ADA5A023D'
+ MEPROP Name 'vcmEntityFormCloseQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_523AD9CB02EC' '4799D29F033F.ms.model.script' // TCloseQueryEvent
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EntityFormCloseQuery'
+
+ENDME // ME_523ADA5A023D vcmEntityFormCloseQuery
+
+FORWARD ME_4AC4E25E0258
+
+ME ME_4AC4E2840194
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_498C7D4301A5 // TnsLongProcessData
+ ;
+
+ENDME // ME_4AC4E2840194 aData
+
+ME ME_4AC4E25E0258
+ MEPROP UID '4AC4E25E0258'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC4E2840194 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4E25E0258 Make
+
+FORWARD ME_523AC0AA0039
+
+ME ME_523AC5400043
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_523AC52E0120' '476F78840219.ms.model.script' // TWMSysCommand
+ ;
+
+ENDME // ME_523AC5400043 Message
+
+ME ME_523AC0AA0039
+ MEPROP UID '523AC0AA0039'
+ MEPROP Name 'WMSysCommand'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELIST Parameters
+   Seq: ( ME_523AC5400043 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SYSCOMMAND'
+
+ENDME // ME_523AC0AA0039 WMSysCommand
+
+ME ME_5242F1AA016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5242F1AA016B 
+
+ME ME_5242F1D303A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_5242F1D303A9 
+
+ME ME_5242F2360251
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_4BA20A0E03B0' '47913B47006E.ms.model.script' // l3AsincMessageWindowRes
+ ;
+
+ENDME // ME_5242F2360251 
+
+ME ME_5242F2500331
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_5242F2500331 
+
+ME ME_5242F2CC0070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_5242F2CC0070 
+
+ME ME_5242F2DC01E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_5242F2DC01E0 
+
+ME ME_546C2DCF00E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_537AEC5E03DD' '533D53FF00C2.ms.model.script' // TvcmTabbedContainerFormDispatcher
+ ;
+
+ENDME // ME_546C2DCF00E6 
+
+ME ME_574DC784000D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_574DC784000D 
+
+ME ME_574DC7A300E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A93DDAE0396 // PrimLongProcess
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_574DC7A300E5 
+
+ME ME_479731C50290_ME_4A93DDAE0396
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A93DDAE0396 Cleanup
+
+ME ME_48C7925A02E5_ME_4A93DDAE0396
+ MELINK Original WL 'ME_48C7925A02E5' '4799D29F033F.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7925A02E5_ME_4A93DDAE0396 CreateParams
+
+ME ME_4A8E8F2E0195_ME_4A93DDAE0396
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4A93DDAE0396 InitControls
+
+ME ME_520B42AF0115_ME_4A93DDAE0396
+ MELINK Original WL 'ME_520B42AF0115' '4799D29F033F.ms.model.script' // ShowModal
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_520B42AF0115_ME_4A93DDAE0396 ShowModal
+
+ME ME_523AC062006F_ME_4A93DDAE0396
+ MELINK Original WL 'ME_523AC062006F' '4AADF9450143.ms.model.script' // HasFormFloatingZoneTypeAndVisible
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_523AC062006F_ME_4A93DDAE0396 HasFormFloatingZoneTypeAndVisible
+
+ME ME_4A93DDAE0396
+ MEPROP UID '4A93DDAE0396'
+ MEPROP Name 'PrimLongProcess'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A924BCA0092' '4A924BCA0092.ms.model.script' // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_523AC9F602BD // ClientPanel
+ HWL ME_523ACA2D0179 // BottomPanel
+ HWL ME_523ACE4D0133 // LeftPanel
+ HWL ME_523AD3BC034C // ButtonPanel
+ HWL ME_4AC5FFB502AA // f_Data
+ HWL ME_523ADAA8017C // f_InLongProcess
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_523ABFDC0014 // Prepare
+ HWL ME_523AC0C700E6 // Create
+ HWL ME_523AC9A902C2 // btnExitClick
+ HWL ME_523ADA5A023D // vcmEntityFormCloseQuery
+ HWL ME_4AC4E25E0258 // Make
+ HWL ME_523AC0AA0039 // WMSysCommand
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A93DDAE0396 // Cleanup
+ ME_48C7925A02E5_ME_4A93DDAE0396 // CreateParams
+ ME_4A8E8F2E0195_ME_4A93DDAE0396 // InitControls
+ ME_520B42AF0115_ME_4A93DDAE0396 // ShowModal
+ ME_523AC062006F_ME_4A93DDAE0396 // HasFormFloatingZoneTypeAndVisible
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_498C7D4301A5 // TnsLongProcessData
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5242F1AA016B // Windows
+ ME_5242F1D303A9 // l3String
+ ME_5242F2360251 // l3AsincMessageWindowRes
+ ME_5242F2500331 // DataAdapter
+ ME_5242F2CC0070 // afwFacade
+ ME_5242F2DC01E0 // Graphics
+ ME_546C2DCF00E6 // TvcmTabbedContainerFormDispatcher
+ ME_574DC784000D // Forms
+ ME_574DC7A300E5 // Classes
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '25.08.2009 16:50'
+ UP "ZoneType" 'ManualModal'
+ UP extprop:pas:TypeName 'TPrimLongProcessForm'
+ UP extprop:pas:UnitName 'PrimLongProcess_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimLongProcessForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimLongProcess_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms'
+
+ENDME // ME_4A93DDAE0396 PrimLongProcess

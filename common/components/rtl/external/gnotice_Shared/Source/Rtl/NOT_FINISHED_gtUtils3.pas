@@ -16,6 +16,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *540014C10254impl_uses*
+ //#UC END# *540014C10254impl_uses*
 ;
 
 procedure gtRect;

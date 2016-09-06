@@ -1,0 +1,152 @@
+// AutoPipeServer$Test 52F24F6103AB TestTarget Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F24F6103AB
+
+FORWARD ME_52F24FD90066
+
+FORWARD ME_52F250640165
+
+ME ME_52F2506F035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F24FD90066 // TAutoPipeServerTestsRunner
+ ;
+ MELINK Target HWL ME_52F250640165 // toK
+ ;
+
+ENDME // ME_52F2506F035C 
+
+ME ME_52F257800007
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F24FD90066 // TAutoPipeServerTestsRunner
+ ;
+ MELINK Target WL 'ME_4DE342FA0300' '4DE3425B01DA.ms.model.script' // TArchiAutoTestSuite
+ ;
+
+ENDME // ME_52F257800007 
+
+ME ME_52F264840382_ME_52F24FD90066
+ MELINK Original WL 'ME_52F264840382' '51309A4A02FB.ms.model.script' // GetResultsPlaces
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDME // ME_52F264840382_ME_52F24FD90066 GetResultsPlaces
+
+ME ME_52F24FD90066
+ MEPROP UID '52F24FD90066'
+ MEPROP Name 'TAutoPipeServerTestsRunner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F24F6103AB // AutoPipeServer$Test
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52F255E702F0' '51309A4A02FB.ms.model.script' // TGUIAppTester
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_52F264840382_ME_52F24FD90066 // GetResultsPlaces
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_52F2506F035C // toK
+ ME_52F257800007 // TArchiAutoTestSuite
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'AutoPipeServerTestsRunner'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoPipeServerTestsRunner'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\AutoPipeServerTestsRunner.pas'
+
+ENDME // ME_52F24FD90066 TAutoPipeServerTestsRunner
+
+ME ME_4B7AB0B6016E_ME_52F250640165
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.ms.model.script' // CommandLineKey
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7AB0B6016E_ME_52F250640165 CommandLineKey
+
+ME ME_4B7C0B43005B_ME_52F250640165
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A112B011A.ms.model.script' // TimesPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7C0B43005B_ME_52F250640165 TimesPage
+
+ME ME_4B7C0B670215_ME_52F250640165
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A112B011A.ms.model.script' // ResultsPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7C0B670215_ME_52F250640165 ResultsPage
+
+ME ME_52F250640165
+ MEPROP UID '52F250640165'
+ MEPROP Name 'toK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestResults ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F24F6103AB // AutoPipeServer$Test
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.ms.model.script' // TTestResultsPlace
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4B7AB0B6016E_ME_52F250640165 // CommandLineKey
+ ME_4B7C0B43005B_ME_52F250640165 // TimesPage
+ ME_4B7C0B670215_ME_52F250640165 // ResultsPage
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TtoK'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'toK'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\toK.pas'
+
+ENDME // ME_52F250640165 toK
+
+ME ME_52F24F6103AB
+ MEPROP UID '52F24F6103AB'
+ MEPROP Name 'AutoPipeServer'
+ MEPROP OriginalName 'AutoPipeServer$Test'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestTarget ;
+ %SUMMARY 'Тесты Сервера автоматизации Архивариуса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E7727A101CF' '4E7727A101CF.ms.model.script' // archi$AutoPipeServer$Garant
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52F24FD90066 // TAutoPipeServerTestsRunner
+ HWL ME_52F250640165 // toK
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4DE3425B01DA' '4DE3425B01DA.ms.model.script' // ArchiScriptSupport
+ WL 'ME_4DE7653F03E5' '4DE7653F03E5.ms.model.script' // Archi Insider Test Support
+ WL 'ME_513098F2017C' '513098F2017C.ms.model.script' // Shared Delphi Tests Common
+ WL 'ME_51309A4A02FB' '51309A4A02FB.ms.model.script' // Tests Res Common
+ WL 'ME_52E8D676018A' '52E8D676018A.ms.model.script' // AutoPipeServer
+ WL 'ME_52F275D40238' '52F275D40238.ms.model.script' // Low Level Tests
+ WL 'ME_5395D0BF015A' '5395D0BF015A.ms.model.script' // New Actions Test
+ WL 'ME_53BBFFDF0108' '53BBFFDF0108.ms.model.script' // Tasks
+ )
+ ; // Depends
+ UP "ifdef" 'AppServerSide'
+ UP "is insider test" True
+ UP "need UC in project" True
+ UP extprop:pas:UnitName 'AutoPipeServerTest'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\AutoPipeServerTest.dpr'
+ UP Version 0
+
+ENDME // ME_52F24F6103AB AutoPipeServer$Test

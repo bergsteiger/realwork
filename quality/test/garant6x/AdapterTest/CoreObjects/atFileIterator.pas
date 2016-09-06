@@ -81,6 +81,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *50254E240133impl_uses*
+ //#UC END# *50254E240133impl_uses*
 ;
 
 function TatSimpleFileIterator.pm_GetIsFolder: Boolean;

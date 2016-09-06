@@ -35,6 +35,8 @@ uses
  , SysUtils
  , BaseTypesUnit
  , atNodeHelper
+ //#UC START# *4FD234F20321impl_uses*
+ //#UC END# *4FD234F20321impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}

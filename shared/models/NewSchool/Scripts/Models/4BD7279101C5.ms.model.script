@@ -1,0 +1,865 @@
+// PrimConfigurationList 4BD7279101C5 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BD7279101C5
+
+ME ME_4BD727D901FA
+ MEPROP UID '4BD727D901FA'
+ MEPROP Name 'utConfigurationList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ UP "ImageIndex" 74
+ UP "SettingsCaption" 'Конфигурации (вкладка)'
+ UP "Weight" 30
+ UP extprop:pas:UnitName 'PrimConfigurationList_utConfigurationList_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_utConfigurationList_UserType.pas'
+
+ENDME // ME_4BD727D901FA utConfigurationList
+
+ME ME_494F89C30197_ME_4C408A180375
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_494F89C30197_ME_4C408A180375 Delete
+
+ME ME_4BDAF7880236_ME_4C408A180375
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4BDAF7880236_ME_4C408A180375 ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4C408A180375
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4BDAF7A2005C_ME_4C408A180375 CollapseAll
+
+ME ME_4BDAF7B803CF_ME_4C408A180375
+ MELINK Original WL 'ME_4BDAF7B803CF' '4BDAF7510113.ms.model.script' // Wrap
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4BDAF7B803CF_ME_4C408A180375 Wrap
+
+ME ME_4C7D0CC90052_ME_4C408A180375
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C7D0CC90052_ME_4C408A180375 Delete
+
+ME ME_4C408A180375
+ MEPROP UID '4C408A180375'
+ MEPROP Name 'tvConfs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_4C408A180375 // Delete
+ ME_4BDAF7880236_ME_4C408A180375 // ExpandAll
+ ME_4BDAF7A2005C_ME_4C408A180375 // CollapseAll
+ ME_4BDAF7B803CF_ME_4C408A180375 // Wrap
+ ME_4C7D0CC90052_ME_4C408A180375 // Delete
+ )
+ ; // Implemented
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4C408A180375 tvConfs
+
+FORWARD ME_4C408D790107
+
+FORWARD ME_4C408D8700D6
+
+ME ME_4C408D8B0117
+ MEPROP Name 'aConf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4C408D8B0117 aConf
+
+ME ME_4C408D8700D6
+ MEPROP UID '4C408D8700D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C408D790107 // OpenConf
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C408D8B0117 // aConf
+ )
+ ; // Parameters
+
+ENDME // ME_4C408D8700D6 DoIt
+
+ME ME_4C408D790107
+ MEPROP UID '4C408D790107'
+ MEPROP Name 'OpenConf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C408D8700D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C408D790107 OpenConf
+
+FORWARD ME_4C408D970189
+
+ME ME_4C408D9D02B4
+ MEPROP UID '4C408D9D02B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C408D970189 // SetActiveConf
+ ;
+
+ENDME // ME_4C408D9D02B4 DoIt
+
+ME ME_4C408D970189
+ MEPROP UID '4C408D970189'
+ MEPROP Name 'SetActiveConf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C408D9D02B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C408D970189 SetActiveConf
+
+FORWARD ME_4C408DAB0071
+
+ME ME_4C408DB700D7
+ MEPROP UID '4C408DB700D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C408DAB0071 // IsCurrentConfChanged
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C408DB700D7 DoIt
+
+ME ME_4C408DAB0071
+ MEPROP UID '4C408DAB0071'
+ MEPROP Name 'IsCurrentConfChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'определяет изменена ли текущая конфигурация' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C408DB700D7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C408DAB0071 IsCurrentConfChanged
+
+FORWARD ME_4C408DC602F1
+
+ME ME_4C408DDB0075
+ MEPROP UID '4C408DDB0075'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C408DC602F1 // IsCurrentReadOnly
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C408DDB0075 DoIt
+
+ME ME_4C408DC602F1
+ MEPROP UID '4C408DC602F1'
+ MEPROP Name 'IsCurrentReadOnly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'текущая конфигурация предустановлена' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C408DDB0075 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C408DC602F1 IsCurrentReadOnly
+
+ME ME_51715EE202AC
+ MEPROP UID '51715EE202AC'
+ MEPROP Name 'tvConfsGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_51715EE202AC tvConfsGetItemImage
+
+ME ME_51715F4A00F1
+ MEPROP UID '51715F4A00F1'
+ MEPROP Name 'tvConfsGetItemFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_514B370503CC' '4CFFE3470249.ms.model.script' // TGetItemFontEvent
+ )
+ ; // Inherits
+
+ENDME // ME_51715F4A00F1 tvConfsGetItemFont
+
+ME ME_51715F570116
+ MEPROP UID '51715F570116'
+ MEPROP Name 'tvConfsActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_51715F570116 tvConfsActionElement
+
+ME ME_51715F680175
+ MEPROP UID '51715F680175'
+ MEPROP Name 'tvConfsGetItemIconHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_514B34AD015C' '4CFFE3470249.ms.model.script' // TGetItemHint
+ )
+ ; // Inherits
+
+ENDME // ME_51715F680175 tvConfsGetItemIconHint
+
+FORWARD ME_517176BE0397
+
+FORWARD ME_517176DF01C0
+
+ME ME_517176E1009B
+ MEPROP Name 'aConfType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDDCA03EB' '45EEAA69036E.ms.model.script' // ConfigurationType
+ ;
+
+ENDME // ME_517176E1009B aConfType
+
+ME ME_517176E100BC
+ MEPROP Name 'aActive'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_517176E100BC aActive
+
+ME ME_517176E100DC
+ MEPROP Name 'aChange'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_517176E100DC aChange
+
+ME ME_517176DF01C0
+ MEPROP UID '517176DF01C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517176BE0397 // GetConfImage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_517176E1009B // aConfType
+ ME_517176E100BC // aActive
+ ME_517176E100DC // aChange
+ )
+ ; // Parameters
+
+ENDME // ME_517176DF01C0 DoIt
+
+ME ME_517176BE0397
+ MEPROP UID '517176BE0397'
+ MEPROP Name 'GetConfImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_517176DF01C0 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_517176BE0397 GetConfImage
+
+ME ME_4C408B990376
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_49916A0A015E' '499164F501ED.ms.model.script' // InsConfigNode
+ ;
+
+ENDME // ME_4C408B990376 
+
+ME ME_4C408BBE01EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_4C408BBE01EE 
+
+ME ME_4C408EA40274
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4C408EA40274 
+
+ME ME_4C40908900F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4ABB4C2B03D5' '4ABA137C00E5.ms.model.script' // nsConfigurationList
+ ;
+
+ENDME // ME_4C40908900F3 
+
+ME ME_4C40909E02A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4AC0B9CF018A' '47D0E1500033.ms.model.script' // vcmCStr
+ ;
+
+ENDME // ME_4C40909E02A4 
+
+ME ME_5174EBCB01F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_45EEDDCA03EB' '45EEAA69036E.ms.model.script' // ConfigurationType
+ ;
+
+ENDME // ME_5174EBCB01F4 
+
+ME ME_5174EC45008B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_5174EC45008B 
+
+ME ME_5174EC680225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_494B949E022B' '494B949E022B.ms.model.script' // TeeTreeView
+ ;
+
+ENDME // ME_5174EC680225 
+
+ME ME_5174ECD001E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4808A20402DC' '4AB0997B00A2.ms.model.script' // Math
+ ;
+
+ENDME // ME_5174ECD001E0 
+
+ME ME_5174ED4C029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_5174ED3802CD' '4ABA137C00E5.ms.model.script' // ConfigurationListRes
+ ;
+
+ENDME // ME_5174ED4C029F 
+
+ME ME_5174ED8E0221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5174ED8E0221 
+
+ME ME_5174EDB201EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5174EDB201EB 
+
+ME ME_523808DA017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ContextMenuWeight::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4A9807E301A6' '4A9807DB01A5.ms.model.script' // Switcher$SetActive
+ ;
+ UP "Value" 10
+
+ENDME // ME_523808DA017A 
+
+ME ME_523808E103A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ContextMenuWeight::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4C4088C601B8' '4AE824CB035A.ms.model.script' // PopupMenu
+ ;
+ UP "Value" 20
+
+ENDME // ME_523808E103A2 
+
+ME ME_523808EB0053
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ContextMenuWeight::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ ;
+ UP "Value" 30
+
+ENDME // ME_523808EB0053 
+
+ME ME_523808FE03AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_ContextMenuWeight::Dependency ;
+ MELINK Parent HWL ME_4BD7279101C5 // PrimConfigurationList
+ ;
+ MELINK Target WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ ;
+ UP "Value" 40
+
+ENDME // ME_523808FE03AB 
+
+ME ME_494F89C30197_ME_4BD7279101C5
+ MELINK Original WL 'ME_494F89C30197' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_494F89C30197_ME_4BD7279101C5 Delete
+
+ME ME_4A9807F801F9_ME_4BD7279101C5
+ MELINK Original WL 'ME_4A9807F801F9' '4A9807DB01A5.ms.model.script' // BecomeActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_4A9807F801F9_ME_4BD7279101C5 BecomeActive
+
+ME ME_4BDAF7880236_ME_4BD7279101C5
+ MELINK Original WL 'ME_4BDAF7880236' '4BDAF7510113.ms.model.script' // ExpandAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4BDAF7880236_ME_4BD7279101C5 ExpandAll
+
+ME ME_4BDAF7A2005C_ME_4BD7279101C5
+ MELINK Original WL 'ME_4BDAF7A2005C' '4BDAF7510113.ms.model.script' // CollapseAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4BDAF7A2005C_ME_4BD7279101C5 CollapseAll
+
+ME ME_4C4088D301A1_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C4088D301A1' '4AE824CB035A.ms.model.script' // DoActive
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C4088D301A1_ME_4BD7279101C5 DoActive
+
+ME ME_4C4088E801E0_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C4088E801E0' '4AE824CB035A.ms.model.script' // Modify
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C4088E801E0_ME_4BD7279101C5 Modify
+
+ME ME_4C4088F60021_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C4088F60021' '4AE824CB035A.ms.model.script' // CopyConfig
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C4088F60021_ME_4BD7279101C5 CopyConfig
+
+ME ME_4C40890403A9_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C40890403A9' '4AE824CB035A.ms.model.script' // ConfInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C40890403A9_ME_4BD7279101C5 ConfInfo
+
+ME ME_4C408917021D_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C408917021D' '4AE824CB035A.ms.model.script' // RestoreAllSettings
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C408917021D_ME_4BD7279101C5 RestoreAllSettings
+
+ME ME_4C40892F0293_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C40892F0293' '4AE824CB035A.ms.model.script' // RestoreConf
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" True
+ENDME // ME_4C40892F0293_ME_4BD7279101C5 RestoreConf
+
+ME ME_4C408C950385_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C408C950385' '4AE824CB035A.ms.model.script' // SaveAsDefaultConf
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C408C950385_ME_4BD7279101C5 SaveAsDefaultConf
+
+ME ME_4C7D0CC90052_ME_4BD7279101C5
+ MELINK Original WL 'ME_4C7D0CC90052' '494F898C013E.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C7D0CC90052_ME_4BD7279101C5 Delete
+
+ME ME_4A8E8F2E0195_ME_4BD7279101C5
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4BD7279101C5 InitControls
+
+ME ME_4BD7279101C5
+ MEPROP UID '4BD7279101C5'
+ MEPROP Name 'PrimConfigurationList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AA79F630309' '4AA79F630309.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_494F89AA0017' '494F898C013E.ms.model.script' // Edit
+ WL 'ME_4A9807E301A6' '4A9807DB01A5.ms.model.script' // Switcher$SetActive
+ WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
+ WL 'ME_4C4088C601B8' '4AE824CB035A.ms.model.script' // PopupMenu
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C408A180375 // tvConfs
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C408D790107 // OpenConf
+ HWL ME_4C408D970189 // SetActiveConf
+ HWL ME_4C408DAB0071 // IsCurrentConfChanged
+ HWL ME_4C408DC602F1 // IsCurrentReadOnly
+ HWL ME_51715EE202AC // tvConfsGetItemImage
+ HWL ME_51715F4A00F1 // tvConfsGetItemFont
+ HWL ME_51715F570116 // tvConfsActionElement
+ HWL ME_51715F680175 // tvConfsGetItemIconHint
+ HWL ME_517176BE0397 // GetConfImage
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_494F89C30197_ME_4BD7279101C5 // Delete
+ ME_4A9807F801F9_ME_4BD7279101C5 // BecomeActive
+ ME_4BDAF7880236_ME_4BD7279101C5 // ExpandAll
+ ME_4BDAF7A2005C_ME_4BD7279101C5 // CollapseAll
+ ME_4C4088D301A1_ME_4BD7279101C5 // DoActive
+ ME_4C4088E801E0_ME_4BD7279101C5 // Modify
+ ME_4C4088F60021_ME_4BD7279101C5 // CopyConfig
+ ME_4C40890403A9_ME_4BD7279101C5 // ConfInfo
+ ME_4C408917021D_ME_4BD7279101C5 // RestoreAllSettings
+ ME_4C40892F0293_ME_4BD7279101C5 // RestoreConf
+ ME_4C408C950385_ME_4BD7279101C5 // SaveAsDefaultConf
+ ME_4C7D0CC90052_ME_4BD7279101C5 // Delete
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4BD7279101C5 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BD727D901FA // utConfigurationList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C408B990376 // InsConfigNode
+ ME_4C408BBE01EE // IeeNode
+ ME_4C408EA40274 // Supports
+ ME_4C40908900F3 // nsConfigurationList
+ ME_4C40909E02A4 // vcmCStr
+ ME_5174EBCB01F4 // ConfigurationType
+ ME_5174EC45008B // Graphics
+ ME_5174EC680225 // TeeTreeView
+ ME_5174ECD001E0 // Math
+ ME_5174ED4C029F // ConfigurationListRes
+ ME_5174ED8E0221 // Controls
+ ME_5174EDB201EB // Forms
+ ME_523808DA017A // Switcher$SetActive
+ ME_523808E103A2 // PopupMenu
+ ME_523808EB0053 // Edit
+ ME_523808FE03AB // Tree
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_571A288400E0' '4AA79F630309.ms.model.script' // PrimConfigurationListWordsPack
+ )
+ ; // Injected
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '27.04.2010 22:06'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimConfigurationListForm'
+ UP extprop:pas:UnitName 'PrimConfigurationList_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimConfigurationListForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\PrimConfigurationList_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+
+ENDME // ME_4BD7279101C5 PrimConfigurationList

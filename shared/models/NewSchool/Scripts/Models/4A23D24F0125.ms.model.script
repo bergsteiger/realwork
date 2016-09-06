@@ -1,0 +1,397 @@
+// DOM 4A23D24F0125 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23D24F0125
+
+FORWARD ME_4A23D3F70344
+
+ME ME_4A23D41001F1
+ MEPROP UID '4A23D41001F1'
+ MEPROP Name 'Custom'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23D3F70344 // PaperSize
+ ;
+
+ENDME // ME_4A23D41001F1 Custom
+
+ME ME_4A23D4170158
+ MEPROP UID '4A23D4170158'
+ MEPROP Name 'A0'
+ MEPROP Class class_Attribute
+ %SUMMARY '84   x 118.8' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23D3F70344 // PaperSize
+ ;
+
+ENDME // ME_4A23D4170158 A0
+
+ME ME_4A23D42201B7
+ MEPROP UID '4A23D42201B7'
+ MEPROP Name 'A1'
+ MEPROP Class class_Attribute
+ %SUMMARY '59.4 x 84' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23D3F70344 // PaperSize
+ ;
+
+ENDME // ME_4A23D42201B7 A1
+
+ME ME_4A23D42D0247
+ MEPROP UID '4A23D42D0247'
+ MEPROP Name 'A2'
+ MEPROP Class class_Attribute
+ %SUMMARY '42   x 59.4' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23D3F70344 // PaperSize
+ ;
+
+ENDME // ME_4A23D42D0247 A2
+
+ME ME_4A23D4380254
+ MEPROP UID '4A23D4380254'
+ MEPROP Name 'A3'
+ MEPROP Class class_Attribute
+ %SUMMARY '29.7 x 42' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23D3F70344 // PaperSize
+ ;
+
+ENDME // ME_4A23D4380254 A3
+
+ME ME_4A23D4430390
+ MEPROP UID '4A23D4430390'
+ MEPROP Name 'A4'
+ MEPROP Class class_Attribute
+ %SUMMARY '21   x 29.7' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23D3F70344 // PaperSize
+ ;
+
+ENDME // ME_4A23D4430390 A4
+
+ME ME_4A23D45100FC
+ MEPROP UID '4A23D45100FC'
+ MEPROP Name 'A5'
+ MEPROP Class class_Attribute
+ %SUMMARY '14.8 x 21' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23D3F70344 // PaperSize
+ ;
+
+ENDME // ME_4A23D45100FC A5
+
+ME ME_4A23D3F70344
+ MEPROP UID '4A23D3F70344'
+ MEPROP Name 'PaperSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Размер бумаги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23D24F0125 // DOM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A23D41001F1 // Custom
+ HWL ME_4A23D4170158 // A0
+ HWL ME_4A23D42201B7 // A1
+ HWL ME_4A23D42D0247 // A2
+ HWL ME_4A23D4380254 // A3
+ HWL ME_4A23D4430390 // A4
+ HWL ME_4A23D45100FC // A5
+ )
+ ; // Attributes
+ UP "children prefix" 'ps'
+ UP extprop:pas:ElementPrefix 'evd_ps'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:TypeName 'TevdPaperSize'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4A23D3F70344 PaperSize
+
+FORWARD ME_4A23D6B90323
+
+ME ME_4A23D6C9011C
+ MEPROP UID '4A23D6C9011C'
+ MEPROP Name 'PaperSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Размер бумаги' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A23D6B90323 // Section
+ ;
+ MELINK Target HWL ME_4A23D3F70344 // PaperSize
+ ;
+ UP "pm" True
+
+ENDME // ME_4A23D6C9011C PaperSize
+
+ME ME_4A23D6D802FC
+ MEPROP UID '4A23D6D802FC'
+ MEPROP Name 'Orientation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Ориентация страницы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A23D6B90323 // Section
+ ;
+ MELINK Target WL 'ME_468CFC7101C1' '469D0AC7005E.ms.model.script' // PageOrientation
+ ;
+ UP "pm" True
+
+ENDME // ME_4A23D6D802FC Orientation
+
+ME ME_4A23D6B90323
+ MEPROP UID '4A23D6B90323'
+ MEPROP GUID '200906F8-7E80-4FA3-B51F-628A5D751D6E'
+ MEPROP Name 'Section'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Свойства раздела документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23D24F0125 // DOM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A23D6C9011C // PaperSize
+ HWL ME_4A23D6D802FC // Orientation
+ )
+ ; // Attributes
+ UP extprop:pas:ElementPrefix 'evd_'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:TypeName 'IevdSection'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dSection'
+
+ENDME // ME_4A23D6B90323 Section
+
+FORWARD ME_4A23DC990340
+
+ME ME_4A23DCB40119
+ MEPROP UID '4A23DCB40119'
+ MEPROP Name 'Russian'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Русский' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23DC990340 // Language
+ ;
+
+ENDME // ME_4A23DCB40119 Russian
+
+ME ME_4A23DCC101D4
+ MEPROP UID '4A23DCC101D4'
+ MEPROP Name 'English'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Английский' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23DC990340 // Language
+ ;
+
+ENDME // ME_4A23DCC101D4 English
+
+ME ME_4A23DCCB021A
+ MEPROP UID '4A23DCCB021A'
+ MEPROP Name 'German'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Немецкий' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23DC990340 // Language
+ ;
+
+ENDME // ME_4A23DCCB021A German
+
+ME ME_4A23DCD5016C
+ MEPROP UID '4A23DCD5016C'
+ MEPROP Name 'French'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Французский' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23DC990340 // Language
+ ;
+
+ENDME // ME_4A23DCD5016C French
+
+ME ME_4A23DCE002CE
+ MEPROP UID '4A23DCE002CE'
+ MEPROP Name 'Italian'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Итальянский' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23DC990340 // Language
+ ;
+
+ENDME // ME_4A23DCE002CE Italian
+
+ME ME_4A23DCED02FA
+ MEPROP UID '4A23DCED02FA'
+ MEPROP Name 'Spanish'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Испанский' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23DC990340 // Language
+ ;
+
+ENDME // ME_4A23DCED02FA Spanish
+
+ME ME_4A23DC990340
+ MEPROP UID '4A23DC990340'
+ MEPROP Name 'Language'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Язык' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23D24F0125 // DOM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A23DCB40119 // Russian
+ HWL ME_4A23DCC101D4 // English
+ HWL ME_4A23DCCB021A // German
+ HWL ME_4A23DCD5016C // French
+ HWL ME_4A23DCE002CE // Italian
+ HWL ME_4A23DCED02FA // Spanish
+ )
+ ; // Attributes
+ UP "children prefix" 'lg'
+ UP extprop:pas:ElementPrefix 'evd_lg'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:TypeName 'TevdLanguage'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4A23DC990340 Language
+
+FORWARD ME_4A23DD010135
+
+FORWARD ME_4A23DD320199
+
+ME ME_4A23DD410110
+ MEPROP UID '4A23DD410110'
+ MEPROP Name 'aLang'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A23DD320199 // ShortName
+ ;
+ MELINK Target HWL ME_4A23DC990340 // Language
+ ;
+
+ENDME // ME_4A23DD410110 aLang
+
+ME ME_4A23DD320199
+ MEPROP UID '4A23DD320199'
+ MEPROP Name 'ShortName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Короткие имена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A23DD010135 // DictEntry
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A23DD410110 // aLang
+ )
+ ; // Attributes
+ UP "pm" True
+
+ENDME // ME_4A23DD320199 ShortName
+
+ME ME_4A23DD010135
+ MEPROP UID '4A23DD010135'
+ MEPROP GUID '70F7FC17-4C78-4917-A9D5-593B8889B4A5'
+ MEPROP Name 'DictEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вхождение толкового словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23D24F0125 // DOM
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A23DD320199 // ShortName
+ )
+ ; // Attributes
+ UP extprop:pas:ElementPrefix 'evd_'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:TypeName 'IevdDictEntry'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dDictEntry'
+
+ENDME // ME_4A23DD010135 DictEntry
+
+ME ME_4A23D24F0125
+ MEPROP UID '4A23D24F0125'
+ MEPROP Name 'DOM'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Объектная модель документа EVD' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A23D3F70344 // PaperSize
+ HWL ME_4A23D6B90323 // Section
+ HWL ME_4A23DC990340 // Language
+ HWL ME_4A23DD010135 // DictEntry
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '01.06.2009 17:06'
+ UP "UseNewGen" True
+ UP cpp:PathOnly '\common\components\rtl\Garant\EVD\DOM'
+ UP extprop:pas:ElementPrefix 'evd_'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:UnitName 'evdDOM'
+ UP h:Path 'common\components\rtl\Garant\EVD\DOM\DOM.h'
+ UP h:PathOnly '\common\components\rtl\Garant\EVD\DOM'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdDOM.pas'
+
+ENDME // ME_4A23D24F0125 DOM

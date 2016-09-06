@@ -1,0 +1,152 @@
+// Встроенные продукты 484F80CF0274 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_484F80CF0274
+
+ME ME_484F849D017B
+ MEPROP UID '484F849D017B'
+ MEPROP Name 'Толковый словарь'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функциональность толкового словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484F80CF0274 // Встроенные продукты
+ ;
+
+ENDME // ME_484F849D017B Толковый словарь
+
+FORWARD ME_4856410E0295
+
+ME ME_4AC1CE96036C
+ MEPROP UID '4AC1CE96036C'
+ MEPROP Name 'Основное меню для Инфарм'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Упрощенный доступ к функциям Инфарм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4856410E0295 // Инфарм
+ ;
+
+ENDME // ME_4AC1CE96036C Основное меню для Инфарм
+
+FORWARD ME_4F68A075031B
+
+ME ME_4F68A11502E2
+ MEPROP UID '4F68A11502E2'
+ MEPROP Name 'По Alt+I должна открываться информация о документе (препарате)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:346756113}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F68A075031B // Работа со списком препаратов
+ ;
+
+ENDME // ME_4F68A11502E2 По Alt+I должна открываться информация о документе (препарате)
+
+ME ME_4F68A075031B
+ MEPROP UID '4F68A075031B'
+ MEPROP Name 'Работа со списком препаратов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$13746#DrugList]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4856410E0295 // Инфарм
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F68A11502E2 // По Alt+I должна открываться информация о документе (препарате)
+ )
+ ; // Children
+
+ENDME // ME_4F68A075031B Работа со списком препаратов
+
+ME ME_4856410E0295
+ MEPROP UID '4856410E0295'
+ MEPROP Name 'Инфарм'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функциональность Инфарм' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484F80CF0274 // Встроенные продукты
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AC1CE96036C // Основное меню для Инфарм
+ HWL ME_4F68A075031B // Работа со списком препаратов
+ )
+ ; // Children
+
+ENDME // ME_4856410E0295 Инфарм
+
+ME ME_4860875601A8
+ MEPROP UID '4860875601A8'
+ MEPROP Name 'Интеграция с ЭНО'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интеграция с продуктом Электронная налоговая отчетность' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484F80CF0274 // Встроенные продукты
+ ;
+
+ENDME // ME_4860875601A8 Интеграция с ЭНО
+
+ME ME_49EC560D03E0
+ MEPROP UID '49EC560D03E0'
+ MEPROP Name 'Совещание онлайн'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обмен сообщениями для пользователей КС версии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484F80CF0274 // Встроенные продукты
+ ;
+
+ENDME // ME_49EC560D03E0 Совещание онлайн
+
+ME ME_49FE7E780022
+ MEPROP UID '49FE7E780022'
+ MEPROP Name 'Новости онлайн'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возможность загрузки и просмотра онлайн-контента, фактически встроенная в систему браузерная компонента.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484F80CF0274 // Встроенные продукты
+ ;
+
+ENDME // ME_49FE7E780022 Новости онлайн
+
+ME ME_484F80CF0274
+ MEPROP UID '484F80CF0274'
+ MEPROP Name 'Встроенные продукты'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Продукты, интегрированные непосредственно в систему ГАРАНТ для облегчения работы с ними.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484F849D017B // Толковый словарь
+ HWL ME_4856410E0295 // Инфарм
+ HWL ME_4860875601A8 // Интеграция с ЭНО
+ HWL ME_49EC560D03E0 // Совещание онлайн
+ HWL ME_49FE7E780022 // Новости онлайн
+ )
+ ; // Children
+
+ENDME // ME_484F80CF0274 Встроенные продукты

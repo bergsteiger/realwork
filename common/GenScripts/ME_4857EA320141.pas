@@ -45,6 +45,8 @@ uses
  , evReqCellHotSpot
  {$IfEnd} // Defined(evNeedHotSpot)
  , ReqCell_Const
+ //#UC START# *4857EA320141impl_uses*
+ //#UC END# *4857EA320141impl_uses*
 ;
 
 function TevReqCellInterfaceFactory.QueryTool(aTag: Tl3Variant;

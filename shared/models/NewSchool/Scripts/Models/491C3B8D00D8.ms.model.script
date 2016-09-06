@@ -1,0 +1,69 @@
+// TdsAutoreferat 491C3B8D00D8 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_491C3B8D00D8
+
+ME ME_4CE693DF0188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491C3B8D00D8 // TdsAutoreferat
+ ;
+ MELINK Target WL 'ME_4CE6937D031D' '491C3ADB03A5.ms.model.script' // TnsAutoreferatDocumentContainer
+ ;
+
+ENDME // ME_4CE693DF0188 
+
+ME ME_491C263E03AF_ME_491C3B8D00D8
+ MELINK Original WL 'ME_491C263E03AF' '47EA20430108.ms.model.script' // GetIsReadOnly
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C263E03AF_ME_491C3B8D00D8 GetIsReadOnly
+
+ME ME_491C264C02C2_ME_491C3B8D00D8
+ MELINK Original WL 'ME_491C264C02C2' '47EA20430108.ms.model.script' // GetTimeMachineOff
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491C264C02C2_ME_491C3B8D00D8 GetTimeMachineOff
+
+ME ME_4C6AB38800F3_ME_491C3B8D00D8
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_491C3B8D00D8 MakeContainer
+
+ME ME_491C3B8D00D8
+ MEPROP UID '491C3B8D00D8'
+ MEPROP Name 'TdsAutoreferat'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Автореферат' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491C3ADB03A5' '491C3ADB03A5.ms.model.script' // Autoreferat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4926CAF40166' '4926CAF40166.ms.model.script' // dsBaseDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_491C263E03AF_ME_491C3B8D00D8 // GetIsReadOnly
+ ME_491C264C02C2_ME_491C3B8D00D8 // GetTimeMachineOff
+ ME_4C6AB38800F3_ME_491C3B8D00D8 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CE693DF0188 // TnsAutoreferatDocumentContainer
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '06.10.2005 14.52'
+ UP extprop:pas:UnitName 'dsAutoreferat'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsAutoreferat'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsAutoreferat.pas'
+
+ENDME // ME_491C3B8D00D8 TdsAutoreferat

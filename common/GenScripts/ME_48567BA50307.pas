@@ -48,6 +48,8 @@ uses
  , evBreakParaCursor
  {$IfEnd} // Defined(evUseVisibleCursors)
  , nevBreakParaAnchor
+ //#UC START# *48567BA50307impl_uses*
+ //#UC END# *48567BA50307impl_uses*
 ;
 
 function TevPageBreakInterfaceFactory.QueryTool(aTag: Tl3Variant;

@@ -1,0 +1,479 @@
+// Customization 578E02C50241 VCMContracts Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_578E02C50241
+
+FORWARD ME_578E02D603D1
+
+FORWARD ME_E85275A33120
+
+FORWARD ME_4C8E59B80380
+
+FORWARD ME_04994496BE63
+
+FORWARD ME_55F211A25500
+
+ME ME_CB071EC21F5B
+ MEPROP Name 'aPanel'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992FF9A0273' '49940C8E00DA.ms.model.script' // IvcmCustOps
+ ;
+
+ENDME // ME_CB071EC21F5B aPanel
+
+ME ME_55F211A25500
+ MEPROP UID '55F211A25500'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_04994496BE63 // CustomizePanel$4C8E59B80380
+ ;
+ MELIST Parameters
+   Seq: ( ME_CB071EC21F5B // aPanel
+ )
+ ; // Parameters
+
+ENDME // ME_55F211A25500 DoIt
+
+ME ME_04994496BE63
+ MEPROP UID '04994496BE63'
+ MEPROP Name 'CustomizePanel'
+ MEPROP OriginalName 'CustomizePanel$4C8E59B80380'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настроить панель иструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_E85275A33120 // MTaskPanelService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55F211A25500 // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FactoryMethod'
+ UPLINK Speller HWL ME_4C8E59B80380 // CustomizePanel
+ ;
+
+ENDME // ME_04994496BE63 CustomizePanel$4C8E59B80380
+
+FORWARD ME_4C8F777E02AD
+
+FORWARD ME_1902AFA1E88C
+
+ME ME_E86A52F2CEA3
+ MEPROP UID 'E86A52F2CEA3'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_1902AFA1E88C // TasksPanelPopupMenu$4C8F777E02AD
+ ;
+ MELINK Target WL 'ME_49A5750A01E8' '4799D29F033F.ms.model.script' // TPopupMenu
+ ;
+
+ENDME // ME_E86A52F2CEA3 DoIt
+
+ME ME_1902AFA1E88C
+ MEPROP UID '1902AFA1E88C'
+ MEPROP Name 'TasksPanelPopupMenu'
+ MEPROP OriginalName 'TasksPanelPopupMenu$4C8F777E02AD'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_E85275A33120 // MTaskPanelService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_E86A52F2CEA3 // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FactoryMethod'
+ UPLINK Speller HWL ME_4C8F777E02AD // TasksPanelPopupMenu
+ ;
+
+ENDME // ME_1902AFA1E88C TasksPanelPopupMenu$4C8F777E02AD
+
+ME ME_E85275A33120
+ MEPROP UID 'E85275A33120'
+ MEPROP Name 'MTaskPanelService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TTaskPanelService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578E02D603D1 // TTaskPanelService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_04994496BE63 // CustomizePanel$4C8E59B80380
+ HWL ME_1902AFA1E88C // TasksPanelPopupMenu$4C8F777E02AD
+ )
+ ; // Operations
+
+ENDME // ME_E85275A33120 MTaskPanelService
+
+FORWARD ME_4C8E59D8000A
+
+ME ME_4C8E59E30357
+ MEPROP Name 'aPanel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992FF9A0273' '49940C8E00DA.ms.model.script' // IvcmCustOps
+ ;
+
+ENDME // ME_4C8E59E30357 aPanel
+
+ME ME_4C8E59D8000A
+ MEPROP UID '4C8E59D8000A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E59B80380 // CustomizePanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C8E59E30357 // aPanel
+ )
+ ; // Parameters
+
+ENDME // ME_4C8E59D8000A DoIt
+
+ME ME_4C8E59B80380
+ MEPROP UID '4C8E59B80380'
+ MEPROP Name 'CustomizePanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FactoryMethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настроить панель иструментов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578E02D603D1 // TTaskPanelService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8E59D8000A // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" False
+
+ENDME // ME_4C8E59B80380 CustomizePanel
+
+ME ME_4C8F77AA03B2
+ MEPROP UID '4C8F77AA03B2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8F777E02AD // TasksPanelPopupMenu
+ ;
+ MELINK Target WL 'ME_49A5750A01E8' '4799D29F033F.ms.model.script' // TPopupMenu
+ ;
+
+ENDME // ME_4C8F77AA03B2 DoIt
+
+ME ME_4C8F777E02AD
+ MEPROP UID '4C8F777E02AD'
+ MEPROP Name 'TasksPanelPopupMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FactoryMethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578E02D603D1 // TTaskPanelService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8F77AA03B2 // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" False
+
+ENDME // ME_4C8F777E02AD TasksPanelPopupMenu
+
+FORWARD ME_4C8DD91901C8
+
+ME ME_4C8DDC1B02F9
+ MEPROP UID '4C8DDC1B02F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8DD91901C8 // Customize
+ ;
+
+ENDME // ME_4C8DDC1B02F9 DoIt
+
+ME ME_4C8DD91901C8
+ MEPROP UID '4C8DD91901C8'
+ MEPROP Name 'Customize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ModuleMethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка...' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578E02D603D1 // TTaskPanelService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8DDC1B02F9 // DoIt
+ )
+ ; // Operations
+ UP "is static" False
+ UP "no prefix" False
+ UP "no test" True
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8DD91901C8 Customize
+
+ME ME_578E02D603D1
+ MEPROP UID '578E02D603D1'
+ MEPROP Name 'TTaskPanelService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578E02C50241 // Customization
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C8E59B80380 // CustomizePanel
+ HWL ME_4C8F777E02AD // TasksPanelPopupMenu
+ HWL ME_4C8DD91901C8 // Customize
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_E85275A33120 // MTaskPanelService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TaskPanelService'
+
+ENDME // ME_578E02D603D1 TTaskPanelService
+
+FORWARD ME_57924C1400CF
+
+ME ME_D6544111FE96
+ MEPROP UID 'D6544111FE96'
+ MEPROP Name 'MToolbarMenuService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TToolbarMenuService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57924C1400CF // TToolbarMenuService
+ ;
+
+ENDME // ME_D6544111FE96 MToolbarMenuService
+
+FORWARD ME_4C8E3A290341
+
+ME ME_4C8E3A3100E6
+ MEPROP UID '4C8E3A3100E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E3A290341 // AvailableOperations
+ ;
+
+ENDME // ME_4C8E3A3100E6 DoIt
+
+ME ME_4C8E3A290341
+ MEPROP UID '4C8E3A290341'
+ MEPROP Name 'AvailableOperations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ModuleMethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Доступные операции...' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57924C1400CF // TToolbarMenuService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8E3A3100E6 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'Admin,Monitorings'
+ UP "is static" False
+ UP "no prefix" False
+ UP "no test" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8E3A290341 AvailableOperations
+
+FORWARD ME_4C8E3A170399
+
+ME ME_4C8E3A1D031E
+ MEPROP UID '4C8E3A1D031E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E3A170399 // Customize
+ ;
+
+ENDME // ME_4C8E3A1D031E DoIt
+
+ME ME_4C8E3A170399
+ MEPROP UID '4C8E3A170399'
+ MEPROP Name 'Customize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ModuleMethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка...' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57924C1400CF // TToolbarMenuService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8E3A1D031E // DoIt
+ )
+ ; // Operations
+ UP "no prefix" False
+ UP "no test" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8E3A170399 Customize
+
+FORWARD ME_4C8E3A5002FF
+
+ME ME_4C8E3A560382
+ MEPROP UID '4C8E3A560382'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E3A5002FF // Fasten
+ ;
+
+ENDME // ME_4C8E3A560382 DoIt
+
+ME ME_4C8E3A5002FF
+ MEPROP UID '4C8E3A5002FF'
+ MEPROP Name 'Fasten'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ModuleMethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Закрепить панели инструментов' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57924C1400CF // TToolbarMenuService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8E3A560382 // DoIt
+ )
+ ; // Operations
+ UP "no prefix" False
+ UP "no test" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8E3A5002FF Fasten
+
+FORWARD ME_4C8E3A3E011D
+
+ME ME_4C8E3A4500AB
+ MEPROP UID '4C8E3A4500AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8E3A3E011D // IconsSize
+ ;
+
+ENDME // ME_4C8E3A4500AB DoIt
+
+ME ME_4C8E3A3E011D
+ MEPROP UID '4C8E3A3E011D'
+ MEPROP Name 'IconsSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ModuleMethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Размер кнопок' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57924C1400CF // TToolbarMenuService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8E3A4500AB // DoIt
+ )
+ ; // Operations
+ UP "no prefix" False
+ UP "no test" False
+ UP "ShowInToolbar" False
+
+ENDME // ME_4C8E3A3E011D IconsSize
+
+ME ME_57924C1400CF
+ MEPROP UID '57924C1400CF'
+ MEPROP Name 'TToolbarMenuService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578E02C50241 // Customization
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4C8E3A290341 // AvailableOperations
+ HWL ME_4C8E3A170399 // Customize
+ HWL ME_4C8E3A5002FF // Fasten
+ HWL ME_4C8E3A3E011D // IconsSize
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_D6544111FE96 // MToolbarMenuService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarMenuService'
+
+ENDME // ME_57924C1400CF TToolbarMenuService
+
+ME ME_578E02C50241
+ MEPROP UID '578E02C50241'
+ MEPROP Name 'Customization'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMContracts ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C8DD8970344' '4C8DD8970344.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_578E02D603D1 // TTaskPanelService
+ HWL ME_57924C1400CF // TToolbarMenuService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_49940C8E00DA' '49940C8E00DA.ms.model.script' // vcmTaskPanelInterfaces
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'VCMCustomization_Customization_Contracts'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\VCMCustomization_Customization_Contracts.pas'
+
+ENDME // ME_578E02C50241 Customization

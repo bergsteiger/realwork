@@ -44,6 +44,8 @@ uses
  l3ImplUses
  , DateUtils
  , SysUtils
+ //#UC START# *4FEB10B100CDimpl_uses*
+ //#UC END# *4FEB10B100CDimpl_uses*
 ;
 
 constructor TatLockFile.Create(const aFileName: AnsiString);

@@ -1,0 +1,6040 @@
+// TvcmMenuManager 4B30EC67025A GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B30EC81021A
+
+FORWARD ME_4B30EC67025A
+
+FORWARD ME_51ED01600060
+
+ME ME_52A0911C0003
+ MEPROP UID '52A0911C0003'
+ MEPROP Name 'f_InPopup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51ED01600060 // TvcmPopupMenu
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A0911C0003 f_InPopup
+
+ME ME_52A091000334
+ MEPROP UID '52A091000334'
+ MEPROP Name 'ClearInPopup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51ED01600060 // TvcmPopupMenu
+ ;
+
+ENDME // ME_52A091000334 ClearInPopup
+
+ME ME_52A0905E002D_ME_51ED01600060
+ MELINK Original WL 'ME_52A0905E002D' '4799D29F033F.ms.model.script' // IsShortCut
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A0905E002D_ME_51ED01600060 IsShortCut
+
+ME ME_52A090A90317_ME_51ED01600060
+ MELINK Original WL 'ME_52A090A90317' '4799D29F033F.ms.model.script' // Popup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A090A90317_ME_51ED01600060 Popup
+
+ME ME_51ED01600060
+ MEPROP UID '51ED01600060'
+ MEPROP Name 'TvcmPopupMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8E3AC40306' '52A1ACC102FE.ms.model.script' // TvcmPopupMenuPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A0911C0003 // f_InPopup
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52A091000334 // ClearInPopup
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_52A0905E002D_ME_51ED01600060 // IsShortCut
+ ME_52A090A90317_ME_51ED01600060 // Popup
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopupMenu'
+
+ENDME // ME_51ED01600060 TvcmPopupMenu
+
+FORWARD ME_52A082BA0188
+
+ME ME_52A0830F0093
+ MEPROP UID '52A0830F0093'
+ MEPROP Name 'rPos'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_52A0830F0093 rPos
+
+ME ME_52A0832201F7
+ MEPROP UID '52A0832201F7'
+ MEPROP Name 'rEn'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_52A0832201F7 rEn
+
+ME ME_52A0835800E0
+ MEPROP UID '52A0835800E0'
+ MEPROP Name 'rOp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_52A0835800E0 rOp
+
+ME ME_52A083660202
+ MEPROP UID '52A083660202'
+ MEPROP Name 'rOptions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A083660202 rOptions
+
+ME ME_52A0836D02C3
+ MEPROP UID '52A0836D02C3'
+ MEPROP Name 'rNeedSep'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A0836D02C3 rNeedSep
+
+ME ME_52A0837500F7
+ MEPROP UID '52A0837500F7'
+ MEPROP Name 'rIconText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A0837500F7 rIconText
+
+ME ME_52A0837B035A
+ MEPROP UID '52A0837B035A'
+ MEPROP Name 'rLoaded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A0837B035A rLoaded
+
+ME ME_52A082BA0188
+ MEPROP UID '52A082BA0188'
+ MEPROP Name 'TvcmButtonDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A0830F0093 // rPos
+ HWL ME_52A0832201F7 // rEn
+ HWL ME_52A0835800E0 // rOp
+ HWL ME_52A083660202 // rOptions
+ HWL ME_52A0836D02C3 // rNeedSep
+ HWL ME_52A0837500F7 // rIconText
+ HWL ME_52A0837B035A // rLoaded
+ )
+ ; // Attributes
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A082BA0188 TvcmButtonDef
+
+FORWARD ME_52A8430201C5
+
+ME ME_52A845600399
+ MEPROP UID '52A845600399'
+ MEPROP Name 'f_MinWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A8430201C5 // TvcmFakeBox
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A845600399 f_MinWidth
+
+ME ME_52A8447101AF_ME_52A8430201C5
+ MELINK Original WL 'ME_52A8447101AF' '52A8439001F3.ms.model.script' // FullWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_52A8447101AF_ME_52A8430201C5 FullWidth
+
+ME ME_52A8448E0050_ME_52A8430201C5
+ MELINK Original WL 'ME_52A8448E0050' '52A8439001F3.ms.model.script' // IsSizeable
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_52A8448E0050_ME_52A8430201C5 IsSizeable
+
+ME ME_52A844A300F5_ME_52A8430201C5
+ MELINK Original WL 'ME_52A844A300F5' '52A8439001F3.ms.model.script' // MinWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_52A844A300F5_ME_52A8430201C5 MinWidth
+
+ME ME_52A844D303D9_ME_52A8430201C5
+ MELINK Original WL 'ME_52A844D303D9' '52A8439001F3.ms.model.script' // DoFitToWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52A844D303D9_ME_52A8430201C5 DoFitToWidth
+
+ME ME_52A844E6012E_ME_52A8430201C5
+ MELINK Original WL 'ME_52A844E6012E' '52A8439001F3.ms.model.script' // DoUnFitToWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52A844E6012E_ME_52A8430201C5 DoUnFitToWidth
+
+ME ME_52A844F600E6_ME_52A8430201C5
+ MELINK Original WL 'ME_52A844F600E6' '52A8439001F3.ms.model.script' // Expand
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52A844F600E6_ME_52A8430201C5 Expand
+
+ME ME_47D1602000C6_ME_52A8430201C5
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_52A8430201C5 Create
+
+ME ME_52A8430201C5
+ MEPROP UID '52A8430201C5'
+ MEPROP Name 'TvcmFakeBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'общая функциональность необходимая vcm при использовании TFakeBox' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_52A843B3028F' '52A8439001F3.ms.model.script' // ITB97Ctrl
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_52A845600399 // f_MinWidth
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_52A8447101AF_ME_52A8430201C5 // FullWidth
+ ME_52A8448E0050_ME_52A8430201C5 // IsSizeable
+ ME_52A844A300F5_ME_52A8430201C5 // MinWidth
+ ME_52A844D303D9_ME_52A8430201C5 // DoFitToWidth
+ ME_52A844E6012E_ME_52A8430201C5 // DoUnFitToWidth
+ ME_52A844F600E6_ME_52A8430201C5 // Expand
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_52A8430201C5 // Create
+ )
+ ; // Overridden
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FakeBox'
+
+ENDME // ME_52A8430201C5 TvcmFakeBox
+
+ME ME_47D1602000C6_ME_52A0812B00B7
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_52A0812B00B7 Create
+
+ME ME_52A0812B00B7
+ MEPROP UID '52A0812B00B7'
+ MEPROP Name 'TvcmDockContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Панель используемая для размещения главной панели инструментов формы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5028E84F00EE' '4799D29F033F.ms.model.script' // TPanel
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_52A0812B00B7 // Create
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DockContainer'
+
+ENDME // ME_52A0812B00B7 TvcmDockContainer
+
+FORWARD ME_52A0838A0001
+
+ME ME_52A0839101F7
+ MEPROP UID '52A0839101F7'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+ MELINK Target HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+
+ENDME // ME_52A0839101F7 
+
+ME ME_52A0838A0001
+ MEPROP UID '52A0838A0001'
+ MEPROP Name 'TvcmButtonDefs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A0839101F7 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A0838A0001 TvcmButtonDefs
+
+FORWARD ME_52A08EDC003D
+
+ME ME_52A08EE50385
+ MEPROP UID '52A08EE50385'
+ MEPROP Name 'vcm_itDefault'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+
+ENDME // ME_52A08EE50385 vcm_itDefault
+
+ME ME_52A08EEE01E0
+ MEPROP UID '52A08EEE01E0'
+ MEPROP Name 'vcm_itIcon'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+
+ENDME // ME_52A08EEE01E0 vcm_itIcon
+
+ME ME_52A08EF50190
+ MEPROP UID '52A08EF50190'
+ MEPROP Name 'vcm_itIconText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+
+ENDME // ME_52A08EF50190 vcm_itIconText
+
+ME ME_52A08EDC003D
+ MEPROP UID '52A08EDC003D'
+ MEPROP Name 'TvcmIconTextType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A08EE50385 // vcm_itDefault
+ HWL ME_52A08EEE01E0 // vcm_itIcon
+ HWL ME_52A08EF50190 // vcm_itIconText
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_52A08EDC003D TvcmIconTextType
+
+ME ME_476961930017_ME_52A087CA0218
+ MELINK Original WL 'ME_476961930017' '467BAB7F021E.ms.model.script' // ParamsChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476961930017_ME_52A087CA0218 ParamsChanged
+
+ME ME_476961A40369_ME_52A087CA0218
+ MELINK Original WL 'ME_476961A40369' '467BAB7F021E.ms.model.script' // ParamsChanging
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476961A40369_ME_52A087CA0218 ParamsChanging
+
+ME ME_52A087CA0218
+ MEPROP UID '52A087CA0218'
+ MEPROP Name 'TvcmToolButtonDefActionLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A08684012E' '52A085A703D4.ms.model.script' // TevCustomButtonActionLink
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_476961870161' '467BAB7F021E.ms.model.script' // IvcmActionLink
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_476961930017_ME_52A087CA0218 // ParamsChanged
+ ME_476961A40369_ME_52A087CA0218 // ParamsChanging
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolButtonDefActionLink'
+
+ENDME // ME_52A087CA0218 TvcmToolButtonDefActionLink
+
+FORWARD ME_52A08A9E0275
+
+FORWARD ME_52A08B7F0082
+
+ME ME_52A08B8902AC
+ MEPROP UID '52A08B8902AC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A08B7F0082 // IsIconText
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A08B8902AC DoIt
+
+ME ME_52A08B7F0082
+ MEPROP UID '52A08B7F0082'
+ MEPROP Name 'IsIconText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A08A9E0275 // TvcmToolButtonDef
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A08B8902AC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A08B7F0082 IsIconText
+
+ME ME_4F8845840032_ME_52A08A9E0275
+ MELINK Original WL 'ME_4F8845840032' '4799D29F033F.ms.model.script' // GetActionLinkClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F8845840032_ME_52A08A9E0275 GetActionLinkClass
+
+ME ME_50477A430157_ME_52A08A9E0275
+ MELINK Original WL 'ME_50477A430157' '4C43E8750153.ms.model.script' // NeedAutoDown
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_50477A430157_ME_52A08A9E0275 NeedAutoDown
+
+ME ME_52A08AF5004B_ME_52A08A9E0275
+ MELINK Original WL 'ME_52A08AF5004B' '52A085A703D4.ms.model.script' // HackCheck
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A08AF5004B_ME_52A08A9E0275 HackCheck
+
+ME ME_52A08B2C0001_ME_52A08A9E0275
+ MELINK Original WL 'ME_52A08B2C0001' '4C43E8750153.ms.model.script' // AutoAllUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A08B2C0001_ME_52A08A9E0275 AutoAllUp
+
+ME ME_52A08A9E0275
+ MEPROP UID '52A08A9E0275'
+ MEPROP Name 'TvcmToolButtonDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A085A703D4' '52A085A703D4.ms.model.script' // TevButton
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52A08B7F0082 // IsIconText
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4F8845840032_ME_52A08A9E0275 // GetActionLinkClass
+ ME_50477A430157_ME_52A08A9E0275 // NeedAutoDown
+ ME_52A08AF5004B_ME_52A08A9E0275 // HackCheck
+ ME_52A08B2C0001_ME_52A08A9E0275 // AutoAllUp
+ )
+ ; // Overridden
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolButtonDef'
+
+ENDME // ME_52A08A9E0275 TvcmToolButtonDef
+
+FORWARD ME_52A08EFE0261
+
+ME ME_52A08F0502FA
+ MEPROP UID '52A08F0502FA'
+ MEPROP Name 'vcm_gcAuto'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ENDME // ME_52A08F0502FA vcm_gcAuto
+
+ME ME_52A08F0C0167
+ MEPROP UID '52A08F0C0167'
+ MEPROP Name 'vcm_gc16'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ENDME // ME_52A08F0C0167 vcm_gc16
+
+ME ME_52A08F120278
+ MEPROP UID '52A08F120278'
+ MEPROP Name 'vcm_gc256'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ENDME // ME_52A08F120278 vcm_gc256
+
+ME ME_52A08F190265
+ MEPROP UID '52A08F190265'
+ MEPROP Name 'vcm_gcTrueColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ENDME // ME_52A08F190265 vcm_gcTrueColor
+
+ME ME_52A08EFE0261
+ MEPROP UID '52A08EFE0261'
+ MEPROP Name 'TvcmGlyphColordepth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A08F0502FA // vcm_gcAuto
+ HWL ME_52A08F0C0167 // vcm_gc16
+ HWL ME_52A08F120278 // vcm_gc256
+ HWL ME_52A08F190265 // vcm_gcTrueColor
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_52A08EFE0261 TvcmGlyphColordepth
+
+FORWARD ME_52A8304401E3
+
+ME ME_52A8307002AB
+ MEPROP UID '52A8307002AB'
+ MEPROP Name 'rVisibleLoaded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A8307002AB rVisibleLoaded
+
+ME ME_52A8307D029A
+ MEPROP UID '52A8307D029A'
+ MEPROP Name 'rVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A8307D029A rVisible
+
+ME ME_52A830890219
+ MEPROP UID '52A830890219'
+ MEPROP Name 'rButtons'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ MELINK Target HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+
+ENDME // ME_52A830890219 rButtons
+
+ME ME_52A830920012
+ MEPROP UID '52A830920012'
+ MEPROP Name 'rUserType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ MELINK Target WL 'ME_49930DA10146' '4683F37902CF.ms.model.script' // IvcmUserTypeDef
+ ;
+
+ENDME // ME_52A830920012 rUserType
+
+ME ME_52A830990163
+ MEPROP UID '52A830990163'
+ MEPROP Name 'rToolbarName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_52A830990163 rToolbarName
+
+ME ME_52A8304401E3
+ MEPROP UID '52A8304401E3'
+ MEPROP Name 'TvcmToolbarDefForMenuManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A8307002AB // rVisibleLoaded
+ HWL ME_52A8307D029A // rVisible
+ HWL ME_52A830890219 // rButtons
+ HWL ME_52A830920012 // rUserType
+ HWL ME_52A830990163 // rToolbarName
+ )
+ ; // Attributes
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A8304401E3 TvcmToolbarDefForMenuManager
+
+ME ME_52A091340172
+ MEPROP UID '52A091340172'
+ MEPROP Name 'TvcmButtonPopupMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C8E3AC40306' '52A1ACC102FE.ms.model.script' // TvcmPopupMenuPrim
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ButtonPopupMenu'
+
+ENDME // ME_52A091340172 TvcmButtonPopupMenu
+
+FORWARD ME_52A830D30389
+
+ME ME_52A830E60086
+ MEPROP UID '52A830E60086'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52A830D30389 // TvcmToolbarDefsForMenuManager
+ ;
+ MELINK Target HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ ;
+
+ENDME // ME_52A830E60086 
+
+ME ME_52A830D30389
+ MEPROP UID '52A830D30389'
+ MEPROP Name 'TvcmToolbarDefsForMenuManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Array ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A830E60086 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A830D30389 TvcmToolbarDefsForMenuManager
+
+FORWARD ME_552BADA90096
+
+FORWARD ME_CA3791F56DC7
+
+FORWARD ME_552BAE12019C
+
+FORWARD ME_E8ADA32D143E
+
+ME ME_3275AC4F0F3F
+ MEPROP Name 'aValue'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B977802001D' '4B8E967100D5.ms.model.script' // TvcmGlyphSize
+ ;
+
+ENDME // ME_3275AC4F0F3F aValue
+
+ME ME_E8ADA32D143E
+ MEPROP UID 'E8ADA32D143E'
+ MEPROP Name 'SetGlyphSize'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ MELIST Parameters
+   Seq: ( ME_3275AC4F0F3F // aValue
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_552BAE12019C // SetGlyphSize
+ ;
+
+ENDME // ME_E8ADA32D143E SetGlyphSize
+
+FORWARD ME_552BBC750285
+
+ME ME_9DEC90563B75
+ MEPROP UID '9DEC90563B75'
+ MEPROP Name 'GetGlyphSize'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ MELINK Target WL 'ME_4B977802001D' '4B8E967100D5.ms.model.script' // TvcmGlyphSize
+ ;
+ UPLINK Speller HWL ME_552BBC750285 // GetGlyphSize
+ ;
+
+ENDME // ME_9DEC90563B75 GetGlyphSize
+
+FORWARD ME_552BC35B0274
+
+ME ME_BC663849408C
+ MEPROP UID 'BC663849408C'
+ MEPROP Name 'GetGlyphColorDepth'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ MELINK Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+ UPLINK Speller HWL ME_552BC35B0274 // GetGlyphColorDepth
+ ;
+
+ENDME // ME_BC663849408C GetGlyphColorDepth
+
+FORWARD ME_552BC3720035
+
+FORWARD ME_B8089BE16F42
+
+ME ME_EC9A7EABE0D0
+ MEPROP Name 'aValue'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ENDME // ME_EC9A7EABE0D0 aValue
+
+ME ME_B8089BE16F42
+ MEPROP UID 'B8089BE16F42'
+ MEPROP Name 'SetGlyphColorDepth'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ ;
+ MELIST Parameters
+   Seq: ( ME_EC9A7EABE0D0 // aValue
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_552BC3720035 // SetGlyphColorDepth
+ ;
+
+ENDME // ME_B8089BE16F42 SetGlyphColorDepth
+
+ME ME_CA3791F56DC7
+ MEPROP UID 'CA3791F56DC7'
+ MEPROP Name 'MvcmToolbarGlyphService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TvcmToolbarGlyphService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_E8ADA32D143E // SetGlyphSize
+ HWL ME_9DEC90563B75 // GetGlyphSize
+ HWL ME_BC663849408C // GetGlyphColorDepth
+ HWL ME_B8089BE16F42 // SetGlyphColorDepth
+ )
+ ; // Operations
+
+ENDME // ME_CA3791F56DC7 MvcmToolbarGlyphService
+
+ME ME_552BAE23020F
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B977802001D' '4B8E967100D5.ms.model.script' // TvcmGlyphSize
+ ;
+
+ENDME // ME_552BAE23020F aValue
+
+ME ME_552BAE12019C
+ MEPROP UID '552BAE12019C'
+ MEPROP Name 'SetGlyphSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ MELIST Parameters
+   Seq: ( ME_552BAE23020F // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552BAE12019C SetGlyphSize
+
+ME ME_552BBC750285
+ MEPROP UID '552BBC750285'
+ MEPROP Name 'GetGlyphSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ MELINK Target WL 'ME_4B977802001D' '4B8E967100D5.ms.model.script' // TvcmGlyphSize
+ ;
+
+ENDME // ME_552BBC750285 GetGlyphSize
+
+ME ME_552BC35B0274
+ MEPROP UID '552BC35B0274'
+ MEPROP Name 'GetGlyphColorDepth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ MELINK Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ENDME // ME_552BC35B0274 GetGlyphColorDepth
+
+ME ME_552BC3800239
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+
+ENDME // ME_552BC3800239 aValue
+
+ME ME_552BC3720035
+ MEPROP UID '552BC3720035'
+ MEPROP Name 'SetGlyphColorDepth'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+ MELIST Parameters
+   Seq: ( ME_552BC3800239 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552BC3720035 SetGlyphColorDepth
+
+ME ME_552BADA90096
+ MEPROP UID '552BADA90096'
+ MEPROP Name 'TvcmToolbarGlyphService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552BAE12019C // SetGlyphSize
+ HWL ME_552BBC750285 // GetGlyphSize
+ HWL ME_552BC35B0274 // GetGlyphColorDepth
+ HWL ME_552BC3720035 // SetGlyphColorDepth
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_CA3791F56DC7 // MvcmToolbarGlyphService
+ )
+ ; // Children
+ MELIST Injected
+   Seq: ( WL 'ME_552BAECF03A7' '54DCB32F019F.ms.model.script' // VCMApllicationSettingsPack
+ )
+ ; // Injected
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarGlyphService'
+
+ENDME // ME_552BADA90096 TvcmToolbarGlyphService
+
+ME ME_52A822880118
+ MEPROP UID '52A822880118'
+ MEPROP Name 'DockButtonsImageList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'imagelist используемый для кнопок области dock-а' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A822880118 DockButtonsImageList
+
+ME ME_52A822E00293
+ MEPROP UID '52A822E00293'
+ MEPROP Name 'BtnCloseImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A822E00293 BtnCloseImageIndex
+
+ME ME_52A822FB00A0
+ MEPROP UID '52A822FB00A0'
+ MEPROP Name 'BtnOpenImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A822FB00A0 BtnOpenImageIndex
+
+ME ME_52A8230C0051
+ MEPROP UID '52A8230C0051'
+ MEPROP Name 'BtnOpenNewWindowImageIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_4788207F0056' '4799D29F033F.ms.model.script' // TImageIndex
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A8230C0051 BtnOpenNewWindowImageIndex
+
+ME ME_52A823910334
+ MEPROP UID '52A823910334'
+ MEPROP Name 'Actions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_52A823770326' '4799D29F033F.ms.model.script' // TCustomActionList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A823910334 Actions
+
+ME ME_52A823D2029C
+ MEPROP UID '52A823D2029C'
+ MEPROP Name 'GlyphSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_4B977802001D' '4B8E967100D5.ms.model.script' // TvcmGlyphSize
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A823D2029C GlyphSize
+
+ME ME_52A824150341
+ MEPROP UID '52A824150341'
+ MEPROP Name 'GlyphColordepth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A824150341 GlyphColordepth
+
+ME ME_52A8246C022D
+ MEPROP UID '52A8246C022D'
+ MEPROP Name 'MainMenuItems'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_52A824420357' '4AB34028023E.ms.model.script' // TvcmMenuItemsCollection
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A8246C022D MainMenuItems
+
+ME ME_52A825320275
+ MEPROP UID '52A825320275'
+ MEPROP Name 'UserTypes'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_559CEE5A000E' '47D0E1500033.ms.model.script' // TvcmUserTypeDefList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A825320275 UserTypes
+
+ME ME_52A8256F03CA
+ MEPROP UID '52A8256F03CA'
+ MEPROP Name 'SmallToolbarSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'размер toolbar-а в котором находятся кнопки с маленькими иконками, компонентами TvcmEdit и TvcmDateEdit' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A8256F03CA SmallToolbarSize
+
+ME ME_52A825AB0067
+ MEPROP UID '52A825AB0067'
+ MEPROP Name 'MaxControlToolbarSize'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'максимальная высота компонента находящегося в toolbar-е' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52A825AB0067 MaxControlToolbarSize
+
+ME ME_52A825E400E4
+ MEPROP UID '52A825E400E4'
+ MEPROP Name 'OneToolbarPerForm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A825E400E4 OneToolbarPerForm
+
+ME ME_52A82A550048
+ MEPROP UID '52A82A550048'
+ MEPROP Name 'OnGlyphSizeChanged'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A82A550048 OnGlyphSizeChanged
+
+ME ME_52A82A7C024B
+ MEPROP UID '52A82A7C024B'
+ MEPROP Name 'OnGlyphColordepthChanged'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A82A7C024B OnGlyphColordepthChanged
+
+ME ME_52A82BB301D0
+ MEPROP UID '52A82BB301D0'
+ MEPROP Name 'f_FocusControl'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_52A82BB301D0 f_FocusControl
+
+ME ME_52A82C0D03C8
+ MEPROP UID '52A82C0D03C8'
+ MEPROP Name 'f_InEnter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A82C0D03C8 f_InEnter
+
+ME ME_52A82C3302F2
+ MEPROP UID '52A82C3302F2'
+ MEPROP Name 'f_WasDrop'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A82C3302F2 f_WasDrop
+
+ME ME_52A82D1C03AA
+ MEPROP UID '52A82D1C03AA'
+ MEPROP Name 'f_TickCount'
+ MEPROP Class class_Attribute
+ %SUMMARY 'можно избавиться?' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_52A82D1C03AA f_TickCount
+
+ME ME_52A82D5401DE
+ MEPROP UID '52A82D5401DE'
+ MEPROP Name 'f_UserTypesLoaded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A82D5401DE f_UserTypesLoaded
+
+ME ME_52A82E8E02ED
+ MEPROP UID '52A82E8E02ED'
+ MEPROP Name 'f_IsUnlockExecute'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A82E8E02ED f_IsUnlockExecute
+
+ME ME_52A82EF601CB
+ MEPROP UID '52A82EF601CB'
+ MEPROP Name 'f_SaveDockList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_4CE521C80107' '4A6D65B9022A.ms.model.script' // Tl3ProtoObjectRefList
+ ;
+
+ENDME // ME_52A82EF601CB f_SaveDockList
+
+ME ME_52A82F6503C9
+ MEPROP UID '52A82F6503C9'
+ MEPROP Name 'f_SaveLockCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_52A82F500189' '47D0E1500033.ms.model.script' // TvcmLongintList
+ ;
+
+ENDME // ME_52A82F6503C9 f_SaveLockCounter
+
+ME ME_52A82F9B03B7
+ MEPROP UID '52A82F9B03B7'
+ MEPROP Name 'f_LockCounter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A82F9B03B7 f_LockCounter
+
+ME ME_52A82FA40313
+ MEPROP UID '52A82FA40313'
+ MEPROP Name 'f_UnlockInProgress'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A82FA40313 f_UnlockInProgress
+
+ME ME_52A82FAE02E6
+ MEPROP UID '52A82FAE02E6'
+ MEPROP Name 'f_FastenToolbars'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A82FAE02E6 f_FastenToolbars
+
+ME ME_52A82FC101C3
+ MEPROP UID '52A82FC101C3'
+ MEPROP Name 'f_ButtonHeight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A82FC101C3 f_ButtonHeight
+
+ME ME_52A82FE70277
+ MEPROP UID '52A82FE70277'
+ MEPROP Name 'f_LockList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_4B0529C501F5' '47764CED0308.ms.model.script' // TIafwMenuUnlockedPostBuildPtrList
+ ;
+
+ENDME // ME_52A82FE70277 f_LockList
+
+ME ME_52A8319200DD
+ MEPROP UID '52A8319200DD'
+ MEPROP Name 'f_MainToolbarDefs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target HWL ME_52A830D30389 // TvcmToolbarDefsForMenuManager
+ ;
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A8319200DD f_MainToolbarDefs
+
+ME ME_52AB11130037
+ MEPROP UID '52AB11130037'
+ MEPROP Name 'f_Popup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target HWL ME_51ED01600060 // TvcmPopupMenu
+ ;
+
+ENDME // ME_52AB11130037 f_Popup
+
+ME ME_52AB11690171
+ MEPROP UID '52AB11690171'
+ MEPROP Name 'f_PopupForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52AB11690171 f_PopupForm
+
+ME ME_52AB11B702ED
+ MEPROP UID '52AB11B702ED'
+ MEPROP Name 'MenuOptions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_52A9A23E0251' '4AADF9450143.ms.model.script' // TvcmMenuOptions
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52AB11B702ED MenuOptions
+
+ME ME_52AB11DE02DF
+ MEPROP UID '52AB11DE02DF'
+ MEPROP Name 'ToolbarOptions'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target WL 'ME_52A9A2B3038D' '4AADF9450143.ms.model.script' // TvcmToolbarOptions
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52AB11DE02DF ToolbarOptions
+
+FORWARD ME_52A83208018D
+
+FORWARD ME_52A832130256
+
+ME ME_52A8321600BA
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484529DC0276' '4799D29F033F.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_52A8321600BA aForm
+
+ME ME_52A832130256
+ MEPROP UID '52A832130256'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83208018D // OverridePopupMenu
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8321600BA // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_52A832130256 DoIt
+
+ME ME_52A83208018D
+ MEPROP UID '52A83208018D'
+ MEPROP Name 'OverridePopupMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A832130256 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83208018D OverridePopupMenu
+
+FORWARD ME_52A8329D033C
+
+FORWARD ME_52A832B10322
+
+ME ME_52A832BD00FB
+ MEPROP Name 'aToolbarButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F69EF8C027C' '4C43E8750153.ms.model.script' // TCustomToolbarButton97
+ ;
+
+ENDME // ME_52A832BD00FB aToolbarButton
+
+ME ME_52A832BD0112
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A832BD0112 aSize
+
+ME ME_52A832B10322
+ MEPROP UID '52A832B10322'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'по параметрам кнопки определяет её высоту' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8329D033C // ToolbarButtonSize$1
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A832BD00FB // aToolbarButton
+ ME_52A832BD0112 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_52A832B10322 DoIt
+
+ME ME_52A8329D033C
+ MEPROP UID '52A8329D033C'
+ MEPROP Name 'ToolbarButtonSize'
+ MEPROP OriginalName 'ToolbarButtonSize$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A832B10322 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A8329D033C ToolbarButtonSize$1
+
+FORWARD ME_52A832CD000B
+
+FORWARD ME_52A832D901B3
+
+ME ME_52A832DE01B2
+ MEPROP Name 'aToolbarButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F69EF8C027C' '4C43E8750153.ms.model.script' // TCustomToolbarButton97
+ ;
+
+ENDME // ME_52A832DE01B2 aToolbarButton
+
+ME ME_52A832D901B3
+ MEPROP UID '52A832D901B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A832CD000B // ToolbarButtonSize$2
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A832DE01B2 // aToolbarButton
+ )
+ ; // Parameters
+
+ENDME // ME_52A832D901B3 DoIt
+
+ME ME_52A832CD000B
+ MEPROP UID '52A832CD000B'
+ MEPROP Name 'ToolbarButtonSize'
+ MEPROP OriginalName 'ToolbarButtonSize$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'устанавливает ширину и высоту кнопки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A832D901B3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A832CD000B ToolbarButtonSize$2
+
+FORWARD ME_52A833300250
+
+FORWARD ME_52A8333D02F7
+
+ME ME_52A8334100B8
+ MEPROP Name 'aToolbar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_502888EA0114' '5028887002FD.ms.model.script' // TCustomToolbar97
+ ;
+
+ENDME // ME_52A8334100B8 aToolbar
+
+ME ME_52A8334100E6
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A8334100E6 aSize
+
+ME ME_52A8333D02F7
+ MEPROP UID '52A8333D02F7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A833300250 // ToolbarSize
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8334100B8 // aToolbar
+ ME_52A8334100E6 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_52A8333D02F7 DoIt
+
+ME ME_52A833300250
+ MEPROP UID '52A833300250'
+ MEPROP Name 'ToolbarSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'определяет размер toolbar-а' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8333D02F7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A833300250 ToolbarSize
+
+ME ME_52A83386032D
+ MEPROP UID '52A83386032D'
+ MEPROP Name 'RefocusEntity'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A83386032D RefocusEntity
+
+ME ME_52A833C103E0
+ MEPROP UID '52A833C103E0'
+ MEPROP Name 'RestoreControlText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A833C103E0 RestoreControlText
+
+ME ME_52A833D5007C
+ MEPROP UID '52A833D5007C'
+ MEPROP Name 'ChangeEntityText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A833D5007C ChangeEntityText
+
+ME ME_52A8343B0397
+ MEPROP UID '52A8343B0397'
+ MEPROP Name 'ChangeTyperText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A8343B0397 ChangeTyperText
+
+ME ME_52A835090368
+ MEPROP UID '52A835090368'
+ MEPROP Name 'ControlKeyDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51B595330096' '4799D29F033F.ms.model.script' // TKeyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A835090368 ControlKeyDown
+
+ME ME_52A835400086
+ MEPROP UID '52A835400086'
+ MEPROP Name 'ControlEnter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A835400086 ControlEnter
+
+ME ME_52A8357200BD
+ MEPROP UID '52A8357200BD'
+ MEPROP Name 'ControlExit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A8357200BD ControlExit
+
+ME ME_52A835800363
+ MEPROP UID '52A835800363'
+ MEPROP Name 'ControlDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A835800363 ControlDown
+
+ME ME_52A835BC02D8
+ MEPROP UID '52A835BC02D8'
+ MEPROP Name 'DateDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A835BC02D8 DateDown
+
+ME ME_52A835EC002D
+ MEPROP UID '52A835EC002D'
+ MEPROP Name 'ComboDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A835EC002D ComboDown
+
+ME ME_52A835F8034A
+ MEPROP UID '52A835F8034A'
+ MEPROP Name 'ControlSelect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A835F8034A ControlSelect
+
+ME ME_52A8360602D0
+ MEPROP UID '52A8360602D0'
+ MEPROP Name 'FormChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A8360602D0 FormChange
+
+ME ME_52A8362B00B7
+ MEPROP UID '52A8362B00B7'
+ MEPROP Name 'DoPopup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_52A8362B00B7 DoPopup
+
+FORWARD ME_52A8367B01FC
+
+FORWARD ME_52A836880393
+
+ME ME_52A8368B00A6
+ MEPROP Name 'anEntityDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49956D4A00C6' '4683F37902CF.ms.model.script' // IvcmEntityDef
+ ;
+
+ENDME // ME_52A8368B00A6 anEntityDef
+
+ME ME_52A836880393
+ MEPROP UID '52A836880393'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8367B01FC // CheckPopup
+ ;
+ MELINK Target WL 'ME_4991AD08005B' '4683F37902CF.ms.model.script' // IvcmEntity
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8368B00A6 // anEntityDef
+ )
+ ; // Parameters
+
+ENDME // ME_52A836880393 DoIt
+
+ME ME_52A8367B01FC
+ MEPROP UID '52A8367B01FC'
+ MEPROP Name 'CheckPopup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A836880393 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A8367B01FC CheckPopup
+
+FORWARD ME_52A836E4024C
+
+FORWARD ME_52A836F501E5
+
+ME ME_52A836F90076
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A836F90076 aForm
+
+ME ME_52A836F9008E
+ MEPROP Name 'aDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_52A836F9008E aDef
+
+ME ME_52A836F900BD
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A836F900BD anIndex
+
+ME ME_52A836F501E5
+ MEPROP UID '52A836F501E5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A836E4024C // GetToolbarName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A836F90076 // aForm
+ ME_52A836F9008E // aDef
+ ME_52A836F900BD // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52A836F501E5 DoIt
+
+ME ME_52A836E4024C
+ MEPROP UID '52A836E4024C'
+ MEPROP Name 'GetToolbarName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A836F501E5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A836E4024C GetToolbarName
+
+FORWARD ME_52A83799024A
+
+FORWARD ME_52A837C202EE
+
+ME ME_52A837C60301
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A837C60301 aForm
+
+ME ME_52A837C6031A
+ MEPROP Name 'aDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_52A837C6031A aDef
+
+ME ME_52A837C60333
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A837C60333 anIndex
+
+ME ME_52A837C202EE
+ MEPROP UID '52A837C202EE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83799024A // BuildToolbar$1
+ ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A837C60301 // aForm
+ ME_52A837C6031A // aDef
+ ME_52A837C60333 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52A837C202EE DoIt
+
+ME ME_52A83799024A
+ MEPROP UID '52A83799024A'
+ MEPROP Name 'BuildToolbar'
+ MEPROP OriginalName 'BuildToolbar$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'anIndex - порядковый номер Toolbar''а (для огранизации нескольких Toolbar''ов в одном доке)' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A837C202EE // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52A83799024A BuildToolbar$1
+
+FORWARD ME_52A838180205
+
+FORWARD ME_52A8384E01BA
+
+ME ME_52A838510173
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A838510173 aForm
+
+ME ME_52A83851018A
+ MEPROP Name 'aToolBar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_52A83851018A aToolBar
+
+ME ME_52A8385101A3
+ MEPROP Name 'aHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_52A8385101A3 aHolder
+
+ME ME_52A8385101BB
+ MEPROP Name 'anOperations'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995644E03A9' '499EAAE502A8.ms.model.script' // IvcmOperationsDefIterator
+ ;
+
+ENDME // ME_52A8385101BB anOperations
+
+ME ME_52A8385101D4
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A8385101D4 anOptions
+
+ME ME_52A8384E01BA
+ MEPROP UID '52A8384E01BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A838180205 // FillToolbar
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A838510173 // aForm
+ ME_52A83851018A // aToolBar
+ ME_52A8385101A3 // aHolder
+ ME_52A8385101BB // anOperations
+ ME_52A8385101D4 // anOptions
+ )
+ ; // Parameters
+
+ENDME // ME_52A8384E01BA DoIt
+
+ME ME_52A838180205
+ MEPROP UID '52A838180205'
+ MEPROP Name 'FillToolbar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8384E01BA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A838180205 FillToolbar
+
+FORWARD ME_52A8391000A9
+
+FORWARD ME_52A839170268
+
+ME ME_52A8391B00DF
+ MEPROP Name 'aToolBar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_52A8391B00DF aToolBar
+
+ME ME_52A839170268
+ MEPROP UID '52A839170268'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8391000A9 // CheckToolbar
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8391B00DF // aToolBar
+ )
+ ; // Parameters
+
+ENDME // ME_52A839170268 DoIt
+
+ME ME_52A8391000A9
+ MEPROP UID '52A8391000A9'
+ MEPROP Name 'CheckToolbar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A839170268 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A8391000A9 CheckToolbar
+
+FORWARD ME_52A8393D0073
+
+FORWARD ME_52A8395C01C8
+
+ME ME_52A8396500E2
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A8396500E2 aForm
+
+ME ME_52A8396500FA
+ MEPROP Name 'aHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_52A8396500FA aHolder
+
+ME ME_52A839650113
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A839650113 anOptions
+
+ME ME_52A83965012C
+ MEPROP Name 'anExcludePoses'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F87800BC' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPoses
+ ;
+
+ENDME // ME_52A83965012C anExcludePoses
+
+ME ME_52A8395C01C8
+ MEPROP UID '52A8395C01C8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8393D0073 // MakeToolbar
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8396500E2 // aForm
+ ME_52A8396500FA // aHolder
+ ME_52A839650113 // anOptions
+ ME_52A83965012C // anExcludePoses
+ )
+ ; // Parameters
+
+ENDME // ME_52A8395C01C8 DoIt
+
+ME ME_52A8393D0073
+ MEPROP UID '52A8393D0073'
+ MEPROP Name 'MakeToolbar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8395C01C8 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52A8393D0073 MakeToolbar
+
+FORWARD ME_52A8398C01D1
+
+FORWARD ME_52A839B10264
+
+ME ME_52A839B3035A
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A839B3035A aForm
+
+ME ME_52A839B30371
+ MEPROP Name 'anEntities'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49956DA70152' '4683F37902CF.ms.model.script' // IvcmEntitiesDefIterator
+ ;
+
+ENDME // ME_52A839B30371 anEntities
+
+ME ME_52A839B3038A
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A839B3038A anOptions
+
+ME ME_52A839B303A2
+ MEPROP Name 'anExcludePoses'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F87800BC' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPoses
+ ;
+
+ENDME // ME_52A839B303A2 anExcludePoses
+
+ME ME_52A839B10264
+ MEPROP UID '52A839B10264'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8398C01D1 // BuildEntitiesToolbars
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A839B3035A // aForm
+ ME_52A839B30371 // anEntities
+ ME_52A839B3038A // anOptions
+ ME_52A839B303A2 // anExcludePoses
+ )
+ ; // Parameters
+
+ENDME // ME_52A839B10264 DoIt
+
+ME ME_52A8398C01D1
+ MEPROP UID '52A8398C01D1'
+ MEPROP Name 'BuildEntitiesToolbars'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A839B10264 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52A8398C01D1 BuildEntitiesToolbars
+
+FORWARD ME_52A839C302A6
+
+FORWARD ME_52A839D90329
+
+ME ME_52A839DC03A9
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930DA10146' '4683F37902CF.ms.model.script' // IvcmUserTypeDef
+ ;
+
+ENDME // ME_52A839DC03A9 aUserType
+
+ME ME_52A839DC03C1
+ MEPROP Name 'aToolbar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_52A839DC03C1 aToolbar
+
+ME ME_52A839DC03D9
+ MEPROP Name 'AddUnsavedButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A839DC03D9 AddUnsavedButton
+
+ME ME_52A839DD000B
+ MEPROP Name 'theButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_52A082BA0188 // TvcmButtonDef
+ ;
+
+ENDME // ME_52A839DD000B theButton
+
+ME ME_52A839DD0024
+ MEPROP Name 'theButtons'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+
+ENDME // ME_52A839DD0024 theButtons
+
+ME ME_52A839D90329
+ MEPROP UID '52A839D90329'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A839C302A6 // LoadButtonsFromSettings
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A839DC03A9 // aUserType
+ ME_52A839DC03C1 // aToolbar
+ ME_52A839DC03D9 // AddUnsavedButton
+ ME_52A839DD000B // theButton
+ ME_52A839DD0024 // theButtons
+ )
+ ; // Parameters
+
+ENDME // ME_52A839D90329 DoIt
+
+ME ME_52A839C302A6
+ MEPROP UID '52A839C302A6'
+ MEPROP Name 'LoadButtonsFromSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A839D90329 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A839C302A6 LoadButtonsFromSettings
+
+FORWARD ME_52A83A050068
+
+FORWARD ME_52A83A2200D4
+
+ME ME_52A83A270179
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83A270179 aForm
+
+ME ME_52A83A270190
+ MEPROP Name 'aToolbarName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_52A83A270190 aToolbarName
+
+ME ME_52A83A2701A8
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ ;
+
+ENDME // ME_52A83A2701A8 aPos
+
+ME ME_52A83A2701C0
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83A2701C0 anOptions
+
+ME ME_52A83A2701D8
+ MEPROP Name 'theButtons'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52A0838A0001 // TvcmButtonDefs
+ ;
+
+ENDME // ME_52A83A2701D8 theButtons
+
+ME ME_52A83A2200D4
+ MEPROP UID '52A83A2200D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83A050068 // MakeToolbarFromSettings
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83A270179 // aForm
+ ME_52A83A270190 // aToolbarName
+ ME_52A83A2701A8 // aPos
+ ME_52A83A2701C0 // anOptions
+ ME_52A83A2701D8 // theButtons
+ )
+ ; // Parameters
+
+ENDME // ME_52A83A2200D4 DoIt
+
+ME ME_52A83A050068
+ MEPROP UID '52A83A050068'
+ MEPROP Name 'MakeToolbarFromSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83A2200D4 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A83A050068 MakeToolbarFromSettings
+
+FORWARD ME_52A83A37024D
+
+FORWARD ME_52A83A420359
+
+ME ME_52A83A470044
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83A470044 aForm
+
+ME ME_52A83A420359
+ MEPROP UID '52A83A420359'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83A37024D // MakeMainToolbarFromSettings
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83A470044 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_52A83A420359 DoIt
+
+ME ME_52A83A37024D
+ MEPROP UID '52A83A37024D'
+ MEPROP Name 'MakeMainToolbarFromSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83A420359 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'vcmUseSettings'
+
+ENDME // ME_52A83A37024D MakeMainToolbarFromSettings
+
+FORWARD ME_52A83A6903B7
+
+FORWARD ME_52A83A78029F
+
+ME ME_52A83A7B0370
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83A7B0370 aForm
+
+ME ME_52A83A7B038A
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83A7B038A anOptions
+
+ME ME_52A83A78029F
+ MEPROP UID '52A83A78029F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83A6903B7 // BuildFormToolbars
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83A7B0370 // aForm
+ ME_52A83A7B038A // anOptions
+ )
+ ; // Parameters
+
+ENDME // ME_52A83A78029F DoIt
+
+ME ME_52A83A6903B7
+ MEPROP UID '52A83A6903B7'
+ MEPROP Name 'BuildFormToolbars'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83A78029F // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52A83A6903B7 BuildFormToolbars
+
+FORWARD ME_52A83AA6033F
+
+FORWARD ME_52A83ABD0145
+
+ME ME_52A83AC00081
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83AC00081 aForm
+
+ME ME_52A83AC0009B
+ MEPROP Name 'aModuleDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499303E502C9' '4683F37902CF.ms.model.script' // IvcmModuleDef
+ ;
+
+ENDME // ME_52A83AC0009B aModuleDef
+
+ME ME_52A83ABD0145
+ MEPROP UID '52A83ABD0145'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83AA6033F // BuildMainToolbars
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83AC00081 // aForm
+ ME_52A83AC0009B // aModuleDef
+ )
+ ; // Parameters
+
+ENDME // ME_52A83ABD0145 DoIt
+
+ME ME_52A83AA6033F
+ MEPROP UID '52A83AA6033F'
+ MEPROP Name 'BuildMainToolbars'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'создает Toolbar''ы основной формы' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83ABD0145 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52A83AA6033F BuildMainToolbars
+
+ME ME_52A83AE7029B
+ MEPROP UID '52A83AE7029B'
+ MEPROP Name 'CheckUserTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A83AE7029B CheckUserTypes
+
+FORWARD ME_52A83AF900CF
+
+FORWARD ME_52A83AFF03E6
+
+ME ME_52A83B0103CD
+ MEPROP Name 'aModuleDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499303E502C9' '4683F37902CF.ms.model.script' // IvcmModuleDef
+ ;
+
+ENDME // ME_52A83B0103CD aModuleDef
+
+ME ME_52A83AFF03E6
+ MEPROP UID '52A83AFF03E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83AF900CF // BuildUserTypes
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83B0103CD // aModuleDef
+ )
+ ; // Parameters
+
+ENDME // ME_52A83AFF03E6 DoIt
+
+ME ME_52A83AF900CF
+ MEPROP UID '52A83AF900CF'
+ MEPROP Name 'BuildUserTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83AFF03E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83AF900CF BuildUserTypes
+
+FORWARD ME_52A83B1102D4
+
+FORWARD ME_52A83B1F0364
+
+ME ME_52A83B220288
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_52A83B220288 Sender
+
+ME ME_52A83B2202A1
+ MEPROP Name 'DockClient'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50288A3D023C' '5028898902A2.ms.model.script' // TCustomToolWindow97
+ ;
+
+ENDME // ME_52A83B2202A1 DockClient
+
+ME ME_52A83B2202BA
+ MEPROP Name 'CanDock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A83B2202BA CanDock
+
+ME ME_52A83B1F0364
+ MEPROP UID '52A83B1F0364'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83B1102D4 // ToolbarsGetSiteInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83B220288 // Sender
+ ME_52A83B2202A1 // DockClient
+ ME_52A83B2202BA // CanDock
+ )
+ ; // Parameters
+
+ENDME // ME_52A83B1F0364 DoIt
+
+ME ME_52A83B1102D4
+ MEPROP UID '52A83B1102D4'
+ MEPROP Name 'ToolbarsGetSiteInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83B1F0364 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83B1102D4 ToolbarsGetSiteInfo
+
+FORWARD ME_52A83EA20222
+
+FORWARD ME_52A83EAD00BB
+
+ME ME_52A83EB0005E
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83EB0005E aForm
+
+ME ME_52A83EB00077
+ MEPROP Name 'aToolBar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_52A83EB00077 aToolBar
+
+ME ME_52A83EB00090
+ MEPROP Name 'aModuleDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499303E502C9' '4683F37902CF.ms.model.script' // IvcmModuleDef
+ ;
+
+ENDME // ME_52A83EB00090 aModuleDef
+
+ME ME_52A83EB000AA
+ MEPROP Name 'anEntityDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49956D4A00C6' '4683F37902CF.ms.model.script' // IvcmEntityDef
+ ;
+
+ENDME // ME_52A83EB000AA anEntityDef
+
+ME ME_52A83EB000C4
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_52A83EB000C4 anOp
+
+ME ME_52A83EB000DF
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83EB000DF anOptions
+
+ME ME_52A83EB000F9
+ MEPROP Name 'anIconText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ MEPROP Value 'vcm_itDefault'
+ MELINK ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ UP extprop:pas:Value 'vcm_itDefault'
+
+ENDME // ME_52A83EB000F9 anIconText
+
+ME ME_52A83EAD00BB
+ MEPROP UID '52A83EAD00BB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83EA20222 // BuildButton$1
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83EB0005E // aForm
+ ME_52A83EB00077 // aToolBar
+ ME_52A83EB00090 // aModuleDef
+ ME_52A83EB000AA // anEntityDef
+ ME_52A83EB000C4 // anOp
+ ME_52A83EB000DF // anOptions
+ ME_52A83EB000F9 // anIconText
+ )
+ ; // Parameters
+
+ENDME // ME_52A83EAD00BB DoIt
+
+ME ME_52A83EA20222
+ MEPROP UID '52A83EA20222'
+ MEPROP Name 'BuildButton'
+ MEPROP OriginalName 'BuildButton$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83EAD00BB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83EA20222 BuildButton$1
+
+FORWARD ME_52A83EDA006E
+
+FORWARD ME_52A83EE40308
+
+ME ME_52A83EE800BB
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83EE800BB aForm
+
+ME ME_52A83EE800D5
+ MEPROP Name 'aToolBar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_52A83EE800D5 aToolBar
+
+ME ME_52A83EE800EE
+ MEPROP Name 'aModuleDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499303E502C9' '4683F37902CF.ms.model.script' // IvcmModuleDef
+ ;
+
+ENDME // ME_52A83EE800EE aModuleDef
+
+ME ME_52A83EE80108
+ MEPROP Name 'anEntityDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49956D4A00C6' '4683F37902CF.ms.model.script' // IvcmEntityDef
+ ;
+
+ENDME // ME_52A83EE80108 anEntityDef
+
+ME ME_52A83EE80122
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_52A83EE80122 anOp
+
+ME ME_52A83EE8013C
+ MEPROP Name 'anOpOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83EE8013C anOpOptions
+
+ME ME_52A83EE80157
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83EE80157 anOptions
+
+ME ME_52A83EE80172
+ MEPROP Name 'anIconText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ MEPROP Value 'vcm_itDefault'
+ MELINK ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ UP extprop:pas:Value 'vcm_itDefault'
+
+ENDME // ME_52A83EE80172 anIconText
+
+ME ME_52A83EE40308
+ MEPROP UID '52A83EE40308'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83EDA006E // BuildButton$2
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83EE800BB // aForm
+ ME_52A83EE800D5 // aToolBar
+ ME_52A83EE800EE // aModuleDef
+ ME_52A83EE80108 // anEntityDef
+ ME_52A83EE80122 // anOp
+ ME_52A83EE8013C // anOpOptions
+ ME_52A83EE80157 // anOptions
+ ME_52A83EE80172 // anIconText
+ )
+ ; // Parameters
+
+ENDME // ME_52A83EE40308 DoIt
+
+ME ME_52A83EDA006E
+ MEPROP UID '52A83EDA006E'
+ MEPROP Name 'BuildButton'
+ MEPROP OriginalName 'BuildButton$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83EE40308 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83EDA006E BuildButton$2
+
+FORWARD ME_52A83F1203DA
+
+FORWARD ME_52A83F1B0247
+
+ME ME_52A83F1F014E
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83F1F014E aForm
+
+ME ME_52A83F1F0167
+ MEPROP Name 'aToolBar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_52A83F1F0167 aToolBar
+
+ME ME_52A83F1F017E
+ MEPROP Name 'aHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_52A83F1F017E aHolder
+
+ME ME_52A83F1F0196
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_52A83F1F0196 anOp
+
+ME ME_52A83F1F01AF
+ MEPROP Name 'anOpOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83F1F01AF anOpOptions
+
+ME ME_52A83F1F01C8
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83F1F01C8 anOptions
+
+ME ME_52A83F1F01E2
+ MEPROP Name 'anIconText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ MEPROP Value 'vcm_itDefault'
+ MELINK ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ UP extprop:pas:Value 'vcm_itDefault'
+
+ENDME // ME_52A83F1F01E2 anIconText
+
+ME ME_52A83F1B0247
+ MEPROP UID '52A83F1B0247'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83F1203DA // BuildButton$3
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83F1F014E // aForm
+ ME_52A83F1F0167 // aToolBar
+ ME_52A83F1F017E // aHolder
+ ME_52A83F1F0196 // anOp
+ ME_52A83F1F01AF // anOpOptions
+ ME_52A83F1F01C8 // anOptions
+ ME_52A83F1F01E2 // anIconText
+ )
+ ; // Parameters
+
+ENDME // ME_52A83F1B0247 DoIt
+
+ME ME_52A83F1203DA
+ MEPROP UID '52A83F1203DA'
+ MEPROP Name 'BuildButton'
+ MEPROP OriginalName 'BuildButton$3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83F1B0247 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83F1203DA BuildButton$3
+
+FORWARD ME_52A83F4001DE
+
+FORWARD ME_52A83F490353
+
+ME ME_52A83F4C029F
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A83F4C029F aForm
+
+ME ME_52A83F4C02B7
+ MEPROP Name 'aToolBar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_52A83F4C02B7 aToolBar
+
+ME ME_52A83F4C02CF
+ MEPROP Name 'aHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499566D90215' '499EAAE502A8.ms.model.script' // IvcmOperationalIdentifiedUserFriendlyControl
+ ;
+
+ENDME // ME_52A83F4C02CF aHolder
+
+ME ME_52A83F4C02E9
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_52A83F4C02E9 anOp
+
+ME ME_52A83F4C0303
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83F4C0303 anOptions
+
+ME ME_52A83F4C031E
+ MEPROP Name 'anIconText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ MEPROP Value 'vcm_itDefault'
+ MELINK ValueType HWL ME_52A08EDC003D // TvcmIconTextType
+ ;
+ UP extprop:pas:Value 'vcm_itDefault'
+
+ENDME // ME_52A83F4C031E anIconText
+
+ME ME_52A83F490353
+ MEPROP UID '52A83F490353'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83F4001DE // BuildButton$4
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83F4C029F // aForm
+ ME_52A83F4C02B7 // aToolBar
+ ME_52A83F4C02CF // aHolder
+ ME_52A83F4C02E9 // anOp
+ ME_52A83F4C0303 // anOptions
+ ME_52A83F4C031E // anIconText
+ )
+ ; // Parameters
+
+ENDME // ME_52A83F490353 DoIt
+
+ME ME_52A83F4001DE
+ MEPROP UID '52A83F4001DE'
+ MEPROP Name 'BuildButton'
+ MEPROP OriginalName 'BuildButton$4'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83F490353 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83F4001DE BuildButton$4
+
+FORWARD ME_52A83F6002D5
+
+FORWARD ME_52A83F6C015B
+
+ME ME_52A83F6E034C
+ MEPROP Name 'aModuleDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499303E502C9' '4683F37902CF.ms.model.script' // IvcmModuleDef
+ ;
+
+ENDME // ME_52A83F6E034C aModuleDef
+
+ME ME_52A83F6E0365
+ MEPROP Name 'anOpDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_52A83F6E0365 anOpDef
+
+ME ME_52A83F6C015B
+ MEPROP UID '52A83F6C015B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83F6002D5 // BuildAction$1
+ ;
+ MELINK Target WL 'ME_47E7626B0083' '4799D29F033F.ms.model.script' // TCustomAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83F6E034C // aModuleDef
+ ME_52A83F6E0365 // anOpDef
+ )
+ ; // Parameters
+
+ENDME // ME_52A83F6C015B DoIt
+
+ME ME_52A83F6002D5
+ MEPROP UID '52A83F6002D5'
+ MEPROP Name 'BuildAction'
+ MEPROP OriginalName 'BuildAction$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83F6C015B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83F6002D5 BuildAction$1
+
+FORWARD ME_52A83F7C010F
+
+FORWARD ME_52A83F9503D6
+
+ME ME_52A83F9A01A6
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ ;
+
+ENDME // ME_52A83F9A01A6 anOwner
+
+ME ME_52A83F9A01BF
+ MEPROP Name 'anEntity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4991AD08005B' '4683F37902CF.ms.model.script' // IvcmEntity
+ ;
+
+ENDME // ME_52A83F9A01BF anEntity
+
+ME ME_52A83F9A01D8
+ MEPROP Name 'anEntityDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49956D4A00C6' '4683F37902CF.ms.model.script' // IvcmEntityDef
+ ;
+
+ENDME // ME_52A83F9A01D8 anEntityDef
+
+ME ME_52A83F9A01F1
+ MEPROP Name 'anOpDef'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_52A83F9A01F1 anOpDef
+
+ME ME_52A83F9A020A
+ MEPROP Name 'anOptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51E00A6B0010' '499EAAE502A8.ms.model.script' // TvcmOperationOptions
+ ;
+
+ENDME // ME_52A83F9A020A anOptions
+
+ME ME_52A83F9503D6
+ MEPROP UID '52A83F9503D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83F7C010F // BuildAction$2
+ ;
+ MELINK Target WL 'ME_47E7626B0083' '4799D29F033F.ms.model.script' // TCustomAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83F9A01A6 // anOwner
+ ME_52A83F9A01BF // anEntity
+ ME_52A83F9A01D8 // anEntityDef
+ ME_52A83F9A01F1 // anOpDef
+ ME_52A83F9A020A // anOptions
+ )
+ ; // Parameters
+
+ENDME // ME_52A83F9503D6 DoIt
+
+ME ME_52A83F7C010F
+ MEPROP UID '52A83F7C010F'
+ MEPROP Name 'BuildAction'
+ MEPROP OriginalName 'BuildAction$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83F9503D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83F7C010F BuildAction$2
+
+FORWARD ME_52A83FA901D2
+
+FORWARD ME_52A83FB20113
+
+ME ME_52A83FB5007D
+ MEPROP Name 'aToolBar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_52A83FB5007D aToolBar
+
+ME ME_52A83FB20113
+ MEPROP UID '52A83FB20113'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A83FA901D2 // BuildSeparator
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A83FB5007D // aToolBar
+ )
+ ; // Parameters
+
+ENDME // ME_52A83FB20113 DoIt
+
+ME ME_52A83FA901D2
+ MEPROP UID '52A83FA901D2'
+ MEPROP Name 'BuildSeparator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A83FB20113 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A83FA901D2 BuildSeparator
+
+FORWARD ME_52A840050220
+
+FORWARD ME_52A8400D0373
+
+ME ME_52A8401102A5
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_52A8401102A5 aCaption
+
+ME ME_52A8401102BD
+ MEPROP Name 'aFormClass'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476775CB036A' '4AB0C3C60310.ms.model.script' // TClass
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_476775CB036A' '4AB0C3C60310.ms.model.script' // TClass
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52A8401102BD aFormClass
+
+ME ME_52A8400D0373
+ MEPROP UID '52A8400D0373'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A840050220 // UserTypeByCaption
+ ;
+ MELINK Target WL 'ME_49930DA10146' '4683F37902CF.ms.model.script' // IvcmUserTypeDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8401102A5 // aCaption
+ ME_52A8401102BD // aFormClass
+ )
+ ; // Parameters
+
+ENDME // ME_52A8400D0373 DoIt
+
+ME ME_52A840050220
+ MEPROP UID '52A840050220'
+ MEPROP Name 'UserTypeByCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8400D0373 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A840050220 UserTypeByCaption
+
+FORWARD ME_52A840210281
+
+FORWARD ME_52A8402902CC
+
+ME ME_52A8402C025D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A8402C025D aForm
+
+ME ME_52A8402C0277
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ ;
+
+ENDME // ME_52A8402C0277 aPos
+
+ME ME_52A8402C0291
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A8402C0291 anIndex
+
+ME ME_52A8402902CC
+ MEPROP UID '52A8402902CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A840210281 // GetOneToolbarPerFormName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8402C025D // aForm
+ ME_52A8402C0277 // aPos
+ ME_52A8402C0291 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52A8402902CC DoIt
+
+ME ME_52A840210281
+ MEPROP UID '52A840210281'
+ MEPROP Name 'GetOneToolbarPerFormName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8402902CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A840210281 GetOneToolbarPerFormName
+
+FORWARD ME_52A84049016E
+
+FORWARD ME_52A840570333
+
+ME ME_52A8405B003E
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A8405B003E aForm
+
+ME ME_52A8405B0056
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_52A8405B0056 aName
+
+ME ME_52A8405B006F
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683C9AC03AC' '467BAB7F021E.ms.model.script' // IvcmCString
+ ;
+
+ENDME // ME_52A8405B006F aCaption
+
+ME ME_52A8405B0089
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ ;
+
+ENDME // ME_52A8405B0089 aPos
+
+ME ME_52A840570333
+ MEPROP UID '52A840570333'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A84049016E // BuildToolbar$2
+ ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8405B003E // aForm
+ ME_52A8405B0056 // aName
+ ME_52A8405B006F // aCaption
+ ME_52A8405B0089 // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_52A840570333 DoIt
+
+ME ME_52A84049016E
+ MEPROP UID '52A84049016E'
+ MEPROP Name 'BuildToolbar'
+ MEPROP OriginalName 'BuildToolbar$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A840570333 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52A84049016E BuildToolbar$2
+
+FORWARD ME_52A84071026E
+
+FORWARD ME_52A8407E0146
+
+ME ME_52A840800335
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_52A840800335 aForm
+
+ME ME_52A84080034F
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ ;
+
+ENDME // ME_52A84080034F aPos
+
+ME ME_52A8407E0146
+ MEPROP UID '52A8407E0146'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A84071026E // BuildToolbar$3
+ ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A840800335 // aForm
+ ME_52A84080034F // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_52A8407E0146 DoIt
+
+ME ME_52A84071026E
+ MEPROP UID '52A84071026E'
+ MEPROP Name 'BuildToolbar'
+ MEPROP OriginalName 'BuildToolbar$3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8407E0146 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_52A84071026E BuildToolbar$3
+
+FORWARD ME_52A840E30329
+
+FORWARD ME_52A840EA008C
+
+ME ME_52A840ED0056
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5028DD5E0384' '5028A4C0019B.ms.model.script' // TvcmDockDef
+ ;
+
+ENDME // ME_52A840ED0056 anItem
+
+ME ME_52A840EA008C
+ MEPROP UID '52A840EA008C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A840E30329 // CleanupSaveDockList
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A840ED0056 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_52A840EA008C DoIt
+
+ME ME_52A840E30329
+ MEPROP UID '52A840E30329'
+ MEPROP Name 'CleanupSaveDockList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A840EA008C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A840E30329 CleanupSaveDockList
+
+FORWARD ME_52A840F6027C
+
+FORWARD ME_52A840FD02ED
+
+ME ME_52A840FF034D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484529DC0276' '4799D29F033F.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_52A840FF034D aForm
+
+ME ME_52A840FD02ED
+ MEPROP UID '52A840FD02ED'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A840F6027C // GetDockParent
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A840FF034D // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_52A840FD02ED DoIt
+
+ME ME_52A840F6027C
+ MEPROP UID '52A840F6027C'
+ MEPROP Name 'GetDockParent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A840FD02ED // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A840F6027C GetDockParent
+
+FORWARD ME_52A8410A0048
+
+FORWARD ME_52A84110027A
+
+ME ME_52A841120332
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_52A841120332 aDefault
+
+ME ME_52A84110027A
+ MEPROP UID '52A84110027A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8410A0048 // LoadGlyphSize
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A841120332 // aDefault
+ )
+ ; // Parameters
+
+ENDME // ME_52A84110027A DoIt
+
+ME ME_52A8410A0048
+ MEPROP UID '52A8410A0048'
+ MEPROP Name 'LoadGlyphSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A84110027A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A8410A0048 LoadGlyphSize
+
+FORWARD ME_52A8411D0360
+
+FORWARD ME_52A8412602E3
+
+ME ME_52A8412A0098
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_52A8412A0098 aDefault
+
+ME ME_52A8412602E3
+ MEPROP UID '52A8412602E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8411D0360 // LoadGlyphColorDepth
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8412A0098 // aDefault
+ )
+ ; // Parameters
+
+ENDME // ME_52A8412602E3 DoIt
+
+ME ME_52A8411D0360
+ MEPROP UID '52A8411D0360'
+ MEPROP Name 'LoadGlyphColorDepth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8412602E3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A8411D0360 LoadGlyphColorDepth
+
+ME ME_52A8413B028B
+ MEPROP UID '52A8413B028B'
+ MEPROP Name 'UnlockDocks'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A8413B028B UnlockDocks
+
+ME ME_52A841470203
+ MEPROP UID '52A841470203'
+ MEPROP Name 'LockDocks'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A841470203 LockDocks
+
+ME ME_52A8415303B8
+ MEPROP UID '52A8415303B8'
+ MEPROP Name 'StoreGlyphSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A8415303B8 StoreGlyphSize
+
+ME ME_52A8416200DA
+ MEPROP UID '52A8416200DA'
+ MEPROP Name 'RestoreGlyphSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A8416200DA RestoreGlyphSize
+
+ME ME_52A8416F01AC
+ MEPROP UID '52A8416F01AC'
+ MEPROP Name 'StoreGlyphColordepth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A8416F01AC StoreGlyphColordepth
+
+ME ME_52A8417A02AD
+ MEPROP UID '52A8417A02AD'
+ MEPROP Name 'RestoreGlyphColordepth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+
+ENDME // ME_52A8417A02AD RestoreGlyphColordepth
+
+FORWARD ME_52A8418F0245
+
+FORWARD ME_52A8419C0021
+
+ME ME_52A8419E01DA
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484529DC0276' '4799D29F033F.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_52A8419E01DA aForm
+
+ME ME_52A8419C0021
+ MEPROP UID '52A8419C0021'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A8418F0245 // InitToolbarMetrics
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A8419E01DA // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_52A8419C0021 DoIt
+
+ME ME_52A8418F0245
+ MEPROP UID '52A8418F0245'
+ MEPROP Name 'InitToolbarMetrics'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'определить метрики панели инструментов. Компоненты, которые могут быть помещены в панель, могут иметь разные размеры, чтобы высота панелей была одинаковой, считаем максимальную высоту и используем её для всех панелей.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A8419C0021 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A8418F0245 InitToolbarMetrics
+
+ME ME_552BC8BF02EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ ;
+
+ENDME // ME_552BC8BF02EB 
+
+FORWARD ME_55CA130E00D1
+
+ME ME_55CA17720262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ ;
+ MELINK Target HWL ME_55CA130E00D1 // TvcmToolbarDefList
+ ;
+
+ENDME // ME_55CA17720262 
+
+ME ME_479731C50290_ME_4B30EC81021A
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4B30EC81021A Cleanup
+
+ME ME_47D1602000C6_ME_4B30EC81021A
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4B30EC81021A Create
+
+ME ME_52A1FC0C0333_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FC0C0333' '4AADF9450143.ms.model.script' // RegisterModuleInMenu
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_52A1FC0C0333_ME_4B30EC81021A RegisterModuleInMenu
+
+ME ME_52A1FC3D0231_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FC3D0231' '4AADF9450143.ms.model.script' // MainCreated
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_52A1FC3D0231_ME_4B30EC81021A MainCreated
+
+ME ME_52A1FC5500AC_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FC5500AC' '4AADF9450143.ms.model.script' // RegisterMainInMenu
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FC5500AC_ME_4B30EC81021A RegisterMainInMenu
+
+ME ME_52A1FC79004A_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FC79004A' '4AADF9450143.ms.model.script' // RegisterChildInMenu
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_52A1FC79004A_ME_4B30EC81021A RegisterChildInMenu
+
+ME ME_52A1FCA20227_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FCA20227' '4AADF9450143.ms.model.script' // GetPopupMenu
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FCA20227_ME_4B30EC81021A GetPopupMenu
+
+ME ME_52A1FD4C002A_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FD4C002A' '4AADF9450143.ms.model.script' // ReloadToolbars
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FD4C002A_ME_4B30EC81021A ReloadToolbars
+
+ME ME_52A1FD7301A8_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FD7301A8' '4AADF9450143.ms.model.script' // PostBuild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FD7301A8_ME_4B30EC81021A PostBuild
+
+ME ME_52A1FDD7006C_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FDD7006C' '4AADF9450143.ms.model.script' // BackupOpStatus
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FDD7006C_ME_4B30EC81021A BackupOpStatus
+
+ME ME_52A1FE020318_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FE020318' '4AADF9450143.ms.model.script' // RestoreOpStatus
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FE020318_ME_4B30EC81021A RestoreOpStatus
+
+ME ME_52A1FE1602AA_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FE1602AA' '4AADF9450143.ms.model.script' // BeginOp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FE1602AA_ME_4B30EC81021A BeginOp
+
+ME ME_52A1FE2E0059_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FE2E0059' '4AADF9450143.ms.model.script' // GetOpLock
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FE2E0059_ME_4B30EC81021A GetOpLock
+
+ME ME_52A1FE4B0329_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FE4B0329' '4AADF9450143.ms.model.script' // EndOp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FE4B0329_ME_4B30EC81021A EndOp
+
+ME ME_52A1FE58028C_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FE58028C' '4AADF9450143.ms.model.script' // FastenToolbars
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FE58028C_ME_4B30EC81021A FastenToolbars
+
+ME ME_52A1FE730278_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FE730278' '4AADF9450143.ms.model.script' // GetFastenMode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FE730278_ME_4B30EC81021A GetFastenMode
+
+ME ME_52A1FF0902CE_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A1FF0902CE' '4AADF9450143.ms.model.script' // ObjectByType
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A1FF0902CE_ME_4B30EC81021A ObjectByType
+
+ME ME_52A2008D00DA_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A2008D00DA' '4AADF9450143.ms.model.script' // UnlockInProgress
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A2008D00DA_ME_4B30EC81021A UnlockInProgress
+
+ME ME_52A200A001C8_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A200A001C8' '4AADF9450143.ms.model.script' // AddControlForUnlockPostBuild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A200A001C8_ME_4B30EC81021A AddControlForUnlockPostBuild
+
+ME ME_52A200C203A4_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A200C203A4' '4AADF9450143.ms.model.script' // ListenerControlDestroying
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A200C203A4_ME_4B30EC81021A ListenerControlDestroying
+
+ME ME_52A841C500C5_ME_4B30EC81021A
+ MELINK Original WL 'ME_52A841C500C5' '4AADF9450143.ms.model.script' // FillPopupMenu
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A841C500C5_ME_4B30EC81021A FillPopupMenu
+
+ME ME_4B30EC81021A
+ MEPROP UID '4B30EC81021A'
+ MEPROP Name 'TvcmCustomMenuManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A1F4A201F9' '4AADF9450143.ms.model.script' // TvcmBaseMenuManager
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A822880118 // DockButtonsImageList
+ HWL ME_52A822E00293 // BtnCloseImageIndex
+ HWL ME_52A822FB00A0 // BtnOpenImageIndex
+ HWL ME_52A8230C0051 // BtnOpenNewWindowImageIndex
+ HWL ME_52A823910334 // Actions
+ HWL ME_52A823D2029C // GlyphSize
+ HWL ME_52A824150341 // GlyphColordepth
+ HWL ME_52A8246C022D // MainMenuItems
+ HWL ME_52A825320275 // UserTypes
+ HWL ME_52A8256F03CA // SmallToolbarSize
+ HWL ME_52A825AB0067 // MaxControlToolbarSize
+ HWL ME_52A825E400E4 // OneToolbarPerForm
+ HWL ME_52A82A550048 // OnGlyphSizeChanged
+ HWL ME_52A82A7C024B // OnGlyphColordepthChanged
+ HWL ME_52A82BB301D0 // f_FocusControl
+ HWL ME_52A82C0D03C8 // f_InEnter
+ HWL ME_52A82C3302F2 // f_WasDrop
+ HWL ME_52A82D1C03AA // f_TickCount
+ HWL ME_52A82D5401DE // f_UserTypesLoaded
+ HWL ME_52A82E8E02ED // f_IsUnlockExecute
+ HWL ME_52A82EF601CB // f_SaveDockList
+ HWL ME_52A82F6503C9 // f_SaveLockCounter
+ HWL ME_52A82F9B03B7 // f_LockCounter
+ HWL ME_52A82FA40313 // f_UnlockInProgress
+ HWL ME_52A82FAE02E6 // f_FastenToolbars
+ HWL ME_52A82FC101C3 // f_ButtonHeight
+ HWL ME_52A82FE70277 // f_LockList
+ HWL ME_52A8319200DD // f_MainToolbarDefs
+ HWL ME_52AB11130037 // f_Popup
+ HWL ME_52AB11690171 // f_PopupForm
+ HWL ME_52AB11B702ED // MenuOptions
+ HWL ME_52AB11DE02DF // ToolbarOptions
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52A83208018D // OverridePopupMenu
+ HWL ME_52A8329D033C // ToolbarButtonSize$1
+ HWL ME_52A832CD000B // ToolbarButtonSize$2
+ HWL ME_52A833300250 // ToolbarSize
+ HWL ME_52A83386032D // RefocusEntity
+ HWL ME_52A833C103E0 // RestoreControlText
+ HWL ME_52A833D5007C // ChangeEntityText
+ HWL ME_52A8343B0397 // ChangeTyperText
+ HWL ME_52A835090368 // ControlKeyDown
+ HWL ME_52A835400086 // ControlEnter
+ HWL ME_52A8357200BD // ControlExit
+ HWL ME_52A835800363 // ControlDown
+ HWL ME_52A835BC02D8 // DateDown
+ HWL ME_52A835EC002D // ComboDown
+ HWL ME_52A835F8034A // ControlSelect
+ HWL ME_52A8360602D0 // FormChange
+ HWL ME_52A8362B00B7 // DoPopup
+ HWL ME_52A8367B01FC // CheckPopup
+ HWL ME_52A836E4024C // GetToolbarName
+ HWL ME_52A83799024A // BuildToolbar$1
+ HWL ME_52A838180205 // FillToolbar
+ HWL ME_52A8391000A9 // CheckToolbar
+ HWL ME_52A8393D0073 // MakeToolbar
+ HWL ME_52A8398C01D1 // BuildEntitiesToolbars
+ HWL ME_52A839C302A6 // LoadButtonsFromSettings
+ HWL ME_52A83A050068 // MakeToolbarFromSettings
+ HWL ME_52A83A37024D // MakeMainToolbarFromSettings
+ HWL ME_52A83A6903B7 // BuildFormToolbars
+ HWL ME_52A83AA6033F // BuildMainToolbars
+ HWL ME_52A83AE7029B // CheckUserTypes
+ HWL ME_52A83AF900CF // BuildUserTypes
+ HWL ME_52A83B1102D4 // ToolbarsGetSiteInfo
+ HWL ME_52A83EA20222 // BuildButton$1
+ HWL ME_52A83EDA006E // BuildButton$2
+ HWL ME_52A83F1203DA // BuildButton$3
+ HWL ME_52A83F4001DE // BuildButton$4
+ HWL ME_52A83F6002D5 // BuildAction$1
+ HWL ME_52A83F7C010F // BuildAction$2
+ HWL ME_52A83FA901D2 // BuildSeparator
+ HWL ME_52A840050220 // UserTypeByCaption
+ HWL ME_52A840210281 // GetOneToolbarPerFormName
+ HWL ME_52A84049016E // BuildToolbar$2
+ HWL ME_52A84071026E // BuildToolbar$3
+ HWL ME_52A840E30329 // CleanupSaveDockList
+ HWL ME_52A840F6027C // GetDockParent
+ HWL ME_52A8410A0048 // LoadGlyphSize
+ HWL ME_52A8411D0360 // LoadGlyphColorDepth
+ HWL ME_52A8413B028B // UnlockDocks
+ HWL ME_52A841470203 // LockDocks
+ HWL ME_52A8415303B8 // StoreGlyphSize
+ HWL ME_52A8416200DA // RestoreGlyphSize
+ HWL ME_52A8416F01AC // StoreGlyphColordepth
+ HWL ME_52A8417A02AD // RestoreGlyphColordepth
+ HWL ME_52A8418F0245 // InitToolbarMetrics
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B30EC81021A // Cleanup
+ ME_47D1602000C6_ME_4B30EC81021A // Create
+ ME_52A1FC0C0333_ME_4B30EC81021A // RegisterModuleInMenu
+ ME_52A1FC3D0231_ME_4B30EC81021A // MainCreated
+ ME_52A1FC5500AC_ME_4B30EC81021A // RegisterMainInMenu
+ ME_52A1FC79004A_ME_4B30EC81021A // RegisterChildInMenu
+ ME_52A1FCA20227_ME_4B30EC81021A // GetPopupMenu
+ ME_52A1FD4C002A_ME_4B30EC81021A // ReloadToolbars
+ ME_52A1FD7301A8_ME_4B30EC81021A // PostBuild
+ ME_52A1FDD7006C_ME_4B30EC81021A // BackupOpStatus
+ ME_52A1FE020318_ME_4B30EC81021A // RestoreOpStatus
+ ME_52A1FE1602AA_ME_4B30EC81021A // BeginOp
+ ME_52A1FE2E0059_ME_4B30EC81021A // GetOpLock
+ ME_52A1FE4B0329_ME_4B30EC81021A // EndOp
+ ME_52A1FE58028C_ME_4B30EC81021A // FastenToolbars
+ ME_52A1FE730278_ME_4B30EC81021A // GetFastenMode
+ ME_52A1FF0902CE_ME_4B30EC81021A // ObjectByType
+ ME_52A2008D00DA_ME_4B30EC81021A // UnlockInProgress
+ ME_52A200A001C8_ME_4B30EC81021A // AddControlForUnlockPostBuild
+ ME_52A200C203A4_ME_4B30EC81021A // ListenerControlDestroying
+ ME_52A841C500C5_ME_4B30EC81021A // FillPopupMenu
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_552BADA90096 // TvcmToolbarGlyphService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_552BC8BF02EB // TvcmToolbarGlyphService
+ ME_55CA17720262 // TvcmToolbarDefList
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MenuManager'
+
+ENDME // ME_4B30EC81021A TvcmCustomMenuManager
+
+FORWARD ME_52A8429102F6
+
+ME ME_52A842A4000A
+ MEPROP UID '52A842A4000A'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ ;
+ MELINK Target WL 'ME_46A618AF0053' '4AB0C3C60310.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_52A842A4000A 
+
+ME ME_52A8429102F6
+ MEPROP UID '52A8429102F6'
+ MEPROP Name 'TvcmGlyphSizeMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B977802001D' '4B8E967100D5.ms.model.script' // TvcmGlyphSize
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A842A4000A // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_52A8429102F6 TvcmGlyphSizeMap
+
+FORWARD ME_52AAFF960114
+
+ME ME_52AAFFCB028F
+ MEPROP UID '52AAFFCB028F'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_52AAFFCB028F 
+
+ME ME_52AAFF960114
+ MEPROP UID '52AAFF960114'
+ MEPROP Name 'TvcmTBPosStringArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4992F83801C5' '499EAAE502A8.ms.model.script' // TvcmEffectiveToolBarPos
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52AAFFCB028F // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_52AAFF960114 TvcmTBPosStringArray
+
+FORWARD ME_52A045E102E3
+
+ME ME_508F991B003B_ME_52A8477B0012
+ MELINK Original WL 'ME_508F991B003B' '4799D29F033F.ms.model.script' // SetCaption
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_508F991B003B_ME_52A8477B0012 SetCaption
+
+ME ME_52A8469903AF_ME_52A8477B0012
+ MELINK Original WL 'ME_52A8469903AF' '4AADF9450143.ms.model.script' // DoParamsChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A8469903AF_ME_52A8477B0012 DoParamsChanged
+
+ME ME_52A846AF0108_ME_52A8477B0012
+ MELINK Original WL 'ME_52A846AF0108' '4AADF9450143.ms.model.script' // DoParamsChanging
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A846AF0108_ME_52A8477B0012 DoParamsChanging
+
+ME ME_52A8477B0012
+ MEPROP UID '52A8477B0012'
+ MEPROP Name 'TvcmComboBoxActionLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A845E50292' '4AADF9450143.ms.model.script' // TvcmWinControlActionLink
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_508F991B003B_ME_52A8477B0012 // SetCaption
+ ME_52A8469903AF_ME_52A8477B0012 // DoParamsChanged
+ ME_52A846AF0108_ME_52A8477B0012 // DoParamsChanging
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComboBoxActionLink'
+
+ENDME // ME_52A8477B0012 TvcmComboBoxActionLink
+
+ME ME_52A9AB290252
+ MEPROP UID '52A9AB290252'
+ MEPROP Name 'f_InUpdateCation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A9AB290252 f_InUpdateCation
+
+FORWARD ME_52A9AA140394
+
+FORWARD ME_52A9AA2D00E1
+
+ME ME_52A9AA2F023F
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F82EFBE018A' '47E7617C0275.ms.model.script' // TvcmOperationAction
+ ;
+
+ENDME // ME_52A9AA2F023F anAction
+
+ME ME_52A9AA2F0258
+ MEPROP Name 'anUpdateIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A9AA2F0258 anUpdateIndex
+
+ME ME_52A9AA2D00E1
+ MEPROP UID '52A9AA2D00E1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A9AA140394 // SetCaptionFromAction
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A9AA2F023F // anAction
+ ME_52A9AA2F0258 // anUpdateIndex
+ )
+ ; // Parameters
+
+ENDME // ME_52A9AA2D00E1 DoIt
+
+ME ME_52A9AA140394
+ MEPROP UID '52A9AA140394'
+ MEPROP Name 'SetCaptionFromAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A9AA2D00E1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A9AA140394 SetCaptionFromAction
+
+FORWARD ME_52A9AA400220
+
+FORWARD ME_52A9AA48038F
+
+ME ME_52A9AA4C01B0
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E8080191' '467BAB7F021E.ms.model.script' // IvcmAction
+ ;
+
+ENDME // ME_52A9AA4C01B0 anAction
+
+ME ME_52A9AA48038F
+ MEPROP UID '52A9AA48038F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A9AA400220 // SetStringsFromAction
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A9AA4C01B0 // anAction
+ )
+ ; // Parameters
+
+ENDME // ME_52A9AA48038F DoIt
+
+ME ME_52A9AA400220
+ MEPROP UID '52A9AA400220'
+ MEPROP Name 'SetStringsFromAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A9AA48038F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A9AA400220 SetStringsFromAction
+
+FORWARD ME_52A9A42D031B
+
+ME ME_52A9A44702E3
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_52A9A44702E3 Msg
+
+ME ME_52A9A42D031B
+ MEPROP UID '52A9A42D031B'
+ MEPROP Name 'CMTBMouseQuery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A9A44702E3 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_TBMOUSEQUERY'
+
+ENDME // ME_52A9A42D031B CMTBMouseQuery
+
+FORWARD ME_52A9A4500057
+
+ME ME_52A9A469002C
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_52A9A469002C Msg
+
+ME ME_52A9A4500057
+ MEPROP UID '52A9A4500057'
+ MEPROP Name 'CMTBCheckControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A9A469002C // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_TBCHECKCONTROL'
+
+ENDME // ME_52A9A4500057 CMTBCheckControl
+
+ME ME_52EB480C0145
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELINK Target WL 'ME_52AB1AC403E7' '52AB1AAD01E5.ms.model.script' // tb97vt
+ ;
+
+ENDME // ME_52EB480C0145 
+
+FORWARD ME_52EB8107015C
+
+ME ME_52EB8E27004F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52A045E102E3 // TvcmComboBox
+ ;
+ MELINK Target HWL ME_52EB8107015C // MessageConstants
+ ;
+
+ENDME // ME_52EB8E27004F 
+
+ME ME_47D1602000C6_ME_52A045E102E3
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_52A045E102E3 Create
+
+ME ME_4F8845840032_ME_52A045E102E3
+ MELINK Original WL 'ME_4F8845840032' '4799D29F033F.ms.model.script' // GetActionLinkClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F8845840032_ME_52A045E102E3 GetActionLinkClass
+
+ME ME_52A9A8710199_ME_52A045E102E3
+ MELINK Original WL 'ME_52A9A8710199' '4799D29F033F.ms.model.script' // ActionChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A9A8710199_ME_52A045E102E3 ActionChange
+
+ME ME_52A9A9B802B4_ME_52A045E102E3
+ MELINK Original WL 'ME_52A9A9B802B4' '482C80EA0131.ms.model.script' // DropDown
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A9A9B802B4_ME_52A045E102E3 DropDown
+
+ME ME_52A9AADF0289_ME_52A045E102E3
+ MELINK Original WL 'ME_52A9AADF0289' '483158FD0155.ms.model.script' // ActionExecuteHandler
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A9AADF0289_ME_52A045E102E3 ActionExecuteHandler
+
+ME ME_52A9AAEA0068_ME_52A045E102E3
+ MELINK Original WL 'ME_52A9AAEA0068' '483158FD0155.ms.model.script' // LocalUpdateAction
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A9AAEA0068_ME_52A045E102E3 LocalUpdateAction
+
+ME ME_52A045E102E3
+ MEPROP UID '52A045E102E3'
+ MEPROP Name 'TvcmComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A8430201C5 // TvcmFakeBox
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A9AB290252 // f_InUpdateCation
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52A9AA140394 // SetCaptionFromAction
+ HWL ME_52A9AA400220 // SetStringsFromAction
+ HWL ME_52A9A42D031B // CMTBMouseQuery
+ HWL ME_52A9A4500057 // CMTBCheckControl
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_52A045E102E3 // Create
+ ME_4F8845840032_ME_52A045E102E3 // GetActionLinkClass
+ ME_52A9A8710199_ME_52A045E102E3 // ActionChange
+ ME_52A9A9B802B4_ME_52A045E102E3 // DropDown
+ ME_52A9AADF0289_ME_52A045E102E3 // ActionExecuteHandler
+ ME_52A9AAEA0068_ME_52A045E102E3 // LocalUpdateAction
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_52A8477B0012 // TvcmComboBoxActionLink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52EB480C0145 // tb97vt
+ ME_52EB8E27004F // MessageConstants
+ )
+ ; // Dependencies
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComboBox'
+
+ENDME // ME_52A045E102E3 TvcmComboBox
+
+FORWARD ME_52A9AB640217
+
+ME ME_52A9AB4D017C
+ MEPROP UID '52A9AB4D017C'
+ MEPROP Name 'TvcmEditActionLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9AB640217 // TvcmEdit
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A845E50292' '4AADF9450143.ms.model.script' // TvcmWinControlActionLink
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EditActionLink'
+
+ENDME // ME_52A9AB4D017C TvcmEditActionLink
+
+ME ME_47D1602000C6_ME_52A9AB640217
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_52A9AB640217 Create
+
+ME ME_48BD22E601F2_ME_52A9AB640217
+ MELINK Original WL 'ME_48BD22E601F2' '48BD1975029B.ms.model.script' // DoProcessCommand
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48BD22E601F2_ME_52A9AB640217 DoProcessCommand
+
+ME ME_4F8845840032_ME_52A9AB640217
+ MELINK Original WL 'ME_4F8845840032' '4799D29F033F.ms.model.script' // GetActionLinkClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F8845840032_ME_52A9AB640217 GetActionLinkClass
+
+ME ME_52A9A8710199_ME_52A9AB640217
+ MELINK Original WL 'ME_52A9A8710199' '4799D29F033F.ms.model.script' // ActionChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A9A8710199_ME_52A9AB640217 ActionChange
+
+ME ME_52A9AB640217
+ MEPROP UID '52A9AB640217'
+ MEPROP Name 'TvcmEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A8430201C5 // TvcmFakeBox
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_52A9AB640217 // Create
+ ME_48BD22E601F2_ME_52A9AB640217 // DoProcessCommand
+ ME_4F8845840032_ME_52A9AB640217 // GetActionLinkClass
+ ME_52A9A8710199_ME_52A9AB640217 // ActionChange
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_52A9AB4D017C // TvcmEditActionLink
+ )
+ ; // Children
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Edit'
+
+ENDME // ME_52A9AB640217 TvcmEdit
+
+FORWARD ME_52A9ABFF02E0
+
+ME ME_508F983B0344_ME_52A9AF9703DC
+ MELINK Original WL 'ME_508F983B0344' '4799D29F033F.ms.model.script' // IsCaptionLinked
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_508F983B0344_ME_52A9AF9703DC IsCaptionLinked
+
+ME ME_52A8469903AF_ME_52A9AF9703DC
+ MELINK Original WL 'ME_52A8469903AF' '4AADF9450143.ms.model.script' // DoParamsChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A8469903AF_ME_52A9AF9703DC DoParamsChanged
+
+ME ME_52A9AF9703DC
+ MEPROP UID '52A9AF9703DC'
+ MEPROP Name 'TvcmDateEditActionLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A845E50292' '4AADF9450143.ms.model.script' // TvcmWinControlActionLink
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_508F983B0344_ME_52A9AF9703DC // IsCaptionLinked
+ ME_52A8469903AF_ME_52A9AF9703DC // DoParamsChanged
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DateEditActionLink'
+
+ENDME // ME_52A9AF9703DC TvcmDateEditActionLink
+
+ME ME_52A9AEBC0094
+ MEPROP UID '52A9AEBC0094'
+ MEPROP Name 'OnSelectDate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_52A9AEBC0094 OnSelectDate
+
+FORWARD ME_52A9AC1601B3
+
+ME ME_52A9AC200095
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_52A9AC200095 Message
+
+ME ME_52A9AC1601B3
+ MEPROP UID '52A9AC1601B3'
+ MEPROP Name 'CMTextChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A9AC200095 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_TEXTCHANGED'
+
+ENDME // ME_52A9AC1601B3 CMTextChanged
+
+ME ME_47D1602000C6_ME_52A9ABFF02E0
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_52A9ABFF02E0 Create
+
+ME ME_4F8845840032_ME_52A9ABFF02E0
+ MELINK Original WL 'ME_4F8845840032' '4799D29F033F.ms.model.script' // GetActionLinkClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F8845840032_ME_52A9ABFF02E0 GetActionLinkClass
+
+ME ME_52A9A8710199_ME_52A9ABFF02E0
+ MELINK Original WL 'ME_52A9A8710199' '4799D29F033F.ms.model.script' // ActionChange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A9A8710199_ME_52A9ABFF02E0 ActionChange
+
+ME ME_52A9AF500143_ME_52A9ABFF02E0
+ MELINK Original WL 'ME_52A9AF500143' '4A83EE0E0002.ms.model.script' // DoCloseUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52A9AF500143_ME_52A9ABFF02E0 DoCloseUp
+
+ME ME_52A9ABFF02E0
+ MEPROP UID '52A9ABFF02E0'
+ MEPROP Name 'TvcmDateEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC5DAE50246' '4AC5DAE50246.ms.model.script' // TvtDblClickDateEdit
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A9AEBC0094 // OnSelectDate
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52A9AC1601B3 // CMTextChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_52A9ABFF02E0 // Create
+ ME_4F8845840032_ME_52A9ABFF02E0 // GetActionLinkClass
+ ME_52A9A8710199_ME_52A9ABFF02E0 // ActionChange
+ ME_52A9AF500143_ME_52A9ABFF02E0 // DoCloseUp
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_52A9AF9703DC // TvcmDateEditActionLink
+ )
+ ; // Children
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DateEdit'
+
+ENDME // ME_52A9ABFF02E0 TvcmDateEdit
+
+ME ME_52A9B06C00C9
+ MEPROP UID '52A9B06C00C9'
+ MEPROP Name 'THackWinControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackWinControl'
+
+ENDME // ME_52A9B06C00C9 THackWinControl
+
+ME ME_52A9B0F7029E
+ MEPROP UID '52A9B0F7029E'
+ MEPROP Name 'THackControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackControl'
+
+ENDME // ME_52A9B0F7029E THackControl
+
+FORWARD ME_52A9B15502FC
+
+ME ME_52A9B167039E
+ MEPROP UID '52A9B167039E'
+ MEPROP Name 'FPopupPoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A9B15502FC // THackPopupMenu
+ ;
+ MELINK Target WL 'ME_46A104F4028B' '4AB0C3F60375.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_52A9B167039E FPopupPoint
+
+ME ME_52A9B15502FC
+ MEPROP UID '52A9B15502FC'
+ MEPROP Name 'THackPopupMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49A3EC9F01DC' '4799D29F033F.ms.model.script' // TMenu
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A9B167039E // FPopupPoint
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackPopupMenu'
+
+ENDME // ME_52A9B15502FC THackPopupMenu
+
+FORWARD ME_55019B3B011B
+
+ME ME_550304DA00CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_55019B3B011B // TvcmMenuManagerHelper
+ ;
+ MELINK Target WL 'ME_550199070251' '550198F60382.ms.model.script' // Tl3MenuManagerHelper
+ ;
+
+ENDME // ME_550304DA00CB 
+
+ME ME_55019B3B011B
+ MEPROP UID '55019B3B011B'
+ MEPROP Name 'TvcmMenuManagerHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_550304DA00CB // Tl3MenuManagerHelper
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MenuManagerHelper'
+
+ENDME // ME_55019B3B011B TvcmMenuManagerHelper
+
+FORWARD ME_5501A60D002E
+
+ME ME_55030510030A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5501A60D002E // TvcmDispatcherHelper
+ ;
+ MELINK Target WL 'ME_5501A3AE02AA' '550198F60382.ms.model.script' // Tl3DispatcherHelper
+ ;
+
+ENDME // ME_55030510030A 
+
+ME ME_5501A60D002E
+ MEPROP UID '5501A60D002E'
+ MEPROP Name 'TvcmDispatcherHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_55030510030A // Tl3DispatcherHelper
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DispatcherHelper'
+
+ENDME // ME_5501A60D002E TvcmDispatcherHelper
+
+ME ME_55CA131A0366
+ MEPROP UID '55CA131A0366'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55CA130E00D1 // TvcmToolbarDefList
+ ;
+ MELINK Target WL 'ME_50289DB9036F' '5028A4C0019B.ms.model.script' // TvcmToolbarDef
+ ;
+
+ENDME // ME_55CA131A0366 ItemType
+
+ME ME_55CA130E00D1
+ MEPROP UID '55CA130E00D1'
+ MEPROP Name 'TvcmToolbarDefList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47B57B7800A7' '47913B47006E.ms.model.script' // l3ObjectPtrList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55CA131A0366 // ItemType
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolbarDefList'
+
+ENDME // ME_55CA130E00D1 TvcmToolbarDefList
+
+ME ME_5722F446009F
+ MEPROP UID '5722F446009F'
+ MEPROP Name 'TvcmMenuOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A08D51029E' '4AADF9450143.ms.model.script' // TvcmMenuOption
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5722F446009F TvcmMenuOption
+
+ME ME_5722F46303DB
+ MEPROP UID '5722F46303DB'
+ MEPROP Name 'TvcmToolbarOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A08D9D00F2' '4AADF9450143.ms.model.script' // TvcmToolbarOption
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5722F46303DB TvcmToolbarOption
+
+ME ME_5722F47F02E5
+ MEPROP UID '5722F47F02E5'
+ MEPROP Name 'TvcmMenuOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A9A23E0251' '4AADF9450143.ms.model.script' // TvcmMenuOptions
+ )
+ ; // Inherits
+
+ENDME // ME_5722F47F02E5 TvcmMenuOptions
+
+ME ME_5722F49C02B0
+ MEPROP UID '5722F49C02B0'
+ MEPROP Name 'TvcmToolbarOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A9A2B3038D' '4AADF9450143.ms.model.script' // TvcmToolbarOptions
+ )
+ ; // Inherits
+
+ENDME // ME_5722F49C02B0 TvcmToolbarOptions
+
+FORWARD ME_52A08EAA00E4
+
+ME ME_52A08EBB01D6
+ MEPROP UID '52A08EBB01D6'
+ MEPROP Name 'vcm_DefaultMenuOptions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EAA00E4 // vcmMenuManager Const
+ ;
+ MEPROP Value '[vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu]'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '[vcm_moEntitiesInMainMenu, vcm_moEntitiesInTopMainMenu]'
+
+ENDME // ME_52A08EBB01D6 vcm_DefaultMenuOptions
+
+ME ME_52A08EC7005D
+ MEPROP UID '52A08EC7005D'
+ MEPROP Name 'vcm_DefaultToolbarOptions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08EAA00E4 // vcmMenuManager Const
+ ;
+ MEPROP Value '[vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar]'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '[vcm_toModulesInMainToolbar, vcm_toEntitiesInMainToolbar]'
+
+ENDME // ME_52A08EC7005D vcm_DefaultToolbarOptions
+
+ME ME_52A08EAA00E4
+ MEPROP UID '52A08EAA00E4'
+ MEPROP Name 'vcmMenuManager Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A08EBB01D6 // vcm_DefaultMenuOptions
+ HWL ME_52A08EC7005D // vcm_DefaultToolbarOptions
+ )
+ ; // Attributes
+ UP "spell names" False
+ UP extprop:rc:SelfName 'MenuManager Const'
+
+ENDME // ME_52A08EAA00E4 vcmMenuManager Const
+
+FORWARD ME_52A841F4031F
+
+ME ME_52A8420A02CD
+ MEPROP UID '52A8420A02CD'
+ MEPROP Name 'c_vcmCloseBmpName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MEPROP Value '''CLOSEBTN_DOCK97'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''CLOSEBTN_DOCK97'''
+
+ENDME // ME_52A8420A02CD c_vcmCloseBmpName
+
+ME ME_52A842150192
+ MEPROP UID '52A842150192'
+ MEPROP Name 'c_vcmMaximizedBmpName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MEPROP Value '''MAXIMIZEDBTN_DOCK97'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''MAXIMIZEDBTN_DOCK97'''
+
+ENDME // ME_52A842150192 c_vcmMaximizedBmpName
+
+ME ME_52A8421E01CF
+ MEPROP UID '52A8421E01CF'
+ MEPROP Name 'c_vcmOpenBmpName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MEPROP Value '''OPENBTN_DOCK97'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''OPENBTN_DOCK97'''
+
+ENDME // ME_52A8421E01CF c_vcmOpenBmpName
+
+ME ME_52A842280127
+ MEPROP UID '52A842280127'
+ MEPROP Name 'c_vcmCloseImageIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MEPROP Value 0
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 0
+
+ENDME // ME_52A842280127 c_vcmCloseImageIndex
+
+ME ME_52A8423200CC
+ MEPROP UID '52A8423200CC'
+ MEPROP Name 'c_vcmMaximizedImageIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MEPROP Value 1
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1
+
+ENDME // ME_52A8423200CC c_vcmMaximizedImageIndex
+
+ME ME_52A8423C028B
+ MEPROP UID '52A8423C028B'
+ MEPROP Name 'c_vcmOpenImageIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MEPROP Value 2
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 2
+
+ENDME // ME_52A8423C028B c_vcmOpenImageIndex
+
+ME ME_52A8424701E8
+ MEPROP UID '52A8424701E8'
+ MEPROP Name 'c_vcmDockContainerName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MEPROP Value '''vcmDockContainer'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''vcmDockContainer'''
+
+ENDME // ME_52A8424701E8 c_vcmDockContainerName
+
+ME ME_52A842B002B9
+ MEPROP UID '52A842B002B9'
+ MEPROP Name 'c_GlyphSizeMap'
+ MEPROP Class class_Attribute
+ %SUMMARY 'c_GlyphSizeMap: array [TvcmGlyphSize] of Cardinal = ('#13#10'   2, // vcm_gsAutomatic'#13#10'   0, // vcm_gs16x16'#13#10'   3, // vcm_gs24x24'#13#10'   1 // vcm_gs32x32'#13#10'  );' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MELINK Target HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ ;
+ MEPROP Value '(2, 0, 3, 1)'
+ MELINK ValueType HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(2, 0, 3, 1)'
+
+ENDME // ME_52A842B002B9 c_GlyphSizeMap
+
+ME ME_52AB0050035B
+ MEPROP UID '52AB0050035B'
+ MEPROP Name 'cTBName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A841F4031F // vcmMenuManager Private Const
+ ;
+ MELINK Target HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ ;
+ MEPROP Value '(''Top'', ''Bottom'', ''Left'', ''Right'')'
+ MELINK ValueType HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(''Top'', ''Bottom'', ''Left'', ''Right'')'
+
+ENDME // ME_52AB0050035B cTBName
+
+ME ME_52A841F4031F
+ MEPROP UID '52A841F4031F'
+ MEPROP Name 'vcmMenuManager Private Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A8420A02CD // c_vcmCloseBmpName
+ HWL ME_52A842150192 // c_vcmMaximizedBmpName
+ HWL ME_52A8421E01CF // c_vcmOpenBmpName
+ HWL ME_52A842280127 // c_vcmCloseImageIndex
+ HWL ME_52A8423200CC // c_vcmMaximizedImageIndex
+ HWL ME_52A8423C028B // c_vcmOpenImageIndex
+ HWL ME_52A8424701E8 // c_vcmDockContainerName
+ HWL ME_52A842B002B9 // c_GlyphSizeMap
+ HWL ME_52AB0050035B // cTBName
+ )
+ ; // Attributes
+ UP "spell names" False
+ UP extprop:rc:SelfName 'MenuManager Private Const'
+
+ENDME // ME_52A841F4031F vcmMenuManager Private Const
+
+ME ME_52EB816302D2
+ MEPROP UID '52EB816302D2'
+ MEPROP Name 'CM_TBMOUSEQUERY'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52EB8107015C // MessageConstants
+ ;
+ MEPROP Value 'CM_TBMOUSEQUERY'
+ MELINK ValueType WL 'ME_52AB1AC403E7' '52AB1AAD01E5.ms.model.script' // tb97vt
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'tb97vt.CM_TBMOUSEQUERY'
+
+ENDME // ME_52EB816302D2 CM_TBMOUSEQUERY
+
+ME ME_52EB817B02E2
+ MEPROP UID '52EB817B02E2'
+ MEPROP Name 'CM_TBCHECKCONTROL'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52EB8107015C // MessageConstants
+ ;
+ MEPROP Value 'CM_TBCHECKCONTROL'
+ MELINK ValueType WL 'ME_52AB1AC403E7' '52AB1AAD01E5.ms.model.script' // tb97vt
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'tb97vt.CM_TBCHECKCONTROL'
+
+ENDME // ME_52EB817B02E2 CM_TBCHECKCONTROL
+
+ME ME_52EB8107015C
+ MEPROP UID '52EB8107015C'
+ MEPROP Name 'MessageConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52EB816302D2 // CM_TBMOUSEQUERY
+ HWL ME_52EB817B02E2 // CM_TBCHECKCONTROL
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52EB8107015C MessageConstants
+
+ME ME_52A9AFFF03C0
+ MEPROP UID '52A9AFFF03C0'
+ MEPROP Name 'g_InternalButton'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target HWL ME_52A08A9E0275 // TvcmToolButtonDef
+ ;
+
+ENDME // ME_52A9AFFF03C0 g_InternalButton
+
+ME ME_52AB0BCD033E
+ MEPROP UID '52AB0BCD033E'
+ MEPROP Name 'new_ini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+
+ENDME // ME_52AB0BCD033E new_ini_op
+
+ME ME_52AB0BD60025
+ MEPROP UID '52AB0BD60025'
+ MEPROP Name 'new_fini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_fini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+
+ENDME // ME_52AB0BD60025 new_fini_op
+
+ME ME_51D12B1703DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_51D128930090' '4AB34028023E.ms.model.script' // TvcmEntitiesDefIteratorForContextMenu
+ ;
+
+ENDME // ME_51D12B1703DA 
+
+ME ME_52AB0A4902C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_52AB0A3703E2' '4AADF9450143.ms.model.script' // vcmMenuManagerUtils
+ ;
+
+ENDME // ME_52AB0A4902C3 
+
+ME ME_52AB1D220031
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_52AB0AFE0049' '47D0E1500033.ms.model.script' // vcmMessages
+ ;
+
+ENDME // ME_52AB1D220031 
+
+ME ME_52AB1D2502B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_52AB1D2502B0 
+
+ME ME_52AB1D280353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4799F84900DD' '473C3BEE0334.ms.model.script' // l3ScreenIC
+ ;
+
+ENDME // ME_52AB1D280353 
+
+ME ME_52AB1D2B0365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_52AB1D2B0365 
+
+ME ME_52AB1D2F003F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_52AB1AC403E7' '52AB1AAD01E5.ms.model.script' // tb97vt
+ ;
+
+ENDME // ME_52AB1D2F003F 
+
+ME ME_52AB1D320094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_478E1F060192' '4767743E00E5.ms.model.script' // PTypeData
+ ;
+
+ENDME // ME_52AB1D320094 
+
+ME ME_52AB1D35016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_52AB1D35016C 
+
+ME ME_52AB1D380100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_48C78D5402A6' '4799D29F033F.ms.model.script' // StdCtrls
+ ;
+
+ENDME // ME_52AB1D380100 
+
+ME ME_52AB1D3B023B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_52AB1D3B023B 
+
+ME ME_52AB1D3E0360
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4A8432960266' '48297E42011A.ms.model.script' // ctTypes
+ ;
+
+ENDME // ME_52AB1D3E0360 
+
+ME ME_52AB1D41034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_48D2191902CB' '48D21909003A.ms.model.script' // ActionCodes
+ ;
+
+ENDME // ME_52AB1D41034B 
+
+ME ME_52AB1D4403C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4C8E3AB70291' '4AADF9450143.ms.model.script' // vcmMenus
+ ;
+
+ENDME // ME_52AB1D4403C7 
+
+ME ME_52AB1D4703B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_47E761BB02FE' '47E7617C0275.ms.model.script' // TvcmAction
+ ;
+
+ENDME // ME_52AB1D4703B1 
+
+ME ME_52AB1D4B00DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_52AB1D4B00DD 
+
+ME ME_52AB1D4E00A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_49944C620372' '49944A1502FE.ms.model.script' // vcm_ComboOperations
+ ;
+
+ENDME // ME_52AB1D4E00A5 
+
+ME ME_52AB1D5100B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_52AB1D5100B4 
+
+ME ME_52AB1D54013A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_52AB1D54013A 
+
+ME ME_52AB1D57017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_502BC6DC00F4' '502BC6B600F3.ms.model.script' // vcmToolbarUtils
+ ;
+
+ENDME // ME_52AB1D57017B 
+
+ME ME_52AB1D5A01A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4E01F29C0139' '47D0E1500033.ms.model.script' // vcmSettings
+ ;
+
+ENDME // ME_52AB1D5A01A1 
+
+ME ME_52AB1D5D011F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ ;
+
+ENDME // ME_52AB1D5D011F 
+
+ME ME_52AB1D6001C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4AA9377803B5' '47D0E1500033.ms.model.script' // vcmUtils
+ ;
+
+ENDME // ME_52AB1D6001C1 
+
+ME ME_52AB1D630372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4F82EFD20255' '47E7617C0275.ms.model.script' // TvcmModuleAction
+ ;
+
+ENDME // ME_52AB1D630372 
+
+ME ME_52AB1D670118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4F82EFAB02D4' '47E7617C0275.ms.model.script' // TvcmEntityAction
+ ;
+
+ENDME // ME_52AB1D670118 
+
+ME ME_52AB1D6A02E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_47D0E1C9021A' '4AADF9450143.ms.model.script' // TvcmFormHandler
+ ;
+
+ENDME // ME_52AB1D6A02E9 
+
+ME ME_52AB1D6E00B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_4B8E967F00BE' '4B8E967100D5.ms.model.script' // vcmMenuManagerRes
+ ;
+
+ENDME // ME_52AB1D6E00B2 
+
+ME ME_52AB1D71018A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_52AB1CF803B2' '4AB34028023E.ms.model.script' // TvcmMenuItemsCollectionItem
+ ;
+
+ENDME // ME_52AB1D71018A 
+
+ME ME_52AB1D7401DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_47E7652402FF' '47E7617C0275.ms.model.script' // TvcmMainMenuAction
+ ;
+
+ENDME // ME_52AB1D7401DA 
+
+ME ME_537DC3D80062
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_537D82F10098' '537D82CB0161.ms.model.script' // vcmChromeLikeTypes
+ ;
+
+ENDME // ME_537DC3D80062 
+
+ME ME_564AEBE30348
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_564AE7F4023F' '4AADF9450143.ms.model.script' // TvcmMainMenuBuilder
+ ;
+
+ENDME // ME_564AEBE30348 
+
+ME ME_5722F3C60362
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EC67025A // TvcmMenuManager
+ ;
+ MELINK Target WL 'ME_53E9DB8702DD' '4AADF9450143.ms.model.script' // vcmMenuManagerTypes
+ ;
+
+ENDME // ME_5722F3C60362 
+
+ME ME_4B30EC67025A
+ MEPROP UID '4B30EC67025A'
+ MEPROP Name 'TvcmMenuManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52A9AFFF03C0 // g_InternalButton
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52AB0BCD033E // new_ini_op
+ HWL ME_52AB0BD60025 // new_fini_op
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_51ED01600060 // TvcmPopupMenu
+ HWL ME_52A082BA0188 // TvcmButtonDef
+ HWL ME_52A8430201C5 // TvcmFakeBox
+ HWL ME_52A0812B00B7 // TvcmDockContainer
+ HWL ME_52A0838A0001 // TvcmButtonDefs
+ HWL ME_52A08EDC003D // TvcmIconTextType
+ HWL ME_52A087CA0218 // TvcmToolButtonDefActionLink
+ HWL ME_52A08A9E0275 // TvcmToolButtonDef
+ HWL ME_52A08EFE0261 // TvcmGlyphColordepth
+ HWL ME_52A8304401E3 // TvcmToolbarDefForMenuManager
+ HWL ME_52A091340172 // TvcmButtonPopupMenu
+ HWL ME_52A830D30389 // TvcmToolbarDefsForMenuManager
+ HWL ME_4B30EC81021A // TvcmCustomMenuManager
+ HWL ME_52A8429102F6 // TvcmGlyphSizeMap
+ HWL ME_52AAFF960114 // TvcmTBPosStringArray
+ HWL ME_52A045E102E3 // TvcmComboBox
+ HWL ME_52A9AB640217 // TvcmEdit
+ HWL ME_52A9ABFF02E0 // TvcmDateEdit
+ HWL ME_52A9B06C00C9 // THackWinControl
+ HWL ME_52A9B0F7029E // THackControl
+ HWL ME_52A9B15502FC // THackPopupMenu
+ HWL ME_55019B3B011B // TvcmMenuManagerHelper
+ HWL ME_5501A60D002E // TvcmDispatcherHelper
+ HWL ME_55CA130E00D1 // TvcmToolbarDefList
+ HWL ME_5722F446009F // TvcmMenuOption
+ HWL ME_5722F46303DB // TvcmToolbarOption
+ HWL ME_5722F47F02E5 // TvcmMenuOptions
+ HWL ME_5722F49C02B0 // TvcmToolbarOptions
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_52A08EAA00E4 // vcmMenuManager Const
+ HWL ME_52A841F4031F // vcmMenuManager Private Const
+ HWL ME_52EB8107015C // MessageConstants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_51D12B1703DA // TvcmEntitiesDefIteratorForContextMenu
+ ME_52AB0A4902C3 // vcmMenuManagerUtils
+ ME_52AB1D220031 // vcmMessages
+ ME_52AB1D2502B0 // Il3Canvas
+ ME_52AB1D280353 // l3ScreenIC
+ ME_52AB1D2B0365 // Il3CString
+ ME_52AB1D2F003F // tb97vt
+ ME_52AB1D320094 // PTypeData
+ ME_52AB1D35016C // SysUtils
+ ME_52AB1D380100 // StdCtrls
+ ME_52AB1D3B023B // l3String
+ ME_52AB1D3E0360 // ctTypes
+ ME_52AB1D41034B // ActionCodes
+ ME_52AB1D4403C7 // vcmMenus
+ ME_52AB1D4703B1 // TvcmAction
+ ME_52AB1D4B00DD // afwFacade
+ ME_52AB1D4E00A5 // vcm_ComboOperations
+ ME_52AB1D5100B4 // l3Base
+ ME_52AB1D54013A // l3MinMax
+ ME_52AB1D57017B // vcmToolbarUtils
+ ME_52AB1D5A01A1 // vcmSettings
+ ME_52AB1D5D011F // TvcmMainForm
+ ME_52AB1D6001C1 // vcmUtils
+ ME_52AB1D630372 // TvcmModuleAction
+ ME_52AB1D670118 // TvcmEntityAction
+ ME_52AB1D6A02E9 // TvcmFormHandler
+ ME_52AB1D6E00B2 // vcmMenuManagerRes
+ ME_52AB1D71018A // TvcmMenuItemsCollectionItem
+ ME_52AB1D7401DA // TvcmMainMenuAction
+ ME_537DC3D80062 // vcmChromeLikeTypes
+ ME_564AEBE30348 // TvcmMainMenuBuilder
+ ME_5722F3C60362 // vcmMenuManagerTypes
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP extprop:pas:UnitName 'vcmMenuManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MenuManager'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas'
+
+ENDME // ME_4B30EC67025A TvcmMenuManager

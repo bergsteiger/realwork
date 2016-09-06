@@ -36,6 +36,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4808A9F301D4impl_uses*
+ //#UC END# *4808A9F301D4impl_uses*
 ;
 
 type

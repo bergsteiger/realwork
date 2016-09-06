@@ -1,0 +1,68 @@
+// OfficeLike 4ADDCE970294 VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ADDCE970294
+
+ME ME_4C8E34A2037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDCE970294 // OfficeLike
+ ;
+ MELINK Target WL 'ME_4C8E34280227' '4C8E34280227.ms.model.script' // ToolbarMenu
+ ;
+
+ENDME // ME_4C8E34A2037E 
+
+ME ME_51E69AC400CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDCE970294 // OfficeLike
+ ;
+ MELINK Target WL 'ME_4D7A109601C2' '4AB34028023E.ms.model.script' // TvcmBaseOperationsCollectionItem
+ ;
+
+ENDME // ME_51E69AC400CF 
+
+ME ME_51E69B74019F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADDCE970294 // OfficeLike
+ ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_51E69B74019F 
+
+ME ME_4ADDCE970294
+ MEPROP UID '4ADDCE970294'
+ MEPROP Name 'OfficeLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AB22E140136' '50883A2E00B3.ms.model.script' // TvcmApplication
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( WL 'ME_4ADDD3030251' '4ADDD3030251.ms.model.script' // OfficeLikeMain
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4C8E34A2037E // ToolbarMenu
+ ME_51E69AC400CF // TvcmBaseOperationsCollectionItem
+ ME_51E69B74019F // IvcmOperationDef
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TOfficeLikeRes'
+ UP extprop:pas:UnitName 'OfficeLikeRes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OfficeLikeRes'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\OfficeLikeRes.pas'
+
+ENDME // ME_4ADDCE970294 OfficeLike

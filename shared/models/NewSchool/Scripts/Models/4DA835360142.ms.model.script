@@ -1,0 +1,133 @@
+// afwDockingInterfaces 4DA835360142 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DA835360142
+
+FORWARD ME_4DA835920377
+
+FORWARD ME_4DA835E501AA
+
+ME ME_4DA83600037F
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_4DA83600037F aControl
+
+ME ME_4DA835E501AA
+ MEPROP UID '4DA835E501AA'
+ MEPROP Name 'CanBeDockedInto'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DA835920377 // IafwDockableControl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DA83600037F // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4DA835E501AA CanBeDockedInto
+
+ME ME_4DA835920377
+ MEPROP UID '4DA835920377'
+ MEPROP GUID 'A3986FC8-A811-4B72-BEBF-BD68FA7D6038'
+ MEPROP Name 'IafwDockableControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DA835360142 // afwDockingInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DA835E501AA // CanBeDockedInto
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwDockableControl'
+
+ENDME // ME_4DA835920377 IafwDockableControl
+
+FORWARD ME_4DA834C4007C
+
+FORWARD ME_4DA835AB02CC
+
+ME ME_4DA835DC0394
+ MEPROP Name 'aDockable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4DA835920377 // IafwDockableControl
+ ;
+
+ENDME // ME_4DA835DC0394 aDockable
+
+ME ME_4DA835AB02CC
+ MEPROP UID '4DA835AB02CC'
+ MEPROP Name 'GetDockControl'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DA834C4007C // IafwControlDock
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DA835DC0394 // aDockable
+ )
+ ; // Parameters
+
+ENDME // ME_4DA835AB02CC GetDockControl
+
+ME ME_4DA834C4007C
+ MEPROP UID '4DA834C4007C'
+ MEPROP GUID 'DD464262-1D9A-41AB-B85C-A0E351F0E9F1'
+ MEPROP Name 'IafwControlDock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DA835360142 // afwDockingInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DA835AB02CC // GetDockControl
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwControlDock'
+
+ENDME // ME_4DA834C4007C IafwControlDock
+
+ME ME_4DA835360142
+ MEPROP UID '4DA835360142'
+ MEPROP Name 'afwDockingInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DA835920377 // IafwDockableControl
+ HWL ME_4DA834C4007C // IafwControlDock
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '15.04.2011 16:08'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwDockingInterfaces.pas'
+
+ENDME // ME_4DA835360142 afwDockingInterfaces

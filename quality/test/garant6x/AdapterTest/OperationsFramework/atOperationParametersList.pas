@@ -25,6 +25,8 @@ implementation
 uses
  l3ImplUses
  , Classes
+ //#UC START# *48089BA60088impl_uses*
+ //#UC END# *48089BA60088impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atNamedParametersList.imp.pas}

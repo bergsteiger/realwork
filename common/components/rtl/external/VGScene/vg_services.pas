@@ -128,6 +128,8 @@ uses
  {$IfEnd} // NOT Defined(NoVCL)
  , vgObject
  , Windows
+ //#UC START# *551ABCF10068impl_uses*
+ //#UC END# *551ABCF10068impl_uses*
 ;
 
 var g_TvgGetComponentFromPointImpl: TvgGetComponentFromPointImpl = nil;

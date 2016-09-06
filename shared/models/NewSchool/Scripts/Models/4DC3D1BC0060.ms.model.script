@@ -1,0 +1,38 @@
+// ScriptTestLibrary 4DC3D1BC0060 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4DC3D1BC0060
+ MEPROP UID '4DC3D1BC0060'
+ MEPROP Name 'ScriptTestLibrary'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestLibrary ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B30CC420206' '4B30CC420206.ms.model.script' // Shared Delphi Testing Framework
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4DC3D21E006E' '4DC3D21E006E.ms.model.script' // ScriptTestUnit
+ WL 'ME_4DC246E40002' '4DC246E40002.ms.model.script' // AutoTests
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4684F91300DD' '4684F91300DD.ms.model.script' // Vcl
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4B2A0D4A006F' '4B2A0D4A006F.ms.model.script' // DUnit
+ WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ WL 'ME_550012C403C4' '550012C403C4.ms.model.script' // L3$AFW
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "ifndef" 'NoScripts'
+ UP "is namespace" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\ScriptTestLibrary'
+ UP Version 0
+
+ENDME // ME_4DC3D1BC0060 ScriptTestLibrary

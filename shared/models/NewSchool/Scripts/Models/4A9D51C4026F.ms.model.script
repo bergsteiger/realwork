@@ -1,0 +1,62 @@
+// Contents 4A9D51C4026F VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9D51C4026F
+
+ME ME_00CC094EEFD1
+ MEPROP UID '00CC094EEFD1'
+ MEPROP Name 'Ini_FormFactory_Contents'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Contents' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A9D51C4026F // Contents
+ ;
+ UPLINK SpelledFor HWL ME_4A9D51C4026F // Contents
+ ;
+
+ENDME // ME_00CC094EEFD1 Ini_FormFactory_Contents
+
+ME ME_4A9D51C4026F
+ MEPROP UID '4A9D51C4026F'
+ MEPROP Name 'Contents'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Структура документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C878FA60351' '4C878FA60351.ms.model.script' // PrimContentsOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FF66E2D036A' '4BD856E802F9.ms.model.script' // Contents
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_00CC094EEFD1 // Ini_FormFactory_Contents
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '2003/06/20 06:51:14'
+ UP "ZoneType" 'Navigator'
+ UP extprop:pas:TypeName 'TContentsForm'
+ UP extprop:pas:UnitName 'Contents_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContentsForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Contents_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_4A9D51C4026F Contents

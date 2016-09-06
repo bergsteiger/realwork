@@ -1,0 +1,85 @@
+// TvtStatusBar 4E15A00502A3 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E15A01301E2
+
+FORWARD ME_4E15A00502A3
+
+ME ME_4E15A01301E2
+ MEPROP UID '4E15A01301E2'
+ MEPROP Name 'TvtCustomStatusBar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E15A00502A3 // TvtStatusBar
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E159FC602F5' '4799D29F033F.ms.model.script' // TCustomStatusBar
+ )
+ ; // Inherits
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StatusBar'
+
+ENDME // ME_4E15A01301E2 TvtCustomStatusBar
+
+ME ME_53F7021D0257
+ MEPROP UID '53F7021D0257'
+ MEPROP Name 'TvtStatusPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E15A00502A3 // TvtStatusBar
+ ;
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StatusPanel'
+
+ENDME // ME_53F7021D0257 TvtStatusPanel
+
+ME ME_4E257A110115
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E15A00502A3 // TvtStatusBar
+ ;
+ MELINK Target WL 'ME_4E2579780027' '474144E20301.ms.model.script' // afwDrawing
+ ;
+
+ENDME // ME_4E257A110115 
+
+ME ME_4E15A00502A3
+ MEPROP UID '4E15A00502A3'
+ MEPROP Name 'TvtStatusBar'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E159FE900E2' '4E159FE900E2.ms.model.script' // StatusBar
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E15A01301E2 // TvtCustomStatusBar
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4E15A01301E2 // TvtCustomStatusBar
+ HWL ME_53F7021D0257 // TvtStatusPanel
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E257A110115 // afwDrawing
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'vtStatusBar'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StatusBar'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtStatusBar.pas'
+
+ENDME // ME_4E15A00502A3 TvtStatusBar

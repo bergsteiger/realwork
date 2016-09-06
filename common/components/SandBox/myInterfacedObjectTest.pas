@@ -28,6 +28,8 @@ uses
  l3ImplUses
  , myInterfacedObject
  , SysUtils
+ //#UC START# *516D4FB9038Cimpl_uses*
+ //#UC END# *516D4FB9038Cimpl_uses*
 ;
 
 procedure TmyInterfacedObjectTest.DoIt;

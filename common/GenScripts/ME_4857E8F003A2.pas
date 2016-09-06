@@ -38,6 +38,8 @@ uses
  , evQueryCardCursor
  {$IfEnd} // Defined(evUseVisibleCursors)
  , QueryCard_Const
+ //#UC START# *4857E8F003A2impl_uses*
+ //#UC END# *4857E8F003A2impl_uses*
 ;
 
 function TevQueryCardInterfaceFactory.QueryTool(aTag: Tl3Variant;

@@ -1,0 +1,100 @@
+// TdsContents 4925730902E4 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4925730902E4
+
+ME ME_492573740234
+ MEPROP UID '492573740234'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4925730902E4 // TdsContents
+ ;
+ MELINK Target WL 'ME_491D6701006E' '4D1B548F00EE.ms.model.script' // IsdsDocument
+ ;
+
+ENDME // ME_492573740234 
+
+ME ME_47F4C2B9014A_ME_4925730902E4
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_4925730902E4 MakeSimpleTree
+
+ME ME_492571BE02C8_ME_4925730902E4
+ MELINK Original WL 'ME_492571BE02C8' '491B305A0096.ms.model.script' // HasRespondents
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_492571BE02C8_ME_4925730902E4 HasRespondents
+
+ME ME_492571CF017C_ME_4925730902E4
+ MELINK Original WL 'ME_492571CF017C' '491B305A0096.ms.model.script' // HasCorrespondents
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_492571CF017C_ME_4925730902E4 HasCorrespondents
+
+ME ME_55880E2802C5_ME_4925730902E4
+ MELINK Original WL 'ME_55880E2802C5' '491B305A0096.ms.model.script' // HasSimilarToFragment
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55880E2802C5_ME_4925730902E4 HasSimilarToFragment
+
+ME ME_55925FB9019A_ME_4925730902E4
+ MELINK Original WL 'ME_55925FB9019A' '491B305A0096.ms.model.script' // OpenSimilarDocuments
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55925FB9019A_ME_4925730902E4 OpenSimilarDocuments
+
+ME ME_5594F4DB0203_ME_4925730902E4
+ MELINK Original WL 'ME_5594F4DB0203' '491B305A0096.ms.model.script' // OpenSimilarDocumentsToFragment
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5594F4DB0203_ME_4925730902E4 OpenSimilarDocumentsToFragment
+
+ME ME_4925730902E4
+ MEPROP UID '4925730902E4'
+ MEPROP Name 'TdsContents'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'бизнес объект формы ContentsForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49256B3903E4' '49256B3903E4.ms.model.script' // dsBaseContents
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492571A202F1' '491B305A0096.ms.model.script' // IdsContents
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_492573740234 // 
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F4C2B9014A_ME_4925730902E4 // MakeSimpleTree
+ ME_492571BE02C8_ME_4925730902E4 // HasRespondents
+ ME_492571CF017C_ME_4925730902E4 // HasCorrespondents
+ ME_55880E2802C5_ME_4925730902E4 // HasSimilarToFragment
+ ME_55925FB9019A_ME_4925730902E4 // OpenSimilarDocuments
+ ME_5594F4DB0203_ME_4925730902E4 // OpenSimilarDocumentsToFragment
+ )
+ ; // Implemented
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" True
+ UP "started" '2005/09/28 12:40:20'
+ UP extprop:pas:UnitName 'dsContents'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsContents'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsContents.pas'
+
+ENDME // ME_4925730902E4 TdsContents

@@ -1,0 +1,54 @@
+// ParentAndChildPrim 4F6B66260326 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B66260326
+
+ME ME_4F6B684401E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ MELINK Target WL 'ME_4AD89C420296' '47D0E1500033.ms.model.script' // vcmMakeParams
+ ;
+
+ENDME // ME_4F6B684401E9 
+
+ME ME_5791F1F30307
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4F6B66260326 // ParentAndChildPrim
+ ;
+ MELINK Target WL 'ME_5791D23B02DA' '5791D1FF0214.ms.model.script' // TvcmParentAndChildService
+ ;
+
+ENDME // ME_5791F1F30307 
+
+ME ME_4F6B66260326
+ MEPROP UID '4F6B66260326'
+ MEPROP Name 'ParentAndChildPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F6B66140294' '4F6B66140294.ms.model.script' // ParentAndChild
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4F6B66CB0200' '4F6B66CB0200.ms.model.script' // Parent
+ WL 'ME_4F6B66DB0384' '4F6B66DB0384.ms.model.script' // Child
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F6B684401E9 // vcmMakeParams
+ ME_5791F1F30307 // TvcmParentAndChildService
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TParentAndChildPrimModule'
+ UP extprop:pas:UnitName 'ParentAndChildPrim_Module'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ParentAndChildPrimModule'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\ParentAndChildPrim_Module.pas'
+
+ENDME // ME_4F6B66260326 ParentAndChildPrim

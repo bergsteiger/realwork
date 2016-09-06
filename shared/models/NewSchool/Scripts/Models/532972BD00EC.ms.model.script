@@ -1,0 +1,270 @@
+// NewRemindersInterfaces 532972BD00EC Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532972BD00EC
+
+FORWARD ME_532973090394
+
+FORWARD ME_5332C183032A
+
+FORWARD ME_5332C19D034A
+
+ME ME_5332C1A002B9
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+
+ENDME // ME_5332C1A002B9 aControl
+
+ME ME_5332C19D034A
+ MEPROP UID '5332C19D034A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5332C183032A // ControlDropped
+ ;
+ MELIST Parameters
+   Seq: ( ME_5332C1A002B9 // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_5332C19D034A DoIt
+
+ME ME_5332C183032A
+ MEPROP UID '5332C183032A'
+ MEPROP Name 'ControlDropped'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532973090394 // IvgRemindersLine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5332C19D034A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5332C183032A ControlDropped
+
+ME ME_5333FE7101AE
+ MEPROP UID '5333FE7101AE'
+ MEPROP Name 'RemindersLineFormDestroyed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532973090394 // IvgRemindersLine
+ ;
+
+ENDME // ME_5333FE7101AE RemindersLineFormDestroyed
+
+FORWARD ME_5334688E024C
+
+ME ME_533468AF0218
+ MEPROP UID '533468AF0218'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5334688E024C // IsInMove
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_533468AF0218 DoIt
+
+ME ME_5334688E024C
+ MEPROP UID '5334688E024C'
+ MEPROP Name 'IsInMove'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Линию двигают' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532973090394 // IvgRemindersLine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533468AF0218 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5334688E024C IsInMove
+
+FORWARD ME_5335BBE60398
+
+FORWARD ME_5335BC200019
+
+ME ME_5335BC510015
+ MEPROP Name 'aLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5335BC510015 aLeft
+
+ME ME_5335BC51002F
+ MEPROP Name 'aTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5335BC51002F aTop
+
+ME ME_5335BC510048
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5335BC510048 aWidth
+
+ME ME_5335BC510062
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5335BC510062 aHeight
+
+ME ME_5335BC200019
+ MEPROP UID '5335BC200019'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5335BBE60398 // CorrectBounds
+ ;
+ MELIST Parameters
+   Seq: ( ME_5335BC510015 // aLeft
+ ME_5335BC51002F // aTop
+ ME_5335BC510048 // aWidth
+ ME_5335BC510062 // aHeight
+ )
+ ; // Parameters
+
+ENDME // ME_5335BC200019 DoIt
+
+ME ME_5335BBE60398
+ MEPROP UID '5335BBE60398'
+ MEPROP Name 'CorrectBounds'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532973090394 // IvgRemindersLine
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5335BC200019 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5335BBE60398 CorrectBounds
+
+ME ME_533AA46501AF
+ MEPROP UID '533AA46501AF'
+ MEPROP Name 'UpdateActions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532973090394 // IvgRemindersLine
+ ;
+
+ENDME // ME_533AA46501AF UpdateActions
+
+ME ME_535E4BA10317
+ MEPROP UID '535E4BA10317'
+ MEPROP Name 'SyncPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_532973090394 // IvgRemindersLine
+ ;
+
+ENDME // ME_535E4BA10317 SyncPosition
+
+ME ME_532973090394
+ MEPROP UID '532973090394'
+ MEPROP GUID '588786EF-D479-4005-AAEF-1F83B6FDB1EC'
+ MEPROP Name 'IvgRemindersLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532972BD00EC // NewRemindersInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5332C183032A // ControlDropped
+ HWL ME_5333FE7101AE // RemindersLineFormDestroyed
+ HWL ME_5334688E024C // IsInMove
+ HWL ME_5335BBE60398 // CorrectBounds
+ HWL ME_533AA46501AF // UpdateActions
+ HWL ME_535E4BA10317 // SyncPosition
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RemindersLine'
+
+ENDME // ME_532973090394 IvgRemindersLine
+
+ME ME_532973190187
+ MEPROP UID '532973190187'
+ MEPROP GUID 'D526B5C7-8FB6-42EA-816A-B2C19C8CD4B6'
+ MEPROP Name 'IvgReminder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532972BD00EC // NewRemindersInterfaces
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Reminder'
+
+ENDME // ME_532973190187 IvgReminder
+
+ME ME_532972BD00EC
+ MEPROP UID '532972BD00EC'
+ MEPROP Name 'NewRemindersInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F91817500AC' '4F91817500AC.ms.model.script' // VT$Rem
+ ;
+ MELIST Children
+   Seq: ( HWL ME_532973090394 // IvgRemindersLine
+ HWL ME_532973190187 // IvgReminder
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4728A7020026' '4728A7020026.ms.model.script' // Types
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_499EAAE502A8' '499EAAE502A8.ms.model.script' // vcmUserControls
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.ms.model.script' // Impl
+ WL 'ME_4D90513F009C' '4D90513F009C.ms.model.script' // Reminders
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NewRemindersInterfaces.pas'
+
+ENDME // ME_532972BD00EC NewRemindersInterfaces

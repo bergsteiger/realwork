@@ -1,0 +1,79 @@
+// Ruler 4F8EAF64033F Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F8EAF64033F
+
+FORWARD ME_4F8EAF8B0259
+
+ME ME_4F8EAFA1026D
+ MEPROP UID '4F8EAFA1026D'
+ MEPROP Name 'TevCustomRuler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EAF8B0259 // evRuler
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Ruler'
+
+ENDME // ME_4F8EAFA1026D TevCustomRuler
+
+ME ME_4F8EAFB102A9
+ MEPROP UID '4F8EAFB102A9'
+ MEPROP Name 'TevRuler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EAF8B0259 // evRuler
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F8EAFA1026D // TevCustomRuler
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Ruler'
+
+ENDME // ME_4F8EAFB102A9 TevRuler
+
+ME ME_4F8EAF8B0259
+ MEPROP UID '4F8EAF8B0259'
+ MEPROP Name 'evRuler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8EAF64033F // Ruler
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8EAFA1026D // TevCustomRuler
+ HWL ME_4F8EAFB102A9 // TevRuler
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:rc:SelfName 'Ruler'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evRuler.pas'
+
+ENDME // ME_4F8EAF8B0259 evRuler
+
+ME ME_4F8EAF64033F
+ MEPROP UID '4F8EAF64033F'
+ MEPROP Name 'Ruler'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8EAF8B0259 // evRuler
+ )
+ ; // Children
+
+ENDME // ME_4F8EAF64033F Ruler

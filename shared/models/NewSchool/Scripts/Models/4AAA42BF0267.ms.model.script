@@ -1,0 +1,57 @@
+// ShellAndMonitorings 4AAA42BF0267 VCMApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AAA42BF0267
+
+ME ME_4AAA42EF025A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAA42BF0267 // ShellAndMonitorings
+ ;
+ MELINK Target WL 'ME_4AA93171022B' '4AA93171022B.ms.model.script' // CommonSearch$UC
+ ;
+
+ENDME // ME_4AAA42EF025A 
+
+ME ME_54F8582001BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AAA42BF0267 // ShellAndMonitorings
+ ;
+ MELINK Target WL 'ME_54F83BC9036B' '54F83B9F01BB.ms.model.script' // TtasSaveLoadRealization
+ ;
+
+ENDME // ME_54F8582001BD 
+
+ME ME_4AAA42BF0267
+ MEPROP UID '4AAA42BF0267'
+ MEPROP Name 'ShellAndMonitorings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMApplication ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A92BBDF0126' '4A92BBDF0126.ms.model.script' // PrimF1
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( WL 'ME_4AAA43F601F7' '4AAA43F601F7.ms.model.script' // ShellAndMonitoringsMain
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AAA42EF025A // CommonSearch$UC
+ ME_54F8582001BD // TtasSaveLoadRealization
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TShellAndMonitoringsRes'
+ UP extprop:pas:UnitName 'ShellAndMonitoringsRes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShellAndMonitoringsRes'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\ShellAndMonitoringsRes.pas'
+
+ENDME // ME_4AAA42BF0267 ShellAndMonitorings

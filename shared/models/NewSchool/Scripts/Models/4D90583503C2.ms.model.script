@@ -1,0 +1,799 @@
+// TvtPopupForm 4D90583503C2 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D90583503C2
+
+FORWARD ME_4F86D90400CD
+
+ME ME_4F86D9100103
+ MEPROP UID '4F86D9100103'
+ MEPROP Name 'vtTailTop'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ENDME // ME_4F86D9100103 vtTailTop
+
+ME ME_4F86D91D00A4
+ MEPROP UID '4F86D91D00A4'
+ MEPROP Name 'vtTailLeft'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ENDME // ME_4F86D91D00A4 vtTailLeft
+
+ME ME_4F86D92800EE
+ MEPROP UID '4F86D92800EE'
+ MEPROP Name 'vtTailBottom'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ENDME // ME_4F86D92800EE vtTailBottom
+
+ME ME_4F86D92E026D
+ MEPROP UID '4F86D92E026D'
+ MEPROP Name 'vtTailRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ENDME // ME_4F86D92E026D vtTailRight
+
+ME ME_4F86D90400CD
+ MEPROP UID '4F86D90400CD'
+ MEPROP Name 'TvtTailPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F86D9100103 // vtTailTop
+ HWL ME_4F86D91D00A4 // vtTailLeft
+ HWL ME_4F86D92800EE // vtTailBottom
+ HWL ME_4F86D92E026D // vtTailRight
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4F86D90400CD TvtTailPosition
+
+FORWARD ME_4FC76B5B0371
+
+ME ME_4FC76E1C0380
+ MEPROP UID '4FC76E1C0380'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4FC76B5B0371 // TvtCurrentBounds
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_4FC76E1C0380 
+
+ME ME_4FC76B5B0371
+ MEPROP UID '4FC76B5B0371'
+ MEPROP Name 'TvtCurrentBounds'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F86D90400CD // TvtTailPosition
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FC76E1C0380 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_4FC76B5B0371 TvtCurrentBounds
+
+ME ME_4FC772F5013E
+ MEPROP UID '4FC772F5013E'
+ MEPROP Name 'THackWinControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HackWinControl'
+
+ENDME // ME_4FC772F5013E THackWinControl
+
+FORWARD ME_4FC7733B0224
+
+ME ME_4FC773620315
+ MEPROP UID '4FC773620315'
+ MEPROP Name 'cIndentHMul'
+ MEPROP Class class_Attribute
+ %SUMMARY 'отступы от краев по горизонтали' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ MEPROP Value '0.2'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '0.2'
+
+ENDME // ME_4FC773620315 cIndentHMul
+
+ME ME_4FC7739E01CB
+ MEPROP UID '4FC7739E01CB'
+ MEPROP Name 'cIndentTopMul'
+ MEPROP Class class_Attribute
+ %SUMMARY 'отступ от верхнего края' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ MEPROP Value '1.0'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '1.0'
+
+ENDME // ME_4FC7739E01CB cIndentTopMul
+
+ME ME_4FC773B8016F
+ MEPROP UID '4FC773B8016F'
+ MEPROP Name 'cIndentBottomMul'
+ MEPROP Class class_Attribute
+ %SUMMARY 'отступ от нижнего края' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ MEPROP Value '1.0'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '1.0'
+
+ENDME // ME_4FC773B8016F cIndentBottomMul
+
+ME ME_4FC773D301AE
+ MEPROP UID '4FC773D301AE'
+ MEPROP Name 'cTailMul'
+ MEPROP Class class_Attribute
+ %SUMMARY 'длина хвостика' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ MEPROP Value '1.5'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '1.5'
+
+ENDME // ME_4FC773D301AE cTailMul
+
+ME ME_4FC773FF0266
+ MEPROP UID '4FC773FF0266'
+ MEPROP Name 'cBtnWidthMul'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ширина-высота кнопки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ MEPROP Value '1.4'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '1.4'
+
+ENDME // ME_4FC773FF0266 cBtnWidthMul
+
+ME ME_4FC7741D02D0
+ MEPROP UID '4FC7741D02D0'
+ MEPROP Name 'cBtnIndentMul'
+ MEPROP Class class_Attribute
+ %SUMMARY 'отступ кнопки от края' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ ;
+ MEPROP Value '0.5'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '0.5'
+
+ENDME // ME_4FC7741D02D0 cBtnIndentMul
+
+ME ME_4FC7733B0224
+ MEPROP UID '4FC7733B0224'
+ MEPROP Name 'TvtPopupForm_Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FC773620315 // cIndentHMul
+ HWL ME_4FC7739E01CB // cIndentTopMul
+ HWL ME_4FC773B8016F // cIndentBottomMul
+ HWL ME_4FC773D301AE // cTailMul
+ HWL ME_4FC773FF0266 // cBtnWidthMul
+ HWL ME_4FC7741D02D0 // cBtnIndentMul
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4FC7733B0224 TvtPopupForm_Constants
+
+ME ME_4FC761C303D5
+ MEPROP UID '4FC761C303D5'
+ MEPROP Name 'f_Scene'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4CFFB562010C' '4CFCE51A00B0.ms.model.script' // TvgScene
+ ;
+
+ENDME // ME_4FC761C303D5 f_Scene
+
+ME ME_4FC763F500F9
+ MEPROP UID '4FC763F500F9'
+ MEPROP Name 'f_Background'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4FC762770058' '4CFCE51A00B0.ms.model.script' // TvgBackground
+ ;
+
+ENDME // ME_4FC763F500F9 f_Background
+
+ME ME_4FC764F300FC
+ MEPROP UID '4FC764F300FC'
+ MEPROP Name 'f_CalloutPanel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4FC7649B002C' '4CFCE51A00B0.ms.model.script' // TvgCalloutPanel
+ ;
+
+ENDME // ME_4FC764F300FC f_CalloutPanel
+
+ME ME_4FC7650D00D4
+ MEPROP UID '4FC7650D00D4'
+ MEPROP Name 'f_CloseButton'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4CFCE5A10367' '4CFCE51A00B0.ms.model.script' // TvgCloseButton
+ ;
+
+ENDME // ME_4FC7650D00D4 f_CloseButton
+
+ME ME_4FC7653F00DA
+ MEPROP UID '4FC7653F00DA'
+ MEPROP Name 'f_NonVGLayout'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4CFFAE9802DF' '4CFCE51A00B0.ms.model.script' // TvgNonVGLayout
+ ;
+
+ENDME // ME_4FC7653F00DA f_NonVGLayout
+
+ME ME_4FC765E1032A
+ MEPROP UID '4FC765E1032A'
+ MEPROP Name 'AfterBaloonHidden'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4FC765E1032A AfterBaloonHidden
+
+ME ME_4FC768990140
+ MEPROP UID '4FC768990140'
+ MEPROP Name 'TailPosition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4FC768990140 TailPosition
+
+ME ME_4FC76A86012B
+ MEPROP UID '4FC76A86012B'
+ MEPROP Name 'Panel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_4FC76A86012B Panel
+
+ME ME_4FC76E2700B2
+ MEPROP UID '4FC76E2700B2'
+ MEPROP Name 'f_CurrentBounds'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target HWL ME_4FC76B5B0371 // TvtCurrentBounds
+ ;
+
+ENDME // ME_4FC76E2700B2 f_CurrentBounds
+
+FORWARD ME_4FC7711F014B
+
+FORWARD ME_4FC7716A0107
+
+ME ME_4FC7719B009E
+ MEPROP Name 'a_TailPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F86D90400CD // TvtTailPosition
+ ;
+
+ENDME // ME_4FC7719B009E a_TailPosition
+
+ME ME_4FC7719B00FA
+ MEPROP Name 'a_FontSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC7719B00FA a_FontSize
+
+ME ME_4FC7719B0168
+ MEPROP Name 'a_WidthIn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC7719B0168 a_WidthIn
+
+ME ME_4FC7719B01D0
+ MEPROP Name 'a_HeightIn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC7719B01D0 a_HeightIn
+
+ME ME_4FC7719B0247
+ MEPROP Name 'a_WidthOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC7719B0247 a_WidthOut
+
+ME ME_4FC87A2B001B
+ MEPROP Name 'a_HeightOut'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FC87A2B001B a_HeightOut
+
+ME ME_4FC7716A0107
+ MEPROP UID '4FC7716A0107'
+ MEPROP Name 'Do'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7711F014B // AdjustBalloonSize
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC7719B009E // a_TailPosition
+ ME_4FC7719B00FA // a_FontSize
+ ME_4FC7719B0168 // a_WidthIn
+ ME_4FC7719B01D0 // a_HeightIn
+ ME_4FC7719B0247 // a_WidthOut
+ ME_4FC87A2B001B // a_HeightOut
+ )
+ ; // Parameters
+
+ENDME // ME_4FC7716A0107 Do
+
+ME ME_4FC7711F014B
+ MEPROP UID '4FC7711F014B'
+ MEPROP Name 'AdjustBalloonSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'По ширине и высоте вдоченного редактора высчитываем ширину и высоту всего баллона.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC7716A0107 // Do
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4FC7711F014B AdjustBalloonSize
+
+FORWARD ME_4FC87D8002D6
+
+FORWARD ME_4FC87DA5011D
+
+ME ME_4FC87DAC020A
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4FC87DAC020A Sender
+
+ME ME_4FC87DAC0266
+ MEPROP Name 'DockClient'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4FC87DAC0266 DockClient
+
+ME ME_4FC87DAC02D4
+ MEPROP Name 'InfluenceRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_4FC87DAC02D4 InfluenceRect
+
+ME ME_4FC87DAC0339
+ MEPROP Name 'MousePos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_noconst ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_4FC87DAC0339 MousePos
+
+ME ME_4FC87DAC039E
+ MEPROP Name 'CanDock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC87DAC039E CanDock
+
+ME ME_4FC87DA5011D
+ MEPROP UID '4FC87DA5011D'
+ MEPROP Name 'Do'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC87D8002D6 // PanelGetSiteInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC87DAC020A // Sender
+ ME_4FC87DAC0266 // DockClient
+ ME_4FC87DAC02D4 // InfluenceRect
+ ME_4FC87DAC0339 // MousePos
+ ME_4FC87DAC039E // CanDock
+ )
+ ; // Parameters
+
+ENDME // ME_4FC87DA5011D Do
+
+ME ME_4FC87D8002D6
+ MEPROP UID '4FC87D8002D6'
+ MEPROP Name 'PanelGetSiteInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC87DA5011D // Do
+ )
+ ; // Operations
+
+ENDME // ME_4FC87D8002D6 PanelGetSiteInfo
+
+FORWARD ME_4FC7694303B7
+
+ME ME_4FC7697603E6
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4FC7697603E6 Message
+
+ME ME_4FC7694303B7
+ MEPROP UID '4FC7694303B7'
+ MEPROP Name 'CMVisibleChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC7697603E6 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_VISIBLECHANGED'
+
+ENDME // ME_4FC7694303B7 CMVisibleChanged
+
+ME ME_4FC767AE01D9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4CFE3E000371' '4CFCE51A00B0.ms.model.script' // vg_scene
+ ;
+
+ENDME // ME_4FC767AE01D9 
+
+ME ME_4FC767B20157
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4CFFAE8902BD' '4CFCE51A00B0.ms.model.script' // vg_layouts
+ ;
+
+ENDME // ME_4FC767B20157 
+
+ME ME_4FC767B5030B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4CFCE531013A' '4CFCE51A00B0.ms.model.script' // vg_controls
+ ;
+
+ENDME // ME_4FC767B5030B 
+
+ME ME_4FC772A10353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4799ECBF00D6' '4799EC9300AF.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_4FC772A10353 
+
+ME ME_4FC77F240294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4CFE2C72021C' '4CFCE51A00B0.ms.model.script' // vg_objects
+ ;
+
+ENDME // ME_4FC77F240294 
+
+ME ME_4FC77F280173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4FC77F280173 
+
+ME ME_4FC77F2B020E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4FC77F2B020E 
+
+ME ME_4FC77F2F001C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4D5EB41C02CB' '4D5420EC039D.ms.model.script' // TvgAlign
+ ;
+
+ENDME // ME_4FC77F2F001C 
+
+ME ME_4FC77F3102DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4D557516038D' '4B8E675402AB.ms.model.script' // TvtVGSceneResources
+ ;
+
+ENDME // ME_4FC77F3102DD 
+
+ME ME_4FC7850403D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D90583503C2 // TvtPopupForm
+ ;
+ MELINK Target WL 'ME_4FC784BC014D' '4AADF9450143.ms.model.script' // TvcmDockTree
+ ;
+
+ENDME // ME_4FC7850403D5 
+
+ME ME_48C7925A02E5_ME_4D90583503C2
+ MELINK Original WL 'ME_48C7925A02E5' '4799D29F033F.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7925A02E5_ME_4D90583503C2 CreateParams
+
+ME ME_4F2A599E0283_ME_4D90583503C2
+ MELINK Original WL 'ME_4F2A599E0283' '4799D29F033F.ms.model.script' // SetBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A599E0283_ME_4D90583503C2 SetBounds
+
+ME ME_4F9007B20376_ME_4D90583503C2
+ MELINK Original WL 'ME_4F9007B20376' '4799D29F033F.ms.model.script' // CreateNew
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F9007B20376_ME_4D90583503C2 CreateNew
+
+ME ME_4D90583503C2
+ MEPROP UID '4D90583503C2'
+ MEPROP Name 'TvtPopupForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D90513F009C' '4D90513F009C.ms.model.script' // Reminders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_484529DC0276' '4799D29F033F.ms.model.script' // TCustomForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FC761C303D5 // f_Scene
+ HWL ME_4FC763F500F9 // f_Background
+ HWL ME_4FC764F300FC // f_CalloutPanel
+ HWL ME_4FC7650D00D4 // f_CloseButton
+ HWL ME_4FC7653F00DA // f_NonVGLayout
+ HWL ME_4FC765E1032A // AfterBaloonHidden
+ HWL ME_4FC768990140 // TailPosition
+ HWL ME_4FC76A86012B // Panel
+ HWL ME_4FC76E2700B2 // f_CurrentBounds
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FC7711F014B // AdjustBalloonSize
+ HWL ME_4FC87D8002D6 // PanelGetSiteInfo
+ HWL ME_4FC7694303B7 // CMVisibleChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48C7925A02E5_ME_4D90583503C2 // CreateParams
+ ME_4F2A599E0283_ME_4D90583503C2 // SetBounds
+ ME_4F9007B20376_ME_4D90583503C2 // CreateNew
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F86D90400CD // TvtTailPosition
+ HWL ME_4FC76B5B0371 // TvtCurrentBounds
+ HWL ME_4FC772F5013E // THackWinControl
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4FC7733B0224 // TvtPopupForm_Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4FC767AE01D9 // vg_scene
+ ME_4FC767B20157 // vg_layouts
+ ME_4FC767B5030B // vg_controls
+ ME_4FC772A10353 // Defaults
+ ME_4FC77F240294 // vg_objects
+ ME_4FC77F280173 // Windows
+ ME_4FC77F2B020E // afwFacade
+ ME_4FC77F2F001C // TvgAlign
+ ME_4FC77F3102DD // TvtVGSceneResources
+ ME_4FC7850403D5 // TvcmDockTree
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoVGScene'
+ UP extprop:pas:UnitName 'vtPopupForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopupForm'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtPopupForm.pas'
+
+ENDME // ME_4D90583503C2 TvtPopupForm

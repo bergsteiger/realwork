@@ -1,0 +1,108 @@
+// evDef 47F2458300E4 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F2458300E4
+
+FORWARD ME_47F245BD01E1
+
+ME ME_4845503B0261
+ MEPROP UID '4845503B0261'
+ MEPROP Name 'def_MemoScrollStyle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F245BD01E1 // Defaults
+ ;
+ MEPROP Value 'ssVertical'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'ssVertical'
+
+ENDME // ME_4845503B0261 def_MemoScrollStyle
+
+ME ME_484654DC0040
+ MEPROP UID '484654DC0040'
+ MEPROP Name 'def_EditScrollStyle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F245BD01E1 // Defaults
+ ;
+ MEPROP Value 'ssNone'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'ssNone'
+
+ENDME // ME_484654DC0040 def_EditScrollStyle
+
+ME ME_4D3985890011
+ MEPROP UID '4D3985890011'
+ MEPROP Name 'def_Zoom'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F245BD01E1 // Defaults
+ ;
+ MEPROP Value 'def_Zoom'
+ MELINK ValueType WL 'ME_4799ECBF00D6' '4799EC9300AF.ms.model.script' // Defaults
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'l3Defaults.def_Zoom'
+
+ENDME // ME_4D3985890011 def_Zoom
+
+ME ME_47F245BD01E1
+ MEPROP UID '47F245BD01E1'
+ MEPROP Name 'Defaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F2458300E4 // evDef
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4845503B0261 // def_MemoScrollStyle
+ HWL ME_484654DC0040 // def_EditScrollStyle
+ HWL ME_4D3985890011 // def_Zoom
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47F245BD01E1 Defaults
+
+ME ME_47F2458300E4
+ MEPROP UID '47F2458300E4'
+ MEPROP Name 'evDef'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'значения свойств по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47F245BD01E1 // Defaults
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4799EC9300AF' '4799EC9300AF.ms.model.script' // l3Defaults
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "is namespace" True
+ UP "started" '18.03.1997 10:41'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDef.pas'
+
+ENDME // ME_47F2458300E4 evDef

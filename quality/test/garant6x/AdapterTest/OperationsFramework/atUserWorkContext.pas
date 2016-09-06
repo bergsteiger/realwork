@@ -60,6 +60,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4808672500A0impl_uses*
+ //#UC END# *4808672500A0impl_uses*
 ;
 
 function TatUserWorkContext.pm_GetDocHistoryLength: Integer;

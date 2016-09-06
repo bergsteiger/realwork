@@ -1,0 +1,213 @@
+// DUnitKeyWordsSupport 5130776E01BE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5130776E01BE
+
+FORWARD ME_51307830007E
+
+ME ME_5130789403E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ ;
+ MELINK Target WL 'ME_51304A1F02AD' '51304A0E0192.ms.model.script' // kwKeyWordsPack
+ ;
+
+ENDME // ME_5130789403E4 
+
+ME ME_51307830007E
+ MEPROP UID '51307830007E'
+ MEPROP Name 'TAutoTestSuiteWithDUnitSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5130776E01BE // DUnitKeyWordsSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DC40A7E00C8' '4DC246E40002.ms.model.script' // TCustomAutoTestSuite
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5130789403E4 // kwKeyWordsPack
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'AutoTestSuiteWithDUnitSupport'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoTestSuiteWithDUnitSupport'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestSuiteWithDUnitSupport.pas'
+
+ENDME // ME_51307830007E TAutoTestSuiteWithDUnitSupport
+
+FORWARD ME_4DC24756009A
+
+ME ME_4DC40BF302B4
+ MEPROP UID '4DC40BF302B4'
+ MEPROP Name 'Register'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC24756009A // TAutoTestsSuite
+ ;
+
+ENDME // ME_4DC40BF302B4 Register
+
+FORWARD ME_4E297BC401BE
+
+ME ME_4E297BDC02DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC24756009A // TAutoTestsSuite
+ ;
+ MELINK Target HWL ME_4E297BC401BE // TDailyAutoTest
+ ;
+
+ENDME // ME_4E297BDC02DD 
+
+ME ME_4EA66EA40392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC24756009A // TAutoTestsSuite
+ ;
+ MELINK Target WL 'ME_4EA66E6C038E' '4B2A0D6A0077.ms.model.script' // RegisterTest
+ ;
+
+ENDME // ME_4EA66EA40392 
+
+ME ME_4F9A4FD70148_ME_4DC24756009A
+ MELINK Original WL 'ME_4F9A4FD70148' '4B2A0D6A0077.ms.model.script' // DoGetSubFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F9A4FD70148_ME_4DC24756009A DoGetSubFolder
+
+ME ME_4DC24756009A
+ MEPROP UID '4DC24756009A'
+ MEPROP Name 'TAutoTestsSuite'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка тестов-скриптов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5130776E01BE // DUnitKeyWordsSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DC40BF302B4 // Register
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4F9A4FD70148_ME_4DC24756009A // DoGetSubFolder
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E297BDC02DD // TDailyAutoTest
+ ME_4EA66EA40392 // RegisterTest
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'AutoTestsSuite'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoTestsSuite'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\AutoTestsSuite.pas'
+
+ENDME // ME_4DC24756009A TAutoTestsSuite
+
+ME ME_4E36909200B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E297BC401BE // TDailyAutoTest
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_4E36909200B9 
+
+ME ME_4C937013031D_ME_4E297BC401BE
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_4E297BC401BE GetFolder
+
+ME ME_4DB03121022B_ME_4E297BC401BE
+ MELINK Original WL 'ME_4DB03121022B' '4DAEEA14018A.ms.model.script' // ResolveScriptFilePath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB03121022B_ME_4E297BC401BE ResolveScriptFilePath
+
+ME ME_4DC395670274_ME_4E297BC401BE
+ MELINK Original WL 'ME_4DC395670274' '4B2A0D6A0077.ms.model.script' // IsScript
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DC395670274_ME_4E297BC401BE IsScript
+
+ME ME_4DC399CA00BC_ME_4E297BC401BE
+ MELINK Original WL 'ME_4DC399CA00BC' '4B2A0D6A0077.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DC399CA00BC_ME_4E297BC401BE Create
+
+ME ME_4E297BC401BE
+ MEPROP UID '4E297BC401BE'
+ MEPROP Name 'TDailyAutoTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Автотест с поддержкой создаваемых форм.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5130776E01BE // DUnitKeyWordsSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DC247C80356' '4DC246E40002.ms.model.script' // TAutoTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_4E297BC401BE // GetFolder
+ ME_4DB03121022B_ME_4E297BC401BE // ResolveScriptFilePath
+ ME_4DC395670274_ME_4E297BC401BE // IsScript
+ ME_4DC399CA00BC_ME_4E297BC401BE // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E36909200B9 // ExtractFilePath
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'DailyAutoTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DailyAutoTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\DailyAutoTest.pas'
+
+ENDME // ME_4E297BC401BE TDailyAutoTest
+
+ME ME_5130776E01BE
+ MEPROP UID '5130776E01BE'
+ MEPROP Name 'DUnitKeyWordsSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5130499D0080' '5130499D0080.ms.model.script' // DUnit Script Support
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51307830007E // TAutoTestSuiteWithDUnitSupport
+ HWL ME_4DC24756009A // TAutoTestsSuite
+ HWL ME_4E297BC401BE // TDailyAutoTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
+ WL 'ME_4DC246E40002' '4DC246E40002.ms.model.script' // AutoTests
+ WL 'ME_51304A0E0192' '51304A0E0192.ms.model.script' // DUnit Keywords
+ )
+ ; // Depends
+
+ENDME // ME_5130776E01BE DUnitKeyWordsSupport

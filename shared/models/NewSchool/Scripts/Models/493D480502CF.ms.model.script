@@ -1,0 +1,93 @@
+// TdsDocumentWithFlash 493D480502CF ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493D480502CF
+
+ME ME_493D64A6031D
+ MEPROP UID '493D64A6031D'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_493D480502CF // TdsDocumentWithFlash
+ ;
+ MELINK Target WL 'ME_4937D1550372' '491B305A0096.ms.model.script' // IdsDocumentWithFlash
+ ;
+
+ENDME // ME_493D64A6031D FormDataSourceType
+
+ME ME_49788A7102A0
+ MEPROP UID '49788A7102A0'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_493D480502CF // TdsDocumentWithFlash
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_49788A7102A0 
+
+ME ME_493D48C10397
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493D480502CF // TdsDocumentWithFlash
+ ;
+ MELINK Target WL 'ME_47F61C4C0040' '47F260DC003F.ms.model.script' // nsDocumentTools
+ ;
+
+ENDME // ME_493D48C10397 
+
+ME ME_491476B001D3_ME_493D480502CF
+ MELINK Original WL 'ME_491476B001D3' '47D0E1500033.ms.model.script' // MakeDisplayName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_491476B001D3_ME_493D480502CF MakeDisplayName
+
+ME ME_493D480502CF
+ MEPROP UID '493D480502CF'
+ MEPROP Name 'TdsDocumentWithFlash'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'БОФ документа-схемы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493D465902FA' '493D465902FA.ms.model.script' // DocumentAndList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_491D64430036' '491D64430036.ms.model.script' // dsDocument
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4937D1550372' '491B305A0096.ms.model.script' // IdsDocumentWithFlash
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_493D64A6031D // FormDataSourceType
+ HWL ME_49788A7102A0 // 
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_491476B001D3_ME_493D480502CF // MakeDisplayName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_493D48C10397 // nsDocumentTools
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2008/06/19 11:30:02'
+ UP extprop:pas:UnitName 'dsDocumentWithFlash'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsDocumentWithFlash'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentWithFlash.pas'
+
+ENDME // ME_493D480502CF TdsDocumentWithFlash

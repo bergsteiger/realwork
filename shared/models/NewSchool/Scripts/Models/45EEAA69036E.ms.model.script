@@ -1,0 +1,1869 @@
+// Settings 45EEAA69036E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45EEAA69036E
+
+ME ME_45EEDD870109
+ MEPROP UID '45EEDD870109'
+ MEPROP Name 'PropertyStringID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName 'TPropertyStringID'
+
+ENDME // ME_45EEDD870109 PropertyStringID
+
+FORWARD ME_45EEDDCA03DE
+
+ME ME_45EEDDCA03DF
+ MEPROP UID '45EEDDCA03DF'
+ MEPROP Name 'PT_LONG'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03DE // PropertyType
+ ;
+
+ENDME // ME_45EEDDCA03DF PT_LONG
+
+ME ME_45EEDDCA03E0
+ MEPROP UID '45EEDDCA03E0'
+ MEPROP Name 'PT_STRING'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03DE // PropertyType
+ ;
+
+ENDME // ME_45EEDDCA03E0 PT_STRING
+
+ME ME_45EEDDCA03E1
+ MEPROP UID '45EEDDCA03E1'
+ MEPROP Name 'PT_INT64'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03DE // PropertyType
+ ;
+
+ENDME // ME_45EEDDCA03E1 PT_INT64
+
+ME ME_45EEDDCA03E2
+ MEPROP UID '45EEDDCA03E2'
+ MEPROP Name 'PT_ULONG'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03DE // PropertyType
+ ;
+
+ENDME // ME_45EEDDCA03E2 PT_ULONG
+
+ME ME_45EEDDCA03E3
+ MEPROP UID '45EEDDCA03E3'
+ MEPROP Name 'PT_BOOLEAN'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03DE // PropertyType
+ ;
+
+ENDME // ME_45EEDDCA03E3 PT_BOOLEAN
+
+ME ME_45EEDDCA03DE
+ MEPROP UID '45EEDDCA03DE'
+ MEPROP Name 'PropertyType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDDCA03DF // PT_LONG
+ HWL ME_45EEDDCA03E0 // PT_STRING
+ HWL ME_45EEDDCA03E1 // PT_INT64
+ HWL ME_45EEDDCA03E2 // PT_ULONG
+ HWL ME_45EEDDCA03E3 // PT_BOOLEAN
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TPropertyType'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_45EEDDCA03DE PropertyType
+
+FORWARD ME_45EEDDCA03D8
+
+ME ME_45EEDDCA03D9
+ MEPROP UID '45EEDDCA03D9'
+ MEPROP Name 'is_unique'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Определяет "уникальность" своства. Уникальные свойства имеют одинаковое значение во всех конфигурациях, другими словами, уникальное свойство всегда присутствует как бы в одном экземпляре.'#13#10'Уникальные своства должны использоваться для настроек не зависящих от конфигурации.'#13#10'Значение по умолчанию: false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03D8 // PropertyDefinition
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45EEDDCA03D9 is_unique
+
+ME ME_45EEDDCA03DA
+ MEPROP UID '45EEDDCA03DA'
+ MEPROP Name 'is_constant'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Определяет возможность изменения значения настройки.'#13#10'Значение по умолчанию: false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03D8 // PropertyDefinition
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45EEDDCA03DA is_constant
+
+ME ME_45EEDDE003A9
+ MEPROP UID '45EEDDE003A9'
+ MEPROP Name 'type'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03D8 // PropertyDefinition
+ ;
+ MELINK Target HWL ME_45EEDDCA03DE // PropertyType
+ ;
+
+ENDME // ME_45EEDDE003A9 type
+
+ME ME_45EEDDCA03D8
+ MEPROP UID '45EEDDCA03D8'
+ MEPROP Name 'PropertyDefinition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс доступа к аттрибутам настройки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDDCA03D9 // is_unique
+ HWL ME_45EEDDCA03DA // is_constant
+ HWL ME_45EEDDE003A9 // type
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TPropertyDefinition'
+
+ENDME // ME_45EEDDCA03D8 PropertyDefinition
+
+FORWARD ME_45EEDCDC02F2
+
+ME ME_45EEDCDC02F3
+ MEPROP UID '45EEDCDC02F3'
+ MEPROP Name 'NO_CHANGES'
+ MEPROP Class class_Attribute
+ %SUMMARY 'значения не изменялись' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDCDC02F2 // DefaultValuesChangesState
+ ;
+
+ENDME // ME_45EEDCDC02F3 NO_CHANGES
+
+ME ME_45EEDCDC02F4
+ MEPROP UID '45EEDCDC02F4'
+ MEPROP Name 'UPDATED_WITH_COPY_ACTIVE_CONFIGURATION'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Пользователь в момент смены настроек по умолчанию работает с одной из стандартных (предустановленных) конфигураций.'#13#10''#13#10'  - Делается копия текущей конфигурации. Имя: <имя конфигурации> + (сохраненная). Если конфигурация с таким именем уже cуществует -- то  (сохраненная 2).'#13#10''#13#10'  - Для всех стандартных конфигураций настройки сбрасываются в значения  по умолчанию.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDCDC02F2 // DefaultValuesChangesState
+ ;
+
+ENDME // ME_45EEDCDC02F4 UPDATED_WITH_COPY_ACTIVE_CONFIGURATION
+
+ME ME_45EEDCDC02F5
+ MEPROP UID '45EEDCDC02F5'
+ MEPROP Name 'UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Пользователь в момент смены настроек работает с собственной конфигурацией (копией стандартной). '#13#10'  - Для всех стандартных конфигураций настройки сбрасываются в значения по умолчанию '#13#10'  - Пользователь переключается с его собственной конфигурации на "Стандартную" (первую в списке предустановленных)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDCDC02F2 // DefaultValuesChangesState
+ ;
+
+ENDME // ME_45EEDCDC02F5 UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION
+
+ME ME_45EEDCDC02F2
+ MEPROP UID '45EEDCDC02F2'
+ MEPROP Name 'DefaultValuesChangesState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Статус  проверки обновления значений настроек в предустановленных конфигурациях' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDCDC02F3 // NO_CHANGES
+ HWL ME_45EEDCDC02F4 // UPDATED_WITH_COPY_ACTIVE_CONFIGURATION
+ HWL ME_45EEDCDC02F5 // UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TDefaultValuesChangesState'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_45EEDCDC02F2 DefaultValuesChangesState
+
+ME ME_45EEDDFF0071
+ MEPROP UID '45EEDDFF0071'
+ MEPROP Name 'InvalidValueType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращается при попытке прочитать или присвоить через интерфейс ParameterValues значение по типу, который не совпадает с реальным типом значения (реальный тип можно получить через свойство value_type).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+
+ENDME // ME_45EEDDFF0071 InvalidValueType
+
+FORWARD ME_45EEDDCA03EB
+
+ME ME_45EEDDCA03EC
+ MEPROP UID '45EEDDCA03EC'
+ MEPROP Name 'CT_STANDARD'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03EB // ConfigurationType
+ ;
+
+ENDME // ME_45EEDDCA03EC CT_STANDARD
+
+ME ME_45EEDDCA03ED
+ MEPROP UID '45EEDDCA03ED'
+ MEPROP Name 'CT_GARANT5X'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03EB // ConfigurationType
+ ;
+
+ENDME // ME_45EEDDCA03ED CT_GARANT5X
+
+ME ME_45EEDDCA03EE
+ MEPROP UID '45EEDDCA03EE'
+ MEPROP Name 'CT_USER'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDDCA03EB // ConfigurationType
+ ;
+
+ENDME // ME_45EEDDCA03EE CT_USER
+
+ME ME_45EEDDCA03EB
+ MEPROP UID '45EEDDCA03EB'
+ MEPROP Name 'ConfigurationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тип конфигурации, различаем две предустановленные: Стандартная и ГАРАНТ 5x, все остальные - пользовательские' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDDCA03EC // CT_STANDARD
+ HWL ME_45EEDDCA03ED // CT_GARANT5X
+ HWL ME_45EEDDCA03EE // CT_USER
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TConfigurationType'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_45EEDDCA03EB ConfigurationType
+
+FORWARD ME_4979D9140170
+
+ME ME_4979D93200A7
+ MEPROP UID '4979D93200A7'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4979D9140170 // PropertyStringIDList
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4979D93200A7 
+
+ME ME_4979D9140170
+ MEPROP UID '4979D9140170'
+ MEPROP Name 'PropertyStringIDList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4979D93200A7 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IPropertyStringIDList'
+
+ENDME // ME_4979D9140170 PropertyStringIDList
+
+FORWARD ME_4AC498EC0056
+
+FORWARD ME_4AC4990B0238
+
+ME ME_4AC4990B0256
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC4990B0256 id
+
+ME ME_4AC4990B0277
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AC4990B0277 value
+
+ME ME_4AC4990B0238
+ MEPROP UID '4AC4990B0238'
+ MEPROP Name 'get_bool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Чтение свойства типа Boolean.'#13#10'При успехе возвращает true.'#13#10'Если свойство не существует возвращает false.'#13#10'Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC4990B0256 // id
+ ME_4AC4990B0277 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4990B0238 get_bool
+
+FORWARD ME_4AC4990F037A
+
+ME ME_4AC4990F0399
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC4990F0399 id
+
+ME ME_4AC4990F03BF
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD860205' '3DBFDB23006E.ms.model.script' // long long
+ ;
+
+ENDME // ME_4AC4990F03BF value
+
+ME ME_4AC4990F037A
+ MEPROP UID '4AC4990F037A'
+ MEPROP Name 'get_int64'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Чтение свойства типа int64.'#13#10'При успехе возвращает true.'#13#10'Если свойство не существует возвращает false.'#13#10'Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC4990F0399 // id
+ ME_4AC4990F03BF // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4990F037A get_int64
+
+FORWARD ME_4AC49912024A
+
+ME ME_4AC49912026C
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC49912026C id
+
+ME ME_4AC499120295
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4AC499120295 value
+
+ME ME_4AC49912024A
+ MEPROP UID '4AC49912024A'
+ MEPROP Name 'get_long'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Чтение свойства типа long.'#13#10'При успехе возвращает true.'#13#10'Если свойство не существует возвращает false.'#13#10'Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC49912026C // id
+ ME_4AC499120295 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC49912024A get_long
+
+FORWARD ME_4AC499150301
+
+ME ME_4AC499150328
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC499150328 id
+
+ME ME_4AC499150355
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4AC499150355 value
+
+ME ME_4AC499150301
+ MEPROP UID '4AC499150301'
+ MEPROP Name 'get_string'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Чтение свойства типа String.'#13#10'При успехе возвращает true.'#13#10'Если свойство не существует возвращает false.'#13#10'Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC499150328 // id
+ ME_4AC499150355 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC499150301 get_string
+
+FORWARD ME_4AC49919002B
+
+ME ME_4AC499190053
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC499190053 id
+
+ME ME_4AC499190085
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4AC499190085 value
+
+ME ME_4AC49919002B
+ MEPROP UID '4AC49919002B'
+ MEPROP Name 'get_ulong'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Чтение свойства типа unsigned long.'#13#10'При успехе возвращает true.'#13#10'Если свойство не существует возвращает false.'#13#10'Если тип свойства не соответствует требуемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC499190053 // id
+ ME_4AC499190085 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC49919002B get_ulong
+
+FORWARD ME_4AC4991C01E1
+
+ME ME_4AC4991C020D
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC4991C020D id
+
+ME ME_4AC4991C0242
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AC4991C0242 value
+
+ME ME_4AC4991C01E1
+ MEPROP UID '4AC4991C01E1'
+ MEPROP Name 'set_bool'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Запись свойства типа Boolean.'#13#10'Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.'#13#10'Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC4991C020D // id
+ ME_4AC4991C0242 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4991C01E1 set_bool
+
+FORWARD ME_4AC4991F02F1
+
+ME ME_4AC4991F0321
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC4991F0321 id
+
+ME ME_4AC4991F0358
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD860205' '3DBFDB23006E.ms.model.script' // long long
+ ;
+
+ENDME // ME_4AC4991F0358 value
+
+ME ME_4AC4991F02F1
+ MEPROP UID '4AC4991F02F1'
+ MEPROP Name 'set_int64'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Запись свойства типа int64.'#13#10'Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.'#13#10'Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC4991F0321 // id
+ ME_4AC4991F0358 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4991F02F1 set_int64
+
+FORWARD ME_4AC499220301
+
+ME ME_4AC499220333
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC499220333 id
+
+ME ME_4AC49922036F
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4AC49922036F value
+
+ME ME_4AC499220301
+ MEPROP UID '4AC499220301'
+ MEPROP Name 'set_long'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Запись свойства типа long.'#13#10'Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.'#13#10'Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC499220333 // id
+ ME_4AC49922036F // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC499220301 set_long
+
+FORWARD ME_4AC4992601BC
+
+ME ME_4AC4992601F0
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC4992601F0 id
+
+ME ME_4AC499260231
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4AC499260231 value
+
+ME ME_4AC4992601BC
+ MEPROP UID '4AC4992601BC'
+ MEPROP Name 'set_string'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Запись свойства типа String.'#13#10'Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.'#13#10'Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC4992601F0 // id
+ ME_4AC499260231 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4992601BC set_string
+
+FORWARD ME_4AC499290308
+
+ME ME_4AC499290340
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC499290340 id
+
+ME ME_4AC499290382
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_4AC499290382 value
+
+ME ME_4AC499290308
+ MEPROP UID '4AC499290308'
+ MEPROP Name 'set_ulong'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Запись свойства типа unsigned long.'#13#10'Если свойство не существует, то оно создается в текущей конфигурации, value записывается как значение по умолчанию и как текущее значение.'#13#10'Если тип свойства не соответствует устанавливаемому поднимается исключение InvalidValueType' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( HWL ME_45EEDDFF0071 // InvalidValueType
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4AC499290340 // id
+ ME_4AC499290382 // value
+ )
+ ; // Parameters
+
+ENDME // ME_4AC499290308 set_ulong
+
+FORWARD ME_4AC4993302A8
+
+ME ME_4AC4993302CE
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4AC4993302CE id
+
+ME ME_4AC4993302A8
+ MEPROP UID '4AC4993302A8'
+ MEPROP Name 'is_exist'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если параметр с таким именем существует' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC498EC0056 // BaseSettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC4993302CE // id
+ )
+ ; // Parameters
+
+ENDME // ME_4AC4993302A8 is_exist
+
+ME ME_4AC498EC0056
+ MEPROP UID '4AC498EC0056'
+ MEPROP GUID '6BC8FA39-42F0-45D2-8211-D14043AD16DD'
+ MEPROP Name 'BaseSettingsManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AC4990B0238 // get_bool
+ HWL ME_4AC4990F037A // get_int64
+ HWL ME_4AC49912024A // get_long
+ HWL ME_4AC499150301 // get_string
+ HWL ME_4AC49919002B // get_ulong
+ HWL ME_4AC4991C01E1 // set_bool
+ HWL ME_4AC4991F02F1 // set_int64
+ HWL ME_4AC499220301 // set_long
+ HWL ME_4AC4992601BC // set_string
+ HWL ME_4AC499290308 // set_ulong
+ HWL ME_4AC4993302A8 // is_exist
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IBaseSettingsManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseSettingsManager'
+
+ENDME // ME_4AC498EC0056 BaseSettingsManager
+
+FORWARD ME_45EEDBE30119
+
+FORWARD ME_45EEDBE3011A
+
+ME ME_4614E2500109
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4614E2500109 id
+
+ME ME_45EEDBE3011A
+ MEPROP UID '45EEDBE3011A'
+ MEPROP Name 'restore_default'
+ MEPROP Class class_Operation
+ %SUMMARY 'Устанавливает указанному свойству текущее значение равными значению по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30119 // SettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4614E2500109 // id
+ )
+ ; // Parameters
+
+ENDME // ME_45EEDBE3011A restore_default
+
+FORWARD ME_45EEDBE3011C
+
+ME ME_4614E2910222
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4614E2910222 id
+
+ME ME_45EEDBE3011C
+ MEPROP UID '45EEDBE3011C'
+ MEPROP Name 'save_as_default'
+ MEPROP Class class_Operation
+ %SUMMARY 'записывает текущее значение свойства в качестве  его значения по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30119 // SettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4614E2910222 // id
+ )
+ ; // Parameters
+
+ENDME // ME_45EEDBE3011C save_as_default
+
+FORWARD ME_45EEDBE3011E
+
+ME ME_4614AAC6037A
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_4614AAC6037A id
+
+ME ME_4614AAC7002E
+ MEPROP Name 'definition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_45EEDDCA03D8 // PropertyDefinition
+ ;
+
+ENDME // ME_4614AAC7002E definition
+
+ME ME_45EEDBE3011E
+ MEPROP UID '45EEDBE3011E'
+ MEPROP Name 'get_definition'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает структуру с атрибутами настройки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30119 // SettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4614AAC6037A // id
+ ME_4614AAC7002E // definition
+ )
+ ; // Parameters
+
+ENDME // ME_45EEDBE3011E get_definition
+
+FORWARD ME_45EEDBE3013F
+
+ME ME_45EEDBE30140
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDD870109 // PropertyStringID
+ ;
+
+ENDME // ME_45EEDBE30140 id
+
+ME ME_45EEDBE3013F
+ MEPROP UID '45EEDBE3013F'
+ MEPROP Name 'is_changed'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если текущее значение НЕ равно значению по умолчанию, в противном случае возвращает false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30119 // SettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_45EEDBE30140 // id
+ )
+ ; // Parameters
+
+ENDME // ME_45EEDBE3013F is_changed
+
+FORWARD ME_4979D8CA0243
+
+ME ME_4979D8E6023E
+ MEPROP Name 'id_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4979D9140170 // PropertyStringIDList
+ ;
+
+ENDME // ME_4979D8E6023E id_list
+
+ME ME_4979D8CA0243
+ MEPROP UID '4979D8CA0243'
+ MEPROP Name 'is_changed_set'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30119 // SettingsManager
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4979D8E6023E // id_list
+ )
+ ; // Parameters
+
+ENDME // ME_4979D8CA0243 is_changed_set
+
+ME ME_46235C64032C
+ MEPROP UID '46235C64032C'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30119 // SettingsManager
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_478B818E0072' '456EA56002BF.ms.model.script' // NoSession
+ )
+ ; // CanRaise
+ UP "const_type" 'read-write'
+ UP "dll export" False
+
+ENDME // ME_46235C64032C make
+
+ME ME_4AC4990B0238_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC4990B0238 // get_bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4990B0238_ME_45EEDBE30119 get_bool
+
+ME ME_4AC4990F037A_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC4990F037A // get_int64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4990F037A_ME_45EEDBE30119 get_int64
+
+ME ME_4AC49912024A_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC49912024A // get_long
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC49912024A_ME_45EEDBE30119 get_long
+
+ME ME_4AC499150301_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC499150301 // get_string
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499150301_ME_45EEDBE30119 get_string
+
+ME ME_4AC49919002B_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC49919002B // get_ulong
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC49919002B_ME_45EEDBE30119 get_ulong
+
+ME ME_4AC4991C01E1_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC4991C01E1 // set_bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4991C01E1_ME_45EEDBE30119 set_bool
+
+ME ME_4AC4991F02F1_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC4991F02F1 // set_int64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4991F02F1_ME_45EEDBE30119 set_int64
+
+ME ME_4AC499220301_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC499220301 // set_long
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499220301_ME_45EEDBE30119 set_long
+
+ME ME_4AC4992601BC_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC4992601BC // set_string
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4992601BC_ME_45EEDBE30119 set_string
+
+ME ME_4AC499290308_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC499290308 // set_ulong
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499290308_ME_45EEDBE30119 set_ulong
+
+ME ME_4AC4993302A8_ME_45EEDBE30119
+ MELINK Original HWL ME_4AC4993302A8 // is_exist
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4993302A8_ME_45EEDBE30119 is_exist
+
+ME ME_45EEDBE30119
+ MEPROP UID '45EEDBE30119'
+ MEPROP GUID 'C2012FB8-DEC6-408A-8937-3D7E13CBC830'
+ MEPROP Name 'SettingsManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс работы с настройками. Обеспечивает создание новых свойств и их получение. Свойство характеризуется строковым идентификатором. '#13#10'Интерфейс может быть получен '#13#10'1. Из интерфейса Common, в этом случае он обеспечивает доступ к свойствам активной конфигурации.'#13#10'2. Из интерфейса Configuration, в этом случае обеспечивается работа со свойствами конкретной конфигурации.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC498EC0056 // BaseSettingsManager
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_45EEDBE3011A // restore_default
+ HWL ME_45EEDBE3011C // save_as_default
+ HWL ME_45EEDBE3011E // get_definition
+ HWL ME_45EEDBE3013F // is_changed
+ HWL ME_4979D8CA0243 // is_changed_set
+ HWL ME_46235C64032C // make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AC4990B0238_ME_45EEDBE30119 // get_bool
+ ME_4AC4990F037A_ME_45EEDBE30119 // get_int64
+ ME_4AC49912024A_ME_45EEDBE30119 // get_long
+ ME_4AC499150301_ME_45EEDBE30119 // get_string
+ ME_4AC49919002B_ME_45EEDBE30119 // get_ulong
+ ME_4AC4991C01E1_ME_45EEDBE30119 // set_bool
+ ME_4AC4991F02F1_ME_45EEDBE30119 // set_int64
+ ME_4AC499220301_ME_45EEDBE30119 // set_long
+ ME_4AC4992601BC_ME_45EEDBE30119 // set_string
+ ME_4AC499290308_ME_45EEDBE30119 // set_ulong
+ ME_4AC4993302A8_ME_45EEDBE30119 // is_exist
+ )
+ ; // Implemented
+ UP "single impl" False
+ UP extprop:pas:TypeName 'ISettingsManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SettingsManager'
+
+ENDME // ME_45EEDBE30119 SettingsManager
+
+ME ME_45EEDDFF006D
+ MEPROP UID '45EEDDFF006D'
+ MEPROP Name 'ConfigurationIsActiveNow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+
+ENDME // ME_45EEDDFF006D ConfigurationIsActiveNow
+
+FORWARD ME_45EEDBE3014C
+
+ME ME_45EEDBE30151
+ MEPROP UID '45EEDBE30151'
+ MEPROP Name 'name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Имя конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDBE30151 name
+
+ME ME_45EEDBE30152
+ MEPROP UID '45EEDBE30152'
+ MEPROP Name 'hint'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Комментарий или пояснение к конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDBE30152 hint
+
+ME ME_45EEDBE30153
+ MEPROP UID '45EEDBE30153'
+ MEPROP Name 'type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELINK Target HWL ME_45EEDDCA03EB // ConfigurationType
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDBE30153 type
+
+ME ME_45EEDBE30154
+ MEPROP UID '45EEDBE30154'
+ MEPROP Name 'is_readonly'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'определяет возможность изменения значений по умолчанию для конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDBE30154 is_readonly
+
+ME ME_45EEDBE30155
+ MEPROP UID '45EEDBE30155'
+ MEPROP Name 'id'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDBE30155 id
+
+ME ME_45EEDBE3014D
+ MEPROP UID '45EEDBE3014D'
+ MEPROP Name 'restore_default_values'
+ MEPROP Class class_Operation
+ %SUMMARY 'устанавливает для всех свойств конфигурации начальные значения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_45EEDBE3014D restore_default_values
+
+ME ME_45EEDBE3014E
+ MEPROP UID '45EEDBE3014E'
+ MEPROP Name 'save_values_as_default'
+ MEPROP Class class_Operation
+ %SUMMARY 'записывает текущие значения для всех свойств в качестве значений по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_45EEDBE3014E save_values_as_default
+
+ME ME_45EEDBE3014F
+ MEPROP UID '45EEDBE3014F'
+ MEPROP Name 'copy'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает копию конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELINK Target HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_45EEDBE3014F copy
+
+ME ME_45EEDBE30150
+ MEPROP UID '45EEDBE30150'
+ MEPROP Name 'get_settings'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELINK Target HWL ME_45EEDBE30119 // SettingsManager
+ ;
+
+ENDME // ME_45EEDBE30150 get_settings
+
+FORWARD ME_45F11C98009C
+
+ME ME_45F11CAC00CB
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_45F11CAC00CB id
+
+ME ME_45F11CAC0138
+ MEPROP Name 'name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_45F11CAC0138 name
+
+ME ME_45F11CAC01C5
+ MEPROP Name 'hint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_45F11CAC01C5 hint
+
+ME ME_45F11CAC0232
+ MEPROP Name 'readonly'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45F11CAC0232 readonly
+
+ME ME_45F11C98009C
+ MEPROP UID '45F11C98009C'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE3014C // Configuration
+ ;
+ MELIST Parameters
+   Seq: ( ME_45F11CAC00CB // id
+ ME_45F11CAC0138 // name
+ ME_45F11CAC01C5 // hint
+ ME_45F11CAC0232 // readonly
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+
+ENDME // ME_45F11C98009C make
+
+ME ME_45EEDBE3014C
+ MEPROP UID '45EEDBE3014C'
+ MEPROP GUID 'CB09ACB5-D582-477A-8D4F-98FC3766A1F9'
+ MEPROP Name 'Configuration'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс обеспечивающий работу с конкретной конфигурацией, является элементом списка конфигураций.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDBE30151 // name
+ HWL ME_45EEDBE30152 // hint
+ HWL ME_45EEDBE30153 // type
+ HWL ME_45EEDBE30154 // is_readonly
+ HWL ME_45EEDBE30155 // id
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45EEDBE3014D // restore_default_values
+ HWL ME_45EEDBE3014E // save_values_as_default
+ HWL ME_45EEDBE3014F // copy
+ HWL ME_45EEDBE30150 // get_settings
+ HWL ME_45F11C98009C // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IConfiguration'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Configuration'
+
+ENDME // ME_45EEDBE3014C Configuration
+
+ME ME_45EEDDFF006F
+ MEPROP UID '45EEDDFF006F'
+ MEPROP Name 'ConfigurationsNotDefined'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ UP "force usage" True
+
+ENDME // ME_45EEDDFF006F ConfigurationsNotDefined
+
+FORWARD ME_45EEDCDC02EE
+
+ME ME_45EEDD110242
+ MEPROP UID '45EEDD110242'
+ MEPROP Name 'state'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDCDC02EE // DefaultValuesChangesIndicator
+ ;
+ MELINK Target HWL ME_45EEDCDC02F2 // DefaultValuesChangesState
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDD110242 state
+
+ME ME_45EEDD3E0157
+ MEPROP UID '45EEDD3E0157'
+ MEPROP Name 'configuration'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45EEDCDC02EE // DefaultValuesChangesIndicator
+ ;
+ MELINK Target HWL ME_45EEDBE3014C // Configuration
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDD3E0157 configuration
+
+FORWARD ME_45F11E8A00FA
+
+ME ME_46079AEC027A
+ MEPROP Name 'state'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDCDC02F2 // DefaultValuesChangesState
+ ;
+
+ENDME // ME_46079AEC027A state
+
+ME ME_46079AEC02C8
+ MEPROP Name 'configuration'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_46079AEC02C8 configuration
+
+ME ME_45F11E8A00FA
+ MEPROP UID '45F11E8A00FA'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDCDC02EE // DefaultValuesChangesIndicator
+ ;
+ MELIST Parameters
+   Seq: ( ME_46079AEC027A // state
+ ME_46079AEC02C8 // configuration
+ )
+ ; // Parameters
+ UP "const_type" 'read-write'
+
+ENDME // ME_45F11E8A00FA make
+
+ME ME_45EEDCDC02EE
+ MEPROP UID '45EEDCDC02EE'
+ MEPROP GUID '168D579E-071E-4626-93BD-7566FCAB780E'
+ MEPROP Name 'DefaultValuesChangesIndicator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат проверки обновления значений настроек в предустановленных конфигурациях'#13#10''#13#10'если sate == UPDATED_WITH_COPY_ACTIVE_CONFIGURATION, то configuration содержит вновь созданную пользовательскую конфигурацию - копию активной предустановленной'#13#10''#13#10'если state == UPDATED_WITH_ACTIVATE_PREDEFINED_CONFIGURATION, то configuration содержит предустановленную, на которую переключили пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDD110242 // state
+ HWL ME_45EEDD3E0157 // configuration
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45F11E8A00FA // make
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IDefaultValuesChangesIndicator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DefaultValuesChangesIndicator'
+
+ENDME // ME_45EEDCDC02EE DefaultValuesChangesIndicator
+
+FORWARD ME_45EEDC7901B5
+
+ME ME_45EEDC9000BB
+ MEPROP UID '45EEDC9000BB'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45EEDC7901B5 // Configurations
+ ;
+ MELINK Target HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_45EEDC9000BB 
+
+ME ME_45EEDC7901B5
+ MEPROP UID '45EEDC7901B5'
+ MEPROP Name 'Configurations'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDC9000BB // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IConfigurations'
+
+ENDME // ME_45EEDC7901B5 Configurations
+
+FORWARD ME_45EEDBE30144
+
+ME ME_45EEDCA2033C
+ MEPROP UID '45EEDCA2033C'
+ MEPROP Name 'configurations'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ MELINK Target HWL ME_45EEDC7901B5 // Configurations
+ ;
+ UP "pm" False
+
+ENDME // ME_45EEDCA2033C configurations
+
+FORWARD ME_45EEDBE30145
+
+ME ME_4614D5600251
+ MEPROP Name 'configuration'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_4614D5600251 configuration
+
+ME ME_45EEDBE30145
+ MEPROP UID '45EEDBE30145'
+ MEPROP Name 'set_active'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Устанавливает заданную конфигурацией активной (текущей для интерфейса Settings, полученного через Common)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ MELIST Parameters
+   Seq: ( ME_4614D5600251 // configuration
+ )
+ ; // Parameters
+
+ENDME // ME_45EEDBE30145 set_active
+
+FORWARD ME_45EEDBE30147
+
+ME ME_4614E42F03D7
+ MEPROP Name 'configuration'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_4614E42F03D7 configuration
+
+ME ME_45EEDBE30147
+ MEPROP UID '45EEDBE30147'
+ MEPROP Name 'remove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Удаляет заданную конфигурацию. В случае попытки удалить активную конфигурацию возбуждает исключение ConfigurationIsActiveNow' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB4540177' '456EA56002BF.ms.model.script' // ConstantModify
+ HWL ME_45EEDDFF006D // ConfigurationIsActiveNow
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_4614E42F03D7 // configuration
+ )
+ ; // Parameters
+
+ENDME // ME_45EEDBE30147 remove
+
+ME ME_45EEDBE30149
+ MEPROP UID '45EEDBE30149'
+ MEPROP Name 'get_active'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'возвращает активную конфигурацию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ MELINK Target HWL ME_45EEDBE3014C // Configuration
+ ;
+
+ENDME // ME_45EEDBE30149 get_active
+
+ME ME_45EEDBE3014A
+ MEPROP UID '45EEDBE3014A'
+ MEPROP Name 'default_values_update_check'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ MELINK Target HWL ME_45EEDCDC02EE // DefaultValuesChangesIndicator
+ ;
+
+ENDME // ME_45EEDBE3014A default_values_update_check
+
+ME ME_45F11C04001F
+ MEPROP UID '45F11C04001F'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_45F11C04001F make
+
+ME ME_47875651024E
+ MEPROP UID '47875651024E'
+ MEPROP Name 'get_active_id'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает идентификатор активной конфигурации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ UP "dll export" False
+
+ENDME // ME_47875651024E get_active_id
+
+ME ME_488EFAE7008A
+ MEPROP UID '488EFAE7008A'
+ MEPROP Name 'logout'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'метод дёргается при выходе из системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_45EEDBE30144 // ConfigurationManager
+ ;
+ UP "dll export" False
+
+ENDME // ME_488EFAE7008A logout
+
+ME ME_45EEDBE30144
+ MEPROP UID '45EEDBE30144'
+ MEPROP GUID 'C0C7A25C-7378-40EA-9593-32B590CC6D8E'
+ MEPROP Name 'ConfigurationManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс обеспечивающий работу со списком конфигураций. Доступен через интерфейс Common.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45EEDCA2033C // configurations
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45EEDBE30145 // set_active
+ HWL ME_45EEDBE30147 // remove
+ HWL ME_45EEDBE30149 // get_active
+ HWL ME_45EEDBE3014A // default_values_update_check
+ HWL ME_45F11C04001F // make
+ HWL ME_47875651024E // get_active_id
+ HWL ME_488EFAE7008A // logout
+ )
+ ; // Operations
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IConfigurationManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ConfigurationManager'
+
+ENDME // ME_45EEDBE30144 ConfigurationManager
+
+FORWARD ME_4AC4999D032C
+
+ME ME_4AC49AB80031
+ MEPROP UID '4AC49AB80031'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4AC4999D032C // PermanentSettingsManager
+ ;
+ UP "const_type" 'read-write'
+
+ENDME // ME_4AC49AB80031 make
+
+ME ME_4AC4990B0238_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC4990B0238 // get_bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4990B0238_ME_4AC4999D032C get_bool
+
+ME ME_4AC4990F037A_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC4990F037A // get_int64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4990F037A_ME_4AC4999D032C get_int64
+
+ME ME_4AC49912024A_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC49912024A // get_long
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC49912024A_ME_4AC4999D032C get_long
+
+ME ME_4AC499150301_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC499150301 // get_string
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499150301_ME_4AC4999D032C get_string
+
+ME ME_4AC49919002B_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC49919002B // get_ulong
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC49919002B_ME_4AC4999D032C get_ulong
+
+ME ME_4AC4991C01E1_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC4991C01E1 // set_bool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4991C01E1_ME_4AC4999D032C set_bool
+
+ME ME_4AC4991F02F1_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC4991F02F1 // set_int64
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4991F02F1_ME_4AC4999D032C set_int64
+
+ME ME_4AC499220301_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC499220301 // set_long
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499220301_ME_4AC4999D032C set_long
+
+ME ME_4AC4992601BC_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC4992601BC // set_string
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4992601BC_ME_4AC4999D032C set_string
+
+ME ME_4AC499290308_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC499290308 // set_ulong
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC499290308_ME_4AC4999D032C set_ulong
+
+ME ME_4AC4993302A8_ME_4AC4999D032C
+ MELINK Original HWL ME_4AC4993302A8 // is_exist
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AC4993302A8_ME_4AC4999D032C is_exist
+
+ME ME_4AC4999D032C
+ MEPROP UID '4AC4999D032C'
+ MEPROP GUID '4983A1B9-5021-4CE1-8C13-912831395FB8'
+ MEPROP Name 'PermanentSettingsManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Interface ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'настройки, не зависящие от конфигураций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45EEAA69036E // Settings
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4AC498EC0056 // BaseSettingsManager
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4AC49AB80031 // make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AC4990B0238_ME_4AC4999D032C // get_bool
+ ME_4AC4990F037A_ME_4AC4999D032C // get_int64
+ ME_4AC49912024A_ME_4AC4999D032C // get_long
+ ME_4AC499150301_ME_4AC4999D032C // get_string
+ ME_4AC49919002B_ME_4AC4999D032C // get_ulong
+ ME_4AC4991C01E1_ME_4AC4999D032C // set_bool
+ ME_4AC4991F02F1_ME_4AC4999D032C // set_int64
+ ME_4AC499220301_ME_4AC4999D032C // set_long
+ ME_4AC4992601BC_ME_4AC4999D032C // set_string
+ ME_4AC499290308_ME_4AC4999D032C // set_ulong
+ ME_4AC4993302A8_ME_4AC4999D032C // is_exist
+ )
+ ; // Implemented
+ UP "single impl" False
+ UP extprop:pas:TypeName 'IPermanentSettingsManager'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PermanentSettingsManager'
+
+ENDME // ME_4AC4999D032C PermanentSettingsManager
+
+ME ME_45EEAA69036E
+ MEPROP UID '45EEAA69036E'
+ MEPROP Name 'Settings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45EEDD870109 // PropertyStringID
+ HWL ME_45EEDDCA03DE // PropertyType
+ HWL ME_45EEDDCA03D8 // PropertyDefinition
+ HWL ME_45EEDCDC02F2 // DefaultValuesChangesState
+ HWL ME_45EEDDFF0071 // InvalidValueType
+ HWL ME_45EEDDCA03EB // ConfigurationType
+ HWL ME_4979D9140170 // PropertyStringIDList
+ HWL ME_4AC498EC0056 // BaseSettingsManager
+ HWL ME_45EEDBE30119 // SettingsManager
+ HWL ME_45EEDDFF006D // ConfigurationIsActiveNow
+ HWL ME_45EEDBE3014C // Configuration
+ HWL ME_45EEDDFF006F // ConfigurationsNotDefined
+ HWL ME_45EEDCDC02EE // DefaultValuesChangesIndicator
+ HWL ME_45EEDC7901B5 // Configurations
+ HWL ME_45EEDBE30144 // ConfigurationManager
+ HWL ME_4AC4999D032C // PermanentSettingsManager
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ )
+ ; // Depends
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Settings\Settings.cpp'
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Settings'
+ UP extprop:pas:UnitName 'SettingsUnit'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Settings\Settings.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\Settings'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\SettingsUnit.pas'
+ UP pas:Path 'garant6x\implementation\Garant\GblAdapterLib\SettingsUnit.pas'
+
+ENDME // ME_45EEAA69036E Settings

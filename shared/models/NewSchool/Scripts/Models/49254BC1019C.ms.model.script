@@ -1,0 +1,100 @@
+// TdsTips 49254BC1019C ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49254BC1019C
+
+ME ME_492D5EDD012F
+ MEPROP UID '492D5EDD012F'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49254BC1019C // TdsTips
+ ;
+ MELINK Target WL 'ME_47EA0784000D' '4B1FC2FF03CD.ms.model.script' // IdeDocInfo
+ ;
+
+ENDME // ME_492D5EDD012F InitDataType
+
+ME ME_49254C19037D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49254BC1019C // TdsTips
+ ;
+ MELINK Target WL 'ME_49254B6F0325' '491D560F01F4.ms.model.script' // TdeTips
+ ;
+
+ENDME // ME_49254C19037D 
+
+ME ME_49254CF00100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49254BC1019C // TdsTips
+ ;
+ MELINK Target WL 'ME_4906F6A103D5' '4906F67500B0.ms.model.script' // TnsTipsTree
+ ;
+
+ENDME // ME_49254CF00100 
+
+ME ME_47F4C2B9014A_ME_49254BC1019C
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_49254BC1019C MakeSimpleTree
+
+ME ME_49254515003C_ME_49254BC1019C
+ MELINK Original WL 'ME_49254515003C' '4925449A0296.ms.model.script' // MakeDocInfoForCurrentChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49254515003C_ME_49254BC1019C MakeDocInfoForCurrentChanged
+
+ME ME_5571EB84007F_ME_49254BC1019C
+ MELINK Original WL 'ME_5571EB84007F' '4925449A0296.ms.model.script' // DictionKind
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_5571EB84007F_ME_49254BC1019C DictionKind
+
+ME ME_49254BC1019C
+ MEPROP UID '49254BC1019C'
+ MEPROP Name 'TdsTips'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список советов дня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491D560F01F4' '491D560F01F4.ms.model.script' // DayTips
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4925449A0296' '4925449A0296.ms.model.script' // dsCommonDiction
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_492D5EDD012F // InitDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F4C2B9014A_ME_49254BC1019C // MakeSimpleTree
+ ME_49254515003C_ME_49254BC1019C // MakeDocInfoForCurrentChanged
+ ME_5571EB84007F_ME_49254BC1019C // DictionKind
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49254C19037D // TdeTips
+ ME_49254CF00100 // TnsTipsTree
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/02/20 13:01:22'
+ UP extprop:pas:UnitName 'dsTips'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsTips'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\DayTips\dsTips.pas'
+
+ENDME // ME_49254BC1019C TdsTips

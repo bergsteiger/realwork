@@ -1,0 +1,89 @@
+// StyleEditorFont 4ABA143303B0 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_8E31E82620AD
+
+FORWARD ME_4ABA143303B0
+
+ME ME_43C9F2187122
+ MEPROP UID '43C9F2187122'
+ MEPROP Name 'ut_StyleEditorFont'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Параметры шрифта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABA143303B0 // StyleEditorFont
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'StyleEditorFont_ut_StyleEditorFont_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFont_ut_StyleEditorFont_UserType.pas'
+
+ENDME // ME_43C9F2187122 ut_StyleEditorFont
+
+ME ME_8E31E82620AD
+ MEPROP UID '8E31E82620AD'
+ MEPROP GUID '631D935A-F7C1-48C4-ACCC-923697DDB82E'
+ MEPROP Name 'StyleEditorFont'
+ MEPROP OriginalName 'StyleEditorFont$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы StyleEditorFont' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABA143303B0 // StyleEditorFont
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4ABA143303B0 // StyleEditorFont
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'StyleEditorFontFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_8E31E82620AD StyleEditorFont$Def
+
+ME ME_4ABA143303B0
+ MEPROP UID '4ABA143303B0'
+ MEPROP Name 'StyleEditorFont'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Параметры шрифта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA79F72010A' '4AA79F72010A.ms.model.script' // Settings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC642480314' '4AC642480314.ms.model.script' // PrimStyleEditorFont
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_8E31E82620AD // StyleEditorFont$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_43C9F2187122 // ut_StyleEditorFont
+ HWL ME_8E31E82620AD // StyleEditorFont$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TStyleEditorFontForm'
+ UP extprop:pas:UnitName 'StyleEditorFont_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StyleEditorFontForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms\StyleEditorFont_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Settings\Forms'
+
+ENDME // ME_4ABA143303B0 StyleEditorFont

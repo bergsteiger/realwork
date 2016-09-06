@@ -1,0 +1,529 @@
+// PrimConsultationMark 497EDC5003D1 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497EDC5003D1
+
+ME ME_4CD142B70232
+ MEPROP UID '4CD142B70232'
+ MEPROP Name 'utcmMain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Оценка ответа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimConsultationMark_utcmMain_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMark_utcmMain_UserType.pas'
+
+ENDME // ME_4CD142B70232 utcmMain
+
+FORWARD ME_4C84E4AC0171
+
+ME ME_4C84E4B70371
+ MEPROP UID '4C84E4B70371'
+ MEPROP Name 'c_TextCommentLen'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C84E4AC0171 // Constants
+ ;
+ MEPROP Value 6000
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 6000
+
+ENDME // ME_4C84E4B70371 c_TextCommentLen
+
+ME ME_4C84E4AC0171
+ MEPROP UID '4C84E4AC0171'
+ MEPROP Name 'Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C84E4B70371 // c_TextCommentLen
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4C84E4AC0171 Constants
+
+FORWARD ME_517692CD0370
+
+ME ME_517696060243
+ MEPROP UID '517696060243'
+ MEPROP Name 'rbNotSure'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Затрудняюсь ответить (оценка 0)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517692CD0370 // gbMark
+ ;
+ UP "ControlClass" 'TvtRadioButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_517696060243 rbNotSure
+
+ME ME_5176964E0305
+ MEPROP UID '5176964E0305'
+ MEPROP Name 'rbTwo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Плохо (оценка 2)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517692CD0370 // gbMark
+ ;
+ UP "ControlClass" 'TvtRadioButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5176964E0305 rbTwo
+
+ME ME_517696700205
+ MEPROP UID '517696700205'
+ MEPROP Name 'rbThree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удовлетворительно (оценка 3)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517692CD0370 // gbMark
+ ;
+ UP "ControlClass" 'TvtRadioButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_517696700205 rbThree
+
+ME ME_517696B3017A
+ MEPROP UID '517696B3017A'
+ MEPROP Name 'rbFour'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Хорошо (оценка 4)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517692CD0370 // gbMark
+ ;
+ UP "ControlClass" 'TvtRadioButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_517696B3017A rbFour
+
+ME ME_517696E600B2
+ MEPROP UID '517696E600B2'
+ MEPROP Name 'rbFive'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отлично (оценка 5)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517692CD0370 // gbMark
+ ;
+ UP "ControlClass" 'TvtRadioButton'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_517696E600B2 rbFive
+
+ME ME_517692CD0370
+ MEPROP UID '517692CD0370'
+ MEPROP Name 'gbMark'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Оценка:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_517696060243 // rbNotSure
+ HWL ME_5176964E0305 // rbTwo
+ HWL ME_517696700205 // rbThree
+ HWL ME_517696B3017A // rbFour
+ HWL ME_517696E600B2 // rbFive
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtGroupBox'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_517692CD0370 gbMark
+
+FORWARD ME_51769718021E
+
+ME ME_51769756011F
+ MEPROP UID '51769756011F'
+ MEPROP Name 'lblHelp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данное окно предназначено для внесения комментария к оценке представленной консультации. Если Вам необходимы дополнительные  разъяснения по сути предоставленного ответа, просьба внести отдельный запрос в карточку запроса «Правовая поддержка онлайн».' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51769718021E // pnlHelp
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_51769756011F lblHelp
+
+ME ME_51769718021E
+ MEPROP UID '51769718021E'
+ MEPROP Name 'pnlHelp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51769756011F // lblHelp
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_51769718021E pnlHelp
+
+FORWARD ME_5176979B0055
+
+ME ME_4C84E44B0065
+ MEPROP UID '4C84E44B0065'
+ MEPROP Name 'mComment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5176979B0055 // gbComment
+ ;
+ UP "ControlClass" 'TeeMemoWithEditOperations'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4C84E44B0065 mComment
+
+ME ME_5176979B0055
+ MEPROP UID '5176979B0055'
+ MEPROP Name 'gbComment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Комментарий к Вашей оценке:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C84E44B0065 // mComment
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtGroupBox'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_5176979B0055 gbComment
+
+ME ME_497EDCDC0187
+ MEPROP UID '497EDCDC0187'
+ MEPROP Name 'DSMark'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ %SUMMARY 'Оценка консультации' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELINK Target WL 'ME_492164C302A6' '4ABCF04F00DF.ms.model.script' // IdsConsultationMark
+ ;
+
+ENDME // ME_497EDCDC0187 DSMark
+
+ME ME_5176B3D003B4
+ MEPROP UID '5176B3D003B4'
+ MEPROP Name 'rbNotSureClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5176B3D003B4 rbNotSureClick
+
+ME ME_5176B3E200C1
+ MEPROP UID '5176B3E200C1'
+ MEPROP Name 'rbFiveClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5176B3E200C1 rbFiveClick
+
+ME ME_5176B3F200F4
+ MEPROP UID '5176B3F200F4'
+ MEPROP Name 'rbFourClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5176B3F200F4 rbFourClick
+
+ME ME_5176B3FD0292
+ MEPROP UID '5176B3FD0292'
+ MEPROP Name 'rbThreeClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5176B3FD0292 rbThreeClick
+
+ME ME_5176B4060002
+ MEPROP UID '5176B4060002'
+ MEPROP Name 'rbTwoClick'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5176B4060002 rbTwoClick
+
+ME ME_5176B4200040
+ MEPROP UID '5176B4200040'
+ MEPROP Name 'PlaceComponents'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+
+ENDME // ME_5176B4200040 PlaceComponents
+
+FORWARD ME_5176B42C0279
+
+FORWARD ME_5176B43D033E
+
+ME ME_5176B44200DF
+ MEPROP Name 'aMark'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4921639C00DB' '47EA07FA02CE.ms.model.script' // TbsConsultationMark
+ ;
+
+ENDME // ME_5176B44200DF aMark
+
+ME ME_5176B43D033E
+ MEPROP UID '5176B43D033E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5176B42C0279 // ChangeMark
+ ;
+ MELIST Parameters
+   Seq: ( ME_5176B44200DF // aMark
+ )
+ ; // Parameters
+
+ENDME // ME_5176B43D033E DoIt
+
+ME ME_5176B42C0279
+ MEPROP UID '5176B42C0279'
+ MEPROP Name 'ChangeMark'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5176B43D033E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5176B42C0279 ChangeMark
+
+ME ME_5176B853011C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELINK Target WL 'ME_4921639C00DB' '47EA07FA02CE.ms.model.script' // TbsConsultationMark
+ ;
+
+ENDME // ME_5176B853011C 
+
+ME ME_5176C0960324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5176C0960324 
+
+ME ME_5176C09B0245
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5176C09B0245 
+
+ME ME_5177CF2C02F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497EDC5003D1 // PrimConsultationMark
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_5177CF2C02F3 
+
+ME ME_4A8E8F2E0195_ME_497EDC5003D1
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_497EDC5003D1 InitControls
+
+ME ME_497EDC5003D1
+ MEPROP UID '497EDC5003D1'
+ MEPROP Name 'PrimConsultationMark'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Оценка консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABCFB650008' '4ABCFB650008.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_517692CD0370 // gbMark
+ HWL ME_51769718021E // pnlHelp
+ HWL ME_5176979B0055 // gbComment
+ HWL ME_497EDCDC0187 // DSMark
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5176B3D003B4 // rbNotSureClick
+ HWL ME_5176B3E200C1 // rbFiveClick
+ HWL ME_5176B3F200F4 // rbFourClick
+ HWL ME_5176B3FD0292 // rbThreeClick
+ HWL ME_5176B4060002 // rbTwoClick
+ HWL ME_5176B4200040 // PlaceComponents
+ HWL ME_5176B42C0279 // ChangeMark
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_497EDC5003D1 // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4CD142B70232 // utcmMain
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4C84E4AC0171 // Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_5176B853011C // TbsConsultationMark
+ ME_5176C0960324 // Forms
+ ME_5176C09B0245 // Controls
+ ME_5177CF2C02F3 // TRect
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_571A297B0071' '4ABCFB650008.ms.model.script' // ConsultationWordsPack
+ )
+ ; // Injected
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '27.01.2009 13:06'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TPrimConsultationMarkForm'
+ UP extprop:pas:UnitName 'PrimConsultationMark_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimConsultationMarkForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms\PrimConsultationMark_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Consultation\Forms'
+
+ENDME // ME_497EDC5003D1 PrimConsultationMark

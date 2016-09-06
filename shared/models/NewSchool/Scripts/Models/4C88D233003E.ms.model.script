@@ -1,0 +1,550 @@
+// PrimPageSetupOptions 4C88D233003E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C88D233003E
+
+FORWARD ME_4C88D996000B
+
+FORWARD ME_4C88D9A4002B
+
+ME ME_4C88D9A800C9
+ MEPROP Name 'SaveAsDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4C88D9A800C9 SaveAsDefault
+
+ME ME_4C88D9A4002B
+ MEPROP UID '4C88D9A4002B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88D996000B // Save
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C88D9A800C9 // SaveAsDefault
+ )
+ ; // Parameters
+
+ENDME // ME_4C88D9A4002B DoIt
+
+ME ME_4C88D996000B
+ MEPROP UID '4C88D996000B'
+ MEPROP Name 'Save'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C88D9A4002B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C88D996000B Save
+
+FORWARD ME_4C88D9B60023
+
+FORWARD ME_4C88D9C1007F
+
+ME ME_4C88D9C5015E
+ MEPROP Name 'aOrientation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C88D9C5015E aOrientation
+
+ME ME_4C88D9C1007F
+ MEPROP UID '4C88D9C1007F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88D9B60023 // SetPageFormat
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C88D9C5015E // aOrientation
+ )
+ ; // Parameters
+
+ENDME // ME_4C88D9C1007F DoIt
+
+ME ME_4C88D9B60023
+ MEPROP UID '4C88D9B60023'
+ MEPROP Name 'SetPageFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C88D9C1007F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C88D9B60023 SetPageFormat
+
+FORWARD ME_4C88D9D30306
+
+FORWARD ME_4C88D9DF031D
+
+ME ME_4C88D9E60265
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4C88D9E60265 aString
+
+ME ME_4C88D9DF031D
+ MEPROP UID '4C88D9DF031D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88D9D30306 // MacroAdd
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C88D9E60265 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_4C88D9DF031D DoIt
+
+ME ME_4C88D9D30306
+ MEPROP UID '4C88D9D30306'
+ MEPROP Name 'MacroAdd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C88D9DF031D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C88D9D30306 MacroAdd
+
+FORWARD ME_4C88DCA000DD
+
+ME ME_4C88DCA60318
+ MEPROP UID '4C88DCA60318'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C88DCA000DD // ToGUIColontituls
+ ;
+
+ENDME // ME_4C88DCA60318 DoIt
+
+ME ME_4C88DCA000DD
+ MEPROP UID '4C88DCA000DD'
+ MEPROP Name 'ToGUIColontituls'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C88DCA60318 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C88DCA000DD ToGUIColontituls
+
+ME ME_4C88D3C20244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4C88D3C20244 
+
+ME ME_4C88D3DA0099
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4C88D3DA0099 
+
+ME ME_4C88DA40012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C88D233003E // PrimPageSetupOptions
+ ;
+ MELINK Target WL 'ME_4C88DA310019' '47EA968D0155.ms.model.script' // evHAFPainterMacros
+ ;
+
+ENDME // ME_4C88DA40012A 
+
+ME ME_49521D8E0295_ME_4C88D233003E
+ MELINK Original WL 'ME_49521D8E0295' '494F898C013E.ms.model.script' // Print
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" True
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_49521D8E0295_ME_4C88D233003E Print
+
+ME ME_495220DE0298_ME_4C88D233003E
+ MELINK Original WL 'ME_495220DE0298' '494F898C013E.ms.model.script' // PrintDialog
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" True
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_495220DE0298_ME_4C88D233003E PrintDialog
+
+ME ME_495220F2033A_ME_4C88D233003E
+ MELINK Original WL 'ME_495220F2033A' '494F898C013E.ms.model.script' // PrintPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" True
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_495220F2033A_ME_4C88D233003E PrintPreview
+
+ME ME_4C52B34E0125_ME_4C88D233003E
+ MELINK Original WL 'ME_4C52B34E0125' '4AE89F8A004B.ms.model.script' // Restore
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C52B34E0125_ME_4C88D233003E Restore
+
+ME ME_4C52B36B01B3_ME_4C88D233003E
+ MELINK Original WL 'ME_4C52B36B01B3' '4AE89F8A004B.ms.model.script' // SaveAsDefault
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C52B36B01B3_ME_4C88D233003E SaveAsDefault
+
+ME ME_4C762A1501FC_ME_4C88D233003E
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C762A1501FC_ME_4C88D233003E Ok
+
+ME ME_4C762C910358_ME_4C88D233003E
+ MELINK Original WL 'ME_4C762C910358' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" True
+ENDME // ME_4C762C910358_ME_4C88D233003E Cancel
+
+ME ME_4C88D40C0029_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D40C0029' '4AE89F8A004B.ms.model.script' // AppTitle
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D40C0029_ME_4C88D233003E AppTitle
+
+ME ME_4C88D42001C2_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D42001C2' '4AE89F8A004B.ms.model.script' // DocName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D42001C2_ME_4C88D233003E DocName
+
+ME ME_4C88D43300C7_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D43300C7' '4AE89F8A004B.ms.model.script' // DocFullName
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" True
+ENDME // ME_4C88D43300C7_ME_4C88D233003E DocFullName
+
+ME ME_4C88D44401B5_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D44401B5' '4AE89F8A004B.ms.model.script' // DocRedactionDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D44401B5_ME_4C88D233003E DocRedactionDate
+
+ME ME_4C88D46203BD_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D46203BD' '4AE89F8A004B.ms.model.script' // DocCurrentPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D46203BD_ME_4C88D233003E DocCurrentPage
+
+ME ME_4C88D4770266_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D4770266' '4AE89F8A004B.ms.model.script' // DocPagesCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D4770266_ME_4C88D233003E DocPagesCount
+
+ME ME_4C88D48B0325_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D48B0325' '4AE89F8A004B.ms.model.script' // CurrentDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D48B0325_ME_4C88D233003E CurrentDate
+
+ME ME_4C88D4A6032C_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D4A6032C' '4AE89F8A004B.ms.model.script' // CurrentTime
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D4A6032C_ME_4C88D233003E CurrentTime
+
+ME ME_4C88D4BF0213_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D4BF0213' '4AE89F8A004B.ms.model.script' // InternalDocNumber
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D4BF0213_ME_4C88D233003E InternalDocNumber
+
+ME ME_4C88D4D202BA_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D4D202BA' '4AE89F8A004B.ms.model.script' // DocumentSIze
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D4D202BA_ME_4C88D233003E DocumentSIze
+
+ME ME_4C88D4E8007C_ME_4C88D233003E
+ MELINK Original WL 'ME_4C88D4E8007C' '4AE89F8A004B.ms.model.script' // FilePosition
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4C88D4E8007C_ME_4C88D233003E FilePosition
+
+ME ME_4C88D233003E
+ MEPROP UID '4C88D233003E'
+ MEPROP Name 'PrimPageSetupOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка страницы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAF8637036A' '4AAF8637036A.ms.model.script' // PrimPageSetup
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49521D8203A0' '494F898C013E.ms.model.script' // File
+ WL 'ME_4A97EBC80201' '4A8AD3C70195.ms.model.script' // Result$Ok
+ WL 'ME_4AC5D5FB0293' '4A8AD3C70195.ms.model.script' // Result$CancelWithState
+ WL 'ME_4C52B3310159' '4AE89F8A004B.ms.model.script' // Result$ForStyleEditorContainer
+ WL 'ME_4C88D3FB02D1' '4AE89F8A004B.ms.model.script' // ColontitulMacro
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4C88D996000B // Save
+ HWL ME_4C88D9B60023 // SetPageFormat
+ HWL ME_4C88D9D30306 // MacroAdd
+ HWL ME_4C88DCA000DD // ToGUIColontituls
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49521D8E0295_ME_4C88D233003E // Print
+ ME_495220DE0298_ME_4C88D233003E // PrintDialog
+ ME_495220F2033A_ME_4C88D233003E // PrintPreview
+ ME_4C52B34E0125_ME_4C88D233003E // Restore
+ ME_4C52B36B01B3_ME_4C88D233003E // SaveAsDefault
+ ME_4C762A1501FC_ME_4C88D233003E // Ok
+ ME_4C762C910358_ME_4C88D233003E // Cancel
+ ME_4C88D40C0029_ME_4C88D233003E // AppTitle
+ ME_4C88D42001C2_ME_4C88D233003E // DocName
+ ME_4C88D43300C7_ME_4C88D233003E // DocFullName
+ ME_4C88D44401B5_ME_4C88D233003E // DocRedactionDate
+ ME_4C88D46203BD_ME_4C88D233003E // DocCurrentPage
+ ME_4C88D4770266_ME_4C88D233003E // DocPagesCount
+ ME_4C88D48B0325_ME_4C88D233003E // CurrentDate
+ ME_4C88D4A6032C_ME_4C88D233003E // CurrentTime
+ ME_4C88D4BF0213_ME_4C88D233003E // InternalDocNumber
+ ME_4C88D4D202BA_ME_4C88D233003E // DocumentSIze
+ ME_4C88D4E8007C_ME_4C88D233003E // FilePosition
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4C88D3C20244 // afwFacade
+ ME_4C88D3DA0099 // ModalResults
+ ME_4C88DA40012A // evHAFPainterMacros
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '09.09.2010 16:25'
+ UP "ZoneType" 'ManualModal'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimPageSetupOptionsForm'
+ UP extprop:pas:UnitName 'PrimPageSetupOptions_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimPageSetupOptionsForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimPageSetupOptions_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+
+ENDME // ME_4C88D233003E PrimPageSetupOptions

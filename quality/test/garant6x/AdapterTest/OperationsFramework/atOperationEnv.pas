@@ -46,6 +46,8 @@ uses
  , StrUtils
  , SysUtils
  , l3Base
+ //#UC START# *5396EA3E0230impl_uses*
+ //#UC END# *5396EA3E0230impl_uses*
 ;
 
 var g_TatOperationEnv: TatOperationEnv = nil;

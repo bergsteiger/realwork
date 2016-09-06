@@ -1,0 +1,426 @@
+// DocIntf 4E0072500208 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E0072500208
+
+FORWARD ME_4E0072E100DB
+
+ME ME_4E007ECC01EC
+ MEPROP UID '4E007ECC01EC'
+ MEPROP Name 'RarTextOfDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4E007ECC01EC RarTextOfDocument
+
+ME ME_4E007D4A02E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+ MELINK Target WL 'ME_4E007C3803DC' '4E004D460329.ms.model.script' // TarDocumentContainer
+ ;
+
+ENDME // ME_4E007D4A02E9 
+
+ME ME_482D9A030221_ME_4E0072E100DB
+ MELINK Original WL 'ME_482D9A030221' '482BFB50007B.ms.model.script' // DoMakeDocumentContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482D9A030221_ME_4E0072E100DB DoMakeDocumentContainer
+
+ME ME_4E0072E100DB
+ MEPROP UID '4E0072E100DB'
+ MEPROP Name 'TarTextOfDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072500208 // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_482D98DE00A9' '482BFB50007B.ms.model.script' // TevTextSource
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_482D9A030221_ME_4E0072E100DB // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4E007ECC01EC // RarTextOfDocument
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E007D4A02E9 // TarDocumentContainer
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'arTextOfDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arTextOfDocument'
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocument.pas'
+
+ENDME // ME_4E0072E100DB TarTextOfDocument
+
+FORWARD ME_4E0072C40154
+
+FORWARD ME_4E007419002D
+
+ME ME_4E007EF703CE
+ MEPROP UID '4E007EF703CE'
+ MEPROP Name 'GetTextOfDocumentClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E007419002D // TarCustomDocument
+ ;
+ MELINK Target HWL ME_4E007ECC01EC // RarTextOfDocument
+ ;
+
+ENDME // ME_4E007EF703CE GetTextOfDocumentClass
+
+ME ME_4F7D45950280
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E007419002D // TarCustomDocument
+ ;
+ MELINK Target WL 'ME_4F7D3EB4039D' '47ECACA70141.ms.model.script' // TevOutTextParaEliminator
+ ;
+
+ENDME // ME_4F7D45950280 
+
+ME ME_4E007419002D
+ MEPROP UID '4E007419002D'
+ MEPROP Name 'TarCustomDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072C40154 // DocIntf
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E007EF703CE // GetTextOfDocumentClass
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F7D45950280 // TevOutTextParaEliminator
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arCustomDocument'
+
+ENDME // ME_4E007419002D TarCustomDocument
+
+FORWARD ME_4E00742A00F5
+
+FORWARD ME_4F9502130133
+
+ME ME_4F9502DD02C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E00742A00F5 // TarSprDocument
+ ;
+ MELINK Target HWL ME_4F9502130133 // TarSpravkaTextOfDocument
+ ;
+
+ENDME // ME_4F9502DD02C5 
+
+ME ME_4E007EF703CE_ME_4E00742A00F5
+ MELINK Original HWL ME_4E007EF703CE // GetTextOfDocumentClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E007EF703CE_ME_4E00742A00F5 GetTextOfDocumentClass
+
+ME ME_4E00742A00F5
+ MEPROP UID '4E00742A00F5'
+ MEPROP Name 'TarSprDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072C40154 // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E007419002D // TarCustomDocument
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4E007EF703CE_ME_4E00742A00F5 // GetTextOfDocumentClass
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4F9502DD02C5 // TarSpravkaTextOfDocument
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arSprDocument'
+
+ENDME // ME_4E00742A00F5 TarSprDocument
+
+ME ME_4E007EF703CE_ME_4E00743901FC
+ MELINK Original HWL ME_4E007EF703CE // GetTextOfDocumentClass
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E007EF703CE_ME_4E00743901FC GetTextOfDocumentClass
+
+ME ME_4E00743901FC
+ MEPROP UID '4E00743901FC'
+ MEPROP Name 'TarDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072C40154 // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E007419002D // TarCustomDocument
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4E007EF703CE_ME_4E00743901FC // GetTextOfDocumentClass
+ )
+ ; // Implemented
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arDocument'
+
+ENDME // ME_4E00743901FC TarDocument
+
+FORWARD ME_4E0ACE9A02C2
+
+ME ME_4E0ACEBA0188
+ MEPROP UID '4E0ACEBA0188'
+ MEPROP Name 'FamID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACE9A02C2 // TDocAddr
+ ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_4E0ACEBA0188 FamID
+
+ME ME_4E0ACECB0235
+ MEPROP UID '4E0ACECB0235'
+ MEPROP Name 'DocID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACE9A02C2 // TDocAddr
+ ;
+ MELINK Target WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ ;
+
+ENDME // ME_4E0ACECB0235 DocID
+
+ME ME_4E0ACE9A02C2
+ MEPROP UID '4E0ACE9A02C2'
+ MEPROP Name 'TDocAddr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072C40154 // DocIntf
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E0ACEBA0188 // FamID
+ HWL ME_4E0ACECB0235 // DocID
+ )
+ ; // Attributes
+
+ENDME // ME_4E0ACE9A02C2 TDocAddr
+
+ME ME_4E007EEC0321
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0072C40154 // DocIntf
+ ;
+ MELINK Target HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+
+ENDME // ME_4E007EEC0321 
+
+ME ME_4E0072C40154
+ MEPROP UID '4E0072C40154'
+ MEPROP Name 'DocIntf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0072500208 // DocIntf
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E007419002D // TarCustomDocument
+ HWL ME_4E00742A00F5 // TarSprDocument
+ HWL ME_4E00743901FC // TarDocument
+ HWL ME_4E0ACE9A02C2 // TDocAddr
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E007EEC0321 // TarTextOfDocument
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_DocIntf.pas'
+
+ENDME // ME_4E0072C40154 DocIntf
+
+ME ME_4E0073BD0223
+ MEPROP UID '4E0073BD0223'
+ MEPROP Name 'TarTextOfAnnoDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072500208 // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:pas:UnitName 'arTextOfAnnoDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arTextOfAnnoDocument'
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfAnnoDocument.pas'
+
+ENDME // ME_4E0073BD0223 TarTextOfAnnoDocument
+
+FORWARD ME_4E007CE303AC
+
+ME ME_4E007D6001F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E007CE303AC // TarTextOfDocumentWithContentsTree
+ ;
+ MELINK Target WL 'ME_4E004D900171' '4E004D460329.ms.model.script' // TarDocumentContainerWithContentsTree
+ ;
+
+ENDME // ME_4E007D6001F0 
+
+ME ME_4E007CE303AC
+ MEPROP UID '4E007CE303AC'
+ MEPROP Name 'TarTextOfDocumentWithContentsTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072500208 // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4E007D6001F0 // TarDocumentContainerWithContentsTree
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'arTextOfDocumentWithContentsTree'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arTextOfDocumentWithContentsTree'
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arTextOfDocumentWithContentsTree.pas'
+
+ENDME // ME_4E007CE303AC TarTextOfDocumentWithContentsTree
+
+ME ME_4F9502670074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F9502130133 // TarSpravkaTextOfDocument
+ ;
+ MELINK Target WL 'ME_4F9501970235' '4E004D460329.ms.model.script' // TarSpravkaDocumentContainer
+ ;
+
+ENDME // ME_4F9502670074 
+
+ME ME_482D9A030221_ME_4F9502130133
+ MELINK Original WL 'ME_482D9A030221' '482BFB50007B.ms.model.script' // DoMakeDocumentContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482D9A030221_ME_4F9502130133 DoMakeDocumentContainer
+
+ME ME_4F9502130133
+ MEPROP UID '4F9502130133'
+ MEPROP Name 'TarSpravkaTextOfDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ТextSource для справки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E0072500208 // DocIntf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E0072E100DB // TarTextOfDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_482D9A030221_ME_4F9502130133 // DoMakeDocumentContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F9502670074 // TarSpravkaDocumentContainer
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:pas:UnitName 'arSpravkaTextOfDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arSpravkaTextOfDocument'
+ UP intf.pas:Path 'archi\source\projects\Archi\Editor\NOT_FINISHED_arSpravkaTextOfDocument.pas'
+
+ENDME // ME_4F9502130133 TarSpravkaTextOfDocument
+
+ME ME_4E0072500208
+ MEPROP UID '4E0072500208'
+ MEPROP Name 'DocIntf'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ %SUMMARY 'Один из исторически сложившихся модулей.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E004D0B033A' '4E004D0B033A.ms.model.script' // Editor
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E0072E100DB // TarTextOfDocument
+ HWL ME_4E0072C40154 // DocIntf
+ HWL ME_4E0073BD0223 // TarTextOfAnnoDocument
+ HWL ME_4E007CE303AC // TarTextOfDocumentWithContentsTree
+ HWL ME_4F9502130133 // TarSpravkaTextOfDocument
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ WL 'ME_482BFB50007B' '482BFB50007B.ms.model.script' // TextSources
+ WL 'ME_4E004D460329' '4E004D460329.ms.model.script' // DocumentContainer
+ WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
+ )
+ ; // Depends
+ UP "finished" False
+
+ENDME // ME_4E0072500208 DocIntf

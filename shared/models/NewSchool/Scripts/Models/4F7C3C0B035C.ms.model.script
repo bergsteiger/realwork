@@ -1,0 +1,87 @@
+// AdminMain 4F7C3C0B035C VCMMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_1EFCD4E79E8C
+
+FORWARD ME_4F7C3C0B035C
+
+ME ME_1EFCD4E79E8C
+ MEPROP UID '1EFCD4E79E8C'
+ MEPROP GUID '26239010-1045-42DC-ABBF-3909601CF2CB'
+ MEPROP Name 'AdminMain'
+ MEPROP OriginalName 'AdminMain$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы AdminMain' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F7C3C0B035C // AdminMain
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4F7C3C0B035C // AdminMain
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'AdminMainFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_1EFCD4E79E8C AdminMain$Def
+
+ME ME_23718B57AD1E
+ MEPROP UID '23718B57AD1E'
+ MEPROP Name 'Ini_FormFactory_AdminMain'
+ MEPROP OriginalName 'Ini_FormFactory_AdminMain$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы AdminMain' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7C3C0B035C // AdminMain
+ ;
+ UPLINK SpelledFor HWL ME_4F7C3C0B035C // AdminMain
+ ;
+
+ENDME // ME_23718B57AD1E Ini_FormFactory_AdminMain$Def
+
+ME ME_4F7C3C0B035C
+ MEPROP UID '4F7C3C0B035C'
+ MEPROP Name 'AdminMain'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMMainForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA517B5037A' '4AA517B5037A.ms.model.script' // AdminApp
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA518EB039C' '4AA518EB039C.ms.model.script' // PrimAdminMain
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_1EFCD4E79E8C // AdminMain$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_23718B57AD1E // Ini_FormFactory_AdminMain$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_1EFCD4E79E8C // AdminMain$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TAdminMainForm'
+ UP extprop:pas:UnitName 'AdminMain_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AdminMainForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\AdminMain_Form.pas'
+
+ENDME // ME_4F7C3C0B035C AdminMain

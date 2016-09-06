@@ -35,6 +35,8 @@ uses
  , atLogger
  , DynamicTreeUnit
  , SysUtils
+ //#UC START# *4FC8DA4E01A4impl_uses*
+ //#UC END# *4FC8DA4E01A4impl_uses*
 ;
 
 constructor TatSearchHelper.Create(aQuery: TatQuery);

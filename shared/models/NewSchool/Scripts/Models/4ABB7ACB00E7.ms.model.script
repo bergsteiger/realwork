@@ -1,0 +1,90 @@
+// RegistrationForm 4ABB7ACB00E7 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_ED7C58FBBB35
+
+FORWARD ME_4ABB7ACB00E7
+
+ME ME_D488F1933FE9
+ MEPROP UID 'D488F1933FE9'
+ MEPROP Name 'ut_RegistrationForm'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Регистрация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABB7ACB00E7 // RegistrationForm
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'RegistrationForm_ut_RegistrationForm_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\RegistrationForm_ut_RegistrationForm_UserType.pas'
+
+ENDME // ME_D488F1933FE9 ut_RegistrationForm
+
+ME ME_ED7C58FBBB35
+ MEPROP UID 'ED7C58FBBB35'
+ MEPROP GUID '1C7CFA67-8415-4312-BA10-BF18AAF522CF'
+ MEPROP Name 'RegistrationForm'
+ MEPROP OriginalName 'RegistrationForm$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы RegistrationForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABB7ACB00E7 // RegistrationForm
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4ABB7ACB00E7 // RegistrationForm
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'RegistrationFormFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_ED7C58FBBB35 RegistrationForm$Def
+
+ME ME_4ABB7ACB00E7
+ MEPROP UID '4ABB7ACB00E7'
+ MEPROP Name 'RegistrationForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Регистрация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_525AE04E0326' '525AE04E0326.ms.model.script' // PrimRegistration
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_ED7C58FBBB35 // RegistrationForm$Def
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_D488F1933FE9 // ut_RegistrationForm
+ HWL ME_ED7C58FBBB35 // RegistrationForm$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "form name prefix" 'ns'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'ManualModal'
+ UP extprop:pas:TypeName 'TnsRegistrationForm'
+ UP extprop:pas:UnitName 'Registration_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RegistrationForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\Registration_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_4ABB7ACB00E7 RegistrationForm

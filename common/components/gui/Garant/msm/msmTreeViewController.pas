@@ -13,8 +13,8 @@ uses
  , msmOutliner
  , msmConcreteModels
  , msmListAndTreeViewUtils
- , msmControllers
  , msmParentedViewController
+ , msmControllers
  , msmEvents
  , l3Interfaces
 ;

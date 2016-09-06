@@ -36,6 +36,8 @@ uses
  , atSyncedStringFileReader
  , atStringFileReader
  , atConstStringProvider
+ //#UC START# *483D28C30393impl_uses*
+ //#UC END# *483D28C30393impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atHasStringParamAddOn.imp.pas}

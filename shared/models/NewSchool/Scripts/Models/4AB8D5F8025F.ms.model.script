@@ -1,0 +1,59 @@
+// TreeAttributeFirstLevel 4AB8D5F8025F VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB8D5F8025F
+
+ME ME_DC2BA1E03464
+ MEPROP UID 'DC2BA1E03464'
+ MEPROP Name 'Ini_FormFactory_TreeAttributeFirstLevel'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы TreeAttributeFirstLevel' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB8D5F8025F // TreeAttributeFirstLevel
+ ;
+ UPLINK SpelledFor HWL ME_4AB8D5F8025F // TreeAttributeFirstLevel
+ ;
+
+ENDME // ME_DC2BA1E03464 Ini_FormFactory_TreeAttributeFirstLevel
+
+ME ME_4AB8D5F8025F
+ MEPROP UID '4AB8D5F8025F'
+ MEPROP Name 'TreeAttributeFirstLevel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA641A3036C' '4AA641A3036C.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_497EC6A4022F' '497EC6A4022F.ms.model.script' // PrimTreeAttributeFirstLevel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4D80D39C002F' '4BD856E802F9.ms.model.script' // TreeAttributeFirstLevel
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_DC2BA1E03464 // Ini_FormFactory_TreeAttributeFirstLevel
+ )
+ ; // Operations
+ UP "finished dfm" True
+ UP "form name prefix" 'ef'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Navigator'
+ UP extprop:pas:TypeName 'TefTreeAttributeFirstLevel'
+ UP extprop:pas:UnitName 'TreeAttributeFirstLevel_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'efTreeAttributeFirstLevel'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\TreeAttributeFirstLevel_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+
+ENDME // ME_4AB8D5F8025F TreeAttributeFirstLevel

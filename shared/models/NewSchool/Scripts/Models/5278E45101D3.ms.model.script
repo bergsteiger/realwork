@@ -1,0 +1,201 @@
+// ScalingSupport 5278E45101D3 VCMControls Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5278E45101D3
+
+FORWARD ME_4BB367D502F5
+
+ME ME_4BB368030073
+ MEPROP UID '4BB368030073'
+ MEPROP Name 'Unknown'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BB367D502F5 // TCanChangeScale
+ ;
+
+ENDME // ME_4BB368030073 Unknown
+
+ME ME_4BB3680F00ED
+ MEPROP UID '4BB3680F00ED'
+ MEPROP Name 'No'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BB367D502F5 // TCanChangeScale
+ ;
+
+ENDME // ME_4BB3680F00ED No
+
+ME ME_4BB368180094
+ MEPROP UID '4BB368180094'
+ MEPROP Name 'Yes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BB367D502F5 // TCanChangeScale
+ ;
+
+ENDME // ME_4BB368180094 Yes
+
+ME ME_5284C1F900BA
+ MEPROP UID '5284C1F900BA'
+ MEPROP Name 'YesIfPossible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BB367D502F5 // TCanChangeScale
+ ;
+
+ENDME // ME_5284C1F900BA YesIfPossible
+
+ME ME_4BB367D502F5
+ MEPROP UID '4BB367D502F5'
+ MEPROP Name 'TCanChangeScale'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5278E45101D3 // ScalingSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BB368030073 // Unknown
+ HWL ME_4BB3680F00ED // No
+ HWL ME_4BB368180094 // Yes
+ HWL ME_5284C1F900BA // YesIfPossible
+ )
+ ; // Attributes
+ UP "children prefix" 'ccs'
+ UP extprop:pas:ElementPrefix 'ccs'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4BB367D502F5 TCanChangeScale
+
+FORWARD ME_4BB32B8400B0
+
+FORWARD ME_4BB32C1401C0
+
+ME ME_4BB32C3403CC
+ MEPROP Name 'aInc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BB32C3403CC aInc
+
+ME ME_4BB32C1401C0
+ MEPROP UID '4BB32C1401C0'
+ MEPROP Name 'ChangeScale'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Изменить масштаб' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BB32B8400B0 // Scalable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BB32C3403CC // aInc
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4BB32C1401C0 ChangeScale
+
+FORWARD ME_4BB366A901D7
+
+ME ME_4BB366C4009F
+ MEPROP Name 'anInc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BB366C4009F anInc
+
+ME ME_4BB366A901D7
+ MEPROP UID '4BB366A901D7'
+ MEPROP Name 'CanChangeScale'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_InternalOperation::Operation ;
+ %SUMMARY 'Масштабирование запрещено' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4BB32B8400B0 // Scalable
+ ;
+ MELINK Target HWL ME_4BB367D502F5 // TCanChangeScale
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BB366C4009F // anInc
+ )
+ ; // Parameters
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+
+ENDME // ME_4BB366A901D7 CanChangeScale
+
+ME ME_4BB32B8400B0
+ MEPROP UID '4BB32B8400B0'
+ MEPROP Name 'Scalable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFacet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Масштабируемый объект' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5278E45101D3 // ScalingSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BB32C1401C0 // ChangeScale
+ HWL ME_4BB366A901D7 // CanChangeScale
+ )
+ ; // Operations
+
+ENDME // ME_4BB32B8400B0 Scalable
+
+ME ME_5278E45101D3
+ MEPROP UID '5278E45101D3'
+ MEPROP Name 'ScalingSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMControls ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A78013D01CD' '4A78013D01CD.ms.model.script' // View$For F1 and Monitorings
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BB367D502F5 // TCanChangeScale
+ HWL ME_4BB32B8400B0 // Scalable
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'Search_ScalingSupport_Controls'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search_ScalingSupport_Controls.pas'
+
+ENDME // ME_5278E45101D3 ScalingSupport

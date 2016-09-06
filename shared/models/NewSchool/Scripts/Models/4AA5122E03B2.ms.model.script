@@ -1,0 +1,36 @@
+// Admin$UC 4AA5122E03B2 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AA5122E03B2
+ MEPROP UID '4AA5122E03B2'
+ MEPROP Name 'Admin'
+ MEPROP OriginalName 'Admin$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Администрирование пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4954D3580364' '4954D3580364.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA5120303E5' '4AA5120303E5.ms.model.script' // Admin
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_484F8C0C0359' '481F0CA6017E.ms.model.script' // Администрирование пользователей
+ )
+ ; // Implements
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.09.2009 16:00'
+ UP extprop:pas:TypeName 'Tmo_Admin'
+ UP extprop:pas:UnitName 'moAdmin'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_Admin'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moAdmin.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4AA5122E03B2 Admin$UC

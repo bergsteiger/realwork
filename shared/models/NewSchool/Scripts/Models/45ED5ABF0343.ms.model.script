@@ -1,0 +1,70 @@
+// Logging_i 45ED5ABF0343 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_45ED5ABF0343
+
+FORWARD ME_4746E7AC013B
+
+ME ME_4746E7EB0037
+ MEPROP UID '4746E7EB0037'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4746E7AC013B // AnyVector
+ ;
+ MELINK Target WL 'ME_3DBFFE040134' '3DBFDB23006E.ms.model.script' // any
+ ;
+
+ENDME // ME_4746E7EB0037 
+
+ME ME_4746E7AC013B
+ MEPROP UID '4746E7AC013B'
+ MEPROP Name 'AnyVector'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45ED5ABF0343 // Logging_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4746E7EB0037 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'IAnyVector'
+
+ENDME // ME_4746E7AC013B AnyVector
+
+ME ME_45ED5ABF0343
+ MEPROP UID '45ED5ABF0343'
+ MEPROP Name 'Logging_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4746E7AC013B // AnyVector
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_45740AC00271' '45740AC00271.ms.model.script' // Document_i
+ WL 'ME_45741B780271' '45741B780271.ms.model.script' // DynamicDocList_i
+ WL 'ME_45ED58CF03E6' '45ED58CF03E6.ms.model.script' // Logging
+ WL 'ME_45EEAA93011C' '45EEAA93011C.ms.model.script' // Search_i
+ WL 'ME_460B8FB00186' '460B8FB00186.ms.model.script' // Convertors
+ WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Logging_i'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Logging_i\Logging_i.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Logging_i'
+
+ENDME // ME_45ED5ABF0343 Logging_i

@@ -1,0 +1,61 @@
+// MedicFirmList$Form 4AB9E69C0243 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AB9E69C0243
+
+ME ME_8D90B8858B94
+ MEPROP UID '8D90B8858B94'
+ MEPROP Name 'Ini_FormFactory_MedicFirmList'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MedicFirmList$Form' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AB9E69C0243 // MedicFirmList$Form
+ ;
+ UPLINK SpelledFor HWL ME_4AB9E69C0243 // MedicFirmList$Form
+ ;
+
+ENDME // ME_8D90B8858B94 Ini_FormFactory_MedicFirmList
+
+ME ME_4AB9E69C0243
+ MEPROP UID '4AB9E69C0243'
+ MEPROP Name 'MedicFirmList'
+ MEPROP OriginalName 'MedicFirmList$Form'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фармацевтические фирмы (полный список)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA0D66F0159' '4AA0D66F0159.ms.model.script' // Inpharm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7E3A320074' '4C7E3A320074.ms.model.script' // PrimMedicFirmListOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD96AFB0212' '4BD856E802F9.ms.model.script' // MedicFirmList
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_8D90B8858B94 // Ini_FormFactory_MedicFirmList
+ )
+ ; // Operations
+ UP "finished dfm" True
+ UP "form name prefix" 'en_'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Main'
+ UP extprop:pas:TypeName 'Ten_MedicFirmList'
+ UP extprop:pas:UnitName 'MedicFirmList_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'en_MedicFirmList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms\MedicFirmList_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Inpharm\Forms'
+
+ENDME // ME_4AB9E69C0243 MedicFirmList$Form

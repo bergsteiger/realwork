@@ -1,0 +1,63 @@
+// AdminForm 4AA8E4F1002A VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA8E4F1002A
+
+ME ME_6092E696E259
+ MEPROP UID '6092E696E259'
+ MEPROP Name 'Ini_FormFactory_AdminForm'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы AdminForm' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA8E4F1002A // AdminForm
+ ;
+ UPLINK SpelledFor HWL ME_4AA8E4F1002A // AdminForm
+ ;
+
+ENDME // ME_6092E696E259 Ini_FormFactory_AdminForm
+
+ME ME_4AA8E4F1002A
+ MEPROP UID '4AA8E4F1002A'
+ MEPROP Name 'AdminForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Администрирование пользователей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA5120303E5' '4AA5120303E5.ms.model.script' // Admin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C88E37B0049' '4C88E37B0049.ms.model.script' // PrimAdminOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFBFEA70185' '4FFBFDCA01DE.ms.model.script' // AdminForm
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_6092E696E259 // Ini_FormFactory_AdminForm
+ )
+ ; // Operations
+ UP "author" 'Тучнин Д.А.'
+ UP "finished dfm" True
+ UP "form name prefix" 'cf'
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '2005/08/16 09:41:37'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TcfAdminForm'
+ UP extprop:pas:UnitName 'Admin_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'cfAdminForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms\Admin_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Admin\Forms'
+
+ENDME // ME_4AA8E4F1002A AdminForm

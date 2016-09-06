@@ -41,6 +41,8 @@ uses
  , eeTextCursorPair
  , TextPara
  , DecorTextPara
+ //#UC START# *54BE514101E5impl_uses*
+ //#UC END# *54BE514101E5impl_uses*
 ;
 
 {$If Defined(k2ForEditor)}

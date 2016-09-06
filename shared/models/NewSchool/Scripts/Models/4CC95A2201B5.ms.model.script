@@ -1,0 +1,68 @@
+// SkinnedForm 4CC95A2201B5 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CC95A2201B5
+
+FORWARD ME_4CC95A76016F
+
+ME ME_4CC95A830296
+ MEPROP UID '4CC95A830296'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC95A76016F // IsSkinned
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CC95A830296 DoIt
+
+ME ME_4CC95A76016F
+ MEPROP UID '4CC95A76016F'
+ MEPROP Name 'IsSkinned'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC95A2201B5 // SkinnedForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC95A830296 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC95A76016F IsSkinned
+
+ME ME_4CC95A2201B5
+ MEPROP UID '4CC95A2201B5'
+ MEPROP Name 'SkinnedForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма с поддержкой скинов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4CC8099102F5' '4CC8099102F5.ms.model.script' // Core
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC95A76016F // IsSkinned
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '28.10.2010 15:11'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_SkinnedForm_'
+ UP extprop:pas:UnitName 'SkinnedForm.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Skins\SkinnedForm.imp.pas'
+
+ENDME // ME_4CC95A2201B5 SkinnedForm

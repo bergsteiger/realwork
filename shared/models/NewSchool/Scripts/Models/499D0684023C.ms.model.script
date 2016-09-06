@@ -1,0 +1,42 @@
+// SplashInterfaces 499D0684023C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499D0684023C
+
+ME ME_499D06CC02D2
+ MEPROP UID '499D06CC02D2'
+ MEPROP GUID '6DE59664-EC43-42E5-AE95-A2465CF37006'
+ MEPROP Name 'InsSplashClient'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Невизуальный объект.'#13#10'Готовит данные для сервера и запускает его.'#13#10'Перед разрушением говорит серверу, что можно уже не показывать сплеш.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499D0684023C // SplashInterfaces
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SplashClient'
+
+ENDME // ME_499D06CC02D2 InsSplashClient
+
+ME ME_499D0684023C
+ MEPROP UID '499D0684023C'
+ MEPROP Name 'SplashInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфесы для клиента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499C065E01E5' '499C065E01E5.ms.model.script' // Splash
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499D06CC02D2 // InsSplashClient
+ )
+ ; // Children
+ UP "is namespace" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Splash\SplashInterfaces.pas'
+
+ENDME // ME_499D0684023C SplashInterfaces

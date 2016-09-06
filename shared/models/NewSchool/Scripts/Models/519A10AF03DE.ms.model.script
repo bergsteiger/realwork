@@ -1,0 +1,203 @@
+// dt_Const 519A10AF03DE Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_519A10AF03DE
+
+FORWARD ME_519A10DD036F
+
+FORWARD ME_52E7B0B00076
+
+ME ME_52E7B0BB0268
+ MEPROP UID '52E7B0BB0268'
+ MEPROP Name 'cMaxBlockID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52E7B0B00076 // SubConst
+ ;
+ MEPROP Value 1073741821
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1073741821
+
+ENDME // ME_52E7B0BB0268 cMaxBlockID
+
+ME ME_52E7B0B00076
+ MEPROP UID '52E7B0B00076'
+ MEPROP Name 'SubConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_519A10DD036F // dt_Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52E7B0BB0268 // cMaxBlockID
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52E7B0B00076 SubConst
+
+FORWARD ME_535F623501D9
+
+ME ME_535F6242033B
+ MEPROP UID '535F6242033B'
+ MEPROP Name 'sfbitKeyWords'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_535F623501D9 // SubFlagsCont
+ ;
+ MEPROP Value 2
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 2
+
+ENDME // ME_535F6242033B sfbitKeyWords
+
+ME ME_535F625A0289
+ MEPROP UID '535F625A0289'
+ MEPROP Name 'sfbitTreeNodes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_535F623501D9 // SubFlagsCont
+ ;
+ MEPROP Value 3
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 3
+
+ENDME // ME_535F625A0289 sfbitTreeNodes
+
+ME ME_535F626B0108
+ MEPROP UID '535F626B0108'
+ MEPROP Name 'sfbitDocType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_535F623501D9 // SubFlagsCont
+ ;
+ MEPROP Value 5
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 5
+
+ENDME // ME_535F626B0108 sfbitDocType
+
+ME ME_535F623501D9
+ MEPROP UID '535F623501D9'
+ MEPROP Name 'SubFlagsCont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_519A10DD036F // dt_Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_535F6242033B // sfbitKeyWords
+ HWL ME_535F625A0289 // sfbitTreeNodes
+ HWL ME_535F626B0108 // sfbitDocType
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_535F623501D9 SubFlagsCont
+
+FORWARD ME_55E6E03B01A7
+
+ME ME_55E6E0490317
+ MEPROP UID '55E6E0490317'
+ MEPROP Name 'CurrentFamily'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E6E03B01A7 // cFamily
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+ MEPROP Value 1
+ MELINK ValueType WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1
+
+ENDME // ME_55E6E0490317 CurrentFamily
+
+ME ME_55E6E03B01A7
+ MEPROP UID '55E6E03B01A7'
+ MEPROP Name 'cFamily'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_519A10DD036F // dt_Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55E6E0490317 // CurrentFamily
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_55E6E03B01A7 cFamily
+
+ME ME_519A10DD036F
+ MEPROP UID '519A10DD036F'
+ MEPROP Name 'dt_Const'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константы для работы с базой Архивариуса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519A10AF03DE // dt_Const
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_52E7B0B00076 // SubConst
+ HWL ME_535F623501D9 // SubFlagsCont
+ HWL ME_55E6E03B01A7 // cFamily
+ )
+ ; // Constants
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_dt_Const.pas'
+
+ENDME // ME_519A10DD036F dt_Const
+
+ME ME_519A10AF03DE
+ MEPROP UID '519A10AF03DE'
+ MEPROP Name 'dt_Const'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Children
+   Seq: ( HWL ME_519A10DD036F // dt_Const
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "finished" False
+
+ENDME // ME_519A10AF03DE dt_Const

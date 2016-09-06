@@ -1,0 +1,110 @@
+// Login 4A93D829005C VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_FB30A46D3070
+
+FORWARD ME_4A93D829005C
+
+ME ME_860E458F4C2C
+ MEPROP UID '860E458F4C2C'
+ MEPROP Name 'ut_Login'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вход в систему ГАРАНТ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93D829005C // Login
+ ;
+ UP "ImageIndex" '-1'
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'Login_ut_Login_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_ut_Login_UserType.pas'
+
+ENDME // ME_860E458F4C2C ut_Login
+
+ME ME_FB30A46D3070
+ MEPROP UID 'FB30A46D3070'
+ MEPROP GUID '96B4FBEB-A42A-4990-BCED-2F439F4E152A'
+ MEPROP Name 'Login'
+ MEPROP OriginalName 'Login$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы Login' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A93D829005C // Login
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4A93D829005C // Login
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'LoginFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_FB30A46D3070 Login$Def
+
+ME ME_699F263D3F02
+ MEPROP UID '699F263D3F02'
+ MEPROP Name 'Ini_FormFactory_Login'
+ MEPROP OriginalName 'Ini_FormFactory_Login$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Login' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93D829005C // Login
+ ;
+ UPLINK SpelledFor HWL ME_4A93D829005C // Login
+ ;
+
+ENDME // ME_699F263D3F02 Ini_FormFactory_Login$Def
+
+ME ME_4A93D829005C
+ MEPROP UID '4A93D829005C'
+ MEPROP Name 'Login'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вход в систему ГАРАНТ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A8EC78503BB' '4A8EC78503BB.ms.model.script' // PrimCommon
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A93D80F014F' '4A93D80F014F.ms.model.script' // PrimLogin
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_FB30A46D3070 // Login$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_699F263D3F02 // Ini_FormFactory_Login$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_860E458F4C2C // ut_Login
+ HWL ME_FB30A46D3070 // Login$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'ManualModal'
+ UP extprop:pas:TypeName 'TLoginForm'
+ UP extprop:pas:UnitName 'Login_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LoginForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\Login_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms'
+
+ENDME // ME_4A93D829005C Login

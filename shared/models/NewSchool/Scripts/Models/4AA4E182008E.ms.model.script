@@ -1,0 +1,79 @@
+// ListInterfaces 4AA4E182008E Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA4E182008E
+
+FORWARD ME_4AA4E1BB00D0
+
+ME ME_4AA4E1DE03B2
+ MEPROP UID '4AA4E1DE03B2'
+ MEPROP Name 'ltDocument'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Открыть сборку документ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA4E1BB00D0 // TbsLinkType
+ ;
+
+ENDME // ME_4AA4E1DE03B2 ltDocument
+
+ME ME_4AA4E1EB02E7
+ MEPROP UID '4AA4E1EB02E7'
+ MEPROP Name 'ltList'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Открыть сборку список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AA4E1BB00D0 // TbsLinkType
+ ;
+
+ENDME // ME_4AA4E1EB02E7 ltList
+
+ME ME_4AA4E1BB00D0
+ MEPROP UID '4AA4E1BB00D0'
+ MEPROP Name 'TbsLinkType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип ссылки на данные для сборки. Операция модуля использует этот тип для определения какую сборку необходимо создать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA4E182008E // ListInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AA4E1DE03B2 // ltDocument
+ HWL ME_4AA4E1EB02E7 // ltList
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4AA4E1BB00D0 TbsLinkType
+
+ME ME_4AA4E182008E
+ MEPROP UID '4AA4E182008E'
+ MEPROP Name 'ListInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4680C57D01E9' '4680C57D01E9.ms.model.script' // Business
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AA4E1BB00D0 // TbsLinkType
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '07.09.2009 14:34'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\ListInterfaces.pas'
+
+ENDME // ME_4AA4E182008E ListInterfaces

@@ -1,0 +1,62 @@
+// Rubricator 4AA68CCA0001 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA68CCA0001
+
+ME ME_889D7BDC5B97
+ MEPROP UID '889D7BDC5B97'
+ MEPROP Name 'Ini_FormFactory_Rubricator'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Rubricator' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA68CCA0001 // Rubricator
+ ;
+ UPLINK SpelledFor HWL ME_4AA68CCA0001 // Rubricator
+ ;
+
+ENDME // ME_889D7BDC5B97 Ini_FormFactory_Rubricator
+
+ME ME_4AA68CCA0001
+ MEPROP UID '4AA68CCA0001'
+ MEPROP Name 'Rubricator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правовой навигатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA67768038F' '4AA67768038F.ms.model.script' // Rubricator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA68CA10101' '4AA68CA10101.ms.model.script' // PrimRubricator
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD872F402C7' '4BD856E802F9.ms.model.script' // Rubricator
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_889D7BDC5B97 // Ini_FormFactory_Rubricator
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "form name prefix" 'ef'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '08.09.2009 20:27'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TefRubricator'
+ UP extprop:pas:UnitName 'Rubricator_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'efRubricator'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms\Rubricator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Rubricator\Forms'
+
+ENDME // ME_4AA68CCA0001 Rubricator

@@ -48,6 +48,8 @@ uses
  , Classes
  , SysUtils
  , DateUtils
+ //#UC START# *4A4DFF7800C9impl_uses*
+ //#UC END# *4A4DFF7800C9impl_uses*
 ;
 
 constructor TatFileBasedSemaphore.Create(const aFileName: AnsiString;

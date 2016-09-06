@@ -125,16 +125,37 @@ uses
  , tfwIteratableParent in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ , tfwIteratableParentPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwIteratableParentPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ , tfwSafeArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwSafeArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
+ , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValuesStack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValuesStack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwCompiledWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledWordPrim.pas'
@@ -148,6 +169,24 @@ uses
  , tfwKeyWordPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeyWordPrim.pas'
  {$If NOT Defined(NoScripts)}
  , tfwWordRefList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordRefList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVar in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVar.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwThreadVarPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwThreadVarPrim.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorkerEx in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorkerEx.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordWorker in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordWorker.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwAnonimousWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwAnonimousWord.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwCompilingWord in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCompilingWord.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Parser in 'w:\common\components\rtl\Garant\L3\l3Parser.pas'
  , l3ProtoPersistent in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistent.pas'
@@ -165,15 +204,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwDictionary in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionary.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwDictionaryPrimPrimPrim in 'w:\common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , Math {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Math.pas' {$EndIf}
  {$If NOT Defined(NoScripts)}
@@ -273,18 +303,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwKeywordsIterator in 'w:\common\components\rtl\Garant\ScriptEngine\tfwKeywordsIterator.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwStoredValues in 'w:\common\components\rtl\Garant\ScriptEngine\tfwStoredValues.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , kwCompiledVar in 'w:\common\components\rtl\Garant\ScriptEngine\kwCompiledVar.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArray in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArray.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwValueList in 'w:\common\components\rtl\Garant\ScriptEngine\tfwValueList.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwLeftParam in 'w:\common\components\rtl\Garant\ScriptEngine\kwLeftParam.pas'
@@ -428,6 +446,25 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwWordInfoWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordInfoWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , tfwParserService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserService.pas'
+ , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
+ , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
+ , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
+ , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
+ , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
+ , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
+ , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
+ , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
+ , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
+ , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
+ , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
+ , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
+ , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
+ , IniFiles {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\IniFiles.pas' {$EndIf}
+ , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
+ {$If NOT Defined(NoScripts)}
+ , tfwCS in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCS.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , ArrayProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\ArrayProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -442,9 +479,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwRevertedArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwRevertedArrayView.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwArrayView.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwFilteredArrayView in 'w:\common\components\rtl\Garant\ScriptEngine\tfwFilteredArrayView.pas'
@@ -483,15 +517,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , l3Filer in 'w:\common\components\rtl\Garant\L3\l3Filer.pas'
- , l3ProgressComponent in 'w:\common\components\rtl\Garant\L3\l3ProgressComponent.pas'
- , l3InterfacedComponent in 'w:\common\components\rtl\Garant\L3\l3InterfacedComponent.pas'
- , l3FilerRes in 'w:\common\components\rtl\Garant\L3\l3FilerRes.pas'
- , l3StringIDEx in 'w:\common\components\rtl\Garant\L3\l3StringIDEx.pas'
- , l3ConstStrings in 'w:\common\components\rtl\Garant\L3\l3ConstStrings.pas'
- , l3ConstStrings1 in 'w:\common\components\rtl\Garant\L3\l3ConstStrings1.pas'
- , l3FileUtils in 'w:\common\components\rtl\Garant\L3\l3FileUtils.pas'
- , l3Stream in 'w:\common\components\rtl\Garant\L3\l3Stream.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -598,13 +623,14 @@ uses
  , l3DataObject in 'w:\common\components\rtl\Garant\L3\l3DataObject.pas'
  , l3LongintList in 'w:\common\components\rtl\Garant\L3\l3LongintList.pas'
  , l3LongintListPrim in 'w:\common\components\rtl\Garant\L3\l3LongintListPrim.pas'
- , l3StringList in 'w:\common\components\rtl\Garant\L3\l3StringList.pas'
- , l3StringList2 in 'w:\common\components\rtl\Garant\L3\l3StringList2.pas'
- , l3StringList1 in 'w:\common\components\rtl\Garant\L3\l3StringList1.pas'
- , l3StringListPrim in 'w:\common\components\rtl\Garant\L3\l3StringListPrim.pas'
- , l3ProtoPersistentDataContainer in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentDataContainer.pas'
  , l3DataObjectEnum in 'w:\common\components\rtl\Garant\L3\l3DataObjectEnum.pas'
  , ShlObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\ShlObj.pas' {$EndIf}
+ {$If NOT Defined(NoScripts)}
+ , tfwWordDeleteListeners in 'w:\common\components\rtl\Garant\ScriptEngine\tfwWordDeleteListeners.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , ItfwWordListenerList in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwWordListenerList.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , WordsRTTIPack in 'w:\common\components\rtl\Garant\ScriptEngine\WordsRTTIPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)

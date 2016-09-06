@@ -67,6 +67,8 @@ uses
  , XMLDoc
  , Variants
  , atNonATQueryLogicOperationConverter
+ //#UC START# *4A549C190378impl_uses*
+ //#UC END# *4A549C190378impl_uses*
 ;
 
 const

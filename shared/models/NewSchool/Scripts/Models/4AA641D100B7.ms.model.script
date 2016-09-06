@@ -1,0 +1,52 @@
+// Search$UC 4AA641D100B7 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA641D100B7
+
+ME ME_4CC98C1A01FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA641D100B7 // Search$UC
+ ;
+ MELINK Target WL 'ME_484407B70220' '484407720166.ms.model.script' // Базовый поиск
+ ;
+
+ENDME // ME_4CC98C1A01FC 
+
+ME ME_4AA641D100B7
+ MEPROP UID '4AA641D100B7'
+ MEPROP Name 'Search'
+ MEPROP OriginalName 'Search$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA640DC0166' '4AA640DC0166.ms.model.script' // Search
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AA641A3036C' '4AA641A3036C.ms.model.script' // Search
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_484CE381033D' '484407720166.ms.model.script' // Параметрический поиск
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_4CC98C1A01FC // Базовый поиск
+ )
+ ; // Dependencies
+ UP "author" 'Тучнин Д.А.'
+ UP "no hands" True
+ UP "started" '2003/07/21 16:33:57'
+ UP extprop:pas:TypeName 'Tmo_Search'
+ UP extprop:pas:UnitName 'moSearch'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_Search'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moSearch.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_4AA641D100B7 Search$UC

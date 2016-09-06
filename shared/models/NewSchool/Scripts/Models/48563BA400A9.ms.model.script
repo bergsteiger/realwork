@@ -1,0 +1,285 @@
+// Навигация 48563BA400A9 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48563BA400A9
+
+ME ME_484F7A5501AB
+ MEPROP UID '484F7A5501AB'
+ MEPROP Name 'История навигации'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Перемещение к произвольному объекту, загружавшемуся в активное окно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48563BA400A9 // Навигация
+ ;
+
+ENDME // ME_484F7A5501AB История навигации
+
+ME ME_484F77120164
+ MEPROP UID '484F77120164'
+ MEPROP Name 'Основное меню (устарел)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пользователь выбирает один из поисково-навигационных инструментов СПС.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48563BA400A9 // Навигация
+ ;
+
+ENDME // ME_484F77120164 Основное меню (устарел)
+
+ME ME_48563D4D00D5
+ MEPROP UID '48563D4D00D5'
+ MEPROP Name 'Панель задач'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Новая вкладка «Панель задач». Данная вкладка состоит из разделов, в которых в виде гиперссылок перечислены наиболее важные и востребованные «продвинутые» операции для основных участков системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48563BA400A9 // Навигация
+ ;
+
+ENDME // ME_48563D4D00D5 Панель задач
+
+ME ME_48563E65020C
+ MEPROP UID '48563E65020C'
+ MEPROP Name 'Упрощенное Основное Меню (устарел)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Видоизмененный вариант Основного меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48563BA400A9 // Навигация
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_484F77120164 // Основное меню (устарел)
+ )
+ ; // Inherits
+
+ENDME // ME_48563E65020C Упрощенное Основное Меню (устарел)
+
+ME ME_4AC1BC3E03E2
+ MEPROP UID '4AC1BC3E03E2'
+ MEPROP Name 'Журнал Работы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Лог открытых пользователем документов и запросов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48563BA400A9 // Навигация
+ ;
+
+ENDME // ME_4AC1BC3E03E2 Журнал Работы
+
+FORWARD ME_4AC1D84F0398
+
+FORWARD ME_4E70D70C0055
+
+FORWARD ME_4E7344D40331
+
+ME ME_4E7344FA037B
+ MEPROP UID '4E7344FA037B'
+ MEPROP Name 'Налоги и финансы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSettingValue ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
+ ;
+ UP "CodeName" 'ST_FINANCE'
+
+ENDME // ME_4E7344FA037B Налоги и финансы
+
+ME ME_4E73451001A2
+ MEPROP UID '4E73451001A2'
+ MEPROP Name 'Раздел для кадровиков'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSettingValue ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
+ ;
+ UP "CodeName" 'ST_HR'
+
+ENDME // ME_4E73451001A2 Раздел для кадровиков
+
+ME ME_4E7345240159
+ MEPROP UID '4E7345240159'
+ MEPROP Name 'Раздел для юристов'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSettingValue ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
+ ;
+ UP "CodeName" 'ST_LEGAL'
+
+ENDME // ME_4E7345240159 Раздел для юристов
+
+ME ME_4E73453900E0
+ MEPROP UID '4E73453900E0'
+ MEPROP Name 'Бюджетные организаций'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSettingValue ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E7344D40331 // Тип изменяемой части основного меню
+ ;
+ UP "CodeName" 'ST_BUDGET_ORGS'
+
+ENDME // ME_4E73453900E0 Бюджетные организаций
+
+ME ME_4E7344D40331
+ MEPROP UID '4E7344D40331'
+ MEPROP Name 'Тип изменяемой части основного меню'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseSetting ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E7344FA037B // Налоги и финансы
+ HWL ME_4E73451001A2 // Раздел для кадровиков
+ HWL ME_4E7345240159 // Раздел для юристов
+ HWL ME_4E73453900E0 // Бюджетные организаций
+ )
+ ; // Children
+ UP "CodeName" 'ChangeableMainMenuType'
+
+ENDME // ME_4E7344D40331 Тип изменяемой части основного меню
+
+ME ME_4EBD224E0314
+ MEPROP UID '4EBD224E0314'
+ MEPROP Name 'Требования к иконке изменяемой части ОМ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:294594373}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
+ ;
+
+ENDME // ME_4EBD224E0314 Требования к иконке изменяемой части ОМ
+
+ME ME_4E70D70C0055
+ MEPROP UID '4E70D70C0055'
+ MEPROP Name 'Основное меню должно уметь зависеть от должности пользователя'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:233015250}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC1D84F0398 // Основное меню (2009)
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E7344D40331 // Тип изменяемой части основного меню
+ HWL ME_4EBD224E0314 // Требования к иконке изменяемой части ОМ
+ )
+ ; // Children
+
+ENDME // ME_4E70D70C0055 Основное меню должно уметь зависеть от должности пользователя
+
+ME ME_4EA0087A0078
+ MEPROP UID '4EA0087A0078'
+ MEPROP Name 'Названия основных разделов Основного меню должны браться с адаптера'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:294590319}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC1D84F0398 // Основное меню (2009)
+ ;
+
+ENDME // ME_4EA0087A0078 Названия основных разделов Основного меню должны браться с адаптера
+
+ME ME_4F7442D6021F
+ MEPROP UID '4F7442D6021F'
+ MEPROP Name 'Должна быть кнопка Онлайн-архив'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseRequirement ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:351209011}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC1D84F0398 // Основное меню (2009)
+ ;
+
+ENDME // ME_4F7442D6021F Должна быть кнопка Онлайн-архив
+
+ME ME_4AC1D84F0398
+ MEPROP UID '4AC1D84F0398'
+ MEPROP Name 'Основное меню (2009)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Актуальное основное меню F1 (дизайн 2009-гогода)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48563BA400A9 // Навигация
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48563E65020C // Упрощенное Основное Меню (устарел)
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4E70D70C0055 // Основное меню должно уметь зависеть от должности пользователя
+ HWL ME_4EA0087A0078 // Названия основных разделов Основного меню должны браться с адаптера
+ HWL ME_4F7442D6021F // Должна быть кнопка Онлайн-архив
+ )
+ ; // Children
+
+ENDME // ME_4AC1D84F0398 Основное меню (2009)
+
+ME ME_4AC1DA040038
+ MEPROP UID '4AC1DA040038'
+ MEPROP Name 'Показ баннеров'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Показ предустановленных в базе рекламных картинок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48563BA400A9 // Навигация
+ ;
+
+ENDME // ME_4AC1DA040038 Показ баннеров
+
+ME ME_48563BA400A9
+ MEPROP UID '48563BA400A9'
+ MEPROP Name 'Навигация'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Облегченный доступ к информации или возможностям системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_484F7A5501AB // История навигации
+ HWL ME_484F77120164 // Основное меню (устарел)
+ HWL ME_48563D4D00D5 // Панель задач
+ HWL ME_48563E65020C // Упрощенное Основное Меню (устарел)
+ HWL ME_4AC1BC3E03E2 // Журнал Работы
+ HWL ME_4AC1D84F0398 // Основное меню (2009)
+ HWL ME_4AC1DA040038 // Показ баннеров
+ )
+ ; // Children
+
+ENDME // ME_48563BA400A9 Навигация

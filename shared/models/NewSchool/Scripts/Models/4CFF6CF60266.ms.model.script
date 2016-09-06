@@ -1,0 +1,216 @@
+// TnscSimpleEditor 4CFF6CF60266 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFF6CF60266
+
+FORWARD ME_5018F93C01CC
+
+FORWARD ME_5018F96E0159
+
+ME ME_5018F9990331
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5018F9990331 aSender
+
+ME ME_5018F9990397
+ MEPROP Name 'aHandled'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5018F9990397 aHandled
+
+ME ME_5018F96E0159
+ MEPROP UID '5018F96E0159'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5018F93C01CC // TBreakingParaEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_5018F9990331 // aSender
+ ME_5018F9990397 // aHandled
+ )
+ ; // Parameters
+
+ENDME // ME_5018F96E0159 DoIt
+
+ME ME_5018F93C01CC
+ MEPROP UID '5018F93C01CC'
+ MEPROP Name 'TBreakingParaEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFF6CF60266 // TnscSimpleEditor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5018F96E0159 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_5018F93C01CC TBreakingParaEvent
+
+ME ME_5018FA4600BB
+ MEPROP UID '5018FA4600BB'
+ MEPROP Name 'f_OnBreakingPara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF6CF60266 // TnscSimpleEditor
+ ;
+ MELINK Target HWL ME_5018F93C01CC // TBreakingParaEvent
+ ;
+
+ENDME // ME_5018FA4600BB f_OnBreakingPara
+
+ME ME_530B25360303
+ MEPROP UID '530B25360303'
+ MEPROP Name 'DisableMouseWheelProcessing'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF6CF60266 // TnscSimpleEditor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_530B25360303 DisableMouseWheelProcessing
+
+ME ME_50191EF60191
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFF6CF60266 // TnscSimpleEditor
+ ;
+ MELINK Target WL 'ME_48C78D6601CC' '4799D29F033F.ms.model.script' // TScrollStyle
+ ;
+
+ENDME // ME_50191EF60191 
+
+ME ME_530B113D0022
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFF6CF60266 // TnscSimpleEditor
+ ;
+ MELINK Target WL 'ME_4AC9A47200C3' '476F78840219.ms.model.script' // TWMMouseWheel
+ ;
+
+ENDME // ME_530B113D0022 
+
+ME ME_530B21C60022
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFF6CF60266 // TnscSimpleEditor
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_530B21C60022 
+
+ME ME_530B250F029A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CFF6CF60266 // TnscSimpleEditor
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_530B250F029A 
+
+ME ME_47D1602000C6_ME_4CFF6CF60266
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4CFF6CF60266 Create
+
+ME ME_47E136A80191_ME_4CFF6CF60266
+ MELINK Original WL 'ME_47E136A80191' '4799D29F033F.ms.model.script' // WndProc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47E136A80191_ME_4CFF6CF60266 WndProc
+
+ME ME_482BFBEE00D5_ME_4CFF6CF60266
+ MELINK Original WL 'ME_482BFBEE00D5' '4829D92A037B.ms.model.script' // AllowDrawDocumentEdge
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFBEE00D5_ME_4CFF6CF60266 AllowDrawDocumentEdge
+
+ME ME_482BFCBF01F0_ME_4CFF6CF60266
+ MELINK Original WL 'ME_482BFCBF01F0' '4829D92A037B.ms.model.script' // DoBreakPara
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_482BFCBF01F0_ME_4CFF6CF60266 DoBreakPara
+
+ME ME_48735C4A03C3_ME_4CFF6CF60266
+ MELINK Original WL 'ME_48735C4A03C3' '4829D85C03C1.ms.model.script' // DefineProvideOperations
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48735C4A03C3_ME_4CFF6CF60266 DefineProvideOperations
+
+ME ME_48E22AD302CE_ME_4CFF6CF60266
+ MELINK Original WL 'ME_48E22AD302CE' '4829D92A037B.ms.model.script' // SelectWhenUnfocused
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E22AD302CE_ME_4CFF6CF60266 SelectWhenUnfocused
+
+ME ME_4CFF6CF60266
+ MEPROP UID '4CFF6CF60266'
+ MEPROP Name 'TnscSimpleEditor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1352A60292' '4E1352A60292.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D81D02E5' '4829D81D02E5.ms.model.script' // TevCustomMemo
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5018FA4600BB // f_OnBreakingPara
+ HWL ME_530B25360303 // DisableMouseWheelProcessing
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4CFF6CF60266 // Create
+ ME_47E136A80191_ME_4CFF6CF60266 // WndProc
+ ME_482BFBEE00D5_ME_4CFF6CF60266 // AllowDrawDocumentEdge
+ ME_482BFCBF01F0_ME_4CFF6CF60266 // DoBreakPara
+ ME_48735C4A03C3_ME_4CFF6CF60266 // DefineProvideOperations
+ ME_48E22AD302CE_ME_4CFF6CF60266 // SelectWhenUnfocused
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5018F93C01CC // TBreakingParaEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_50191EF60191 // TScrollStyle
+ ME_530B113D0022 // TWMMouseWheel
+ ME_530B21C60022 // Forms
+ ME_530B250F029A // Controls
+ )
+ ; // Dependencies
+ UP "need UC" True
+ UP extprop:pas:UnitName 'nscSimpleEditor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SimpleEditor'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscSimpleEditor.pas'
+
+ENDME // ME_4CFF6CF60266 TnscSimpleEditor

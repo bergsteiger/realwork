@@ -1,0 +1,105 @@
+// Lists 515D7B440115 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_515D7B440115
+
+FORWARD ME_515D7BB10393
+
+ME ME_515D7BE60141
+ MEPROP UID '515D7BE60141'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
+ ;
+
+ENDME // ME_515D7BE60141 DoIt
+
+ME ME_515D7BC3013B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_515D7BC3013B 
+
+ME ME_515D7BDB018B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_515D7BDB018B 
+
+ME ME_515D7C0201EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_515D7BB10393 // TLongintListTest
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_515D7C0201EB 
+
+ME ME_515D7BB10393
+ MEPROP UID '515D7BB10393'
+ MEPROP Name 'TLongintListTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515D7B440115 // Lists
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_515D7BE60141 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_515D7BC3013B // Tl3LongintList
+ ME_515D7BDB018B // FreeAndNil
+ ME_515D7C0201EB // l3Base
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'LongintListTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LongintListTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Containers\LongintListTest.pas'
+
+ENDME // ME_515D7BB10393 TLongintListTest
+
+ME ME_515D7B440115
+ MEPROP UID '515D7B440115'
+ MEPROP Name 'Lists'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_515D7B0B006F' '515D7B0B006F.ms.model.script' // Containers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_515D7BB10393 // TLongintListTest
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_515D7B440115 Lists

@@ -1,0 +1,34 @@
+// OfficeLike 4954C00703D0 VCMSubsystem Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4954C00703D0
+ MEPROP UID '4954C00703D0'
+ MEPROP Name 'OfficeLike'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMSubsystem ;
+ %SUMMARY 'Вещи похожие на MS Office' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A82FE48010A' '4A82FE48010A.ms.model.script' // Shared Delphi Operations
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4C8DD86C03C8' '4C8DD86C03C8.ms.model.script' // VCMCustomization
+ WL 'ME_4E13416D0227' '4E13416D0227.ms.model.script' // VCM$Visual
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_4E5BC50E02E1' '4E5BC50E02E1.ms.model.script' // Shared Delphi Требования к низкоуровневым библиотекам
+ )
+ ; // Depends
+ UP "vendor" '/Garant/VCM'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM'
+
+ENDME // ME_4954C00703D0 OfficeLike

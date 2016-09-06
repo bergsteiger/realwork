@@ -21,6 +21,8 @@ implementation
 {$If NOT Defined(NoImageEn)}
 uses
  l3ImplUses
+ //#UC START# *4ACDC4220115impl_uses*
+ //#UC END# *4ACDC4220115impl_uses*
 ;
 {$IfEnd} // NOT Defined(NoImageEn)
 

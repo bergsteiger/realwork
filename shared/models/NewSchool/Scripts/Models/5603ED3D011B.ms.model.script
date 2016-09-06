@@ -1,0 +1,735 @@
+// ddPipeOutInterfaces 5603ED3D011B Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5603ED3D011B
+
+FORWARD ME_5603EDF40264
+
+ME ME_5603EE2B01E5
+ MEPROP UID '5603EE2B01E5'
+ MEPROP Name 'edpDocument'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5603EDF40264 // TddExportDocPart
+ ;
+
+ENDME // ME_5603EE2B01E5 edpDocument
+
+ME ME_5603EE4B0297
+ MEPROP UID '5603EE4B0297'
+ MEPROP Name 'edpReference'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5603EDF40264 // TddExportDocPart
+ ;
+
+ENDME // ME_5603EE4B0297 edpReference
+
+ME ME_5603EE5A029B
+ MEPROP UID '5603EE5A029B'
+ MEPROP Name 'edpAnnotation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5603EDF40264 // TddExportDocPart
+ ;
+
+ENDME // ME_5603EE5A029B edpAnnotation
+
+ME ME_5603EDF40264
+ MEPROP UID '5603EDF40264'
+ MEPROP Name 'TddExportDocPart'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5603EE2B01E5 // edpDocument
+ HWL ME_5603EE4B0297 // edpReference
+ HWL ME_5603EE5A029B // edpAnnotation
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5603EDF40264 TddExportDocPart
+
+FORWARD ME_5603EF2E01F9
+
+ME ME_5603F0260334
+ MEPROP UID '5603F0260334'
+ MEPROP Name 'Filer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5603EF2E01F9 // IddExportFilerDispatcherElem
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "pm" False
+
+ENDME // ME_5603F0260334 Filer
+
+ME ME_5616668C01A8
+ MEPROP UID '5616668C01A8'
+ MEPROP Name 'RollBack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5603EF2E01F9 // IddExportFilerDispatcherElem
+ ;
+
+ENDME // ME_5616668C01A8 RollBack
+
+ME ME_5603EF2E01F9
+ MEPROP UID '5603EF2E01F9'
+ MEPROP GUID '3CED5DB0-6E54-4C2F-A404-FCE80475BDAF'
+ MEPROP Name 'IddExportFilerDispatcherElem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5603F0260334 // Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5616668C01A8 // RollBack
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddExportFilerDispatcherElem'
+
+ENDME // ME_5603EF2E01F9 IddExportFilerDispatcherElem
+
+FORWARD ME_560A366C00E1
+
+ME ME_560A36940224
+ MEPROP UID '560A36940224'
+ MEPROP Name 'rPart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560A366C00E1 // TddFilerDispatcherMapKeyRecord
+ ;
+ MELINK Target HWL ME_5603EDF40264 // TddExportDocPart
+ ;
+
+ENDME // ME_560A36940224 rPart
+
+ME ME_560A378601DD
+ MEPROP UID '560A378601DD'
+ MEPROP Name 'rAccGroup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560A366C00E1 // TddFilerDispatcherMapKeyRecord
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_560A378601DD rAccGroup
+
+ME ME_560A366C00E1
+ MEPROP UID '560A366C00E1'
+ MEPROP Name 'TddFilerDispatcherMapKeyRecord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_560A36940224 // rPart
+ HWL ME_560A378601DD // rAccGroup
+ )
+ ; // Attributes
+
+ENDME // ME_560A366C00E1 TddFilerDispatcherMapKeyRecord
+
+FORWARD ME_560A4D4F01AE
+
+ME ME_560A4D6A0266
+ MEPROP UID '560A4D6A0266'
+ MEPROP Name 'edbTopic'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560A4D4F01AE // TddExportDivideBy
+ ;
+
+ENDME // ME_560A4D6A0266 edbTopic
+
+ME ME_560A4D7C03BD
+ MEPROP UID '560A4D7C03BD'
+ MEPROP Name 'edbSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560A4D4F01AE // TddExportDivideBy
+ ;
+
+ENDME // ME_560A4D7C03BD edbSize
+
+ME ME_560A4DAE01F8
+ MEPROP UID '560A4DAE01F8'
+ MEPROP Name 'edbAccGroup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560A4D4F01AE // TddExportDivideBy
+ ;
+
+ENDME // ME_560A4DAE01F8 edbAccGroup
+
+ME ME_560A4D4F01AE
+ MEPROP UID '560A4D4F01AE'
+ MEPROP Name 'TddExportDivideBy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_560A4D6A0266 // edbTopic
+ HWL ME_560A4D7C03BD // edbSize
+ HWL ME_560A4DAE01F8 // edbAccGroup
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_560A4D4F01AE TddExportDivideBy
+
+ME ME_560A4DCA0199
+ MEPROP UID '560A4DCA0199'
+ MEPROP Name 'TddExportDivideBySet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_560A4D4F01AE // TddExportDivideBy
+ )
+ ; // Inherits
+
+ENDME // ME_560A4DCA0199 TddExportDivideBySet
+
+FORWARD ME_560BB87D0082
+
+ME ME_560BBA22019C
+ MEPROP UID '560BBA22019C'
+ MEPROP Name 'eptPartNum'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560BB87D0082 // TddExportFileMaskPatternType
+ ;
+
+ENDME // ME_560BBA22019C eptPartNum
+
+ME ME_560BBA4A0256
+ MEPROP UID '560BBA4A0256'
+ MEPROP Name 'eptAccGroup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560BB87D0082 // TddExportFileMaskPatternType
+ ;
+
+ENDME // ME_560BBA4A0256 eptAccGroup
+
+ME ME_560BBA5801DD
+ MEPROP UID '560BBA5801DD'
+ MEPROP Name 'eptExportDate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560BB87D0082 // TddExportFileMaskPatternType
+ ;
+
+ENDME // ME_560BBA5801DD eptExportDate
+
+ME ME_560BB87D0082
+ MEPROP UID '560BB87D0082'
+ MEPROP Name 'TddExportFileMaskPatternType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_560BBA22019C // eptPartNum
+ HWL ME_560BBA4A0256 // eptAccGroup
+ HWL ME_560BBA5801DD // eptExportDate
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_560BB87D0082 TddExportFileMaskPatternType
+
+FORWARD ME_56419FA802B2
+
+FORWARD ME_56419FDA0124
+
+ME ME_56419FFE02B9
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_56419FFE02B9 aSender
+
+ME ME_56419FFE02C9
+ MEPROP Name 'aEmptyCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56419FFE02C9 aEmptyCount
+
+ME ME_56419FDA0124
+ MEPROP UID '56419FDA0124'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56419FA802B2 // TddReportEmptyEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_56419FFE02B9 // aSender
+ ME_56419FFE02C9 // aEmptyCount
+ )
+ ; // Parameters
+
+ENDME // ME_56419FDA0124 DoIt
+
+ME ME_56419FA802B2
+ MEPROP UID '56419FA802B2'
+ MEPROP Name 'TddReportEmptyEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56419FDA0124 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_56419FA802B2 TddReportEmptyEvent
+
+FORWARD ME_564C602B0373
+
+ME ME_564C606E003D
+ MEPROP UID '564C606E003D'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_564C602B0373 // IddAnnoKindSortItem
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "pm" False
+
+ENDME // ME_564C606E003D Name
+
+ME ME_564C611801BD
+ MEPROP UID '564C611801BD'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_564C602B0373 // IddAnnoKindSortItem
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_564C611801BD Count
+
+ME ME_564DA034027A
+ MEPROP UID '564DA034027A'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_564C602B0373 // IddAnnoKindSortItem
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_564DA034027A ID
+
+FORWARD ME_564C61F80097
+
+ME ME_564C620500BE
+ MEPROP UID '564C620500BE'
+ MEPROP Name 'aIdx'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564C61F80097 // Topics
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_564C620500BE aIdx
+
+ME ME_564C61F80097
+ MEPROP UID '564C61F80097'
+ MEPROP Name 'Topics'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_564C602B0373 // IddAnnoKindSortItem
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_564C620500BE // aIdx
+ )
+ ; // Attributes
+ UP "pm" False
+
+ENDME // ME_564C61F80097 Topics
+
+FORWARD ME_564C60D40342
+
+FORWARD ME_564C60EA03DB
+
+ME ME_564C60FD012A
+ MEPROP Name 'aTopic'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_564C60FD012A aTopic
+
+ME ME_564C60EA03DB
+ MEPROP UID '564C60EA03DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564C60D40342 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_564C60FD012A // aTopic
+ )
+ ; // Parameters
+
+ENDME // ME_564C60EA03DB DoIt
+
+ME ME_564C60D40342
+ MEPROP UID '564C60D40342'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_564C602B0373 // IddAnnoKindSortItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_564C60EA03DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_564C60D40342 Add
+
+ME ME_564C602B0373
+ MEPROP UID '564C602B0373'
+ MEPROP GUID 'D93F4C6D-BBE9-4571-9EB2-E0100534B695'
+ MEPROP Name 'IddAnnoKindSortItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_564C606E003D // Name
+ HWL ME_564C611801BD // Count
+ HWL ME_564DA034027A // ID
+ HWL ME_564C61F80097 // Topics
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_564C60D40342 // Add
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddAnnoKindSortItem'
+
+ENDME // ME_564C602B0373 IddAnnoKindSortItem
+
+FORWARD ME_560BADDA015F
+
+ME ME_560BAE1C02BB
+ MEPROP UID '560BAE1C02BB'
+ MEPROP Name 'eptPartNum'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_560BADDA015F // cExportFileMaskPatterns
+ ;
+ MEPROP Value '(S: ''%NUMBER%''; SLen: 8; SCodePage: 0)'
+ UP extprop:pas:Value '(S: ''%NUMBER%''; SLen: 8; SCodePage: 0)'
+
+ENDME // ME_560BAE1C02BB eptPartNum
+
+ME ME_560BB18800A4
+ MEPROP UID '560BB18800A4'
+ MEPROP Name 'eptAccGroup'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_560BADDA015F // cExportFileMaskPatterns
+ ;
+ MEPROP Value '(S: ''%MAIN%''; SLen: 6; SCodePage: 0)'
+ UP extprop:pas:Value '(S: ''%MAIN%''; SLen: 6; SCodePage: 0)'
+
+ENDME // ME_560BB18800A4 eptAccGroup
+
+ME ME_560BBAF40223
+ MEPROP UID '560BBAF40223'
+ MEPROP Name 'eptExportDate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_560BADDA015F // cExportFileMaskPatterns
+ ;
+ MEPROP Value '(S: ''%DATE%''; SLen: 6; SCodePage: 0)'
+ UP extprop:pas:Value '(S: ''%DATE%''; SLen: 6; SCodePage: 0)'
+
+ENDME // ME_560BBAF40223 eptExportDate
+
+ME ME_560BADDA015F
+ MEPROP UID '560BADDA015F'
+ MEPROP Name 'cExportFileMaskPatterns'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_560BB87D0082 // TddExportFileMaskPatternType
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_560BAE1C02BB // eptPartNum
+ HWL ME_560BB18800A4 // eptAccGroup
+ HWL ME_560BBAF40223 // eptExportDate
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+
+ENDME // ME_560BADDA015F cExportFileMaskPatterns
+
+FORWARD ME_56126374035D
+
+ME ME_561263CF0008
+ MEPROP UID '561263CF0008'
+ MEPROP Name 'edpDocument'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_56126374035D // cDefaultFileMask
+ ;
+ MEPROP Value '''document'''
+ UP extprop:pas:Value '''document'''
+
+ENDME // ME_561263CF0008 edpDocument
+
+ME ME_561263FD026B
+ MEPROP UID '561263FD026B'
+ MEPROP Name 'edpReference'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_56126374035D // cDefaultFileMask
+ ;
+ MEPROP Value '''related'''
+ UP extprop:pas:Value '''related'''
+
+ENDME // ME_561263FD026B edpReference
+
+ME ME_5612641400DF
+ MEPROP UID '5612641400DF'
+ MEPROP Name 'edpAnnotation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_56126374035D // cDefaultFileMask
+ ;
+ MEPROP Value '''annotation'''
+ UP extprop:pas:Value '''annotation'''
+
+ENDME // ME_5612641400DF edpAnnotation
+
+ME ME_56126374035D
+ MEPROP UID '56126374035D'
+ MEPROP Name 'cDefaultFileMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_5603EDF40264 // TddExportDocPart
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_561263CF0008 // edpDocument
+ HWL ME_561263FD026B // edpReference
+ HWL ME_5612641400DF // edpAnnotation
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+
+ENDME // ME_56126374035D cDefaultFileMask
+
+FORWARD ME_561E0B7603E7
+
+ME ME_561E0B8D0032
+ MEPROP UID '561E0B8D0032'
+ MEPROP Name 'cFilerOpenErrorMsg'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_561E0B7603E7 // Сообщения
+ ;
+ MEPROP Value '''CRITICAL ERROR: Ошибка (%s) открытия файла %s'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''CRITICAL ERROR: Ошибка (%s) открытия файла %s'''
+
+ENDME // ME_561E0B8D0032 cFilerOpenErrorMsg
+
+ME ME_561E0B7603E7
+ MEPROP UID '561E0B7603E7'
+ MEPROP Name 'Сообщения'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5603ED3D011B // ddPipeOutInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_561E0B8D0032 // cFilerOpenErrorMsg
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_561E0B7603E7 Сообщения
+
+ME ME_5603ED3D011B
+ MEPROP UID '5603ED3D011B'
+ MEPROP Name 'ddPipeOutInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5603EDF40264 // TddExportDocPart
+ HWL ME_5603EF2E01F9 // IddExportFilerDispatcherElem
+ HWL ME_560A366C00E1 // TddFilerDispatcherMapKeyRecord
+ HWL ME_560A4D4F01AE // TddExportDivideBy
+ HWL ME_560A4DCA0199 // TddExportDivideBySet
+ HWL ME_560BB87D0082 // TddExportFileMaskPatternType
+ HWL ME_56419FA802B2 // TddReportEmptyEvent
+ HWL ME_564C602B0373 // IddAnnoKindSortItem
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_560BADDA015F // cExportFileMaskPatterns
+ HWL ME_56126374035D // cDefaultFileMask
+ HWL ME_561E0B7603E7 // Сообщения
+ )
+ ; // Constants
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddPipeOutInterfaces.pas'
+
+ENDME // ME_5603ED3D011B ddPipeOutInterfaces

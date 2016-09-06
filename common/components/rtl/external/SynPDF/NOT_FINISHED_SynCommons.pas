@@ -39,6 +39,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5549B8ED02D0impl_uses*
+ //#UC END# *5549B8ED02D0impl_uses*
 ;
 
 procedure IsWinAnsiU8Bit;

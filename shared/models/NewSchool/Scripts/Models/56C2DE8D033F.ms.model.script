@@ -1,0 +1,120 @@
+// caInterfaces 56C2DE8D033F Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56C2DE8D033F
+
+FORWARD ME_56C2DEAE01B1
+
+ME ME_56C2DED50129
+ MEPROP UID '56C2DED50129'
+ MEPROP Name 'HTConverter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ MELINK Target WL 'ME_55C0B2A30315' '550981B402B9.ms.model.script' // IhtDataConverter
+ ;
+ UP "pm" False
+
+ENDME // ME_56C2DED50129 HTConverter
+
+ME ME_56C2DEED008B
+ MEPROP UID '56C2DEED008B'
+ MEPROP Name 'PGConverter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_56C2DEAE01B1 // IcaDataConverter
+ ;
+ MELINK Target WL 'ME_55E41C6E00E2' '55DAD4150001.ms.model.script' // IpgDataConverter
+ ;
+ UP "pm" False
+
+ENDME // ME_56C2DEED008B PGConverter
+
+ME ME_555995210007_ME_56C2DEAE01B1
+ MELINK Original WL 'ME_555995210007' '5432518A0316.ms.model.script' // AllocateParamBuffer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_555995210007_ME_56C2DEAE01B1 AllocateParamBuffer
+
+ME ME_5559955500DF_ME_56C2DEAE01B1
+ MELINK Original WL 'ME_5559955500DF' '5432518A0316.ms.model.script' // ParamToDataBase
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5559955500DF_ME_56C2DEAE01B1 ParamToDataBase
+
+ME ME_55599596005B_ME_56C2DEAE01B1
+ MELINK Original WL 'ME_55599596005B' '5432518A0316.ms.model.script' // ParamFromDataBase
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55599596005B_ME_56C2DEAE01B1 ParamFromDataBase
+
+ME ME_5559D14D02D1_ME_56C2DEAE01B1
+ MELINK Original WL 'ME_5559D14D02D1' '5432518A0316.ms.model.script' // FreeParamBuffer
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5559D14D02D1_ME_56C2DEAE01B1 FreeParamBuffer
+
+ME ME_56C2DEAE01B1
+ MEPROP UID '56C2DEAE01B1'
+ MEPROP GUID 'FADCE1E5-6997-478B-A413-7A8B0074DD9C'
+ MEPROP Name 'IcaDataConverter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56C2DE8D033F // caInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5559950F0013' '5432518A0316.ms.model.script' // IdaDataConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56C2DED50129 // HTConverter
+ HWL ME_56C2DEED008B // PGConverter
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_555995210007_ME_56C2DEAE01B1 // AllocateParamBuffer
+ ME_5559955500DF_ME_56C2DEAE01B1 // ParamToDataBase
+ ME_55599596005B_ME_56C2DEAE01B1 // ParamFromDataBase
+ ME_5559D14D02D1_ME_56C2DEAE01B1 // FreeParamBuffer
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'caDataConverter'
+
+ENDME // ME_56C2DEAE01B1 IcaDataConverter
+
+ME ME_56C2DE8D033F
+ MEPROP UID '56C2DE8D033F'
+ MEPROP Name 'caInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_56A86AAF02D1' '56A86AAF02D1.ms.model.script' // ComboAccess
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56C2DEAE01B1 // IcaDataConverter
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_5432518A0316' '5432518A0316.ms.model.script' // daInterfaces
+ WL 'ME_550981B402B9' '550981B402B9.ms.model.script' // htInterfaces
+ WL 'ME_55DAD4150001' '55DAD4150001.ms.model.script' // pgInterfaces
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\rtl\Garant\ComboAccess\caInterfaces.pas'
+
+ENDME // ME_56C2DE8D033F caInterfaces

@@ -50,6 +50,8 @@ uses
  , atLogger
  , SysUtils
  , Windows
+ //#UC START# *483AD11C02A1impl_uses*
+ //#UC END# *483AD11C02A1impl_uses*
 ;
 
 type

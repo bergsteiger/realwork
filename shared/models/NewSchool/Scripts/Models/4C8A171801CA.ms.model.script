@@ -1,0 +1,72 @@
+// PrimTurnOffTimeMachineOptions 4C8A171801CA VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4C762A1501FC_ME_4C8A171801CA
+ MELINK Original WL 'ME_4C762A1501FC' '4A8AD3C70195.ms.model.script' // Ok
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" True
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+ENDME // ME_4C762A1501FC_ME_4C8A171801CA Ok
+
+ME ME_4C762AB601E1_ME_4C8A171801CA
+ MELINK Original WL 'ME_4C762AB601E1' '4A8AD3C70195.ms.model.script' // Cancel
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" True
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" False
+ UP "ShowInToolbar" False
+ENDME // ME_4C762AB601E1_ME_4C8A171801CA Cancel
+
+ME ME_4C8A171801CA
+ MEPROP UID '4C8A171801CA'
+ MEPROP Name 'PrimTurnOffTimeMachineOptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выключить Машину времени / Изменить дату' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AC4F82F0234' '4AC4F82F0234.ms.model.script' // PrimTurnOffTimeMachine
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C762A1501FC_ME_4C8A171801CA // Ok
+ ME_4C762AB601E1_ME_4C8A171801CA // Cancel
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '10.09.2010 15:31'
+ UP "ZoneType" 'Modal'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimTurnOffTimeMachineOptionsForm'
+ UP extprop:pas:UnitName 'PrimTurnOffTimeMachineOptions_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimTurnOffTimeMachineOptionsForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimTurnOffTimeMachineOptions_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_4C8A171801CA PrimTurnOffTimeMachineOptions

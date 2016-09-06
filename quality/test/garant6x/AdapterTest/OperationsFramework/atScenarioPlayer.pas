@@ -29,6 +29,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *4808A6A50028impl_uses*
+ //#UC END# *4808A6A50028impl_uses*
 ;
 
 constructor TatScenarioPlayer.Create(scenario: TatScenario);

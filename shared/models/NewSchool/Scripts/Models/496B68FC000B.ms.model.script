@@ -1,0 +1,121 @@
+// SearcheableText 496B68FC000B VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_496B68FC000B
+
+ME ME_5072D40103E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_496B68FC000B // SearcheableText
+ ;
+ MELINK Target WL 'ME_5072D3D701F9' '498874B90391.ms.model.script' // BaseSearchPresentationHolder
+ ;
+
+ENDME // ME_5072D40103E5 
+
+ME ME_496B4C41023E_ME_496B68FC000B
+ MELINK Original WL 'ME_496B4C41023E' '4A9F98B901A5.ms.model.script' // WindowRequired
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B4C41023E_ME_496B68FC000B WindowRequired
+
+ME ME_496B4C500246_ME_496B68FC000B
+ MELINK Original WL 'ME_496B4C500246' '4A9F98B901A5.ms.model.script' // WindowCloseable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B4C500246_ME_496B68FC000B WindowCloseable
+
+ME ME_496B4CA000B6_ME_496B68FC000B
+ MELINK Original WL 'ME_496B4CA000B6' '4A9F98B901A5.ms.model.script' // CanCloseWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B4CA000B6_ME_496B68FC000B CanCloseWindow
+
+ME ME_496B4CD9005F_ME_496B68FC000B
+ MELINK Original WL 'ME_496B4CD9005F' '4A9F98B901A5.ms.model.script' // IsQueryCard
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B4CD9005F_ME_496B68FC000B IsQueryCard
+
+ME ME_496B4CE30132_ME_496B68FC000B
+ MELINK Original WL 'ME_496B4CE30132' '4A9F98B901A5.ms.model.script' // TreatSuccessSearchAsManualOpen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B4CE30132_ME_496B68FC000B TreatSuccessSearchAsManualOpen
+
+ME ME_496B4CED0306_ME_496B68FC000B
+ MELINK Original WL 'ME_496B4CED0306' '4A9F98B901A5.ms.model.script' // AutoActivateWindow
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B4CED0306_ME_496B68FC000B AutoActivateWindow
+
+ME ME_4ACA195801CB_ME_496B68FC000B
+ MELINK Original WL 'ME_4ACA195801CB' '4A9F98B901A5.ms.model.script' // ContainerForBaseSearch
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4ACA195801CB_ME_496B68FC000B ContainerForBaseSearch
+
+ME ME_4AD6EAA3034A_ME_496B68FC000B
+ MELINK Original WL 'ME_4AD6EAA3034A' '4A9F98B901A5.ms.model.script' // ContextSearcher
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4AD6EAA3034A_ME_496B68FC000B ContextSearcher
+
+ME ME_4F1D607E0027_ME_496B68FC000B
+ MELINK Original WL 'ME_4F1D607E0027' '4A9F98B901A5.ms.model.script' // NeedSaveActiveClassBeforeSearch
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4F1D607E0027_ME_496B68FC000B NeedSaveActiveClassBeforeSearch
+
+ME ME_496B68FC000B
+ MEPROP UID '496B68FC000B'
+ MEPROP Name 'SearcheableText'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4951181B02B6' '4951181B02B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_495118ED00F6' '495118ED00F6.ms.model.script' // PrimText
+ WL 'ME_4AD5E6A60262' '4AD5E6A60262.ms.model.script' // BaseSearchPresentation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_496B4C2700D5' '4A9F98B901A5.ms.model.script' // InsBaseSearchPresentation
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_496B4C41023E_ME_496B68FC000B // WindowRequired
+ ME_496B4C500246_ME_496B68FC000B // WindowCloseable
+ ME_496B4CA000B6_ME_496B68FC000B // CanCloseWindow
+ ME_496B4CD9005F_ME_496B68FC000B // IsQueryCard
+ ME_496B4CE30132_ME_496B68FC000B // TreatSuccessSearchAsManualOpen
+ ME_496B4CED0306_ME_496B68FC000B // AutoActivateWindow
+ ME_4ACA195801CB_ME_496B68FC000B // ContainerForBaseSearch
+ ME_4AD6EAA3034A_ME_496B68FC000B // ContextSearcher
+ ME_4F1D607E0027_ME_496B68FC000B // NeedSaveActiveClassBeforeSearch
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5072D40103E5 // BaseSearchPresentationHolder
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_SearcheableText_'
+ UP extprop:pas:UnitName 'SearcheableText.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\SearcheableText.imp.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_496B68FC000B SearcheableText

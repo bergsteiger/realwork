@@ -28,6 +28,8 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
+ //#UC START# *5136F46C0163impl_uses*
+ //#UC END# *5136F46C0163impl_uses*
 ;
 
 const

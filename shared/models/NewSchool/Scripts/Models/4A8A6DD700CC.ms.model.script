@@ -1,0 +1,87 @@
+// TevCustomChatMemo 4A8A6DD700CC GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8A6DD700CC
+
+ME ME_4A8A84C2001E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4A8A84C2001E 
+
+ME ME_4B3096BD01AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8A6DD700CC // TevCustomChatMemo
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4B3096BD01AE 
+
+ME ME_47A042E100E2_ME_4A8A6DD700CC
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4A8A6DD700CC InitFields
+
+ME ME_4A8A6D4701CC_ME_4A8A6DD700CC
+ MELINK Original WL 'ME_4A8A6D4701CC' '4829D81D02E5.ms.model.script' // KeepParaFormattingTag
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8A6D4701CC_ME_4A8A6DD700CC KeepParaFormattingTag
+
+ME ME_4B28D6780001_ME_4A8A6DD700CC
+ MELINK Original WL 'ME_4B28D6780001' '4B28D63A00EC.ms.model.script' // WantSoftEnter
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B28D6780001_ME_4A8A6DD700CC WantSoftEnter
+
+ME ME_4B309684022A_ME_4A8A6DD700CC
+ MELINK Original WL 'ME_4B309684022A' '4829D85C03C1.ms.model.script' // IsCommandPublished
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B309684022A_ME_4A8A6DD700CC IsCommandPublished
+
+ME ME_4A8A6DD700CC
+ MEPROP UID '4A8A6DD700CC'
+ MEPROP Name 'TevCustomChatMemo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мемо-поле для чатов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A8A6D020382' '4A8A6D020382.ms.model.script' // Memos
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4829D81D02E5' '4829D81D02E5.ms.model.script' // TevCustomMemo
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4A8A6DD700CC // InitFields
+ ME_4A8A6D4701CC_ME_4A8A6DD700CC // KeepParaFormattingTag
+ ME_4B28D6780001_ME_4A8A6DD700CC // WantSoftEnter
+ ME_4B309684022A_ME_4A8A6DD700CC // IsCommandPublished
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A8A84C2001E // Tk2TagID
+ ME_4B3096BD01AE // Operations
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '18.08.2009 14:48'
+ UP extprop:pas:UnitName 'evCustomChatMemo'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChatMemo'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomChatMemo.pas'
+
+ENDME // ME_4A8A6DD700CC TevCustomChatMemo

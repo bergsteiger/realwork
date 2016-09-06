@@ -1,0 +1,558 @@
+// Folders_i 457050830399 Impl Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_457050830399
+
+FORWARD ME_45F80F4E03C2
+
+ME ME_45F80FEA024B
+ MEPROP UID '45F80FEA024B'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45F80F4E03C2 // NodeVector
+ ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_45F80FEA024B 
+
+ME ME_45F80F4E03C2
+ MEPROP UID '45F80F4E03C2'
+ MEPROP Name 'NodeVector'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457050830399 // Folders_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45F80FEA024B // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP extprop:pas:TypeName 'INodeVector'
+
+ENDME // ME_45F80F4E03C2 NodeVector
+
+FORWARD ME_45FFCCC9000F
+
+ME ME_4619EB9C032B
+ MEPROP UID '4619EB9C032B'
+ MEPROP Name 'NotifierStatusConvertor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TypeConvertor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ UP "is sorted" False
+
+ENDME // ME_4619EB9C032B NotifierStatusConvertor
+
+ME ME_45FFD20701E4
+ MEPROP UID '45FFD20701E4'
+ MEPROP Name 'current_user'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+
+ENDME // ME_45FFD20701E4 current_user
+
+ME ME_45FFD30200DA
+ MEPROP UID '45FFD30200DA'
+ MEPROP Name 'external_folders_change_notifier'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ MELINK Target WL 'ME_45EEDD7A0179' '4570501E037A.ms.model.script' // ExternalFoldersChangeNotifier
+ ;
+
+ENDME // ME_45FFD30200DA external_folders_change_notifier
+
+ME ME_45FFD32500BB
+ MEPROP UID '45FFD32500BB'
+ MEPROP Name 'done_notifier'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ MELINK Target WL 'ME_45EEDB8B032E' '4570501E037A.ms.model.script' // DoneNotifier
+ ;
+
+ENDME // ME_45FFD32500BB done_notifier
+
+ME ME_45FFD1B40251
+ MEPROP UID '45FFD1B40251'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+
+ENDME // ME_45FFD1B40251 make
+
+FORWARD ME_45FFD2C10203
+
+ME ME_45FFD2EA0138
+ MEPROP Name 'status'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB1B033E' '4570501E037A.ms.model.script' // NotifyStatus
+ ;
+
+ENDME // ME_45FFD2EA0138 status
+
+ME ME_45FFD2EA0177
+ MEPROP Name 'folder_id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_45FFD2EA0177 folder_id
+
+ME ME_45FFD2C10203
+ MEPROP UID '45FFD2C10203'
+ MEPROP Name 'send_notify'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ MELIST Parameters
+   Seq: ( ME_45FFD2EA0138 // status
+ ME_45FFD2EA0177 // folder_id
+ )
+ ; // Parameters
+
+ENDME // ME_45FFD2C10203 send_notify
+
+ME ME_49DEFD89010A
+ MEPROP UID '49DEFD89010A'
+ MEPROP Name 'ready'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает true, если нотифаер готов обрабатывать нотификацию от сервера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_49DEFD89010A ready
+
+FORWARD ME_49DEFDAF0082
+
+ME ME_49DEFDE000F4
+ MEPROP Name 'notifier'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EEDD7A0179' '4570501E037A.ms.model.script' // ExternalFoldersChangeNotifier
+ ;
+
+ENDME // ME_49DEFDE000F4 notifier
+
+ME ME_49DEFDAF0082
+ MEPROP UID '49DEFDAF0082'
+ MEPROP Name 'set_external_folders_change_notifier'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ %SUMMARY 'Установить оболочечный нотифайер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DEFDE000F4 // notifier
+ )
+ ; // Parameters
+
+ENDME // ME_49DEFDAF0082 set_external_folders_change_notifier
+
+ME ME_461CF7E003C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ MELINK Target WL 'ME_460A6EF8024B' '460BAAA30119.ms.model.script' // ApplicationHelper
+ ;
+
+ENDME // ME_461CF7E003C4 
+
+FORWARD ME_45FFCBD60196
+
+ME ME_461CF8850319
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+ MELINK Target HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+
+ENDME // ME_461CF8850319 
+
+ME ME_461DDC7E0213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+
+ENDME // ME_461DDC7E0213 
+
+ME ME_45FFCCC9000F
+ MEPROP UID '45FFCCC9000F'
+ MEPROP Name 'FolderNotifier_i'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457050830399 // Folders_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45FFD20701E4 // current_user
+ HWL ME_45FFD30200DA // external_folders_change_notifier
+ HWL ME_45FFD32500BB // done_notifier
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45FFD1B40251 // make
+ HWL ME_45FFD2C10203 // send_notify
+ HWL ME_49DEFD89010A // ready
+ HWL ME_49DEFDAF0082 // set_external_folders_change_notifier
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4619EB9C032B // NotifierStatusConvertor
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_461CF7E003C4 // ApplicationHelper
+ ME_461CF8850319 // DoneNotifier_i
+ ME_461DDC7E0213 // 
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Folders_i\FolderNotifier_i.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Folders_i\FolderNotifier_i.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\FolderNotifier_i.pas'
+
+ENDME // ME_45FFCCC9000F FolderNotifier_i
+
+FORWARD ME_45FFDC16008C
+
+ME ME_45FFDC3200BB
+ MEPROP UID '45FFDC3200BB'
+ MEPROP Name 'status'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FFDC16008C // Notify
+ ;
+ MELINK Target WL 'ME_45EEDB1B033E' '4570501E037A.ms.model.script' // NotifyStatus
+ ;
+
+ENDME // ME_45FFDC3200BB status
+
+ME ME_45FFDC41002E
+ MEPROP UID '45FFDC41002E'
+ MEPROP Name 'folder_id'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FFDC16008C // Notify
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_45FFDC41002E folder_id
+
+ME ME_45FFDC16008C
+ MEPROP UID '45FFDC16008C'
+ MEPROP Name 'Notify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457050830399 // Folders_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45FFDC3200BB // status
+ HWL ME_45FFDC41002E // folder_id
+ )
+ ; // Attributes
+ UP extprop:pas:TypeName 'TNotify'
+
+ENDME // ME_45FFDC16008C Notify
+
+FORWARD ME_45FFDC5201F4
+
+ME ME_45FFDCB301C5
+ MEPROP UID '45FFDCB301C5'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FFDC5201F4 // NotifyDataList
+ ;
+ MELINK Target HWL ME_45FFDC16008C // Notify
+ ;
+
+ENDME // ME_45FFDCB301C5 
+
+ME ME_45FFDC5201F4
+ MEPROP UID '45FFDC5201F4'
+ MEPROP Name 'NotifyDataList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Queue ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_457050830399 // Folders_i
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_45FFDCB301C5 // 
+ )
+ ; // Attributes
+
+ENDME // ME_45FFDC5201F4 NotifyDataList
+
+ME ME_45FFDD1603D8
+ MEPROP UID '45FFDD1603D8'
+ MEPROP Name 'notify_data_list'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+ MELINK Target HWL ME_45FFDC5201F4 // NotifyDataList
+ ;
+
+ENDME // ME_45FFDD1603D8 notify_data_list
+
+ME ME_45FFDD2F0148
+ MEPROP UID '45FFDD2F0148'
+ MEPROP Name 'fire_done'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_45FFDD2F0148 fire_done
+
+ME ME_45FFDD5B002E
+ MEPROP UID '45FFDD5B002E'
+ MEPROP Name 'notifier'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+ MELINK Target HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+
+ENDME // ME_45FFDD5B002E notifier
+
+ME ME_45FFDDD7001F
+ MEPROP UID '45FFDDD7001F'
+ MEPROP Name 'done_mutex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+ MELINK Target WL 'ME_450E6C340232' '3DBFDB23006E.ms.model.script' // mutex
+ ;
+
+ENDME // ME_45FFDDD7001F done_mutex
+
+FORWARD ME_45FFCC7F0157
+
+ME ME_461DE5A80290
+ MEPROP Name 'servant'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_45FFCCC9000F // FolderNotifier_i
+ ;
+
+ENDME // ME_461DE5A80290 servant
+
+ME ME_45FFCC7F0157
+ MEPROP UID '45FFCC7F0157'
+ MEPROP Name 'make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+ MELIST Parameters
+   Seq: ( ME_461DE5A80290 // servant
+ )
+ ; // Parameters
+
+ENDME // ME_45FFCC7F0157 make
+
+FORWARD ME_45FFDBD202DE
+
+ME ME_45FFDBED00BB
+ MEPROP Name 'status'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB1B033E' '4570501E037A.ms.model.script' // NotifyStatus
+ ;
+
+ENDME // ME_45FFDBED00BB status
+
+ME ME_45FFDBED00EA
+ MEPROP Name 'folder_id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+
+ENDME // ME_45FFDBED00EA folder_id
+
+ME ME_45FFDBD202DE
+ MEPROP UID '45FFDBD202DE'
+ MEPROP Name 'add_notify_data'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+ MELIST Parameters
+   Seq: ( ME_45FFDBED00BB // status
+ ME_45FFDBED00EA // folder_id
+ )
+ ; // Parameters
+
+ENDME // ME_45FFDBD202DE add_notify_data
+
+ME ME_45FFDBFF01B5
+ MEPROP UID '45FFDBFF01B5'
+ MEPROP Name 'clear_cache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_45FFCBD60196 // DoneNotifier_i
+ ;
+
+ENDME // ME_45FFDBFF01B5 clear_cache
+
+ME ME_45EEDB8B032F_ME_45FFCBD60196
+ MELINK Original WL 'ME_45EEDB8B032F' '4570501E037A.ms.model.script' // done
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEDB8B032F_ME_45FFCBD60196 done
+
+ME ME_45FFCBD60196
+ MEPROP UID '45FFCBD60196'
+ MEPROP Name 'DoneNotifier_i'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_457050830399 // Folders_i
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_45EEDB8B032E' '4570501E037A.ms.model.script' // DoneNotifier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_45FFDD1603D8 // notify_data_list
+ HWL ME_45FFDD2F0148 // fire_done
+ HWL ME_45FFDD5B002E // notifier
+ HWL ME_45FFDDD7001F // done_mutex
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_45FFCC7F0157 // make
+ HWL ME_45FFDBD202DE // add_notify_data
+ HWL ME_45FFDBFF01B5 // clear_cache
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEDB8B032F_ME_45FFCBD60196 // done
+ )
+ ; // Implemented
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Folders_i\DoneNotifier_i.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Folders_i\DoneNotifier_i.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DoneNotifier_i.pas'
+
+ENDME // ME_45FFCBD60196 DoneNotifier_i
+
+ME ME_457050830399
+ MEPROP UID '457050830399'
+ MEPROP Name 'Folders_i'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Impl ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_456EA3D2031C' '456EA3D2031C.ms.model.script' // GblAdapterLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_45F80F4E03C2 // NodeVector
+ HWL ME_45FFCCC9000F // FolderNotifier_i
+ HWL ME_45FFDC16008C // Notify
+ HWL ME_45FFDC5201F4 // NotifyDataList
+ HWL ME_45FFCBD60196 // DoneNotifier_i
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4423F94903C8' '4423F94903C8.ms.model.script' // IO
+ WL 'ME_456EA56002BF' '456EA56002BF.ms.model.script' // BaseTypes
+ WL 'ME_456F02A50196' '456F02A50196.ms.model.script' // BaseTreeSupport
+ WL 'ME_457007DB002E' '457007DB002E.ms.model.script' // Consulting
+ WL 'ME_45700BFD0251' '45700BFD0251.ms.model.script' // DynamicDocList
+ WL 'ME_45702253038A' '45702253038A.ms.model.script' // BaseTreeSupport_i
+ WL 'ME_4570501E037A' '4570501E037A.ms.model.script' // Folders
+ WL 'ME_4570511E038A' '4570511E038A.ms.model.script' // Document
+ WL 'ME_45740AC00271' '45740AC00271.ms.model.script' // Document_i
+ WL 'ME_45741B780271' '45741B780271.ms.model.script' // DynamicDocList_i
+  WL 'ME_45EEA48F011F' '45EEA48F011F.ms.model.script' // Filters
+ WL 'ME_45EEAA800226' '45EEAA800226.ms.model.script' // UnderControl
+ WL 'ME_45EEAA830264' '45EEAA830264.ms.model.script' // UnderControl_i
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_460B8FB00186' '460B8FB00186.ms.model.script' // Convertors
+ WL 'ME_460BAAA30119' '460BAAA30119.ms.model.script' // ApplicationHelper
+ WL 'ME_4628939B0216' '4628939B0216.ms.model.script' // DocumentHelper
+    )
+ ; // Depends
+ UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Folders_i'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\Folders_i\Folders_i.h'
+ UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\Folders_i'
+
+ENDME // ME_457050830399 Folders_i

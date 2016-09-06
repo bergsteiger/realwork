@@ -40,6 +40,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , VGComboBoxPack
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4CFE0E330363impl_uses*
+ //#UC END# *4CFE0E330363impl_uses*
 ;
 
 initialization

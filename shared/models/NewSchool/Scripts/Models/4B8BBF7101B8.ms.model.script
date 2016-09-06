@@ -1,0 +1,256 @@
+// L3 for VCM 4B8BBF7101B8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8BBF7101B8
+
+FORWARD ME_4B8BBFF302E1
+
+ME ME_4B8BC02E0031
+ MEPROP UID '4B8BC02E0031'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BBFF302E1 // Tl3StringMapPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_4B8BC02E0031 l3Items_NeedsBeforeFreeItem
+
+ME ME_4B8BC0380287
+ MEPROP UID '4B8BC0380287'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BBFF302E1 // Tl3StringMapPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4B8BC0380287 l3Items_NoSort
+
+ME ME_4B8BBFF302E1
+ MEPROP UID '4B8BBFF302E1'
+ MEPROP Name 'Tl3StringMapPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B8BBF7101B8 // L3 for VCM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B88F8D6025A' '47913B47006E.ms.model.script' // l3StringList
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4B8BC02E0031 // l3Items_NeedsBeforeFreeItem
+ HWL ME_4B8BC0380287 // l3Items_NoSort
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '01.03.2010 16:24'
+ UP extprop:pas:UnitName 'l3StringMapPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringMapPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\Implementation\l3StringMapPrim.pas'
+
+ENDME // ME_4B8BBFF302E1 Tl3StringMapPrim
+
+FORWARD ME_4B8BC059018C
+
+ME ME_4B8BC08B0006
+ MEPROP UID '4B8BC08B0006'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BC059018C // Tl3StringMap
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_4B8BC08B0006 l3Items_NeedsBeforeFreeItem
+
+ME ME_4B8BC095003F
+ MEPROP UID '4B8BC095003F'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BC059018C // Tl3StringMap
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4B8BC095003F l3Items_NoSort
+
+ME ME_4B8BC0C70029
+ MEPROP UID '4B8BC0C70029'
+ MEPROP Name 'f_Hi'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8BC059018C // Tl3StringMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B8BC0C70029 f_Hi
+
+FORWARD ME_4B8BC0D40179
+
+ME ME_4B8BC25903CB
+ MEPROP UID '4B8BC25903CB'
+ MEPROP Name 'Item'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8BC0D40179 // ResolveString
+ ;
+ MELINK Target WL 'ME_4B8BC15601E8' '4B893514021E.ms.model.script' // Tl3KeyWord
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B8BC25903CB Item
+
+FORWARD ME_4B8BC0EE03D0
+
+ME ME_4B8BC0F90271
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4B8BC0F90271 aString
+
+ME ME_4B8BC0EE03D0
+ MEPROP UID '4B8BC0EE03D0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BC0D40179 // ResolveString
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B8BC0F90271 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_4B8BC0EE03D0 DoIt
+
+ME ME_4B8BC166016E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B8BC0D40179 // ResolveString
+ ;
+ MELINK Target WL 'ME_4B8BC15601E8' '4B893514021E.ms.model.script' // Tl3KeyWord
+ ;
+
+ENDME // ME_4B8BC166016E 
+
+ME ME_4B8BC0D40179
+ MEPROP UID '4B8BC0D40179'
+ MEPROP Name 'ResolveString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает идентификатор строки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8BC059018C // Tl3StringMap
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B8BC25903CB // Item
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B8BC0EE03D0 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B8BC166016E // Tl3KeyWord
+ )
+ ; // Dependencies
+
+ENDME // ME_4B8BC0D40179 ResolveString
+
+ME ME_4B8BC059018C
+ MEPROP UID '4B8BC059018C'
+ MEPROP Name 'Tl3StringMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B8BBF7101B8 // L3 for VCM
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B8BBFF302E1 // Tl3StringMapPrim
+ WL 'ME_53036F2101D3' '47913B47006E.ms.model.script' // l3Dictionary
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B8BC0C70029 // f_Hi
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B8BC0D40179 // ResolveString
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B8BC08B0006 // l3Items_NeedsBeforeFreeItem
+ HWL ME_4B8BC095003F // l3Items_NoSort
+ )
+ ; // Children
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '01.03.2010 16:25'
+ UP extprop:pas:UnitName 'l3StringMap'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringMap'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\Implementation\l3StringMap.pas'
+
+ENDME // ME_4B8BC059018C Tl3StringMap
+
+ME ME_4B8BBF7101B8
+ MEPROP UID '4B8BBF7101B8'
+ MEPROP Name 'L3 for VCM'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B8BBFF302E1 // Tl3StringMapPrim
+ HWL ME_4B8BC059018C // Tl3StringMap
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B893514021E' '4B893514021E.ms.model.script' // Pretty Things
+ )
+ ; // Depends
+ UP "path prefix" '/Implementation'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\Implementation'
+
+ENDME // ME_4B8BBF7101B8 L3 for VCM

@@ -1,0 +1,64 @@
+// PrimWorkJournalInterfaces 4D7A05A000C1 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D7A05A000C1
+
+FORWARD ME_4A83AA5202C1
+
+ME ME_4A83AA610299
+ MEPROP UID '4A83AA610299'
+ MEPROP Name 'JournalShrinked'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A83AA5202C1 // InsWorkJournalListener
+ ;
+
+ENDME // ME_4A83AA610299 JournalShrinked
+
+ME ME_4A83AA5202C1
+ MEPROP UID '4A83AA5202C1'
+ MEPROP GUID '730A7894-DD4B-4BB7-95EE-77F4E7C2EE79'
+ MEPROP Name 'InsWorkJournalListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D7A05A000C1 // PrimWorkJournalInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A83AA610299 // JournalShrinked
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WorkJournalListener'
+
+ENDME // ME_4A83AA5202C1 InsWorkJournalListener
+
+ME ME_4D7A05A000C1
+ MEPROP UID '4D7A05A000C1'
+ MEPROP Name 'PrimWorkJournalInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9FFD3F01AD' '4A9FFD3F01AD.ms.model.script' // Search
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A83AA5202C1 // InsWorkJournalListener
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Ëþëèí À.Â.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '11.03.2011 14:21'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\PrimWorkJournalInterfaces.pas'
+
+ENDME // ME_4D7A05A000C1 PrimWorkJournalInterfaces

@@ -1,0 +1,201 @@
+// Diction$FP 4A9CE5F2036F VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A9CE5F2036F
+
+FORWARD ME_4B14CDEA039C
+
+ME ME_4B14CE0A001F
+ MEPROP UID '4B14CE0A001F'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ ;
+
+ENDME // ME_4B14CE0A001F Log
+
+ME ME_4B14CE3B005D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14CE3B005D 
+
+ME ME_4B14CDEA039C
+ MEPROP UID '4B14CDEA039C'
+ MEPROP Name 'TnsOpenDictionaryEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14CE0A001F // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14CE3B005D // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenDictionaryEvent'
+
+ENDME // ME_4B14CDEA039C TnsOpenDictionaryEvent
+
+ME ME_4A9D26D501BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_4A9D267100BA' '4A9807DB01A5.ms.model.script' // Document$ForDiction
+ ;
+
+ENDME // ME_4A9D26D501BE 
+
+ME ME_4B14D0C90339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ ;
+
+ENDME // ME_4B14D0C90339 
+
+ME ME_4BD1ED7B0283
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_4B040EB3003F' '4BD1E3DE02FB.ms.model.script' // dftDictEntry
+ ;
+
+ENDME // ME_4BD1ED7B0283 
+
+ME ME_4E033CAC034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4E033CAC034D 
+
+ME ME_53C90CAE0153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_490837B901D4' '4902090401E7.ms.model.script' // TnsLangToContextMap
+ ;
+
+ENDME // ME_53C90CAE0153 
+
+ME ME_53C90CFF004F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_4908462903E0' '49083E150027.ms.model.script' // TnscContextFilterState
+ ;
+
+ENDME // ME_53C90CFF004F 
+
+ME ME_57960E2501AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_57960D70013A' '5795D66F0385.ms.model.script' // TDictionService
+ ;
+
+ENDME // ME_57960E2501AE 
+
+ME ME_4A9D16D2036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_4936CB1B0022' '4936CB1B0022.ms.model.script' // TsdsDiction
+ ;
+
+ENDME // ME_4A9D16D2036A 
+
+ME ME_4A9D16460142
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_46836BA203A1' '4902090401E7.ms.model.script' // TnsDictionTree
+ ;
+
+ENDME // ME_4A9D16460142 
+
+ME ME_4A9D13E0006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9CE5F2036F // Diction$FP
+ ;
+ MELINK Target WL 'ME_4925538201C4' '491D5B360381.ms.model.script' // TdeDiction
+ ;
+
+ENDME // ME_4A9D13E0006B 
+
+ME ME_4A9CE5F2036F
+ MEPROP UID '4A9CE5F2036F'
+ MEPROP Name 'Diction'
+ MEPROP OriginalName 'Diction$FP'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4979D3B10102' '4979D3B10102.ms.model.script' // Diction
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4A9CEA5001CF' '4A9CEA5001CF.ms.model.script' // Diction
+ WL 'ME_4A9D19450248' '4A9D19450248.ms.model.script' // Diction$FS
+ HWL ME_4B14CDEA039C // TnsOpenDictionaryEvent
+ WL 'ME_4D7A6A2E00F7' '4D7A6A2E00F7.ms.model.script' // DictionContainer
+ WL 'ME_4ABBB22002AA' '4ABBB22002AA.ms.model.script' // CommonDiction
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A9D26D501BE // Document$ForDiction
+ ME_4B14D0C90339 // TnsOpenDictionaryEvent
+ ME_4BD1ED7B0283 // dftDictEntry
+ ME_4E033CAC034D // vcmMessagesSupport
+ ME_53C90CAE0153 // TnsLangToContextMap
+ ME_53C90CFF004F // TnscContextFilterState
+ ME_57960E2501AE // TDictionService
+ ME_4A9D16D2036A // TsdsDiction
+ ME_4A9D16460142 // TnsDictionTree
+ ME_4A9D13E0006B // TdeDiction
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '01.09.2009 13:14'
+ UP extprop:pas:TypeName 'TDictionModule'
+ UP extprop:pas:UnitName 'Diction_Module'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DictionModule'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\Diction_Module.pas'
+
+ENDME // ME_4A9CE5F2036F Diction$FP

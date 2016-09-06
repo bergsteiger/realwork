@@ -1,0 +1,482 @@
+// TvgRemindersLineForm 53319C7502F4 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53319C7502F4
+
+FORWARD ME_533E9AEC01F0
+
+ME ME_533E9AFC0288
+ MEPROP UID '533E9AFC0288'
+ MEPROP Name 'WM_SYNCPOS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_533E9AEC01F0 // vgReminder Messages
+ ;
+ MEPROP Value 'WM_USER + 1'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'WM_USER + 1'
+
+ENDME // ME_533E9AFC0288 WM_SYNCPOS
+
+ME ME_533E9AEC01F0
+ MEPROP UID '533E9AEC01F0'
+ MEPROP Name 'vgReminder Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_533E9AFC0288 // WM_SYNCPOS
+ )
+ ; // Attributes
+ UP "spell names" False
+ UP extprop:rc:SelfName 'Reminder Messages'
+
+ENDME // ME_533E9AEC01F0 vgReminder Messages
+
+ME ME_532323B801EB
+ MEPROP UID '532323B801EB'
+ MEPROP Name 'Scene'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_4D54170F00D8' '4CFCE51A00B0.ms.model.script' // TvgCustomScene
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_532323B801EB Scene
+
+ME ME_5326D87A02F1
+ MEPROP UID '5326D87A02F1'
+ MEPROP Name 'Background'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_4FC762770058' '4CFCE51A00B0.ms.model.script' // TvgBackground
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5326D87A02F1 Background
+
+ME ME_5331A41C0044
+ MEPROP UID '5331A41C0044'
+ MEPROP Name 'ParentControl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_5331A41C0044 ParentControl
+
+ME ME_5332C1B300F2
+ MEPROP UID '5332C1B300F2'
+ MEPROP Name 'RemindersLine'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'IvgRemindersLine' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_5332C1B300F2 RemindersLine
+
+ME ME_54101008038D
+ MEPROP UID '54101008038D'
+ MEPROP Name 'f_ActivateProcessingLockCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54101008038D f_ActivateProcessingLockCount
+
+ME ME_5410102B01CD
+ MEPROP UID '5410102B01CD'
+ MEPROP Name 'IsActivateProcessingLocked'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_5410102B01CD IsActivateProcessingLocked
+
+ME ME_54100FBD0074
+ MEPROP UID '54100FBD0074'
+ MEPROP Name 'LockActivateProcessing'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+
+ENDME // ME_54100FBD0074 LockActivateProcessing
+
+ME ME_54100FD20042
+ MEPROP UID '54100FD20042'
+ MEPROP Name 'UnlockActivateProcessing'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+
+ENDME // ME_54100FD20042 UnlockActivateProcessing
+
+FORWARD ME_534FDC010298
+
+ME ME_534FDC300321
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E7B4F6B0021' '476F78840219.ms.model.script' // TWMMouseActivate
+ ;
+
+ENDME // ME_534FDC300321 Msg
+
+ME ME_534FDC010298
+ MEPROP UID '534FDC010298'
+ MEPROP Name 'WMMouseActivate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_534FDC300321 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_MOUSEACTIVATE'
+
+ENDME // ME_534FDC010298 WMMouseActivate
+
+FORWARD ME_535E45FB007C
+
+ME ME_535E46200103
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4B34C15303B5' '476F78840219.ms.model.script' // TWMActivate
+ ;
+
+ENDME // ME_535E46200103 Msg
+
+ME ME_535E45FB007C
+ MEPROP UID '535E45FB007C'
+ MEPROP Name 'WMActivate'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_535E46200103 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_ACTIVATE'
+
+ENDME // ME_535E45FB007C WMActivate
+
+FORWARD ME_535E4AF101D7
+
+ME ME_535E4B060110
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_535E4B060110 Msg
+
+ME ME_535E4AF101D7
+ MEPROP UID '535E4AF101D7'
+ MEPROP Name 'WMContextMenu'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_535E4B060110 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_CONTEXTMENU '
+
+ENDME // ME_535E4AF101D7 WMContextMenu
+
+FORWARD ME_535E4B38022D
+
+ME ME_535E4B4A020A
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_535E4B4A020A Msg
+
+ME ME_535E4B38022D
+ MEPROP UID '535E4B38022D'
+ MEPROP Name 'WMSyncPos'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_535E4B4A020A // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SYNCPOS'
+
+ENDME // ME_535E4B38022D WMSyncPos
+
+FORWARD ME_54477AC100E5
+
+ME ME_54477AE0006F
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_54477AE0006F Msg
+
+ME ME_54477AC100E5
+ MEPROP UID '54477AC100E5'
+ MEPROP Name 'CMShowingChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELIST Parameters
+   Seq: ( ME_54477AE0006F // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_SHOWINGCHANGED'
+
+ENDME // ME_54477AC100E5 CMShowingChanged
+
+ME ME_5331A46E02DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5331A46E02DA 
+
+ME ME_5331A4C3015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_5331A4C3015B 
+
+ME ME_5331A7240205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_4D5EB41C02CB' '4D5420EC039D.ms.model.script' // TvgAlign
+ ;
+
+ENDME // ME_5331A7240205 
+
+ME ME_535FB0F5034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_4D90583503C2' '4D90583503C2.ms.model.script' // TvtPopupForm
+ ;
+
+ENDME // ME_535FB0F5034D 
+
+ME ME_53887F70004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_53887F70004C 
+
+ME ME_538F116D0226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53319C7502F4 // TvgRemindersLineForm
+ ;
+ MELINK Target WL 'ME_532973090394' '532972BD00EC.ms.model.script' // IvgRemindersLine
+ ;
+
+ENDME // ME_538F116D0226 
+
+ME ME_48077504027E_ME_53319C7502F4
+ MELINK Original WL 'ME_48077504027E' '4AB0C3C60310.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_53319C7502F4 Destroy
+
+ME ME_48C7925A02E5_ME_53319C7502F4
+ MELINK Original WL 'ME_48C7925A02E5' '4799D29F033F.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7925A02E5_ME_53319C7502F4 CreateParams
+
+ME ME_4980403E021E_ME_53319C7502F4
+ MELINK Original WL 'ME_4980403E021E' '4799D29F033F.ms.model.script' // CloseQuery
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4980403E021E_ME_53319C7502F4 CloseQuery
+
+ME ME_4F2A599E0283_ME_53319C7502F4
+ MELINK Original WL 'ME_4F2A599E0283' '4799D29F033F.ms.model.script' // SetBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F2A599E0283_ME_53319C7502F4 SetBounds
+
+ME ME_4F8851380274_ME_53319C7502F4
+ MELINK Original WL 'ME_4F8851380274' '4799D29F033F.ms.model.script' // DockDrop
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F8851380274_ME_53319C7502F4 DockDrop
+
+ME ME_4F9007B20376_ME_53319C7502F4
+ MELINK Original WL 'ME_4F9007B20376' '4799D29F033F.ms.model.script' // CreateNew
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F9007B20376_ME_53319C7502F4 CreateNew
+
+ME ME_533AA4B4006B_ME_53319C7502F4
+ MELINK Original WL 'ME_533AA4B4006B' '4799D29F033F.ms.model.script' // UpdateActions
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_533AA4B4006B_ME_53319C7502F4 UpdateActions
+
+ME ME_53319C7502F4
+ MEPROP UID '53319C7502F4'
+ MEPROP Name 'TvgRemindersLineForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_53288DFA03A7' '53288DFA03A7.ms.model.script' // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_532323B801EB // Scene
+ HWL ME_5326D87A02F1 // Background
+ HWL ME_5331A41C0044 // ParentControl
+ HWL ME_5332C1B300F2 // RemindersLine
+ HWL ME_54101008038D // f_ActivateProcessingLockCount
+ HWL ME_5410102B01CD // IsActivateProcessingLocked
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54100FBD0074 // LockActivateProcessing
+ HWL ME_54100FD20042 // UnlockActivateProcessing
+ HWL ME_534FDC010298 // WMMouseActivate
+ HWL ME_535E45FB007C // WMActivate
+ HWL ME_535E4AF101D7 // WMContextMenu
+ HWL ME_535E4B38022D // WMSyncPos
+ HWL ME_54477AC100E5 // CMShowingChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_53319C7502F4 // Destroy
+ ME_48C7925A02E5_ME_53319C7502F4 // CreateParams
+ ME_4980403E021E_ME_53319C7502F4 // CloseQuery
+ ME_4F2A599E0283_ME_53319C7502F4 // SetBounds
+ ME_4F8851380274_ME_53319C7502F4 // DockDrop
+ ME_4F9007B20376_ME_53319C7502F4 // CreateNew
+ ME_533AA4B4006B_ME_53319C7502F4 // UpdateActions
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_533E9AEC01F0 // vgReminder Messages
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_5331A46E02DA // Windows
+ ME_5331A4C3015B // TPoint
+ ME_5331A7240205 // TvgAlign
+ ME_535FB0F5034D // TvtPopupForm
+ ME_53887F70004C // SysUtils
+ ME_538F116D0226 // IvgRemindersLine
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_54EC57BB01C9' '534FA97F003E.ms.model.script' // ReminderWordsPack
+ )
+ ; // Injected
+ UP "register in scripts" True
+ UP extprop:pas:UnitName 'vgRemindersLineForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RemindersLineForm'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgRemindersLineForm.pas'
+
+ENDME // ME_53319C7502F4 TvgRemindersLineForm

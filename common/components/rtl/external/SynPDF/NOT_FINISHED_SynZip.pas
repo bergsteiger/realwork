@@ -20,6 +20,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *5549B90B0223impl_uses*
+ //#UC END# *5549B90B0223impl_uses*
 ;
 
 procedure CompressStream;

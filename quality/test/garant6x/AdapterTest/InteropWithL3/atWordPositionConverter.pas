@@ -33,6 +33,8 @@ uses
  l3ImplUses
  , TypInfo
  , l3Base
+ //#UC START# *503E65B1032Eimpl_uses*
+ //#UC END# *503E65B1032Eimpl_uses*
 ;
 
 var g_TatWordPositionConverter: TatWordPositionConverter = nil;

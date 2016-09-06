@@ -112,6 +112,8 @@ uses
  , atChatMessage
  , atUserComment
  , ActiveX
+ //#UC START# *4B683B57028Dimpl_uses*
+ //#UC END# *4B683B57028Dimpl_uses*
 ;
 
 type

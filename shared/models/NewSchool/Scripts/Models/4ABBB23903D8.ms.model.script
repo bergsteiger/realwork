@@ -1,0 +1,60 @@
+// Navigator 4ABBB23903D8 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ABBB23903D8
+
+ME ME_B8FEACBA82F1
+ MEPROP UID 'B8FEACBA82F1'
+ MEPROP Name 'Ini_FormFactory_Navigator'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Navigator' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ABBB23903D8 // Navigator
+ ;
+ UPLINK SpelledFor HWL ME_4ABBB23903D8 // Navigator
+ ;
+
+ENDME // ME_B8FEACBA82F1 Ini_FormFactory_Navigator
+
+ME ME_4ABBB23903D8
+ MEPROP UID '4ABBB23903D8'
+ MEPROP Name 'Navigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92C1380380' '4A92C1380380.ms.model.script' // PrimF1Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C87A47E0036' '4C87A47E0036.ms.model.script' // PrimNavigatorOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD8719700AA' '4BD856E802F9.ms.model.script' // Navigator
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_B8FEACBA82F1 // Ini_FormFactory_Navigator
+ )
+ ; // Operations
+ UP "finished dfm" True
+ UP "form name prefix" 'en_'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Navigator'
+ UP extprop:pas:TypeName 'Ten_Navigator'
+ UP extprop:pas:UnitName 'Navigator_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'en_Navigator'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\Navigator_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_4ABBB23903D8 Navigator

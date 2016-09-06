@@ -1,0 +1,1090 @@
+// nevGUIInterfaces 4A1FCBA0014C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A1FCBA0014C
+
+FORWARD ME_4E6E466E031D
+
+FORWARD ME_48E2622A03C4
+
+ME ME_4D5A4381027A
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_4D5A4381027A aView
+
+ME ME_48E262330233
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473DA6C302E6' '467823B7002C.ms.model.script' // TafwCursorState
+ ;
+
+ENDME // ME_48E262330233 aState
+
+ME ME_48E262330273
+ MEPROP Name 'theInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_473DA9BF0280' '467823B7002C.ms.model.script' // TafwCursorInfo
+ ;
+
+ENDME // ME_48E262330273 theInfo
+
+ME ME_48E2622A03C4
+ MEPROP UID '48E2622A03C4'
+ MEPROP Name 'HitTest'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E6E466E031D // MnevHotSpotHint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5A4381027A // aView
+ ME_48E262330233 // aState
+ ME_48E262330273 // theInfo
+ )
+ ; // Parameters
+
+ENDME // ME_48E2622A03C4 HitTest
+
+ME ME_4E6E466E031D
+ MEPROP UID '4E6E466E031D'
+ MEPROP Name 'MnevHotSpotHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A1FCBA0014C // nevGUIInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48E2622A03C4 // HitTest
+ )
+ ; // Operations
+
+ENDME // ME_4E6E466E031D MnevHotSpotHint
+
+FORWARD ME_48E2620C0370
+
+ME ME_4ECCD6840014
+ MEPROP UID '4ECCD6840014'
+ MEPROP Name 'CanDrag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2620C0370 // InevHotSpotHint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4ECCD6840014 CanDrag
+
+ME ME_48E2622A03C4_ME_48E2620C0370
+ MELINK Original HWL ME_48E2622A03C4 // HitTest
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E2622A03C4_ME_48E2620C0370 HitTest
+
+ME ME_48E2620C0370
+ MEPROP UID '48E2620C0370'
+ MEPROP GUID '1C09A61F-FE78-4933-9B0C-DEED0E1CFE76'
+ MEPROP Name 'InevHotSpotHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для части объекта, имеющей собственную подсказку (Hint)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A1FCBA0014C // nevGUIInterfaces
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4E6E466E031D // MnevHotSpotHint
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4ECCD6840014 // CanDrag
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48E2622A03C4_ME_48E2620C0370 // HitTest
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HotSpotHint'
+
+ENDME // ME_48E2620C0370 InevHotSpotHint
+
+FORWARD ME_48E2665A0259
+
+FORWARD ME_48E266730188
+
+ME ME_48E26687017C
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_48E26687017C aView
+
+ME ME_48E2668701B5
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_48E2668701B5 Keys
+
+ME ME_48E266730188
+ MEPROP UID '48E266730188'
+ MEPROP Name 'MouseMove'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает перемещение мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E26687017C // aView
+ ME_48E2668701B5 // Keys
+ )
+ ; // Parameters
+
+ENDME // ME_48E266730188 MouseMove
+
+FORWARD ME_48E266AA00A4
+
+ME ME_48E266BE02C7
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_48E266BE02C7 aView
+
+ME ME_48E266BE030A
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_48E266BE030A Keys
+
+ME ME_48E266BE0353
+ MEPROP Name 'Effect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C5AEF10322' '47C5207602D1.ms.model.script' // TevMouseEffect
+ ;
+
+ENDME // ME_48E266BE0353 Effect
+
+ME ME_48E266AA00A4
+ MEPROP UID '48E266AA00A4'
+ MEPROP Name 'LButtonDown'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает нажатие левой кнопки мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E266BE02C7 // aView
+ ME_48E266BE030A // Keys
+ ME_48E266BE0353 // Effect
+ )
+ ; // Parameters
+
+ENDME // ME_48E266AA00A4 LButtonDown
+
+FORWARD ME_48E266C70128
+
+ME ME_48E266D30000
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_48E266D30000 aView
+
+ME ME_48E266D30043
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_48E266D30043 Keys
+
+ME ME_48E266C70128
+ MEPROP UID '48E266C70128'
+ MEPROP Name 'LButtonUp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает отпускание левой кнопки мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E266D30000 // aView
+ ME_48E266D30043 // Keys
+ )
+ ; // Parameters
+
+ENDME // ME_48E266C70128 LButtonUp
+
+FORWARD ME_48E266DE026B
+
+ME ME_48E266F200F7
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_48E266F200F7 aView
+
+ME ME_48E266F20140
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_48E266F20140 Keys
+
+ME ME_48E266F20184
+ MEPROP Name 'Effect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C5AEF10322' '47C5207602D1.ms.model.script' // TevMouseEffect
+ ;
+
+ENDME // ME_48E266F20184 Effect
+
+ME ME_48E266DE026B
+ MEPROP UID '48E266DE026B'
+ MEPROP Name 'LButtonDoubleClick'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает двойное нажатие левой кнопки мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E266F200F7 // aView
+ ME_48E266F20140 // Keys
+ ME_48E266F20184 // Effect
+ )
+ ; // Parameters
+
+ENDME // ME_48E266DE026B LButtonDoubleClick
+
+FORWARD ME_48E266FB01FC
+
+ME ME_48E2670701E3
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_48E2670701E3 aView
+
+ME ME_48E26707022A
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_48E26707022A Keys
+
+ME ME_48E266FB01FC
+ MEPROP UID '48E266FB01FC'
+ MEPROP Name 'RButtonDown'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает нажатие правой кнопки мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E2670701E3 // aView
+ ME_48E26707022A // Keys
+ )
+ ; // Parameters
+
+ENDME // ME_48E266FB01FC RButtonDown
+
+FORWARD ME_48E267150266
+
+ME ME_48E267200340
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_48E267200340 aView
+
+ME ME_48E26720038D
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_48E26720038D Keys
+
+ME ME_48E267150266
+ MEPROP UID '48E267150266'
+ MEPROP Name 'RButtonUp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает отпускание правой конопки мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E267200340 // aView
+ ME_48E26720038D // Keys
+ )
+ ; // Parameters
+
+ENDME // ME_48E267150266 RButtonUp
+
+FORWARD ME_49DB4675025E
+
+ME ME_49DB467D02BF
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_49DB467D02BF aView
+
+ME ME_49DB467D030D
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_49DB467D030D Keys
+
+ME ME_49DB4675025E
+ MEPROP UID '49DB4675025E'
+ MEPROP Name 'MButtonDown'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает нажатие колеса мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DB467D02BF // aView
+ ME_49DB467D030D // Keys
+ )
+ ; // Parameters
+
+ENDME // ME_49DB4675025E MButtonDown
+
+FORWARD ME_49DB468302A5
+
+ME ME_49DB46900233
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_49DB46900233 aView
+
+ME ME_49DB46900291
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_49DB46900291 Keys
+
+ME ME_49DB468302A5
+ MEPROP UID '49DB468302A5'
+ MEPROP Name 'MButtonUp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает отпускание колеса мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2665A0259 // IevHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DB46900233 // aView
+ ME_49DB46900291 // Keys
+ )
+ ; // Parameters
+
+ENDME // ME_49DB468302A5 MButtonUp
+
+ME ME_48E2622A03C4_ME_48E2665A0259
+ MELINK Original HWL ME_48E2622A03C4 // HitTest
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E2622A03C4_ME_48E2665A0259 HitTest
+
+ME ME_4ECCD6840014_ME_48E2665A0259
+ MELINK Original HWL ME_4ECCD6840014 // CanDrag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4ECCD6840014_ME_48E2665A0259 CanDrag
+
+ME ME_48E2665A0259
+ MEPROP UID '48E2665A0259'
+ MEPROP GUID '3B6650BA-ECFE-4297-BE90-E0496B81408C'
+ MEPROP Name 'IevHotSpot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для части объекта, обрабатывающей действия мышью.'#13#10'      Для обратной совместимости. Сейчас лучше использовать IevAdvancedHotSpot' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A1FCBA0014C // nevGUIInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48E2620C0370 // InevHotSpotHint
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48E266730188 // MouseMove
+ HWL ME_48E266AA00A4 // LButtonDown
+ HWL ME_48E266C70128 // LButtonUp
+ HWL ME_48E266DE026B // LButtonDoubleClick
+ HWL ME_48E266FB01FC // RButtonDown
+ HWL ME_48E267150266 // RButtonUp
+ HWL ME_49DB4675025E // MButtonDown
+ HWL ME_49DB468302A5 // MButtonUp
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48E2622A03C4_ME_48E2665A0259 // HitTest
+ ME_4ECCD6840014_ME_48E2665A0259 // CanDrag
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HotSpot'
+
+ENDME // ME_48E2665A0259 IevHotSpot
+
+FORWARD ME_4A250DB2035E
+
+FORWARD ME_4A250DD6037C
+
+ME ME_4A250E1600D4
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_4A250E1600D4 aView
+
+ME ME_4A250E1600F7
+ MEPROP Name 'aState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5AE990283' '47C5207602D1.ms.model.script' // TevCursorState
+ ;
+
+ENDME // ME_4A250E1600F7 aState
+
+ME ME_4A250E160115
+ MEPROP Name 'aPt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4A250E160115 aPt
+
+ME ME_4A250E160138
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4A250E160138 aMap
+
+ME ME_4A250E160158
+ MEPROP Name 'theSpot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_48E2665A0259 // IevHotSpot
+ ;
+
+ENDME // ME_4A250E160158 theSpot
+
+ME ME_4A250DD6037C
+ MEPROP UID '4A250DD6037C'
+ MEPROP Name 'GetAdvancedHotSpot'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает "горячую точку"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A250DB2035E // InevHotSpotTester2
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A250E1600D4 // aView
+ ME_4A250E1600F7 // aState
+ ME_4A250E160115 // aPt
+ ME_4A250E160138 // aMap
+ ME_4A250E160158 // theSpot
+ )
+ ; // Parameters
+
+ENDME // ME_4A250DD6037C GetAdvancedHotSpot
+
+ME ME_4A250DB2035E
+ MEPROP UID '4A250DB2035E'
+ MEPROP GUID '5F7707BE-8244-4CB4-8088-77E59D4DB7C6'
+ MEPROP Name 'InevHotSpotTester2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для получения "горячей точки" ([InevHotSpot])' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A1FCBA0014C // nevGUIInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A250DD6037C // GetAdvancedHotSpot
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HotSpotTester2'
+
+ENDME // ME_4A250DB2035E InevHotSpotTester2
+
+FORWARD ME_48E263B60071
+
+FORWARD ME_48E2637D0296
+
+FORWARD ME_48E2638F0358
+
+ME ME_4A27C3660032
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_4A27C3660032 aView
+
+ME ME_4A27C36600E0
+ MEPROP Name 'aKeys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_4A27C36600E0 aKeys
+
+ME ME_4A27C366015F
+ MEPROP Name 'theActiveElement'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4A27C46801A9' '47C5207602D1.ms.model.script' // InevActiveElement
+ ;
+
+ENDME // ME_4A27C366015F theActiveElement
+
+ME ME_48E2638F0358
+ MEPROP UID '48E2638F0358'
+ MEPROP Name 'TransMouseMove'
+ MEPROP Class class_Operation
+ %SUMMARY 'Собственно реальный MouseMove, передаваемый редактору' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E2637D0296 // IevMouseMoveHandler
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A27C3660032 // aView
+ ME_4A27C36600E0 // aKeys
+ ME_4A27C366015F // theActiveElement
+ )
+ ; // Parameters
+
+ENDME // ME_48E2638F0358 TransMouseMove
+
+ME ME_48E2637D0296
+ MEPROP UID '48E2637D0296'
+ MEPROP GUID '5A0E02BF-F2CD-4553-856C-A28D78F48B01'
+ MEPROP Name 'IevMouseMoveHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик движения мыши' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E263B60071 // IevAdvancedHotSpot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48E2638F0358 // TransMouseMove
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MouseMoveHandler'
+
+ENDME // ME_48E2637D0296 IevMouseMoveHandler
+
+FORWARD ME_4A2399C8012B
+
+ME ME_4A2399F0005B
+ MEPROP UID '4A2399F0005B'
+ MEPROP Name 'ev_oaNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A2399F0005B ev_oaNone
+
+ME ME_4A2399F5013A
+ MEPROP UID '4A2399F5013A'
+ MEPROP Name 'ev_oaLeftEdge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A2399F5013A ev_oaLeftEdge
+
+ME ME_4A2399FA01C4
+ MEPROP UID '4A2399FA01C4'
+ MEPROP Name 'ev_oaRightEdge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A2399FA01C4 ev_oaRightEdge
+
+ME ME_4A2399FF02F8
+ MEPROP UID '4A2399FF02F8'
+ MEPROP Name 'ev_oaTopEdge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A2399FF02F8 ev_oaTopEdge
+
+ME ME_4A239A050066
+ MEPROP UID '4A239A050066'
+ MEPROP Name 'ev_oaBottomEdge'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A239A050066 ev_oaBottomEdge
+
+ME ME_4A239A0A03E7
+ MEPROP UID '4A239A0A03E7'
+ MEPROP Name 'ev_oaCollapse'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A239A0A03E7 ev_oaCollapse
+
+ME ME_4A239A110127
+ MEPROP UID '4A239A110127'
+ MEPROP Name 'ev_oaProperties'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A239A110127 ev_oaProperties
+
+ME ME_4A239A17012D
+ MEPROP UID '4A239A17012D'
+ MEPROP Name 'ev_oaDragPoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_4A239A17012D ev_oaDragPoint
+
+ME ME_551BB887011F
+ MEPROP UID '551BB887011F'
+ MEPROP Name 'ev_oaHeader'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2399C8012B // TevObjectArea
+ ;
+
+ENDME // ME_551BB887011F ev_oaHeader
+
+ME ME_4A2399C8012B
+ MEPROP UID '4A2399C8012B'
+ MEPROP Name 'TevObjectArea'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Часть объекта (в частности в которую попали мышью)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E263B60071 // IevAdvancedHotSpot
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A2399F0005B // ev_oaNone
+ HWL ME_4A2399F5013A // ev_oaLeftEdge
+ HWL ME_4A2399FA01C4 // ev_oaRightEdge
+ HWL ME_4A2399FF02F8 // ev_oaTopEdge
+ HWL ME_4A239A050066 // ev_oaBottomEdge
+ HWL ME_4A239A0A03E7 // ev_oaCollapse
+ HWL ME_4A239A110127 // ev_oaProperties
+ HWL ME_4A239A17012D // ev_oaDragPoint
+ HWL ME_551BB887011F // ev_oaHeader
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4A2399C8012B TevObjectArea
+
+FORWARD ME_4A23A63902FB
+
+ME ME_4A23A71A02CC
+ MEPROP UID '4A23A71A02CC'
+ MEPROP Name 'Delta'
+ MEPROP Class class_Operation
+ %SUMMARY 'точность' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A23A63902FB // IevHotSpotDelta
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A23A71A02CC Delta
+
+ME ME_4A23A63902FB
+ MEPROP UID '4A23A63902FB'
+ MEPROP GUID 'B3D20AE3-3E61-4212-AAEB-C38A98A58785'
+ MEPROP Name 'IevHotSpotDelta'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Точность "горячей точки" (IevAdvancedHotSpot)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48E263B60071 // IevAdvancedHotSpot
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A23A71A02CC // Delta
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HotSpotDelta'
+
+ENDME // ME_4A23A63902FB IevHotSpotDelta
+
+FORWARD ME_48E263CD01BD
+
+ME ME_48E26410008A
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_48E26410008A aView
+
+ME ME_48E2641000C8
+ MEPROP Name 'aButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728CDD0000B' '4677FBA70343.ms.model.script' // Tl3MouseButton
+ ;
+
+ENDME // ME_48E2641000C8 aButton
+
+ME ME_48E264100102
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728CDEF038A' '4677FBA70343.ms.model.script' // Tl3MouseAction
+ ;
+
+ENDME // ME_48E264100102 anAction
+
+ME ME_48E267E702DF
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_48E267E702DF Keys
+
+ME ME_48E26410017F
+ MEPROP Name 'Effect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C5AEF10322' '47C5207602D1.ms.model.script' // TevMouseEffect
+ ;
+
+ENDME // ME_48E26410017F Effect
+
+ME ME_48E263CD01BD
+ MEPROP UID '48E263CD01BD'
+ MEPROP Name 'MouseAction'
+ MEPROP Class class_Operation
+ %SUMMARY 'обрабатывает событие от мыши. Возвращает true - если обработано, иначе - false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48E263B60071 // IevAdvancedHotSpot
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48E26410008A // aView
+ ME_48E2641000C8 // aButton
+ ME_48E264100102 // anAction
+ ME_48E267E702DF // Keys
+ ME_48E26410017F // Effect
+ )
+ ; // Parameters
+
+ENDME // ME_48E263CD01BD MouseAction
+
+ME ME_48E2622A03C4_ME_48E263B60071
+ MELINK Original HWL ME_48E2622A03C4 // HitTest
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E2622A03C4_ME_48E263B60071 HitTest
+
+ME ME_4ECCD6840014_ME_48E263B60071
+ MELINK Original HWL ME_4ECCD6840014 // CanDrag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4ECCD6840014_ME_48E263B60071 CanDrag
+
+ME ME_48E263B60071
+ MEPROP UID '48E263B60071'
+ MEPROP GUID '0EF1BDF3-4176-4780-8B6A-43FFE09407A7'
+ MEPROP Name 'IevAdvancedHotSpot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для части объекта, обрабатывающей действия мышью' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A1FCBA0014C // nevGUIInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48E2620C0370 // InevHotSpotHint
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48E263CD01BD // MouseAction
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48E2622A03C4_ME_48E263B60071 // HitTest
+ ME_4ECCD6840014_ME_48E263B60071 // CanDrag
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48E2637D0296 // IevMouseMoveHandler
+ HWL ME_4A2399C8012B // TevObjectArea
+ HWL ME_4A23A63902FB // IevHotSpotDelta
+ )
+ ; // Children
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AdvancedHotSpot'
+
+ENDME // ME_48E263B60071 IevAdvancedHotSpot
+
+FORWARD ME_4A23CC4D02F6
+
+FORWARD ME_4A23CC610095
+
+ME ME_4A23CC9F023A
+ MEPROP Name 'aHotSpot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_48E2665A0259 // IevHotSpot
+ ;
+
+ENDME // ME_4A23CC9F023A aHotSpot
+
+ME ME_4A23CC9F0259
+ MEPROP Name 'aButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728CDD0000B' '4677FBA70343.ms.model.script' // Tl3MouseButton
+ ;
+
+ENDME // ME_4A23CC9F0259 aButton
+
+ME ME_4A23CC9F0276
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728CDEF038A' '4677FBA70343.ms.model.script' // Tl3MouseAction
+ ;
+
+ENDME // ME_4A23CC9F0276 anAction
+
+ME ME_4A23CC9F029A
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473DA67900F4' '467823B7002C.ms.model.script' // TafwMouseState
+ ;
+
+ENDME // ME_4A23CC9F029A Keys
+
+ME ME_4A23CC9F02B9
+ MEPROP Name 'Effect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_473DA6DC03D2' '467823B7002C.ms.model.script' // TafwMouseEffect
+ ;
+
+ENDME // ME_4A23CC9F02B9 Effect
+
+ME ME_4A23CC610095
+ MEPROP UID '4A23CC610095'
+ MEPROP Name 'MouseAction'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обрабатывает операцию мышью для aHotSpot. Возвращает true - если обработано, иначе - false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A23CC4D02F6 // IevHotSpotSink
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A23CC9F023A // aHotSpot
+ ME_4A23CC9F0259 // aButton
+ ME_4A23CC9F0276 // anAction
+ ME_4A23CC9F029A // Keys
+ ME_4A23CC9F02B9 // Effect
+ )
+ ; // Parameters
+
+ENDME // ME_4A23CC610095 MouseAction
+
+ME ME_4A23CC4D02F6
+ MEPROP UID '4A23CC4D02F6'
+ MEPROP GUID '184B8C13-1FDE-4879-8E4D-EF9853B945CD'
+ MEPROP Name 'IevHotSpotSink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Callback-интерфейс, определяющий пользовательскую реакцию на действие мышью в пределах aHotSpot' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A1FCBA0014C // nevGUIInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A23CC610095 // MouseAction
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HotSpotSink'
+
+ENDME // ME_4A23CC4D02F6 IevHotSpotSink
+
+ME ME_4A1FCBA0014C
+ MEPROP UID '4A1FCBA0014C'
+ MEPROP Name 'nevGUIInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Интерфейсы для взаимодействия пользователя с редактором, через GUI Windows при помощи устройств ввода (клавиатура, мышь)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E6E466E031D // MnevHotSpotHint
+ HWL ME_48E2620C0370 // InevHotSpotHint
+ HWL ME_48E2665A0259 // IevHotSpot
+ HWL ME_4A250DB2035E // InevHotSpotTester2
+ HWL ME_48E263B60071 // IevAdvancedHotSpot
+ HWL ME_4A23CC4D02F6 // IevHotSpotSink
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "path prefix" '/new'
+ UP "started" '29.05.2009 15:50'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevGUIInterfaces.pas'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
+
+ENDME // ME_4A1FCBA0014C nevGUIInterfaces

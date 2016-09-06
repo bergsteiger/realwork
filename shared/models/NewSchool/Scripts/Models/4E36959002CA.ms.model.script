@@ -1,0 +1,62 @@
+// ListAnalize 4E36959002CA VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E36959002CA
+
+ME ME_4F490894A95E
+ MEPROP UID '4F490894A95E'
+ MEPROP Name 'Ini_FormFactory_ListAnalize'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы ListAnalize' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E36959002CA // ListAnalize
+ ;
+ UPLINK SpelledFor HWL ME_4E36959002CA // ListAnalize
+ ;
+
+ENDME // ME_4F490894A95E Ini_FormFactory_ListAnalize
+
+ME ME_4E36959002CA
+ MEPROP UID '4E36959002CA'
+ MEPROP Name 'ListAnalize'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Анализ списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A9BF42601A9' '4A9BF42601A9.ms.model.script' // List$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E369558035D' '4E369558035D.ms.model.script' // PrimListAnalize
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4FFBDE1C011E' '4BD856E802F9.ms.model.script' // ListAnalize
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F490894A95E // Ini_FormFactory_ListAnalize
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '01.08.2011 16:01'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TListAnalizeForm'
+ UP extprop:pas:UnitName 'ListAnalize_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListAnalizeForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\List\Forms\ListAnalize_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\List\Forms'
+
+ENDME // ME_4E36959002CA ListAnalize

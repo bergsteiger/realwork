@@ -1,0 +1,128 @@
+// TsdsQuery 492FECE300EA UseCaseControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492FECE300EA
+
+ME ME_492FEDE7010F
+ MEPROP UID '492FEDE7010F'
+ MEPROP Name 'TdsQueryClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492FECE300EA // TsdsQuery
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_491DCCE101F3' '491DCCE101F3.ms.model.script' // TdsQuery
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsQueryClass'
+
+ENDME // ME_492FEDE7010F TdsQueryClass
+
+ME ME_4947A14802F9
+ MEPROP UID '4947A14802F9'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492FECE300EA // TsdsQuery
+ ;
+ MELINK Target WL 'ME_491DAE5C011F' '4AA5503000D7.ms.model.script' // IdeQuery
+ ;
+
+ENDME // ME_4947A14802F9 InitDataType
+
+ME ME_492FEE0000FD
+ MEPROP UID '492FEE0000FD'
+ MEPROP Name 'GetQueryClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_492FECE300EA // TsdsQuery
+ ;
+ MELINK Target HWL ME_492FEDE7010F // TdsQueryClass
+ ;
+
+ENDME // ME_492FEE0000FD GetQueryClass
+
+ME ME_492FEE2D01C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FECE300EA // TsdsQuery
+ ;
+ MELINK Target WL 'ME_4923F66E0262' '4923F66E0262.ms.model.script' // TdsSaveLoad
+ ;
+
+ENDME // ME_492FEE2D01C5 
+
+ME ME_492F006F00BE_ME_492FECE300EA
+ MELINK Original WL 'ME_492F006F00BE' '491C3E540050.ms.model.script' // dsQuery
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_492F006F00BE_ME_492FECE300EA dsQuery
+
+ME ME_492F00890059_ME_492FECE300EA
+ MELINK Original WL 'ME_492F00890059' '491C3E540050.ms.model.script' // dsSaveLoad
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_492F00890059_ME_492FECE300EA dsSaveLoad
+
+ME ME_492FECE300EA
+ MEPROP UID '492FECE300EA'
+ MEPROP Name 'TsdsQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCaseControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект прецедента "Поисковый запрос"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49415C640079' '47D0E1500033.ms.model.script' // vcmFormSetDataSourceWithoutData
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492F005A02C7' '491C3E540050.ms.model.script' // IsdsQuery
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4947A14802F9 // InitDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_492FEE0000FD // GetQueryClass
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_492F006F00BE_ME_492FECE300EA // dsQuery
+ ME_492F00890059_ME_492FECE300EA // dsSaveLoad
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_492FEDE7010F // TdsQueryClass
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_492FEE2D01C5 // TdsSaveLoad
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А'
+ UP "no hands" True
+ UP "started" '2006/04/07 08:36:15'
+ UP extprop:pas:UnitName 'sdsQuery'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'sdsQuery'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\sdsQuery.pas'
+
+ENDME // ME_492FECE300EA TsdsQuery

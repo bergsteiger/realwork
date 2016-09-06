@@ -1,0 +1,254 @@
+// ControlsMixIns 49EF33F700C2 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49EF33F700C2
+
+FORWARD ME_49EF346400A4
+
+FORWARD ME_49EF3805033D
+
+ME ME_49EF3840010F
+ MEPROP UID '49EF3840010F'
+ MEPROP Name 'Controller'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49EF3805033D // IsHandledShortcut
+ ;
+ MELINK Target WL 'ME_475415C50224' '4754101B004F.ms.model.script' // TOvcController
+ ;
+ UP "IsResult" False
+
+ENDME // ME_49EF3840010F Controller
+
+FORWARD ME_49EF39FE00FF
+
+ME ME_49EF3A040211
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_49EF3A040211 Msg
+
+ME ME_49EF39FE00FF
+ MEPROP UID '49EF39FE00FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EF3805033D // IsHandledShortcut
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EF3A040211 // Msg
+ )
+ ; // Parameters
+
+ENDME // ME_49EF39FE00FF DoIt
+
+ME ME_49EF382C0359
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EF3805033D // IsHandledShortcut
+ ;
+ MELINK Target WL 'ME_475415C50224' '4754101B004F.ms.model.script' // TOvcController
+ ;
+
+ENDME // ME_49EF382C0359 
+
+ME ME_49EF389C023A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EF3805033D // IsHandledShortcut
+ ;
+ MELINK Target WL 'ME_48D2191902CB' '48D21909003A.ms.model.script' // ActionCodes
+ ;
+
+ENDME // ME_49EF389C023A 
+
+ME ME_49EF3805033D
+ MEPROP UID '49EF3805033D'
+ MEPROP Name 'IsHandledShortcut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик ShortCut''ов' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49EF3840010F // Controller
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49EF39FE00FF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_49EF382C0359 // TOvcController
+ ME_49EF389C023A // ActionCodes
+ )
+ ; // Dependencies
+
+ENDME // ME_49EF3805033D IsHandledShortcut
+
+FORWARD ME_4EBD2EE8031A
+
+ME ME_4EBD2EFA0105
+ MEPROP UID '4EBD2EFA0105'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EBD2EE8031A // IsSomePopupWasClosed
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EBD2EFA0105 DoIt
+
+ME ME_4EBD2EE8031A
+ MEPROP UID '4EBD2EE8031A'
+ MEPROP Name 'IsSomePopupWasClosed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EBD2EFA0105 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EBD2EE8031A IsSomePopupWasClosed
+
+FORWARD ME_49EF38CC0345
+
+ME ME_49EF38EF015D
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_49EF38EF015D Message
+
+ME ME_49EF38CC0345
+ MEPROP UID '49EF38CC0345'
+ MEPROP Name 'WndProc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ %SUMMARY 'Оконная процедура' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ MELIST Parameters
+   Seq: ( ME_49EF38EF015D // Message
+ )
+ ; // Parameters
+ UP "is static" False
+
+ENDME // ME_49EF38CC0345 WndProc
+
+ME ME_49EF392D0372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ MELINK Target WL 'ME_47979588035F' '4799D29F033F.ms.model.script' // CM_Messages
+ ;
+
+ENDME // ME_49EF392D0372 
+
+ME ME_49EF3BBF027E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_49EF3BBF027E 
+
+ME ME_4F2ABB6902B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49EF346400A4 // afwShortcutsHandler
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4F2ABB6902B9 
+
+ME ME_49EF346400A4
+ MEPROP UID '49EF346400A4'
+ MEPROP Name 'afwShortcutsHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик ShortCut''ов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EF33F700C2 // ControlsMixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49EF3805033D // IsHandledShortcut
+ HWL ME_4EBD2EE8031A // IsSomePopupWasClosed
+ HWL ME_49EF38CC0345 // WndProc
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_49EF392D0372 // CM_Messages
+ ME_49EF3BBF027E // Windows
+ ME_4F2ABB6902B9 // Forms
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'DesignTimeLibrary'
+ UP "no hands" True
+ UP "started" '22.04.2009 19:15'
+ UP extprop:pas:TypeName '_afwShortcutsHandler_'
+ UP extprop:pas:UnitName 'afwShortcutsHandler.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwShortcutsHandler.imp.pas'
+
+ENDME // ME_49EF346400A4 afwShortcutsHandler
+
+ME ME_49EF33F700C2
+ MEPROP UID '49EF33F700C2'
+ MEPROP Name 'ControlsMixIns'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ %SUMMARY 'Примеси для контролов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D5E61FC01F0' '4D5E61FC01F0.ms.model.script' // AFW$Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49EF346400A4 // afwShortcutsHandler
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4754101B004F' '4754101B004F.ms.model.script' // OvcBase
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_48D21909003A' '48D21909003A.ms.model.script' // OvcConst
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ )
+ ; // Depends
+ UP "path prefix" '/implementation'
+ UP intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation'
+
+ENDME // ME_49EF33F700C2 ControlsMixIns

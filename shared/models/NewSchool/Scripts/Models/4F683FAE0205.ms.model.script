@@ -1,0 +1,231 @@
+// RegExp 4F683FAE0205 TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F683FAE0205
+
+FORWARD ME_4F68409203D1
+
+FORWARD ME_4F6840D602F3
+
+ME ME_4F6841350129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_483D7D8C001A' '47EA946A0315.ms.model.script' // l3RegEx
+ ;
+
+ENDME // ME_4F6841350129 
+
+ME ME_4F6854A20277
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4F6854A20277 
+
+ME ME_4F6860B80194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4F6860B80194 
+
+ME ME_51BAE47E0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_51BAE2BF011A' '47D0290B016D.ms.model.script' // l3IniFile
+ ;
+
+ENDME // ME_51BAE47E0290 
+
+ME ME_51BAEAB6021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_4C1B475101C5' '4C1B474600AD.ms.model.script' // l3Parser
+ ;
+
+ENDME // ME_51BAEAB6021A 
+
+ME ME_51BAEF37036F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_51BAEF37036F 
+
+ME ME_51BB071F02E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_51BB071F02E0 
+
+ME ME_51BB092403AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6840D602F3 // DoIt
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_51BB092403AB 
+
+ME ME_4F6840D602F3
+ MEPROP UID '4F6840D602F3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F68409203D1 // RegExpTest
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F6841350129 // l3RegEx
+ ME_4F6854A20277 // l3String
+ ME_4F6860B80194 // SysUtils
+ ME_51BAE47E0290 // l3IniFile
+ ME_51BAEAB6021A // l3Parser
+ ME_51BAEF37036F // l3CStr
+ ME_51BB071F02E0 // Il3CString
+ ME_51BB092403AB // Tl3CustomFiler
+ )
+ ; // Dependencies
+
+ENDME // ME_4F6840D602F3 DoIt
+
+ME ME_4F68409203D1
+ MEPROP UID '4F68409203D1'
+ MEPROP Name 'RegExpTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F683FAE0205 // RegExp
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F6840D602F3 // DoIt
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'TRegExpTest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RegExpTest'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\RegExpTest.pas'
+
+ENDME // ME_4F68409203D1 RegExpTest
+
+FORWARD ME_51BB006C01A6
+
+ME ME_51BB0151026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51BB006C01A6 // TK460275638
+ ;
+ MELINK Target WL 'ME_51BB0020030A' '51BAFFE20206.ms.model.script' // TK460275638Suite
+ ;
+
+ENDME // ME_51BB0151026A 
+
+ME ME_4C937013031D_ME_51BB006C01A6
+ MELINK Original WL 'ME_4C937013031D' '4B2A0D6A0077.ms.model.script' // GetFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C937013031D_ME_51BB006C01A6 GetFolder
+
+ME ME_4DAED6F60146_ME_51BB006C01A6
+ MELINK Original WL 'ME_4DAED6F60146' '4B2A0D6A0077.ms.model.script' // GetModelElementGUID
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DAED6F60146_ME_51BB006C01A6 GetModelElementGUID
+
+ME ME_4EA553E901DB_ME_51BB006C01A6
+ MELINK Original WL 'ME_4EA553E901DB' '4B2A0D6A0077.ms.model.script' // Suite
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_4EA553E901DB_ME_51BB006C01A6 Suite
+
+ME ME_51BB006C01A6
+ MEPROP UID '51BB006C01A6'
+ MEPROP Name 'TK460275638'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCase ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F683FAE0205 // RegExp
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F68409203D1 // RegExpTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4C937013031D_ME_51BB006C01A6 // GetFolder
+ ME_4DAED6F60146_ME_51BB006C01A6 // GetModelElementGUID
+ ME_4EA553E901DB_ME_51BB006C01A6 // Suite
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51BB0151026A // TK460275638Suite
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'K460275638'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'K460275638'
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\K460275638.pas'
+
+ENDME // ME_51BB006C01A6 TK460275638
+
+ME ME_4F683FAE0205
+ MEPROP UID '4F683FAE0205'
+ MEPROP Name 'RegExp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B2A15810261' '4B2A15810261.ms.model.script' // DailyTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F68409203D1 // RegExpTest
+ HWL ME_51BB006C01A6 // TK460275638
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ WL 'ME_47EA946A0315' '47EA946A0315.ms.model.script' // l3Misc
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ WL 'ME_4C1B474600AD' '4C1B474600AD.ms.model.script' // Parser
+ WL 'ME_51BAFFE20206' '51BAFFE20206.ms.model.script' // RegExpUtils
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_4F683FAE0205 RegExp

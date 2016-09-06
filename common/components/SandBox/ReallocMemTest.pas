@@ -26,6 +26,8 @@ implementation
 {$If Defined(nsTest)}
 uses
  l3ImplUses
+ //#UC START# *51643E02018Fimpl_uses*
+ //#UC END# *51643E02018Fimpl_uses*
 ;
 
 procedure TReallocMemTest.DoIt;

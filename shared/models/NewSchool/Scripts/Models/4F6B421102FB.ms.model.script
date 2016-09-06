@@ -1,0 +1,905 @@
+// WindowsListSupport 4F6B421102FB Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6B421102FB
+
+FORWARD ME_4ADC5146016D
+
+FORWARD ME_4ADC55470317
+
+FORWARD ME_4ADC560A0041
+
+ME ME_521B85A20242
+ MEPROP UID '521B85A20242'
+ MEPROP Name 'PInt'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC560A0041 // MakeName
+ ;
+ MELINK Target WL 'ME_47C6A43F01A1' '46A5E026007E.ms.model.script' // PInteger
+ ;
+ UP "IsResult" False
+
+ENDME // ME_521B85A20242 PInt
+
+ME ME_521B85C40372
+ MEPROP UID '521B85C40372'
+ MEPROP Name 'Indx'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC560A0041 // MakeName
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_521B85C40372 Indx
+
+FORWARD ME_4ADC561800C8
+
+ME ME_4ADC561E02E9
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4ADC561E02E9 aName
+
+ME ME_4ADC561800C8
+ MEPROP UID '4ADC561800C8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC560A0041 // MakeName
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADC561E02E9 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4ADC561800C8 DoIt
+
+ME ME_4ADC5A490275
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC560A0041 // MakeName
+ ;
+ MELINK Target WL 'ME_4ADC5A3C00A2' '54B90AC6014B.ms.model.script' // l3Fmt
+ ;
+
+ENDME // ME_4ADC5A490275 
+
+ME ME_4ADC560A0041
+ MEPROP UID '4ADC560A0041'
+ MEPROP Name 'MakeName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'возвращает уникальное имя' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC55470317 // TnsUniqueName
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_521B85A20242 // PInt
+ HWL ME_521B85C40372 // Indx
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADC561800C8 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4ADC5A490275 // l3Fmt
+ )
+ ; // Dependencies
+
+ENDME // ME_4ADC560A0041 MakeName
+
+ME ME_4ADC55A200AD
+ MEPROP UID '4ADC55A200AD'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC55470317 // TnsUniqueName
+ ;
+
+ENDME // ME_4ADC55A200AD Create
+
+ME ME_4ADC5A9102B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC55470317 // TnsUniqueName
+ ;
+ MELINK Target WL 'ME_4AB8CB630173' '47D0E1500033.ms.model.script' // TvcmStringList
+ ;
+
+ENDME // ME_4ADC5A9102B2 
+
+ME ME_479731C50290_ME_4ADC55470317
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4ADC55470317 Cleanup
+
+ME ME_4ADC55470317
+ MEPROP UID '4ADC55470317'
+ MEPROP Name 'TnsUniqueName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'класс позволяющий получать уникальные имена в списке благодаря добавлению в конце повторяющихся слов значение счетчика повторения. Например Слово, Слово (1), Слово (2) и т.д' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4ADC560A0041 // MakeName
+ HWL ME_4ADC55A200AD // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4ADC55470317 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADC5A9102B2 // TvcmStringList
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UniqueName'
+
+ENDME // ME_4ADC55470317 TnsUniqueName
+
+ME ME_4ADC531F03B4
+ MEPROP UID '4ADC531F03B4'
+ MEPROP Name 'Root'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Root дерева окон. Загружается при первом обращении' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4ADC531F03B4 Root
+
+FORWARD ME_4ADC538702FA
+
+FORWARD ME_4ADC53F6039C
+
+ME ME_4ADC53FC01B1
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4ADC53FC01B1 aName
+
+ME ME_4ADC53F6039C
+ MEPROP UID '4ADC53F6039C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC538702FA // CheckLength
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADC53FC01B1 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_4ADC53F6039C DoIt
+
+ME ME_4ADC587D0000
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC538702FA // CheckLength
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4ADC587D0000 
+
+ME ME_4ADC538702FA
+ MEPROP UID '4ADC538702FA'
+ MEPROP Name 'CheckLength'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'проверяет не выходит ли размер имени за допустимые пределы и корректирует при необходимости' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ADC53F6039C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4ADC587D0000 // l3String
+ )
+ ; // Dependencies
+
+ENDME // ME_4ADC538702FA CheckLength
+
+FORWARD ME_4ADC54290390
+
+ME ME_5273A25A0018
+ MEPROP UID '5273A25A0018'
+ MEPROP Name 'Window'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC54290390 // FindNode
+ ;
+ MELINK Target WL 'ME_4991A60F0247' '4ADDE3D70311.ms.model.script' // InsWindow
+ ;
+ UP "IsResult" False
+
+ENDME // ME_5273A25A0018 Window
+
+FORWARD ME_4ADC5447034A
+
+ME ME_4ADC544E0216
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADC544E0216 aForm
+
+ME ME_4ADC5447034A
+ MEPROP UID '4ADC5447034A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC54290390 // FindNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADC544E0216 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4ADC5447034A DoIt
+
+ME ME_4ADC54290390
+ MEPROP UID '4ADC54290390'
+ MEPROP Name 'FindNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'возвращает Il3Node для формы aForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5273A25A0018 // Window
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADC5447034A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4ADC54290390 FindNode
+
+FORWARD ME_4ADC5467036A
+
+ME ME_5273A26800B0
+ MEPROP UID '5273A26800B0'
+ MEPROP Name 'Node'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC5467036A // Remove
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "IsResult" False
+
+ENDME // ME_5273A26800B0 Node
+
+FORWARD ME_4ADC547F0057
+
+ME ME_4ADC5486004D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADC5486004D aForm
+
+ME ME_4ADC547F0057
+ MEPROP UID '4ADC547F0057'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5467036A // Remove
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADC5486004D // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4ADC547F0057 DoIt
+
+ME ME_4ADC5467036A
+ MEPROP UID '4ADC5467036A'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'удаляет форму из списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5273A26800B0 // Node
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADC547F0057 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4ADC5467036A Remove
+
+FORWARD ME_4ADC54070106
+
+ME ME_521B85F003B3
+ MEPROP UID '521B85F003B3'
+ MEPROP Name 'Unique'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+ MELINK Target HWL ME_4ADC55470317 // TnsUniqueName
+ ;
+ UP "IsResult" False
+
+ENDME // ME_521B85F003B3 Unique
+
+ME ME_521B86030289
+ MEPROP UID '521B86030289'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_521B86030289 Index
+
+ME ME_53C8D57200EF
+ MEPROP UID '53C8D57200EF'
+ MEPROP Name 'MainForm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+ UP "IsResult" False
+
+ENDME // ME_53C8D57200EF MainForm
+
+ME ME_4ADC541700E2
+ MEPROP UID '4ADC541700E2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+
+ENDME // ME_4ADC541700E2 DoIt
+
+ME ME_4ADC552F01C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+ MELINK Target WL 'ME_4A573D2F00C6' '47E246C90144.ms.model.script' // Tl3PlaceNode
+ ;
+
+ENDME // ME_4ADC552F01C2 
+
+ME ME_4ADC59040194
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4ADC59040194 
+
+ME ME_4ADC5D3C0016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_4ADC5D3C0016 
+
+FORWARD ME_4ADC5E7C0264
+
+ME ME_4ADC5E9A0356
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC54070106 // Reload
+ ;
+ MELINK Target HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+
+ENDME // ME_4ADC5E9A0356 
+
+ME ME_4ADC54070106
+ MEPROP UID '4ADC54070106'
+ MEPROP Name 'Reload'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перезагружает список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_521B85F003B3 // Unique
+ HWL ME_521B86030289 // Index
+ HWL ME_53C8D57200EF // MainForm
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADC541700E2 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4ADC552F01C2 // Tl3PlaceNode
+ ME_4ADC59040194 // FreeAndNil
+ ME_4ADC5D3C0016 // vcmDispatcher
+ ME_4ADC5E9A0356 // TnsWindowNode
+ )
+ ; // Dependencies
+
+ENDME // ME_4ADC54070106 Reload
+
+FORWARD ME_4ADC564B01E9
+
+FORWARD ME_4ADC566502B6
+
+ME ME_53C8CC0D00F8
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_53C8CC0D00F8 aForm
+
+ME ME_4ADC566502B6
+ MEPROP UID '4ADC566502B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC564B01E9 // nsGetWindowCaption
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C8CC0D00F8 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4ADC566502B6 DoIt
+
+ME ME_4ADC5CDD0021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC564B01E9 // nsGetWindowCaption
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4ADC5CDD0021 
+
+ME ME_4ADC564B01E9
+ MEPROP UID '4ADC564B01E9'
+ MEPROP Name 'nsGetWindowCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'отрезает префикс оставляю только информацию о текущем контенте, а именно _caption формы находящейся в Parent зоне главной формы' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ADC566502B6 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4ADC5CDD0021 // Ext Chars
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'GetWindowCaption'
+
+ENDME // ME_4ADC564B01E9 nsGetWindowCaption
+
+ME ME_53C8CCD402AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_53C8CCD402AA 
+
+ME ME_53C8D052039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELINK Target WL 'ME_49525C7A0114' '4AADF9450143.ms.model.script' // TvcmMainForm
+ ;
+
+ENDME // ME_53C8D052039A 
+
+ME ME_53C901890292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC5146016D // TnsWindowsListPrim
+ ;
+ MELINK Target WL 'ME_537AEB96006C' '533D53FF00C2.ms.model.script' // vcmTabbedContainerFormDispatcher
+ ;
+
+ENDME // ME_53C901890292 
+
+ME ME_53DF430F028E_ME_4ADC5146016D
+ MELINK Original WL 'ME_53DF430F028E' '533D53FF00C2.ms.model.script' // ContainersChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53DF430F028E_ME_4ADC5146016D ContainersChanged
+
+ME ME_479731C50290_ME_4ADC5146016D
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4ADC5146016D Cleanup
+
+ME ME_4ADC5146016D
+ MEPROP UID '4ADC5146016D'
+ MEPROP Name 'TnsWindowsListPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'класс управляющий списком окон' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6B421102FB // WindowsListSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ WL 'ME_53DF40230056' '533D53FF00C2.ms.model.script' // vcmTabbedContainersListener
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4ADC531F03B4 // Root
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADC538702FA // CheckLength
+ HWL ME_4ADC54290390 // FindNode
+ HWL ME_4ADC5467036A // Remove
+ HWL ME_4ADC54070106 // Reload
+ HWL ME_4ADC564B01E9 // nsGetWindowCaption
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53DF430F028E_ME_4ADC5146016D // ContainersChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4ADC5146016D // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4ADC55470317 // TnsUniqueName
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53C8CCD402AA // TvcmEntityForm
+ ME_53C8D052039A // TvcmMainForm
+ ME_53C901890292 // vcmTabbedContainerFormDispatcher
+ )
+ ; // Dependencies
+ UP "author" 'Морозов М.А.'
+ UP "finished" False
+ UP "no hands" True
+ UP "started" '2005/06/07 11:31:00'
+ UP extprop:pas:UnitName 'nsWindowsListPrim'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WindowsListPrim'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\NOT_FINISHED_nsWindowsListPrim.pas'
+
+ENDME // ME_4ADC5146016D TnsWindowsListPrim
+
+ME ME_4ADC5175035B
+ MEPROP UID '4ADC5175035B'
+ MEPROP Name 'TnsWindowsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'класс управляющий списком окон' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6B421102FB // WindowsListSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4ADC5146016D // TnsWindowsListPrim
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '19.10.2009 15:46'
+ UP extprop:pas:UnitName 'nsWindowsList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WindowsList'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\nsWindowsList.pas'
+
+ENDME // ME_4ADC5175035B TnsWindowsList
+
+ME ME_4ADDE3730390
+ MEPROP UID '4ADDE3730390'
+ MEPROP Name 'fForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADDE3730390 fForm
+
+FORWARD ME_4ADDE38A00B3
+
+ME ME_4ADDE39301CA
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADDE39301CA aForm
+
+ME ME_4ADDE39301E9
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4ADDE39301E9 aText
+
+ME ME_4ADDE38A00B3
+ MEPROP UID '4ADDE38A00B3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADDE39301CA // aForm
+ ME_4ADDE39301E9 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4ADDE38A00B3 Create
+
+FORWARD ME_4ADDE3980084
+
+ME ME_4ADDE3A60232
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4ADDE3A60232 aForm
+
+ME ME_4ADDE3A60263
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+
+ENDME // ME_4ADDE3A60263 aText
+
+ME ME_4ADDE3980084
+ MEPROP UID '4ADDE3980084'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ADDE3A60232 // aForm
+ ME_4ADDE3A60263 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4ADDE3980084 Make
+
+ME ME_4ADDE9750399
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ADC5E7C0264 // TnsWindowNode
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4ADDE9750399 
+
+ME ME_4991A633007F_ME_4ADC5E7C0264
+ MELINK Original WL 'ME_4991A633007F' '4ADDE3D70311.ms.model.script' // Form
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4991A633007F_ME_4ADC5E7C0264 Form
+
+ME ME_479731C50290_ME_4ADC5E7C0264
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4ADC5E7C0264 Cleanup
+
+ME ME_4ADC5E7C0264
+ MEPROP UID '4ADC5E7C0264'
+ MEPROP Name 'TnsWindowNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Нода используемая для построения дерева окон системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6B421102FB // WindowsListSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4ADDDF9B0101' '47E246C90144.ms.model.script' // Tl3UsualNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4991A60F0247' '4ADDE3D70311.ms.model.script' // InsWindow
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4ADDE3730390 // fForm
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADDE38A00B3 // Create
+ HWL ME_4ADDE3980084 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4991A633007F_ME_4ADC5E7C0264 // Form
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4ADC5E7C0264 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ADDE9750399 // l3String
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '20.10.2009 21:05'
+ UP extprop:pas:UnitName 'nsWindowNode'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WindowNode'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\UserInteraction\nsWindowNode.pas'
+
+ENDME // ME_4ADC5E7C0264 TnsWindowNode
+
+ME ME_4F6B421102FB
+ MEPROP UID '4F6B421102FB'
+ MEPROP Name 'WindowsListSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4954C0500033' '4954C0500033.ms.model.script' // UserInteraction
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ADC5146016D // TnsWindowsListPrim
+ HWL ME_4ADC5175035B // TnsWindowsList
+ HWL ME_4ADC5E7C0264 // TnsWindowNode
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467BAB7F021E' '467BAB7F021E.ms.model.script' // vcmExternalInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ WL 'ME_476BE98C01B8' '476BE98C01B8.ms.model.script' // l3Chars
+ WL 'ME_476BF10A0280' '476BF10A0280.ms.model.script' // l3Tree_TLB
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
+ WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4ADDE3D70311' '4ADDE3D70311.ms.model.script' // OfficeLikeAppInterfaces
+ WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ )
+ ; // Depends
+
+ENDME // ME_4F6B421102FB WindowsListSupport

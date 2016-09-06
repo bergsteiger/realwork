@@ -29,6 +29,8 @@ uses
  l3ImplUses
  , SysUtils
  , myReferenceCountGuard
+ //#UC START# *516D58890258impl_uses*
+ //#UC END# *516D58890258impl_uses*
 ;
 
 procedure TmyReferenceCountGuardTest.DoIt;

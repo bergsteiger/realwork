@@ -1,0 +1,73 @@
+// TafwCustomCommonControl 48BBE37E00A2 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BBE37E00A2
+
+ME ME_48BBE3AD0304
+ MEPROP UID '48BBE3AD0304'
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+ MELINK Target WL 'ME_46A46A030333' '556F09AA036E.ms.model.script' // TCanvas
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_48BBE3AD0304 Canvas
+
+ME ME_48BBE3C40283
+ MEPROP UID '48BBE3C40283'
+ MEPROP Name 'Paint'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48BBE37E00A2 // TafwCustomCommonControl
+ ;
+
+ENDME // ME_48BBE3C40283 Paint
+
+ME ME_48BBE38D0061_ME_48BBE37E00A2
+ MELINK Original WL 'ME_48BBE38D0061' '48BBE35E039F.ms.model.script' // DoPaint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48BBE38D0061_ME_48BBE37E00A2 DoPaint
+
+ME ME_48BBE37E00A2
+ MEPROP UID '48BBE37E00A2'
+ MEPROP Name 'TafwCustomCommonControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48BBE35E039F' '48BBE35E039F.ms.model.script' // TafwCustomCommonControlPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48BBE3AD0304 // Canvas
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48BBE3C40283 // Paint
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48BBE38D0061_ME_48BBE37E00A2 // DoPaint
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'afwCustomCommonControl'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwCustomCommonControl'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwCustomCommonControl.pas'
+
+ENDME // ME_48BBE37E00A2 TafwCustomCommonControl

@@ -1,0 +1,194 @@
+// Frames 4F8D7381019D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F8D7381019D
+
+FORWARD ME_4F8D739701F7
+
+ME ME_4F8D73AD0139
+ MEPROP UID '4F8D73AD0139'
+ MEPROP Name 'TDocumentList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D739701F7 // F_DocList
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentList'
+
+ENDME // ME_4F8D73AD0139 TDocumentList
+
+ME ME_4F8D739701F7
+ MEPROP UID '4F8D739701F7'
+ MEPROP Name 'F_DocList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8D7381019D // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D73AD0139 // TDocumentList
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_DocList.pas'
+
+ENDME // ME_4F8D739701F7 F_DocList
+
+FORWARD ME_4F8D7830015D
+
+ME ME_4F8D783E00FC
+ MEPROP UID '4F8D783E00FC'
+ MEPROP Name 'TTextEditorWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D7830015D // F_TextEditor
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextEditorWin'
+
+ENDME // ME_4F8D783E00FC TTextEditorWin
+
+ME ME_4F8D7830015D
+ MEPROP UID '4F8D7830015D'
+ MEPROP Name 'F_TextEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8D7381019D // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D783E00FC // TTextEditorWin
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_TextEditor.pas'
+
+ENDME // ME_4F8D7830015D F_TextEditor
+
+FORWARD ME_4F8D785201A4
+
+FORWARD ME_4F8D787901C4
+
+ME ME_54F57F450294
+ MEPROP UID '54F57F450294'
+ MEPROP Name 'PageView'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F8D787901C4 // TfrmImgViewer
+ ;
+ MELINK Target WL 'ME_4ACDBC6101A6' '4ACDBC26003C.ms.model.script' // TImageEnView
+ ;
+
+ENDME // ME_54F57F450294 PageView
+
+ME ME_4F8D787901C4
+ MEPROP UID '4F8D787901C4'
+ MEPROP Name 'TfrmImgViewer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D785201A4 // F_ImageView
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54F57F450294 // PageView
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'frmImgViewer'
+
+ENDME // ME_4F8D787901C4 TfrmImgViewer
+
+ME ME_4F8D785201A4
+ MEPROP UID '4F8D785201A4'
+ MEPROP Name 'F_ImageView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фрейм для просмотра многостраничных TIFF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8D7381019D // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D787901C4 // TfrmImgViewer
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_ImageView.pas'
+
+ENDME // ME_4F8D785201A4 F_ImageView
+
+FORWARD ME_528A0B83039C
+
+ME ME_528A0B9E02C7
+ MEPROP UID '528A0B9E02C7'
+ MEPROP Name 'TAttrExplorer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528A0B83039C // F_AttrExplorer
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AttrExplorer'
+
+ENDME // ME_528A0B9E02C7 TAttrExplorer
+
+ME ME_528A0B83039C
+ MEPROP UID '528A0B83039C'
+ MEPROP Name 'F_AttrExplorer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8D7381019D // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_528A0B9E02C7 // TAttrExplorer
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_AttrExplorer.pas'
+
+ENDME // ME_528A0B83039C F_AttrExplorer
+
+ME ME_4F8D7381019D
+ MEPROP UID '4F8D7381019D'
+ MEPROP Name 'Frames'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F8D735200EE' '4F8D735200EE.ms.model.script' // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D739701F7 // F_DocList
+ HWL ME_4F8D7830015D // F_TextEditor
+ HWL ME_4F8D785201A4 // F_ImageView
+ HWL ME_528A0B83039C // F_AttrExplorer
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4ACDBC26003C' '4ACDBC26003C.ms.model.script' // Source
+ )
+ ; // Depends
+
+ENDME // ME_4F8D7381019D Frames

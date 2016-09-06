@@ -1,0 +1,38 @@
+// VCMSandBoxTest 523024100274 VCMTestApplication Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4F79BCC902C5_ME_523024100274
+ MELINK Original WL 'ME_4F79BCC902C5' '51309A4A02FB.ms.model.script' // CalcBatchMode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDME // ME_4F79BCC902C5_ME_523024100274 CalcBatchMode
+
+ME ME_523024100274
+ MEPROP UID '523024100274'
+ MEPROP Name 'VCMSandBoxTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMTestApplication ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_523023C2008D' '523023C2008D.ms.model.script' // VCMSandBox
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F79CD9F015F' '4F79CD2603DF.ms.model.script' // VCMAppTester
+ WL 'ME_521649770277' '521649770277.ms.model.script' // VCMSandBox
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4F79BCC902C5_ME_523024100274 // CalcBatchMode
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName 'TVCMSandBoxTestRes'
+ UP extprop:pas:UnitName 'VCMSandBoxTestRes'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'VCMSandBoxTestRes'
+ UP intf.pas:Path 'common\components\SandBox\VCM\VCMSandBoxTestRes.pas'
+
+ENDME // ME_523024100274 VCMSandBoxTest

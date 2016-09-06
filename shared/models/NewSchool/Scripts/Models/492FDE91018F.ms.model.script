@@ -1,0 +1,85 @@
+// TdsNewsLine 492FDE91018F ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492FDE91018F
+
+ME ME_492FE27F0348
+ MEPROP UID '492FE27F0348'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492FDE91018F // TdsNewsLine
+ ;
+ MELINK Target WL 'ME_492FDE16013B' '492F0586030C.ms.model.script' // IdsNewsLine
+ ;
+
+ENDME // ME_492FE27F0348 FormDataSourceType
+
+ME ME_552F96310012
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FDE91018F // TdsNewsLine
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_552F96310012 
+
+ME ME_479731C50290_ME_492FDE91018F
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_492FDE91018F Cleanup
+
+ME ME_55097FF5008E_ME_492FDE91018F
+ MELINK Original WL 'ME_55097FF5008E' '47D0E1500033.ms.model.script' // GetIsDataAvailable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55097FF5008E_ME_492FDE91018F GetIsDataAvailable
+
+ME ME_492FDE91018F
+ MEPROP UID '492FDE91018F'
+ MEPROP Name 'TdsNewsLine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Новостная лента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491C3ADB03A5' '491C3ADB03A5.ms.model.script' // Autoreferat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492FDE16013B' '492F0586030C.ms.model.script' // IdsNewsLine
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_492FE27F0348 // FormDataSourceType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_492FDE91018F // Cleanup
+ ME_55097FF5008E_ME_492FDE91018F // GetIsDataAvailable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_552F96310012 // DataAdapter
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '28.11.2008 15:06'
+ UP extprop:pas:UnitName 'dsNewsLine'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsNewsLine'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Autoreferat\dsNewsLine.pas'
+
+ENDME // ME_492FDE91018F TdsNewsLine

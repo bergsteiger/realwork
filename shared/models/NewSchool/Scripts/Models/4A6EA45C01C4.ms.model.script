@@ -1,0 +1,166 @@
+// BaseHistoryWindow 4A6EA45C01C4 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A6EA45C01C4
+
+ME ME_4BD5B8B90175
+ MEPROP UID '4BD5B8B90175'
+ MEPROP Name 'utChatHistory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'История переписки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
+ ;
+ UP "ImageIndex" 197
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'BaseHistoryWindow_utChatHistory_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseHistoryWindow_utChatHistory_UserType.pas'
+
+ENDME // ME_4BD5B8B90175 utChatHistory
+
+ME ME_4A6ED19903DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4A6ED19903DA 
+
+ME ME_4A82A1E50079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4A82A1E50079 
+
+ME ME_4A8ADC2A0027
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
+ ;
+ MELINK Target WL 'ME_4A66DDC1023C' '4A66DD3C01E8.ms.model.script' // InsChatMessages
+ ;
+
+ENDME // ME_4A8ADC2A0027 
+
+ME ME_4A8ADC380080
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A8ADC380080 
+
+ME ME_4A8ADFD70221
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
+ ;
+ MELINK Target WL 'ME_4A8ADF9E0058' '47D0E1500033.ms.model.script' // vcmFmt
+ ;
+
+ENDME // ME_4A8ADFD70221 
+
+ME ME_5796077A02C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6EA45C01C4 // BaseHistoryWindow
+ ;
+ MELINK Target WL 'ME_5795D6DC01F8' '5795D66F0385.ms.model.script' // TChatService
+ ;
+
+ENDME // ME_5796077A02C5 
+
+ME ME_4A6EA5EA00CD_ME_4A6EA45C01C4
+ MELINK Original WL 'ME_4A6EA5EA00CD' '4A6EA4310035.ms.model.script' // RegisterInDispatcher
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EA5EA00CD_ME_4A6EA45C01C4 RegisterInDispatcher
+
+ME ME_4A6EA6000339_ME_4A6EA45C01C4
+ MELINK Original WL 'ME_4A6EA6000339' '4A6EA4310035.ms.model.script' // UnRegisterInDispatcher
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A6EA6000339_ME_4A6EA45C01C4 UnRegisterInDispatcher
+
+ME ME_4A8AE24D003F_ME_4A6EA45C01C4
+ MELINK Original WL 'ME_4A8AE24D003F' '4A8AE21B0210.ms.model.script' // ClearHistory
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4A8AE24D003F_ME_4A6EA45C01C4 ClearHistory
+
+ME ME_4A6EA45C01C4
+ MEPROP UID '4A6EA45C01C4'
+ MEPROP Name 'BaseHistoryWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'История переписки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A66D6BF0190' '4A66D6BF0190.ms.model.script' // Chat
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A6EA4310035' '4A6EA4310035.ms.model.script' // AbstractHistory
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A6EA4E900C3' '4A66DD3C01E8.ms.model.script' // IbsChatHistoryWindow
+ WL 'ME_4A8AE2340069' '4A8AE21B0210.ms.model.script' // Chat
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4A6EA5EA00CD_ME_4A6EA45C01C4 // RegisterInDispatcher
+ ME_4A6EA6000339_ME_4A6EA45C01C4 // UnRegisterInDispatcher
+ ME_4A8AE24D003F_ME_4A6EA45C01C4 // ClearHistory
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4BD5B8B90175 // utChatHistory
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A6ED19903DA // Windows
+ ME_4A82A1E50079 // StdRes
+ ME_4A8ADC2A0027 // InsChatMessages
+ ME_4A8ADC380080 // SysUtils
+ ME_4A8ADFD70221 // vcmFmt
+ ME_5796077A02C5 // TChatService
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TBaseHistoryWindowForm'
+ UP extprop:pas:UnitName 'BaseHistoryWindow_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BaseHistoryWindowForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms\BaseHistoryWindow_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Chat\Forms'
+
+ENDME // ME_4A6EA45C01C4 BaseHistoryWindow

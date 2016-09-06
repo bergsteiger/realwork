@@ -31,6 +31,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *51E80B08039Eimpl_uses*
+ //#UC END# *51E80B08039Eimpl_uses*
 ;
 
 {$Include w:\common\components\SandBox\ListTest.imp.pas}

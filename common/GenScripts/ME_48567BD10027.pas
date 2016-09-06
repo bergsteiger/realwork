@@ -42,6 +42,8 @@ uses
  {$If Defined(evNeedHotSpot)}
  , evSectionBreakHotSpot
  {$IfEnd} // Defined(evNeedHotSpot)
+ //#UC START# *48567BD10027impl_uses*
+ //#UC END# *48567BD10027impl_uses*
 ;
 
 function TevSectionBreakInterfaceFactory.COMQueryTool(aTag: Tl3Tag;

@@ -1,0 +1,792 @@
+// TdsMedicFirmList 49257BB801C7 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49257BB801C7
+
+ME ME_49257C640167
+ MEPROP UID '49257C640167'
+ MEPROP Name 'f_CurrentCountryFilter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_49257C640167 f_CurrentCountryFilter
+
+ME ME_49257CA403E1
+ MEPROP UID '49257CA403E1'
+ MEPROP Name 'Current'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_49257CA403E1 Current
+
+ME ME_49257CBE0279
+ MEPROP UID '49257CBE0279'
+ MEPROP Name 'f_CountryFilterTree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_49257CBE0279 f_CountryFilterTree
+
+ME ME_49257D6C02A5
+ MEPROP UID '49257D6C02A5'
+ MEPROP Name 'ShortName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_49257D6C02A5 ShortName
+
+ME ME_492D61EC01C5
+ MEPROP UID '492D61EC01C5'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_561F628C0396' '491D7C9603B2.ms.model.script' // IdeMedicFirmList
+ ;
+
+ENDME // ME_492D61EC01C5 InitDataType
+
+ME ME_4979B65B0279
+ MEPROP UID '4979B65B0279'
+ MEPROP Name 'BaseDocument'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47EA0F8D010D' '491B305A0096.ms.model.script' // IsdsBaseDocument
+ ;
+
+ENDME // ME_4979B65B0279 BaseDocument
+
+FORWARD ME_49257D0D020D
+
+ME ME_49257D1B00DA
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_49257D1B00DA aTree
+
+ME ME_49257D0D020D
+ MEPROP UID '49257D0D020D'
+ MEPROP Name 'MakePreview'
+ MEPROP Class class_Operation
+ %SUMMARY 'формирует preview для списка' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_473D8DF50230' '467823B7002C.ms.model.script' // IafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_49257D1B00DA // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_49257D0D020D MakePreview
+
+FORWARD ME_49257D2E030B
+
+ME ME_49257D3B006A
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+
+ENDME // ME_49257D3B006A aTree
+
+ME ME_49257D2E030B
+ MEPROP UID '49257D2E030B'
+ MEPROP Name 'MakeMultiDocumentPreview'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создать превью с текстами документов' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_473D8DF50230' '467823B7002C.ms.model.script' // IafwComplexDocumentPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_49257D3B006A // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_49257D2E030B MakeMultiDocumentPreview
+
+ME ME_49257D9201BF
+ MEPROP UID '49257D9201BF'
+ MEPROP Name 'CreateBookmark'
+ MEPROP Class class_Operation
+ %SUMMARY 'создать закладку для текущего документа' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_45EEB65202A0' '4570511E038A.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_49257D9201BF CreateBookmark
+
+FORWARD ME_4925898100FE
+
+ME ME_4925898C00B1
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4925898C00B1 aNode
+
+ME ME_4925898100FE
+ MEPROP UID '4925898100FE'
+ MEPROP Name 'ChangeCurrent'
+ MEPROP Class class_Operation
+ %SUMMARY 'текущий поменялся' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4925898C00B1 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4925898100FE ChangeCurrent
+
+FORWARD ME_57CD3B970117
+
+ME ME_57CD3D150352
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_57CD3D150352 aNode
+
+ME ME_57CD3D1503A0
+ MEPROP Name 'aForce'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_57CD3D1503A0 aForce
+
+ME ME_57CD3B970117
+ MEPROP UID '57CD3B970117'
+ MEPROP Name 'DoOnCurrentFirmChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CD3D150352 // aNode
+ ME_57CD3D1503A0 // aForce
+ )
+ ; // Parameters
+
+ENDME // ME_57CD3B970117 DoOnCurrentFirmChanged
+
+ME ME_49257F840026
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_49257F840026 
+
+ME ME_49257F920072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49257F920072 
+
+ME ME_49257FB103D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_49257FB103D8 
+
+ME ME_49257FE6003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47DF8F0402F7' '474144E20301.ms.model.script' // TafwComplexDocumentPreview
+ ;
+
+ENDME // ME_49257FE6003B 
+
+ME ME_4925802002F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F22D5701A7' '491DCA2C00A9.ms.model.script' // TnsDocumentPreview
+ ;
+
+ENDME // ME_4925802002F7 
+
+ME ME_4925803D02B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F2317F015E' '491DCA2C00A9.ms.model.script' // TnsHAFPainter
+ ;
+
+ENDME // ME_4925803D02B8 
+
+ME ME_4925807202DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_48F8A8480224' '4802FF41005C.ms.model.script' // TevTreeStorable
+ ;
+
+ENDME // ME_4925807202DC 
+
+ME ME_492580C90106
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_4892DA33009F' '47F260DC003F.ms.model.script' // TnsTreeMultiDocumentPreviewContainer
+ ;
+
+ENDME // ME_492580C90106 
+
+ME ME_492581030336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F61C4C0040' '47F260DC003F.ms.model.script' // nsDocumentTools
+ ;
+
+ENDME // ME_492581030336 
+
+ME ME_492581BA00D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_48901E0000F7' '47F260DC003F.ms.model.script' // TnsSuperComplexDocumentPreview
+ ;
+
+ENDME // ME_492581BA00D3 
+
+ME ME_492582070176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F9D43A03A7' '47F22C7501F6.ms.model.script' // TnsDocumentStreamWrapper
+ ;
+
+ENDME // ME_492582070176 
+
+ME ME_4925828F00D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_49071797031F' '4901F07D039B.ms.model.script' // TnsMedicFirmsTree
+ ;
+
+ENDME // ME_4925828F00D7 
+
+ME ME_492583690392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47AC7BD90281' '47AC7B760263.ms.model.script' // Tag Consts
+ ;
+
+ENDME // ME_492583690392 
+
+ME ME_4925855A020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_491B32C1015D' '47F2170002B2.ms.model.script' // TDocumentPositionType
+ ;
+
+ENDME // ME_4925855A020F 
+
+ME ME_492585A8028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_4901F13D034E' '4901F07D039B.ms.model.script' // TnsCountryFilter
+ ;
+
+ENDME // ME_492585A8028C 
+
+ME ME_492586E6004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_492586E6004D 
+
+ME ME_4925871A0122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4925871A0122 
+
+ME ME_492587550180
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.ms.model.script' // nsExternalObjectPrim
+ ;
+
+ENDME // ME_492587550180 
+
+ME ME_49258792008F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47F25741021C' '47E246C90144.ms.model.script' // l3Nodes
+ ;
+
+ENDME // ME_49258792008F 
+
+ME ME_4925890E03D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4925890E03D6 
+
+ME ME_4925893903C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_47E8DE4300AE' '47E8DDB10253.ms.model.script' // PharmFirmListEntry
+ ;
+
+ENDME // ME_4925893903C1 
+
+ME ME_492589DC00D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.ms.model.script' // TdeDocInfo
+ ;
+
+ENDME // ME_492589DC00D5 
+
+ME ME_49258B2603A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_49071DD902DC' '4901F07D039B.ms.model.script' // TnsMedicFirmsCountryFilterTree
+ ;
+
+ENDME // ME_49258B2603A0 
+
+ME ME_49258B920184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_49258B760225' '4C6ABB3201AC.ms.model.script' // TbsMedicFirmNodeContainer
+ ;
+
+ENDME // ME_49258B920184 
+
+ME ME_494FA92903BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_494F75DF001B' '4678209200A6.ms.model.script' // TevPreviewCacheKey
+ ;
+
+ENDME // ME_494FA92903BA 
+
+ME ME_495878DA00A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_495878B40393' '491DCA2C00A9.ms.model.script' // TnsFixedHAFMacroReplacer
+ ;
+
+ENDME // ME_495878DA00A8 
+
+ME ME_49587B0003BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_4954878B03CF' '47EA968D0155.ms.model.script' // TevFormatHAFMacroReplacer
+ ;
+
+ENDME // ME_49587B0003BD 
+
+ME ME_495889E70271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_4954A76E0274' '467823B7002C.ms.model.script' // IafwHAFMacroReplacer
+ ;
+
+ENDME // ME_495889E70271 
+
+ME ME_49902B320025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_49901B7F0265' '4990135D02F1.ms.model.script' // TFoldersElementType
+ ;
+
+ENDME // ME_49902B320025 
+
+ME ME_4BA39FB30131
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_4BA232B402FF' '491DCA2C00A9.ms.model.script' // TnsFolderFilterInfo
+ ;
+
+ENDME // ME_4BA39FB30131 
+
+ME ME_55A388560126
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_55A387E502D7' '4F4B8FA60272.ms.model.script' // TnsDocumentStreamList
+ ;
+
+ENDME // ME_55A388560126 
+
+ME ME_55EEEA23030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_55EEEA23030D 
+
+ME ME_561F8D780286
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_561F6D380330' '491D7CDC0221.ms.model.script' // TdeMedicFirmList
+ ;
+
+ENDME // ME_561F8D780286 
+
+ME ME_579785B70302
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49257BB801C7 // TdsMedicFirmList
+ ;
+ MELINK Target WL 'ME_579764A6025C' '5795D66F0385.ms.model.script' // TFoldersService
+ ;
+
+ENDME // ME_579785B70302 
+
+ME ME_47F4C2B9014A_ME_49257BB801C7
+ MELINK Original WL 'ME_47F4C2B9014A' '47F0C1410011.ms.model.script' // MakeSimpleTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F4C2B9014A_ME_49257BB801C7 MakeSimpleTree
+
+ME ME_49071AF00132_ME_49257BB801C7
+ MELINK Original WL 'ME_49071AF00132' '47ECAAF901F8.ms.model.script' // CountryFilterResetted
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49071AF00132_ME_49257BB801C7 CountryFilterResetted
+
+ME ME_492576530326_ME_49257BB801C7
+ MELINK Original WL 'ME_492576530326' '491D7C9603B2.ms.model.script' // FiltrateByCountry
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492576530326_ME_49257BB801C7 FiltrateByCountry
+
+ME ME_492576D90012_ME_49257BB801C7
+ MELINK Original WL 'ME_492576D90012' '491D7C9603B2.ms.model.script' // MakeNewDocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492576D90012_ME_49257BB801C7 MakeNewDocInfo
+
+ME ME_492576E30362_ME_49257BB801C7
+ MELINK Original WL 'ME_492576E30362' '491D7C9603B2.ms.model.script' // AddBookmark
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492576E30362_ME_49257BB801C7 AddBookmark
+
+ME ME_492576F500F5_ME_49257BB801C7
+ MELINK Original WL 'ME_492576F500F5' '491D7C9603B2.ms.model.script' // GetNodeID
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492576F500F5_ME_49257BB801C7 GetNodeID
+
+ME ME_492577250399_ME_49257BB801C7
+ MELINK Original WL 'ME_492577250399' '491D7C9603B2.ms.model.script' // MakeSuperPreview
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492577250399_ME_49257BB801C7 MakeSuperPreview
+
+ME ME_4925777F003A_ME_49257BB801C7
+ MELINK Original WL 'ME_4925777F003A' '491D7C9603B2.ms.model.script' // FullName
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925777F003A_ME_49257BB801C7 FullName
+
+ME ME_4925778D0078_ME_49257BB801C7
+ MELINK Original WL 'ME_4925778D0078' '491D7C9603B2.ms.model.script' // ExportDocuments
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925778D0078_ME_49257BB801C7 ExportDocuments
+
+ME ME_492577CF0184_ME_49257BB801C7
+ MELINK Original WL 'ME_492577CF0184' '491D7C9603B2.ms.model.script' // MergeDocuments
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492577CF0184_ME_49257BB801C7 MergeDocuments
+
+ME ME_4925780600F0_ME_49257BB801C7
+ MELINK Original WL 'ME_4925780600F0' '491D7C9603B2.ms.model.script' // CurrentCountryFilter
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4925780600F0_ME_49257BB801C7 CurrentCountryFilter
+
+ME ME_4925786801D6_ME_49257BB801C7
+ MELINK Original WL 'ME_4925786801D6' '491D7C9603B2.ms.model.script' // CountryFilterTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4925786801D6_ME_49257BB801C7 CountryFilterTree
+
+ME ME_479731C50290_ME_49257BB801C7
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_49257BB801C7 Cleanup
+
+ME ME_47EA4E9002C6_ME_49257BB801C7
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA4E9002C6_ME_49257BB801C7 FinishDataUpdate
+
+ME ME_47F0C1BF0314_ME_49257BB801C7
+ MELINK Original WL 'ME_47F0C1BF0314' '47F0C1410011.ms.model.script' // DoCurrentChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F0C1BF0314_ME_49257BB801C7 DoCurrentChanged
+
+ME ME_492BF7900310_ME_49257BB801C7
+ MELINK Original WL 'ME_492BF7900310' '47D0E1500033.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_492BF7900310_ME_49257BB801C7 DoInit
+
+ME ME_55097FF5008E_ME_49257BB801C7
+ MELINK Original WL 'ME_55097FF5008E' '47D0E1500033.ms.model.script' // GetIsDataAvailable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55097FF5008E_ME_49257BB801C7 GetIsDataAvailable
+
+ME ME_49257BB801C7
+ MEPROP UID '49257BB801C7'
+ MEPROP Name 'TdsMedicFirmList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список фирм-производителей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47EA4BEF0140' '47EA4BB502F9.ms.model.script' // afwApplicationDataUpdate
+ WL 'ME_49071AE3035B' '47ECAAF901F8.ms.model.script' // InsMedicFirmsTreeNotifyRecipient
+ WL 'ME_4925763002E7' '491D7C9603B2.ms.model.script' // IdsMedicFirmList
+ WL 'ME_492D91B7037E' '47F282AE0082.ms.model.script' // nsContextFilter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49257C640167 // f_CurrentCountryFilter
+ HWL ME_49257CA403E1 // Current
+ HWL ME_49257CBE0279 // f_CountryFilterTree
+ HWL ME_49257D6C02A5 // ShortName
+ HWL ME_492D61EC01C5 // InitDataType
+ HWL ME_4979B65B0279 // BaseDocument
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49257D0D020D // MakePreview
+ HWL ME_49257D2E030B // MakeMultiDocumentPreview
+ HWL ME_49257D9201BF // CreateBookmark
+ HWL ME_4925898100FE // ChangeCurrent
+ HWL ME_57CD3B970117 // DoOnCurrentFirmChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47F4C2B9014A_ME_49257BB801C7 // MakeSimpleTree
+ ME_49071AF00132_ME_49257BB801C7 // CountryFilterResetted
+ ME_492576530326_ME_49257BB801C7 // FiltrateByCountry
+ ME_492576D90012_ME_49257BB801C7 // MakeNewDocInfo
+ ME_492576E30362_ME_49257BB801C7 // AddBookmark
+ ME_492576F500F5_ME_49257BB801C7 // GetNodeID
+ ME_492577250399_ME_49257BB801C7 // MakeSuperPreview
+ ME_4925777F003A_ME_49257BB801C7 // FullName
+ ME_4925778D0078_ME_49257BB801C7 // ExportDocuments
+ ME_492577CF0184_ME_49257BB801C7 // MergeDocuments
+ ME_4925780600F0_ME_49257BB801C7 // CurrentCountryFilter
+ ME_4925786801D6_ME_49257BB801C7 // CountryFilterTree
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49257BB801C7 // Cleanup
+ ME_47EA4E9002C6_ME_49257BB801C7 // FinishDataUpdate
+ ME_47F0C1BF0314_ME_49257BB801C7 // DoCurrentChanged
+ ME_492BF7900310_ME_49257BB801C7 // DoInit
+ ME_55097FF5008E_ME_49257BB801C7 // GetIsDataAvailable
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49257F840026 // vcmBase
+ ME_49257F920072 // SysUtils
+ ME_49257FB103D8 // StdRes
+ ME_49257FE6003B // TafwComplexDocumentPreview
+ ME_4925802002F7 // TnsDocumentPreview
+ ME_4925803D02B8 // TnsHAFPainter
+ ME_4925807202DC // TevTreeStorable
+ ME_492580C90106 // TnsTreeMultiDocumentPreviewContainer
+ ME_492581030336 // nsDocumentTools
+ ME_492581BA00D3 // TnsSuperComplexDocumentPreview
+ ME_492582070176 // TnsDocumentStreamWrapper
+ ME_4925828F00D7 // TnsMedicFirmsTree
+ ME_492583690392 // Tag Consts
+ ME_4925855A020F // TDocumentPositionType
+ ME_492585A8028C // TnsCountryFilter
+ ME_492586E6004D // bsUtils
+ ME_4925871A0122 // l3String
+ ME_492587550180 // nsExternalObjectPrim
+ ME_49258792008F // l3Nodes
+ ME_4925890E03D6 // EntityBase
+ ME_4925893903C1 // PharmFirmListEntry
+ ME_492589DC00D5 // TdeDocInfo
+ ME_49258B2603A0 // TnsMedicFirmsCountryFilterTree
+ ME_49258B920184 // TbsMedicFirmNodeContainer
+ ME_494FA92903BA // TevPreviewCacheKey
+ ME_495878DA00A8 // TnsFixedHAFMacroReplacer
+ ME_49587B0003BD // TevFormatHAFMacroReplacer
+ ME_495889E70271 // IafwHAFMacroReplacer
+ ME_49902B320025 // TFoldersElementType
+ ME_4BA39FB30131 // TnsFolderFilterInfo
+ ME_55A388560126 // TnsDocumentStreamList
+ ME_55EEEA23030D // DefDataAdapter
+ ME_561F8D780286 // TdeMedicFirmList
+ ME_579785B70302 // TFoldersService
+ )
+ ; // Dependencies
+ UP "author" 'Лукьянец Р.В.'
+ UP "no hands" True
+ UP "started" '2008/03/31 10:23:14'
+ UP extprop:pas:UnitName 'dsMedicFirmList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsMedicFirmList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dsMedicFirmList.pas'
+
+ENDME // ME_49257BB801C7 TdsMedicFirmList

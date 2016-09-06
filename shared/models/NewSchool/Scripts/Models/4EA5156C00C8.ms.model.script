@@ -1,0 +1,92 @@
+// FolderTestSupport 4EA5156C00C8 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4EA5156C00C8
+
+FORWARD ME_4EA515800122
+
+ME ME_4EA67C6503B7
+ MEPROP UID '4EA67C6503B7'
+ MEPROP Name 'f_DataFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4EA515800122 // TCustomFolderTestSuite
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_4EA67C6503B7 f_DataFolder
+
+ME ME_4DC38C96018E_ME_4EA515800122
+ MELINK Original WL 'ME_4DC38C96018E' '4B2A0D6A0077.ms.model.script' // AddTests
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DC38C96018E_ME_4EA515800122 AddTests
+
+ME ME_4EA50B95037D_ME_4EA515800122
+ MELINK Original WL 'ME_4EA50B95037D' '4DC246E40002.ms.model.script' // GetDataFolder
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4EA50B95037D_ME_4EA515800122 GetDataFolder
+
+ME ME_4EA50C04021B_ME_4EA515800122
+ MELINK Original WL 'ME_4EA50C04021B' '4DC246E40002.ms.model.script' // GetExt
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4EA50C04021B_ME_4EA515800122 GetExt
+
+ME ME_4EA515800122
+ MEPROP UID '4EA515800122'
+ MEPROP Name 'TCustomFolderTestSuite'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA5156C00C8 // FolderTestSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DC40A7E00C8' '4DC246E40002.ms.model.script' // TCustomAutoTestSuite
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4EA67C6503B7 // f_DataFolder
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4DC38C96018E_ME_4EA515800122 // AddTests
+ ME_4EA50B95037D_ME_4EA515800122 // GetDataFolder
+ ME_4EA50C04021B_ME_4EA515800122 // GetExt
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'CustomFolderTestSuite'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FolderTestSuite'
+ UP intf.pas:Path 'common\components\rtl\Garant\Abstract_Tests\CustomFolderTestSuite.pas'
+
+ENDME // ME_4EA515800122 TCustomFolderTestSuite
+
+ME ME_4EA5156C00C8
+ MEPROP UID '4EA5156C00C8'
+ MEPROP Name 'FolderTestSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4D02561D01C8' '4D02561D01C8.ms.model.script' // Abstract Tests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA515800122 // TCustomFolderTestSuite
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4DC246E40002' '4DC246E40002.ms.model.script' // AutoTests
+ )
+ ; // Depends
+
+ENDME // ME_4EA5156C00C8 FolderTestSupport

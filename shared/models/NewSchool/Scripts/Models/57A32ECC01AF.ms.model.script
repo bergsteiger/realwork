@@ -1,0 +1,637 @@
+// Services 57A32ECC01AF VCMContracts Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57A32ECC01AF
+
+FORWARD ME_4A93A9E3002E
+
+ME ME_4A93AA050181
+ MEPROP UID '4A93AA050181'
+ MEPROP Name 'wkShutDown'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93A9E3002E // TShutdownWarningKind
+ ;
+
+ENDME // ME_4A93AA050181 wkShutDown
+
+ME ME_4A93AA0B00C4
+ MEPROP UID '4A93AA0B00C4'
+ MEPROP Name 'wkLogout'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A93A9E3002E // TShutdownWarningKind
+ ;
+
+ENDME // ME_4A93AA0B00C4 wkLogout
+
+ME ME_4A93A9E3002E
+ MEPROP UID '4A93A9E3002E'
+ MEPROP Name 'TShutdownWarningKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '[$159367978]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A32ECC01AF // Services
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A93AA050181 // wkShutDown
+ HWL ME_4A93AA0B00C4 // wkLogout
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4A93A9E3002E TShutdownWarningKind
+
+FORWARD ME_57A32F2F01B5
+
+FORWARD ME_D24864C60F14
+
+FORWARD ME_4A93DE1B0371
+
+FORWARD ME_56D4E3EA08E8
+
+ME ME_67508AF8A2FA
+ MEPROP UID '67508AF8A2FA'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56D4E3EA08E8 // MakeUpdateMessage$4A93DE1B0371
+ ;
+
+ENDME // ME_67508AF8A2FA DoIt
+
+ME ME_56D4E3EA08E8
+ MEPROP UID '56D4E3EA08E8'
+ MEPROP Name 'MakeUpdateMessage'
+ MEPROP OriginalName 'MakeUpdateMessage$4A93DE1B0371'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создаёт окно с сообщением об обновлении базы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_D24864C60F14 // MLongProcessService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_67508AF8A2FA // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FormFactory'
+ UPLINK Speller HWL ME_4A93DE1B0371 // MakeUpdateMessage
+ ;
+
+ENDME // ME_56D4E3EA08E8 MakeUpdateMessage$4A93DE1B0371
+
+ME ME_D24864C60F14
+ MEPROP UID 'D24864C60F14'
+ MEPROP Name 'MLongProcessService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TLongProcessService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A32F2F01B5 // TLongProcessService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56D4E3EA08E8 // MakeUpdateMessage$4A93DE1B0371
+ )
+ ; // Operations
+
+ENDME // ME_D24864C60F14 MLongProcessService
+
+ME ME_4A93DE4A023D
+ MEPROP UID '4A93DE4A023D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93DE1B0371 // MakeUpdateMessage
+ ;
+
+ENDME // ME_4A93DE4A023D DoIt
+
+ME ME_4A93DE1B0371
+ MEPROP UID '4A93DE1B0371'
+ MEPROP Name 'MakeUpdateMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FormFactory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создаёт окно с сообщением об обновлении базы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A32F2F01B5 // TLongProcessService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A93DE4A023D // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" False
+
+ENDME // ME_4A93DE1B0371 MakeUpdateMessage
+
+ME ME_57A32F2F01B5
+ MEPROP UID '57A32F2F01B5'
+ MEPROP Name 'TLongProcessService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A32ECC01AF // Services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A93DE1B0371 // MakeUpdateMessage
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_D24864C60F14 // MLongProcessService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LongProcessService'
+
+ENDME // ME_57A32F2F01B5 TLongProcessService
+
+FORWARD ME_57A32EEB003E
+
+FORWARD ME_B994E248DB0B
+
+FORWARD ME_4A93A8AB0239
+
+FORWARD ME_EE11596D2E56
+
+FORWARD ME_9940761456C0
+
+ME ME_3C92C23CC13F
+ MEPROP Name 'aCloseInterval'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_3C92C23CC13F aCloseInterval
+
+ME ME_2575AA1E1C90
+ MEPROP Name 'aKind'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A93A9E3002E // TShutdownWarningKind
+ ;
+
+ENDME // ME_2575AA1E1C90 aKind
+
+ME ME_9940761456C0
+ MEPROP UID '9940761456C0'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_EE11596D2E56 // MakeShutdownWindow$4A93A8AB0239
+ ;
+ MELIST Parameters
+   Seq: ( ME_3C92C23CC13F // aCloseInterval
+ ME_2575AA1E1C90 // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_9940761456C0 DoIt
+
+ME ME_EE11596D2E56
+ MEPROP UID 'EE11596D2E56'
+ MEPROP Name 'MakeShutdownWindow'
+ MEPROP OriginalName 'MakeShutdownWindow$4A93A8AB0239'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создаёт окно сообщающее о закрытии приложения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_B994E248DB0B // MShutdownService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_9940761456C0 // DoIt
+ )
+ ; // Operations
+ UP "OriginalStereotype" 'FormFactory'
+ UPLINK Speller HWL ME_4A93A8AB0239 // MakeShutdownWindow
+ ;
+
+ENDME // ME_EE11596D2E56 MakeShutdownWindow$4A93A8AB0239
+
+ME ME_B994E248DB0B
+ MEPROP UID 'B994E248DB0B'
+ MEPROP Name 'MShutdownService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TShutdownService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A32EEB003E // TShutdownService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_EE11596D2E56 // MakeShutdownWindow$4A93A8AB0239
+ )
+ ; // Operations
+
+ENDME // ME_B994E248DB0B MShutdownService
+
+FORWARD ME_4A93A8DF035B
+
+ME ME_4A93A92D03B5
+ MEPROP Name 'aCloseInterval'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ ;
+
+ENDME // ME_4A93A92D03B5 aCloseInterval
+
+ME ME_4A93AA1F015C
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A93A9E3002E // TShutdownWarningKind
+ ;
+
+ENDME // ME_4A93AA1F015C aKind
+
+ME ME_4A93A8DF035B
+ MEPROP UID '4A93A8DF035B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A93A8AB0239 // MakeShutdownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A93A92D03B5 // aCloseInterval
+ ME_4A93AA1F015C // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_4A93A8DF035B DoIt
+
+ME ME_4A93A8AB0239
+ MEPROP UID '4A93A8AB0239'
+ MEPROP Name 'MakeShutdownWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_FormFactory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Создаёт окно сообщающее о закрытии приложения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A32EEB003E // TShutdownService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A93A8DF035B // DoIt
+ )
+ ; // Operations
+ UP "NO_FACTORY_BRACKECTS" False
+
+ENDME // ME_4A93A8AB0239 MakeShutdownWindow
+
+ME ME_57A32EEB003E
+ MEPROP UID '57A32EEB003E'
+ MEPROP Name 'TShutdownService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A32ECC01AF // Services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4A93A8AB0239 // MakeShutdownWindow
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_B994E248DB0B // MShutdownService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShutdownService'
+
+ENDME // ME_57A32EEB003E TShutdownService
+
+FORWARD ME_57A339A6014A
+
+FORWARD ME_2348669ECCD3
+
+FORWARD ME_4AC4A69D03B7
+
+FORWARD ME_9856D0A1DBB4
+
+ME ME_CA4BA7578912
+ MEPROP Name 'aQueryType'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AB366EC0271' '46837A08002C.ms.model.script' // TlgQueryType
+ ;
+
+ENDME // ME_CA4BA7578912 aQueryType
+
+ME ME_CA4BA7578913
+ MEPROP Name 'aQuery'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_CA4BA7578913 aQuery
+
+ME ME_CA4BA7578914
+ MEPROP Name 'aContainer'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_CA4BA7578914 aContainer
+
+ME ME_9856D0A1DBB4
+ MEPROP UID '9856D0A1DBB4'
+ MEPROP Name 'OpenQuery'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_2348669ECCD3 // MQueryOpenService
+ ;
+ MELIST Parameters
+   Seq: ( ME_CA4BA7578912 // aQueryType
+ ME_CA4BA7578913 // aQuery
+ ME_CA4BA7578914 // aContainer
+ )
+ ; // Parameters
+ UP "ifndef" 'Admin'
+ UPLINK Speller HWL ME_4AC4A69D03B7 // OpenQuery
+ ;
+
+ENDME // ME_9856D0A1DBB4 OpenQuery
+
+ME ME_2348669ECCD3
+ MEPROP UID '2348669ECCD3'
+ MEPROP Name 'MQueryOpenService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TQueryOpenService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A339A6014A // TQueryOpenService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_9856D0A1DBB4 // OpenQuery
+ )
+ ; // Operations
+
+ENDME // ME_2348669ECCD3 MQueryOpenService
+
+ME ME_4AC4A69D03E6
+ MEPROP Name 'aQueryType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AB366EC0271' '46837A08002C.ms.model.script' // TlgQueryType
+ ;
+
+ENDME // ME_4AC4A69D03E6 aQueryType
+
+ME ME_4AC4A69E0033
+ MEPROP Name 'aQuery'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4AC4A69E0033 aQuery
+
+ME ME_53049EBE0168
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525C400141' '4683F37902CF.ms.model.script' // IvcmContainer
+ ;
+
+ENDME // ME_53049EBE0168 aContainer
+
+ME ME_4AC4A69D03B7
+ MEPROP UID '4AC4A69D03B7'
+ MEPROP Name 'OpenQuery'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A339A6014A // TQueryOpenService
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC4A69D03E6 // aQueryType
+ ME_4AC4A69E0033 // aQuery
+ ME_53049EBE0168 // aContainer
+ )
+ ; // Parameters
+ UP "ifndef" 'Admin'
+
+ENDME // ME_4AC4A69D03B7 OpenQuery
+
+ME ME_57A339A6014A
+ MEPROP UID '57A339A6014A'
+ MEPROP Name 'TQueryOpenService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A32ECC01AF // Services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4AC4A69D03B7 // OpenQuery
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_2348669ECCD3 // MQueryOpenService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'QueryOpenService'
+
+ENDME // ME_57A339A6014A TQueryOpenService
+
+FORWARD ME_57A3590B001B
+
+FORWARD ME_5C6240CB44B6
+
+FORWARD ME_57A35C6002FD
+
+FORWARD ME_385066897B82
+
+ME ME_EFA250A9A215
+ MEPROP Name 'aKind'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F7350274' '499EAAE502A8.ms.model.script' // TvcmOperationCallType
+ ;
+
+ENDME // ME_EFA250A9A215 aKind
+
+ME ME_385066897B82
+ MEPROP UID '385066897B82'
+ MEPROP Name 'LogUserActivity'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5C6240CB44B6 // MLoggingService
+ ;
+ MELIST Parameters
+   Seq: ( ME_EFA250A9A215 // aKind
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_57A35C6002FD // LogUserActivity
+ ;
+
+ENDME // ME_385066897B82 LogUserActivity
+
+ME ME_5C6240CB44B6
+ MEPROP UID '5C6240CB44B6'
+ MEPROP Name 'MLoggingService'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса TLoggingService' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57A3590B001B // TLoggingService
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_385066897B82 // LogUserActivity
+ )
+ ; // Operations
+
+ENDME // ME_5C6240CB44B6 MLoggingService
+
+ME ME_57A35C6102AD
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4992F7350274' '499EAAE502A8.ms.model.script' // TvcmOperationCallType
+ ;
+
+ENDME // ME_57A35C6102AD aKind
+
+ME ME_57A35C6002FD
+ MEPROP UID '57A35C6002FD'
+ MEPROP Name 'LogUserActivity'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A3590B001B // TLoggingService
+ ;
+ MELIST Parameters
+   Seq: ( ME_57A35C6102AD // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_57A35C6002FD LogUserActivity
+
+ME ME_57A3590B001B
+ MEPROP UID '57A3590B001B'
+ MEPROP Name 'TLoggingService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMModuleContract ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A32ECC01AF // Services
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57A35C6002FD // LogUserActivity
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_5C6240CB44B6 // MLoggingService
+ )
+ ; // Children
+ UP "auto translate to alien" 'undefined'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LoggingService'
+
+ENDME // ME_57A3590B001B TLoggingService
+
+ME ME_57A32ECC01AF
+ MEPROP UID '57A32ECC01AF'
+ MEPROP Name 'Services'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMContracts ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4986ECDF01F4' '4986ECDF01F4.ms.model.script' // View
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A93A9E3002E // TShutdownWarningKind
+ HWL ME_57A32F2F01B5 // TLongProcessService
+ HWL ME_57A32EEB003E // TShutdownService
+ HWL ME_57A339A6014A // TQueryOpenService
+ HWL ME_57A3590B001B // TLoggingService
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_45EEAA8E034E' '45EEAA8E034E.ms.model.script' // Search
+ WL 'ME_46837A08002C' '46837A08002C.ms.model.script' // nsQueryInterfaces
+ WL 'ME_4683F37902CF' '4683F37902CF.ms.model.script' // vcmInterfaces
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_499EAAE502A8' '499EAAE502A8.ms.model.script' // vcmUserControls
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP extprop:pas:UnitName 'F1_Application_Template_Services'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\F1_Application_Template_Services.pas'
+
+ENDME // ME_57A32ECC01AF Services

@@ -1,0 +1,194 @@
+// EverestArchiWords 5166AF3800B5 ScriptKeywords Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5166AF3800B5
+
+FORWARD ME_5166AFC5017A
+
+FORWARD ME_517FA8840360
+
+ME ME_517FA8AF0212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5166AFC5017A // kwArchiEverestWordsPack
+ ;
+ MELINK Target HWL ME_517FA8840360 // DisableMergedCellFilter
+ ;
+
+ENDME // ME_517FA8AF0212 
+
+FORWARD ME_533433C700C0
+
+ME ME_533433FB0303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5166AFC5017A // kwArchiEverestWordsPack
+ ;
+ MELINK Target HWL ME_533433C700C0 // ClearFindDialog
+ ;
+
+ENDME // ME_533433FB0303 
+
+FORWARD ME_53CD0A6A03DF
+
+ME ME_53CD0A9F0235
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5166AFC5017A // kwArchiEverestWordsPack
+ ;
+ MELINK Target HWL ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+
+ENDME // ME_53CD0A9F0235 
+
+ME ME_5166AFC5017A
+ MEPROP UID '5166AFC5017A'
+ MEPROP Name 'kwArchiEverestWordsPack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5166AF3800B5 // EverestArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_517FA8AF0212 // DisableMergedCellFilter
+ ME_533433FB0303 // ClearFindDialog
+ ME_53CD0A9F0235 // AutoComplete_Clear
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP extprop:rc:SelfName 'ArchiEverestWordsPack'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwArchiEverestWordsPack.pas'
+
+ENDME // ME_5166AFC5017A kwArchiEverestWordsPack
+
+ME ME_517FA8E20327
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517FA8840360 // DisableMergedCellFilter
+ ;
+ MELINK Target WL 'ME_4F5755FB0362' '4E4B99A60349.ms.model.script' // evCommonUtils
+ ;
+
+ENDME // ME_517FA8E20327 
+
+ME ME_517FA8840360
+ MEPROP UID '517FA8840360'
+ MEPROP Name 'DisableMergedCellFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5166AF3800B5 // EverestArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_517FA8E20327 // evCommonUtils
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwDisableMergedCellFilter'
+ UP extprop:pas:UnitName 'kwDisableMergedCellFilter'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DisableMergedCellFilter'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwDisableMergedCellFilter.pas'
+
+ENDME // ME_517FA8840360 DisableMergedCellFilter
+
+ME ME_53343429013B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533433C700C0 // ClearFindDialog
+ ;
+ MELINK Target WL 'ME_4F8D618800E7' '4DFB501A00F4.ms.model.script' // D_TxSrch
+ ;
+
+ENDME // ME_53343429013B 
+
+ME ME_533433C700C0
+ MEPROP UID '533433C700C0'
+ MEPROP Name 'ClearFindDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ќчищает диалог поиска (удал€ет его объект).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5166AF3800B5 // EverestArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53343429013B // D_TxSrch
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwClearFindDialog'
+ UP extprop:pas:UnitName 'kwClearFindDialog'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClearFindDialog'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas'
+
+ENDME // ME_533433C700C0 ClearFindDialog
+
+ME ME_53CD0BF101DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CD0A6A03DF // AutoComplete_Clear
+ ;
+ MELINK Target WL 'ME_53CD0B8200B8' '47F1F38601A3.ms.model.script' // TevAutoComplete
+ ;
+
+ENDME // ME_53CD0BF101DD 
+
+ME ME_53CD0A6A03DF
+ MEPROP UID '53CD0A6A03DF'
+ MEPROP Name 'AutoComplete_Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ќчищает данные автозамены.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5166AF3800B5 // EverestArchiWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53CD0BF101DD // TevAutoComplete
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwAutoCompleteClear'
+ UP extprop:pas:UnitName 'kwAutoCompleteClear'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoCompleteClear'
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwAutoCompleteClear.pas'
+
+ENDME // ME_53CD0A6A03DF AutoComplete_Clear
+
+ME ME_5166AF3800B5
+ MEPROP UID '5166AF3800B5'
+ MEPROP Name 'EverestArchiWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_ScriptKeywords ;
+ %SUMMARY '—лова одинаковые дл€ Ёвереста и јрчи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DE7653F03E5' '4DE7653F03E5.ms.model.script' // Archi Insider Test Support
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5166AFC5017A // kwArchiEverestWordsPack
+ HWL ME_517FA8840360 // DisableMergedCellFilter
+ HWL ME_533433C700C0 // ClearFindDialog
+ HWL ME_53CD0A6A03DF // AutoComplete_Clear
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
+ WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
+ WL 'ME_50741A080229' '50741A080229.ms.model.script' // FormsProcessing
+ )
+ ; // Depends
+ UP "ifndef" 'NoScripts'
+
+ENDME // ME_5166AF3800B5 EverestArchiWords

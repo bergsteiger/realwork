@@ -32,6 +32,8 @@ uses
  , SysUtils
  , atQueryTypeConverter
  , Windows
+ //#UC START# *5006FEE200E1impl_uses*
+ //#UC END# *5006FEE200E1impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atSaveQueryToXMLAddon.imp.pas}

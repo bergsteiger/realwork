@@ -48,6 +48,8 @@ uses
  l3ImplUses
  , Windows
  , SysUtils
+ //#UC START# *502563E400D8impl_uses*
+ //#UC END# *502563E400D8impl_uses*
 ;
 
 const

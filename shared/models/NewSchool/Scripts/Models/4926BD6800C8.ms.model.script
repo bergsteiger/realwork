@@ -1,0 +1,60 @@
+// TdsConsultationList 4926BD6800C8 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4926BD6800C8
+
+ME ME_4978A5D602AC
+ MEPROP UID '4978A5D602AC'
+ MEPROP Name 'Consultation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_UseCase::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4926BD6800C8 // TdsConsultationList
+ ;
+ MELINK Target WL 'ME_4921732002D9' '4ABCF04F00DF.ms.model.script' // IsdsConsultation
+ ;
+
+ENDME // ME_4978A5D602AC Consultation
+
+ME ME_47F61AD5022A_ME_4926BD6800C8
+ MELINK Original WL 'ME_47F61AD5022A' '47E9EDA800FE.ms.model.script' // DoDeleteNodes
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47F61AD5022A_ME_4926BD6800C8 DoDeleteNodes
+
+ME ME_4926BD6800C8
+ MEPROP UID '4926BD6800C8'
+ MEPROP Name 'TdsConsultationList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'список консультации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_492D73D80122' '492D73D80122.ms.model.script' // TdsDocumentList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4978A5D602AC // Consultation
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47F61AD5022A_ME_4926BD6800C8 // DoDeleteNodes
+ )
+ ; // Overridden
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2006/10/06 13:46:49'
+ UP extprop:pas:UnitName 'dsConsultationList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsConsultationList'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\dsConsultationList.pas'
+
+ENDME // ME_4926BD6800C8 TdsConsultationList

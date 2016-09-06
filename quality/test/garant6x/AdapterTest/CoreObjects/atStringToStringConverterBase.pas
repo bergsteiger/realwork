@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , TypInfo
+ //#UC START# *503F793301B3impl_uses*
+ //#UC END# *503F793301B3impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\CoreObjects\atConverter.imp.pas}

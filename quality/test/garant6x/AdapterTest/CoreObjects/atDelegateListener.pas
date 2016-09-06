@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *48078A03039Cimpl_uses*
+ //#UC END# *48078A03039Cimpl_uses*
 ;
 
 constructor TatDelegateListener.Create(fireProc: TatDelegateListenerProc);

@@ -1,0 +1,125 @@
+// MainWindow 4AA7EA010274 VCMFinalMainForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_65A08EE64C38
+
+FORWARD ME_4AA7EA010274
+
+ME ME_65A08EE64C38
+ MEPROP UID '65A08EE64C38'
+ MEPROP GUID 'A88F9772-00AF-401E-BACE-E6A02B415485'
+ MEPROP Name 'MainWindow'
+ MEPROP OriginalName 'MainWindow$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы MainWindow' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4AA7EA010274 // MainWindow
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'MainWindowFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_65A08EE64C38 MainWindow$Def
+
+ME ME_6A1545565ACA
+ MEPROP UID '6A1545565ACA'
+ MEPROP Name 'Ini_FormFactory_MainWindow'
+ MEPROP OriginalName 'Ini_FormFactory_MainWindow$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MainWindow' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ UPLINK SpelledFor HWL ME_4AA7EA010274 // MainWindow
+ ;
+
+ENDME // ME_6A1545565ACA Ini_FormFactory_MainWindow$Def
+
+ME ME_4AC226EE03B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ MELINK Target WL 'ME_4AC226030181' '4AC225E70273.ms.model.script' // TnsBaseSearcher
+ ;
+
+ENDME // ME_4AC226EE03B7 
+
+ME ME_4AD5B8000298
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ MELINK Target WL 'ME_4991945C0196' '499192F203B4.ms.model.script' // InsStringsSource
+ ;
+
+ENDME // ME_4AD5B8000298 
+
+ME ME_4ADC51AB0001
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA7EA010274 // MainWindow
+ ;
+ MELINK Target WL 'ME_4ADC5175035B' '4F6B421102FB.ms.model.script' // TnsWindowsList
+ ;
+
+ENDME // ME_4ADC51AB0001 
+
+ME ME_4AA7EA010274
+ MEPROP UID '4AA7EA010274'
+ MEPROP Name 'MainWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalMainForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Гарант' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A925AFF01BA' '4A925AFF01BA.ms.model.script' // PrimNemesis
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F7DAC14027A' '4F7DAC14027A.ms.model.script' // MainWithReminders
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_65A08EE64C38 // MainWindow$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_6A1545565ACA // Ini_FormFactory_MainWindow$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_65A08EE64C38 // MainWindow$Def
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AC226EE03B7 // TnsBaseSearcher
+ ME_4AD5B8000298 // InsStringsSource
+ ME_4ADC51AB0001 // TnsWindowsList
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "form name prefix" 'ns'
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TnsMainWindow'
+ UP extprop:pas:UnitName 'MainWindow_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainWindow'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainWindow_Form.pas'
+
+ENDME // ME_4AA7EA010274 MainWindow

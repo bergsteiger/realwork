@@ -1,0 +1,726 @@
+// DocumentBaseSearcher 4B4DB88E01B6 VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B4DB88E01B6
+
+ME ME_4B4DC181009D
+ MEPROP UID '4B4DC181009D'
+ MEPROP Name 'f_SearchWindowVisible'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B4DC181009D f_SearchWindowVisible
+
+ME ME_561640F40309
+ MEPROP UID '561640F40309'
+ MEPROP Name 'f_IsPageActive'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_561640F40309 f_IsPageActive
+
+ME ME_4B4DB9720181
+ MEPROP UID '4B4DB9720181'
+ MEPROP Name 'ContextSearcher'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_49512F660180' '4A9F98B901A5.ms.model.script' // IbsBaseDocumentContextSearcher
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_4B4DB9720181 ContextSearcher
+
+ME ME_4B4DB95002D0
+ MEPROP UID '4B4DB95002D0'
+ MEPROP Name 'f_SearchArea'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_495132300336' '4A9F98B901A5.ms.model.script' // TnsSearchArea
+ ;
+
+ENDME // ME_4B4DB95002D0 f_SearchArea
+
+FORWARD ME_4C8DCA3402C1
+
+FORWARD ME_4C8DCA4D015D
+
+ME ME_4C8DCA510373
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
+ ;
+
+ENDME // ME_4C8DCA510373 aParams
+
+ME ME_4C8DCA4D015D
+ MEPROP UID '4C8DCA4D015D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C8DCA3402C1 // DoEditFindContextTest
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C8DCA510373 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4C8DCA4D015D DoIt
+
+ME ME_4C8DCA3402C1
+ MEPROP UID '4C8DCA3402C1'
+ MEPROP Name 'DoEditFindContextTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C8DCA4D015D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C8DCA3402C1 DoEditFindContextTest
+
+FORWARD ME_4B4DCA8D01DC
+
+ME ME_4B4DCAB5039F
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683E07E004B' '467BAB7F021E.ms.model.script' // IvcmTestParamsPrim
+ ;
+
+ENDME // ME_4B4DCAB5039F aParams
+
+ME ME_4B4DCA8D01DC
+ MEPROP UID '4B4DCA8D01DC'
+ MEPROP Name 'CheckTrial'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B4DCAB5039F // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4B4DCA8D01DC CheckTrial
+
+ME ME_4B4EF0A200BD
+ MEPROP UID '4B4EF0A200BD'
+ MEPROP Name 'DocumentForSearch'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_4B4EF0A200BD DocumentForSearch
+
+ME ME_4B4EF0D2016A
+ MEPROP UID '4B4EF0D2016A'
+ MEPROP Name 'ContinueSearchInWholeBase'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B4EF0D2016A ContinueSearchInWholeBase
+
+ME ME_4B4EF6A701F4
+ MEPROP UID '4B4EF6A701F4'
+ MEPROP Name 'RequestCheckFragmentsCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+
+ENDME // ME_4B4EF6A701F4 RequestCheckFragmentsCount
+
+FORWARD ME_4B4EFBF200E2
+
+ME ME_4B4EFC100341
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4B4EFC100341 aSender
+
+ME ME_4B4EFC10039F
+ MEPROP Name 'aFocused'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B4EFC10039F aFocused
+
+ME ME_4B4EFBF200E2
+ MEPROP UID '4B4EFBF200E2'
+ MEPROP Name 'CheckFocusedInPaint'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B4EFC100341 // aSender
+ ME_4B4EFC10039F // aFocused
+ )
+ ; // Parameters
+
+ENDME // ME_4B4EFBF200E2 CheckFocusedInPaint
+
+ME ME_4B4ED51F0055
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_495137C70135' '4D8A25430335.ms.model.script' // TbsDocumentContextSearcher
+ ;
+
+ENDME // ME_4B4ED51F0055 
+
+ME ME_4B4ED6280005
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_4B0A8AB30113' '4A7C0BB70162.ms.model.script' // TnsSearchInDocumentEvent
+ ;
+
+ENDME // ME_4B4ED6280005 
+
+ME ME_4B4EF77403B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4B4EF77403B8 
+
+ME ME_4B9F86A203A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_4951292D01DA' '4ABB68530117.ms.model.script' // nsTrialSupport
+ ;
+
+ENDME // ME_4B9F86A203A0 
+
+ME ME_5280820D016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_5280813401EA' '4A7C0BB70162.ms.model.script' // TnsSearchInDocumentDoneEvent
+ ;
+
+ENDME // ME_5280820D016B 
+
+ME ME_5280A77202D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_5280A6CC0073' '4A7C0BB70162.ms.model.script' // TnsSearchInDocumentNextEvent
+ ;
+
+ENDME // ME_5280A77202D4 
+
+ME ME_5280A79100E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_5280A7050003' '4A7C0BB70162.ms.model.script' // TnsSearchInDocumentPrevEvent
+ ;
+
+ENDME // ME_5280A79100E4 
+
+ME ME_561640660226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_56163B0902D7' '56163ADC014A.ms.model.script' // TnsSearchWindowManager
+ ;
+
+ENDME // ME_561640660226 
+
+ME ME_57974AD90395
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B4DB88E01B6 // DocumentBaseSearcher
+ ;
+ MELINK Target WL 'ME_57973D75032B' '5795D66F0385.ms.model.script' // TBaseSearchService
+ ;
+
+ENDME // ME_57974AD90395 
+
+ME ME_4951284902BD_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4951284902BD' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4951284902BD_ME_4B4DB88E01B6 Copy
+
+ME ME_4951285702E1_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4951285702E1' '495127DD017C.ms.model.script' // Cut
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4951285702E1_ME_4B4DB88E01B6 Cut
+
+ME ME_49512B5D0009_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49512B5D0009' '495127DD017C.ms.model.script' // FindContext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49512B5D0009_ME_4B4DB88E01B6 FindContext
+
+ME ME_495130C40123_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_495130C40123' '495127DD017C.ms.model.script' // FindNext
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_495130C40123_ME_4B4DB88E01B6 FindNext
+
+ME ME_49513239027A_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49513239027A' '4A9F98B901A5.ms.model.script' // Area
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49513239027A_ME_4B4DB88E01B6 Area
+
+ME ME_4951325E03B6_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4951325E03B6' '4A9F98B901A5.ms.model.script' // Kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4951325E03B6_ME_4B4DB88E01B6 Kind
+
+ME ME_4951329202AB_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4951329202AB' '4A9F98B901A5.ms.model.script' // Find
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4951329202AB_ME_4B4DB88E01B6 Find
+
+ME ME_495132A703DF_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_495132A703DF' '4A9F98B901A5.ms.model.script' // AllowSearchInTitles
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_495132A703DF_ME_4B4DB88E01B6 AllowSearchInTitles
+
+ME ME_495132B70156_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_495132B70156' '4A9F98B901A5.ms.model.script' // IsLocalSearchArea
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_495132B70156_ME_4B4DB88E01B6 IsLocalSearchArea
+
+ME ME_495132C20005_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_495132C20005' '4A9F98B901A5.ms.model.script' // ContextChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_495132C20005_ME_4B4DB88E01B6 ContextChanged
+
+ME ME_495132CE010F_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_495132CE010F' '4A9F98B901A5.ms.model.script' // IsLocalDataReady
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_495132CE010F_ME_4B4DB88E01B6 IsLocalDataReady
+
+ME ME_49513746034D_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49513746034D' '4A9F98B901A5.ms.model.script' // RepairMistakes
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49513746034D_ME_4B4DB88E01B6 RepairMistakes
+
+ME ME_4951375B0052_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4951375B0052' '4A9F98B901A5.ms.model.script' // Context
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4951375B0052_ME_4B4DB88E01B6 Context
+
+ME ME_496B517202C5_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_496B517202C5' '4A9F98B901A5.ms.model.script' // VisibleChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_496B517202C5_ME_4B4DB88E01B6 VisibleChanged
+
+ME ME_49EDFA3701B0_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49EDFA3701B0' '495127DD017C.ms.model.script' // Paste
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49EDFA3701B0_ME_4B4DB88E01B6 Paste
+
+ME ME_49EDFCA2006D_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49EDFCA2006D' '495127DD017C.ms.model.script' // Undo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49EDFCA2006D_ME_4B4DB88E01B6 Undo
+
+ME ME_49EDFCB100BC_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49EDFCB100BC' '495127DD017C.ms.model.script' // Redo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49EDFCB100BC_ME_4B4DB88E01B6 Redo
+
+ME ME_49EE01AA02BE_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49EE01AA02BE' '495127DD017C.ms.model.script' // SelectAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49EE01AA02BE_ME_4B4DB88E01B6 SelectAll
+
+ME ME_49EE01BC022E_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49EE01BC022E' '495127DD017C.ms.model.script' // Deselect
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49EE01BC022E_ME_4B4DB88E01B6 Deselect
+
+ME ME_49FEA325027E_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49FEA325027E' '4A9F98B901A5.ms.model.script' // FindBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49FEA325027E_ME_4B4DB88E01B6 FindBack
+
+ME ME_49FEB37C02FB_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49FEB37C02FB' '4A9F98B901A5.ms.model.script' // FindBackSupported
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49FEB37C02FB_ME_4B4DB88E01B6 FindBackSupported
+
+ME ME_49FEB3960023_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49FEB3960023' '4A9F98B901A5.ms.model.script' // FindBackEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49FEB3960023_ME_4B4DB88E01B6 FindBackEnabled
+
+ME ME_49FEDE4703B8_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49FEDE4703B8' '495127DD017C.ms.model.script' // FindPrev
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_49FEDE4703B8_ME_4B4DB88E01B6 FindPrev
+
+ME ME_49FFD8230333_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_49FFD8230333' '4A9F98B901A5.ms.model.script' // FragmentsCountSuffix
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49FFD8230333_ME_4B4DB88E01B6 FragmentsCountSuffix
+
+ME ME_4AA4E63900F9_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4AA4E63900F9' '4A9F98B901A5.ms.model.script' // AllowPrompts
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AA4E63900F9_ME_4B4DB88E01B6 AllowPrompts
+
+ME ME_4AA4E64E0395_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4AA4E64E0395' '4A9F98B901A5.ms.model.script' // PromptsInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AA4E64E0395_ME_4B4DB88E01B6 PromptsInfo
+
+ME ME_4ACA17770179_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4ACA17770179' '4A9F98B901A5.ms.model.script' // SupportDisabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4ACA17770179_ME_4B4DB88E01B6 SupportDisabled
+
+ME ME_4AD608860210_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4AD608860210' '4A9F98B901A5.ms.model.script' // VisibleWatcher
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_4AD608860210_ME_4B4DB88E01B6 VisibleWatcher
+
+ME ME_4B263ADE02E0_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4B263ADE02E0' '4A9F98B901A5.ms.model.script' // SwitchToTextIfPossible
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B263ADE02E0_ME_4B4DB88E01B6 SwitchToTextIfPossible
+
+ME ME_4C7D0C7B0185_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4C7D0C7B0185' '495127DD017C.ms.model.script' // Copy
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C7D0C7B0185_ME_4B4DB88E01B6 Copy
+
+ME ME_561641EE03D8_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_561641EE03D8' '4A9F98B901A5.ms.model.script' // IsSearchLocked
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_561641EE03D8_ME_4B4DB88E01B6 IsSearchLocked
+
+ME ME_479731C50290_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4B4DB88E01B6 Cleanup
+
+ME ME_47A042E100E2_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4B4DB88E01B6 InitFields
+
+ME ME_497469C90140_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_4B4DB88E01B6 NotifyDataSourceChanged
+
+ME ME_4A8E8F2E0195_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4B4DB88E01B6 InitControls
+
+ME ME_4C52E8030278_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4C52E8030278' '4AADF9450143.ms.model.script' // PageActive
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C52E8030278_ME_4B4DB88E01B6 PageActive
+
+ME ME_4C52E81603A9_ME_4B4DB88E01B6
+ MELINK Original WL 'ME_4C52E81603A9' '4AADF9450143.ms.model.script' // PageInactive
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C52E81603A9_ME_4B4DB88E01B6 PageInactive
+
+ME ME_4B4DB88E01B6
+ MEPROP UID '4B4DB88E01B6'
+ MEPROP Name 'DocumentBaseSearcher'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4951282D0269' '495127DD017C.ms.model.script' // Edit
+ WL 'ME_49513222021F' '4A9F98B901A5.ms.model.script' // InsContextSearcher
+ WL 'ME_4951327800EE' '4A9F98B901A5.ms.model.script' // InsBaseSearchContextProvider
+ WL 'ME_496B51660087' '4A9F98B901A5.ms.model.script' // InsBaseSearchVisibleWatcher
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ WL 'ME_4E85E21A018D' '484900780017.ms.model.script' // Контекстный поиск в документе
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B4DC181009D // f_SearchWindowVisible
+ HWL ME_561640F40309 // f_IsPageActive
+ HWL ME_4B4DB9720181 // ContextSearcher
+ HWL ME_4B4DB95002D0 // f_SearchArea
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C8DCA3402C1 // DoEditFindContextTest
+ HWL ME_4B4DCA8D01DC // CheckTrial
+ HWL ME_4B4EF0A200BD // DocumentForSearch
+ HWL ME_4B4EF0D2016A // ContinueSearchInWholeBase
+ HWL ME_4B4EF6A701F4 // RequestCheckFragmentsCount
+ HWL ME_4B4EFBF200E2 // CheckFocusedInPaint
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4951284902BD_ME_4B4DB88E01B6 // Copy
+ ME_4951285702E1_ME_4B4DB88E01B6 // Cut
+ ME_49512B5D0009_ME_4B4DB88E01B6 // FindContext
+ ME_495130C40123_ME_4B4DB88E01B6 // FindNext
+ ME_49513239027A_ME_4B4DB88E01B6 // Area
+ ME_4951325E03B6_ME_4B4DB88E01B6 // Kind
+ ME_4951329202AB_ME_4B4DB88E01B6 // Find
+ ME_495132A703DF_ME_4B4DB88E01B6 // AllowSearchInTitles
+ ME_495132B70156_ME_4B4DB88E01B6 // IsLocalSearchArea
+ ME_495132C20005_ME_4B4DB88E01B6 // ContextChanged
+ ME_495132CE010F_ME_4B4DB88E01B6 // IsLocalDataReady
+ ME_49513746034D_ME_4B4DB88E01B6 // RepairMistakes
+ ME_4951375B0052_ME_4B4DB88E01B6 // Context
+ ME_496B517202C5_ME_4B4DB88E01B6 // VisibleChanged
+ ME_49EDFA3701B0_ME_4B4DB88E01B6 // Paste
+ ME_49EDFCA2006D_ME_4B4DB88E01B6 // Undo
+ ME_49EDFCB100BC_ME_4B4DB88E01B6 // Redo
+ ME_49EE01AA02BE_ME_4B4DB88E01B6 // SelectAll
+ ME_49EE01BC022E_ME_4B4DB88E01B6 // Deselect
+ ME_49FEA325027E_ME_4B4DB88E01B6 // FindBack
+ ME_49FEB37C02FB_ME_4B4DB88E01B6 // FindBackSupported
+ ME_49FEB3960023_ME_4B4DB88E01B6 // FindBackEnabled
+ ME_49FEDE4703B8_ME_4B4DB88E01B6 // FindPrev
+ ME_49FFD8230333_ME_4B4DB88E01B6 // FragmentsCountSuffix
+ ME_4AA4E63900F9_ME_4B4DB88E01B6 // AllowPrompts
+ ME_4AA4E64E0395_ME_4B4DB88E01B6 // PromptsInfo
+ ME_4ACA17770179_ME_4B4DB88E01B6 // SupportDisabled
+ ME_4AD608860210_ME_4B4DB88E01B6 // VisibleWatcher
+ ME_4B263ADE02E0_ME_4B4DB88E01B6 // SwitchToTextIfPossible
+ ME_4C7D0C7B0185_ME_4B4DB88E01B6 // Copy
+ ME_561641EE03D8_ME_4B4DB88E01B6 // IsSearchLocked
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4B4DB88E01B6 // Cleanup
+ ME_47A042E100E2_ME_4B4DB88E01B6 // InitFields
+ ME_497469C90140_ME_4B4DB88E01B6 // NotifyDataSourceChanged
+ ME_4A8E8F2E0195_ME_4B4DB88E01B6 // InitControls
+ ME_4C52E8030278_ME_4B4DB88E01B6 // PageActive
+ ME_4C52E81603A9_ME_4B4DB88E01B6 // PageInactive
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B4ED51F0055 // TbsDocumentContextSearcher
+ ME_4B4ED6280005 // TnsSearchInDocumentEvent
+ ME_4B4EF77403B8 // CanNotFindData
+ ME_4B9F86A203A0 // nsTrialSupport
+ ME_5280820D016B // TnsSearchInDocumentDoneEvent
+ ME_5280A77202D4 // TnsSearchInDocumentNextEvent
+ ME_5280A79100E4 // TnsSearchInDocumentPrevEvent
+ ME_561640660226 // TnsSearchWindowManager
+ ME_57974AD90395 // TBaseSearchService
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName '_DocumentBaseSearcher_'
+ UP extprop:pas:UnitName 'DocumentBaseSearcher.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentBaseSearcher.imp.pas'
+
+ENDME // ME_4B4DB88E01B6 DocumentBaseSearcher

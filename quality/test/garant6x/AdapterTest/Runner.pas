@@ -26,6 +26,8 @@ uses
  {$If Defined(Nemesis)}
  , eeDocument_Schema
  {$IfEnd} // Defined(Nemesis)
+ //#UC START# *4DE8C9DB02ADimpl_uses*
+ //#UC END# *4DE8C9DB02ADimpl_uses*
 ;
 
 class procedure TRunner.Run;

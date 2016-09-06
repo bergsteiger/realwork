@@ -1,0 +1,43 @@
+// Admin$Shell 4AA5181600DC VCMGUI Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4AA5181600DC
+ MEPROP UID '4AA5181600DC'
+ MEPROP Name 'Admin'
+ MEPROP OriginalName 'Admin$Shell'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_VCMGUI ;
+ %SUMMARY 'Оболочка Admin' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A82EED40053' '4A82EED40053.ms.model.script' // F1 Администратор
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4AA517B5037A' '4AA517B5037A.ms.model.script' // AdminApp
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FF4B0036' '4677FF4B0036.ms.model.script' // Data
+ WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ WL 'ME_49549627008C' '49549627008C.ms.model.script' // LegalDomain
+ WL 'ME_4954D3580364' '4954D3580364.ms.model.script' // Admin
+ WL 'ME_4954D3CD0185' '4954D3CD0185.ms.model.script' // View
+ WL 'ME_4986ECDF01F4' '4986ECDF01F4.ms.model.script' // View
+ WL 'ME_499AEC6A0372' '499AEC6A0372.ms.model.script' // F1Test
+ WL 'ME_4A9FD48B02A5' '4A9FD48B02A5.ms.model.script' // F1 Application Template
+ WL 'ME_4F7C1DF701C7' '4F7C1DF701C7.ms.model.script' // View
+ WL 'ME_4F7C1E2803C5' '4F7C1E2803C5.ms.model.script' // MainForm
+ WL 'ME_57A351800138' '57A351800138.ms.model.script' // Services
+ )
+ ; // Depends
+ UP "F1Like" 'undefined'
+ UP "HelpFile" 'F1Admin'
+ UP "needs second icon" True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin.dpr'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis'
+ UP Version 65
+
+ENDME // ME_4AA5181600DC Admin$Shell

@@ -1,0 +1,62 @@
+// Redactions 4A8EE2890012 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8EE2890012
+
+ME ME_1CAFC4BD9BBD
+ MEPROP UID '1CAFC4BD9BBD'
+ MEPROP Name 'Ini_FormFactory_Redactions'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Redactions' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8EE2890012 // Redactions
+ ;
+ UPLINK SpelledFor HWL ME_4A8EE2890012 // Redactions
+ ;
+
+ENDME // ME_1CAFC4BD9BBD Ini_FormFactory_Redactions
+
+ME ME_4A8EE2890012
+ MEPROP UID '4A8EE2890012'
+ MEPROP Name 'Redactions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редакции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_498B135601B6' '498B135601B6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C86253E00C5' '4C86253E00C5.ms.model.script' // PrimRedactionsOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4EC3E01C0298' '4BD856E802F9.ms.model.script' // Redactions
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_1CAFC4BD9BBD // Ini_FormFactory_Redactions
+ )
+ ; // Operations
+ UP "author" 'Крылов М.А.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '2003/06/20 06:51:14'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TRedactionsForm'
+ UP extprop:pas:UnitName 'Redactions_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RedactionsForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\Forms\Redactions_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Document\Forms'
+
+ENDME // ME_4A8EE2890012 Redactions

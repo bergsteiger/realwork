@@ -1,0 +1,106 @@
+// TevMultiSelectEditorWindow 4829D8C50010 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4829D8C50010
+
+ME ME_48E4972B039C
+ MEPROP UID '48E4972B039C'
+ MEPROP Name 'AllowMultiSelect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4829D8C50010 // TevMultiSelectEditorWindow
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "writes field" True
+ UP extprop:pas:Value False
+
+ENDME // ME_48E4972B039C AllowMultiSelect
+
+ME ME_48E497B9015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D8C50010 // TevMultiSelectEditorWindow
+ ;
+ MELINK Target WL 'ME_48E3B50501DB' '4829D7D50156.ms.model.script' // TevMultiSelection
+ ;
+
+ENDME // ME_48E497B9015D 
+
+ME ME_48E49816018D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4829D8C50010 // TevMultiSelectEditorWindow
+ ;
+ MELINK Target WL 'ME_48E497E40042' '4829D7D50156.ms.model.script' // TevMultiSelectEditorWindowHotSpot
+ ;
+
+ENDME // ME_48E49816018D 
+
+ME ME_48E1F321030C_ME_4829D8C50010
+ MELINK Original WL 'ME_48E1F321030C' '48E0E5C1032A.ms.model.script' // GetAllowMultiSelect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E1F321030C_ME_4829D8C50010 GetAllowMultiSelect
+
+ME ME_48E22866033A_ME_4829D8C50010
+ MELINK Original WL 'ME_48E22866033A' '4829D92A037B.ms.model.script' // SelectionClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E22866033A_ME_4829D8C50010 SelectionClass
+
+ME ME_48E2297000D3_ME_4829D8C50010
+ MELINK Original WL 'ME_48E2297000D3' '4829D92A037B.ms.model.script' // HotSpotClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E2297000D3_ME_4829D8C50010 HotSpotClass
+
+ME ME_4829D8C50010
+ MEPROP UID '4829D8C50010'
+ MEPROP Name 'TevMultiSelectEditorWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Редактор с возможностью множественного выделения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A26509001EA' '4A26509001EA.ms.model.script' // TevCustomEditorWindowModelPart
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_48E4972B039C // AllowMultiSelect
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_48E1F321030C_ME_4829D8C50010 // GetAllowMultiSelect
+ ME_48E22866033A_ME_4829D8C50010 // SelectionClass
+ ME_48E2297000D3_ME_4829D8C50010 // HotSpotClass
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48E497B9015D // TevMultiSelection
+ ME_48E49816018D // TevMultiSelectEditorWindowHotSpot
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.01.2004 17:35'
+ UP extprop:pas:UnitName 'evMultiSelectEditorWindow'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MultiSelectEditorWindow'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evMultiSelectEditorWindow.pas'
+
+ENDME // ME_4829D8C50010 TevMultiSelectEditorWindow

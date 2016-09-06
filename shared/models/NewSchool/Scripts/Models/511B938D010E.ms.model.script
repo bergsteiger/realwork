@@ -1,0 +1,37 @@
+// Shared Delphi Search Tests 511B938D010E Project Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_511B938D010E
+ MEPROP UID '511B938D010E'
+ MEPROP Name 'Shared Delphi Search Tests'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Project ;
+ %SUMMARY 'Тесты поиска F1' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELIST Children
+   Seq: ( WL 'ME_511B4CA100B2' '511B4CA100B2.ms.model.script' // Search
+ WL 'ME_4114A74FDFBC' '4114A74FDFBC.ms.model.script' // ReleaseSearch
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4B30CC420206' '4B30CC420206.ms.model.script' // Shared Delphi Testing Framework
+ )
+ ; // Depends
+ UP "create project" True
+ UP "fix version" 0
+ UP "force usage" True
+ UP "full constraint" True
+ UP "Full MDP" False
+ UP "ifdef" 'nsTest'
+ UP "major version" 1
+ UP "minor version" 0
+ UP "package prefix" 'ru.garant'
+ UP "root path suffix" '/components'
+ UP "space key" 'SHD'
+ UP "space name" 'Shared (delphi)'
+ UP intf.pas:PathOnly '\common\components'
+
+ENDME // ME_511B938D010E Shared Delphi Search Tests

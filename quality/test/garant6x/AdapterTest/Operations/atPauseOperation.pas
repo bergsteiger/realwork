@@ -24,6 +24,8 @@ implementation
 uses
  l3ImplUses
  , atLogger
+ //#UC START# *4A5222F60224impl_uses*
+ //#UC END# *4A5222F60224impl_uses*
 ;
 
 procedure TatPauseOperation.ExecuteSelf;

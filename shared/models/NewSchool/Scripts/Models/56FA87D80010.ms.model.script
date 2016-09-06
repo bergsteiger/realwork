@@ -1,0 +1,62 @@
+// MainMenuWithProfNews 56FA87D80010 VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56FA87D80010
+
+ME ME_5772EF30F7CE
+ MEPROP UID '5772EF30F7CE'
+ MEPROP Name 'Ini_FormFactory_MainMenuWithProfNews'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы MainMenuWithProfNews' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56FA87D80010 // MainMenuWithProfNews
+ ;
+ UPLINK SpelledFor HWL ME_56FA87D80010 // MainMenuWithProfNews
+ ;
+
+ENDME // ME_5772EF30F7CE Ini_FormFactory_MainMenuWithProfNews
+
+ME ME_56FA87D80010
+ MEPROP UID '56FA87D80010'
+ MEPROP Name 'MainMenuWithProfNews'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA7A1F80027' '4AA7A1F80027.ms.model.script' // MainMenu$FP
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_56FA889202B4' '56FA889202B4.ms.model.script' // PrimMainMenuWithProfNews
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_56FA879A0085' '4BD856E802F9.ms.model.script' // MainMenuWithProfNews
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_5772EF30F7CE // Ini_FormFactory_MainMenuWithProfNews
+ )
+ ; // Operations
+ UP "author" 'Костицын'
+ UP "finished dfm" True
+ UP "form name prefix" 'en_'
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '29.03.2016'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'Ten_MainMenuWithProfNews'
+ UP extprop:pas:UnitName 'MainMenuWithProfNews_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'en_MainMenuWithProfNews'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms\MainMenuWithProfNews_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\MainMenu\Forms'
+
+ENDME // ME_56FA87D80010 MainMenuWithProfNews

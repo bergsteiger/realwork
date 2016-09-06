@@ -1,0 +1,230 @@
+// Containers 4E562FBF03B9 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E562FBF03B9
+
+FORWARD ME_4E56306403C2
+
+FORWARD ME_4E5630E20149
+
+ME ME_4E5631240370
+ MEPROP UID '4E5631240370'
+ MEPROP Name 'rSearcher'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E5630E20149 // TevSearcherAndReplacerPair
+ ;
+ MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
+ ;
+
+ENDME // ME_4E5631240370 rSearcher
+
+ME ME_4E56312C0095
+ MEPROP UID '4E56312C0095'
+ MEPROP Name 'rReplacer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E5630E20149 // TevSearcherAndReplacerPair
+ ;
+ MELINK Target WL 'ME_47C693BF0118' '47C5207602D1.ms.model.script' // IevReplacer
+ ;
+
+ENDME // ME_4E56312C0095 rReplacer
+
+FORWARD ME_4E56313900E0
+
+FORWARD ME_4E56313F0179
+
+ME ME_4E5631530329
+ MEPROP Name 'aSearcher'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
+ ;
+
+ENDME // ME_4E5631530329 aSearcher
+
+ME ME_4E5631530347
+ MEPROP Name 'aReplacer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C693BF0118' '47C5207602D1.ms.model.script' // IevReplacer
+ ;
+
+ENDME // ME_4E5631530347 aReplacer
+
+ME ME_4E56313F0179
+ MEPROP UID '4E56313F0179'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E56313900E0 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E5631530329 // aSearcher
+ ME_4E5631530347 // aReplacer
+ )
+ ; // Parameters
+
+ENDME // ME_4E56313F0179 DoIt
+
+ME ME_4E56313900E0
+ MEPROP UID '4E56313900E0'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5630E20149 // TevSearcherAndReplacerPair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E56313F0179 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E56313900E0 C
+
+ME ME_4E5630E20149
+ MEPROP UID '4E5630E20149'
+ MEPROP Name 'TevSearcherAndReplacerPair'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E56306403C2 // TevSearcherAndReplacerPairList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E5631240370 // rSearcher
+ HWL ME_4E56312C0095 // rReplacer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E56313900E0 // C
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'SearcherAndReplacerPair'
+
+ENDME // ME_4E5630E20149 TevSearcherAndReplacerPair
+
+ME ME_4E56319C0071
+ MEPROP UID '4E56319C0071'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E56306403C2 // TevSearcherAndReplacerPairList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4E56319C0071 l3Items_NoSort
+
+ME ME_4E5630EB02D9
+ MEPROP UID '4E5630EB02D9'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E56306403C2 // TevSearcherAndReplacerPairList
+ ;
+ MELINK Target HWL ME_4E5630E20149 // TevSearcherAndReplacerPair
+ ;
+
+ENDME // ME_4E5630EB02D9 ItemType
+
+ME ME_47B07CF403D0_ME_4E56306403C2
+ MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4E56306403C2 IsSameItems
+
+ME ME_47B2C42A0163_ME_4E56306403C2
+ MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4E56306403C2 AssignItem
+
+ME ME_47B99D4503A2_ME_4E56306403C2
+ MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4E56306403C2 CompareExistingItems
+
+ME ME_4E56306403C2
+ MEPROP UID '4E56306403C2'
+ MEPROP Name 'TevSearcherAndReplacerPairList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:280009855}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E562FBF03B9 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E5630EB02D9 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4E56306403C2 // IsSameItems
+ ME_47B2C42A0163_ME_4E56306403C2 // AssignItem
+ ME_47B99D4503A2_ME_4E56306403C2 // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4E5630E20149 // TevSearcherAndReplacerPair
+ HWL ME_4E56319C0071 // l3Items_NoSort
+ )
+ ; // Children
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '25.08.2011 15:22'
+ UP extprop:pas:UnitName 'evSearcherAndReplacerPairList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SearcherAndReplacerPairList'
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evSearcherAndReplacerPairList.pas'
+
+ENDME // ME_4E56306403C2 TevSearcherAndReplacerPairList
+
+ME ME_4E562FBF03B9
+ MEPROP UID '4E562FBF03B9'
+ MEPROP Name 'Containers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48EEE54C0072' '48EEE54C0072.ms.model.script' // EverestCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E56306403C2 // TevSearcherAndReplacerPairList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ )
+ ; // Depends
+ UP "UseNewGen" True
+
+ENDME // ME_4E562FBF03B9 Containers

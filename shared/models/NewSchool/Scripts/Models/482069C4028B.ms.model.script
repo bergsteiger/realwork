@@ -1,0 +1,142 @@
+// Вспомогательные инструменты 482069C4028B UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_482069C4028B
+
+ME ME_48206A1C0202
+ MEPROP UID '48206A1C0202'
+ MEPROP Name 'Прсмотр информации о комплекте'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Просмот информации о наполнении комплекта информационных баз (КИБ)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_48206A1C0202 Прсмотр информации о комплекте
+
+ME ME_484FA9F1003A
+ MEPROP UID '484FA9F1003A'
+ MEPROP Name 'Инсталляция'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Процесс развертывания системы на компьютере пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_484FA9F1003A Инсталляция
+
+ME ME_484FB7CC025C
+ MEPROP UID '484FB7CC025C'
+ MEPROP Name 'Вспомогательные утилиты'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Различные программы, облегчающие запуск или администрирование основной' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_484FB7CC025C Вспомогательные утилиты
+
+ME ME_4856164801CC
+ MEPROP UID '4856164801CC'
+ MEPROP Name 'Обновление'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обновление информации в текущей информационной базе и программной части.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_4856164801CC Обновление
+
+ME ME_4856169002EE
+ MEPROP UID '4856169002EE'
+ MEPROP Name 'Изменение настроек по умолчанию'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Механизм для обновления у существующих пользователей системы настроек по умолчанию (панели инструментов, предупреждения и т.п.), сделанных Управлением Маркетинга.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_4856169002EE Изменение настроек по умолчанию
+
+ME ME_4856439F02A1
+ MEPROP UID '4856439F02A1'
+ MEPROP Name 'Конвертеры'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Дополнительные утилиты, использующиеся при инсталляции системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_4856439F02A1 Конвертеры
+
+ME ME_485653E9008E
+ MEPROP UID '485653E9008E'
+ MEPROP Name 'Шедулер обновления'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилита с графическим интерфейсом, объединяющую в себе шедулер, даунлоад и апдейтер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_485653E9008E Шедулер обновления
+
+ME ME_49199C3101DC
+ MEPROP UID '49199C3101DC'
+ MEPROP Name 'Подсистема Помощи'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерактивная подсистема, описывающая возможности системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_482069C4028B // Вспомогательные инструменты
+ ;
+
+ENDME // ME_49199C3101DC Подсистема Помощи
+
+ME ME_482069C4028B
+ MEPROP UID '482069C4028B'
+ MEPROP Name 'Вспомогательные инструменты'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Возможности системы непосредственно не связанные с поиском и просмотром информации.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' // Оболочка
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48206A1C0202 // Прсмотр информации о комплекте
+ HWL ME_484FA9F1003A // Инсталляция
+ HWL ME_484FB7CC025C // Вспомогательные утилиты
+ HWL ME_4856164801CC // Обновление
+ HWL ME_4856169002EE // Изменение настроек по умолчанию
+ HWL ME_4856439F02A1 // Конвертеры
+ HWL ME_485653E9008E // Шедулер обновления
+ HWL ME_49199C3101DC // Подсистема Помощи
+ )
+ ; // Children
+
+ENDME // ME_482069C4028B Вспомогательные инструменты

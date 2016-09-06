@@ -1,0 +1,196 @@
+// NewReminders 536A56A6004E TestUnit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_536A56A6004E
+
+FORWARD ME_536A57190399
+
+ME ME_536B5DA30257
+ MEPROP UID '536B5DA30257'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_536A57190399 // TvgRemindersLine
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_536B5DA30257 Count
+
+FORWARD ME_536AC39500C3
+
+ME ME_536AC39C034B
+ MEPROP UID '536AC39C034B'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_536AC39500C3 // Reminder
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_536AC39C034B Index
+
+ME ME_536AC39500C3
+ MEPROP UID '536AC39500C3'
+ MEPROP Name 'Reminder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_536A57190399 // TvgRemindersLine
+ ;
+ MELINK Target WL 'ME_532973740186' '53288DFA03A7.ms.model.script' // TvgReminder
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_536AC39C034B // Index
+ )
+ ; // Attributes
+
+ENDME // ME_536AC39500C3 Reminder
+
+ME ME_536A57190399
+ MEPROP UID '536A57190399'
+ MEPROP Name 'TvgRemindersLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_536A56A6004E // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_532322D901A3' '53288DFA03A7.ms.model.script' // TvgRemindersLine
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_536B5DA30257 // Count
+ HWL ME_536AC39500C3 // Reminder
+ )
+ ; // Attributes
+ UP "is friend" False
+ UP extprop:pas:UnitName 'vgRemindersLine_p'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgRemindersLine_p.pas'
+
+ENDME // ME_536A57190399 TvgRemindersLine
+
+FORWARD ME_536B5D600367
+
+ME ME_536B5D8B01C6
+ MEPROP UID '536B5D8B01C6'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_536B5D600367 // TvgReminder
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_536B5D8B01C6 Caption
+
+ME ME_536B5D980340
+ MEPROP UID '536B5D980340'
+ MEPROP Name 'Flash'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_536B5D600367 // TvgReminder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_536B5D980340 Flash
+
+ME ME_53712731020C
+ MEPROP UID '53712731020C'
+ MEPROP Name 'Visible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_536B5D600367 // TvgReminder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53712731020C Visible
+
+ME ME_536B5E2E033B
+ MEPROP UID '536B5E2E033B'
+ MEPROP Name 'vgImage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_536B5D600367 // TvgReminder
+ ;
+ MELINK Target WL 'ME_5326E7230130' '4CFCE51A00B0.ms.model.script' // TvgImage
+ ;
+
+ENDME // ME_536B5E2E033B vgImage
+
+ME ME_536B5D600367
+ MEPROP UID '536B5D600367'
+ MEPROP Name 'TvgReminder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_536A56A6004E // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_532973740186' '53288DFA03A7.ms.model.script' // TvgReminder
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_536B5D8B01C6 // Caption
+ HWL ME_536B5D980340 // Flash
+ HWL ME_53712731020C // Visible
+ HWL ME_536B5E2E033B // vgImage
+ )
+ ; // Attributes
+ UP "is friend" False
+ UP extprop:pas:UnitName 'vgReminder_p'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgReminder_p.pas'
+
+ENDME // ME_536B5D600367 TvgReminder
+
+ME ME_536A56A6004E
+ MEPROP UID '536A56A6004E'
+ MEPROP Name 'NewReminders'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestUnit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499A86490253' '499A86490253.ms.model.script' // VTTest
+ ;
+ MELIST Children
+   Seq: ( HWL ME_536A57190399 // TvgRemindersLine
+ HWL ME_536B5D600367 // TvgReminder
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.ms.model.script' // Impl
+ WL 'ME_53288DFA03A7' '53288DFA03A7.ms.model.script' // NewReminders
+ )
+ ; // Depends
+ UP Version 0
+
+ENDME // ME_536A56A6004E NewReminders

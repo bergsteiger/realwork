@@ -130,6 +130,8 @@ uses
  , SecurityUnit
  , atNotification
  , atUserJournalHelper
+ //#UC START# *483C0AEA0186impl_uses*
+ //#UC END# *483C0AEA0186impl_uses*
 ;
 
 type

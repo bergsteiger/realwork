@@ -66,6 +66,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *4D49562A01B7impl_uses*
+ //#UC END# *4D49562A01B7impl_uses*
 ;
 
 procedure TvgVisualObject.pm_SetOnClick(aValue: TNotifyEvent);

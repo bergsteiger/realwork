@@ -1,0 +1,31 @@
+// TestForTFW 4CA0B1CA00A3 TestLibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4CA0B1CA00A3
+ MEPROP UID '4CA0B1CA00A3'
+ MEPROP Name 'TestForTFW'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_TestLibrary ;
+ %SUMMARY 'Тесты для тестирования собственно тестового фреймворка TFW' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49B923B60333' '49B923B60333.ms.model.script' // Shared Delphi Tests
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_4CA0B2660199' '4CA0B2660199.ms.model.script' // TFWTests
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
+ )
+ ; // Depends
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "is namespace" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\TestForTFW'
+ UP Version 0
+
+ENDME // ME_4CA0B1CA00A3 TestForTFW

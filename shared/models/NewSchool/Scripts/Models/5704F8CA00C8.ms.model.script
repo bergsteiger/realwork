@@ -1,0 +1,750 @@
+// TnscComboLabel 5704F8CA00C8 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5704F8CA00C8
+
+FORWARD ME_5704FC1A0398
+
+ME ME_57062DEC03CF
+ MEPROP UID '57062DEC03CF'
+ MEPROP Name 'HighLightItem'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Подсвеченный мышью элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57062DEC03CF HighLightItem
+
+ME ME_57062E560375
+ MEPROP UID '57062E560375'
+ MEPROP Name 'HighlightColor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_57062E560375 HighlightColor
+
+ME ME_5707A0D20107
+ MEPROP UID '5707A0D20107'
+ MEPROP Name 'OnCloseup'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_5707A0D20107 OnCloseup
+
+FORWARD ME_57078A99008F
+
+FORWARD ME_57078AA30133
+
+ME ME_57078AB302CF
+ MEPROP Name 'anAccept'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57078AB302CF anAccept
+
+ME ME_57078AA30133
+ MEPROP UID '57078AA30133'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57078A99008F // CloseUp
+ ;
+ MELIST Parameters
+   Seq: ( ME_57078AB302CF // anAccept
+ )
+ ; // Parameters
+
+ENDME // ME_57078AA30133 DoIt
+
+ME ME_57078A99008F
+ MEPROP UID '57078A99008F'
+ MEPROP Name 'CloseUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57078AA30133 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57078A99008F CloseUp
+
+FORWARD ME_57062ECE024D
+
+ME ME_57062EDC03CF
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_508FAB07030A' '476F78840219.ms.model.script' // TWMMouseMove
+ ;
+
+ENDME // ME_57062EDC03CF Message
+
+ME ME_57062ECE024D
+ MEPROP UID '57062ECE024D'
+ MEPROP Name 'WMMouseMove'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_57062EDC03CF // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_MOUSEMOVE'
+
+ENDME // ME_57062ECE024D WMMouseMove
+
+FORWARD ME_570664D202D8
+
+ME ME_570664DC0223
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_570664DC0223 Message
+
+ME ME_570664D202D8
+ MEPROP UID '570664D202D8'
+ MEPROP Name 'CMMouseLeave'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_570664DC0223 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_MOUSELEAVE'
+
+ENDME // ME_570664D202D8 CMMouseLeave
+
+FORWARD ME_570664F001CF
+
+ME ME_570664F700B8
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_50291A020241' '476F78840219.ms.model.script' // TWMNCCalcSize
+ ;
+
+ENDME // ME_570664F700B8 Message
+
+ME ME_570664F001CF
+ MEPROP UID '570664F001CF'
+ MEPROP Name 'WMNCCalcSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_570664F700B8 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_NCCALCSIZE'
+
+ENDME // ME_570664F001CF WMNCCalcSize
+
+FORWARD ME_57067C0302FD
+
+ME ME_570E07E90148
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C7C9F8039E' '476F78840219.ms.model.script' // TWMKeyDown
+ ;
+
+ENDME // ME_570E07E90148 Message
+
+ME ME_57067C0302FD
+ MEPROP UID '57067C0302FD'
+ MEPROP Name 'CNKeyDown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_570E07E90148 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CN_KEYDOWN'
+
+ENDME // ME_57067C0302FD CNKeyDown
+
+FORWARD ME_5710FAC701BB
+
+ME ME_5710FAE2032C
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_48E22C340122' '476F78840219.ms.model.script' // TWMKillFocus
+ ;
+
+ENDME // ME_5710FAE2032C Message
+
+ME ME_5710FAC701BB
+ MEPROP UID '5710FAC701BB'
+ MEPROP Name 'WMKillFocus'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ MELIST Parameters
+   Seq: ( ME_5710FAE2032C // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_KILLFOCUS'
+
+ENDME // ME_5710FAC701BB WMKillFocus
+
+ME ME_5298BEBA032D_ME_5704FC1A0398
+ MELINK Original WL 'ME_5298BEBA032D' '4F8D5535021C.ms.model.script' // IsSizeableTree
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5298BEBA032D_ME_5704FC1A0398 IsSizeableTree
+
+ME ME_5298BF130022_ME_5704FC1A0398
+ MELINK Original WL 'ME_5298BF130022' '4F8D5535021C.ms.model.script' // IsShowGripper
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5298BF130022_ME_5704FC1A0398 IsShowGripper
+
+ME ME_5298BF4D00FE_ME_5704FC1A0398
+ MELINK Original WL 'ME_5298BF4D00FE' '4F8D5535021C.ms.model.script' // IsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5298BF4D00FE_ME_5704FC1A0398 IsList
+
+ME ME_5298BF8700B0_ME_5704FC1A0398
+ MELINK Original WL 'ME_5298BF8700B0' '4F8D5535021C.ms.model.script' // IsInvert
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5298BF8700B0_ME_5704FC1A0398 IsInvert
+
+ME ME_5298BFDF0035_ME_5704FC1A0398
+ MELINK Original WL 'ME_5298BFDF0035' '4F8D5535021C.ms.model.script' // IsOwnerAssigned
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5298BFDF0035_ME_5704FC1A0398 IsOwnerAssigned
+
+ME ME_5298BFFA014B_ME_5704FC1A0398
+ MELINK Original WL 'ME_5298BFFA014B' '4F8D5535021C.ms.model.script' // GetWidth
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5298BFFA014B_ME_5704FC1A0398 GetWidth
+
+ME ME_47D1602000C6_ME_5704FC1A0398
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_5704FC1A0398 Create
+
+ME ME_48C7925A02E5_ME_5704FC1A0398
+ MELINK Original WL 'ME_48C7925A02E5' '4799D29F033F.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7925A02E5_ME_5704FC1A0398 CreateParams
+
+ME ME_508F825303E4_ME_5704FC1A0398
+ MELINK Original WL 'ME_508F825303E4' '515DA5860015.ms.model.script' // DoOnGetItemStyle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_508F825303E4_ME_5704FC1A0398 DoOnGetItemStyle
+
+ME ME_515317860183_ME_5704FC1A0398
+ MELINK Original WL 'ME_515317860183' '4799D29F033F.ms.model.script' // MouseWheelHandler
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_515317860183_ME_5704FC1A0398 MouseWheelHandler
+
+ME ME_5298C02D03B3_ME_5704FC1A0398
+ MELINK Original WL 'ME_5298C02D03B3' '4F8D5535021C.ms.model.script' // NCDraw
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5298C02D03B3_ME_5704FC1A0398 NCDraw
+
+ME ME_5704FC1A0398
+ MEPROP UID '5704FC1A0398'
+ MEPROP Name 'TnscLabelSubTree'
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F8D5535021C' '4F8D5535021C.ms.model.script' // TAbsSubTree
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57062DEC03CF // HighLightItem
+ HWL ME_57062E560375 // HighlightColor
+ HWL ME_5707A0D20107 // OnCloseup
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57078A99008F // CloseUp
+ HWL ME_57062ECE024D // WMMouseMove
+ HWL ME_570664D202D8 // CMMouseLeave
+ HWL ME_570664F001CF // WMNCCalcSize
+ HWL ME_57067C0302FD // CNKeyDown
+ HWL ME_5710FAC701BB // WMKillFocus
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5298BEBA032D_ME_5704FC1A0398 // IsSizeableTree
+ ME_5298BF130022_ME_5704FC1A0398 // IsShowGripper
+ ME_5298BF4D00FE_ME_5704FC1A0398 // IsList
+ ME_5298BF8700B0_ME_5704FC1A0398 // IsInvert
+ ME_5298BFDF0035_ME_5704FC1A0398 // IsOwnerAssigned
+ ME_5298BFFA014B_ME_5704FC1A0398 // GetWidth
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_5704FC1A0398 // Create
+ ME_48C7925A02E5_ME_5704FC1A0398 // CreateParams
+ ME_508F825303E4_ME_5704FC1A0398 // DoOnGetItemStyle
+ ME_515317860183_ME_5704FC1A0398 // MouseWheelHandler
+ ME_5298C02D03B3_ME_5704FC1A0398 // NCDraw
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LabelSubTree'
+
+ENDME // ME_5704FC1A0398 TnscLabelSubTree
+
+ME ME_5704F9690243
+ MEPROP UID '5704F9690243'
+ MEPROP Name 'Dropped'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5704F9690243 Dropped
+
+ME ME_5704F99202CF
+ MEPROP UID '5704F99202CF'
+ MEPROP Name 'OnChange'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_5704F99202CF OnChange
+
+ME ME_5704FCF60069
+ MEPROP UID '5704FCF60069'
+ MEPROP Name 'Tree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target HWL ME_5704FC1A0398 // TnscLabelSubTree
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_5704FCF60069 Tree
+
+ME ME_5704FDF001B3
+ MEPROP UID '5704FDF001B3'
+ MEPROP Name 'TreeStruct'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_46825CC00249' '4682595B0268.ms.model.script' // Il3SimpleTree
+ ;
+ UP "pm" True
+
+ENDME // ME_5704FDF001B3 TreeStruct
+
+ME ME_570685C4031F
+ MEPROP UID '570685C4031F'
+ MEPROP Name 'CurrentItem'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_570685C4031F CurrentItem
+
+ME ME_5710F16102AE
+ MEPROP UID '5710F16102AE'
+ MEPROP Name 'f_FocusedControl'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_4E95755B0162' '4AB0C3F60375.ms.model.script' // HWND
+ ;
+
+ENDME // ME_5710F16102AE f_FocusedControl
+
+ME ME_5704F9AE00E5
+ MEPROP UID '5704F9AE00E5'
+ MEPROP Name 'DoChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+
+ENDME // ME_5704F9AE00E5 DoChanged
+
+ME ME_5706819E0333
+ MEPROP UID '5706819E0333'
+ MEPROP Name 'TreeActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_5706819E0333 TreeActionElement
+
+ME ME_570685E80050
+ MEPROP UID '570685E80050'
+ MEPROP Name 'UpdateCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+
+ENDME // ME_570685E80050 UpdateCaption
+
+ME ME_5707A0EB00B5
+ MEPROP UID '5707A0EB00B5'
+ MEPROP Name 'TreeCloseUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5707A0EB00B5 TreeCloseUp
+
+ME ME_5705117D0083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ ;
+
+ENDME // ME_5705117D0083 
+
+ME ME_570511A1036C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_570511A1036C 
+
+ME ME_570514590198
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_570514590198 
+
+ME ME_57062B7D0287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_57062B7D0287 
+
+ME ME_570644270358
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_47D63BA9029A' '47D036150077.ms.model.script' // Tl3ActionElementMode
+ ;
+
+ENDME // ME_570644270358 
+
+ME ME_5706444203B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_4799ED060093' '4799EC9300AF.ms.model.script' // l3Defaults
+ ;
+
+ENDME // ME_5706444203B1 
+
+ME ME_570644750159
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+
+ENDME // ME_570644750159 
+
+ME ME_57067AD503C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_57067AD503C8 
+
+ME ME_570686AE015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_4F636139008F' '4F635E1901E5.ms.model.script' // Tl3ListenersManager
+ ;
+
+ENDME // ME_570686AE015A 
+
+ME ME_570F9570025D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_570F9570025D 
+
+ME ME_57177BBE02B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5704F8CA00C8 // TnscComboLabel
+ ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_57177BBE02B7 
+
+ME ME_4F79CEDF005A_ME_5704F8CA00C8
+ MELINK Original WL 'ME_4F79CEDF005A' '4677FBA70343.ms.model.script' // MouseListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CEDF005A_ME_5704F8CA00C8 MouseListenerNotify
+
+ME ME_4F79CF3400BB_ME_5704F8CA00C8
+ MELINK Original WL 'ME_4F79CF3400BB' '4677FBA70343.ms.model.script' // WndProcListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CF3400BB_ME_5704F8CA00C8 WndProcListenerNotify
+
+ME ME_4F79D08A02C7_ME_5704F8CA00C8
+ MELINK Original WL 'ME_4F79D08A02C7' '4677FBA70343.ms.model.script' // MouseWheelListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79D08A02C7_ME_5704F8CA00C8 MouseWheelListenerNotify
+
+ME ME_479731C50290_ME_5704F8CA00C8
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5704F8CA00C8 Cleanup
+
+ME ME_47D1602000C6_ME_5704F8CA00C8
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_5704F8CA00C8 Create
+
+ME ME_4E7896270076_ME_5704F8CA00C8
+ MELINK Original WL 'ME_4E7896270076' '4799D29F033F.ms.model.script' // MouseUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E7896270076_ME_5704F8CA00C8 MouseUp
+
+ME ME_4F88473B03CD_ME_5704F8CA00C8
+ MELINK Original WL 'ME_4F88473B03CD' '4799D29F033F.ms.model.script' // MouseDown
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F88473B03CD_ME_5704F8CA00C8 MouseDown
+
+ME ME_5704F8CA00C8
+ MEPROP UID '5704F8CA00C8'
+ MEPROP Name 'TnscComboLabel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метка с выпадающим списком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B601984005A' '4B601984005A.ms.model.script' // Labels
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5704F87C02B4' '5704F87C02B4.ms.model.script' // TnscImageLabel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46A5B4170363' '4677FBA70343.ms.model.script' // Il3WndProcListener
+ WL 'ME_4F741B37029A' '4677FBA70343.ms.model.script' // Il3MouseListener
+ WL 'ME_4F79CE030257' '4677FBA70343.ms.model.script' // Il3MouseWheelListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5704F9690243 // Dropped
+ HWL ME_5704F99202CF // OnChange
+ HWL ME_5704FCF60069 // Tree
+ HWL ME_5704FDF001B3 // TreeStruct
+ HWL ME_570685C4031F // CurrentItem
+ HWL ME_5710F16102AE // f_FocusedControl
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5704F9AE00E5 // DoChanged
+ HWL ME_5706819E0333 // TreeActionElement
+ HWL ME_570685E80050 // UpdateCaption
+ HWL ME_5707A0EB00B5 // TreeCloseUp
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F79CEDF005A_ME_5704F8CA00C8 // MouseListenerNotify
+ ME_4F79CF3400BB_ME_5704F8CA00C8 // WndProcListenerNotify
+ ME_4F79D08A02C7_ME_5704F8CA00C8 // MouseWheelListenerNotify
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5704F8CA00C8 // Cleanup
+ ME_47D1602000C6_ME_5704F8CA00C8 // Create
+ ME_4E7896270076_ME_5704F8CA00C8 // MouseUp
+ ME_4F88473B03CD_ME_5704F8CA00C8 // MouseDown
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_5704FC1A0398 // TnscLabelSubTree
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5705117D0083 // l3String
+ ME_570511A1036C // Controls
+ ME_570514590198 // l3MinMax
+ ME_57062B7D0287 // Windows
+ ME_570644270358 // Tl3ActionElementMode
+ ME_5706444203B1 // l3Defaults
+ ME_570644750159 // Tl3Rect
+ ME_57067AD503C8 // Forms
+ ME_570686AE015A // Tl3ListenersManager
+ ME_570F9570025D // SysUtils
+ ME_57177BBE02B7 // Il3Canvas
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'nscComboLabel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComboLabel'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscComboLabel.pas'
+
+ENDME // ME_5704F8CA00C8 TnscComboLabel

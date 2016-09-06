@@ -1,0 +1,266 @@
+// CoreExecutors 54856B98017D Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54856B98017D
+
+FORWARD ME_54748D2A0111
+
+ME ME_54748DC603B2
+ MEPROP UID '54748DC603B2'
+ MEPROP Name 'TaskList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ MELINK Target WL 'ME_52FA3DB401BE' '53A05123034C.ms.model.script' // TalcuTaskList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_54748DC603B2 TaskList
+
+FORWARD ME_5465DA0F0245
+
+FORWARD ME_5465DA180311
+
+ME ME_5465DA2A021A
+ MEPROP Name 'aTaskList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FA3DB401BE' '53A05123034C.ms.model.script' // TalcuTaskList
+ ;
+
+ENDME // ME_5465DA2A021A aTaskList
+
+ME ME_5465DA180311
+ MEPROP UID '5465DA180311'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5465DA0F0245 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5465DA2A021A // aTaskList
+ )
+ ; // Parameters
+
+ENDME // ME_5465DA180311 DoIt
+
+ME ME_5465DA0F0245
+ MEPROP UID '5465DA0F0245'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5465DA180311 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5465DA0F0245 Create
+
+ME ME_54748E4A0129
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54748E4A0129 
+
+ME ME_479731C50290_ME_54748D2A0111
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_54748D2A0111 Cleanup
+
+ME ME_54748D2A0111
+ MEPROP UID '54748D2A0111'
+ MEPROP Name 'TalcuExecutorWithTaskList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54856B98017D // CoreExecutors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54748DC603B2 // TaskList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5465DA0F0245 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54748D2A0111 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54748E4A0129 // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'alcuExecutorWithTaskList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuExecutorWithTaskList'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithTaskList.pas'
+
+ENDME // ME_54748D2A0111 TalcuExecutorWithTaskList
+
+FORWARD ME_54856E500154
+
+ME ME_54856EEA01E2
+ MEPROP UID '54856EEA01E2'
+ MEPROP Name 'IncomingList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ MELINK Target WL 'ME_52FA5F460142' '52F8C298005C.ms.model.script' // TddServerTaskList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_54856EEA01E2 IncomingList
+
+FORWARD ME_54856F0B019F
+
+FORWARD ME_54856F160027
+
+ME ME_54856F2802E8
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FA5F460142' '52F8C298005C.ms.model.script' // TddServerTaskList
+ ;
+
+ENDME // ME_54856F2802E8 aList
+
+ME ME_54856F160027
+ MEPROP UID '54856F160027'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54856F0B019F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54856F2802E8 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_54856F160027 DoIt
+
+ME ME_54856F0B019F
+ MEPROP UID '54856F0B019F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54856F160027 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54856F0B019F Create
+
+ME ME_54856EA002F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54856EA002F9 
+
+ME ME_479731C50290_ME_54856E500154
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_54856E500154 Cleanup
+
+ME ME_54856E500154
+ MEPROP UID '54856E500154'
+ MEPROP Name 'TalcuExecutorWithIncomingTaskList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54856B98017D // CoreExecutors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54856EEA01E2 // IncomingList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54856F0B019F // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54856E500154 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54856EA002F9 // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'alcuExecutorWithIncomingTaskList'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuExecutorWithIncomingTaskList'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuExecutorWithIncomingTaskList.pas'
+
+ENDME // ME_54856E500154 TalcuExecutorWithIncomingTaskList
+
+ME ME_54856B98017D
+ MEPROP UID '54856B98017D'
+ MEPROP Name 'CoreExecutors'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_52FA3D9502BD' '52FA3D9502BD.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54748D2A0111 // TalcuExecutorWithTaskList
+ HWL ME_54856E500154 // TalcuExecutorWithIncomingTaskList
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ WL 'ME_53A05123034C' '53A05123034C.ms.model.script' // TasksLists
+ WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
+ )
+ ; // Depends
+
+ENDME // ME_54856B98017D CoreExecutors

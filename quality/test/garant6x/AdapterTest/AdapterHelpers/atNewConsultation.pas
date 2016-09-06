@@ -57,6 +57,8 @@ uses
  , SearchUnit
  , atStringHelper
  , SysUtils
+ //#UC START# *4A54B2EB00FFimpl_uses*
+ //#UC END# *4A54B2EB00FFimpl_uses*
 ;
 
 procedure TatNewConsultation.pm_SetUserName(const aValue: AnsiString);

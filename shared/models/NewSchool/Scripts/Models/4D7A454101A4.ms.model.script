@@ -1,0 +1,155 @@
+// PrimBaseSearchContainer 4D7A454101A4 VCMContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D7A454101A4
+
+FORWARD ME_4D7A45DC01AD
+
+ME ME_4D7A460D0058
+ MEPROP UID '4D7A460D0058'
+ MEPROP Name 'ztChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D7A454101A4 // PrimBaseSearchContainer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D7A45DC01AD // ChildZone
+ )
+ ; // Inherits
+ UP "MergeBottomTollbarWithContainer" False
+ UP "MergeTopTollbarWithContainer" False
+ UP "ZoneType" 'Child'
+
+ENDME // ME_4D7A460D0058 ztChild
+
+ME ME_4D7A45DC01AD
+ MEPROP UID '4D7A45DC01AD'
+ MEPROP Name 'ChildZone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D7A454101A4 // PrimBaseSearchContainer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A7961A701CF' '4A7961A701CF.ms.model.script' // TvtPanel
+ )
+ ; // Inherits
+ MELIST Zones
+   Seq: ( HWL ME_4D7A460D0058 // ztChild
+ )
+ ; // Zones
+ UP "ControlClass" 'none'
+ UP "needs field" True
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4D7A45DC01AD ChildZone
+
+ME ME_4D7A4C8B03CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D7A454101A4 // PrimBaseSearchContainer
+ ;
+ MELINK Target WL 'ME_47E12539018D' '4799D29F033F.ms.model.script' // TAlign
+ ;
+
+ENDME // ME_4D7A4C8B03CE 
+
+ME ME_544621D50154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D7A454101A4 // PrimBaseSearchContainer
+ ;
+ MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ ;
+
+ENDME // ME_544621D50154 
+
+ME ME_4F20313F00E3_ME_4D7A454101A4
+ MELINK Original WL 'ME_4F20313F00E3' '4A9F98B901A5.ms.model.script' // IsIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F20313F00E3_ME_4D7A454101A4 IsIt
+
+ME ME_4A8E8F2E0195_ME_4D7A454101A4
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_4D7A454101A4 InitControls
+
+ME ME_4D78E2BB0211_ME_4D7A454101A4
+ MELINK Original WL 'ME_4D78E2BB0211' '4AADF9450143.ms.model.script' // NotifyUserTypeSet
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4D78E2BB0211_ME_4D7A454101A4 NotifyUserTypeSet
+
+ME ME_53B649F600A3_ME_4D7A454101A4
+ MELINK Original WL 'ME_53B649F600A3' '533D53FF00C2.ms.model.script' // DoGetFormSetImageIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53B649F600A3_ME_4D7A454101A4 DoGetFormSetImageIndex
+
+ME ME_4D7A454101A4
+ MEPROP UID '4D7A454101A4'
+ MEPROP Name 'PrimBaseSearchContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CC97BDA02DF' '4CC97BDA02DF.ms.model.script' // BaseSearch$Module
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F5DA09300C5' '4F5DA09300C5.ms.model.script' // PrimSaveLoadOptionsForBaseSearch
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F203112036A' '4A9F98B901A5.ms.model.script' // InsMainMenuLikeBaseSearchOwner
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D7A45DC01AD // ChildZone
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4F20313F00E3_ME_4D7A454101A4 // IsIt
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4A8E8F2E0195_ME_4D7A454101A4 // InitControls
+ ME_4D78E2BB0211_ME_4D7A454101A4 // NotifyUserTypeSet
+ ME_53B649F600A3_ME_4D7A454101A4 // DoGetFormSetImageIndex
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D7A460D0058 // ztChild
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D7A4C8B03CE // TAlign
+ ME_544621D50154 // nsTabbedInterfaceTypes
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '11.03.2011 18:52'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TPrimBaseSearchContainerForm'
+ UP extprop:pas:UnitName 'PrimBaseSearchContainer_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimBaseSearchContainerForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearchContainer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms'
+
+ENDME // ME_4D7A454101A4 PrimBaseSearchContainer

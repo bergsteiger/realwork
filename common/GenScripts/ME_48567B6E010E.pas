@@ -48,6 +48,8 @@ uses
  {$IfEnd} // Defined(evUseVisibleCursors)
  , nevLeafParaAnchor
  , nevLeafParaInevLeafParaMapper
+ //#UC START# *48567B6E010Eimpl_uses*
+ //#UC END# *48567B6E010Eimpl_uses*
 ;
 
 function TevLeafParaInterfaceFactory.QueryTool(aTag: Tl3Variant;

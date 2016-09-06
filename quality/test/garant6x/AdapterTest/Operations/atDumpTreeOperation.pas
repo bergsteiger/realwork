@@ -26,6 +26,8 @@ uses
  , atNodeHelper
  , atLogger
  , BaseTypesUnit
+ //#UC START# *503D03510064impl_uses*
+ //#UC END# *503D03510064impl_uses*
 ;
 
 procedure TatDumpTreeOperation.ExecuteSelf;

@@ -1,0 +1,389 @@
+// ProfilersInterfaces 49917E6E033C Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49917E6E033C
+
+FORWARD ME_49917E8F0165
+
+ME ME_49917E9A0046
+ MEPROP UID '49917E9A0046'
+ MEPROP Name 'Start'
+ MEPROP Class class_Operation
+ %SUMMARY 'начать замер, вызывается перед созданием сборки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49917E8F0165 // InsProfiler
+ ;
+
+ENDME // ME_49917E9A0046 Start
+
+ME ME_49917EA502E3
+ MEPROP UID '49917EA502E3'
+ MEPROP Name 'Finish'
+ MEPROP Class class_Operation
+ %SUMMARY 'закончить измерения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49917E8F0165 // InsProfiler
+ ;
+
+ENDME // ME_49917EA502E3 Finish
+
+ME ME_49917E8F0165
+ MEPROP UID '49917E8F0165'
+ MEPROP GUID '1D763660-D3D4-4061-8A81-9DC23C13C651'
+ MEPROP Name 'InsProfiler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49917E6E033C // ProfilersInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49917E9A0046 // Start
+ HWL ME_49917EA502E3 // Finish
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Profiler'
+
+ENDME // ME_49917E8F0165 InsProfiler
+
+FORWARD ME_49917ECE006F
+
+ME ME_49917F3802A3
+ MEPROP UID '49917F3802A3'
+ MEPROP Name 'FormSetCreated'
+ MEPROP Class class_Operation
+ %SUMMARY 'сборка создана' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49917ECE006F // IprDocument
+ ;
+
+ENDME // ME_49917F3802A3 FormSetCreated
+
+ME ME_49917F430212
+ MEPROP UID '49917F430212'
+ MEPROP Name 'DocumentReceived'
+ MEPROP Class class_Operation
+ %SUMMARY 'документ получен с адаптера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49917ECE006F // IprDocument
+ ;
+
+ENDME // ME_49917F430212 DocumentReceived
+
+ME ME_49917F4D0329
+ MEPROP UID '49917F4D0329'
+ MEPROP Name 'DocumentPainted'
+ MEPROP Class class_Operation
+ %SUMMARY 'документ отрисован' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49917ECE006F // IprDocument
+ ;
+
+ENDME // ME_49917F4D0329 DocumentPainted
+
+ME ME_49917F5702FB
+ MEPROP UID '49917F5702FB'
+ MEPROP Name 'ContentsTreeOpened'
+ MEPROP Class class_Operation
+ %SUMMARY 'открыта структура документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49917ECE006F // IprDocument
+ ;
+
+ENDME // ME_49917F5702FB ContentsTreeOpened
+
+ME ME_49917E9A0046_ME_49917ECE006F
+ MELINK Original HWL ME_49917E9A0046 // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917E9A0046_ME_49917ECE006F Start
+
+ME ME_49917EA502E3_ME_49917ECE006F
+ MELINK Original HWL ME_49917EA502E3 // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917EA502E3_ME_49917ECE006F Finish
+
+ME ME_49917ECE006F
+ MEPROP UID '49917ECE006F'
+ MEPROP GUID 'B2515E49-A19D-4049-9919-56F7EC28A7EE'
+ MEPROP Name 'IprDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Используется оболочкой для замеров времени открытия документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49917E6E033C // ProfilersInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_49917F3802A3 // FormSetCreated
+ HWL ME_49917F430212 // DocumentReceived
+ HWL ME_49917F4D0329 // DocumentPainted
+ HWL ME_49917F5702FB // ContentsTreeOpened
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49917E9A0046_ME_49917ECE006F // Start
+ ME_49917EA502E3_ME_49917ECE006F // Finish
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'prDocument'
+
+ENDME // ME_49917ECE006F IprDocument
+
+ME ME_49917E9A0046_ME_49917F690172
+ MELINK Original HWL ME_49917E9A0046 // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917E9A0046_ME_49917F690172 Start
+
+ME ME_49917EA502E3_ME_49917F690172
+ MELINK Original HWL ME_49917EA502E3 // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917EA502E3_ME_49917F690172 Finish
+
+ME ME_49917F690172
+ MEPROP UID '49917F690172'
+ MEPROP GUID '789A98FD-0CF4-4201-A45E-C561BB951454'
+ MEPROP Name 'IprQueryCard'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Используется для замеров открытия карточки запросов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49917E6E033C // ProfilersInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_49917E9A0046_ME_49917F690172 // Start
+ ME_49917EA502E3_ME_49917F690172 // Finish
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'prQueryCard'
+
+ENDME // ME_49917F690172 IprQueryCard
+
+ME ME_49917E9A0046_ME_49917F810208
+ MELINK Original HWL ME_49917E9A0046 // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917E9A0046_ME_49917F810208 Start
+
+ME ME_49917EA502E3_ME_49917F810208
+ MELINK Original HWL ME_49917EA502E3 // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917EA502E3_ME_49917F810208 Finish
+
+ME ME_49917F810208
+ MEPROP UID '49917F810208'
+ MEPROP GUID 'C6674B5C-2E96-4BCC-B125-0B65DE2E3258'
+ MEPROP Name 'IprListAfterSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Открытие списка после поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49917E6E033C // ProfilersInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_49917E9A0046_ME_49917F810208 // Start
+ ME_49917EA502E3_ME_49917F810208 // Finish
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'prListAfterSearch'
+
+ENDME // ME_49917F810208 IprListAfterSearch
+
+ME ME_49917E9A0046_ME_49917F960107
+ MELINK Original HWL ME_49917E9A0046 // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917E9A0046_ME_49917F960107 Start
+
+ME ME_49917EA502E3_ME_49917F960107
+ MELINK Original HWL ME_49917EA502E3 // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49917EA502E3_ME_49917F960107 Finish
+
+ME ME_49917F960107
+ MEPROP UID '49917F960107'
+ MEPROP GUID '39745C2C-BFC7-49B0-8354-6BF3FA66C8E3'
+ MEPROP Name 'IprMainMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Открытие основного меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49917E6E033C // ProfilersInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_49917E9A0046_ME_49917F960107 // Start
+ ME_49917EA502E3_ME_49917F960107 // Finish
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'prMainMenu'
+
+ENDME // ME_49917F960107 IprMainMenu
+
+FORWARD ME_49917FC60368
+
+ME ME_49917FD000BC
+ MEPROP UID '49917FD000BC'
+ MEPROP Name 'Document'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'профайлер документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49917FC60368 // InsProfilersManager
+ ;
+ MELINK Target HWL ME_49917ECE006F // IprDocument
+ ;
+ UP "pm" True
+
+ENDME // ME_49917FD000BC Document
+
+ME ME_49917FE10014
+ MEPROP UID '49917FE10014'
+ MEPROP Name 'QueryCard'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'профайлер карточки запроса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49917FC60368 // InsProfilersManager
+ ;
+ MELINK Target HWL ME_49917F690172 // IprQueryCard
+ ;
+ UP "pm" True
+
+ENDME // ME_49917FE10014 QueryCard
+
+ME ME_49917FF100D3
+ MEPROP UID '49917FF100D3'
+ MEPROP Name 'ListAfterSearch'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'открытие документа после поиска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49917FC60368 // InsProfilersManager
+ ;
+ MELINK Target HWL ME_49917F810208 // IprListAfterSearch
+ ;
+ UP "pm" True
+
+ENDME // ME_49917FF100D3 ListAfterSearch
+
+ME ME_49918002008F
+ MEPROP UID '49918002008F'
+ MEPROP Name 'MainMenu'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'открытие основного меню' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_49917FC60368 // InsProfilersManager
+ ;
+ MELINK Target HWL ME_49917F960107 // IprMainMenu
+ ;
+ UP "pm" True
+
+ENDME // ME_49918002008F MainMenu
+
+ME ME_49917FC60368
+ MEPROP UID '49917FC60368'
+ MEPROP GUID '8E294A8A-F992-453E-BEFE-15A04CE9950C'
+ MEPROP Name 'InsProfilersManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Менеджер профайлеров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49917E6E033C // ProfilersInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49917FD000BC // Document
+ HWL ME_49917FE10014 // QueryCard
+ HWL ME_49917FF100D3 // ListAfterSearch
+ HWL ME_49918002008F // MainMenu
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProfilersManager'
+
+ENDME // ME_49917FC60368 InsProfilersManager
+
+ME ME_49917E6E033C
+ MEPROP UID '49917E6E033C'
+ MEPROP Name 'ProfilersInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Профайлеры прецедентов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E9EEC60260' '47E9EEC60260.ms.model.script' // Model
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49917E8F0165 // InsProfiler
+ HWL ME_49917ECE006F // IprDocument
+ HWL ME_49917F690172 // IprQueryCard
+ HWL ME_49917F810208 // IprListAfterSearch
+ HWL ME_49917F960107 // IprMainMenu
+ HWL ME_49917FC60368 // InsProfilersManager
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "ifdef" 'vcmUseProfilers'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '10.02.2009 16:17'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\ProfilersInterfaces.pas'
+
+ENDME // ME_49917E6E033C ProfilersInterfaces

@@ -1,0 +1,280 @@
+// BlockSelector 4C0686B8005B VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C0686B8005B
+
+ME ME_4C068806023E
+ MEPROP UID '4C068806023E'
+ MEPROP Name 'f_NotFoundBlocks'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Не найденные блоки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4C0686B8005B // BlockSelector
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_4C068806023E f_NotFoundBlocks
+
+ME ME_4B61ABD70289
+ MEPROP UID '4B61ABD70289'
+ MEPROP Name 'f_FoundBlocks'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Найденные блоки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C0686B8005B // BlockSelector
+ ;
+ MELINK Target WL 'ME_4B61AB64033F' '4D8A25430335.ms.model.script' // TnsFoundBlocksList
+ ;
+
+ENDME // ME_4B61ABD70289 f_FoundBlocks
+
+FORWARD ME_4C06874C0070
+
+FORWARD ME_4C06876E026D
+
+ME ME_4C06877A0059
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6B7A6039D' '47C5207602D1.ms.model.script' // IevDocumentPart
+ ;
+
+ENDME // ME_4C06877A0059 aBlock
+
+ME ME_4C06876E026D
+ MEPROP UID '4C06876E026D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C06874C0070 // GotoBlock
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C06877A0059 // aBlock
+ )
+ ; // Parameters
+
+ENDME // ME_4C06876E026D DoIt
+
+ME ME_4C069201033E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C06874C0070 // GotoBlock
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4C069201033E 
+
+ME ME_4C06874C0070
+ MEPROP UID '4C06874C0070'
+ MEPROP Name 'GotoBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переходит на ближайший возможный блок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0686B8005B // BlockSelector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C06876E026D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C069201033E // Operations
+ )
+ ; // Dependencies
+
+ENDME // ME_4C06874C0070 GotoBlock
+
+FORWARD ME_4C0688930095
+
+ME ME_4C0688B301C1
+ MEPROP UID '4C0688B301C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0688930095 // ClearBlocksInfo
+ ;
+
+ENDME // ME_4C0688B301C1 DoIt
+
+ME ME_4C0688930095
+ MEPROP UID '4C0688930095'
+ MEPROP Name 'ClearBlocksInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очищает информацию о найденных и ненайденных блоках' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0686B8005B // BlockSelector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C0688B301C1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C0688930095 ClearBlocksInfo
+
+FORWARD ME_4C0691370291
+
+ME ME_4C0691B401A7
+ MEPROP UID '4C0691B401A7'
+ MEPROP Name 'SubList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C0691370291 // GotoSub
+ ;
+ MELINK Target WL 'ME_4C0691A400A6' '4912DD020283.ms.model.script' // IeeSubList
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4C0691B401A7 SubList
+
+FORWARD ME_4C06915D0356
+
+ME ME_4C06916D03AC
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+
+ENDME // ME_4C06916D03AC aPara
+
+ME ME_4C06915D0356
+ MEPROP UID '4C06915D0356'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0691370291 // GotoSub
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C06916D03AC // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_4C06915D0356 DoIt
+
+ME ME_4C0691370291
+ MEPROP UID '4C0691370291'
+ MEPROP Name 'GotoSub'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Переход на Sub принадлежащий параграфу' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C0686B8005B // BlockSelector
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C0691B401A7 // SubList
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C06915D0356 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C0691370291 GotoSub
+
+ME ME_4C068AB5026A
+ MEPROP UID '4C068AB5026A'
+ MEPROP Name 'NeedGotoNeighbours'
+ MEPROP Class class_Operation
+ %SUMMARY 'Надо ли переходить на соседей блока' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C0686B8005B // BlockSelector
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C068AB5026A NeedGotoNeighbours
+
+ME ME_4C06888C02D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C0686B8005B // BlockSelector
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4C06888C02D4 
+
+ME ME_479731C50290_ME_4C0686B8005B
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4C0686B8005B Cleanup
+
+ME ME_497469C90140_ME_4C0686B8005B
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_4C0686B8005B NotifyDataSourceChanged
+
+ME ME_4C0686B8005B
+ MEPROP UID '4C0686B8005B'
+ MEPROP Name 'BlockSelector'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4C068806023E // f_NotFoundBlocks
+ HWL ME_4B61ABD70289 // f_FoundBlocks
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C06874C0070 // GotoBlock
+ HWL ME_4C0688930095 // ClearBlocksInfo
+ HWL ME_4C0691370291 // GotoSub
+ HWL ME_4C068AB5026A // NeedGotoNeighbours
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4C0686B8005B // Cleanup
+ ME_497469C90140_ME_4C0686B8005B // NotifyDataSourceChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C06888C02D4 // FreeAndNil
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_BlockSelector_'
+ UP extprop:pas:UnitName 'BlockSelector.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\BlockSelector.imp.pas'
+
+ENDME // ME_4C0686B8005B BlockSelector

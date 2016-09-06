@@ -22,6 +22,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *48172C290190impl_uses*
+ //#UC END# *48172C290190impl_uses*
 ;
 
 function GetRandomStr(const strLength: Integer): AnsiString;

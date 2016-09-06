@@ -57,6 +57,8 @@ uses
  , nevControlsBlockIevCommonControlMapper
  , nevControlsBlockModelControlMapper
  , ControlsBlock_Const
+ //#UC START# *485807480091impl_uses*
+ //#UC END# *485807480091impl_uses*
 ;
 
 function TevControlsBlockInterfaceFactory.QueryTool(aTag: Tl3Variant;

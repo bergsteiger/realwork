@@ -39,6 +39,8 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ //#UC START# *50294907000Bimpl_uses*
+ //#UC END# *50294907000Bimpl_uses*
 ;
 
 function TatFileInitializer.DupHandle: THandle;

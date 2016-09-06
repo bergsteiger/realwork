@@ -1,0 +1,239 @@
+// PrimSaveLoadUserTypes 4F5DFE09009E VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F5DFE09009E
+
+ME ME_4BD5BB7D038A
+ MEPROP UID '4BD5BB7D038A'
+ MEPROP Name 'slqtAttribute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск: По реквизитам' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ UP "ImageIndex" 28
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtAttribute_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtAttribute_UserType.pas'
+
+ENDME // ME_4BD5BB7D038A slqtAttribute
+
+ME ME_4BD5BB8D0207
+ MEPROP UID '4BD5BB8D0207'
+ MEPROP Name 'slqtKW'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск: По ситуации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BB7D038A // slqtAttribute
+ )
+ ; // Inherits
+ UP "ImageIndex" 29
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtKW_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtKW_UserType.pas'
+
+ENDME // ME_4BD5BB8D0207 slqtKW
+
+ME ME_4BD5BB9E0201
+ MEPROP UID '4BD5BB9E0201'
+ MEPROP Name 'slqtOldKW'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск: По ситуации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BB8D0207 // slqtKW
+ )
+ ; // Inherits
+ UP "ImageIndex" 29
+ UP "SettingsCaption" 'Поиск: По ситуации (Преемственный)'
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtOldKW_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtOldKW_UserType.pas'
+
+ENDME // ME_4BD5BB9E0201 slqtOldKW
+
+ME ME_4BD5BBB602BB
+ MEPROP UID '4BD5BBB602BB'
+ MEPROP Name 'slqtPublishSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск: По источнику опубликования' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BB9E0201 // slqtOldKW
+ )
+ ; // Inherits
+ UP "ImageIndex" 30
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtPublishSource_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtPublishSource_UserType.pas'
+
+ENDME // ME_4BD5BBB602BB slqtPublishSource
+
+ME ME_4BD5BBC80391
+ MEPROP UID '4BD5BBC80391'
+ MEPROP Name 'slqtFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Карточка Фильтров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BBB602BB // slqtPublishSource
+ )
+ ; // Inherits
+ UP "ImageIndex" 40
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtFilters_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtFilters_UserType.pas'
+
+ENDME // ME_4BD5BBC80391 slqtFilters
+
+ME ME_4BD5BBDE032E
+ MEPROP UID '4BD5BBDE032E'
+ MEPROP Name 'slqtLegislationReview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск: ПРАЙМ. Обзор изменений законодательства' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BBC80391 // slqtFilters
+ )
+ ; // Inherits
+ UP "ImageIndex" 144
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtLegislationReview_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtLegislationReview_UserType.pas'
+
+ENDME // ME_4BD5BBDE032E slqtLegislationReview
+
+ME ME_4BD5BC59017D
+ MEPROP UID '4BD5BC59017D'
+ MEPROP Name 'slqtPostingOrder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройка индивидуальной ленты новостей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BBDE032E // slqtLegislationReview
+ )
+ ; // Inherits
+ UP "ImageIndex" 156
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtPostingOrder_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtPostingOrder_UserType.pas'
+
+ENDME // ME_4BD5BC59017D slqtPostingOrder
+
+ME ME_4BD5BC700046
+ MEPROP UID '4BD5BC700046'
+ MEPROP Name 'slqtConsult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правовая поддержка онлайн' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BC59017D // slqtPostingOrder
+ )
+ ; // Inherits
+ UP "ImageIndex" 154
+ UP "VisibleToUser" False
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtConsult_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtConsult_UserType.pas'
+
+ENDME // ME_4BD5BC700046 slqtConsult
+
+ME ME_4BD5BC86008F
+ MEPROP UID '4BD5BC86008F'
+ MEPROP Name 'slqtInpharmSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поиск лекарственных средств' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DFE09009E // PrimSaveLoadUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4BD5BC700046 // slqtConsult
+ )
+ ; // Inherits
+ UP "ImageIndex" 179
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes_slqtInpharmSearch_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes_slqtInpharmSearch_UserType.pas'
+
+ENDME // ME_4BD5BC86008F slqtInpharmSearch
+
+ME ME_4F5DFE09009E
+ MEPROP UID '4F5DFE09009E'
+ MEPROP Name 'PrimSaveLoadUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4958E382019E' '4958E382019E.ms.model.script' // Search$Presentation for F1 and Monitorings
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BD5BB7D038A // slqtAttribute
+ HWL ME_4BD5BB8D0207 // slqtKW
+ HWL ME_4BD5BB9E0201 // slqtOldKW
+ HWL ME_4BD5BBB602BB // slqtPublishSource
+ HWL ME_4BD5BBC80391 // slqtFilters
+ HWL ME_4BD5BBDE032E // slqtLegislationReview
+ HWL ME_4BD5BC59017D // slqtPostingOrder
+ HWL ME_4BD5BC700046 // slqtConsult
+ HWL ME_4BD5BC86008F // slqtInpharmSearch
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_PrimSaveLoadUserTypes_'
+ UP extprop:pas:UnitName 'PrimSaveLoadUserTypes.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\Forms\PrimSaveLoadUserTypes.imp.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search\Forms'
+
+ENDME // ME_4F5DFE09009E PrimSaveLoadUserTypes

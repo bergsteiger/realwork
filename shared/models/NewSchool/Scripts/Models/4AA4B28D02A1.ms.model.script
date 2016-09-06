@@ -1,0 +1,220 @@
+// AutoreferatAfterSearch 4AA4B28D02A1 VCMFormSetFactory Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA4B28D02A1
+
+ME ME_4925978F00FA_ME_4FFA92850358
+ MELINK Original WL 'ME_4925978F00FA' '491B305A0096.ms.model.script' // ChangeDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4925978F00FA_ME_4FFA92850358 ChangeDocument
+
+ME ME_492597A602F6_ME_4FFA92850358
+ MELINK Original WL 'ME_492597A602F6' '491B305A0096.ms.model.script' // MakeGotoPointData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_492597A602F6_ME_4FFA92850358 MakeGotoPointData
+
+ME ME_492F060800A2_ME_4FFA92850358
+ MELINK Original WL 'ME_492F060800A2' '492F0586030C.ms.model.script' // MakeNewsLineFakeDS
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_492F060800A2_ME_4FFA92850358 MakeNewsLineFakeDS
+
+ME ME_4DF9D63B0360_ME_4FFA92850358
+ MELINK Original WL 'ME_4DF9D63B0360' '4B1FC2FF03CD.ms.model.script' // DocInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ UP "reflectable" True
+ENDME // ME_4DF9D63B0360_ME_4FFA92850358 DocInfo
+
+ME ME_50002EC80001_ME_4FFA92850358
+ MELINK Original WL 'ME_50002EC80001' '491B305A0096.ms.model.script' // dsDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is reference" True
+ UP "pm" True
+ENDME // ME_50002EC80001_ME_4FFA92850358 dsDocument
+
+ME ME_5111C2BAF24F_ME_4FFA92850358
+ MELINK Original WL 'ME_5111C2BAF24F' '491B305A0096.ms.model.script' // HasDocument
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_5111C2BAF24F_ME_4FFA92850358 HasDocument
+
+ME ME_4FFA92850358
+ MEPROP UID '4FFA92850358'
+ MEPROP Name 'TextForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMZone ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AA4B28D02A1 // AutoreferatAfterSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B040F34030A' '4BD1E3DE02FB.ms.model.script' // dftAutoreferatAfterSearch
+ WL 'ME_4BD8574A03A5' '4BD856E802F9.ms.model.script' // Text
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_492F071B02AC' '492F0586030C.ms.model.script' // IsdsAutoreferat
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4925978F00FA_ME_4FFA92850358 // ChangeDocument
+ ME_492597A602F6_ME_4FFA92850358 // MakeGotoPointData
+ ME_492F060800A2_ME_4FFA92850358 // MakeNewsLineFakeDS
+ ME_4DF9D63B0360_ME_4FFA92850358 // DocInfo
+ ME_50002EC80001_ME_4FFA92850358 // dsDocument
+ ME_5111C2BAF24F_ME_4FFA92850358 // HasDocument
+ )
+ ; // Implemented
+ UP "ActivateIfUpdate" 'None'
+ UP "Need GetFormCount" False
+ UP "Need OnFormWeight" 'undefined'
+ UP "ZoneType" 'Parent'
+
+ENDME // ME_4FFA92850358 TextForm
+
+FORWARD ME_165DAAD62350
+
+ME ME_BD00F3B92A1B
+ MEPROP UID 'BD00F3B92A1B'
+ MEPROP Name 'fsAutoreferatAfterSearchCaption'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY 'Заголовок фабрики сборки форм "AutoreferatAfterSearch"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_165DAAD62350 // AutoreferatAfterSearchCaptionLocalConstants
+ ;
+ MEPROP Value '''#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'''
+
+ENDME // ME_BD00F3B92A1B fsAutoreferatAfterSearchCaption
+
+ME ME_165DAAD62350
+ MEPROP UID '165DAAD62350'
+ MEPROP Name 'AutoreferatAfterSearchCaptionLocalConstants'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Локализуемые константы для фабрики сборки форм AutoreferatAfterSearch' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA4B28D02A1 // AutoreferatAfterSearch
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_BD00F3B92A1B // fsAutoreferatAfterSearchCaption
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_165DAAD62350 AutoreferatAfterSearchCaptionLocalConstants
+
+ME ME_CAF00B32945C
+ MEPROP UID 'CAF00B32945C'
+ MEPROP Name 'TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обработчик OnNeedMakeForm для TextForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA4B28D02A1 // AutoreferatAfterSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50096E800075' '47B9727603BE.ms.model.script' // TvcmNeedMakeFormEvent
+ )
+ ; // Inherits
+ UPLINK Speller HWL ME_4FFA92850358 // TextForm
+ ;
+
+ENDME // ME_CAF00B32945C TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm
+
+ME ME_4FFA928F0159
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_OwnerForm::Dependency ;
+ MELINK Parent HWL ME_4AA4B28D02A1 // AutoreferatAfterSearch
+ ;
+ MELINK Target HWL ME_4FFA92850358 // TextForm
+ ;
+
+ENDME // ME_4FFA928F0159 
+
+ME ME_47A042E100E2_ME_4AA4B28D02A1
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4AA4B28D02A1 InitFields
+
+ME ME_4FFE854A009B_ME_4AA4B28D02A1
+ MELINK Original WL 'ME_4FFE854A009B' '47B9727603BE.ms.model.script' // GetInstance
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" True
+ENDME // ME_4FFE854A009B_ME_4AA4B28D02A1 GetInstance
+
+ME ME_4AA4B28D02A1
+ MEPROP UID '4AA4B28D02A1'
+ MEPROP Name 'AutoreferatAfterSearch'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormSetFactory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A8ECF3001D2' '4A8ECF3001D2.ms.model.script' // PrimMonitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B97312006D' '47B9727603BE.ms.model.script' // TvcmFormSetFactory
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_CAF00B32945C // TextForm_Parent_dftAutoreferatAfterSearch_NeedMakeForm
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4AA4B28D02A1 // InitFields
+ ME_4FFE854A009B_ME_4AA4B28D02A1 // GetInstance
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4FFA92850358 // TextForm
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_165DAAD62350 // AutoreferatAfterSearchCaptionLocalConstants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4FFA928F0159 // TextForm
+ )
+ ; // Dependencies
+ UP "Caption" '#1040#1074#1090#1086#1088#1077#1092#1077#1088#1072#1090 #1087#1086#1089#1083#1077 #1087#1086#1080#1089#1082#1072'
+ UP "DefaultStatusForm" '-1'
+ UP "finished dfm" True
+ UP "Need GetMainCaption" False
+ UP "Need GetMainImageIndex" False
+ UP "singleton" True
+ UP extprop:pas:InitFields ' inherited;'#13#10' with AddZone(''TextForm'', vcm_ztParent, fm_TextForm) do'#13#10' begin'#13#10'  UserType := dftAutoreferatAfterSearch;'#13#10'  OnNeedMakeForm := TextFormParentDftAutoreferatAfterSearchNeedMakeForm;'#13#10' end;'#13#10' Caption := str_fsAutoreferatAfterSearchCaption.AsCStr;'#13#10' OwnerForm := 0;'
+ UP extprop:pas:TypeName 'Tfs_AutoreferatAfterSearch'
+ UP extprop:pas:UnitName 'fsAutoreferatAfterSearch'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'fs_AutoreferatAfterSearch'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\fsAutoreferatAfterSearch.pas'
+
+ENDME // ME_4AA4B28D02A1 AutoreferatAfterSearch

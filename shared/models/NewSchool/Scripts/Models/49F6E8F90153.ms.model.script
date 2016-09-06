@@ -1,0 +1,36 @@
+// InternetAgent$UC 49F6E8F90153 VCMUseCaseRealization Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_49F6E8F90153
+ MEPROP UID '49F6E8F90153'
+ MEPROP Name 'InternetAgent'
+ MEPROP OriginalName 'InternetAgent$UC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMUseCaseRealization ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интернет-агент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A9691FD01BB' '4A9691FD01BB.ms.model.script' // InternetAgent
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49EC739C0100' '49EC739C0100.ms.model.script' // PrimInternetAgent$FP
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49FE7E780022' '484F80CF0274.ms.model.script' // Новости онлайн
+ )
+ ; // Implements
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'Admin,Monitorings'
+ UP "no hands" True
+ UP extprop:pas:TypeName 'Tmo_InternetAgent'
+ UP extprop:pas:UnitName 'moInternetAgent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'mo_InternetAgent'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\moInternetAgent.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View'
+
+ENDME // ME_49F6E8F90153 InternetAgent$UC

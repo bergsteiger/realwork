@@ -1,0 +1,421 @@
+// afwNavigation 4A23935A0282 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23935A0282
+
+ME ME_47C5BD35000A
+ MEPROP UID '47C5BD35000A'
+ MEPROP GUID 'BDF9CD19-9AAF-4640-9784-CA3543E38558'
+ MEPROP Name 'IevMoniker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый интерфейс для указателей на различные объекты.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Moniker'
+
+ENDME // ME_47C5BD35000A IevMoniker
+
+FORWARD ME_4A23BB9A02AC
+
+ME ME_4A23BBBA02D6
+ MEPROP UID '4A23BBBA02D6'
+ MEPROP Name 'URL'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'URL - на который указывает интерфейс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A23BB9A02AC // IevURLMoniker
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+ UP "pm" True
+
+ENDME // ME_4A23BBBA02D6 URL
+
+ME ME_4A23BB9A02AC
+ MEPROP UID '4A23BB9A02AC'
+ MEPROP GUID '3206517A-BB84-41F5-8A25-68032ADA08A9'
+ MEPROP Name 'IevURLMoniker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для объектов указывающих на URL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A23BBBA02D6 // URL
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'URLMoniker'
+
+ENDME // ME_4A23BB9A02AC IevURLMoniker
+
+FORWARD ME_4A23BBD90274
+
+ME ME_4A23BBF30230
+ MEPROP UID '4A23BBF30230'
+ MEPROP Name 'ID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'идентификатор объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A23BBD90274 // IevIDMoniker
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+
+ENDME // ME_4A23BBF30230 ID
+
+ME ME_4A23BBD90274
+ MEPROP UID '4A23BBD90274'
+ MEPROP GUID 'EF7CCAA9-BCF1-4206-9EE5-A7A952D0E3BA'
+ MEPROP Name 'IevIDMoniker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Адрес объекта, имеющего целочисленный идентификатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A23BBF30230 // ID
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IDMoniker'
+
+ENDME // ME_4A23BBD90274 IevIDMoniker
+
+ME ME_4A23BBF30230_ME_4A23BC0D0331
+ MELINK Original HWL ME_4A23BBF30230 // ID
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4A23BBF30230_ME_4A23BC0D0331 ID
+
+ME ME_4A23BC0D0331
+ MEPROP UID '4A23BC0D0331'
+ MEPROP GUID 'FB504C38-BA7D-41CD-8E7F-BB64B9BF1E9D'
+ MEPROP Name 'IevHyperlinkMoniker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект, указывающий на гипертекстовую ссылку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4A23BBD90274 // IevIDMoniker
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4A23BBF30230_ME_4A23BC0D0331 // ID
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HyperlinkMoniker'
+
+ENDME // ME_4A23BC0D0331 IevHyperlinkMoniker
+
+ME ME_4CDD38E601A5
+ MEPROP UID '4CDD38E601A5'
+ MEPROP Name 'TafwAddress'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F4941A0249' '48F4E61C0060.ms.model.script' // Address
+ )
+ ; // Inherits
+
+ENDME // ME_4CDD38E601A5 TafwAddress
+
+FORWARD ME_48F4940C01C0
+
+FORWARD ME_49E6009D02ED
+
+ME ME_49E6009D0343
+ MEPROP Name 'anAddress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F4941A0249' '48F4E61C0060.ms.model.script' // Address
+ ;
+
+ENDME // ME_49E6009D0343 anAddress
+
+ME ME_49E6009D02ED
+ MEPROP UID '49E6009D02ED'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет адреса на совпадение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4940C01C0 // TevAddress
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E6009D0343 // anAddress
+ )
+ ; // Parameters
+
+ENDME // ME_49E6009D02ED EQ
+
+FORWARD ME_49E604FE0347
+
+ME ME_49E6051C03A9
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49E6051C03A9 aDocID
+
+ME ME_49E6051C03DD
+ MEPROP Name 'aSubID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_49E6051C03DD aSubID
+
+ME ME_49E6051D002C
+ MEPROP Name 'aTypeID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 'ev_defAddressType'
+ MELINK ValueType WL 'ME_484AB26803DB' '469D0AC7005E.ms.model.script' // Hyperlink Const
+ ;
+ UP extprop:pas:Value 'ev_defAddressType'
+
+ENDME // ME_49E6051D002C aTypeID
+
+ME ME_49E6051D006F
+ MEPROP Name 'aRevisionID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_49E6051D006F aRevisionID
+
+ME ME_49E604FE0347
+ MEPROP UID '49E604FE0347'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4940C01C0 // TevAddress
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E6051C03A9 // aDocID
+ ME_49E6051C03DD // aSubID
+ ME_49E6051D002C // aTypeID
+ ME_49E6051D006F // aRevisionID
+ )
+ ; // Parameters
+
+ENDME // ME_49E604FE0347 C
+
+ME ME_48F4940C01C0
+ MEPROP UID '48F4940C01C0'
+ MEPROP Name 'TevAddress'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4CDD38E601A5 // TafwAddress
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_49E6009D02ED // EQ
+ HWL ME_49E604FE0347 // C
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Address'
+
+ENDME // ME_48F4940C01C0 TevAddress
+
+FORWARD ME_47C5BD43008C
+
+FORWARD ME_47C5BD5B00AE
+
+ME ME_49DC81920264
+ MEPROP Name 'anEffects'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49DC7BDE0398' '467823B7002C.ms.model.script' // TafwJumpToEffects
+ ;
+
+ENDME // ME_49DC81920264 anEffects
+
+ME ME_49DC819202A2
+ MEPROP Name 'aMoniker'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47C5BD35000A // IevMoniker
+ ;
+
+ENDME // ME_49DC819202A2 aMoniker
+
+ME ME_47C5BD5B00AE
+ MEPROP UID '47C5BD5B00AE'
+ MEPROP Name 'JumpTo'
+ MEPROP Class class_Operation
+ %SUMMARY 'перейти по адресу aMoniker.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47C5BD43008C // IevMonikerSink
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DC81920264 // anEffects
+ ME_49DC819202A2 // aMoniker
+ )
+ ; // Parameters
+
+ENDME // ME_47C5BD5B00AE JumpTo
+
+ME ME_47C5BD43008C
+ MEPROP UID '47C5BD43008C'
+ MEPROP GUID 'A88DA8DE-D158-4163-91AD-DB6EF4D0F71D'
+ MEPROP Name 'IevMonikerSink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для реализации перехода по адресу.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47C5BD5B00AE // JumpTo
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MonikerSink'
+
+ENDME // ME_47C5BD43008C IevMonikerSink
+
+FORWARD ME_4A23C8F40181
+
+ME ME_4A23C92103C2
+ MEPROP UID '4A23C92103C2'
+ MEPROP Name 'Address'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A23C8F40181 // IevAddressMoniker
+ ;
+ MELINK Target HWL ME_48F4940C01C0 // TevAddress
+ ;
+ UP "pm" True
+
+ENDME // ME_4A23C92103C2 Address
+
+ME ME_4A23C8F40181
+ MEPROP UID '4A23C8F40181'
+ MEPROP GUID '948913E4-9AAA-41E3-9007-F5C66BDE954C'
+ MEPROP Name 'IevAddressMoniker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Адрес точки входа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A23935A0282 // afwNavigation
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4A23C92103C2 // Address
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AddressMoniker'
+
+ENDME // ME_4A23C8F40181 IevAddressMoniker
+
+ME ME_4A23935A0282
+ MEPROP UID '4A23935A0282'
+ MEPROP Name 'afwNavigation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ %SUMMARY 'Навиация между объектами системы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790B4F00236' '4790B4F00236.ms.model.script' // AFW
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47C5BD35000A // IevMoniker
+ HWL ME_4A23BB9A02AC // IevURLMoniker
+ HWL ME_4A23BBD90274 // IevIDMoniker
+ HWL ME_4A23BC0D0331 // IevHyperlinkMoniker
+ HWL ME_4CDD38E601A5 // TafwAddress
+ HWL ME_48F4940C01C0 // TevAddress
+ HWL ME_47C5BD43008C // IevMonikerSink
+ HWL ME_4A23C8F40181 // IevAddressMoniker
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_48F4E61C0060' '48F4E61C0060.ms.model.script' // Interfaces
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ )
+ ; // Depends
+ UP "author" 'Люлин А.В.'
+ UP "is namespace" True
+ UP "no hands" True
+ UP "started" '01.06.2009 12:38'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwNavigation.pas'
+
+ENDME // ME_4A23935A0282 afwNavigation

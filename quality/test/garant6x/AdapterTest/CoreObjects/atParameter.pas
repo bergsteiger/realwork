@@ -68,6 +68,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *48086D7103BEimpl_uses*
+ //#UC END# *48086D7103BEimpl_uses*
 ;
 
 function TatParameter.pm_GetAsStr: AnsiString;

@@ -1,0 +1,36 @@
+// TdsRelatedDoc 495898900070 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_49589999029F_ME_495898900070
+ MELINK Original WL 'ME_49589999029F' '47EA20430108.ms.model.script' // DoGet_PreviewCaleeArea
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49589999029F_ME_495898900070 DoGet_PreviewCaleeArea
+
+ME ME_495898900070
+ MEPROP UID '495898900070'
+ MEPROP Name 'TdsRelatedDoc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Справка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_493D465902FA' '493D465902FA.ms.model.script' // DocumentAndList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4958980300D5' '4958980300D5.ms.model.script' // TdsChildDocument
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49589999029F_ME_495898900070 // DoGet_PreviewCaleeArea
+ )
+ ; // Overridden
+ UP extprop:pas:UnitName 'dsRelatedDoc'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsRelatedDoc'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsRelatedDoc.pas'
+
+ENDME // ME_495898900070 TdsRelatedDoc

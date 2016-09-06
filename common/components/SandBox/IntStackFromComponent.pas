@@ -27,6 +27,8 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ //#UC START# *5155852403BBimpl_uses*
+ //#UC END# *5155852403BBimpl_uses*
 ;
 
 {$Include w:\common\components\SandBox\StackPrim.imp.pas}

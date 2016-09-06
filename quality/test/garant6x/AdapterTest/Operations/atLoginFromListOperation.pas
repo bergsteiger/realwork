@@ -41,6 +41,8 @@ uses
  , atLoginOperation
  , XMLDoc
  , XMLIntf
+ //#UC START# *4FF30FEB005Dimpl_uses*
+ //#UC END# *4FF30FEB005Dimpl_uses*
 ;
 
 procedure TatLoginFromListOperation.ExecuteSelf;

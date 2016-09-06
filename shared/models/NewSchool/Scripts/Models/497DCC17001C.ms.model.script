@@ -1,0 +1,1204 @@
+// PrimFilters 497DCC17001C VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_497DCC17001C
+
+FORWARD ME_51BB45560286
+
+FORWARD ME_4D0B4E06037B
+
+ME ME_51BB45A5037C
+ MEPROP UID '51BB45A5037C'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_51BB45560286 // InsSelectedFiltersState
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ UP "pm" True
+
+ENDME // ME_51BB45A5037C Count
+
+FORWARD ME_51BB45D703AF
+
+ME ME_51BB45E1012C
+ MEPROP UID '51BB45E1012C'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51BB45D703AF // Filter
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51BB45E1012C anIndex
+
+ME ME_51BB45D703AF
+ MEPROP UID '51BB45D703AF'
+ MEPROP Name 'Filter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_51BB45560286 // InsSelectedFiltersState
+ ;
+ MELINK Target WL 'ME_4CA499CA03DD' '45EEA48F011F.ms.model.script' // FilterFromQuery
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51BB45E1012C // anIndex
+ )
+ ; // Attributes
+ UP "pm" False
+
+ENDME // ME_51BB45D703AF Filter
+
+ME ME_51BB45560286
+ MEPROP UID '51BB45560286'
+ MEPROP GUID '71A14889-6D58-434C-BE3C-0D014150A6E2'
+ MEPROP Name 'InsSelectedFiltersState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51BB45A5037C // Count
+ HWL ME_51BB45D703AF // Filter
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SelectedFiltersState'
+
+ENDME // ME_51BB45560286 InsSelectedFiltersState
+
+ME ME_51BB44A601CF
+ MEPROP UID '51BB44A601CF'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ MELINK Target WL 'ME_4D0B4D810270' '4CCAA9D8007E.ms.model.script' // TnsIFilterFromQueryList
+ ;
+
+ENDME // ME_51BB44A601CF f_List
+
+FORWARD ME_51BB44F901EC
+
+FORWARD ME_51BB450503E3
+
+ME ME_51BB450900E4
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD1102D3' '4912DD020283.ms.model.script' // IeeTree
+ ;
+
+ENDME // ME_51BB450900E4 aTree
+
+ME ME_51BB450503E3
+ MEPROP UID '51BB450503E3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB44F901EC // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB450900E4 // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_51BB450503E3 DoIt
+
+ME ME_51BB44F901EC
+ MEPROP UID '51BB44F901EC'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB450503E3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51BB44F901EC Create
+
+FORWARD ME_51BB4B2502A9
+
+FORWARD ME_51BB4B3803C0
+
+ME ME_51BB4B3F0223
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD1102D3' '4912DD020283.ms.model.script' // IeeTree
+ ;
+
+ENDME // ME_51BB4B3F0223 aTree
+
+ME ME_51BB4B3803C0
+ MEPROP UID '51BB4B3803C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB4B2502A9 // Make
+ ;
+ MELINK Target WL 'ME_4992FC0C02CA' '4683F37902CF.ms.model.script' // IvcmBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB4B3F0223 // aTree
+ )
+ ; // Parameters
+
+ENDME // ME_51BB4B3803C0 DoIt
+
+ME ME_51BB4B2502A9
+ MEPROP UID '51BB4B2502A9'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB4B3803C0 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_51BB4B2502A9 Make
+
+ME ME_51BB45A5037C_ME_4D0B4E06037B
+ MELINK Original HWL ME_51BB45A5037C // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_51BB45A5037C_ME_4D0B4E06037B Count
+
+ME ME_51BB45D703AF_ME_4D0B4E06037B
+ MELINK Original HWL ME_51BB45D703AF // Filter
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_51BB45D703AF_ME_4D0B4E06037B Filter
+
+ME ME_479731C50290_ME_4D0B4E06037B
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4D0B4E06037B Cleanup
+
+ME ME_4D0B4E06037B
+ MEPROP UID '4D0B4E06037B'
+ MEPROP Name 'TnsSelectedFiltersState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4683CEAD00CF' '467BAB7F021E.ms.model.script' // IvcmBase
+ HWL ME_51BB45560286 // InsSelectedFiltersState
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_51BB44A601CF // f_List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51BB44F901EC // Create
+ HWL ME_51BB4B2502A9 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_51BB45A5037C_ME_4D0B4E06037B // Count
+ ME_51BB45D703AF_ME_4D0B4E06037B // Filter
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4D0B4E06037B // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_51BB45560286 // InsSelectedFiltersState
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SelectedFiltersState'
+
+ENDME // ME_4D0B4E06037B TnsSelectedFiltersState
+
+FORWARD ME_4D0B649A006B
+
+ME ME_4D0B64A301C3
+ MEPROP UID '4D0B64A301C3'
+ MEPROP Name 'CreateFilter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D0B649A006B // Local
+ ;
+ MEPROP Value '''Создать фильтр...'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Создать фильтр...'''
+
+ENDME // ME_4D0B64A301C3 CreateFilter
+
+ME ME_4D0B649A006B
+ MEPROP UID '4D0B649A006B'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D0B64A301C3 // CreateFilter
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_4D0B649A006B Local
+
+ME ME_4AEED6F7020B
+ MEPROP UID '4AEED6F7020B'
+ MEPROP Name 'FiltersList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_4AEED6F7020B FiltersList
+
+ME ME_497DCCCE00DF
+ MEPROP UID '497DCCCE00DF'
+ MEPROP Name 'Filters'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_ViewArea::Attribute ;
+ %SUMMARY 'Фильтры' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4922D94500FB' '4922BFA000DD.ms.model.script' // IdsFilters
+ ;
+
+ENDME // ME_497DCCCE00DF Filters
+
+ME ME_51BB29500153
+ MEPROP UID '51BB29500153'
+ MEPROP Name 'f_LockSelectionChangedEvent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51BB29500153 f_LockSelectionChangedEvent
+
+ME ME_51BB296F0323
+ MEPROP UID '51BB296F0323'
+ MEPROP Name 'f_FiltersLoaded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51BB296F0323 f_FiltersLoaded
+
+ME ME_51BB121B037C
+ MEPROP UID '51BB121B037C'
+ MEPROP Name 'FiltersListSelectChange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_514B39850152' '4CFFE3470249.ms.model.script' // TSelectEvent
+ )
+ ; // Inherits
+
+ENDME // ME_51BB121B037C FiltersListSelectChange
+
+ME ME_51BB122A0185
+ MEPROP UID '51BB122A0185'
+ MEPROP Name 'FiltersListGetItemPickImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_514B344503D3' '4CFFE3470249.ms.model.script' // TGetPickItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_51BB122A0185 FiltersListGetItemPickImage
+
+ME ME_51BB123402EB
+ MEPROP UID '51BB123402EB'
+ MEPROP Name 'FiltersListGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_51BB123402EB FiltersListGetItemImage
+
+ME ME_51BB123D03D4
+ MEPROP UID '51BB123D03D4'
+ MEPROP Name 'FiltersListActionElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51432026033F' '4CFFE3470249.ms.model.script' // TActionElement
+ )
+ ; // Inherits
+
+ENDME // ME_51BB123D03D4 FiltersListActionElement
+
+ME ME_51BB1245036A
+ MEPROP UID '51BB1245036A'
+ MEPROP Name 'FiltersListRootChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AE825FC019D' '499C0B7B012E.ms.model.script' // TeeRootChangedEvent
+ )
+ ; // Inherits
+
+ENDME // ME_51BB1245036A FiltersListRootChanged
+
+ME ME_51BB124D036F
+ MEPROP UID '51BB124D036F'
+ MEPROP Name 'FiltersListGetItemFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_514B370503CC' '4CFFE3470249.ms.model.script' // TGetItemFontEvent
+ )
+ ; // Inherits
+
+ENDME // ME_51BB124D036F FiltersListGetItemFont
+
+ME ME_51BB12570242
+ MEPROP UID '51BB12570242'
+ MEPROP Name 'FiltersListCanBeginDrag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51BB14E6006F' '4B97E8130272.ms.model.script' // Tl3CanBeginDrag
+ )
+ ; // Inherits
+
+ENDME // ME_51BB12570242 FiltersListCanBeginDrag
+
+ME ME_51BB126703C9
+ MEPROP UID '51BB126703C9'
+ MEPROP Name 'FiltersListCanAcceptData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51BB152A02AD' '4B97E8130272.ms.model.script' // Tl3CanAcceptData
+ )
+ ; // Inherits
+
+ENDME // ME_51BB126703C9 FiltersListCanAcceptData
+
+ME ME_51BB1270027A
+ MEPROP UID '51BB1270027A'
+ MEPROP Name 'FiltersListDoDrop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51BB15370161' '4B97E8130272.ms.model.script' // Tl3DoDrop
+ )
+ ; // Inherits
+
+ENDME // ME_51BB1270027A FiltersListDoDrop
+
+ME ME_51BB29800136
+ MEPROP UID '51BB29800136'
+ MEPROP Name 'StartDeselectAll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ENDME // ME_51BB29800136 StartDeselectAll
+
+ME ME_51BB2993020C
+ MEPROP UID '51BB2993020C'
+ MEPROP Name 'FinishDeselectAll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ENDME // ME_51BB2993020C FinishDeselectAll
+
+FORWARD ME_51BB2A2E0234
+
+FORWARD ME_51BB2A3B0107
+
+ME ME_51BB2A4D02AF
+ MEPROP Name 'aTreeView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CFFBEEA0109' '515DA5860015.ms.model.script' // TvtCustomOutliner
+ ;
+
+ENDME // ME_51BB2A4D02AF aTreeView
+
+ME ME_51BB2A4D02D1
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_51BB2A4D02D1 aNode
+
+ME ME_51BB2A4D02F3
+ MEPROP Name 'aNewStatus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51BB2A4D02F3 aNewStatus
+
+ME ME_51BB2A3B0107
+ MEPROP UID '51BB2A3B0107'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB2A2E0234 // ChangeActiveStatus
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB2A4D02AF // aTreeView
+ ME_51BB2A4D02D1 // aNode
+ ME_51BB2A4D02F3 // aNewStatus
+ )
+ ; // Parameters
+
+ENDME // ME_51BB2A3B0107 DoIt
+
+ME ME_51BB2A2E0234
+ MEPROP UID '51BB2A2E0234'
+ MEPROP Name 'ChangeActiveStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB2A3B0107 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51BB2A2E0234 ChangeActiveStatus
+
+FORWARD ME_51BB2A5A028D
+
+FORWARD ME_51BB2A790015
+
+ME ME_51BB2A7C001C
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_51BB2A7C001C aNode
+
+ME ME_51BB2A790015
+ MEPROP UID '51BB2A790015'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB2A5A028D // GetItemImage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB2A7C001C // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_51BB2A790015 DoIt
+
+ME ME_51BB2A5A028D
+ MEPROP UID '51BB2A5A028D'
+ MEPROP Name 'GetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB2A790015 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51BB2A5A028D GetItemImage
+
+FORWARD ME_51BB2A9003A0
+
+FORWARD ME_51BB2AFC0278
+
+ME ME_51BB2AFF0321
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4912DD2C0082' '4912DD020283.ms.model.script' // IeeNode
+ ;
+
+ENDME // ME_51BB2AFF0321 aNode
+
+ME ME_51BB2AFC0278
+ MEPROP UID '51BB2AFC0278'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BB2A9003A0 // SetActiveFilter
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BB2AFF0321 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_51BB2AFC0278 DoIt
+
+ME ME_51BB2A9003A0
+ MEPROP UID '51BB2A9003A0'
+ MEPROP Name 'SetActiveFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BB2AFC0278 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51BB2A9003A0 SetActiveFilter
+
+ME ME_51BB2B0C00F5
+ MEPROP UID '51BB2B0C00F5'
+ MEPROP Name 'SetActiveFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ENDME // ME_51BB2B0C00F5 SetActiveFilters
+
+ME ME_51BB2B1801BE
+ MEPROP UID '51BB2B1801BE'
+ MEPROP Name 'ClearFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ENDME // ME_51BB2B1801BE ClearFilters
+
+ME ME_51BB3A14022C
+ MEPROP UID '51BB3A14022C'
+ MEPROP Name 'DeselectAll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+
+ENDME // ME_51BB3A14022C DeselectAll
+
+ME ME_4AE9C97200F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4AE9C8CC0055' '4AE89F8A004B.ms.model.script' // Filterable
+ ;
+
+ENDME // ME_4AE9C97200F1 
+
+ME ME_4AEECE7002E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_4AEECE7002E5 
+
+ME ME_4AEED51500FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_456FE63B01D4' '456F02A50196.ms.model.script' // Node
+ ;
+
+ENDME // ME_4AEED51500FD 
+
+ME ME_4AEED66A030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_49902095021B' '4990135D02F1.ms.model.script' // InsFoldersNode
+ ;
+
+ENDME // ME_4AEED66A030C 
+
+ME ME_4AEED6B4010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_456EB4540188' '456EA56002BF.ms.model.script' // AccessDenied
+ ;
+
+ENDME // ME_4AEED6B4010C 
+
+ME ME_4AEED8690294
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_47723AA10142' '4682595B0268.ms.model.script' // flags in tree
+ ;
+
+ENDME // ME_4AEED8690294 
+
+ME ME_4AF2BA150152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4AF2BA150152 
+
+ME ME_4D0B5F27006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4BA232B402FF' '491DCA2C00A9.ms.model.script' // TnsFolderFilterInfo
+ ;
+
+ENDME // ME_4D0B5F27006B 
+
+ME ME_4D0B609001DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_496A10E50205' '4990135D02F1.ms.model.script' // TnsFolderFilter
+ ;
+
+ENDME // ME_4D0B609001DB 
+
+ME ME_4D0B60980296
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_49901002037D' '4990135D02F1.ms.model.script' // TnsFolderFilterFor
+ ;
+
+ENDME // ME_4D0B60980296 
+
+ME ME_4D0B6B7A02DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4D0B6B7A02DB 
+
+ME ME_51BB169F00F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_51BB169F00F4 
+
+ME ME_51BB16A20329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_51BB16A20329 
+
+ME ME_51BB16A5007A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_51BB16A5007A 
+
+ME ME_51BB16A700B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_51BB16A700B9 
+
+ME ME_51BB27C401E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4991887A031F' '4CAC58E50231.ms.model.script' // InsFilterNode
+ ;
+
+ENDME // ME_51BB27C401E7 
+
+ME ME_51BB3142001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4EC391C00307' '4EEA0958023A.ms.model.script' // SearchRes
+ ;
+
+ENDME // ME_51BB3142001B 
+
+ME ME_51BB35C403DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_51BB35C403DC 
+
+ME ME_51BB36D90336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4C3F3CC20022' '4A7C0BB70162.ms.model.script' // FoldersRes
+ ;
+
+ENDME // ME_51BB36D90336 
+
+ME ME_51BB39B00226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_47E9F00100A2' '491B305A0096.ms.model.script' // IdsList
+ ;
+
+ENDME // ME_51BB39B00226 
+
+ME ME_51BB3ADB01A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4CAEC809015D' '4CAC5A7402DE.ms.model.script' // TnsFiltersTree
+ ;
+
+ENDME // ME_51BB3ADB01A8 
+
+ME ME_51BB3F350015
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_497DCC17001C // PrimFilters
+ ;
+ MELINK Target WL 'ME_4912DBE30091' '48FD8B2702F6.ms.model.script' // nsTreeUtils
+ ;
+
+ENDME // ME_51BB3F350015 
+
+ME ME_49895A2102E8_ME_497DCC17001C
+ MELINK Original WL 'ME_49895A2102E8' '4AE89F8A004B.ms.model.script' // Load
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_49895A2102E8_ME_497DCC17001C Load
+
+ME ME_4AEECBA3030B_ME_497DCC17001C
+ MELINK Original WL 'ME_4AEECBA3030B' '4A9807DB01A5.ms.model.script' // ActivateNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_4AEECBA3030B_ME_497DCC17001C ActivateNode
+
+ME ME_4AF2B1AC02F8_ME_497DCC17001C
+ MELINK Original WL 'ME_4AF2B1AC02F8' '4AE89F8A004B.ms.model.script' // GetSelected
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_4AF2B1AC02F8_ME_497DCC17001C GetSelected
+
+ME ME_4AF81DE902B6_ME_497DCC17001C
+ MELINK Original WL 'ME_4AF81DE902B6' '4AE89F8A004B.ms.model.script' // SetNewContent
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_4AF81DE902B6_ME_497DCC17001C SetNewContent
+
+ME ME_4AF8598C0277_ME_497DCC17001C
+ MELINK Original WL 'ME_4AF8598C0277' '4A9807DB01A5.ms.model.script' // DeselectAll
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "Needs Broadcast" False
+ UP "no prefix" False
+ENDME // ME_4AF8598C0277_ME_497DCC17001C DeselectAll
+
+ME ME_4C7D3A81021B_ME_497DCC17001C
+ MELINK Original WL 'ME_4C7D3A81021B' '4A9807DB01A5.ms.model.script' // Activate
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" True
+ UP "is FormActivate" False
+ UP "is query" False
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" 'undefined'
+ UP "ShowInToolbar" 'undefined'
+ENDME // ME_4C7D3A81021B_ME_497DCC17001C Activate
+
+ME ME_4D0B5FBF0310_ME_497DCC17001C
+ MELINK Original WL 'ME_4D0B5FBF0310' '4CCAAA9D00D6.ms.model.script' // CreateFilter
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "AutoFocus" False
+ UP "AutoLock" False
+ UP "has states" False
+ UP "is FormActivate" False
+ UP "is query" True
+ UP "LongProcess" False
+ UP "no prefix" False
+ UP "ShowInContextMenu" True
+ UP "ShowInToolbar" False
+ENDME // ME_4D0B5FBF0310_ME_497DCC17001C CreateFilter
+
+ME ME_497469C90140_ME_497DCC17001C
+ MELINK Original WL 'ME_497469C90140' '5000041101C8.ms.model.script' // NotifyDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_497469C90140_ME_497DCC17001C NotifyDataSourceChanged
+
+ME ME_49803F5503AA_ME_497DCC17001C
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_497DCC17001C DoInit
+
+ME ME_49806ED503D5_ME_497DCC17001C
+ MELINK Original WL 'ME_49806ED503D5' '4AADF9450143.ms.model.script' // DoSaveState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49806ED503D5_ME_497DCC17001C DoSaveState
+
+ME ME_49807428008C_ME_497DCC17001C
+ MELINK Original WL 'ME_49807428008C' '4AADF9450143.ms.model.script' // DoLoadState
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49807428008C_ME_497DCC17001C DoLoadState
+
+ME ME_4A8E8F2E0195_ME_497DCC17001C
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_497DCC17001C InitControls
+
+ME ME_497DCC17001C
+ MEPROP UID '497DCC17001C'
+ MEPROP Name 'PrimFilters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фильтры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CCAA9D8007E' '4CCAA9D8007E.ms.model.script' // Filters
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_498959F103C4' '4AE89F8A004B.ms.model.script' // Loadable
+ WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ WL 'ME_4AEECB2001BB' '4AE89F8A004B.ms.model.script' // Filters
+ WL 'ME_4AEECB7A0036' '4A9807DB01A5.ms.model.script' // Filter
+ WL 'ME_4AF81DD60134' '4AE89F8A004B.ms.model.script' // List
+ WL 'ME_4AF8597D0271' '4A9807DB01A5.ms.model.script' // Filters
+ WL 'ME_4D0B5FAB0138' '4CCAAA9D00D6.ms.model.script' // Filter$Factory
+ WL 'ME_4D80D26F0341' '4D80D26F0341.ms.model.script' // FiltersUserTypes
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AEED6F7020B // FiltersList
+ HWL ME_497DCCCE00DF // Filters
+ HWL ME_51BB29500153 // f_LockSelectionChangedEvent
+ HWL ME_51BB296F0323 // f_FiltersLoaded
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51BB121B037C // FiltersListSelectChange
+ HWL ME_51BB122A0185 // FiltersListGetItemPickImage
+ HWL ME_51BB123402EB // FiltersListGetItemImage
+ HWL ME_51BB123D03D4 // FiltersListActionElement
+ HWL ME_51BB1245036A // FiltersListRootChanged
+ HWL ME_51BB124D036F // FiltersListGetItemFont
+ HWL ME_51BB12570242 // FiltersListCanBeginDrag
+ HWL ME_51BB126703C9 // FiltersListCanAcceptData
+ HWL ME_51BB1270027A // FiltersListDoDrop
+ HWL ME_51BB29800136 // StartDeselectAll
+ HWL ME_51BB2993020C // FinishDeselectAll
+ HWL ME_51BB2A2E0234 // ChangeActiveStatus
+ HWL ME_51BB2A5A028D // GetItemImage
+ HWL ME_51BB2A9003A0 // SetActiveFilter
+ HWL ME_51BB2B0C00F5 // SetActiveFilters
+ HWL ME_51BB2B1801BE // ClearFilters
+ HWL ME_51BB3A14022C // DeselectAll
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49895A2102E8_ME_497DCC17001C // Load
+ ME_4AEECBA3030B_ME_497DCC17001C // ActivateNode
+ ME_4AF2B1AC02F8_ME_497DCC17001C // GetSelected
+ ME_4AF81DE902B6_ME_497DCC17001C // SetNewContent
+ ME_4AF8598C0277_ME_497DCC17001C // DeselectAll
+ ME_4C7D3A81021B_ME_497DCC17001C // Activate
+ ME_4D0B5FBF0310_ME_497DCC17001C // CreateFilter
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_497469C90140_ME_497DCC17001C // NotifyDataSourceChanged
+ ME_49803F5503AA_ME_497DCC17001C // DoInit
+ ME_49806ED503D5_ME_497DCC17001C // DoSaveState
+ ME_49807428008C_ME_497DCC17001C // DoLoadState
+ ME_4A8E8F2E0195_ME_497DCC17001C // InitControls
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4D0B4E06037B // TnsSelectedFiltersState
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4D0B649A006B // Local
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AE9C97200F1 // Filterable
+ ME_4AEECE7002E5 // Query
+ ME_4AEED51500FD // Node
+ ME_4AEED66A030C // InsFoldersNode
+ ME_4AEED6B4010C // AccessDenied
+ ME_4AEED8690294 // flags in tree
+ ME_4AF2BA150152 // DataAdapter
+ ME_4D0B5F27006B // TnsFolderFilterInfo
+ ME_4D0B609001DB // TnsFolderFilter
+ ME_4D0B60980296 // TnsFolderFilterFor
+ ME_4D0B6B7A02DB // ModalResults
+ ME_51BB169F00F4 // SysUtils
+ ME_51BB16A20329 // Classes
+ ME_51BB16A5007A // Forms
+ ME_51BB16A700B9 // Controls
+ ME_51BB27C401E7 // InsFilterNode
+ ME_51BB3142001B // SearchRes
+ ME_51BB35C403DC // Graphics
+ ME_51BB36D90336 // FoldersRes
+ ME_51BB39B00226 // IdsList
+ ME_51BB3ADB01A8 // TnsFiltersTree
+ ME_51BB3F350015 // nsTreeUtils
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_571A2DFA0260' '4CCAA9D8007E.ms.model.script' // InsFilterNodeWordsPack
+ WL 'ME_571E1B040013' '4CCAA9D8007E.ms.model.script' // FiltersProcessingWordsPack
+ )
+ ; // Injected
+ UP "author" 'Люлин А.В.'
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '26.01.2009 17:49'
+ UP "ZoneType" 'Any'
+ UP extprop:NeedsInitEntities True
+ UP extprop:pas:TypeName 'TPrimFiltersForm'
+ UP extprop:pas:UnitName 'PrimFilters_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimFiltersForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms\PrimFilters_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Filters\Forms'
+
+ENDME // ME_497DCC17001C PrimFilters

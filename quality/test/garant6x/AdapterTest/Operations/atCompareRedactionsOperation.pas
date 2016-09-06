@@ -25,6 +25,8 @@ uses
  , DocumentUnit
  , atLogger
  , atDocumentHelper
+ //#UC START# *4BAB7804006Bimpl_uses*
+ //#UC END# *4BAB7804006Bimpl_uses*
 ;
 
 procedure TatCompareRedactionsOperation.ExecuteSelf;

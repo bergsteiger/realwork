@@ -154,6 +154,8 @@ uses
  , atGblAdapterWorker
  , atStringHelper
  , k2Empty_Const
+ //#UC START# *4815C75902A2impl_uses*
+ //#UC END# *4815C75902A2impl_uses*
 ;
 
 procedure TatDTPIterator.PushLayer(const aLayer: TatLayerContext);

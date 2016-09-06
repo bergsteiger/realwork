@@ -27,6 +27,8 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , kwKeyWordsPack
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ //#UC START# *4B2A0D9401CCimpl_uses*
+ //#UC END# *4B2A0D9401CCimpl_uses*
 ;
 
 procedure RunRegisteredTests;

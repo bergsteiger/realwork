@@ -1,0 +1,566 @@
+// PrimCompInfo 516FC52E034F VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_516FC52E034F
+
+FORWARD ME_516FFDCE023D
+
+ME ME_516FFE1A00E3
+ MEPROP UID '516FFE1A00E3'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_516FFDCE023D // CompInfo Header Strings
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Название'''
+
+ENDME // ME_516FFE1A00E3 Name
+
+ME ME_516FFE2C02FD
+ MEPROP UID '516FFE2C02FD'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_516FFDCE023D // CompInfo Header Strings
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Значение'''
+
+ENDME // ME_516FFE2C02FD Value
+
+ME ME_516FFDCE023D
+ MEPROP UID '516FFDCE023D'
+ MEPROP Name 'CompInfo Header Strings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_516FFE1A00E3 // Name
+ HWL ME_516FFE2C02FD // Value
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_516FFDCE023D CompInfo Header Strings
+
+ME ME_516FC65C02C3
+ MEPROP UID '516FC65C02C3'
+ MEPROP Name 'tvComplectInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ UP "ControlClass" 'TnscTreeViewWithAdapterDragDrop'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_516FC65C02C3 tvComplectInfo
+
+FORWARD ME_53E0FD640128
+
+FORWARD ME_53E0F22602EB
+
+FORWARD ME_53E0F2710030
+
+ME ME_53E0F29902DD
+ MEPROP UID '53E0F29902DD'
+ MEPROP Name 'lblVisualRepresentationData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ваш комплект системы ГАРАНТ:' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53E0F2710030 // pnVisualRepresentationDataCaption
+ ;
+ UP "ControlClass" 'TvtLabel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_53E0F29902DD lblVisualRepresentationData
+
+ME ME_53E0F2710030
+ MEPROP UID '53E0F2710030'
+ MEPROP Name 'pnVisualRepresentationDataCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53E0F22602EB // pnVisualRepresentationData
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53E0F29902DD // lblVisualRepresentationData
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_53E0F2710030 pnVisualRepresentationDataCaption
+
+ME ME_53E0F22602EB
+ MEPROP UID '53E0F22602EB'
+ MEPROP Name 'pnVisualRepresentationData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53E0FD640128 // pnBottom
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53E0F2710030 // pnVisualRepresentationDataCaption
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_53E0F22602EB pnVisualRepresentationData
+
+ME ME_53E0FD640128
+ MEPROP UID '53E0FD640128'
+ MEPROP Name 'pnBottom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Control ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53E0F22602EB // pnVisualRepresentationData
+ )
+ ; // Attributes
+ UP "ControlClass" 'TvtPanel'
+ UP "pm" True
+ UP "put to dfm" False
+
+ENDME // ME_53E0FD640128 pnBottom
+
+ME ME_53E49B0D02C4
+ MEPROP UID '53E49B0D02C4'
+ MEPROP Name 'ControlsToFree'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Все динамически создаваемые контролы.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_4773DBBD000D' '47913B47006E.ms.model.script' // Tl3ObjectList
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_53E49B0D02C4 ControlsToFree
+
+ME ME_516FC7390348
+ MEPROP UID '516FC7390348'
+ MEPROP Name 'tvComplectInfoGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+
+ENDME // ME_516FC7390348 tvComplectInfoGetItemImage
+
+ME ME_516FC8600180
+ MEPROP UID '516FC8600180'
+ MEPROP Name 'vcmEntityFormSetLocalizationInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_516FC8210012' '4AADF9450143.ms.model.script' // TvcmSetLocalizationInfo
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EntityFormSetLocalizationInfo'
+
+ENDME // ME_516FC8600180 vcmEntityFormSetLocalizationInfo
+
+ME ME_516FC885021E
+ MEPROP UID '516FC885021E'
+ MEPROP Name 'vcmEntityFormGetLocalizationInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_516FC80A0307' '4AADF9450143.ms.model.script' // TvcmGetLocalizationInfo
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'EntityFormGetLocalizationInfo'
+
+ENDME // ME_516FC885021E vcmEntityFormGetLocalizationInfo
+
+ME ME_53E0F4FA00B8
+ MEPROP UID '53E0F4FA00B8'
+ MEPROP Name 'InitVisualRepresentationData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+
+ENDME // ME_53E0F4FA00B8 InitVisualRepresentationData
+
+ME ME_53E4A7FA0026
+ MEPROP UID '53E4A7FA0026'
+ MEPROP Name 'ReleaseResources'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+
+ENDME // ME_53E4A7FA0026 ReleaseResources
+
+ME ME_516FCA6B011E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_516FCA6B011E 
+
+ME ME_516FCA6E0390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_516FCA6E0390 
+
+ME ME_516FCA7102F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_4912DBE30091' '48FD8B2702F6.ms.model.script' // nsTreeUtils
+ ;
+
+ENDME // ME_516FCA7102F0 
+
+ME ME_516FCA760014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_468368FC017F' '490873CD01B9.ms.model.script' // TnsComplectInfoTreeStruct
+ ;
+
+ENDME // ME_516FCA760014 
+
+ME ME_516FCA780215
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_4AD6FDC802F3' '491447590351.ms.model.script' // TnsSettings
+ ;
+
+ENDME // ME_516FCA780215 
+
+ME ME_516FCAB202FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_516FCA8C03CE' '490873CD01B9.ms.model.script' // ComplectInfoRes
+ ;
+
+ENDME // ME_516FCAB202FA 
+
+ME ME_516FFCC80396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_516FFCC80396 
+
+ME ME_516FFD0800D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_516FFD0800D5 
+
+ME ME_53E0F478003F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_53E0F45F02B2' '5226F7CC03C6.ms.model.script' // Gauges
+ ;
+
+ENDME // ME_53E0F478003F 
+
+ME ME_53E1100C00A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+
+ENDME // ME_53E1100C00A1 
+
+ME ME_53E110680285
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_45744F5A030D' '45744F4302BF.ms.model.script' // ComplectInfo
+ ;
+
+ENDME // ME_53E110680285 
+
+ME ME_53E110B40312
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_53E110B40312 
+
+ME ME_53E110F40228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ ;
+
+ENDME // ME_53E110F40228 
+
+ME ME_53E110F7039E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_53E110F7039E 
+
+ME ME_53E20A34031C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_4773DBBD000D' '47913B47006E.ms.model.script' // Tl3ObjectList
+ ;
+
+ENDME // ME_53E20A34031C 
+
+ME ME_53E20A560340
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ ;
+
+ENDME // ME_53E20A560340 
+
+ME ME_53E20A6701F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_53E20A6701F1 
+
+ME ME_53E499E500F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_53E49235000B' '53E49235000B.ms.model.script' // TvtGauge
+ ;
+
+ENDME // ME_53E499E500F3 
+
+ME ME_543F611103A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_516FC52E034F // PrimCompInfo
+ ;
+ MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ ;
+
+ENDME // ME_543F611103A6 
+
+ME ME_479731C50290_ME_516FC52E034F
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_516FC52E034F Cleanup
+
+ME ME_47EA4E9002C6_ME_516FC52E034F
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA4E9002C6_ME_516FC52E034F FinishDataUpdate
+
+ME ME_49803F5503AA_ME_516FC52E034F
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_516FC52E034F DoInit
+
+ME ME_4A8E8F2E0195_ME_516FC52E034F
+ MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_516FC52E034F InitControls
+
+ME ME_53F1C6EF02C9_ME_516FC52E034F
+ MELINK Original WL 'ME_53F1C6EF02C9' '4AADF9450143.ms.model.script' // DoGetTabCaption
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53F1C6EF02C9_ME_516FC52E034F DoGetTabCaption
+
+ME ME_543E3AA801D0_ME_516FC52E034F
+ MELINK Original WL 'ME_543E3AA801D0' '533D53FF00C2.ms.model.script' // DoGetTabImageIndex
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_543E3AA801D0_ME_516FC52E034F DoGetTabImageIndex
+
+ME ME_516FC52E034F
+ MEPROP UID '516FC52E034F'
+ MEPROP Name 'PrimCompInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о комплекте' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_497ED74F0032' '497ED74F0032.ms.model.script' // Common
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_543E3A600253' '533D53FF00C2.ms.model.script' // vcmChromeLikeTabIconUpdater
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_516FC65C02C3 // tvComplectInfo
+ HWL ME_53E0FD640128 // pnBottom
+ HWL ME_53E49B0D02C4 // ControlsToFree
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_516FC7390348 // tvComplectInfoGetItemImage
+ HWL ME_516FC8600180 // vcmEntityFormSetLocalizationInfo
+ HWL ME_516FC885021E // vcmEntityFormGetLocalizationInfo
+ HWL ME_53E0F4FA00B8 // InitVisualRepresentationData
+ HWL ME_53E4A7FA0026 // ReleaseResources
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_516FC52E034F // Cleanup
+ ME_47EA4E9002C6_ME_516FC52E034F // FinishDataUpdate
+ ME_49803F5503AA_ME_516FC52E034F // DoInit
+ ME_4A8E8F2E0195_ME_516FC52E034F // InitControls
+ ME_53F1C6EF02C9_ME_516FC52E034F // DoGetTabCaption
+ ME_543E3AA801D0_ME_516FC52E034F // DoGetTabImageIndex
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_516FFDCE023D // CompInfo Header Strings
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_516FCA6B011E // l3Base
+ ME_516FCA6E0390 // nsUtils
+ ME_516FCA7102F0 // nsTreeUtils
+ ME_516FCA760014 // TnsComplectInfoTreeStruct
+ ME_516FCA780215 // TnsSettings
+ ME_516FCAB202FA // ComplectInfoRes
+ ME_516FFCC80396 // Il3SimpleNode
+ ME_516FFD0800D5 // Controls
+ ME_53E0F478003F // Gauges
+ ME_53E1100C00A1 // nsTypes
+ ME_53E110680285 // ComplectInfo
+ ME_53E110B40312 // DataAdapter
+ ME_53E110F40228 // Forms
+ ME_53E110F7039E // Graphics
+ ME_53E20A34031C // Tl3ObjectList
+ ME_53E20A560340 // Classes
+ ME_53E20A6701F1 // SysUtils
+ ME_53E499E500F3 // TvtGauge
+ ME_543F611103A6 // nsTabbedInterfaceTypes
+ )
+ ; // Dependencies
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Parent'
+ UP extprop:pas:TypeName 'TPrimCompInfoForm'
+ UP extprop:pas:UnitName 'PrimCompInfo_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimCompInfoForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimCompInfo_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms'
+
+ENDME // ME_516FC52E034F PrimCompInfo

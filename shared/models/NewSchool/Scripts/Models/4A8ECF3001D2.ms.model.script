@@ -1,0 +1,337 @@
+// PrimMonitorings 4A8ECF3001D2 VCMFormsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A8ECF3001D2
+
+FORWARD ME_4B14ED130233
+
+ME ME_4B14ED2F033E
+ MEPROP UID '4B14ED2F033E'
+ MEPROP Name 'Log'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B14ED130233 // TnsOpenNewsLineEvent
+ ;
+
+ENDME // ME_4B14ED2F033E Log
+
+ME ME_4B14ED5D0324
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B14ED130233 // TnsOpenNewsLineEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_4B14ED5D0324 
+
+ME ME_4B14ED130233
+ MEPROP UID '4B14ED130233'
+ MEPROP Name 'TnsOpenNewsLineEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B0A6109010C' '4B0A60DF01F2.ms.model.script' // TnsLogEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B14ED2F033E // Log
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B14ED5D0324 // LogEvent
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OpenNewsLineEvent'
+
+ENDME // ME_4B14ED130233 TnsOpenNewsLineEvent
+
+ME ME_542950E801C0
+ MEPROP UID '542950E801C0'
+ MEPROP Name 'OpenNewsLinePrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+
+ENDME // ME_542950E801C0 OpenNewsLinePrim
+
+ME ME_4AF823FF0231
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_4AF822A80071' '4A8ECFED02D8.ms.model.script' // DateInterval
+ ;
+
+ENDME // ME_4AF823FF0231 
+
+ME ME_4B14ED38037E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target HWL ME_4B14ED130233 // TnsOpenNewsLineEvent
+ ;
+
+ENDME // ME_4B14ED38037E 
+
+ME ME_53BE6B9601AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_49895C3C02D6' '48F747EC0073.ms.model.script' // nsOpenUtils
+ ;
+
+ENDME // ME_53BE6B9601AB 
+
+ME ME_53BE6BA203CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_53BE6BA203CA 
+
+ME ME_53BE6BB40192
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_53BE6BB40192 
+
+ME ME_53BF91F0008F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_537AEB96006C' '533D53FF00C2.ms.model.script' // vcmTabbedContainerFormDispatcher
+ ;
+
+ENDME // ME_53BF91F0008F 
+
+ME ME_5540A0D90211
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_4AAF9400011C' '5267C3880201.ms.model.script' // TnsPostingsTreeSingle
+ ;
+
+ENDME // ME_5540A0D90211 
+
+ME ME_5571D62301FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_553FAEB0033D' '4C84EDB403D2.ms.model.script' // SearchSupport
+ ;
+
+ENDME // ME_5571D62301FD 
+
+ME ME_5776485B00DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_55B0CF2803D7' '4A92D644009B.ms.model.script' // Tf1StartupCompleteNotificationServiceImpl
+ ;
+
+ENDME // ME_5776485B00DC 
+
+ME ME_57A1AF030177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_57A1AEAB014E' '5795D66F0385.ms.model.script' // TMonitoringsService
+ ;
+
+ENDME // ME_57A1AF030177 
+
+ME ME_4AB76C7A01EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ ;
+
+ENDME // ME_4AB76C7A01EF 
+
+ME ME_4AA4B6E0011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_491C0BE302FF' '4C6ABB3201AC.ms.model.script' // TdeDocInfo
+ ;
+
+ENDME // ME_4AA4B6E0011A 
+
+ME ME_4AA4B6C800E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_492FDB1603A9' '492FDB1603A9.ms.model.script' // TsdsAutoreferat
+ ;
+
+ENDME // ME_4AA4B6C800E5 
+
+ME ME_57A1B2190213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
+ ;
+
+ENDME // ME_57A1B2190213 
+
+ME ME_4AB77A2F0298
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_4AB77A2F0298 
+
+ME ME_5704E7AF008E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5704E7AF008E 
+
+ME ME_541B101100B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_497EBEC4031D' '497EBEC4031D.ms.model.script' // PrimNewsLine
+ ;
+
+ENDME // ME_541B101100B7 
+
+ME ME_5523F26001F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5523F26001F8 
+
+ME ME_4ED63F750087
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_4E01D696020C' '4AADF9450143.ms.model.script' // vcmMessagesSupport
+ ;
+
+ENDME // ME_4ED63F750087 
+
+ME ME_57A1B2A40225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_4C8A2ADD01B1' '4799D29F033F.ms.model.script' // Application
+ ;
+
+ENDME // ME_57A1B2A40225 
+
+ME ME_57A1B2A70030
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A8ECF3001D2 // PrimMonitorings
+ ;
+ MELINK Target WL 'ME_4AAFA52603B7' '57A2E803024D.ms.model.script' // StartOpen
+ ;
+
+ENDME // ME_57A1B2A70030 
+
+ME ME_4A8ECF3001D2
+ MEPROP UID '4A8ECF3001D2'
+ MEPROP Name 'PrimMonitorings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A92D644009B' '4A92D644009B.ms.model.script' // Search
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_542950E801C0 // OpenNewsLinePrim
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( WL 'ME_4A8ECFCD0174' '4A8ECFCD0174.ms.model.script' // NewsLine
+ WL 'ME_4AA4B279031D' '4AA4B279031D.ms.model.script' // Autoreferat
+ WL 'ME_4AA4B28D02A1' '4AA4B28D02A1.ms.model.script' // AutoreferatAfterSearch
+ HWL ME_4B14ED130233 // TnsOpenNewsLineEvent
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4AF823FF0231 // DateInterval
+ ME_4B14ED38037E // TnsOpenNewsLineEvent
+ ME_53BE6B9601AB // nsOpenUtils
+ ME_53BE6BA203CA // nsConst
+ ME_53BE6BB40192 // afwFacade
+ ME_53BF91F0008F // vcmTabbedContainerFormDispatcher
+ ME_5540A0D90211 // TnsPostingsTreeSingle
+ ME_5571D62301FD // SearchSupport
+ ME_5776485B00DC // Tf1StartupCompleteNotificationServiceImpl
+ ME_57A1AF030177 // TMonitoringsService
+ ME_4AB76C7A01EF // vcmParams
+ ME_4AA4B6E0011A // TdeDocInfo
+ ME_4AA4B6C800E5 // TsdsAutoreferat
+ ME_57A1B2190213 // Document
+ ME_4AB77A2F0298 // DataAdapter
+ ME_5704E7AF008E // Windows
+ ME_541B101100B7 // PrimNewsLine
+ ME_5523F26001F8 // Controls
+ ME_4ED63F750087 // vcmMessagesSupport
+ ME_57A1B2A40225 // Application
+ ME_57A1B2A70030 // StartOpen
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "needs script" True
+ UP "no hands" True
+ UP "started" '21.08.2009 20:46'
+ UP extprop:pas:TypeName 'TPrimMonitoringsModule'
+ UP extprop:pas:UnitName 'PrimMonitorings_Module'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimMonitoringsModule'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\PrimMonitorings_Module.pas'
+
+ENDME // ME_4A8ECF3001D2 PrimMonitorings

@@ -1,0 +1,124 @@
+// elClone 48342A280198 Views Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48342A280198
+
+ME ME_482C468C00F7
+ MEPROP UID '482C468C00F7'
+ MEPROP Name 'TCustomElGraphicButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48342A280198 // elClone
+ ;
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '15.05.2008 18:20'
+ UP extprop:pas:UnitName 'CustomElGraphicButton'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ElGraphicButton'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_CustomElGraphicButton.pas'
+
+ENDME // ME_482C468C00F7 TCustomElGraphicButton
+
+FORWARD ME_520A3AF602AD
+
+ME ME_520A3B0702A0
+ MEPROP UID '520A3B0702A0'
+ MEPROP Name 'TElPopupButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_520A3AF602AD // ElPopBtn
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ElPopupButton'
+
+ENDME // ME_520A3B0702A0 TElPopupButton
+
+ME ME_520A3AF602AD
+ MEPROP UID '520A3AF602AD'
+ MEPROP Name 'ElPopBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48342A280198 // elClone
+ ;
+ MELIST Children
+   Seq: ( HWL ME_520A3B0702A0 // TElPopupButton
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_ElPopBtn.pas'
+
+ENDME // ME_520A3AF602AD ElPopBtn
+
+ME ME_5298DAD101A6
+ MEPROP UID '5298DAD101A6'
+ MEPROP Name 'ElVclUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48342A280198 // elClone
+ ;
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_ElVclUtils.pas'
+
+ENDME // ME_5298DAD101A6 ElVclUtils
+
+ME ME_48342A280198
+ MEPROP UID '48342A280198'
+ MEPROP Name 'elClone'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Views ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_482ACC330173' '482ACC330173.ms.model.script' // TelCustomEdit
+ HWL ME_482C468C00F7 // TCustomElGraphicButton
+ WL 'ME_482ACFA703C2' '482ACFA703C2.ms.model.script' // TelCustomButtonEdit
+ WL 'ME_482AE8CA0176' '482AE8CA0176.ms.model.script' // TctButtonEdit
+ HWL ME_520A3AF602AD // ElPopBtn
+ HWL ME_5298DAD101A6 // ElVclUtils
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_4678209200A6' '4678209200A6.ms.model.script' // nevBase
+ WL 'ME_469D0AC7005E' '469D0AC7005E.ms.model.script' // Types
+ WL 'ME_46A5E026007E' '46A5E026007E.ms.model.script' // l3Core
+ WL 'ME_472745450206' '472745450206.ms.model.script' // l3Units
+ WL 'ME_476BE0350329' '476BE0350329.ms.model.script' // Styles
+ WL 'ME_476F78840219' '476F78840219.ms.model.script' // Messages
+ WL 'ME_47750CE700D0' '47750CE700D0.ms.model.script' // afwFacade
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47A1D4C201E8' '47A1D4C201E8.ms.model.script' // l3Const
+ WL 'ME_47AC75550330' '47AC75550330.ms.model.script' // k2Tags
+ WL 'ME_47C5207602D1' '47C5207602D1.ms.model.script' // nevTools
+ WL 'ME_47C695A10172' '47C695A10172.ms.model.script' // evTypes
+ WL 'ME_47F1F90A0391' '47F1F90A0391.ms.model.script' // Searchers
+ WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ WL 'ME_4E787E1E02F8' '4E787E1E02F8.ms.model.script' // Редактор с выпадающим деревом
+ WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
+ WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
+ )
+ ; // Depends
+
+ENDME // ME_48342A280198 elClone

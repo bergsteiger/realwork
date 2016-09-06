@@ -1,0 +1,82 @@
+// Перспективные исследования 4A56F01D02E4 UseCases Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A56F01D02E4
+
+ME ME_4A56F0D602B2
+ MEPROP UID '4A56F0D602B2'
+ MEPROP Name 'НИР'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Различные исследования, которые могут пригодиться в будущем для развития и совершенствования системы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A56F01D02E4 // Перспективные исследования
+ ;
+
+ENDME // ME_4A56F0D602B2 НИР
+
+ME ME_4AC45A5600A9
+ MEPROP UID '4AC45A5600A9'
+ MEPROP Name 'Рефакторинг'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Задачи, которые нужно бы переделать с точки зрения разработчиков' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A56F01D02E4 // Перспективные исследования
+ ;
+
+ENDME // ME_4AC45A5600A9 Рефакторинг
+
+ME ME_4BE8E86D013D
+ MEPROP UID '4BE8E86D013D'
+ MEPROP Name 'Работоспособность под Wine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Помощь в разщборе проблем с работоспособностью Гаранта под эмулятором от Etersoft. Выявление узких мест данного эмулятора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A56F01D02E4 // Перспективные исследования
+ ;
+
+ENDME // ME_4BE8E86D013D Работоспособность под Wine
+
+ME ME_4BEB94EE00B9
+ MEPROP UID '4BEB94EE00B9'
+ MEPROP Name 'Разбор проблем'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UseCase ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Исследование сбоев и проблем, присланных пользователями на горячюю линию.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A56F01D02E4 // Перспективные исследования
+ ;
+
+ENDME // ME_4BEB94EE00B9 Разбор проблем
+
+ME ME_4A56F01D02E4
+ MEPROP UID '4A56F01D02E4'
+ MEPROP Name 'Перспективные исследования'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_UseCases ;
+ %SUMMARY 'Запросы на НИР, которые могут пригодиться в будущем' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48561E5A01F7' '48561E5A01F7.ms.model.script' // Специальные версии и возможности
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A56F0D602B2 // НИР
+ HWL ME_4AC45A5600A9 // Рефакторинг
+ HWL ME_4BE8E86D013D // Работоспособность под Wine
+ HWL ME_4BEB94EE00B9 // Разбор проблем
+ )
+ ; // Children
+
+ENDME // ME_4A56F01D02E4 Перспективные исследования

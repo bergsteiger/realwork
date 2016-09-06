@@ -35,6 +35,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4807877801B7impl_uses*
+ //#UC END# *4807877801B7impl_uses*
 ;
 
 function TatNotifier.IsNotify(const listener: IatListener): Boolean;

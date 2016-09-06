@@ -1,0 +1,88 @@
+// AACContainer 4FF2E95602D8 VCMFinalContainer Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_E0E068E4963D
+
+FORWARD ME_4FF2E95602D8
+
+ME ME_E0E068E4963D
+ MEPROP UID 'E0E068E4963D'
+ MEPROP GUID '548CB0E3-A19F-4AD8-A785-C6FB8E70BF73'
+ MEPROP Name 'AACContainer'
+ MEPROP OriginalName 'AACContainer$Def'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFormDefinition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор формы AACContainer' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FF2E95602D8 // AACContainer
+ ;
+ MELIST Implementors
+   Seq: ( HWL ME_4FF2E95602D8 // AACContainer
+ )
+ ; // Implementors
+ UP extprop:pas:TypeName 'AACContainerFormDef'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_E0E068E4963D AACContainer$Def
+
+ME ME_4F4EEAB4A4CF
+ MEPROP UID '4F4EEAB4A4CF'
+ MEPROP Name 'Ini_FormFactory_AACContainer'
+ MEPROP OriginalName 'Ini_FormFactory_AACContainer$Def'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы AACContainer' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FF2E95602D8 // AACContainer
+ ;
+ UPLINK SpelledFor HWL ME_4FF2E95602D8 // AACContainer
+ ;
+
+ENDME // ME_4F4EEAB4A4CF Ini_FormFactory_AACContainer$Def
+
+ME ME_4FF2E95602D8
+ MEPROP UID '4FF2E95602D8'
+ MEPROP Name 'AACContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalContainer ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4FF2E5C70060' '4FF2E5C70060.ms.model.script' // AACPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_500406E901E5' '500406E901E5.ms.model.script' // AACTextContainerPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_E0E068E4963D // AACContainer$Def
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F4EEAB4A4CF // Ini_FormFactory_AACContainer$Def
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_E0E068E4963D // AACContainer$Def
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" False
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName 'TAACContainerForm'
+ UP extprop:pas:UnitName 'AACContainer_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AACContainerForm'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms\AACContainer_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\AAC\Forms'
+
+ENDME // ME_4FF2E95602D8 AACContainer

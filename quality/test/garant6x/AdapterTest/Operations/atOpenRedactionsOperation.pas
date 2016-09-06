@@ -32,6 +32,8 @@ uses
  , atLogger
  , atStringHelper
  , SysUtils
+ //#UC START# *48B560B601B8impl_uses*
+ //#UC END# *48B560B601B8impl_uses*
 ;
 
 procedure TatOpenRedactionsOperation.ExecuteSelf;

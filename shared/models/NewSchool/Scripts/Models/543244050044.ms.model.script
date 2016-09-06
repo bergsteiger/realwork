@@ -1,0 +1,43 @@
+// DA 543244050044 Library Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_543244050044
+ MEPROP UID '543244050044'
+ MEPROP Name 'DA'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Library ;
+ %SUMMARY 'DataAccess - обобщение доступа к данным' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4ABA2360025A' '4ABA2360025A.ms.model.script' // Shared Delphi For Archi
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
+ WL 'ME_5432518A0316' '5432518A0316.ms.model.script' // daInterfaces
+ WL 'ME_5437B26200BF' '5437B26200BF.ms.model.script' // Utils
+ WL 'ME_552D07D0005E' '552D07D0005E.ms.model.script' // DataScheme
+ WL 'ME_55963E9101B2' '55963E9101B2.ms.model.script' // daGUITypes
+ WL 'ME_57234C1A014C' '57234C1A014C.ms.model.script' // Users
+ WL 'ME_54F85B2500FB' '54F85B2500FB.ms.model.script' // Provider
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
+ WL 'ME_467A8734039C' '467A8734039C.ms.model.script' // EVD
+ WL 'ME_469F3E37025A' '469F3E37025A.ms.model.script' // Rtl
+ WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ WL 'ME_4E2F0E1B03BB' '4E2F0E1B03BB.ms.model.script' // L3$Domain
+ WL 'ME_5214D28E024C' '5214D28E024C.ms.model.script' // dd$AppConfig
+ )
+ ; // Depends
+ UP "defines" 'daDefine.inc'
+ UP "exec mode" 'concluded'
+ UP "gui" 'rtl'
+ UP "is namespace" True
+ UP "vendor" '/Garant'
+ UP intf.pas:PathOnly '\common\components\rtl\Garant\DA'
+
+ENDME // ME_543244050044 DA

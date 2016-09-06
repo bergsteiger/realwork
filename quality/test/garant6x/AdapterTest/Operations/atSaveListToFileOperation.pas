@@ -25,6 +25,8 @@ uses
  , atComparableList
  , SysUtils
  , atLogger
+ //#UC START# *539730EE009Eimpl_uses*
+ //#UC END# *539730EE009Eimpl_uses*
 ;
 
 procedure TatSaveListToFileOperation.ExecuteSelf;

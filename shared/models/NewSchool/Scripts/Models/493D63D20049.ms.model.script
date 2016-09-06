@@ -1,0 +1,74 @@
+// TdsDocument 493D63D20049 ViewAreaControllerImp Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493D63D20049
+
+ME ME_4926CD9F02AF
+ MEPROP UID '4926CD9F02AF'
+ MEPROP Name 'FormDataSourceType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_493D63D20049 // TdsDocument
+ ;
+ MELINK Target WL 'ME_491D662901FD' '491B305A0096.ms.model.script' // IdsDocument
+ ;
+
+ENDME // ME_4926CD9F02AF FormDataSourceType
+
+ME ME_4C6AB2470114
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493D63D20049 // TdsDocument
+ ;
+ MELINK Target WL 'ME_4C6A9AD101B4' '4C6A7BA001A5.ms.model.script' // TnsF1DocumentContainer
+ ;
+
+ENDME // ME_4C6AB2470114 
+
+ME ME_4C6AB38800F3_ME_493D63D20049
+ MELINK Original WL 'ME_4C6AB38800F3' '47EA20430108.ms.model.script' // MakeContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C6AB38800F3_ME_493D63D20049 MakeContainer
+
+ME ME_493D63D20049
+ MEPROP UID '493D63D20049'
+ MEPROP Name 'TdsDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ViewAreaControllerImp ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обычный юридический документ, если я правильно всё понимаю (Люлин)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_491D64430036' '491D64430036.ms.model.script' // dsDocument
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4926CD9F02AF // FormDataSourceType
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4C6AB38800F3_ME_493D63D20049 // MakeContainer
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4C6AB2470114 // TnsF1DocumentContainer
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '08.12.2008 21:13'
+ UP extprop:pas:UnitName 'dsDocument'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dsDocument'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocument.pas'
+
+ENDME // ME_493D63D20049 TdsDocument

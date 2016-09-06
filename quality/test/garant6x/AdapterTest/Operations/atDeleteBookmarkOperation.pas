@@ -26,6 +26,8 @@ implementation
 uses
  l3ImplUses
  , atLogger
+ //#UC START# *483FF12203C2impl_uses*
+ //#UC END# *483FF12203C2impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\Operations\atProcessNamedFoldersObjectOperation.imp.pas}

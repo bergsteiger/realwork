@@ -48,6 +48,8 @@ uses
  , evFormulaCursor
  {$IfEnd} // Defined(evUseVisibleCursors)
  , Formula_Const
+ //#UC START# *4857934201E3impl_uses*
+ //#UC END# *4857934201E3impl_uses*
 ;
 
 function TevFormulaInterfaceFactory.QueryTool(aTag: Tl3Variant;

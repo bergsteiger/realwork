@@ -31,6 +31,8 @@ uses
  , atFoldersHelper
  , BaseTypesUnit
  , atCommon
+ //#UC START# *48171DA40077impl_uses*
+ //#UC END# *48171DA40077impl_uses*
 ;
 
 procedure TatSetBookmarkOperation.ExecuteSelf;

@@ -1,0 +1,73 @@
+// DictionContainerUserTypes 4F5DB67E02FA VCMForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F5DB67E02FA
+
+ME ME_4D77A52C0374
+ MEPROP UID '4D77A52C0374'
+ MEPROP Name 'slqtDiction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Толковый словарь' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ UP "ImageIndex" 60
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'DictionContainerUserTypes_slqtDiction_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtDiction_UserType.pas'
+
+ENDME // ME_4D77A52C0374 slqtDiction
+
+ME ME_4D81EE030156
+ MEPROP UID '4D81EE030156'
+ MEPROP Name 'slqtMedicDiction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UserType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Словарь медицинских терминов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DB67E02FA // DictionContainerUserTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D77A52C0374 // slqtDiction
+ )
+ ; // Inherits
+ UP "ImageIndex" 182
+ UP "Weight" '-1'
+ UP extprop:pas:UnitName 'DictionContainerUserTypes_slqtMedicDiction_UserType'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes_slqtMedicDiction_UserType.pas'
+
+ENDME // ME_4D81EE030156 slqtMedicDiction
+
+ME ME_4F5DB67E02FA
+ MEPROP UID '4F5DB67E02FA'
+ MEPROP Name 'DictionContainerUserTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMForm ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F5DB66F02F7' '4F5DB66F02F7.ms.model.script' // DictionLikeForms
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D77A52C0374 // slqtDiction
+ HWL ME_4D81EE030156 // slqtMedicDiction
+ )
+ ; // Children
+ UP "finished dfm" True
+ UP "NeedsHackRef" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "ZoneType" 'Any'
+ UP extprop:pas:TypeName '_DictionContainerUserTypes_'
+ UP extprop:pas:UnitName 'DictionContainerUserTypes.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DictionContainerUserTypes.imp.pas'
+
+ENDME // ME_4F5DB67E02FA DictionContainerUserTypes

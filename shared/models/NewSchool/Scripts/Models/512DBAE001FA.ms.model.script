@@ -1,0 +1,208 @@
+// MainUnits 512DBAE001FA Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512DBAE001FA
+
+ME ME_512DBAF20353
+ MEPROP UID '512DBAF20353'
+ MEPROP Name 'TMainLiteExpressForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_512DBAE001FA // MainUnits
+ ;
+ UP "finished" False
+ UP extprop:pas:UnitName 'MainLiteExpressForm'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainLiteExpressForm'
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_MainLiteExpressForm.pas'
+
+ENDME // ME_512DBAF20353 TMainLiteExpressForm
+
+FORWARD ME_512DBDD903A5
+
+FORWARD ME_512DBDF8030B
+
+ME ME_57765EFC0217
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DBDF8030B // TMainEditorForm
+ ;
+ MELINK Target WL 'ME_5776300D0270' '47F485150151.ms.model.script' // TvtClipSpyService
+ ;
+
+ENDME // ME_57765EFC0217 
+
+ME ME_512DBDF8030B
+ MEPROP UID '512DBDF8030B'
+ MEPROP Name 'TMainEditorForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_512DBDD903A5 // MainEditor
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57765EFC0217 // TvtClipSpyService
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainEditorForm'
+
+ENDME // ME_512DBDF8030B TMainEditorForm
+
+ME ME_512DBE1F01ED
+ MEPROP UID '512DBE1F01ED'
+ MEPROP Name 'MainForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_512DBDD903A5 // MainEditor
+ ;
+ MELINK Target HWL ME_512DBDF8030B // TMainEditorForm
+ ;
+
+ENDME // ME_512DBE1F01ED MainForm
+
+ME ME_512DBDD903A5
+ MEPROP UID '512DBDD903A5'
+ MEPROP Name 'MainEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBAE001FA // MainUnits
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_512DBE1F01ED // MainForm
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_512DBDF8030B // TMainEditorForm
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_MainEditor.pas'
+
+ENDME // ME_512DBDD903A5 MainEditor
+
+FORWARD ME_5146CA0A03DE
+
+FORWARD ME_5146CA34003E
+
+FORWARD ME_5146CA96020D
+
+ME ME_5146CAAA013F
+ MEPROP UID '5146CAAA013F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5146CA96020D // IsNeedSave
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5146CAAA013F DoIt
+
+ME ME_5146CA96020D
+ MEPROP UID '5146CA96020D'
+ MEPROP Name 'IsNeedSave'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5146CA34003E // TEditorWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5146CAAA013F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5146CA96020D IsNeedSave
+
+ME ME_55C8E00E0011
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5146CA34003E // TEditorWindow
+ ;
+ MELINK Target WL 'ME_4F22A92D007F' '4DFB501A00F4.ms.model.script' // TSpellCheckDlg
+ ;
+
+ENDME // ME_55C8E00E0011 
+
+ME ME_5146CA34003E
+ MEPROP UID '5146CA34003E'
+ MEPROP Name 'TEditorWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5146CA0A03DE // EdWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5146CA96020D // IsNeedSave
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C8E00E0011 // TSpellCheckDlg
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Editor'
+
+ENDME // ME_5146CA34003E TEditorWindow
+
+ME ME_5146CA0A03DE
+ MEPROP UID '5146CA0A03DE'
+ MEPROP Name 'EdWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBAE001FA // MainUnits
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5146CA34003E // TEditorWindow
+ )
+ ; // Children
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_EdWin.pas'
+
+ENDME // ME_5146CA0A03DE EdWin
+
+ME ME_512DBAE001FA
+ MEPROP UID '512DBAE001FA'
+ MEPROP Name 'MainUnits'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_512DBAD202CB' '512DBAD202CB.ms.model.script' // Main
+ ;
+ MELIST Children
+   Seq: ( HWL ME_512DBAF20353 // TMainLiteExpressForm
+ HWL ME_512DBDD903A5 // MainEditor
+ HWL ME_5146CA0A03DE // EdWin
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
+ )
+ ; // Depends
+
+ENDME // ME_512DBAE001FA MainUnits

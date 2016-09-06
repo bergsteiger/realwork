@@ -21,6 +21,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *4808AEBB01E2impl_uses*
+ //#UC END# *4808AEBB01E2impl_uses*
 ;
 
 procedure TatLogoutOperation.ExecuteSelf;

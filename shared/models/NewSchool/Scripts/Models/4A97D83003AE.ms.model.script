@@ -1,0 +1,63 @@
+// Folders 4A97D83003AE VCMFinalForm Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A97D83003AE
+
+ME ME_D41E64F06757
+ MEPROP UID 'D41E64F06757'
+ MEPROP Name 'Ini_FormFactory_Folders'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ %SUMMARY 'Регистрация фабрики формы Folders' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A97D83003AE // Folders
+ ;
+ UPLINK SpelledFor HWL ME_4A97D83003AE // Folders
+ ;
+
+ENDME // ME_D41E64F06757 Ini_FormFactory_Folders
+
+ME ME_4A97D83003AE
+ MEPROP UID '4A97D83003AE'
+ MEPROP Name 'Folders'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_VCMFinalForm ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мои документы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A96B68A03B1' '4A96B68A03B1.ms.model.script' // PrimFolders$UC
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C7E5E980303' '4C7E5E980303.ms.model.script' // PrimFoldersOptions
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4BD86FD703DC' '4BD856E802F9.ms.model.script' // Folders
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_D41E64F06757 // Ini_FormFactory_Folders
+ )
+ ; // Operations
+ UP "author" 'Тучнин Д.А.'
+ UP "finished dfm" True
+ UP "form name prefix" 'cf'
+ UP "NeedsHackRef" True
+ UP "no hands" True
+ UP "resizeable" False
+ UP "restrict form def" 'undefined'
+ UP "started" '2003/08/06 08:30:59'
+ UP "ZoneType" 'Navigator'
+ UP extprop:pas:TypeName 'TcfFolders'
+ UP extprop:pas:UnitName 'Folders_Form'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'cfFolders'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms\Folders_Form.pas'
+ UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Folders\Forms'
+
+ENDME // ME_4A97D83003AE Folders

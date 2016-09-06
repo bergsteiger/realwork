@@ -22,6 +22,8 @@ implementation
 
 uses
  l3ImplUses
+ //#UC START# *483A9A3600C3impl_uses*
+ //#UC END# *483A9A3600C3impl_uses*
 ;
 
 {$Include w:\quality\test\garant6x\AdapterTest\OperationsFramework\atObjectHistory.imp.pas}
