@@ -4927,6 +4927,40 @@ ENDME // ME_47E13C6B0341 Forms
 
 FORWARD ME_47E7ABAE0110
 
+FORWARD ME_47E7ABCB0296
+
+FORWARD ME_57CECDB70264
+
+ME ME_730FBE7252D6
+ MEPROP UID '730FBE7252D6'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода Click' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CECDB70264 // Click
+ ;
+
+ENDME // ME_730FBE7252D6 DoIt
+
+ME ME_57CECDB70264
+ MEPROP UID '57CECDB70264'
+ MEPROP Name 'Click'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABCB0296 // TMenuItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_730FBE7252D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57CECDB70264 Click
+
 ME ME_47E7ABCB0296
  MEPROP UID '47E7ABCB0296'
  MEPROP Name 'TMenuItem'
@@ -4942,6 +4976,10 @@ ME ME_47E7ABCB0296
    Seq: ( WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
  )
  ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57CECDB70264 // Click
+ )
+ ; // Operations
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'MenuItem'
 

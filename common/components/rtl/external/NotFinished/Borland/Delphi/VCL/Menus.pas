@@ -20,6 +20,8 @@ const
 type
  TMenuItem = class(TComponent)
   {* TMenuItem describes the properties of an item in a menu. }
+  protected
+   procedure Click; virtual;
  end;//TMenuItem
 
  TMenu = class(TComponent)
@@ -56,6 +58,15 @@ uses
  //#UC START# *47E7ABAE0110impl_uses*
  //#UC END# *47E7ABAE0110impl_uses*
 ;
+
+procedure TMenuItem.Click;
+//#UC START# *57CECDB70264_47E7ABCB0296_var*
+//#UC END# *57CECDB70264_47E7ABCB0296_var*
+begin
+//#UC START# *57CECDB70264_47E7ABCB0296_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57CECDB70264_47E7ABCB0296_impl*
+end;//TMenuItem.Click
 
 function TMenu.IsShortCut(var Message: TWMKey): Boolean;
 //#UC START# *52A0905E002D_49A3EC9F01DC_var*
