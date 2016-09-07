@@ -1,0 +1,65 @@
+// msmModels 57CEB4640283 Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CEB4640283
+
+ME ME_57B4228B001E_ME_57ADBE5B024A
+ MELINK Original WL 'ME_57B4228B001E' '57B5730D0123.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B4228B001E_ME_57ADBE5B024A Subscribe
+
+ME ME_57B422AB0293_ME_57ADBE5B024A
+ MELINK Original WL 'ME_57B422AB0293' '57B5730D0123.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B422AB0293_ME_57ADBE5B024A Unsubscribe
+
+ME ME_57ADBE5B024A
+ MEPROP UID '57ADBE5B024A'
+ MEPROP GUID 'FCD19034-099E-4C0D-BE89-D5E8325EBD9B'
+ MEPROP Name 'ImsmModel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CEB4640283 // msmModels
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_57B6B9670157' '57B5730D0123.ms.model.script' // ImsmEventsPublisher
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_57B4228B001E_ME_57ADBE5B024A // Subscribe
+ ME_57B422AB0293_ME_57ADBE5B024A // Unsubscribe
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmModel'
+
+ENDME // ME_57ADBE5B024A ImsmModel
+
+ME ME_57CEB4640283
+ MEPROP UID '57CEB4640283'
+ MEPROP Name 'msmModels'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57ADBE5B024A // ImsmModel
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_57B5730D0123' '57B5730D0123.ms.model.script' // msmEvents
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModels.pas'
+
+ENDME // ME_57CEB4640283 msmModels

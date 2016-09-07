@@ -6,6 +6,41 @@ FORWARD ME_57A9C7FF039E
 
 FORWARD ME_57A9C16601B9
 
+FORWARD ME_57CED5100343
+
+ME ME_57CED51B03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_57CED5100343 // TmsmOpenServiceImpl
+ ;
+ MELINK Target WL 'ME_57CED46B03BD' '57CED450035C.ms.model.script' // TmsmOpenService
+ ;
+
+ENDME // ME_57CED51B03A0 
+
+ME ME_57CED5100343
+ MEPROP UID '57CED5100343'
+ MEPROP Name 'TmsmOpenServiceImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57CED51B03A0 // TmsmOpenService
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmOpenServiceImpl'
+
+ENDME // ME_57CED5100343 TmsmOpenServiceImpl
+
 ME ME_57B4313301EB
  MEPROP UID '57B4313301EB'
  MEPROP Name 'f_MainPanel'
@@ -34,19 +69,19 @@ ME ME_57B4314A00F4
 
 ENDME // ME_57B4314A00F4 f_ChildPanel
 
-ME ME_57CD48760388
- MEPROP UID '57CD48760388'
- MEPROP Name 'f_ElementForTree'
+ME ME_57CEA7E802B4
+ MEPROP UID '57CEA7E802B4'
+ MEPROP Name 'f_UseCase'
  MEPROP Class class_Attribute
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
+ MEPROP LinkType lt_ref
  MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
  ;
- MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ MELINK Target WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
  ;
 
-ENDME // ME_57CD48760388 f_ElementForTree
+ENDME // ME_57CEA7E802B4 f_UseCase
 
 ME ME_57A9C19A01CE
  MEPROP UID '57A9C19A01CE'
@@ -440,17 +475,65 @@ ME ME_57CD3E9900C9
 
 ENDME // ME_57CD3E9900C9 
 
-FORWARD ME_57CD5F5603E5
-
 ME ME_57CD5F6F009A
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
  ;
- MELINK Target HWL ME_57CD5F5603E5 // TmsmListOpener
+ MELINK Target WL 'ME_57CD5F5603E5' '57CD2BB003D3.ms.model.script' // TmsmListOpener
  ;
 
 ENDME // ME_57CD5F6F009A 
+
+ME ME_57CEA7AD03B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+
+ENDME // ME_57CEA7AD03B2 
+
+ME ME_57CEB3E9034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+ MELINK Target WL 'ME_57CEB1C1010D' '57CEB008027D.ms.model.script' // TmsmOperation
+ ;
+
+ENDME // ME_57CEB3E9034B 
+
+ME ME_57CEBC000320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+ MELINK Target WL 'ME_57CEBBA601F1' '57CEBB9200EA.ms.model.script' // TmsmListToTreeOperation
+ ;
+
+ENDME // ME_57CEBC000320 
+
+ME ME_57CEBC46011E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+ MELINK Target WL 'ME_57CEBC210073' '57CEBB9200EA.ms.model.script' // TmsmShowInNavigator
+ ;
+
+ENDME // ME_57CEBC46011E 
+
+ME ME_57CED2040028
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+ MELINK Target WL 'ME_57CED1F0037B' '57CEBB9200EA.ms.model.script' // TmsmOpenInNewWindow
+ ;
+
+ENDME // ME_57CED2040028 
 
 ME ME_479731C50290_ME_57A9C16601B9
  MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
@@ -475,7 +558,7 @@ ME ME_57A9C16601B9
  MELIST Attributes
    Seq: ( HWL ME_57B4313301EB // f_MainPanel
  HWL ME_57B4314A00F4 // f_ChildPanel
- HWL ME_57CD48760388 // f_ElementForTree
+ HWL ME_57CEA7E802B4 // f_UseCase
  )
  ; // Attributes
  MELIST Operations
@@ -490,6 +573,10 @@ ME ME_57A9C16601B9
    Seq: ( ME_479731C50290_ME_57A9C16601B9 // Cleanup
  )
  ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57CED5100343 // TmsmOpenServiceImpl
+ )
+ ; // Children
  MELIST Dependencies
    Seq: ( ME_57A9D72C02D1 // TmsmModelLoader
  ME_57AB58C80324 // TmsmTreeViewController
@@ -515,6 +602,11 @@ ME ME_57A9C16601B9
  ME_57CD336F0035 // TmsmListToCaptionBinding
  ME_57CD3E9900C9 // TmsmCaptionModel
  ME_57CD5F6F009A // TmsmListOpener
+ ME_57CEA7AD03B2 // ImsmModelElement
+ ME_57CEB3E9034B // TmsmOperation
+ ME_57CEBC000320 // TmsmListToTreeOperation
+ ME_57CEBC46011E // TmsmShowInNavigator
+ ME_57CED2040028 // TmsmOpenInNewWindow
  )
  ; // Dependencies
  UP "need UC" True
@@ -547,97 +639,6 @@ ME ME_57B6C2D500AE
 
 ENDME // ME_57B6C2D500AE TmsmNavigatorForm
 
-ME ME_57CD5FF80290
- MEPROP UID '57CD5FF80290'
- MEPROP Name 'ModelToListen'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57CD5F5603E5 // TmsmListOpener
- ;
- MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
- ;
-
-ENDME // ME_57CD5FF80290 ModelToListen
-
-ME ME_57CD65C40074
- MEPROP UID '57CD65C40074'
- MEPROP Name 'ModelToFire'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57CD5F5603E5 // TmsmListOpener
- ;
- MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
- ;
-
-ENDME // ME_57CD65C40074 ModelToFire
-
-ME ME_57CD5F6302E9
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CD5F5603E5 // TmsmListOpener
- ;
- MELINK Target HWL ME_57A9C16601B9 // TmsmMainForm
- ;
-
-ENDME // ME_57CD5F6302E9 
-
-ME ME_57CD5FBC0236
- MEPROP Class class_Dependency
- MELINK Stereotype st_consume::Dependency ;
- MELINK Parent HWL ME_57CD5F5603E5 // TmsmListOpener
- ;
- MELINK Target WL 'ME_57B2B0C602DF' '57C99A680247.ms.model.script' // ActionElementEvent
- ;
-
-ENDME // ME_57CD5FBC0236 
-
-ME ME_57ADDC3A0071_ME_57CD5F5603E5
- MELINK Original WL 'ME_57ADDC3A0071' '57AAE90E02B6.ms.model.script' // DoFire
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_57ADDC3A0071_ME_57CD5F5603E5 DoFire
-
-ME ME_57CD5F5603E5
- MEPROP UID '57CD5F5603E5'
- MEPROP Name 'TmsmListOpener'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A9C7FF039E // View
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_57B2B8FA0333' '57AAE90E02B6.ms.model.script' // msmModelToModelBinding
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_57CD5FF80290 // ModelToListen
- HWL ME_57CD65C40074 // ModelToFire
- )
- ; // Attributes
- MELIST Overridden
-   Seq: ( ME_57ADDC3A0071_ME_57CD5F5603E5 // DoFire
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_57CD5F6302E9 // TmsmMainForm
- ME_57CD5FBC0236 // ActionElementEvent
- )
- ; // Dependencies
- UP extprop:pas:UnitName 'msmListOpener'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'msmListOpener'
- UP intf.pas:Path 'common\components\gui\Garant\msm\msmListOpener.pas'
-
-ENDME // ME_57CD5F5603E5 TmsmListOpener
-
 ME ME_57A9C7FF039E
  MEPROP UID '57A9C7FF039E'
  MEPROP Name 'View'
@@ -651,11 +652,11 @@ ME ME_57A9C7FF039E
  MELIST Children
    Seq: ( HWL ME_57A9C16601B9 // TmsmMainForm
  HWL ME_57B6C2D500AE // TmsmNavigatorForm
- HWL ME_57CD5F5603E5 // TmsmListOpener
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
  WL 'ME_57A9D5CD0111' '57A9D5CD0111.ms.model.script' // ModelLoading
  WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
@@ -670,6 +671,11 @@ ME ME_57A9C7FF039E
  WL 'ME_57B42D1A0044' '57B42D1A0044.ms.model.script' // DefaultUsedControls
  WL 'ME_57C99A680247' '57C99A680247.ms.model.script' // msmListAndTreeInterfaces
  WL 'ME_57CD2BB003D3' '57CD2BB003D3.ms.model.script' // ConcreteBindings
+ WL 'ME_57CEABF60269' '57CEABF60269.ms.model.script' // msmOperations
+ WL 'ME_57CEAF3602AB' '57CEAF3602AB.ms.model.script' // msmUseCases
+ WL 'ME_57CEB008027D' '57CEB008027D.ms.model.script' // Operations
+ WL 'ME_57CEBB9200EA' '57CEBB9200EA.ms.model.script' // ConcreteOperations
+ WL 'ME_57CED450035C' '57CED450035C.ms.model.script' // Application Services
  )
  ; // Depends
 
