@@ -5,11 +5,19 @@ w:\common\components\gui\Garant\msm\msmListModel.pas
 //#UC END# *57B317B00274impl_uses*
 //#UC START# *57B326FD0285_57B317B00274_impl*
  f_ElementView := anElementView;
+ f_IsDir := aIsDir;
  inherited Create;
- if (anElementView.rElement <> nil) then
-  Set_List(TmsmModelElementDir.Make(anElementView.rElement.List[anElementView.rListName], anElementView.rTextName))
- else
-  Set_List(nil);
+ ShowElementAsList(anElementView.rElement);
 //#UC END# *57B326FD0285_57B317B00274_impl*
 //#UC START# *57B326FD0285_57B317B00274_var*
 //#UC END# *57B326FD0285_57B317B00274_var*
+//#UC START# *57CFF8AB0339_57B317B00274_impl*
+ Create(anElementView, true);
+//#UC END# *57CFF8AB0339_57B317B00274_impl*
+//#UC START# *57CFF8AB0339_57B317B00274_var*
+//#UC END# *57CFF8AB0339_57B317B00274_var*
+//#UC START# *57CFF8D9019D_57B317B00274_impl*
+ Create(anElementView, false);
+//#UC END# *57CFF8D9019D_57B317B00274_impl*
+//#UC START# *57CFF8D9019D_57B317B00274_var*
+//#UC END# *57CFF8D9019D_57B317B00274_var*

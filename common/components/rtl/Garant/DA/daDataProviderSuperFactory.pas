@@ -40,7 +40,8 @@ type
    procedure ClearFields; override;
   public
    function FindFactoryByParamType(const aKey: AnsiString): TdaDataProviderFactory;
-   procedure CorrectByClient(aParams: TdaDataProviderParams);
+   procedure CorrectByClient(aParams: TdaDataProviderParams;
+    CorrectTempPath: Boolean = True);
    function IsParamsValid(aParams: TdaDataProviderParams;
     Quiet: Boolean = False): Boolean;
    procedure FillInConfig(aConfig: TddAppConfiguration;
@@ -184,12 +185,13 @@ begin
 //#UC END# *550FD1780368_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.MakeFromTaggedData
 
-procedure TdaDataProviderSuperFactory.CorrectByClient(aParams: TdaDataProviderParams);
+procedure TdaDataProviderSuperFactory.CorrectByClient(aParams: TdaDataProviderParams;
+ CorrectTempPath: Boolean = True);
 //#UC START# *55100AB20241_54F85B590251_var*
 //#UC END# *55100AB20241_54F85B590251_var*
 begin
 //#UC START# *55100AB20241_54F85B590251_impl*
- FindFactoryByParamType(aParams.ParamsKey).CorrectByClient(aParams);
+ FindFactoryByParamType(aParams.ParamsKey).CorrectByClient(aParams, CorrectTempPath);
 //#UC END# *55100AB20241_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.CorrectByClient
 

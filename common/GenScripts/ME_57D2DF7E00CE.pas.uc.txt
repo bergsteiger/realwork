@@ -1,0 +1,92 @@
+//#UC START# *57D2B82102BD_57D2DF7E00CE_impl*
+ inherited;
+ f_UseCase.Activate;
+//#UC END# *57D2B82102BD_57D2DF7E00CE_impl*
+//#UC START# *57D2B82102BD_57D2DF7E00CE_var*
+//#UC END# *57D2B82102BD_57D2DF7E00CE_var*
+//#UC START# *57D2DF7E00CE_ext:FileName
+w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
+//#UC END# *57D2DF7E00CE_ext:FileName
+//#UC START# *57D2DF7E00CEimpl_uses*
+ , msmConcreteModels
+ , msmOpenInNewWindow
+ , msmShowInNavigator
+ , msmUpToParent
+ , msmOperationsSeparator
+ , msmListAndTreeInterfaces
+ , msmListAndTreeViewUtils
+ , msmCurrentElementShowAsListBinding
+ , msmListOpener
+ , msmListModel
+ , msmListViewController
+ , msmElementViews
+//#UC END# *57D2DF7E00CEimpl_uses*
+//#UC START# *57D2DFA70064_57D2DF7E00CE_impl*
+ inherited Create;
+ f_UseCase := aUseCase;
+//#UC END# *57D2DFA70064_57D2DF7E00CE_impl*
+//#UC START# *57D2DFA70064_57D2DF7E00CE_var*
+
+ function AddListLikeOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
+ begin//AddListLikeOperations
+  Assert(aUseCase.FloatingNavigator <> nil);
+  aController.AddOperation(TmsmOpenInNewWindow.Make('Open in new window', aModel));
+  aController.AddOperation(TmsmShowInNavigator.Make('Show in navigator', aModel, aUseCase.FloatingNavigator));
+  Result := aController;
+ end;//AddListLikeOperations
+
+ function AddListOperations(const aController: ImsmController; const aModel: ImsmListModel): ImsmController;
+ begin//AddListOperations
+  AddListLikeOperations(aController, aModel);
+  Result := aController;
+ end;//AddListOperations
+
+ function AddMainListOperations(const aController: ImsmController; const aModel: ImsmListModel): ImsmController;
+ begin//AddMainListOperations
+  aController.AddOperation(TmsmUpToParent.Make('Up to parent', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  AddListOperations(aController, aModel);
+  Result := aController;
+ end;//AddMainListOperations
+
+ function AddDiagramOperations(const aController: ImsmController; const aModel: ImsmDrawingModel): ImsmController;
+ begin//AddDiagramOperations
+  aController.AddOperation(TmsmUpToParent.Make('Parent diagram', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  AddListOperations(aController, aModel);
+  Result := aController;
+ end;//AddDiagramOperations
+
+ function DisableActionElementEvent(const aController: ImsmController): ImsmController;
+ begin//DisableActionElementEvent
+  aController.DisableEvent(ActionElementEvent.Instance);
+  Result := aController;
+ end;//DisableActionElementEvent
+
+ procedure AddChildView(const aChildModel: ImsmListModel; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext);
+ begin//AddChildView
+  f_UseCase.Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.MainList, aChildModel));
+  f_UseCase.Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.Drawing, aChildModel));
+  f_UseCase.Bind(TmsmListOpener.Make(aChildModel, aUseCase.MainList));
+
+  f_UseCase.AddController(
+   AddListOperations
+   (
+    DisableActionElementEvent
+    (
+     TmsmListViewController.Make(aChildModel, aParent, aContext)
+    )
+    , aChildModel
+   )
+  );
+ end;//AddChildView
+
+ procedure AddChildViews(const aNames: array of String; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext);
+ var
+  l_Index : Integer;
+ begin//AddChildViews
+  for l_Index := Low(aNames) to High(aNames) do
+   AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C(aNames[l_Index])), aParent, aContext);
+ end;//AddChildViews
+
+//#UC END# *57D2DFA70064_57D2DF7E00CE_var*

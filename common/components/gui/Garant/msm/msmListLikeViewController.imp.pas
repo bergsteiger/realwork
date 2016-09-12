@@ -71,6 +71,10 @@ begin
  if (Self.Model.List = nil) then
   Self.Model.CurrentElement := nil
  else
+ if (aNewCurrent < 0) then
+ // - не повод сбрасывать текущий, возможно он есть в другом связанном списке
+  Exit
+ else
   Self.Model.CurrentElement := Self.Model.List[aNewCurrent];
 //#UC END# *57B3192403D2_57B6BF8A0210_impl*
 end;//_msmListLikeViewController_.DoCurrentChanged

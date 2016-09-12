@@ -38,7 +38,8 @@ type
     AllowClearLocks: Boolean;
     SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
-   procedure CorrectByClient(aParams: TdaDataProviderParams); override;
+   procedure CorrectByClient(aParams: TdaDataProviderParams;
+    CorrectTempPath: Boolean); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
     Quiet: Boolean = False): Boolean; override;
  end;//ThtDataProviderFactory
@@ -274,7 +275,8 @@ begin
 //#UC END# *55D706D201C3_54FEAD4402AB_impl*
 end;//ThtDataProviderFactory.LoginCheckSucceed
 
-procedure ThtDataProviderFactory.CorrectByClient(aParams: TdaDataProviderParams);
+procedure ThtDataProviderFactory.CorrectByClient(aParams: TdaDataProviderParams;
+ CorrectTempPath: Boolean);
 //#UC START# *55110FBB00E5_54FEAD4402AB_var*
 var
  l_Storage: IhtParamsStorage;
@@ -284,7 +286,8 @@ begin
  l_Storage := ParamsStorage as IhtParamsStorage;
  try
   ThtDataProviderParams(aParams).StationName := l_Storage.StationName;
-  ThtDataProviderParams(aParams).TmpDirPath := l_Storage.TempPath;
+  if CorrectTempPath then
+   ThtDataProviderParams(aParams).TmpDirPath := l_Storage.TempPath;
   if ThtDataProviderParams(aParams).TmpDirPath = '' then
    ThtDataProviderParams(aParams).TmpDirPath := GetWindowsTempFolder;
   if (ThtDataProviderParams(aParams).StationName = '') and (aParams.UserId > 0) then

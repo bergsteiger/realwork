@@ -37,7 +37,6 @@ type
   protected
    function Get_Name: Il3CString;
    function Get_UID: Il3CString;
-   function IsSameElement(const anOther: ImsmBaseModelElement): Boolean;
    function GetSelf: TmsmBaseModelElement;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -105,26 +104,6 @@ begin
  Result := TmsmModelElementMethodCaller.CallAndGetString(f_MainWord, 'UID');
 //#UC END# *57AADF560165_57AB17E6022Cget_impl*
 end;//TmsmBaseModelElement.Get_UID
-
-function TmsmBaseModelElement.IsSameElement(const anOther: ImsmBaseModelElement): Boolean;
-//#UC START# *57AC39AE0181_57AB17E6022C_var*
-var
- l_W : ITmsmBaseModelElementWrap;
-//#UC END# *57AC39AE0181_57AB17E6022C_var*
-begin
-//#UC START# *57AC39AE0181_57AB17E6022C_impl*
- Result := l3IEQ(Self, anOther);
- if not Result then
- begin
-  if Supports(anOther, ITmsmBaseModelElementWrap, l_W) then
-   try
-    Result := (Self.MainWord.GetRefForCompare = l_W.GetSelf.MainWord.GetRefForCompare);
-   finally
-    l_W := nil;
-   end;//try..finally
- end;//not Result
-//#UC END# *57AC39AE0181_57AB17E6022C_impl*
-end;//TmsmBaseModelElement.IsSameElement
 
 function TmsmBaseModelElement.GetSelf: TmsmBaseModelElement;
 //#UC START# *57AC39FE00B8_57AB17E6022C_var*

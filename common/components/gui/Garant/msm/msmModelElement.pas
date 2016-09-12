@@ -25,12 +25,14 @@ type
   protected
    function Get_Parent: ImsmModelElement;
    function Get_Children: ImsmModelElementList;
+   function IsSameElement(const anOther: ImsmModelElement): Boolean;
    function Get_List(const aName: AnsiString): ImsmModelElementList;
    function Get_StringProp(const aName: AnsiString): Il3CString;
    function Get_IntProp(const aName: AnsiString): Integer;
    function Get_BoolProp(const aName: AnsiString): Boolean;
    function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
    function Get_MainWord: TtfwWord;
+   function IsView: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -46,6 +48,8 @@ uses
  , msmModelElementList
  , msmModelElementFactory
  //#UC START# *57A9F5170275impl_uses*
+ , SysUtils
+ , l3InterfacesMisc
  , l3String
  //#UC END# *57A9F5170275impl_uses*
 ;
@@ -91,6 +95,38 @@ begin
  Result := f_Children; 
 //#UC END# *57AAD9CA008A_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_Children
+
+function TmsmModelElement.IsSameElement(const anOther: ImsmModelElement): Boolean;
+//#UC START# *57AC39AE0181_57A9F5170275_var*
+var
+ l_W : ITmsmBaseModelElementWrap;
+ l_Other : ImsmModelElement;
+//#UC END# *57AC39AE0181_57A9F5170275_var*
+begin
+//#UC START# *57AC39AE0181_57A9F5170275_impl*
+ if (anOther = nil) then
+  Result := false
+ else
+ begin
+  l_Other := anOther;
+  if l_Other.IsView then
+   l_Other := l_Other.ElementProp['Original'];
+  Result := l3IEQ(Self, l_Other);
+  if not Result then
+  begin
+   if Supports(l_Other, ITmsmBaseModelElementWrap, l_W) then
+    try
+     Result := (Self.MainWord.GetRefForCompare = l_W.GetSelf.MainWord.GetRefForCompare);
+    finally
+     l_W := nil;
+    end;//try..finally
+  end;//not Result
+  if not Result then
+   if Self.IsView then
+    Result := Self.Get_ElementProp('Original').IsSameElement(l_Other);
+ end;//anOther = nil
+//#UC END# *57AC39AE0181_57A9F5170275_impl*
+end;//TmsmModelElement.IsSameElement
 
 function TmsmModelElement.Get_List(const aName: AnsiString): ImsmModelElementList;
 //#UC START# *57B2F55702DE_57A9F5170275get_var*
@@ -162,6 +198,15 @@ begin
  Result := MainWord;
 //#UC END# *57C3E90C0177_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_MainWord
+
+function TmsmModelElement.IsView: Boolean;
+//#UC START# *57D1435E002F_57A9F5170275_var*
+//#UC END# *57D1435E002F_57A9F5170275_var*
+begin
+//#UC START# *57D1435E002F_57A9F5170275_impl*
+ Result := Get_BoolProp('IsView');
+//#UC END# *57D1435E002F_57A9F5170275_impl*
+end;//TmsmModelElement.IsView
 
 procedure TmsmModelElement.Cleanup;
  {* Функция очистки полей объекта. }

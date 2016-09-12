@@ -38,6 +38,7 @@ type
     const anItem: TmsmModelElementMethodValue);
    function FindData(const anItem: TmsmModelElementMethodValue;
     out theIndex: Integer): Boolean;
+   procedure DeleteWordCachedValues(aWord: TtfwWord);
    class function Instance: TmsmModelElementMethodValueCache;
     {* Метод получения экземпляра синглетона TmsmModelElementMethodValueCache }
    class function Exists: Boolean;
@@ -156,15 +157,14 @@ begin
 //#UC END# *57BC3FB202AF_57B2E6B90102_impl*
 end;//TmsmModelElementMethodValueCache.FindData
 
-{$If NOT Defined(NoScripts)}
-procedure TmsmModelElementMethodValueCache.Notify(aWord: TtfwWord);
-//#UC START# *57BAFEC801C8_57B2E6B90102_var*
+procedure TmsmModelElementMethodValueCache.DeleteWordCachedValues(aWord: TtfwWord);
+//#UC START# *57D25F960241_57B2E6B90102_var*
 var
  l_Index : Integer;
  l_NeedClear : Boolean;
-//#UC END# *57BAFEC801C8_57B2E6B90102_var*
+//#UC END# *57D25F960241_57B2E6B90102_var*
 begin
-//#UC START# *57BAFEC801C8_57B2E6B90102_impl*
+//#UC START# *57D25F960241_57B2E6B90102_impl*
  l_NeedClear := true;
  l_NeedClear := CanCacheWord(aWord);
  if l_NeedClear then
@@ -186,6 +186,16 @@ begin
    break;
   end;//while (l_Index < Count)
  end;//l_NeedClear
+//#UC END# *57D25F960241_57B2E6B90102_impl*
+end;//TmsmModelElementMethodValueCache.DeleteWordCachedValues
+
+{$If NOT Defined(NoScripts)}
+procedure TmsmModelElementMethodValueCache.Notify(aWord: TtfwWord);
+//#UC START# *57BAFEC801C8_57B2E6B90102_var*
+//#UC END# *57BAFEC801C8_57B2E6B90102_var*
+begin
+//#UC START# *57BAFEC801C8_57B2E6B90102_impl*
+ DeleteWordCachedValues(aWord);
 //#UC END# *57BAFEC801C8_57B2E6B90102_impl*
 end;//TmsmModelElementMethodValueCache.Notify
 {$IfEnd} // NOT Defined(NoScripts)

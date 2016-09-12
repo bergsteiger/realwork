@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.117 2016/08/31 10:30:11 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.118 2016/09/09 10:57:08 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.118  2016/09/09 10:57:08  lukyanets
+// Отправляем сообщение
+//
 // Revision 1.117  2016/08/31 10:30:11  lukyanets
 // Первая доставка
 //
@@ -548,6 +551,7 @@ uses
   csProcessTask, CsDataPipe, l3Types,
   l3ObjectRefList, ddCalendarEvents,
   csTaskTypes, csServerTaskTypes, csTaskRequest, csClientCommandsManager,
+  csUploadDocStream,
   Menus, csUserRequestManager, l3LongintList,
   ddServerTask,
   Dt_EFltr, m4DocumentAddress,
@@ -635,6 +639,7 @@ type
     aDocID: TdaDocID; anIsObjTopic: Boolean; const aDocumentType: String;
     aDocPart: Tm3DocPartSelector; aLevel: Integer; WithAttr: Boolean;
     DocPartSel: TDocPartSelector; aFoundSelector: Tm4Addresses; out theStream: IStream): Boolean;
+   function UploadDocStream(const aMessage: TcsUploadDocStream): Boolean;
    property OnAnouncedDateChanged: TOnAnouncedDateChanged read f_OnAnouncedDateChanged write f_OnAnouncedDateChanged;
    property OnProgressProc: Tl3ProgressProc read f_OnProgressProc write
        f_OnProgressProc;
@@ -668,6 +673,7 @@ Uses
   csCommandsManager, csAutoAnnoExport, csAACImport, csAutoClassTask, csAnnotationTask,
   csAutoSpell, arDeliveryList, csRelPublishTask, l3StopWatch, csMdpSyncDicts, csMdpImportDocs,
   csContainerTask, csSchedulerProxyTask, csMdpSyncStages, csMdpSyncImport,
+  csUploadDocStreamReply,
  StrShop,
  AutoClassTask_Const,
  k2Base,
@@ -1505,6 +1511,44 @@ begin
      end;
     finally
      FreeAndNil(l_Message);
+    end;
+   finally
+    l_Transporter.Disconnect;
+   end;
+  finally
+   l_Transporter := nil;
+  end;
+ end;
+end;
+
+function TArchiUserRequestManager.UploadDocStream(
+  const aMessage: TcsUploadDocStream): Boolean;
+var
+ l_Transporter: IncsClientTransporter;
+ l_Reply: TncsMessage;
+begin
+ Result := False;
+ if ArchiRequestManager.CSClient.IsStarted then
+ begin
+  l_Transporter := MakeTransporter(qtalcuSendCustomMessage);
+  try
+   l_Transporter.Connect(CSClient.ServerIp, CSClient.ServerPort, l3CreateStringGUID);
+   try
+    if not l_Transporter.Connected then
+     raise Exception.Create(sidClientServerDocLoadFailed);
+    l_Transporter.Send(aMessage);
+    l_Reply := nil;
+    try
+     Result := l_Transporter.WaitForReply(aMessage, l_Reply) and (l_Reply is TcsUploadDocStreamReply) and TcsUploadDocStreamReply(l_Reply).IsSuccess;
+     if not Result then
+     begin
+      if Assigned(l_Reply) and (l_Reply is TcsUploadDocStreamReply) then
+       raise Exception.Create(TcsUploadDocStreamReply(l_Reply).ErrorMessage)
+      else
+       raise Exception.Create('Нет связи с сервером');
+     end;
+    finally
+     FreeAndNil(l_Reply);
     end;
    finally
     l_Transporter.Disconnect;

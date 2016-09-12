@@ -64,6 +64,7 @@ F %S%f_tpi_script_GenerateForward()
 	[{"%SS"!=""}\
 	 MEPROP Stereotype '%f_str_replace(%SS,','')'
 	]\
+	%f_with_gen_id(pas.script,%f_StereotypeInModelRef(%S))\
 	%S#f_pas_script_GenerateUserProperties()\
 	
 	ENDME // %S%f_tpi_script_Name()\n\n\
@@ -72,6 +73,11 @@ F %S%f_tpi_script_GenerateForward()
 //	[{%SS=MDAGenerator}%f_warning(%SN %SS)]\
 
 	<%CX>
+
+f _StereotypeInModelRef
+	[\
+	 MELINK StereotypeInModel %S#f_pas_script_Reference() ;
+	]
 
 f _tpi_script_Path
 	%S#f_pas_script_Path()/Stereotypes

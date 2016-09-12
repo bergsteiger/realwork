@@ -1,9 +1,12 @@
 //..........................................................................................................................................................................................................................................................
 unit ddHTinit;
 
-// $Id: ddHTInit.pas,v 1.134 2016/08/11 10:47:44 lukyanets Exp $
+// $Id: ddHTInit.pas,v 1.135 2016/09/08 09:15:46 lukyanets Exp $
 
 // $Log: ddHTInit.pas,v $
+// Revision 1.135  2016/09/08 09:15:46  lukyanets
+// Executor умеет подстраивать временный каталог
+//
 // Revision 1.134  2016/08/11 10:47:44  lukyanets
 // ѕолчищаем dt_user
 //
@@ -438,7 +441,7 @@ function InitBaseEngine(aPromptUserPasswordProc: TGetLoginPasswordProc = nil;
 
 function InitBaseEngine(const aServerHostName: AnsiString; aServerPort: Integer; const
     aUserName: AnsiString = ''; const aPassword: AnsiString = '';
-    aQuietMode: Boolean = False): Boolean; overload;
+    aQuietMode: Boolean = False; aCorrectTempPath: Boolean = True): Boolean; overload;
 
 function InitBaseEngine(aBaseFolder: AnsiString;
                         const aUserName: AnsiString = '';
@@ -569,7 +572,7 @@ end;
 
 function InitBaseEngine(const aServerHostName: AnsiString; aServerPort: Integer; const
                         aUserName: AnsiString = ''; const aPassword: AnsiString = '';
-                        aQuietMode : boolean = false): Boolean;
+                        aQuietMode : boolean = false; aCorrectTempPath: Boolean = True): Boolean;
 var
  l_ServiceParams: TncsServiceProviderParams;
  l_DataParams: TdaDataProviderParams;
@@ -583,6 +586,7 @@ begin
  l_ServiceParams.Login := aUserName;
  l_ServiceParams.Password := aPassword;
  l_ServiceParams.IsDeveloper := False;
+ l_ServiceParams.CorrectTempPath := aCorrectTempPath;
  try
   if (StationConfig = nil) or (ServerConfig = nil) then
    InitStationAndServerConfig;

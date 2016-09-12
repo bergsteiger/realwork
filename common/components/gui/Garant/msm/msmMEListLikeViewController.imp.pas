@@ -27,11 +27,12 @@ procedure _msmMEListLikeViewController_.DoGetItemFont(Sender: TObject;
 //#UC END# *57B47A2102DE_57C977AE0264_var*
 begin
 //#UC START# *57B47A2102DE_57C977AE0264_impl*
- if Self.Model.List[Index].BoolProp['IsSummoned'] then
-  aFont.ForeColor := clRed
- else
- if not Self.Model.List[Index].BoolProp['IsFinished'] then
-  aFont.ForeColor := clGreen;
+ with Self.Model.List[Index] do
+ begin
+  aFont.Italic := BoolProp['IsSummoned'];
+  aFont.Strikeout := not BoolProp['IsFinished'];
+  aFont.ForeColor := IntProp['msm:View:ForeColor'];
+ end;//with Self.Model.List[Index]
 //#UC END# *57B47A2102DE_57C977AE0264_impl*
 end;//_msmMEListLikeViewController_.DoGetItemFont
 

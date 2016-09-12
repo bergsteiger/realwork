@@ -11,31 +11,22 @@ interface
 {$If Defined(ServerTasks)}
 uses
  l3IntfUses
- {$If NOT Defined(Nemesis)}
- , csProcessTask
- {$IfEnd} // NOT Defined(Nemesis)
+ , alcuWaitableRequest
  {$If NOT Defined(Nemesis)}
  , csDownloadDocStream
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
  , csDownloadDocStreamReply
  {$IfEnd} // NOT Defined(Nemesis)
- , SyncObjs
  , k2Base
  {$If NOT Defined(Nemesis)}
  , ddProcessTaskPrim
  {$IfEnd} // NOT Defined(Nemesis)
- , daTypes
- , Classes
 ;
 
 type
- TalcuDownloadDocRequest = class({$If NOT Defined(Nemesis)}
- TddProcessTask
- {$IfEnd} // NOT Defined(Nemesis)
- )
+ TalcuDownloadDocRequest = class(TalcuWaitableRequest)
   private
-   f_ReadyEvent: TEvent;
    f_Message: TcsDownloadDocStream;
    f_Reply: TcsDownloadDocStreamReply;
   protected
@@ -47,21 +38,9 @@ type
    procedure DoRun(const aContext: TddRunContext); override;
    {$IfEnd} // NOT Defined(Nemesis)
    {$If NOT Defined(Nemesis)}
-   procedure DoLoadFrom(aStream: TStream;
-    aIsPipe: Boolean); override;
-   {$IfEnd} // NOT Defined(Nemesis)
-   {$If NOT Defined(Nemesis)}
    procedure DoAbort; override;
    {$IfEnd} // NOT Defined(Nemesis)
   public
-   procedure WaitForReady;
-   {$If NOT Defined(Nemesis)}
-   constructor Create(aUserID: TdaUserID); override;
-   {$IfEnd} // NOT Defined(Nemesis)
-   {$If NOT Defined(Nemesis)}
-   procedure DoSaveTo(aStream: TStream;
-    aIsPipe: Boolean); override;
-   {$IfEnd} // NOT Defined(Nemesis)
    class function GetTaggedDataType: Tk2Type; override;
   public
    property Message: TcsDownloadDocStream
@@ -79,8 +58,6 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- , l3Utils
- , Windows
  , nevInternalInterfaces
  , l3Filer
  , evdNativeWriter
@@ -97,7 +74,6 @@ uses
  //#UC END# *57C3FAF20200impl_uses*
 ;
 
-{$If NOT Defined(Nemesis)}
 procedure TalcuDownloadDocRequest.pm_SetMessage(aValue: TcsDownloadDocStream);
 //#UC START# *57C3FB090381_57C3FAF20200set_var*
 //#UC END# *57C3FB090381_57C3FAF20200set_var*
@@ -116,28 +92,19 @@ begin
 //#UC END# *57C3FB2E0376_57C3FAF20200set_impl*
 end;//TalcuDownloadDocRequest.pm_SetReply
 
-procedure TalcuDownloadDocRequest.WaitForReady;
-//#UC START# *57C3FD1D0063_57C3FAF20200_var*
-//#UC END# *57C3FD1D0063_57C3FAF20200_var*
-begin
-//#UC START# *57C3FD1D0063_57C3FAF20200_impl*
- f_ReadyEvent.WaitFor(INFINITE);
-//#UC END# *57C3FD1D0063_57C3FAF20200_impl*
-end;//TalcuDownloadDocRequest.WaitForReady
-
 procedure TalcuDownloadDocRequest.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_57C3FAF20200_var*
 //#UC END# *479731C50290_57C3FAF20200_var*
 begin
 //#UC START# *479731C50290_57C3FAF20200_impl*
- FreeAndNil(f_ReadyEvent);
  FreeAndNil(f_Message);
  FreeAndNil(f_Reply);
  inherited;
 //#UC END# *479731C50290_57C3FAF20200_impl*
 end;//TalcuDownloadDocRequest.Cleanup
 
+{$If NOT Defined(Nemesis)}
 procedure TalcuDownloadDocRequest.DoRun(const aContext: TddRunContext);
 //#UC START# *53A2EEE90097_57C3FAF20200_var*
 var
@@ -209,57 +176,29 @@ begin
   end;
  finally
   l_Counter.Stop;
-  f_ReadyEvent.SetEvent;
+  SignalReady;
   l3System.Msg2Log('Remote read document - %s', [FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
  end;
 //#UC END# *53A2EEE90097_57C3FAF20200_impl*
 end;//TalcuDownloadDocRequest.DoRun
+{$IfEnd} // NOT Defined(Nemesis)
 
-constructor TalcuDownloadDocRequest.Create(aUserID: TdaUserID);
-//#UC START# *53B3D8A8011F_57C3FAF20200_var*
-//#UC END# *53B3D8A8011F_57C3FAF20200_var*
-begin
-//#UC START# *53B3D8A8011F_57C3FAF20200_impl*
- inherited Create(aUserID);
- f_ReadyEvent := TEvent.Create(nil, True, False, l3CreateStringGUID);
-//#UC END# *53B3D8A8011F_57C3FAF20200_impl*
-end;//TalcuDownloadDocRequest.Create
-
-procedure TalcuDownloadDocRequest.DoSaveTo(aStream: TStream;
- aIsPipe: Boolean);
-//#UC START# *53E481990243_57C3FAF20200_var*
-//#UC END# *53E481990243_57C3FAF20200_var*
-begin
-//#UC START# *53E481990243_57C3FAF20200_impl*
- Assert(False);
-//#UC END# *53E481990243_57C3FAF20200_impl*
-end;//TalcuDownloadDocRequest.DoSaveTo
-
-procedure TalcuDownloadDocRequest.DoLoadFrom(aStream: TStream;
- aIsPipe: Boolean);
-//#UC START# *53E481DF03D1_57C3FAF20200_var*
-//#UC END# *53E481DF03D1_57C3FAF20200_var*
-begin
-//#UC START# *53E481DF03D1_57C3FAF20200_impl*
- Assert(False);
-//#UC END# *53E481DF03D1_57C3FAF20200_impl*
-end;//TalcuDownloadDocRequest.DoLoadFrom
-
+{$If NOT Defined(Nemesis)}
 procedure TalcuDownloadDocRequest.DoAbort;
 //#UC START# *57C4135700F7_57C3FAF20200_var*
 //#UC END# *57C4135700F7_57C3FAF20200_var*
 begin
 //#UC START# *57C4135700F7_57C3FAF20200_impl*
  f_Reply.ErrorMessage := 'Операция прервана';
- f_ReadyEvent.SetEvent;
+ SignalReady;
 //#UC END# *57C4135700F7_57C3FAF20200_impl*
 end;//TalcuDownloadDocRequest.DoAbort
+{$IfEnd} // NOT Defined(Nemesis)
 
 class function TalcuDownloadDocRequest.GetTaggedDataType: Tk2Type;
 begin
  Result := k2_typDownloadDocRequest;
 end;//TalcuDownloadDocRequest.GetTaggedDataType
-{$IfEnd} // NOT Defined(Nemesis)
-
 {$IfEnd} // Defined(ServerTasks)
+
 end.

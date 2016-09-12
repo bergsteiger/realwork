@@ -46,6 +46,7 @@ begin
 //#UC START# *57ADFB33027D_57B6C958008A_impl*
  inherited;
  OwnView.OnGetStrItem := Self.DoGetStrItem;
+ OwnView.AllowWithoutCurrent := true;
 //#UC END# *57ADFB33027D_57B6C958008A_impl*
 end;//_msmListViewController_.InitOwnView
 

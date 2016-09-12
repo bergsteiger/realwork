@@ -59,13 +59,11 @@ uses
  , msmOpenService
  , msmModelLoader
  , msmTreeViewController
- , msmUseCase
  , msmListViewController
  , msmMainFormController
- , msmTreeToListBinding
+ , msmCurrentElementShowAsListBinding
  , msmListModel
  , msmTreeModel
- , msmListToListBinding
  , msmMultiPanelViewParent
  , msmSingleViewParent
  , msmListAndTreeViewUtils
@@ -75,14 +73,22 @@ uses
  , msmModelLoadingThread
  {$IfEnd} // Defined(seThreadSafe)
  , msmListAndTreeInterfaces
- , msmListToTreeBinding
- , msmListToCaptionBinding
+ , msmListOwnerToCurrentElementBinding
+ , msmListOwnerNameToCaptionBinding
  , msmCaptionModel
  , msmListOpener
  , msmOperation
  , msmListToTreeOperation
  , msmShowInNavigator
  , msmOpenInNewWindow
+ , msmDrawingViewController
+ , msmCurrentElementSynchronizeBinding
+ , msmUpToParent
+ , msmOperationsSeparator
+ , msmDrawingModel
+ , msmListOwnerShowAsListBinding
+ , msmDrawingUseCase
+ , msmDrawingUseCaseView
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
@@ -99,6 +105,7 @@ uses
  , msmConcreteModels
  , tfwParserService
  , msmControllers
+ , msmConcreteUseCases
  //#UC END# *57A9C16601B9impl_uses*
 ;
 
@@ -193,134 +200,52 @@ end;//TmsmMainForm.Init
 class procedure TmsmMainForm.Run;
 //#UC START# *57A9C3B40133_57A9C16601B9_var*
 const
- cModelRoot = 'M:\NewSchool\Scripts\Models\';
-var
- l_Element : ImsmModelElement;
+ cModelRoot = 'W:\shared\models\NewSchool\Scripts\Models\';
+ //cModelRoot = 'M:\NewSchool\Scripts\Models\';
 //#UC END# *57A9C3B40133_57A9C16601B9_var*
 begin
 //#UC START# *57A9C3B40133_57A9C16601B9_impl*
  //l3System.ShowObjectsWindow := false;
  TtfwParserService.Instance.AddIncludePath(cModelRoot);
- l_Element := TmsmModelLoader.LoadFromFile(cModelRoot + 'garant.ms.model.script');
- RunWith(l_Element, l_Element);
+ RunWithList(TmsmModelLoader.LoadFromFile(cModelRoot + 'garant.ms.model.script'));
 //#UC END# *57A9C3B40133_57A9C16601B9_impl*
 end;//TmsmMainForm.Run
 
 procedure TmsmMainForm.LoadModel(const anElementForTree: ImsmModelElement;
  const anElementForList: ImsmModelElement);
 //#UC START# *57A9D7D8039C_57A9C16601B9_var*
-
 var
- l_NavigatorTreeModel : ImsmTreeModel;
- 
- procedure AddListOperations(const aList: ImsmController; const aListModel: ImsmListLikeModel);
- begin//AddListOperations
-  Assert(l_NavigatorTreeModel <> nil);
-  aList.AddOperation(TmsmOpenInNewWindow.Make('Open in new window', aListModel));
-  aList.AddOperation(TmsmShowInNavigator.Make('Show in navigator', aListModel, l_NavigatorTreeModel));
- end;//AddListOperations
-
- procedure AddChildView(const aChildModel: ImsmListModel; const aParent: ImsmViewParent; const aMainModel: ImsmListModel; const aContext: TmsmListViewtInitContext);
- var
-  l_List : ImsmController;
-  l_ListToList : ImsmController;
- begin//AddChildView
-  l_List := TmsmListViewController.Make(aChildModel, aParent, aContext);
-  l_List.DisableEvent(ActionElementEvent.Instance);
-  AddListOperations(l_List, aChildModel.As_ImsmListLikeModel);
-  f_UseCase.AddController(l_List);
-  l_ListToList := TmsmListToListBinding.Make(aMainModel, aChildModel);
-  l_ListToList.DisableEvent(ActionElementEvent.Instance);
-  f_UseCase.AddController(l_ListToList);
-  //l_ListToList := TmsmListToListBinding.Make(aChildModel, aMainModel);
-  l_ListToList := TmsmListOpener.Make(aChildModel.As_ImsmListLikeModel, aMainModel);
-  l_ListToList.DisableEvent(CurrentElementChangedEvent.Instance);
-  f_UseCase.AddController(l_ListToList);
- end;//AddChildView
-
- procedure AddChildViews(const aNames: array of String; const aParent: ImsmViewParent; const aMainModel: ImsmListModel; const aContext: TmsmListViewtInitContext);
- var
-  l_Index : Integer;
- begin//AddChildViews
-  for l_Index := Low(aNames) to High(aNames) do
-   AddChildView(TmsmListModel.Make(TmsmModelElementView_C(aNames[l_Index])), aParent, aMainModel, aContext);
- end;//AddChildViews
-
-var
- l_TreeModel : ImsmTreeModel;
- l_CaptionModel : ImsmCaptionModel;
- l_MainListModel : ImsmListModel;
- l_ViewForTree : TmsmModelElementView;
- l_ViewForList : TmsmModelElementView;
- l_ChildPanel : ImsmViewParent;
- l_ListContext : TmsmListViewtInitContext;
+ l_UseCase : ImsmDrawingUseCase;
  l_Navigator : TmsmNavigatorForm;
- l_TreeToList : ImsmController;
- l_Tree : ImsmController;
- l_List : ImsmController;
 //#UC END# *57A9D7D8039C_57A9C16601B9_var*
 begin
 //#UC START# *57A9D7D8039C_57A9C16601B9_impl*
- f_UseCase := TmsmUseCase.Make;
-
- l_ViewForTree := TmsmModelElementView_C(anElementForTree);
- l_ViewForList := TmsmModelElementView_C(anElementForList);
- l_MainListModel := TmsmListModel.Make(l_ViewForList);
- l_CaptionModel := TmsmCaptionModel.Make;
- l_TreeModel := TmsmTreeModel.Make(l_ViewForTree);
- l_NavigatorTreeModel := TmsmTreeModel.Make(l_ViewForTree);
- f_UseCase.AddController(TmsmMainFormController.Make(Self, l_CaptionModel));
- f_UseCase.AddController(TmsmListToCaptionBinding.Make(l_MainListModel, l_CaptionModel));
- l_List := TmsmListViewController.Make(l_MainListModel, TmsmSingleViewParent.Make(f_MainPanel));
- l_List.DisableEvent(ActionElementEvent.Instance);
- AddListOperations(l_List, l_MainListModel.As_ImsmListLikeModel);
- f_UseCase.AddController(l_List);
- f_UseCase.AddController(TmsmListOpener.Make(l_MainListModel.As_ImsmListLikeModel, l_MainListModel));
- l_Tree := TmsmTreeViewController.Make(l_TreeModel, TmsmSingleViewParent.Make(f_LeftPanel));
- f_UseCase.AddController(l_Tree);
- AddListOperations(l_Tree, l_TreeModel.As_ImsmListLikeModel);
- l_TreeToList := TmsmTreeToListBinding.Make(l_TreeModel, l_MainListModel);
- l_TreeToList.DisableEvent(ActionElementEvent.Instance);
- f_UseCase.AddController(l_TreeToList);
- l_TreeToList := TmsmListOpener.Make(l_TreeModel.As_ImsmListLikeModel, l_MainListModel);
- l_TreeToList.DisableEvent(CurrentElementChangedEvent.Instance);
- f_UseCase.AddController(l_TreeToList);
- f_UseCase.AddController(TmsmListToTreeBinding.Make(l_MainListModel, l_TreeModel));
-
  l_Navigator := TmsmNavigatorForm.Create(Self);
  l_Navigator.Caption := 'Navigator';
  l_Navigator.Height := 600;
+
+ l_UseCase := TmsmDrawingUseCase.Make(
+  TmsmModelElementView_C(anElementForTree),
+  TmsmModelElementView_C(anElementForList)
+ );
+ try
+  f_UseCase := TmsmDrawingUseCaseView.Make(
+   l_UseCase,
+   TmsmTabbedViewParent.Make(f_MainPanel),
+   TmsmTabbedViewParent.Make(f_ChildPanel),
+   TmsmTabbedViewParent.Make(f_LeftPanel),
+   TmsmTabbedViewParent.Make(l_Navigator)
+   //TmsmSingleViewParent.Make(f_LeftPanel),
+   //TmsmSingleViewParent.Make(l_Navigator)
+  );
+  f_UseCase.AddController(
+   TmsmMainFormController.Make(Self, l_UseCase.Caption)
+  );
+  f_UseCase.Activate;
+ finally
+  l_UseCase := nil;
+ end;//try..finally
  l_Navigator.Show;
- f_UseCase.AddController(TmsmTreeViewController.Make(l_NavigatorTreeModel, TmsmSingleViewParent.Make(l_Navigator)));
- //l_TreeToList := TmsmTreeToListBinding.Make(l_NavigatorTreeModel, l_MainListModel);
- l_TreeToList := TmsmListOpener.Make(l_NavigatorTreeModel.As_ImsmListLikeModel, l_MainListModel);
- l_TreeToList.DisableEvent(CurrentElementChangedEvent.Instance);
- f_UseCase.AddController(l_TreeToList);
-
- l_ChildPanel := TmsmTabbedViewParent.Make(f_ChildPanel);
- //l_ChildPanel := TmsmMultiPanelViewParent.Make(f_ChildPanel);
- l_ListContext := TmsmListViewtInitContext_C;
- AddChildViews(['Depends', 'Inherits', 'Implements', 'Inner', 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
-               l_ChildPanel,
-               l_MainListModel,
-               l_ListContext
-               );
- AddChildView(TmsmListModel.Make(TmsmModelElementView_C('UpList', 'UpText')),
-              l_ChildPanel,
-              l_MainListModel,
-              l_ListContext);
- l_ListContext.rMultiStrokeItem := true;
- AddChildView(TmsmListModel.Make(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty')),
-              l_ChildPanel,
-              l_MainListModel,
-              l_ListContext);
-
- f_UseCase.Activate;
- l_TreeModel.CurrentElement := anElementForList;
- l_NavigatorTreeModel.CurrentElement := anElementForList;
-
- Application.ProcessMessages;
- 
  {$IfDef seThreadSafe}
  TmsmModelLoadingThread.CreateManaged(anElementForTree.MainWord, 'LoadInner');
  {$EndIf seThreadSafe}
@@ -349,6 +274,8 @@ var
 //#UC END# *57CD5AAF0193_57A9C16601B9_var*
 begin
 //#UC START# *57CD5AAF0193_57A9C16601B9_impl*
+ if (anElementForList = nil) then
+  Exit;
  Assert(anElementForList <> nil);
  l_E := anElementForList;
  while true do

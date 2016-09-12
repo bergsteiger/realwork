@@ -42,6 +42,7 @@ type
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
   function Get_Count: Integer;
+  function IndexOf(const anElement: ImsmModelElement): Integer;
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;

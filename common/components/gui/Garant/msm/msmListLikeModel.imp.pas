@@ -7,17 +7,21 @@
 
 {$Define msmListLikeModel_imp}
 
- _msmListLikeModel_ = {abstract} class(TmsmModel)
+ _msmListLikeModel_ = {abstract} class(TmsmModel, ImsmListLikeModel)
   private
    f_ElementView: TmsmModelElementView;
    f_ElementToAction: ImsmModelElement;
    f_CurrentElement: ImsmModelElement;
   protected
+   function DoGetList: ImsmModelElementStringList; virtual; abstract;
+   procedure DoShowElementAsList(const anElement: ImsmModelElement); virtual; abstract;
+   procedure ShowElementAsList(const anElement: ImsmModelElement);
    function Get_ElementToAction: ImsmModelElement;
    procedure Set_ElementToAction(const aValue: ImsmModelElement);
    function Get_CurrentElement: ImsmModelElement;
    procedure Set_CurrentElement(const aValue: ImsmModelElement);
    function Get_Caption: AnsiString;
+   function Get_List: ImsmModelElementStringList;
    procedure ClearFields; override;
  end;//_msmListLikeModel_
 
@@ -26,6 +30,15 @@
 {$IfNDef msmListLikeModel_imp_impl}
 
 {$Define msmListLikeModel_imp_impl}
+
+procedure _msmListLikeModel_.ShowElementAsList(const anElement: ImsmModelElement);
+//#UC START# *57B1A3DA0382_57B57EDB003F_var*
+//#UC END# *57B1A3DA0382_57B57EDB003F_var*
+begin
+//#UC START# *57B1A3DA0382_57B57EDB003F_impl*
+ DoShowElementAsList(anElement);
+//#UC END# *57B1A3DA0382_57B57EDB003F_impl*
+end;//_msmListLikeModel_.ShowElementAsList
 
 function _msmListLikeModel_.Get_ElementToAction: ImsmModelElement;
 //#UC START# *57B2B019009C_57B57EDB003Fget_var*
@@ -77,6 +90,15 @@ begin
   Result := 'Doc';
 //#UC END# *57B49A8201E1_57B57EDB003Fget_impl*
 end;//_msmListLikeModel_.Get_Caption
+
+function _msmListLikeModel_.Get_List: ImsmModelElementStringList;
+//#UC START# *57B6A4550271_57B57EDB003Fget_var*
+//#UC END# *57B6A4550271_57B57EDB003Fget_var*
+begin
+//#UC START# *57B6A4550271_57B57EDB003Fget_impl*
+ Result := DoGetList;
+//#UC END# *57B6A4550271_57B57EDB003Fget_impl*
+end;//_msmListLikeModel_.Get_List
 
 procedure _msmListLikeModel_.ClearFields;
 begin

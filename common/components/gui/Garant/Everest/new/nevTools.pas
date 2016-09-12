@@ -103,6 +103,16 @@ type
  end;//MnevBordersHolder
  *)
 
+ TevSearchParam = (
+  ev_spUsual
+  , ev_spWholeCell
+ );//TevSearchParam
+
+ TevSearchContext = {$IfDef XE4}record{$Else}object{$EndIf}
+  public
+   rSelectCellType: TevSearchParam;
+ end;//TevSearchContext
+
  InevPara = interface;
 
  InevRange = interface;
@@ -484,6 +494,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    const aSearcher: IevSearcher;
    const Progress: Il3Progress;
    const aStart: InevBasePoint;
+   const aContext: TevSearchContext;
    out cFStart: InevBasePoint;
    out cFFinish: InevBasePoint): Boolean;
    {* ищет в выделении критерий ОnSearch
@@ -556,6 +567,7 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    const aSearcher: IevSearcher;
    const Progress: Il3Progress;
    const aStart: InevBasePoint;
+   const aContext: TevSearchContext;
    out cFStart: InevBasePoint;
    out cFFinish: InevBasePoint): Boolean;
    {* ищет в выделении критерий ОnSearch
@@ -1481,6 +1493,15 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    read pm_GetBorders;
  end;//InevDataObjectPrim2
 
+ IelEditStrings = interface(InevBase)
+  {* Строки редактора. }
+  ['{B2266B21-154E-434B-871E-EEDBC0A31A16}']
+  procedure Set_ParagraphStrings(anIndex: Integer;
+   const aValue: Il3CString);
+  property ParagraphStrings[anIndex: Integer]: Il3CString
+   write Set_ParagraphStrings;
+ end;//IelEditStrings
+
  InevObjectList = interface(InevObject)
   ['{5DABA26C-12F4-4602-8A6A-907CDB1FA326}']
   function pm_GetCount: TnevParaIndex;
@@ -1500,6 +1521,24 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    read pm_GetObj;
    default;
  end;//InevObjectList
+
+ IevSelectionPairs = interface(InevBase)
+  ['{A16E77C2-DD14-4977-9A08-FCF89A2CD988}']
+  function pm_GetPairsCount: Integer;
+  function pm_GetPair(anIndex: Integer): TevPair;
+  property PairsCount: Integer
+   read pm_GetPairsCount;
+  property Pair[anIndex: Integer]: TevPair
+   read pm_GetPair;
+ end;//IevSelectionPairs
+
+ IevTreeDataObject = interface(InevBase)
+  ['{D90CA287-AC26-4C87-9E19-DBF99B9E0083}']
+  procedure Store(const G: InevTagGenerator;
+   aLevelTag: Integer;
+   aIndent: Integer);
+   {* Сохраняет ноду дерева в G }
+ end;//IevTreeDataObject
 
  IevSub = interface;
 
@@ -1524,14 +1563,62 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
  end;//MnevTextArea
  *)
 
- IelEditStrings = interface(InevBase)
-  {* Строки редактора. }
-  ['{B2266B21-154E-434B-871E-EEDBC0A31A16}']
-  procedure Set_ParagraphStrings(anIndex: Integer;
-   const aValue: Il3CString);
-  property ParagraphStrings[anIndex: Integer]: Il3CString
-   write Set_ParagraphStrings;
- end;//IelEditStrings
+ TnevPoint = nevBase.TnevPoint;
+
+ TnevRect = nevBase.TnevRect;
+
+ TevMouseState = TnevMouseState;
+
+ TevNeighbourPos = (
+  {* Позиция соседа. }
+  ev_npUp
+  , ev_npDown
+  , ev_npDownInternal
+ );//TevNeighbourPos
+
+ InevComplexDocumentPreview = nevBase.InevComplexDocumentPreview;
+
+ TevMouseEffect = TnevMouseEffect;
+
+ InevOp = nevBase.InevOp;
+
+ InevProcessor = nevBase.InevProcessor;
+
+ TnevFramePart = nevBase.TnevFramePart;
+
+ InevScrollListener = nevBase.InevScrollListener;
+
+ InevCanvas = nevBase.InevCanvas;
+
+ TevCursorState = TnevCursorState;
+
+ InevProgress = nevBase.InevProgress;
+
+ TnevColor = nevBase.TnevColor;
+
+ InevInfoCanvas = nevBase.InevInfoCanvas;
+
+ InevSimpleTree = nevBase.InevSimpleTree;
+
+ InevViewMetrics = nevBase.InevViewMetrics;
+
+ InevSimpleNode = nevBase.InevSimpleNode;
+
+ InevNode = nevBase.InevNode;
+
+ TevLoadDocFlag = (
+  {* Флаг генерации }
+  ev_ldfDocumentReaded
+ );//TevLoadDocFlag
+
+ TevLoadDocFlags = set of TevLoadDocFlag;
+  {* Флаги генерации }
+
+ (*
+ BasePrimitives = interface
+  {* Базовые типы }
+ end;//BasePrimitives
+ *)
 
  InevTagReader = interface(InevBase)
   ['{21E745BD-0E5F-4A65-953A-B27F28B4AF34}']
@@ -1634,24 +1721,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property SubCache: IevSubCache
    read Get_SubCache;
  end;//InevObjectHolder
-
- IevSelectionPairs = interface(InevBase)
-  ['{A16E77C2-DD14-4977-9A08-FCF89A2CD988}']
-  function pm_GetPairsCount: Integer;
-  function pm_GetPair(anIndex: Integer): TevPair;
-  property PairsCount: Integer
-   read pm_GetPairsCount;
-  property Pair[anIndex: Integer]: TevPair
-   read pm_GetPair;
- end;//IevSelectionPairs
-
- IevTreeDataObject = interface(InevBase)
-  ['{D90CA287-AC26-4C87-9E19-DBF99B9E0083}']
-  procedure Store(const G: InevTagGenerator;
-   aLevelTag: Integer;
-   aIndent: Integer);
-   {* Сохраняет ноду дерева в G }
- end;//IevTreeDataObject
 
  InevTextSource = interface;
 
@@ -1816,63 +1885,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property Loading: Boolean
    read pm_GetLoading;
  end;//InevDocumentContainer
-
- TnevPoint = nevBase.TnevPoint;
-
- TnevRect = nevBase.TnevRect;
-
- TevMouseState = TnevMouseState;
-
- TevNeighbourPos = (
-  {* Позиция соседа. }
-  ev_npUp
-  , ev_npDown
-  , ev_npDownInternal
- );//TevNeighbourPos
-
- InevComplexDocumentPreview = nevBase.InevComplexDocumentPreview;
-
- TevMouseEffect = TnevMouseEffect;
-
- InevOp = nevBase.InevOp;
-
- InevProcessor = nevBase.InevProcessor;
-
- TnevFramePart = nevBase.TnevFramePart;
-
- InevScrollListener = nevBase.InevScrollListener;
-
- InevCanvas = nevBase.InevCanvas;
-
- TevCursorState = TnevCursorState;
-
- InevProgress = nevBase.InevProgress;
-
- TnevColor = nevBase.TnevColor;
-
- InevInfoCanvas = nevBase.InevInfoCanvas;
-
- InevSimpleTree = nevBase.InevSimpleTree;
-
- InevViewMetrics = nevBase.InevViewMetrics;
-
- InevSimpleNode = nevBase.InevSimpleNode;
-
- InevNode = nevBase.InevNode;
-
- TevLoadDocFlag = (
-  {* Флаг генерации }
-  ev_ldfDocumentReaded
- );//TevLoadDocFlag
-
- TevLoadDocFlags = set of TevLoadDocFlag;
-  {* Флаги генерации }
-
- (*
- BasePrimitives = interface
-  {* Базовые типы }
- end;//BasePrimitives
- *)
 
  TevInsertParaFlags = nevTypes.TevInsertParaFlags;
 
@@ -2257,6 +2269,30 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    {* уровень блока в оглавлении. }
  end;//IevDocumentPart
 
+ InevCommentSwitcher = interface(InevBase)
+  ['{92726298-8202-4867-8725-C5EB2E04E6D4}']
+  function pm_GetShowComments: Boolean;
+  procedure pm_SetShowComments(aValue: Boolean);
+  function pm_GetShowVersionComments: Boolean;
+  procedure pm_SetShowVersionComments(aValue: Boolean);
+  function pm_GetShowUserComments: Boolean;
+  procedure pm_SetShowUserComments(aValue: Boolean);
+  function pm_GetShowTechComments: Boolean;
+  procedure pm_SetShowTechComments(aValue: Boolean);
+  property ShowComments: Boolean
+   read pm_GetShowComments
+   write pm_SetShowComments;
+  property ShowVersionComments: Boolean
+   read pm_GetShowVersionComments
+   write pm_SetShowVersionComments;
+  property ShowUserComments: Boolean
+   read pm_GetShowUserComments
+   write pm_SetShowUserComments;
+  property ShowTechComments: Boolean
+   read pm_GetShowTechComments
+   write pm_SetShowTechComments;
+ end;//InevCommentSwitcher
+
  IevDocument = interface(IevDocumentPart)
   {* Документ. }
   ['{017F34A6-D0D3-4893-B152-9EABD448B7F9}']
@@ -2288,54 +2324,6 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
   property Para: InevPara
    read Get_Para;
  end;//InevActiveElement
-
- InevCommentSwitcher = interface(InevBase)
-  ['{92726298-8202-4867-8725-C5EB2E04E6D4}']
-  function pm_GetShowComments: Boolean;
-  procedure pm_SetShowComments(aValue: Boolean);
-  function pm_GetShowVersionComments: Boolean;
-  procedure pm_SetShowVersionComments(aValue: Boolean);
-  function pm_GetShowUserComments: Boolean;
-  procedure pm_SetShowUserComments(aValue: Boolean);
-  function pm_GetShowTechComments: Boolean;
-  procedure pm_SetShowTechComments(aValue: Boolean);
-  property ShowComments: Boolean
-   read pm_GetShowComments
-   write pm_SetShowComments;
-  property ShowVersionComments: Boolean
-   read pm_GetShowVersionComments
-   write pm_SetShowVersionComments;
-  property ShowUserComments: Boolean
-   read pm_GetShowUserComments
-   write pm_SetShowUserComments;
-  property ShowTechComments: Boolean
-   read pm_GetShowTechComments
-   write pm_SetShowTechComments;
- end;//InevCommentSwitcher
-
- InevDocumentProvider = interface(InevStorable)
-  {* Поставщик документа }
-  ['{2C3A8DA6-E894-41C3-861F-7C463DD264A1}']
-  function Get_CanProvideOriginalDocument: Boolean;
-  function Get_PageSetup: IafwPageSetup;
-  function Get_OriginalDocument: Tl3Variant;
-  property CanProvideOriginalDocument: Boolean
-   read Get_CanProvideOriginalDocument;
-  property PageSetup: IafwPageSetup
-   read Get_PageSetup;
-   {* Параметры страницы }
-  property OriginalDocument: Tl3Variant
-   read Get_OriginalDocument;
- end;//InevDocumentProvider
-
- IevDocumentPoint = interface(InevBase)
-  ['{D6906A23-A8AB-4720-B0F6-019F8A7CB430}']
-  function Get_Obj: PInevObject;
-  function Select(const Selection: InevSelection): Boolean;
-   {* перемещает Selection на данную метку. }
-  property Obj: PInevObject
-   read Get_Obj;
- end;//IevDocumentPoint
 
  InevPrintView = interface(InevView)
   {* Область печати. }
@@ -2444,8 +2432,33 @@ http://mdp.garant.ru/pages/viewpage.action?pageId=228693150 }
    read Get_RestartPos;
  end;//InevRestartPositionSource
 
+ InevDocumentProvider = interface(InevStorable)
+  {* Поставщик документа }
+  ['{2C3A8DA6-E894-41C3-861F-7C463DD264A1}']
+  function Get_CanProvideOriginalDocument: Boolean;
+  function Get_PageSetup: IafwPageSetup;
+  function Get_OriginalDocument: Tl3Variant;
+  property CanProvideOriginalDocument: Boolean
+   read Get_CanProvideOriginalDocument;
+  property PageSetup: IafwPageSetup
+   read Get_PageSetup;
+   {* Параметры страницы }
+  property OriginalDocument: Tl3Variant
+   read Get_OriginalDocument;
+ end;//InevDocumentProvider
+
+ IevDocumentPoint = interface(InevBase)
+  ['{D6906A23-A8AB-4720-B0F6-019F8A7CB430}']
+  function Get_Obj: PInevObject;
+  function Select(const Selection: InevSelection): Boolean;
+   {* перемещает Selection на данную метку. }
+  property Obj: PInevObject
+   read Get_Obj;
+ end;//IevDocumentPoint
+
 function TevPair_C(aStart: Integer;
  aFinish: Integer): TevPair;
+function TevSearchContext_C: TevSearchContext;
 function L2InevRangePrimIterateAction(anAction: Pointer): InevRangePrim_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevRangePrim.Iterate }
 function L2InevParaListIterateParaAction(anAction: Pointer): InevParaList_IteratePara_Action;
@@ -2474,6 +2487,15 @@ begin
  Result.rFinish := aFinish;
 //#UC END# *49E60C23017A_47C68B3B022A_impl*
 end;//TevPair_C
+
+function TevSearchContext_C: TevSearchContext;
+//#UC START# *57D105BD02F9_57D1052B0133_var*
+//#UC END# *57D105BD02F9_57D1052B0133_var*
+begin
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *57D105BD02F9_57D1052B0133_impl*
+//#UC END# *57D105BD02F9_57D1052B0133_impl*
+end;//TevSearchContext_C
 
 function L2InevRangePrimIterateAction(anAction: Pointer): InevRangePrim_Iterate_Action;
  {* Функция формирования заглушки для ЛОКАЛЬНОЙ подитеративной функции для InevRangePrim.Iterate }

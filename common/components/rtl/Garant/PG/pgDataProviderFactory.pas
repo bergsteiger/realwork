@@ -39,7 +39,8 @@ type
     AllowClearLocks: Boolean;
     SetGlobalProvider: Boolean = True): IdaDataProvider; override;
    procedure LoginCheckSucceed(aParams: TdaDataProviderParams); override;
-   procedure CorrectByClient(aParams: TdaDataProviderParams); override;
+   procedure CorrectByClient(aParams: TdaDataProviderParams;
+    CorrectTempPath: Boolean); override;
    function IsParamsValid(aParams: TdaDataProviderParams;
     Quiet: Boolean = False): Boolean; override;
  end;//TpgDataProviderFactory
@@ -244,7 +245,8 @@ begin
 //#UC END# *55D706D201C3_55D6E2FB025D_impl*
 end;//TpgDataProviderFactory.LoginCheckSucceed
 
-procedure TpgDataProviderFactory.CorrectByClient(aParams: TdaDataProviderParams);
+procedure TpgDataProviderFactory.CorrectByClient(aParams: TdaDataProviderParams;
+ CorrectTempPath: Boolean);
 //#UC START# *55110FBB00E5_55D6E2FB025D_var*
 var
  l_Storage: IpgParamsStorage;

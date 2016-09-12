@@ -1,6 +1,6 @@
 unit DocIntf;
 
-{ $Id: DocIntf.pas,v 1.110 2016/09/06 11:52:50 lukyanets Exp $ }
+{ $Id: DocIntf.pas,v 1.113 2016/09/09 10:57:10 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -837,6 +837,7 @@ uses
   arFoundSelectionFilter,
   arSpravkaDocumentContainer,
   arDocumentContainerWithContentsTree,
+  arUploadDocumentHelper,
 
   ArchiUserRequestManager,
 
@@ -3229,6 +3230,9 @@ end;
 procedure TarTextOfDocument.Commit_SetAddFilter(var aGenerator: Tk2TagGenerator);
 // фильтры для основного потока с атрибутами
 begin
+ BuildDocSavePipe(DocInfo.DocFamily, DocInfo.DocID, IsObjTopic, evntOnEraseAttrRecords, aGenerator);
+
+(*
  if not (IsObjTopic) then
  begin
   //TddImageHandleInsertFilter.SetTo(aGenerator);
@@ -3256,6 +3260,7 @@ begin
   // правильнее было бы проверить DocInfo.DocClass, но он всегда dtText
   //if Assigned(anAdditionalData) and (TarDocObject(anAdditionalData).ObjType <> dotFlash) then
   // TddChildBiteOffFilter.SetTo(G, k2_idTextPara); // текстовые параграфы объектам не полагаются
+*)  
 end;
 
 function TarTextOfDocument.Commit_IsNeedSaveText : Boolean;
@@ -3266,10 +3271,13 @@ end;
 procedure TarTextOfDocument.Commit; // save to DB
 var
  l_NeedSaveText : Boolean;
+
  l_NeedOpen : Boolean;
  l_DB       : Im3DB;
  l_Filer    : Tm3DBFiler;
  G          : Tk2TagGenerator;
+
+ l_UploadDocHelper: TarUploadDocumentHelper;
 
 var
  lDocClassWasChanged : Boolean;
@@ -3290,9 +3298,15 @@ begin
  l_NeedSaveText := Commit_IsNeedSaveText;
  //DocPart = m3_dsAnno
 
- G := nil;
+
+ l_UploadDocHelper := TarUploadDocumentHelper.Create(IniRec.DirectDocStorageAccess,
+  DocInfo.DocFamily, DocInfo.DocID, DocInfo.DocClass, DocPart, not IsSpravka, l_NeedSaveText,
+  lDocClassWasChanged, evntOnEraseAttrRecords, IsObjTopic);
+
+
+// G := nil;
  try
-  l_DB := dtGetDB(DocInfo.DocFamily);
+(*  l_DB := dtGetDB(DocInfo.DocFamily);
   try
    l_Filer := Tm3DBFiler.Create(l_DB, DocInfo.DocID, DocPart);
   finally
@@ -3307,7 +3321,6 @@ begin
     try
      if lDocClassWasChanged and (l_Filer.Part <> nil) then
       l_Filer.Part.Info := Tm3DBDocumentInfo_C(ord(DocInfo.DocClass));
-
      if l_NeedSaveText then
      begin
       TevdNativeWriter.SetTo(G);
@@ -3317,10 +3330,21 @@ begin
        Binary := true;
       end;
      end;
-
      Commit_SetAddFilter(G);
+*)
 
-     Save(G);
+     try
+      Save(l_UploadDocHelper.Generator);
+
+//     Save(G);
+
+      if not l_UploadDocHelper.UploadDoc then
+       raise Exception.Create(sidRemoteStorageDisabled);
+     except
+      l_UploadDocHelper.HanldeException;
+      raise;
+     end;
+(*
     except
      l_Filer.Rollback;
      raise;
@@ -3332,8 +3356,12 @@ begin
   finally
    l3Free(l_Filer)
   end;//try..finally
+*)
  finally
-  l3Free(G);
+//  l3Free(G);
+
+  l3Free(l_UploadDocHelper);
+
  end;//try..finally
 
  Document.AttrW[k2_tiEditableParts, nil] := nil; // записали - обнуляем

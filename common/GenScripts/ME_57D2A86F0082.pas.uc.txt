@@ -1,0 +1,109 @@
+//#UC START# *479731C50290_57D2A86F0082_impl*
+ f_FloatingNavigator := nil;
+ f_MainList := nil;
+ f_Drawing := nil;
+ f_Navigator := nil;
+ f_Caption := nil;
+ inherited;
+//#UC END# *479731C50290_57D2A86F0082_impl*
+//#UC START# *479731C50290_57D2A86F0082_var*
+//#UC END# *479731C50290_57D2A86F0082_var*
+//#UC START# *57D2A86F0082_ext:FileName
+w:\common\components\gui\Garant\msm\msmDrawingUseCase.pas
+//#UC END# *57D2A86F0082_ext:FileName
+//#UC START# *57D2A86F0082impl_uses*
+//#UC END# *57D2A86F0082impl_uses*
+//#UC START# *57D2A8F301D0_57D2A86F0082_impl*
+ inherited Create;
+ f_Navigator := TmsmTreeModel.Make(aViewForTree);
+ f_FloatingNavigator := TmsmTreeModel.Make(aViewForTree);
+ f_MainList := TmsmListModel.MakeDir(aViewForList);
+ f_Caption := TmsmCaptionModel.Make;
+ f_Drawing := TmsmDrawingModel.Make(TmsmModelElementView_C(aViewForList.rElement, 'MainDiagram'));
+
+ Bind(TmsmListOwnerNameToCaptionBinding.Make(MainList, Caption));
+ // - показываем имя владельца списка в заголовке (формы)
+
+ Bind(TmsmListOpener.Make(MainList, MainList));
+ // - открываем новый список MainList -> MainList по ActionElement
+ Bind(TmsmListOpener.Make(Drawing, MainList));
+ // - открываем новый список Drawing -> MainList по ActionElement
+
+ Bind(TmsmListOwnerShowAsListBinding.Make(MainList, Drawing));
+ Bind(TmsmListOwnerShowAsListBinding.Make(Drawing, MainList));
+ // - синхронизируем списки у MainList и Drawing в обе стороны
+
+ Bind(TmsmCurrentElementSynchronizeBinding.Make(MainList, Drawing));
+ Bind(TmsmCurrentElementSynchronizeBinding.Make(Drawing, MainList));
+ // - синхронизируем текущий элемент у MainList и Drawing в обе стороны
+
+ Bind(TmsmCurrentElementShowAsListBinding.Make(Navigator, MainList));
+ // - синхронизируем текущий элемент из Navigator со списком MainList
+ Bind(TmsmListOwnerToCurrentElementBinding.Make(MainList, Navigator));
+ // - синхронизируем текущий список из MainList с текущим элементом в Navigator
+
+ Bind(TmsmListOpener.Make(Navigator, MainList));
+ // - открываем новый список Navigator -> MainList по ActionElement
+ Bind(TmsmListOpener.Make(FloatingNavigator, MainList));
+ // - открываем новый список FloatingNavigator -> MainList по ActionElement
+//#UC END# *57D2A8F301D0_57D2A86F0082_impl*
+//#UC START# *57D2A8F301D0_57D2A86F0082_var*
+//#UC END# *57D2A8F301D0_57D2A86F0082_var*
+//#UC START# *57D2A99D011F_57D2A86F0082set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57D2A99D011F_57D2A86F0082set_impl*
+//#UC START# *57D2A99D011F_57D2A86F0082set_var*
+//#UC END# *57D2A99D011F_57D2A86F0082set_var*
+//#UC START# *57D2A9EE0113_57D2A86F0082set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57D2A9EE0113_57D2A86F0082set_impl*
+//#UC START# *57D2A9EE0113_57D2A86F0082set_var*
+//#UC END# *57D2A9EE0113_57D2A86F0082set_var*
+//#UC START# *57D2AA1201BD_57D2A86F0082set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57D2AA1201BD_57D2A86F0082set_impl*
+//#UC START# *57D2AA1201BD_57D2A86F0082set_var*
+//#UC END# *57D2AA1201BD_57D2A86F0082set_var*
+//#UC START# *57D2AAB50082_57D2A86F0082set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57D2AAB50082_57D2A86F0082set_impl*
+//#UC START# *57D2AAB50082_57D2A86F0082set_var*
+//#UC END# *57D2AAB50082_57D2A86F0082set_var*
+//#UC START# *57D2AC4E0319_57D2A86F0082set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57D2AC4E0319_57D2A86F0082set_impl*
+//#UC START# *57D2AC4E0319_57D2A86F0082set_var*
+//#UC END# *57D2AC4E0319_57D2A86F0082set_var*
+//#UC START# *57D2B82102BD_57D2A86F0082_impl*
+ inherited;
+ Assert(MainList.List <> nil);
+ Navigator.CurrentElement := MainList.List.Owner;
+ FloatingNavigator.CurrentElement := MainList.List.Owner;
+//#UC END# *57D2B82102BD_57D2A86F0082_impl*
+//#UC START# *57D2B82102BD_57D2A86F0082_var*
+//#UC END# *57D2B82102BD_57D2A86F0082_var*
+//#UC START# *57D2D7C0039B_57D2A86F0082get_impl*
+ Result := Self.MainList;
+//#UC END# *57D2D7C0039B_57D2A86F0082get_impl*
+//#UC START# *57D2D7C0039B_57D2A86F0082get_var*
+//#UC END# *57D2D7C0039B_57D2A86F0082get_var*
+//#UC START# *57D2D7D00023_57D2A86F0082get_impl*
+ Result := Self.Navigator;
+//#UC END# *57D2D7D00023_57D2A86F0082get_impl*
+//#UC START# *57D2D7D00023_57D2A86F0082get_var*
+//#UC END# *57D2D7D00023_57D2A86F0082get_var*
+//#UC START# *57D2D7DB0283_57D2A86F0082get_impl*
+ Result := Self.Drawing;
+//#UC END# *57D2D7DB0283_57D2A86F0082get_impl*
+//#UC START# *57D2D7DB0283_57D2A86F0082get_var*
+//#UC END# *57D2D7DB0283_57D2A86F0082get_var*
+//#UC START# *57D2D7E900D8_57D2A86F0082get_impl*
+ Result := Self.FloatingNavigator;
+//#UC END# *57D2D7E900D8_57D2A86F0082get_impl*
+//#UC START# *57D2D7E900D8_57D2A86F0082get_var*
+//#UC END# *57D2D7E900D8_57D2A86F0082get_var*
+//#UC START# *57D2D7F40131_57D2A86F0082get_impl*
+ Result := Self.Caption;
+//#UC END# *57D2D7F40131_57D2A86F0082get_impl*
+//#UC START# *57D2D7F40131_57D2A86F0082get_var*
+//#UC END# *57D2D7F40131_57D2A86F0082get_var*

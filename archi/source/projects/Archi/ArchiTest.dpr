@@ -2873,7 +2873,8 @@ uses
   m4Word,
   m4WordList,
   arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas',
-  arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas'
+  arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas',
+  arUploadDocumentHelper in 'w:\archi\source\projects\archi\Processing\arUploadDocumentHelper.pas'
 
  //#UC END# *4DE4A1D0031Emanualuses*
 ;

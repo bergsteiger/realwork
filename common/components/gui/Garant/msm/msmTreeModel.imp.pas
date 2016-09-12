@@ -8,14 +8,13 @@
 {$Define msmTreeModel_imp}
 
  {$Include w:\common\components\gui\Garant\msm\msmListLikeModel.imp.pas}
- _msmTreeModel_ = {abstract} class(_msmListLikeModel_, ImsmTreeModel, ImsmListLikeModel)
+ _msmTreeModel_ = {abstract} class(_msmListLikeModel_, ImsmTreeModel)
   private
    f_Tree: ImsmModelElementTree;
   protected
-   function As_ImsmListLikeModel: ImsmListLikeModel;
-    {* Метод приведения нашего интерфейса к ImsmListLikeModel }
    function Get_Tree: ImsmModelElementTree;
-   function Get_List: ImsmModelElementStringList;
+   function DoGetList: ImsmModelElementStringList; override;
+   procedure DoShowElementAsList(const anElement: ImsmModelElement); override;
    procedure ClearFields; override;
  end;//_msmTreeModel_
 
@@ -27,12 +26,6 @@
 
 {$Include w:\common\components\gui\Garant\msm\msmListLikeModel.imp.pas}
 
-function _msmTreeModel_.As_ImsmListLikeModel: ImsmListLikeModel;
- {* Метод приведения нашего интерфейса к ImsmListLikeModel }
-begin
- Result := Self;
-end;//_msmTreeModel_.As_ImsmListLikeModel
-
 function _msmTreeModel_.Get_Tree: ImsmModelElementTree;
 //#UC START# *57ADC5D70104_57B198B401A7get_var*
 //#UC END# *57ADC5D70104_57B198B401A7get_var*
@@ -42,14 +35,24 @@ begin
 //#UC END# *57ADC5D70104_57B198B401A7get_impl*
 end;//_msmTreeModel_.Get_Tree
 
-function _msmTreeModel_.Get_List: ImsmModelElementStringList;
-//#UC START# *57B6A4550271_57B198B401A7get_var*
-//#UC END# *57B6A4550271_57B198B401A7get_var*
+function _msmTreeModel_.DoGetList: ImsmModelElementStringList;
+//#UC START# *57D271E300C2_57B198B401A7_var*
+//#UC END# *57D271E300C2_57B198B401A7_var*
 begin
-//#UC START# *57B6A4550271_57B198B401A7get_impl*
+//#UC START# *57D271E300C2_57B198B401A7_impl*
  Result := f_Tree.As_ImsmModelElementStringList;
-//#UC END# *57B6A4550271_57B198B401A7get_impl*
-end;//_msmTreeModel_.Get_List
+//#UC END# *57D271E300C2_57B198B401A7_impl*
+end;//_msmTreeModel_.DoGetList
+
+procedure _msmTreeModel_.DoShowElementAsList(const anElement: ImsmModelElement);
+//#UC START# *57D2A7D900FE_57B198B401A7_var*
+//#UC END# *57D2A7D900FE_57B198B401A7_var*
+begin
+//#UC START# *57D2A7D900FE_57B198B401A7_impl*
+ Assert(false);
+ Set_CurrentElement(anElement);
+//#UC END# *57D2A7D900FE_57B198B401A7_impl*
+end;//_msmTreeModel_.DoShowElementAsList
 
 procedure _msmTreeModel_.ClearFields;
 begin

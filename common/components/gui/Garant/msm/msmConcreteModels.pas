@@ -40,11 +40,15 @@ uses
 type
  ImsmListLikeModel = interface(ImsmModel)
   ['{23235321-6626-4491-B79E-CC6CB840C9DE}']
+  function Get_List: ImsmModelElementStringList;
   function Get_ElementToAction: ImsmModelElement;
   procedure Set_ElementToAction(const aValue: ImsmModelElement);
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Caption: AnsiString;
+  procedure ShowElementAsList(const anElement: ImsmModelElement);
+  property List: ImsmModelElementStringList
+   read Get_List;
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -64,24 +68,13 @@ type
    write Set_Caption;
  end;//ImsmCaptionModel
 
- ImsmListModel = interface(ImsmModel)
+ ImsmListModel = interface(ImsmListLikeModel)
   ['{6FDB2833-1A88-49C8-9015-D0240B72FBB3}']
-  function Get_List: ImsmModelElementStringList;
-  procedure Set_List(const aValue: ImsmModelElementStringList);
   function Get_ElementToAction: ImsmModelElement;
   procedure Set_ElementToAction(const aValue: ImsmModelElement);
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Caption: AnsiString;
-  procedure ShowElementAsDir(const aList: ImsmModelElement);
-   {* Показывает элемент в виде "директории" }
-  procedure ShowElementRelationList(const anElement: ImsmModelElement);
-   {* Показывает дочерний список элемента }
-  function As_ImsmListLikeModel: ImsmListLikeModel;
-   {* Метод приведения нашего интерфейса к ImsmListLikeModel }
-  property List: ImsmModelElementStringList
-   read Get_List
-   write Set_List;
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -100,21 +93,16 @@ type
     {* Проверяет создан экземпляр синглетона или нет }
  end;//CaptionChangedEvent
 
- ImsmTreeModel = interface(ImsmModel)
+ ImsmTreeModel = interface(ImsmListLikeModel)
   ['{D4BC6105-5126-472E-B6F1-C01B4AB7E068}']
   function Get_Tree: ImsmModelElementTree;
-  function Get_List: ImsmModelElementStringList;
   function Get_ElementToAction: ImsmModelElement;
   procedure Set_ElementToAction(const aValue: ImsmModelElement);
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Caption: AnsiString;
-  function As_ImsmListLikeModel: ImsmListLikeModel;
-   {* Метод приведения нашего интерфейса к ImsmListLikeModel }
   property Tree: ImsmModelElementTree
    read Get_Tree;
-  property List: ImsmModelElementStringList
-   read Get_List;
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -124,6 +112,10 @@ type
   property Caption: AnsiString
    read Get_Caption;
  end;//ImsmTreeModel
+
+ ImsmDrawingModel = interface(ImsmListModel)
+  ['{6E29F5F1-D00D-4FF4-A55B-50DE59E80BF4}']
+ end;//ImsmDrawingModel
 
 implementation
 

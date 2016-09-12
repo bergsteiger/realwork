@@ -265,53 +265,13 @@ STRING elem_func FinalFileNamePrim
  cEmptyStr >>> Result 
 ; // FinalFileNamePrim
 
-STRING FUNCTION .CutSuffix
-  STRING IN aString
-  STRING IN aSuffix
- RULES
-  ( aString .IsNil )
-   ''
-  ( aSuffix .IsNil )
-   aString
-  DEFAULT
-  begin   
-   aString >>> Result 
-   if ( aSuffix Result EndsStr ) then
-   begin
-    Result string:Len aSuffix string:Len - 
-    0
-    Result
-    string:Substring >>> Result
-   end // ( aSuffix Result EndsStr )
-   Result
-  end // DEFAULT
- ; // RULES
- >>> Result 
-; // .CutSuffix
+USES
+ CutSuffix.ms.dict
+;
 
-STRING FUNCTION .CutPrefix
-  STRING IN aString
-  STRING IN aPrefix
- RULES
-  ( aString .IsNil )
-   ''
-  ( aPrefix .IsNil )
-   aString
-  DEFAULT
-  begin   
-   aString >>> Result 
-   if ( aPrefix Result StartsStr ) then
-   begin
-    Result string:Len aPrefix string:Len - 
-    aPrefix string:Len
-    Result
-    string:Substring >>> Result
-   end // ( aPrefix Result StartsStr )
-   Result
-  end // DEFAULT
- ; // RULES
- >>> Result 
-; // .CutPrefix
+USES
+ CutPrefix.ms.dict
+;
 
 USES
  CountIt.ms.dict
@@ -580,21 +540,6 @@ BOOLEAN elem_func IsControllerInterfaces
 USES
  ForceUseNewGen.ms.dict
 ;
-
-BOOLEAN elem_func IsUtilityPack
- Cached:
- (
-  RULES
-   ( Self .IsStereotype st_UtilityPack )
-    true
-   ( Self .IsScriptKeywordsPack ) 
-    true
-   DEFAULT
-    false
-  ; // RULES 
- ) 
- >>> Result
-; // IsUtilityPack
 
 BOOLEAN elem_func UseNewGenExcluded
  RULES
@@ -2670,16 +2615,6 @@ ModelElement elem_func FirstOperation
  )
  >>> Result
 ; // FirstOperation
-
-BOOLEAN elem_func IsFacetIterator
- Self .IsStereotype st_facetiterator 
- >>> Result
-; // IsFacetIterator
-
-BOOLEAN elem_func IsMixInMirror
- Self .IsStereotype st_MixInMirror
- >>> Result
-; // IsMixInMirror
 
 BOOLEAN elem_func IsClassImplementable
  Cached:
@@ -16721,42 +16656,75 @@ elem_generator diagram.script
  [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
  OutLn
 
- VAR l_DiagramName
- 'main' >>> l_DiagramName
-
- [ 'MEDIAGRAM ' Self .WordName '_' l_DiagramName ] .Out
+ VAR l_Suffix
+ 'diagrams' >>> l_Suffix
+ [ 'MEDIAGRAMS ' Self .WordName '_' l_Suffix ] .Out
  Indented: (
-  [ 'MEPROP Name ' cQuote l_DiagramName cQuote ] .Out
-  [ 'MELINK Original ' Self .ScriptWordLink ' ;' ' // ' Self .NameInModel ] .Out
   OutLn
-  CONST cOffsetX 10
-  CONST cOffsetY 10
-  VAR X
-  cOffsetX >>> X
-  VAR Y
-  cOffsetY >>> Y
-  Self .Children
-  .join> ( Self .Constants )
-  .join> ( Self .Operations )
-  .for> (
-    IN anElement
-   [ 'MEVIEW ' anElement .WordName '_' 'view' ] .Out
-   Indented: (
-    [ 'MELINK Original ' anElement .ScriptWordLink ' ;' ' // ' anElement .NameInModel ] .Out
-    [ 'MEPROP X ' X ] .Out
-    [ 'MEPROP Y ' Y ] .Out
-    X 100 + cOffsetX + >>> X
-    if ( X > 800 ) then
-    begin
-     cOffsetX >>> X
-     Y 80 + cOffsetY + >>> Y
-    end // ( X > 800 )
-   ) // Indented:
-   [ 'ENDMEVIEW ' '// ' anElement .WordName '_' 'view' ] .Out
-   OutLn 
-  ) // .for>
+  VAR l_DiagramName
+  'main' >>> l_DiagramName
+
+  VAR l_Name
+  [ Self .WordName '_' l_DiagramName ] strings:Cat >>> l_Name
+
+  [ 'MEDIAGRAM ' l_Name ] .Out
+  Indented: (
+   [ 'MEPROP Name ' cQuote l_DiagramName cQuote ] .Out
+   [ 'MELINK Original ' Self .ScriptWordLink ' ;' ' // ' Self .NameInModel ] .Out
+   OutLn
+   CONST cOffsetX 40
+   CONST cOffsetY 40
+   VAR X
+   cOffsetX >>> X
+   VAR Y
+   cOffsetY >>> Y
+   VAR l_It
+   Self .Children
+   .join> ( Self .Constants )
+   .join> ( Self .Operations )
+   >>> l_It
+
+   VAR l_Suffix
+   '_view' >>> l_Suffix
+   l_It .for> (
+     IN anElement
+    [ 'MEVIEW ' anElement .WordName l_Suffix ] .Out
+    Indented: (
+     [ 'MELINK Original ' anElement .ScriptWordLink ' ;' ' // ' anElement .NameInModel ] .Out
+     [ 'MEPROP X ' X ] .Out
+     [ 'MEPROP Y ' Y ] .Out
+     X 120 + cOffsetX + >>> X
+     if ( X > 1000 ) then
+     begin
+      cOffsetX >>> X
+      Y 100 + cOffsetY + >>> Y
+     end // ( X > 1000 )
+    ) // Indented:
+    [ 'ENDMEVIEW ' '// ' anElement .WordName l_Suffix ] .Out
+    OutLn
+   ) // l_It .for>
+   [ 'MELIST Views' ] .Out
+   [
+     ' Seq: ( '
+     l_It .for> (
+       IN anElement
+      anElement .WordName l_Suffix ' // ' anElement .NameInModel \n ' '
+     ) // l_It .for>
+     ')'
+   ] .Out
+   [ '; // Views' ] .Out
+  ) // Indented:
+  [ 'ENDMEDIAGRAM ' '// ' l_Name ] .Out
+  OutLn
+  [ 'MELIST Diagrams' ] .Out
+  [
+    ' Seq: ( '
+     l_Name \n ' '
+    ')'
+  ] .Out
+  [ '; // Diagrams' ] .Out
  ) // Indented:
- [ 'ENDMEDIAGRAM ' '// ' Self .WordName '_' l_DiagramName ] .Out
+ [ 'ENDMEDIAGRAMS ' '// ' Self .WordName '_' l_Suffix ] .Out
 ; // diagram.script
 
 elem_generator null

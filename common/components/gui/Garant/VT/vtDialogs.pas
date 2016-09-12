@@ -1,8 +1,11 @@
 unit vtDialogs;
 
-// $Id: vtDialogs.pas,v 1.122 2016/05/23 12:00:38 lukyanets Exp $
+// $Id: vtDialogs.pas,v 1.123 2016/09/09 08:59:08 dinishev Exp $
 
 // $Log: vtDialogs.pas,v $
+// Revision 1.123  2016/09/09 08:59:08  dinishev
+// Возможность обрабатывать простые диалоги с помощью MODAL.
+//
 // Revision 1.122  2016/05/23 12:00:38  lukyanets
 // Ловим аномалии в шедулере
 //
@@ -708,6 +711,60 @@ procedure TUnframedRadioGroup.Paint;
 begin
 end;
 
+type
+ TvtMessageForm = class(TMessageForm)
+ public
+  {$IfNDef DesignTimeLibrary}
+  {$IfDef l3HackedVCL}
+  function NeedCancelModal: Boolean;
+    override;
+    {-}
+  {$EndIf l3HackedVCL}
+  {$EndIF DesignTimeLibrary}
+  function ShowModal: integer;
+    override;
+    {-}
+ end;
+
+{$IfNDef DesignTimeLibrary}
+{$IfDef l3HackedVCL}
+function TvtMessageForm.NeedCancelModal: Boolean;
+  {-}
+begin
+ Result := False;
+ {$IfDef InsiderTest}
+ if Tl3BatchService.Instance.IsBatchMode then
+ begin
+  if Tl3BatchService.Instance.ExecuteCurrentModalWorker then
+  begin
+   if (ModalResult = 0) then
+   begin
+    Result := true;
+    Exit;
+   end;//ModalResult = 0
+  end//seExecuteCurrentModalWorker
+  else
+  begin
+   Result := true;
+  end;//seExecuteCurrentModalWorker
+ end;//g_BatchMode
+ {$EndIf InsiderTest}
+end;
+{$EndIf l3HackedVCL}
+{$EndIF DesignTimeLibrary}
+
+function TvtMessageForm.ShowModal: integer;
+begin
+ {$IfDef InsiderTest}
+ if Tl3BatchService.Instance.IsBatchMode then
+  if (Application.MainForm <> nil) then
+   if not Tl3BatchService.Instance.HasModalWorker then
+    raise EafwTryEnterModalState.Create('Здесь надо обрабатывать модальность формы' + ClassName);
+ {$EndIf InsiderTest}
+ Result := inherited ShowModal;
+end;
+
+
 function vtCreateMessageDialog(const aMsg     : Il3CString;
                                const aCheck   : Il3CString;
                                aDlgType       : TMsgDlgType;
@@ -819,9 +876,9 @@ begin
  lp_CheckButtonsWidth(ResetButtonWidth);
  try
   if (aFormClass = nil) then
-   aFormClass := TMessageForm;
+   aFormClass := TvtMessageForm;
 
-  if aFormClass.InheritsFrom(TMessageForm) then
+  if aFormClass.InheritsFrom(TvtMessageForm) then
    Result := TMessageFormClass(aFormClass).CreateNewEx(aWndParent, Application)
   else
    Result := aFormClass.CreateNew(Application);
@@ -1006,8 +1063,8 @@ begin
          Cursor := crHandPoint;
          AutoWidth := true;
          TabStop := true;
-         if aFormClass.InheritsFrom(TMessageForm) then
-           OnClick := TMessageForm(Result).evntOnClickFocusLabel;
+         if aFormClass.InheritsFrom(TvtMessageForm) then
+           OnClick := TvtMessageForm(Result).evntOnClickFocusLabel;
          if Result.Width < Left + Width then
           Result.Width := Left + Width;
         end;//with TnscFocusLabel.Create(Result)
@@ -1049,12 +1106,12 @@ begin
      else
       DefaultButton := mbRetry;
 
-     if (Result is TMessageForm) then
+     if (Result is TvtMessageForm) then
      begin
-      TMessageForm(Result).f_DefaultButton := DefaultButton;
+      TvtMessageForm(Result).f_DefaultButton := DefaultButton;
       if (aAutoCloseInterval > 0) then
-        TMessageForm(Result).SetCloseInterval(aAutoCloseInterval);
-     end;//Result is TMessageForm..
+        TvtMessageForm(Result).SetCloseInterval(aAutoCloseInterval);
+     end;//Result is TvtMessageForm..
 
      if (aCancelButton <> mbCancel) and (aCancelButton in aButtons) then
       CancelButton := aCancelButton
@@ -1087,14 +1144,14 @@ begin
          begin
           Default := True;
           ActiveControl := lBtn;
-          TMessageForm(Result).SetAutoCloseButton(lBtn);
+          TvtMessageForm(Result).SetAutoCloseButton(lBtn);
          end;//cMsgDlgBtnOrder[B] = DefaultButton
          if (cMsgDlgBtnOrder[B] = CancelButton) then
           Cancel := True;
          SetBounds(X, IconTextHeight + VertMargin + VertSpacing, ButtonWidth, ButtonHeight);
          Inc(X, ButtonWidth + ButtonSpacing);
          if (cMsgDlgBtnOrder[B] = mbHelp) then
-          OnClick := TMessageForm(Result).HelpButtonClick;
+          OnClick := TvtMessageForm(Result).HelpButtonClick;
         end;//with lBtn
        end;//cMsgDlgBtnOrder[B] in aButtons
 
@@ -1154,18 +1211,18 @@ begin
  end;
 end;
 
-function vtMessageDlg(const aMsg     : Il3CString;
-                      const aCheck   : Il3CString;
-                      out Checked    : Boolean;
-                      aDlgType       : TMsgDlgType = mtCustom; //mtInformation;
-                      aButtons       : TMsgDlgButtons = [mbOK];
-                      aHelpCtx       : Longint = 0;
-                      aDefaultButton : TMsgDlgBtn = mbOk;
-                      aCancelButton  : TMsgDlgBtn = mbCancel;
-                      aTextAlign     : TAlignment = taCenter;
-                      aWndParent     : HWnd = HWnd(0);
-                      const aBtnText : AnsiString = '';
-                      aChoices       : Tl3CustomStrings = nil;
+function vtMessageDlg(const aMsg       : Il3CString;
+                      const aCheck     : Il3CString;
+                      out Checked      : Boolean;
+                      aDlgType         : TMsgDlgType = mtCustom; //mtInformation;
+                      aButtons         : TMsgDlgButtons = [mbOK];
+                      aHelpCtx         : Longint = 0;
+                      aDefaultButton   : TMsgDlgBtn = mbOk;
+                      aCancelButton    : TMsgDlgBtn = mbCancel;
+                      aTextAlign       : TAlignment = taCenter;
+                      aWndParent       : HWnd = HWnd(0);
+                      const aBtnText   : AnsiString = '';
+                      aChoices         : Tl3CustomStrings = nil;
                       ResetButtonsWidth: Boolean = False): Integer;
   //overload;
   {-}

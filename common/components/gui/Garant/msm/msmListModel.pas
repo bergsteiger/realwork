@@ -20,8 +20,12 @@ type
  {$Include w:\common\components\gui\Garant\msm\msmListModel.imp.pas}
  TmsmListModel = class(_msmListModel_)
   public
-   constructor Create(const anElementView: TmsmModelElementView); reintroduce;
-   class function Make(const anElementView: TmsmModelElementView): ImsmListModel; reintroduce;
+   constructor CreateDir(const anElementView: TmsmModelElementView); reintroduce;
+   constructor Create(const anElementView: TmsmModelElementView;
+    aIsDir: Boolean); reintroduce;
+   class function MakeDir(const anElementView: TmsmModelElementView): ImsmListModel; reintroduce;
+   constructor CreateList(const anElementView: TmsmModelElementView); reintroduce;
+   class function MakeList(const anElementView: TmsmModelElementView): ImsmListModel; reintroduce;
  end;//TmsmListModel
 
 implementation
@@ -37,30 +41,59 @@ uses
 
 {$Include w:\common\components\gui\Garant\msm\msmListModel.imp.pas}
 
-constructor TmsmListModel.Create(const anElementView: TmsmModelElementView);
+constructor TmsmListModel.CreateDir(const anElementView: TmsmModelElementView);
+//#UC START# *57CFF8AB0339_57B317B00274_var*
+//#UC END# *57CFF8AB0339_57B317B00274_var*
+begin
+//#UC START# *57CFF8AB0339_57B317B00274_impl*
+ Create(anElementView, true);
+//#UC END# *57CFF8AB0339_57B317B00274_impl*
+end;//TmsmListModel.CreateDir
+
+constructor TmsmListModel.Create(const anElementView: TmsmModelElementView;
+ aIsDir: Boolean);
 //#UC START# *57B326FD0285_57B317B00274_var*
 //#UC END# *57B326FD0285_57B317B00274_var*
 begin
 //#UC START# *57B326FD0285_57B317B00274_impl*
  f_ElementView := anElementView;
+ f_IsDir := aIsDir;
  inherited Create;
- if (anElementView.rElement <> nil) then
-  Set_List(TmsmModelElementDir.Make(anElementView.rElement.List[anElementView.rListName], anElementView.rTextName))
- else
-  Set_List(nil);
+ ShowElementAsList(anElementView.rElement);
 //#UC END# *57B326FD0285_57B317B00274_impl*
 end;//TmsmListModel.Create
 
-class function TmsmListModel.Make(const anElementView: TmsmModelElementView): ImsmListModel;
+class function TmsmListModel.MakeDir(const anElementView: TmsmModelElementView): ImsmListModel;
 var
  l_Inst : TmsmListModel;
 begin
- l_Inst := Create(anElementView);
+ l_Inst := CreateDir(anElementView);
  try
   Result := l_Inst;
  finally
   l_Inst.Free;
  end;//try..finally
-end;//TmsmListModel.Make
+end;//TmsmListModel.MakeDir
+
+constructor TmsmListModel.CreateList(const anElementView: TmsmModelElementView);
+//#UC START# *57CFF8D9019D_57B317B00274_var*
+//#UC END# *57CFF8D9019D_57B317B00274_var*
+begin
+//#UC START# *57CFF8D9019D_57B317B00274_impl*
+ Create(anElementView, false);
+//#UC END# *57CFF8D9019D_57B317B00274_impl*
+end;//TmsmListModel.CreateList
+
+class function TmsmListModel.MakeList(const anElementView: TmsmModelElementView): ImsmListModel;
+var
+ l_Inst : TmsmListModel;
+begin
+ l_Inst := CreateList(anElementView);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TmsmListModel.MakeList
 
 end.

@@ -1,6 +1,6 @@
 unit evFilterReplacer;
 
-{ $Id: evFilterReplacer.pas,v 1.1 2016/08/24 09:11:47 fireton Exp $ }
+{ $Id: evFilterReplacer.pas,v 1.2 2016/09/08 12:17:05 fireton Exp $ }
 
 interface
 uses
@@ -59,6 +59,7 @@ begin
  try
   f_TextSource.ReadTag(cf_EverestBin, l_MemoryPool as IStream, f_Filters, aBlock.AsStorable,
     evDefaultStoreFlags {+ [evd_sfInternal]} - [evd_sfStoreParaEnd]);
+  f_Filters.NextGenerator := nil; // "отклеиваем" цепочку фильтров, иначе она в следующий раз нарастёт и всё закончится плохо 
   aBlock.Text.Modify.InsertStream(aView, l_MemoryPool as IStream, cf_EverestBin, Container);
  finally
   FreeAndNil(l_MemoryPool);

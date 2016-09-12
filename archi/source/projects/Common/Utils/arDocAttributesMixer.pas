@@ -16,6 +16,9 @@ uses
  , m4DocumentAddress
  , nevInternalInterfaces
  , l3Filer
+ {$If NOT Defined(Nemesis)}
+ , dt_IFltr
+ {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 procedure BuildDocLoadPipe(aDocFamily: TdaFamilyID;
@@ -29,6 +32,11 @@ procedure BuildDocLoadPipe(aDocFamily: TdaFamilyID;
  aFoundSelector: Tm4Addresses;
  var aGen: Tk2TagGenerator;
  var theFiler: Tl3CustomFiler);
+procedure BuildDocSavePipe(aDocFamily: TdaFamilyID;
+ aDocID: TdaDocID;
+ anIsObjTopic: Boolean;
+ aEraseNotify: TdtOnEraseAttrRecords;
+ var aGen: Tk2TagGenerator);
 
 implementation
 
@@ -53,6 +61,9 @@ uses
  , dt_Serv
  {$IfEnd} // NOT Defined(Nemesis)
  , m3DBFiler
+ {$If NOT Defined(Nemesis)}
+ , dt_TblCacheDef
+ {$IfEnd} // NOT Defined(Nemesis)
  //#UC START# *57C52AA20128impl_uses*
  //#UC END# *57C52AA20128impl_uses*
 ;
@@ -113,5 +124,40 @@ begin
  end;//try..finally
 //#UC END# *57C52ADD007E_57C52AA20128_impl*
 end;//BuildDocLoadPipe
+
+procedure BuildDocSavePipe(aDocFamily: TdaFamilyID;
+ aDocID: TdaDocID;
+ anIsObjTopic: Boolean;
+ aEraseNotify: TdtOnEraseAttrRecords;
+ var aGen: Tk2TagGenerator);
+//#UC START# *57CFF0F8008A_57C52AA20128_var*
+//#UC END# *57CFF0F8008A_57C52AA20128_var*
+begin
+//#UC START# *57CFF0F8008A_57C52AA20128_impl*
+ if not (anIsObjTopic) then
+ begin
+  //TddImageHandleInsertFilter.SetTo(aGen);
+  // - этот функционал переехал в TddSavedObjectsList и TddExtObjExtractor
+  TddExtObjExtractor.SetTo(aGen);
+ end;
+ //else
+ // TarDocObjectAdder.SetTo(G, TarDocObject(anAdditionalData));
+
+  // устанавливает фильтр, который укладывает данные в СУБД
+  with TDBFilter(TDocSaveDBFilter.SetTo(aGen)) do
+  begin
+   Family := aDocFamily;
+   CurDocID := aDocID;
+   InternalFormat := True;
+   SaveMode := smSave;
+   ExcludeAttr := CctAllAttributes; // рассчитывается через k2_tiEditablePartsв TDocSaveDBFilter,
+                                    // если k2_tiEditableParts не придет атрибуты записываться не будут
+   ExcludeMainRec := True;          // см. выше
+
+   NeedEventforEraseAttrRec := [ctKW];
+   OnEraseAttrRecords := aEraseNotify;
+  end;
+//#UC END# *57CFF0F8008A_57C52AA20128_impl*
+end;//BuildDocSavePipe
 
 end.

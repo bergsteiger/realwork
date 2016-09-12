@@ -393,7 +393,7 @@ begin
    while true do
    begin
     try
-     l_Found := Search(aConfirm.View, aSearcher, SearchIndicator, l_Cursor, l_Start, l_Finish);
+     l_Found := Search(aConfirm.View, aSearcher, SearchIndicator, l_Cursor, SearchContext, l_Start, l_Finish);
     except
      on EevSearcherRestart do
      begin

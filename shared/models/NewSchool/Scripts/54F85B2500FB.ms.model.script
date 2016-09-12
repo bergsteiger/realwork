@@ -537,14 +537,23 @@ ENDME // ME_550FD49301BF ParamType
 
 FORWARD ME_55110FBB00E5
 
-ME ME_55110FD000E3
+ME ME_57D1124601F6
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target HWL ME_54F9A60200A8 // TdaDataProviderParams
  ;
 
-ENDME // ME_55110FD000E3 aParams
+ENDME // ME_57D1124601F6 aParams
+
+ME ME_57D112460205
+ MEPROP Name 'CorrectTempPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57D112460205 CorrectTempPath
 
 ME ME_55110FCD028D
  MEPROP UID '55110FCD028D'
@@ -555,7 +564,8 @@ ME ME_55110FCD028D
  MELINK Parent HWL ME_55110FBB00E5 // CorrectByClient
  ;
  MELIST Parameters
-   Seq: ( ME_55110FD000E3 // aParams
+   Seq: ( ME_57D1124601F6 // aParams
+ ME_57D112460205 // CorrectTempPath
  )
  ; // Parameters
 
@@ -1481,14 +1491,27 @@ ENDME // ME_550FD1780368 MakeFromTaggedData
 
 FORWARD ME_55100AB20241
 
-ME ME_55110F970092
+ME ME_57D1125C031A
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target HWL ME_54F9A60200A8 // TdaDataProviderParams
  ;
 
-ENDME // ME_55110F970092 aParams
+ENDME // ME_57D1125C031A aParams
+
+ME ME_57D1125C032A
+ MEPROP Name 'CorrectTempPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_57D1125C032A CorrectTempPath
 
 ME ME_55100AC502ED
  MEPROP UID '55100AC502ED'
@@ -1499,7 +1522,8 @@ ME ME_55100AC502ED
  MELINK Parent HWL ME_55100AB20241 // CorrectByClient
  ;
  MELIST Parameters
-   Seq: ( ME_55110F970092 // aParams
+   Seq: ( ME_57D1125C031A // aParams
+ ME_57D1125C032A // CorrectTempPath
  )
  ; // Parameters
 

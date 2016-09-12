@@ -70,6 +70,7 @@ type
    function IsAnonimous(const aCtx: TtfwContext): Boolean; override;
    procedure SetResultTypeInfo(aValue: TtfwWordInfo;
     const aCtx: TtfwContext); override;
+   function GetRefForCompare: TtfwWord; override;
   public
    property Compiled: TtfwWord
     read f_Compiled;
@@ -400,6 +401,17 @@ begin
   inherited;
 //#UC END# *53E21481021D_4F21976E01C2_impl*
 end;//TkwCompiledWordWorkerWord.DoKeyword
+
+function TkwCompiledWordWorkerWord.GetRefForCompare: TtfwWord;
+//#UC START# *57500A22001C_4F21976E01C2_var*
+//#UC END# *57500A22001C_4F21976E01C2_var*
+begin
+//#UC START# *57500A22001C_4F21976E01C2_impl*
+ Result := f_Compiled;
+ if (Result <> nil) then
+  Result := Result.GetRefForCompare;
+//#UC END# *57500A22001C_4F21976E01C2_impl*
+end;//TkwCompiledWordWorkerWord.GetRefForCompare
 
 initialization
  TkwImmediateTemporaryCompiledCode.RegisterClass;

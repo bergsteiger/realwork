@@ -19,6 +19,13 @@ IMMEDIATE VOID operator MEDIAGRAM
  aName |N Ctx:Parser:PushSymbol
 ; // MEDIAGRAM
 
+IMMEDIATE VOID operator MEDIAGRAMS
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'axiom:operator' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // MEDIAGRAMS
+
 IMMEDIATE VOID operator MEVIEW
  ^L IN aName
  @SELF Ctx:SetWordProducerForCompiledClass
@@ -75,4 +82,5 @@ MACRO ref;
 ; // ref;
 
 WordAlias ENDMEDIAGRAM ref;
+WordAlias ENDMEDIAGRAMS ref;
 WordAlias ENDMEVIEW ref;

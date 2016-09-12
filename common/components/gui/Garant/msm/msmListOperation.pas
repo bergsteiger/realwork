@@ -2,7 +2,7 @@ unit msmListOperation;
 
 // Модуль: "w:\common\components\gui\Garant\msm\msmListOperation.pas"
 // Стереотип: "SimpleClass"
-// Элемент модели: "TmsmListOperation" MUID: (57CED27203D3)
+// Элемент модели: "TmsmListOperation" MUID: (57D17D37021C)
 
 {$Include w:\common\components\gui\Garant\msm\msm.inc}
 
@@ -16,7 +16,7 @@ uses
 ;
 
 type
- _ConcreteModel_ = ImsmListLikeModel;
+ _ConcreteModel_ = ImsmListModel;
  {$Include w:\common\components\gui\Garant\msm\msmConcreteModelOperation.imp.pas}
  TmsmListOperation = {abstract} class(_msmConcreteModelOperation_)
  end;//TmsmListOperation
@@ -25,8 +25,8 @@ implementation
 
 uses
  l3ImplUses
- //#UC START# *57CED27203D3impl_uses*
- //#UC END# *57CED27203D3impl_uses*
+ //#UC START# *57D17D37021Cimpl_uses*
+ //#UC END# *57D17D37021Cimpl_uses*
 ;
 
 {$Include w:\common\components\gui\Garant\msm\msmConcreteModelOperation.imp.pas}

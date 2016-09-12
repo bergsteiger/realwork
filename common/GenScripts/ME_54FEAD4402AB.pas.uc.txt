@@ -55,7 +55,8 @@ var
  l_Storage := ParamsStorage as IhtParamsStorage;
  try
   ThtDataProviderParams(aParams).StationName := l_Storage.StationName;
-  ThtDataProviderParams(aParams).TmpDirPath := l_Storage.TempPath;
+  if CorrectTempPath then
+   ThtDataProviderParams(aParams).TmpDirPath := l_Storage.TempPath;
   if ThtDataProviderParams(aParams).TmpDirPath = '' then
    ThtDataProviderParams(aParams).TmpDirPath := GetWindowsTempFolder;
   if (ThtDataProviderParams(aParams).StationName = '') and (aParams.UserId > 0) then

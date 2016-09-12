@@ -47,6 +47,7 @@ type
    class function Make(const aParent: ImsmModelElement;
     const aList: ImsmModelElementList;
     const aTextName: AnsiString): ImsmModelElementStringList; reintroduce; overload;
+   function IndexOf(const anElement: ImsmModelElement): Integer;
  end;//TmsmModelElementDir
 
 implementation
@@ -129,17 +130,22 @@ function TmsmModelElementDir.Get_Item(anIndex: Integer): ImsmModelElement;
 //#UC END# *57AAD86403AD_57B1674A02B6get_var*
 begin
 //#UC START# *57AAD86403AD_57B1674A02B6get_impl*
- if IsDir then
-  if (f_Parent <> nil) then
-  begin
-   if (anIndex = 0) then
+ if (anIndex < 0) then
+  Result := nil
+ else
+ begin
+  if IsDir then
+   if (f_Parent <> nil) then
    begin
-    Result := f_Parent;
-    Exit;
-   end;//anIndex = 0
-   Dec(anIndex);
-  end;//f_Parent <> nil
- Result := f_List[anIndex];
+    if (anIndex = 0) then
+    begin
+     Result := f_Parent;
+     Exit;
+    end;//anIndex = 0
+    Dec(anIndex);
+   end;//f_Parent <> nil
+  Result := f_List[anIndex];
+ end;//anIndex < 0
 //#UC END# *57AAD86403AD_57B1674A02B6get_impl*
 end;//TmsmModelElementDir.Get_Item
 
@@ -187,6 +193,26 @@ begin
  Result := Get_Item(anIndex).StringProp['DefaultSearchText'];
 //#UC END# *57B6C7D40215_57B1674A02B6get_impl*
 end;//TmsmModelElementDir.Get_StringsToFind
+
+function TmsmModelElementDir.IndexOf(const anElement: ImsmModelElement): Integer;
+//#UC START# *57D1327900BC_57B1674A02B6_var*
+//#UC END# *57D1327900BC_57B1674A02B6_var*
+begin
+//#UC START# *57D1327900BC_57B1674A02B6_impl*
+ if IsDir then
+  if (f_Parent <> nil) then
+   if f_Parent.IsSameElement(anElement) then
+   begin
+    Result := 0;
+    Exit;
+   end;//f_Parent.IsSameElement(anElement)
+ Result := f_List.IndexOf(anElement);
+ if (Result >= 0) then  
+  if IsDir then
+   if (f_Parent <> nil) then
+    Inc(Result);
+//#UC END# *57D1327900BC_57B1674A02B6_impl*
+end;//TmsmModelElementDir.IndexOf
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TmsmModelElementDir.IsCacheable: Boolean;

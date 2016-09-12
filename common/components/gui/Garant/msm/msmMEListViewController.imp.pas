@@ -15,6 +15,7 @@
   protected
    procedure DoListChangedEvent(anEvent: TmsmEvent);
    procedure DoActionElementEvent(anEvent: TmsmEvent);
+   procedure DoCurrentElementChangedEvent(anEvent: TmsmEvent);
    procedure LinkEventHandlers; override;
  end;//_msmMEListViewController_
 
@@ -44,15 +45,37 @@ procedure _msmMEListViewController_.DoActionElementEvent(anEvent: TmsmEvent);
 begin
 //#UC START# *57C9879A032D_57B2B0C602DF_57C9879A032D_impl*
  inherited;
- Self.Model.ShowElementAsDir(Self.Model.ElementToAction);
+ Self.Model.ShowElementAsList(Self.Model.ElementToAction);
 //#UC END# *57C9879A032D_57B2B0C602DF_57C9879A032D_impl*
 end;//_msmMEListViewController_.DoActionElementEvent
+
+procedure _msmMEListViewController_.DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+//#UC START# *57C9879A032D_57B31D1000FA_57C9879A032D_var*
+var
+ l_E : ImsmModelElement;
+//#UC END# *57C9879A032D_57B31D1000FA_57C9879A032D_var*
+begin
+//#UC START# *57C9879A032D_57B31D1000FA_57C9879A032D_impl*
+ inherited;
+ if (Self.Model.List <> nil) then
+ begin
+  if (OwnView.Current >= 0) AND (OwnView.Current < Self.Model.List.Count) then
+  begin
+   l_E := Self.Model.List[OwnView.Current];
+   if (l_E <> nil) AND l_E.IsSameElement(Self.Model.CurrentElement) then
+    Exit;
+  end;//(OwnView.Current >= 0) AND (OwnView.Current < Self.Model.List.Count)
+  OwnView.Current := Self.Model.List.IndexOf(Self.Model.CurrentElement);
+ end;//Self.Model.List <> nil
+//#UC END# *57C9879A032D_57B31D1000FA_57C9879A032D_impl*
+end;//_msmMEListViewController_.DoCurrentElementChangedEvent
 
 procedure _msmMEListViewController_.LinkEventHandlers;
 begin
  inherited;
  Self.LinkEventHandler(ListChangedEvent.Instance, DoListChangedEvent);
  Self.LinkEventHandler(ActionElementEvent.Instance, DoActionElementEvent);
+ Self.LinkEventHandler(CurrentElementChangedEvent.Instance, DoCurrentElementChangedEvent);
 end;//_msmMEListViewController_.LinkEventHandlers
 
 {$EndIf msmMEListViewController_imp_impl}

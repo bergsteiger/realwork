@@ -23,7 +23,7 @@ type
  TmsmModelElementMethodCaller = class
   public
    class function Call(aWord: TtfwWord;
-    const aMethodName: AnsiString): TtfwStackValue;
+    const aMethodName: AnsiString): TtfwStackValue; overload;
    class function CallAndGetObj(aWord: TtfwWord;
     const aMethodName: AnsiString): TObject;
    class function CallAndGetString(aWord: TtfwWord;
@@ -37,6 +37,8 @@ type
    class function RawCall(aWord: TtfwWord;
     const aMethodName: AnsiString): TtfwStackValue;
    class procedure CallProc(const aMethodName: AnsiString);
+   class function Call(const aParameter: TtfwStackValue;
+    const aMethodName: AnsiString): TtfwStackValue; overload;
  end;//TmsmModelElementMethodCaller
 
 implementation
@@ -53,6 +55,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *57AA00BD022Eimpl_uses*
  , SysUtils
+ , StrUtils
  , Controls
  , Forms
  , l3Types
@@ -66,7 +69,7 @@ type
  TmsmModelElementMethodScriptCaller = {final} class(TmsmScriptCaller)
   private
    f_ResultValue: TtfwStackValue;
-   f_WordToCall: TtfwWord;
+   f_Parameter: TtfwStackValue;
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -74,21 +77,21 @@ type
    procedure DoScriptWillRun(const aCtx: TtfwContext); override;
    procedure ClearFields; override;
   public
-   constructor Create(aWordToCall: TtfwWord); reintroduce;
+   constructor Create(const aParameter: TtfwStackValue); reintroduce;
   public
    property ResultValue: TtfwStackValue
     read f_ResultValue;
-   property WordToCall: TtfwWord
-    read f_WordToCall;
+   property Parameter: TtfwStackValue
+    read f_Parameter;
  end;//TmsmModelElementMethodScriptCaller
 
-constructor TmsmModelElementMethodScriptCaller.Create(aWordToCall: TtfwWord);
+constructor TmsmModelElementMethodScriptCaller.Create(const aParameter: TtfwStackValue);
 //#UC START# *57AA03740168_57A9FEF503A3_var*
 //#UC END# *57AA03740168_57A9FEF503A3_var*
 begin
 //#UC START# *57AA03740168_57A9FEF503A3_impl*
  inherited Create;
- aWordToCall.SetRefTo(f_WordToCall);
+ f_Parameter := aParameter;
 //#UC END# *57AA03740168_57A9FEF503A3_impl*
 end;//TmsmModelElementMethodScriptCaller.Create
 
@@ -98,7 +101,7 @@ procedure TmsmModelElementMethodScriptCaller.Cleanup;
 //#UC END# *479731C50290_57A9FEF503A3_var*
 begin
 //#UC START# *479731C50290_57A9FEF503A3_impl*
- FreeAndNil(f_WordToCall);
+ Finalize(f_Parameter);
  Finalize(f_ResultValue);
  inherited;
 //#UC END# *479731C50290_57A9FEF503A3_impl*
@@ -110,7 +113,10 @@ procedure TmsmModelElementMethodScriptCaller.DoScriptDone(const aCtx: TtfwContex
 begin
 //#UC START# *57A9E4F203B5_57A9FEF503A3_impl*
  inherited;
- f_ResultValue := aCtx.rEngine.Pop;
+ if (aCtx.rEngine.ValuesCount > 0) then
+  f_ResultValue := aCtx.rEngine.Pop
+ else
+  f_ResultValue := TtfwStackValue_E;
 //#UC END# *57A9E4F203B5_57A9FEF503A3_impl*
 end;//TmsmModelElementMethodScriptCaller.DoScriptDone
 
@@ -120,13 +126,15 @@ procedure TmsmModelElementMethodScriptCaller.DoScriptWillRun(const aCtx: TtfwCon
 begin
 //#UC START# *57A9FED102C4_57A9FEF503A3_impl*
  inherited;
- aCtx.rEngine.PushObj(f_WordToCall);
+ if (f_Parameter.rType <> tfw_vtVoid) then
+  aCtx.rEngine.Push(f_Parameter);
 //#UC END# *57A9FED102C4_57A9FEF503A3_impl*
 end;//TmsmModelElementMethodScriptCaller.DoScriptWillRun
 
 procedure TmsmModelElementMethodScriptCaller.ClearFields;
 begin
  Finalize(f_ResultValue);
+ Finalize(f_Parameter);
  inherited;
 end;//TmsmModelElementMethodScriptCaller.ClearFields
 
@@ -227,6 +235,25 @@ end;//TmsmModelElementMethodCaller.CallAndGetBool
 class function TmsmModelElementMethodCaller.RawCall(aWord: TtfwWord;
  const aMethodName: AnsiString): TtfwStackValue;
 //#UC START# *57C437080131_57AA00BD022E_var*
+//#UC END# *57C437080131_57AA00BD022E_var*
+begin
+//#UC START# *57C437080131_57AA00BD022E_impl*
+ Result := Call(TtfwStackValue_C(aWord), aMethodName);
+//#UC END# *57C437080131_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.RawCall
+
+class procedure TmsmModelElementMethodCaller.CallProc(const aMethodName: AnsiString);
+//#UC START# *57C438C803DC_57AA00BD022E_var*
+//#UC END# *57C438C803DC_57AA00BD022E_var*
+begin
+//#UC START# *57C438C803DC_57AA00BD022E_impl*
+ TmsmModelElementMethodCaller.Call(TtfwStackValue_E, aMethodName);
+//#UC END# *57C438C803DC_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.CallProc
+
+class function TmsmModelElementMethodCaller.Call(const aParameter: TtfwStackValue;
+ const aMethodName: AnsiString): TtfwStackValue;
+//#UC START# *57CFC420039B_57AA00BD022E_var*
 CONST cQuote = '''';
 
 var
@@ -236,21 +263,30 @@ var
  l_N : AnsiString;
  l_N1 : AnsiString;
  l_F : Tl3FileStream;
-//#UC END# *57C437080131_57AA00BD022E_var*
+ l_Delim : AnsiString;
+ l_Check : AnsiString;
+//#UC END# *57CFC420039B_57AA00BD022E_var*
 begin
-//#UC START# *57C437080131_57AA00BD022E_impl*
- l_Caller := TmsmModelElementMethodScriptCaller.Create(aWord);
+//#UC START# *57CFC420039B_57AA00BD022E_impl*
+ l_Caller := TmsmModelElementMethodScriptCaller.Create(aParameter);
  try
+  if (aParameter.rType <> tfw_vtVoid) then
+  begin
+   l_Delim := '.';
+   l_Check := '.CheckValue';
+  end//aParameter.rType <> tfw_vtVoid
+  else
+  begin
+   l_Delim := '';
+   l_Check := '';
+  end;//aParameter.rType <> tfw_vtVoid
   l_S :=
-   'INCLUDE ' + cQuote + 'arrays.ms.dict' + cQuote + #13#10 +
-   'INCLUDE ' + cQuote + 'ElementsRTTI.ms.dict' + cQuote + #13#10 +
    'INCLUDE ' + cQuote + 'msm.ms.dict' + cQuote + #13#10 +
-   'INCLUDE ' + cQuote + 'CheckValue.ms.dict' + cQuote + #13#10 +
-   '.' + aMethodName + #13#10 +
-   'CheckValue'
+   l_Delim + aMethodName + #13#10 +
+   l_Check
   ;
   l_Path := 'C:\Temp\Scripts\Stubs\';
-  l_N := ConcatDirName(l_Path, aMethodName) + '.stub.script';
+  l_N := ConcatDirName(l_Path, AnsiReplaceStr(aMethodName, ':', '_')) + '.stub.script';
   ForceDirectories(l_Path);
   l_N1 := l_N + '.tmp';
   l_F := Tl3FileStream.Create(l_N1, l3_fmWrite);
@@ -271,29 +307,7 @@ begin
  finally
   FreeAndNil(l_Caller);
  end;//try..finally
-//#UC END# *57C437080131_57AA00BD022E_impl*
-end;//TmsmModelElementMethodCaller.RawCall
-
-class procedure TmsmModelElementMethodCaller.CallProc(const aMethodName: AnsiString);
-//#UC START# *57C438C803DC_57AA00BD022E_var*
-CONST cQuote = '''';
-
-var
- l_Caller : TmsmScriptCaller;
-//#UC END# *57C438C803DC_57AA00BD022E_var*
-begin
-//#UC START# *57C438C803DC_57AA00BD022E_impl*
- l_Caller := TmsmScriptCaller.Create;
- try
-  TtfwScriptEngine.Script(
-  'INCLUDE ' + cQuote + 'msm.ms.dict' + cQuote + #13#10 +
-  aMethodName + #13#10
-  , l_Caller
-  );
- finally
-  FreeAndNil(l_Caller);
- end;//try..finally
-//#UC END# *57C438C803DC_57AA00BD022E_impl*
-end;//TmsmModelElementMethodCaller.CallProc
+//#UC END# *57CFC420039B_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.Call
 
 end.

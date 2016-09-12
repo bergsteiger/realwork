@@ -882,7 +882,6 @@ var
  else
   DoIterateF(evL2TSA(@ChildSearch), Progress, str_nevmmSearch.AsCStr,
            Max(0, Pred(l_BS)));
- ClearSearcherOptions(aSearcher);
  if (l_ChildStart <> nil) then
   l_ChildStart.ShowCollapsed := l_PrevShowCollapsed;
 //#UC END# *52D79F3B0081_4A2D2D6E027B_impl*
@@ -893,6 +892,7 @@ var
 
  function ChildSearch(const aChildBlock: InevRange; anIndex: LongInt): Boolean; far;
  var
+  l_Context        : TevSearchContext;
   l_thisChildStart : InevBasePoint;
  begin//ChildSearch
   Inc(anIndex);
@@ -901,13 +901,14 @@ var
    l_thisChildStart := l_ChildStart
   else
    l_thisChildStart := nil;
-  CheckSearcherOptions(aSearcher, l_BS, anIndex);
-  CorrectChildBlock(aView, aSearcher, aChildBlock);
+  l_Context := aContext;
+  CheckContext(aSearcher, l_BS, anIndex, l_Context);
   if (aChildBlock <> nil) and
      aChildBlock.Search(aView,
                         aSearcher,
                         Progress,
                         l_thisChildStart,
+                        l_Context,
                         cFStart,
                         cFFinish) then
   begin
@@ -1054,3 +1055,7 @@ var
 //#UC END# *57C6AE1200E7_4A2D2D6E027B_impl*
 //#UC START# *57C6AE1200E7_4A2D2D6E027B_var*
 //#UC END# *57C6AE1200E7_4A2D2D6E027B_var*
+//#UC START# *57D12DCB03BC_4A2D2D6E027B_impl*
+//#UC END# *57D12DCB03BC_4A2D2D6E027B_impl*
+//#UC START# *57D12DCB03BC_4A2D2D6E027B_var*
+//#UC END# *57D12DCB03BC_4A2D2D6E027B_var*

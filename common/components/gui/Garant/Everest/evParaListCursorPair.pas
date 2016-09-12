@@ -38,13 +38,10 @@ type
    procedure ArrangeFoundCursors(anIndex: LongInt;
     var theStart: InevBasePoint;
     var theFinish: InevBasePoint); virtual;
-   procedure CheckSearcherOptions(const aSearcher: IevSearcher;
+   procedure CheckContext(const aSearcher: IevSearcher;
     aStart: Integer;
-    anIndex: Integer); virtual;
-   procedure ClearSearcherOptions(const aSearcher: IevSearcher); virtual;
-   procedure CorrectChildBlock(const aView: InevView;
-    const aSearcher: IevSearcher;
-    const aChildBlock: InevRange); virtual;
+    anIndex: Integer;
+    var aSearchContext: TevSearchContext); virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    function DoIterateChildrenF(Action: Mk2Children_IterateChildrenF_Action;
@@ -95,6 +92,7 @@ type
     const aSearcher: IevSearcher;
     const Progress: Il3Progress;
     const aStart: InevBasePoint;
+    const aContext: TevSearchContext;
     out cFStart: InevBasePoint;
     out cFFinish: InevBasePoint): Boolean; override;
     {* ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish) }
@@ -261,33 +259,16 @@ begin
 //#UC END# *52D80D430151_4A2D2D6E027B_impl*
 end;//TevParaListCursorPair.ArrangeFoundCursors
 
-procedure TevParaListCursorPair.CheckSearcherOptions(const aSearcher: IevSearcher;
+procedure TevParaListCursorPair.CheckContext(const aSearcher: IevSearcher;
  aStart: Integer;
- anIndex: Integer);
-//#UC START# *57C6ADA002BE_4A2D2D6E027B_var*
-//#UC END# *57C6ADA002BE_4A2D2D6E027B_var*
+ anIndex: Integer;
+ var aSearchContext: TevSearchContext);
+//#UC START# *57D12DCB03BC_4A2D2D6E027B_var*
+//#UC END# *57D12DCB03BC_4A2D2D6E027B_var*
 begin
-//#UC START# *57C6ADA002BE_4A2D2D6E027B_impl*
-//#UC END# *57C6ADA002BE_4A2D2D6E027B_impl*
-end;//TevParaListCursorPair.CheckSearcherOptions
-
-procedure TevParaListCursorPair.ClearSearcherOptions(const aSearcher: IevSearcher);
-//#UC START# *57C6ADF00109_4A2D2D6E027B_var*
-//#UC END# *57C6ADF00109_4A2D2D6E027B_var*
-begin
-//#UC START# *57C6ADF00109_4A2D2D6E027B_impl*
-//#UC END# *57C6ADF00109_4A2D2D6E027B_impl*
-end;//TevParaListCursorPair.ClearSearcherOptions
-
-procedure TevParaListCursorPair.CorrectChildBlock(const aView: InevView;
- const aSearcher: IevSearcher;
- const aChildBlock: InevRange);
-//#UC START# *57C6AE1200E7_4A2D2D6E027B_var*
-//#UC END# *57C6AE1200E7_4A2D2D6E027B_var*
-begin
-//#UC START# *57C6AE1200E7_4A2D2D6E027B_impl*
-//#UC END# *57C6AE1200E7_4A2D2D6E027B_impl*
-end;//TevParaListCursorPair.CorrectChildBlock
+//#UC START# *57D12DCB03BC_4A2D2D6E027B_impl*
+//#UC END# *57D12DCB03BC_4A2D2D6E027B_impl*
+end;//TevParaListCursorPair.CheckContext
 
 procedure TevParaListCursorPair.Cleanup;
  {* Функция очистки полей объекта. }
@@ -1145,6 +1126,7 @@ function TevParaListCursorPair.SearchPrim(const aView: InevView;
  const aSearcher: IevSearcher;
  const Progress: Il3Progress;
  const aStart: InevBasePoint;
+ const aContext: TevSearchContext;
  out cFStart: InevBasePoint;
  out cFFinish: InevBasePoint): Boolean;
  {* ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish) }
@@ -1155,6 +1137,7 @@ var
 
  function ChildSearch(const aChildBlock: InevRange; anIndex: LongInt): Boolean; far;
  var
+  l_Context        : TevSearchContext;
   l_thisChildStart : InevBasePoint;
  begin//ChildSearch
   Inc(anIndex);
@@ -1163,13 +1146,14 @@ var
    l_thisChildStart := l_ChildStart
   else
    l_thisChildStart := nil;
-  CheckSearcherOptions(aSearcher, l_BS, anIndex);
-  CorrectChildBlock(aView, aSearcher, aChildBlock);
+  l_Context := aContext;
+  CheckContext(aSearcher, l_BS, anIndex, l_Context);
   if (aChildBlock <> nil) and
      aChildBlock.Search(aView,
                         aSearcher,
                         Progress,
                         l_thisChildStart,
+                        l_Context,
                         cFStart,
                         cFFinish) then
   begin
@@ -1226,7 +1210,6 @@ begin
  else
   DoIterateF(evL2TSA(@ChildSearch), Progress, str_nevmmSearch.AsCStr,
            Max(0, Pred(l_BS)));
- ClearSearcherOptions(aSearcher);
  if (l_ChildStart <> nil) then
   l_ChildStart.ShowCollapsed := l_PrevShowCollapsed;
 //#UC END# *52D79F3B0081_4A2D2D6E027B_impl*

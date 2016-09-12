@@ -44,7 +44,7 @@ procedure TmsmTreeToListBinding.DoCurrentElementChangedEvent(anEvent: TmsmEvent)
 begin
 //#UC START# *57B2BA6D0104_57B31D1000FA_57B2BA6D0104_impl*
  inherited;
- Self.ModelToFire.ShowElementAsDir(Self.ModelToListen.CurrentElement);
+ Self.ModelToFire.ShowElementAsList(Self.ModelToListen.CurrentElement);
 //#UC END# *57B2BA6D0104_57B31D1000FA_57B2BA6D0104_impl*
 end;//TmsmTreeToListBinding.DoCurrentElementChangedEvent
 
@@ -54,7 +54,7 @@ procedure TmsmTreeToListBinding.DoActionElementEvent(anEvent: TmsmEvent);
 begin
 //#UC START# *57B2BA6D0104_57B2B0C602DF_57B2BA6D0104_impl*
  inherited;
- Self.ModelToFire.ShowElementAsDir(Self.ModelToListen.ElementToAction);
+ Self.ModelToFire.ShowElementAsList(Self.ModelToListen.ElementToAction);
 //#UC END# *57B2BA6D0104_57B2B0C602DF_57B2BA6D0104_impl*
 end;//TmsmTreeToListBinding.DoActionElementEvent
 

@@ -37,6 +37,7 @@ type
    class function Make(aParent: TtfwWord;
     const aList: ItfwValueList;
     const aListName: AnsiString): ImsmModelElementList; reintroduce;
+   function IndexOf(const anElement: ImsmModelElement): Integer;
  end;//TmsmModelElementList
 
 implementation
@@ -111,6 +112,30 @@ begin
  Result := TmsmModelElementFactory.Make(f_Parent);
 //#UC END# *57AE2E140297_57AADABA0154get_impl*
 end;//TmsmModelElementList.Get_Owner
+
+function TmsmModelElementList.IndexOf(const anElement: ImsmModelElement): Integer;
+//#UC START# *57D1327900BC_57AADABA0154_var*
+var
+ l_Index : Integer;
+ l_E : ImsmModelElement;
+//#UC END# *57D1327900BC_57AADABA0154_var*
+begin
+//#UC START# *57D1327900BC_57AADABA0154_impl*
+ Result := -1;
+ if (anElement <> nil) then
+ begin
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElement(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElement(anElement)
+  end;//for l_Index
+ end;//anElement <> nil
+//#UC END# *57D1327900BC_57AADABA0154_impl*
+end;//TmsmModelElementList.IndexOf
 
 procedure TmsmModelElementList.Cleanup;
  {* Функция очистки полей объекта. }

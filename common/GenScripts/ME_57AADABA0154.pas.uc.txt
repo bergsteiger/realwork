@@ -52,3 +52,23 @@ w:\common\components\gui\Garant\msm\msmModelElementList.pas
 //#UC END# *57B30B4A01BE_57AADABA0154get_impl*
 //#UC START# *57B30B4A01BE_57AADABA0154get_var*
 //#UC END# *57B30B4A01BE_57AADABA0154get_var*
+//#UC START# *57D1327900BC_57AADABA0154_impl*
+ Result := -1;
+ if (anElement <> nil) then
+ begin
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElement(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElement(anElement)
+  end;//for l_Index
+ end;//anElement <> nil
+//#UC END# *57D1327900BC_57AADABA0154_impl*
+//#UC START# *57D1327900BC_57AADABA0154_var*
+var
+ l_Index : Integer;
+ l_E : ImsmModelElement;
+//#UC END# *57D1327900BC_57AADABA0154_var*

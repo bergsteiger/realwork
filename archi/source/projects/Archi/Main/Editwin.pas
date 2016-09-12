@@ -1,6 +1,6 @@
 unit Editwin;
 
-{ $Id: Editwin.pas,v 1.193 2016/08/24 09:15:53 fireton Exp $ }
+{ $Id: Editwin.pas,v 1.196 2016/09/09 11:42:50 fireton Exp $ }
 
 {$I arDefine.inc}
 
@@ -518,8 +518,8 @@ type
    acLinkSave: TAction;
    pmHyperlink: TPopupMenu;
    N26: TMenuItem;
-   N29: TMenuItem;
-   N31: TMenuItem;
+    miLinkDelete: TMenuItem;
+    miLinkMemorize: TMenuItem;
    acLinkDeleteContext: TAction;
    acLinkFollowContext: TAction;
    pnlDocImageContainer: TPanel;
@@ -570,6 +570,7 @@ type
     N52: TMenuItem;
     acPMRelSubPanelSubNum: TAction;
     acSaveLocal: TAction;
+    miLinkAddressToClipboard: TMenuItem;
 
    procedure FormClose(Sender: TObject; var Action: TCloseAction);
    procedure FormDestroy(Sender: TObject);
@@ -835,6 +836,7 @@ type
     procedure tblOrdJournalGetItemColor(Sender: TObject; Index: Integer;
       var FG, BG: TColor);
     procedure acSaveLocalExecute(Sender: TObject);
+   procedure pmHyperlinkPopup(Sender: TObject);
   private
    fStructInit       : Boolean;
    fSettingParamMode : Boolean;  //Указывает, что выполняется SetDocParam
@@ -941,8 +943,9 @@ type
    procedure CheckDocImage;
    procedure CheckForCourtCase;
    procedure CheckForNOTTM(aAttribute: IDocAttribute);
-   procedure ExecuteFilter(const aFilter: Tk2TagGenerator; aSelectionOnly: Boolean = False);
+   procedure PassDocTextThroughFilter(const aFilter: Tk2TagGenerator; aSelectionOnly: Boolean = False);
    function GetAutolinkDlg: TAutolinkDlg;
+   procedure LinkAddressToClipboardHandler(aSender: TObject);
    function TemplateInputValueHandler(const aName: AnsiString; out theResult: AnsiString): Boolean;
   protected
    procedure AcquireCurDocParams; override;
@@ -985,6 +988,7 @@ type
    procedure SaveDocParam;
 
    procedure MakeSpravka;
+   procedure PassDocThroughFilter(const aFilter: Tk2TagGenerator; aNeedReplace: Boolean = False);
   public
    AlonePageIndex   : Integer;
    OldPageIndex     : Integer;
@@ -1268,6 +1272,20 @@ const
  ewSubPnlColonWidthNumber = 30;
 
  nfContens = $8000;
+
+ cCurrentDoc = -256;
+
+function MakeLinkAddressString(const aDocID, aSubID: Integer): AnsiString;
+var
+ l_DocID: Integer;
+begin
+ l_DocID := LinkServer(CurrentFamily).Renum.GetExtDocID(aDocID);
+ if aSubID = 0 then
+  Result := IntToStr(l_DocID)
+ else
+  Result := Format('%d.%d', [l_DocID, aSubID]);
+end;
+
 
 {TDocEditorWindow}
 
@@ -7033,7 +7051,10 @@ begin
       Exit;
      GetSubListFromSelect(lSubList);
      if lSubList.Count = 0 then
+     begin
+      vtMessageDlg(l3CStr(sidNoSubFound), mtInformation);
       Exit;
+     end;
 
      lCount := CurDocument.DocServer.ChangeDestDoc(DocID, lNewDocRealID, lNewSubID, lSubList);
     finally
@@ -8768,9 +8789,18 @@ begin
    try
     if aTargetTopic <> cUndefDocID then
     begin
-     l_Linker := TddDefDocLinkFinder.Create;
+     if aTargetTopic = cCurrentDoc then
+      l_Linker := TddDefDocLinkFinder.Create(dctBasic)
+     else
+      l_Linker := TddDefDocLinkFinder.Create(dctFile);
      try
-      l_Linker.TargetExtDocID := aTargetTopic;
+      if aTargetTopic = cCurrentDoc then
+      begin
+       l_Linker.TargetExtDocID := Document.UserDocID;
+       PassDocThroughFilter(l_Linker.StructCache.BuildFilter); // прогоним документ через фильтр чтобы собрать структуру
+      end
+      else
+       l_Linker.TargetExtDocID := aTargetTopic;
       l_Filt.AddLinkFinder(l_Linker);
      finally
       FreeAndNil(l_Linker);
@@ -8798,9 +8828,9 @@ begin
       try
        try
         if aClearLinks then
-         ExecuteFilter(l_Elim, aSelectionOnly)
+         PassDocTextThroughFilter(l_Elim, aSelectionOnly)
         else
-         ExecuteFilter(l_Filt, aSelectionOnly);
+         PassDocTextThroughFilter(l_Filt, aSelectionOnly);
        finally
         CleanupAutolinkServer;
        end;
@@ -8848,6 +8878,9 @@ begin
  begin
   if l_Dlg.rbOneDoc.Checked then
    l_Topic := StrToIntDef(l_Dlg.edTopic.Text, cUndefDocID)
+  else
+  if l_Dlg.rbCurrentDoc.Checked then
+   l_Topic := cCurrentDoc
   else
    l_Topic := cUndefDocID;
   AutoHLinker(l_Topic, l_Dlg.cbDeleteLinks.Checked, l_Dlg.cbSelectionOnly.Enabled and l_Dlg.cbSelectionOnly.Checked);
@@ -8986,14 +9019,15 @@ begin
  l_TS.TemplateData := l_Rec;
 end;
 
-procedure TDocEditorWindow.ExecuteFilter(const aFilter: Tk2TagGenerator; aSelectionOnly: Boolean = False);
+procedure TDocEditorWindow.PassDocTextThroughFilter(const aFilter: Tk2TagGenerator; aSelectionOnly: Boolean = False);
 var
  l_S: IevSearcher;
  l_R: IevReplacer;
  l_Opt: TevSearchOptionSet;
 begin
- l_S := TevAnyParagraphSearcher.Make;
- //l_S := TevSpecialParagraphSearcher.Make;
+ // пропускаем через фильтр ТОЛЬКО текст, с заменой
+ // если нужно весь evd-код документа, то нужно использовать PassDocThroughFilter
+ l_S := TarAnyNonEmptyParagraphSearcher.Make;
  l_R := TevFilterReplacer.Make(CurEditor.TextSource.DocumentContainer.TagReader, aFilter);
  l_Opt := [ev_soReplace, ev_soReplaceAll, ev_soGlobal{, ev_soUseInternalCursor, ev_soConfirm}];
  if aSelectionOnly then
@@ -9006,6 +9040,96 @@ begin
  if f_AutolinkDlg = nil then
   f_AutolinkDlg := TAutolinkDlg.Create(Self);
  Result := f_AutolinkDlg;
+end;
+
+procedure TDocEditorWindow.LinkAddressToClipboardHandler(aSender: TObject);
+var
+ l_AddressList : IevAddressList;
+ I : Integer;
+ l_MI: TMenuItem;
+ l_LinkStr: AnsiString;
+begin
+ if (fCurrentTarget <> nil) then
+ begin
+  if l3IOk(IevHyperlink(fCurrentTarget).QueryInterface(IevAddressList, l_AddressList)) then
+  begin
+   Assert(aSender is TMenuItem);
+   l_MI := TMenuItem(aSender);
+   if l_MI.Tag >= 0 then
+   begin
+    with l_AddressList[l_MI.Tag]{$IfDef XE4}.rTafwAddress{$EndIf} do
+     l_LinkStr := MakeLinkAddressString(DocID, SubID);
+   end
+   else
+   begin
+    l_LinkStr := '';
+    for I := 0 to Pred(l_AddressList.Count) do
+    with l_AddressList[I]{$IfDef XE4}.rTafwAddress{$EndIf} do
+    begin
+     l_LinkStr := l_LinkStr + MakeLinkAddressString(DocID, SubID);
+     if I < Pred(l_AddressList.Count) then
+      l_LinkStr := l_LinkStr + #13#10;
+    end;
+   end;
+   Clipboard.AsText := l_LinkStr;
+  end;
+ end;
+end;
+
+procedure TDocEditorWindow.PassDocThroughFilter(const aFilter: Tk2TagGenerator; aNeedReplace: Boolean = False);
+begin
+ if aNeedReplace then
+  evRangeInsertFrom(CurEditor, aFilter)
+ else
+  CurEditor.TextSource.DocumentContainer.TagReader.ReadTagEx(aFilter);
+end;
+
+procedure TDocEditorWindow.pmHyperlinkPopup(Sender: TObject);
+var
+ l_AddressList : IevAddressList;
+ i : Integer;
+ l_MI: TMenuItem;
+begin
+ if (fCurrentTarget <> nil) then
+ begin
+  if l3IOk(IevHyperlink(fCurrentTarget).QueryInterface(IevAddressList, l_AddressList)) then
+  begin
+   miLinkAddressToClipboard.Clear;
+   if l_AddressList.Count = 1 then
+    miLinkAddressToClipboard.OnClick := LinkAddressToClipboardHandler
+   else
+   begin
+    for I := 0 to pred(l_AddressList.Count) do
+    with l_AddressList[I]{$IfDef XE4}.rTafwAddress{$EndIf} do
+    begin
+     l_MI := TMenuItem.Create(Self);
+     l_MI.Caption := MakeLinkAddressString(DocID, SubID);
+     l_MI.Tag := I;
+     l_MI.OnClick := LinkAddressToClipboardHandler;
+     miLinkAddressToClipboard.Add(l_MI);
+    end;
+    l_MI := TMenuItem.Create(Self);
+    l_MI.Caption := '-';
+    miLinkAddressToClipboard.Add(l_MI);
+    l_MI := TMenuItem.Create(Self);
+    l_MI.Caption := 'Скопировать все';
+    l_MI.Tag := -1;
+    l_MI.OnClick := LinkAddressToClipboardHandler;
+    miLinkAddressToClipboard.Add(l_MI);
+   end;
+  end;
+  (*
+  for I := 0 to pred(l_AddresList.Count) do
+   with l_AddresList[I]{$IfDef XE4}.rTafwAddress{$EndIf} do
+   begin
+    lGCRec.Family := DocFamily;
+    lGCRec.Doc := DocID;
+    lGCRec.Sub := SubID;
+    ArchiObjectList.AddObjRec('', ddBackHyperLink, @lGCRec);
+   end;
+  fCurrentTarget := nil;
+  *)
+ end;
 end;
 
 function TDocEditorWindow.TemplateInputValueHandler(const aName: AnsiString; out theResult: AnsiString): Boolean;

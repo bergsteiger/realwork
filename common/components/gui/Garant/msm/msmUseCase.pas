@@ -28,8 +28,10 @@ type
  {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
  TmsmUseCase = class(_l3InterfaceRefList_, ImsmUseCase)
   protected
+   procedure DoActivate; virtual;
    procedure AddController(const aController: ImsmController);
    procedure Activate;
+   procedure Bind(const aController: ImsmController);
   public
    constructor Create; reintroduce;
    class function Make: ImsmUseCase; reintroduce;
@@ -72,6 +74,15 @@ begin
  end;//try..finally
 end;//TmsmUseCase.Make
 
+procedure TmsmUseCase.DoActivate;
+//#UC START# *57D2B82102BD_57AD94F00212_var*
+//#UC END# *57D2B82102BD_57AD94F00212_var*
+begin
+//#UC START# *57D2B82102BD_57AD94F00212_impl*
+ // - ничего не желаем, это для потомков
+//#UC END# *57D2B82102BD_57AD94F00212_impl*
+end;//TmsmUseCase.DoActivate
+
 procedure TmsmUseCase.AddController(const aController: ImsmController);
 //#UC START# *57AD949C0005_57AD94F00212_var*
 //#UC END# *57AD949C0005_57AD94F00212_var*
@@ -92,7 +103,17 @@ begin
   Items[l_Index].Activate;
  for l_Index := 0 to Pred(Count) do
   Items[l_Index].Activated;
+ DoActivate; 
 //#UC END# *57B1ABA800A6_57AD94F00212_impl*
 end;//TmsmUseCase.Activate
+
+procedure TmsmUseCase.Bind(const aController: ImsmController);
+//#UC START# *57D29826015D_57AD94F00212_var*
+//#UC END# *57D29826015D_57AD94F00212_var*
+begin
+//#UC START# *57D29826015D_57AD94F00212_impl*
+ AddController(aController);
+//#UC END# *57D29826015D_57AD94F00212_impl*
+end;//TmsmUseCase.Bind
 
 end.

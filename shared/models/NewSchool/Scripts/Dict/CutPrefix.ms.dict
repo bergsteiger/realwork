@@ -1,0 +1,29 @@
+UNIT CutPrefix.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+STRING FUNCTION .CutPrefix
+  STRING IN aString
+  STRING IN aPrefix
+ RULES
+  ( aString .IsNil )
+   ''
+  ( aPrefix .IsNil )
+   aString
+  DEFAULT
+  begin   
+   aString >>> Result 
+   if ( aPrefix Result StartsStr ) then
+   begin
+    Result string:Len aPrefix string:Len - 
+    aPrefix string:Len
+    Result
+    string:Substring >>> Result
+   end // ( aPrefix Result StartsStr )
+   Result
+  end // DEFAULT
+ ; // RULES
+ >>> Result 
+; // .CutPrefix

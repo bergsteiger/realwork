@@ -47,6 +47,7 @@ uses
  , vcmDockManagerList
  , vcmLockListenerList
  , vcmFormDispatcherListenerList
+ , vcmDispatcher
  , vcmMenuManager
  , vcmFormsUtils
  {$If NOT Defined(NoVCL)}

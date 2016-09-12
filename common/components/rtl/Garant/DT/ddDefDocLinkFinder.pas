@@ -1,6 +1,6 @@
 unit ddDefDocLinkFinder;
 
-{ $Id: ddDefDocLinkFinder.pas,v 1.1 2016/08/24 09:11:13 fireton Exp $ }
+{ $Id: ddDefDocLinkFinder.pas,v 1.2 2016/09/07 08:46:31 fireton Exp $ }
 
 interface
 uses
@@ -13,14 +13,19 @@ uses
  ddDocStruct;
 
 type
+ TddDocCacheType = (dctBasic, dctFile);
+
  TddDefDocLinkFinder = class(TddCustomLinkFinder)
  private
   f_TargetExtDocID: TDocID;
   f_EntryCollector: TddEntryCollector;
-  f_StructCache: TddDocStructCache;
+  f_StructCache: TddProtoStructCache;
   f_TargetIntDocID: TDocID;
   procedure pm_SetTargetExtDocID(const Value: TDocID);
+ protected
+  procedure Cleanup; override;
  public
+  constructor Create(aCacheType: TddDocCacheType);
   procedure Done; override;
   procedure FindLinks(const aText     : string;    // text from master doc
                       aDocID          : TDocID;    // master doc id
@@ -28,6 +33,7 @@ type
                       const aCaseCode : Il3CString; // casecode
                       aLinkProc       : TddLinkSetRoutine); override;
   procedure Init; override;
+  property StructCache: TddProtoStructCache read f_StructCache;
   property TargetExtDocID: TDocID read f_TargetExtDocID write pm_SetTargetExtDocID;
  end;
 
@@ -45,10 +51,26 @@ uses
  dt_LinkServ
  , Dt_ReNum;
 
+constructor TddDefDocLinkFinder.Create(aCacheType: TddDocCacheType);
+begin
+ inherited Create;
+ case aCacheType of
+  dctBasic: f_StructCache := TddProtoStructCache.Create;
+  dctFile : f_StructCache := TddDocStructCache.Create(GetAutolinkStructCacheFilePath(dsLocal), GlobalDataProvider.TextBase[CurrentFamily], True);
+ else
+  Assert(False);
+ end;
+end;
+
+procedure TddDefDocLinkFinder.Cleanup;
+begin
+ FreeAndNil(f_StructCache);
+ inherited;
+end;
+
 procedure TddDefDocLinkFinder.Done;
 begin
  FreeAndNil(f_EntryCollector);
- FreeAndNil(f_StructCache);
 end;
 
 procedure TddDefDocLinkFinder.FindLinks(const aText     : string;    // text from master doc
@@ -90,7 +112,6 @@ begin
  if (f_TargetExtDocID = 0) then
   raise EddAutolinkError.Create('Не определён целевой документ!');
  f_EntryCollector := TddEntryCollector.Create(False{not right-aligned});
- f_StructCache := TddDocStructCache.Create(GetAutolinkStructCacheFilePath(dsLocal), GlobalDataProvider.TextBase[CurrentFamily], True);
 end;
 
 procedure TddDefDocLinkFinder.pm_SetTargetExtDocID(const Value: TDocID);

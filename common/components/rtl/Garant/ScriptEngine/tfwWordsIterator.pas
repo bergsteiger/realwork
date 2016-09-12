@@ -163,7 +163,10 @@ function TtfwWordsIterator.GetCount: Integer;
 //#UC END# *57C811A30375_55ED4D040017_var*
 begin
 //#UC START# *57C811A30375_55ED4D040017_impl*
- Result := f_Words.Count;
+ if (f_Words = nil) then
+  Result := 0
+ else
+  Result := f_Words.Count;
 //#UC END# *57C811A30375_55ED4D040017_impl*
 end;//TtfwWordsIterator.GetCount
 

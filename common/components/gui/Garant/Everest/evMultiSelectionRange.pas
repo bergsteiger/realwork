@@ -93,6 +93,7 @@ type
     const aSearcher: IevSearcher;
     const Progress: Il3Progress;
     const aStart: InevBasePoint;
+    const aContext: TevSearchContext;
     out cFStart: InevBasePoint;
     out cFFinish: InevBasePoint): Boolean;
     {* ищет в выделении критерий ОnSearch
@@ -531,6 +532,7 @@ function TevMultiSelectionRange.Search(const aView: InevView;
  const aSearcher: IevSearcher;
  const Progress: Il3Progress;
  const aStart: InevBasePoint;
+ const aContext: TevSearchContext;
  out cFStart: InevBasePoint;
  out cFFinish: InevBasePoint): Boolean;
  {* ищет в выделении критерий ОnSearch

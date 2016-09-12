@@ -10,11 +10,11 @@ interface
 
 uses
  l3IntfUses
- , msmListOperation
+ , msmListLikeOperation
 ;
 
 type
- TmsmOpenInNewWindow = class(TmsmListOperation)
+ TmsmOpenInNewWindow = class(TmsmListLikeOperation)
   protected
    procedure DoDoIt; override;
  end;//TmsmOpenInNewWindow

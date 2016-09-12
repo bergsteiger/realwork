@@ -6,84 +6,6 @@ FORWARD ME_57A9D5CD0111
 
 FORWARD ME_57A9D6D90249
 
-FORWARD ME_57A9E4BE0225
-
-ME ME_57A9E8E40116
- MEPROP UID '57A9E8E40116'
- MEPROP Name 'CompiledDictionary'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57A9E4BE0225 // TmsmModelLoadingScriptCaller
- ;
- MELINK Target WL 'ME_559E8B2E0385' '4F2275C00012.ms.model.script' // TtfwDictionaryEx
- ;
- UP "pm" true
- UP "reads field" true
-
-ENDME // ME_57A9E8E40116 CompiledDictionary
-
-ME ME_57A9EC890387
- MEPROP UID '57A9EC890387'
- MEPROP Name 'MainWord'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57A9E4BE0225 // TmsmModelLoadingScriptCaller
- ;
- MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
- ;
- UP "is mutable" true
- UP "pm" true
- UP "reads field" true
-
-ENDME // ME_57A9EC890387 MainWord
-
-ME ME_479731C50290_ME_57A9E4BE0225
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_57A9E4BE0225 Cleanup
-
-ME ME_57A9E4F203B5_ME_57A9E4BE0225
- MELINK Original WL 'ME_57A9E4F203B5' '57AB4243034B.ms.model.script' // DoScriptDone
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_57A9E4F203B5_ME_57A9E4BE0225 DoScriptDone
-
-ME ME_57A9E4BE0225
- MEPROP UID '57A9E4BE0225'
- MEPROP Name 'TmsmModelLoadingScriptCaller'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57A9D6D90249 // TmsmModelLoader
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_57A9D663008F' '57AB4243034B.ms.model.script' // TmsmScriptCaller
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_57A9E8E40116 // CompiledDictionary
- HWL ME_57A9EC890387 // MainWord
- )
- ; // Attributes
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_57A9E4BE0225 // Cleanup
- ME_57A9E4F203B5_ME_57A9E4BE0225 // DoScriptDone
- )
- ; // Overridden
- UP extprop:rc:SelfName 'msmModelLoadingScriptCaller'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_57A9E4BE0225 TmsmModelLoadingScriptCaller
-
 FORWARD ME_57A9D6F8022B
 
 ME ME_57A9D713018D
@@ -122,6 +44,16 @@ ME ME_57A9D7770278
 
 ENDME // ME_57A9D7770278 
 
+ME ME_57CFC6F2003B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57A9D6F8022B // LoadFromFile
+ ;
+ MELINK Target WL 'ME_57AA00BD022E' '57AB4243034B.ms.model.script' // TmsmModelElementMethodCaller
+ ;
+
+ENDME // ME_57CFC6F2003B 
+
 ME ME_57A9D6F8022B
  MEPROP UID '57A9D6F8022B'
  MEPROP Name 'LoadFromFile'
@@ -138,21 +70,12 @@ ME ME_57A9D6F8022B
  ; // Operations
  MELIST Dependencies
    Seq: ( ME_57A9D7770278 // TtfwScriptEngine
+ ME_57CFC6F2003B // TmsmModelElementMethodCaller
  )
  ; // Dependencies
  UP "is static" true
 
 ENDME // ME_57A9D6F8022B LoadFromFile
-
-ME ME_57A9D6E6025A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57A9D6D90249 // TmsmModelLoader
- ;
- MELINK Target HWL ME_57A9E4BE0225 // TmsmModelLoadingScriptCaller
- ;
-
-ENDME // ME_57A9D6E6025A 
 
 FORWARD ME_57AB39D10325
 
@@ -180,13 +103,8 @@ ME ME_57A9D6D90249
    Seq: ( HWL ME_57A9D6F8022B // LoadFromFile
  )
  ; // Operations
- MELIST Children
-   Seq: ( HWL ME_57A9E4BE0225 // TmsmModelLoadingScriptCaller
- )
- ; // Children
  MELIST Dependencies
-   Seq: ( ME_57A9D6E6025A // TmsmModelLoadingScriptCaller
- ME_57AB39DF0013 // TmsmModelElementFactory
+   Seq: ( ME_57AB39DF0013 // TmsmModelElementFactory
  )
  ; // Dependencies
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelLoader.pas'
@@ -348,12 +266,6 @@ ME ME_57AADF560165_ME_57AB17E6022C
  UP "pm" false
 ENDME // ME_57AADF560165_ME_57AB17E6022C UID
 
-ME ME_57AC39AE0181_ME_57AB17E6022C
- MELINK Original WL 'ME_57AC39AE0181' '57A9F4A003C8.ms.model.script' // IsSameElement
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_57AC39AE0181_ME_57AB17E6022C IsSameElement
-
 ME ME_57AC39FE00B8_ME_57AB17E6022C
  MELINK Original HWL ME_57AC39FE00B8 // GetSelf
  ;
@@ -398,7 +310,6 @@ ME ME_57AB17E6022C
  MELIST Implemented
    Seq: ( ME_57A9FE9400E7_ME_57AB17E6022C // Name
  ME_57AADF560165_ME_57AB17E6022C // UID
- ME_57AC39AE0181_ME_57AB17E6022C // IsSameElement
  ME_57AC39FE00B8_ME_57AB17E6022C // GetSelf
  )
  ; // Implemented
@@ -581,6 +492,12 @@ ME ME_57AE2E140297_ME_57AADABA0154
  UP "pm" false
 ENDME // ME_57AE2E140297_ME_57AADABA0154 Owner
 
+ME ME_57D1327900BC_ME_57AADABA0154
+ MELINK Original WL 'ME_57D1327900BC' '57A9F4A003C8.ms.model.script' // IndexOf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57D1327900BC_ME_57AADABA0154 IndexOf
+
 ME ME_479731C50290_ME_57AADABA0154
  MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
  ;
@@ -620,6 +537,7 @@ ME ME_57AADABA0154
    Seq: ( ME_57AAD86403AD_ME_57AADABA0154 // Item
  ME_57AAD89C0277_ME_57AADABA0154 // Count
  ME_57AE2E140297_ME_57AADABA0154 // Owner
+ ME_57D1327900BC_ME_57AADABA0154 // IndexOf
  )
  ; // Implemented
  MELIST Overridden
@@ -740,6 +658,12 @@ ME ME_57AAD9CA008A_ME_57A9F5170275
  UP "pm" false
 ENDME // ME_57AAD9CA008A_ME_57A9F5170275 Children
 
+ME ME_57AC39AE0181_ME_57A9F5170275
+ MELINK Original WL 'ME_57AC39AE0181' '57A9F4A003C8.ms.model.script' // IsSameElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57AC39AE0181_ME_57A9F5170275 IsSameElement
+
 ME ME_57B2F55702DE_ME_57A9F5170275
  MELINK Original WL 'ME_57B2F55702DE' '57A9F4A003C8.ms.model.script' // List
  ;
@@ -782,6 +706,12 @@ ME ME_57C3E90C0177_ME_57A9F5170275
  UP "pm" false
 ENDME // ME_57C3E90C0177_ME_57A9F5170275 MainWord
 
+ME ME_57D1435E002F_ME_57A9F5170275
+ MELINK Original WL 'ME_57D1435E002F' '57A9F4A003C8.ms.model.script' // IsView
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57D1435E002F_ME_57A9F5170275 IsView
+
 ME ME_479731C50290_ME_57A9F5170275
  MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
  ;
@@ -817,12 +747,14 @@ ME ME_57A9F5170275
  MELIST Implemented
    Seq: ( ME_57AA0B890200_ME_57A9F5170275 // Parent
  ME_57AAD9CA008A_ME_57A9F5170275 // Children
+ ME_57AC39AE0181_ME_57A9F5170275 // IsSameElement
  ME_57B2F55702DE_ME_57A9F5170275 // List
  ME_57B301FD025C_ME_57A9F5170275 // StringProp
  ME_57B47A88013F_ME_57A9F5170275 // IntProp
  ME_57B47AB0030F_ME_57A9F5170275 // BoolProp
  ME_57B5E9BE022F_ME_57A9F5170275 // ElementProp
  ME_57C3E90C0177_ME_57A9F5170275 // MainWord
+ ME_57D1435E002F_ME_57A9F5170275 // IsView
  )
  ; // Implemented
  MELIST Overridden

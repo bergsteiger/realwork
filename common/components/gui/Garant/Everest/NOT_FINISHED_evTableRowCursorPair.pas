@@ -12,15 +12,10 @@ interface
 uses
  l3IntfUses
  , evParaListCursorPair
- , nevTools
 ;
 
 type
  TevTableRowCursorPair = class(TevParaListCursorPair)
-  protected
-   procedure CorrectChildBlock(const aView: InevView;
-    const aSearcher: IevSearcher;
-    const aChildBlock: InevRange); override;
  end;//TevTableRowCursorPair
 {$IfEnd} // Defined(evUseVisibleCursors)
 
@@ -32,17 +27,6 @@ uses
  //#UC START# *53D6758E0352impl_uses*
  //#UC END# *53D6758E0352impl_uses*
 ;
-
-procedure TevTableRowCursorPair.CorrectChildBlock(const aView: InevView;
- const aSearcher: IevSearcher;
- const aChildBlock: InevRange);
-//#UC START# *57C6AE1200E7_53D6758E0352_var*
-//#UC END# *57C6AE1200E7_53D6758E0352_var*
-begin
-//#UC START# *57C6AE1200E7_53D6758E0352_impl*
- !!! Needs to be implemented !!!
-//#UC END# *57C6AE1200E7_53D6758E0352_impl*
-end;//TevTableRowCursorPair.CorrectChildBlock
 {$IfEnd} // Defined(evUseVisibleCursors)
 
 end.

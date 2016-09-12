@@ -1847,6 +1847,68 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//DownloadDocRequestTag
 
+ csUploadDocStreamTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csUploadDocStream" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csUploadDocStreamTagClass
+
+ csUploadDocStreamTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csUploadDocStreamTag
+
+ csUploadDocStream_DocPart_TagClass = class(Tk2TypedAtomicTag)
+  {* Класс реализации тега "csUploadDocStream_DocPart" }
+ protected
+ // realized methods
+  function GetTagType: Tl3Type; override;
+   {* Тип параграфа }
+ end;//csUploadDocStream_DocPart_TagClass
+
+ csUploadDocStream_DocPart_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csUploadDocStream_DocPart_Tag
+
+ csUploadDocStream_DocClass_TagClass = class(Tk2TypedAtomicTag)
+  {* Класс реализации тега "csUploadDocStream_DocClass" }
+ protected
+ // realized methods
+  function GetTagType: Tl3Type; override;
+   {* Тип параграфа }
+ end;//csUploadDocStream_DocClass_TagClass
+
+ csUploadDocStream_DocClass_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csUploadDocStream_DocClass_Tag
+
+ csUploadDocStreamReplyTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csUploadDocStreamReply" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csUploadDocStreamReplyTagClass
+
+ csUploadDocStreamReplyTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csUploadDocStreamReplyTag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -1985,6 +2047,10 @@ type
    t_csDownloadDocStream_DocPart : csDownloadDocStream_DocPart_Tag;
    t_csDownloadDocStream_DocPartSel : csDownloadDocStream_DocPartSel_Tag;
    t_DownloadDocRequest : DownloadDocRequestTag;
+   t_csUploadDocStream : csUploadDocStreamTag;
+   t_csUploadDocStream_DocPart : csUploadDocStream_DocPart_Tag;
+   t_csUploadDocStream_DocClass : csUploadDocStream_DocClass_Tag;
+   t_csUploadDocStreamReply : csUploadDocStreamReplyTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -2082,6 +2148,8 @@ uses
   csDownloadDocStreamReply_Const,
   csDownloadDocStream_Const,
   DownloadDocRequest_Const,
+  csUploadDocStream_Const,
+  csUploadDocStreamReply_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -4719,6 +4787,88 @@ begin
  Result := DownloadDocRequestTagClass.Make(Self);
 end;
 
+function csUploadDocStream_DocPart_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csUploadDocStream_DocPart'));
+end;
+
+function csUploadDocStream_DocPart_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_Enum.IsKindOf(anAtomType);
+end;
+
+function csUploadDocStream_DocPart_TagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsUploadDocStream_DocPart;
+end;//DocPartClass.TagType
+
+function csUploadDocStream_DocPart_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Self.MakeFromInt(aRef, csUploadDocStream_DocPart_TagClass);
+end;
+
+function csUploadDocStream_DocClass_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csUploadDocStream_DocClass'));
+end;
+
+function csUploadDocStream_DocClass_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_Enum.IsKindOf(anAtomType);
+end;
+
+function csUploadDocStream_DocClass_TagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsUploadDocStream_DocClass;
+end;//DocClassClass.TagType
+
+function csUploadDocStream_DocClass_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Self.MakeFromInt(aRef, csUploadDocStream_DocClass_TagClass);
+end;
+
+function csUploadDocStreamTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsUploadDocStream;
+end;//csUploadDocStreamTagClass.TagType
+
+function csUploadDocStreamTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csUploadDocStream'));
+end;
+
+function csUploadDocStreamTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csMessageWithReply.IsKindOf(anAtomType);
+end;
+
+function csUploadDocStreamTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csUploadDocStreamTagClass.Make(Self);
+end;
+
+function csUploadDocStreamReplyTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsUploadDocStreamReply;
+end;//csUploadDocStreamReplyTagClass.TagType
+
+function csUploadDocStreamReplyTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csUploadDocStreamReply'));
+end;
+
+function csUploadDocStreamReplyTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csReply.IsKindOf(anAtomType);
+end;
+
+function csUploadDocStreamReplyTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csUploadDocStreamReplyTagClass.Make(Self);
+end;
+
 constructor TevdTasksSchema.Create;
 begin
  inherited;
@@ -6674,6 +6824,67 @@ begin
    DefaultValue := Ord(cs_ttDownloadDoc);
   end;//TaskType
  end;//DownloadDocRequest
+ // csUploadDocStream
+ t_csUploadDocStream := DefineAutoType([t_csMessageWithReply], '', csUploadDocStreamTag) As csUploadDocStreamTag;
+ with t_csUploadDocStream do
+ begin
+  AtomClass := csUploadDocStreamTagClass;
+  with DefineProperty(k2_attrData, t_RawData, '') do
+  begin
+  end;//Data
+  with DefineProperty(k2_attrIsObjTopic, t_Bool, '') do
+  begin
+  end;//IsObjTopic
+  with DefineProperty(k2_attrDocFamily, t_Long, '') do
+  begin
+  end;//DocFamily
+  with DefineProperty(k2_attrDocID, t_Long, '') do
+  begin
+  end;//DocID
+  t_csUploadDocStream_DocPart := DefineAutoType([t_Enum], 'csUploadDocStream DocPart', csUploadDocStream_DocPart_Tag) As csUploadDocStream_DocPart_Tag;
+  try
+   t_csUploadDocStream_DocPart.AtomType := TypeInfo(Tm3DocPartSelector);
+   DefineProperty(k2_attrDocPart, t_csUploadDocStream_DocPart, '');
+   t_csUploadDocStream_DocPart.Recalc;
+  except
+   FreeAndNil(t_csUploadDocStream_DocPart);
+  end;//try..except
+  with Tk2CustomProperty(Prop[k2_attrDocPart]) do
+  begin
+  end;//DocPart
+  with DefineProperty(k2_attrParseToDB, t_Bool, '') do
+  begin
+  end;//ParseToDB
+  with DefineProperty(k2_attrIsClassChanged, t_Bool, '') do
+  begin
+  end;//IsClassChanged
+  with DefineProperty(k2_attrNeedSaveText, t_Bool, '') do
+  begin
+  end;//NeedSaveText
+  t_csUploadDocStream_DocClass := DefineAutoType([t_Enum], 'csUploadDocStream DocClass', csUploadDocStream_DocClass_Tag) As csUploadDocStream_DocClass_Tag;
+  try
+   t_csUploadDocStream_DocClass.AtomType := TypeInfo(TDocType);
+   DefineProperty(k2_attrDocClass, t_csUploadDocStream_DocClass, '');
+   t_csUploadDocStream_DocClass.Recalc;
+  except
+   FreeAndNil(t_csUploadDocStream_DocClass);
+  end;//try..except
+  with Tk2CustomProperty(Prop[k2_attrDocClass]) do
+  begin
+  end;//DocClass
+ end;//csUploadDocStream
+ // csUploadDocStreamReply
+ t_csUploadDocStreamReply := DefineAutoType([t_csReply], '', csUploadDocStreamReplyTag) As csUploadDocStreamReplyTag;
+ with t_csUploadDocStreamReply do
+ begin
+  AtomClass := csUploadDocStreamReplyTagClass;
+  with DefineProperty(k2_attrIsSuccess, t_Bool, '') do
+  begin
+  end;//IsSuccess
+  with DefineProperty(k2_attrErrorMessage, t_String, '') do
+  begin
+  end;//ErrorMessage
+ end;//csUploadDocStreamReply
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -6761,6 +6972,8 @@ begin
  t_csDownloadDocStreamReply.Recalc;
  t_csDownloadDocStream.Recalc;
  t_DownloadDocRequest.Recalc;
+ t_csUploadDocStream.Recalc;
+ t_csUploadDocStreamReply.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -6903,6 +7116,10 @@ begin
  t_csDownloadDocStream_DocPart.InterfaceFactory := nil;
  t_csDownloadDocStream_DocPartSel.InterfaceFactory := nil;
  t_DownloadDocRequest.InterfaceFactory := nil;
+ t_csUploadDocStream.InterfaceFactory := nil;
+ t_csUploadDocStream_DocPart.InterfaceFactory := nil;
+ t_csUploadDocStream_DocClass.InterfaceFactory := nil;
+ t_csUploadDocStreamReply.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -7038,6 +7255,10 @@ begin
  FreeAndNil(t_csDownloadDocStream_DocPart);
  FreeAndNil(t_csDownloadDocStream_DocPartSel);
  FreeAndNil(t_DownloadDocRequest);
+ FreeAndNil(t_csUploadDocStream);
+ FreeAndNil(t_csUploadDocStream_DocPart);
+ FreeAndNil(t_csUploadDocStream_DocClass);
+ FreeAndNil(t_csUploadDocStreamReply);
  inherited;
 end;
 

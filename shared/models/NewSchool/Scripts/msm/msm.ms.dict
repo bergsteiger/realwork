@@ -77,7 +77,28 @@ STRING elem_func UpText
  end // ( Self .IsUP )
 ; // UpText
 
-STRING elem_func NameWithStereo
+STRING elem_func StereotypeName
+ Cached:
+ (
+  VAR l_St
+  Self .Stereotype >>> l_St
+  if (
+      ( l_St .NotIsNil )
+      AND ( l_St .NameInModel .NotIsNil )
+     ) then
+  begin
+   [ '<<' l_St .NameInModel '>>' ] strings:Cat
+  end // ( l_St .NotIsNil )
+  else
+  begin
+   [ '[[' Self .MDAClassString ']]' ] strings:Cat
+   // '<<default>>'
+  end
+ )
+ >>> Result
+; // StereotypeName
+
+STRING elem_func NameNotEmpty
  Cached:
  (
   Self .NameInModel
@@ -87,21 +108,23 @@ STRING elem_func NameWithStereo
   begin
    '(unnamed)' >>> Result
   end // ( Result .IsNil )
+  Result
+ )
+ >>> Result
+; // NameNotEmpty
+
+STRING elem_func NameWithStereo
+ Cached:
+ (
+  Self .NameNotEmpty >>> Result
  
   VAR l_St
-  Self .Stereotype >>> l_St
-  if (
-      ( l_St .NotIsNil )
-      AND ( l_St .NameInModel .NotIsNil )
-     ) then
+  Self .StereotypeName >>> l_St
+  if ( l_St .NotIsNil ) then
   begin
-   [ '<<' l_St .NameInModel '>>' ' ' Result ] strings:Cat >>> Result
+   [ l_St ' ' Result ] strings:Cat >>> Result
   end // ( l_St .NotIsNil )
-  else
-  begin
-   [ '[[' Self .MDAClassString ']]' ' ' Result ] strings:Cat >>> Result
-   //[ '<<default>>' ' ' Result ] strings:Cat >>> Result
-  end
+  
   Result
  )
  >>> Result 
@@ -220,12 +243,10 @@ STRING elem_func ParametersString
  end // l_P .NotEmpty
 ; // ParametersString
 
-STRING elem_func NameWithStereoAndTarget
+STRING elem_func Signature
  Cached:
  (
-  [ Self .NameWithStereo Self .ParametersString ] strings:Cat
-  >>> Result
-  
+  [ Self .NameNotEmpty Self .ParametersString ] strings:Cat >>> Result
   VAR l_T
   Self .MethodTarget >>> l_T
   
@@ -240,6 +261,14 @@ STRING elem_func NameWithStereoAndTarget
    [ Result ': ' l_Name ] strings:Cat >>> Result
   end // ( l_T .NotIsNil )
   Result
+ )
+ >>> Result
+; // NameNotEmpty
+
+STRING elem_func NameWithStereoAndTarget
+ Cached:
+ (
+  [ Self .StereotypeName Self .Signature ] ' ' strings:CatSep
  )
  >>> Result 
 ; // NameWithStereoAndTarget
@@ -310,6 +339,7 @@ PROCEDURE TerminateLoadInner
 elem_proc LoadChildInfo
  if ( g_NeedTerminate ! ) then
  begin
+  Self .Stereotype DROP
   Self .NameWithStereo DROP
   Self .DefaultText DROP
   Self .Parent DROP
@@ -374,3 +404,125 @@ BOOLEAN elem_func LoadInner
   Log: 'Loaded'
  end // g_NeedTerminate
 ; // LoadInner
+
+USES
+ axiom:TColor
+;
+
+INTEGER elem_func msm:View:ForeColor
+ RULES
+  ( Self .IsProject )
+   TColor::clGreen
+  ( Self .IsUnit )
+   TColor::clGreen
+  ( Self .IsExeTarget )
+   TColor::clGreen
+  ( Self .IsLibrary )
+   TColor::clBlue
+  ( Self .IsInterfaces )
+   TColor::clNavy
+  ( Self .IsStereotype st_Facet )
+   TColor::clNavy
+  ( Self .IsStereotype st_Interface )
+   TColor::clNavy
+  ( Self .IsMixIn )
+   TColor::clFuchsia
+   //TColor::clMoneyGreen
+   //TColor::clLime
+  ( Self .IsSimpleClass )
+   TColor::clGreen
+  ( Self .IsUtilityPack )
+   TColor::clRed
+  ( Self .IsMixInMirror )
+   TColor::clAqua
+  ( Self .IsEnum )
+   TColor::clOlive
+  ( Self .IsTypedef )
+   TColor::clMedGray
+  DEFAULT
+   TColor::clDefault
+ ; // RULES
+ >>> Result
+; // msm:View:ForeColor
+
+BOOLEAN elem_func IsCategory
+ Self .MDAClass class_Category ==
+ >>> Result
+; // IsCategory
+
+USES
+ LoadOnDemand.ms.dict
+;
+
+USES
+ CutSuffix.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+INTEGER elem_func X
+ Self 'X' 0 .ElemMember >>> Result
+; // X
+
+INTEGER elem_func Y
+ Self 'Y' 0 .ElemMember >>> Result
+; // Y
+
+WordAlias .msm:View:X .X
+WordAlias .msm:View:Y .Y
+
+elem_iterator Diagrams
+ Self 'Diagrams' .ElemList >>> Result
+; // Diagrams
+
+elem_iterator Views
+ Self 'Views' .ElemList >>> Result
+; // Views
+
+elem_iterator msm:Diagrams
+ VAR l_Name
+ Self .WordName '_view' .CutSuffix >>> l_Name
+ VAR l_DictName
+ l_Name 'ME_' .CutPrefix >>> l_DictName
+ l_DictName '.ms.diagram.script' Cat >>> l_DictName
+ l_Name '_diagrams' Cat >>> l_Name
+ WL l_Name l_DictName
+ .Diagrams
+ >>> Result
+; // msm:Diagrams
+
+elem_iterator MainDiagram
+ Self .msm:Diagrams 
+ .FirstElement
+ .Views
+ >>> Result
+; // MainDiagram
+
+USES
+ DictionaryByName.ms.dict
+;
+
+ModelElement FUNCTION .WordByDictionaryPath
+  IN aPath
+ aPath DictionaryAndMainWordByName
+ >>> Result // - возвращаем слово 
+ DROP // - выкидываем словарь
+; // .WordByDictionaryPath
+
+EXPORTS
+ arrays.ms.dict
+ 
+EXPORTS
+ ElementsRTTI.ms.dict
+ 
+USES
+ CheckValue.ms.dict
+;
+ 
+EXPORTS
+ CheckValue.ms.dict
+
+EXPORTS
+ GarantMetaModel.ms.dict

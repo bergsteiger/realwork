@@ -29,6 +29,7 @@ type
   private
    f_Sharp: Boolean;
   protected
+   function pm_GetSearchContext: TevSearchContext;
    procedure DoStore(const aView: InevView;
     const G: Ik2TagGenerator;
     aFlags: TevStoreFlags); virtual;
@@ -48,6 +49,7 @@ type
     const aSearcher: IevSearcher;
     const Progress: Il3Progress;
     const aStart: InevBasePoint;
+    const aContext: TevSearchContext;
     out cFStart: InevBasePoint;
     out cFFinish: InevBasePoint): Boolean; virtual;
     {* ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish) }
@@ -65,6 +67,7 @@ type
     const Cursor: InevBasePoint = nil;
     const anOpPack: InevOp = nil;
     aNeedProgress: Boolean = True): Boolean; virtual;
+   procedure IniSearchContext(var aSearch: TevSearchContext); virtual;
    procedure Store(const aView: InevView;
     const G: InevTagGenerator;
     aFlags: TevdStoreFlags = evDefaultStoreFlags); overload;
@@ -165,6 +168,7 @@ type
     const aSearcher: IevSearcher;
     const Progress: Il3Progress;
     const aStart: InevBasePoint;
+    const aContext: TevSearchContext;
     out cFStart: InevBasePoint;
     out cFFinish: InevBasePoint): Boolean;
     {* ищет в выделении критерий ОnSearch
@@ -176,6 +180,8 @@ type
     write f_Sharp;
    property Borders: TevPair
     read pm_GetBorders;
+   property SearchContext: TevSearchContext
+    read pm_GetSearchContext;
  end;//TevRange
 {$IfEnd} // Defined(evUseVisibleCursors)
 
@@ -199,6 +205,16 @@ uses
  //#UC START# *4A2D30DB039Eimpl_uses*
  //#UC END# *4A2D30DB039Eimpl_uses*
 ;
+
+function TevRange.pm_GetSearchContext: TevSearchContext;
+//#UC START# *57D112CB0392_4A2D2D4300BEget_var*
+//#UC END# *57D112CB0392_4A2D2D4300BEget_var*
+begin
+//#UC START# *57D112CB0392_4A2D2D4300BEget_impl*
+ Result := TevSearchContext_C;
+ IniSearchContext(Result);
+//#UC END# *57D112CB0392_4A2D2D4300BEget_impl*
+end;//TevRange.pm_GetSearchContext
 
 procedure TevRange.DoInit(const aStart: InevBasePoint;
  const aFinish: InevBasePoint;
@@ -280,6 +296,7 @@ function TevRange.SearchPrim(const aView: InevView;
  const aSearcher: IevSearcher;
  const Progress: Il3Progress;
  const aStart: InevBasePoint;
+ const aContext: TevSearchContext;
  out cFStart: InevBasePoint;
  out cFFinish: InevBasePoint): Boolean;
  {* ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish) }
@@ -501,6 +518,14 @@ begin
  Result := False;
 //#UC END# *52D7CCD70340_4A2D2D4300BE_impl*
 end;//TevRange.DoSearchReplace
+
+procedure TevRange.IniSearchContext(var aSearch: TevSearchContext);
+//#UC START# *57D113100258_4A2D2D4300BE_var*
+//#UC END# *57D113100258_4A2D2D4300BE_var*
+begin
+//#UC START# *57D113100258_4A2D2D4300BE_impl*
+//#UC END# *57D113100258_4A2D2D4300BE_impl*
+end;//TevRange.IniSearchContext
 
 procedure TevRange.Store(const aView: InevView;
  const G: InevTagGenerator;
@@ -911,6 +936,7 @@ function TevRange.Search(const aView: InevView;
  const aSearcher: IevSearcher;
  const Progress: Il3Progress;
  const aStart: InevBasePoint;
+ const aContext: TevSearchContext;
  out cFStart: InevBasePoint;
  out cFFinish: InevBasePoint): Boolean;
  {* ищет в выделении критерий ОnSearch
@@ -926,7 +952,7 @@ begin
   cFFinish := nil;
  end//Self = nil
  else
-  Result := SearchPrim(aView, aSearcher, Progress, aStart, cFStart, cFFinish);
+  Result := SearchPrim(aView, aSearcher, Progress, aStart, aContext, cFStart, cFFinish);
 //#UC END# *49E843B10236_4A2D2D4300BE_impl*
 end;//TevRange.Search
 

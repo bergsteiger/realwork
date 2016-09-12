@@ -41,6 +41,7 @@ uses
  , SysUtils
  , msmViewControllersUtils
  , msmListAndTreeInterfaces
+ , msmModelElements
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)

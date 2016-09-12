@@ -1,6 +1,6 @@
 unit StrShop;
 
-{ $Id: StrShop.pas,v 1.68 2016/08/24 12:51:02 lukyanets Exp $ }
+{ $Id: StrShop.pas,v 1.69 2016/09/07 08:48:32 fireton Exp $ }
 
 interface
  uses
@@ -90,6 +90,7 @@ interface
    //sidNoSuchDoc         = 'Документов не найдено.';
    sidNoSuchDoc         =  'Не найдено ни одного документа.';
    sidNoSuchRef         =  'Ссылок не найдено.';
+   sidNoSubFound        = 'В выделении не найдено ни одной метки.';
    sidNoSubSelected     = 'Сначала выберите метку.';
    sidNoDocPresent      = 'Документ с ID = %d отсутствует.';
    sidWrongDocID        = 'Ошибка определения внутреннего номера документа %d.';

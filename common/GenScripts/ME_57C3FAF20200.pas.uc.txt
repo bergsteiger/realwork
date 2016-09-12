@@ -1,5 +1,4 @@
 //#UC START# *479731C50290_57C3FAF20200_impl*
- FreeAndNil(f_ReadyEvent);
  FreeAndNil(f_Message);
  FreeAndNil(f_Reply);
  inherited;
@@ -64,7 +63,7 @@
   end;
  finally
   l_Counter.Stop;
-  f_ReadyEvent.SetEvent;
+  SignalReady;
   l3System.Msg2Log('Remote read document - %s', [FormatFloat('#,##0 ms', l_Counter.Time * 1000)], l3_msgLevel10);
  end;
 //#UC END# *53A2EEE90097_57C3FAF20200_impl*
@@ -117,7 +116,7 @@ w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocRequest.pas
 //#UC END# *57C3FD1D0063_57C3FAF20200_var*
 //#UC START# *57C4135700F7_57C3FAF20200_impl*
  f_Reply.ErrorMessage := 'Операция прервана';
- f_ReadyEvent.SetEvent;
+ SignalReady;
 //#UC END# *57C4135700F7_57C3FAF20200_impl*
 //#UC START# *57C4135700F7_57C3FAF20200_var*
 //#UC END# *57C4135700F7_57C3FAF20200_var*

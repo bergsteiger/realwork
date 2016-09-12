@@ -74,7 +74,7 @@ var
   l_NewLogName: String;
 begin
  try
-  if InitBaseEngine(f_IP, f_Port, f_Login, f_Password, True{QuietMode}) then
+  if InitBaseEngine(f_IP, f_Port, f_Login, f_Password, True{QuietMode}, False{CorrectTempPath}) then
   begin
    try
     l3System.LogMachineName := GetHomePathCode(GlobalDataProvider.UserID);

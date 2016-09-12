@@ -31,7 +31,8 @@ type
    function MakeFromConfig: TdaDataProviderParams; virtual; abstract;
    procedure SaveToConfig(aParams: TdaDataProviderParams); virtual; abstract;
    function ParamType: TdaDataProviderParamsClass; virtual; abstract;
-   procedure CorrectByClient(aParams: TdaDataProviderParams); virtual;
+   procedure CorrectByClient(aParams: TdaDataProviderParams;
+    CorrectTempPath: Boolean); virtual;
    function IsParamsValid(aParams: TdaDataProviderParams;
     Quiet: Boolean = False): Boolean; virtual;
    procedure FillOutConfig(aConfig: TddAppConfiguration;
@@ -108,7 +109,8 @@ begin
 //#UC END# *550AACDC0003_54F85EE102D1_impl*
 end;//TdaDataProviderFactory.SaveCommonParams
 
-procedure TdaDataProviderFactory.CorrectByClient(aParams: TdaDataProviderParams);
+procedure TdaDataProviderFactory.CorrectByClient(aParams: TdaDataProviderParams;
+ CorrectTempPath: Boolean);
 //#UC START# *55110FBB00E5_54F85EE102D1_var*
 //#UC END# *55110FBB00E5_54F85EE102D1_var*
 begin

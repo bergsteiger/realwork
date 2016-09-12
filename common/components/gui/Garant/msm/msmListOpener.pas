@@ -10,17 +10,12 @@ interface
 
 uses
  l3IntfUses
- , msmConcreteModels
+ , msmListToListBinding
  , msmEvents
- , msmControllers
- , msmController
 ;
 
 type
- _ModelToListen_ = ImsmListLikeModel;
- _ModelToFire_ = ImsmListModel;
- {$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
- TmsmListOpener = class(_msmModelToModelBinding_)
+ TmsmListOpener = class(TmsmListToListBinding)
   protected
    procedure DoActionElementEvent(anEvent: TmsmEvent);
    procedure LinkEventHandlers; override;
@@ -37,21 +32,21 @@ uses
  //#UC END# *57CD5F5603E5impl_uses*
 ;
 
-{$Include w:\common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas}
-
 procedure TmsmListOpener.DoActionElementEvent(anEvent: TmsmEvent);
 //#UC START# *57CD5F5603E5_57B2B0C602DF_57CD5F5603E5_var*
 //#UC END# *57CD5F5603E5_57B2B0C602DF_57CD5F5603E5_var*
 begin
 //#UC START# *57CD5F5603E5_57B2B0C602DF_57CD5F5603E5_impl*
  inherited;
+ if (Self.ModelToListen.ElementToAction = nil) then
+  Exit;
  if (GetAsyncKeyState(VK_SHIFT) < 0) then
   TmsmOpenService.Instance.OpenListInNewWindow(Self.ModelToListen.ElementToAction)
  else
  if (GetAsyncKeyState(VK_CONTROL) < 0) then
   TmsmOpenService.Instance.OpenListInNewWindow(Self.ModelToListen.ElementToAction)
  else
-  Self.ModelToFire.ShowElementAsDir(Self.ModelToListen.ElementToAction);
+  Self.ModelToFire.ShowElementAsList(Self.ModelToListen.ElementToAction);
 //#UC END# *57CD5F5603E5_57B2B0C602DF_57CD5F5603E5_impl*
 end;//TmsmListOpener.DoActionElementEvent
 

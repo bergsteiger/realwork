@@ -23,7 +23,9 @@ type
    f_Password: AnsiString;
    f_IsDeveloper: Boolean;
    f_StandAlone: Boolean;
+   f_CorrectTempPath: Boolean;
   protected
+   procedure InitFields; override;
    procedure ClearFields; override;
   public
    property ServerHostName: AnsiString
@@ -44,6 +46,9 @@ type
    property StandAlone: Boolean
     read f_StandAlone
     write f_StandAlone;
+   property CorrectTempPath: Boolean
+    read f_CorrectTempPath
+    write f_CorrectTempPath;
  end;//TncsServiceProviderParams
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -55,6 +60,16 @@ uses
  //#UC START# *54F044E00390impl_uses*
  //#UC END# *54F044E00390impl_uses*
 ;
+
+procedure TncsServiceProviderParams.InitFields;
+//#UC START# *47A042E100E2_54F044E00390_var*
+//#UC END# *47A042E100E2_54F044E00390_var*
+begin
+//#UC START# *47A042E100E2_54F044E00390_impl*
+ inherited;
+ f_CorrectTempPath := True;
+//#UC END# *47A042E100E2_54F044E00390_impl*
+end;//TncsServiceProviderParams.InitFields
 
 procedure TncsServiceProviderParams.ClearFields;
 begin

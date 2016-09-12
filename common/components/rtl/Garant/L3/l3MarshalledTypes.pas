@@ -30,6 +30,18 @@ type
   , dpAnno
  );//TDocPartSelector
 
+ TDocType = (
+  dtNone
+  , dtText
+  , dtRelText
+  , dtShortCut
+  , dtObject
+  , dtDictEntry
+  , dtAnnotation
+  , dtFlash
+  , dtGroupOp
+ );//TDocType
+
 implementation
 
 uses

@@ -23,7 +23,6 @@ type
   ['{B406D099-30A8-4FA1-A23B-9A3C2CECACF3}']
   function Get_Name: Il3CString;
   function Get_UID: Il3CString;
-  function IsSameElement(const anOther: ImsmBaseModelElement): Boolean;
   property Name: Il3CString
    read Get_Name;
   property UID: Il3CString
@@ -42,6 +41,8 @@ type
   function Get_BoolProp(const aName: AnsiString): Boolean;
   function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
   function Get_MainWord: TtfwWord;
+  function IsView: Boolean;
+  function IsSameElement(const anOther: ImsmModelElement): Boolean;
   property Parent: ImsmModelElement
    read Get_Parent;
   property Children: ImsmModelElementList
@@ -64,6 +65,7 @@ type
  MmsmModelElementList = interface(MmsmCountHolder)
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
+  function IndexOf(const anElement: ImsmModelElement): Integer;
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;
@@ -77,6 +79,7 @@ type
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
   function Get_Count: Integer;
+  function IndexOf(const anElement: ImsmModelElement): Integer;
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;

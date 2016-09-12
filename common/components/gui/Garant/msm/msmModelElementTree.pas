@@ -47,6 +47,7 @@ type
   public
    constructor Create(const anElement: TmsmModelElementView); reintroduce;
    class function Make(const anElement: TmsmModelElementView): ImsmModelElementTree; reintroduce;
+   function IndexOf(const anElement: ImsmModelElement): Integer;
  //#UC START# *57AC3A8100E5publ*
   protected
    function DoGet_Nodes(anIndex: Integer): Il3SimpleNode; override;
@@ -184,6 +185,8 @@ var
 begin
 //#UC START# *57C9AD1303C2_57AC3A8100E5_impl*
  Result := nil;
+ if (anElement = nil) then
+  Exit;
  for l_Index := 0 to Pred(f_Nodes.Count) do
   if f_Nodes[l_Index].Element.rElement.IsSameElement(anElement) then
   begin
@@ -193,6 +196,30 @@ begin
  Result := TmsmModelElementNode.Make(TmsmModelElementView_C(anElement, f_Root.Element.rListName, f_Root.Element.rTextName), -1); 
 //#UC END# *57C9AD1303C2_57AC3A8100E5_impl*
 end;//TmsmModelElementTree.NodeByElement
+
+function TmsmModelElementTree.IndexOf(const anElement: ImsmModelElement): Integer;
+//#UC START# *57D1327900BC_57AC3A8100E5_var*
+var
+ l_Index : Integer;
+ l_E : ImsmModelElement;
+//#UC END# *57D1327900BC_57AC3A8100E5_var*
+begin
+//#UC START# *57D1327900BC_57AC3A8100E5_impl*
+ Result := -1;
+ if (anElement <> nil) then
+ begin
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElement(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElement(anElement)
+  end;//for l_Index
+ end;//anElement <> nil
+//#UC END# *57D1327900BC_57AC3A8100E5_impl*
+end;//TmsmModelElementTree.IndexOf
 
 procedure TmsmModelElementTree.Cleanup;
  {* Функция очистки полей объекта. }

@@ -384,6 +384,8 @@ type
  //#UC END# *57AC49D002F2publ*
  end;//TdaUserGroupAccessMask
 
+ TdaDocType = TDocType;
+
 const
  cDeprecatedDicts: TdaDictionaryTypeSet = [da_dlNewClasses_Deprecated];
  da_dtIntegers: TdaDataTypesSet = [da_dtByte, da_dtDWord, da_dtWord, da_dtInteger, da_dtQWord];

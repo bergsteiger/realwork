@@ -46,3 +46,30 @@ w:\archi\source\projects\Common\Utils\arDocAttributesMixer.pas
 var
  l_DB: Im3DB;
 //#UC END# *57C52ADD007E_57C52AA20128_var*
+//#UC START# *57CFF0F8008A_57C52AA20128_impl*
+ if not (anIsObjTopic) then
+ begin
+  //TddImageHandleInsertFilter.SetTo(aGen);
+  // - этот функционал переехал в TddSavedObjectsList и TddExtObjExtractor
+  TddExtObjExtractor.SetTo(aGen);
+ end;
+ //else
+ // TarDocObjectAdder.SetTo(G, TarDocObject(anAdditionalData));
+
+  // устанавливает фильтр, который укладывает данные в СУБД
+  with TDBFilter(TDocSaveDBFilter.SetTo(aGen)) do
+  begin
+   Family := aDocFamily;
+   CurDocID := aDocID;
+   InternalFormat := True;
+   SaveMode := smSave;
+   ExcludeAttr := CctAllAttributes; // рассчитывается через k2_tiEditablePartsв TDocSaveDBFilter,
+                                    // если k2_tiEditableParts не придет атрибуты записываться не будут
+   ExcludeMainRec := True;          // см. выше
+
+   NeedEventforEraseAttrRec := [ctKW];
+   OnEraseAttrRecords := aEraseNotify;
+  end;
+//#UC END# *57CFF0F8008A_57C52AA20128_impl*
+//#UC START# *57CFF0F8008A_57C52AA20128_var*
+//#UC END# *57CFF0F8008A_57C52AA20128_var*

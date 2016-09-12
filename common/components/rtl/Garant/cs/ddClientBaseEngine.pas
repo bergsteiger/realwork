@@ -1,9 +1,12 @@
 //..........................................................................................................................................................................................................................................................
 unit ddClientBaseEngine;
 
-// $Id: ddClientBaseEngine.pas,v 1.44 2016/08/11 10:47:41 lukyanets Exp $
+// $Id: ddClientBaseEngine.pas,v 1.45 2016/09/08 09:15:44 lukyanets Exp $
 
 // $Log: ddClientBaseEngine.pas,v $
+// Revision 1.45  2016/09/08 09:15:44  lukyanets
+// Executor умеет подстраивать временный каталог
+//
 // Revision 1.44  2016/08/11 10:47:41  lukyanets
 // ѕолчищаем dt_user
 //
@@ -924,7 +927,7 @@ var
       begin
        f_BaseFlags := aLoginParam.rBaseFlags;
        aLoginParam.rDataParams.UserID := CSClient.ClientId;
-       TdaDataProviderSuperFactory.Instance.CorrectByClient(aLoginParam.rDataParams);
+       TdaDataProviderSuperFactory.Instance.CorrectByClient(aLoginParam.rDataParams, ServiceParams.CorrectTempPath);
        aLoginParam.rDataParams.Login := f_ServiceParams.Login;
        aLoginParam.rDataParams.Password := f_ServiceParams.Password;
        DataParams := aLoginParam.rDataParams;

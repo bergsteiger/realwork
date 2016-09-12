@@ -1,0 +1,29 @@
+UNIT CutSuffix.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+STRING FUNCTION .CutSuffix
+  STRING IN aString
+  STRING IN aSuffix
+ RULES
+  ( aString .IsNil )
+   ''
+  ( aSuffix .IsNil )
+   aString
+  DEFAULT
+  begin   
+   aString >>> Result 
+   if ( aSuffix Result EndsStr ) then
+   begin
+    Result string:Len aSuffix string:Len - 
+    0
+    Result
+    string:Substring >>> Result
+   end // ( aSuffix Result EndsStr )
+   Result
+  end // DEFAULT
+ ; // RULES
+ >>> Result 
+; // .CutSuffix

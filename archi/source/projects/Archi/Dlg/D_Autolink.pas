@@ -14,6 +14,7 @@ type
     edTopic: TEdit;
     cbDeleteLinks: TCheckBox;
     cbSelectionOnly: TCheckBox;
+    rbCurrentDoc: TRadioButton;
     procedure edTopicChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure OKClick(Sender: TObject);

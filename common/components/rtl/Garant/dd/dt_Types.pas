@@ -1,8 +1,11 @@
 Unit Dt_Types;
 
-{ $Id: dt_Types.pas,v 1.76 2016/08/11 10:47:44 lukyanets Exp $ }
+{ $Id: dt_Types.pas,v 1.77 2016/09/09 11:01:15 lukyanets Exp $ }
 
 // $Log: dt_Types.pas,v $
+// Revision 1.77  2016/09/09 11:01:15  lukyanets
+// Отправляем сообщение
+//
 // Revision 1.76  2016/08/11 10:47:44  lukyanets
 // Полчищаем dt_user
 //
@@ -599,7 +602,7 @@ Interface
 
 uses
  Classes,
- l3Types, l3Date, l3Base,
+ l3Types, l3Date, l3Base, l3MarshalledTypes,
 
  k2Tags,
  HT_Const,
@@ -613,9 +616,19 @@ uses
  +------------------------------------------------------------------------+}
 type
  (* Внутренние типы документов *)
-  TDocType        = (dtNone, dtText, dtRelText, dtShortCut, dtObject, dtDictEntry,
-                     dtAnnotation, dtFlash, dtGroupOp);
+  TDocType = l3MarshalledTypes.TDocType;
+
 const
+  dtNone = l3MarshalledTypes.dtNone;
+  dtText = l3MarshalledTypes.dtText;
+  dtRelText = l3MarshalledTypes.dtRelText;
+  dtShortCut = l3MarshalledTypes.dtShortCut;
+  dtObject = l3MarshalledTypes.dtObject;
+  dtDictEntry = l3MarshalledTypes.dtDictEntry;
+  dtAnnotation = l3MarshalledTypes.dtAnnotation;
+  dtFlash = l3MarshalledTypes.dtFlash;
+  dtGroupOp = l3MarshalledTypes.dtGroupOp;
+
   cRealDocType    = [dtText, dtShortCut, dtObject, dtDictEntry, dtFlash];
   (* самостоятельные типы документов  *)
 type

@@ -254,7 +254,9 @@ function TncsServerParamsStorage.Get_TempPath: AnsiString;
 //#UC END# *550982360334_5507E70200AFget_var*
 begin
 //#UC START# *550982360334_5507E70200AFget_impl*
- Result := GetWindowsTempFolder;
+ Result := ddAppConfiguration.AsString['TempPath'];
+ if not DirectoryExists(Result) then
+  Result := GetWindowsTempFolder;
 //#UC END# *550982360334_5507E70200AFget_impl*
 end;//TncsServerParamsStorage.Get_TempPath
 
@@ -309,6 +311,7 @@ procedure TncsServerParamsStorage.BuildConfig(aConfig: TddAppConfiguration;
 var
  l_Default: TddConfigValue;
  l_Item: TddBooleanConfigItem;
+ l_BaseItem: TddBaseConfigItem;
 
  function lp_AddFolderNameItem(const aAlias: AnsiString;
    const aCaption: AnsiString;
@@ -337,6 +340,10 @@ begin
    'Папка для хранения сканированных образов документов'));
   aConfig.AddItem(lp_AddFolderNameItem('ImageCachePath', 'Кэш образов документов',
    'Папка для кэширования образов документов'));
+  l_BaseItem := lp_AddFolderNameItem('TempPath', 'Временный каталог',
+   'Каталог для временных файлов, если не указан будет использован системный временный каталог');
+  TddFolderNameConfigItem(l_BaseItem).Required := False;
+  aConfig.AddItem(l_BaseItem);
   l3FillChar(l_Default, SizeOf(l_Default), 0);
   l_Default.Kind := dd_vkBoolean;
   l_Default.AsBoolean := False;

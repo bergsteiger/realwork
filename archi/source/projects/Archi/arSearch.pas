@@ -2,7 +2,7 @@ unit arSearch;
 
 {$Include l3Define.inc}
 
-{ $Id: arSearch.pas,v 1.49 2016/06/16 05:38:41 lukyanets Exp $ }
+{ $Id: arSearch.pas,v 1.50 2016/09/09 11:42:49 fireton Exp $ }
 
 interface
 
@@ -16,6 +16,7 @@ uses
  l3Types, 
  l3Base, 
  l3Interfaces,
+ l3Variant,
  l3LongintList,
       
  k2Base,
@@ -99,6 +100,14 @@ type
                          const aBlock    : InevRange): Bool; override;
  end;{TevTextReplacer}
 
+ TarAnyNonEmptyParagraphSearcher = class(TevAnyParagraphSearcher)
+  protected
+   function DoCheckText(aPara : Tl3Variant;
+                  aText       : Tl3CustomString;
+                  const aSel  : TevPair;
+                   out theSel : TevPair): Bool;  override;
+ end;
+
 implementation
 
 uses
@@ -113,7 +122,8 @@ uses
  AddrSup,
  arTypes,
  evParaTools,
- afwNavigation;
+ afwNavigation,
+ PageBreak_Const, l3DataContainerWithoutIUnknownPrim;
 
 {TarMultiHyperlinkSearcher}
 procedure TarMultiHyperlinkSearcher.Cleanup;
@@ -287,6 +297,16 @@ begin
  except
   Result := False;
  end;
+end;
+
+function TarAnyNonEmptyParagraphSearcher.DoCheckText(aPara : Tl3Variant;
+                                               aText       : Tl3CustomString;
+                                               const aSel  : TevPair;
+                                                out theSel : TevPair): Bool;
+begin
+ Result := not (aPara.IsKindOf(k2_typPageBreak) or aText.Empty);
+ if Result then
+  Result := inherited DoCheckText(aPara, aText, aSel, theSel);
 end;
 
 end.

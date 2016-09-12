@@ -18,6 +18,21 @@ BOOLEAN elem_func IsScriptKeywordsPack
  >>> Result
 ; // IsScriptKeywordsPack
 
+BOOLEAN elem_func IsUtilityPack
+ Cached:
+ (
+  RULES
+   ( Self .IsStereotype st_UtilityPack )
+    true
+   ( Self .IsScriptKeywordsPack ) 
+    true
+   DEFAULT
+    false
+  ; // RULES 
+ ) 
+ >>> Result
+; // IsUtilityPack
+
 BOOLEAN elem_func IsAcceptableForScripts
  Self .UPisTrue 'extprop:rc:isAcceptableForScripts' 
  >>> Result
@@ -249,6 +264,16 @@ BOOLEAN elem_func IsLibrary
  >>> Result
 ; // IsLibrary
 
+BOOLEAN elem_func IsProject
+ Self .IsStereotype st_Project
+ >>> Result
+; // IsProject
+
+BOOLEAN elem_func IsProjectGroup
+ Self .IsStereotype st_ProjectGroup
+ >>> Result
+; // IsProjectGroup
+
 BOOLEAN elem_func IsVCMModule
  Self .IsStereotype st_VCMModule
  >>> Result
@@ -303,6 +328,11 @@ BOOLEAN elem_func IsEvent
  Self .IsStereotype st_Event
  >>> Result
 ; // IsEvent
+
+BOOLEAN elem_func IsMixIn
+ Self .IsStereotype st_Impurity
+ >>> Result
+; // IsMixIn
 
 BOOLEAN elem_func IsSimpleClass
  Cached:
@@ -601,3 +631,12 @@ elem_iterator ConsumedEvents
  >>> Result
 ; // ConsumedEvents
 
+BOOLEAN elem_func IsFacetIterator
+ Self .IsStereotype st_facetiterator 
+ >>> Result
+; // IsFacetIterator
+
+BOOLEAN elem_func IsMixInMirror
+ Self .IsStereotype st_MixInMirror
+ >>> Result
+; // IsMixInMirror

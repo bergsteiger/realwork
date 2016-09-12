@@ -4,9 +4,12 @@ unit evTableRowCursorPair;
 { Автор: Люлин А.В. ©     }
 { Модуль: evTableRowCursorPair - }
 { Начат: 17.12.2002 11:25 }
-{ $Id: evTableRowCursorPair.pas,v 1.30 2016/08/31 11:34:06 dinishev Exp $ }
+{ $Id: evTableRowCursorPair.pas,v 1.31 2016/09/08 11:19:50 dinishev Exp $ }
 
 // $Log: evTableRowCursorPair.pas,v $
+// Revision 1.31  2016/09/08 11:19:50  dinishev
+// {Requestlink:629346150}. Вторая попытка.
+//
 // Revision 1.30  2016/08/31 11:34:06  dinishev
 // {Requestlink:629346150}
 //
@@ -158,9 +161,6 @@ type
                             aForDrawing: Boolean): InevRange;
         override;
         {-}              
-     procedure CorrectChildBlock(const aView: InevView; const aSearcher: IevSearcher; const aChildBlock: InevRange);
-        override;
-        {-}
     public
     // public methods
       {$IfDef evNeedEditableCursors}
@@ -190,22 +190,6 @@ uses
 // start class TevTableRowCursorPair 
 
 {$IfDef evNeedEditableCursors}
-procedure TevTableRowCursorPair.CorrectChildBlock(const aView: InevView;
-  const aSearcher: IevSearcher; const aChildBlock: InevRange);
-var
- l_Start : InevBasePoint;
- l_Finish: InevBasePoint;
-begin
- if (ev_soSelTextWithWholeCell in aSearcher.Options) and (aChildBlock <> nil) then
- begin
-  aChildBlock.GetBorderPoints(l_Start, l_Finish);
-  if (l_Start <> nil) then
-   l_Start.Move(aView, ev_ocTopLeft);
-  if (l_Finish <> nil) then
-   l_Finish.Move(aView, ev_ocBottomRight);
- end; // if (ev_soSelTextWithWholeCell in aSearcher.Options) and (aChildBlock <> nil) then
-end;
-
 function TevTableRowCursorPair.DoDelete(const aView : InevView;
                                       const anOpPack : InevOp = nil;
                                       aMode          : TevClearMode = ev_cmAll;

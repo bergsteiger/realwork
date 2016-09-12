@@ -433,20 +433,38 @@ USES
  TransformElementMemberIfNeeded.ms.dict
 ;
 
-elem_iterator UpList
+BOOLEAN elem_func IsView
  RULES
   ( Self IsIntf )
    ( Self pop:WordBox:Boxed )
   DEFAULT
    Self
  ; // RULES  
- MembersIterator
- .filter> .IsUP
- .map> (
-   IN aVar
-  aVar DO aVar TransformElementMemberIfNeeded SWAP DROP
-  // - трансформируем и оставляем только переменную, а значение - выкидываем
- ) // .map>
+ pop:Word:Producer @ MEVIEW ?==
+ >>> Result
+; // IsView
+
+elem_iterator UpList
+ RULES
+  ( Self .IsView )
+   ( Self .Original call.me )
+  DEFAULT
+   begin
+    RULES
+     ( Self IsIntf )
+      ( Self pop:WordBox:Boxed )
+     DEFAULT
+      Self
+    ; // RULES  
+    MembersIterator
+    .filter> .IsUP
+    .map> (
+      IN aVar
+     aVar DO aVar TransformElementMemberIfNeeded SWAP DROP
+     // - трансформируем и оставляем только переменную, а значение - выкидываем
+    ) // .map>
+   end // DEFAULT
+  ; // RULES
  >>> Result
 ; // UpList
 

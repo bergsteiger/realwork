@@ -12,6 +12,9 @@ interface
 uses
  l3IntfUses
 ;
+
+type
+ TdtOnEraseAttrRecords = procedure;
 {$IfEnd} // NOT Defined(Nemesis)
 
 implementation

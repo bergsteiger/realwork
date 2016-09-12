@@ -709,6 +709,7 @@ uses
  {$IfEnd} // Defined(ServerTasks)
  , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
  , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
+ , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
  , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
  {$If NOT Defined(Nemesis)}
  , csProcessTask in 'w:\common\components\rtl\Garant\cs\csProcessTask.pas'
@@ -1932,12 +1933,17 @@ uses
  , alcuDownloadDocStreamExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocStreamExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If Defined(ServerTasks)}
+ , alcuDocTransferRequestExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDocTransferRequestExecutor.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If Defined(ServerTasks)}
  , alcuDownloadDocRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocRequest.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If Defined(ServerTasks)}
+ , alcuWaitableRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuWaitableRequest.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
  , csDownloadDocStream in 'w:\common\components\rtl\Garant\cs\csDownloadDocStream.pas'
  {$IfEnd} // NOT Defined(Nemesis)
- , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
  , csDownloadDocStream_Const in 'w:\common\components\rtl\Garant\EVD\csDownloadDocStream_Const.pas'
  {$If NOT Defined(Nemesis)}
  , csDownloadDocStreamReply in 'w:\common\components\rtl\Garant\cs\csDownloadDocStreamReply.pas'
@@ -1945,6 +1951,9 @@ uses
  , csDownloadDocStreamReply_Const in 'w:\common\components\rtl\Garant\EVD\csDownloadDocStreamReply_Const.pas'
  , arDocAttributesMixer in 'w:\archi\source\projects\Common\Utils\arDocAttributesMixer.pas'
  , m4DocumentAddress in 'w:\common\components\rtl\Garant\m4\m4DocumentAddress.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_IFltr in 'w:\common\components\rtl\Garant\DT\dt_IFltr.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , m3DBInterfaces in 'w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas'
  , m3Interfaces in 'w:\common\components\rtl\Garant\m3\m3Interfaces.pas'
  , m3StorageInterfaces in 'w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas'
@@ -2016,6 +2025,9 @@ uses
  , dt_Serv in 'w:\common\components\rtl\Garant\DT\dt_Serv.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , m3DBFiler in 'w:\common\components\rtl\Garant\m3\m3DBFiler.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_TblCacheDef in 'w:\common\components\rtl\Garant\DT\dt_TblCacheDef.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , m3DocumentAddress in 'w:\common\components\rtl\Garant\m3\m3DocumentAddress.pas'
  , DownloadDocRequest_Const in 'w:\common\components\rtl\Garant\EVD\DownloadDocRequest_Const.pas'
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'

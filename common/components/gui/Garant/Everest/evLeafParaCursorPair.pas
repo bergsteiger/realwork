@@ -4,9 +4,12 @@ unit evLeafParaCursorPair;
 { Автор: Люлин А.В. ©     }
 { Модуль: evLeafParaCursorPair - }
 { Начат: 16.10.2003 19:36 }
-{ $Id: evLeafParaCursorPair.pas,v 1.21 2014/04/08 12:35:09 lulin Exp $ }
+{ $Id: evLeafParaCursorPair.pas,v 1.22 2016/09/08 11:19:50 dinishev Exp $ }
 
 // $Log: evLeafParaCursorPair.pas,v $
+// Revision 1.22  2016/09/08 11:19:50  dinishev
+// {Requestlink:629346150}. Вторая попытка.
+//
 // Revision 1.21  2014/04/08 12:35:09  lulin
 // - переходим от интерфейсов к объектам.
 //
@@ -162,6 +165,7 @@ type
                            const aSearcher : IevSearcher;
                            const Progress  : Il3Progress;
                            const aStart    : InevBasePoint;
+                           const aContext  : TevSearchContext;
                            out cFStart     : InevBasePoint;
                            out cFFinish    : InevBasePoint): Boolean;
         override;
@@ -173,6 +177,7 @@ implementation
 uses
   k2Tags,
 
+  evOp,
   evTypes
   ;
 
@@ -182,15 +187,38 @@ function TevLeafParaCursorPair.SearchPrim(const aView : InevView;
                                           const aSearcher : IevSearcher;
                                           const Progress  : Il3Progress;
                                           const aStart    : InevBasePoint;
+                                          const aContext  : TevSearchContext;
                                           out cFStart     : InevBasePoint;
                                           out cFFinish    : InevBasePoint): Boolean;
+
+   function lp_GetRange: InevRange;
+   var
+    l_Start : InevBasePoint;
+    l_Finish: InevBasePoint;
+   begin
+    if (ev_soBackward in aSearcher.Options) then
+    begin
+     l_Start := f_Start;
+     l_Finish := aStart;
+    end // if (ev_soBackward in aSearcher.Options) then
+    else
+    begin
+     l_Start := aStart;
+     l_Finish := f_Finish;
+    end;
+    if aContext.rSelectCellType = ev_spWholeCell then
+    begin
+     if (l_Start <> nil) then
+      l_Start.Move(aView, ev_ocTopLeft);
+     if (l_Finish <> nil) then
+      l_Finish.Move(aView, ev_ocBottomRight);
+    end; // if aContext.rSelectCellType = ev_spWholeCell then
+    Result := ParaX.Range(l_Start, l_Finish);
+   end;
   {override;}
   {-ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish)}
 begin
- if (ev_soBackward in aSearcher.Options) then
-  Result := aSearcher.Check(aView, ParaX.Range(f_Start, aStart), cFStart, cFFinish, nil)
- else
-  Result := aSearcher.Check(aView, ParaX.Range(aStart, f_Finish), cFStart, cFFinish, nil);
+ Result := aSearcher.Check(aView, lp_GetRange, cFStart, cFFinish, nil)
 end;
 
 end.

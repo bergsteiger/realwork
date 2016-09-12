@@ -12,8 +12,8 @@ uses
  l3IntfUses
  , msmConcreteModels
  , msmElementViews
- , msmModel
  , msmModelElements
+ , msmModel
 ;
 
 type

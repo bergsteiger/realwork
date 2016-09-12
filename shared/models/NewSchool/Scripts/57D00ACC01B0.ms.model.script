@@ -1,0 +1,157 @@
+// TmsmDrawing 57D00ACC01B0 GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D00ACC01B0
+
+ME ME_57D00B180365
+ MEPROP UID '57D00B180365'
+ MEPROP Name 'Model'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57D00ACC01B0 // TmsmDrawing
+ ;
+ MELINK Target WL 'ME_57D27E070278' '57ADC53E00B6.ms.model.script' // ImsmDrawingModel
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57D00B180365 Model
+
+ME ME_57D0199B00F9
+ MEPROP UID '57D0199B00F9'
+ MEPROP Name 'ModelStateChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D00ACC01B0 // TmsmDrawing
+ ;
+
+ENDME // ME_57D0199B00F9 ModelStateChanged
+
+ME ME_57D039BF03BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D00ACC01B0 // TmsmDrawing
+ ;
+ MELINK Target WL 'ME_57ADBA39026E' '57C99A680247.ms.model.script' // ListChangedEvent
+ ;
+
+ENDME // ME_57D039BF03BB 
+
+ME ME_57D039CC0276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D00ACC01B0 // TmsmDrawing
+ ;
+ MELINK Target WL 'ME_57B31D1000FA' '57C99A680247.ms.model.script' // CurrentElementChangedEvent
+ ;
+
+ENDME // ME_57D039CC0276 
+
+ME ME_57AD8E570241_ME_57D00ACC01B0
+ MELINK Original WL 'ME_57AD8E570241' '57B5730D0123.ms.model.script' // Fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57AD8E570241_ME_57D00ACC01B0 Fire
+
+ME ME_479731C50290_ME_57D00ACC01B0
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57D00ACC01B0 Cleanup
+
+ME ME_47D1602000C6_ME_57D00ACC01B0
+ MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_57D00ACC01B0 Create
+
+ME ME_48C6C044025E_ME_57D00ACC01B0
+ MELINK Original WL 'ME_48C6C044025E' '48BD1975029B.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C6C044025E_ME_57D00ACC01B0 Paint
+
+ME ME_48E22B250241_ME_57D00ACC01B0
+ MELINK Original WL 'ME_48E22B250241' '4799D29F033F.ms.model.script' // MouseMove
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48E22B250241_ME_57D00ACC01B0 MouseMove
+
+ME ME_4CC8414403B8_ME_57D00ACC01B0
+ MELINK Original WL 'ME_4CC8414403B8' '4799D29F033F.ms.model.script' // CreateWnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8414403B8_ME_57D00ACC01B0 CreateWnd
+
+ME ME_4E7896270076_ME_57D00ACC01B0
+ MELINK Original WL 'ME_4E7896270076' '4799D29F033F.ms.model.script' // MouseUp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E7896270076_ME_57D00ACC01B0 MouseUp
+
+ME ME_4F88473B03CD_ME_57D00ACC01B0
+ MELINK Original WL 'ME_4F88473B03CD' '4799D29F033F.ms.model.script' // MouseDown
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F88473B03CD_ME_57D00ACC01B0 MouseDown
+
+ME ME_57D00ACC01B0
+ MEPROP UID '57D00ACC01B0'
+ MEPROP Name 'TmsmDrawing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57D00A41032F' '57D00A41032F.ms.model.script' // Drawing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_467BA96E003C' '467BA96E003C.ms.model.script' // TafwControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57AD9309039B' '57B5730D0123.ms.model.script' // ImsmEventsSubscriber
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57D00B180365 // Model
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57D0199B00F9 // ModelStateChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57AD8E570241_ME_57D00ACC01B0 // Fire
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57D00ACC01B0 // Cleanup
+ ME_47D1602000C6_ME_57D00ACC01B0 // Create
+ ME_48C6C044025E_ME_57D00ACC01B0 // Paint
+ ME_48E22B250241_ME_57D00ACC01B0 // MouseMove
+ ME_4CC8414403B8_ME_57D00ACC01B0 // CreateWnd
+ ME_4E7896270076_ME_57D00ACC01B0 // MouseUp
+ ME_4F88473B03CD_ME_57D00ACC01B0 // MouseDown
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57D039BF03BB // ListChangedEvent
+ ME_57D039CC0276 // CurrentElementChangedEvent
+ )
+ ; // Dependencies
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmDrawing.pas'
+ UP extprop:rc:SelfName 'msmDrawing'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmDrawing'
+
+ENDME // ME_57D00ACC01B0 TmsmDrawing

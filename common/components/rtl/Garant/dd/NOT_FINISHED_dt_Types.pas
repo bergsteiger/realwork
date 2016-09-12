@@ -11,10 +11,21 @@ interface
 uses
  l3IntfUses
  , l3Types
+ , l3MarshalledTypes
  , evdDTTypes
 ;
 
 const
+ {* Алиасы для значений l3MarshalledTypes.TDocType }
+ dtNone = l3MarshalledTypes.dtNone;
+ dtText = l3MarshalledTypes.dtText;
+ dtRelText = l3MarshalledTypes.dtRelText;
+ dtShortCut = l3MarshalledTypes.dtShortCut;
+ dtObject = l3MarshalledTypes.dtObject;
+ dtDictEntry = l3MarshalledTypes.dtDictEntry;
+ dtAnnotation = l3MarshalledTypes.dtAnnotation;
+ dtFlash = l3MarshalledTypes.dtFlash;
+ dtGroupOp = l3MarshalledTypes.dtGroupOp;
  {* Алиасы для значений evdDTTypes.TepSupportFileType }
  outEVD = evdDTTypes.outEVD;
  outEVDtext = evdDTTypes.outEVDtext;
@@ -36,17 +47,8 @@ type
 
  TSubID = LongInt;
 
- TDocType = (
+ TDocType = l3MarshalledTypes.TDocType;
   {* Внутренние типы документов }
-  dtNone
-  , dtText
-  , dtRelText
-  , dtShortCut
-  , dtObject
-  , dtDictEntry
-  , dtAnnotation
-  , dtFlash
- );//TDocType
 
  TDiapasonRec = record
  end;//TDiapasonRec
