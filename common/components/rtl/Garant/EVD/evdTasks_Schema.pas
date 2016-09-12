@@ -1909,6 +1909,22 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//csUploadDocStreamReplyTag
 
+ UploadDocRequestTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "UploadDocRequest" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//UploadDocRequestTagClass
+
+ UploadDocRequestTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//UploadDocRequestTag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -2051,6 +2067,7 @@ type
    t_csUploadDocStream_DocPart : csUploadDocStream_DocPart_Tag;
    t_csUploadDocStream_DocClass : csUploadDocStream_DocClass_Tag;
    t_csUploadDocStreamReply : csUploadDocStreamReplyTag;
+   t_UploadDocRequest : UploadDocRequestTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -2150,6 +2167,7 @@ uses
   DownloadDocRequest_Const,
   csUploadDocStream_Const,
   csUploadDocStreamReply_Const,
+  UploadDocRequest_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -4869,6 +4887,27 @@ begin
  Result := csUploadDocStreamReplyTagClass.Make(Self);
 end;
 
+function UploadDocRequestTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typUploadDocRequest;
+end;//UploadDocRequestTagClass.TagType
+
+function UploadDocRequestTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('UploadDocRequest'));
+end;
+
+function UploadDocRequestTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
+end;
+
+function UploadDocRequestTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := UploadDocRequestTagClass.Make(Self);
+end;
+
 constructor TevdTasksSchema.Create;
 begin
  inherited;
@@ -6885,6 +6924,16 @@ begin
   begin
   end;//ErrorMessage
  end;//csUploadDocStreamReply
+ // UploadDocRequest
+ t_UploadDocRequest := DefineAutoType([t_ProcessTask], '', UploadDocRequestTag) As UploadDocRequestTag;
+ with t_UploadDocRequest do
+ begin
+  AtomClass := UploadDocRequestTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttUploadDoc);
+  end;//TaskType
+ end;//UploadDocRequest
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -6974,6 +7023,7 @@ begin
  t_DownloadDocRequest.Recalc;
  t_csUploadDocStream.Recalc;
  t_csUploadDocStreamReply.Recalc;
+ t_UploadDocRequest.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -7120,6 +7170,7 @@ begin
  t_csUploadDocStream_DocPart.InterfaceFactory := nil;
  t_csUploadDocStream_DocClass.InterfaceFactory := nil;
  t_csUploadDocStreamReply.InterfaceFactory := nil;
+ t_UploadDocRequest.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -7259,6 +7310,7 @@ begin
  FreeAndNil(t_csUploadDocStream_DocPart);
  FreeAndNil(t_csUploadDocStream_DocClass);
  FreeAndNil(t_csUploadDocStreamReply);
+ FreeAndNil(t_UploadDocRequest);
  inherited;
 end;
 

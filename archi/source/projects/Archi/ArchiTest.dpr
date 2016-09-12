@@ -2047,6 +2047,7 @@ uses
  , arArchiTestsAdapter in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\arArchiTestsAdapter.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
+ , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
  , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
  {$If Defined(AppClientSide)}
  , Main in 'w:\archi\source\projects\Archi\Main\Main.pas'

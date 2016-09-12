@@ -1,7 +1,10 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.162 2016/09/06 10:21:37 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.163 2016/09/12 12:27:53 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.163  2016/09/12 12:27:53  lukyanets
+// Принимаем и сохраняем
+//
 // Revision 1.162  2016/09/06 10:21:37  lukyanets
 // Более правильно синхронизируемся.
 //
@@ -1212,10 +1215,11 @@ uses
  Windows, Classes, SyncObjs, SysUtils, Messages, ExtCtrls,
  {$IFNDEf Service}Forms,{$ENDIF}
  l3Base, l3Date, l3LongintList, l3Interfaces,
- daTypes, 
+ daTypes,
  dt_Types,
  //dt_Tasks,
  dt_Doc, dt_Mail, l3BaseStream, l3Memory,
+ dt_TblCacheDef,
  ht_Const, CsQueryTypes,
  csProcessTask, ddImportPipe, ExportPipe, ddProgressObj,
  l3IniFile, l3ObjectRefList,
@@ -1331,6 +1335,7 @@ type
     function NeedProcessTask(const aTask: TddProcessTask): Boolean;
     procedure DoAddRequest(const aRequest: TddProcessTask);
     procedure DoAddActiveTask(const aTask: TddProcessTask);
+    procedure evntOnEraseAttrRecords(aAttrType : TCacheType; aDictID : TDictID; aDocID : TDocID; aSubID : TSubID);
  protected
     procedure AbortTask(const aTask: TddProcessTask);
     procedure FreezeTask(const aTask: TddProcessTask);
@@ -1467,7 +1472,8 @@ const
    cs_ttAACImport, cs_ttUnregistered, cs_ttRelPublish, cs_ttAnoncedExport,
    cs_ttHavanskyExport, cs_ttMdpSyncDicts, cs_ttMdpImportDocs, cs_ttContainer,
    cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport];
- alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand, cs_ttUserDefinedExport, cs_ttDownloadDoc];
+ alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand,
+   cs_ttUserDefinedExport, cs_ttDownloadDoc, cs_ttUploadDoc];
 
 implementation
 Uses
@@ -1487,6 +1493,7 @@ Uses
  alcuStrings, StrUtils, alcuAutoExport, ddAppConfigDataAdapters,
  ddAppConfigTypes, l3LongintListPrim, dt_DictTypes,
  dt_LinkServ, DT_DictConst, ddCaseCodeMaker, csImport, csServerTaskTypes, DT_Utils,
+ dt_DictSup,
  csUserDefinedExport,
  alcuSpellCorrectTask,
  alcuExport,
@@ -1519,6 +1526,8 @@ Uses
  alcuDeliveryResultExecutor,
  csDownloadDocStream,
  alcuDownloadDocStreamExecutor,
+ csUploadDocStream,
+ alcuUploadDocStreamExecutor,
  ncsDocStorageTransferReg,
  ncsTaskSendReg,
  ncsSendTask,
@@ -3204,11 +3213,9 @@ begin
  else if aMessage is TncsCorrectFolder then
   Result := TalcuCorrectFolderExecutor.Make(f_ActiveTaskList)
  else if aMessage is TcsDownloadDocStream then
-{$IFDEF csSynchroTransport}
   Result := TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, SpeedupRequest)
-{$ELSE csSynchroTransport}
-  Result := TalcuDetachedExecutor.Make(f_DetachedExecutorPool, TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, SpeedupRequest))
-{$ENDIF csSynchroTransport}
+ else if aMessage is TcsUploadDocStream then
+  Result := TalcuUploadDocStreamExecutor.Make(f_IncomingTasks, SpeedupRequest, evntOnEraseAttrRecords)
  else
   Result := nil;
 end;
@@ -3522,6 +3529,12 @@ end;
 procedure TddServerTaskManager.SpeedupRequest;
 begin
  PostMessage(f_SpeedupRequestHandle, msg_SpeedupRequest, 0, 0);
+end;
+
+procedure TddServerTaskManager.evntOnEraseAttrRecords(
+  aAttrType: TCacheType; aDictID: TDictID; aDocID: TDocID; aSubID: TSubID);
+begin
+ dictChangeToLogFile(aAttrType, aDictID, aDocID, aSubID);
 end;
 
 initialization

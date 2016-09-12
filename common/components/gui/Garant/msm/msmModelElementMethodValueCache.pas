@@ -14,6 +14,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwScriptingInterfaces
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3Interfaces
  , SyncObjs
 ;
 
@@ -39,6 +40,7 @@ type
    function FindData(const anItem: TmsmModelElementMethodValue;
     out theIndex: Integer): Boolean;
    procedure DeleteWordCachedValues(aWord: TtfwWord);
+   class function ScriptName(const aMethodName: Il3CString): Il3CString;
    class function Instance: TmsmModelElementMethodValueCache;
     {* Метод получения экземпляра синглетона TmsmModelElementMethodValueCache }
    class function Exists: Boolean;
@@ -52,14 +54,22 @@ uses
  {$If NOT Defined(NoScripts)}
  , tfwWordDeleteListeners
  {$IfEnd} // NOT Defined(NoScripts)
+ , msmWordsByName
  , SysUtils
+ {$If Defined(seCacheDict) AND NOT Defined(NoScripts)}
+ , tfwMainDictionaryCache
+ {$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)
  , l3Base
  //#UC START# *57B2E6B90102impl_uses*
+ , StrUtils
+ , l3String
+ , l3FileUtils
  , kwCompiledProcedure
  , kwForwardDeclaration
  , kwConstLikeCompiled
  , NewWordDefinitorPack
  , kwTemporaryCompiledCode
+ , tfwMainDictionary
  //#UC END# *57B2E6B90102impl_uses*
 ;
 
@@ -139,6 +149,17 @@ begin
 //#UC START# *57BC3A8400E3_57B2E6B90102_impl*
  Result := anItem;
  Result.rWord := Result.rWord.GetRefForCompare;
+ if TmsmWordsByName.Exists then
+  with TmsmWordsByName.Instance do
+  begin
+   Lock;
+   try
+    if Has(Result.rName) then
+     Result.rName := ValueSlotByKey(Result.rName).Key.AsCStr;
+   finally
+    Unlock;
+   end;//try..finally
+  end;//TmsmWordsByName.Instance
 //#UC END# *57BC3A8400E3_57B2E6B90102_impl*
 end;//TmsmModelElementMethodValueCache.CheckItem
 
@@ -188,6 +209,17 @@ begin
  end;//l_NeedClear
 //#UC END# *57D25F960241_57B2E6B90102_impl*
 end;//TmsmModelElementMethodValueCache.DeleteWordCachedValues
+
+class function TmsmModelElementMethodValueCache.ScriptName(const aMethodName: Il3CString): Il3CString;
+//#UC START# *57D66CDF00D6_57B2E6B90102_var*
+const
+ cPath = 'C:\Temp\Scripts\Stubs\';
+//#UC END# *57D66CDF00D6_57B2E6B90102_var*
+begin
+//#UC START# *57D66CDF00D6_57B2E6B90102_impl*
+ Result := TtfwCStringFactory.C(ConcatDirName(cPath, AnsiReplaceStr(l3Str(aMethodName), ':', '_')) + '.stub.script');
+//#UC END# *57D66CDF00D6_57B2E6B90102_impl*
+end;//TmsmModelElementMethodValueCache.ScriptName
 
 {$If NOT Defined(NoScripts)}
 procedure TmsmModelElementMethodValueCache.Notify(aWord: TtfwWord);

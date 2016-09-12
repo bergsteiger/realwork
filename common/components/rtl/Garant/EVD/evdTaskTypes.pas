@@ -87,7 +87,8 @@ type
                 cs_ttSchedulerProxy,
                 cs_ttMdpSyncStages,
                 cs_ttMdpSyncImport,
-                cs_ttDownloadDoc
+                cs_ttDownloadDoc,
+                cs_ttUploadDoc
                 );
 
  TCsNotificationType = (ntEmpty,

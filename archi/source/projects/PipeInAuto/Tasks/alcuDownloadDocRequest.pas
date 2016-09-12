@@ -157,8 +157,8 @@ begin
     end;
     try
      TevdNativeReader.SetTo(l_Gen);
-     (l_Gen as TevdNativeReader).Filer := l_ReadFiler;
-     (l_Gen as TevdNativeReader).Execute;
+     TevdNativeReader(l_Gen).Filer := l_ReadFiler;
+     TevdNativeReader(l_Gen).Execute;
     finally
      FreeAndNil(l_ReadFiler);
     end;

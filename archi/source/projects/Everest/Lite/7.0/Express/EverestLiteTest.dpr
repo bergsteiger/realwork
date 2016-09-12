@@ -2060,6 +2060,7 @@ uses
  , evCommonTypes in 'w:\common\components\gui\Garant\EverestCommon\evCommonTypes.pas'
  , arCommonTypes in 'w:\archi\source\projects\Common\Utils\arCommonTypes.pas'
  , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
+ , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
  , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
  , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
  , D_PicSizeEdit in 'w:\archi\source\projects\Common\Dialogs\D_PicSizeEdit.pas'

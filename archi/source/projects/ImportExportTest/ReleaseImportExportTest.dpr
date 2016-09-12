@@ -2086,6 +2086,7 @@ uses
  , ddHTinit in 'w:\common\components\rtl\Garant\dd\ddHTinit.pas'
  , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
  , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
+ , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
  , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
  , l3IniFile in 'w:\common\components\rtl\Garant\L3\l3IniFile.pas'
  {$If Defined(AppClientSide) AND NOT Defined(Nemesis)}

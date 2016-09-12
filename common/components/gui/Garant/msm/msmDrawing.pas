@@ -83,6 +83,7 @@ type
    procedure WMVScroll(var Msg: TWMVScroll); message WM_VSCROLL;
    procedure WndProc(var Message: TMessage); override;
    procedure WMSize(var Msg: TWMSize); message WM_SIZE;
+   procedure WMEraseBkGnd(var Msg : TWMEraseBkGnd); message WM_ERASEBKGND;
    procedure SetScrollInfo;
  //#UC END# *57D00ACC01B0publ*
  end;//TmsmDrawing
@@ -217,6 +218,7 @@ var
    CN.Canvas.Pen.Width := 2;
    CN.Canvas.Pen.Color := clBlack;
    CN.Canvas.Brush.Color := clBlack;
+   CN.Canvas.Pen.Style := psSolid;
   end;//SetPen
 
  const
@@ -262,6 +264,14 @@ var
   l_N := anElement.StringProp['Signature'];
   CN.PushClipRect;
   try
+   l_WR := l_TextRect.R.WR;
+   CN.DrawText(l3PCharLen(l_N), l_WR, DT_CALCRECT or DT_CENTER or DT_WORDBREAK or DT_END_ELLIPSIS);
+   if (l_WR.Bottom > l_TextRect.Bottom) then
+   begin
+    CN.Font.BackColor := clWhite;
+    CN.FillEmptyRect(l3SRect(l_TextRect.Left, l_TextRect.Bottom, l_TextRect.Right, l_WR.Bottom));
+    SetBrush;
+   end;//l_WR.Bottom > l_TextRect.Bottom
    CN.ClipRect := CN.DR2LR(l_TextRect);
    l_WR := l_TextRect.R.WR;
    CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_WORDBREAK or DT_END_ELLIPSIS);
@@ -274,6 +284,116 @@ var
   if anElement.IsSameElement(aCurrentElement) then
    DrawSelection(aRect);
  end;//DrawElement
+
+ procedure DrawLink(const anElement: ImsmModelElement);
+
+  procedure SetBrush;
+  begin//SetBrush
+   CN.Font.ForeColor := clBlack;
+   CN.Font.BackColor := clWhite;
+  end;//SetBrush
+
+  procedure SetPen;
+  begin//SetPen
+   CN.Canvas.Pen.Width := 1{2};
+   CN.Canvas.Pen.Color := clSilver{clBlack};
+   CN.Canvas.Brush.Color := clWhite{clBlack};
+   CN.Canvas.Pen.Style := psDash;
+  end;//SetPen
+
+ var
+  l_From : ImsmModelElement;
+  l_To : ImsmModelElement;
+  l_FromR : Tl3SRect;
+  l_ToR : Tl3SRect;
+  l_FromP : Tl3SPoint;
+  l_ToP : Tl3SPoint;
+  l_ClipRgn : HRGN;
+  l_RectRgn : HRGN;
+  l_N : Il3CString;
+  l_TextRect : Tl3SRect;
+  l_WR : TRect;
+  l_Flags : Word;
+ begin//DrawLink
+  l_From := anElement.ElementProp['From'];
+  l_To := anElement.ElementProp['To'];
+  if (l_From <> nil) AND (l_To <> nil) then
+  begin
+   l_FromR := ElementRect(l_From);
+   l_ToR := ElementRect(l_To);
+   l_FromP.X := (l_FromR.Left + l_FromR.Right) div 2;
+   l_FromP.Y := (l_FromR.Top + l_FromR.Bottom) div 2;
+   l_ToP.X := (l_ToR.Left + l_ToR.Right) div 2;
+   l_ToP.Y := (l_ToR.Top + l_ToR.Bottom) div 2;
+   SetPen;
+   with CN.LR2DR(CN.ClipRect) do
+   begin
+    l_ClipRgn := CreateRectRgn(Left, Top, Right, Bottom);
+   end;//with CN.LR2DR(CN.ClipRect)
+   try
+    l_RectRgn := CreateRectRgn(l_FromR.Left, l_FromR.Top, l_FromR.Right, l_FromR.Bottom);
+    try
+     CombineRgn(l_ClipRgn, l_ClipRgn, l_RectRgn, RGN_DIFF);
+    finally
+     DeleteObject(l_RectRgn);
+    end;//try..finally
+    l_RectRgn := CreateRectRgn(l_ToR.Left, l_ToR.Top, l_ToR.Right, l_ToR.Bottom);
+    try
+     CombineRgn(l_ClipRgn, l_ClipRgn, l_RectRgn, RGN_DIFF);
+    finally
+     DeleteObject(l_RectRgn);
+    end;//try..finally
+    CN.PushClipRect;
+    try
+     SelectClipRgn(CN.DC, l_ClipRgn);
+     CN.Canvas.MoveTo(l_FromP.X, l_FromP.Y);
+     CN.Canvas.LineTo(l_ToP.X, l_ToP.Y);
+    finally
+     CN.PopClipRect;
+    end;//try..finally
+   finally
+    DeleteObject(l_ClipRgn);
+   end;//try..finally
+   l_N := anElement.StringProp['LinkName'];
+   if not l3IsNil(l_N) then
+   begin
+    if (l_FromP.X < l_ToP.X) then
+    begin
+     l_TextRect.Left := l_FromP.X;
+     l_TextRect.Right := l_ToP.X;
+    end//l_FromP.X < l_ToP.X
+    else
+    begin
+     l_TextRect.Right := l_FromP.X;
+     l_TextRect.Left := l_ToP.X;
+    end;//l_FromP.X < l_ToP.X
+
+    if (l_FromP.Y < l_ToP.Y) then
+    begin
+     l_TextRect.Top := l_FromP.Y;
+     l_TextRect.Bottom := l_ToP.Y;
+    end//l_FromP.Y < l_ToP.Y
+    else
+    begin
+     l_TextRect.Bottom := l_FromP.Y;
+     l_TextRect.Top := l_ToP.Y;
+    end;//l_FromP.Y < l_ToP.Y
+    CN.Font.Size := 7;
+    SetBrush;
+    l_WR := l_TextRect.R.WR;
+    l_Flags := CN.etoFlags;
+    CN.etoFlags := l_Flags AND not eto_Opaque;
+    CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_VCENTER or DT_SINGLELINE {or DT_END_ELLIPSIS});
+    CN.etoFlags := l_Flags;
+   end;//not l3IsNil(l_N)
+  end;//(l_From <> nil) AND (l_To <> nil)
+ end;//DrawLink
+
+ procedure FillEmpty;
+ begin//FillEmpty
+  CN.Font.BackColor := clWhite;
+  CN.FillEmptyRect(CN.LR2DR(CN.ClipRect));
+ end;//FillEmpty
 
 var
  l_List : ImsmModelElementStringList;
@@ -293,7 +413,7 @@ begin
    for l_Index := 0 to Pred(l_List.Count) do
    begin
     l_E := l_List[l_Index];
-    if (l_E <> nil) then
+    if (l_E <> nil) AND l_E.IsView then
     begin
      l_TextColor := clBlack;
      l_FillColor := l_E.IntProp['msm:View:ForeColor'];
@@ -308,8 +428,17 @@ begin
      DrawElement(l_E, ElementRect(l_E), l_Current);
     end;//l_E <> nil
    end;//for l_Index
+   FillEmpty;
+   for l_Index := 0 to Pred(l_List.Count) do
+   begin
+    l_E := l_List[l_Index];
+    if (l_E <> nil) AND not l_E.IsView then
+     DrawLink(l_E);
+   end;//for l_Index
+   Exit;
   end;//l_List <> nil
  end;//Model <> nil
+ FillEmpty;
 //#UC END# *48C6C044025E_57D00ACC01B0_impl*
 end;//TmsmDrawing.Paint
 
@@ -365,6 +494,13 @@ procedure TmsmDrawing.MouseDown(Button: TMouseButton;
  X: Integer;
  Y: Integer);
 //#UC START# *4F88473B03CD_57D00ACC01B0_var*
+var
+ l_LeftButton : Byte;
+ l_E : ImsmModelElement;
+ l_Pt : Tl3SPoint;
+ l_NewPt : Tl3SPoint;
+ l_ElementOrigin : Tl3SPoint;
+ l_ElementNewOrigin : Tl3SPoint;
 //#UC END# *4F88473B03CD_57D00ACC01B0_var*
 begin
 //#UC START# *4F88473B03CD_57D00ACC01B0_impl*
@@ -377,6 +513,39 @@ begin
    begin
     f_DoubleClickMoment := Now;
     Model.ElementToAction := ElementOnPointOrParent(l3SPoint(X, Y));
+   end//ssDouble in Shift
+   else
+   begin
+    l_Pt := l3SPoint(X, Y);
+    l_E := ElementOnPoint(l_Pt);
+    if (l_E <> nil) then
+    begin
+     with l3System.Mouse do
+     begin
+      l_LeftButton := LeftButton;
+      SetCapture(Self.Handle);
+      // - activate capture
+     end;//with l3System.Mouse
+     try
+      l_ElementOrigin := Self.ElementRect(l_E).TopLeft;
+      repeat
+       l_NewPt.GetCursorPos;
+       l_NewPt.Convert(ScreenToClient);
+       if not l_Pt.EQ(l_NewPt) then
+       begin
+        l_ElementNewOrigin := l_ElementOrigin.Add(l_NewPt.Sub(l_Pt)).Add(f_Origin);
+        l_E.IntProp['msm:View:X'] := l_ElementNewOrigin.X;
+        l_E.IntProp['msm:View:Y'] := l_ElementNewOrigin.Y;
+        l_ElementOrigin := l_ElementNewOrigin.Sub(f_Origin);
+        l_Pt := l_NewPt;
+        Invalidate;
+        Repaint;
+       end;//not l_Pt.EQ(l_NewPt)
+      until not l3System.Keyboard.AsyncKey[l_LeftButton].Down;
+     finally
+      l3System.Mouse.ReleaseCapture;
+     end;//try..finally
+    end;//l_E <> nil
    end;//ssDouble in Shift
   mbRight:
    Model.CurrentElement := ElementOnPointOrParent(l3SPoint(X, Y));
@@ -568,6 +737,12 @@ procedure TmsmDrawing.WMSize(var Msg: TWMSize);
 begin
  inherited;
  Self.SetScrollInfo;
+end;
+
+procedure TmsmDrawing.WMEraseBkGnd(var Msg : TWMEraseBkGnd);
+  {-}
+begin
+ Msg.Result := 1;  {don't erase background}
 end;
 
 procedure TmsmDrawing.SetScrollInfo;

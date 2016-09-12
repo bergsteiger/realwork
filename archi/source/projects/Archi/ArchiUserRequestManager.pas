@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.118 2016/09/09 10:57:08 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.119 2016/09/12 12:27:53 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.119  2016/09/12 12:27:53  lukyanets
+// Принимаем и сохраняем
+//
 // Revision 1.118  2016/09/09 10:57:08  lukyanets
 // Отправляем сообщение
 //
@@ -669,7 +672,7 @@ Uses
  IdException, DateUtils, dt_DictConst, dt_Const, TypInfo, csLineRequest,
  csServerStatusRequest, csExportResultRequest, csImport, csCommonDataRequest, csRequestTask,
  l3FileUtils, csSpellCorrectTask, CsExport,
-  ncsMessageInterfaces, ncsMessage,
+  ncsMessageInterfaces, ncsSynchroCompatibilityClientTransporter, ncsMessage,
   csCommandsManager, csAutoAnnoExport, csAACImport, csAutoClassTask, csAnnotationTask,
   csAutoSpell, arDeliveryList, csRelPublishTask, l3StopWatch, csMdpSyncDicts, csMdpImportDocs,
   csContainerTask, csSchedulerProxyTask, csMdpSyncStages, csMdpSyncImport,
@@ -1477,7 +1480,7 @@ begin
  theStream := nil;
  if ArchiRequestManager.CSClient.IsStarted then
  begin
-  l_Transporter := MakeTransporter(qtalcuSendCustomMessage);
+  l_Transporter := TncsSynchroCompatibilityClientTransporter.Make(qtalcuSendCustomMessage);
   try
    l_Transporter.Connect(CSClient.ServerIp, CSClient.ServerPort, l3CreateStringGUID);
    try
@@ -1530,7 +1533,7 @@ begin
  Result := False;
  if ArchiRequestManager.CSClient.IsStarted then
  begin
-  l_Transporter := MakeTransporter(qtalcuSendCustomMessage);
+  l_Transporter := TncsSynchroCompatibilityClientTransporter.Make(qtalcuSendCustomMessage);
   try
    l_Transporter.Connect(CSClient.ServerIp, CSClient.ServerPort, l3CreateStringGUID);
    try
