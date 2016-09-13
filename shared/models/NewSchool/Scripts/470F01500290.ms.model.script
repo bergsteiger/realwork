@@ -1,0 +1,1579 @@
+// Containers 470F01500290 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_470F01500290
+
+ME ME_470F01DB0148
+ MEPROP UID '470F01DB0148'
+ MEPROP Name 'Const Iterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константный итератор по контейнеру'#13#10'---'#13#10'Используя константный итератор нельзя изменить содержимое контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F016F00CB' '470384F502CE.ms.model.script' // Iterator
+ )
+ ; // Inherits
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Const Iterator.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Const Iterator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F01DB0148 Const Iterator
+
+ME ME_470F20E30157
+ MEPROP UID '470F20E30157'
+ MEPROP Name 'ContainerGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'набор генераторов, реализуемых контэйнерами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47022B8800DA' '47022B0D038A.ms.model.script' // CORBA IDL
+ WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ WL 'ME_47032C8B009C' '4773984F02AA.ms.model.script' // Дельфи-DLL Адаптер
+ WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Inherits
+ UP "internal" true
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\ContainerGenerator.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\ContainerGenerator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F20E30157 ContainerGenerator
+
+FORWARD ME_470F07F9004E
+
+ME ME_470F0883001F
+ MEPROP UID '470F0883001F'
+ MEPROP Name 'attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'определяет тип данных контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F07F9004E // BaseContainer
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ UP "available target stereotypes" 'const'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\BaseContainer\attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0883001F attr
+
+ME ME_470F086D0148
+ MEPROP UID '470F086D0148'
+ MEPROP Name 'force usage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'явно определяет, что элемент будет кем-то использован (нужно для проверки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F07F9004E // BaseContainer
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_470F086D0148 force usage
+
+ME ME_49015EE401E1
+ MEPROP UID '49015EE401E1'
+ MEPROP Name 'dump_container_def_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'сгенерить определение контэйнера для C++' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F07F9004E // BaseContainer
+ ;
+
+ENDME // ME_49015EE401E1 dump_container_def_h
+
+ME ME_470F036A003E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F07F9004E // BaseContainer
+ ;
+ MELINK Target HWL ME_470F01DB0148 // Const Iterator
+ ;
+
+ENDME // ME_470F036A003E 
+
+ME ME_470F0368006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F07F9004E // BaseContainer
+ ;
+ MELINK Target WL 'ME_470F016F00CB' '470384F502CE.ms.model.script' // Iterator
+ ;
+
+ENDME // ME_470F0368006D 
+
+ME ME_46E6D4BB0339_ME_470F07F9004E
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470F07F9004E wiki
+
+ME ME_47022BBE0261_ME_470F07F9004E
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F07F9004E idl
+
+ME ME_47022C88029F_ME_470F07F9004E
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F07F9004E h
+
+ME ME_470321950119_ME_470F07F9004E
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F07F9004E java
+
+ME ME_47032EC4032C_ME_470F07F9004E
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F07F9004E dll.h
+
+ME ME_47032ED002DE_ME_470F07F9004E
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F07F9004E dll.cpp
+
+ME ME_4704C0E30186_ME_470F07F9004E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F07F9004E constraint
+
+ME ME_470F152700FA_ME_470F07F9004E
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F07F9004E pas
+
+ME ME_470F1571031C_ME_470F07F9004E
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F07F9004E intf.pas
+
+ME ME_470F07F9004E
+ MEPROP UID '470F07F9004E'
+ MEPROP Name 'BaseContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовых стереотип для контейнеров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_470F20E30157 // ContainerGenerator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_470F086D0148 // force usage
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49015EE401E1 // dump_container_def_h
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470F07F9004E // wiki
+ ME_47022BBE0261_ME_470F07F9004E // idl
+ ME_47022C88029F_ME_470F07F9004E // h
+ ME_470321950119_ME_470F07F9004E // java
+ ME_47032EC4032C_ME_470F07F9004E // dll.h
+ ME_47032ED002DE_ME_470F07F9004E // dll.cpp
+ ME_4704C0E30186_ME_470F07F9004E // constraint
+ ME_470F152700FA_ME_470F07F9004E // pas
+ ME_470F1571031C_ME_470F07F9004E // intf.pas
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F0883001F // attr
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_470F036A003E // Const Iterator
+ ME_470F0368006D // Iterator
+ )
+ ; // Dependencies
+ UP "visability type" '+#-'
+ UP "visualization bg color" 15787730
+ UP "visualization f-font color" 6572835
+ UP "visualization f-line color" 6572835
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\BaseContainer.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\BaseContainer'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F07F9004E BaseContainer
+
+FORWARD ME_470F01FA031C
+
+ME ME_470F02CE005D
+ MEPROP UID '470F02CE005D'
+ MEPROP Name 'allocator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Аллокатор элементов контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01FA031C // BaseMap
+ ;
+ UP "link type" 'l'
+ UP "personal label" 'code_allocator'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\BaseMap\allocator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F02CE005D allocator
+
+FORWARD ME_4BFA518A001D
+
+ME ME_470F0428034B
+ MEPROP UID '470F0428034B'
+ MEPROP Name 'key'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'тип ключа, по которому хранятся данные в мапе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BFA518A001D // attr
+ ;
+ UP "available target stereotypes" 'const'
+ UP "empty target" true
+ UP "link type" 'arl'
+ UP "personal label" 'code_attr_key'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\BaseMap\attr\key'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0428034B key
+
+ME ME_46E6D4BB0339_ME_4BFA518A001D
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4BFA518A001D wiki
+
+ME ME_470484D50138_ME_4BFA518A001D
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4BFA518A001D wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4BFA518A001D
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4BFA518A001D constraint
+
+ME ME_4705CBD6003E_ME_4BFA518A001D
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4BFA518A001D wiki_child_kind
+
+ME ME_470F1571031C_ME_4BFA518A001D
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4BFA518A001D intf.pas
+
+ME ME_470F15B800CB_ME_4BFA518A001D
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4BFA518A001D impl.pas
+
+ME ME_4BFA518A001D
+ MEPROP UID '4BFA518A001D'
+ MEPROP Name 'attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01FA031C // BaseMap
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F0883001F // attr
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4BFA518A001D // wiki
+ ME_470484D50138_ME_4BFA518A001D // wiki_up_add_gen
+ ME_4704C0E30186_ME_4BFA518A001D // constraint
+ ME_4705CBD6003E_ME_4BFA518A001D // wiki_child_kind
+ ME_470F1571031C_ME_4BFA518A001D // intf.pas
+ ME_470F15B800CB_ME_4BFA518A001D // impl.pas
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F0428034B // key
+ )
+ ; // Children
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\BaseMap\attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4BFA518A001D attr
+
+ME ME_4704C0E30186_ME_470F01FA031C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_470F01FA031C constraint
+
+ME ME_470F01FA031C
+ MEPROP UID '470F01FA031C'
+ MEPROP Name 'BaseMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовый стереотип для различных карт' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F07F9004E // BaseContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_470F01FA031C // constraint
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F02CE005D // allocator
+ HWL ME_4BFA518A001D // attr
+ )
+ ; // Children
+ UP "personal label" 'code_map'
+ UP "visability type" '+#-'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\BaseMap.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\BaseMap'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F01FA031C BaseMap
+
+FORWARD ME_470F05F10399
+
+ME ME_470F030E00BB
+ MEPROP UID '470F030E00BB'
+ MEPROP Name 'compare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функтор сравнения элементов контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F05F10399 // Map
+ ;
+ UP "link type" 'l'
+ UP "personal label" 'code_comparator'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Map\compare'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F030E00BB compare
+
+ME ME_49015EE401E1_ME_470F05F10399
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F05F10399 dump_container_def_h
+
+ME ME_470F05F10399
+ MEPROP UID '470F05F10399'
+ MEPROP Name 'Map'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Карта'#13#10'---'#13#10'Сортированный индексный контейнер с заданным ключем'#13#10'Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.'#13#10'Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты со стереотипами <<allocator>> и <<compare>> соотвественно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F01FA031C // BaseMap
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4773950C0337' '477399050133.ms.model.script' // Генерация JavaScript
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_49015EE401E1_ME_470F05F10399 // dump_container_def_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F030E00BB // compare
+ )
+ ; // Children
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Map.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Map'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F05F10399 Map
+
+FORWARD ME_470F067B0138
+
+ME ME_470F06C102EE
+ MEPROP UID '470F06C102EE'
+ MEPROP Name 'hasher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функтор ХЭШ функции контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F067B0138 // HashMap
+ ;
+ UP "empty target" true
+ UP "personal label" 'code_hasher'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\HashMap\hasher'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F06C102EE hasher
+
+ME ME_4704C0E30186_ME_470F067B0138
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_470F067B0138 constraint
+
+ME ME_49015EE401E1_ME_470F067B0138
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F067B0138 dump_container_def_h
+
+ME ME_470F067B0138
+ MEPROP UID '470F067B0138'
+ MEPROP Name 'HashMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Хеш-карта'#13#10'---'#13#10'Индексный контейнер с заданным ключем. Индекс построен на ХЕШ-таблице.'#13#10'Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.'#13#10'Дополнительно могут быть указанны тип аллокатора данных, тип функтора-сравнения и тип хеш-функции, как атрибуты со стереотипами <<allocator>>, <<compare>> и <<hasher>> соотвественно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F05F10399 // Map
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_470F067B0138 // constraint
+ ME_49015EE401E1_ME_470F067B0138 // dump_container_def_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F06C102EE // hasher
+ )
+ ; // Children
+ UP "internal" true
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\HashMap.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\HashMap'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F067B0138 HashMap
+
+FORWARD ME_470F0379030D
+
+ME ME_49015EE401E1_ME_470F0379030D
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F0379030D dump_container_def_h
+
+ME ME_470F0379030D
+ MEPROP UID '470F0379030D'
+ MEPROP Name 'MultiMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мульти-Карта'#13#10'---'#13#10'Сортированный индексный контейнер с заданным ключем .'#13#10'Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.'#13#10'Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты со стереотипами <<allocator>> и <<compare>> соотвественно.'#13#10'Используется для хранения коллекций данных, где каждая коллекция связана с собственным ключем' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F05F10399 // Map
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49015EE401E1_ME_470F0379030D // dump_container_def_h
+ )
+ ; // Overridden
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\MultiMap.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\MultiMap'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0379030D MultiMap
+
+FORWARD ME_470F096E0203
+
+ME ME_470F0B1202FD
+ MEPROP UID '470F0B1202FD'
+ MEPROP Name 'allocator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'аллокатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F096E0203 // Vector
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F02CE005D // allocator
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Vector\allocator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0B1202FD allocator
+
+ME ME_480C5D0E0087
+ MEPROP UID '480C5D0E0087'
+ MEPROP Name 'debug tie log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужно ли генерить код логирования вызовов tie-методов контэйнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F096E0203 // Vector
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_480C5D0E0087 debug tie log
+
+ME ME_470F15B800CB_ME_470F096E0203
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F096E0203 impl.pas
+
+ME ME_47022BBE0261_ME_470F096E0203
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F096E0203 idl
+
+ME ME_47032EC4032C_ME_470F096E0203
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F096E0203 dll.h
+
+ME ME_47032ED002DE_ME_470F096E0203
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F096E0203 dll.cpp
+
+ME ME_4704C0E30186_ME_470F096E0203
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_470F096E0203 constraint
+
+ME ME_470F152700FA_ME_470F096E0203
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F096E0203 pas
+
+ME ME_470F1571031C_ME_470F096E0203
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F096E0203 intf.pas
+
+ME ME_49015EE401E1_ME_470F096E0203
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F096E0203 dump_container_def_h
+
+ME ME_470F096E0203
+ MEPROP UID '470F096E0203'
+ MEPROP Name 'Vector'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вектор'#13#10'---'#13#10'Абстракция уровня реализации. Представляет собой динамический массив, доступ к элементам может осуществляться по индексу, Тип данных определяется атрибутом без стереотипа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F07F9004E // BaseContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_480C5D0E0087 // debug tie log
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_470F15B800CB_ME_470F096E0203 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47022BBE0261_ME_470F096E0203 // idl
+ ME_47032EC4032C_ME_470F096E0203 // dll.h
+ ME_47032ED002DE_ME_470F096E0203 // dll.cpp
+ ME_4704C0E30186_ME_470F096E0203 // constraint
+ ME_470F152700FA_ME_470F096E0203 // pas
+ ME_470F1571031C_ME_470F096E0203 // intf.pas
+ ME_49015EE401E1_ME_470F096E0203 // dump_container_def_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F0B1202FD // allocator
+ )
+ ; // Children
+ UP "personal label" 'code_vector'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Vector.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Vector'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F096E0203 Vector
+
+FORWARD ME_470F0922033C
+
+ME ME_470F0ADC006D
+ MEPROP UID '470F0ADC006D'
+ MEPROP Name 'allocator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'аллокатор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F0922033C // UnsortedSet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F02CE005D // allocator
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\UnsortedSet\allocator'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0ADC006D allocator
+
+ME ME_494636A40261
+ MEPROP UID '494636A40261'
+ MEPROP Name 'compare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функтор сравнения элементов контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F0922033C // UnsortedSet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F030E00BB // compare
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\UnsortedSet\compare'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_494636A40261 compare
+
+ME ME_494636C30135
+ MEPROP UID '494636C30135'
+ MEPROP Name 'hasher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функтор ХЭШ функции контейнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F0922033C // UnsortedSet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F06C102EE // hasher
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\UnsortedSet\hasher'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_494636C30135 hasher
+
+ME ME_49015EE401E1_ME_470F0922033C
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F0922033C dump_container_def_h
+
+ME ME_470F0922033C
+ MEPROP UID '470F0922033C'
+ MEPROP Name 'UnsortedSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Несортированный контэйнер уникальных элементов'#13#10'---'#13#10'Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.'#13#10'В отличии от сортированного контейнера, использует умолчательный оператор сравнения, гарантирующий только уникальность, но не порядок.'#13#10'Дополнительно могут быть указанны тип аллокатора данных, как атрибут со стереотипами <<allocator>>.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F07F9004E // BaseContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49015EE401E1_ME_470F0922033C // dump_container_def_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F0ADC006D // allocator
+ HWL ME_494636A40261 // compare
+ HWL ME_494636C30135 // hasher
+ )
+ ; // Children
+ UP "personal label" 'code_unsorted_set'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\UnsortedSet.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\UnsortedSet'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0922033C UnsortedSet
+
+FORWARD ME_470F08DC0157
+
+ME ME_470F090503B9
+ MEPROP UID '470F090503B9'
+ MEPROP Name 'compare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'компаратор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F08DC0157 // Set
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F030E00BB // compare
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Set\compare'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F090503B9 compare
+
+ME ME_47022BBE0261_ME_470F08DC0157
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F08DC0157 idl
+
+ME ME_47032EC4032C_ME_470F08DC0157
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F08DC0157 dll.h
+
+ME ME_47032ED002DE_ME_470F08DC0157
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F08DC0157 dll.cpp
+
+ME ME_4704C0E30186_ME_470F08DC0157
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_470F08DC0157 constraint
+
+ME ME_470F152700FA_ME_470F08DC0157
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F08DC0157 pas
+
+ME ME_49015EE401E1_ME_470F08DC0157
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F08DC0157 dump_container_def_h
+
+ME ME_470F08DC0157
+ MEPROP UID '470F08DC0157'
+ MEPROP Name 'Set'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сортированный контейнер уникальных элементов'#13#10'---'#13#10'Абстракция уровня реализации. Ассоциативный контэйнер уникальных элементов. Элементы хранятся в сортированном порядке. Тип данных определяется атрибутом без стереотипа.'#13#10'Дополнительно могут быть указанны тип аллокатора данных и тип функтора-сравнения, как атрибуты со стереотипами <<allocator>> и <<compare>> соотвественно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F096E0203 // Vector
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_47022BBE0261_ME_470F08DC0157 // idl
+ ME_47032EC4032C_ME_470F08DC0157 // dll.h
+ ME_47032ED002DE_ME_470F08DC0157 // dll.cpp
+ ME_4704C0E30186_ME_470F08DC0157 // constraint
+ ME_470F152700FA_ME_470F08DC0157 // pas
+ ME_49015EE401E1_ME_470F08DC0157 // dump_container_def_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F090503B9 // compare
+ )
+ ; // Children
+ UP "personal label" 'code_set'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Set.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Set'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F08DC0157 Set
+
+FORWARD ME_470F0B9902BF
+
+ME ME_49015EE401E1_ME_470F0B9902BF
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F0B9902BF dump_container_def_h
+
+ME ME_470F0B9902BF
+ MEPROP UID '470F0B9902BF'
+ MEPROP Name 'Queue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Очередь'#13#10'---'#13#10'Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F07F9004E // BaseContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49015EE401E1_ME_470F0B9902BF // dump_container_def_h
+ )
+ ; // Overridden
+ UP "personal label" 'code_queue'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Queue.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Queue'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0B9902BF Queue
+
+FORWARD ME_470F0BDF0271
+
+ME ME_47022BBE0261_ME_470F0BDF0271
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F0BDF0271 idl
+
+ME ME_47032EC4032C_ME_470F0BDF0271
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F0BDF0271 dll.h
+
+ME ME_47032ED002DE_ME_470F0BDF0271
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F0BDF0271 dll.cpp
+
+ME ME_470F152700FA_ME_470F0BDF0271
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F0BDF0271 pas
+
+ME ME_470F1571031C_ME_470F0BDF0271
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F0BDF0271 intf.pas
+
+ME ME_49015EE401E1_ME_470F0BDF0271
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F0BDF0271 dump_container_def_h
+
+ME ME_470F0BDF0271
+ MEPROP UID '470F0BDF0271'
+ MEPROP Name 'List'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список'#13#10'---'#13#10'Абстракция уровня реализации. Представляет собой двусвязный список. Тип данных определяется атрибутом без стереотипа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F096E0203 // Vector
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4773950C0337' '477399050133.ms.model.script' // Генерация JavaScript
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_47022BBE0261_ME_470F0BDF0271 // idl
+ ME_47032EC4032C_ME_470F0BDF0271 // dll.h
+ ME_47032ED002DE_ME_470F0BDF0271 // dll.cpp
+ ME_470F152700FA_ME_470F0BDF0271 // pas
+ ME_470F1571031C_ME_470F0BDF0271 // intf.pas
+ ME_49015EE401E1_ME_470F0BDF0271 // dump_container_def_h
+ )
+ ; // Overridden
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\List.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\List'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F0BDF0271 List
+
+FORWARD ME_470F050F01B5
+
+ME ME_4704C0E30186_ME_470F050F01B5
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_470F050F01B5 constraint
+
+ME ME_49015EE401E1_ME_470F050F01B5
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_470F050F01B5 dump_container_def_h
+
+ME ME_470F050F01B5
+ MEPROP UID '470F050F01B5'
+ MEPROP Name 'UnsortedMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Карта без сортировки'#13#10'---'#13#10'Несортированный индексный контейнер с заданным ключем.'#13#10'Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа. Тип ключа определяется ключем связи со этим атрибутом.'#13#10'В отличии от сортированного индексного контейнера, использует умолчательный оператор сравнения, гарантирующий только уникальность, но не порядок.'#13#10'Дополнительно может быть указанн тип аллокатора данных, как атрибут со стереотипом <<allocator>>.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F067B0138 // HashMap
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_470F050F01B5 // constraint
+ ME_49015EE401E1_ME_470F050F01B5 // dump_container_def_h
+ )
+ ; // Overridden
+ UP "personal label" 'code_unsorted_map'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\UnsortedMap.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\UnsortedMap'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F050F01B5 UnsortedMap
+
+FORWARD ME_4718771300CB
+
+ME ME_47187725031C
+ MEPROP UID '47187725031C'
+ MEPROP Name 'comp_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит тип функтора сравнения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_47187725031C comp_dump
+
+ME ME_4718773C0261
+ MEPROP UID '4718773C0261'
+ MEPROP Name 'data_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит тип данных для ассоциативного контэйнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_4718773C0261 data_dump
+
+ME ME_4718774402DE
+ MEPROP UID '4718774402DE'
+ MEPROP Name 'equalto_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит тип функтора-сравнения для хэш-мапы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_4718774402DE equalto_dump
+
+ME ME_4718774C02BF
+ MEPROP UID '4718774C02BF'
+ MEPROP Name 'hasher_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит тип хэш-функтора для хэш-мапы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_4718774C02BF hasher_dump
+
+ME ME_4718775800CB
+ MEPROP UID '4718775800CB'
+ MEPROP Name 'is_foreign_target'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает false, если элемент и его тип являются детьми одного родителя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_4718775800CB is_foreign_target
+
+ME ME_4718775F035B
+ MEPROP UID '4718775F035B'
+ MEPROP Name 'key_dump'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит ключ ассоциативного контэйнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_4718775F035B key_dump
+
+ME ME_49015F0C0207
+ MEPROP UID '49015F0C0207'
+ MEPROP Name 'need_container_def'
+ MEPROP Class class_Operation
+ %SUMMARY 'определяет нужно ли генерить определение контэйнера'#13#10'или оно уже было сгенерено раньше как форвард декларация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_49015F0C0207 need_container_def
+
+ME ME_4901625A0198
+ MEPROP UID '4901625A0198'
+ MEPROP Name 'dump_container_fwds_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'гененрит необходимые форвард декларации типом, используемых контэйнером' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4718771300CB // Support
+ ;
+
+ENDME // ME_4901625A0198 dump_container_fwds_h
+
+ME ME_4718771300CB
+ MEPROP UID '4718771300CB'
+ MEPROP Name 'Support'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'набор вспомогательных функций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47187725031C // comp_dump
+ HWL ME_4718773C0261 // data_dump
+ HWL ME_4718774402DE // equalto_dump
+ HWL ME_4718774C02BF // hasher_dump
+ HWL ME_4718775800CB // is_foreign_target
+ HWL ME_4718775F035B // key_dump
+ HWL ME_49015F0C0207 // need_container_def
+ HWL ME_4901625A0198 // dump_container_fwds_h
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Support.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Support'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4718771300CB Support
+
+FORWARD ME_4A0D1146004D
+
+ME ME_49015EE401E1_ME_4A0D1146004D
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_4A0D1146004D dump_container_def_h
+
+ME ME_4A0D1146004D
+ MEPROP UID '4A0D1146004D'
+ MEPROP Name 'Array'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Массив'#13#10'---'#13#10'Определяет простой массив, размер масива задаётся в рантайме и не может изменяться. Тип данных определяется атрибутом без стереотипа. Возможно указание специфического аллокатора - атрибут с соответствующим стереотипом. Может'#13#10'работать в 3-х режимах:'#13#10'1. Просто работает с внешней переданной памятью, не удаляя её при разрушении объекта'#13#10'2. Захватывает переданную внешнюю память и удаляет её при выходе (удаление выполняется спомощью аллокатора)'#13#10'3. Объект сам создает массив заданного размера (выделение памяти выполняется с помощью аллокатора) и удаляет его при разрушении' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F096E0203 // Vector
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49015EE401E1_ME_4A0D1146004D // dump_container_def_h
+ )
+ ; // Overridden
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Array.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Array'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A0D1146004D Array
+
+FORWARD ME_4A10F31901C6
+
+FORWARD ME_4A10F404034B
+
+ME ME_4A10FE01039E
+ MEPROP UID '4A10FE01039E'
+ MEPROP Name 'size'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Размер массива' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A10F404034B // attr
+ ;
+ UP "empty target" true
+ UP "link type" 'a'
+ UP "personal label" 'code_key_attr'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\FixedArray\attr\size'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A10FE01039E size
+
+ME ME_46E6D4BB0339_ME_4A10F404034B
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4A10F404034B wiki
+
+ME ME_470484D50138_ME_4A10F404034B
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4A10F404034B wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4A10F404034B
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4A10F404034B constraint
+
+ME ME_4705CBD6003E_ME_4A10F404034B
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4A10F404034B wiki_child_kind
+
+ME ME_470F1571031C_ME_4A10F404034B
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4A10F404034B intf.pas
+
+ME ME_470F15B800CB_ME_4A10F404034B
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4A10F404034B impl.pas
+
+ME ME_4A10F404034B
+ MEPROP UID '4A10F404034B'
+ MEPROP Name 'attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип данных контэйнера, значение по-умолчанию для ключа атрибута определяет размер контэйнера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A10F31901C6 // FixedArray
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F0883001F // attr
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4A10F404034B // wiki
+ ME_470484D50138_ME_4A10F404034B // wiki_up_add_gen
+ ME_4704C0E30186_ME_4A10F404034B // constraint
+ ME_4705CBD6003E_ME_4A10F404034B // wiki_child_kind
+ ME_470F1571031C_ME_4A10F404034B // intf.pas
+ ME_470F15B800CB_ME_4A10F404034B // impl.pas
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4A10FE01039E // size
+ )
+ ; // Children
+ UP "link type" 'arl'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\FixedArray\attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A10F404034B attr
+
+ME ME_4704C0E30186_ME_4A10F31901C6
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_4A10F31901C6 constraint
+
+ME ME_49015EE401E1_ME_4A10F31901C6
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_4A10F31901C6 dump_container_def_h
+
+ME ME_4A10F31901C6
+ MEPROP UID '4A10F31901C6'
+ MEPROP Name 'FixedArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Массив фиксированной длинны'#13#10'---'#13#10'Тип данных задается атрибутом без стереотипа, размер массива задаётся с помощью значания по-умолчанию для ключа этого атрибута.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F07F9004E // BaseContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_4A10F31901C6 // constraint
+ ME_49015EE401E1_ME_4A10F31901C6 // dump_container_def_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4A10F404034B // attr
+ )
+ ; // Children
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\FixedArray.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\FixedArray'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A10F31901C6 FixedArray
+
+FORWARD ME_4A10F7610180
+
+ME ME_4A10F81F026A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F096E0203 // Vector
+ ;
+
+ENDME // ME_4A10F81F026A 
+
+ME ME_4A10F8250315
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_4A0D1146004D // Array
+ ;
+
+ENDME // ME_4A10F8250315 
+
+ME ME_4A10F8290141
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F067B0138 // HashMap
+ ;
+
+ENDME // ME_4A10F8290141 
+
+ME ME_4A10F82D017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F0BDF0271 // List
+ ;
+
+ENDME // ME_4A10F82D017F 
+
+ME ME_4A10F8300344
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F05F10399 // Map
+ ;
+
+ENDME // ME_4A10F8300344 
+
+ME ME_4A10F8330325
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F0379030D // MultiMap
+ ;
+
+ENDME // ME_4A10F8330325 
+
+ME ME_4A10F837023B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F0B9902BF // Queue
+ ;
+
+ENDME // ME_4A10F837023B 
+
+ME ME_4A10F83B0095
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F08DC0157 // Set
+ ;
+
+ENDME // ME_4A10F83B0095 
+
+ME ME_4A10F83E02E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F050F01B5 // UnsortedMap
+ ;
+
+ENDME // ME_4A10F83E02E6 
+
+ME ME_4A10F84200B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_470F0922033C // UnsortedSet
+ ;
+
+ENDME // ME_4A10F84200B4 
+
+ME ME_4A10F8450315
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_4A10F31901C6 // FixedArray
+ ;
+
+ENDME // ME_4A10F8450315 
+
+FORWARD ME_5086903001FE
+
+ME ME_508690A90089
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4A10F7610180 // AllContainerInclude
+ ;
+ MELINK Target HWL ME_5086903001FE // Deque
+ ;
+
+ENDME // ME_508690A90089 
+
+ME ME_4A10F7610180
+ MEPROP UID '4A10F7610180'
+ MEPROP Name 'AllContainerInclude'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAbstractClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'абстрактный класс включает все контейнеры - используется в качестве базового класса, для всех элементов, который должны содержать все контейнеры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4A10F81F026A // Vector
+ ME_4A10F8250315 // Array
+ ME_4A10F8290141 // HashMap
+ ME_4A10F82D017F // List
+ ME_4A10F8300344 // Map
+ ME_4A10F8330325 // MultiMap
+ ME_4A10F837023B // Queue
+ ME_4A10F83B0095 // Set
+ ME_4A10F83E02E6 // UnsortedMap
+ ME_4A10F84200B4 // UnsortedSet
+ ME_4A10F8450315 // FixedArray
+ ME_508690A90089 // Deque
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\AllContainerInclude.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\AllContainerInclude'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4A10F7610180 AllContainerInclude
+
+ME ME_49015EE401E1_ME_5086903001FE
+ MELINK Original HWL ME_49015EE401E1 // dump_container_def_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49015EE401E1_ME_5086903001FE dump_container_def_h
+
+ME ME_5086903001FE
+ MEPROP UID '5086903001FE'
+ MEPROP Name 'Deque'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '{RequestLink:405476077}'#13#10'---'#13#10'Абстракция уровня реализации. Тип данных определяется атрибутом без стереотипа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F01500290 // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F07F9004E // BaseContainer
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49015EE401E1_ME_5086903001FE // dump_container_def_h
+ )
+ ; // Overridden
+ UP "personal label" 'code_deque'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Containers\Deque.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers\Deque'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_5086903001FE Deque
+
+ME ME_470F01500290
+ MEPROP UID '470F01500290'
+ MEPROP Name 'Containers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой шаблонов контэйнерных типов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_470F01DB0148 // Const Iterator
+ HWL ME_470F20E30157 // ContainerGenerator
+ HWL ME_470F07F9004E // BaseContainer
+ HWL ME_470F01FA031C // BaseMap
+ HWL ME_470F05F10399 // Map
+ HWL ME_470F067B0138 // HashMap
+ HWL ME_470F0379030D // MultiMap
+ HWL ME_470F096E0203 // Vector
+ HWL ME_470F0922033C // UnsortedSet
+ HWL ME_470F08DC0157 // Set
+ HWL ME_470F0B9902BF // Queue
+ HWL ME_470F0BDF0271 // List
+ HWL ME_470F050F01B5 // UnsortedMap
+ HWL ME_4718771300CB // Support
+ HWL ME_4A0D1146004D // Array
+ HWL ME_4A10F31901C6 // FixedArray
+ HWL ME_4A10F7610180 // AllContainerInclude
+ HWL ME_5086903001FE // Deque
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47022B0D038A' '47022B0D038A.ms.model.script' // OtherGens
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ WL 'ME_4773980602D9' '4773980602D9.ms.model.script' // JavaGens
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
+ WL 'ME_477399050133' '477399050133.ms.model.script' // WebGens
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Containers'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F01500290 Containers

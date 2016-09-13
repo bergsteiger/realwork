@@ -77,6 +77,23 @@ STRING elem_func UpText
  end // ( Self .IsUP )
 ; // UpText
 
+STRING elem_func LinkName
+ '' >>> Result
+ VAR l_St
+ Self .Stereotype >>> l_St
+ if (
+     ( l_St .NotIsNil )
+     AND ( l_St .NameInModel .NotIsNil )
+    ) then
+ begin
+  [ '<<' l_St .NameInModel '::' string:Split DROP '>>' ] strings:Cat >>> Result
+ end // ( l_St .NotIsNil )
+ if ( Self .NameInModel .NotIsNil ) then
+ begin
+  [ Result Self .NameInModel ] ' ' strings:CatSep >>> Result
+ end // ( Self .NameInModel .NotIsNil )
+; // LinkName
+
 STRING elem_func StereotypeName
  Cached:
  (
@@ -161,6 +178,8 @@ elem_iterator MethodParameters
   RULES
    ( Self .IsMethod )
     ( Self .FirstOperation .Parameters )
+   ( Self .IsFunction )
+    ( Self .FirstOperation .Parameters )
    DEFAULT
     ( Self .Parameters )
   ; // RULES
@@ -173,6 +192,8 @@ ModelElement elem_func MethodTarget
  (
   RULES
    ( Self .IsMethod )
+    ( Self .FirstOperation .Target )
+   ( Self .IsFunction )
     ( Self .FirstOperation .Target )
    DEFAULT
     ( Self .Target )
@@ -445,10 +466,126 @@ INTEGER elem_func msm:View:ForeColor
  >>> Result
 ; // msm:View:ForeColor
 
+USES
+ WordsRTTI.ms.dict
+;
+
+INTEGER elem_func msm:View:BackColor
+
+ INTEGER elem_func StereotypeBackColor
+  Cached:
+  (
+   VAR l_Color
+   Self .GetUP "visualization bg color" >>> l_Color
+   RULES
+    ( l_Color IsInt )
+     l_Color
+    DEFAULT
+     begin 
+      Self .StereotypeInModel .GetUP "visualization bg color" >>> l_Color
+      RULES
+       ( l_Color IsInt )
+        l_Color
+       DEFAULT
+        begin
+         TColor::clDefault >>> l_Color
+         Self .Inherited.Words .for> (
+           IN anAncestor
+          VAR l_AncestorColor 
+          anAncestor call.me >>> l_AncestorColor
+          RULES
+           (
+            ( l_AncestorColor IsInt )
+            AND ( l_AncestorColor TColor::clDefault != )
+           ) 
+            ( 
+             l_AncestorColor >>> l_Color 
+             BREAK-ITERATOR
+            )
+          ; // RULES
+         ) // Self .Inherited.Words .for>
+         l_Color
+        end // DEFAULT
+      ; // RULES
+     end // DEFAULT
+   ; // RULES  
+  )
+  >>> Result
+ ; // StereotypeBackColor
+ 
+ VAR l_Color
+ Self .Stereotype .StereotypeBackColor >>> l_Color
+ RULES
+  ( l_Color IsInt )
+   RULES
+    ( l_Color TColor::clDefault == )
+     ( Self .msm:View:ForeColor )
+    DEFAULT
+     l_Color
+   ; // RULES
+  DEFAULT 
+   ( Self .msm:View:ForeColor )
+ ; // RESULT  
+ >>> Result
+; // msm:View:BackColor
+
 BOOLEAN elem_func IsCategory
  Self .MDAClass class_Category ==
  >>> Result
 ; // IsCategory
+
+BOOLEAN elem_func IsAttribute
+ Self .MDAClass class_Attribute ==
+ >>> Result
+; // IsAttribute
+
+BOOLEAN elem_func IsAbstract
+ Self .Abstraction at_abstract ==
+ >>> Result
+; // IsAbstract
+
+BOOLEAN elem_func IsFinal
+ Self .Abstraction at_final ==
+ >>> Result
+; // IsFinal
+
+USES
+ axiom:TPenStyle
+;
+
+INTEGER elem_func msm:View:LinkLineStyle
+ Cached:
+ (
+  RULES
+   ( Self .IsAttribute )
+    TPenStyle::psSolid
+   ( Self .LinkViewType 'Inherits' ?== )
+    TPenStyle::psSolid
+   ( Self .LinkViewType 'Implements' ?== )
+    TPenStyle::psDash
+   DEFAULT
+    TPenStyle::psDash
+  ; // RULES  
+ )
+ >>> Result
+; // msm:View:LinkLineStyle
+
+INTEGER elem_func msm:View:LinkLineColor
+ Cached:
+ (
+  RULES
+   ( Self .IsAttribute )
+    TColor::clBlack
+   ( Self .LinkViewType 'Inherits' ?== )
+    TColor::clBlack
+   ( Self .LinkViewType 'Implements' ?== )
+    TColor::clBlack
+   DEFAULT
+    TColor::clDefault
+  ; // RULES  
+ )
+ >>> Result
+; // msm:View:LinkLineColor
 
 USES
  LoadOnDemand.ms.dict
@@ -500,6 +637,11 @@ elem_iterator MainDiagram
  >>> Result
 ; // MainDiagram
 
+BOOLEAN elem_func HasMainDiagram
+ Self .MainDiagram .NotIsNil
+ >>> Result
+; // HasMainDiagram
+
 USES
  DictionaryByName.ms.dict
 ;
@@ -526,3 +668,10 @@ EXPORTS
 
 EXPORTS
  GarantMetaModel.ms.dict
+ 
+USES
+ ElemMemberPrim.ms.dict
+;
+ 
+EXPORTS
+ ElemMemberPrim.ms.dict

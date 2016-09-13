@@ -40,5 +40,9 @@ PROCEDURE WordToCache
   aWord .xChildren .for> .CheckChild
  end // ( l_Name 'ModelRoot' == )
  aWord .xParameters .for> .CheckChild
+ if ( aWord .IsDiagram ) then
+ begin
+  aWord .xViews .for> .CheckChild
+ end // ( aWord .IsDiagram )
 ; // WordToCache
 

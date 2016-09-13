@@ -1,0 +1,210 @@
+// Libraries 499971440112 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_499971440112
+
+FORWARD ME_499971A80065
+
+ME ME_499AF8D80393
+ MEPROP UID '499AF8D80393'
+ MEPROP Name 'gui'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Тип библиотеки --- prj - библиотека специфичная для проекта, rtl - утилитная библиотека, gui - библиотека представления' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499971A80065 // TestLibrary
+ ;
+ MEPROP Value 'gui|prj|rtl'
+ UP extprop:pas:Value 'gui|prj|rtl'
+
+ENDME // ME_499AF8D80393 gui
+
+ME ME_499971CB02AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_499971A80065 // TestLibrary
+ ;
+ MELINK Target WL 'ME_4999717102EE' '4999712E027D.ms.model.script' // TestUnit
+ ;
+
+ENDME // ME_499971CB02AA 
+
+ME ME_499B048700E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_499971A80065 // TestLibrary
+ ;
+ MELINK Target WL 'ME_47048FBD0213' '4703361A00EA.ms.model.script' // Unit
+ ;
+
+ENDME // ME_499B048700E1 
+
+ME ME_47031E850177_ME_499971A80065
+ MELINK Original WL 'ME_47031E850177' '4773969402E9.ms.model.script' // mpc2
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47031E850177_ME_499971A80065 mpc2
+
+ME ME_47031EA5002E_ME_499971A80065
+ MELINK Original WL 'ME_47031EA5002E' '4773969402E9.ms.model.script' // s.reg
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47031EA5002E_ME_499971A80065 s.reg
+
+ME ME_47031EDE0138_ME_499971A80065
+ MELINK Original WL 'ME_47031EDE0138' '4773969402E9.ms.model.script' // s.ini
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47031EDE0138_ME_499971A80065 s.ini
+
+ME ME_47031EF6005D_ME_499971A80065
+ MELINK Original WL 'ME_47031EF6005D' '4773969402E9.ms.model.script' // vi.rc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47031EF6005D_ME_499971A80065 vi.rc
+
+ME ME_47031F13004E_ME_499971A80065
+ MELINK Original WL 'ME_47031F13004E' '4773969402E9.ms.model.script' // vi.rch
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47031F13004E_ME_499971A80065 vi.rch
+
+ME ME_470320C1030D_ME_499971A80065
+ MELINK Original WL 'ME_470320C1030D' '4773969402E9.ms.model.script' // com.def
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470320C1030D_ME_499971A80065 com.def
+
+ME ME_47032220003E_ME_499971A80065
+ MELINK Original WL 'ME_47032220003E' '4773980602D9.ms.model.script' // output.project
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'xml'
+ENDME // ME_47032220003E_ME_499971A80065 output.project
+
+ME ME_470322910119_ME_499971A80065
+ MELINK Original WL 'ME_470322910119' '4773980602D9.ms.model.script' // output.classpath
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'xml'
+ENDME // ME_470322910119_ME_499971A80065 output.classpath
+
+ME ME_470322DF03A9_ME_499971A80065
+ MELINK Original WL 'ME_470322DF03A9' '4773980602D9.ms.model.script' // Makejar.launch
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'xml'
+ENDME // ME_470322DF03A9_ME_499971A80065 Makejar.launch
+
+ME ME_470F15B800CB_ME_499971A80065
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_499971A80065 impl.pas
+
+ME ME_470F1571031C_ME_499971A80065
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_499971A80065 intf.pas
+
+ME ME_4948065C01DF_ME_499971A80065
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_499971A80065 pas_UnitName
+
+ME ME_49997EB002BA_ME_499971A80065
+ MELINK Original WL 'ME_49997EB002BA' '470335990177.ms.model.script' // pas_DecorLibName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49997EB002BA_ME_499971A80065 pas_DecorLibName
+
+ME ME_499971A80065
+ MEPROP UID '499971A80065'
+ MEPROP Name 'TestLibrary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тестовая библиотека' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499971440112 // Libraries
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470361CD0148' '470335990177.ms.model.script' // Library
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_499AF8D80393 // gui
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47031E850177_ME_499971A80065 // mpc2
+ ME_47031EA5002E_ME_499971A80065 // s.reg
+ ME_47031EDE0138_ME_499971A80065 // s.ini
+ ME_47031EF6005D_ME_499971A80065 // vi.rc
+ ME_47031F13004E_ME_499971A80065 // vi.rch
+ ME_470320C1030D_ME_499971A80065 // com.def
+ ME_47032220003E_ME_499971A80065 // output.project
+ ME_470322910119_ME_499971A80065 // output.classpath
+ ME_470322DF03A9_ME_499971A80065 // Makejar.launch
+ ME_470F15B800CB_ME_499971A80065 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_470F1571031C_ME_499971A80065 // intf.pas
+ ME_4948065C01DF_ME_499971A80065 // pas_UnitName
+ ME_49997EB002BA_ME_499971A80065 // pas_DecorLibName
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_499971CB02AA // TestUnit
+ ME_499B048700E1 // Unit
+ )
+ ; // Dependencies
+ UP "inherite constraints" false
+ UP "personal label" 'code_test_library'
+ UP "visualization bg color" 15970043
+ UP "visualization f-font color" 13708259
+ UP "visualization f-line color" 13708259
+ UP mda:Path 'MDProcess\CommonTemplates\Testing\Libraries\TestLibrary.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\Testing\Libraries\TestLibrary'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_499971A80065 TestLibrary
+
+ME ME_499971440112
+ MEPROP UID '499971440112'
+ MEPROP Name 'Libraries'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Библиотеки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499970DC01D0' '499970DC01D0.ms.model.script' // Testing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499971A80065 // TestLibrary
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470335990177' '470335990177.ms.model.script' // Library
+ WL 'ME_4703361A00EA' '4703361A00EA.ms.model.script' // Packages
+ WL 'ME_4999712E027D' '4999712E027D.ms.model.script' // Units
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\Testing\Libraries'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\Testing\Libraries'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_499971440112 Libraries

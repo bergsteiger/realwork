@@ -126,6 +126,10 @@ elem_iterator xChildren
  Self 'Children' .xElemList >>> Result
 ; // xChildren
 
+elem_iterator xViews
+ Self 'Views' .xElemList >>> Result
+; // xViews
+
 ModelElement STRING elem_func xStereotype
  Self 'Stereotype' .xElemWord >>> Result
 ; // xStereotype
@@ -137,3 +141,65 @@ ModelElement elem_func xParent
 elem_iterator xParameters
  Self 'Parameters' .xElemList >>> Result
 ; // xParameters
+
+USES
+ ref.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+BOOLEAN elem_func IsView
+ RULES
+  ( Self .IsNil )
+   false
+  DEFAULT
+   begin
+    RULES
+     ( Self IsIntf )
+      ( Self pop:WordBox:Boxed )
+     DEFAULT
+      Self
+    ; // RULES  
+    pop:Word:Producer @ MEVIEW ?==
+   end // DEFAULT
+ ; // RULES
+ >>> Result
+; // IsView
+
+BOOLEAN elem_func IsViewLink
+ RULES
+  ( Self .IsNil )
+   false
+  DEFAULT
+   begin
+    RULES
+     ( Self IsIntf )
+      ( Self pop:WordBox:Boxed )
+     DEFAULT
+      Self
+    ; // RULES  
+    pop:Word:Producer @ MEVIEWLINK ?==
+   end // DEFAULT
+ ; // RULES
+ >>> Result
+; // IsViewLink
+
+BOOLEAN elem_func IsDiagram
+ RULES
+  ( Self .IsNil )
+   false
+  DEFAULT
+   begin
+    RULES
+     ( Self IsIntf )
+      ( Self pop:WordBox:Boxed )
+     DEFAULT
+      Self
+    ; // RULES  
+    pop:Word:Producer @ MEDIAGRAM ?==
+   end // DEFAULT
+ ; // RULES
+ >>> Result
+; // IsDiagram

@@ -429,8 +429,9 @@ PROCEDURE "Прокрутить вниз до конца документа"
 	"Контрол в фокусе" >>> l_Editor	
 	"В начало документа"
 	WHILE ( l_Editor pop:Editor:DocumentTailVisible ! )
-	BEGIN
-                1 раз ( l_Editor pop:Editor:ScrollLineDown )
+	BEGIN                
+		( l_Editor pop:Editor:ScrollLineDown )
+		"Обработать сообщения" 						
 	END
 ;
 

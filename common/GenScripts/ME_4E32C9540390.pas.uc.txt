@@ -8,7 +8,8 @@ var
  l_Row : Integer;
 //#UC END# *4BF4E6A00093_4E32C9540390_var*
 //#UC START# *4C3C927B027E_4E32C9540390_impl*
- Result := l3Point(aMap.Bounds.Right, aMap.Outer.Bounds.Top + 7 * evEpsilon);
+ if aMap <> nil then
+  Result := l3Point(aMap.Bounds.Right, aMap.Outer.Bounds.Top + 7 * evEpsilon);
 //#UC END# *4C3C927B027E_4E32C9540390_impl*
 //#UC START# *4C3C927B027E_4E32C9540390_var*
 //#UC END# *4C3C927B027E_4E32C9540390_var*
@@ -21,7 +22,7 @@ w:\common\components\gui\Garant\Everest\EditorUsers\ColumnResizeByMouse.imp.pas
  l_SS := GetKeys;
  l_Delta := GetDelta;
  if l_HotSpot = nil then
-  Assert(False, 'Не нашли хотспот!')
+  Exit
  else
  begin
   l_Effect.rNeedAsyncLoop := True;

@@ -89,6 +89,8 @@ ME ME_4AA7B8630362
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4958D0CD0287 // VCMApplication
  ;
+ MELINK Target WL 'ME_49CB43D403C5' '470EF980003E.ms.model.script' // method
+ ;
 
 ENDME // ME_4AA7B8630362 
 
@@ -107,6 +109,8 @@ ME ME_4AB3658D02AF
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4958D0CD0287 // VCMApplication
  ;
+ MELINK Target WL 'ME_470F198F0000' '470EF9BF0138.ms.model.script' // Enum
+ ;
 
 ENDME // ME_4AB3658D02AF 
 
@@ -114,6 +118,8 @@ ME ME_4AB3659A0125
  MEPROP Class class_Dependency
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4958D0CD0287 // VCMApplication
+ ;
+ MELINK Target WL 'ME_470F144E000F' '470EF9BF0138.ms.model.script' // Typedef
  ;
 
 ENDME // ME_4AB3659A0125 
@@ -123,6 +129,8 @@ ME ME_4AB365A4026E
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4958D0CD0287 // VCMApplication
  ;
+ MELINK Target WL 'ME_470F33CD0242' '470EF9BF0138.ms.model.script' // Struct
+ ;
 
 ENDME // ME_4AB365A4026E 
 
@@ -130,6 +138,8 @@ ME ME_4BB316CF0039
  MEPROP Class class_Dependency
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4958D0CD0287 // VCMApplication
+ ;
+ MELINK Target WL 'ME_4B386A11030E' '470EF9BF0138.ms.model.script' // LocalConst
  ;
 
 ENDME // ME_4BB316CF0039 
@@ -199,6 +209,8 @@ ME ME_4BB31AD9009B
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4958D0CD0287 // VCMApplication
  ;
+ MELINK Target WL 'ME_470F16EE0242' '470EF9BF0138.ms.model.script' // Constants
+ ;
 
 ENDME // ME_4BB31AD9009B 
 
@@ -206,6 +218,8 @@ ME ME_4BB31AE400D8
  MEPROP Class class_Dependency
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4958D0CD0287 // VCMApplication
+ ;
+ MELINK Target WL 'ME_47FDE8610215' '470EF9BF0138.ms.model.script' // ConstantArray
  ;
 
 ENDME // ME_4BB31AE400D8 
@@ -252,6 +266,24 @@ ME ME_57A359DC039D
 
 ENDME // ME_57A359DC039D 
 
+ME ME_4947F8AD02A1_ME_4958D0CD0287
+ MELINK Original WL 'ME_4947F8AD02A1' '4773984F02AA.ms.model.script' // pas_TypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947F8AD02A1_ME_4958D0CD0287 pas_TypeName
+
+ME ME_4948065C01DF_ME_4958D0CD0287
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_4958D0CD0287 pas_UnitName
+
+ME ME_4948C3290020_ME_4958D0CD0287
+ MELINK Original WL 'ME_4948C3290020' '4773984F02AA.ms.model.script' // pas_UnitPath
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948C3290020_ME_4958D0CD0287 pas_UnitPath
+
 ME ME_4958D0CD0287
  MEPROP UID '4958D0CD0287'
  MEPROP Name 'VCMApplication'
@@ -271,22 +303,28 @@ ME ME_4958D0CD0287
    Seq: ( HWL ME_4A9255FB0137 // IsVCMApplication
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4947F8AD02A1_ME_4958D0CD0287 // pas_TypeName
+ ME_4948065C01DF_ME_4958D0CD0287 // pas_UnitName
+ ME_4948C3290020_ME_4958D0CD0287 // pas_UnitPath
+ )
+ ; // Overridden
  MELIST Dependencies
    Seq: ( ME_4958D0F30108 // VCMMainForm
- ME_4AA7B8630362 // 
+ ME_4AA7B8630362 // method
  ME_4AA7BA250318 // SimpleClass
- ME_4AB3658D02AF // 
- ME_4AB3659A0125 // 
- ME_4AB365A4026E // 
- ME_4BB316CF0039 // 
+ ME_4AB3658D02AF // Enum
+ ME_4AB3659A0125 // Typedef
+ ME_4AB365A4026E // Struct
+ ME_4BB316CF0039 // LocalConst
  ME_4BB317C30106 // Range
  ME_4BB317D10103 // SetConst
  ME_4BB317DE021F // StaticObject
  ME_4BB317ED001A // Define
  ME_4BB317F500FC // SetOf
  ME_4BB317FF031A // Undef
- ME_4BB31AD9009B // 
- ME_4BB31AE400D8 // 
+ ME_4BB31AD9009B // Constants
+ ME_4BB31AE400D8 // ConstantArray
  ME_4F7DAFF30300 // VCMFinalMainForm
  ME_54DB6BF8005B // ScriptKeyword
  ME_55229179013D // ScriptKeywordsPack
@@ -356,6 +394,8 @@ ME ME_4A95178301AC
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_470EF9BF0138' '470EF9BF0138.ms.model.script' // InterfaceTypes
  WL 'ME_4729C4880157' '4729C4880157.ms.model.script' // Interface
  WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
  WL 'ME_4936A16E0294' '4936A16E0294.ms.model.script' // Delphi Specific

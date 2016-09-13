@@ -1604,7 +1604,7 @@ INTERFACE FUNCTION MakeParam:
   ModelElement IN aType
   ^ IN aLambda
  
- KeyValuesCreateAndDoEx: ( 
+ KeyValuesCreateAndDoEx: (
    IN l_Param
   
   l_Param pop:Word:Box >>> Result
@@ -1651,6 +1651,8 @@ MACRO MakeProcedure:
  'nil' Ctx:Parser:PushSymbol
  'MakeFunction:' Ctx:Parser:PushSymbol
 ; // MakeProcedure:
+
+WordAlias MakeView: MakeProcedure:
 
 STRING elem_func SelfName
  Self .GetUP 'extprop:rc:SelfName' >>> Result
@@ -10530,6 +10532,8 @@ BOOLEAN elem_func NeedRegisterInScripts
       true
      ( Self .IsInterface )
       true
+     ( Self .IsTypedef )
+      true
      DEFAULT
       false
     ; // RULES
@@ -14880,28 +14884,36 @@ elem_iterator IniOperations
      end // ( Self .NeedRegisterInScripts )
     end // ( Self .IsEnum )
     
-   ( Self .IsException ) 
+   ( Self .IsException )
     begin
      if ( Self .NeedRegisterInScripts ) then
      begin
       .join> ToArray: ( Self .RegTypeMethod )
      end // ( Self .NeedRegisterInScripts )
     end // ( Self .IsException )
-    
-   ( Self .IsInterface ) 
+
+   ( Self .IsInterface )
     begin
      if ( Self .NeedRegisterInScripts ) then
      begin
       .join> ToArray: ( Self .RegTypeMethod )
      end // ( Self .NeedRegisterInScripts )
     end // ( Self .IsInterface )
-    
+
+   ( Self .IsTypedef )
+    begin
+     if ( Self .NeedRegisterInScripts ) then
+     begin
+      .join> ToArray: ( Self .RegTypeMethod )
+     end // ( Self .NeedRegisterInScripts )
+    end // ( Self .IsTypedef )
+
    ( Self .IsScriptKeywordsPack )
     begin
-     Self .InheritsEx 
+     Self .InheritsEx
      .join> ( Self .ImplementsEx )
-     
-     .join> ( 
+
+     .join> (
       Self .OperationsEx
       .filter> .IsSomeKeyWord
       .mapToTarget>
@@ -16144,6 +16156,8 @@ STRING elem_func AbstractionString
    'regular'
   ( Self .Abstraction at_abstract == )
    'abstract'
+  ( Self .Abstraction at_optional == )
+   'optional'
   DEFAULT
    ( Self .Abstraction ToPrintable )
  ;
@@ -16628,6 +16642,8 @@ elem_generator diagram.script
     true
    ( Self .Operations .NotEmpty )
     true
+   ( Self .Attributes .NotEmpty )
+    true
    DEFAULT
     false
   ; // RULES
@@ -16682,13 +16698,28 @@ elem_generator diagram.script
    Self .Children
    .join> ( Self .Constants )
    .join> ( Self .Operations )
+   .join> ( Self .Attributes )
    >>> l_It
 
    VAR l_Suffix
    '_view' >>> l_Suffix
+   VAR l_Views
+   [] >>> l_Views
+   VAR l_Viewed
+   [] >>> l_Viewed
    l_It .for> (
      IN anElement
-    [ 'MEVIEW ' anElement .WordName l_Suffix ] .Out
+    VAR l_Name
+    [ anElement .WordName l_Suffix ] strings:Cat >>> l_Name
+
+    anElement .AddToArray: l_Viewed
+    l_Name MakeView: (
+      IN aMade
+     aMade -> OriginalName := ( anElement .NameInModel )
+    ) //l_Name MakeView:
+    .AddToArray: l_Views
+
+    [ 'MEVIEW ' l_Name ] .Out
     Indented: (
      [ 'MELINK Original ' anElement .ScriptWordLink ' ;' ' // ' anElement .NameInModel ] .Out
      [ 'MEPROP X ' X ] .Out
@@ -16700,15 +16731,120 @@ elem_generator diagram.script
       Y 100 + cOffsetY + >>> Y
      end // ( X > 1000 )
     ) // Indented:
-    [ 'ENDMEVIEW ' '// ' anElement .WordName l_Suffix ] .Out
+    [ 'ENDMEVIEW ' '// ' l_Name ] .Out
     OutLn
    ) // l_It .for>
+
+   VAR l_LinkCount
+   40 >>> l_LinkCount
+
+   elem_proc OutLinks:
+     ^ IN aLamdba
+    Self aLamdba DO
+    .filter> ( DROP l_LinkCount > 0 )
+    .for> (
+      IN aLink
+     if ( aLink .InArray: l_Viewed ) then
+     begin
+      Dec l_LinkCount
+      VAR l_Name
+      VAR l_CollectionName
+      aLamdba .WordName '.' .CutPrefix >>> l_CollectionName
+      [ Self .WordName '_' aLink .WordName '_' l_CollectionName ] strings:Cat >>> l_Name
+
+      l_Name MakeView: (
+        IN aMade
+       aMade -> OriginalName := ( [ Self .NameInModel ' -> ' aLink .NameInModel ] strings:Cat )
+      ) //l_Name MakeView:
+      .AddToArray: l_Views
+      
+      [ 'MEVIEWLINK ' l_Name ] .Out
+      Indented: (
+       [ 'MELINK From ' Self .WordName l_Suffix ' ;' ] .Out
+       [ 'MELINK To ' aLink .WordName l_Suffix ' ;' ] .Out
+       [ 'MEPROP LinkViewType ' cQuote l_CollectionName cQuote ] .Out
+      ) // Indented:
+      [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
+      OutLn
+     end // ( aLink .InArray: l_Viewed )
+    ) // .for>
+   ; // OutLinks:
+
+   l_Viewed .for> (
+     IN anElement
+
+    anElement .OutLinks: .Depends
+    anElement .OutLinks: .Implements
+    anElement .OutLinks: .Inherits
+
+    anElement .Dependencies
+    .filter> .IsUses
+    .join> ( anElement .Attributes )
+    .filter> ( DROP l_LinkCount > 0 )
+    .for> (
+      IN aLink
+     if ( aLink .Target .NotIsNil ) then
+     begin
+      if ( aLink .Target .InArray: l_Viewed ) then
+      begin
+       Dec l_LinkCount
+       VAR l_Name
+       if ( aLink .LUID .IsNil ) then
+       begin
+        [
+         anElement .WordName
+         if ( aLink .Target .WordName .NotIsNil ) then
+         begin
+          '_' aLink .Target .WordName
+         end // ( aLink .Target .WordName .NotIsNil )
+         if ( aLink .Stereotype .Name .NotIsNil ) then
+         begin
+          '_' aLink .Stereotype .Name
+         end // ( aLink .Stereotype .Name .NotIsNil )
+         if ( aLink .NameInModel .NotIsNil ) then
+         begin
+          '_' aLink .NameInModel
+         end // ( aLink .NameInModel .NotIsNil )
+        ] strings:Cat
+       end // ( aLink .LUID .IsNil )
+       else
+       begin
+        [ 'ME_' aLink .LUID '_viewlink' ] strings:Cat
+       end // // ( aLink .LUID .IsNil )
+       >>> l_Name
+
+       l_Name MakeView: (
+         IN aMade
+        aMade -> OriginalName := ( [ anElement .NameInModel ' -> ' aLink .Target .NameInModel ] strings:Cat )
+       ) //l_Name MakeView:
+       .AddToArray: l_Views
+
+       [ 'MEVIEWLINK ' l_Name ] .Out
+       Indented: (
+        [ 'MELINK Original ' aLink .ScriptWordLink ' ;' /*{' // ' aLink .NameInModel}*/ ] .Out
+        [ 'MELINK From ' anElement .WordName l_Suffix ' ;' ] .Out
+        [ 'MELINK To ' aLink .Target .WordName l_Suffix ' ;' ] .Out
+       ) // Indented:
+       [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
+       OutLn
+      end // ( aLink .Target .InArray: l_Viewed )
+     end // ( aLink .Target .NotIsNil )
+    ) // .for>
+   ) // l_Viewed .for>
+   
    [ 'MELIST Views' ] .Out
    [
      ' Seq: ( '
-     l_It .for> (
+     l_Views .for> (
        IN anElement
-      anElement .WordName l_Suffix ' // ' anElement .NameInModel \n ' '
+      anElement .Name
+      if ( anElement .OriginalName .NotIsNil ) then
+      begin
+       ' // '
+       anElement .OriginalName
+       \n
+      end // ( anElement .OriginalName .NotIsNil )
+      ' '
      ) // l_It .for>
      ')'
    ] .Out

@@ -1,0 +1,150 @@
+// HighLayers 4773C34C0375 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773C34C0375
+
+FORWARD ME_4773C42B0029
+
+FORWARD ME_4774C47A00F5
+
+ME ME_4774C48F02AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4773C42B0029 // WebLibrary
+ ;
+ MELINK Target HWL ME_4774C47A00F5 // HtmlUnit
+ ;
+
+ENDME // ME_4774C48F02AA 
+
+ME ME_4774C49400C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4773C42B0029 // WebLibrary
+ ;
+ MELINK Target WL 'ME_4773773E02F8' '477394600375.ms.model.script' // JSUnit
+ ;
+
+ENDME // ME_4774C49400C6 
+
+ME ME_4773C42B0029
+ MEPROP UID '4773C42B0029'
+ MEPROP Name 'WebLibrary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Web-билиотека '#13#10'---'#13#10'Описывает и агригирует модели различных Веб-элементов - HTML, JS, CSS...' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4773C34C0375 // HighLayers
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4774C48F02AA // HtmlUnit
+ ME_4774C49400C6 // JSUnit
+ )
+ ; // Dependencies
+ UP "personal label" 'code_web_library'
+ UP "visualization bg color" 16111871
+ UP "visualization f-font color" 13728492
+ UP "visualization f-line color" 13728492
+ UP mda:Path 'MDProcess\CommonTemplates\WebLang\HighLayers\WebLibrary.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\WebLang\HighLayers\WebLibrary'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4773C42B0029 WebLibrary
+
+ME ME_4774C4F10172
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4774C47A00F5 // HtmlUnit
+ ;
+ MELINK Target WL 'ME_4704BC82002E' '4772584C0356.ms.model.script' // VM
+ ;
+
+ENDME // ME_4774C4F10172 
+
+ME ME_4774C4F503D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4774C47A00F5 // HtmlUnit
+ ;
+ MELINK Target WL 'ME_473A908D00DA' '4772584C0356.ms.model.script' // Decorator
+ ;
+
+ENDME // ME_4774C4F503D3 
+
+ME ME_477394DD0114_ME_4774C47A00F5
+ MELINK Original WL 'ME_477394DD0114' '477399050133.ms.model.script' // vm
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "encoding" 'utf8'
+ENDME // ME_477394DD0114_ME_4774C47A00F5 vm
+
+ME ME_4774C47A00F5
+ MEPROP UID '4774C47A00F5'
+ MEPROP Name 'HtmlUnit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пакет описания HTML'#13#10'---'#13#10'определяет внутри себя различные элементы формирования HTML, например VM-ы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4773C34C0375 // HighLayers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_477394C6021D' '477399050133.ms.model.script' // Генерация Velocity
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_477394DD0114_ME_4774C47A00F5 // vm
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4774C4F10172 // VM
+ ME_4774C4F503D3 // Decorator
+ )
+ ; // Dependencies
+ UP "personal label" 'code_html_unit'
+ UP "visualization bg color" 16111871
+ UP "visualization f-font color" 13728492
+ UP "visualization f-line color" 13728492
+ UP mda:Path 'MDProcess\CommonTemplates\WebLang\HighLayers\HtmlUnit.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\WebLang\HighLayers\HtmlUnit'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4774C47A00F5 HtmlUnit
+
+ME ME_4773C34C0375
+ MEPROP UID '4773C34C0375'
+ MEPROP Name 'HighLayers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Уровень пакетов для Web' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47739263024C' '47739263024C.ms.model.script' // WebLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4773C42B0029 // WebLibrary
+ HWL ME_4774C47A00F5 // HtmlUnit
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_4772584C0356' '4772584C0356.ms.model.script' // VMs
+ WL 'ME_477394600375' '477394600375.ms.model.script' // JSs
+ WL 'ME_477399050133' '477399050133.ms.model.script' // WebGens
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\WebLang\HighLayers'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\WebLang\HighLayers'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4773C34C0375 HighLayers

@@ -55,6 +55,10 @@ ME ME_561D335D01B2
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_561D307100B4 // Elements
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Inherits
  MELIST Operations
    Seq: ( HWL ME_56239DF403C0 // IsProjectGroup
  HWL ME_56239E15029D // IsLibraryGroup
@@ -68,6 +72,22 @@ ME ME_561D335D01B2
 ENDME // ME_561D335D01B2 Delphi ST
 
 FORWARD ME_561D41F8013A
+
+ME ME_470F1571031C_ME_561D41F8013A
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_561D41F8013A intf.pas
+
+ME ME_470F15B800CB_ME_561D41F8013A
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_561D41F8013A impl.pas
 
 ME ME_561D436002B8_ME_561D41F8013A
  MELINK Original HWL ME_561D436002B8 // path
@@ -89,6 +109,11 @@ ME ME_561D41F8013A
    Seq: ( HWL ME_561D335D01B2 // Delphi ST
  )
  ; // Implements
+ MELIST Implemented
+   Seq: ( ME_470F1571031C_ME_561D41F8013A // intf.pas
+ ME_470F15B800CB_ME_561D41F8013A // impl.pas
+ )
+ ; // Implemented
  MELIST Overridden
    Seq: ( ME_561D436002B8_ME_561D41F8013A // path
  )
@@ -333,6 +358,18 @@ ME ME_561D47DA0228
 
 ENDME // ME_561D47DA0228 unitName
 
+ME ME_4947F8AD02A1_ME_561D478F0224
+ MELINK Original WL 'ME_4947F8AD02A1' '4773984F02AA.ms.model.script' // pas_TypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947F8AD02A1_ME_561D478F0224 pas_TypeName
+
+ME ME_4948065C01DF_ME_561D478F0224
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_561D478F0224 pas_UnitName
+
 ME ME_561D478F0224
  MEPROP UID '561D478F0224'
  MEPROP Name 'UnitProducer'
@@ -351,6 +388,11 @@ ME ME_561D478F0224
    Seq: ( HWL ME_561D47DA0228 // unitName
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4947F8AD02A1_ME_561D478F0224 // pas_TypeName
+ ME_4948065C01DF_ME_561D478F0224 // pas_UnitName
+ )
+ ; // Overridden
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UnitProducer.tpi'
  UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UnitProducer'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
@@ -409,6 +451,30 @@ ME ME_561FA29C0136
 
 ENDME // ME_561FA29C0136 IsElementProxy
 
+ME ME_4947E4DA0227_ME_561D3E94025C
+ MELINK Original WL 'ME_4947E4DA0227' '4773984F02AA.ms.model.script' // IsSimpleClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947E4DA0227_ME_561D3E94025C IsSimpleClass
+
+ME ME_4947E5D40127_ME_561D3E94025C
+ MELINK Original WL 'ME_4947E5D40127' '4773984F02AA.ms.model.script' // IsMixIn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947E5D40127_ME_561D3E94025C IsMixIn
+
+ME ME_4977065602B3_ME_561D3E94025C
+ MELINK Original WL 'ME_4977065602B3' '4773984F02AA.ms.model.script' // IsPureMixIn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4977065602B3_ME_561D3E94025C IsPureMixIn
+
+ME ME_561D47DA0228_ME_561D3E94025C
+ MELINK Original HWL ME_561D47DA0228 // unitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_561D47DA0228_ME_561D3E94025C unitName
+
 ME ME_561D3E94025C
  MEPROP UID '561D3E94025C'
  MEPROP Name 'ElementProxy'
@@ -428,6 +494,13 @@ ME ME_561D3E94025C
    Seq: ( HWL ME_561FA29C0136 // IsElementProxy
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4947E4DA0227_ME_561D3E94025C // IsSimpleClass
+ ME_4947E5D40127_ME_561D3E94025C // IsMixIn
+ ME_4977065602B3_ME_561D3E94025C // IsPureMixIn
+ ME_561D47DA0228_ME_561D3E94025C // unitName
+ )
+ ; // Overridden
  UP "abstraction type" 'a'
  UP "personal label" 'code_simple_class'
  UP "visability type" '+'
@@ -459,6 +532,24 @@ ME ME_561E558703CD
 
 ENDME // ME_561E558703CD ImplementableProxy
 
+ME ME_4947E4DA0227_ME_561E515A008B
+ MELINK Original WL 'ME_4947E4DA0227' '4773984F02AA.ms.model.script' // IsSimpleClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947E4DA0227_ME_561E515A008B IsSimpleClass
+
+ME ME_4947E5D40127_ME_561E515A008B
+ MELINK Original WL 'ME_4947E5D40127' '4773984F02AA.ms.model.script' // IsMixIn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947E5D40127_ME_561E515A008B IsMixIn
+
+ME ME_4977065602B3_ME_561E515A008B
+ MELINK Original WL 'ME_4977065602B3' '4773984F02AA.ms.model.script' // IsPureMixIn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4977065602B3_ME_561E515A008B IsPureMixIn
+
 ME ME_561E515A008B
  MEPROP UID '561E515A008B'
  MEPROP Name 'ClassProxy'
@@ -473,6 +564,12 @@ ME ME_561E515A008B
    Seq: ( HWL ME_561E558703CD // ImplementableProxy
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4947E4DA0227_ME_561E515A008B // IsSimpleClass
+ ME_4947E5D40127_ME_561E515A008B // IsMixIn
+ ME_4977065602B3_ME_561E515A008B // IsPureMixIn
+ )
+ ; // Overridden
  UP "has derived impl" true
  UP "visualization bg color" 12842465
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\ClassProxy.tpi'
@@ -480,6 +577,12 @@ ME ME_561E515A008B
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_561E515A008B ClassProxy
+
+ME ME_49809333028C_ME_561E55DC0030
+ MELINK Original WL 'ME_49809333028C' '4773984F02AA.ms.model.script' // IsInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49809333028C_ME_561E55DC0030 IsInterface
 
 ME ME_561E55DC0030
  MEPROP UID '561E55DC0030'
@@ -495,12 +598,46 @@ ME ME_561E55DC0030
    Seq: ( HWL ME_561E558703CD // ImplementableProxy
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_49809333028C_ME_561E55DC0030 // IsInterface
+ )
+ ; // Overridden
  UP "visualization bg color" 16766935
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceProxy.tpi'
  UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceProxy'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_561E55DC0030 InterfaceProxy
+
+FORWARD ME_563757310212
+
+ME ME_470F1571031C_ME_563757310212
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_563757310212 intf.pas
+
+ME ME_470F15B800CB_ME_563757310212
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_563757310212 impl.pas
+
+ME ME_56333DFB00A7_ME_563757310212
+ MELINK Original WL 'ME_56333DFB00A7' '4773984F02AA.ms.model.script' // pas_script_NeedOwnFile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56333DFB00A7_ME_563757310212 pas_script_NeedOwnFile
+
+ME ME_563765ED0263_ME_563757310212
+ MELINK Original WL 'ME_563765ED0263' '4773984F02AA.ms.model.script' // pas_script_Reference
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_563765ED0263_ME_563757310212 pas_script_Reference
 
 ME ME_563757310212
  MEPROP UID '563757310212'
@@ -517,6 +654,16 @@ ME ME_563757310212
  HWL ME_561D335D01B2 // Delphi ST
  )
  ; // Implements
+ MELIST Implemented
+   Seq: ( ME_470F1571031C_ME_563757310212 // intf.pas
+ ME_470F15B800CB_ME_563757310212 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_56333DFB00A7_ME_563757310212 // pas_script_NeedOwnFile
+ ME_563765ED0263_ME_563757310212 // pas_script_Reference
+ )
+ ; // Overridden
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLPrimitive.tpi'
  UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLPrimitive'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
@@ -543,6 +690,40 @@ ME ME_4705CBD6003E_ME_56375EA8032F
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4705CBD6003E_ME_56375EA8032F wiki_child_kind
 
+ME ME_470F1571031C_ME_56375EA8032F
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_56375EA8032F intf.pas
+
+ME ME_470F15B800CB_ME_56375EA8032F
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_56375EA8032F impl.pas
+
+ME ME_563245390156_ME_56375EA8032F
+ MELINK Original WL 'ME_563245390156' '4773984F02AA.ms.model.script' // pas_script_Path
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_563245390156_ME_56375EA8032F pas_script_Path
+
+ME ME_56333DFB00A7_ME_56375EA8032F
+ MELINK Original WL 'ME_56333DFB00A7' '4773984F02AA.ms.model.script' // pas_script_NeedOwnFile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56333DFB00A7_ME_56375EA8032F pas_script_NeedOwnFile
+
+ME ME_563CBD110135_ME_56375EA8032F
+ MELINK Original WL 'ME_563CBD110135' '4773984F02AA.ms.model.script' // pas_script_runner_NeedOwnFile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_563CBD110135_ME_56375EA8032F pas_script_runner_NeedOwnFile
+
 ME ME_56375EA8032F
  MEPROP UID '56375EA8032F'
  MEPROP Name 'UMLModule'
@@ -562,13 +743,27 @@ ME ME_56375EA8032F
    Seq: ( ME_470484D50138_ME_56375EA8032F // wiki_up_add_gen
  ME_4704C0E30186_ME_56375EA8032F // constraint
  ME_4705CBD6003E_ME_56375EA8032F // wiki_child_kind
+ ME_470F1571031C_ME_56375EA8032F // intf.pas
+ ME_470F15B800CB_ME_56375EA8032F // impl.pas
  )
  ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_563245390156_ME_56375EA8032F // pas_script_Path
+ ME_56333DFB00A7_ME_56375EA8032F // pas_script_NeedOwnFile
+ ME_563CBD110135_ME_56375EA8032F // pas_script_runner_NeedOwnFile
+ )
+ ; // Overridden
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLModule.tpi'
  UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\UMLModule'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_56375EA8032F UMLModule
+
+ME ME_56D06FA10124_ME_56D06F7E00BD
+ MELINK Original WL 'ME_56D06FA10124' '4773984F02AA.ms.model.script' // IsInterfaceFactory
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56D06FA10124_ME_56D06F7E00BD IsInterfaceFactory
 
 ME ME_56D06F7E00BD
  MEPROP UID '56D06F7E00BD'
@@ -584,6 +779,10 @@ ME ME_56D06F7E00BD
    Seq: ( HWL ME_561E515A008B // ClassProxy
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_56D06FA10124_ME_56D06F7E00BD // IsInterfaceFactory
+ )
+ ; // Overridden
  UP mda:Path 'MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceFactoryProxy.tpi'
  UP mda.inc:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements\InterfaceFactoryProxy'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
@@ -621,6 +820,7 @@ ME ME_561D307100B4
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
  WL 'ME_470481B700FA' '470481B700FA.ms.model.script' // UML
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  )
  ; // Depends
  UP mda:PathOnly '\MDProcess\SimpleTemplates\SimpleTemplatesLibrary\Elements'

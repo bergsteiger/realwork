@@ -1,0 +1,33 @@
+// Testing 499970DC01D0 MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_499970DC01D0
+ MEPROP UID '499970DC01D0'
+ MEPROP Name 'Testing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'Тестирование. [$136271073]' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_46E138D901C5' '46E138D901C5.ms.model.script' // CommonTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_499971140199' '499971140199.ms.model.script' // Elements
+ WL 'ME_4999712E027D' '4999712E027D.ms.model.script' // Units
+ WL 'ME_499971440112' '499971440112.ms.model.script' // Libraries
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ WL 'ME_4773963E021D' '4773963E021D.ms.model.script' // AllGenerators
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\Testing'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\Testing'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_499970DC01D0 Testing

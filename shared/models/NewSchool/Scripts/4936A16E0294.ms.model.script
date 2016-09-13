@@ -28,6 +28,35 @@ ME ME_4704C0E30186_ME_4721B0380203
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4704C0E30186_ME_4721B0380203 constraint
 
+ME ME_47022C88029F_ME_4721B0380203
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_4721B0380203 h
+
+ME ME_47022CB8034B_ME_4721B0380203
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_4721B0380203 cpp
+
+ME ME_470F1571031C_ME_4721B0380203
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4721B0380203 intf.pas
+
+ME ME_4B2A19E3038B_ME_4721B0380203
+ MELINK Original WL 'ME_4B2A19E3038B' '4773984F02AA.ms.model.script' // DoSpell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A19E3038B_ME_4721B0380203 DoSpell
+
 ME ME_4721B0380203
  MEPROP UID '4721B0380203'
  MEPROP Name 'Range'
@@ -39,6 +68,14 @@ ME ME_4721B0380203
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4936A16E0294 // Delphi Specific
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F16EE0242' '470EF9BF0138.ms.model.script' // Constants
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_4721B0B302CE // force usage
  )
@@ -47,6 +84,13 @@ ME ME_4721B0380203
    Seq: ( ME_4704C0E30186_ME_4721B0380203 // constraint
  )
  ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47022C88029F_ME_4721B0380203 // h
+ ME_47022CB8034B_ME_4721B0380203 // cpp
+ ME_470F1571031C_ME_4721B0380203 // intf.pas
+ ME_4B2A19E3038B_ME_4721B0380203 // DoSpell
+ )
+ ; // Overridden
  UP "personal label" 'code_range'
  UP "visability type" '+#-'
  UP "visualization bg color" 13821680
@@ -75,6 +119,8 @@ ME ME_4936A16E0294
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470EF9BF0138' '470EF9BF0138.ms.model.script' // InterfaceTypes
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  )
  ; // Depends
  UP mda:PathOnly '\MDProcess\EVDTemplates\Data Definition\Delphi Specific'

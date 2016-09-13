@@ -1,0 +1,378 @@
+// COM 478DF908013A MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_478DF908013A
+
+FORWARD ME_470F75220177
+
+ME ME_470F75EC03C8
+ MEPROP UID '470F75EC03C8'
+ MEPROP Name 'property'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'атрибут' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F544503C8' '478DF69F0205.ms.model.script' // property
+ )
+ ; // Inherits
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface\property'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F75EC03C8 property
+
+ME ME_470F761D0280
+ MEPROP UID '470F761D0280'
+ MEPROP Name 'readonly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут только для чтения'#13#10'---'#13#10'для данного атрибута будет сгенерирован только метод получения его значения. Если тип атрибута интерфейс - то он будет возвращаться как константный.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F549D033C' '478DF69F0205.ms.model.script' // readonly
+ )
+ ; // Inherits
+ UP "has exception" 'g'
+ UP "personal label" 'code_attr'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface\readonly'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F761D0280 readonly
+
+ME ME_470F7634000F
+ MEPROP UID '470F7634000F'
+ MEPROP Name 'writeonly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут только для записи'#13#10'---'#13#10'для данного атрибута будут сгенерирован только метод установки его значения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F54C402CE' '478DF69F0205.ms.model.script' // writeonly
+ )
+ ; // Inherits
+ UP "has exception" 's'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface\writeonly'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F7634000F writeonly
+
+FORWARD ME_470F76520109
+
+ME ME_470F76B9007D
+ MEPROP UID '470F76B9007D'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F76520109 // op
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F59EE00AB' '478DF69F0205.ms.model.script' // param
+ )
+ ; // Inherits
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface\op\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F76B9007D param
+
+ME ME_470F76520109
+ MEPROP UID '470F76520109'
+ MEPROP Name 'op'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константный метод интерфейса'#13#10'---'#13#10'По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>. Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F556F0196' '478DF69F0205.ms.model.script' // op
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_470F76B9007D // param
+ )
+ ; // Children
+ UP "abstraction type" 'a'
+ UP "available target stereotypes" 'const|cached|const,cached'
+ UP "empty target" true
+ UP "has exception" 'g'
+ UP "implementable" true
+ UP "personal label" 'code_const_method'
+ UP "unstereotyped" true
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface\op'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F76520109 op
+
+ME ME_470F7665005D
+ MEPROP UID '470F7665005D'
+ MEPROP Name 'friend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Друг'#13#10'---'#13#10'Определяет что интерфейс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.'#13#10'ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F659B001F' '478DF69F0205.ms.model.script' // friend
+ )
+ ; // Inherits
+ UP "personal label" 'code_dep_friend'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface\friend'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F7665005D friend
+
+ME ME_470F7681002E
+ MEPROP UID '470F7681002E'
+ MEPROP Name 'chg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Неконстантный метод'#13#10'---'#13#10'Метод который может изменять состояние своего объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F5718031C' '478DF69F0205.ms.model.script' // chg
+ )
+ ; // Inherits
+ UP "personal label" 'code_method'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface\chg'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F7681002E chg
+
+ME ME_470F757D0271
+ MEPROP UID '470F757D0271'
+ MEPROP Name 'ThreadingModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'определяет потоковую модель. Возможные значения: "Both" - указывает на то, что класс может выполняться как в МТА, так и в STA, "Free" - указывает, что класс может выполняться только в МТА, "Apartment" - указывает, что класс может выполняться только в STA. Отсутствие ThreadingModel означает, что класс может выполняться только в главном STA. Главный STA определяется как первый STA, который должен быть инициализирован в процессе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+ MEPROP Value 'Apartment|Free|Both'
+ UP extprop:pas:Value 'Apartment|Free|Both'
+
+ENDME // ME_470F757D0271 ThreadingModel
+
+ME ME_470F75AA01B5
+ MEPROP UID '470F75AA01B5'
+ MEPROP Name 'thread_model'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает базовый клосс для потоковой модели в заивисмости от установленного свойства:'#13#10'CComSingleThreadModel, CComMultiThreadModel' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F75220177 // ComInterface
+ ;
+
+ENDME // ME_470F75AA01B5 thread_model
+
+ME ME_47032097038A_ME_470F75220177
+ MELINK Original WL 'ME_47032097038A' '4773969402E9.ms.model.script' // odl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47032097038A_ME_470F75220177 odl
+
+ME ME_4704C0E30186_ME_470F75220177
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F75220177 constraint
+
+ME ME_470F75220177
+ MEPROP UID '470F75220177'
+ MEPROP Name 'ComInterface'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'COM-интерфейс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF908013A // COM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4703206200DA' '4773969402E9.ms.model.script' // COM
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_470F757D0271 // ThreadingModel
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_470F75AA01B5 // thread_model
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47032097038A_ME_470F75220177 // odl
+ ME_4704C0E30186_ME_470F75220177 // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F75EC03C8 // property
+ HWL ME_470F761D0280 // readonly
+ HWL ME_470F7634000F // writeonly
+ HWL ME_470F76520109 // op
+ HWL ME_470F7665005D // friend
+ HWL ME_470F7681002E // chg
+ )
+ ; // Children
+ UP "personal label" 'code_com_interface'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\COM\ComInterface.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComInterface'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F75220177 ComInterface
+
+FORWARD ME_471740DE003E
+
+ME ME_471741A70271
+ MEPROP UID '471741A70271'
+ MEPROP Name 'Is ActiveX'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'флаг определяет является ли COM-объект ActiveX контролом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_471740DE003E // ComServant
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_471741A70271 Is ActiveX
+
+ME ME_470484D50138_ME_471740DE003E
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_470484D50138_ME_471740DE003E wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_471740DE003E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_471740DE003E constraint
+
+ME ME_47145120007D_ME_471740DE003E
+ MELINK Original WL 'ME_47145120007D' '470EF980003E.ms.model.script' // base_class_decl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47145120007D_ME_471740DE003E base_class_decl
+
+ME ME_4714514F00DA_ME_471740DE003E
+ MELINK Original WL 'ME_4714514F00DA' '470EF980003E.ms.model.script' // self_forward
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4714514F00DA_ME_471740DE003E self_forward
+
+ME ME_4714518703A9_ME_471740DE003E
+ MELINK Original WL 'ME_4714518703A9' '470EF980003E.ms.model.script' // servant_content
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4714518703A9_ME_471740DE003E servant_content
+
+ME ME_471451A001B5_ME_471740DE003E
+ MELINK Original WL 'ME_471451A001B5' '470EF980003E.ms.model.script' // h_includes
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471451A001B5_ME_471740DE003E h_includes
+
+ME ME_471740DE003E
+ MEPROP UID '471740DE003E'
+ MEPROP Name 'ComServant'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'COM-сервант'#13#10'---'#13#10'Реализация COM-интерфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF908013A // COM
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47144D340251' '470EF980003E.ms.model.script' // Servant
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_471741A70271 // Is ActiveX
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_470484D50138_ME_471740DE003E // wiki_up_add_gen
+ ME_4704C0E30186_ME_471740DE003E // constraint
+ ME_47145120007D_ME_471740DE003E // base_class_decl
+ ME_4714514F00DA_ME_471740DE003E // self_forward
+ ME_4714518703A9_ME_471740DE003E // servant_content
+ ME_471451A001B5_ME_471740DE003E // h_includes
+ )
+ ; // Overridden
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\COM\ComServant.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM\ComServant'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471740DE003E ComServant
+
+ME ME_478DF908013A
+ MEPROP UID '478DF908013A'
+ MEPROP Name 'COM'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Типы для разраьотки COM-приложений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_470F75220177 // ComInterface
+ HWL ME_471740DE003E // ComServant
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ WL 'ME_478DF69F0205' '478DF69F0205.ms.model.script' // InterfacesMetamodel
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\COM'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_478DF908013A COM

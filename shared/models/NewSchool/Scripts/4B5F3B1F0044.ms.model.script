@@ -32,6 +32,22 @@ ME ME_4705CBD6003E_ME_4D78C2510247
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4705CBD6003E_ME_4D78C2510247 wiki_child_kind
 
+ME ME_470F1571031C_ME_4D78C2510247
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4D78C2510247 intf.pas
+
+ME ME_470F15B800CB_ME_4D78C2510247
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4D78C2510247 impl.pas
+
 ME ME_4D78C2510247
  MEPROP UID '4D78C2510247'
  MEPROP Name 'OwnerForm'
@@ -42,11 +58,17 @@ ME ME_4D78C2510247
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_49F572B403E3 // VCMFormSetFactory
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Inherits
  MELIST Implemented
    Seq: ( ME_46E6D4BB0339_ME_4D78C2510247 // wiki
  ME_470484D50138_ME_4D78C2510247 // wiki_up_add_gen
  ME_4704C0E30186_ME_4D78C2510247 // constraint
  ME_4705CBD6003E_ME_4D78C2510247 // wiki_child_kind
+ ME_470F1571031C_ME_4D78C2510247 // intf.pas
+ ME_470F15B800CB_ME_4D78C2510247 // impl.pas
  )
  ; // Implemented
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewImplementationLayer\FormSetFactory\VCMFormSetFactory\OwnerForm'
@@ -153,6 +175,54 @@ ME ME_49F5A4880292
 
 ENDME // ME_49F5A4880292 
 
+ME ME_4947F8AD02A1_ME_49F572B403E3
+ MELINK Original WL 'ME_4947F8AD02A1' '4773984F02AA.ms.model.script' // pas_TypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947F8AD02A1_ME_49F572B403E3 pas_TypeName
+
+ME ME_4948065C01DF_ME_49F572B403E3
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_49F572B403E3 pas_UnitName
+
+ME ME_4948E5B60391_ME_49F572B403E3
+ MELINK Original WL 'ME_4948E5B60391' '4773984F02AA.ms.model.script' // pas_DefaultAncestor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948E5B60391_ME_49F572B403E3 pas_DefaultAncestor
+
+ME ME_4948EB2601FA_ME_49F572B403E3
+ MELINK Original WL 'ME_4948EB2601FA' '4773984F02AA.ms.model.script' // pas_ImplUses
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948EB2601FA_ME_49F572B403E3 pas_ImplUses
+
+ME ME_4948F2EE0334_ME_49F572B403E3
+ MELINK Original WL 'ME_4948F2EE0334' '4773984F02AA.ms.model.script' // pas_IntfUses
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948F2EE0334_ME_49F572B403E3 pas_IntfUses
+
+ME ME_494B74D7016B_ME_49F572B403E3
+ MELINK Original WL 'ME_494B74D7016B' '4773984F02AA.ms.model.script' // pas_OutClassMark
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494B74D7016B_ME_49F572B403E3 pas_OutClassMark
+
+ME ME_49F5C7BD00B4_ME_49F572B403E3
+ MELINK Original WL 'ME_49F5C7BD00B4' '4773984F02AA.ms.model.script' // TypePrefix
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49F5C7BD00B4_ME_49F572B403E3 TypePrefix
+
+ME ME_4B2A19E3038B_ME_49F572B403E3
+ MELINK Original WL 'ME_4B2A19E3038B' '4773984F02AA.ms.model.script' // DoSpell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A19E3038B_ME_49F572B403E3 DoSpell
+
 ME ME_49F572B403E3
  MEPROP UID '49F572B403E3'
  MEPROP Name 'VCMFormSetFactory'
@@ -180,6 +250,17 @@ ME ME_49F572B403E3
    Seq: ( HWL ME_500932B703BB // IsVCMFormSetFactory
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4947F8AD02A1_ME_49F572B403E3 // pas_TypeName
+ ME_4948065C01DF_ME_49F572B403E3 // pas_UnitName
+ ME_4948E5B60391_ME_49F572B403E3 // pas_DefaultAncestor
+ ME_4948EB2601FA_ME_49F572B403E3 // pas_ImplUses
+ ME_4948F2EE0334_ME_49F572B403E3 // pas_IntfUses
+ ME_494B74D7016B_ME_49F572B403E3 // pas_OutClassMark
+ ME_49F5C7BD00B4_ME_49F572B403E3 // TypePrefix
+ ME_4B2A19E3038B_ME_49F572B403E3 // DoSpell
+ )
+ ; // Overridden
  MELIST Children
    Seq: ( HWL ME_4D78C2510247 // OwnerForm
  )
@@ -363,6 +444,12 @@ ME ME_4BD70B950302_ME_49F5A46300C9
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4BD70B950302_ME_49F5A46300C9 UserTypeID
 
+ME ME_4B2A19E3038B_ME_49F5A46300C9
+ MELINK Original WL 'ME_4B2A19E3038B' '4773984F02AA.ms.model.script' // DoSpell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A19E3038B_ME_49F5A46300C9 DoSpell
+
 ME ME_49F5A46300C9
  MEPROP UID '49F5A46300C9'
  MEPROP Name 'VCMZone'
@@ -401,6 +488,10 @@ ME ME_49F5A46300C9
    Seq: ( ME_4BD70B950302_ME_49F5A46300C9 // UserTypeID
  )
  ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B2A19E3038B_ME_49F5A46300C9 // DoSpell
+ )
+ ; // Overridden
  MELIST Dependencies
    Seq: ( ME_49F5A6A801AE // VCMZone
  )
@@ -434,6 +525,7 @@ ME ME_4B5F3B1F0044
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  WL 'ME_4A95156202EB' '4A95156202EB.ms.model.script' // MixIns
  )
  ; // Depends

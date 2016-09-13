@@ -1,0 +1,162 @@
+// WebGens 477399050133 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_477399050133
+
+ME ME_47738891021D
+ MEPROP UID '47738891021D'
+ MEPROP Name 'Генерация для Web'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Генераторы для HTML (vm-ы, js, css)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_477399050133 // WebGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Inherits
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\WebGens\Генерация для Web.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\WebGens\Генерация для Web'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47738891021D Генерация для Web
+
+FORWARD ME_477394C6021D
+
+ME ME_477394DD0114
+ MEPROP UID '477394DD0114'
+ MEPROP Name 'vm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор VM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_477394C6021D // Генерация Velocity
+ ;
+ UP "encoding" 'utf8'
+
+ENDME // ME_477394DD0114 vm
+
+ME ME_477395DC0346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_group::Dependency ;
+ MELINK Parent HWL ME_477394C6021D // Генерация Velocity
+ ;
+ MELINK Target HWL ME_47738891021D // Генерация для Web
+ ;
+
+ENDME // ME_477395DC0346 
+
+ME ME_477394C6021D
+ MEPROP UID '477394C6021D'
+ MEPROP Name 'Генерация Velocity'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группа генераторв для создания VM-файлов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_477399050133 // WebGens
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47738891021D // Генерация для Web
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_477394DD0114 // vm
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_477395DC0346 // Генерация для Web
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\WebGens\Генерация Velocity.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\WebGens\Генерация Velocity'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_477394C6021D Генерация Velocity
+
+FORWARD ME_4773950C0337
+
+ME ME_477395290327
+ MEPROP UID '477395290327'
+ MEPROP Name 'js'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор JavaScript' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773950C0337 // Генерация JavaScript
+ ;
+
+ENDME // ME_477395290327 js
+
+ME ME_477395E300C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_group::Dependency ;
+ MELINK Parent HWL ME_4773950C0337 // Генерация JavaScript
+ ;
+ MELINK Target HWL ME_47738891021D // Генерация для Web
+ ;
+
+ENDME // ME_477395E300C6 
+
+ME ME_4773950C0337
+ MEPROP UID '4773950C0337'
+ MEPROP Name 'Генерация JavaScript'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Группа генераторов для создания JS-фалов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_477399050133 // WebGens
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47738891021D // Генерация для Web
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_477395290327 // js
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_477395E300C6 // Генерация для Web
+ )
+ ; // Dependencies
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\WebGens\Генерация JavaScript.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\WebGens\Генерация JavaScript'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4773950C0337 Генерация JavaScript
+
+ME ME_477399050133
+ MEPROP UID '477399050133'
+ MEPROP Name 'WebGens'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Генераторы для создания фалов свзяанны с WEB-разработкой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4773963E021D' '4773963E021D.ms.model.script' // AllGenerators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47738891021D // Генерация для Web
+ HWL ME_477394C6021D // Генерация Velocity
+ HWL ME_4773950C0337 // Генерация JavaScript
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\AllGenerators\WebGens'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\WebGens'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_477399050133 WebGens

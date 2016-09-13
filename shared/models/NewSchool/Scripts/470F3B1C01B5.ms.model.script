@@ -1,0 +1,794 @@
+// StateMachineClasses 470F3B1C01B5 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_470F3B1C01B5
+
+FORWARD ME_470F3B8B032C
+
+FORWARD ME_470F468F0109
+
+FORWARD ME_470F46A5034B
+
+FORWARD ME_470F47A401C5
+
+ME ME_470F47C500DA
+ MEPROP UID '470F47C500DA'
+ MEPROP Name 'Action'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDATransitionAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'действие связанное с переходом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F47A401C5 // transition
+ ;
+ UP "personal label" 'code_sm_int_state_action_transition'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine\st_machine\State\transition\Action'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F47C500DA Action
+
+ME ME_4704C0E30186_ME_470F47A401C5
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F47A401C5 constraint
+
+ME ME_470F47A401C5
+ MEPROP UID '470F47A401C5'
+ MEPROP Name 'transition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDATransition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'переход' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F46A5034B // State
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_470F47A401C5 // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F47C500DA // Action
+ )
+ ; // Children
+ UP "personal label" 'code_sm_int_state_transition'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine\st_machine\State\transition'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F47A401C5 transition
+
+ME ME_470F47E40222
+ MEPROP UID '470F47E40222'
+ MEPROP Name 'StateAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAStateAction ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'действие связанное с состоянием' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F46A5034B // State
+ ;
+ UP "personal label" 'code_sm_int_state_action'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine\st_machine\State\StateAction'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F47E40222 StateAction
+
+FORWARD ME_47A697BA0068
+
+ME ME_4704C0E30186_ME_47A697BA0068
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47A697BA0068 constraint
+
+ME ME_47A697BA0068
+ MEPROP UID '47A697BA0068'
+ MEPROP Name 'combine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDATransition ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Связь-объединение'#13#10'---'#13#10'Определяет условие, по которому два состояния могут объединятся в одно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F46A5034B // State
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_47A697BA0068 // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_sm_int_state_combine_transition'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine\st_machine\State\combine'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47A697BA0068 combine
+
+ME ME_470321950119_ME_470F46A5034B
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F46A5034B java
+
+ME ME_470321C1038A_ME_470F46A5034B
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_470F46A5034B fctr.java
+
+ME ME_4704C0E30186_ME_470F46A5034B
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F46A5034B constraint
+
+ME ME_470F46A5034B
+ MEPROP UID '470F46A5034B'
+ MEPROP Name 'State'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAState ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Состояние' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F468F0109 // st_machine
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_470321950119_ME_470F46A5034B // java
+ ME_470321C1038A_ME_470F46A5034B // fctr.java
+ ME_4704C0E30186_ME_470F46A5034B // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F47A401C5 // transition
+ HWL ME_470F47E40222 // StateAction
+ HWL ME_47A697BA0068 // combine
+ )
+ ; // Children
+ UP "personal label" 'code_sm_int_state'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine\st_machine\State'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F46A5034B State
+
+ME ME_470321950119_ME_470F468F0109
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F468F0109 java
+
+ME ME_470321C1038A_ME_470F468F0109
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_470F468F0109 fctr.java
+
+ME ME_470484D50138_ME_470F468F0109
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_470F468F0109 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_470F468F0109
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F468F0109 constraint
+
+ME ME_4705CBD6003E_ME_470F468F0109
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F468F0109 wiki_child_kind
+
+ME ME_470F468F0109
+ MEPROP UID '470F468F0109'
+ MEPROP Name 'st_machine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAStateMachine ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Машина состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B8B032C // StateMachine
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_470321950119_ME_470F468F0109 // java
+ ME_470321C1038A_ME_470F468F0109 // fctr.java
+ ME_470484D50138_ME_470F468F0109 // wiki_up_add_gen
+ ME_4704C0E30186_ME_470F468F0109 // constraint
+ ME_4705CBD6003E_ME_470F468F0109 // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F46A5034B // State
+ )
+ ; // Children
+ UP "personal label" 'code_state_machine_internal'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine\st_machine'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F468F0109 st_machine
+
+ME ME_470F3C1A0399
+ MEPROP UID '470F3C1A0399'
+ MEPROP Name 'get_realization_package'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает пакет реализации, в котором находится описание элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B8B032C // StateMachine
+ ;
+
+ENDME // ME_470F3C1A0399 get_realization_package
+
+ME ME_475D3363002B
+ MEPROP UID '475D3363002B'
+ MEPROP Name 'find_specific_base_event'
+ MEPROP Class class_Operation
+ %SUMMARY 'метод поиска базового события - ищет среди всех событий, определенных для машины состояний, событие, у котого свойство "is base" = true, найденный элемент-событие сохраняет в переменной BASE_EVENT, если такого базового элемента не найдено, то все события должны реализовывать фасет события, определённого в фреймворке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B8B032C // StateMachine
+ ;
+
+ENDME // ME_475D3363002B find_specific_base_event
+
+ME ME_475F8D2C03D3
+ MEPROP UID '475F8D2C03D3'
+ MEPROP Name 'find_specific_base_state'
+ MEPROP Class class_Operation
+ %SUMMARY 'метод поиска базового состояния - ищет среди всех состояний определенных для машины состояний, состояние, у которого свойство "is base" = true, найденный элемент-состояние сохраняет в переменной BASE_STATE, если такого базового элемента не найдено, то все состояниz должны наследоваться от базового состояние события, определённого в фреймворке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B8B032C // StateMachine
+ ;
+
+ENDME // ME_475F8D2C03D3 find_specific_base_state
+
+FORWARD ME_470F3D32029F
+
+ME ME_470F3E8B03B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F3B8B032C // StateMachine
+ ;
+ MELINK Target HWL ME_470F3D32029F // TransitionEvent
+ ;
+
+ENDME // ME_470F3E8B03B9 
+
+FORWARD ME_475F8CC801A5
+
+ME ME_475F8D1C0266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F3B8B032C // StateMachine
+ ;
+ MELINK Target HWL ME_475F8CC801A5 // State
+ ;
+
+ENDME // ME_475F8D1C0266 
+
+ME ME_46E6D4BB0339_ME_470F3B8B032C
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470F3B8B032C wiki
+
+ME ME_470321950119_ME_470F3B8B032C
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F3B8B032C java
+
+ME ME_470321C1038A_ME_470F3B8B032C
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_470F3B8B032C fctr.java
+
+ME ME_4704C0E30186_ME_470F3B8B032C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F3B8B032C constraint
+
+ME ME_470F3B8B032C
+ MEPROP UID '470F3B8B032C'
+ MEPROP Name 'StateMachine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Машина состояний'#13#10'---'#13#10'Машина состояний представляет собой конечный автомат, состоящий из множества состояний, соединенных между собой переходами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B1C01B5 // StateMachineClasses
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_470F3C1A0399 // get_realization_package
+ HWL ME_475D3363002B // find_specific_base_event
+ HWL ME_475F8D2C03D3 // find_specific_base_state
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470F3B8B032C // wiki
+ ME_470321950119_ME_470F3B8B032C // java
+ ME_470321C1038A_ME_470F3B8B032C // fctr.java
+ ME_4704C0E30186_ME_470F3B8B032C // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F468F0109 // st_machine
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_470F3E8B03B9 // TransitionEvent
+ ME_475F8D1C0266 // State
+ )
+ ; // Dependencies
+ UP "personal label" 'code_state_machine'
+ UP "visualization bg color" 15262200
+ UP "visualization f-font color" 9528569
+ UP "visualization f-line color" 9528569
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\StateMachine'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F3B8B032C StateMachine
+
+ME ME_475D32C30101
+ MEPROP UID '475D32C30101'
+ MEPROP Name 'is base'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что данный элемент будет базовым для всех элементов - событий в конкретной машине состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F3D32029F // TransitionEvent
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_475D32C30101 is base
+
+ME ME_4704C0E30186_ME_470F3D32029F
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_470F3D32029F constraint
+
+ME ME_47173062030D_ME_470F3D32029F
+ MELINK Original WL 'ME_47173062030D' '470EF980003E.ms.model.script' // java_base_class_decl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47173062030D_ME_470F3D32029F java_base_class_decl
+
+ME ME_47173078008C_ME_470F3D32029F
+ MELINK Original WL 'ME_47173078008C' '470EF980003E.ms.model.script' // servant_content_java
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47173078008C_ME_470F3D32029F servant_content_java
+
+ME ME_47A1B60702B1_ME_470F3D32029F
+ MELINK Original WL 'ME_47A1B60702B1' '470EF980003E.ms.model.script' // impurity value
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "abstraction type" 'a'
+ UP "implementable" false
+ UP "personal label" 'code_impurity_value'
+ UP "visability type" '-'
+ENDME // ME_47A1B60702B1_ME_470F3D32029F impurity value
+
+ME ME_470F3D32029F
+ MEPROP UID '470F3D32029F'
+ MEPROP Name 'TransitionEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Событие'#13#10'---'#13#10'Соответствует элементу-событию, определенному на диаграмме состояний, соответствие определяется по совпадению имен. Абстрактное событие может не соответствовать событию на диаграмме состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B1C01B5 // StateMachineClasses
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471466900128' '470EF980003E.ms.model.script' // SimpleClass
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_475D32C30101 // is base
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_470F3D32029F // constraint
+ ME_47173062030D_ME_470F3D32029F // java_base_class_decl
+ ME_47173078008C_ME_470F3D32029F // servant_content_java
+ ME_47A1B60702B1_ME_470F3D32029F // impurity value
+ )
+ ; // Overridden
+ UP "personal label" 'code_sm_event'
+ UP "visualization bg color" 14548445
+ UP "visualization f-font color" 4316728
+ UP "visualization f-line color" 4316728
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\StateMachineClasses\TransitionEvent.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\TransitionEvent'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F3D32029F TransitionEvent
+
+FORWARD ME_470F3EB60119
+
+ME ME_470F3ECF0399
+ MEPROP UID '470F3ECF0399'
+ MEPROP Name 'check_event'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверяет ограничения на использование событий, в случае нарушения ограничений возвращает "нарушителей"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F3ECF0399 check_event
+
+ME ME_470F3F28033C
+ MEPROP UID '470F3F28033C'
+ MEPROP Name 'check_guard'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверяет ограничения на использование сторожевых условий, в случае нарушения ограничений возвращает "нарушителей"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F3F28033C check_guard
+
+ME ME_470F3F8B01F4
+ MEPROP UID '470F3F8B01F4'
+ MEPROP Name 'check_state'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверяет ограничения на использование состояний, в случае нарушения ограничений возвращает "состояния-нарушители"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F3F8B01F4 check_state
+
+ME ME_470F4012009C
+ MEPROP UID '470F4012009C'
+ MEPROP Name 'check_event_correspondence1'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверяет, что элемента со стереотипом Event событию связанному с переходами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F4012009C check_event_correspondence1
+
+ME ME_470F409200FA
+ MEPROP UID '470F409200FA'
+ MEPROP Name 'check_event_correspondence2'
+ MEPROP Class class_Operation
+ %SUMMARY 'ещё одна проверка на отображение Event::Class в событие' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F409200FA check_event_correspondence2
+
+ME ME_470F40DA006D
+ MEPROP UID '470F40DA006D'
+ MEPROP Name 'is_guarded_transition'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true. если переход осуществляется по сторожевому условию, иначе false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F40DA006D is_guarded_transition
+
+ME ME_470F4103035B
+ MEPROP UID '470F4103035B'
+ MEPROP Name 'dump_guard'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит сторожевое условие' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F4103035B dump_guard
+
+ME ME_470F411F0177
+ MEPROP UID '470F411F0177'
+ MEPROP Name 'dump_action'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит действие связанное с переходом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F411F0177 dump_action
+
+ME ME_470F413001B5
+ MEPROP UID '470F413001B5'
+ MEPROP Name 'dump_connect'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит связь между состояними' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F413001B5 dump_connect
+
+ME ME_470F415903A9
+ MEPROP UID '470F415903A9'
+ MEPROP Name 'check_unconditional_transition'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверяет, что из одного состояния не может быть более ,чем один безусловный переход' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F415903A9 check_unconditional_transition
+
+ME ME_470F419B001F
+ MEPROP UID '470F419B001F'
+ MEPROP Name 'select_state'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает имя базового класса для состояния:'#13#10'DefaultInitialState'#13#10'DefaultFinalState'#13#10'BaseState' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F419B001F select_state
+
+ME ME_470F41F8004E
+ MEPROP UID '470F41F8004E'
+ MEPROP Name 'find_sm_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'рекурсивно пробегает по всем реализуемым элементам'#13#10'если находит элемент со стереотипом StateMachine - кладет '#13#10'в переменную SM_IMPL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F41F8004E find_sm_impl
+
+ME ME_470F420A00CB
+ MEPROP UID '470F420A00CB'
+ MEPROP Name 'dump_servant_sm_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит необходимые методы и атрибуты для серванта, который реализует машину состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_470F420A00CB dump_servant_sm_java
+
+ME ME_475F8DC801D0
+ MEPROP UID '475F8DC801D0'
+ MEPROP Name 'check_correspondence_state'
+ MEPROP Class class_Operation
+ %SUMMARY 'проверяет, что каждому не абстрактному элементу сос стереотипом State соответствует элемент на диаграмме состояний, соответствие определяется по совпадению имён' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3EB60119 // Support
+ ;
+
+ENDME // ME_475F8DC801D0 check_correspondence_state
+
+ME ME_470F3EB60119
+ MEPROP UID '470F3EB60119'
+ MEPROP Name 'Support'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'набор вспомогательных функций для енерации машины состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B1C01B5 // StateMachineClasses
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_470F3ECF0399 // check_event
+ HWL ME_470F3F28033C // check_guard
+ HWL ME_470F3F8B01F4 // check_state
+ HWL ME_470F4012009C // check_event_correspondence1
+ HWL ME_470F409200FA // check_event_correspondence2
+ HWL ME_470F40DA006D // is_guarded_transition
+ HWL ME_470F4103035B // dump_guard
+ HWL ME_470F411F0177 // dump_action
+ HWL ME_470F413001B5 // dump_connect
+ HWL ME_470F415903A9 // check_unconditional_transition
+ HWL ME_470F419B001F // select_state
+ HWL ME_470F41F8004E // find_sm_impl
+ HWL ME_470F420A00CB // dump_servant_sm_java
+ HWL ME_475F8DC801D0 // check_correspondence_state
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\StateMachineClasses\Support.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\Support'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F3EB60119 Support
+
+ME ME_475F8CE40291
+ MEPROP UID '475F8CE40291'
+ MEPROP Name 'is base'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что данный элемент будет базовым для всех элементов - состояний в конкретной машине состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_475F8CC801A5 // State
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_475F8CE40291 is base
+
+ME ME_470321950119_ME_475F8CC801A5
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_475F8CC801A5 java
+
+ME ME_470321C1038A_ME_475F8CC801A5
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_475F8CC801A5 fctr.java
+
+ME ME_4704C0E30186_ME_475F8CC801A5
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_475F8CC801A5 constraint
+
+ME ME_47173062030D_ME_475F8CC801A5
+ MELINK Original WL 'ME_47173062030D' '470EF980003E.ms.model.script' // java_base_class_decl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47173062030D_ME_475F8CC801A5 java_base_class_decl
+
+ME ME_4717306F0157_ME_475F8CC801A5
+ MELINK Original WL 'ME_4717306F0157' '470EF980003E.ms.model.script' // java_servant_import_self
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4717306F0157_ME_475F8CC801A5 java_servant_import_self
+
+ME ME_47173078008C_ME_475F8CC801A5
+ MELINK Original WL 'ME_47173078008C' '470EF980003E.ms.model.script' // servant_content_java
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47173078008C_ME_475F8CC801A5 servant_content_java
+
+ME ME_47A1B60702B1_ME_475F8CC801A5
+ MELINK Original WL 'ME_47A1B60702B1' '470EF980003E.ms.model.script' // impurity value
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "abstraction type" 'a'
+ UP "implementable" false
+ UP "personal label" 'code_impurity_value'
+ UP "visability type" '-'
+ENDME // ME_47A1B60702B1_ME_475F8CC801A5 impurity value
+
+ME ME_475F8CC801A5
+ MEPROP UID '475F8CC801A5'
+ MEPROP Name 'State'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Состояние'#13#10'---'#13#10'Соответствует элементу-сосотянию, определенному на диаграмме состояний, соответствие определяется по совпадению имен. Абстрактное состояниеможет не соответствовать событию на диаграмме состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F3B1C01B5 // StateMachineClasses
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471466900128' '470EF980003E.ms.model.script' // SimpleClass
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_475F8CE40291 // is base
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_470321950119_ME_475F8CC801A5 // java
+ ME_470321C1038A_ME_475F8CC801A5 // fctr.java
+ ME_4704C0E30186_ME_475F8CC801A5 // constraint
+ ME_47173062030D_ME_475F8CC801A5 // java_base_class_decl
+ ME_4717306F0157_ME_475F8CC801A5 // java_servant_import_self
+ ME_47173078008C_ME_475F8CC801A5 // servant_content_java
+ ME_47A1B60702B1_ME_475F8CC801A5 // impurity value
+ )
+ ; // Overridden
+ UP "personal label" 'code_sm_state'
+ UP "visualization bg color" 15262200
+ UP "visualization f-font color" 9528569
+ UP "visualization f-line color" 9528569
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\StateMachineClasses\State.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses\State'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_475F8CC801A5 State
+
+ME ME_470F3B1C01B5
+ MEPROP UID '470F3B1C01B5'
+ MEPROP Name 'StateMachineClasses'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'набор стереотипов описывающих элементы машины состояний' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_470F3B8B032C // StateMachine
+ HWL ME_470F3D32029F // TransitionEvent
+ HWL ME_470F3EB60119 // Support
+ HWL ME_475F8CC801A5 // State
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_4773980602D9' '4773980602D9.ms.model.script' // JavaGens
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\StateMachineClasses'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F3B1C01B5 StateMachineClasses

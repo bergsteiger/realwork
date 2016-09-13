@@ -33,6 +33,13 @@ IMMEDIATE VOID operator MEVIEW
  aName |N Ctx:Parser:PushSymbol
 ; // MEVIEW
 
+IMMEDIATE VOID operator MEVIEWLINK
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'axiom:operator' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // MEVIEWLINK
+
 IMMEDIATE VOID operator MELINK
  ^L IN aName
  @SELF Ctx:SetWordProducerForCompiledClass
@@ -84,3 +91,4 @@ MACRO ref;
 WordAlias ENDMEDIAGRAM ref;
 WordAlias ENDMEDIAGRAMS ref;
 WordAlias ENDMEVIEW ref;
+WordAlias ENDMEVIEWLINK ref;

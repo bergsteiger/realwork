@@ -1,0 +1,968 @@
+// Functors 4713175502FD MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4713175502FD
+
+FORWARD ME_4713197703A9
+
+ME ME_4713261D0109
+ MEPROP UID '4713261D0109'
+ MEPROP Name 'attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713197703A9 // FunctorBase
+ ;
+ UP "available target stereotypes" 'const'
+ UP "link type" 'alr'
+ UP "personal label" 'code_attr'
+ UP "unstereotyped" true
+ UP "visability type" '-+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\FunctorBase\attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713261D0109 attr
+
+ME ME_471326540280
+ MEPROP UID '471326540280'
+ MEPROP Name 'uses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование'#13#10'Определяет что источник использует указанный объект (цель) каким-либо образом.'#13#10'На основе данной связи будет сгенерированы пути включения файлов используемого объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713197703A9 // FunctorBase
+ ;
+ UP "personal label" 'code_dep_uses'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\FunctorBase\uses'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471326540280 uses
+
+FORWARD ME_482BD31C000D
+
+ME ME_46E6D4BB0339_ME_482BD31C000D
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_482BD31C000D wiki
+
+ME ME_470321C1038A_ME_482BD31C000D
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_482BD31C000D fctr.java
+
+ME ME_470484D50138_ME_482BD31C000D
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_482BD31C000D wiki_up_add_gen
+
+ME ME_482BD31C000D
+ MEPROP UID '482BD31C000D'
+ MEPROP Name 'ctor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конструктор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713197703A9 // FunctorBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47049AA3038A' '470384F502CE.ms.model.script' // ctor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_482BD31C000D // wiki
+ ME_470321C1038A_ME_482BD31C000D // fctr.java
+ ME_470484D50138_ME_482BD31C000D // wiki_up_add_gen
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\FunctorBase\ctor'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_482BD31C000D ctor
+
+ME ME_471319CB01B5
+ MEPROP UID '471319CB01B5'
+ MEPROP Name 'const functor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'указывает что метод функтора будет сгенерирован как константный' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4713197703A9 // FunctorBase
+ ;
+ MEPROP Value true
+ UP extprop:pas:Value true
+
+ENDME // ME_471319CB01B5 const functor
+
+ME ME_471319E0034B
+ MEPROP UID '471319E0034B'
+ MEPROP Name 'force usage'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'явно определяет, что элемент будет кем-то использован (нужно для проверки)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4713197703A9 // FunctorBase
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_471319E0034B force usage
+
+ME ME_486345750387
+ MEPROP UID '486345750387'
+ MEPROP Name 'base_decl_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит базовый класс функтора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713197703A9 // FunctorBase
+ ;
+
+ENDME // ME_486345750387 base_decl_h
+
+ME ME_46E6D4BB0339_ME_4713197703A9
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4713197703A9 wiki
+
+ME ME_47022C88029F_ME_4713197703A9
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_4713197703A9 h
+
+ME ME_47022CB8034B_ME_4713197703A9
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_4713197703A9 cpp
+
+ME ME_47022CCF00EA_ME_4713197703A9
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_4713197703A9 i.h
+
+ME ME_470484D50138_ME_4713197703A9
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4713197703A9 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4713197703A9
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4713197703A9 constraint
+
+ME ME_4705CBD6003E_ME_4713197703A9
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4713197703A9 wiki_child_kind
+
+ME ME_4713197703A9
+ MEPROP UID '4713197703A9'
+ MEPROP Name 'FunctorBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый стереотип функтора'#13#10'---'#13#10'Определяет функтор (нуль-функтор) без параметров и заданным типом результата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713175502FD // Functors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_471319CB01B5 // const functor
+ HWL ME_471319E0034B // force usage
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_486345750387 // base_decl_h
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4713197703A9 // wiki
+ ME_47022C88029F_ME_4713197703A9 // h
+ ME_47022CB8034B_ME_4713197703A9 // cpp
+ ME_47022CCF00EA_ME_4713197703A9 // i.h
+ ME_470484D50138_ME_4713197703A9 // wiki_up_add_gen
+ ME_4704C0E30186_ME_4713197703A9 // constraint
+ ME_4705CBD6003E_ME_4713197703A9 // wiki_child_kind
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4713261D0109 // attr
+ HWL ME_471326540280 // uses
+ HWL ME_482BD31C000D // ctor
+ )
+ ; // Children
+ UP "abstraction type" 'r'
+ UP "personal label" 'code_functor'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 15781360
+ UP "visualization f-font color" 7874680
+ UP "visualization f-line color" 7874680
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Functors\FunctorBase.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\FunctorBase'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713197703A9 FunctorBase
+
+FORWARD ME_471325D000EA
+
+ME ME_471328B302BF
+ MEPROP UID '471328B302BF'
+ MEPROP Name 'functor_impl_body'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация тела функтора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471325D000EA // Support
+ ;
+
+ENDME // ME_471328B302BF functor_impl_body
+
+ME ME_4713294A002E
+ MEPROP UID '4713294A002E'
+ MEPROP Name 'functor_ret'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возаращает тип результата функтора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471325D000EA // Support
+ ;
+
+ENDME // ME_4713294A002E functor_ret
+
+ME ME_471329B00138
+ MEPROP UID '471329B00138'
+ MEPROP Name 'functor_arg'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация параметра функтора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471325D000EA // Support
+ ;
+
+ENDME // ME_471329B00138 functor_arg
+
+ME ME_471329BF033C
+ MEPROP UID '471329BF033C'
+ MEPROP Name 'functor_arg'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'генерация параметра функтора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471325D000EA // Support
+ ;
+
+ENDME // ME_471329BF033C functor_arg
+
+ME ME_4716E5190213
+ MEPROP UID '4716E5190213'
+ MEPROP Name 'common_functors_impl_body'
+ MEPROP Class class_Operation
+ %SUMMARY 'общий код для функторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471325D000EA // Support
+ ;
+
+ENDME // ME_4716E5190213 common_functors_impl_body
+
+ME ME_4716E55F03A9
+ MEPROP UID '4716E55F03A9'
+ MEPROP Name 'functor_functor'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'выводит часть сигнатуры для оператора ()' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471325D000EA // Support
+ ;
+
+ENDME // ME_4716E55F03A9 functor_functor
+
+ME ME_471325D000EA
+ MEPROP UID '471325D000EA'
+ MEPROP Name 'Support'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'набор вспомогательных функций для генерации функторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713175502FD // Functors
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_471328B302BF // functor_impl_body
+ HWL ME_4713294A002E // functor_ret
+ HWL ME_471329B00138 // functor_arg
+ HWL ME_471329BF033C // functor_arg
+ HWL ME_4716E5190213 // common_functors_impl_body
+ HWL ME_4716E55F03A9 // functor_functor
+ )
+ ; // Operations
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Functors\Support.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\Support'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471325D000EA Support
+
+FORWARD ME_471326A40232
+
+ME ME_471327120119
+ MEPROP UID '471327120119'
+ MEPROP Name 'result'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат функтора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471326A40232 // UnaryFunctor
+ ;
+ UP "link type" 'l'
+ UP "personal label" 'code_result'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\UnaryFunctor\result'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471327120119 result
+
+ME ME_4713275603C8
+ MEPROP UID '4713275603C8'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Параметр функтора (может иметь "стеротип цели" chg указывающий на то что праметр может изменяться внутри функтора)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471326A40232 // UnaryFunctor
+ ;
+ UP "available target stereotypes" 'chg'
+ UP "link type" 'lr'
+ UP "personal label" 'code_param_attr'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\UnaryFunctor\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713275603C8 param
+
+ME ME_4704C0E30186_ME_471326A40232
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_471326A40232 constraint
+
+ME ME_486345750387_ME_471326A40232
+ MELINK Original HWL ME_486345750387 // base_decl_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_486345750387_ME_471326A40232 base_decl_h
+
+ME ME_471326A40232
+ MEPROP UID '471326A40232'
+ MEPROP Name 'UnaryFunctor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Унарный функтор'#13#10'---'#13#10'определяет функтор с одним параметром и заданным типом результата (по умолчанию пустым)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713175502FD // Functors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4713197703A9 // FunctorBase
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_471326A40232 // constraint
+ ME_486345750387_ME_471326A40232 // base_decl_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_471327120119 // result
+ HWL ME_4713275603C8 // param
+ )
+ ; // Children
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Functors\UnaryFunctor.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\UnaryFunctor'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471326A40232 UnaryFunctor
+
+FORWARD ME_47132786033C
+
+ME ME_471327AE037A
+ MEPROP UID '471327AE037A'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Параметер предиката' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47132786033C // Predicate
+ ;
+ UP "link type" 'l'
+ UP "personal label" 'code_attr'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\Predicate\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471327AE037A param
+
+ME ME_4704C0E30186_ME_47132786033C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_47132786033C constraint
+
+ME ME_486345750387_ME_47132786033C
+ MELINK Original HWL ME_486345750387 // base_decl_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_486345750387_ME_47132786033C base_decl_h
+
+ME ME_47132786033C
+ MEPROP UID '47132786033C'
+ MEPROP Name 'Predicate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Унарный предикат'#13#10'---'#13#10'Специальный класс унарных функторов. Определяет функтор с одним параметром и булевым типом результата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713175502FD // Functors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4713197703A9 // FunctorBase
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_47132786033C // constraint
+ ME_486345750387_ME_47132786033C // base_decl_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_471327AE037A // param
+ )
+ ; // Children
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Functors\Predicate.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\Predicate'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47132786033C Predicate
+
+FORWARD ME_471327DD0222
+
+ME ME_471327F701F4
+ MEPROP UID '471327F701F4'
+ MEPROP Name 'result'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Результат функтора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471327DD0222 // BinaryFunctor
+ ;
+ UP "link type" 'l'
+ UP "personal label" 'code_attr'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\BinaryFunctor\result'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471327F701F4 result
+
+ME ME_4713280A0000
+ MEPROP UID '4713280A0000'
+ MEPROP Name 'first param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Первый параметр функтора (может иметь "стеротип цели" chg указывающий на то что праметр может изменяться внутри функтора)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471327DD0222 // BinaryFunctor
+ ;
+ UP "available target stereotypes" 'chg'
+ UP "link type" 'l'
+ UP "personal label" 'code_attr'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\BinaryFunctor\first param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713280A0000 first param
+
+ME ME_4713282601D4
+ MEPROP UID '4713282601D4'
+ MEPROP Name 'second param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Второй параметер функтора (может иметь "стеротип цели" chg указывающий на то что праметр может изменяться внутри функтора)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471327DD0222 // BinaryFunctor
+ ;
+ UP "available target stereotypes" 'chg'
+ UP "link type" 'l'
+ UP "personal label" 'code_attr'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\BinaryFunctor\second param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713282601D4 second param
+
+ME ME_4704C0E30186_ME_471327DD0222
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_471327DD0222 constraint
+
+ME ME_486345750387_ME_471327DD0222
+ MELINK Original HWL ME_486345750387 // base_decl_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_486345750387_ME_471327DD0222 base_decl_h
+
+ME ME_471327DD0222
+ MEPROP UID '471327DD0222'
+ MEPROP Name 'BinaryFunctor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бинарный функтор'#13#10'---'#13#10'Определяет функтор с двумя параметрами и заданным типом результата (по умолчанию пустым)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713175502FD // Functors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4713197703A9 // FunctorBase
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_471327DD0222 // constraint
+ ME_486345750387_ME_471327DD0222 // base_decl_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_471327F701F4 // result
+ HWL ME_4713280A0000 // first param
+ HWL ME_4713282601D4 // second param
+ )
+ ; // Children
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Functors\BinaryFunctor.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\BinaryFunctor'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471327DD0222 BinaryFunctor
+
+FORWARD ME_47132852037A
+
+ME ME_4713288E0128
+ MEPROP UID '4713288E0128'
+ MEPROP Name 'first param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Первый параметер предиката' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47132852037A // BinaryPredicate
+ ;
+ UP "available target stereotypes" 'chg'
+ UP "link type" 'l'
+ UP "personal label" 'code_attr'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\BinaryPredicate\first param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713288E0128 first param
+
+ME ME_4713289D02AF
+ MEPROP UID '4713289D02AF'
+ MEPROP Name 'second param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Второй параметер предиката' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47132852037A // BinaryPredicate
+ ;
+ UP "available target stereotypes" 'chg'
+ UP "link type" 'l'
+ UP "personal label" 'code_attr'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\BinaryPredicate\second param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713289D02AF second param
+
+ME ME_4704C0E30186_ME_47132852037A
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_47132852037A constraint
+
+ME ME_486345750387_ME_47132852037A
+ MELINK Original HWL ME_486345750387 // base_decl_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_486345750387_ME_47132852037A base_decl_h
+
+ME ME_47132852037A
+ MEPROP UID '47132852037A'
+ MEPROP Name 'BinaryPredicate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бинарный предикат'#13#10'---'#13#10'Специальный класс бинарных функторов. Определяет функтор с двумя параметрами и булевым типом результата' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713175502FD // Functors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4713197703A9 // FunctorBase
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_47132852037A // constraint
+ ME_486345750387_ME_47132852037A // base_decl_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4713288E0128 // first param
+ HWL ME_4713289D02AF // second param
+ )
+ ; // Children
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Functors\BinaryPredicate.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\BinaryPredicate'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47132852037A BinaryPredicate
+
+FORWARD ME_47679DF1032E
+
+FORWARD ME_47679E8A0154
+
+FORWARD ME_566B0D8302CB
+
+ME ME_46E6D4BB0339_ME_566B0D8302CB
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_566B0D8302CB wiki
+
+ME ME_470484D50138_ME_566B0D8302CB
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_566B0D8302CB wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_566B0D8302CB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_566B0D8302CB constraint
+
+ME ME_4705CBD6003E_ME_566B0D8302CB
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_566B0D8302CB wiki_child_kind
+
+ME ME_470F1571031C_ME_566B0D8302CB
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_566B0D8302CB intf.pas
+
+ME ME_470F15B800CB_ME_566B0D8302CB
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_566B0D8302CB impl.pas
+
+ME ME_566B0D8302CB
+ MEPROP UID '566B0D8302CB'
+ MEPROP Name 'Param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47679E8A0154 // Operation
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_566B0D8302CB // wiki
+ ME_470484D50138_ME_566B0D8302CB // wiki_up_add_gen
+ ME_4704C0E30186_ME_566B0D8302CB // constraint
+ ME_4705CBD6003E_ME_566B0D8302CB // wiki_child_kind
+ ME_470F1571031C_ME_566B0D8302CB // intf.pas
+ ME_470F15B800CB_ME_566B0D8302CB // impl.pas
+ )
+ ; // Implemented
+ UP "personal label" 'code_param'
+ UP "unstereotyped" true
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\Function\Operation\Param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_566B0D8302CB Param
+
+ME ME_46E6D4BB0339_ME_47679E8A0154
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_47679E8A0154 wiki
+
+ME ME_470F1571031C_ME_47679E8A0154
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_47679E8A0154 intf.pas
+
+ME ME_470F15B800CB_ME_47679E8A0154
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_47679E8A0154 impl.pas
+
+ME ME_47679E8A0154
+ MEPROP UID '47679E8A0154'
+ MEPROP Name 'Operation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод'#13#10'---'#13#10'Определяет сигнатуру функции, т.е набор параметров и тип возращаемого результата. У элемента-функции может быть только один (!) метод' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47679DF1032E // Function
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_47679E8A0154 // wiki
+ ME_470F1571031C_ME_47679E8A0154 // intf.pas
+ ME_470F15B800CB_ME_47679E8A0154 // impl.pas
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_566B0D8302CB // Param
+ )
+ ; // Children
+ UP "abstraction type" 'f'
+ UP "available target stereotypes" 'const|cached|const,cached'
+ UP "empty target" true
+ UP "personal label" 'code_method'
+ UP "unstereotyped" true
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\Function\Operation'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47679E8A0154 Operation
+
+ME ME_47694F31020B
+ MEPROP UID '47694F31020B'
+ MEPROP Name 'of object'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет привязана ли функция к объекту или нет (специфично для Delphi).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47679DF1032E // Function
+ ;
+ MEPROP Value false
+ UP extprop:pas:Value false
+
+ENDME // ME_47694F31020B of object
+
+ME ME_46E6D4BB0339_ME_47679DF1032E
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_47679DF1032E wiki
+
+ME ME_47022C88029F_ME_47679DF1032E
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_47679DF1032E h
+
+ME ME_47022CB8034B_ME_47679DF1032E
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_47679DF1032E cpp
+
+ME ME_47022CCF00EA_ME_47679DF1032E
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_47679DF1032E i.h
+
+ME ME_470484D50138_ME_47679DF1032E
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_47679DF1032E wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_47679DF1032E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47679DF1032E constraint
+
+ME ME_4705CBD6003E_ME_47679DF1032E
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47679DF1032E wiki_child_kind
+
+ME ME_470F1571031C_ME_47679DF1032E
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_47679DF1032E intf.pas
+
+ME ME_470F15B800CB_ME_47679DF1032E
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_47679DF1032E impl.pas
+
+ME ME_47679DF1032E
+ MEPROP UID '47679DF1032E'
+ MEPROP Name 'Function'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функция'#13#10'---'#13#10'Обобщённый указатель на функцию, сигнатура функции определяется единственным методом определённым на элементе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4713175502FD // Functors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47694F31020B // of object
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_47679DF1032E // wiki
+ ME_47022C88029F_ME_47679DF1032E // h
+ ME_47022CB8034B_ME_47679DF1032E // cpp
+ ME_47022CCF00EA_ME_47679DF1032E // i.h
+ ME_470484D50138_ME_47679DF1032E // wiki_up_add_gen
+ ME_4704C0E30186_ME_47679DF1032E // constraint
+ ME_4705CBD6003E_ME_47679DF1032E // wiki_child_kind
+ ME_470F1571031C_ME_47679DF1032E // intf.pas
+ ME_470F15B800CB_ME_47679DF1032E // impl.pas
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_47679E8A0154 // Operation
+ )
+ ; // Children
+ UP "disable forward decl" true
+ UP "personal label" 'code_function'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 15781360
+ UP "visualization f-font color" 7874680
+ UP "visualization f-line color" 7874680
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Functors\Function.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors\Function'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47679DF1032E Function
+
+ME ME_4713175502FD
+ MEPROP UID '4713175502FD'
+ MEPROP Name 'Functors'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'пакет стереотипов описывающих различные виды функторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4713197703A9 // FunctorBase
+ HWL ME_471325D000EA // Support
+ HWL ME_471326A40232 // UnaryFunctor
+ HWL ME_47132786033C // Predicate
+ HWL ME_471327DD0222 // BinaryFunctor
+ HWL ME_47132852037A // BinaryPredicate
+ HWL ME_47679DF1032E // Function
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Functors'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4713175502FD Functors

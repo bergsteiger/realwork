@@ -1,0 +1,106 @@
+// Units 4999712E027D MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4999712E027D
+
+FORWARD ME_4999717102EE
+
+ME ME_49997C18025D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4999717102EE // TestUnit
+ ;
+ MELINK Target WL 'ME_499972740320' '499971140199.ms.model.script' // TestClass
+ ;
+
+ENDME // ME_49997C18025D 
+
+ME ME_4B2A193A007F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4999717102EE // TestUnit
+ ;
+ MELINK Target WL 'ME_4B2A19080274' '499971140199.ms.model.script' // TestCase
+ ;
+
+ENDME // ME_4B2A193A007F 
+
+ME ME_51E031D50045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4999717102EE // TestUnit
+ ;
+ MELINK Target WL 'ME_51E0319001F4' '499971140199.ms.model.script' // TestCaseMixIn
+ ;
+
+ENDME // ME_51E031D50045 
+
+ME ME_470321C1038A_ME_4999717102EE
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_4999717102EE fctr.java
+
+ME ME_4999717102EE
+ MEPROP UID '4999717102EE'
+ MEPROP Name 'TestUnit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тестовый модуль' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4999712E027D // Units
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47048FBD0213' '4703361A00EA.ms.model.script' // Unit
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_470321C1038A_ME_4999717102EE // fctr.java
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49997C18025D // TestClass
+ ME_4B2A193A007F // TestCase
+ ME_51E031D50045 // TestCaseMixIn
+ )
+ ; // Dependencies
+ UP "inherite constraints" false
+ UP "personal label" 'code_test_unit'
+ UP "visualization bg color" 16777088
+ UP "visualization f-font color" 16744448
+ UP "visualization f-line color" 16744448
+ UP mda:Path 'MDProcess\CommonTemplates\Testing\Units\TestUnit.tpi'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\Testing\Units\TestUnit'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4999717102EE TestUnit
+
+ME ME_4999712E027D
+ MEPROP UID '4999712E027D'
+ MEPROP Name 'Units'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Модули' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_499970DC01D0' '499970DC01D0.ms.model.script' // Testing
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4999717102EE // TestUnit
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_4703361A00EA' '4703361A00EA.ms.model.script' // Packages
+ WL 'ME_499971140199' '499971140199.ms.model.script' // Elements
+ )
+ ; // Depends
+ UP mda:PathOnly '\MDProcess\CommonTemplates\Testing\Units'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\Testing\Units'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4999712E027D Units

@@ -241,6 +241,10 @@ ModelElement STRING elem_func Stereotype
  Self 'Stereotype' .ElemWord >>> Result
 ; // Stereotype
 
+ModelElement STRING elem_func StereotypeInModel
+ Self 'StereotypeInModel' .ElemWord >>> Result
+; // StereotypeInModel
+
 BOOLEAN elem_func IsStereotype
   ^ IN aStereo
   
@@ -321,6 +325,10 @@ INTEGER elem_func LinkType
  Self 'LinkType' lt_unknown .ElemMember >>> Result
 ; // LinkType
 
+STRING elem_func LinkViewType
+ Self 'LinkViewType' .ElemString >>> Result
+; // LinkViewType
+
 INTEGER elem_func Abstraction
  Self 'Abstraction' /*at_unknown*/ at_final .ElemMember >>> Result
 ; // Abstraction
@@ -344,6 +352,14 @@ ModelElement elem_func Parent
 ModelElement elem_func Original
  Self 'Original' .ElemWord >>> Result
 ; // Original
+
+ModelElement elem_func From
+ Self 'From' .ElemWord >>> Result
+; // From
+
+ModelElement elem_func To
+ Self 'To' .ElemWord >>> Result
+; // To
 
 ModelElement elem_func Creator
  Self 'Creator' .ElemWord >>> Result
@@ -432,17 +448,6 @@ BOOLEAN elem_func IsUP
 USES
  TransformElementMemberIfNeeded.ms.dict
 ;
-
-BOOLEAN elem_func IsView
- RULES
-  ( Self IsIntf )
-   ( Self pop:WordBox:Boxed )
-  DEFAULT
-   Self
- ; // RULES  
- pop:Word:Producer @ MEVIEW ?==
- >>> Result
-; // IsView
 
 elem_iterator UpList
  RULES
