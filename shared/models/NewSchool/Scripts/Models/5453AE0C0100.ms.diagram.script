@@ -68,6 +68,48 @@ MEDIAGRAMS ME_5453AE0C0100_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_54B91CD502DD_view
 
+  MEVIEW ME_54B91BDA0204_view
+   MELINK Original WL 'ME_54B91BDA0204' '545CDF1002C9.ms.model.script' ; // f_AllocCount
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_54B91BDA0204_view
+
+  MEVIEW ME_54B91BE8018A_view
+   MELINK Original WL 'ME_54B91BE8018A' '545CDF1002C9.ms.model.script' ; // f_Head
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_54B91BE8018A_view
+
+  MEVIEW ME_54B91C0C032E_view
+   MELINK Original WL 'ME_54B91C0C032E' '545CDF1002C9.ms.model.script' ; // f_BlockSize
+   MEPROP X 840
+   MEPROP Y 180
+  ENDMEVIEW // ME_54B91C0C032E_view
+
+  MEVIEW ME_54B91C1F0365_view
+   MELINK Original WL 'ME_54B91C1F0365' '545CDF1002C9.ms.model.script' ; // f_WasAllocCountWarning
+   MEPROP X 1000
+   MEPROP Y 180
+  ENDMEVIEW // ME_54B91C1F0365_view
+
+  MEVIEW ME_54B91C3700BE_view
+   MELINK Original WL 'ME_54B91C3700BE' '545CDF1002C9.ms.model.script' ; // f_GlobalAlloc
+   MEPROP X 40
+   MEPROP Y 320
+  ENDMEVIEW // ME_54B91C3700BE_view
+
+  MEVIEWLINK ME_54B91BA2034E_viewlink
+   MELINK Original WL 'ME_54B91BA2034E' '545CDF1002C9.ms.model.script' ;
+   MELINK From ME_54B91B7E02A5_view ;
+   MELINK To ME_54B91B8A00CB_view ;
+  ENDMEVIEWLINK // ME_54B91BA2034E_viewlink
+
+  MEVIEWLINK ME_54B91B8A00CB_ME_54B91B7E02A5_Inherits
+   MELINK From ME_54B91B8A00CB_view ;
+   MELINK To ME_54B91B7E02A5_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_54B91B8A00CB_ME_54B91B7E02A5_Inherits
+
   MELIST Views
    Seq: ( ME_54B91B7E02A5_view // Tl3MemoryBlock
    ME_54B91B8A00CB_view // Pl3MemoryBlock
@@ -79,6 +121,13 @@ MEDIAGRAMS ME_5453AE0C0100_diagrams
    ME_54B91C9103A2_view // Create
    ME_54B91CB0028C_view // GetMem
    ME_54B91CD502DD_view // FreeMem
+   ME_54B91BDA0204_view // f_AllocCount
+   ME_54B91BE8018A_view // f_Head
+   ME_54B91C0C032E_view // f_BlockSize
+   ME_54B91C1F0365_view // f_WasAllocCountWarning
+   ME_54B91C3700BE_view // f_GlobalAlloc
+   ME_54B91BA2034E_viewlink // Tl3MemoryBlock -> Pl3MemoryBlock
+   ME_54B91B8A00CB_ME_54B91B7E02A5_Inherits // Pl3MemoryBlock -> Tl3MemoryBlock
    )
   ; // Views
  ENDMEDIAGRAM // ME_5453AE0C0100_main
