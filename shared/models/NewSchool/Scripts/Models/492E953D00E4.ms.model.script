@@ -62,6 +62,8 @@ ME ME_499AEADD03D7
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4992E0530224 // VCMDomain
  ;
+ MELINK Target WL 'ME_499971A80065' '499971440112.ms.model.script' // TestLibrary
+ ;
 
 ENDME // ME_499AEADD03D7 
 
@@ -82,7 +84,7 @@ ME ME_4992E0530224
  ; // Inherits
  MELIST Dependencies
    Seq: ( ME_4953E1BE016B // VCMSubsystem
- ME_499AEADD03D7 // 
+ ME_499AEADD03D7 // TestLibrary
  )
  ; // Dependencies
  UP "abstraction type" 'a'
@@ -198,6 +200,18 @@ ME ME_4A951D300396
 
 ENDME // ME_4A951D300396 
 
+ME ME_4948065C01DF_ME_4A8925B00009
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_4A8925B00009 pas_UnitName
+
+ME ME_4AA8B17E0178_ME_4A8925B00009
+ MELINK Original WL 'ME_4AA8B17E0178' '492E958E03AF.ms.model.script' // pas_OutUnitFile
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AA8B17E0178_ME_4A8925B00009 pas_OutUnitFile
+
 ME ME_4A8925B00009
  MEPROP UID '4A8925B00009'
  MEPROP Name 'VCMGUI'
@@ -225,6 +239,11 @@ ME ME_4A8925B00009
  HWL ME_4DA3018D0398 // OutApplicationBody
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4948065C01DF_ME_4A8925B00009 // pas_UnitName
+ ME_4AA8B17E0178_ME_4A8925B00009 // pas_OutUnitFile
+ )
+ ; // Overridden
  MELIST Dependencies
    Seq: ( ME_4A8927F7007F // VCMViews
  ME_4A951D300396 // VCMApplication
@@ -358,6 +377,8 @@ ME ME_4D9F248F02D8
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_4D9F244B02F4 // VCMTestProject
  ;
+ MELINK Target WL 'ME_499971A80065' '499971440112.ms.model.script' // TestLibrary
+ ;
 
 ENDME // ME_4D9F248F02D8 
 
@@ -389,7 +410,7 @@ ME ME_4D9F244B02F4
  )
  ; // Inherits
  MELIST Dependencies
-   Seq: ( ME_4D9F248F02D8 // 
+   Seq: ( ME_4D9F248F02D8 // TestLibrary
  ME_4D9F24B902BB // VCMTestTarget
  )
  ; // Dependencies
@@ -564,10 +585,12 @@ ME ME_492E953D00E4
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470335BE01D4' '470335BE01D4.ms.model.script' // Target
  WL 'ME_470335E60290' '470335E60290.ms.model.script' // Requirements
  WL 'ME_4732AE850271' '4732AE850271.ms.model.script' // Redefinitions
  WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
  WL 'ME_492E958E03AF' '492E958E03AF.ms.model.script' // SubsystemLevel
+ WL 'ME_499971440112' '499971440112.ms.model.script' // Libraries
  WL 'ME_4A95178301AC' '4A95178301AC.ms.model.script' // ApplicationLevel
  WL 'ME_4A951CD702C9' '4A951CD702C9.ms.model.script' // UseCases
  WL 'ME_561D302000A4' '561D302000A4.ms.model.script' // RootStereotypes

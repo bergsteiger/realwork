@@ -1,0 +1,2284 @@
+// DelphiGens 4773984F02AA MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773984F02AA
+
+FORWARD ME_47032C8B009C
+
+ME ME_47032EC4032C
+ MEPROP UID '47032EC4032C'
+ MEPROP Name 'dll.h'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'С++ TIE-обвязка для DLL (_tie.h)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47032C8B009C // Дельфи-DLL Адаптер
+ ;
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+
+ENDME // ME_47032EC4032C dll.h
+
+ME ME_47032ED002DE
+ MEPROP UID '47032ED002DE'
+ MEPROP Name 'dll.cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'С++ TIE-обвязка для DLL (_tie.cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47032C8B009C // Дельфи-DLL Адаптер
+ ;
+ UP "lang id" 'dll_cpp'
+
+ENDME // ME_47032ED002DE dll.cpp
+
+ME ME_470F152700FA
+ MEPROP UID '470F152700FA'
+ MEPROP Name 'pas'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Delphi интерфейсы для адаптера (.pas)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47032C8B009C // Дельфи-DLL Адаптер
+ ;
+ UP "lang id" 'delphi'
+
+ENDME // ME_470F152700FA pas
+
+ME ME_47032C8B009C
+ MEPROP UID '47032C8B009C'
+ MEPROP Name 'Дельфи-DLL Адаптер'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'группа генераторов для генерации обвязок DLL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773984F02AA // DelphiGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47032EC4032C // dll.h
+ HWL ME_47032ED002DE // dll.cpp
+ HWL ME_470F152700FA // pas
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\DelphiGens\Дельфи-DLL Адаптер'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\DelphiGens\Дельфи-DLL Адаптер.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47032C8B009C Дельфи-DLL Адаптер
+
+FORWARD ME_470F151302FD
+
+ME ME_493D2474016C
+ MEPROP UID '493D2474016C'
+ MEPROP Name 'finished'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что элемент полностью описан на модели.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_493D2474016C finished
+
+ME ME_493D24770195
+ MEPROP UID '493D24770195'
+ MEPROP Name 'children prefix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Префикс непосредственных детей.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D24770195 children prefix
+
+ME ME_493D247A01F2
+ MEPROP UID '493D247A01F2'
+ MEPROP Name 'elements prefix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'Префикс приписываемый вложенным элементам. <none> - ничего не приписывать. Если не задан, то берём у родителя.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D247A01F2 elements prefix
+
+ME ME_470F1571031C
+ MEPROP UID '470F1571031C'
+ MEPROP Name 'intf.pas'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Родные Delphi интерфейсы (.pas)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+
+ENDME // ME_470F1571031C intf.pas
+
+ME ME_470F15B800CB
+ MEPROP UID '470F15B800CB'
+ MEPROP Name 'impl.pas'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Реализация на Delphi(.pas)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+
+ENDME // ME_470F15B800CB impl.pas
+
+ME ME_477398E501C0
+ MEPROP UID '477398E501C0'
+ MEPROP Name 'intf2.pas'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Вторая интерфейсная секция стереотипа. Например реализация свойств класса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+
+ENDME // ME_477398E501C0 intf2.pas
+
+ME ME_4774D2A20372
+ MEPROP UID '4774D2A20372'
+ MEPROP Name 'intf3.pas'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY '3-я секция интерфейса. Например поле для свойства.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+
+ENDME // ME_4774D2A20372 intf3.pas
+
+ME ME_493D246701FE
+ MEPROP UID '493D246701FE'
+ MEPROP Name 'pas_ElementPrefix'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет префикс элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D246701FE pas_ElementPrefix
+
+ME ME_493D246A025B
+ MEPROP UID '493D246A025B'
+ MEPROP Name 'pas_ElementPrefixBase'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D246A025B pas_ElementPrefixBase
+
+ME ME_493D246E0016
+ MEPROP UID '493D246E0016'
+ MEPROP Name 'pas_ElementPrefixPrim'
+ MEPROP Class class_Operation
+ %SUMMARY 'Рекурсивно определяет префикс элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D246E0016 pas_ElementPrefixPrim
+
+ME ME_493D24710142
+ MEPROP UID '493D24710142'
+ MEPROP Name 'pas_Prefix'
+ MEPROP Class class_Operation
+ %SUMMARY 'Префикс имени' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D24710142 pas_Prefix
+
+ME ME_493D2D510282
+ MEPROP UID '493D2D510282'
+ MEPROP Name 'IsProp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что это свойство.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D2D510282 IsProp
+
+ME ME_493D2E45011B
+ MEPROP UID '493D2E45011B'
+ MEPROP Name 'IsGlobal'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что метод глобальный' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_493D2E45011B IsGlobal
+
+ME ME_4947E4DA0227
+ MEPROP UID '4947E4DA0227'
+ MEPROP Name 'IsSimpleClass'
+ MEPROP Class class_Operation
+ %SUMMARY 'Является ли простым классом реализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4947E4DA0227 IsSimpleClass
+
+ME ME_4947E5D40127
+ MEPROP UID '4947E5D40127'
+ MEPROP Name 'IsMixIn'
+ MEPROP Class class_Operation
+ %SUMMARY 'Является ли примесью' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4947E5D40127 IsMixIn
+
+ME ME_4947EC0F0380
+ MEPROP UID '4947EC0F0380'
+ MEPROP Name 'IsUnitFileProducer'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент производит файл (Unit)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4947EC0F0380 IsUnitFileProducer
+
+ME ME_4947F8AD02A1
+ MEPROP UID '4947F8AD02A1'
+ MEPROP Name 'pas_TypeName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имя типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4947F8AD02A1 pas_TypeName
+
+ME ME_494802B40121
+ MEPROP UID '494802B40121'
+ MEPROP Name 'InTie'
+ MEPROP Class class_Operation
+ %SUMMARY 'Элемент определён на стороне обёртки С++' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494802B40121 InTie
+
+ME ME_4948065C01DF
+ MEPROP UID '4948065C01DF'
+ MEPROP Name 'pas_UnitName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имя модуля в котором содержится элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4948065C01DF pas_UnitName
+
+ME ME_4948C3290020
+ MEPROP UID '4948C3290020'
+ MEPROP Name 'pas_UnitPath'
+ MEPROP Class class_Operation
+ %SUMMARY 'Путь к модулю' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4948C3290020 pas_UnitPath
+
+ME ME_4948E5B60391
+ MEPROP UID '4948E5B60391'
+ MEPROP Name 'pas_DefaultAncestor'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4948E5B60391 pas_DefaultAncestor
+
+ME ME_4948EB2601FA
+ MEPROP UID '4948EB2601FA'
+ MEPROP Name 'pas_ImplUses'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавляет файлы необходимые элементу с точки зрения метамодели' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4948EB2601FA pas_ImplUses
+
+ME ME_4948F2EE0334
+ MEPROP UID '4948F2EE0334'
+ MEPROP Name 'pas_IntfUses'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит дополнительные модули необходимые элементу в интерфейсной секции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4948F2EE0334 pas_IntfUses
+
+ME ME_4948F9190291
+ MEPROP UID '4948F9190291'
+ MEPROP Name 'IsReadOnlyProp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент это readonly-свойство' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4948F9190291 IsReadOnlyProp
+
+ME ME_4948F93D038A
+ MEPROP UID '4948F93D038A'
+ MEPROP Name 'IsWriteOnlyProp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент это writeonly-свойство' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4948F93D038A IsWriteOnlyProp
+
+ME ME_494B7197025A
+ MEPROP UID '494B7197025A'
+ MEPROP Name 'pas_OutClassInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит объявление класса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494B7197025A pas_OutClassInterface
+
+ME ME_494B74D7016B
+ MEPROP UID '494B74D7016B'
+ MEPROP Name 'pas_OutClassMark'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит спец-метку класса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494B74D7016B pas_OutClassMark
+
+ME ME_494B7E8B02B1
+ MEPROP UID '494B7E8B02B1'
+ MEPROP Name 'IsUseCaseController'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет является ли элемент контроллером прецедента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494B7E8B02B1 IsUseCaseController
+
+ME ME_494B9868000A
+ MEPROP UID '494B9868000A'
+ MEPROP Name 'pas_AttrName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имя атрибута' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494B9868000A pas_AttrName
+
+ME ME_494BAFBF00C0
+ MEPROP UID '494BAFBF00C0'
+ MEPROP Name 'pas_MethodStub'
+ MEPROP Class class_Operation
+ %SUMMARY 'Заглушка-реализация метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BAFBF00C0 pas_MethodStub
+
+ME ME_494BB3A201A2
+ MEPROP UID '494BB3A201A2'
+ MEPROP Name 'pas_MethodBodyPrim'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит тело метода'#13#10''#13#10'Modification = get|set|area|areareaf|o|r|f' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BB3A201A2 pas_MethodBodyPrim
+
+ME ME_494BBE430242
+ MEPROP UID '494BBE430242'
+ MEPROP Name 'pas_IteratorBody'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит реализацию итератора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BBE430242 pas_IteratorBody
+
+ME ME_494BD6C80075
+ MEPROP UID '494BD6C80075'
+ MEPROP Name 'pas_MethodName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит имя метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BD6C80075 pas_MethodName
+
+ME ME_494BDCF3030E
+ MEPROP UID '494BDCF3030E'
+ MEPROP Name 'pas_Params'
+ MEPROP Class class_Operation
+ %SUMMARY 'Параметры операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BDCF3030E pas_Params
+
+ME ME_494BDD190361
+ MEPROP UID '494BDD190361'
+ MEPROP Name 'pas_ResultTypeName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имя типа результата функции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BDD190361 pas_ResultTypeName
+
+ME ME_494BE0CC0226
+ MEPROP UID '494BE0CC0226'
+ MEPROP Name 'pas_MethodParams'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит параметры и результат метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BE0CC0226 pas_MethodParams
+
+ME ME_494BE0DB007A
+ MEPROP UID '494BE0DB007A'
+ MEPROP Name 'pas_IteratorParams'
+ MEPROP Class class_Operation
+ %SUMMARY 'Параметры и результат итератора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BE0DB007A pas_IteratorParams
+
+ME ME_494BEC6A038A
+ MEPROP UID '494BEC6A038A'
+ MEPROP Name 'pas_MethodInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит интерфейс метода'#13#10''#13#10'RealizeType = o|r|f' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BEC6A038A pas_MethodInterface
+
+ME ME_494BEC7C03E5
+ MEPROP UID '494BEC7C03E5'
+ MEPROP Name 'pas_MethodImplementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит реализацию метода'#13#10''#13#10'RealizeType = o|r|f' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BEC7C03E5 pas_MethodImplementation
+
+ME ME_494BF05502AC
+ MEPROP UID '494BF05502AC'
+ MEPROP Name 'pas_AbstractionKeyword'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит ключевое слова типа абстракности'#13#10''#13#10'RealizeType = o|r|f'#13#10'Modification = get|set|area|arearef' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494BF05502AC pas_AbstractionKeyword
+
+ME ME_494FAB950174
+ MEPROP UID '494FAB950174'
+ MEPROP Name 'pas_DoMethodInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494FAB950174 pas_DoMethodInterface
+
+ME ME_494FABD00055
+ MEPROP UID '494FABD00055'
+ MEPROP Name 'pas_DoMethodImplementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'нет документации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_494FABD00055 pas_DoMethodImplementation
+
+ME ME_49551CA202CF
+ MEPROP UID '49551CA202CF'
+ MEPROP Name 'ClassImplementable'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент может реализовываться классом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49551CA202CF ClassImplementable
+
+ME ME_4977065602B3
+ MEPROP UID '4977065602B3'
+ MEPROP Name 'IsPureMixIn'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является чистой примесью' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4977065602B3 IsPureMixIn
+
+ME ME_497874AD00B1
+ MEPROP UID '497874AD00B1'
+ MEPROP Name 'HasAnyVCMController'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что стереотип содержит хотя бы один VCM-контроллер среди своих детей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_497874AD00B1 HasAnyVCMController
+
+ME ME_497DF8C8028E
+ MEPROP UID '497DF8C8028E'
+ MEPROP Name 'IsViewAreaController'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является контролелром области вывода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_497DF8C8028E IsViewAreaController
+
+ME ME_49809333028C
+ MEPROP UID '49809333028C'
+ MEPROP Name 'IsInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является интерфейсом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49809333028C IsInterface
+
+ME ME_4986B4FA0093
+ MEPROP UID '4986B4FA0093'
+ MEPROP Name 'pas_OutDefaultAncestor'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит родительский класс по-умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4986B4FA0093 pas_OutDefaultAncestor
+
+ME ME_4989EB520196
+ MEPROP UID '4989EB520196'
+ MEPROP Name 'pas_OutAncestor'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит родительский класс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4989EB520196 pas_OutAncestor
+
+ME ME_498B054F03A1
+ MEPROP UID '498B054F03A1'
+ MEPROP Name 'pas_OutBeforeFields'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит код перед поляпи класса. Для переопределения в потомках' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_498B054F03A1 pas_OutBeforeFields
+
+ME ME_498B059101B3
+ MEPROP UID '498B059101B3'
+ MEPROP Name 'pas_OutAfterUnitImplementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит код после секции implementation' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_498B059101B3 pas_OutAfterUnitImplementation
+
+ME ME_4999789602FF
+ MEPROP UID '4999789602FF'
+ MEPROP Name 'pas_MethodOwnerDelim'
+ MEPROP Class class_Operation
+ %SUMMARY 'Разделитель имени метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4999789602FF pas_MethodOwnerDelim
+
+ME ME_49998CA903A8
+ MEPROP UID '49998CA903A8'
+ MEPROP Name 'pas_AttrIndexes'
+ MEPROP Class class_Operation
+ %SUMMARY 'документация отсутствует' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49998CA903A8 pas_AttrIndexes
+
+ME ME_499A7D7E028A
+ MEPROP UID '499A7D7E028A'
+ MEPROP Name 'pas_MethodBodyImplementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит реализацию тела метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_499A7D7E028A pas_MethodBodyImplementation
+
+ME ME_49CB3C99034B
+ MEPROP UID '49CB3C99034B'
+ MEPROP Name 'pas_MethodOwnerName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит имя владельца метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49CB3C99034B pas_MethodOwnerName
+
+ME ME_49CB3EE70382
+ MEPROP UID '49CB3EE70382'
+ MEPROP Name 'IsClassInner'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является "внутренностью" класса, атрибутом или операцией' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49CB3EE70382 IsClassInner
+
+ME ME_49CB54AA033A
+ MEPROP UID '49CB54AA033A'
+ MEPROP Name 'pas_MethodDeclarations'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит секцию определений метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49CB54AA033A pas_MethodDeclarations
+
+ME ME_49F5C7BD00B4
+ MEPROP UID '49F5C7BD00B4'
+ MEPROP Name 'TypePrefix'
+ MEPROP Class class_Operation
+ %SUMMARY 'Префикс типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49F5C7BD00B4 TypePrefix
+
+ME ME_49F5C87903C0
+ MEPROP UID '49F5C87903C0'
+ MEPROP Name 'TypeSuffix'
+ MEPROP Class class_Operation
+ %SUMMARY 'Суффикс типа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49F5C87903C0 TypeSuffix
+
+ME ME_49F703730268
+ MEPROP UID '49F703730268'
+ MEPROP Name 'IsPublishedAccess'
+ MEPROP Class class_Operation
+ %SUMMARY 'Элемент попадает в секцию Published' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_49F703730268 IsPublishedAccess
+
+ME ME_4A3665370285
+ MEPROP UID '4A3665370285'
+ MEPROP Name 'IsVCMArea'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что стереотип описывает область ввода (как составную часть прецедента)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A3665370285 IsVCMArea
+
+ME ME_4A37945D011F
+ MEPROP UID '4A37945D011F'
+ MEPROP Name 'IsVCMAreaLink'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что это Link на область ввода, а не Reference' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A37945D011F IsVCMAreaLink
+
+ME ME_4A37B6A9016F
+ MEPROP UID '4A37B6A9016F'
+ MEPROP Name 'IsAttribute'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что стереотип является атрибутом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A37B6A9016F IsAttribute
+
+ME ME_4A37C60A0273
+ MEPROP UID '4A37C60A0273'
+ MEPROP Name 'HasAnyVCMArea'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имеет ли стереотип хотя бы одну область ввода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A37C60A0273 HasAnyVCMArea
+
+ME ME_4A37C6510297
+ MEPROP UID '4A37C6510297'
+ MEPROP Name 'HasAnyVCMAreaLink'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имеет ли стереотип хотя бы одну ССЫЛКУ на область ввода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A37C6510297 HasAnyVCMAreaLink
+
+ME ME_4A42517502CE
+ MEPROP UID '4A42517502CE'
+ MEPROP Name 'IsPublicRealizedMethod'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что метод должен быть реализован публично' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A42517502CE IsPublicRealizedMethod
+
+ME ME_4A794AED0078
+ MEPROP UID '4A794AED0078'
+ MEPROP Name 'IsControl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является контролом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4A794AED0078 IsControl
+
+ME ME_4A796BE403D6
+ MEPROP UID '4A796BE403D6'
+ MEPROP Name 'pas_NeedsField'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет - нужно ли определять поле данных для свойства.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A796BE403D6 pas_NeedsField
+
+ME ME_4A7ADF400052
+ MEPROP UID '4A7ADF400052'
+ MEPROP Name 'pas_PropertyMethodInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит интерфейс методов для свойства' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A7ADF400052 pas_PropertyMethodInterface
+
+ME ME_4A7ADF4E0277
+ MEPROP UID '4A7ADF4E0277'
+ MEPROP Name 'pas_PropertyMethodImplementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит реализацию методов для свойства' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A7ADF4E0277 pas_PropertyMethodImplementation
+
+ME ME_4A7ADFAE0118
+ MEPROP UID '4A7ADFAE0118'
+ MEPROP Name 'pas_dump_Property'
+ MEPROP Class class_Operation
+ %SUMMARY 'документация отсутствует' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4A7ADFAE0118 pas_dump_Property
+
+ME ME_4AA8B1D901E5
+ MEPROP UID '4AA8B1D901E5'
+ MEPROP Name 'pas_TotalUses'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4AA8B1D901E5 pas_TotalUses
+
+ME ME_4ACB78A4017F
+ MEPROP UID '4ACB78A4017F'
+ MEPROP Name 'ReadsField'
+ MEPROP Class class_Operation
+ %SUMMARY 'Читаем ли из поля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4ACB78A4017F ReadsField
+
+ME ME_4ACB78D500C2
+ MEPROP UID '4ACB78D500C2'
+ MEPROP Name 'WritesField'
+ MEPROP Class class_Operation
+ %SUMMARY 'Пишем ли в поле' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4ACB78D500C2 WritesField
+
+ME ME_4AE025440082
+ MEPROP UID '4AE025440082'
+ MEPROP Name 'IsConstructor'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE025440082 IsConstructor
+
+ME ME_4AE026A90143
+ MEPROP UID '4AE026A90143'
+ MEPROP Name 'IsFactory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE026A90143 IsFactory
+
+ME ME_4AE062A601E1
+ MEPROP UID '4AE062A601E1'
+ MEPROP Name 'pas_VCMFormFactoryParams'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4AE062A601E1 pas_VCMFormFactoryParams
+
+ME ME_4AE065E20005
+ MEPROP UID '4AE065E20005'
+ MEPROP Name 'HasParams'
+ MEPROP Class class_Operation
+ %SUMMARY 'Есть ли у операции параметры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE065E20005 HasParams
+
+ME ME_4AE066F202E2
+ MEPROP UID '4AE066F202E2'
+ MEPROP Name 'OutCallParams'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4AE066F202E2 OutCallParams
+
+ME ME_4AE06FBA02FE
+ MEPROP UID '4AE06FBA02FE'
+ MEPROP Name 'NeedCleanupFields'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нужно ли очищать поля объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE06FBA02FE NeedCleanupFields
+
+ME ME_4AE0713E0081
+ MEPROP UID '4AE0713E0081'
+ MEPROP Name 'IsStereoForCleanup'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE0713E0081 IsStereoForCleanup
+
+ME ME_4AE0718003CD
+ MEPROP UID '4AE0718003CD'
+ MEPROP Name 'IsTypeForCleanup'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE0718003CD IsTypeForCleanup
+
+ME ME_4AE0738A0004
+ MEPROP UID '4AE0738A0004'
+ MEPROP Name 'IsFieldForCleanup'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE0738A0004 IsFieldForCleanup
+
+ME ME_4AE074330009
+ MEPROP UID '4AE074330009'
+ MEPROP Name 'IsStereoForCleanup'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4AE074330009 IsStereoForCleanup
+
+ME ME_4B17BC05001E
+ MEPROP UID '4B17BC05001E'
+ MEPROP Name 'pas_AfterClassEnd'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4B17BC05001E pas_AfterClassEnd
+
+ME ME_4B2A19E3038B
+ MEPROP UID '4B2A19E3038B'
+ MEPROP Name 'DoSpell'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4B2A19E3038B DoSpell
+
+ME ME_4B2A29440092
+ MEPROP UID '4B2A29440092'
+ MEPROP Name 'IsMethod'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B2A29440092 IsMethod
+
+ME ME_4B2A4565034D
+ MEPROP UID '4B2A4565034D'
+ MEPROP Name 'IsExeTarget'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B2A4565034D IsExeTarget
+
+ME ME_4B38844D0399
+ MEPROP UID '4B38844D0399'
+ MEPROP Name 'IsIni'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является секцией инициализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B38844D0399 IsIni
+
+ME ME_4B388478009F
+ MEPROP UID '4B388478009F'
+ MEPROP Name 'IsFini'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является секцией финализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B388478009F IsFini
+
+ME ME_4B3886890063
+ MEPROP UID '4B3886890063'
+ MEPROP Name 'pas_OutIni'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит секции инициализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4B3886890063 pas_OutIni
+
+ME ME_4B3886C50247
+ MEPROP UID '4B3886C50247'
+ MEPROP Name 'pas_OutFini'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит секции финализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4B3886C50247 pas_OutFini
+
+ME ME_4B3898EB0368
+ MEPROP UID '4B3898EB0368'
+ MEPROP Name 'pas_OutIniFiniImpl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит реализацию секции инициализации/финализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4B3898EB0368 pas_OutIniFiniImpl
+
+ME ME_4B5D68660386
+ MEPROP UID '4B5D68660386'
+ MEPROP Name 'IsDataModule'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B5D68660386 IsDataModule
+
+ME ME_4B6C3C5C01FC
+ MEPROP UID '4B6C3C5C01FC'
+ MEPROP Name 'IsStaticObject'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B6C3C5C01FC IsStaticObject
+
+ME ME_4B6C49DA0023
+ MEPROP UID '4B6C49DA0023'
+ MEPROP Name 'IsStruct'
+ MEPROP Class class_Operation
+ %SUMMARY 'Стереотип является структурой' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B6C49DA0023 IsStruct
+
+ME ME_4B6C4DE70271
+ MEPROP UID '4B6C4DE70271'
+ MEPROP Name 'pas_BeforeMethodBodyImplementation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4B6C4DE70271 pas_BeforeMethodBodyImplementation
+
+ME ME_4B6C4E2903C5
+ MEPROP UID '4B6C4E2903C5'
+ MEPROP Name 'pas_StaticCtorBeforeMethodBodyImplementation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4B6C4E2903C5 pas_StaticCtorBeforeMethodBodyImplementation
+
+ME ME_4B704DE10322
+ MEPROP UID '4B704DE10322'
+ MEPROP Name 'InheritsFrom'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент конечной модели является наследником от aClassName' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B704DE10322 InheritsFrom
+
+ME ME_4B70554F0038
+ MEPROP UID '4B70554F0038'
+ MEPROP Name 'OutL3ItemsPrologue'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит пролог для _l3Items_' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4B70554F0038 OutL3ItemsPrologue
+
+ME ME_4B72CB6A01CA
+ MEPROP UID '4B72CB6A01CA'
+ MEPROP Name 'IsAdapterTarget'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B72CB6A01CA IsAdapterTarget
+
+ME ME_4B72CBF50223
+ MEPROP UID '4B72CBF50223'
+ MEPROP Name 'IsTarget'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4B72CBF50223 IsTarget
+
+ME ME_4B8908F2014B
+ MEPROP UID '4B8908F2014B'
+ MEPROP Name 'ImplementedInlinesCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+
+ENDME // ME_4B8908F2014B ImplementedInlinesCount
+
+ME ME_4B8FB23D01E8
+ MEPROP UID '4B8FB23D01E8'
+ MEPROP Name 'OutValue'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит значение (атрибута, константы, параметра)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4B8FB23D01E8 OutValue
+
+ME ME_4BA3925D035C
+ MEPROP UID '4BA3925D035C'
+ MEPROP Name 'Implements'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет реализует ли элемент указанный фасет/интерфейс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BA3925D035C Implements
+
+ME ME_4BA3AF160024
+ MEPROP UID '4BA3AF160024'
+ MEPROP Name 'SomeAncestorImplements'
+ MEPROP Class class_Operation
+ %SUMMARY 'Кто-то из предков (но не сам элемент) реализует указанный фасет' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BA3AF160024 SomeAncestorImplements
+
+ME ME_4BA899E20317
+ MEPROP UID '4BA899E20317'
+ MEPROP Name 'IsIterator'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BA899E20317 IsIterator
+
+ME ME_4BA9EBAE0254
+ MEPROP UID '4BA9EBAE0254'
+ MEPROP Name 'IsClassImplementableElement'
+ MEPROP Class class_Operation
+ %SUMMARY 'Элемент может реализовываться классом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BA9EBAE0254 IsClassImplementableElement
+
+ME ME_4BAA50E802CA
+ MEPROP UID '4BAA50E802CA'
+ MEPROP Name 'pas_ForwardPointers'
+ MEPROP Class class_Operation
+ %SUMMARY 'Декларирует указатели на элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4BAA50E802CA pas_ForwardPointers
+
+ME ME_4BAA5CAB02CF
+ MEPROP UID '4BAA5CAB02CF'
+ MEPROP Name 'IsOverride'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент переопределяет другой элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BAA5CAB02CF IsOverride
+
+ME ME_4BB0B1D202C2
+ MEPROP UID '4BB0B1D202C2'
+ MEPROP Name 'pas_MethodKeyword'
+ MEPROP Class class_Operation
+ %SUMMARY 'Ключевое слово метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4BB0B1D202C2 pas_MethodKeyword
+
+ME ME_4BB2008E003A
+ MEPROP UID '4BB2008E003A'
+ MEPROP Name 'Ind'
+ MEPROP Class class_Operation
+ %SUMMARY 'Отступ. Аналог #, только с учётом особенностей Delphi' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4BB2008E003A Ind
+
+ME ME_4BBF125A02BF
+ MEPROP UID '4BBF125A02BF'
+ MEPROP Name 'IsRealizedBySomeClassElement'
+ MEPROP Class class_Operation
+ %SUMMARY 'Элемент реализован каким-то элементом указанного класса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BBF125A02BF IsRealizedBySomeClassElement
+
+ME ME_4BC4823500C1
+ MEPROP UID '4BC4823500C1'
+ MEPROP Name 'IsVirtual'
+ MEPROP Class class_Operation
+ %SUMMARY 'Элемент является виртуальным' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4BC4823500C1 IsVirtual
+
+ME ME_4BD1A77701B1
+ MEPROP UID '4BD1A77701B1'
+ MEPROP Name 'pas_OutLikeUtilityPack'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит элемент как UtilityPack' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4BD1A77701B1 pas_OutLikeUtilityPack
+
+ME ME_4C0524A20161
+ MEPROP UID '4C0524A20161'
+ MEPROP Name 'pas_DefineName'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имя условной директивы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4C0524A20161 pas_DefineName
+
+ME ME_4C05291601EE
+ MEPROP UID '4C05291601EE'
+ MEPROP Name 'HasIni'
+ MEPROP Class class_Operation
+ %SUMMARY 'Имеет ли секцию инициализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4C05291601EE HasIni
+
+ME ME_4C0532EF02E3
+ MEPROP UID '4C0532EF02E3'
+ MEPROP Name 'pas_OutMixInIniInclude'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит включение секций инициализации примесей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4C0532EF02E3 pas_OutMixInIniInclude
+
+ME ME_4C342AB5032E
+ MEPROP UID '4C342AB5032E'
+ MEPROP Name 'InheritsFromClass'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4C342AB5032E InheritsFromClass
+
+ME ME_4C766D140383
+ MEPROP UID '4C766D140383'
+ MEPROP Name 'IsNotParam'
+ MEPROP Class class_Operation
+ %SUMMARY 'Элемент не является параметром' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4C766D140383 IsNotParam
+
+ME ME_4CBD7CFE025B
+ MEPROP UID '4CBD7CFE025B'
+ MEPROP Name 'pas_CallingConventionsDirective'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4CBD7CFE025B pas_CallingConventionsDirective
+
+ME ME_4CBEFA1402F2
+ MEPROP UID '4CBEFA1402F2'
+ MEPROP Name 'FirstParamIsViewAreaController'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4CBEFA1402F2 FirstParamIsViewAreaController
+
+ME ME_4CBEFF7C020B
+ MEPROP UID '4CBEFF7C020B'
+ MEPROP Name 'FirstParamName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4CBEFF7C020B FirstParamName
+
+ME ME_4CC01C0D0010
+ MEPROP UID '4CC01C0D0010'
+ MEPROP Name 'IsMakeSingleChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4CC01C0D0010 IsMakeSingleChild
+
+ME ME_4CC02B360368
+ MEPROP UID '4CC02B360368'
+ MEPROP Name 'NeedAggregate'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нужна ли фабрике формы агрегация' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4CC02B360368 NeedAggregate
+
+ME ME_4CEFC15B03C1
+ MEPROP UID '4CEFC15B03C1'
+ MEPROP Name 'HasFini'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4CEFC15B03C1 HasFini
+
+ME ME_4CEFC1720254
+ MEPROP UID '4CEFC1720254'
+ MEPROP Name 'pas_OutMixInFiniInclude'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_4CEFC1720254 pas_OutMixInFiniInclude
+
+ME ME_4E7B630D000D
+ MEPROP UID '4E7B630D000D'
+ MEPROP Name 'IsUtilityPack'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4E7B630D000D IsUtilityPack
+
+ME ME_4F30E88502A5
+ MEPROP UID '4F30E88502A5'
+ MEPROP Name 'IsUnit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4F30E88502A5 IsUnit
+
+ME ME_4F379BBA00BF
+ MEPROP UID '4F379BBA00BF'
+ MEPROP Name 'IsProject'
+ MEPROP Class class_Operation
+ %SUMMARY 'Определяет, что элемент является проектом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4F379BBA00BF IsProject
+
+ME ME_55278EA5036A
+ MEPROP UID '55278EA5036A'
+ MEPROP Name 'NeedRegisterInScripts'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_55278EA5036A NeedRegisterInScripts
+
+ME ME_563244E50325
+ MEPROP UID '563244E50325'
+ MEPROP Name 'pas.script'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ UP "lang id" 'script'
+ UP "tab replace" '\\s'
+
+ENDME // ME_563244E50325 pas.script
+
+ME ME_5632451B0167
+ MEPROP UID '5632451B0167'
+ MEPROP Name 'pas_script_FileName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_5632451B0167 pas_script_FileName
+
+ME ME_563245390156
+ MEPROP UID '563245390156'
+ MEPROP Name 'pas_script_Path'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_563245390156 pas_script_Path
+
+ME ME_5632454C0277
+ MEPROP UID '5632454C0277'
+ MEPROP Name 'pas_script_Generate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_5632454C0277 pas_script_Generate
+
+ME ME_56333DFB00A7
+ MEPROP UID '56333DFB00A7'
+ MEPROP Name 'pas_script_NeedOwnFile'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_56333DFB00A7 pas_script_NeedOwnFile
+
+ME ME_56333E330061
+ MEPROP UID '56333E330061'
+ MEPROP Name 'pas_script_GenerateDescription'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_56333E330061 pas_script_GenerateDescription
+
+ME ME_563340DD039F
+ MEPROP UID '563340DD039F'
+ MEPROP Name 'pas_script_NeedOutToScript'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_563340DD039F pas_script_NeedOutToScript
+
+ME ME_56335F7C03DD
+ MEPROP UID '56335F7C03DD'
+ MEPROP Name 'pas_script_GenerateInclude'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_56335F7C03DD pas_script_GenerateInclude
+
+ME ME_56335FB00013
+ MEPROP UID '56335FB00013'
+ MEPROP Name 'pas_script_FileNameForLink'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_56335FB00013 pas_script_FileNameForLink
+
+ME ME_5633620E0126
+ MEPROP UID '5633620E0126'
+ MEPROP Name 'pas_script_Name'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_5633620E0126 pas_script_Name
+
+ME ME_563378C200C8
+ MEPROP UID '563378C200C8'
+ MEPROP Name 'pas_script_GenerateDescriptionRecur'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_563378C200C8 pas_script_GenerateDescriptionRecur
+
+ME ME_56374FD101B7
+ MEPROP UID '56374FD101B7'
+ MEPROP Name 'pas_script_GenerateUserProperties'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_56374FD101B7 pas_script_GenerateUserProperties
+
+ME ME_5637623B00A0
+ MEPROP UID '5637623B00A0'
+ MEPROP Name 'pas_script_IsOperation'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_5637623B00A0 pas_script_IsOperation
+
+ME ME_563765ED0263
+ MEPROP UID '563765ED0263'
+ MEPROP Name 'pas_script_Reference'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_563765ED0263 pas_script_Reference
+
+ME ME_56377E090112
+ MEPROP UID '56377E090112'
+ MEPROP Name 'pas_script_GenerateForward'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_56377E090112 pas_script_GenerateForward
+
+ME ME_56378C6C0218
+ MEPROP UID '56378C6C0218'
+ MEPROP Name 'pas_script_IsAttribute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_56378C6C0218 pas_script_IsAttribute
+
+ME ME_563B85E00244
+ MEPROP UID '563B85E00244'
+ MEPROP Name 'pas_script_GenerateIncludeOrForward'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_563B85E00244 pas_script_GenerateIncludeOrForward
+
+ME ME_563C76070331
+ MEPROP UID '563C76070331'
+ MEPROP Name 'pas_script_CanImplementMethods'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_563C76070331 pas_script_CanImplementMethods
+
+ME ME_563CBCF800FC
+ MEPROP UID '563CBCF800FC'
+ MEPROP Name 'pas_script_runner_FileName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_563CBCF800FC pas_script_runner_FileName
+
+ME ME_563CBD110135
+ MEPROP UID '563CBD110135'
+ MEPROP Name 'pas_script_runner_NeedOwnFile'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_563CBD110135 pas_script_runner_NeedOwnFile
+
+ME ME_563CBD450198
+ MEPROP UID '563CBD450198'
+ MEPROP Name 'pas_script_runner_Generate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_563CBD450198 pas_script_runner_Generate
+
+ME ME_564207B10283
+ MEPROP UID '564207B10283'
+ MEPROP Name 'pas_script_GenerateWeakInclude'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_564207B10283 pas_script_GenerateWeakInclude
+
+ME ME_5643707B0390
+ MEPROP UID '5643707B0390'
+ MEPROP Name 'pas_script_GenerateForwardPrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+
+ENDME // ME_5643707B0390 pas_script_GenerateForwardPrim
+
+ME ME_56D06FA10124
+ MEPROP UID '56D06FA10124'
+ MEPROP Name 'IsInterfaceFactory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_56D06FA10124 IsInterfaceFactory
+
+ME ME_470F151302FD
+ MEPROP UID '470F151302FD'
+ MEPROP Name 'Delphi интерфейсы и реализация'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'группа генераторов в Delphi' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773984F02AA // DelphiGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ WL 'ME_4976EB82018C' '46E80398003B.ms.model.script' // Ifdef
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_493D2474016C // finished
+ HWL ME_493D24770195 // children prefix
+ HWL ME_493D247A01F2 // elements prefix
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_470F1571031C // intf.pas
+ HWL ME_470F15B800CB // impl.pas
+ HWL ME_477398E501C0 // intf2.pas
+ HWL ME_4774D2A20372 // intf3.pas
+ HWL ME_493D246701FE // pas_ElementPrefix
+ HWL ME_493D246A025B // pas_ElementPrefixBase
+ HWL ME_493D246E0016 // pas_ElementPrefixPrim
+ HWL ME_493D24710142 // pas_Prefix
+ HWL ME_493D2D510282 // IsProp
+ HWL ME_493D2E45011B // IsGlobal
+ HWL ME_4947E4DA0227 // IsSimpleClass
+ HWL ME_4947E5D40127 // IsMixIn
+ HWL ME_4947EC0F0380 // IsUnitFileProducer
+ HWL ME_4947F8AD02A1 // pas_TypeName
+ HWL ME_494802B40121 // InTie
+ HWL ME_4948065C01DF // pas_UnitName
+ HWL ME_4948C3290020 // pas_UnitPath
+ HWL ME_4948E5B60391 // pas_DefaultAncestor
+ HWL ME_4948EB2601FA // pas_ImplUses
+ HWL ME_4948F2EE0334 // pas_IntfUses
+ HWL ME_4948F9190291 // IsReadOnlyProp
+ HWL ME_4948F93D038A // IsWriteOnlyProp
+ HWL ME_494B7197025A // pas_OutClassInterface
+ HWL ME_494B74D7016B // pas_OutClassMark
+ HWL ME_494B7E8B02B1 // IsUseCaseController
+ HWL ME_494B9868000A // pas_AttrName
+ HWL ME_494BAFBF00C0 // pas_MethodStub
+ HWL ME_494BB3A201A2 // pas_MethodBodyPrim
+ HWL ME_494BBE430242 // pas_IteratorBody
+ HWL ME_494BD6C80075 // pas_MethodName
+ HWL ME_494BDCF3030E // pas_Params
+ HWL ME_494BDD190361 // pas_ResultTypeName
+ HWL ME_494BE0CC0226 // pas_MethodParams
+ HWL ME_494BE0DB007A // pas_IteratorParams
+ HWL ME_494BEC6A038A // pas_MethodInterface
+ HWL ME_494BEC7C03E5 // pas_MethodImplementation
+ HWL ME_494BF05502AC // pas_AbstractionKeyword
+ HWL ME_494FAB950174 // pas_DoMethodInterface
+ HWL ME_494FABD00055 // pas_DoMethodImplementation
+ HWL ME_49551CA202CF // ClassImplementable
+ HWL ME_4977065602B3 // IsPureMixIn
+ HWL ME_497874AD00B1 // HasAnyVCMController
+ HWL ME_497DF8C8028E // IsViewAreaController
+ HWL ME_49809333028C // IsInterface
+ HWL ME_4986B4FA0093 // pas_OutDefaultAncestor
+ HWL ME_4989EB520196 // pas_OutAncestor
+ HWL ME_498B054F03A1 // pas_OutBeforeFields
+ HWL ME_498B059101B3 // pas_OutAfterUnitImplementation
+ HWL ME_4999789602FF // pas_MethodOwnerDelim
+ HWL ME_49998CA903A8 // pas_AttrIndexes
+ HWL ME_499A7D7E028A // pas_MethodBodyImplementation
+ HWL ME_49CB3C99034B // pas_MethodOwnerName
+ HWL ME_49CB3EE70382 // IsClassInner
+ HWL ME_49CB54AA033A // pas_MethodDeclarations
+ HWL ME_49F5C7BD00B4 // TypePrefix
+ HWL ME_49F5C87903C0 // TypeSuffix
+ HWL ME_49F703730268 // IsPublishedAccess
+ HWL ME_4A3665370285 // IsVCMArea
+ HWL ME_4A37945D011F // IsVCMAreaLink
+ HWL ME_4A37B6A9016F // IsAttribute
+ HWL ME_4A37C60A0273 // HasAnyVCMArea
+ HWL ME_4A37C6510297 // HasAnyVCMAreaLink
+ HWL ME_4A42517502CE // IsPublicRealizedMethod
+ HWL ME_4A794AED0078 // IsControl
+ HWL ME_4A796BE403D6 // pas_NeedsField
+ HWL ME_4A7ADF400052 // pas_PropertyMethodInterface
+ HWL ME_4A7ADF4E0277 // pas_PropertyMethodImplementation
+ HWL ME_4A7ADFAE0118 // pas_dump_Property
+ HWL ME_4AA8B1D901E5 // pas_TotalUses
+ HWL ME_4ACB78A4017F // ReadsField
+ HWL ME_4ACB78D500C2 // WritesField
+ HWL ME_4AE025440082 // IsConstructor
+ HWL ME_4AE026A90143 // IsFactory
+ HWL ME_4AE062A601E1 // pas_VCMFormFactoryParams
+ HWL ME_4AE065E20005 // HasParams
+ HWL ME_4AE066F202E2 // OutCallParams
+ HWL ME_4AE06FBA02FE // NeedCleanupFields
+ HWL ME_4AE0713E0081 // IsStereoForCleanup
+ HWL ME_4AE0718003CD // IsTypeForCleanup
+ HWL ME_4AE0738A0004 // IsFieldForCleanup
+ HWL ME_4AE074330009 // IsStereoForCleanup
+ HWL ME_4B17BC05001E // pas_AfterClassEnd
+ HWL ME_4B2A19E3038B // DoSpell
+ HWL ME_4B2A29440092 // IsMethod
+ HWL ME_4B2A4565034D // IsExeTarget
+ HWL ME_4B38844D0399 // IsIni
+ HWL ME_4B388478009F // IsFini
+ HWL ME_4B3886890063 // pas_OutIni
+ HWL ME_4B3886C50247 // pas_OutFini
+ HWL ME_4B3898EB0368 // pas_OutIniFiniImpl
+ HWL ME_4B5D68660386 // IsDataModule
+ HWL ME_4B6C3C5C01FC // IsStaticObject
+ HWL ME_4B6C49DA0023 // IsStruct
+ HWL ME_4B6C4DE70271 // pas_BeforeMethodBodyImplementation
+ HWL ME_4B6C4E2903C5 // pas_StaticCtorBeforeMethodBodyImplementation
+ HWL ME_4B704DE10322 // InheritsFrom
+ HWL ME_4B70554F0038 // OutL3ItemsPrologue
+ HWL ME_4B72CB6A01CA // IsAdapterTarget
+ HWL ME_4B72CBF50223 // IsTarget
+ HWL ME_4B8908F2014B // ImplementedInlinesCount
+ HWL ME_4B8FB23D01E8 // OutValue
+ HWL ME_4BA3925D035C // Implements
+ HWL ME_4BA3AF160024 // SomeAncestorImplements
+ HWL ME_4BA899E20317 // IsIterator
+ HWL ME_4BA9EBAE0254 // IsClassImplementableElement
+ HWL ME_4BAA50E802CA // pas_ForwardPointers
+ HWL ME_4BAA5CAB02CF // IsOverride
+ HWL ME_4BB0B1D202C2 // pas_MethodKeyword
+ HWL ME_4BB2008E003A // Ind
+ HWL ME_4BBF125A02BF // IsRealizedBySomeClassElement
+ HWL ME_4BC4823500C1 // IsVirtual
+ HWL ME_4BD1A77701B1 // pas_OutLikeUtilityPack
+ HWL ME_4C0524A20161 // pas_DefineName
+ HWL ME_4C05291601EE // HasIni
+ HWL ME_4C0532EF02E3 // pas_OutMixInIniInclude
+ HWL ME_4C342AB5032E // InheritsFromClass
+ HWL ME_4C766D140383 // IsNotParam
+ HWL ME_4CBD7CFE025B // pas_CallingConventionsDirective
+ HWL ME_4CBEFA1402F2 // FirstParamIsViewAreaController
+ HWL ME_4CBEFF7C020B // FirstParamName
+ HWL ME_4CC01C0D0010 // IsMakeSingleChild
+ HWL ME_4CC02B360368 // NeedAggregate
+ HWL ME_4CEFC15B03C1 // HasFini
+ HWL ME_4CEFC1720254 // pas_OutMixInFiniInclude
+ HWL ME_4E7B630D000D // IsUtilityPack
+ HWL ME_4F30E88502A5 // IsUnit
+ HWL ME_4F379BBA00BF // IsProject
+ HWL ME_55278EA5036A // NeedRegisterInScripts
+ HWL ME_563244E50325 // pas.script
+ HWL ME_5632451B0167 // pas_script_FileName
+ HWL ME_563245390156 // pas_script_Path
+ HWL ME_5632454C0277 // pas_script_Generate
+ HWL ME_56333DFB00A7 // pas_script_NeedOwnFile
+ HWL ME_56333E330061 // pas_script_GenerateDescription
+ HWL ME_563340DD039F // pas_script_NeedOutToScript
+ HWL ME_56335F7C03DD // pas_script_GenerateInclude
+ HWL ME_56335FB00013 // pas_script_FileNameForLink
+ HWL ME_5633620E0126 // pas_script_Name
+ HWL ME_563378C200C8 // pas_script_GenerateDescriptionRecur
+ HWL ME_56374FD101B7 // pas_script_GenerateUserProperties
+ HWL ME_5637623B00A0 // pas_script_IsOperation
+ HWL ME_563765ED0263 // pas_script_Reference
+ HWL ME_56377E090112 // pas_script_GenerateForward
+ HWL ME_56378C6C0218 // pas_script_IsAttribute
+ HWL ME_563B85E00244 // pas_script_GenerateIncludeOrForward
+ HWL ME_563C76070331 // pas_script_CanImplementMethods
+ HWL ME_563CBCF800FC // pas_script_runner_FileName
+ HWL ME_563CBD110135 // pas_script_runner_NeedOwnFile
+ HWL ME_563CBD450198 // pas_script_runner_Generate
+ HWL ME_564207B10283 // pas_script_GenerateWeakInclude
+ HWL ME_5643707B0390 // pas_script_GenerateForwardPrim
+ HWL ME_56D06FA10124 // IsInterfaceFactory
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\DelphiGens\Delphi интерфейсы и реализация'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\DelphiGens\Delphi интерфейсы и реализация.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F151302FD Delphi интерфейсы и реализация
+
+FORWARD ME_470F24F301E4
+
+ME ME_470F252801D4
+ MEPROP UID '470F252801D4'
+ MEPROP Name 'mpc.dll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'MPC для TIE-обвязки (.mpc)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_470F24F301E4 // Дельфи-DLL Адаптер проектные файлы
+ ;
+
+ENDME // ME_470F252801D4 mpc.dll
+
+ME ME_470F24F301E4
+ MEPROP UID '470F24F301E4'
+ MEPROP Name 'Дельфи-DLL Адаптер проектные файлы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'генератор проектных файлов для обвязок DLL' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773984F02AA // DelphiGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_470F252801D4 // mpc.dll
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\DelphiGens\Дельфи-DLL Адаптер проектные файлы'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\DelphiGens\Дельфи-DLL Адаптер проектные файлы.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F24F301E4 Дельфи-DLL Адаптер проектные файлы
+
+ME ME_4773984F02AA
+ MEPROP UID '4773984F02AA'
+ MEPROP Name 'DelphiGens'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Генераторы для Дельфи' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4773963E021D' '4773963E021D.ms.model.script' // AllGenerators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47032C8B009C // Дельфи-DLL Адаптер
+ HWL ME_470F151302FD // Delphi интерфейсы и реализация
+ HWL ME_470F24F301E4 // Дельфи-DLL Адаптер проектные файлы
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E1536802AF' '46E1536802AF.ms.model.script' // Elements
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\DelphiGens'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\AllGenerators\DelphiGens'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4773984F02AA DelphiGens

@@ -1,0 +1,4648 @@
+// InterfacesMetamodel 478DF69F0205 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_478DF69F0205
+
+ME ME_4753E6FC01BA
+ MEPROP UID '4753E6FC01BA'
+ MEPROP Name 'WithFactory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'абстрактный генератор, используется для объединения нескольких генерторов в один' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4705C4E1037A' '4773969402E9.ms.model.script' // C++ Фабрики
+ WL 'ME_470F51BB0280' '470384F502CE.ms.model.script' // InterfaceGeneratorWithJava
+ )
+ ; // Inherits
+ UP "internal" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\WithFactory'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\WithFactory.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4753E6FC01BA WithFactory
+
+FORWARD ME_4753C0BC029E
+
+ME ME_4753C0D40361
+ MEPROP UID '4753C0D40361'
+ MEPROP Name 'common key'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип единого ключа'#13#10'---'#13#10'используется для идентификации объектов в общей "памяти", Дополнительно будут сгенерированы специальные функции преобразования параметров-ключей фабрик в этот единый ключ. По умолчанию, если единый ключ не задан, считается, что все фабрики имеют одинаковые параметры-ключи, и соотвественно, никакого преобразования не требуется.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4753C0BC029E // FactoryMemory
+ ;
+ UP "link type" 'arl'
+ UP "personal label" 'code_attr'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\FactoryMemory\common key'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4753C0D40361 common key
+
+ME ME_47577B900144
+ MEPROP UID '47577B900144'
+ MEPROP Name 'uses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование'#13#10'---'#13#10'Определяет, что источник использует указанный объект (цель) каким-либо образом. Меожт использоваться при реализации трансформатора ключей фабрики в уникальный ключ, на основе данной связи будет сгенерированы пути включения файлов используемого объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4753C0BC029E // FactoryMemory
+ ;
+ UP "personal label" 'code_dep_uses'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\FactoryMemory\uses'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47577B900144 uses
+
+ME ME_4753E98D0058
+ MEPROP UID '4753E98D0058'
+ MEPROP Name 'dump_factory_mem_key'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит тип ключа используемого для идентификации объектов в общей "памяти"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4753C0BC029E // FactoryMemory
+ ;
+
+ENDME // ME_4753E98D0058 dump_factory_mem_key
+
+ME ME_4754F69C0002
+ MEPROP UID '4754F69C0002'
+ MEPROP Name 'factory_mem_key_name'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит имя ключа для идентификации объектов в общей памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4753C0BC029E // FactoryMemory
+ ;
+
+ENDME // ME_4754F69C0002 factory_mem_key_name
+
+ME ME_4754F6DC0169
+ MEPROP UID '4754F6DC0169'
+ MEPROP Name 'transfomator_name'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит имя трансформатора параметров фабрик, использующих данную общую память, в ключ идентификации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4753C0BC029E // FactoryMemory
+ ;
+
+ENDME // ME_4754F6DC0169 transfomator_name
+
+ME ME_47577D78020E
+ MEPROP UID '47577D78020E'
+ MEPROP Name 'use_for_multi_factory'
+ MEPROP Class class_Operation
+ %SUMMARY 'Используется ли данная общая память в мульти-фабрике.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4753C0BC029E // FactoryMemory
+ ;
+
+ENDME // ME_47577D78020E use_for_multi_factory
+
+ME ME_47722E760365
+ MEPROP UID '47722E760365'
+ MEPROP Name 'use_for_synchro_factory'
+ MEPROP Class class_Operation
+ %SUMMARY 'используется ли данная общая память в синхро-фабриках' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4753C0BC029E // FactoryMemory
+ ;
+
+ENDME // ME_47722E760365 use_for_synchro_factory
+
+ME ME_46E6D4BB0339_ME_4753C0BC029E
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4753C0BC029E wiki
+
+ME ME_47022BBE0261_ME_4753C0BC029E
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_4753C0BC029E idl
+
+ME ME_47022C0F01E4_ME_4753C0BC029E
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_4753C0BC029E idl_ami
+
+ME ME_47022C88029F_ME_4753C0BC029E
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_4753C0BC029E h
+
+ME ME_47022CB8034B_ME_4753C0BC029E
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_4753C0BC029E cpp
+
+ME ME_47022CCF00EA_ME_4753C0BC029E
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_4753C0BC029E i.h
+
+ME ME_470321950119_ME_4753C0BC029E
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_4753C0BC029E java
+
+ME ME_470321C1038A_ME_4753C0BC029E
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_4753C0BC029E fctr.java
+
+ME ME_47032EC4032C_ME_4753C0BC029E
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_4753C0BC029E dll.h
+
+ME ME_47032ED002DE_ME_4753C0BC029E
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_4753C0BC029E dll.cpp
+
+ME ME_470484D50138_ME_4753C0BC029E
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4753C0BC029E wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4753C0BC029E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4753C0BC029E constraint
+
+ME ME_4705C5490109_ME_4753C0BC029E
+ MELINK Original WL 'ME_4705C5490109' '4773969402E9.ms.model.script' // fctr.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+ENDME // ME_4705C5490109_ME_4753C0BC029E fctr.h
+
+ME ME_4705C54B01F4_ME_4753C0BC029E
+ MELINK Original WL 'ME_4705C54B01F4' '4773969402E9.ms.model.script' // fctr.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_4705C54B01F4_ME_4753C0BC029E fctr.cpp
+
+ME ME_4705CBD6003E_ME_4753C0BC029E
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_4753C0BC029E wiki_child_kind
+
+ME ME_470F152700FA_ME_4753C0BC029E
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_4753C0BC029E pas
+
+ME ME_470F1571031C_ME_4753C0BC029E
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4753C0BC029E intf.pas
+
+ME ME_470F15B800CB_ME_4753C0BC029E
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4753C0BC029E impl.pas
+
+ME ME_4753C0BC029E
+ MEPROP UID '4753C0BC029E'
+ MEPROP Name 'FactoryMemory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Единая память для фабрик интерфейса'#13#10'---'#13#10'Используется для указания фреймворку, что некоторые фабрики должны использовать единую "память" для созданных ими объектов. Может быть вложен в интерфейс, и использован как тип фабричного метода, что означает что данная фабрика будет использовать данную общую "память". Для идентификации объектов можно указать тип единого ключа (с помощью атрибута), с помощью которого будут идентифицироваться объекты внутри этой фабрики.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4753E6FC01BA // WithFactory
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4753E98D0058 // dump_factory_mem_key
+ HWL ME_4754F69C0002 // factory_mem_key_name
+ HWL ME_4754F6DC0169 // transfomator_name
+ HWL ME_47577D78020E // use_for_multi_factory
+ HWL ME_47722E760365 // use_for_synchro_factory
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4753C0BC029E // wiki
+ ME_47022BBE0261_ME_4753C0BC029E // idl
+ ME_47022C0F01E4_ME_4753C0BC029E // idl_ami
+ ME_47022C88029F_ME_4753C0BC029E // h
+ ME_47022CB8034B_ME_4753C0BC029E // cpp
+ ME_47022CCF00EA_ME_4753C0BC029E // i.h
+ ME_470321950119_ME_4753C0BC029E // java
+ ME_470321C1038A_ME_4753C0BC029E // fctr.java
+ ME_47032EC4032C_ME_4753C0BC029E // dll.h
+ ME_47032ED002DE_ME_4753C0BC029E // dll.cpp
+ ME_470484D50138_ME_4753C0BC029E // wiki_up_add_gen
+ ME_4704C0E30186_ME_4753C0BC029E // constraint
+ ME_4705C5490109_ME_4753C0BC029E // fctr.h
+ ME_4705C54B01F4_ME_4753C0BC029E // fctr.cpp
+ ME_4705CBD6003E_ME_4753C0BC029E // wiki_child_kind
+ ME_470F152700FA_ME_4753C0BC029E // pas
+ ME_470F1571031C_ME_4753C0BC029E // intf.pas
+ ME_470F15B800CB_ME_4753C0BC029E // impl.pas
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4753C0D40361 // common key
+ HWL ME_47577B900144 // uses
+ )
+ ; // Children
+ UP "personal label" 'code_factory_memory'
+ UP "visualization bg color" 13150850
+ UP "visualization f-font color" 14443530
+ UP "visualization f-line color" 14443530
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\FactoryMemory'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\FactoryMemory.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4753C0BC029E FactoryMemory
+
+FORWARD ME_47174CE200AB
+
+FORWARD ME_497483770297
+
+ME ME_497D6141034B
+ MEPROP UID '497D6141034B'
+ MEPROP Name 'dll export'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет что данный метод будет экспортироваться наружу компоненты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_497D6141034B dll export
+
+ME ME_497963F4033F
+ MEPROP UID '497963F4033F'
+ MEPROP Name 'factory_params'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит список праметров фабрики (при это если нужна, выполняется  конвертация спецификаторов параметров)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_497963F4033F factory_params
+
+ME ME_4979643901D3
+ MEPROP UID '4979643901D3'
+ MEPROP Name 'has_two_different_signatures'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если RW и RO фабрики имеют различные синатуры' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_4979643901D3 has_two_different_signatures
+
+ME ME_498704DD033C
+ MEPROP UID '498704DD033C'
+ MEPROP Name 'dump_fctr_cpp_factory_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерация фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_498704DD033C dump_fctr_cpp_factory_impl
+
+ME ME_49895C3202DF
+ MEPROP UID '49895C3202DF'
+ MEPROP Name 'dump_fctr_h_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит декларацию конкретных фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_49895C3202DF dump_fctr_h_impl
+
+ME ME_498AACD601DA
+ MEPROP UID '498AACD601DA'
+ MEPROP Name 'fctr_def_impl_h_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит декларацию конструктора для серванта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_498AACD601DA fctr_def_impl_h_impl
+
+ME ME_498AEC1101EE
+ MEPROP UID '498AEC1101EE'
+ MEPROP Name 'fctr_def_impl_cpp_ctor_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит реализацию конструктора для серванта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_498AEC1101EE fctr_def_impl_cpp_ctor_impl
+
+ME ME_49AD28F50299
+ MEPROP UID '49AD28F50299'
+ MEPROP Name 'dump_exceptions'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит исключения в декларации фабричных методов менеджера фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_49AD28F50299 dump_exceptions
+
+ME ME_49AE8F4C01AB
+ MEPROP UID '49AE8F4C01AB'
+ MEPROP Name 'dump_exceptions_multi_fctr_mngr'
+ MEPROP Class class_Operation
+ %SUMMARY 'Список исключений для методов менеджера фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_49AE8F4C01AB dump_exceptions_multi_fctr_mngr
+
+ME ME_49AE8F900025
+ MEPROP UID '49AE8F900025'
+ MEPROP Name 'dump_formated_exception_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'Форматированный вывод списка исключений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_49AE8F900025 dump_formated_exception_list
+
+ME ME_49AF75740088
+ MEPROP UID '49AF75740088'
+ MEPROP Name 'dump_exceptions_client_fctr'
+ MEPROP Class class_Operation
+ %SUMMARY 'Формирует список исключений для статических клиентских фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_49AF75740088 dump_exceptions_client_fctr
+
+ME ME_49AF75D50218
+ MEPROP UID '49AF75D50218'
+ MEPROP Name 'dump_formated_exception_client_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит форматированный список исключений для клиентских мультифабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_49AF75D50218 dump_formated_exception_client_list
+
+ME ME_49AFC60A02BE
+ MEPROP UID '49AFC60A02BE'
+ MEPROP Name 'dump_formated_exception_client_list_cpp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит форматированный список исключений для реализации клиентских'#13#10'фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_49AFC60A02BE dump_formated_exception_client_list_cpp
+
+ME ME_4A93BE2103BA
+ MEPROP UID '4A93BE2103BA'
+ MEPROP Name 'dump_factory_manager_multi_factory_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит объявление мульти фабрики на менеджере фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_4A93BE2103BA dump_factory_manager_multi_factory_h
+
+ME ME_4A93BE6D030A
+ MEPROP UID '4A93BE6D030A'
+ MEPROP Name 'dump_factory_manager_single_factory_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит объявление фабрики на менеджере фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_4A93BE6D030A dump_factory_manager_single_factory_h
+
+ME ME_4A93E7EC0223
+ MEPROP UID '4A93E7EC0223'
+ MEPROP Name 'is_cached'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если фабрика кэшированная (в том числе если это синхро-фабрика), иначе - false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_4A93E7EC0223 is_cached
+
+ME ME_4A950A3D028E
+ MEPROP UID '4A950A3D028E'
+ MEPROP Name 'fctr_mng_fctr_cpp'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит определение менеджера фабрик для интерфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_4A950A3D028E fctr_mng_fctr_cpp
+
+ME ME_4A950A8402CB
+ MEPROP UID '4A950A8402CB'
+ MEPROP Name 'fctr_mng_m_fctr_cpp'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит релизацию мульти фабрики на менеджере фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_4A950A8402CB fctr_mng_m_fctr_cpp
+
+ME ME_4B794201038A
+ MEPROP UID '4B794201038A'
+ MEPROP Name 'is_factory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_497483770297 // factory
+ ;
+
+ENDME // ME_4B794201038A is_factory
+
+ME ME_47022C88029F_ME_497483770297
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_497483770297 h
+
+ME ME_470321950119_ME_497483770297
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_497483770297 java
+
+ME ME_47032EC4032C_ME_497483770297
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_497483770297 dll.h
+
+ME ME_47032ED002DE_ME_497483770297
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_497483770297 dll.cpp
+
+ME ME_4704C0E30186_ME_497483770297
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_497483770297 constraint
+
+ME ME_4705CBD6003E_ME_497483770297
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_497483770297 wiki_child_kind
+
+ME ME_497483770297
+ MEPROP UID '497483770297'
+ MEPROP Name 'factory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый стереотип фабрики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F51BB0280' '470384F502CE.ms.model.script' // InterfaceGeneratorWithJava
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_497D6141034B // dll export
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_497963F4033F // factory_params
+ HWL ME_4979643901D3 // has_two_different_signatures
+ HWL ME_498704DD033C // dump_fctr_cpp_factory_impl
+ HWL ME_49895C3202DF // dump_fctr_h_impl
+ HWL ME_498AACD601DA // fctr_def_impl_h_impl
+ HWL ME_498AEC1101EE // fctr_def_impl_cpp_ctor_impl
+ HWL ME_49AD28F50299 // dump_exceptions
+ HWL ME_49AE8F4C01AB // dump_exceptions_multi_fctr_mngr
+ HWL ME_49AE8F900025 // dump_formated_exception_list
+ HWL ME_49AF75740088 // dump_exceptions_client_fctr
+ HWL ME_49AF75D50218 // dump_formated_exception_client_list
+ HWL ME_49AFC60A02BE // dump_formated_exception_client_list_cpp
+ HWL ME_4A93BE2103BA // dump_factory_manager_multi_factory_h
+ HWL ME_4A93BE6D030A // dump_factory_manager_single_factory_h
+ HWL ME_4A93E7EC0223 // is_cached
+ HWL ME_4A950A3D028E // fctr_mng_fctr_cpp
+ HWL ME_4A950A8402CB // fctr_mng_m_fctr_cpp
+ HWL ME_4B794201038A // is_factory
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_497483770297 // h
+ ME_470321950119_ME_497483770297 // java
+ ME_47032EC4032C_ME_497483770297 // dll.h
+ ME_47032ED002DE_ME_497483770297 // dll.cpp
+ ME_4704C0E30186_ME_497483770297 // constraint
+ ME_4705CBD6003E_ME_497483770297 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "abstraction type" 'a'
+ UP "available target stereotypes" 'empty'
+ UP "empty target" True
+ UP "has exception" 'g'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractInterface\factory'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_497483770297 factory
+
+ME ME_471F2C3D0232
+ MEPROP UID '471F2C3D0232'
+ MEPROP Name 'additional_fctr_def'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация дополнительных объявлений для фабрик (C++)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_471F2C3D0232 additional_fctr_def
+
+ME ME_471F2C4302FD
+ MEPROP UID '471F2C4302FD'
+ MEPROP Name 'additional_fctr_def_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация дополнительных объявлений для фабрик (Java)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_471F2C4302FD additional_fctr_def_java
+
+ME ME_471F2C4701E4
+ MEPROP UID '471F2C4701E4'
+ MEPROP Name 'base_fctr_mng'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает базовый менеджер фабрик (C++)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_471F2C4701E4 base_fctr_mng
+
+ME ME_471F2C4B008C
+ MEPROP UID '471F2C4B008C'
+ MEPROP Name 'base_fctr_mng_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает базовый менеджер фабрик (Java)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_471F2C4B008C base_fctr_mng_java
+
+ME ME_471F2C4F03B9
+ MEPROP UID '471F2C4F03B9'
+ MEPROP Name 'publish_self_cpp'
+ MEPROP Class class_Operation
+ %SUMMARY 'что это ??? (C++)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_471F2C4F03B9 publish_self_cpp
+
+ME ME_471F2C52032C
+ MEPROP UID '471F2C52032C'
+ MEPROP Name 'publish_self_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'что это?  (C++)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_471F2C52032C publish_self_h
+
+ME ME_471F2C56032C
+ MEPROP UID '471F2C56032C'
+ MEPROP Name 'publish_self_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'что это?? (Java)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_471F2C56032C publish_self_java
+
+ME ME_47B137CB000B
+ MEPROP UID '47B137CB000B'
+ MEPROP Name 'dump_switch_type'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит тип селектора мульти фабрики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_47B137CB000B dump_switch_type
+
+ME ME_496C411C0053
+ MEPROP UID '496C411C0053'
+ MEPROP Name 'dump_factory_operation_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерация фабричных методов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496C411C0053 dump_factory_operation_h
+
+ME ME_496C817B0097
+ MEPROP UID '496C817B0097'
+ MEPROP Name 'additional_fctr_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерация реализации фабричных методов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496C817B0097 additional_fctr_impl
+
+ME ME_496D98690096
+ MEPROP UID '496D98690096'
+ MEPROP Name 'dump_factory_operation_cpp'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит реализацию фабрики интерфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496D98690096 dump_factory_operation_cpp
+
+ME ME_496DB8B70199
+ MEPROP UID '496DB8B70199'
+ MEPROP Name 'dump_multi_factory_operation_cpp'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит реалиазцию мульти-фабрики интерфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496DB8B70199 dump_multi_factory_operation_cpp
+
+ME ME_496DE7E202F7
+ MEPROP UID '496DE7E202F7'
+ MEPROP Name 'additional_fctr_mng_declarations'
+ MEPROP Class class_Operation
+ %SUMMARY 'Дополнительные объявления для производных стереотипов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496DE7E202F7 additional_fctr_mng_declarations
+
+ME ME_496EE097022C
+ MEPROP UID '496EE097022C'
+ MEPROP Name 'dump_multi_factory_operation_h'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерация декларации мульти фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496EE097022C dump_multi_factory_operation_h
+
+ME ME_496EED59015C
+ MEPROP UID '496EED59015C'
+ MEPROP Name 'additional_mgr_factory_mehods'
+ MEPROP Class class_Operation
+ %SUMMARY 'Для дополнитешльной генерации фабрик в менеджере фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496EED59015C additional_mgr_factory_mehods
+
+ME ME_496F0DDD00B6
+ MEPROP UID '496F0DDD00B6'
+ MEPROP Name 'additional_mgr_factory_methods_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Реализация дополнительных методов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496F0DDD00B6 additional_mgr_factory_methods_impl
+
+ME ME_496F4112016A
+ MEPROP UID '496F4112016A'
+ MEPROP Name 'additional_abstract_factories'
+ MEPROP Class class_Operation
+ %SUMMARY 'Дополнительные абстрактные фабрики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496F4112016A additional_abstract_factories
+
+ME ME_496F4CDE0178
+ MEPROP UID '496F4CDE0178'
+ MEPROP Name 'additional_fctr_mng_ctor_initialization'
+ MEPROP Class class_Operation
+ %SUMMARY 'Дополнительная инициализация конструктора менеджера фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_496F4CDE0178 additional_fctr_mng_ctor_initialization
+
+ME ME_4978567C01C5
+ MEPROP UID '4978567C01C5'
+ MEPROP Name 'fctr_mng_fctr_cpp_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Реализация методов менеджера фабрик.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_4978567C01C5 fctr_mng_fctr_cpp_impl
+
+ME ME_4978702C00D9
+ MEPROP UID '4978702C00D9'
+ MEPROP Name 'additional_mgr_public_declarations'
+ MEPROP Class class_Operation
+ %SUMMARY 'Дополнительные определения в public секции для менеджера фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_4978702C00D9 additional_mgr_public_declarations
+
+ME ME_497870EF0151
+ MEPROP UID '497870EF0151'
+ MEPROP Name 'fctr_mng_m_fctr_cpp_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Базовая реализация мультифабрик для менеджера фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_497870EF0151 fctr_mng_m_fctr_cpp_impl
+
+ME ME_497AD7C30382
+ MEPROP UID '497AD7C30382'
+ MEPROP Name 'is_virtual_inheritance'
+ MEPROP Class class_Operation
+ %SUMMARY 'Используется виртуальное/не виртуальное наследование в зависимости от стереотипа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_497AD7C30382 is_virtual_inheritance
+
+ME ME_4988233B02FD
+ MEPROP UID '4988233B02FD'
+ MEPROP Name 'fctr_mng_get_instance_name'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит имя метода на менеджере фабрик для получения экземпляра менеджера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_4988233B02FD fctr_mng_get_instance_name
+
+ME ME_499274E601E7
+ MEPROP UID '499274E601E7'
+ MEPROP Name 'find_switch'
+ MEPROP Class class_Operation
+ %SUMMARY 'находит атрибут-селектор мульти фабрики и записывает его в переменную с заданным идентификатором' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_499274E601E7 find_switch
+
+ME ME_49A643ED0131
+ MEPROP UID '49A643ED0131'
+ MEPROP Name 'additional_remover_declaration'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерация умолчального ремувера для сущности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_49A643ED0131 additional_remover_declaration
+
+ME ME_49ACD9EC0231
+ MEPROP UID '49ACD9EC0231'
+ MEPROP Name 'dump_exceptions'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит исключения в декларации фабрики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_49ACD9EC0231 dump_exceptions
+
+ME ME_49B11D7A001C
+ MEPROP UID '49B11D7A001C'
+ MEPROP Name 'additional_mgr_factory_implementation'
+ MEPROP Class class_Operation
+ %SUMMARY 'Дополнительная реализация для менеджера фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_49B11D7A001C additional_mgr_factory_implementation
+
+ME ME_49B6246F03B2
+ MEPROP UID '49B6246F03B2'
+ MEPROP Name 'dump_fctr_mng_impl_cpp'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит реализацию менеджеоа фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_49B6246F03B2 dump_fctr_mng_impl_cpp
+
+ME ME_49B7DFE801D5
+ MEPROP UID '49B7DFE801D5'
+ MEPROP Name 'dump_methods_decl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Генерит определения атрибутов и операций заданных на сущности или интерфейсе.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_49B7DFE801D5 dump_methods_decl
+
+ME ME_4B715A9D0094
+ MEPROP UID '4B715A9D0094'
+ MEPROP Name 'has_multi_factory'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если интерфейс имеет мульти фабрику (либо наследует её от своих абстрактных предков)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47174CE200AB // AbstractInterface
+ ;
+
+ENDME // ME_4B715A9D0094 has_multi_factory
+
+ME ME_470321C1038A_ME_47174CE200AB
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_47174CE200AB fctr.java
+
+ME ME_4705C5490109_ME_47174CE200AB
+ MELINK Original WL 'ME_4705C5490109' '4773969402E9.ms.model.script' // fctr.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+ENDME // ME_4705C5490109_ME_47174CE200AB fctr.h
+
+ME ME_4705C54B01F4_ME_47174CE200AB
+ MELINK Original WL 'ME_4705C54B01F4' '4773969402E9.ms.model.script' // fctr.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_4705C54B01F4_ME_47174CE200AB fctr.cpp
+
+ME ME_47174CE200AB
+ MEPROP UID '47174CE200AB'
+ MEPROP Name 'AbstractInterface'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактный стереотип интерфейса определяет реализацию общих генераторов для итерфейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_4753E6FC01BA // WithFactory
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_471F2C3D0232 // additional_fctr_def
+ HWL ME_471F2C4302FD // additional_fctr_def_java
+ HWL ME_471F2C4701E4 // base_fctr_mng
+ HWL ME_471F2C4B008C // base_fctr_mng_java
+ HWL ME_471F2C4F03B9 // publish_self_cpp
+ HWL ME_471F2C52032C // publish_self_h
+ HWL ME_471F2C56032C // publish_self_java
+ HWL ME_47B137CB000B // dump_switch_type
+ HWL ME_496C411C0053 // dump_factory_operation_h
+ HWL ME_496C817B0097 // additional_fctr_impl
+ HWL ME_496D98690096 // dump_factory_operation_cpp
+ HWL ME_496DB8B70199 // dump_multi_factory_operation_cpp
+ HWL ME_496DE7E202F7 // additional_fctr_mng_declarations
+ HWL ME_496EE097022C // dump_multi_factory_operation_h
+ HWL ME_496EED59015C // additional_mgr_factory_mehods
+ HWL ME_496F0DDD00B6 // additional_mgr_factory_methods_impl
+ HWL ME_496F4112016A // additional_abstract_factories
+ HWL ME_496F4CDE0178 // additional_fctr_mng_ctor_initialization
+ HWL ME_4978567C01C5 // fctr_mng_fctr_cpp_impl
+ HWL ME_4978702C00D9 // additional_mgr_public_declarations
+ HWL ME_497870EF0151 // fctr_mng_m_fctr_cpp_impl
+ HWL ME_497AD7C30382 // is_virtual_inheritance
+ HWL ME_4988233B02FD // fctr_mng_get_instance_name
+ HWL ME_499274E601E7 // find_switch
+ HWL ME_49A643ED0131 // additional_remover_declaration
+ HWL ME_49ACD9EC0231 // dump_exceptions
+ HWL ME_49B11D7A001C // additional_mgr_factory_implementation
+ HWL ME_49B6246F03B2 // dump_fctr_mng_impl_cpp
+ HWL ME_49B7DFE801D5 // dump_methods_decl
+ HWL ME_4B715A9D0094 // has_multi_factory
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_470321C1038A_ME_47174CE200AB // fctr.java
+ ME_4705C5490109_ME_47174CE200AB // fctr.h
+ ME_4705C54B01F4_ME_47174CE200AB // fctr.cpp
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_497483770297 // factory
+ )
+ ; // Children
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractInterface'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractInterface.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47174CE200AB AbstractInterface
+
+FORWARD ME_470F704E00AB
+
+FORWARD ME_470F544503C8
+
+ME ME_470F55370280
+ MEPROP UID '470F55370280'
+ MEPROP Name 'key'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ключ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ UP "available target stereotypes" 'in|inout'
+ UP "empty target" True
+ UP "link type" 'l'
+ UP "personal label" 'code_attr_key'
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\property\key'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F55370280 key
+
+ME ME_471DF16B0000
+ MEPROP UID '471DF16B0000'
+ MEPROP Name 'dll export'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет что данный атрибут будет экспортироваться наружу компоненты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_471DF16B0000 dll export
+
+ME ME_471DF17A0251
+ MEPROP UID '471DF17A0251'
+ MEPROP Name 'debug log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'включает генерацию вывода в лог обращений к методам реализующим доступ к данному атрибуту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_471DF17A0251 debug log
+
+ME ME_471DF18801C5
+ MEPROP UID '471DF18801C5'
+ MEPROP Name 'pm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'выводит методы для доступа к свойству в виде pm_Get/pm_Set, иначе Get_/Set_ - для переходного периода переноса исходников на модель' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_471DF18801C5 pm
+
+ME ME_471DF1990167
+ MEPROP UID '471DF1990167'
+ MEPROP Name 'is default'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяем атрибут по-умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_471DF1990167 is default
+
+ME ME_480C548700D6
+ MEPROP UID '480C548700D6'
+ MEPROP Name 'debug tie log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужно ли генерить код логирования вызовов tie-методов доступа к атрибуту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_480C548700D6 debug tie log
+
+ME ME_497827C70238
+ MEPROP UID '497827C70238'
+ MEPROP Name 'force use const arg'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Если у свойства с параметрами флаг "force const arg" равен true, то все параметры передаваемые в методы доступа к свойству на чтение (т.е константный get) передаются как in, при этом реализация неконстантной версии не генериться автоматически через вызов константной реализации - разрабочтик должен написать реализацию самостоятельно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_497827C70238 force use const arg
+
+ME ME_57220062009C
+ MEPROP UID '57220062009C'
+ MEPROP Name 'needs field'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_tribool::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F544503C8 // property
+ ;
+ MEPROP Value 'undefined'
+ UP extprop:pas:Value 'undefined'
+
+ENDME // ME_57220062009C needs field
+
+ME ME_47022C88029F_ME_470F544503C8
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F544503C8 h
+
+ME ME_470321950119_ME_470F544503C8
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F544503C8 java
+
+ME ME_47032EC4032C_ME_470F544503C8
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F544503C8 dll.h
+
+ME ME_47032ED002DE_ME_470F544503C8
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F544503C8 dll.cpp
+
+ME ME_4705CBD6003E_ME_470F544503C8
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F544503C8 wiki_child_kind
+
+ME ME_470F152700FA_ME_470F544503C8
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F544503C8 pas
+
+ME ME_470F1571031C_ME_470F544503C8
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F544503C8 intf.pas
+
+ME ME_470F15B800CB_ME_470F544503C8
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F544503C8 impl.pas
+
+ME ME_477398E501C0_ME_470F544503C8
+ MELINK Original WL 'ME_477398E501C0' '4773984F02AA.ms.model.script' // intf2.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_477398E501C0_ME_470F544503C8 intf2.pas
+
+ME ME_493D2D510282_ME_470F544503C8
+ MELINK Original WL 'ME_493D2D510282' '4773984F02AA.ms.model.script' // IsProp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_493D2D510282_ME_470F544503C8 IsProp
+
+ME ME_49782FB50256_ME_470F544503C8
+ MELINK Original WL 'ME_49782FB50256' '470384F502CE.ms.model.script' // need_ro_accessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49782FB50256_ME_470F544503C8 need_ro_accessor
+
+ME ME_49782FBC0027_ME_470F544503C8
+ MELINK Original WL 'ME_49782FBC0027' '470384F502CE.ms.model.script' // need_rw_accessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49782FBC0027_ME_470F544503C8 need_rw_accessor
+
+ME ME_470F544503C8
+ MEPROP UID '470F544503C8'
+ MEPROP Name 'property'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут интерфейса'#13#10'---'#13#10'для данного атрибута будут сгенерированы методы получения и установки его значения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B72B660033E' '470384F502CE.ms.model.script' // CallingConventionsHolder
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_470F51BB0280' '470384F502CE.ms.model.script' // InterfaceGeneratorWithJava
+ WL 'ME_49782F520309' '470384F502CE.ms.model.script' // CommonAttribute
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_471DF16B0000 // dll export
+ HWL ME_471DF17A0251 // debug log
+ HWL ME_471DF18801C5 // pm
+ HWL ME_471DF1990167 // is default
+ HWL ME_480C548700D6 // debug tie log
+ HWL ME_497827C70238 // force use const arg
+ HWL ME_57220062009C // needs field
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_470F544503C8 // h
+ ME_470321950119_ME_470F544503C8 // java
+ ME_47032EC4032C_ME_470F544503C8 // dll.h
+ ME_47032ED002DE_ME_470F544503C8 // dll.cpp
+ ME_4705CBD6003E_ME_470F544503C8 // wiki_child_kind
+ ME_470F152700FA_ME_470F544503C8 // pas
+ ME_470F1571031C_ME_470F544503C8 // intf.pas
+ ME_470F15B800CB_ME_470F544503C8 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_477398E501C0_ME_470F544503C8 // intf2.pas
+ ME_493D2D510282_ME_470F544503C8 // IsProp
+ ME_49782FB50256_ME_470F544503C8 // need_ro_accessor
+ ME_49782FBC0027_ME_470F544503C8 // need_rw_accessor
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F55370280 // key
+ )
+ ; // Children
+ UP "abstraction type" 'a'
+ UP "available target stereotypes" 'const'
+ UP "has exception" 'a'
+ UP "implementable" True
+ UP "link type" 'la'
+ UP "personal label" 'code_property'
+ UP "visability type" '+#'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\property'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F544503C8 property
+
+FORWARD ME_470F549D033C
+
+ME ME_46E6D4BB0339_ME_49794A25023E
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_49794A25023E wiki
+
+ME ME_470484D50138_ME_49794A25023E
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_49794A25023E wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_49794A25023E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_49794A25023E constraint
+
+ME ME_4705CBD6003E_ME_49794A25023E
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_49794A25023E wiki_child_kind
+
+ME ME_470F1571031C_ME_49794A25023E
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_49794A25023E intf.pas
+
+ME ME_470F15B800CB_ME_49794A25023E
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_49794A25023E impl.pas
+
+ME ME_49794A25023E
+ MEPROP UID '49794A25023E'
+ MEPROP Name 'key'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ключ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F549D033C // readonly
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F55370280 // key
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_49794A25023E // wiki
+ ME_470484D50138_ME_49794A25023E // wiki_up_add_gen
+ ME_4704C0E30186_ME_49794A25023E // constraint
+ ME_4705CBD6003E_ME_49794A25023E // wiki_child_kind
+ ME_470F1571031C_ME_49794A25023E // intf.pas
+ ME_470F15B800CB_ME_49794A25023E // impl.pas
+ )
+ ; // Implemented
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\readonly\key'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49794A25023E key
+
+ME ME_4948F9190291_ME_470F549D033C
+ MELINK Original WL 'ME_4948F9190291' '4773984F02AA.ms.model.script' // IsReadOnlyProp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948F9190291_ME_470F549D033C IsReadOnlyProp
+
+ME ME_4948F93D038A_ME_470F549D033C
+ MELINK Original WL 'ME_4948F93D038A' '4773984F02AA.ms.model.script' // IsWriteOnlyProp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948F93D038A_ME_470F549D033C IsWriteOnlyProp
+
+ME ME_49782FB50256_ME_470F549D033C
+ MELINK Original WL 'ME_49782FB50256' '470384F502CE.ms.model.script' // need_ro_accessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49782FB50256_ME_470F549D033C need_ro_accessor
+
+ME ME_49782FBC0027_ME_470F549D033C
+ MELINK Original WL 'ME_49782FBC0027' '470384F502CE.ms.model.script' // need_rw_accessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49782FBC0027_ME_470F549D033C need_rw_accessor
+
+ME ME_470F549D033C
+ MEPROP UID '470F549D033C'
+ MEPROP Name 'readonly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут только для чтения'#13#10'---'#13#10'для данного атрибута будет сгенерирован только метод получения его значения. Если тип атрибута интерфейс - то он будет возвращаться как константный.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F544503C8 // property
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4948F9190291_ME_470F549D033C // IsReadOnlyProp
+ ME_4948F93D038A_ME_470F549D033C // IsWriteOnlyProp
+ ME_49782FB50256_ME_470F549D033C // need_ro_accessor
+ ME_49782FBC0027_ME_470F549D033C // need_rw_accessor
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_49794A25023E // key
+ )
+ ; // Children
+ UP "has exception" 'g'
+ UP "personal label" 'code_readonly_attr'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\readonly'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F549D033C readonly
+
+FORWARD ME_470F54C402CE
+
+ME ME_46E6D4BB0339_ME_49794A40013F
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_49794A40013F wiki
+
+ME ME_470484D50138_ME_49794A40013F
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_49794A40013F wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_49794A40013F
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_49794A40013F constraint
+
+ME ME_4705CBD6003E_ME_49794A40013F
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_49794A40013F wiki_child_kind
+
+ME ME_470F1571031C_ME_49794A40013F
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_49794A40013F intf.pas
+
+ME ME_470F15B800CB_ME_49794A40013F
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_49794A40013F impl.pas
+
+ME ME_49794A40013F
+ MEPROP UID '49794A40013F'
+ MEPROP Name 'key'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ключ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F54C402CE // writeonly
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F55370280 // key
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_49794A40013F // wiki
+ ME_470484D50138_ME_49794A40013F // wiki_up_add_gen
+ ME_4704C0E30186_ME_49794A40013F // constraint
+ ME_4705CBD6003E_ME_49794A40013F // wiki_child_kind
+ ME_470F1571031C_ME_49794A40013F // intf.pas
+ ME_470F15B800CB_ME_49794A40013F // impl.pas
+ )
+ ; // Implemented
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\writeonly\key'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49794A40013F key
+
+ME ME_4948F9190291_ME_470F54C402CE
+ MELINK Original WL 'ME_4948F9190291' '4773984F02AA.ms.model.script' // IsReadOnlyProp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948F9190291_ME_470F54C402CE IsReadOnlyProp
+
+ME ME_4948F93D038A_ME_470F54C402CE
+ MELINK Original WL 'ME_4948F93D038A' '4773984F02AA.ms.model.script' // IsWriteOnlyProp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948F93D038A_ME_470F54C402CE IsWriteOnlyProp
+
+ME ME_49782FB50256_ME_470F54C402CE
+ MELINK Original WL 'ME_49782FB50256' '470384F502CE.ms.model.script' // need_ro_accessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49782FB50256_ME_470F54C402CE need_ro_accessor
+
+ME ME_49782FBC0027_ME_470F54C402CE
+ MELINK Original WL 'ME_49782FBC0027' '470384F502CE.ms.model.script' // need_rw_accessor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49782FBC0027_ME_470F54C402CE need_rw_accessor
+
+ME ME_470F54C402CE
+ MEPROP UID '470F54C402CE'
+ MEPROP Name 'writeonly'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Атрибут только для записи'#13#10'---'#13#10'для данного атрибута будут сгенерирован только метод установки его значения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F544503C8 // property
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4948F9190291_ME_470F54C402CE // IsReadOnlyProp
+ ME_4948F93D038A_ME_470F54C402CE // IsWriteOnlyProp
+ ME_49782FB50256_ME_470F54C402CE // need_ro_accessor
+ ME_49782FBC0027_ME_470F54C402CE // need_rw_accessor
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_49794A40013F // key
+ )
+ ; // Children
+ UP "has exception" 's'
+ UP "personal label" 'code_writeonly_attr'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\writeonly'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F54C402CE writeonly
+
+ME ME_4705CBD6003E_ME_470F659B001F
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F659B001F wiki_child_kind
+
+ME ME_470F659B001F
+ MEPROP UID '470F659B001F'
+ MEPROP Name 'friend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Друг'#13#10'---'#13#10'Определяет что интерфейс (источник) использует указанный объект (цель) как друг. Т.е. ЦЕЛЬ открывает свои свои скрытые данные и методы ИСТОЧНИКУ.'#13#10'ВНИМАНИЕ!!! ИМЕННО ИСТОЧНИК БУДЕТ ДРУГОМ ЦЕЛИ А НЕ НАООБОРОТ!' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F51BB0280' '470384F502CE.ms.model.script' // InterfaceGeneratorWithJava
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4705CBD6003E_ME_470F659B001F // wiki_child_kind
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_friend'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\friend'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F659B001F friend
+
+FORWARD ME_470F556F0196
+
+ME ME_47022C88029F_ME_470F59EE00AB
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F59EE00AB h
+
+ME ME_47022CB8034B_ME_470F59EE00AB
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_470F59EE00AB cpp
+
+ME ME_470321950119_ME_470F59EE00AB
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F59EE00AB java
+
+ME ME_470321C1038A_ME_470F59EE00AB
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_470F59EE00AB fctr.java
+
+ME ME_4705C5490109_ME_470F59EE00AB
+ MELINK Original WL 'ME_4705C5490109' '4773969402E9.ms.model.script' // fctr.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+ENDME // ME_4705C5490109_ME_470F59EE00AB fctr.h
+
+ME ME_4705C54B01F4_ME_470F59EE00AB
+ MELINK Original WL 'ME_4705C54B01F4' '4773969402E9.ms.model.script' // fctr.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_4705C54B01F4_ME_470F59EE00AB fctr.cpp
+
+ME ME_470F152700FA_ME_470F59EE00AB
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F59EE00AB pas
+
+ME ME_470F59EE00AB
+ MEPROP UID '470F59EE00AB'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F556F0196 // op
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4705C4E1037A' '4773969402E9.ms.model.script' // C++ Фабрики
+ WL 'ME_470F51BB0280' '470384F502CE.ms.model.script' // InterfaceGeneratorWithJava
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_470F59EE00AB // h
+ ME_47022CB8034B_ME_470F59EE00AB // cpp
+ ME_470321950119_ME_470F59EE00AB // java
+ ME_470321C1038A_ME_470F59EE00AB // fctr.java
+ ME_4705C5490109_ME_470F59EE00AB // fctr.h
+ ME_4705C54B01F4_ME_470F59EE00AB // fctr.cpp
+ ME_470F152700FA_ME_470F59EE00AB // pas
+ )
+ ; // Implemented
+ UP "personal label" 'code_operation_param'
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\op\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F59EE00AB param
+
+ME ME_470F55AF0242
+ MEPROP UID '470F55AF0242'
+ MEPROP Name 'dll export'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет что данный метод будет экспортироваться наружу компоненты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F556F0196 // op
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_470F55AF0242 dll export
+
+ME ME_470F55C00177
+ MEPROP UID '470F55C00177'
+ MEPROP Name 'debug log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'включает генерацию вывода в лог обращений к реализации данной операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F556F0196 // op
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_470F55C00177 debug log
+
+ME ME_470F55CD007D
+ MEPROP UID '470F55CD007D'
+ MEPROP Name 'Must throw in error'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'оределяет тип "граничного" обработчика исключений. Если флаг установлен, то все исключения будут мапится и пробрасываться. Если нет, то некотрый класс исключений... короче я чего то запутался чего там присходит в этом случае.. нужно по исходникам смотреть (Exception.h/cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F556F0196 // op
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_470F55CD007D Must throw in error
+
+ME ME_47CE5A9902F2
+ MEPROP UID '47CE5A9902F2'
+ MEPROP Name 'force overload'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Определяет, что метод перегружен.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F556F0196 // op
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_47CE5A9902F2 force overload
+
+ME ME_480C53780372
+ MEPROP UID '480C53780372'
+ MEPROP Name 'debug tie log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужно ли генерить логирование вызова tie-метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F556F0196 // op
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_480C53780372 debug tie log
+
+ME ME_47022C88029F_ME_470F556F0196
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F556F0196 h
+
+ME ME_470321950119_ME_470F556F0196
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F556F0196 java
+
+ME ME_47032EC4032C_ME_470F556F0196
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F556F0196 dll.h
+
+ME ME_47032ED002DE_ME_470F556F0196
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F556F0196 dll.cpp
+
+ME ME_4705CBD6003E_ME_470F556F0196
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F556F0196 wiki_child_kind
+
+ME ME_470F152700FA_ME_470F556F0196
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F556F0196 pas
+
+ME ME_470F556F0196
+ MEPROP UID '470F556F0196'
+ MEPROP Name 'op'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константный метод интерфейса'#13#10'---'#13#10'По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<chg>>. Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B72B660033E' '470384F502CE.ms.model.script' // CallingConventionsHolder
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ WL 'ME_470F51BB0280' '470384F502CE.ms.model.script' // InterfaceGeneratorWithJava
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_470F55AF0242 // dll export
+ HWL ME_470F55C00177 // debug log
+ HWL ME_470F55CD007D // Must throw in error
+ HWL ME_47CE5A9902F2 // force overload
+ HWL ME_480C53780372 // debug tie log
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_470F556F0196 // h
+ ME_470321950119_ME_470F556F0196 // java
+ ME_47032EC4032C_ME_470F556F0196 // dll.h
+ ME_47032ED002DE_ME_470F556F0196 // dll.cpp
+ ME_4705CBD6003E_ME_470F556F0196 // wiki_child_kind
+ ME_470F152700FA_ME_470F556F0196 // pas
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Children
+ UP "abstraction type" 'a'
+ UP "available target stereotypes" 'const|cached|const,cached'
+ UP "empty target" True
+ UP "has exception" 'g'
+ UP "implementable" True
+ UP "personal label" 'code_const_method'
+ UP "unstereotyped" True
+ UP "visability type" '+#'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\op'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F556F0196 op
+
+FORWARD ME_470F56670000
+
+ME ME_46E6D4BB0339_ME_470F641E0157
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470F641E0157 wiki
+
+ME ME_47022BBE0261_ME_470F641E0157
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F641E0157 idl
+
+ME ME_47022C0F01E4_ME_470F641E0157
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_470F641E0157 idl_ami
+
+ME ME_47022CCF00EA_ME_470F641E0157
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_470F641E0157 i.h
+
+ME ME_47032EC4032C_ME_470F641E0157
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F641E0157 dll.h
+
+ME ME_47032ED002DE_ME_470F641E0157
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F641E0157 dll.cpp
+
+ME ME_470484D50138_ME_470F641E0157
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_470F641E0157 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_470F641E0157
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F641E0157 constraint
+
+ME ME_4705CBD6003E_ME_470F641E0157
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F641E0157 wiki_child_kind
+
+ME ME_470F1571031C_ME_470F641E0157
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F641E0157 intf.pas
+
+ME ME_470F15B800CB_ME_470F641E0157
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F641E0157 impl.pas
+
+ME ME_470F641E0157
+ MEPROP UID '470F641E0157'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F56670000 // oneway
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470F641E0157 // wiki
+ ME_47022BBE0261_ME_470F641E0157 // idl
+ ME_47022C0F01E4_ME_470F641E0157 // idl_ami
+ ME_47022CCF00EA_ME_470F641E0157 // i.h
+ ME_47032EC4032C_ME_470F641E0157 // dll.h
+ ME_47032ED002DE_ME_470F641E0157 // dll.cpp
+ ME_470484D50138_ME_470F641E0157 // wiki_up_add_gen
+ ME_4704C0E30186_ME_470F641E0157 // constraint
+ ME_4705CBD6003E_ME_470F641E0157 // wiki_child_kind
+ ME_470F1571031C_ME_470F641E0157 // intf.pas
+ ME_470F15B800CB_ME_470F641E0157 // impl.pas
+ )
+ ; // Implemented
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\oneway\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F641E0157 param
+
+ME ME_470F568E035B
+ MEPROP UID '470F568E035B'
+ MEPROP Name 'separate thread pool'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'определяет использование альтернативного (не глобального) пула потоков для данной oneway операции. Возможные значения: none - используеться глобальный пул; per class - общий пул для класса; per object - пул для экземпляра класса; per operation - отдельный пул для данной операции; user defined - пул будет выбран черекз кал-бек метод' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F56670000 // oneway
+ ;
+ MEPROP Value 'none|per class|per object|per operation|user defined'
+ UP extprop:pas:Value 'none|per class|per object|per operation|user defined'
+
+ENDME // ME_470F568E035B separate thread pool
+
+ME ME_4704C0E30186_ME_470F56670000
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F56670000 constraint
+
+ME ME_470F56670000
+ MEPROP UID '470F56670000'
+ MEPROP Name 'oneway'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Асинхронная операция'#13#10'---'#13#10'Вызов операции будет выполнен асинхронна. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.'#13#10'По умолчанию все методы константные. Для того что бы разрешить методу изменять свой объект, необходимо присвуоить ему стереотип <<oneway,chg>>.'#13#10'Если используется константный интерфейс, то на нем могут быть вызванны только константные методы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F556F0196 // op
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_470F568E035B // separate thread pool
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_470F56670000 // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_470F641E0157 // param
+ )
+ ; // Children
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\oneway'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F56670000 oneway
+
+FORWARD ME_470F56EA0000
+
+ME ME_46E6D4BB0339_ME_470F6469008C
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470F6469008C wiki
+
+ME ME_47022BBE0261_ME_470F6469008C
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F6469008C idl
+
+ME ME_47022C0F01E4_ME_470F6469008C
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_470F6469008C idl_ami
+
+ME ME_47022CCF00EA_ME_470F6469008C
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_470F6469008C i.h
+
+ME ME_47032EC4032C_ME_470F6469008C
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F6469008C dll.h
+
+ME ME_47032ED002DE_ME_470F6469008C
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F6469008C dll.cpp
+
+ME ME_470484D50138_ME_470F6469008C
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_470F6469008C wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_470F6469008C
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F6469008C constraint
+
+ME ME_4705CBD6003E_ME_470F6469008C
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F6469008C wiki_child_kind
+
+ME ME_470F1571031C_ME_470F6469008C
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F6469008C intf.pas
+
+ME ME_470F15B800CB_ME_470F6469008C
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F6469008C impl.pas
+
+ME ME_470F6469008C
+ MEPROP UID '470F6469008C'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F56EA0000 // oneway,chg
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470F6469008C // wiki
+ ME_47022BBE0261_ME_470F6469008C // idl
+ ME_47022C0F01E4_ME_470F6469008C // idl_ami
+ ME_47022CCF00EA_ME_470F6469008C // i.h
+ ME_47032EC4032C_ME_470F6469008C // dll.h
+ ME_47032ED002DE_ME_470F6469008C // dll.cpp
+ ME_470484D50138_ME_470F6469008C // wiki_up_add_gen
+ ME_4704C0E30186_ME_470F6469008C // constraint
+ ME_4705CBD6003E_ME_470F6469008C // wiki_child_kind
+ ME_470F1571031C_ME_470F6469008C // intf.pas
+ ME_470F15B800CB_ME_470F6469008C // impl.pas
+ )
+ ; // Implemented
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\oneway,chg\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F6469008C param
+
+ME ME_470F56EA0000
+ MEPROP UID '470F56EA0000'
+ MEPROP Name 'oneway,chg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Асинхронная неконстантная операция'#13#10'---'#13#10'Вызов операции будет выполнен асинхронно. Т.е вызавающая сторона получит управление сразу, не дожидаясь ответа. Асинхронная опреация не может иметь возвращаемых результатов и ли возбуждать исключения.'#13#10'Неконстантная операция может изменять состояние своего объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F56670000 // oneway
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_470F6469008C // param
+ )
+ ; // Children
+ UP "personal label" 'code_method'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\oneway,chg'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F56EA0000 oneway,chg
+
+FORWARD ME_470F5718031C
+
+ME ME_46E6D4BB0339_ME_470F6452002E
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470F6452002E wiki
+
+ME ME_47022BBE0261_ME_470F6452002E
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F6452002E idl
+
+ME ME_47022C0F01E4_ME_470F6452002E
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_470F6452002E idl_ami
+
+ME ME_47022CCF00EA_ME_470F6452002E
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_470F6452002E i.h
+
+ME ME_47032EC4032C_ME_470F6452002E
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F6452002E dll.h
+
+ME ME_47032ED002DE_ME_470F6452002E
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F6452002E dll.cpp
+
+ME ME_470484D50138_ME_470F6452002E
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_470F6452002E wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_470F6452002E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F6452002E constraint
+
+ME ME_4705CBD6003E_ME_470F6452002E
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F6452002E wiki_child_kind
+
+ME ME_470F1571031C_ME_470F6452002E
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F6452002E intf.pas
+
+ME ME_470F15B800CB_ME_470F6452002E
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F6452002E impl.pas
+
+ME ME_470F6452002E
+ MEPROP UID '470F6452002E'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F5718031C // chg
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470F6452002E // wiki
+ ME_47022BBE0261_ME_470F6452002E // idl
+ ME_47022C0F01E4_ME_470F6452002E // idl_ami
+ ME_47022CCF00EA_ME_470F6452002E // i.h
+ ME_47032EC4032C_ME_470F6452002E // dll.h
+ ME_47032ED002DE_ME_470F6452002E // dll.cpp
+ ME_470484D50138_ME_470F6452002E // wiki_up_add_gen
+ ME_4704C0E30186_ME_470F6452002E // constraint
+ ME_4705CBD6003E_ME_470F6452002E // wiki_child_kind
+ ME_470F1571031C_ME_470F6452002E // intf.pas
+ ME_470F15B800CB_ME_470F6452002E // impl.pas
+ )
+ ; // Implemented
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\chg\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F6452002E param
+
+ME ME_470F5718031C
+ MEPROP UID '470F5718031C'
+ MEPROP Name 'chg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Неконстантный метод'#13#10'---'#13#10'Метод который может изменять состояние своего объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F556F0196 // op
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_470F6452002E // param
+ )
+ ; // Children
+ UP "personal label" 'code_method'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\chg'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F5718031C chg
+
+ME ME_4704C0E30186_ME_47FCA95F01DC
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47FCA95F01DC constraint
+
+ME ME_4705CBD6003E_ME_47FCA95F01DC
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47FCA95F01DC wiki_child_kind
+
+ME ME_47FCA95F01DC
+ MEPROP UID '47FCA95F01DC'
+ MEPROP Name 'consume'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получатель'#13#10'---'#13#10'Данная связь означает, что элемент источник является "потребителем" данных, определяемых целью связи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47148374038A' '470384F502CE.ms.model.script' // ClassBaseGenerator
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_47FCA95F01DC // constraint
+ ME_4705CBD6003E_ME_47FCA95F01DC // wiki_child_kind
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_consume'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\consume'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47FCA95F01DC consume
+
+ME ME_4704C0E30186_ME_47FCA95F0314
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47FCA95F0314 constraint
+
+ME ME_4705CBD6003E_ME_47FCA95F0314
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47FCA95F0314 wiki_child_kind
+
+ME ME_47FCA95F0314
+ MEPROP UID '47FCA95F0314'
+ MEPROP Name 'supply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поставщик'#13#10'---'#13#10'Данная связь означает, что элемент источник является поставщиком данных, определяемых целью связи.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47148374038A' '470384F502CE.ms.model.script' // ClassBaseGenerator
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_47FCA95F0314 // constraint
+ ME_4705CBD6003E_ME_47FCA95F0314 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_supply'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\supply'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47FCA95F0314 supply
+
+ME ME_46E6D4BB0339_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_4BA7AADE00D2 wiki
+
+ME ME_47022BBE0261_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_4BA7AADE00D2 idl
+
+ME ME_47022C0F01E4_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_4BA7AADE00D2 idl_ami
+
+ME ME_47022CB8034B_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_4BA7AADE00D2 cpp
+
+ME ME_47022CCF00EA_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_4BA7AADE00D2 i.h
+
+ME ME_470321C1038A_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_4BA7AADE00D2 fctr.java
+
+ME ME_470484D50138_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_4BA7AADE00D2 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_4BA7AADE00D2 constraint
+
+ME ME_470F1571031C_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4BA7AADE00D2 intf.pas
+
+ME ME_470F15B800CB_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4BA7AADE00D2 impl.pas
+
+ME ME_4774D2A20372_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_4774D2A20372' '4773984F02AA.ms.model.script' // intf3.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_4774D2A20372_ME_4BA7AADE00D2 intf3.pas
+
+ME ME_4948EB2601FA_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_4948EB2601FA' '4773984F02AA.ms.model.script' // pas_ImplUses
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948EB2601FA_ME_4BA7AADE00D2 pas_ImplUses
+
+ME ME_4999789602FF_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_4999789602FF' '4773984F02AA.ms.model.script' // pas_MethodOwnerDelim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4999789602FF_ME_4BA7AADE00D2 pas_MethodOwnerDelim
+
+ME ME_49CB3C99034B_ME_4BA7AADE00D2
+ MELINK Original WL 'ME_49CB3C99034B' '4773984F02AA.ms.model.script' // pas_MethodOwnerName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49CB3C99034B_ME_4BA7AADE00D2 pas_MethodOwnerName
+
+ME ME_4BA7AADE00D2
+ MEPROP UID '4BA7AADE00D2'
+ MEPROP Name 'static'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Статический метод'#13#10'---'#13#10'Метод-helper для интерфейса. Не зависит от того, кто реализует интерфейс' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F556F0196 // op
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_4BA7AADE00D2 // wiki
+ ME_47022BBE0261_ME_4BA7AADE00D2 // idl
+ ME_47022C0F01E4_ME_4BA7AADE00D2 // idl_ami
+ ME_47022CB8034B_ME_4BA7AADE00D2 // cpp
+ ME_47022CCF00EA_ME_4BA7AADE00D2 // i.h
+ ME_470321C1038A_ME_4BA7AADE00D2 // fctr.java
+ ME_470484D50138_ME_4BA7AADE00D2 // wiki_up_add_gen
+ ME_4704C0E30186_ME_4BA7AADE00D2 // constraint
+ ME_470F1571031C_ME_4BA7AADE00D2 // intf.pas
+ ME_470F15B800CB_ME_4BA7AADE00D2 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4774D2A20372_ME_4BA7AADE00D2 // intf3.pas
+ ME_4948EB2601FA_ME_4BA7AADE00D2 // pas_ImplUses
+ ME_4999789602FF_ME_4BA7AADE00D2 // pas_MethodOwnerDelim
+ ME_49CB3C99034B_ME_4BA7AADE00D2 // pas_MethodOwnerName
+ )
+ ; // Overridden
+ UP "abstraction type" 'f'
+ UP "implementable" False
+ UP "personal label" 'code_static_method'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet\static'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4BA7AADE00D2 static
+
+ME ME_472B0BB90261
+ MEPROP UID '472B0BB90261'
+ MEPROP Name 'call way'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Указывает тип интерфейса экспортируемого из компоненты. forth - прямой (интерфейс реализуется внутри ДЛЛ); back - обратный (callback interface, реализуется клиентом компоненты); both - возможны оба варианта реализации интерфейса (на данный момент не поддерживается)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MEPROP Value 'forth|back|both'
+ UP extprop:pas:Value 'forth|back|both'
+
+ENDME // ME_472B0BB90261 call way
+
+ME ME_473D9BC603D8
+ MEPROP UID '473D9BC603D8'
+ MEPROP Name 'is default ancestor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'является ли предком по-умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_473D9BC603D8 is default ancestor
+
+ME ME_473D9BCA033C
+ MEPROP UID '473D9BCA033C'
+ MEPROP Name 'native definition'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'определяет что интерфейс является "родным" (внешне определенным в пространстве видимости применения пакета). C++ interface - родной для С++ реализации компоненты; DLL outside - родной для клиента компоненты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MEPROP Value 'none|C++ interface|DLL outside'
+ UP extprop:pas:Value 'none|C++ interface|DLL outside'
+
+ENDME // ME_473D9BCA033C native definition
+
+ME ME_480C52980111
+ MEPROP UID '480C52980111'
+ MEPROP Name 'debug tie log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужно ли генерить код логирования вызовов всех  определённых tie-методов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_480C52980111 debug tie log
+
+ME ME_4953D5E2038F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELINK Target WL 'ME_470F198F0000' '470EF9BF0138.ms.model.script' // Enum
+ ;
+
+ENDME // ME_4953D5E2038F 
+
+ME ME_49A3EE1B017C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F704E00AB // AbstractFacet
+ ;
+ MELINK Target WL 'ME_470F16EE0242' '470EF9BF0138.ms.model.script' // Constants
+ ;
+
+ENDME // ME_49A3EE1B017C 
+
+ME ME_47022C88029F_ME_470F704E00AB
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F704E00AB h
+
+ME ME_47022CB8034B_ME_470F704E00AB
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_470F704E00AB cpp
+
+ME ME_470321950119_ME_470F704E00AB
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F704E00AB java
+
+ME ME_470321C1038A_ME_470F704E00AB
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_470F704E00AB fctr.java
+
+ME ME_47032EC4032C_ME_470F704E00AB
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F704E00AB dll.h
+
+ME ME_47032ED002DE_ME_470F704E00AB
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F704E00AB dll.cpp
+
+ME ME_4704C0E30186_ME_470F704E00AB
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F704E00AB constraint
+
+ME ME_4705C5490109_ME_470F704E00AB
+ MELINK Original WL 'ME_4705C5490109' '4773969402E9.ms.model.script' // fctr.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+ENDME // ME_4705C5490109_ME_470F704E00AB fctr.h
+
+ME ME_4705C54B01F4_ME_470F704E00AB
+ MELINK Original WL 'ME_4705C54B01F4' '4773969402E9.ms.model.script' // fctr.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_4705C54B01F4_ME_470F704E00AB fctr.cpp
+
+ME ME_470F152700FA_ME_470F704E00AB
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_470F704E00AB pas
+
+ME ME_470F1571031C_ME_470F704E00AB
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F704E00AB intf.pas
+
+ME ME_470F15B800CB_ME_470F704E00AB
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F704E00AB impl.pas
+
+ME ME_4774D2A20372_ME_470F704E00AB
+ MELINK Original WL 'ME_4774D2A20372' '4773984F02AA.ms.model.script' // intf3.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_4774D2A20372_ME_470F704E00AB intf3.pas
+
+ME ME_49551CA202CF_ME_470F704E00AB
+ MELINK Original WL 'ME_49551CA202CF' '4773984F02AA.ms.model.script' // ClassImplementable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49551CA202CF_ME_470F704E00AB ClassImplementable
+
+ME ME_49809333028C_ME_470F704E00AB
+ MELINK Original WL 'ME_49809333028C' '4773984F02AA.ms.model.script' // IsInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49809333028C_ME_470F704E00AB IsInterface
+
+ME ME_4A41A13D03D5_ME_470F704E00AB
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_470F704E00AB spell
+
+ME ME_470F704E00AB
+ MEPROP UID '470F704E00AB'
+ MEPROP Name 'AbstractFacet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый стереотип фасета'#13#10'---'#13#10'Определяет свойства и элементы общие для всех стереотипов, определяеющих поведение.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4753E6FC01BA // WithFactory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_472B0BB90261 // call way
+ HWL ME_473D9BC603D8 // is default ancestor
+ HWL ME_473D9BCA033C // native definition
+ HWL ME_480C52980111 // debug tie log
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_470F704E00AB // h
+ ME_47022CB8034B_ME_470F704E00AB // cpp
+ ME_470321950119_ME_470F704E00AB // java
+ ME_470321C1038A_ME_470F704E00AB // fctr.java
+ ME_47032EC4032C_ME_470F704E00AB // dll.h
+ ME_47032ED002DE_ME_470F704E00AB // dll.cpp
+ ME_4704C0E30186_ME_470F704E00AB // constraint
+ ME_4705C5490109_ME_470F704E00AB // fctr.h
+ ME_4705C54B01F4_ME_470F704E00AB // fctr.cpp
+ ME_470F152700FA_ME_470F704E00AB // pas
+ ME_470F1571031C_ME_470F704E00AB // intf.pas
+ ME_470F15B800CB_ME_470F704E00AB // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4774D2A20372_ME_470F704E00AB // intf3.pas
+ ME_49551CA202CF_ME_470F704E00AB // ClassImplementable
+ ME_49809333028C_ME_470F704E00AB // IsInterface
+ ME_4A41A13D03D5_ME_470F704E00AB // spell
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F544503C8 // property
+ HWL ME_470F549D033C // readonly
+ HWL ME_470F54C402CE // writeonly
+ HWL ME_470F659B001F // friend
+ HWL ME_470F556F0196 // op
+ HWL ME_470F56670000 // oneway
+ HWL ME_470F56EA0000 // oneway,chg
+ HWL ME_470F5718031C // chg
+ HWL ME_47FCA95F01DC // consume
+ HWL ME_47FCA95F0314 // supply
+ HWL ME_4BA7AADE00D2 // static
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4953D5E2038F // Enum
+ ME_49A3EE1B017C // Constants
+ )
+ ; // Dependencies
+ UP "personal label" 'code_facet'
+ UP "visability type" '+#'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP "visualization f-line color" 16714250
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\AbstractFacet.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F704E00AB AbstractFacet
+
+FORWARD ME_470F512D003E
+
+FORWARD ME_4B793D19026F
+
+ME ME_4B793D3F0059
+ MEPROP UID '4B793D3F0059'
+ MEPROP Name 'factory_mng_factory_impl_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит реализацию конкретной read-write или read-only фабрики для менеджера фабрик, в качестве дополнительного параметра передается read-write или read-only в зависимости от того, какую фабрику нужно сдампить' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B793D19026F // factory_op
+ ;
+
+ENDME // ME_4B793D3F0059 factory_mng_factory_impl_java
+
+ME ME_4B793D420398
+ MEPROP UID '4B793D420398'
+ MEPROP Name 'fctr_mng_factory_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит реализацию фабрики для менеджера фабрик, осуществляет выбор дапить только read-only или read-write, или обе фабрики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B793D19026F // factory_op
+ ;
+
+ENDME // ME_4B793D420398 fctr_mng_factory_java
+
+ME ME_4B793F8302B9
+ MEPROP UID '4B793F8302B9'
+ MEPROP Name 'abstract_factory_operation'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация  метода на интерфейсе абстрактной фабрики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B793D19026F // factory_op
+ ;
+
+ENDME // ME_4B793F8302B9 abstract_factory_operation
+
+ME ME_4B793FC10112
+ MEPROP UID '4B793FC10112'
+ MEPROP Name 'dump_factory_operation'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация статического метода на фабрике инетрфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B793D19026F // factory_op
+ ;
+
+ENDME // ME_4B793FC10112 dump_factory_operation
+
+ME ME_4B7BAB9E0209
+ MEPROP UID '4B7BAB9E0209'
+ MEPROP Name 'for_servant_factory'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация реализации для фабрики серванта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B793D19026F // factory_op
+ ;
+
+ENDME // ME_4B7BAB9E0209 for_servant_factory
+
+ME ME_4B7BABC802B8
+ MEPROP UID '4B7BABC802B8'
+ MEPROP Name 'for_servant'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерация для серванта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B793D19026F // factory_op
+ ;
+
+ENDME // ME_4B7BABC802B8 for_servant
+
+ME ME_4B793D19026F
+ MEPROP UID '4B793D19026F'
+ MEPROP Name 'factory_op'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовый стереотип для фабричных методов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_optional
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_497483770297 // factory
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B793D3F0059 // factory_mng_factory_impl_java
+ HWL ME_4B793D420398 // fctr_mng_factory_java
+ HWL ME_4B793F8302B9 // abstract_factory_operation
+ HWL ME_4B793FC10112 // dump_factory_operation
+ HWL ME_4B7BAB9E0209 // for_servant_factory
+ HWL ME_4B7BABC802B8 // for_servant
+ )
+ ; // Operations
+ UP "internal" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\factory_op'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B793D19026F factory_op
+
+FORWARD ME_470F576D0203
+
+ME ME_470F5A1D007D
+ MEPROP UID '470F5A1D007D'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр фабричного метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F576D0203 // factory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Inherits
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\factory\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F5A1D007D param
+
+ME ME_47A961B400E8
+ MEPROP UID '47A961B400E8'
+ MEPROP Name 'const_type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'Тип константности фабрики:'#13#10'read-write - в этом случае возвращается объект с полными правами.'#13#10'read-only - в этом случае возвращается объект только для чтения, т.е без возможности вызвать изменяющие его операции.'#13#10'combo (комбинированая) - в этом случае реально будет сгенерированно две фабрики, read-write и read-only, но как-бы с "общей памятью", т.е. повторный вызов каждой из них вернет один и тот же объект, но с разными правами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F576D0203 // factory
+ ;
+ MEPROP Value 'read-write|read-only|combo'
+ UP extprop:pas:Value 'read-write|read-only|combo'
+
+ENDME // ME_47A961B400E8 const_type
+
+ME ME_49794A6F0035
+ MEPROP UID '49794A6F0035'
+ MEPROP Name 'force use const arg'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Если установлен флаг "force const arg", то все параметры в фабрики передаются как "in", в противном случае параметры передаются с указанными спецификаторами. Если установлен для фабрики флаг "force const arg" и фабрика емеет две версии RW и RO, то для серванта реализующего соответствующий интерфейс генериться 2 конструктора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F576D0203 // factory
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_49794A6F0035 force use const arg
+
+ME ME_4757C67E03A1
+ MEPROP UID '4757C67E03A1'
+ MEPROP Name 'init_factory_mem_key_java_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит код дополнительной  инициализации ключа общей памяти (инициализирует ключ фабрики серванта)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F576D0203 // factory
+ ;
+
+ENDME // ME_4757C67E03A1 init_factory_mem_key_java_impl
+
+ME ME_4757C6DA0040
+ MEPROP UID '4757C6DA0040'
+ MEPROP Name 'fctr_mng_factory_mem_java_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит код реализации фабричного метода (не "создающего") для менеджера фабрик в случае использования общей памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F576D0203 // factory
+ ;
+
+ENDME // ME_4757C6DA0040 fctr_mng_factory_mem_java_impl
+
+ME ME_4757C7C4005A
+ MEPROP UID '4757C7C4005A'
+ MEPROP Name 'fctr_mng_factory_mem_create_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит код реализации фабричного метода ("создающего") для менеджера фабрик в случае использования общей памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F576D0203 // factory
+ ;
+
+ENDME // ME_4757C7C4005A fctr_mng_factory_mem_create_impl
+
+ME ME_47022CB8034B_ME_470F576D0203
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_470F576D0203 cpp
+
+ME ME_4B793D3F0059_ME_470F576D0203
+ MELINK Original HWL ME_4B793D3F0059 // factory_mng_factory_impl_java
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793D3F0059_ME_470F576D0203 factory_mng_factory_impl_java
+
+ME ME_4B793D420398_ME_470F576D0203
+ MELINK Original HWL ME_4B793D420398 // fctr_mng_factory_java
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793D420398_ME_470F576D0203 fctr_mng_factory_java
+
+ME ME_4B793F8302B9_ME_470F576D0203
+ MELINK Original HWL ME_4B793F8302B9 // abstract_factory_operation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793F8302B9_ME_470F576D0203 abstract_factory_operation
+
+ME ME_4B793FC10112_ME_470F576D0203
+ MELINK Original HWL ME_4B793FC10112 // dump_factory_operation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793FC10112_ME_470F576D0203 dump_factory_operation
+
+ME ME_4B794201038A_ME_470F576D0203
+ MELINK Original HWL ME_4B794201038A // is_factory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B794201038A_ME_470F576D0203 is_factory
+
+ME ME_4B7BAB9E0209_ME_470F576D0203
+ MELINK Original HWL ME_4B7BAB9E0209 // for_servant_factory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7BAB9E0209_ME_470F576D0203 for_servant_factory
+
+ME ME_4B7BABC802B8_ME_470F576D0203
+ MELINK Original HWL ME_4B7BABC802B8 // for_servant
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7BABC802B8_ME_470F576D0203 for_servant
+
+ME ME_47022C88029F_ME_470F576D0203
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F576D0203 h
+
+ME ME_470321950119_ME_470F576D0203
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F576D0203 java
+
+ME ME_470F576D0203
+ MEPROP UID '470F576D0203'
+ MEPROP Name 'factory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика (одиночная)'#13#10'---'#13#10'Будет создан абстрактный интерфейс фабрики, который будут реализовывать конкретные фабрики (по одной на каждый сервант), создающие соответствующие серванты.'#13#10'Конкретные фабрики мугут инициализироваться своими специфичными параметрами. Созданные конкретные фабрики будут регистрироваться в менеджере фабрик.'#13#10'Последний осуществляет выбор нужной "активной" фабрики при получении запроса на создание экземпляра объекта.'#13#10'Для ОДИНОЧНОЙ фабрики - активной может быть только ОДНА такая фабрика - кто последний зарегистрировался тот и активен. Если указан тип фабричного метода, то это означает что данная фабрика будет использовать общую "память". Если фабрика, использующая "общую память", не содержит ни одного параметра-ключа, то считается что это т.н. "создающая" фабрика, т.е. фабрика, которая создает новый объект, и он при создании самостоятельно должен получить идентифицирующий его ключ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B793D19026F // factory_op
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A961B400E8 // const_type
+ HWL ME_49794A6F0035 // force use const arg
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4757C67E03A1 // init_factory_mem_key_java_impl
+ HWL ME_4757C6DA0040 // fctr_mng_factory_mem_java_impl
+ HWL ME_4757C7C4005A // fctr_mng_factory_mem_create_impl
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47022CB8034B_ME_470F576D0203 // cpp
+ ME_4B793D3F0059_ME_470F576D0203 // factory_mng_factory_impl_java
+ ME_4B793D420398_ME_470F576D0203 // fctr_mng_factory_java
+ ME_4B793F8302B9_ME_470F576D0203 // abstract_factory_operation
+ ME_4B793FC10112_ME_470F576D0203 // dump_factory_operation
+ ME_4B794201038A_ME_470F576D0203 // is_factory
+ ME_4B7BAB9E0209_ME_470F576D0203 // for_servant_factory
+ ME_4B7BABC802B8_ME_470F576D0203 // for_servant
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47022C88029F_ME_470F576D0203 // h
+ ME_470321950119_ME_470F576D0203 // java
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F5A1D007D // param
+ )
+ ; // Children
+ UP "available target stereotypes" 'const|cached|const,cached|synchro'
+ UP "implementable" False
+ UP "personal label" 'code_factory'
+ UP "visability type" '+#'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\factory'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F576D0203 factory
+
+FORWARD ME_470F5814038A
+
+ME ME_46E6D4BB0339_ME_470F643503B9
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470F643503B9 wiki
+
+ME ME_47022BBE0261_ME_470F643503B9
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F643503B9 idl
+
+ME ME_47022C0F01E4_ME_470F643503B9
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_470F643503B9 idl_ami
+
+ME ME_47022CCF00EA_ME_470F643503B9
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_470F643503B9 i.h
+
+ME ME_47032EC4032C_ME_470F643503B9
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F643503B9 dll.h
+
+ME ME_47032ED002DE_ME_470F643503B9
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F643503B9 dll.cpp
+
+ME ME_470484D50138_ME_470F643503B9
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_470F643503B9 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_470F643503B9
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F643503B9 constraint
+
+ME ME_4705CBD6003E_ME_470F643503B9
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F643503B9 wiki_child_kind
+
+ME ME_470F1571031C_ME_470F643503B9
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F643503B9 intf.pas
+
+ME ME_470F15B800CB_ME_470F643503B9
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F643503B9 impl.pas
+
+ME ME_470F643503B9
+ MEPROP UID '470F643503B9'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F5814038A // remover
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470F643503B9 // wiki
+ ME_47022BBE0261_ME_470F643503B9 // idl
+ ME_47022C0F01E4_ME_470F643503B9 // idl_ami
+ ME_47022CCF00EA_ME_470F643503B9 // i.h
+ ME_47032EC4032C_ME_470F643503B9 // dll.h
+ ME_47032ED002DE_ME_470F643503B9 // dll.cpp
+ ME_470484D50138_ME_470F643503B9 // wiki_up_add_gen
+ ME_4704C0E30186_ME_470F643503B9 // constraint
+ ME_4705CBD6003E_ME_470F643503B9 // wiki_child_kind
+ ME_470F1571031C_ME_470F643503B9 // intf.pas
+ ME_470F15B800CB_ME_470F643503B9 // impl.pas
+ )
+ ; // Implemented
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\remover\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F643503B9 param
+
+ME ME_47022CB8034B_ME_470F5814038A
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_470F5814038A cpp
+
+ME ME_47022C88029F_ME_470F5814038A
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F5814038A h
+
+ME ME_470321950119_ME_470F5814038A
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F5814038A java
+
+ME ME_4705CBD6003E_ME_470F5814038A
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4705CBD6003E_ME_470F5814038A wiki_child_kind
+
+ME ME_470F5814038A
+ MEPROP UID '470F5814038A'
+ MEPROP Name 'remover'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Уничтожитель'#13#10'---'#13#10'Метод обратный фабричному, т.е. метод приводящий к разрушению (временному или постоянному) созданного фабрикой объекта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F556F0196 // op
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47022CB8034B_ME_470F5814038A // cpp
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47022C88029F_ME_470F5814038A // h
+ ME_470321950119_ME_470F5814038A // java
+ ME_4705CBD6003E_ME_470F5814038A // wiki_child_kind
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F643503B9 // param
+ )
+ ; // Children
+ UP "available target stereotypes" 'empty'
+ UP "implementable" False
+ UP "personal label" 'code_remover'
+ UP "visability type" '+-'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\remover'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F5814038A remover
+
+ME ME_4704C0E30186_ME_47B13201031D
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47B13201031D constraint
+
+ME ME_4705CBD6003E_ME_47B13201031D
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47B13201031D wiki_child_kind
+
+ME ME_47B13201031D
+ MEPROP UID '47B13201031D'
+ MEPROP Name 'factory switch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Селектор мультифабрики'#13#10'---'#13#10'Определяет тип селектора и допустимые значения, в качестве селектора могут выступать все простые типы и перечисления (Enum).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F51BB0280' '470384F502CE.ms.model.script' // InterfaceGeneratorWithJava
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_47B13201031D // constraint
+ ME_4705CBD6003E_ME_47B13201031D // wiki_child_kind
+ )
+ ; // Implemented
+ UP "link type" 'a'
+ UP "personal label" 'code_factory_switch'
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\factory switch'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47B13201031D factory switch
+
+FORWARD ME_470F57A80119
+
+ME ME_46E6D4BB0339_ME_470F640801B5
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_470F640801B5 wiki
+
+ME ME_47022BBE0261_ME_470F640801B5
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_470F640801B5 idl
+
+ME ME_47022C0F01E4_ME_470F640801B5
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_470F640801B5 idl_ami
+
+ME ME_47022CCF00EA_ME_470F640801B5
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_470F640801B5 i.h
+
+ME ME_47032EC4032C_ME_470F640801B5
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_470F640801B5 dll.h
+
+ME ME_47032ED002DE_ME_470F640801B5
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_470F640801B5 dll.cpp
+
+ME ME_470484D50138_ME_470F640801B5
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_470F640801B5 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_470F640801B5
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_470F640801B5 constraint
+
+ME ME_4705CBD6003E_ME_470F640801B5
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_470F640801B5 wiki_child_kind
+
+ME ME_470F1571031C_ME_470F640801B5
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_470F640801B5 intf.pas
+
+ME ME_470F15B800CB_ME_470F640801B5
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_470F640801B5 impl.pas
+
+ME ME_470F640801B5
+ MEPROP UID '470F640801B5'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'парметр' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F57A80119 // multi factory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_470F640801B5 // wiki
+ ME_47022BBE0261_ME_470F640801B5 // idl
+ ME_47022C0F01E4_ME_470F640801B5 // idl_ami
+ ME_47022CCF00EA_ME_470F640801B5 // i.h
+ ME_47032EC4032C_ME_470F640801B5 // dll.h
+ ME_47032ED002DE_ME_470F640801B5 // dll.cpp
+ ME_470484D50138_ME_470F640801B5 // wiki_up_add_gen
+ ME_4704C0E30186_ME_470F640801B5 // constraint
+ ME_4705CBD6003E_ME_470F640801B5 // wiki_child_kind
+ ME_470F1571031C_ME_470F640801B5 // intf.pas
+ ME_470F15B800CB_ME_470F640801B5 // impl.pas
+ )
+ ; // Implemented
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\multi factory\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F640801B5 param
+
+ME ME_470F57F70119
+ MEPROP UID '470F57F70119'
+ MEPROP Name 'transparent multy'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет, что выбор конкретной реализации будет реализован пользователем' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F57A80119 // multi factory
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_470F57F70119 transparent multy
+
+ME ME_47022C88029F_ME_470F57A80119
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F57A80119 h
+
+ME ME_47022CB8034B_ME_470F57A80119
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_470F57A80119 cpp
+
+ME ME_470321950119_ME_470F57A80119
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_470F57A80119 java
+
+ME ME_4757C67E03A1_ME_470F57A80119
+ MELINK Original HWL ME_4757C67E03A1 // init_factory_mem_key_java_impl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4757C67E03A1_ME_470F57A80119 init_factory_mem_key_java_impl
+
+ME ME_4757C6DA0040_ME_470F57A80119
+ MELINK Original HWL ME_4757C6DA0040 // fctr_mng_factory_mem_java_impl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4757C6DA0040_ME_470F57A80119 fctr_mng_factory_mem_java_impl
+
+ME ME_4757C7C4005A_ME_470F57A80119
+ MELINK Original HWL ME_4757C7C4005A // fctr_mng_factory_mem_create_impl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4757C7C4005A_ME_470F57A80119 fctr_mng_factory_mem_create_impl
+
+ME ME_4B793D3F0059_ME_470F57A80119
+ MELINK Original HWL ME_4B793D3F0059 // factory_mng_factory_impl_java
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B793D3F0059_ME_470F57A80119 factory_mng_factory_impl_java
+
+ME ME_470F57A80119
+ MEPROP UID '470F57A80119'
+ MEPROP Name 'multi factory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фабрика (множественная)'#13#10'---'#13#10'Будет создан абстрактный интерфейс фабрики, который будут реализовывать конкретные фабрики (по одной на каждый сервант), создающие соответствующие серванты.'#13#10'Конкретные фабрики мугут инициализироваться своими специфичными параметрами. Созданные конкретные фабрики будут регистрироваться в менеджере фабрик.'#13#10'Последний осуществляет выбор нужной "активной" фабрики при получении запроса на создание экземпляра объекта.'#13#10'Для МНОЖЕСТВЕННОЙ фабрики - активными являются ВСЕ зарегистрированные фабрики, выбор конкретной осущестьвляеться по ключу - дополнительному параметру. Если указан тип фабричного метода, то это означает что данная фабрика будет использовать общую "память". Если фабрика, использующая "общую память", не содержит ни одного параметра-ключа, то считается что это т.н. "создающая" фабрика, т.е. фабрика, которая создает новый объект, и он при создании самостоятельно должен получить идентифицирующий его ключ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F576D0203 // factory
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_470F57F70119 // transparent multy
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47022C88029F_ME_470F57A80119 // h
+ ME_47022CB8034B_ME_470F57A80119 // cpp
+ ME_470321950119_ME_470F57A80119 // java
+ ME_4757C67E03A1_ME_470F57A80119 // init_factory_mem_key_java_impl
+ ME_4757C6DA0040_ME_470F57A80119 // fctr_mng_factory_mem_java_impl
+ ME_4757C7C4005A_ME_470F57A80119 // fctr_mng_factory_mem_create_impl
+ ME_4B793D3F0059_ME_470F57A80119 // factory_mng_factory_impl_java
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_470F640801B5 // param
+ )
+ ; // Children
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\multi factory'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F57A80119 multi factory
+
+FORWARD ME_4B793D9001F1
+
+ME ME_4B79427A02F1
+ MEPROP UID '4B79427A02F1'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр фабричного метода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B793D9001F1 // finder
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F59EE00AB // param
+ )
+ ; // Inherits
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\finder\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B79427A02F1 param
+
+ME ME_4B793EBD02FF
+ MEPROP UID '4B793EBD02FF'
+ MEPROP Name 'multiplicity'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_list::Attribute ;
+ %SUMMARY 'множественность - определяет возвращает ли finder один экземпляр (или 0, если ничего не найдено) или список экземпляров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B793D9001F1 // finder
+ ;
+ MEPROP Value '0..1|0..*'
+ UP extprop:pas:Value '0..1|0..*'
+
+ENDME // ME_4B793EBD02FF multiplicity
+
+ME ME_4B7BA27C0223
+ MEPROP UID '4B7BA27C0223'
+ MEPROP Name 'ret'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит возвращаемый тип файндера' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B793D9001F1 // finder
+ ;
+
+ENDME // ME_4B7BA27C0223 ret
+
+ME ME_4B7BAB460184
+ MEPROP UID '4B7BAB460184'
+ MEPROP Name 'factory_params_with_key_if_needed'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит параметры файндера, добавляя ключ мультифкабрики, если нужно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B793D9001F1 // finder
+ ;
+
+ENDME // ME_4B7BAB460184 factory_params_with_key_if_needed
+
+ME ME_4B793D3F0059_ME_4B793D9001F1
+ MELINK Original HWL ME_4B793D3F0059 // factory_mng_factory_impl_java
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793D3F0059_ME_4B793D9001F1 factory_mng_factory_impl_java
+
+ME ME_4B793D420398_ME_4B793D9001F1
+ MELINK Original HWL ME_4B793D420398 // fctr_mng_factory_java
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793D420398_ME_4B793D9001F1 fctr_mng_factory_java
+
+ME ME_4B793F8302B9_ME_4B793D9001F1
+ MELINK Original HWL ME_4B793F8302B9 // abstract_factory_operation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793F8302B9_ME_4B793D9001F1 abstract_factory_operation
+
+ME ME_4B793FC10112_ME_4B793D9001F1
+ MELINK Original HWL ME_4B793FC10112 // dump_factory_operation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B793FC10112_ME_4B793D9001F1 dump_factory_operation
+
+ME ME_4B794201038A_ME_4B793D9001F1
+ MELINK Original HWL ME_4B794201038A // is_factory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B794201038A_ME_4B793D9001F1 is_factory
+
+ME ME_4B7BAB9E0209_ME_4B793D9001F1
+ MELINK Original HWL ME_4B7BAB9E0209 // for_servant_factory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7BAB9E0209_ME_4B793D9001F1 for_servant_factory
+
+ME ME_4B7BABC802B8_ME_4B793D9001F1
+ MELINK Original HWL ME_4B7BABC802B8 // for_servant
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B7BABC802B8_ME_4B793D9001F1 for_servant
+
+ME ME_470321950119_ME_4B793D9001F1
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_4B793D9001F1 java
+
+ME ME_4704C0E30186_ME_4B793D9001F1
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_4B793D9001F1 constraint
+
+ME ME_4A93E7EC0223_ME_4B793D9001F1
+ MELINK Original HWL ME_4A93E7EC0223 // is_cached
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A93E7EC0223_ME_4B793D9001F1 is_cached
+
+ME ME_4B793D9001F1
+ MEPROP UID '4B793D9001F1'
+ MEPROP Name 'finder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Finder'#13#10'---'#13#10'Стереотип операции возвращающей экземпляр сущности (или список экземпляров) по заданным параметрам. Аналог стереотипа \<\<factory\>\>, но реализация логики создания конкретного экземпляра дана на откуп программисту' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B793D19026F // factory_op
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B793EBD02FF // multiplicity
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7BA27C0223 // ret
+ HWL ME_4B7BAB460184 // factory_params_with_key_if_needed
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B793D3F0059_ME_4B793D9001F1 // factory_mng_factory_impl_java
+ ME_4B793D420398_ME_4B793D9001F1 // fctr_mng_factory_java
+ ME_4B793F8302B9_ME_4B793D9001F1 // abstract_factory_operation
+ ME_4B793FC10112_ME_4B793D9001F1 // dump_factory_operation
+ ME_4B794201038A_ME_4B793D9001F1 // is_factory
+ ME_4B7BAB9E0209_ME_4B793D9001F1 // for_servant_factory
+ ME_4B7BABC802B8_ME_4B793D9001F1 // for_servant
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_470321950119_ME_4B793D9001F1 // java
+ ME_4704C0E30186_ME_4B793D9001F1 // constraint
+ ME_4A93E7EC0223_ME_4B793D9001F1 // is_cached
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4B79427A02F1 // param
+ )
+ ; // Children
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface\finder'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4B793D9001F1 finder
+
+ME ME_470F52AB00FA
+ MEPROP UID '470F52AB00FA'
+ MEPROP Name 'author'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'автор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+
+ENDME // ME_470F52AB00FA author
+
+ME ME_471841F4007D
+ MEPROP UID '471841F4007D'
+ MEPROP Name 'debug log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'включает генерацию вывода в лог обращений ко всем методам реализации интерфейса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_471841F4007D debug log
+
+ME ME_471841F502DE
+ MEPROP UID '471841F502DE'
+ MEPROP Name 'need UC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'явно включает генерацию дополнительных секций Юзер-Кода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_471841F502DE need UC
+
+ME ME_471841F70177
+ MEPROP UID '471841F70177'
+ MEPROP Name 'TODO'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'напоминалка что-то сделать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+
+ENDME // ME_471841F70177 TODO
+
+ME ME_48F5AB050055
+ MEPROP UID '48F5AB050055'
+ MEPROP Name 'single impl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Устанавливает ограничение на возможное количество реализаций интерфейса, Если значение = true, то реализация может быть только одна' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_48F5AB050055 single impl
+
+ME ME_4753CACE01E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_470F512D003E // Interface
+ ;
+ MELINK Target HWL ME_4753C0BC029E // FactoryMemory
+ ;
+
+ENDME // ME_4753CACE01E6 
+
+ME ME_47022C88029F_ME_470F512D003E
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_470F512D003E h
+
+ME ME_47022CB8034B_ME_470F512D003E
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_470F512D003E cpp
+
+ME ME_470321C1038A_ME_470F512D003E
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_470F512D003E fctr.java
+
+ME ME_4704C0E30186_ME_470F512D003E
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_470F512D003E constraint
+
+ME ME_4705C5490109_ME_470F512D003E
+ MELINK Original WL 'ME_4705C5490109' '4773969402E9.ms.model.script' // fctr.h
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+ENDME // ME_4705C5490109_ME_470F512D003E fctr.h
+
+ME ME_4705C54B01F4_ME_470F512D003E
+ MELINK Original WL 'ME_4705C54B01F4' '4773969402E9.ms.model.script' // fctr.cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'cpp'
+ENDME // ME_4705C54B01F4_ME_470F512D003E fctr.cpp
+
+ME ME_49551CA202CF_ME_470F512D003E
+ MELINK Original WL 'ME_49551CA202CF' '4773984F02AA.ms.model.script' // ClassImplementable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49551CA202CF_ME_470F512D003E ClassImplementable
+
+ME ME_49809333028C_ME_470F512D003E
+ MELINK Original WL 'ME_49809333028C' '4773984F02AA.ms.model.script' // IsInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49809333028C_ME_470F512D003E IsInterface
+
+ME ME_470F512D003E
+ MEPROP UID '470F512D003E'
+ MEPROP Name 'Interface'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс'#13#10'---'#13#10'Определяет простой интерфейс, с поддержкой фреймворка фабрик.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F704E00AB // AbstractFacet
+ HWL ME_47174CE200AB // AbstractInterface
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_470F52AB00FA // author
+ HWL ME_471841F4007D // debug log
+ HWL ME_471841F502DE // need UC
+ HWL ME_471841F70177 // TODO
+ HWL ME_48F5AB050055 // single impl
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_47022C88029F_ME_470F512D003E // h
+ ME_47022CB8034B_ME_470F512D003E // cpp
+ ME_470321C1038A_ME_470F512D003E // fctr.java
+ ME_4704C0E30186_ME_470F512D003E // constraint
+ ME_4705C5490109_ME_470F512D003E // fctr.h
+ ME_4705C54B01F4_ME_470F512D003E // fctr.cpp
+ ME_49551CA202CF_ME_470F512D003E // ClassImplementable
+ ME_49809333028C_ME_470F512D003E // IsInterface
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4B793D19026F // factory_op
+ HWL ME_470F576D0203 // factory
+ HWL ME_470F5814038A // remover
+ HWL ME_47B13201031D // factory switch
+ HWL ME_470F57A80119 // multi factory
+ HWL ME_4B793D9001F1 // finder
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4753CACE01E6 // FactoryMemory
+ )
+ ; // Dependencies
+ UP "abstraction type" 'raf'
+ UP "personal label" 'code_interface'
+ UP "visualization bg color" 16766935
+ UP "visualization f-font color" 16714250
+ UP "visualization f-line color" 16714250
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Interface.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_470F512D003E Interface
+
+FORWARD ME_4757B52100C2
+
+ME ME_4757B58F02B9
+ MEPROP UID '4757B58F02B9'
+ MEPROP Name 'fctr_mng_mem_java'
+ MEPROP Class class_Operation
+ %SUMMARY 'для менеджера фабрик дампит реализацию конкретной фабрики, использующей общую память' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4757B52100C2 // FactoriesSupport
+ ;
+
+ENDME // ME_4757B58F02B9 fctr_mng_mem_java
+
+ME ME_47B56F110168
+ MEPROP UID '47B56F110168'
+ MEPROP Name 'can_use_for_switch'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'определяет возможность использования типа в качестве селектора мульти-фабрики' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4757B52100C2 // FactoriesSupport
+ ;
+
+ENDME // ME_47B56F110168 can_use_for_switch
+
+ME ME_4757B52100C2
+ MEPROP UID '4757B52100C2'
+ MEPROP Name 'FactoriesSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'набор вспомогательных  методов для генерации фабрик, менеджеров фабрик и т.п' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4757B58F02B9 // fctr_mng_mem_java
+ HWL ME_47B56F110168 // can_use_for_switch
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\FactoriesSupport'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\FactoriesSupport.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4757B52100C2 FactoriesSupport
+
+ME ME_47022BBE0261_ME_47A2D6A00142
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_47A2D6A00142 idl
+
+ME ME_47022C0F01E4_ME_47A2D6A00142
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_47A2D6A00142 idl_ami
+
+ME ME_47022CCF00EA_ME_47A2D6A00142
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_47A2D6A00142 i.h
+
+ME ME_4704C0E30186_ME_47A2D6A00142
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_47A2D6A00142 constraint
+
+ME ME_47A2D6A00142
+ MEPROP UID '47A2D6A00142'
+ MEPROP Name 'LocalInterface'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Локальный интерфейс '#13#10'---'#13#10'определяет локальный интерфейс на уровне реализации, нужен для того что бы доопределить существующие конкретные интерфейсы, задав на них недостающие методы или фабрики, которые не будут видны клиенту библиотеки, но смогут использоваться внутри конкретного пакета реализации.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F512D003E // Interface
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47022BBE0261_ME_47A2D6A00142 // idl
+ ME_47022C0F01E4_ME_47A2D6A00142 // idl_ami
+ ME_47022CCF00EA_ME_47A2D6A00142 // i.h
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_47A2D6A00142 // constraint
+ )
+ ; // Overridden
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\LocalInterface'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\LocalInterface.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47A2D6A00142 LocalInterface
+
+FORWARD ME_49A3CF30020F
+
+ME ME_46E6D4BB0339_ME_47D80D1E0359
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_47D80D1E0359 wiki
+
+ME ME_47022C88029F_ME_47D80D1E0359
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_47D80D1E0359 h
+
+ME ME_47022CB8034B_ME_47D80D1E0359
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_47D80D1E0359 cpp
+
+ME ME_47022CCF00EA_ME_47D80D1E0359
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_47D80D1E0359 i.h
+
+ME ME_470321950119_ME_47D80D1E0359
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_47D80D1E0359 java
+
+ME ME_470321C1038A_ME_47D80D1E0359
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_47D80D1E0359 fctr.java
+
+ME ME_470484D50138_ME_47D80D1E0359
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_47D80D1E0359 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_47D80D1E0359
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47D80D1E0359 constraint
+
+ME ME_4705CBD6003E_ME_47D80D1E0359
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47D80D1E0359 wiki_child_kind
+
+ME ME_470F1571031C_ME_47D80D1E0359
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_47D80D1E0359 intf.pas
+
+ME ME_470F15B800CB_ME_47D80D1E0359
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_47D80D1E0359 impl.pas
+
+ME ME_493D2D510282_ME_47D80D1E0359
+ MELINK Original WL 'ME_493D2D510282' '4773984F02AA.ms.model.script' // IsProp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_493D2D510282_ME_47D80D1E0359 IsProp
+
+ME ME_47D80D1E0359
+ MEPROP UID '47D80D1E0359'
+ MEPROP Name 'impurity value'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'значение примеси' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A3CF30020F // Facet
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47148374038A' '470384F502CE.ms.model.script' // ClassBaseGenerator
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_47D80D1E0359 // wiki
+ ME_47022C88029F_ME_47D80D1E0359 // h
+ ME_47022CB8034B_ME_47D80D1E0359 // cpp
+ ME_47022CCF00EA_ME_47D80D1E0359 // i.h
+ ME_470321950119_ME_47D80D1E0359 // java
+ ME_470321C1038A_ME_47D80D1E0359 // fctr.java
+ ME_470484D50138_ME_47D80D1E0359 // wiki_up_add_gen
+ ME_4704C0E30186_ME_47D80D1E0359 // constraint
+ ME_4705CBD6003E_ME_47D80D1E0359 // wiki_child_kind
+ ME_470F1571031C_ME_47D80D1E0359 // intf.pas
+ ME_470F15B800CB_ME_47D80D1E0359 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_493D2D510282_ME_47D80D1E0359 // IsProp
+ )
+ ; // Overridden
+ UP "abstraction type" 'a'
+ UP "personal label" 'code_impurity_value'
+ UP "visability type" '-'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Facet\impurity value'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47D80D1E0359 impurity value
+
+ME ME_46E6D4BB0339_ME_55BF3FB50305
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_55BF3FB50305 wiki
+
+ME ME_470484D50138_ME_55BF3FB50305
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_55BF3FB50305 wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_55BF3FB50305
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_55BF3FB50305 constraint
+
+ME ME_4705CBD6003E_ME_55BF3FB50305
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_55BF3FB50305 wiki_child_kind
+
+ME ME_470F1571031C_ME_55BF3FB50305
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_55BF3FB50305 intf.pas
+
+ME ME_470F15B800CB_ME_55BF3FB50305
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_55BF3FB50305 impl.pas
+
+ME ME_55BF3FB50305
+ MEPROP UID '55BF3FB50305'
+ MEPROP Name 'injects'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Внедрение зависимости' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A3CF30020F // Facet
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_55BF3FB50305 // wiki
+ ME_470484D50138_ME_55BF3FB50305 // wiki_up_add_gen
+ ME_4704C0E30186_ME_55BF3FB50305 // constraint
+ ME_4705CBD6003E_ME_55BF3FB50305 // wiki_child_kind
+ ME_470F1571031C_ME_55BF3FB50305 // intf.pas
+ ME_470F15B800CB_ME_55BF3FB50305 // impl.pas
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Facet\injects'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_55BF3FB50305 injects
+
+ME ME_4CA459490290
+ MEPROP UID '4CA459490290'
+ MEPROP Name 'no_root_class'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Есть ли рутовый класс в иерархии наследования - при включенном свойство, фасет не будет наследоваться от IObject' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49A3CF30020F // Facet
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4CA459490290 no_root_class
+
+ME ME_498172F401EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_49A3CF30020F // Facet
+ ;
+ MELINK Target HWL ME_49A3CF30020F // Facet
+ ;
+
+ENDME // ME_498172F401EE 
+
+ME ME_4BA8D6AF0395
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_49A3CF30020F // Facet
+ ;
+ MELINK Target WL 'ME_470F016F00CB' '470384F502CE.ms.model.script' // Iterator
+ ;
+
+ENDME // ME_4BA8D6AF0395 
+
+ME ME_49A3CF30020F
+ MEPROP UID '49A3CF30020F'
+ MEPROP Name 'Facet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фасет'#13#10'---'#13#10'Фасетный интерфейс представлет из себя простой набор абстрактных "ответственнойстей", без определения способа получения этого набора.'#13#10'Фактически фасетный интерфейс выступает в роли дополнительного абстрактного интерфейса без фабрик.'#13#10'Фасетный интерфейс реализуется как дополнительный интерфейс(ы) любым сервантом (реализующим какой либо обычный интерфейс) или даже СимплКлассом. Кроме того фасетные интерфейсы могут быть определены в любом модуле, а не только интерфейсном.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_470F704E00AB // AbstractFacet
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4CA459490290 // no_root_class
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_47D80D1E0359 // impurity value
+ HWL ME_55BF3FB50305 // injects
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_498172F401EE // Facet
+ ME_4BA8D6AF0395 // Iterator
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Facet'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Facet.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_49A3CF30020F Facet
+
+ME ME_47FE08A903E0
+ MEPROP UID '47FE08A903E0'
+ MEPROP Name 'Event'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Cобытие'#13#10'---'#13#10'Определяет тип нотификации, которыми могут обмениваться объекты в системе. Событие может содержать данные.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_470F33CD0242' '470EF9BF0138.ms.model.script' // Struct
+ )
+ ; // Inherits
+ UP "abstraction type" 'fra'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Event'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\Event.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47FE08A903E0 Event
+
+FORWARD ME_47D8087B0111
+
+ME ME_46E6D4BB0339_ME_47D809DF007B
+ MELINK Original WL 'ME_46E6D4BB0339' '46E80398003B.ms.model.script' // wiki
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46E6D4BB0339_ME_47D809DF007B wiki
+
+ME ME_47022C88029F_ME_47D809DF007B
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_47D809DF007B h
+
+ME ME_47022CB8034B_ME_47D809DF007B
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_47D809DF007B cpp
+
+ME ME_47022CCF00EA_ME_47D809DF007B
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_47D809DF007B i.h
+
+ME ME_470321950119_ME_47D809DF007B
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_47D809DF007B java
+
+ME ME_470321C1038A_ME_47D809DF007B
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_47D809DF007B fctr.java
+
+ME ME_470484D50138_ME_47D809DF007B
+ MELINK Original WL 'ME_470484D50138' '46E80398003B.ms.model.script' // wiki_up_add_gen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_470484D50138_ME_47D809DF007B wiki_up_add_gen
+
+ME ME_4704C0E30186_ME_47D809DF007B
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47D809DF007B constraint
+
+ME ME_4705CBD6003E_ME_47D809DF007B
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47D809DF007B wiki_child_kind
+
+ME ME_470F1571031C_ME_47D809DF007B
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_47D809DF007B intf.pas
+
+ME ME_470F15B800CB_ME_47D809DF007B
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_47D809DF007B impl.pas
+
+ME ME_47D809DF007B
+ MEPROP UID '47D809DF007B'
+ MEPROP Name 'impurity param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Параметр класса примеси.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D8087B0111 // PureMixIn
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47148374038A' '470384F502CE.ms.model.script' // ClassBaseGenerator
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46E6D4BB0339_ME_47D809DF007B // wiki
+ ME_47022C88029F_ME_47D809DF007B // h
+ ME_47022CB8034B_ME_47D809DF007B // cpp
+ ME_47022CCF00EA_ME_47D809DF007B // i.h
+ ME_470321950119_ME_47D809DF007B // java
+ ME_470321C1038A_ME_47D809DF007B // fctr.java
+ ME_470484D50138_ME_47D809DF007B // wiki_up_add_gen
+ ME_4704C0E30186_ME_47D809DF007B // constraint
+ ME_4705CBD6003E_ME_47D809DF007B // wiki_child_kind
+ ME_470F1571031C_ME_47D809DF007B // intf.pas
+ ME_470F15B800CB_ME_47D809DF007B // impl.pas
+ )
+ ; // Implemented
+ UP "link type" 'a'
+ UP "personal label" 'code_impurity_param'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\PureMixIn\impurity param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47D809DF007B impurity param
+
+ME ME_4953D62B022A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_47D8087B0111 // PureMixIn
+ ;
+ MELINK Target WL 'ME_47A1ABD80383' '470EF9BF0138.ms.model.script' // ImpurityParamType
+ ;
+
+ENDME // ME_4953D62B022A 
+
+ME ME_47022BBE0261_ME_47D8087B0111
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_47D8087B0111 idl
+
+ME ME_47022C0F01E4_ME_47D8087B0111
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_47D8087B0111 idl_ami
+
+ME ME_47022CCF00EA_ME_47D8087B0111
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_47D8087B0111 i.h
+
+ME ME_470F1571031C_ME_47D8087B0111
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_47D8087B0111 intf.pas
+
+ME ME_49551CA202CF_ME_47D8087B0111
+ MELINK Original WL 'ME_49551CA202CF' '4773984F02AA.ms.model.script' // ClassImplementable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49551CA202CF_ME_47D8087B0111 ClassImplementable
+
+ME ME_4977065602B3_ME_47D8087B0111
+ MELINK Original WL 'ME_4977065602B3' '4773984F02AA.ms.model.script' // IsPureMixIn
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4977065602B3_ME_47D8087B0111 IsPureMixIn
+
+ME ME_49809333028C_ME_47D8087B0111
+ MELINK Original WL 'ME_49809333028C' '4773984F02AA.ms.model.script' // IsInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49809333028C_ME_47D8087B0111 IsInterface
+
+ME ME_47D8087B0111
+ MEPROP UID '47D8087B0111'
+ MEPROP Name 'PureMixIn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Абстрактная примесь.'#13#10'---'#13#10'Отличается от Impurity тем, что определяет только интерфейс, а не реализацию.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478DF69F0205 // InterfacesMetamodel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49A3CF30020F // Facet
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47022BBE0261_ME_47D8087B0111 // idl
+ ME_47022C0F01E4_ME_47D8087B0111 // idl_ami
+ ME_47022CCF00EA_ME_47D8087B0111 // i.h
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_470F1571031C_ME_47D8087B0111 // intf.pas
+ ME_49551CA202CF_ME_47D8087B0111 // ClassImplementable
+ ME_4977065602B3_ME_47D8087B0111 // IsPureMixIn
+ ME_49809333028C_ME_47D8087B0111 // IsInterface
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_47D809DF007B // impurity param
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4953D62B022A // ImpurityParamType
+ )
+ ; // Dependencies
+ UP "personal label" 'code_pure_mixin'
+ UP "visualization bg color" 16777152
+ UP "visualization f-font color" 12615680
+ UP "visualization f-line color" 12615680
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\PureMixIn'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel\PureMixIn.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47D8087B0111 PureMixIn
+
+ME ME_478DF69F0205
+ MEPROP UID '478DF69F0205'
+ MEPROP Name 'InterfacesMetamodel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Метамодель интерфейсов и фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4753E6FC01BA // WithFactory
+ HWL ME_4753C0BC029E // FactoryMemory
+ HWL ME_47174CE200AB // AbstractInterface
+ HWL ME_470F704E00AB // AbstractFacet
+ HWL ME_470F512D003E // Interface
+ HWL ME_4757B52100C2 // FactoriesSupport
+ HWL ME_47A2D6A00142 // LocalInterface
+ HWL ME_49A3CF30020F // Facet
+ HWL ME_47FE08A903E0 // Event
+ HWL ME_47D8087B0111 // PureMixIn
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_470EF9BF0138' '470EF9BF0138.ms.model.script' // InterfaceTypes
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang\InterfacesMetamodel'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_478DF69F0205 InterfacesMetamodel

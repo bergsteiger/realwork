@@ -1,0 +1,338 @@
+// Interceptors 47134993036B MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47134993036B
+
+FORWARD ME_471349EE01E4
+
+ME ME_47134A6500AB
+ MEPROP UID '47134A6500AB'
+ MEPROP Name 'attr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'атрибут' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47049A0701B5' '470384F502CE.ms.model.script' // Attr
+ )
+ ; // Inherits
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ClientInterceptor\attr'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134A6500AB attr
+
+FORWARD ME_47134A7602EE
+
+ME ME_47134A900157
+ MEPROP UID '47134A900157'
+ MEPROP Name 'param'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAParameter ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'параметр операции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47134A7602EE // op
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47144994003E' '470384F502CE.ms.model.script' // param
+ )
+ ; // Inherits
+ UP "personal label" 'code_param'
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ClientInterceptor\op\param'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134A900157 param
+
+ME ME_47134A7602EE
+ MEPROP UID '47134A7602EE'
+ MEPROP Name 'op'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'операция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47049A220138' '470384F502CE.ms.model.script' // Operation
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_47134A900157 // param
+ )
+ ; // Children
+ UP "unstereotyped" True
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ClientInterceptor\op'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134A7602EE op
+
+ME ME_4705CBD6003E_ME_47134AA601A5
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47134AA601A5 wiki_child_kind
+
+ME ME_47134AA601A5
+ MEPROP UID '47134AA601A5'
+ MEPROP Name 'uses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Использование' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4705CBD6003E_ME_47134AA601A5 // wiki_child_kind
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_uses'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ClientInterceptor\uses'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134AA601A5 uses
+
+ME ME_4705CBD6003E_ME_47134AB3003E
+ MELINK Original WL 'ME_4705CBD6003E' '46E80398003B.ms.model.script' // wiki_child_kind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4705CBD6003E_ME_47134AB3003E wiki_child_kind
+
+ME ME_47134AB3003E
+ MEPROP UID '47134AB3003E'
+ MEPROP Name 'connect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDADependency ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Серверная пара'#13#10'---'#13#10'Определдляет парный интерцептор, который будет использовать тот же сервис-контекст для передачи данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4705CBD6003E_ME_47134AB3003E // wiki_child_kind
+ )
+ ; // Implemented
+ UP "personal label" 'code_dep_connect'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ClientInterceptor\connect'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134AB3003E connect
+
+ME ME_49B8FB1E0134
+ MEPROP UID '49B8FB1E0134'
+ MEPROP Name 'additional_condition'
+ MEPROP Class class_Operation
+ %SUMMARY 'Метод необходим для поддержки генерации через обую функцию, возвращает'#13#10'true' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471349EE01E4 // ClientInterceptor
+ ;
+
+ENDME // ME_49B8FB1E0134 additional_condition
+
+ME ME_47022C88029F_ME_471349EE01E4
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_471349EE01E4 h
+
+ME ME_47022CB8034B_ME_471349EE01E4
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_471349EE01E4 cpp
+
+ME ME_470321950119_ME_471349EE01E4
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_471349EE01E4 java
+
+ME ME_4704C0E30186_ME_471349EE01E4
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_471349EE01E4 constraint
+
+ME ME_471349EE01E4
+ MEPROP UID '471349EE01E4'
+ MEPROP Name 'ClientInterceptor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Клиентский интерцептор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47134993036B // Interceptors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_49B8FB1E0134 // additional_condition
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_471349EE01E4 // h
+ ME_47022CB8034B_ME_471349EE01E4 // cpp
+ ME_470321950119_ME_471349EE01E4 // java
+ ME_4704C0E30186_ME_471349EE01E4 // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_47134A6500AB // attr
+ HWL ME_47134A7602EE // op
+ HWL ME_47134AA601A5 // uses
+ HWL ME_47134AB3003E // connect
+ )
+ ; // Children
+ UP "can be parametrized" True
+ UP "disable forward decl" True
+ UP "has derived impl" True
+ UP "personal label" 'code_interceptor'
+ UP "visualization bg color" 12842435
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ClientInterceptor'
+ UP mda:Path 'MDProcess\CommonTemplates\ServerLib\Interceptors\ClientInterceptor.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471349EE01E4 ClientInterceptor
+
+ME ME_47022CCF00EA_ME_47134AE700FA
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_47134AE700FA i.h
+
+ME ME_470321C1038A_ME_47134AE700FA
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_47134AE700FA fctr.java
+
+ME ME_47134AE700FA
+ MEPROP UID '47134AE700FA'
+ MEPROP Name 'ServerInterceptor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Серверный интерцептор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47134993036B // Interceptors
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_471349EE01E4 // ClientInterceptor
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47022CCF00EA_ME_47134AE700FA // i.h
+ ME_470321C1038A_ME_47134AE700FA // fctr.java
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\ServerInterceptor'
+ UP mda:Path 'MDProcess\CommonTemplates\ServerLib\Interceptors\ServerInterceptor.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134AE700FA ServerInterceptor
+
+ME ME_4704C0E30186_ME_47134AFB01E4
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_47134AFB01E4 constraint
+
+ME ME_47134AFB01E4
+ MEPROP UID '47134AFB01E4'
+ MEPROP Name 'CurrentSlot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Слот в PICurrent'#13#10'---'#13#10'Аллоцирует под слот в PICurrent заданного типа, а определяет методы доступа к нему' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47134993036B // Interceptors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4704C0E30186_ME_47134AFB01E4 // constraint
+ )
+ ; // Implemented
+ UP "personal label" 'code_current_slot'
+ UP "visability type" '+'
+ UP "visualization bg color" 16768180
+ UP "visualization f-font color" 10177285
+ UP "visualization f-line color" 10177285
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors\CurrentSlot'
+ UP mda:Path 'MDProcess\CommonTemplates\ServerLib\Interceptors\CurrentSlot.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134AFB01E4 CurrentSlot
+
+ME ME_47134993036B
+ MEPROP UID '47134993036B'
+ MEPROP Name 'Interceptors'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой шаблонов описывающих стереотипы интерцепторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_478DEEBE011B' '478DEEBE011B.ms.model.script' // ServerLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_471349EE01E4 // ClientInterceptor
+ HWL ME_47134AE700FA // ServerInterceptor
+ HWL ME_47134AFB01E4 // CurrentSlot
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ WL 'ME_4773980602D9' '4773980602D9.ms.model.script' // JavaGens
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\ServerLib\Interceptors'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47134993036B Interceptors

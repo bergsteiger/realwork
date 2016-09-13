@@ -35,6 +35,18 @@ ME ME_4A816DBF0044
 
 ENDME // ME_4A816DBF0044 IsFactoryOnModule
 
+ME ME_494BB3A201A2_ME_4A73234800B8
+ MELINK Original WL 'ME_494BB3A201A2' '4773984F02AA.ms.model.script' // pas_MethodBodyPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BB3A201A2_ME_4A73234800B8 pas_MethodBodyPrim
+
+ME ME_494BDD190361_ME_4A73234800B8
+ MELINK Original WL 'ME_494BDD190361' '4773984F02AA.ms.model.script' // pas_ResultTypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BDD190361_ME_4A73234800B8 pas_ResultTypeName
+
 ME ME_4A73234800B8
  MEPROP UID '4A73234800B8'
  MEPROP Name 'FormSetFactory'
@@ -46,6 +58,10 @@ ME ME_4A73234800B8
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4A9515FD0390 // Factories
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49CB43D403C5' '470EF980003E.ms.model.script' // method
+ )
+ ; // Inherits
  MELIST Attributes
    Seq: ( HWL ME_5773889B02FC // NO_FACTORY_BRACKECTS
  )
@@ -54,6 +70,11 @@ ME ME_4A73234800B8
    Seq: ( HWL ME_4A816DBF0044 // IsFactoryOnModule
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_494BB3A201A2_ME_4A73234800B8 // pas_MethodBodyPrim
+ ME_494BDD190361_ME_4A73234800B8 // pas_ResultTypeName
+ )
+ ; // Overridden
  UP "abstraction type" 'f'
  UP "visability type" '+#-'
  UP "visualization bg color" 13959039
@@ -64,6 +85,12 @@ ME ME_4A73234800B8
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_4A73234800B8 FormSetFactory
+
+ME ME_494BDD190361_ME_4A816E04018E
+ MELINK Original WL 'ME_494BDD190361' '4773984F02AA.ms.model.script' // pas_ResultTypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BDD190361_ME_4A816E04018E pas_ResultTypeName
 
 ME ME_4A816E04018E
  MEPROP UID '4A816E04018E'
@@ -80,6 +107,10 @@ ME ME_4A816E04018E
    Seq: ( HWL ME_4A73234800B8 // FormSetFactory
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_494BDD190361_ME_4A816E04018E // pas_ResultTypeName
+ )
+ ; // Overridden
  UP "visualization bg color" 16777152
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FormFactory'
  UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\Factories\FormFactory.tpi'
@@ -128,6 +159,7 @@ ME ME_4A9515FD0390
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
  WL 'ME_49CB456E025C' '49CB456E025C.ms.model.script' // ClassInner
  WL 'ME_4A95156202EB' '4A95156202EB.ms.model.script' // MixIns
  )

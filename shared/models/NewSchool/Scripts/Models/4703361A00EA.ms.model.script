@@ -1,0 +1,948 @@
+// Packages 4703361A00EA MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4703361A00EA
+
+FORWARD ME_47173A6F009C
+
+ME ME_47173A8B000F
+ MEPROP UID '47173A8B000F'
+ MEPROP Name 'in_scope_name'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит форвард декларацию класса, с учетом нэймспэйсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173A8B000F in_scope_name
+
+ME ME_47173A970119
+ MEPROP UID '47173A970119'
+ MEPROP Name 'need_ami'
+ MEPROP Class class_Operation
+ %SUMMARY 'нужно ли AMI' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173A970119 need_ami
+
+ME ME_47173AA10222
+ MEPROP UID '47173AA10222'
+ MEPROP Name 'need_factory_files'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает true, если нужены дополнительные файлы для генерации фрейморвка фабрик' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173AA10222 need_factory_files
+
+ME ME_47173AB10186
+ MEPROP UID '47173AB10186'
+ MEPROP Name 'need_tie_files'
+ MEPROP Class class_Operation
+ %SUMMARY 'нужны ли дополнительные файлы для генерации описания TIE-обёрток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173AB10186 need_tie_files
+
+ME ME_47173ABC0177
+ MEPROP UID '47173ABC0177'
+ MEPROP Name 'print_in_ami_file'
+ MEPROP Class class_Operation
+ %SUMMARY 'нужно ли генерить в AMI' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173ABC0177 print_in_ami_file
+
+ME ME_47173AC40222
+ MEPROP UID '47173AC40222'
+ MEPROP Name 'use_ami'
+ MEPROP Class class_Operation
+ %SUMMARY 'использует ли AMI' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173AC40222 use_ami
+
+ME ME_47173ACB0242
+ MEPROP UID '47173ACB0242'
+ MEPROP Name 'used_in_ami'
+ MEPROP Class class_Operation
+ %SUMMARY 'используется ли в AMI' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173ACB0242 used_in_ami
+
+ME ME_47173B27007D
+ MEPROP UID '47173B27007D'
+ MEPROP Name 'use_in_pack_child'
+ MEPROP Class class_Operation
+ %SUMMARY 'использует ли заданный элемент детьми пакета' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173B27007D use_in_pack_child
+
+ME ME_47173E11031C
+ MEPROP UID '47173E11031C'
+ MEPROP Name 'idl_subsystem'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит код модуля idl' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173E11031C idl_subsystem
+
+ME ME_47173E1901E4
+ MEPROP UID '47173E1901E4'
+ MEPROP Name 'srv_need_cpp_files'
+ MEPROP Class class_Operation
+ %SUMMARY 'нужно ли генерить cpp' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47173A6F009C // Support
+ ;
+
+ENDME // ME_47173E1901E4 srv_need_cpp_files
+
+ME ME_47173A6F009C
+ MEPROP UID '47173A6F009C'
+ MEPROP Name 'Support'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'вспомоагтельные функции для генерации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4703361A00EA // Packages
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47173A8B000F // in_scope_name
+ HWL ME_47173A970119 // need_ami
+ HWL ME_47173AA10222 // need_factory_files
+ HWL ME_47173AB10186 // need_tie_files
+ HWL ME_47173ABC0177 // print_in_ami_file
+ HWL ME_47173AC40222 // use_ami
+ HWL ME_47173ACB0242 // used_in_ami
+ HWL ME_47173B27007D // use_in_pack_child
+ HWL ME_47173E11031C // idl_subsystem
+ HWL ME_47173E1901E4 // srv_need_cpp_files
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Packages\Support'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Packages\Support.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47173A6F009C Support
+
+FORWARD ME_4704865603A9
+
+ME ME_4704881B00EA
+ MEPROP UID '4704881B00EA'
+ MEPROP Name 'weak'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет что модуль может шариться между динамичексими пакетами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_4704881B00EA weak
+
+ME ME_47048841031C
+ MEPROP UID '47048841031C'
+ MEPROP Name 'path prefix'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет префикс пути' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+
+ENDME // ME_47048841031C path prefix
+
+ME ME_4704884E0271
+ MEPROP UID '4704884E0271'
+ MEPROP Name 'defines'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет файл с условиями компиляции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+
+ENDME // ME_4704884E0271 defines
+
+ME ME_470488580128
+ MEPROP UID '470488580128'
+ MEPROP Name 'author'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'автор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+
+ENDME // ME_470488580128 author
+
+ME ME_4704886103B9
+ MEPROP UID '4704886103B9'
+ MEPROP Name 'started'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'дата и время начала' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+
+ENDME // ME_4704886103B9 started
+
+ME ME_47048871005D
+ MEPROP UID '47048871005D'
+ MEPROP Name 'no hands'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'предупреждение о том, что руками править нельзя (на время переходного периода)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_47048871005D no hands
+
+ME ME_480C53BC0382
+ MEPROP UID '480C53BC0382'
+ MEPROP Name 'debug tie log'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Нужно ли генерить логирование вызов всех tie-методов, на всех интерфейсах/фасетах, определённых в пакете' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_480C53BC0382 debug tie log
+
+ME ME_4B4C82AB0199
+ MEPROP UID '4B4C82AB0199'
+ MEPROP Name 'additional_includes'
+ MEPROP Class class_Operation
+ %SUMMARY 'Предназначена для перекрытия в потомках, чтоб иметь возможность сгенерить дополнительные инклуды.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+
+ENDME // ME_4B4C82AB0199 additional_includes
+
+ME ME_4E71D8FE00E9
+ MEPROP UID '4E71D8FE00E9'
+ MEPROP Name 'IsInterfaces'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+
+ENDME // ME_4E71D8FE00E9 IsInterfaces
+
+ME ME_4712E9260399
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MELINK Target WL 'ME_470F512D003E' '478DF69F0205.ms.model.script' // Interface
+ ;
+
+ENDME // ME_4712E9260399 
+
+ME ME_47D818490315
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MELINK Target WL 'ME_47A1ABD80383' '470EF9BF0138.ms.model.script' // ImpurityParamType
+ ;
+
+ENDME // ME_47D818490315 
+
+ME ME_47FE042B004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MELINK Target WL 'ME_47FDE8610215' '470EF9BF0138.ms.model.script' // ConstantArray
+ ;
+
+ENDME // ME_47FE042B004C 
+
+ME ME_47FE09770239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MELINK Target WL 'ME_47FE08A903E0' '478DF69F0205.ms.model.script' // Event
+ ;
+
+ENDME // ME_47FE09770239 
+
+ME ME_48EF4E73020F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704865603A9 // Interfaces
+ ;
+ MELINK Target WL 'ME_48A27E2101E1' '489FD5120186.ms.model.script' // Settings
+ ;
+
+ENDME // ME_48EF4E73020F 
+
+ME ME_47022C88029F_ME_4704865603A9
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_4704865603A9 h
+
+ME ME_47022CB8034B_ME_4704865603A9
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_4704865603A9 cpp
+
+ME ME_47022CCF00EA_ME_4704865603A9
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_4704865603A9 i.h
+
+ME ME_470321950119_ME_4704865603A9
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_4704865603A9 java
+
+ME ME_470321C1038A_ME_4704865603A9
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_4704865603A9 fctr.java
+
+ME ME_47032EC4032C_ME_4704865603A9
+ MELINK Original WL 'ME_47032EC4032C' '4773984F02AA.ms.model.script' // dll.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'TIE_H'
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032EC4032C_ME_4704865603A9 dll.h
+
+ME ME_47032ED002DE_ME_4704865603A9
+ MELINK Original WL 'ME_47032ED002DE' '4773984F02AA.ms.model.script' // dll.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'dll_cpp'
+ENDME // ME_47032ED002DE_ME_4704865603A9 dll.cpp
+
+ME ME_4705C5490109_ME_4704865603A9
+ MELINK Original WL 'ME_4705C5490109' '4773969402E9.ms.model.script' // fctr.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+ENDME // ME_4705C5490109_ME_4704865603A9 fctr.h
+
+ME ME_4705C54B01F4_ME_4704865603A9
+ MELINK Original WL 'ME_4705C54B01F4' '4773969402E9.ms.model.script' // fctr.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_4705C54B01F4_ME_4704865603A9 fctr.cpp
+
+ME ME_470F152700FA_ME_4704865603A9
+ MELINK Original WL 'ME_470F152700FA' '4773984F02AA.ms.model.script' // pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ENDME // ME_470F152700FA_ME_4704865603A9 pas
+
+ME ME_470F1571031C_ME_4704865603A9
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4704865603A9 intf.pas
+
+ME ME_48578600008D_ME_4704865603A9
+ MELINK Original WL 'ME_48578600008D' '46E80398003B.ms.model.script' // wiki_interface_package
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48578600008D_ME_4704865603A9 wiki_interface_package
+
+ME ME_4947EC0F0380_ME_4704865603A9
+ MELINK Original WL 'ME_4947EC0F0380' '4773984F02AA.ms.model.script' // IsUnitFileProducer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947EC0F0380_ME_4704865603A9 IsUnitFileProducer
+
+ME ME_4A41A13D03D5_ME_4704865603A9
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_4704865603A9 spell
+
+ME ME_4704865603A9
+ MEPROP UID '4704865603A9'
+ MEPROP Name 'Interfaces'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейсный пакет'#13#10'---'#13#10'Содержит экспортируемые наружу компоненты типы и интерфейсы. Определяет неймспейс. Может зависить только от других интерфейсных пакетов (своей компоненты или чужой)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4703361A00EA // Packages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4712EA5402DE' '478E27270205.ms.model.script' // InterfacePackageBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ WL 'ME_4703212700DA' '4773980602D9.ms.model.script' // Java
+ WL 'ME_47032C8B009C' '4773984F02AA.ms.model.script' // Дельфи-DLL Адаптер
+ WL 'ME_4705C4E1037A' '4773969402E9.ms.model.script' // C++ Фабрики
+ WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4704881B00EA // weak
+ HWL ME_47048841031C // path prefix
+ HWL ME_4704884E0271 // defines
+ HWL ME_470488580128 // author
+ HWL ME_4704886103B9 // started
+ HWL ME_47048871005D // no hands
+ HWL ME_480C53BC0382 // debug tie log
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B4C82AB0199 // additional_includes
+ HWL ME_4E71D8FE00E9 // IsInterfaces
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_4704865603A9 // h
+ ME_47022CB8034B_ME_4704865603A9 // cpp
+ ME_47022CCF00EA_ME_4704865603A9 // i.h
+ ME_470321950119_ME_4704865603A9 // java
+ ME_470321C1038A_ME_4704865603A9 // fctr.java
+ ME_47032EC4032C_ME_4704865603A9 // dll.h
+ ME_47032ED002DE_ME_4704865603A9 // dll.cpp
+ ME_4705C5490109_ME_4704865603A9 // fctr.h
+ ME_4705C54B01F4_ME_4704865603A9 // fctr.cpp
+ ME_470F152700FA_ME_4704865603A9 // pas
+ ME_470F1571031C_ME_4704865603A9 // intf.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48578600008D_ME_4704865603A9 // wiki_interface_package
+ ME_4947EC0F0380_ME_4704865603A9 // IsUnitFileProducer
+ ME_4A41A13D03D5_ME_4704865603A9 // spell
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4712E9260399 // Interface
+ ME_47D818490315 // ImpurityParamType
+ ME_47FE042B004C // ConstantArray
+ ME_47FE09770239 // Event
+ ME_48EF4E73020F // Settings
+ )
+ ; // Dependencies
+ UP "disable forward decl" True
+ UP "personal label" 'code_interfaces'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Packages\Interfaces'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Packages\Interfaces.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4704865603A9 Interfaces
+
+FORWARD ME_4704917C01F4
+
+ME ME_470491CB000F
+ MEPROP UID '470491CB000F'
+ MEPROP Name 'is namespace'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет является ли пакет реализации неймспейсом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_470491CB000F is namespace
+
+ME ME_470491D6033C
+ MEPROP UID '470491D6033C'
+ MEPROP Name 'need UC'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'явно включает генерацию дополнительных секций Юзер-Кода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_470491D6033C need UC
+
+ME ME_47049344007D
+ MEPROP UID '47049344007D'
+ MEPROP Name 'need_idl'
+ MEPROP Class class_Operation
+ %SUMMARY 'нужно ли генерить idl' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+
+ENDME // ME_47049344007D need_idl
+
+ME ME_4716EBD9030D
+ MEPROP UID '4716EBD9030D'
+ MEPROP Name 'idl_subsystem'
+ MEPROP Class class_Operation
+ %SUMMARY 'геенрация idl-модуля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+
+ENDME // ME_4716EBD9030D idl_subsystem
+
+ME ME_47149BBE0196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+ MELINK Target WL 'ME_4713515300CB' '470EF980003E.ms.model.script' // CustomFactory
+ ;
+
+ENDME // ME_47149BBE0196 
+
+ME ME_47149C44030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+ MELINK Target WL 'ME_47144D340251' '470EF980003E.ms.model.script' // Servant
+ ;
+
+ENDME // ME_47149C44030D 
+
+ME ME_478E2DC600FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+ MELINK Target WL 'ME_471740DE003E' '478DF908013A.ms.model.script' // ComServant
+ ;
+
+ENDME // ME_478E2DC600FC 
+
+ME ME_47A9498C03E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_4704917C01F4 // Impl
+ ;
+ MELINK Target WL 'ME_47A2D6A00142' '478DF69F0205.ms.model.script' // LocalInterface
+ ;
+
+ENDME // ME_47A9498C03E1 
+
+ME ME_47022BBE0261_ME_4704917C01F4
+ MELINK Original WL 'ME_47022BBE0261' '47022B0D038A.ms.model.script' // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_4704917C01F4 idl
+
+ME ME_47022C0F01E4_ME_4704917C01F4
+ MELINK Original WL 'ME_47022C0F01E4' '47022B0D038A.ms.model.script' // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_4704917C01F4 idl_ami
+
+ME ME_47022CCF00EA_ME_4704917C01F4
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_4704917C01F4 i.h
+
+ME ME_470321950119_ME_4704917C01F4
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_4704917C01F4 java
+
+ME ME_470321C1038A_ME_4704917C01F4
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_4704917C01F4 fctr.java
+
+ME ME_4705C5490109_ME_4704917C01F4
+ MELINK Original WL 'ME_4705C5490109' '4773969402E9.ms.model.script' // fctr.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+ENDME // ME_4705C5490109_ME_4704917C01F4 fctr.h
+
+ME ME_4705C54B01F4_ME_4704917C01F4
+ MELINK Original WL 'ME_4705C54B01F4' '4773969402E9.ms.model.script' // fctr.cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_4705C54B01F4_ME_4704917C01F4 fctr.cpp
+
+ME ME_470F1571031C_ME_4704917C01F4
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4704917C01F4 intf.pas
+
+ME ME_470F15B800CB_ME_4704917C01F4
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4704917C01F4 impl.pas
+
+ME ME_485784EC028C_ME_4704917C01F4
+ MELINK Original WL 'ME_485784EC028C' '46E80398003B.ms.model.script' // wiki_impl_or_support_package
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_485784EC028C_ME_4704917C01F4 wiki_impl_or_support_package
+
+ME ME_4704917C01F4
+ MEPROP UID '4704917C01F4'
+ MEPROP Name 'Impl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пакет реализации'#13#10'---'#13#10'Содержит реализацию интерфесных пакетов. Может зависить от других пакетов реализации своей компоненты. Данный пакет предназначен в основном для размещения сервантов, реализующих интерфейсы и вспомогательных элементов, также используемых для реализации интерфейсов. Определяет неймспейс.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4703361A00EA // Packages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4714A0260109' '478E27270205.ms.model.script' // AbstractImplBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47022B8800DA' '47022B0D038A.ms.model.script' // CORBA IDL
+ WL 'ME_4705C4E1037A' '4773969402E9.ms.model.script' // C++ Фабрики
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_470491CB000F // is namespace
+ HWL ME_470491D6033C // need UC
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47049344007D // need_idl
+ HWL ME_4716EBD9030D // idl_subsystem
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47022BBE0261_ME_4704917C01F4 // idl
+ ME_47022C0F01E4_ME_4704917C01F4 // idl_ami
+ ME_47022CCF00EA_ME_4704917C01F4 // i.h
+ ME_470321950119_ME_4704917C01F4 // java
+ ME_470321C1038A_ME_4704917C01F4 // fctr.java
+ ME_4705C5490109_ME_4704917C01F4 // fctr.h
+ ME_4705C54B01F4_ME_4704917C01F4 // fctr.cpp
+ ME_470F1571031C_ME_4704917C01F4 // intf.pas
+ ME_470F15B800CB_ME_4704917C01F4 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_485784EC028C_ME_4704917C01F4 // wiki_impl_or_support_package
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47149BBE0196 // CustomFactory
+ ME_47149C44030D // Servant
+ ME_478E2DC600FC // ComServant
+ ME_47A9498C03E1 // LocalInterface
+ )
+ ; // Dependencies
+ UP "disable forward decl" True
+ UP "personal label" 'code_impl'
+ UP "visualization bg color" 12842435
+ UP "visualization f-font color" 705290
+ UP "visualization f-line color" 705290
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Packages\Impl'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Packages\Impl.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4704917C01F4 Impl
+
+FORWARD ME_47048FBD0213
+
+ME ME_470490EB0271
+ MEPROP UID '470490EB0271'
+ MEPROP Name 'is namespace'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'определяет является ли модуль неймспейсом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47048FBD0213 // Unit
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_470490EB0271 is namespace
+
+ME ME_4A3B8BBC035F
+ MEPROP UID '4A3B8BBC035F'
+ MEPROP Name 'defines'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет файл с условиями компиляции' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47048FBD0213 // Unit
+ ;
+
+ENDME // ME_4A3B8BBC035F defines
+
+ME ME_4A71CF9A0044
+ MEPROP UID '4A71CF9A0044'
+ MEPROP Name 'pas_OutUnitFile'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выводит файл собственно для модуля' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47048FBD0213 // Unit
+ ;
+
+ENDME // ME_4A71CF9A0044 pas_OutUnitFile
+
+ME ME_47022C88029F_ME_47048FBD0213
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_47048FBD0213 h
+
+ME ME_47022CB8034B_ME_47048FBD0213
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_47048FBD0213 cpp
+
+ME ME_47022CCF00EA_ME_47048FBD0213
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_47048FBD0213 i.h
+
+ME ME_470321950119_ME_47048FBD0213
+ MELINK Original WL 'ME_470321950119' '4773980602D9.ms.model.script' // java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321950119_ME_47048FBD0213 java
+
+ME ME_470F1571031C_ME_47048FBD0213
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_47048FBD0213 intf.pas
+
+ME ME_470F15B800CB_ME_47048FBD0213
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_47048FBD0213 impl.pas
+
+ME ME_4704C0E30186_ME_47048FBD0213
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_47048FBD0213 constraint
+
+ME ME_485785D603C1_ME_47048FBD0213
+ MELINK Original WL 'ME_485785D603C1' '46E80398003B.ms.model.script' // wiki_utility_package
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_485785D603C1_ME_47048FBD0213 wiki_utility_package
+
+ME ME_4A41A13D03D5_ME_47048FBD0213
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_47048FBD0213 spell
+
+ME ME_4F30E88502A5_ME_47048FBD0213
+ MELINK Original WL 'ME_4F30E88502A5' '4773984F02AA.ms.model.script' // IsUnit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F30E88502A5_ME_47048FBD0213 IsUnit
+
+ME ME_47048FBD0213
+ MEPROP UID '47048FBD0213'
+ MEPROP Name 'Unit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Логическая часть библиотеки'#13#10'---'#13#10'Объединяет связанные классы и утилиты, выполненные не на основе концепции интерфейсов. Т.е. это интерфейсные типы совмещенные с реализацией. '#13#10'Может определять или не определять неймспейс. Типы определенные в Unit не могут использоваться в интерфейсах.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4703361A00EA // Packages
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47149A85038A' '478E27270205.ms.model.script' // AbstractUnitBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_470490EB0271 // is namespace
+ HWL ME_4A3B8BBC035F // defines
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A71CF9A0044 // pas_OutUnitFile
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_47048FBD0213 // h
+ ME_47022CB8034B_ME_47048FBD0213 // cpp
+ ME_47022CCF00EA_ME_47048FBD0213 // i.h
+ ME_470321950119_ME_47048FBD0213 // java
+ ME_470F1571031C_ME_47048FBD0213 // intf.pas
+ ME_470F15B800CB_ME_47048FBD0213 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_47048FBD0213 // constraint
+ ME_485785D603C1_ME_47048FBD0213 // wiki_utility_package
+ ME_4A41A13D03D5_ME_47048FBD0213 // spell
+ ME_4F30E88502A5_ME_47048FBD0213 // IsUnit
+ )
+ ; // Overridden
+ UP "disable forward decl" True
+ UP "personal label" 'code_unit'
+ UP "visability type" '+#-'
+ UP "visualization bg color" 14145535
+ UP "visualization f-font color" 3289840
+ UP "visualization f-line color" 5263560
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Packages\Unit'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\Packages\Unit.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47048FBD0213 Unit
+
+ME ME_4703361A00EA
+ MEPROP UID '4703361A00EA'
+ MEPROP Name 'Packages'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой шаблонов опредляющих интерфейсные типы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47173A6F009C // Support
+ HWL ME_4704865603A9 // Interfaces
+ HWL ME_4704917C01F4 // Impl
+ HWL ME_47048FBD0213 // Unit
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_47022B0D038A' '47022B0D038A.ms.model.script' // OtherGens
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_470EF9BF0138' '470EF9BF0138.ms.model.script' // InterfaceTypes
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ WL 'ME_4773980602D9' '4773980602D9.ms.model.script' // JavaGens
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
+ WL 'ME_478DF69F0205' '478DF69F0205.ms.model.script' // InterfacesMetamodel
+ WL 'ME_478DF908013A' '478DF908013A.ms.model.script' // COM
+ WL 'ME_478E27270205' '478E27270205.ms.model.script' // PackagesIncludes
+ WL 'ME_489FD5120186' '489FD5120186.ms.model.script' // SettingsLayer
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\Packages'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang\Packages'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4703361A00EA Packages

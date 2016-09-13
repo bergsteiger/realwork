@@ -64,6 +64,8 @@ ME ME_4AE9669E019D
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_494F7EF903BC // VCMControls
  ;
+ MELINK Target WL 'ME_470F33CD0242' '470EF9BF0138.ms.model.script' // Struct
+ ;
 
 ENDME // ME_4AE9669E019D 
 
@@ -71,6 +73,8 @@ ME ME_4AE966A200E1
  MEPROP Class class_Dependency
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_494F7EF903BC // VCMControls
+ ;
+ MELINK Target WL 'ME_470F198F0000' '470EF9BF0138.ms.model.script' // Enum
  ;
 
 ENDME // ME_4AE966A200E1 
@@ -80,6 +84,8 @@ ME ME_4AE966A6021B
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_494F7EF903BC // VCMControls
  ;
+ MELINK Target WL 'ME_470F144E000F' '470EF9BF0138.ms.model.script' // Typedef
+ ;
 
 ENDME // ME_4AE966A6021B 
 
@@ -87,6 +93,8 @@ ME ME_4AF95F7D0116
  MEPROP Class class_Dependency
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_494F7EF903BC // VCMControls
+ ;
+ MELINK Target WL 'ME_470F096E0203' '470F01500290.ms.model.script' // Vector
  ;
 
 ENDME // ME_4AF95F7D0116 
@@ -113,6 +121,18 @@ ME ME_54E481910053
 
 ENDME // ME_54E481910053 
 
+ME ME_4948065C01DF_ME_494F7EF903BC
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_494F7EF903BC pas_UnitName
+
+ME ME_4948F2EE0334_ME_494F7EF903BC
+ MELINK Original WL 'ME_4948F2EE0334' '4773984F02AA.ms.model.script' // pas_IntfUses
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948F2EE0334_ME_494F7EF903BC pas_IntfUses
+
 ME ME_494F7EF903BC
  MEPROP UID '494F7EF903BC'
  MEPROP Name 'VCMControls'
@@ -132,15 +152,20 @@ ME ME_494F7EF903BC
    Seq: ( HWL ME_5791DB9F01CD // IsVCMControls
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4948065C01DF_ME_494F7EF903BC // pas_UnitName
+ ME_4948F2EE0334_ME_494F7EF903BC // pas_IntfUses
+ )
+ ; // Overridden
  MELIST Dependencies
    Seq: ( ME_494F816A025D // VCMOperations
  ME_4A96A743020E // VCMFacet
  ME_4AE5ACE402C5 // Facet
  ME_4AE5ACF400B6 // SimpleClass
- ME_4AE9669E019D // 
- ME_4AE966A200E1 // 
- ME_4AE966A6021B // 
- ME_4AF95F7D0116 // 
+ ME_4AE9669E019D // Struct
+ ME_4AE966A200E1 // Enum
+ ME_4AE966A6021B // Typedef
+ ME_4AF95F7D0116 // Vector
  ME_4BD8543A0045 // VCMFormDefinition
  ME_54E481910053 // ScriptKeyword
  )
@@ -155,6 +180,12 @@ ME ME_494F7EF903BC
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_494F7EF903BC VCMControls
+
+ME ME_4947F8AD02A1_ME_4BD853F50147
+ MELINK Original WL 'ME_4947F8AD02A1' '4773984F02AA.ms.model.script' // pas_TypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4947F8AD02A1_ME_4BD853F50147 pas_TypeName
 
 ME ME_4BD853F50147
  MEPROP UID '4BD853F50147'
@@ -171,6 +202,10 @@ ME ME_4BD853F50147
    Seq: ( WL 'ME_499D6E6D0319' '4729C4880157.ms.model.script' // Facet
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4947F8AD02A1_ME_4BD853F50147 // pas_TypeName
+ )
+ ; // Overridden
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\VCMUserInteraction\VCMFormDefinition'
  UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\VCMUserInteraction\VCMFormDefinition.tpi'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
@@ -260,6 +295,18 @@ ME ME_5791DD8703BB
 
 ENDME // ME_5791DD8703BB 
 
+ME ME_4948065C01DF_ME_5791D6D50045
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_5791D6D50045 pas_UnitName
+
+ME ME_4A41A13D03D5_ME_5791D6D50045
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_5791D6D50045 spell
+
 ME ME_5791D6D50045
  MEPROP UID '5791D6D50045'
  MEPROP Name 'VCMContracts'
@@ -274,6 +321,11 @@ ME ME_5791D6D50045
    Seq: ( HWL ME_494F7EF903BC // VCMControls
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4948065C01DF_ME_5791D6D50045 // pas_UnitName
+ ME_4A41A13D03D5_ME_5791D6D50045 // spell
+ )
+ ; // Overridden
  MELIST Dependencies
    Seq: ( ME_5791DD8703BB // VCMModuleContract
  )
@@ -359,6 +411,36 @@ ME ME_4A9D35E401D5
 
 ENDME // ME_4A9D35E401D5 IsModuleOperation
 
+ME ME_494BD6C80075_ME_4A9D2DEA0027
+ MELINK Original WL 'ME_494BD6C80075' '4773984F02AA.ms.model.script' // pas_MethodName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BD6C80075_ME_4A9D2DEA0027 pas_MethodName
+
+ME ME_494BDCF3030E_ME_4A9D2DEA0027
+ MELINK Original WL 'ME_494BDCF3030E' '4773984F02AA.ms.model.script' // pas_Params
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BDCF3030E_ME_4A9D2DEA0027 pas_Params
+
+ME ME_494BEC6A038A_ME_4A9D2DEA0027
+ MELINK Original WL 'ME_494BEC6A038A' '4773984F02AA.ms.model.script' // pas_MethodInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BEC6A038A_ME_4A9D2DEA0027 pas_MethodInterface
+
+ME ME_494BEC7C03E5_ME_4A9D2DEA0027
+ MELINK Original WL 'ME_494BEC7C03E5' '4773984F02AA.ms.model.script' // pas_MethodImplementation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BEC7C03E5_ME_4A9D2DEA0027 pas_MethodImplementation
+
+ME ME_49F703730268_ME_4A9D2DEA0027
+ MELINK Original WL 'ME_49F703730268' '4773984F02AA.ms.model.script' // IsPublishedAccess
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49F703730268_ME_4A9D2DEA0027 IsPublishedAccess
+
 ME ME_4A9D2DEA0027
  MEPROP UID '4A9D2DEA0027'
  MEPROP Name 'ModuleOperationPrim'
@@ -369,6 +451,10 @@ ME ME_4A9D2DEA0027
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4B62F51F0182 // VCMUserInteraction
  ;
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_4A9D371803DD // no test
  HWL ME_4ABBB075007B // no prefix
@@ -380,6 +466,14 @@ ME ME_4A9D2DEA0027
    Seq: ( HWL ME_4A9D35E401D5 // IsModuleOperation
  )
  ; // Operations
+ MELIST Overridden
+   Seq: ( ME_494BD6C80075_ME_4A9D2DEA0027 // pas_MethodName
+ ME_494BDCF3030E_ME_4A9D2DEA0027 // pas_Params
+ ME_494BEC6A038A_ME_4A9D2DEA0027 // pas_MethodInterface
+ ME_494BEC7C03E5_ME_4A9D2DEA0027 // pas_MethodImplementation
+ ME_49F703730268_ME_4A9D2DEA0027 // IsPublishedAccess
+ )
+ ; // Overridden
  UP "abstraction type" 'f'
  UP "visability type" '#'
  UP "visualization bg color" 10025880
@@ -401,6 +495,54 @@ ME ME_4A9D2CA30004
 
 ENDME // ME_4A9D2CA30004 
 
+ME ME_494BEC6A038A_ME_4A9D2BC80274
+ MELINK Original WL 'ME_494BEC6A038A' '4773984F02AA.ms.model.script' // pas_MethodInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BEC6A038A_ME_4A9D2BC80274 pas_MethodInterface
+
+ME ME_494BEC7C03E5_ME_4A9D2BC80274
+ MELINK Original WL 'ME_494BEC7C03E5' '4773984F02AA.ms.model.script' // pas_MethodImplementation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BEC7C03E5_ME_4A9D2BC80274 pas_MethodImplementation
+
+ME ME_49CB3C99034B_ME_4A9D2BC80274
+ MELINK Original WL 'ME_49CB3C99034B' '4773984F02AA.ms.model.script' // pas_MethodOwnerName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49CB3C99034B_ME_4A9D2BC80274 pas_MethodOwnerName
+
+ME ME_49CB3EE70382_ME_4A9D2BC80274
+ MELINK Original WL 'ME_49CB3EE70382' '4773984F02AA.ms.model.script' // IsClassInner
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49CB3EE70382_ME_4A9D2BC80274 IsClassInner
+
+ME ME_49CB54AA033A_ME_4A9D2BC80274
+ MELINK Original WL 'ME_49CB54AA033A' '4773984F02AA.ms.model.script' // pas_MethodDeclarations
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49CB54AA033A_ME_4A9D2BC80274 pas_MethodDeclarations
+
+ME ME_4B2A19E3038B_ME_4A9D2BC80274
+ MELINK Original WL 'ME_4B2A19E3038B' '4773984F02AA.ms.model.script' // DoSpell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A19E3038B_ME_4A9D2BC80274 DoSpell
+
+ME ME_4B2A29440092_ME_4A9D2BC80274
+ MELINK Original WL 'ME_4B2A29440092' '4773984F02AA.ms.model.script' // IsMethod
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A29440092_ME_4A9D2BC80274 IsMethod
+
+ME ME_4CBD7CFE025B_ME_4A9D2BC80274
+ MELINK Original WL 'ME_4CBD7CFE025B' '4773984F02AA.ms.model.script' // pas_CallingConventionsDirective
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CBD7CFE025B_ME_4A9D2BC80274 pas_CallingConventionsDirective
+
 ME ME_4A9D2BC80274
  MEPROP UID '4A9D2BC80274'
  MEPROP Name 'ModuleMethod'
@@ -413,9 +555,21 @@ ME ME_4A9D2BC80274
  MELINK Parent HWL ME_4B62F51F0182 // VCMUserInteraction
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4A9D2DEA0027 // ModuleOperationPrim
+   Seq: ( WL 'ME_49CB43D403C5' '470EF980003E.ms.model.script' // method
+ HWL ME_4A9D2DEA0027 // ModuleOperationPrim
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_494BEC6A038A_ME_4A9D2BC80274 // pas_MethodInterface
+ ME_494BEC7C03E5_ME_4A9D2BC80274 // pas_MethodImplementation
+ ME_49CB3C99034B_ME_4A9D2BC80274 // pas_MethodOwnerName
+ ME_49CB3EE70382_ME_4A9D2BC80274 // IsClassInner
+ ME_49CB54AA033A_ME_4A9D2BC80274 // pas_MethodDeclarations
+ ME_4B2A19E3038B_ME_4A9D2BC80274 // DoSpell
+ ME_4B2A29440092_ME_4A9D2BC80274 // IsMethod
+ ME_4CBD7CFE025B_ME_4A9D2BC80274 // pas_CallingConventionsDirective
+ )
+ ; // Overridden
  MELIST Dependencies
    Seq: ( ME_4A9D2CA30004 // ModuleOperationPrim
  )
@@ -448,8 +602,12 @@ ME ME_4B62F51F0182
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_470EF9BF0138' '470EF9BF0138.ms.model.script' // InterfaceTypes
+ WL 'ME_470F01500290' '470F01500290.ms.model.script' // Containers
  WL 'ME_4729C4880157' '4729C4880157.ms.model.script' // Interface
  WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  WL 'ME_4A9515FD0390' '4A9515FD0390.ms.model.script' // Factories
  WL 'ME_4B5DE69600AD' '4B5DE69600AD.ms.model.script' // FormOperations
  WL 'ME_4B62DE9C006C' '4B62DE9C006C.ms.model.script' // StandardLikePackages

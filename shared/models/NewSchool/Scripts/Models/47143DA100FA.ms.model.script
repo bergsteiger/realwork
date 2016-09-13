@@ -1,0 +1,449 @@
+// ViewsItems 47143DA100FA MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47143DA100FA
+
+FORWARD ME_47143E02006D
+
+ME ME_471EC9AE0242
+ MEPROP UID '471EC9AE0242'
+ MEPROP Name 'base wnd class'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_string::Attribute ;
+ %SUMMARY 'определяет базовый класс окна, от которого будет отнаследован элемент' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47143E02006D // GuiControl
+ ;
+ MEPROP Value 'CWnd'
+ UP extprop:pas:Value 'CWnd'
+
+ENDME // ME_471EC9AE0242 base wnd class
+
+ME ME_4714440600BB
+ MEPROP UID '4714440600BB'
+ MEPROP Name 'get_wnd_class'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает базовый класс окна (диалог, список т.д)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47143E02006D // GuiControl
+ ;
+
+ENDME // ME_4714440600BB get_wnd_class
+
+ME ME_4704C0E30186_ME_47143E02006D
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_47143E02006D constraint
+
+ME ME_471728BC0232_ME_47143E02006D
+ MELINK Original WL 'ME_471728BC0232' '470EF980003E.ms.model.script' // auto_self_data_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728BC0232_ME_47143E02006D auto_self_data_h
+
+ME ME_471728BE01B5_ME_47143E02006D
+ MELINK Original WL 'ME_471728BE01B5' '470EF980003E.ms.model.script' // auto_self_methods_cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728BE01B5_ME_47143E02006D auto_self_methods_cpp
+
+ME ME_471728C000FA_ME_47143E02006D
+ MELINK Original WL 'ME_471728C000FA' '470EF980003E.ms.model.script' // auto_self_methods_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C000FA_ME_47143E02006D auto_self_methods_h
+
+ME ME_471728C103A9_ME_47143E02006D
+ MELINK Original WL 'ME_471728C103A9' '470EF980003E.ms.model.script' // base_class_decl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C103A9_ME_47143E02006D base_class_decl
+
+ME ME_471728C60280_ME_47143E02006D
+ MELINK Original WL 'ME_471728C60280' '470EF980003E.ms.model.script' // self_forward
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C60280_ME_47143E02006D self_forward
+
+ME ME_471728C803B9_ME_47143E02006D
+ MELINK Original WL 'ME_471728C803B9' '470EF980003E.ms.model.script' // specific_include
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C803B9_ME_47143E02006D specific_include
+
+ME ME_4948F2EE0334_ME_47143E02006D
+ MELINK Original WL 'ME_4948F2EE0334' '4773984F02AA.ms.model.script' // pas_IntfUses
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948F2EE0334_ME_47143E02006D pas_IntfUses
+
+ME ME_47143E02006D
+ MEPROP UID '47143E02006D'
+ MEPROP Name 'GuiControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Визуальный элемент управления'#13#10'---'#13#10'Базовый стереотип для всех стереотипов описывающих элементы управления' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47143DA100FA // ViewsItems
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471466900128' '470EF980003E.ms.model.script' // SimpleClass
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_471EC9AE0242 // base wnd class
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4714440600BB // get_wnd_class
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_47143E02006D // constraint
+ ME_471728BC0232_ME_47143E02006D // auto_self_data_h
+ ME_471728BE01B5_ME_47143E02006D // auto_self_methods_cpp
+ ME_471728C000FA_ME_47143E02006D // auto_self_methods_h
+ ME_471728C103A9_ME_47143E02006D // base_class_decl
+ ME_471728C60280_ME_47143E02006D // self_forward
+ ME_471728C803B9_ME_47143E02006D // specific_include
+ ME_4948F2EE0334_ME_47143E02006D // pas_IntfUses
+ )
+ ; // Overridden
+ UP "personal label" 'code_gui_control'
+ UP "visualization bg color" 15448575
+ UP "visualization f-font color" 13110000
+ UP "visualization f-line color" 13110000
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\GuiControl'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\ViewsItems\GuiControl.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47143E02006D GuiControl
+
+FORWARD ME_4714408B03B9
+
+ME ME_471444AD001F_ME_4BFB75D502BD
+ MELINK Original WL 'ME_471444AD001F' '470384F502CE.ms.model.script' // addit_init
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471444AD001F_ME_4BFB75D502BD addit_init
+
+ME ME_4BFB75D502BD
+ MEPROP UID '4BFB75D502BD'
+ MEPROP Name 'ctor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAOperation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714408B03B9 // Dialog
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47049AA3038A' '470384F502CE.ms.model.script' // ctor
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_471444AD001F_ME_4BFB75D502BD // addit_init
+ )
+ ; // Overridden
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\Dialog\ctor'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4BFB75D502BD ctor
+
+ME ME_471441A101F4
+ MEPROP UID '471441A101F4'
+ MEPROP Name 'resizeable'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Может ли диалог изменять свой размер' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4714408B03B9 // Dialog
+ ;
+ MEPROP Value False
+ UP extprop:pas:Value False
+
+ENDME // ME_471441A101F4 resizeable
+
+ME ME_4704C0E30186_ME_4714408B03B9
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4704C0E30186_ME_4714408B03B9 constraint
+
+ME ME_4714440600BB_ME_4714408B03B9
+ MELINK Original HWL ME_4714440600BB // get_wnd_class
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4714440600BB_ME_4714408B03B9 get_wnd_class
+
+ME ME_471728BE01B5_ME_4714408B03B9
+ MELINK Original WL 'ME_471728BE01B5' '470EF980003E.ms.model.script' // auto_self_methods_cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728BE01B5_ME_4714408B03B9 auto_self_methods_cpp
+
+ME ME_471728C000FA_ME_4714408B03B9
+ MELINK Original WL 'ME_471728C000FA' '470EF980003E.ms.model.script' // auto_self_methods_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C000FA_ME_4714408B03B9 auto_self_methods_h
+
+ME ME_471728C103A9_ME_4714408B03B9
+ MELINK Original WL 'ME_471728C103A9' '470EF980003E.ms.model.script' // base_class_decl
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C103A9_ME_4714408B03B9 base_class_decl
+
+ME ME_471728C301D4_ME_4714408B03B9
+ MELINK Original WL 'ME_471728C301D4' '470EF980003E.ms.model.script' // ctor_n_dctor_cpp
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C301D4_ME_4714408B03B9 ctor_n_dctor_cpp
+
+ME ME_471728C5005D_ME_4714408B03B9
+ MELINK Original WL 'ME_471728C5005D' '470EF980003E.ms.model.script' // ctor_n_dctor_h
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_471728C5005D_ME_4714408B03B9 ctor_n_dctor_h
+
+ME ME_4714408B03B9
+ MEPROP UID '4714408B03B9'
+ MEPROP Name 'Dialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Диалог' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47143DA100FA // ViewsItems
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47143E02006D // GuiControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_471441A101F4 // resizeable
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_4704C0E30186_ME_4714408B03B9 // constraint
+ ME_4714440600BB_ME_4714408B03B9 // get_wnd_class
+ ME_471728BE01B5_ME_4714408B03B9 // auto_self_methods_cpp
+ ME_471728C000FA_ME_4714408B03B9 // auto_self_methods_h
+ ME_471728C103A9_ME_4714408B03B9 // base_class_decl
+ ME_471728C301D4_ME_4714408B03B9 // ctor_n_dctor_cpp
+ ME_471728C5005D_ME_4714408B03B9 // ctor_n_dctor_h
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BFB75D502BD // ctor
+ )
+ ; // Children
+ UP "personal label" 'code_gui_dialog'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\Dialog'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\ViewsItems\Dialog.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4714408B03B9 Dialog
+
+ME ME_4714421402DE
+ MEPROP UID '4714421402DE'
+ MEPROP Name 'PropertySheet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Диалог Свойств' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47143DA100FA // ViewsItems
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4714408B03B9 // Dialog
+ )
+ ; // Inherits
+ UP "personal label" 'code_gui_property_sheet'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\PropertySheet'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\ViewsItems\PropertySheet.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4714421402DE PropertySheet
+
+ME ME_471442330148
+ MEPROP UID '471442330148'
+ MEPROP Name 'PropertyPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Cтраница свойств'#13#10'---'#13#10'Элемент (страница) диалога свойств' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47143DA100FA // ViewsItems
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4714408B03B9 // Dialog
+ )
+ ; // Inherits
+ UP "personal label" 'code_gui_property_page'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\PropertyPage'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\ViewsItems\PropertyPage.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471442330148 PropertyPage
+
+FORWARD ME_4714425A0109
+
+ME ME_4714430C004E
+ MEPROP UID '4714430C004E'
+ MEPROP Name 'define'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'определения идентификаторов контролов, сообщений и т.д. Пример использования:'#13#10'{code}'#13#10'class <<Resource>> A {'#13#10'   attr <<define>> ID = 1;'#13#10'}'#13#10''#13#10'//A.h'#13#10'#define ID 1;'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4714425A0109 // Resource
+ ;
+ UP "personal label" 'code_static_attr'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\Resource\define'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4714430C004E define
+
+ME ME_47022C88029F_ME_4714425A0109
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_4714425A0109 h
+
+ME ME_471442BE033C_ME_4714425A0109
+ MELINK Original WL 'ME_471442BE033C' '4773969402E9.ms.model.script' // rc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_471442BE033C_ME_4714425A0109 rc
+
+ME ME_4714425A0109
+ MEPROP UID '4714425A0109'
+ MEPROP Name 'Resource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурс'#13#10'---'#13#10'определяет набор дефайнов и описание русорсов библиотеки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47143DA100FA // ViewsItems
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ WL 'ME_47022E21005D' '4773969402E9.ms.model.script' // Проектные файлы C++
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_4714425A0109 // h
+ ME_471442BE033C_ME_4714425A0109 // rc
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4714430C004E // define
+ )
+ ; // Children
+ UP "personal label" 'code_resource'
+ UP "visualization bg color" 16769520
+ UP "visualization f-font color" 14443680
+ UP "visualization f-line color" 14443680
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\Resource'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\ViewsItems\Resource.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4714425A0109 Resource
+
+FORWARD ME_471444FF01A5
+
+ME ME_47144522033C
+ MEPROP UID '47144522033C'
+ MEPROP Name 'addit_init'
+ MEPROP Class class_Operation
+ %SUMMARY 'дампит код инициализации базового класса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471444FF01A5 // ViewsSupport
+ ;
+
+ENDME // ME_47144522033C addit_init
+
+ME ME_47185A8C02FD
+ MEPROP UID '47185A8C02FD'
+ MEPROP Name 'base_dlg_class'
+ MEPROP Class class_Operation
+ %SUMMARY 'выводит базовый класс для GUI контролов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_471444FF01A5 // ViewsSupport
+ ;
+
+ENDME // ME_47185A8C02FD base_dlg_class
+
+ME ME_471444FF01A5
+ MEPROP UID '471444FF01A5'
+ MEPROP Name 'ViewsSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAUtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'вспомогательные функции для генерации стереотипов, поисывающих GUI' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47143DA100FA // ViewsItems
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47144522033C // addit_init
+ HWL ME_47185A8C02FD // base_dlg_class
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems\ViewsSupport'
+ UP mda:Path 'MDProcess\CommonTemplates\CommonLang\ViewsItems\ViewsSupport.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471444FF01A5 ViewsSupport
+
+ME ME_47143DA100FA
+ MEPROP UID '47143DA100FA'
+ MEPROP Name 'ViewsItems'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'пакет стереотипов описывающих элементы управления GUI' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47022A100167' '47022A100167.ms.model.script' // CommonLang
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47143E02006D // GuiControl
+ HWL ME_4714408B03B9 // Dialog
+ HWL ME_4714421402DE // PropertySheet
+ HWL ME_471442330148 // PropertyPage
+ HWL ME_4714425A0109 // Resource
+ HWL ME_471444FF01A5 // ViewsSupport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang\ViewsItems'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47143DA100FA ViewsItems

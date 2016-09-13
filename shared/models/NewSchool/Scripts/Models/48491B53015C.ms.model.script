@@ -51,6 +51,8 @@ ME ME_4A6489A600FF
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_48491CCA01C3 // EVD
  ;
+ MELINK Target WL 'ME_471466900128' '470EF980003E.ms.model.script' // SimpleClass
+ ;
 
 ENDME // ME_4A6489A600FF 
 
@@ -59,8 +61,26 @@ ME ME_4F9001BB00B4
  MELINK Stereotype st_include::Dependency ;
  MELINK Parent HWL ME_48491CCA01C3 // EVD
  ;
+ MELINK Target WL 'ME_4713540402CE' '470EF980003E.ms.model.script' // UtilityPack
+ ;
 
 ENDME // ME_4F9001BB00B4 
+
+ME ME_470F1571031C_ME_48491CCA01C3
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_48491CCA01C3 intf.pas
+
+ME ME_470F15B800CB_ME_48491CCA01C3
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_48491CCA01C3 impl.pas
 
 ME ME_485789C102E3_ME_48491CCA01C3
  MELINK Original WL 'ME_485789C102E3' '46E80398003B.ms.model.script' // data_scheme_package
@@ -89,6 +109,15 @@ ME ME_48491CCA01C3
    Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
  )
  ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_470F1571031C_ME_48491CCA01C3 // intf.pas
+ ME_470F15B800CB_ME_48491CCA01C3 // impl.pas
+ )
+ ; // Implemented
  MELIST Overridden
    Seq: ( ME_485789C102E3_ME_48491CCA01C3 // data_scheme_package
  ME_4A41A13D03D5_ME_48491CCA01C3 // spell
@@ -99,8 +128,8 @@ ME ME_48491CCA01C3
  ME_48493BAB0077 // Wrapper
  ME_484A92FE00C2 // TagImplementator
  ME_4856771C02AD // InterfaceFactory
- ME_4A6489A600FF // 
- ME_4F9001BB00B4 // 
+ ME_4A6489A600FF // SimpleClass
+ ME_4F9001BB00B4 // UtilityPack
  )
  ; // Dependencies
  UP "personal label" 'code_evd_data_def'
@@ -132,6 +161,8 @@ ME ME_48491B53015C
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  WL 'ME_4849199D0140' '4849199D0140.ms.model.script' // Elements
  WL 'ME_48493B130062' '48493B130062.ms.model.script' // Implementation
  )

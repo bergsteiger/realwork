@@ -118,6 +118,16 @@ type
  TPen = {final} class
  end;//TPen
 
+ TPenStyle = (
+  psSolid
+  , psDash
+  , psDot
+  , psDashDot
+  , psDashDotDot
+  , psClear
+  , psInsideFrame
+ );//TPenStyle
+
 procedure ColorToRGB;
 
 implementation

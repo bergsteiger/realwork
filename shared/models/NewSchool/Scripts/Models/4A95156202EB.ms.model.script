@@ -15,6 +15,10 @@ ME ME_4A9271340328
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4A95156202EB // MixIns
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A2ADB0305' '470384F502CE.ms.model.script' // UsesContainer
+ )
+ ; // Inherits
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\User'
  UP mda:Path 'MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns\User.tpi'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
@@ -60,6 +64,22 @@ ME ME_4704C0E30186_ME_4A797DC60043
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4704C0E30186_ME_4A797DC60043 constraint
 
+ME ME_470F1571031C_ME_4A797DC60043
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4A797DC60043 intf.pas
+
+ME ME_470F15B800CB_ME_4A797DC60043
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4A797DC60043 impl.pas
+
 ME ME_4A797DC60043
  MEPROP UID '4A797DC60043'
  MEPROP Name 'VCMZonePrim'
@@ -75,6 +95,10 @@ ME ME_4A797DC60043
    Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
  )
  ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_4A797DFE003B // ZoneType
  HWL ME_4F72C82A03BB // Need UC
@@ -82,6 +106,8 @@ ME ME_4A797DC60043
  ; // Attributes
  MELIST Implemented
    Seq: ( ME_4704C0E30186_ME_4A797DC60043 // constraint
+ ME_470F1571031C_ME_4A797DC60043 // intf.pas
+ ME_470F15B800CB_ME_4A797DC60043 // impl.pas
  )
  ; // Implemented
  UP "personal label" 'code_vcm_zone'
@@ -185,6 +211,8 @@ ME ME_4A95156202EB
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_46E1536802AF' '46E1536802AF.ms.model.script' // Elements
  WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  )
  ; // Depends
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\MixIns'

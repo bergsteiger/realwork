@@ -1,0 +1,109 @@
+// Redifinition 478E24DA01E6 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_478E24DA01E6
+
+FORWARD ME_478E252A02D1
+
+ME ME_478E25370292
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_478E252A02D1 // LibSupport
+ ;
+ MELINK Target WL 'ME_471349EE01E4' '47134993036B.ms.model.script' // ClientInterceptor
+ ;
+
+ENDME // ME_478E25370292 
+
+ME ME_478E253901D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_478E252A02D1 // LibSupport
+ ;
+ MELINK Target WL 'ME_47134AE700FA' '47134993036B.ms.model.script' // ServerInterceptor
+ ;
+
+ENDME // ME_478E253901D7 
+
+ME ME_478E253A0282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_include::Dependency ;
+ MELINK Parent HWL ME_478E252A02D1 // LibSupport
+ ;
+ MELINK Target WL 'ME_47134AFB01E4' '47134993036B.ms.model.script' // CurrentSlot
+ ;
+
+ENDME // ME_478E253A0282 
+
+ME ME_47022CCF00EA_ME_478E252A02D1
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_478E252A02D1 i.h
+
+ME ME_470321C1038A_ME_478E252A02D1
+ MELINK Original WL 'ME_470321C1038A' '4773980602D9.ms.model.script' // fctr.java
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'java'
+ENDME // ME_470321C1038A_ME_478E252A02D1 fctr.java
+
+ME ME_478E252A02D1
+ MEPROP UID '478E252A02D1'
+ MEPROP Name 'LibSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDACategory ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '–асширен серверной метамоделью - дополнительно может содержать интерцепторы (клиентские и сервернные)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E24DA01E6 // Redifinition
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_470482B401B5' '470335990177.ms.model.script' // LibSupport
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47022CCF00EA_ME_478E252A02D1 // i.h
+ ME_470321C1038A_ME_478E252A02D1 // fctr.java
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_478E25370292 // ClientInterceptor
+ ME_478E253901D7 // ServerInterceptor
+ ME_478E253A0282 // CurrentSlot
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Redifinition\LibSupport'
+ UP mda:Path 'MDProcess\CommonTemplates\ServerLib\Redifinition\LibSupport.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_478E252A02D1 LibSupport
+
+ME ME_478E24DA01E6
+ MEPROP UID '478E24DA01E6'
+ MEPROP Name 'Redifinition'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'ѕереопределени€ стандартных стереотипов дл€ серверной метамодели' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_478DEEBE011B' '478DEEBE011B.ms.model.script' // ServerLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_478E252A02D1 // LibSupport
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_470335990177' '470335990177.ms.model.script' // Library
+ WL 'ME_47134993036B' '47134993036B.ms.model.script' // Interceptors
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\ServerLib\Redifinition'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\ServerLib\Redifinition'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_478E24DA01E6 Redifinition

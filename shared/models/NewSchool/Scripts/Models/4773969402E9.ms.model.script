@@ -1,0 +1,412 @@
+// СppGens 4773969402E9 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4773969402E9
+
+FORWARD ME_47022C670251
+
+ME ME_47022C88029F
+ MEPROP UID '47022C88029F'
+ MEPROP Name 'h'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор заголовочных файлов C++ (.h)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022C670251 // C++ интерфейсы и реализация
+ ;
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+
+ENDME // ME_47022C88029F h
+
+ME ME_47022CB8034B
+ MEPROP UID '47022CB8034B'
+ MEPROP Name 'cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор файлов реализации C++ (.cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022C670251 // C++ интерфейсы и реализация
+ ;
+ UP "lang id" 'cpp'
+
+ENDME // ME_47022CB8034B cpp
+
+ME ME_47022CCF00EA
+ MEPROP UID '47022CCF00EA'
+ MEPROP Name 'i.h'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор inline файлов реализации C++ (.i.h)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022C670251 // C++ интерфейсы и реализация
+ ;
+ UP "lang id" 'cpp'
+
+ENDME // ME_47022CCF00EA i.h
+
+ME ME_47022C670251
+ MEPROP UID '47022C670251'
+ MEPROP Name 'C++ интерфейсы и реализация'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'группа генераторов, целевой язык - C++' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773969402E9 // СppGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ WL 'ME_4976EB82018C' '46E80398003B.ms.model.script' // Ifdef
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47022C88029F // h
+ HWL ME_47022CB8034B // cpp
+ HWL ME_47022CCF00EA // i.h
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\СppGens\C++ интерфейсы и реализация'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\СppGens\C++ интерфейсы и реализация.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47022C670251 C++ интерфейсы и реализация
+
+FORWARD ME_47022E21005D
+
+ME ME_47031E41002E
+ MEPROP UID '47031E41002E'
+ MEPROP Name 'mpc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'mpc/mwc файлы проектов (mpc/mwc)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47031E41002E mpc
+
+ME ME_47031E850177
+ MEPROP UID '47031E850177'
+ MEPROP Name 'mpc2'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'дополнительные файлы проектов (mpc)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47031E850177 mpc2
+
+ME ME_47031EA5002E
+ MEPROP UID '47031EA5002E'
+ MEPROP Name 's.reg'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'настройки реестра (.reg)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47031EA5002E s.reg
+
+ME ME_47031EDE0138
+ MEPROP UID '47031EDE0138'
+ MEPROP Name 's.ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'файл настроек (.ini)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47031EDE0138 s.ini
+
+ME ME_47031EF6005D
+ MEPROP UID '47031EF6005D'
+ MEPROP Name 'vi.rc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'информация о версии (.rc)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47031EF6005D vi.rc
+
+ME ME_47031F13004E
+ MEPROP UID '47031F13004E'
+ MEPROP Name 'vi.rch'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'информация о версии (.rch)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47031F13004E vi.rch
+
+ME ME_471442BE033C
+ MEPROP UID '471442BE033C'
+ MEPROP Name 'rc'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Файлы ресурсов (rc)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_471442BE033C rc
+
+ME ME_47EA1ED00157
+ MEPROP UID '47EA1ED00157'
+ MEPROP Name 'specific_h_files_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вызывается для генерации специфических хидеров (например хидере реализации хранения)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47EA1ED00157 specific_h_files_list
+
+ME ME_47EA208B0009
+ MEPROP UID '47EA208B0009'
+ MEPROP Name 'specific_cpp_files_list'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вызывается для генерации специфических cpp-шников (например хидере реализации хранения)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+
+ENDME // ME_47EA208B0009 specific_cpp_files_list
+
+ME ME_47031F2803A9
+ MEPROP Name 'l'
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_group::Dependency ;
+ MELINK Parent HWL ME_47022E21005D // Проектные файлы C++
+ ;
+ MELINK Target HWL ME_47022C670251 // C++ интерфейсы и реализация
+ ;
+
+ENDME // ME_47031F2803A9 l
+
+ME ME_47022E21005D
+ MEPROP UID '47022E21005D'
+ MEPROP Name 'Проектные файлы C++'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'группа генераторов проектных файлов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773969402E9 // СppGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47031E41002E // mpc
+ HWL ME_47031E850177 // mpc2
+ HWL ME_47031EA5002E // s.reg
+ HWL ME_47031EDE0138 // s.ini
+ HWL ME_47031EF6005D // vi.rc
+ HWL ME_47031F13004E // vi.rch
+ HWL ME_471442BE033C // rc
+ HWL ME_47EA1ED00157 // specific_h_files_list
+ HWL ME_47EA208B0009 // specific_cpp_files_list
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_47031F2803A9 // l:C++ интерфейсы и реализация
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\СppGens\Проектные файлы C++'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\СppGens\Проектные файлы C++.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47022E21005D Проектные файлы C++
+
+FORWARD ME_4703206200DA
+
+ME ME_47032097038A
+ MEPROP UID '47032097038A'
+ MEPROP Name 'odl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор ODL-файла спецификации COM-интерфейса (.odl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4703206200DA // COM
+ ;
+ UP "lang id" 'cpp'
+
+ENDME // ME_47032097038A odl
+
+ME ME_470320C1030D
+ MEPROP UID '470320C1030D'
+ MEPROP Name 'com.def'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генерация файла экспорта определений для COM DLL (.def)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4703206200DA // COM
+ ;
+
+ENDME // ME_470320C1030D com.def
+
+ME ME_470320E002CE
+ MEPROP UID '470320E002CE'
+ MEPROP Name 'com.rgs'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генерация файла опрделений для регистрации COM DLL (.rgs)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4703206200DA // COM
+ ;
+
+ENDME // ME_470320E002CE com.rgs
+
+ME ME_4703206200DA
+ MEPROP UID '4703206200DA'
+ MEPROP Name 'COM'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'группа генераторов COM-интерфейсов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773969402E9 // СppGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ WL 'ME_4976EB82018C' '46E80398003B.ms.model.script' // Ifdef
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47032097038A // odl
+ HWL ME_470320C1030D // com.def
+ HWL ME_470320E002CE // com.rgs
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\СppGens\COM'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\СppGens\COM.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4703206200DA COM
+
+FORWARD ME_4705C4E1037A
+
+ME ME_4705C5490109
+ MEPROP UID '4705C5490109'
+ MEPROP Name 'fctr.h'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор заголовочных файлов для фабрик интерфейсов (.h)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4705C4E1037A // C++ Фабрики
+ ;
+ UP "ifdef_suffix" 'FCTR_H'
+ UP "lang id" 'cpp'
+
+ENDME // ME_4705C5490109 fctr.h
+
+ME ME_4705C54B01F4
+ MEPROP UID '4705C54B01F4'
+ MEPROP Name 'fctr.cpp'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор файлов реализации для фабрик интерфейсов (.cpp)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4705C4E1037A // C++ Фабрики
+ ;
+ UP "lang id" 'cpp'
+
+ENDME // ME_4705C54B01F4 fctr.cpp
+
+ME ME_4705C50E033C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_group::Dependency ;
+ MELINK Parent HWL ME_4705C4E1037A // C++ Фабрики
+ ;
+ MELINK Target HWL ME_47022C670251 // C++ интерфейсы и реализация
+ ;
+
+ENDME // ME_4705C50E033C 
+
+ME ME_4705C4E1037A
+ MEPROP UID '4705C4E1037A'
+ MEPROP Name 'C++ Фабрики'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'генератор фабрик на c++' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4773969402E9 // СppGens
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47022C670251 // C++ интерфейсы и реализация
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4705C5490109 // fctr.h
+ HWL ME_4705C54B01F4 // fctr.cpp
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4705C50E033C // C++ интерфейсы и реализация
+ )
+ ; // Dependencies
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\СppGens\C++ Фабрики'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\СppGens\C++ Фабрики.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4705C4E1037A C++ Фабрики
+
+ME ME_4773969402E9
+ MEPROP UID '4773969402E9'
+ MEPROP Name 'СppGens'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Генераторы для С\С++' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4773963E021D' '4773963E021D.ms.model.script' // AllGenerators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47022C670251 // C++ интерфейсы и реализация
+ HWL ME_47022E21005D // Проектные файлы C++
+ HWL ME_4703206200DA // COM
+ HWL ME_4705C4E1037A // C++ Фабрики
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\СppGens'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\AllGenerators\СppGens'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_4773969402E9 СppGens

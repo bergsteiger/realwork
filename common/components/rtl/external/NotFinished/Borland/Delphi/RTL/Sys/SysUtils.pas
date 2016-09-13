@@ -94,6 +94,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *47877EB202FBimpl_uses*
  //#UC END# *47877EB202FBimpl_uses*
 ;
@@ -320,6 +323,10 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(Exception));
  {* Регистрация типа Exception }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
+ {* Регистрация типа ExceptClass }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(EOSError));

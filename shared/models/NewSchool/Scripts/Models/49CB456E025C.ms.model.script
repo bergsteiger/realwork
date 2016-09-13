@@ -4,6 +4,38 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_49CB456E025C
 
+ME ME_4774D2A20372_ME_4AE024D60148
+ MELINK Original WL 'ME_4774D2A20372' '4773984F02AA.ms.model.script' // intf3.pas
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_4774D2A20372_ME_4AE024D60148 intf3.pas
+
+ME ME_494BEC6A038A_ME_4AE024D60148
+ MELINK Original WL 'ME_494BEC6A038A' '4773984F02AA.ms.model.script' // pas_MethodInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BEC6A038A_ME_4AE024D60148 pas_MethodInterface
+
+ME ME_494BEC7C03E5_ME_4AE024D60148
+ MELINK Original WL 'ME_494BEC7C03E5' '4773984F02AA.ms.model.script' // pas_MethodImplementation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BEC7C03E5_ME_4AE024D60148 pas_MethodImplementation
+
+ME ME_4AE025440082_ME_4AE024D60148
+ MELINK Original WL 'ME_4AE025440082' '4773984F02AA.ms.model.script' // IsConstructor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AE025440082_ME_4AE024D60148 IsConstructor
+
+ME ME_4B6C4DE70271_ME_4AE024D60148
+ MELINK Original WL 'ME_4B6C4DE70271' '4773984F02AA.ms.model.script' // pas_BeforeMethodBodyImplementation
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B6C4DE70271_ME_4AE024D60148 pas_BeforeMethodBodyImplementation
+
 ME ME_4AE024D60148
  MEPROP UID '4AE024D60148'
  MEPROP Name 'Constructor'
@@ -15,6 +47,18 @@ ME ME_4AE024D60148
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_49CB456E025C // ClassInner
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49CB43D403C5' '470EF980003E.ms.model.script' // method
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4774D2A20372_ME_4AE024D60148 // intf3.pas
+ ME_494BEC6A038A_ME_4AE024D60148 // pas_MethodInterface
+ ME_494BEC7C03E5_ME_4AE024D60148 // pas_MethodImplementation
+ ME_4AE025440082_ME_4AE024D60148 // IsConstructor
+ ME_4B6C4DE70271_ME_4AE024D60148 // pas_BeforeMethodBodyImplementation
+ )
+ ; // Overridden
  UP "abstraction type" 'fr'
  UP "personal label" 'code_factory'
  UP "visability type" '+#'
@@ -148,6 +192,18 @@ ENDME // ME_4AE027EC00A7 FactoryMixIn
 
 FORWARD ME_4AE0263A0260
 
+ME ME_4CC01C0D0010_ME_4CC01C720055
+ MELINK Original WL 'ME_4CC01C0D0010' '4773984F02AA.ms.model.script' // IsMakeSingleChild
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC01C0D0010_ME_4CC01C720055 IsMakeSingleChild
+
+ME ME_4CC02B360368_ME_4CC01C720055
+ MELINK Original WL 'ME_4CC02B360368' '4773984F02AA.ms.model.script' // NeedAggregate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC02B360368_ME_4CC01C720055 NeedAggregate
+
 ME ME_4CC01C720055
  MEPROP UID '4CC01C720055'
  MEPROP Name 'operation'
@@ -158,11 +214,44 @@ ME ME_4CC01C720055
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4AE0263A0260 // Factory
  ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49CB473A0201' '470EF980003E.ms.model.script' // operation
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4CC01C0D0010_ME_4CC01C720055 // IsMakeSingleChild
+ ME_4CC02B360368_ME_4CC01C720055 // NeedAggregate
+ )
+ ; // Overridden
  UP "unstereotyped" True
  UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner\Factory\operation'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_4CC01C720055 operation
+
+ME ME_494BB3A201A2_ME_4AE0263A0260
+ MELINK Original WL 'ME_494BB3A201A2' '4773984F02AA.ms.model.script' // pas_MethodBodyPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BB3A201A2_ME_4AE0263A0260 pas_MethodBodyPrim
+
+ME ME_494BDD190361_ME_4AE0263A0260
+ MELINK Original WL 'ME_494BDD190361' '4773984F02AA.ms.model.script' // pas_ResultTypeName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_494BDD190361_ME_4AE0263A0260 pas_ResultTypeName
+
+ME ME_4AE026A90143_ME_4AE0263A0260
+ MELINK Original WL 'ME_4AE026A90143' '4773984F02AA.ms.model.script' // IsFactory
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4AE026A90143_ME_4AE0263A0260 IsFactory
+
+ME ME_4B2A19E3038B_ME_4AE0263A0260
+ MELINK Original WL 'ME_4B2A19E3038B' '4773984F02AA.ms.model.script' // DoSpell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A19E3038B_ME_4AE0263A0260 DoSpell
 
 ME ME_4AE0263A0260
  MEPROP UID '4AE0263A0260'
@@ -176,9 +265,17 @@ ME ME_4AE0263A0260
  MELINK Parent HWL ME_49CB456E025C // ClassInner
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4AE027EC00A7 // FactoryMixIn
+   Seq: ( WL 'ME_49CB43D403C5' '470EF980003E.ms.model.script' // method
+ HWL ME_4AE027EC00A7 // FactoryMixIn
  )
  ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_494BB3A201A2_ME_4AE0263A0260 // pas_MethodBodyPrim
+ ME_494BDD190361_ME_4AE0263A0260 // pas_ResultTypeName
+ ME_4AE026A90143_ME_4AE0263A0260 // IsFactory
+ ME_4B2A19E3038B_ME_4AE0263A0260 // DoSpell
+ )
+ ; // Overridden
  MELIST Children
    Seq: ( HWL ME_4CC01C720055 // operation
  )
@@ -214,6 +311,8 @@ ME ME_49CB456E025C
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  )
  ; // Depends
  UP mda.inc:PathOnly '\MDProcess\DelphiSpecific\DelphiLang\ClassInner'

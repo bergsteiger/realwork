@@ -598,6 +598,10 @@ initialization
  {* Регистрация TCollection }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
+ {* Регистрация типа TCollectionItemClass }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TBasicAction);
  {* Регистрация TBasicAction }
 {$IfEnd} // NOT Defined(NoScripts)

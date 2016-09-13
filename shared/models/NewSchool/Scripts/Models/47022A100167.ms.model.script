@@ -1,0 +1,45 @@
+// CommonLang 47022A100167 MDALibrary Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_47022A100167
+ MEPROP UID '47022A100167'
+ MEPROP Name 'CommonLang'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALibrary ;
+ %SUMMARY 'библиотека шаблонов генерации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_46E138D901C5' '46E138D901C5.ms.model.script' // CommonTemplates
+ ;
+ MELIST Children
+   Seq: ( WL 'ME_470384F502CE' '470384F502CE.ms.model.script' // BaseTypes
+ WL 'ME_470335BE01D4' '470335BE01D4.ms.model.script' // Target
+ WL 'ME_470F01500290' '470F01500290.ms.model.script' // Containers
+ WL 'ME_470EF9BF0138' '470EF9BF0138.ms.model.script' // InterfaceTypes
+ WL 'ME_4713175502FD' '4713175502FD.ms.model.script' // Functors
+ WL 'ME_478DF69F0205' '478DF69F0205.ms.model.script' // InterfacesMetamodel
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_470F3B1C01B5' '470F3B1C01B5.ms.model.script' // StateMachineClasses
+ WL 'ME_47143DA100FA' '47143DA100FA.ms.model.script' // ViewsItems
+ WL 'ME_478DF908013A' '478DF908013A.ms.model.script' // COM
+ WL 'ME_478E27270205' '478E27270205.ms.model.script' // PackagesIncludes
+ WL 'ME_478E0D90030F' '478E0D90030F.ms.model.script' // SpecPackages
+ WL 'ME_4703361A00EA' '4703361A00EA.ms.model.script' // Packages
+ WL 'ME_470335990177' '470335990177.ms.model.script' // Library
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E13A3C030D' '46E13A3C030D.ms.model.script' // Meta
+ WL 'ME_46E801C00348' '46E801C00348.ms.model.script' // Core
+ WL 'ME_4773963E021D' '4773963E021D.ms.model.script' // AllGenerators
+ WL 'ME_48C8B810028D' '48C8B810028D.ms.model.script' // SettingsLib
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\CommonLang'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\CommonLang'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47022A100167 CommonLang

@@ -1,0 +1,182 @@
+// OtherGens 47022B0D038A MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47022B0D038A
+
+FORWARD ME_47022B8800DA
+
+ME ME_47022BBE0261
+ MEPROP UID '47022BBE0261'
+ MEPROP Name 'idl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор idl спецификаций (.idl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022B8800DA // CORBA IDL
+ ;
+ UP "lang id" 'idl'
+
+ENDME // ME_47022BBE0261 idl
+
+ME ME_47022C0F01E4
+ MEPROP UID '47022C0F01E4'
+ MEPROP Name 'idl_ami'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'генератор idl спецификаций для AMI (.idl)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022B8800DA // CORBA IDL
+ ;
+ UP "lang id" 'idl'
+
+ENDME // ME_47022C0F01E4 idl_ami
+
+ME ME_47022B8800DA
+ MEPROP UID '47022B8800DA'
+ MEPROP Name 'CORBA IDL'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'группа генераторов, целевой язык - idl' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022B0D038A // OtherGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47022BBE0261 // idl
+ HWL ME_47022C0F01E4 // idl_ami
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\OtherGens\CORBA IDL'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\OtherGens\CORBA IDL.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47022B8800DA CORBA IDL
+
+FORWARD ME_47032F6B01D4
+
+ME ME_47032F9601A5
+ MEPROP UID '47032F9601A5'
+ MEPROP Name 'ant.xml'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Скрипт для Ant''а (.xml)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47032F6B01D4 // Скрипт для сборки
+ ;
+
+ENDME // ME_47032F9601A5 ant.xml
+
+ME ME_47032FA101E4
+ MEPROP UID '47032FA101E4'
+ MEPROP Name 'ant.bat'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_generator::Operation ;
+ %SUMMARY 'Пускачь для скрипта (.bat)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47032F6B01D4 // Скрипт для сборки
+ ;
+
+ENDME // ME_47032FA101E4 ant.bat
+
+ME ME_47032F6B01D4
+ MEPROP UID '47032F6B01D4'
+ MEPROP Name 'Скрипт для сборки'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAGenerator ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'генерация файлов для сборки проекта инсталлятора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022B0D038A // OtherGens
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46E6D49602DB' '46E80398003B.ms.model.script' // Документация
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47032F9601A5 // ant.xml
+ HWL ME_47032FA101E4 // ant.bat
+ )
+ ; // Operations
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\OtherGens\Скрипт для сборки'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\OtherGens\Скрипт для сборки.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47032F6B01D4 Скрипт для сборки
+
+ME ME_47022BBE0261_ME_471445E501F4
+ MELINK Original HWL ME_47022BBE0261 // idl
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022BBE0261_ME_471445E501F4 idl
+
+ME ME_47022C0F01E4_ME_471445E501F4
+ MELINK Original HWL ME_47022C0F01E4 // idl_ami
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'idl'
+ENDME // ME_47022C0F01E4_ME_471445E501F4 idl_ami
+
+ME ME_471445E501F4
+ MEPROP UID '471445E501F4'
+ MEPROP Name 'IDLImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стереотип - примесь'#13#10'---'#13#10'для генерации в idl классов реализации.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47022B0D038A // OtherGens
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_47022B8800DA // CORBA IDL
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47022BBE0261_ME_471445E501F4 // idl
+ ME_47022C0F01E4_ME_471445E501F4 // idl_ami
+ )
+ ; // Implemented
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\OtherGens\IDLImpl'
+ UP mda:Path 'MDProcess\CommonTemplates\AllGenerators\OtherGens\IDLImpl.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_471445E501F4 IDLImpl
+
+ME ME_47022B0D038A
+ MEPROP UID '47022B0D038A'
+ MEPROP Name 'OtherGens'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'слой генераторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4773963E021D' '4773963E021D.ms.model.script' // AllGenerators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47022B8800DA // CORBA IDL
+ HWL ME_47032F6B01D4 // Скрипт для сборки
+ HWL ME_471445E501F4 // IDLImpl
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\AllGenerators\OtherGens'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\AllGenerators\OtherGens'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_47022B0D038A OtherGens

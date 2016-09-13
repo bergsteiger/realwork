@@ -1,0 +1,284 @@
+// SettingsLayer 489FD5120186 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_489FD5120186
+
+FORWARD ME_48A27E2101E1
+
+FORWARD ME_48A27E7F0092
+
+ME ME_48EF456400D6
+ MEPROP UID '48EF456400D6'
+ MEPROP Name 'is_required'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Признак обязательного параметра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_48EF456400D6 is_required
+
+ME ME_493F5C2701F3
+ MEPROP UID '493F5C2701F3'
+ MEPROP Name 'in config'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_bool::Attribute ;
+ %SUMMARY 'Свойство определяет должен ли параметр попадать в файл настроек' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+ MEPROP Value True
+ UP extprop:pas:Value True
+
+ENDME // ME_493F5C2701F3 in config
+
+ME ME_492A93F303C8
+ MEPROP UID '492A93F303C8'
+ MEPROP Name 'print_usage'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит код для вывода описания параметра в стандартный поток' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_492A93F303C8 print_usage
+
+ME ME_492B81C90201
+ MEPROP UID '492B81C90201'
+ MEPROP Name 'dump_cast'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит приведение типа, если оно необходимо' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_492B81C90201 dump_cast
+
+ME ME_492B824000C5
+ MEPROP UID '492B824000C5'
+ MEPROP Name 'complex_return'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерирует код возврата для типов на прямую не поддержиыаемых ParamМanаger-ом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_492B824000C5 complex_return
+
+ME ME_492B82430369
+ MEPROP UID '492B82430369'
+ MEPROP Name 'complex_set'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерирует код установки значения для типов на прямую не поддержиыаемых ParamМanаger-ом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_492B82430369 complex_set
+
+ME ME_492B9F400206
+ MEPROP UID '492B9F400206'
+ MEPROP Name 'dump_get_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит реализацию метода get для получения значения параметра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_492B9F400206 dump_get_impl
+
+ME ME_492B9F7001FA
+ MEPROP UID '492B9F7001FA'
+ MEPROP Name 'dump_set_impl'
+ MEPROP Class class_Operation
+ %SUMMARY 'генерит реализациб метода set ля установки значения параметра' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_492B9F7001FA dump_set_impl
+
+ME ME_493F5C8F02AF
+ MEPROP UID '493F5C8F02AF'
+ MEPROP Name 'in_config'
+ MEPROP Class class_Operation
+ %SUMMARY 'Функция возвращает true, если параметр может попадать в файл настроек, иначе - false' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E7F0092 // Parameters
+ ;
+
+ENDME // ME_493F5C8F02AF in_config
+
+ME ME_48A27E7F0092
+ MEPROP UID '48A27E7F0092'
+ MEPROP Name 'Parameters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAAttribute ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'конкретный параметр доступный через настройки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E2101E1 // Settings
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48EF456400D6 // is_required
+ HWL ME_493F5C2701F3 // in config
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_492A93F303C8 // print_usage
+ HWL ME_492B81C90201 // dump_cast
+ HWL ME_492B824000C5 // complex_return
+ HWL ME_492B82430369 // complex_set
+ HWL ME_492B9F400206 // dump_get_impl
+ HWL ME_492B9F7001FA // dump_set_impl
+ HWL ME_493F5C8F02AF // in_config
+ )
+ ; // Operations
+ UP "personal label" 'code_settings_param'
+ UP "unstereotyped" True
+ UP "visability type" '+'
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\SettingsLib\SettingsLayer\Settings\Parameters'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48A27E7F0092 Parameters
+
+ME ME_48B692B502E0
+ MEPROP UID '48B692B502E0'
+ MEPROP Name 'check_duplicate_attr'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяем, что во всем множетсве настроек нет дублирующихся имен параметров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E2101E1 // Settings
+ ;
+
+ENDME // ME_48B692B502E0 check_duplicate_attr
+
+ME ME_4929B2E70086
+ MEPROP UID '4929B2E70086'
+ MEPROP Name 'direct_access'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_transformator::Operation ;
+ %SUMMARY 'возвращает true если тип на прямую поддерживается ParamManager-ом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48A27E2101E1 // Settings
+ ;
+
+ENDME // ME_4929B2E70086 direct_access
+
+ME ME_47022C88029F_ME_48A27E2101E1
+ MELINK Original WL 'ME_47022C88029F' '4773969402E9.ms.model.script' // h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef_suffix" 'H'
+ UP "lang id" 'cpp'
+ENDME // ME_47022C88029F_ME_48A27E2101E1 h
+
+ME ME_47022CB8034B_ME_48A27E2101E1
+ MELINK Original WL 'ME_47022CB8034B' '4773969402E9.ms.model.script' // cpp
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CB8034B_ME_48A27E2101E1 cpp
+
+ME ME_47022CCF00EA_ME_48A27E2101E1
+ MELINK Original WL 'ME_47022CCF00EA' '4773969402E9.ms.model.script' // i.h
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'cpp'
+ENDME // ME_47022CCF00EA_ME_48A27E2101E1 i.h
+
+ME ME_4704C0E30186_ME_48A27E2101E1
+ MELINK Original WL 'ME_4704C0E30186' '46E80398003B.ms.model.script' // constraint
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4704C0E30186_ME_48A27E2101E1 constraint
+
+ME ME_48A27E2101E1
+ MEPROP UID '48A27E2101E1'
+ MEPROP Name 'Settings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_MDAClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Настройки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_489FD5120186 // SettingsLayer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_471723E1037A' '46E80398003B.ms.model.script' // WikiImplClass
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47022C670251' '4773969402E9.ms.model.script' // C++ интерфейсы и реализация
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48B692B502E0 // check_duplicate_attr
+ HWL ME_4929B2E70086 // direct_access
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47022C88029F_ME_48A27E2101E1 // h
+ ME_47022CB8034B_ME_48A27E2101E1 // cpp
+ ME_47022CCF00EA_ME_48A27E2101E1 // i.h
+ ME_4704C0E30186_ME_48A27E2101E1 // constraint
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_48A27E7F0092 // Parameters
+ )
+ ; // Children
+ UP "personal label" 'code_settings'
+ UP "visualization bg color" 2154415
+ UP "visualization f-font color" 0
+ UP "visualization f-line color" 37632
+ UP "visualization font color" 0
+ UP "visualization line color" 0
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\SettingsLib\SettingsLayer\Settings'
+ UP mda:Path 'MDProcess\CommonTemplates\SettingsLib\SettingsLayer\Settings.tpi'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_48A27E2101E1 Settings
+
+ME ME_489FD5120186
+ MEPROP UID '489FD5120186'
+ MEPROP Name 'SettingsLayer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_MDALayer ;
+ %SUMMARY 'Набор стереотипов для генерации настроек и работы с ними' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48C8B810028D' '48C8B810028D.ms.model.script' // SettingsLib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48A27E2101E1 // Settings
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_4773969402E9' '4773969402E9.ms.model.script' // СppGens
+ )
+ ; // Depends
+ UP mda.inc:PathOnly '\MDProcess\CommonTemplates\SettingsLib\SettingsLayer'
+ UP mda:PathOnly '\MDProcess\CommonTemplates\SettingsLib\SettingsLayer'
+ UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
+
+ENDME // ME_489FD5120186 SettingsLayer

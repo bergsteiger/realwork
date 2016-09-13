@@ -1,0 +1,62 @@
+// Elements 499971140199 MDALayer Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_499971140199_diagrams
+
+ MEDIAGRAM ME_499971140199_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_499971140199' '499971140199.ms.model.script' ; // Elements
+
+  MEVIEW ME_499ACEDD01EF_view
+   MELINK Original WL 'ME_499ACEDD01EF' '499971140199.ms.model.script' ; // ClassInner
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_499ACEDD01EF_view
+
+  MEVIEW ME_499972740320_view
+   MELINK Original WL 'ME_499972740320' '499971140199.ms.model.script' ; // TestClass
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_499972740320_view
+
+  MEVIEW ME_4B2A19080274_view
+   MELINK Original WL 'ME_4B2A19080274' '499971140199.ms.model.script' ; // TestCase
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B2A19080274_view
+
+  MEVIEW ME_4B2A197A00D5_view
+   MELINK Original WL 'ME_4B2A197A00D5' '499971140199.ms.model.script' ; // Test
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B2A197A00D5_view
+
+  MEVIEW ME_51E0319001F4_view
+   MELINK Original WL 'ME_51E0319001F4' '499971140199.ms.model.script' ; // TestCaseMixIn
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_51E0319001F4_view
+
+  MEVIEWLINK ME_51E0319001F4_ME_4B2A19080274_Inherits
+   MELINK From ME_51E0319001F4_view ;
+   MELINK To ME_4B2A19080274_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_51E0319001F4_ME_4B2A19080274_Inherits
+
+  MELIST Views
+   Seq: ( ME_499ACEDD01EF_view // ClassInner
+   ME_499972740320_view // TestClass
+   ME_4B2A19080274_view // TestCase
+   ME_4B2A197A00D5_view // Test
+   ME_51E0319001F4_view // TestCaseMixIn
+   ME_51E0319001F4_ME_4B2A19080274_Inherits // TestCaseMixIn -> TestCase
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_499971140199_main
+
+ MELIST Diagrams
+  Seq: ( ME_499971140199_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_499971140199_diagrams

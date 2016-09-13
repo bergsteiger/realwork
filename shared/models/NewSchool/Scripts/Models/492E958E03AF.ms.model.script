@@ -238,6 +238,34 @@ ME ME_4A95240600C5
 
 ENDME // ME_4A95240600C5 
 
+ME ME_470F1571031C_ME_4953E0360081
+ MELINK Original WL 'ME_470F1571031C' '4773984F02AA.ms.model.script' // intf.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F1571031C_ME_4953E0360081 intf.pas
+
+ME ME_470F15B800CB_ME_4953E0360081
+ MELINK Original WL 'ME_470F15B800CB' '4773984F02AA.ms.model.script' // impl.pas
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "lang id" 'delphi'
+ UP "tab replace" '\\s'
+ENDME // ME_470F15B800CB_ME_4953E0360081 impl.pas
+
+ME ME_4948065C01DF_ME_4953E0360081
+ MELINK Original WL 'ME_4948065C01DF' '4773984F02AA.ms.model.script' // pas_UnitName
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4948065C01DF_ME_4953E0360081 pas_UnitName
+
+ME ME_4A41A13D03D5_ME_4953E0360081
+ MELINK Original WL 'ME_4A41A13D03D5' '46E80398003B.ms.model.script' // spell
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A41A13D03D5_ME_4953E0360081 spell
+
 ME ME_4953E0360081
  MEPROP UID '4953E0360081'
  MEPROP Name 'VCMSubsystem'
@@ -253,6 +281,10 @@ ME ME_4953E0360081
    Seq: ( WL 'ME_471738DF00DA' '46E80398003B.ms.model.script' // WikiPackageImpl
  )
  ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_470F151302FD' '4773984F02AA.ms.model.script' // Delphi интерфейсы и реализация
+ )
+ ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_4954C5E702CB // defines
  HWL ME_4954C610010C // vendor
@@ -263,6 +295,16 @@ ME ME_4953E0360081
  HWL ME_4AA8B17E0178 // pas_OutUnitFile
  )
  ; // Operations
+ MELIST Implemented
+   Seq: ( ME_470F1571031C_ME_4953E0360081 // intf.pas
+ ME_470F15B800CB_ME_4953E0360081 // impl.pas
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4948065C01DF_ME_4953E0360081 // pas_UnitName
+ ME_4A41A13D03D5_ME_4953E0360081 // spell
+ )
+ ; // Overridden
  MELIST Dependencies
    Seq: ( ME_4953E0530157 // VCMControllers
  ME_4953E05C032F // VCMViews
@@ -301,9 +343,13 @@ ME ME_492E958E03AF
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_46E80398003B' '46E80398003B.ms.model.script' // Abstract
+ WL 'ME_470EF980003E' '470EF980003E.ms.model.script' // ImplementationTypes
+ WL 'ME_470EF9BF0138' '470EF9BF0138.ms.model.script' // InterfaceTypes
+ WL 'ME_470F01500290' '470F01500290.ms.model.script' // Containers
  WL 'ME_4729C4880157' '4729C4880157.ms.model.script' // Interface
  WL 'ME_4732AE850271' '4732AE850271.ms.model.script' // Redefinitions
  WL 'ME_473A7FCA0203' '473A7FCA0203.ms.model.script' // Implementation
+ WL 'ME_4773984F02AA' '4773984F02AA.ms.model.script' // DelphiGens
  WL 'ME_492EC605004C' '492EC605004C.ms.model.script' // ControllersImplementation
  WL 'ME_4947E25703A8' '4947E25703A8.ms.model.script' // FormsPack
  WL 'ME_49CB456E025C' '49CB456E025C.ms.model.script' // ClassInner
