@@ -2,38 +2,54 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_52F8C2BF0110_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' ; // TddProcessTask
+MEDIAGRAMS ME_52F8C2BF0110_diagrams
 
- MEVIEW ME_53A2EEE90097_view
-  MELINK Original WL 'ME_53A2EEE90097' '52F8C298005C.ms.model.script' ; // DoRun
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_53A2EEE90097_view
+ MEDIAGRAM ME_52F8C2BF0110_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' ; // TddProcessTask
 
- MEVIEW ME_53CF5FC303D9_view
-  MELINK Original WL 'ME_53CF5FC303D9' '52F8C298005C.ms.model.script' ; // RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53CF5FC303D9_view
+  MEVIEW ME_53A2EEE90097_view
+   MELINK Original WL 'ME_53A2EEE90097' '52F8C298005C.ms.model.script' ; // DoRun
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A2EEE90097_view
 
- MEVIEW ME_53CF5FE40219_view
-  MELINK Original WL 'ME_53CF5FE40219' '52F8C298005C.ms.model.script' ; // UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_53CF5FE40219_view
+  MEVIEW ME_53CF5FC303D9_view
+   MELINK Original WL 'ME_53CF5FC303D9' '52F8C298005C.ms.model.script' ; // RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CF5FC303D9_view
 
- MEVIEW ME_53E1CB0C03C9_view
-  MELINK Original WL 'ME_53E1CB0C03C9' '52F8C298005C.ms.model.script' ; // GetTaskResultClass : TcsClassResultClass
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_53E1CB0C03C9_view
+  MEVIEW ME_53CF5FE40219_view
+   MELINK Original WL 'ME_53CF5FE40219' '52F8C298005C.ms.model.script' ; // UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CF5FE40219_view
 
- MEVIEW ME_57C4135700F7_view
-  MELINK Original WL 'ME_57C4135700F7' '52F8C298005C.ms.model.script' ; // DoAbort
-  MEPROP X 450
-  MEPROP Y 10
- ENDMEVIEW // ME_57C4135700F7_view
+  MEVIEW ME_53E1CB0C03C9_view
+   MELINK Original WL 'ME_53E1CB0C03C9' '52F8C298005C.ms.model.script' ; // GetTaskResultClass : TcsClassResultClass
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_53E1CB0C03C9_view
 
-ENDMEDIAGRAM // ME_52F8C2BF0110_main
+  MEVIEW ME_57C4135700F7_view
+   MELINK Original WL 'ME_57C4135700F7' '52F8C298005C.ms.model.script' ; // DoAbort
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_57C4135700F7_view
+
+  MELIST Views
+   Seq: ( ME_53A2EEE90097_view // DoRun
+   ME_53CF5FC303D9_view // RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+   ME_53CF5FE40219_view // UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+   ME_53E1CB0C03C9_view // GetTaskResultClass : TcsClassResultClass
+   ME_57C4135700F7_view // DoAbort
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_52F8C2BF0110_main
+
+ MELIST Diagrams
+  Seq: ( ME_52F8C2BF0110_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_52F8C2BF0110_diagrams

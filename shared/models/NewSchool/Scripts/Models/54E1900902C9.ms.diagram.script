@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_54E1900902C9_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_54E1900902C9' '5190A3470397.ms.model.script' ; // destFontTable
+MEDIAGRAMS ME_54E1900902C9_diagrams
 
- MEVIEW ME_54E1908B0336_view
-  MELINK Original WL 'ME_54E1908B0336' '5190A3470397.ms.model.script' ; // TddFontTable
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_54E1908B0336_view
+ MEDIAGRAM ME_54E1900902C9_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_54E1900902C9' '5190A3470397.ms.model.script' ; // destFontTable
 
- MEVIEW ME_54E190B601EC_view
-  MELINK Original WL 'ME_54E190B601EC' '5190A3470397.ms.model.script' ; // TdestFontTable
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_54E190B601EC_view
+  MEVIEW ME_54E1908B0336_view
+   MELINK Original WL 'ME_54E1908B0336' '5190A3470397.ms.model.script' ; // TddFontTable
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54E1908B0336_view
 
-ENDMEDIAGRAM // ME_54E1900902C9_main
+  MEVIEW ME_54E190B601EC_view
+   MELINK Original WL 'ME_54E190B601EC' '5190A3470397.ms.model.script' ; // TdestFontTable
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_54E190B601EC_view
+
+  MELIST Views
+   Seq: ( ME_54E1908B0336_view // TddFontTable
+   ME_54E190B601EC_view // TdestFontTable
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_54E1900902C9_main
+
+ MELIST Diagrams
+  Seq: ( ME_54E1900902C9_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_54E1900902C9_diagrams

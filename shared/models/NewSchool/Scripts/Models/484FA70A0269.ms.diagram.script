@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_484FA70A0269_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_484FA70A0269' '484FA67302D7.ms.model.script' ; // Интерфейс системы
+MEDIAGRAMS ME_484FA70A0269_diagrams
 
- MEVIEW ME_4E7C2A4B0369_view
-  MELINK Original WL 'ME_4E7C2A4B0369' '484FA67302D7.ms.model.script' ; // Нижняя вкладка основного окна должна иметь фиксированный размер при открытии
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E7C2A4B0369_view
+ MEDIAGRAM ME_484FA70A0269_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_484FA70A0269' '484FA67302D7.ms.model.script' ; // Интерфейс системы
 
-ENDMEDIAGRAM // ME_484FA70A0269_main
+  MEVIEW ME_4E7C2A4B0369_view
+   MELINK Original WL 'ME_4E7C2A4B0369' '484FA67302D7.ms.model.script' ; // Нижняя вкладка основного окна должна иметь фиксированный размер при открытии
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E7C2A4B0369_view
+
+  MELIST Views
+   Seq: ( ME_4E7C2A4B0369_view // Нижняя вкладка основного окна должна иметь фиксированный размер при открытии
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_484FA70A0269_main
+
+ MELIST Diagrams
+  Seq: ( ME_484FA70A0269_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_484FA70A0269_diagrams

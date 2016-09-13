@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_55EED3CD0299_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_55EED3CD0299' '53D656130130.ms.model.script' ; // TalcuMdpDocImporter
+MEDIAGRAMS ME_55EED3CD0299_diagrams
 
- MEVIEW ME_55EEDEC7035D_view
-  MELINK Original WL 'ME_55EEDEC7035D' '53D656130130.ms.model.script' ; // HasToImport
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_55EEDEC7035D_view
+ MEDIAGRAM ME_55EED3CD0299_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_55EED3CD0299' '53D656130130.ms.model.script' ; // TalcuMdpDocImporter
 
- MEVIEW ME_57061FA6032E_view
-  MELINK Original WL 'ME_57061FA6032E' '53D656130130.ms.model.script' ; // MakeTask
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_57061FA6032E_view
+  MEVIEW ME_55EEDEC7035D_view
+   MELINK Original WL 'ME_55EEDEC7035D' '53D656130130.ms.model.script' ; // HasToImport
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_55EEDEC7035D_view
 
-ENDMEDIAGRAM // ME_55EED3CD0299_main
+  MEVIEW ME_57061FA6032E_view
+   MELINK Original WL 'ME_57061FA6032E' '53D656130130.ms.model.script' ; // MakeTask
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57061FA6032E_view
+
+  MELIST Views
+   Seq: ( ME_55EEDEC7035D_view // HasToImport
+   ME_57061FA6032E_view // MakeTask
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_55EED3CD0299_main
+
+ MELIST Diagrams
+  Seq: ( ME_55EED3CD0299_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_55EED3CD0299_diagrams

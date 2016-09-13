@@ -38,53 +38,6 @@ ME ME_57AADF560165
 
 ENDME // ME_57AADF560165 UID
 
-FORWARD ME_57AC39AE0181
-
-FORWARD ME_57AC39BC0266
-
-ME ME_57AC39C901CD
- MEPROP Name 'anOther'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_57AB160501A6 // ImsmBaseModelElement
- ;
-
-ENDME // ME_57AC39C901CD anOther
-
-ME ME_57AC39BC0266
- MEPROP UID '57AC39BC0266'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57AC39AE0181 // IsSameElement
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_57AC39C901CD // anOther
- )
- ; // Parameters
-
-ENDME // ME_57AC39BC0266 DoIt
-
-ME ME_57AC39AE0181
- MEPROP UID '57AC39AE0181'
- MEPROP Name 'IsSameElement'
- MEPROP Class class_Class
- MELINK Stereotype st_facetmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_57AB160501A6 // ImsmBaseModelElement
- ;
- MELIST Operations
-   Seq: ( HWL ME_57AC39BC0266 // DoIt
- )
- ; // Operations
-
-ENDME // ME_57AC39AE0181 IsSameElement
-
 ME ME_57AB160501A6
  MEPROP UID '57AB160501A6'
  MEPROP GUID 'B406D099-30A8-4FA1-A23B-9A3C2CECACF3'
@@ -101,10 +54,6 @@ ME ME_57AB160501A6
  HWL ME_57AADF560165 // UID
  )
  ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_57AC39AE0181 // IsSameElement
- )
- ; // Operations
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmBaseModelElement'
 
@@ -342,6 +291,85 @@ ME ME_57C3E90C0177
 
 ENDME // ME_57C3E90C0177 MainWord
 
+FORWARD ME_57D1435E002F
+
+ME ME_57D143660393
+ MEPROP UID '57D143660393'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D1435E002F // IsView
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57D143660393 DoIt
+
+ME ME_57D1435E002F
+ MEPROP UID '57D1435E002F'
+ MEPROP Name 'IsView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57A9F4D30086 // ImsmModelElement
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D143660393 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D1435E002F IsView
+
+FORWARD ME_57AC39AE0181
+
+FORWARD ME_57AC39BC0266
+
+ME ME_57AC39C901CD
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57A9F4D30086 // ImsmModelElement
+ ;
+
+ENDME // ME_57AC39C901CD anOther
+
+ME ME_57AC39BC0266
+ MEPROP UID '57AC39BC0266'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AC39AE0181 // IsSameElement
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57AC39C901CD // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_57AC39BC0266 DoIt
+
+ME ME_57AC39AE0181
+ MEPROP UID '57AC39AE0181'
+ MEPROP Name 'IsSameElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57A9F4D30086 // ImsmModelElement
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57AC39BC0266 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57AC39AE0181 IsSameElement
+
 ME ME_57A9FE9400E7_ME_57A9F4D30086
  MELINK Original HWL ME_57A9FE9400E7 // Name
  ;
@@ -355,12 +383,6 @@ ME ME_57AADF560165_ME_57A9F4D30086
  MEPROP OpKind opkind_Implemented
  UP "pm" False
 ENDME // ME_57AADF560165_ME_57A9F4D30086 UID
-
-ME ME_57AC39AE0181_ME_57A9F4D30086
- MELINK Original HWL ME_57AC39AE0181 // IsSameElement
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_57AC39AE0181_ME_57A9F4D30086 IsSameElement
 
 ME ME_57A9F4D30086
  MEPROP UID '57A9F4D30086'
@@ -388,10 +410,14 @@ ME ME_57A9F4D30086
  HWL ME_57C3E90C0177 // MainWord
  )
  ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57D1435E002F // IsView
+ HWL ME_57AC39AE0181 // IsSameElement
+ )
+ ; // Operations
  MELIST Implemented
    Seq: ( ME_57A9FE9400E7_ME_57A9F4D30086 // Name
  ME_57AADF560165_ME_57A9F4D30086 // UID
- ME_57AC39AE0181_ME_57A9F4D30086 // IsSameElement
  )
  ; // Implemented
  MELIST Forwarded
@@ -458,6 +484,53 @@ ME ME_57AE2E140297
 
 ENDME // ME_57AE2E140297 Owner
 
+FORWARD ME_57D1327900BC
+
+FORWARD ME_57D13299004B
+
+ME ME_57D1329F034F
+ MEPROP Name 'anElement'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57A9F4D30086 // ImsmModelElement
+ ;
+
+ENDME // ME_57D1329F034F anElement
+
+ME ME_57D13299004B
+ MEPROP UID '57D13299004B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D1327900BC // IndexOf
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D1329F034F // anElement
+ )
+ ; // Parameters
+
+ENDME // ME_57D13299004B DoIt
+
+ME ME_57D1327900BC
+ MEPROP UID '57D1327900BC'
+ MEPROP Name 'IndexOf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B5619501B1 // MmsmModelElementList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D13299004B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D1327900BC IndexOf
+
 ME ME_57AAD89C0277_ME_57B5619501B1
  MELINK Original WL 'ME_57AAD89C0277' '57B6AC48035C.ms.model.script' // Count
  ;
@@ -484,6 +557,10 @@ ME ME_57B5619501B1
  HWL ME_57AE2E140297 // Owner
  )
  ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57D1327900BC // IndexOf
+ )
+ ; // Operations
  MELIST Implemented
    Seq: ( ME_57AAD89C0277_ME_57B5619501B1 // Count
  )
@@ -513,6 +590,12 @@ ME ME_57AE2E140297_ME_57AAD83D0151
  UP "pm" False
 ENDME // ME_57AE2E140297_ME_57AAD83D0151 Owner
 
+ME ME_57D1327900BC_ME_57AAD83D0151
+ MELINK Original HWL ME_57D1327900BC // IndexOf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57D1327900BC_ME_57AAD83D0151 IndexOf
+
 ME ME_57AAD83D0151
  MEPROP UID '57AAD83D0151'
  MEPROP GUID 'BE9CA7E6-F043-4A30-88C6-631F86D4747F'
@@ -532,6 +615,7 @@ ME ME_57AAD83D0151
    Seq: ( ME_57AAD86403AD_ME_57AAD83D0151 // Item
  ME_57AAD89C0277_ME_57AAD83D0151 // Count
  ME_57AE2E140297_ME_57AAD83D0151 // Owner
+ ME_57D1327900BC_ME_57AAD83D0151 // IndexOf
  )
  ; // Implemented
  UP extprop:rc:isAcceptableForScripts True

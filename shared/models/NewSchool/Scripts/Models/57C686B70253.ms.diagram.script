@@ -2,26 +2,54 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_57C686B70253_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_57C686B70253' '57C686B70253.ms.model.script' ; // DocStreamTransfer
+MEDIAGRAMS ME_57C686B70253_diagrams
 
- MEVIEW ME_57BFF6EA005F_view
-  MELINK Original WL 'ME_57BFF6EA005F' '57C686B70253.ms.model.script' ; // TcsDownloadDocStreamReply
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_57BFF6EA005F_view
+ MEDIAGRAM ME_57C686B70253_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57C686B70253' '57C686B70253.ms.model.script' ; // DocStreamTransfer
 
- MEVIEW ME_57BECED40109_view
-  MELINK Original WL 'ME_57BECED40109' '57C686B70253.ms.model.script' ; // TcsDownloadDocStream
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_57BECED40109_view
+  MEVIEW ME_57BFF6EA005F_view
+   MELINK Original WL 'ME_57BFF6EA005F' '57C686B70253.ms.model.script' ; // TcsDownloadDocStreamReply
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BFF6EA005F_view
 
- MEVIEW ME_57C6874900D4_view
-  MELINK Original WL 'ME_57C6874900D4' '57C686B70253.ms.model.script' ; // ncsDocStorageTransferReg
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_57C6874900D4_view
+  MEVIEW ME_57BECED40109_view
+   MELINK Original WL 'ME_57BECED40109' '57C686B70253.ms.model.script' ; // TcsDownloadDocStream
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57BECED40109_view
 
-ENDMEDIAGRAM // ME_57C686B70253_main
+  MEVIEW ME_57C6874900D4_view
+   MELINK Original WL 'ME_57C6874900D4' '57C686B70253.ms.model.script' ; // ncsDocStorageTransferReg
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57C6874900D4_view
+
+  MEVIEW ME_57D2706902F8_view
+   MELINK Original WL 'ME_57D2706902F8' '57C686B70253.ms.model.script' ; // TcsUploadDocStream
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D2706902F8_view
+
+  MEVIEW ME_57D270880150_view
+   MELINK Original WL 'ME_57D270880150' '57C686B70253.ms.model.script' ; // TcsUploadDocStreamReply
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D270880150_view
+
+  MELIST Views
+   Seq: ( ME_57BFF6EA005F_view // TcsDownloadDocStreamReply
+   ME_57BECED40109_view // TcsDownloadDocStream
+   ME_57C6874900D4_view // ncsDocStorageTransferReg
+   ME_57D2706902F8_view // TcsUploadDocStream
+   ME_57D270880150_view // TcsUploadDocStreamReply
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57C686B70253_main
+
+ MELIST Diagrams
+  Seq: ( ME_57C686B70253_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57C686B70253_diagrams

@@ -1,0 +1,144 @@
+// AbstractBindings 57D263FC0311 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D263FC0311
+
+FORWARD ME_57D25B3702FE
+
+ME ME_57D173BB00F4
+ MEPROP UID '57D173BB00F4'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D25B3702FE // TmsmListToListBinding
+ ;
+ MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ ;
+
+ENDME // ME_57D173BB00F4 ModelToListen
+
+ME ME_57D173C70148
+ MEPROP UID '57D173C70148'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D25B3702FE // TmsmListToListBinding
+ ;
+ MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ ;
+
+ENDME // ME_57D173C70148 ModelToFire
+
+ME ME_57D25B3702FE
+ MEPROP UID '57D25B3702FE'
+ MEPROP Name 'TmsmListToListBinding'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57D263FC0311 // AbstractBindings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B2B8FA0333' '57AAE90E02B6.ms.model.script' // msmModelToModelBinding
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D173BB00F4 // ModelToListen
+ HWL ME_57D173C70148 // ModelToFire
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmListToListBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListToListBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListToListBinding.pas'
+
+ENDME // ME_57D25B3702FE TmsmListToListBinding
+
+FORWARD ME_57D25BE8030B
+
+ME ME_57CD32E800F0
+ MEPROP UID '57CD32E800F0'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D25BE8030B // TmsmListToCaptionBinding
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+
+ENDME // ME_57CD32E800F0 ModelToListen
+
+ME ME_57CD33040144
+ MEPROP UID '57CD33040144'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D25BE8030B // TmsmListToCaptionBinding
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57ADC53E00B6.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57CD33040144 ModelToFire
+
+ME ME_57D25BE8030B
+ MEPROP UID '57D25BE8030B'
+ MEPROP Name 'TmsmListToCaptionBinding'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57D263FC0311 // AbstractBindings
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B2B8FA0333' '57AAE90E02B6.ms.model.script' // msmModelToModelBinding
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57CD32E800F0 // ModelToListen
+ HWL ME_57CD33040144 // ModelToFire
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmListToCaptionBinding'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListToCaptionBinding'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListToCaptionBinding.pas'
+
+ENDME // ME_57D25BE8030B TmsmListToCaptionBinding
+
+ME ME_57D263FC0311
+ MEPROP UID '57D263FC0311'
+ MEPROP Name 'AbstractBindings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57A9C7A301DF' '57A9C7A301DF.ms.model.script' // msm$Lib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57D25B3702FE // TmsmListToListBinding
+ HWL ME_57D25BE8030B // TmsmListToCaptionBinding
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
+ WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels
+ )
+ ; // Depends
+
+ENDME // ME_57D263FC0311 AbstractBindings

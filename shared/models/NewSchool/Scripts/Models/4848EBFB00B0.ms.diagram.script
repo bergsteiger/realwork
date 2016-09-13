@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4848EBFB00B0_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4848EBFB00B0' '48185390010A.ms.model.script' ; // TnevTableRowRenderInfo
+MEDIAGRAMS ME_4848EBFB00B0_diagrams
 
- MEVIEW ME_4B9A319D01D2_view
-  MELINK Original WL 'ME_4B9A319D01D2' '48185390010A.ms.model.script' ; // CheckDeltaHeight
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4B9A319D01D2_view
+ MEDIAGRAM ME_4848EBFB00B0_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4848EBFB00B0' '48185390010A.ms.model.script' ; // TnevTableRowRenderInfo
 
- MEVIEW ME_50A37A030343_view
-  MELINK Original WL 'ME_50A37A030343' '48185390010A.ms.model.script' ; // IsCellChildSpacingEqual
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_50A37A030343_view
+  MEVIEW ME_4B9A319D01D2_view
+   MELINK Original WL 'ME_4B9A319D01D2' '48185390010A.ms.model.script' ; // CheckDeltaHeight
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B9A319D01D2_view
 
- MEVIEW ME_4848EECE0287_view
-  MELINK Original WL 'ME_4848EECE0287' '48185390010A.ms.model.script' ; // CalcDeltaHeight
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4848EECE0287_view
+  MEVIEW ME_50A37A030343_view
+   MELINK Original WL 'ME_50A37A030343' '48185390010A.ms.model.script' ; // IsCellChildSpacingEqual
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_50A37A030343_view
 
-ENDMEDIAGRAM // ME_4848EBFB00B0_main
+  MEVIEW ME_4848EECE0287_view
+   MELINK Original WL 'ME_4848EECE0287' '48185390010A.ms.model.script' ; // CalcDeltaHeight
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4848EECE0287_view
+
+  MELIST Views
+   Seq: ( ME_4B9A319D01D2_view // CheckDeltaHeight
+   ME_50A37A030343_view // IsCellChildSpacingEqual
+   ME_4848EECE0287_view // CalcDeltaHeight
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4848EBFB00B0_main
+
+ MELIST Diagrams
+  Seq: ( ME_4848EBFB00B0_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4848EBFB00B0_diagrams

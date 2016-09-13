@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4F7EACCC015D_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4F7EACCC015D' '4F7EACCC015D.ms.model.script' ; // F1 –абота с документом и списком документов
+MEDIAGRAMS ME_4F7EACCC015D_diagrams
 
- MEVIEW ME_4A9BEF6C0297_view
-  MELINK Original WL 'ME_4A9BEF6C0297' '4A9BEF6C0297.ms.model.script' ; // WorkWithList
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4A9BEF6C0297_view
+ MEDIAGRAM ME_4F7EACCC015D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4F7EACCC015D' '4F7EACCC015D.ms.model.script' ; // F1 –абота с документом и списком документов
 
- MEVIEW ME_4CCAC68B0128_view
-  MELINK Original WL 'ME_4CCAC68B0128' '4CCAC68B0128.ms.model.script' ; // UnderControl
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4CCAC68B0128_view
+  MEVIEW ME_4A9BEF6C0297_view
+   MELINK Original WL 'ME_4A9BEF6C0297' '4A9BEF6C0297.ms.model.script' ; // WorkWithList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A9BEF6C0297_view
 
- MEVIEW ME_4A9F769C0277_view
-  MELINK Original WL 'ME_4A9F769C0277' '4A9F769C0277.ms.model.script' ; // Document
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4A9F769C0277_view
+  MEVIEW ME_4CCAC68B0128_view
+   MELINK Original WL 'ME_4CCAC68B0128' '4CCAC68B0128.ms.model.script' ; // UnderControl
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CCAC68B0128_view
 
-ENDMEDIAGRAM // ME_4F7EACCC015D_main
+  MEVIEW ME_4A9F769C0277_view
+   MELINK Original WL 'ME_4A9F769C0277' '4A9F769C0277.ms.model.script' ; // Document
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A9F769C0277_view
+
+  MELIST Views
+   Seq: ( ME_4A9BEF6C0297_view // WorkWithList
+   ME_4CCAC68B0128_view // UnderControl
+   ME_4A9F769C0277_view // Document
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4F7EACCC015D_main
+
+ MELIST Diagrams
+  Seq: ( ME_4F7EACCC015D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4F7EACCC015D_diagrams

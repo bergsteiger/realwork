@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E70D70C0055_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' ; // Основное меню должно уметь зависеть от должности пользователя
+MEDIAGRAMS ME_4E70D70C0055_diagrams
 
- MEVIEW ME_4E7344D40331_view
-  MELINK Original WL 'ME_4E7344D40331' '48563BA400A9.ms.model.script' ; // Тип изменяемой части основного меню
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E7344D40331_view
+ MEDIAGRAM ME_4E70D70C0055_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' ; // Основное меню должно уметь зависеть от должности пользователя
 
- MEVIEW ME_4EBD224E0314_view
-  MELINK Original WL 'ME_4EBD224E0314' '48563BA400A9.ms.model.script' ; // Требования к иконке изменяемой части ОМ
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4EBD224E0314_view
+  MEVIEW ME_4E7344D40331_view
+   MELINK Original WL 'ME_4E7344D40331' '48563BA400A9.ms.model.script' ; // Тип изменяемой части основного меню
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E7344D40331_view
 
-ENDMEDIAGRAM // ME_4E70D70C0055_main
+  MEVIEW ME_4EBD224E0314_view
+   MELINK Original WL 'ME_4EBD224E0314' '48563BA400A9.ms.model.script' ; // Требования к иконке изменяемой части ОМ
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EBD224E0314_view
+
+  MELIST Views
+   Seq: ( ME_4E7344D40331_view // Тип изменяемой части основного меню
+   ME_4EBD224E0314_view // Требования к иконке изменяемой части ОМ
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E70D70C0055_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E70D70C0055_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E70D70C0055_diagrams

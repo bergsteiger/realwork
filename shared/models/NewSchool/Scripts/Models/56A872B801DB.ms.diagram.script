@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_56A872B801DB_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_56A872B801DB' '47ECAAF901F8.ms.model.script' ; // InsTreeStructState
+MEDIAGRAMS ME_56A872B801DB_diagrams
 
- MEVIEW ME_56CD757F012F_view
-  MELINK Original WL 'ME_56CD757F012F' '47ECAAF901F8.ms.model.script' ; // GetSelectedNodeCount
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_56CD757F012F_view
+ MEDIAGRAM ME_56A872B801DB_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_56A872B801DB' '47ECAAF901F8.ms.model.script' ; // InsTreeStructState
 
- MEVIEW ME_56CD758B0198_view
-  MELINK Original WL 'ME_56CD758B0198' '47ECAAF901F8.ms.model.script' ; // GetSelectedNodeVisibleIndex
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_56CD758B0198_view
+  MEVIEW ME_56CD757F012F_view
+   MELINK Original WL 'ME_56CD757F012F' '47ECAAF901F8.ms.model.script' ; // GetSelectedNodeCount
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_56CD757F012F_view
 
-ENDMEDIAGRAM // ME_56A872B801DB_main
+  MEVIEW ME_56CD758B0198_view
+   MELINK Original WL 'ME_56CD758B0198' '47ECAAF901F8.ms.model.script' ; // GetSelectedNodeVisibleIndex
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_56CD758B0198_view
+
+  MELIST Views
+   Seq: ( ME_56CD757F012F_view // GetSelectedNodeCount
+   ME_56CD758B0198_view // GetSelectedNodeVisibleIndex
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_56A872B801DB_main
+
+ MELIST Diagrams
+  Seq: ( ME_56A872B801DB_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_56A872B801DB_diagrams

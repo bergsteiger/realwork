@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_504F268A02FD_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_504F268A02FD' '48076E7F0260.ms.model.script' ; // TatStringToBitMaskConverterBase
+MEDIAGRAMS ME_504F268A02FD_diagrams
 
- MEVIEW ME_504F3866005D_view
-  MELINK Original WL 'ME_504F3866005D' '48076E7F0260.ms.model.script' ; // ToMaskCI
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_504F3866005D_view
+ MEDIAGRAM ME_504F268A02FD_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_504F268A02FD' '48076E7F0260.ms.model.script' ; // TatStringToBitMaskConverterBase
 
- MEVIEW ME_504F8645031F_view
-  MELINK Original WL 'ME_504F8645031F' '48076E7F0260.ms.model.script' ; // ToValues
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_504F8645031F_view
+  MEVIEW ME_504F3866005D_view
+   MELINK Original WL 'ME_504F3866005D' '48076E7F0260.ms.model.script' ; // ToMaskCI
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_504F3866005D_view
 
-ENDMEDIAGRAM // ME_504F268A02FD_main
+  MEVIEW ME_504F8645031F_view
+   MELINK Original WL 'ME_504F8645031F' '48076E7F0260.ms.model.script' ; // ToValues
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_504F8645031F_view
+
+  MELIST Views
+   Seq: ( ME_504F3866005D_view // ToMaskCI
+   ME_504F8645031F_view // ToValues
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_504F268A02FD_main
+
+ MELIST Diagrams
+  Seq: ( ME_504F268A02FD_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_504F268A02FD_diagrams

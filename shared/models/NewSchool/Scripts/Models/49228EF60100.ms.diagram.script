@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_49228EF60100_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_49228EF60100' '48F747EC0073.ms.model.script' ; // nsManagers
+MEDIAGRAMS ME_49228EF60100_diagrams
 
- MEVIEW ME_4AA1182503AD_view
-  MELINK Original WL 'ME_4AA1182503AD' '48F747EC0073.ms.model.script' ; // ProfilersManager
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4AA1182503AD_view
+ MEDIAGRAM ME_49228EF60100_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_49228EF60100' '48F747EC0073.ms.model.script' ; // nsManagers
 
- MEVIEW ME_49228EFF01C6_view
-  MELINK Original WL 'ME_49228EFF01C6' '48F747EC0073.ms.model.script' ; // fake
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_49228EFF01C6_view
+  MEVIEW ME_4AA1182503AD_view
+   MELINK Original WL 'ME_4AA1182503AD' '48F747EC0073.ms.model.script' ; // ProfilersManager
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AA1182503AD_view
 
-ENDMEDIAGRAM // ME_49228EF60100_main
+  MEVIEW ME_49228EFF01C6_view
+   MELINK Original WL 'ME_49228EFF01C6' '48F747EC0073.ms.model.script' ; // fake
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_49228EFF01C6_view
+
+  MELIST Views
+   Seq: ( ME_4AA1182503AD_view // ProfilersManager
+   ME_49228EFF01C6_view // fake
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49228EF60100_main
+
+ MELIST Diagrams
+  Seq: ( ME_49228EF60100_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49228EF60100_diagrams

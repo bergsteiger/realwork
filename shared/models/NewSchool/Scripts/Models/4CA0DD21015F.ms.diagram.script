@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4CA0DD21015F_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4CA0DD21015F' '4CA0DCFB017A.ms.model.script' ; // SecuritySrv_int
+MEDIAGRAMS ME_4CA0DD21015F_diagrams
 
- MEVIEW ME_4CA0DD3403CA_view
-  MELINK Original WL 'ME_4CA0DD3403CA' '4CA0DCFB017A.ms.model.script' ; // TCoreSrv_SecuritySrv_Token
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4CA0DD3403CA_view
+ MEDIAGRAM ME_4CA0DD21015F_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4CA0DD21015F' '4CA0DCFB017A.ms.model.script' ; // SecuritySrv_int
 
- MEVIEW ME_4CA1C64B0264_view
-  MELINK Original WL 'ME_4CA1C64B0264' '4CA0DCFB017A.ms.model.script' ; // ICoreSrv_SecuritySrv_SessionManager
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4CA1C64B0264_view
+  MEVIEW ME_4CA0DD3403CA_view
+   MELINK Original WL 'ME_4CA0DD3403CA' '4CA0DCFB017A.ms.model.script' ; // TCoreSrv_SecuritySrv_Token
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CA0DD3403CA_view
 
-ENDMEDIAGRAM // ME_4CA0DD21015F_main
+  MEVIEW ME_4CA1C64B0264_view
+   MELINK Original WL 'ME_4CA1C64B0264' '4CA0DCFB017A.ms.model.script' ; // ICoreSrv_SecuritySrv_SessionManager
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CA1C64B0264_view
+
+  MELIST Views
+   Seq: ( ME_4CA0DD3403CA_view // TCoreSrv_SecuritySrv_Token
+   ME_4CA1C64B0264_view // ICoreSrv_SecuritySrv_SessionManager
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4CA0DD21015F_main
+
+ MELIST Diagrams
+  Seq: ( ME_4CA0DD21015F_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4CA0DD21015F_diagrams

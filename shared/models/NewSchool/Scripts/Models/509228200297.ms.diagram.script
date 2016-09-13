@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_509228200297_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_509228200297' '4E451815031E.ms.model.script' ; // TevCellsOffsetsList
+MEDIAGRAMS ME_509228200297_diagrams
 
- MEVIEW ME_50922CA3006F_view
-  MELINK Original WL 'ME_50922CA3006F' '4E451815031E.ms.model.script' ; // Try2RemeberWidths
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_50922CA3006F_view
+ MEDIAGRAM ME_509228200297_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_509228200297' '4E451815031E.ms.model.script' ; // TevCellsOffsetsList
 
- MEVIEW ME_509375AF03C8_view
-  MELINK Original WL 'ME_509375AF03C8' '4E451815031E.ms.model.script' ; // FindList
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_509375AF03C8_view
+  MEVIEW ME_50922CA3006F_view
+   MELINK Original WL 'ME_50922CA3006F' '4E451815031E.ms.model.script' ; // Try2RemeberWidths
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_50922CA3006F_view
 
-ENDMEDIAGRAM // ME_509228200297_main
+  MEVIEW ME_509375AF03C8_view
+   MELINK Original WL 'ME_509375AF03C8' '4E451815031E.ms.model.script' ; // FindList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_509375AF03C8_view
+
+  MELIST Views
+   Seq: ( ME_50922CA3006F_view // Try2RemeberWidths
+   ME_509375AF03C8_view // FindList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_509228200297_main
+
+ MELIST Diagrams
+  Seq: ( ME_509228200297_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_509228200297_diagrams

@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4D5A243A012E_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4D5A243A012E' '484FA67302D7.ms.model.script' ; // Интерфейс Поиска
+MEDIAGRAMS ME_4D5A243A012E_diagrams
 
- MEVIEW ME_4F63418802F1_view
-  MELINK Original WL 'ME_4F63418802F1' '484FA67302D7.ms.model.script' ; // Высота заголовков карточек поиска
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4F63418802F1_view
+ MEDIAGRAM ME_4D5A243A012E_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4D5A243A012E' '484FA67302D7.ms.model.script' ; // Интерфейс Поиска
 
- MEVIEW ME_4F69ADC70003_view
-  MELINK Original WL 'ME_4F69ADC70003' '484FA67302D7.ms.model.script' ; // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4F69ADC70003_view
+  MEVIEW ME_4F63418802F1_view
+   MELINK Original WL 'ME_4F63418802F1' '484FA67302D7.ms.model.script' ; // Высота заголовков карточек поиска
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F63418802F1_view
 
-ENDMEDIAGRAM // ME_4D5A243A012E_main
+  MEVIEW ME_4F69ADC70003_view
+   MELINK Original WL 'ME_4F69ADC70003' '484FA67302D7.ms.model.script' ; // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F69ADC70003_view
+
+  MELIST Views
+   Seq: ( ME_4F63418802F1_view // Высота заголовков карточек поиска
+   ME_4F69ADC70003_view // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D5A243A012E_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D5A243A012E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D5A243A012E_diagrams

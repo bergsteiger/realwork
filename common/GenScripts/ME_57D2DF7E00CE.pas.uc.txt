@@ -20,10 +20,70 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  , msmListModel
  , msmListViewController
  , msmElementViews
+ , msmDrawingViewController
+ , msmTreeViewController
 //#UC END# *57D2DF7E00CEimpl_uses*
 //#UC START# *57D2DFA70064_57D2DF7E00CE_impl*
  inherited Create;
  f_UseCase := aUseCase;
+(* f_UseCase.AddController(
+  TmsmMainFormController.Make(Self, aUseCase.Caption)
+ );*)
+
+ AddController(
+  AddMainListOperations
+  (
+   DisableActionElementEvent
+   (
+    TmsmListViewController.Make(aUseCase.MainList, aMainZone)
+   )
+   , aUseCase.MainList
+  )
+ );
+
+ AddController(
+  AddDiagramOperations
+  (
+   TmsmDrawingViewController.Make(aUseCase.Drawing, aMainZone)
+   , aUseCase.Drawing
+  )
+ );
+
+ AddController(
+  AddMainListOperations
+  (
+   DisableActionElementEvent
+   (
+    TmsmListViewController.Make(aUseCase.Drawing, aMainZone)
+   )
+   , aUseCase.Drawing
+  )
+ );
+
+ AddController(
+  AddListLikeOperations
+  (
+   TmsmTreeViewController.Make(aUseCase.Navigator, aLeftZone)
+   , aUseCase.Navigator
+  )
+ );
+
+ l_ListContext := TmsmListViewtInitContext_C;
+ AddChildViews(['Depends', 'Inherits', 'Implements', 'Inner', 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
+               aChildZone,
+               l_ListContext
+               );
+ AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('UpList', 'UpText')),
+              aChildZone,
+              l_ListContext);
+ l_ListContext.rMultiStrokeItem := true;
+ AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty')),
+              aChildZone,
+              l_ListContext);
+
+ AddController(
+  TmsmTreeViewController.Make(aUseCase.FloatingNavigator, aFloatingZone)
+ );
 //#UC END# *57D2DFA70064_57D2DF7E00CE_impl*
 //#UC START# *57D2DFA70064_57D2DF7E00CE_var*
 
@@ -65,11 +125,11 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
 
  procedure AddChildView(const aChildModel: ImsmListModel; const aParent: ImsmViewParent; const aContext: TmsmListViewtInitContext);
  begin//AddChildView
-  f_UseCase.Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.MainList, aChildModel));
-  f_UseCase.Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.Drawing, aChildModel));
-  f_UseCase.Bind(TmsmListOpener.Make(aChildModel, aUseCase.MainList));
+  Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.MainList, aChildModel));
+  Bind(TmsmCurrentElementShowAsListBinding.Make(aUseCase.Drawing, aChildModel));
+  Bind(TmsmListOpener.Make(aChildModel, aUseCase.MainList));
 
-  f_UseCase.AddController(
+  AddController(
    AddListOperations
    (
     DisableActionElementEvent
@@ -88,5 +148,7 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
   for l_Index := Low(aNames) to High(aNames) do
    AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C(aNames[l_Index])), aParent, aContext);
  end;//AddChildViews
-
+ 
+var
+ l_ListContext : TmsmListViewtInitContext;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*

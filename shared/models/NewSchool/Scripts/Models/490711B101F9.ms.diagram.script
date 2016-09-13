@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_490711B101F9_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_490711B101F9' '4901F07D039B.ms.model.script' ; // TnsMedicFirmsTreeBase
+MEDIAGRAMS ME_490711B101F9_diagrams
 
- MEVIEW ME_490711E203CD_view
-  MELINK Original WL 'ME_490711E203CD' '4901F07D039B.ms.model.script' ; // Create
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_490711E203CD_view
+ MEDIAGRAM ME_490711B101F9_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_490711B101F9' '4901F07D039B.ms.model.script' ; // TnsMedicFirmsTreeBase
 
- MEVIEW ME_490711F30323_view
-  MELINK Original WL 'ME_490711F30323' '4901F07D039B.ms.model.script' ; // Make
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_490711F30323_view
+  MEVIEW ME_490711E203CD_view
+   MELINK Original WL 'ME_490711E203CD' '4901F07D039B.ms.model.script' ; // Create
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_490711E203CD_view
 
-ENDMEDIAGRAM // ME_490711B101F9_main
+  MEVIEW ME_490711F30323_view
+   MELINK Original WL 'ME_490711F30323' '4901F07D039B.ms.model.script' ; // Make
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_490711F30323_view
+
+  MELIST Views
+   Seq: ( ME_490711E203CD_view // Create
+   ME_490711F30323_view // Make
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_490711B101F9_main
+
+ MELIST Diagrams
+  Seq: ( ME_490711B101F9_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_490711B101F9_diagrams

@@ -58,126 +58,21 @@ ME ME_4DFB4CD10172
 
 ENDME // ME_4DFB4CD10172 TSubID
 
-FORWARD ME_4E0ACD7D020D
-
-ME ME_4E0ACD850322
- MEPROP UID '4E0ACD850322'
- MEPROP Name 'dtNone'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACD850322 dtNone
-
-ME ME_4E0ACD9002F7
- MEPROP UID '4E0ACD9002F7'
- MEPROP Name 'dtText'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACD9002F7 dtText
-
-ME ME_4E0ACD980295
- MEPROP UID '4E0ACD980295'
- MEPROP Name 'dtRelText'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACD980295 dtRelText
-
-ME ME_4E0ACDA00068
- MEPROP UID '4E0ACDA00068'
- MEPROP Name 'dtShortCut'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACDA00068 dtShortCut
-
-ME ME_4E0ACDA902D8
- MEPROP UID '4E0ACDA902D8'
- MEPROP Name 'dtObject'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACDA902D8 dtObject
-
-ME ME_4E0ACDB10232
- MEPROP UID '4E0ACDB10232'
- MEPROP Name 'dtDictEntry'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACDB10232 dtDictEntry
-
-ME ME_4E0ACDB90320
- MEPROP UID '4E0ACDB90320'
- MEPROP Name 'dtAnnotation'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACDB90320 dtAnnotation
-
-ME ME_4E0ACDC40307
- MEPROP UID '4E0ACDC40307'
- MEPROP Name 'dtFlash'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E0ACD7D020D // TDocType
- ;
-
-ENDME // ME_4E0ACDC40307 dtFlash
-
 ME ME_4E0ACD7D020D
  MEPROP UID '4E0ACD7D020D'
  MEPROP Name 'TDocType'
  MEPROP Class class_Class
- MELINK Stereotype st_Enum ;
+ MELINK Stereotype st_Typedef ;
  MEPROP Kind kind_NormalClass
  %SUMMARY 'Внутренние типы документов' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_47BC51FE018B // dt_Types
  ;
- MELIST Attributes
-   Seq: ( HWL ME_4E0ACD850322 // dtNone
- HWL ME_4E0ACD9002F7 // dtText
- HWL ME_4E0ACD980295 // dtRelText
- HWL ME_4E0ACDA00068 // dtShortCut
- HWL ME_4E0ACDA902D8 // dtObject
- HWL ME_4E0ACDB10232 // dtDictEntry
- HWL ME_4E0ACDB90320 // dtAnnotation
- HWL ME_4E0ACDC40307 // dtFlash
+ MELIST Inherits
+   Seq: ( WL 'ME_57D265550389' '57BEAF780201.ms.model.script' // TDocType
  )
- ; // Attributes
+ ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_4E0ACD7D020D TDocType
@@ -791,6 +686,7 @@ ME ME_47BC51FE018B
  WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
  WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_57BEAF780201' '57BEAF780201.ms.model.script' // l3MarshalledTypes
  )
  ; // Depends
  UP "finished" False

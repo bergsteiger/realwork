@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E312E2502AE_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E312E2502AE' '4E312E2502AE.ms.model.script' ; // Требования
+MEDIAGRAMS ME_4E312E2502AE_diagrams
 
- MEVIEW ME_481F0CA6017E_view
-  MELINK Original WL 'ME_481F0CA6017E' '481F0CA6017E.ms.model.script' ; // Интерфейс Администратора
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_481F0CA6017E_view
+ MEDIAGRAM ME_4E312E2502AE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E312E2502AE' '4E312E2502AE.ms.model.script' ; // Требования
 
- MEVIEW ME_481F03780379_view
-  MELINK Original WL 'ME_481F03780379' '481F03780379.ms.model.script' ; // Утилиты
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_481F03780379_view
+  MEVIEW ME_481F0CA6017E_view
+   MELINK Original WL 'ME_481F0CA6017E' '481F0CA6017E.ms.model.script' ; // Интерфейс Администратора
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_481F0CA6017E_view
 
-ENDMEDIAGRAM // ME_4E312E2502AE_main
+  MEVIEW ME_481F03780379_view
+   MELINK Original WL 'ME_481F03780379' '481F03780379.ms.model.script' ; // Утилиты
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_481F03780379_view
+
+  MELIST Views
+   Seq: ( ME_481F0CA6017E_view // Интерфейс Администратора
+   ME_481F03780379_view // Утилиты
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E312E2502AE_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E312E2502AE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E312E2502AE_diagrams

@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_496B533F00AE_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_496B533F00AE' '4A9F98B901A5.ms.model.script' ; // InsBaseSearchQueryDataProcessor
+MEDIAGRAMS ME_496B533F00AE_diagrams
 
- MEVIEW ME_496B534B0098_view
-  MELINK Original WL 'ME_496B534B0098' '4A9F98B901A5.ms.model.script' ; // SetDataFromQuery
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_496B534B0098_view
+ MEDIAGRAM ME_496B533F00AE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_496B533F00AE' '4A9F98B901A5.ms.model.script' ; // InsBaseSearchQueryDataProcessor
 
- MEVIEW ME_496B5356008C_view
-  MELINK Original WL 'ME_496B5356008C' '4A9F98B901A5.ms.model.script' ; // RequestFind
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_496B5356008C_view
+  MEVIEW ME_496B534B0098_view
+   MELINK Original WL 'ME_496B534B0098' '4A9F98B901A5.ms.model.script' ; // SetDataFromQuery
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_496B534B0098_view
 
- MEVIEW ME_49FFFE5B033A_view
-  MELINK Original WL 'ME_49FFFE5B033A' '4A9F98B901A5.ms.model.script' ; // RequestCheckFragmentsCount
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_49FFFE5B033A_view
+  MEVIEW ME_496B5356008C_view
+   MELINK Original WL 'ME_496B5356008C' '4A9F98B901A5.ms.model.script' ; // RequestFind
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_496B5356008C_view
 
- MEVIEW ME_4A13A97F0211_view
-  MELINK Original WL 'ME_4A13A97F0211' '4A9F98B901A5.ms.model.script' ; // RequestCheckFindBack
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4A13A97F0211_view
+  MEVIEW ME_49FFFE5B033A_view
+   MELINK Original WL 'ME_49FFFE5B033A' '4A9F98B901A5.ms.model.script' ; // RequestCheckFragmentsCount
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_49FFFE5B033A_view
 
-ENDMEDIAGRAM // ME_496B533F00AE_main
+  MEVIEW ME_4A13A97F0211_view
+   MELINK Original WL 'ME_4A13A97F0211' '4A9F98B901A5.ms.model.script' ; // RequestCheckFindBack
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A13A97F0211_view
+
+  MELIST Views
+   Seq: ( ME_496B534B0098_view // SetDataFromQuery
+   ME_496B5356008C_view // RequestFind
+   ME_49FFFE5B033A_view // RequestCheckFragmentsCount
+   ME_4A13A97F0211_view // RequestCheckFindBack
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_496B533F00AE_main
+
+ MELIST Diagrams
+  Seq: ( ME_496B533F00AE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_496B533F00AE_diagrams

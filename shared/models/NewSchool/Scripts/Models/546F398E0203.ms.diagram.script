@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_546F398E0203_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_546F398E0203' '546457E203C0.ms.model.script' ; // TncsFileListDeliverer
+MEDIAGRAMS ME_546F398E0203_diagrams
 
- MEVIEW ME_5472D9D7003A_view
-  MELINK Original WL 'ME_5472D9D7003A' '546457E203C0.ms.model.script' ; // EncsEmptyResults
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5472D9D7003A_view
+ MEDIAGRAM ME_546F398E0203_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_546F398E0203' '546457E203C0.ms.model.script' ; // TncsFileListDeliverer
 
- MEVIEW ME_5472D96A03B7_view
-  MELINK Original WL 'ME_5472D96A03B7' '546457E203C0.ms.model.script' ; // PrepareDescription
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_5472D96A03B7_view
+  MEVIEW ME_5472D9D7003A_view
+   MELINK Original WL 'ME_5472D9D7003A' '546457E203C0.ms.model.script' ; // EncsEmptyResults
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5472D9D7003A_view
 
- MEVIEW ME_5472DC690380_view
-  MELINK Original WL 'ME_5472DC690380' '546457E203C0.ms.model.script' ; // Create
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_5472DC690380_view
+  MEVIEW ME_5472D96A03B7_view
+   MELINK Original WL 'ME_5472D96A03B7' '546457E203C0.ms.model.script' ; // PrepareDescription
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5472D96A03B7_view
 
- MEVIEW ME_546F3BE702A4_view
-  MELINK Original WL 'ME_546F3BE702A4' '546457E203C0.ms.model.script' ; // Execute
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_546F3BE702A4_view
+  MEVIEW ME_5472DC690380_view
+   MELINK Original WL 'ME_5472DC690380' '546457E203C0.ms.model.script' ; // Create
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5472DC690380_view
 
-ENDMEDIAGRAM // ME_546F398E0203_main
+  MEVIEW ME_546F3BE702A4_view
+   MELINK Original WL 'ME_546F3BE702A4' '546457E203C0.ms.model.script' ; // Execute
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_546F3BE702A4_view
+
+  MELIST Views
+   Seq: ( ME_5472D9D7003A_view // EncsEmptyResults
+   ME_5472D96A03B7_view // PrepareDescription
+   ME_5472DC690380_view // Create
+   ME_546F3BE702A4_view // Execute
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_546F398E0203_main
+
+ MELIST Diagrams
+  Seq: ( ME_546F398E0203_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_546F398E0203_diagrams

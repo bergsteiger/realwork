@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_562626470198_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_562626470198' '4A9F98B901A5.ms.model.script' ; // InsBaseSearchClassesListener
+MEDIAGRAMS ME_562626470198_diagrams
 
- MEVIEW ME_5626267C01CF_view
-  MELINK Original WL 'ME_5626267C01CF' '4A9F98B901A5.ms.model.script' ; // NotifyClassesChanged
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5626267C01CF_view
+ MEDIAGRAM ME_562626470198_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_562626470198' '4A9F98B901A5.ms.model.script' ; // InsBaseSearchClassesListener
 
-ENDMEDIAGRAM // ME_562626470198_main
+  MEVIEW ME_5626267C01CF_view
+   MELINK Original WL 'ME_5626267C01CF' '4A9F98B901A5.ms.model.script' ; // NotifyClassesChanged
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5626267C01CF_view
+
+  MELIST Views
+   Seq: ( ME_5626267C01CF_view // NotifyClassesChanged
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_562626470198_main
+
+ MELIST Diagrams
+  Seq: ( ME_562626470198_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_562626470198_diagrams

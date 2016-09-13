@@ -455,8 +455,6 @@ type
    procedure EndDrawAAC(const R: Tl3Rect);
    procedure BeginDarkColor;
    procedure EndDarkColor;
-   function Get_etoFlags: Cardinal;
-   procedure Set_etoFlags(aValue: Cardinal);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
@@ -5719,24 +5717,6 @@ begin
  Dec(f_DarkFore);
 //#UC END# *55CC51CE0059_4A4CB79A02C6_impl*
 end;//Tl3CanvasPrim.EndDarkColor
-
-function Tl3CanvasPrim.Get_etoFlags: Cardinal;
-//#UC START# *57D6D54102F4_4A4CB79A02C6get_var*
-//#UC END# *57D6D54102F4_4A4CB79A02C6get_var*
-begin
-//#UC START# *57D6D54102F4_4A4CB79A02C6get_impl*
- Result := Self.etoFlags;
-//#UC END# *57D6D54102F4_4A4CB79A02C6get_impl*
-end;//Tl3CanvasPrim.Get_etoFlags
-
-procedure Tl3CanvasPrim.Set_etoFlags(aValue: Cardinal);
-//#UC START# *57D6D54102F4_4A4CB79A02C6set_var*
-//#UC END# *57D6D54102F4_4A4CB79A02C6set_var*
-begin
-//#UC START# *57D6D54102F4_4A4CB79A02C6set_impl*
- Self.etoFlags := aValue;
-//#UC END# *57D6D54102F4_4A4CB79A02C6set_impl*
-end;//Tl3CanvasPrim.Set_etoFlags
 
 procedure Tl3CanvasPrim.Cleanup;
  {* Функция очистки полей объекта. }

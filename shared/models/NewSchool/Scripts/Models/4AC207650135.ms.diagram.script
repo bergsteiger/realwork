@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4AC207650135_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4AC207650135' '4AC207650135.ms.model.script' ; // AdapterFacade
+MEDIAGRAMS ME_4AC207650135_diagrams
 
- MEVIEW ME_4AC203A500FD_view
-  MELINK Original WL 'ME_4AC203A500FD' '4AC207650135.ms.model.script' ; // AdapterDate
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4AC203A500FD_view
+ MEDIAGRAM ME_4AC207650135_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4AC207650135' '4AC207650135.ms.model.script' ; // AdapterFacade
 
-ENDMEDIAGRAM // ME_4AC207650135_main
+  MEVIEW ME_4AC203A500FD_view
+   MELINK Original WL 'ME_4AC203A500FD' '4AC207650135.ms.model.script' ; // AdapterDate
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AC203A500FD_view
+
+  MELIST Views
+   Seq: ( ME_4AC203A500FD_view // AdapterDate
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4AC207650135_main
+
+ MELIST Diagrams
+  Seq: ( ME_4AC207650135_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4AC207650135_diagrams

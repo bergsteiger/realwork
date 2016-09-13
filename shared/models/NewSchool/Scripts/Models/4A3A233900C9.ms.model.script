@@ -2882,57 +2882,67 @@ ME ME_52D80D430151
 
 ENDME // ME_52D80D430151 ArrangeFoundCursors
 
-FORWARD ME_57C6ADA002BE
+FORWARD ME_57D12DCB03BC
 
-FORWARD ME_57C6ADD10397
+FORWARD ME_57D12E590031
 
-ME ME_57C6B7B403C5
+ME ME_57D12F1F03DD
  MEPROP Name 'aSearcher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
  MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
  ;
 
-ENDME // ME_57C6B7B403C5 aSearcher
+ENDME // ME_57D12F1F03DD aSearcher
 
-ME ME_57C6B7B403D5
+ME ME_57D12F200013
  MEPROP Name 'aStart'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
  ;
 
-ENDME // ME_57C6B7B403D5 aStart
+ENDME // ME_57D12F200013 aStart
 
-ME ME_57C6B7B5000C
+ME ME_57D12F200031
  MEPROP Name 'anIndex'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
  ;
 
-ENDME // ME_57C6B7B5000C anIndex
+ENDME // ME_57D12F200031 anIndex
 
-ME ME_57C6ADD10397
- MEPROP UID '57C6ADD10397'
+ME ME_57D12F200045
+ MEPROP Name 'aSearchContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_57D1052B0133' '47C5207602D1.ms.model.script' // TevSearchContext
+ ;
+
+ENDME // ME_57D12F200045 aSearchContext
+
+ME ME_57D12E590031
+ MEPROP UID '57D12E590031'
  MEPROP Name 'DoIt'
  MEPROP Class class_Operation
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57C6ADA002BE // CheckSearcherOptions
+ MELINK Parent HWL ME_57D12DCB03BC // CheckContext
  ;
  MELIST Parameters
-   Seq: ( ME_57C6B7B403C5 // aSearcher
- ME_57C6B7B403D5 // aStart
- ME_57C6B7B5000C // anIndex
+   Seq: ( ME_57D12F1F03DD // aSearcher
+ ME_57D12F200013 // aStart
+ ME_57D12F200031 // anIndex
+ ME_57D12F200045 // aSearchContext
  )
  ; // Parameters
 
-ENDME // ME_57C6ADD10397 DoIt
+ENDME // ME_57D12E590031 DoIt
 
-ME ME_57C6ADA002BE
- MEPROP UID '57C6ADA002BE'
- MEPROP Name 'CheckSearcherOptions'
+ME ME_57D12DCB03BC
+ MEPROP UID '57D12DCB03BC'
+ MEPROP Name 'CheckContext'
  MEPROP Class class_Class
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
@@ -2941,121 +2951,11 @@ ME ME_57C6ADA002BE
  MELINK Parent HWL ME_4A2D2D6E027B // TevParaListCursorPair
  ;
  MELIST Operations
-   Seq: ( HWL ME_57C6ADD10397 // DoIt
+   Seq: ( HWL ME_57D12E590031 // DoIt
  )
  ; // Operations
 
-ENDME // ME_57C6ADA002BE CheckSearcherOptions
-
-FORWARD ME_57C6ADF00109
-
-FORWARD ME_57C6AE030379
-
-ME ME_57C6AE0A03BF
- MEPROP Name 'aSearcher'
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
- ;
-
-ENDME // ME_57C6AE0A03BF aSearcher
-
-ME ME_57C6AE030379
- MEPROP UID '57C6AE030379'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57C6ADF00109 // ClearSearcherOptions
- ;
- MELIST Parameters
-   Seq: ( ME_57C6AE0A03BF // aSearcher
- )
- ; // Parameters
-
-ENDME // ME_57C6AE030379 DoIt
-
-ME ME_57C6ADF00109
- MEPROP UID '57C6ADF00109'
- MEPROP Name 'ClearSearcherOptions'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A2D2D6E027B // TevParaListCursorPair
- ;
- MELIST Operations
-   Seq: ( HWL ME_57C6AE030379 // DoIt
- )
- ; // Operations
-
-ENDME // ME_57C6ADF00109 ClearSearcherOptions
-
-FORWARD ME_57C6AE1200E7
-
-FORWARD ME_57C6AE2802FC
-
-ME ME_57C6AE3B01BB
- MEPROP Name 'aView'
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
- ;
-
-ENDME // ME_57C6AE3B01BB aView
-
-ME ME_57C6AE3B01DA
- MEPROP Name 'aSearcher'
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
- ;
-
-ENDME // ME_57C6AE3B01DA aSearcher
-
-ME ME_57C6AE3B01F9
- MEPROP Name 'aChildBlock'
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
- ;
-
-ENDME // ME_57C6AE3B01F9 aChildBlock
-
-ME ME_57C6AE2802FC
- MEPROP UID '57C6AE2802FC'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57C6AE1200E7 // CorrectChildBlock
- ;
- MELIST Parameters
-   Seq: ( ME_57C6AE3B01BB // aView
- ME_57C6AE3B01DA // aSearcher
- ME_57C6AE3B01F9 // aChildBlock
- )
- ; // Parameters
-
-ENDME // ME_57C6AE2802FC DoIt
-
-ME ME_57C6AE1200E7
- MEPROP UID '57C6AE1200E7'
- MEPROP Name 'CorrectChildBlock'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A2D2D6E027B // TevParaListCursorPair
- ;
- MELIST Operations
-   Seq: ( HWL ME_57C6AE2802FC // DoIt
- )
- ; // Operations
-
-ENDME // ME_57C6AE1200E7 CorrectChildBlock
+ENDME // ME_57D12DCB03BC CheckContext
 
 ME ME_52D820C40349
  MEPROP Class class_Dependency
@@ -3478,9 +3378,7 @@ ME ME_4A2D2D6E027B
  MELIST Operations
    Seq: ( HWL ME_5108D4820232 // GetParaBlockBordersPrim
  HWL ME_52D80D430151 // ArrangeFoundCursors
- HWL ME_57C6ADA002BE // CheckSearcherOptions
- HWL ME_57C6ADF00109 // ClearSearcherOptions
- HWL ME_57C6AE1200E7 // CorrectChildBlock
+ HWL ME_57D12DCB03BC // CheckContext
  )
  ; // Operations
  MELIST Overridden
@@ -3868,17 +3766,11 @@ ME ME_52D50EFA0317_ME_5108D3850245
  MEPROP OpKind opkind_Overridden
 ENDME // ME_52D50EFA0317_ME_5108D3850245 GetStartOffset
 
-ME ME_57C6ADA002BE_ME_5108D3850245
- MELINK Original HWL ME_57C6ADA002BE // CheckSearcherOptions
+ME ME_57D12DCB03BC_ME_5108D3850245
+ MELINK Original HWL ME_57D12DCB03BC // CheckContext
  ;
  MEPROP OpKind opkind_Overridden
-ENDME // ME_57C6ADA002BE_ME_5108D3850245 CheckSearcherOptions
-
-ME ME_57C6ADF00109_ME_5108D3850245
- MELINK Original HWL ME_57C6ADF00109 // ClearSearcherOptions
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_57C6ADF00109_ME_5108D3850245 ClearSearcherOptions
+ENDME // ME_57D12DCB03BC_ME_5108D3850245 CheckContext
 
 ME ME_5108D3850245
  MEPROP UID '5108D3850245'
@@ -3923,8 +3815,7 @@ ME ME_5108D3850245
  ME_5108D5CB0048_ME_5108D3850245 // DoStore
  ME_5108D66900C9_ME_5108D3850245 // DoDelete
  ME_52D50EFA0317_ME_5108D3850245 // GetStartOffset
- ME_57C6ADA002BE_ME_5108D3850245 // CheckSearcherOptions
- ME_57C6ADF00109_ME_5108D3850245 // ClearSearcherOptions
+ ME_57D12DCB03BC_ME_5108D3850245 // CheckContext
  )
  ; // Overridden
  MELIST Dependencies
@@ -4378,12 +4269,6 @@ ME ME_53D675AC02C4
 
 ENDME // ME_53D675AC02C4 
 
-ME ME_57C6AE1200E7_ME_53D6758E0352
- MELINK Original HWL ME_57C6AE1200E7 // CorrectChildBlock
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_57C6AE1200E7_ME_53D6758E0352 CorrectChildBlock
-
 ME ME_53D6758E0352
  MEPROP UID '53D6758E0352'
  MEPROP Name 'TevTableRowCursorPair'
@@ -4398,10 +4283,6 @@ ME ME_53D6758E0352
    Seq: ( HWL ME_4A2D2D6E027B // TevParaListCursorPair
  )
  ; // Inherits
- MELIST Overridden
-   Seq: ( ME_57C6AE1200E7_ME_53D6758E0352 // CorrectChildBlock
- )
- ; // Overridden
  MELIST Dependencies
    Seq: ( ME_53D675AC02C4 // TevTableRow
  )

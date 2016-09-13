@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_515D7AD40236_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_515D7AD40236' '515D7AD40236.ms.model.script' ; // Shared Delphi Core Tests
+MEDIAGRAMS ME_515D7AD40236_diagrams
 
- MEVIEW ME_515D7B0B006F_view
-  MELINK Original WL 'ME_515D7B0B006F' '515D7B0B006F.ms.model.script' ; // Containers
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_515D7B0B006F_view
+ MEDIAGRAM ME_515D7AD40236_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_515D7AD40236' '515D7AD40236.ms.model.script' ; // Shared Delphi Core Tests
 
-ENDMEDIAGRAM // ME_515D7AD40236_main
+  MEVIEW ME_515D7B0B006F_view
+   MELINK Original WL 'ME_515D7B0B006F' '515D7B0B006F.ms.model.script' ; // Containers
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_515D7B0B006F_view
+
+  MELIST Views
+   Seq: ( ME_515D7B0B006F_view // Containers
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_515D7AD40236_main
+
+ MELIST Diagrams
+  Seq: ( ME_515D7AD40236_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_515D7AD40236_diagrams

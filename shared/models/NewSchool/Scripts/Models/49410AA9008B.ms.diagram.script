@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_49410AA9008B_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_49410AA9008B' '49410AA9008B.ms.model.script' ; // Drug
+MEDIAGRAMS ME_49410AA9008B_diagrams
 
- MEVIEW ME_4A9FCCDB035B_view
-  MELINK Original WL 'ME_4A9FCCDB035B' '4A9FCCDB035B.ms.model.script' ; // DrugData
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4A9FCCDB035B_view
+ MEDIAGRAM ME_49410AA9008B_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_49410AA9008B' '49410AA9008B.ms.model.script' ; // Drug
 
- MEVIEW ME_47F075910035_view
-  MELINK Original WL 'ME_47F075910035' '47F075910035.ms.model.script' ; // sdsDrugDocument
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_47F075910035_view
+  MEVIEW ME_4A9FCCDB035B_view
+   MELINK Original WL 'ME_4A9FCCDB035B' '4A9FCCDB035B.ms.model.script' ; // DrugData
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A9FCCDB035B_view
 
- MEVIEW ME_47EA01EA0070_view
-  MELINK Original WL 'ME_47EA01EA0070' '47EA01EA0070.ms.model.script' ; // sdsDrugList
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_47EA01EA0070_view
+  MEVIEW ME_47F075910035_view
+   MELINK Original WL 'ME_47F075910035' '47F075910035.ms.model.script' ; // sdsDrugDocument
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47F075910035_view
 
-ENDMEDIAGRAM // ME_49410AA9008B_main
+  MEVIEW ME_47EA01EA0070_view
+   MELINK Original WL 'ME_47EA01EA0070' '47EA01EA0070.ms.model.script' ; // sdsDrugList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_47EA01EA0070_view
+
+  MELIST Views
+   Seq: ( ME_4A9FCCDB035B_view // DrugData
+   ME_47F075910035_view // sdsDrugDocument
+   ME_47EA01EA0070_view // sdsDrugList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49410AA9008B_main
+
+ MELIST Diagrams
+  Seq: ( ME_49410AA9008B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49410AA9008B_diagrams

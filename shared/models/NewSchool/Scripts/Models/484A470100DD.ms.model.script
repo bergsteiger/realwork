@@ -8042,6 +8042,238 @@ ME ME_57C6A014004D
 
 ENDME // ME_57C6A014004D DownloadDocRequest
 
+FORWARD ME_57D262200275
+
+ME ME_57D262A5036F
+ MEPROP UID '57D262A5036F'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_48492B0701D8' '4849284D0067.ms.model.script' // RawData
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStream_Data'
+
+ENDME // ME_57D262A5036F Data
+
+ME ME_57D262D50069
+ MEPROP UID '57D262D50069'
+ MEPROP Name 'IsObjTopic'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_48492A7A0255' '52669BFC024E.ms.model.script' // Bool
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStream_IsObjTopic'
+
+ENDME // ME_57D262D50069 IsObjTopic
+
+ME ME_57D262E101FC
+ MEPROP UID '57D262E101FC'
+ MEPROP Name 'DocFamily'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_48492A0C00ED' '52669BFC024E.ms.model.script' // Long
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStream_DocFamily'
+
+ENDME // ME_57D262E101FC DocFamily
+
+ME ME_57D262ED00A2
+ MEPROP UID '57D262ED00A2'
+ MEPROP Name 'DocID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_48492A0C00ED' '52669BFC024E.ms.model.script' // Long
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStream_DocID'
+
+ENDME // ME_57D262ED00A2 DocID
+
+ME ME_57D262FB009B
+ MEPROP UID '57D262FB009B'
+ MEPROP Name 'DocPart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_578F46D3027D' '57BEAF780201.ms.model.script' // Tm3DocPartSelector
+ ;
+ UP extprop:evd:NeedsOwnType True
+ UP extprop:evd:NewTypeName 'csUploadDocStream_DocPart'
+
+ENDME // ME_57D262FB009B DocPart
+
+ME ME_57D2630D0022
+ MEPROP UID '57D2630D0022'
+ MEPROP Name 'ParseToDB'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_48492A7A0255' '52669BFC024E.ms.model.script' // Bool
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStream_ParseToDB'
+
+ENDME // ME_57D2630D0022 ParseToDB
+
+ME ME_57D2648701C5
+ MEPROP UID '57D2648701C5'
+ MEPROP Name 'IsClassChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_48492A7A0255' '52669BFC024E.ms.model.script' // Bool
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStream_IsClassChanged'
+
+ENDME // ME_57D2648701C5 IsClassChanged
+
+ME ME_57D2649B02DD
+ MEPROP UID '57D2649B02DD'
+ MEPROP Name 'NeedSaveText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_48492A7A0255' '52669BFC024E.ms.model.script' // Bool
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStream_NeedSaveText'
+
+ENDME // ME_57D2649B02DD NeedSaveText
+
+ME ME_57D26F0C03BD
+ MEPROP UID '57D26F0C03BD'
+ MEPROP Name 'DocClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262200275 // csUploadDocStream
+ ;
+ MELINK Target WL 'ME_57D265550389' '57BEAF780201.ms.model.script' // TDocType
+ ;
+ UP extprop:evd:NeedsOwnType True
+ UP extprop:evd:NewTypeName 'csUploadDocStream_DocClass'
+
+ENDME // ME_57D26F0C03BD DocClass
+
+ME ME_57D262200275
+ MEPROP UID '57D262200275'
+ MEPROP Name 'csUploadDocStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537DFE740339 // evdTasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_546B3FB60258 // csMessageWithReply
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D262A5036F // Data
+ HWL ME_57D262D50069 // IsObjTopic
+ HWL ME_57D262E101FC // DocFamily
+ HWL ME_57D262ED00A2 // DocID
+ HWL ME_57D262FB009B // DocPart
+ HWL ME_57D2630D0022 // ParseToDB
+ HWL ME_57D2648701C5 // IsClassChanged
+ HWL ME_57D2649B02DD // NeedSaveText
+ HWL ME_57D26F0C03BD // DocClass
+ )
+ ; // Attributes
+ UP "Defines CompareTags" False
+ UP "Defines CompareTagWithInt" False
+ UP extprop:pas:TypeName 'csUploadDocStreamTag'
+ UP extprop:pas:UnitName 'csUploadDocStream_Const'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\csUploadDocStream_Const.pas'
+
+ENDME // ME_57D262200275 csUploadDocStream
+
+FORWARD ME_57D262340370
+
+ME ME_57D262720266
+ MEPROP UID '57D262720266'
+ MEPROP Name 'IsSuccess'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262340370 // csUploadDocStreamReply
+ ;
+ MELINK Target WL 'ME_48492A7A0255' '52669BFC024E.ms.model.script' // Bool
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStreamReply_IsSuccess'
+
+ENDME // ME_57D262720266 IsSuccess
+
+ME ME_57D262810185
+ MEPROP UID '57D262810185'
+ MEPROP Name 'ErrorMessage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D262340370 // csUploadDocStreamReply
+ ;
+ MELINK Target WL 'ME_48492AC1023B' '52669BFC024E.ms.model.script' // String
+ ;
+ UP extprop:evd:NewTypeName 'csUploadDocStreamReply_ErrorMessage'
+
+ENDME // ME_57D262810185 ErrorMessage
+
+ME ME_57D262340370
+ MEPROP UID '57D262340370'
+ MEPROP Name 'csUploadDocStreamReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537DFE740339 // evdTasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_546B3F86038D // csReply
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D262720266 // IsSuccess
+ HWL ME_57D262810185 // ErrorMessage
+ )
+ ; // Attributes
+ UP "Defines CompareTags" False
+ UP "Defines CompareTagWithInt" False
+ UP extprop:pas:TypeName 'csUploadDocStreamReplyTag'
+ UP extprop:pas:UnitName 'csUploadDocStreamReply_Const'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\csUploadDocStreamReply_Const.pas'
+
+ENDME // ME_57D262340370 csUploadDocStreamReply
+
 ME ME_537DFE740339
  MEPROP UID '537DFE740339'
  MEPROP Name 'evdTasks'
@@ -8145,6 +8377,8 @@ ME ME_537DFE740339
  HWL ME_57BFF237005A // csDownloadDocStreamReply
  HWL ME_57BEA2A8025C // csDownloadDocStream
  HWL ME_57C6A014004D // DownloadDocRequest
+ HWL ME_57D262200275 // csUploadDocStream
+ HWL ME_57D262340370 // csUploadDocStreamReply
  )
  ; // Children
  MELIST Injected

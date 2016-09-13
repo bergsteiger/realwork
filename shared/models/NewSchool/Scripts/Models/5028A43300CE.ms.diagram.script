@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_5028A43300CE_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_5028A43300CE' '5028A4C0019B.ms.model.script' ; // TvcmToolbarDockPanel
+MEDIAGRAMS ME_5028A43300CE_diagrams
 
- MEVIEW ME_5028A6450052_view
-  MELINK Original WL 'ME_5028A6450052' '5028A4C0019B.ms.model.script' ; // Make
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5028A6450052_view
+ MEDIAGRAM ME_5028A43300CE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5028A43300CE' '5028A4C0019B.ms.model.script' ; // TvcmToolbarDockPanel
 
-ENDMEDIAGRAM // ME_5028A43300CE_main
+  MEVIEW ME_5028A6450052_view
+   MELINK Original WL 'ME_5028A6450052' '5028A4C0019B.ms.model.script' ; // Make
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5028A6450052_view
+
+  MELIST Views
+   Seq: ( ME_5028A6450052_view // Make
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5028A43300CE_main
+
+ MELIST Diagrams
+  Seq: ( ME_5028A43300CE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5028A43300CE_diagrams

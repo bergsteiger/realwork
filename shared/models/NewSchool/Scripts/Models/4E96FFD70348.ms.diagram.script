@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E96FFD70348_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E96FFD70348' '4E96FFD70348.ms.model.script' ; // Поля ввода
+MEDIAGRAMS ME_4E96FFD70348_diagrams
 
- MEVIEW ME_4E97000003B8_view
-  MELINK Original WL 'ME_4E97000003B8' '4E96FFD70348.ms.model.script' ; // Поле ввода на основе редактора Эверест
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E97000003B8_view
+ MEDIAGRAM ME_4E96FFD70348_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E96FFD70348' '4E96FFD70348.ms.model.script' ; // Поля ввода
 
-ENDMEDIAGRAM // ME_4E96FFD70348_main
+  MEVIEW ME_4E97000003B8_view
+   MELINK Original WL 'ME_4E97000003B8' '4E96FFD70348.ms.model.script' ; // Поле ввода на основе редактора Эверест
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E97000003B8_view
+
+  MELIST Views
+   Seq: ( ME_4E97000003B8_view // Поле ввода на основе редактора Эверест
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E96FFD70348_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E96FFD70348_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E96FFD70348_diagrams

@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4925661502AE_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4925661502AE' '491B305A0096.ms.model.script' ; // IdsBaseContents
+MEDIAGRAMS ME_4925661502AE_diagrams
 
- MEVIEW ME_4D403BC20320_view
-  MELINK Original WL 'ME_4D403BC20320' '491B305A0096.ms.model.script' ; // TnsContentsListType
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4D403BC20320_view
+ MEDIAGRAM ME_4925661502AE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4925661502AE' '491B305A0096.ms.model.script' ; // IdsBaseContents
 
- MEVIEW ME_4D4188BD030B_view
-  MELINK Original WL 'ME_4D4188BD030B' '491B305A0096.ms.model.script' ; // TnsContentsListIndex
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4D4188BD030B_view
+  MEVIEW ME_4D403BC20320_view
+   MELINK Original WL 'ME_4D403BC20320' '491B305A0096.ms.model.script' ; // TnsContentsListType
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D403BC20320_view
 
-ENDMEDIAGRAM // ME_4925661502AE_main
+  MEVIEW ME_4D4188BD030B_view
+   MELINK Original WL 'ME_4D4188BD030B' '491B305A0096.ms.model.script' ; // TnsContentsListIndex
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D4188BD030B_view
+
+  MELIST Views
+   Seq: ( ME_4D403BC20320_view // TnsContentsListType
+   ME_4D4188BD030B_view // TnsContentsListIndex
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4925661502AE_main
+
+ MELIST Diagrams
+  Seq: ( ME_4925661502AE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4925661502AE_diagrams

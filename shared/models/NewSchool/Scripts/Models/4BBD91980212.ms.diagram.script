@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4BBD91980212_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4BBD91980212' '4829D7D50156.ms.model.script' ; // evBitmapReader
+MEDIAGRAMS ME_4BBD91980212_diagrams
 
- MEVIEW ME_4BBD91A600F9_view
-  MELINK Original WL 'ME_4BBD91A600F9' '4829D7D50156.ms.model.script' ; // TevBitmapHandleReader
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4BBD91A600F9_view
+ MEDIAGRAM ME_4BBD91980212_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4BBD91980212' '4829D7D50156.ms.model.script' ; // evBitmapReader
 
-ENDMEDIAGRAM // ME_4BBD91980212_main
+  MEVIEW ME_4BBD91A600F9_view
+   MELINK Original WL 'ME_4BBD91A600F9' '4829D7D50156.ms.model.script' ; // TevBitmapHandleReader
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BBD91A600F9_view
+
+  MELIST Views
+   Seq: ( ME_4BBD91A600F9_view // TevBitmapHandleReader
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4BBD91980212_main
+
+ MELIST Diagrams
+  Seq: ( ME_4BBD91980212_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4BBD91980212_diagrams

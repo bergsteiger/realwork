@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4939633A025D_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4939633A025D' '4939633A025D.ms.model.script' ; // sdsMedicFirmDocument
+MEDIAGRAMS ME_4939633A025D_diagrams
 
- MEVIEW ME_493964C6039A_view
-  MELINK Original WL 'ME_493964C6039A' '4939633A025D.ms.model.script' ; // NeedMakeDrugList
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_493964C6039A_view
+ MEDIAGRAM ME_4939633A025D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4939633A025D' '4939633A025D.ms.model.script' ; // sdsMedicFirmDocument
 
-ENDMEDIAGRAM // ME_4939633A025D_main
+  MEVIEW ME_493964C6039A_view
+   MELINK Original WL 'ME_493964C6039A' '4939633A025D.ms.model.script' ; // NeedMakeDrugList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_493964C6039A_view
+
+  MELIST Views
+   Seq: ( ME_493964C6039A_view // NeedMakeDrugList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4939633A025D_main
+
+ MELIST Diagrams
+  Seq: ( ME_4939633A025D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4939633A025D_diagrams

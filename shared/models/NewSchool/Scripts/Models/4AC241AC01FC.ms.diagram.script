@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4AC241AC01FC_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4AC241AC01FC' '4AC241AC01FC.ms.model.script' ; // InpharmInterfaces
+MEDIAGRAMS ME_4AC241AC01FC_diagrams
 
- MEVIEW ME_491D7D1B026C_view
-  MELINK Original WL 'ME_491D7D1B026C' '4AC241AC01FC.ms.model.script' ; // IdsMedicFirmDocument
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_491D7D1B026C_view
+ MEDIAGRAM ME_4AC241AC01FC_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4AC241AC01FC' '4AC241AC01FC.ms.model.script' ; // InpharmInterfaces
 
- MEVIEW ME_491D87F50062_view
-  MELINK Original WL 'ME_491D87F50062' '4AC241AC01FC.ms.model.script' ; // IdsDrugDocument
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_491D87F50062_view
+  MEVIEW ME_491D7D1B026C_view
+   MELINK Original WL 'ME_491D7D1B026C' '4AC241AC01FC.ms.model.script' ; // IdsMedicFirmDocument
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_491D7D1B026C_view
 
- MEVIEW ME_550C0CF90324_view
-  MELINK Original WL 'ME_550C0CF90324' '4AC241AC01FC.ms.model.script' ; // IdsInpharmMainMenu
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_550C0CF90324_view
+  MEVIEW ME_491D87F50062_view
+   MELINK Original WL 'ME_491D87F50062' '4AC241AC01FC.ms.model.script' ; // IdsDrugDocument
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_491D87F50062_view
 
- MEVIEW ME_550AA65C0212_view
-  MELINK Original WL 'ME_550AA65C0212' '4AC241AC01FC.ms.model.script' ; // IsdsInpharmMainMenu
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_550AA65C0212_view
+  MEVIEW ME_550C0CF90324_view
+   MELINK Original WL 'ME_550C0CF90324' '4AC241AC01FC.ms.model.script' ; // IdsInpharmMainMenu
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_550C0CF90324_view
 
-ENDMEDIAGRAM // ME_4AC241AC01FC_main
+  MEVIEW ME_550AA65C0212_view
+   MELINK Original WL 'ME_550AA65C0212' '4AC241AC01FC.ms.model.script' ; // IsdsInpharmMainMenu
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_550AA65C0212_view
+
+  MELIST Views
+   Seq: ( ME_491D7D1B026C_view // IdsMedicFirmDocument
+   ME_491D87F50062_view // IdsDrugDocument
+   ME_550C0CF90324_view // IdsInpharmMainMenu
+   ME_550AA65C0212_view // IsdsInpharmMainMenu
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4AC241AC01FC_main
+
+ MELIST Diagrams
+  Seq: ( ME_4AC241AC01FC_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4AC241AC01FC_diagrams

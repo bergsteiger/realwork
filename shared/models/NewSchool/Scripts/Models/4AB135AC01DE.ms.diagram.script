@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4AB135AC01DE_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4AB135AC01DE' '4AB135AC01DE.ms.model.script' ; // TurnOffTimeMachine
+MEDIAGRAMS ME_4AB135AC01DE_diagrams
 
- MEVIEW ME_B9684F81B84D_view
-  MELINK Original WL 'ME_B9684F81B84D' '4AB135AC01DE.ms.model.script' ; // ut_TurnOffTimeMachine
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_B9684F81B84D_view
+ MEDIAGRAM ME_4AB135AC01DE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4AB135AC01DE' '4AB135AC01DE.ms.model.script' ; // TurnOffTimeMachine
 
- MEVIEW ME_D1DF92B3B857_view
-  MELINK Original WL 'ME_D1DF92B3B857' '4AB135AC01DE.ms.model.script' ; // TurnOffTimeMachine$Def
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_D1DF92B3B857_view
+  MEVIEW ME_B9684F81B84D_view
+   MELINK Original WL 'ME_B9684F81B84D' '4AB135AC01DE.ms.model.script' ; // ut_TurnOffTimeMachine
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_B9684F81B84D_view
 
-ENDMEDIAGRAM // ME_4AB135AC01DE_main
+  MEVIEW ME_D1DF92B3B857_view
+   MELINK Original WL 'ME_D1DF92B3B857' '4AB135AC01DE.ms.model.script' ; // TurnOffTimeMachine$Def
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_D1DF92B3B857_view
+
+  MELIST Views
+   Seq: ( ME_B9684F81B84D_view // ut_TurnOffTimeMachine
+   ME_D1DF92B3B857_view // TurnOffTimeMachine$Def
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4AB135AC01DE_main
+
+ MELIST Diagrams
+  Seq: ( ME_4AB135AC01DE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4AB135AC01DE_diagrams

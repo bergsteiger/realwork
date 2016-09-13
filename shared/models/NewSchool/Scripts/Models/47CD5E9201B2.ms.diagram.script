@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_47CD5E9201B2_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_47CD5E9201B2' '47CD5C7602CD.ms.model.script' ; // IevControlIterator
+MEDIAGRAMS ME_47CD5E9201B2_diagrams
 
- MEVIEW ME_47CD77A200FE_view
-  MELINK Original WL 'ME_47CD77A200FE' '47CD5C7602CD.ms.model.script' ; // GetNextVisible
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_47CD77A200FE_view
+ MEDIAGRAM ME_47CD5E9201B2_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_47CD5E9201B2' '47CD5C7602CD.ms.model.script' ; // IevControlIterator
 
- MEVIEW ME_47CD77B1038D_view
-  MELINK Original WL 'ME_47CD77B1038D' '47CD5C7602CD.ms.model.script' ; // GetPrevVisible
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_47CD77B1038D_view
+  MEVIEW ME_47CD77A200FE_view
+   MELINK Original WL 'ME_47CD77A200FE' '47CD5C7602CD.ms.model.script' ; // GetNextVisible
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47CD77A200FE_view
 
-ENDMEDIAGRAM // ME_47CD5E9201B2_main
+  MEVIEW ME_47CD77B1038D_view
+   MELINK Original WL 'ME_47CD77B1038D' '47CD5C7602CD.ms.model.script' ; // GetPrevVisible
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47CD77B1038D_view
+
+  MELIST Views
+   Seq: ( ME_47CD77A200FE_view // GetNextVisible
+   ME_47CD77B1038D_view // GetPrevVisible
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47CD5E9201B2_main
+
+ MELIST Diagrams
+  Seq: ( ME_47CD5E9201B2_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47CD5E9201B2_diagrams

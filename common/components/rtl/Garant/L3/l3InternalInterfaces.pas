@@ -572,8 +572,6 @@ type
   function pm_GetCanvas: TCanvas;
   function Get_AbortChecker: Il3AbortChecker;
   procedure Set_AbortChecker(const aValue: Il3AbortChecker);
-  function Get_etoFlags: Cardinal;
-  procedure Set_etoFlags(aValue: Cardinal);
   function Get_InitialDCOffset: Tl3Point;
   function Get_InitialDCOffsetStored: Tl3Point;
   procedure Set_ClipRegion(const aValue: Il3Region);
@@ -725,9 +723,6 @@ type
   property AbortChecker: Il3AbortChecker
    read Get_AbortChecker
    write Set_AbortChecker;
-  property etoFlags: Cardinal
-   read Get_etoFlags
-   write Set_etoFlags;
   property InitialDCOffset: Tl3Point
    read Get_InitialDCOffset;
   property InitialDCOffsetStored: Tl3Point

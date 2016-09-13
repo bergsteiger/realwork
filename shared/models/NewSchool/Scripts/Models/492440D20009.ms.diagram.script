@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_492440D20009_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_492440D20009' '48F747EC0073.ms.model.script' ; // nsValueMaps
+MEDIAGRAMS ME_492440D20009_diagrams
 
- MEVIEW ME_4AD5BB3D0079_view
-  MELINK Original WL 'ME_4AD5BB3D0079' '48F747EC0073.ms.model.script' ; // nsStringMapManager
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4AD5BB3D0079_view
+ MEDIAGRAM ME_492440D20009_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_492440D20009' '48F747EC0073.ms.model.script' ; // nsValueMaps
 
- MEVIEW ME_4AD5BB5503B3_view
-  MELINK Original WL 'ME_4AD5BB5503B3' '48F747EC0073.ms.model.script' ; // nsIntegerMapManager
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4AD5BB5503B3_view
+  MEVIEW ME_4AD5BB3D0079_view
+   MELINK Original WL 'ME_4AD5BB3D0079' '48F747EC0073.ms.model.script' ; // nsStringMapManager
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD5BB3D0079_view
 
-ENDMEDIAGRAM // ME_492440D20009_main
+  MEVIEW ME_4AD5BB5503B3_view
+   MELINK Original WL 'ME_4AD5BB5503B3' '48F747EC0073.ms.model.script' ; // nsIntegerMapManager
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD5BB5503B3_view
+
+  MELIST Views
+   Seq: ( ME_4AD5BB3D0079_view // nsStringMapManager
+   ME_4AD5BB5503B3_view // nsIntegerMapManager
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_492440D20009_main
+
+ MELIST Diagrams
+  Seq: ( ME_492440D20009_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_492440D20009_diagrams

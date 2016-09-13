@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_48C928EE0282_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_48C928EE0282' '49DCC860038B.ms.model.script' ; // evDelayedPainters
+MEDIAGRAMS ME_48C928EE0282_diagrams
 
- MEVIEW ME_48C9294D0370_view
-  MELINK Original WL 'ME_48C9294D0370' '49DCC860038B.ms.model.script' ; // GetRowHeights
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_48C9294D0370_view
+ MEDIAGRAM ME_48C928EE0282_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_48C928EE0282' '49DCC860038B.ms.model.script' ; // evDelayedPainters
 
- MEVIEW ME_48C929A40284_view
-  MELINK Original WL 'ME_48C929A40284' '49DCC860038B.ms.model.script' ; // PaintSelectionParts
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_48C929A40284_view
+  MEVIEW ME_48C9294D0370_view
+   MELINK Original WL 'ME_48C9294D0370' '49DCC860038B.ms.model.script' ; // GetRowHeights
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_48C9294D0370_view
 
- MEVIEW ME_4A56234C0060_view
-  MELINK Original WL 'ME_4A56234C0060' '49DCC860038B.ms.model.script' ; // Release
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4A56234C0060_view
+  MEVIEW ME_48C929A40284_view
+   MELINK Original WL 'ME_48C929A40284' '49DCC860038B.ms.model.script' ; // PaintSelectionParts
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_48C929A40284_view
 
- MEVIEW ME_4A56235D01C9_view
-  MELINK Original WL 'ME_4A56235D01C9' '49DCC860038B.ms.model.script' ; // BeforeAddToCache
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4A56235D01C9_view
+  MEVIEW ME_4A56234C0060_view
+   MELINK Original WL 'ME_4A56234C0060' '49DCC860038B.ms.model.script' ; // Release
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A56234C0060_view
 
-ENDMEDIAGRAM // ME_48C928EE0282_main
+  MEVIEW ME_4A56235D01C9_view
+   MELINK Original WL 'ME_4A56235D01C9' '49DCC860038B.ms.model.script' ; // BeforeAddToCache
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A56235D01C9_view
+
+  MELIST Views
+   Seq: ( ME_48C9294D0370_view // GetRowHeights
+   ME_48C929A40284_view // PaintSelectionParts
+   ME_4A56234C0060_view // Release
+   ME_4A56235D01C9_view // BeforeAddToCache
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_48C928EE0282_main
+
+ MELIST Diagrams
+  Seq: ( ME_48C928EE0282_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_48C928EE0282_diagrams

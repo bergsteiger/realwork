@@ -2,38 +2,54 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_54856B680023_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_54856B680023' '54856B680023.ms.model.script' ; // TaskSend
+MEDIAGRAMS ME_54856B680023_diagrams
 
- MEVIEW ME_54856BFA003E_view
-  MELINK Original WL 'ME_54856BFA003E' '54856B680023.ms.model.script' ; // TalcuSendTaskExecutor
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_54856BFA003E_view
+ MEDIAGRAM ME_54856B680023_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_54856B680023' '54856B680023.ms.model.script' ; // TaskSend
 
- MEVIEW ME_54B638150163_view
-  MELINK Original WL 'ME_54B638150163' '54856B680023.ms.model.script' ; // TalcuTaskFileTransferServices
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_54B638150163_view
+  MEVIEW ME_54856BFA003E_view
+   MELINK Original WL 'ME_54856BFA003E' '54856B680023.ms.model.script' ; // TalcuSendTaskExecutor
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54856BFA003E_view
 
- MEVIEW ME_54BE2518015B_view
-  MELINK Original WL 'ME_54BE2518015B' '54856B680023.ms.model.script' ; // TalcuDetachedExecutorList
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_54BE2518015B_view
+  MEVIEW ME_54B638150163_view
+   MELINK Original WL 'ME_54B638150163' '54856B680023.ms.model.script' ; // TalcuTaskFileTransferServices
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_54B638150163_view
 
- MEVIEW ME_54BE32A30011_view
-  MELINK Original WL 'ME_54BE32A30011' '54856B680023.ms.model.script' ; // TalcuDetachedExecutorPool
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_54BE32A30011_view
+  MEVIEW ME_54BE2518015B_view
+   MELINK Original WL 'ME_54BE2518015B' '54856B680023.ms.model.script' ; // TalcuDetachedExecutorList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_54BE2518015B_view
 
- MEVIEW ME_54BE24CC00D4_view
-  MELINK Original WL 'ME_54BE24CC00D4' '54856B680023.ms.model.script' ; // TalcuDetachedExecutor
-  MEPROP X 450
-  MEPROP Y 10
- ENDMEVIEW // ME_54BE24CC00D4_view
+  MEVIEW ME_54BE32A30011_view
+   MELINK Original WL 'ME_54BE32A30011' '54856B680023.ms.model.script' ; // TalcuDetachedExecutorPool
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_54BE32A30011_view
 
-ENDMEDIAGRAM // ME_54856B680023_main
+  MEVIEW ME_54BE24CC00D4_view
+   MELINK Original WL 'ME_54BE24CC00D4' '54856B680023.ms.model.script' ; // TalcuDetachedExecutor
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_54BE24CC00D4_view
+
+  MELIST Views
+   Seq: ( ME_54856BFA003E_view // TalcuSendTaskExecutor
+   ME_54B638150163_view // TalcuTaskFileTransferServices
+   ME_54BE2518015B_view // TalcuDetachedExecutorList
+   ME_54BE32A30011_view // TalcuDetachedExecutorPool
+   ME_54BE24CC00D4_view // TalcuDetachedExecutor
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_54856B680023_main
+
+ MELIST Diagrams
+  Seq: ( ME_54856B680023_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_54856B680023_diagrams

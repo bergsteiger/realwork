@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_578F4FB90151_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_578F4FB90151' '578F4FB90151.ms.model.script' ; // m3StorageTypes
+MEDIAGRAMS ME_578F4FB90151_diagrams
 
- MEVIEW ME_578F4FD20388_view
-  MELINK Original WL 'ME_578F4FD20388' '578F4FB90151.ms.model.script' ; // Tm3StoreAccess
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_578F4FD20388_view
+ MEDIAGRAM ME_578F4FB90151_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_578F4FB90151' '578F4FB90151.ms.model.script' ; // m3StorageTypes
 
-ENDMEDIAGRAM // ME_578F4FB90151_main
+  MEVIEW ME_578F4FD20388_view
+   MELINK Original WL 'ME_578F4FD20388' '578F4FB90151.ms.model.script' ; // Tm3StoreAccess
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_578F4FD20388_view
+
+  MELIST Views
+   Seq: ( ME_578F4FD20388_view // Tm3StoreAccess
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_578F4FB90151_main
+
+ MELIST Diagrams
+  Seq: ( ME_578F4FB90151_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_578F4FB90151_diagrams

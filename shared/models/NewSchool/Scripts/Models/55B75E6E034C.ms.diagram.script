@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_55B75E6E034C_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_55B75E6E034C' '55B75E6E034C.ms.model.script' ; // LoggingWrapperInterfaces
+MEDIAGRAMS ME_55B75E6E034C_diagrams
 
- MEVIEW ME_55B75F160131_view
-  MELINK Original WL 'ME_55B75F160131' '55B75E6E034C.ms.model.script' ; // InsLogEventData
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_55B75F160131_view
+ MEDIAGRAM ME_55B75E6E034C_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_55B75E6E034C' '55B75E6E034C.ms.model.script' ; // LoggingWrapperInterfaces
 
- MEVIEW ME_55B75FED02BC_view
-  MELINK Original WL 'ME_55B75FED02BC' '55B75E6E034C.ms.model.script' ; // InsLogManager
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_55B75FED02BC_view
+  MEVIEW ME_55B75F160131_view
+   MELINK Original WL 'ME_55B75F160131' '55B75E6E034C.ms.model.script' ; // InsLogEventData
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_55B75F160131_view
 
- MEVIEW ME_566AEC770091_view
-  MELINK Original WL 'ME_566AEC770091' '55B75E6E034C.ms.model.script' ; // InsLoggingTestService
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_566AEC770091_view
+  MEVIEW ME_55B75FED02BC_view
+   MELINK Original WL 'ME_55B75FED02BC' '55B75E6E034C.ms.model.script' ; // InsLogManager
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_55B75FED02BC_view
 
-ENDMEDIAGRAM // ME_55B75E6E034C_main
+  MEVIEW ME_566AEC770091_view
+   MELINK Original WL 'ME_566AEC770091' '55B75E6E034C.ms.model.script' ; // InsLoggingTestService
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_566AEC770091_view
+
+  MELIST Views
+   Seq: ( ME_55B75F160131_view // InsLogEventData
+   ME_55B75FED02BC_view // InsLogManager
+   ME_566AEC770091_view // InsLoggingTestService
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_55B75E6E034C_main
+
+ MELIST Diagrams
+  Seq: ( ME_55B75E6E034C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_55B75E6E034C_diagrams

@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4DC246E40002_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4DC246E40002' '4DC246E40002.ms.model.script' ; // AutoTests
+MEDIAGRAMS ME_4DC246E40002_diagrams
 
- MEVIEW ME_4DC247C80356_view
-  MELINK Original WL 'ME_4DC247C80356' '4DC246E40002.ms.model.script' ; // TAutoTest
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4DC247C80356_view
+ MEDIAGRAM ME_4DC246E40002_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4DC246E40002' '4DC246E40002.ms.model.script' ; // AutoTests
 
- MEVIEW ME_4DC24CA4037E_view
-  MELINK Original WL 'ME_4DC24CA4037E' '4DC246E40002.ms.model.script' ; // CustomAutoTestsSuite
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4DC24CA4037E_view
+  MEVIEW ME_4DC247C80356_view
+   MELINK Original WL 'ME_4DC247C80356' '4DC246E40002.ms.model.script' ; // TAutoTest
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DC247C80356_view
 
-ENDMEDIAGRAM // ME_4DC246E40002_main
+  MEVIEW ME_4DC24CA4037E_view
+   MELINK Original WL 'ME_4DC24CA4037E' '4DC246E40002.ms.model.script' ; // CustomAutoTestsSuite
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4DC24CA4037E_view
+
+  MELIST Views
+   Seq: ( ME_4DC247C80356_view // TAutoTest
+   ME_4DC24CA4037E_view // CustomAutoTestsSuite
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4DC246E40002_main
+
+ MELIST Diagrams
+  Seq: ( ME_4DC246E40002_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4DC246E40002_diagrams

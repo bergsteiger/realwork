@@ -21,8 +21,6 @@ uses
 
 type
  TmsmModelElementMethodCaller = class
-  protected
-   class function ScriptName(const aMethodName: AnsiString): Il3CString;
   public
    class function Call(aWord: TtfwWord;
     const aMethodName: AnsiString): TtfwStackValue; overload;
@@ -41,12 +39,6 @@ type
    class procedure CallProc(const aMethodName: AnsiString);
    class function Call(const aParameter: TtfwStackValue;
     const aMethodName: AnsiString): TtfwStackValue; overload;
-   class procedure CallSetter(aWord: TtfwWord;
-    const aMethodName: AnsiString;
-    const aValue: TtfwStackValue);
-   class procedure CallIntSetter(aWord: TtfwWord;
-    const aMethodName: AnsiString;
-    aValue: Integer);
  end;//TmsmModelElementMethodCaller
 
 implementation
@@ -58,13 +50,9 @@ uses
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThread
  {$IfEnd} // Defined(seThreadSafe)
- , msmWordsByName
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine
  {$IfEnd} // NOT Defined(NoScripts)
- {$If Defined(seCacheDict) AND NOT Defined(NoScripts)}
- , tfwMainDictionaryCache
- {$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)
  //#UC START# *57AA00BD022Eimpl_uses*
  , SysUtils
  , StrUtils
@@ -352,56 +340,5 @@ begin
  end;//try..finally
 //#UC END# *57CFC420039B_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.Call
-
-class function TmsmModelElementMethodCaller.ScriptName(const aMethodName: AnsiString): Il3CString;
-//#UC START# *57D66B490028_57AA00BD022E_var*
-//#UC END# *57D66B490028_57AA00BD022E_var*
-begin
-//#UC START# *57D66B490028_57AA00BD022E_impl*
- Result := TmsmModelElementMethodValueCache.ScriptName(TtfwCStringFactory.C(aMethodName));
-//#UC END# *57D66B490028_57AA00BD022E_impl*
-end;//TmsmModelElementMethodCaller.ScriptName
-
-class procedure TmsmModelElementMethodCaller.CallSetter(aWord: TtfwWord;
- const aMethodName: AnsiString;
- const aValue: TtfwStackValue);
-//#UC START# *57D68123004E_57AA00BD022E_var*
-var
- l_V : TmsmModelElementMethodValue;
- l_Index : Integer;
- l_MethodName: Il3CString;
-//#UC END# *57D68123004E_57AA00BD022E_var*
-begin
-//#UC START# *57D68123004E_57AA00BD022E_impl*
- l_MethodName := TtfwCStringFactory.C('.' + aMethodName);
- l_V := TmsmModelElementMethodValue_C(aWord, l_MethodName);
- with TmsmModelElementMethodValueCache.Instance do
- begin
-  Lock;
-  try
-   if FindData(l_V, l_Index) then
-    ItemSlot(l_Index).rValue := aValue
-   else
-   begin
-    l_V.rValue := aValue;
-    Insert(l_Index, l_V);
-   end;//FindData(l_V, l_Index)
-  finally
-   Unlock;
-  end;//try..finally
- end;//with TmsmModelElementMethodValueCache.Instance
-//#UC END# *57D68123004E_57AA00BD022E_impl*
-end;//TmsmModelElementMethodCaller.CallSetter
-
-class procedure TmsmModelElementMethodCaller.CallIntSetter(aWord: TtfwWord;
- const aMethodName: AnsiString;
- aValue: Integer);
-//#UC START# *57D6815802B8_57AA00BD022E_var*
-//#UC END# *57D6815802B8_57AA00BD022E_var*
-begin
-//#UC START# *57D6815802B8_57AA00BD022E_impl*
- CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
-//#UC END# *57D6815802B8_57AA00BD022E_impl*
-end;//TmsmModelElementMethodCaller.CallIntSetter
 
 end.

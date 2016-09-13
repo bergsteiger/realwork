@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4EA536A500EB_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4EA536A500EB' '482D6E13011F.ms.model.script' ; // evEvdReader
+MEDIAGRAMS ME_4EA536A500EB_diagrams
 
- MEVIEW ME_4EA536C0031B_view
-  MELINK Original WL 'ME_4EA536C0031B' '482D6E13011F.ms.model.script' ; // TevCustomEvdStorageReader
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4EA536C0031B_view
+ MEDIAGRAM ME_4EA536A500EB_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4EA536A500EB' '482D6E13011F.ms.model.script' ; // evEvdReader
 
- MEVIEW ME_4EA536EC013F_view
-  MELINK Original WL 'ME_4EA536EC013F' '482D6E13011F.ms.model.script' ; // TevEvdStorageReader
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4EA536EC013F_view
+  MEVIEW ME_4EA536C0031B_view
+   MELINK Original WL 'ME_4EA536C0031B' '482D6E13011F.ms.model.script' ; // TevCustomEvdStorageReader
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EA536C0031B_view
 
-ENDMEDIAGRAM // ME_4EA536A500EB_main
+  MEVIEW ME_4EA536EC013F_view
+   MELINK Original WL 'ME_4EA536EC013F' '482D6E13011F.ms.model.script' ; // TevEvdStorageReader
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EA536EC013F_view
+
+  MELIST Views
+   Seq: ( ME_4EA536C0031B_view // TevCustomEvdStorageReader
+   ME_4EA536EC013F_view // TevEvdStorageReader
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4EA536A500EB_main
+
+ MELIST Diagrams
+  Seq: ( ME_4EA536A500EB_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4EA536A500EB_diagrams

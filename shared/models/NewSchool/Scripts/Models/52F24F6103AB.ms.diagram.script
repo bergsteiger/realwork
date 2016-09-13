@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_52F24F6103AB_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_52F24F6103AB' '52F24F6103AB.ms.model.script' ; // AutoPipeServer$Test
+MEDIAGRAMS ME_52F24F6103AB_diagrams
 
- MEVIEW ME_52F24FD90066_view
-  MELINK Original WL 'ME_52F24FD90066' '52F24F6103AB.ms.model.script' ; // TAutoPipeServerTestsRunner
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_52F24FD90066_view
+ MEDIAGRAM ME_52F24F6103AB_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_52F24F6103AB' '52F24F6103AB.ms.model.script' ; // AutoPipeServer$Test
 
- MEVIEW ME_52F250640165_view
-  MELINK Original WL 'ME_52F250640165' '52F24F6103AB.ms.model.script' ; // toK
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_52F250640165_view
+  MEVIEW ME_52F24FD90066_view
+   MELINK Original WL 'ME_52F24FD90066' '52F24F6103AB.ms.model.script' ; // TAutoPipeServerTestsRunner
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52F24FD90066_view
 
-ENDMEDIAGRAM // ME_52F24F6103AB_main
+  MEVIEW ME_52F250640165_view
+   MELINK Original WL 'ME_52F250640165' '52F24F6103AB.ms.model.script' ; // toK
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52F250640165_view
+
+  MELIST Views
+   Seq: ( ME_52F24FD90066_view // TAutoPipeServerTestsRunner
+   ME_52F250640165_view // toK
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_52F24F6103AB_main
+
+ MELIST Diagrams
+  Seq: ( ME_52F24F6103AB_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_52F24F6103AB_diagrams

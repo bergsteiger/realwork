@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4B601984005A_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4B601984005A' '4B601984005A.ms.model.script' ; // Labels
+MEDIAGRAMS ME_4B601984005A_diagrams
 
- MEVIEW ME_4B6019A601D8_view
-  MELINK Original WL 'ME_4B6019A601D8' '4B6019A601D8.ms.model.script' ; // TnscFocusLabel
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4B6019A601D8_view
+ MEDIAGRAM ME_4B601984005A_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4B601984005A' '4B601984005A.ms.model.script' ; // Labels
 
- MEVIEW ME_5704F87C02B4_view
-  MELINK Original WL 'ME_5704F87C02B4' '5704F87C02B4.ms.model.script' ; // TnscImageLabel
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_5704F87C02B4_view
+  MEVIEW ME_4B6019A601D8_view
+   MELINK Original WL 'ME_4B6019A601D8' '4B6019A601D8.ms.model.script' ; // TnscFocusLabel
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4B6019A601D8_view
 
- MEVIEW ME_5704F8CA00C8_view
-  MELINK Original WL 'ME_5704F8CA00C8' '5704F8CA00C8.ms.model.script' ; // TnscComboLabel
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_5704F8CA00C8_view
+  MEVIEW ME_5704F87C02B4_view
+   MELINK Original WL 'ME_5704F87C02B4' '5704F87C02B4.ms.model.script' ; // TnscImageLabel
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5704F87C02B4_view
 
-ENDMEDIAGRAM // ME_4B601984005A_main
+  MEVIEW ME_5704F8CA00C8_view
+   MELINK Original WL 'ME_5704F8CA00C8' '5704F8CA00C8.ms.model.script' ; // TnscComboLabel
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5704F8CA00C8_view
+
+  MELIST Views
+   Seq: ( ME_4B6019A601D8_view // TnscFocusLabel
+   ME_5704F87C02B4_view // TnscImageLabel
+   ME_5704F8CA00C8_view // TnscComboLabel
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4B601984005A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4B601984005A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4B601984005A_diagrams

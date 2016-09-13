@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_499469840038_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_499469840038' '499469840038.ms.model.script' ; // vcmFormDispatcherInterfaces
+MEDIAGRAMS ME_499469840038_diagrams
 
- MEVIEW ME_49525BDD02FE_view
-  MELINK Original WL 'ME_49525BDD02FE' '499469840038.ms.model.script' ; // IvcmFormDispatcherListener
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_49525BDD02FE_view
+ MEDIAGRAM ME_499469840038_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_499469840038' '499469840038.ms.model.script' ; // vcmFormDispatcherInterfaces
 
- MEVIEW ME_4992FBE702BE_view
-  MELINK Original WL 'ME_4992FBE702BE' '499469840038.ms.model.script' ; // IvcmFormDispatcherNotify
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4992FBE702BE_view
+  MEVIEW ME_49525BDD02FE_view
+   MELINK Original WL 'ME_49525BDD02FE' '499469840038.ms.model.script' ; // IvcmFormDispatcherListener
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_49525BDD02FE_view
 
-ENDMEDIAGRAM // ME_499469840038_main
+  MEVIEW ME_4992FBE702BE_view
+   MELINK Original WL 'ME_4992FBE702BE' '499469840038.ms.model.script' ; // IvcmFormDispatcherNotify
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4992FBE702BE_view
+
+  MELIST Views
+   Seq: ( ME_49525BDD02FE_view // IvcmFormDispatcherListener
+   ME_4992FBE702BE_view // IvcmFormDispatcherNotify
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_499469840038_main
+
+ MELIST Diagrams
+  Seq: ( ME_499469840038_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_499469840038_diagrams

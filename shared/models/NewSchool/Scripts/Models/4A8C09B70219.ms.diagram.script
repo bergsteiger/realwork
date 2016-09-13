@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4A8C09B70219_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4A8C09B70219' '4912DD020283.ms.model.script' ; // IeeEditor
+MEDIAGRAMS ME_4A8C09B70219_diagrams
 
- MEVIEW ME_54819F7C006B_view
-  MELINK Original WL 'ME_54819F7C006B' '4912DD020283.ms.model.script' ; // GetHotspotOnPoint
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_54819F7C006B_view
+ MEDIAGRAM ME_4A8C09B70219_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4A8C09B70219' '4912DD020283.ms.model.script' ; // IeeEditor
 
- MEVIEW ME_54819FA40295_view
-  MELINK Original WL 'ME_54819FA40295' '4912DD020283.ms.model.script' ; // CanSplitPara
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_54819FA40295_view
+  MEVIEW ME_54819F7C006B_view
+   MELINK Original WL 'ME_54819F7C006B' '4912DD020283.ms.model.script' ; // GetHotspotOnPoint
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54819F7C006B_view
 
-ENDMEDIAGRAM // ME_4A8C09B70219_main
+  MEVIEW ME_54819FA40295_view
+   MELINK Original WL 'ME_54819FA40295' '4912DD020283.ms.model.script' ; // CanSplitPara
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_54819FA40295_view
+
+  MELIST Views
+   Seq: ( ME_54819F7C006B_view // GetHotspotOnPoint
+   ME_54819FA40295_view // CanSplitPara
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A8C09B70219_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A8C09B70219_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A8C09B70219_diagrams

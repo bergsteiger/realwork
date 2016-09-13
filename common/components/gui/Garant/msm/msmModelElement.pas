@@ -29,8 +29,6 @@ type
    function Get_List(const aName: AnsiString): ImsmModelElementList;
    function Get_StringProp(const aName: AnsiString): Il3CString;
    function Get_IntProp(const aName: AnsiString): Integer;
-   procedure Set_IntProp(const aName: AnsiString;
-    aValue: Integer);
    function Get_BoolProp(const aName: AnsiString): Boolean;
    function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
    function Get_MainWord: TtfwWord;
@@ -162,16 +160,6 @@ begin
  Result := TmsmModelElementMethodCaller.CallAndGetInt(MainWord, aName);
 //#UC END# *57B47A88013F_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_IntProp
-
-procedure TmsmModelElement.Set_IntProp(const aName: AnsiString;
- aValue: Integer);
-//#UC START# *57B47A88013F_57A9F5170275set_var*
-//#UC END# *57B47A88013F_57A9F5170275set_var*
-begin
-//#UC START# *57B47A88013F_57A9F5170275set_impl*
- TmsmModelElementMethodCaller.CallIntSetter(MainWord, aName, aValue);
-//#UC END# *57B47A88013F_57A9F5170275set_impl*
-end;//TmsmModelElement.Set_IntProp
 
 function TmsmModelElement.Get_BoolProp(const aName: AnsiString): Boolean;
 //#UC START# *57B47AB0030F_57A9F5170275get_var*

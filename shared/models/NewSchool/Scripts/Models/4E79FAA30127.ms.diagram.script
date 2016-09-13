@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E79FAA30127_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E79FAA30127' '4E79FA920283.ms.model.script' ; // Плавающее окно
+MEDIAGRAMS ME_4E79FAA30127_diagrams
 
- MEVIEW ME_4E79FAE60370_view
-  MELINK Original WL 'ME_4E79FAE60370' '4E79FA920283.ms.model.script' ; // Плавающее окно должно уметь прятаться, а не только закрываться
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E79FAE60370_view
+ MEDIAGRAM ME_4E79FAA30127_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E79FAA30127' '4E79FA920283.ms.model.script' ; // Плавающее окно
 
-ENDMEDIAGRAM // ME_4E79FAA30127_main
+  MEVIEW ME_4E79FAE60370_view
+   MELINK Original WL 'ME_4E79FAE60370' '4E79FA920283.ms.model.script' ; // Плавающее окно должно уметь прятаться, а не только закрываться
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E79FAE60370_view
+
+  MELIST Views
+   Seq: ( ME_4E79FAE60370_view // Плавающее окно должно уметь прятаться, а не только закрываться
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E79FAA30127_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E79FAA30127_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E79FAA30127_diagrams

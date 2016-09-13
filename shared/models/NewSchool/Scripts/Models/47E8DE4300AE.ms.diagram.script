@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_47E8DE4300AE_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_47E8DE4300AE' '47E8DDB10253.ms.model.script' ; // PharmFirmListEntry
+MEDIAGRAMS ME_47E8DE4300AE_diagrams
 
- MEVIEW ME_47E8E000004D_view
-  MELINK Original WL 'ME_47E8E000004D' '47E8DDB10253.ms.model.script' ; // make
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_47E8E000004D_view
+ MEDIAGRAM ME_47E8DE4300AE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_47E8DE4300AE' '47E8DDB10253.ms.model.script' ; // PharmFirmListEntry
 
- MEVIEW ME_47E8E09A02D3_view
-  MELINK Original WL 'ME_47E8E09A02D3' '47E8DDB10253.ms.model.script' ; // get_document
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_47E8E09A02D3_view
+  MEVIEW ME_47E8E000004D_view
+   MELINK Original WL 'ME_47E8E000004D' '47E8DDB10253.ms.model.script' ; // make
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_47E8E000004D_view
 
-ENDMEDIAGRAM // ME_47E8DE4300AE_main
+  MEVIEW ME_47E8E09A02D3_view
+   MELINK Original WL 'ME_47E8E09A02D3' '47E8DDB10253.ms.model.script' ; // get_document
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_47E8E09A02D3_view
+
+  MELIST Views
+   Seq: ( ME_47E8E000004D_view // make
+   ME_47E8E09A02D3_view // get_document
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_47E8DE4300AE_main
+
+ MELIST Diagrams
+  Seq: ( ME_47E8DE4300AE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_47E8DE4300AE_diagrams

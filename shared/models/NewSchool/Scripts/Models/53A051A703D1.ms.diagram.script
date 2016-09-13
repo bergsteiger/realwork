@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_53A051A703D1_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_53A051A703D1' '53A05123034C.ms.model.script' ; // alcuTaskListBase
+MEDIAGRAMS ME_53A051A703D1_diagrams
 
- MEVIEW ME_53A04CD30052_view
-  MELINK Original WL 'ME_53A04CD30052' '53A05123034C.ms.model.script' ; // alcuTasksIterator
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_53A04CD30052_view
+ MEDIAGRAM ME_53A051A703D1_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_53A051A703D1' '53A05123034C.ms.model.script' ; // alcuTaskListBase
 
- MEVIEW ME_53A038090050_view
-  MELINK Original WL 'ME_53A038090050' '53A05123034C.ms.model.script' ; // TalcuTaskListBase
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53A038090050_view
+  MEVIEW ME_53A04CD30052_view
+   MELINK Original WL 'ME_53A04CD30052' '53A05123034C.ms.model.script' ; // alcuTasksIterator
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A04CD30052_view
 
-ENDMEDIAGRAM // ME_53A051A703D1_main
+  MEVIEW ME_53A038090050_view
+   MELINK Original WL 'ME_53A038090050' '53A05123034C.ms.model.script' ; // TalcuTaskListBase
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A038090050_view
+
+  MELIST Views
+   Seq: ( ME_53A04CD30052_view // alcuTasksIterator
+   ME_53A038090050_view // TalcuTaskListBase
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53A051A703D1_main
+
+ MELIST Diagrams
+  Seq: ( ME_53A051A703D1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53A051A703D1_diagrams

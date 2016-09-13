@@ -819,6 +819,78 @@ ME ME_57CEBF6B0343
 
 ENDME // ME_57CEBF6B0343 TmsmNullOperationsList
 
+FORWARD ME_57D25DA703D8
+
+ME ME_57D25DD20388
+ MEPROP UID '57D25DD20388'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D25DA703D8 // TmsmOperationsSeparator
+ ;
+
+ENDME // ME_57D25DD20388 Create
+
+ME ME_57D25DE50033
+ MEPROP UID '57D25DE50033'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D25DA703D8 // TmsmOperationsSeparator
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D25DD20388 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B568620397' '57CEABF60269.ms.model.script' // ImsmOperation
+ )
+ ; // Implements
+
+ENDME // ME_57D25DE50033 Make
+
+ME ME_57CEB1F602D1_ME_57D25DA703D8
+ MELINK Original HWL ME_57CEB1F602D1 // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57CEB1F602D1_ME_57D25DA703D8 DoDoIt
+
+ME ME_57D25DA703D8
+ MEPROP UID '57D25DA703D8'
+ MEPROP Name 'TmsmOperationsSeparator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CEB008027D // Operations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CEB1C1010D // TmsmOperation
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57D25DD20388 // Create
+ HWL ME_57D25DE50033 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57CEB1F602D1_ME_57D25DA703D8 // DoDoIt
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'msmOperationsSeparator'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmOperationsSeparator'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOperationsSeparator.pas'
+
+ENDME // ME_57D25DA703D8 TmsmOperationsSeparator
+
 ME ME_57CEB008027D
  MEPROP UID '57CEB008027D'
  MEPROP Name 'Operations'
@@ -836,6 +908,7 @@ ME ME_57CEB008027D
  HWL ME_57CEB54C02B6 // msmConcreteModelOperation
  HWL ME_57CEBA960062 // msmModelToModelOperation
  HWL ME_57CEBF6B0343 // TmsmNullOperationsList
+ HWL ME_57D25DA703D8 // TmsmOperationsSeparator
  )
  ; // Children
  MELIST Depends

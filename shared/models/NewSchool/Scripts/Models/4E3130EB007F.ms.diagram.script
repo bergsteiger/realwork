@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E3130EB007F_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E3130EB007F' '4E3130EB007F.ms.model.script' ; // Требования к Архивариусу
+MEDIAGRAMS ME_4E3130EB007F_diagrams
 
- MEVIEW ME_535F53B70206_view
-  MELINK Original WL 'ME_535F53B70206' '535F53B70206.ms.model.script' ; // Требования к отображению атрибутов
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_535F53B70206_view
+ MEDIAGRAM ME_4E3130EB007F_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E3130EB007F' '4E3130EB007F.ms.model.script' ; // Требования к Архивариусу
 
- MEVIEW ME_53F327E402A1_view
-  MELINK Original WL 'ME_53F327E402A1' '53F327E402A1.ms.model.script' ; // Требования к созданию и редактированию документа
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53F327E402A1_view
+  MEVIEW ME_535F53B70206_view
+   MELINK Original WL 'ME_535F53B70206' '535F53B70206.ms.model.script' ; // Требования к отображению атрибутов
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_535F53B70206_view
 
-ENDMEDIAGRAM // ME_4E3130EB007F_main
+  MEVIEW ME_53F327E402A1_view
+   MELINK Original WL 'ME_53F327E402A1' '53F327E402A1.ms.model.script' ; // Требования к созданию и редактированию документа
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53F327E402A1_view
+
+  MELIST Views
+   Seq: ( ME_535F53B70206_view // Требования к отображению атрибутов
+   ME_53F327E402A1_view // Требования к созданию и редактированию документа
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E3130EB007F_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E3130EB007F_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E3130EB007F_diagrams

@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4603A0B8004B_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4603A0B8004B' '45741B780271.ms.model.script' ; // ListTree
+MEDIAGRAMS ME_4603A0B8004B_diagrams
 
- MEVIEW ME_4603AC6A0320_view
-  MELINK Original WL 'ME_4603AC6A0320' '45741B780271.ms.model.script' ; // make
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4603AC6A0320_view
+ MEDIAGRAM ME_4603A0B8004B_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4603A0B8004B' '45741B780271.ms.model.script' ; // ListTree
 
- MEVIEW ME_4603C5FF036D_view
-  MELINK Original WL 'ME_4603C5FF036D' '45741B780271.ms.model.script' ; // add_block_position
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4603C5FF036D_view
+  MEVIEW ME_4603AC6A0320_view
+   MELINK Original WL 'ME_4603AC6A0320' '45741B780271.ms.model.script' ; // make
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4603AC6A0320_view
 
- MEVIEW ME_4603C55B00DE_view
-  MELINK Original WL 'ME_4603C55B00DE' '45741B780271.ms.model.script' ; // get_block_position
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4603C55B00DE_view
+  MEVIEW ME_4603C5FF036D_view
+   MELINK Original WL 'ME_4603C5FF036D' '45741B780271.ms.model.script' ; // add_block_position
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4603C5FF036D_view
 
- MEVIEW ME_4603C5490003_view
-  MELINK Original WL 'ME_4603C5490003' '45741B780271.ms.model.script' ; // clear_block_positions
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4603C5490003_view
+  MEVIEW ME_4603C55B00DE_view
+   MELINK Original WL 'ME_4603C55B00DE' '45741B780271.ms.model.script' ; // get_block_position
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4603C55B00DE_view
 
-ENDMEDIAGRAM // ME_4603A0B8004B_main
+  MEVIEW ME_4603C5490003_view
+   MELINK Original WL 'ME_4603C5490003' '45741B780271.ms.model.script' ; // clear_block_positions
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4603C5490003_view
+
+  MELIST Views
+   Seq: ( ME_4603AC6A0320_view // make
+   ME_4603C5FF036D_view // add_block_position
+   ME_4603C55B00DE_view // get_block_position
+   ME_4603C5490003_view // clear_block_positions
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4603A0B8004B_main
+
+ MELIST Diagrams
+  Seq: ( ME_4603A0B8004B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4603A0B8004B_diagrams

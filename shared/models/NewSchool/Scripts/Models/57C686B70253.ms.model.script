@@ -88,6 +88,18 @@ ME ME_57C68837000C
 
 ENDME // ME_57C68837000C 
 
+FORWARD ME_57D270880150
+
+ME ME_57D2732B035B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
+ ;
+ MELINK Target HWL ME_57D270880150 // TcsUploadDocStreamReply
+ ;
+
+ENDME // ME_57D2732B035B 
+
 ME ME_57C687CA01EE
  MEPROP UID '57C687CA01EE'
  MEPROP Name 'ncsClientRegister'
@@ -102,6 +114,7 @@ ME ME_57C687CA01EE
    Seq: ( ME_57C687F5010F // TncsMessageFactory
  ME_57C6881102F6 // TcsDownloadDocStreamReply
  ME_57C68837000C // ncsClientRegister
+ ME_57D2732B035B // TcsUploadDocStreamReply
  )
  ; // Dependencies
 
@@ -139,6 +152,18 @@ ME ME_57C688330012
 
 ENDME // ME_57C688330012 
 
+FORWARD ME_57D2706902F8
+
+ME ME_57D275B602AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
+ ;
+ MELINK Target HWL ME_57D2706902F8 // TcsUploadDocStream
+ ;
+
+ENDME // ME_57D275B602AF 
+
 ME ME_57C687E100FF
  MEPROP UID '57C687E100FF'
  MEPROP Name 'ncsServerRegister'
@@ -153,6 +178,7 @@ ME ME_57C687E100FF
    Seq: ( ME_57C687FB00E6 // TncsMessageFactory
  ME_57C6880C0261 // TcsDownloadDocStream
  ME_57C688330012 // ncsServerRegister
+ ME_57D275B602AF // TcsUploadDocStream
  )
  ; // Dependencies
 
@@ -177,6 +203,56 @@ ME ME_57C6874900D4
 
 ENDME // ME_57C6874900D4 ncsDocStorageTransferReg
 
+ME ME_57D2706902F8
+ MEPROP UID '57D2706902F8'
+ MEPROP Name 'TcsUploadDocStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57D262200275' '484A470100DD.ms.model.script' // csUploadDocStream
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'csUploadDocStream'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csUploadDocStream'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csUploadDocStream.pas'
+
+ENDME // ME_57D2706902F8 TcsUploadDocStream
+
+ME ME_57D270880150
+ MEPROP UID '57D270880150'
+ MEPROP Name 'TcsUploadDocStreamReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547831BD02E5' '544E0148010D.ms.model.script' // TncsReply
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57D262340370' '484A470100DD.ms.model.script' // csUploadDocStreamReply
+ )
+ ; // Implements
+ UP extprop:pas:UnitName 'csUploadDocStreamReply'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csUploadDocStreamReply'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csUploadDocStreamReply.pas'
+
+ENDME // ME_57D270880150 TcsUploadDocStreamReply
+
 ME ME_57C686B70253
  MEPROP UID '57C686B70253'
  MEPROP Name 'DocStreamTransfer'
@@ -191,6 +267,8 @@ ME ME_57C686B70253
    Seq: ( HWL ME_57BFF6EA005F // TcsDownloadDocStreamReply
  HWL ME_57BECED40109 // TcsDownloadDocStream
  HWL ME_57C6874900D4 // ncsDocStorageTransferReg
+ HWL ME_57D2706902F8 // TcsUploadDocStream
+ HWL ME_57D270880150 // TcsUploadDocStreamReply
  )
  ; // Children
  MELIST Depends

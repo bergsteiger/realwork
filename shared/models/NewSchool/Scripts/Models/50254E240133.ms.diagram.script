@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_50254E240133_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_50254E240133' '48076E7F0260.ms.model.script' ; // TatFileIterator
+MEDIAGRAMS ME_50254E240133_diagrams
 
- MEVIEW ME_50254E350320_view
-  MELINK Original WL 'ME_50254E350320' '48076E7F0260.ms.model.script' ; // TatFileIteratorBase
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_50254E350320_view
+ MEDIAGRAM ME_50254E240133_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_50254E240133' '48076E7F0260.ms.model.script' ; // TatFileIterator
 
- MEVIEW ME_50254F1703A1_view
-  MELINK Original WL 'ME_50254F1703A1' '48076E7F0260.ms.model.script' ; // TatSimpleFileIterator
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_50254F1703A1_view
+  MEVIEW ME_50254E350320_view
+   MELINK Original WL 'ME_50254E350320' '48076E7F0260.ms.model.script' ; // TatFileIteratorBase
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_50254E350320_view
 
- MEVIEW ME_50255C38035F_view
-  MELINK Original WL 'ME_50255C38035F' '48076E7F0260.ms.model.script' ; // Create
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_50255C38035F_view
+  MEVIEW ME_50254F1703A1_view
+   MELINK Original WL 'ME_50254F1703A1' '48076E7F0260.ms.model.script' ; // TatSimpleFileIterator
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_50254F1703A1_view
 
- MEVIEW ME_502B8CA80171_view
-  MELINK Original WL 'ME_502B8CA80171' '48076E7F0260.ms.model.script' ; // IsOnGoodFile
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_502B8CA80171_view
+  MEVIEW ME_50255C38035F_view
+   MELINK Original WL 'ME_50255C38035F' '48076E7F0260.ms.model.script' ; // Create
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_50255C38035F_view
 
-ENDMEDIAGRAM // ME_50254E240133_main
+  MEVIEW ME_502B8CA80171_view
+   MELINK Original WL 'ME_502B8CA80171' '48076E7F0260.ms.model.script' ; // IsOnGoodFile
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_502B8CA80171_view
+
+  MELIST Views
+   Seq: ( ME_50254E350320_view // TatFileIteratorBase
+   ME_50254F1703A1_view // TatSimpleFileIterator
+   ME_50255C38035F_view // Create
+   ME_502B8CA80171_view // IsOnGoodFile
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_50254E240133_main
+
+ MELIST Diagrams
+  Seq: ( ME_50254E240133_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_50254E240133_diagrams

@@ -64,6 +64,23 @@ ME ME_57B1ABA800A6
 
 ENDME // ME_57B1ABA800A6 Activate
 
+ME ME_57D29826015D
+ MEPROP UID '57D29826015D'
+ MEPROP Name 'Bind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57AD9468006E // ImsmUseCase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57AD949C0005 // AddController
+ )
+ ; // Inherits
+
+ENDME // ME_57D29826015D Bind
+
 ME ME_57AD9468006E
  MEPROP UID '57AD9468006E'
  MEPROP GUID '54200745-EE4F-42D0-840A-8209E1EBE0D3'
@@ -78,6 +95,7 @@ ME ME_57AD9468006E
  MELIST Operations
    Seq: ( HWL ME_57AD949C0005 // AddController
  HWL ME_57B1ABA800A6 // Activate
+ HWL ME_57D29826015D // Bind
  )
  ; // Operations
  UP extprop:rc:isAcceptableForScripts True

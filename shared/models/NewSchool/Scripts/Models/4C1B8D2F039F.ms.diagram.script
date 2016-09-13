@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4C1B8D2F039F_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4C1B8D2F039F' '47ECACA70141.ms.model.script' ; // TevdCustomHyperlinkCorrector
+MEDIAGRAMS ME_4C1B8D2F039F_diagrams
 
- MEVIEW ME_4C1B9990015E_view
-  MELINK Original WL 'ME_4C1B9990015E' '47ECACA70141.ms.model.script' ; // SetTo
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4C1B9990015E_view
+ MEDIAGRAM ME_4C1B8D2F039F_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4C1B8D2F039F' '47ECACA70141.ms.model.script' ; // TevdCustomHyperlinkCorrector
 
- MEVIEW ME_52E0B71902EC_view
-  MELINK Original WL 'ME_52E0B71902EC' '47ECACA70141.ms.model.script' ; // IsNeedCorrection
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_52E0B71902EC_view
+  MEVIEW ME_4C1B9990015E_view
+   MELINK Original WL 'ME_4C1B9990015E' '47ECACA70141.ms.model.script' ; // SetTo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C1B9990015E_view
 
- MEVIEW ME_52E0B7BF0023_view
-  MELINK Original WL 'ME_52E0B7BF0023' '47ECACA70141.ms.model.script' ; // DoCorrectDocID
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_52E0B7BF0023_view
+  MEVIEW ME_52E0B71902EC_view
+   MELINK Original WL 'ME_52E0B71902EC' '47ECACA70141.ms.model.script' ; // IsNeedCorrection
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E0B71902EC_view
 
- MEVIEW ME_52E0B83400F0_view
-  MELINK Original WL 'ME_52E0B83400F0' '47ECACA70141.ms.model.script' ; // CheckDocIDBeforeCorrection
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_52E0B83400F0_view
+  MEVIEW ME_52E0B7BF0023_view
+   MELINK Original WL 'ME_52E0B7BF0023' '47ECACA70141.ms.model.script' ; // DoCorrectDocID
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E0B7BF0023_view
 
-ENDMEDIAGRAM // ME_4C1B8D2F039F_main
+  MEVIEW ME_52E0B83400F0_view
+   MELINK Original WL 'ME_52E0B83400F0' '47ECACA70141.ms.model.script' ; // CheckDocIDBeforeCorrection
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_52E0B83400F0_view
+
+  MELIST Views
+   Seq: ( ME_4C1B9990015E_view // SetTo
+   ME_52E0B71902EC_view // IsNeedCorrection
+   ME_52E0B7BF0023_view // DoCorrectDocID
+   ME_52E0B83400F0_view // CheckDocIDBeforeCorrection
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4C1B8D2F039F_main
+
+ MELIST Diagrams
+  Seq: ( ME_4C1B8D2F039F_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4C1B8D2F039F_diagrams

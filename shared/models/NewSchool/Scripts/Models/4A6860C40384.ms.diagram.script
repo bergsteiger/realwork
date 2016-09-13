@@ -2,38 +2,54 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4A6860C40384_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4A6860C40384' '48F747EC0073.ms.model.script' ; // nsNotifiers
+MEDIAGRAMS ME_4A6860C40384_diagrams
 
- MEVIEW ME_4AD5AD050225_view
-  MELINK Original WL 'ME_4AD5AD050225' '48F747EC0073.ms.model.script' ; // TnsOnLongProcess
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4AD5AD050225_view
+ MEDIAGRAM ME_4A6860C40384_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4A6860C40384' '48F747EC0073.ms.model.script' ; // nsNotifiers
 
- MEVIEW ME_4AD5AD100369_view
-  MELINK Original WL 'ME_4AD5AD100369' '48F747EC0073.ms.model.script' ; // TnsSynchronizedNotification
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4AD5AD100369_view
+  MEVIEW ME_4AD5AD050225_view
+   MELINK Original WL 'ME_4AD5AD050225' '48F747EC0073.ms.model.script' ; // TnsOnLongProcess
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD5AD050225_view
 
- MEVIEW ME_4AD5AD200280_view
-  MELINK Original WL 'ME_4AD5AD200280' '48F747EC0073.ms.model.script' ; // TnsOnControlledChange
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4AD5AD200280_view
+  MEVIEW ME_4AD5AD100369_view
+   MELINK Original WL 'ME_4AD5AD100369' '48F747EC0073.ms.model.script' ; // TnsSynchronizedNotification
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD5AD100369_view
 
- MEVIEW ME_4AD5AD2903C2_view
-  MELINK Original WL 'ME_4AD5AD2903C2' '48F747EC0073.ms.model.script' ; // TnsOnExternalFolderChange
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4AD5AD2903C2_view
+  MEVIEW ME_4AD5AD200280_view
+   MELINK Original WL 'ME_4AD5AD200280' '48F747EC0073.ms.model.script' ; // TnsOnControlledChange
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD5AD200280_view
 
- MEVIEW ME_4AD5AD350278_view
-  MELINK Original WL 'ME_4AD5AD350278' '48F747EC0073.ms.model.script' ; // TnsChatNotifier
-  MEPROP X 450
-  MEPROP Y 10
- ENDMEVIEW // ME_4AD5AD350278_view
+  MEVIEW ME_4AD5AD2903C2_view
+   MELINK Original WL 'ME_4AD5AD2903C2' '48F747EC0073.ms.model.script' ; // TnsOnExternalFolderChange
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD5AD2903C2_view
 
-ENDMEDIAGRAM // ME_4A6860C40384_main
+  MEVIEW ME_4AD5AD350278_view
+   MELINK Original WL 'ME_4AD5AD350278' '48F747EC0073.ms.model.script' ; // TnsChatNotifier
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AD5AD350278_view
+
+  MELIST Views
+   Seq: ( ME_4AD5AD050225_view // TnsOnLongProcess
+   ME_4AD5AD100369_view // TnsSynchronizedNotification
+   ME_4AD5AD200280_view // TnsOnControlledChange
+   ME_4AD5AD2903C2_view // TnsOnExternalFolderChange
+   ME_4AD5AD350278_view // TnsChatNotifier
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A6860C40384_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A6860C40384_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A6860C40384_diagrams

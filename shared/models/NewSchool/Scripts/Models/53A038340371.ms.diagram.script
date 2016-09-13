@@ -2,50 +2,68 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_53A038340371_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_53A038340371' '53A038340371.ms.model.script' ; // MultiThread
+MEDIAGRAMS ME_53A038340371_diagrams
 
- MEVIEW ME_53A03846011C_view
-  MELINK Original WL 'ME_53A03846011C' '53A038340371.ms.model.script' ; // l3CriticalSectionHolder
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_53A03846011C_view
+ MEDIAGRAM ME_53A038340371_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_53A038340371' '53A038340371.ms.model.script' ; // MultiThread
 
- MEVIEW ME_53A2C805017C_view
-  MELINK Original WL 'ME_53A2C805017C' '53A038340371.ms.model.script' ; // l3MultiThreadIntegerList
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53A2C805017C_view
+  MEVIEW ME_53A03846011C_view
+   MELINK Original WL 'ME_53A03846011C' '53A038340371.ms.model.script' ; // l3CriticalSectionHolder
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A03846011C_view
 
- MEVIEW ME_53A2C9290311_view
-  MELINK Original WL 'ME_53A2C9290311' '53A038340371.ms.model.script' ; // Tl3MultiThreadSortedIntegerList
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_53A2C9290311_view
+  MEVIEW ME_53A2C805017C_view
+   MELINK Original WL 'ME_53A2C805017C' '53A038340371.ms.model.script' ; // l3MultiThreadIntegerList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A2C805017C_view
 
- MEVIEW ME_540EDC10016F_view
-  MELINK Original WL 'ME_540EDC10016F' '53A038340371.ms.model.script' ; // Tl3Mutex
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_540EDC10016F_view
+  MEVIEW ME_53A2C9290311_view
+   MELINK Original WL 'ME_53A2C9290311' '53A038340371.ms.model.script' ; // Tl3MultiThreadSortedIntegerList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A2C9290311_view
 
- MEVIEW ME_549BC5C50174_view
-  MELINK Original WL 'ME_549BC5C50174' '53A038340371.ms.model.script' ; // Tl3AsyncTask
-  MEPROP X 450
-  MEPROP Y 10
- ENDMEVIEW // ME_549BC5C50174_view
+  MEVIEW ME_540EDC10016F_view
+   MELINK Original WL 'ME_540EDC10016F' '53A038340371.ms.model.script' ; // Tl3Mutex
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_540EDC10016F_view
 
- MEVIEW ME_549BC6740033_view
-  MELINK Original WL 'ME_549BC6740033' '53A038340371.ms.model.script' ; // Tl3AsynkTaskList
-  MEPROP X 560
-  MEPROP Y 10
- ENDMEVIEW // ME_549BC6740033_view
+  MEVIEW ME_549BC5C50174_view
+   MELINK Original WL 'ME_549BC5C50174' '53A038340371.ms.model.script' ; // Tl3AsyncTask
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_549BC5C50174_view
 
- MEVIEW ME_549BC58B0346_view
-  MELINK Original WL 'ME_549BC58B0346' '53A038340371.ms.model.script' ; // Tl3ExecuteInMainThread
-  MEPROP X 670
-  MEPROP Y 10
- ENDMEVIEW // ME_549BC58B0346_view
+  MEVIEW ME_549BC6740033_view
+   MELINK Original WL 'ME_549BC6740033' '53A038340371.ms.model.script' ; // Tl3AsynkTaskList
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_549BC6740033_view
 
-ENDMEDIAGRAM // ME_53A038340371_main
+  MEVIEW ME_549BC58B0346_view
+   MELINK Original WL 'ME_549BC58B0346' '53A038340371.ms.model.script' ; // Tl3ExecuteInMainThread
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_549BC58B0346_view
+
+  MELIST Views
+   Seq: ( ME_53A03846011C_view // l3CriticalSectionHolder
+   ME_53A2C805017C_view // l3MultiThreadIntegerList
+   ME_53A2C9290311_view // Tl3MultiThreadSortedIntegerList
+   ME_540EDC10016F_view // Tl3Mutex
+   ME_549BC5C50174_view // Tl3AsyncTask
+   ME_549BC6740033_view // Tl3AsynkTaskList
+   ME_549BC58B0346_view // Tl3ExecuteInMainThread
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53A038340371_main
+
+ MELIST Diagrams
+  Seq: ( ME_53A038340371_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53A038340371_diagrams

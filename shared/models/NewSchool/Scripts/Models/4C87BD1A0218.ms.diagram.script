@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4C87BD1A0218_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4C87BD1A0218' '4A92D644009B.ms.model.script' ; // TnsNewsLine
+MEDIAGRAMS ME_4C87BD1A0218_diagrams
 
- MEVIEW ME_524D45100324_view
-  MELINK Original WL 'ME_524D45100324' '4A92D644009B.ms.model.script' ; // TnsNewsLineSubscribersList
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_524D45100324_view
+ MEDIAGRAM ME_4C87BD1A0218_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4C87BD1A0218' '4A92D644009B.ms.model.script' ; // TnsNewsLine
 
- MEVIEW ME_524D3E260036_view
-  MELINK Original WL 'ME_524D3E260036' '4A92D644009B.ms.model.script' ; // TnsNewsLinePrim
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_524D3E260036_view
+  MEVIEW ME_524D45100324_view
+   MELINK Original WL 'ME_524D45100324' '4A92D644009B.ms.model.script' ; // TnsNewsLineSubscribersList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_524D45100324_view
 
- MEVIEW ME_524EC01C0008_view
-  MELINK Original WL 'ME_524EC01C0008' '4A92D644009B.ms.model.script' ; // Make
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_524EC01C0008_view
+  MEVIEW ME_524D3E260036_view
+   MELINK Original WL 'ME_524D3E260036' '4A92D644009B.ms.model.script' ; // TnsNewsLinePrim
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_524D3E260036_view
 
-ENDMEDIAGRAM // ME_4C87BD1A0218_main
+  MEVIEW ME_524EC01C0008_view
+   MELINK Original WL 'ME_524EC01C0008' '4A92D644009B.ms.model.script' ; // Make
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_524EC01C0008_view
+
+  MELIST Views
+   Seq: ( ME_524D45100324_view // TnsNewsLineSubscribersList
+   ME_524D3E260036_view // TnsNewsLinePrim
+   ME_524EC01C0008_view // Make
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4C87BD1A0218_main
+
+ MELIST Diagrams
+  Seq: ( ME_4C87BD1A0218_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4C87BD1A0218_diagrams

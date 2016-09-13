@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4936B666032A_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4936B666032A' '4936B666032A.ms.model.script' ; // sdsCommonDiction
+MEDIAGRAMS ME_4936B666032A_diagrams
 
- MEVIEW ME_4936B89C037F_view
-  MELINK Original WL 'ME_4936B89C037F' '4936B666032A.ms.model.script' ; // MakeDocInfo
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4936B89C037F_view
+ MEDIAGRAM ME_4936B666032A_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4936B666032A' '4936B666032A.ms.model.script' ; // sdsCommonDiction
 
- MEVIEW ME_4936B8B600F2_view
-  MELINK Original WL 'ME_4936B8B600F2' '4936B666032A.ms.model.script' ; // BeforeAssignDocument
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4936B8B600F2_view
+  MEVIEW ME_4936B89C037F_view
+   MELINK Original WL 'ME_4936B89C037F' '4936B666032A.ms.model.script' ; // MakeDocInfo
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4936B89C037F_view
 
- MEVIEW ME_4936B8C20119_view
-  MELINK Original WL 'ME_4936B8C20119' '4936B666032A.ms.model.script' ; // AfterAssignDocument
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4936B8C20119_view
+  MEVIEW ME_4936B8B600F2_view
+   MELINK Original WL 'ME_4936B8B600F2' '4936B666032A.ms.model.script' ; // BeforeAssignDocument
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4936B8B600F2_view
 
- MEVIEW ME_4936BA0D0286_view
-  MELINK Original WL 'ME_4936BA0D0286' '4936B666032A.ms.model.script' ; // MakeContents
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4936BA0D0286_view
+  MEVIEW ME_4936B8C20119_view
+   MELINK Original WL 'ME_4936B8C20119' '4936B666032A.ms.model.script' ; // AfterAssignDocument
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4936B8C20119_view
 
-ENDMEDIAGRAM // ME_4936B666032A_main
+  MEVIEW ME_4936BA0D0286_view
+   MELINK Original WL 'ME_4936BA0D0286' '4936B666032A.ms.model.script' ; // MakeContents
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4936BA0D0286_view
+
+  MELIST Views
+   Seq: ( ME_4936B89C037F_view // MakeDocInfo
+   ME_4936B8B600F2_view // BeforeAssignDocument
+   ME_4936B8C20119_view // AfterAssignDocument
+   ME_4936BA0D0286_view // MakeContents
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4936B666032A_main
+
+ MELIST Diagrams
+  Seq: ( ME_4936B666032A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4936B666032A_diagrams

@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_550A6034036F_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_550A6034036F' '533E6F73014E.ms.model.script' ; // ChromeLikeTabSetAnimationManager
+MEDIAGRAMS ME_550A6034036F_diagrams
 
- MEVIEW ME_550A606F030D_view
-  MELINK Original WL 'ME_550A606F030D' '533E6F73014E.ms.model.script' ; // TChromeLikeThreadTimer
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_550A606F030D_view
+ MEDIAGRAM ME_550A6034036F_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_550A6034036F' '533E6F73014E.ms.model.script' ; // ChromeLikeTabSetAnimationManager
 
- MEVIEW ME_550A606001EE_view
-  MELINK Original WL 'ME_550A606001EE' '533E6F73014E.ms.model.script' ; // TChromeLikeTimerThread
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_550A606001EE_view
+  MEVIEW ME_550A606F030D_view
+   MELINK Original WL 'ME_550A606F030D' '533E6F73014E.ms.model.script' ; // TChromeLikeThreadTimer
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_550A606F030D_view
 
- MEVIEW ME_550A638900A0_view
-  MELINK Original WL 'ME_550A638900A0' '533E6F73014E.ms.model.script' ; // TChromeLikeTabSetAnimationManager
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_550A638900A0_view
+  MEVIEW ME_550A606001EE_view
+   MELINK Original WL 'ME_550A606001EE' '533E6F73014E.ms.model.script' ; // TChromeLikeTimerThread
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_550A606001EE_view
 
-ENDMEDIAGRAM // ME_550A6034036F_main
+  MEVIEW ME_550A638900A0_view
+   MELINK Original WL 'ME_550A638900A0' '533E6F73014E.ms.model.script' ; // TChromeLikeTabSetAnimationManager
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_550A638900A0_view
+
+  MELIST Views
+   Seq: ( ME_550A606F030D_view // TChromeLikeThreadTimer
+   ME_550A606001EE_view // TChromeLikeTimerThread
+   ME_550A638900A0_view // TChromeLikeTabSetAnimationManager
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_550A6034036F_main
+
+ MELIST Diagrams
+  Seq: ( ME_550A6034036F_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_550A6034036F_diagrams

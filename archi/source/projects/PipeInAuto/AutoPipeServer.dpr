@@ -2030,21 +2030,6 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , m3DocumentAddress in 'w:\common\components\rtl\Garant\m3\m3DocumentAddress.pas'
  , DownloadDocRequest_Const in 'w:\common\components\rtl\Garant\EVD\DownloadDocRequest_Const.pas'
- {$If Defined(ServerTasks)}
- , alcuUploadDocStreamExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuUploadDocStreamExecutor.pas'
- {$IfEnd} // Defined(ServerTasks)
- {$If NOT Defined(Nemesis)}
- , csUploadDocStream in 'w:\common\components\rtl\Garant\cs\csUploadDocStream.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , csUploadDocStream_Const in 'w:\common\components\rtl\Garant\EVD\csUploadDocStream_Const.pas'
- {$If NOT Defined(Nemesis)}
- , csUploadDocStreamReply in 'w:\common\components\rtl\Garant\cs\csUploadDocStreamReply.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , csUploadDocStreamReply_Const in 'w:\common\components\rtl\Garant\EVD\csUploadDocStreamReply_Const.pas'
- {$If Defined(ServerTasks)}
- , alcuUploadDocRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuUploadDocRequest.pas'
- {$IfEnd} // Defined(ServerTasks)
- , UploadDocRequest_Const in 'w:\common\components\rtl\Garant\EVD\UploadDocRequest_Const.pas'
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dtIntf in 'w:\common\components\rtl\Garant\DT\dtIntf.pas'

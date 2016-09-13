@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_49071AFF0024_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_49071AFF0024' '47ECAAF901F8.ms.model.script' ; // InsMedicFirmsTreeNotificationSource
+MEDIAGRAMS ME_49071AFF0024_diagrams
 
- MEVIEW ME_49071B0F0100_view
-  MELINK Original WL 'ME_49071B0F0100' '47ECAAF901F8.ms.model.script' ; // Subscribe
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_49071B0F0100_view
+ MEDIAGRAM ME_49071AFF0024_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_49071AFF0024' '47ECAAF901F8.ms.model.script' ; // InsMedicFirmsTreeNotificationSource
 
- MEVIEW ME_49071B1D0098_view
-  MELINK Original WL 'ME_49071B1D0098' '47ECAAF901F8.ms.model.script' ; // Unsubscribe
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_49071B1D0098_view
+  MEVIEW ME_49071B0F0100_view
+   MELINK Original WL 'ME_49071B0F0100' '47ECAAF901F8.ms.model.script' ; // Subscribe
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_49071B0F0100_view
 
-ENDMEDIAGRAM // ME_49071AFF0024_main
+  MEVIEW ME_49071B1D0098_view
+   MELINK Original WL 'ME_49071B1D0098' '47ECAAF901F8.ms.model.script' ; // Unsubscribe
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_49071B1D0098_view
+
+  MELIST Views
+   Seq: ( ME_49071B0F0100_view // Subscribe
+   ME_49071B1D0098_view // Unsubscribe
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49071AFF0024_main
+
+ MELIST Diagrams
+  Seq: ( ME_49071AFF0024_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49071AFF0024_diagrams

@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_491D87F50062_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_491D87F50062' '4AC241AC01FC.ms.model.script' ; // IdsDrugDocument
+MEDIAGRAMS ME_491D87F50062_diagrams
 
- MEVIEW ME_491D88070148_view
-  MELINK Original WL 'ME_491D88070148' '4AC241AC01FC.ms.model.script' ; // OpenDrugInternationalNameSynonims
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_491D88070148_view
+ MEDIAGRAM ME_491D87F50062_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_491D87F50062' '4AC241AC01FC.ms.model.script' ; // IdsDrugDocument
 
-ENDMEDIAGRAM // ME_491D87F50062_main
+  MEVIEW ME_491D88070148_view
+   MELINK Original WL 'ME_491D88070148' '4AC241AC01FC.ms.model.script' ; // OpenDrugInternationalNameSynonims
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_491D88070148_view
+
+  MELIST Views
+   Seq: ( ME_491D88070148_view // OpenDrugInternationalNameSynonims
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_491D87F50062_main
+
+ MELIST Diagrams
+  Seq: ( ME_491D87F50062_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_491D87F50062_diagrams

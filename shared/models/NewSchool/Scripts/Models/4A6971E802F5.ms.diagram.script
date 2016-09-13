@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4A6971E802F5_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4A6971E802F5' '4A6971E802F5.ms.model.script' ; // ChatWindow
+MEDIAGRAMS ME_4A6971E802F5_diagrams
 
- MEVIEW ME_C8D06A43AD67_view
-  MELINK Original WL 'ME_C8D06A43AD67' '4A6971E802F5.ms.model.script' ; // ChatWindow$Def
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_C8D06A43AD67_view
+ MEDIAGRAM ME_4A6971E802F5_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4A6971E802F5' '4A6971E802F5.ms.model.script' ; // ChatWindow
 
- MEVIEW ME_373EEC13BBF9_view
-  MELINK Original WL 'ME_373EEC13BBF9' '4A6971E802F5.ms.model.script' ; // Ini_FormFactory_ChatWindow$Def
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_373EEC13BBF9_view
+  MEVIEW ME_C8D06A43AD67_view
+   MELINK Original WL 'ME_C8D06A43AD67' '4A6971E802F5.ms.model.script' ; // ChatWindow$Def
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_C8D06A43AD67_view
 
-ENDMEDIAGRAM // ME_4A6971E802F5_main
+  MEVIEW ME_373EEC13BBF9_view
+   MELINK Original WL 'ME_373EEC13BBF9' '4A6971E802F5.ms.model.script' ; // Ini_FormFactory_ChatWindow$Def
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_373EEC13BBF9_view
+
+  MELIST Views
+   Seq: ( ME_C8D06A43AD67_view // ChatWindow$Def
+   ME_373EEC13BBF9_view // Ini_FormFactory_ChatWindow$Def
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A6971E802F5_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A6971E802F5_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A6971E802F5_diagrams

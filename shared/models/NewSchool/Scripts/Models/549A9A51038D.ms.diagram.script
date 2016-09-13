@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_549A9A51038D_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_549A9A51038D' '545C74760255.ms.model.script' ; // IarResultDelivererListner
+MEDIAGRAMS ME_549A9A51038D_diagrams
 
- MEVIEW ME_549A9AE800C6_view
-  MELINK Original WL 'ME_549A9AE800C6' '545C74760255.ms.model.script' ; // CheckTaskExistance
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_549A9AE800C6_view
+ MEDIAGRAM ME_549A9A51038D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_549A9A51038D' '545C74760255.ms.model.script' ; // IarResultDelivererListner
 
- MEVIEW ME_549A9B150284_view
-  MELINK Original WL 'ME_549A9B150284' '545C74760255.ms.model.script' ; // RequestSendMessage
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_549A9B150284_view
+  MEVIEW ME_549A9AE800C6_view
+   MELINK Original WL 'ME_549A9AE800C6' '545C74760255.ms.model.script' ; // CheckTaskExistance
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_549A9AE800C6_view
 
- MEVIEW ME_549A9B310008_view
-  MELINK Original WL 'ME_549A9B310008' '545C74760255.ms.model.script' ; // RequestNewFolder
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_549A9B310008_view
+  MEVIEW ME_549A9B150284_view
+   MELINK Original WL 'ME_549A9B150284' '545C74760255.ms.model.script' ; // RequestSendMessage
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_549A9B150284_view
 
- MEVIEW ME_549A9B630197_view
-  MELINK Original WL 'ME_549A9B630197' '545C74760255.ms.model.script' ; // ChangeResultFolder
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_549A9B630197_view
+  MEVIEW ME_549A9B310008_view
+   MELINK Original WL 'ME_549A9B310008' '545C74760255.ms.model.script' ; // RequestNewFolder
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_549A9B310008_view
 
-ENDMEDIAGRAM // ME_549A9A51038D_main
+  MEVIEW ME_549A9B630197_view
+   MELINK Original WL 'ME_549A9B630197' '545C74760255.ms.model.script' ; // ChangeResultFolder
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_549A9B630197_view
+
+  MELIST Views
+   Seq: ( ME_549A9AE800C6_view // CheckTaskExistance
+   ME_549A9B150284_view // RequestSendMessage
+   ME_549A9B310008_view // RequestNewFolder
+   ME_549A9B630197_view // ChangeResultFolder
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_549A9A51038D_main
+
+ MELIST Diagrams
+  Seq: ( ME_549A9A51038D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_549A9A51038D_diagrams

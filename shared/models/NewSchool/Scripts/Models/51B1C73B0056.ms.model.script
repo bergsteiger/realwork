@@ -4,6 +4,23 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_51B1C73B0056
 
+FORWARD ME_51B1C74F010F
+
+ME ME_57D140200240
+ MEPROP UID '57D140200240'
+ MEPROP Name 'TdtOnEraseAttrRecords'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51B1C74F010F // dt_IFltr
+ ;
+ UP "finished" False
+ UP "of object" False
+
+ENDME // ME_57D140200240 TdtOnEraseAttrRecords
+
 ME ME_51B1C74F010F
  MEPROP UID '51B1C74F010F'
  MEPROP Name 'dt_IFltr'
@@ -14,6 +31,10 @@ ME ME_51B1C74F010F
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_51B1C73B0056 // ImportExport
  ;
+ MELIST Children
+   Seq: ( HWL ME_57D140200240 // TdtOnEraseAttrRecords
+ )
+ ; // Children
  UP "finished" False
  UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_IFltr.pas'
 

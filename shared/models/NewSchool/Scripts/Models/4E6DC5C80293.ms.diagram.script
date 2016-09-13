@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E6DC5C80293_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E6DC5C80293' '484FA67302D7.ms.model.script' ; // Медали в системе
+MEDIAGRAMS ME_4E6DC5C80293_diagrams
 
- MEVIEW ME_4E6DC5EC0253_view
-  MELINK Original WL 'ME_4E6DC5EC0253' '484FA67302D7.ms.model.script' ; // Всплывающее окно (балон)
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E6DC5EC0253_view
+ MEDIAGRAM ME_4E6DC5C80293_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E6DC5C80293' '484FA67302D7.ms.model.script' ; // Медали в системе
 
- MEVIEW ME_4E6DC5FD0170_view
-  MELINK Original WL 'ME_4E6DC5FD0170' '484FA67302D7.ms.model.script' ; // Медали в документе
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4E6DC5FD0170_view
+  MEVIEW ME_4E6DC5EC0253_view
+   MELINK Original WL 'ME_4E6DC5EC0253' '484FA67302D7.ms.model.script' ; // Всплывающее окно (балон)
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E6DC5EC0253_view
 
- MEVIEW ME_4E6DC60F0066_view
-  MELINK Original WL 'ME_4E6DC60F0066' '484FA67302D7.ms.model.script' ; // Медали в основном окне
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4E6DC60F0066_view
+  MEVIEW ME_4E6DC5FD0170_view
+   MELINK Original WL 'ME_4E6DC5FD0170' '484FA67302D7.ms.model.script' ; // Медали в документе
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E6DC5FD0170_view
 
- MEVIEW ME_4E6DC6220293_view
-  MELINK Original WL 'ME_4E6DC6220293' '484FA67302D7.ms.model.script' ; // Медали в списке
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4E6DC6220293_view
+  MEVIEW ME_4E6DC60F0066_view
+   MELINK Original WL 'ME_4E6DC60F0066' '484FA67302D7.ms.model.script' ; // Медали в основном окне
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E6DC60F0066_view
 
-ENDMEDIAGRAM // ME_4E6DC5C80293_main
+  MEVIEW ME_4E6DC6220293_view
+   MELINK Original WL 'ME_4E6DC6220293' '484FA67302D7.ms.model.script' ; // Медали в списке
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E6DC6220293_view
+
+  MELIST Views
+   Seq: ( ME_4E6DC5EC0253_view // Всплывающее окно (балон)
+   ME_4E6DC5FD0170_view // Медали в документе
+   ME_4E6DC60F0066_view // Медали в основном окне
+   ME_4E6DC6220293_view // Медали в списке
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E6DC5C80293_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E6DC5C80293_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E6DC5C80293_diagrams

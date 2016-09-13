@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_544E3C54031D_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_544E3C54031D' '544E0148010D.ms.model.script' ; // TncsMessageQueue
+MEDIAGRAMS ME_544E3C54031D_diagrams
 
- MEVIEW ME_5451F97902B8_view
-  MELINK Original WL 'ME_5451F97902B8' '544E0148010D.ms.model.script' ; // SignalMessageReady
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5451F97902B8_view
+ MEDIAGRAM ME_544E3C54031D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_544E3C54031D' '544E0148010D.ms.model.script' ; // TncsMessageQueue
 
- MEVIEW ME_544E3DE3032D_view
-  MELINK Original WL 'ME_544E3DE3032D' '544E0148010D.ms.model.script' ; // Push
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_544E3DE3032D_view
+  MEVIEW ME_5451F97902B8_view
+   MELINK Original WL 'ME_5451F97902B8' '544E0148010D.ms.model.script' ; // SignalMessageReady
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5451F97902B8_view
 
- MEVIEW ME_5452022F026A_view
-  MELINK Original WL 'ME_5452022F026A' '544E0148010D.ms.model.script' ; // WaitForMessage
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_5452022F026A_view
+  MEVIEW ME_544E3DE3032D_view
+   MELINK Original WL 'ME_544E3DE3032D' '544E0148010D.ms.model.script' ; // Push
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_544E3DE3032D_view
 
- MEVIEW ME_545202810200_view
-  MELINK Original WL 'ME_545202810200' '544E0148010D.ms.model.script' ; // ExtractMessage
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_545202810200_view
+  MEVIEW ME_5452022F026A_view
+   MELINK Original WL 'ME_5452022F026A' '544E0148010D.ms.model.script' ; // WaitForMessage
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_5452022F026A_view
 
-ENDMEDIAGRAM // ME_544E3C54031D_main
+  MEVIEW ME_545202810200_view
+   MELINK Original WL 'ME_545202810200' '544E0148010D.ms.model.script' ; // ExtractMessage
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_545202810200_view
+
+  MELIST Views
+   Seq: ( ME_5451F97902B8_view // SignalMessageReady
+   ME_544E3DE3032D_view // Push
+   ME_5452022F026A_view // WaitForMessage
+   ME_545202810200_view // ExtractMessage
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_544E3C54031D_main
+
+ MELIST Diagrams
+  Seq: ( ME_544E3C54031D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_544E3C54031D_diagrams

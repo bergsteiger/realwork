@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_550AA6E1017D_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_550AA6E1017D' '550AA6E1017D.ms.model.script' ; // InpharmControllers
+MEDIAGRAMS ME_550AA6E1017D_diagrams
 
- MEVIEW ME_550AA7200370_view
-  MELINK Original WL 'ME_550AA7200370' '550AA7200370.ms.model.script' ; // InpharmMainMenuControllerRealization
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_550AA7200370_view
+ MEDIAGRAM ME_550AA6E1017D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_550AA6E1017D' '550AA6E1017D.ms.model.script' ; // InpharmControllers
 
-ENDMEDIAGRAM // ME_550AA6E1017D_main
+  MEVIEW ME_550AA7200370_view
+   MELINK Original WL 'ME_550AA7200370' '550AA7200370.ms.model.script' ; // InpharmMainMenuControllerRealization
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_550AA7200370_view
+
+  MELIST Views
+   Seq: ( ME_550AA7200370_view // InpharmMainMenuControllerRealization
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_550AA6E1017D_main
+
+ MELIST Diagrams
+  Seq: ( ME_550AA6E1017D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_550AA6E1017D_diagrams

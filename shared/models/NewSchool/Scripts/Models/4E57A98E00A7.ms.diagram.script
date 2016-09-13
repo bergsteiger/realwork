@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E57A98E00A7_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E57A98E00A7' '467C0CAA02AB.ms.model.script' ; // Ml3TextProperties
+MEDIAGRAMS ME_4E57A98E00A7_diagrams
 
- MEVIEW ME_4E6894860139_view
-  MELINK Original WL 'ME_4E6894860139' '467C0CAA02AB.ms.model.script' ; // PushLineSpacing
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E6894860139_view
+ MEDIAGRAM ME_4E57A98E00A7_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E57A98E00A7' '467C0CAA02AB.ms.model.script' ; // Ml3TextProperties
 
- MEVIEW ME_4E68949A0121_view
-  MELINK Original WL 'ME_4E68949A0121' '467C0CAA02AB.ms.model.script' ; // PopLineSpacing
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4E68949A0121_view
+  MEVIEW ME_4E6894860139_view
+   MELINK Original WL 'ME_4E6894860139' '467C0CAA02AB.ms.model.script' ; // PushLineSpacing
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E6894860139_view
 
-ENDMEDIAGRAM // ME_4E57A98E00A7_main
+  MEVIEW ME_4E68949A0121_view
+   MELINK Original WL 'ME_4E68949A0121' '467C0CAA02AB.ms.model.script' ; // PopLineSpacing
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E68949A0121_view
+
+  MELIST Views
+   Seq: ( ME_4E6894860139_view // PushLineSpacing
+   ME_4E68949A0121_view // PopLineSpacing
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E57A98E00A7_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E57A98E00A7_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E57A98E00A7_diagrams

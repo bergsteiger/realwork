@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_53B24E23037A_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_53B24E23037A' '53B24DFD01FF.ms.model.script' ; // k2TaggedDataHolder
+MEDIAGRAMS ME_53B24E23037A_diagrams
 
- MEVIEW ME_53AC03EE01FD_view
-  MELINK Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.ms.model.script' ; // GetTaggedDataType
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_53AC03EE01FD_view
+ MEDIAGRAM ME_53B24E23037A_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_53B24E23037A' '53B24DFD01FF.ms.model.script' ; // k2TaggedDataHolder
 
- MEVIEW ME_53BFF56D0348_view
-  MELINK Original WL 'ME_53BFF56D0348' '53B24DFD01FF.ms.model.script' ; // SetTaggedData
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53BFF56D0348_view
+  MEVIEW ME_53AC03EE01FD_view
+   MELINK Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.ms.model.script' ; // GetTaggedDataType
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53AC03EE01FD_view
 
-ENDMEDIAGRAM // ME_53B24E23037A_main
+  MEVIEW ME_53BFF56D0348_view
+   MELINK Original WL 'ME_53BFF56D0348' '53B24DFD01FF.ms.model.script' ; // SetTaggedData
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53BFF56D0348_view
+
+  MELIST Views
+   Seq: ( ME_53AC03EE01FD_view // GetTaggedDataType
+   ME_53BFF56D0348_view // SetTaggedData
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53B24E23037A_main
+
+ MELIST Diagrams
+  Seq: ( ME_53B24E23037A_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53B24E23037A_diagrams

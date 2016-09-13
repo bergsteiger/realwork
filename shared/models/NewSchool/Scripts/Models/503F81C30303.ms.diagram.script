@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_503F81C30303_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_503F81C30303' '48078CC202EC.ms.model.script' ; // TatSettingsHelper
+MEDIAGRAMS ME_503F81C30303_diagrams
 
- MEVIEW ME_503F83120326_view
-  MELINK Original WL 'ME_503F83120326' '48078CC202EC.ms.model.script' ; // TatTreeTagToSettingIDConverter
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_503F83120326_view
+ MEDIAGRAM ME_503F81C30303_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_503F81C30303' '48078CC202EC.ms.model.script' ; // TatSettingsHelper
 
- MEVIEW ME_503F849A033F_view
-  MELINK Original WL 'ME_503F849A033F' '48078CC202EC.ms.model.script' ; // GetContextFilterParamsFromSettings
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_503F849A033F_view
+  MEVIEW ME_503F83120326_view
+   MELINK Original WL 'ME_503F83120326' '48078CC202EC.ms.model.script' ; // TatTreeTagToSettingIDConverter
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_503F83120326_view
 
- MEVIEW ME_503F85DF00DA_view
-  MELINK Original WL 'ME_503F85DF00DA' '48078CC202EC.ms.model.script' ; // GetContextFilterParamsByTreeTag
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_503F85DF00DA_view
+  MEVIEW ME_503F849A033F_view
+   MELINK Original WL 'ME_503F849A033F' '48078CC202EC.ms.model.script' ; // GetContextFilterParamsFromSettings
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_503F849A033F_view
 
-ENDMEDIAGRAM // ME_503F81C30303_main
+  MEVIEW ME_503F85DF00DA_view
+   MELINK Original WL 'ME_503F85DF00DA' '48078CC202EC.ms.model.script' ; // GetContextFilterParamsByTreeTag
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_503F85DF00DA_view
+
+  MELIST Views
+   Seq: ( ME_503F83120326_view // TatTreeTagToSettingIDConverter
+   ME_503F849A033F_view // GetContextFilterParamsFromSettings
+   ME_503F85DF00DA_view // GetContextFilterParamsByTreeTag
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_503F81C30303_main
+
+ MELIST Diagrams
+  Seq: ( ME_503F81C30303_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_503F81C30303_diagrams

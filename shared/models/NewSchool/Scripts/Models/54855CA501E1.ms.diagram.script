@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_54855CA501E1_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_54855CA501E1' '54855BDB033D.ms.model.script' ; // ncsTaskSendReg
+MEDIAGRAMS ME_54855CA501E1_diagrams
 
- MEVIEW ME_54855CCF019F_view
-  MELINK Original WL 'ME_54855CCF019F' '54855BDB033D.ms.model.script' ; // ncsServerRegister
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_54855CCF019F_view
+ MEDIAGRAM ME_54855CA501E1_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_54855CA501E1' '54855BDB033D.ms.model.script' ; // ncsTaskSendReg
 
- MEVIEW ME_54855CE1027C_view
-  MELINK Original WL 'ME_54855CE1027C' '54855BDB033D.ms.model.script' ; // ncsClientRegister
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_54855CE1027C_view
+  MEVIEW ME_54855CCF019F_view
+   MELINK Original WL 'ME_54855CCF019F' '54855BDB033D.ms.model.script' ; // ncsServerRegister
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54855CCF019F_view
 
-ENDMEDIAGRAM // ME_54855CA501E1_main
+  MEVIEW ME_54855CE1027C_view
+   MELINK Original WL 'ME_54855CE1027C' '54855BDB033D.ms.model.script' ; // ncsClientRegister
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_54855CE1027C_view
+
+  MELIST Views
+   Seq: ( ME_54855CCF019F_view // ncsServerRegister
+   ME_54855CE1027C_view // ncsClientRegister
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_54855CA501E1_main
+
+ MELIST Diagrams
+  Seq: ( ME_54855CA501E1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_54855CA501E1_diagrams

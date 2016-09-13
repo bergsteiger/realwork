@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_5339219B0225_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_5339219B0225' '533D53FF00C2.ms.model.script' ; // vcmGlassForm
+MEDIAGRAMS ME_5339219B0225_diagrams
 
- MEVIEW ME_53392725015D_view
-  MELINK Original WL 'ME_53392725015D' '533D53FF00C2.ms.model.script' ; // UpdateGlassFrame
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_53392725015D_view
+ MEDIAGRAM ME_5339219B0225_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5339219B0225' '533D53FF00C2.ms.model.script' ; // vcmGlassForm
 
- MEVIEW ME_5339273903A5_view
-  MELINK Original WL 'ME_5339273903A5' '533D53FF00C2.ms.model.script' ; // UpdateGlassFrameControls
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_5339273903A5_view
+  MEVIEW ME_53392725015D_view
+   MELINK Original WL 'ME_53392725015D' '533D53FF00C2.ms.model.script' ; // UpdateGlassFrame
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53392725015D_view
 
- MEVIEW ME_53EAF3250169_view
-  MELINK Original WL 'ME_53EAF3250169' '533D53FF00C2.ms.model.script' ; // NeedShowSystemContextMenuOnPoint
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_53EAF3250169_view
+  MEVIEW ME_5339273903A5_view
+   MELINK Original WL 'ME_5339273903A5' '533D53FF00C2.ms.model.script' ; // UpdateGlassFrameControls
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5339273903A5_view
 
-ENDMEDIAGRAM // ME_5339219B0225_main
+  MEVIEW ME_53EAF3250169_view
+   MELINK Original WL 'ME_53EAF3250169' '533D53FF00C2.ms.model.script' ; // NeedShowSystemContextMenuOnPoint
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_53EAF3250169_view
+
+  MELIST Views
+   Seq: ( ME_53392725015D_view // UpdateGlassFrame
+   ME_5339273903A5_view // UpdateGlassFrameControls
+   ME_53EAF3250169_view // NeedShowSystemContextMenuOnPoint
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5339219B0225_main
+
+ MELIST Diagrams
+  Seq: ( ME_5339219B0225_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5339219B0225_diagrams

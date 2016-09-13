@@ -66,8 +66,7 @@ w:\archi\source\projects\PipeInAuto\Tasks\alcuDownloadDocStreamExecutor.pas
     l_Task.Message := l_Message;
     l_Task.Reply := l_Reply;
     IncomingList.Push(l_Task);
-    if Assigned(f_RequestImmidiateProcessProc) then
-     f_RequestImmidiateProcessProc;
+    SpeedupRequest;
     l_Task.WaitForReady;
    finally
     FreeAndNil(l_Task);

@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_53CCCA40004C_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_53CCCA40004C' '53CCCA40004C.ms.model.script' ; // BaseEngine
+MEDIAGRAMS ME_53CCCA40004C_diagrams
 
- MEVIEW ME_53CCCA5B036F_view
-  MELINK Original WL 'ME_53CCCA5B036F' '53CCCA40004C.ms.model.script' ; // TalcuBaseEngine
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_53CCCA5B036F_view
+ MEDIAGRAM ME_53CCCA40004C_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_53CCCA40004C' '53CCCA40004C.ms.model.script' ; // BaseEngine
 
- MEVIEW ME_53CE4F2F008D_view
-  MELINK Original WL 'ME_53CE4F2F008D' '53CCCA40004C.ms.model.script' ; // TalcuBaseEngineHolder
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53CE4F2F008D_view
+  MEVIEW ME_53CCCA5B036F_view
+   MELINK Original WL 'ME_53CCCA5B036F' '53CCCA40004C.ms.model.script' ; // TalcuBaseEngine
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CCCA5B036F_view
 
-ENDMEDIAGRAM // ME_53CCCA40004C_main
+  MEVIEW ME_53CE4F2F008D_view
+   MELINK Original WL 'ME_53CE4F2F008D' '53CCCA40004C.ms.model.script' ; // TalcuBaseEngineHolder
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53CE4F2F008D_view
+
+  MELIST Views
+   Seq: ( ME_53CCCA5B036F_view // TalcuBaseEngine
+   ME_53CE4F2F008D_view // TalcuBaseEngineHolder
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53CCCA40004C_main
+
+ MELIST Diagrams
+  Seq: ( ME_53CCCA40004C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53CCCA40004C_diagrams

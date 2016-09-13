@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4BBB34EC029C_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4BBB34EC029C' '4F266203018F.ms.model.script' ; // Выливка в формат NSRC
+MEDIAGRAMS ME_4BBB34EC029C_diagrams
 
- MEVIEW ME_4F2663560035_view
-  MELINK Original WL 'ME_4F2663560035' '4F266203018F.ms.model.script' ; // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4F2663560035_view
+ MEDIAGRAM ME_4BBB34EC029C_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4BBB34EC029C' '4F266203018F.ms.model.script' ; // Выливка в формат NSRC
 
- MEVIEW ME_4F4DD4AB0339_view
-  MELINK Original WL 'ME_4F4DD4AB0339' '4F266203018F.ms.model.script' ; // Картинки внутри сегментов должны уметь писаться в NSRC
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4F4DD4AB0339_view
+  MEVIEW ME_4F2663560035_view
+   MELINK Original WL 'ME_4F2663560035' '4F266203018F.ms.model.script' ; // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F2663560035_view
 
-ENDMEDIAGRAM // ME_4BBB34EC029C_main
+  MEVIEW ME_4F4DD4AB0339_view
+   MELINK Original WL 'ME_4F4DD4AB0339' '4F266203018F.ms.model.script' ; // Картинки внутри сегментов должны уметь писаться в NSRC
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F4DD4AB0339_view
+
+  MELIST Views
+   Seq: ( ME_4F2663560035_view // Сегменты и параграфы оформленные стилем Объект и не являющиеся формулами должны выливаться как оформленные стилем Нормальный
+   ME_4F4DD4AB0339_view // Картинки внутри сегментов должны уметь писаться в NSRC
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4BBB34EC029C_main
+
+ MELIST Diagrams
+  Seq: ( ME_4BBB34EC029C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4BBB34EC029C_diagrams

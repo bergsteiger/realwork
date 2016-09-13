@@ -89,25 +89,17 @@ var
 //#UC START# *57A9C3B40133_57A9C16601B9_impl*
  //l3System.ShowObjectsWindow := false;
  TtfwParserService.Instance.AddIncludePath(cModelRoot);
- l_Element := TmsmModelLoader.LoadFromFile(cModelRoot + 'garant.ms.model.script');
- RunWith(l_Element, l_Element);
+ RunWithList(TmsmModelLoader.LoadFromFile(cModelRoot + 'garant.ms.model.script'));
 //#UC END# *57A9C3B40133_57A9C16601B9_impl*
 //#UC START# *57A9C3B40133_57A9C16601B9_var*
 const
  cModelRoot = 'W:\shared\models\NewSchool\Scripts\Models\';
  //cModelRoot = 'M:\NewSchool\Scripts\Models\';
-var
- l_Element : ImsmModelElement;
 //#UC END# *57A9C3B40133_57A9C16601B9_var*
 //#UC START# *57A9D7D8039C_57A9C16601B9_impl*
  l_Navigator := TmsmNavigatorForm.Create(Self);
  l_Navigator.Caption := 'Navigator';
  l_Navigator.Height := 600;
- 
- l_MainZone := TmsmTabbedViewParent.Make(f_MainPanel);
- l_ChildZone := TmsmTabbedViewParent.Make(f_ChildPanel);
- l_LeftZone := TmsmSingleViewParent.Make(f_LeftPanel);
- l_FloatingZone := TmsmSingleViewParent.Make(l_Navigator);
 
  l_UseCase := TmsmDrawingUseCase.Make(
   TmsmModelElementView_C(anElementForTree),
@@ -116,10 +108,12 @@ var
  try
   f_UseCase := TmsmDrawingUseCaseView.Make(
    l_UseCase,
-   l_MainZone,
-   l_ChildZone,
-   l_LeftZone,
-   l_FloatingZone
+   TmsmTabbedViewParent.Make(f_MainPanel),
+   TmsmTabbedViewParent.Make(f_ChildPanel),
+   TmsmTabbedViewParent.Make(f_LeftPanel),
+   TmsmTabbedViewParent.Make(l_Navigator)
+   //TmsmSingleViewParent.Make(f_LeftPanel),
+   //TmsmSingleViewParent.Make(l_Navigator)
   );
   f_UseCase.AddController(
    TmsmMainFormController.Make(Self, l_UseCase.Caption)
@@ -134,13 +128,8 @@ var
  {$EndIf seThreadSafe}
 //#UC END# *57A9D7D8039C_57A9C16601B9_impl*
 //#UC START# *57A9D7D8039C_57A9C16601B9_var*
-
 var
  l_UseCase : ImsmDrawingUseCase;
- l_LeftZone : ImsmViewParent;
- l_MainZone : ImsmViewParent;
- l_ChildZone : ImsmViewParent;
- l_FloatingZone : ImsmViewParent;
  l_Navigator : TmsmNavigatorForm;
 //#UC END# *57A9D7D8039C_57A9C16601B9_var*
 //#UC START# *57AB054C0348_57A9C16601B9_impl*

@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_51F65A1A03D3_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_51F65A1A03D3' '497DCBF8017B.ms.model.script' ; // TFoldersChangeUserInteraction
+MEDIAGRAMS ME_51F65A1A03D3_diagrams
 
- MEVIEW ME_51F65ADD01D0_view
-  MELINK Original WL 'ME_51F65ADD01D0' '497DCBF8017B.ms.model.script' ; // AskAllowMerge
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_51F65ADD01D0_view
+ MEDIAGRAM ME_51F65A1A03D3_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_51F65A1A03D3' '497DCBF8017B.ms.model.script' ; // TFoldersChangeUserInteraction
 
- MEVIEW ME_51F65B500160_view
-  MELINK Original WL 'ME_51F65B500160' '497DCBF8017B.ms.model.script' ; // SayChildNodeDuplicated
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_51F65B500160_view
+  MEVIEW ME_51F65ADD01D0_view
+   MELINK Original WL 'ME_51F65ADD01D0' '497DCBF8017B.ms.model.script' ; // AskAllowMerge
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_51F65ADD01D0_view
 
-ENDMEDIAGRAM // ME_51F65A1A03D3_main
+  MEVIEW ME_51F65B500160_view
+   MELINK Original WL 'ME_51F65B500160' '497DCBF8017B.ms.model.script' ; // SayChildNodeDuplicated
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_51F65B500160_view
+
+  MELIST Views
+   Seq: ( ME_51F65ADD01D0_view // AskAllowMerge
+   ME_51F65B500160_view // SayChildNodeDuplicated
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_51F65A1A03D3_main
+
+ MELIST Diagrams
+  Seq: ( ME_51F65A1A03D3_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_51F65A1A03D3_diagrams

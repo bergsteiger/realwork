@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E0D98F50163_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E0D98F50163' '4E0D98F50163.ms.model.script' ; // ddTableConvTypes
+MEDIAGRAMS ME_4E0D98F50163_diagrams
 
- MEVIEW ME_4E0D96DC0288_view
-  MELINK Original WL 'ME_4E0D96DC0288' '4E0D98F50163.ms.model.script' ; // TddCellSeparator
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E0D96DC0288_view
+ MEDIAGRAM ME_4E0D98F50163_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E0D98F50163' '4E0D98F50163.ms.model.script' ; // ddTableConvTypes
 
- MEVIEW ME_4E0D97220074_view
-  MELINK Original WL 'ME_4E0D97220074' '4E0D98F50163.ms.model.script' ; // TddAutoFitBehavior
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4E0D97220074_view
+  MEVIEW ME_4E0D96DC0288_view
+   MELINK Original WL 'ME_4E0D96DC0288' '4E0D98F50163.ms.model.script' ; // TddCellSeparator
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E0D96DC0288_view
 
-ENDMEDIAGRAM // ME_4E0D98F50163_main
+  MEVIEW ME_4E0D97220074_view
+   MELINK Original WL 'ME_4E0D97220074' '4E0D98F50163.ms.model.script' ; // TddAutoFitBehavior
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E0D97220074_view
+
+  MELIST Views
+   Seq: ( ME_4E0D96DC0288_view // TddCellSeparator
+   ME_4E0D97220074_view // TddAutoFitBehavior
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E0D98F50163_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E0D98F50163_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E0D98F50163_diagrams

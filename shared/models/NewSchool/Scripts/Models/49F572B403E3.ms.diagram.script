@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_49F572B403E3_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_49F572B403E3' '4B5F3B1F0044.ms.model.script' ; // VCMFormSetFactory
+MEDIAGRAMS ME_49F572B403E3_diagrams
 
- MEVIEW ME_4D78C2510247_view
-  MELINK Original WL 'ME_4D78C2510247' '4B5F3B1F0044.ms.model.script' ; // OwnerForm
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4D78C2510247_view
+ MEDIAGRAM ME_49F572B403E3_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_49F572B403E3' '4B5F3B1F0044.ms.model.script' ; // VCMFormSetFactory
 
- MEVIEW ME_500932B703BB_view
-  MELINK Original WL 'ME_500932B703BB' '4B5F3B1F0044.ms.model.script' ; // IsVCMFormSetFactory
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_500932B703BB_view
+  MEVIEW ME_4D78C2510247_view
+   MELINK Original WL 'ME_4D78C2510247' '4B5F3B1F0044.ms.model.script' ; // OwnerForm
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D78C2510247_view
 
-ENDMEDIAGRAM // ME_49F572B403E3_main
+  MEVIEW ME_500932B703BB_view
+   MELINK Original WL 'ME_500932B703BB' '4B5F3B1F0044.ms.model.script' ; // IsVCMFormSetFactory
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_500932B703BB_view
+
+  MELIST Views
+   Seq: ( ME_4D78C2510247_view // OwnerForm
+   ME_500932B703BB_view // IsVCMFormSetFactory
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49F572B403E3_main
+
+ MELIST Diagrams
+  Seq: ( ME_49F572B403E3_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49F572B403E3_diagrams

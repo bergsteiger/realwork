@@ -113,9 +113,6 @@ uses
  {$If Defined(ServerTasks)}
  , alcuDownloadDocStreamExecutor
  {$IfEnd} // Defined(ServerTasks)
- {$If Defined(ServerTasks)}
- , alcuUploadDocStreamExecutor
- {$IfEnd} // Defined(ServerTasks)
  //#UC START# *52F8BE3100F5impl_uses*
  //#UC END# *52F8BE3100F5impl_uses*
 ;

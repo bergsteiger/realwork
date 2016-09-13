@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E366CA201C2_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E366CA201C2' '4E366CA201C2.ms.model.script' ; // F1 Требования
+MEDIAGRAMS ME_4E366CA201C2_diagrams
 
- MEVIEW ME_481EF5C4020D_view
-  MELINK Original WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' ; // Оболочка
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_481EF5C4020D_view
+ MEDIAGRAM ME_4E366CA201C2_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E366CA201C2' '4E366CA201C2.ms.model.script' ; // F1 Требования
 
- MEVIEW ME_48561E5A01F7_view
-  MELINK Original WL 'ME_48561E5A01F7' '48561E5A01F7.ms.model.script' ; // Специальные версии и возможности
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_48561E5A01F7_view
+  MEVIEW ME_481EF5C4020D_view
+   MELINK Original WL 'ME_481EF5C4020D' '481EF5C4020D.ms.model.script' ; // Оболочка
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_481EF5C4020D_view
 
-ENDMEDIAGRAM // ME_4E366CA201C2_main
+  MEVIEW ME_48561E5A01F7_view
+   MELINK Original WL 'ME_48561E5A01F7' '48561E5A01F7.ms.model.script' ; // Специальные версии и возможности
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_48561E5A01F7_view
+
+  MELIST Views
+   Seq: ( ME_481EF5C4020D_view // Оболочка
+   ME_48561E5A01F7_view // Специальные версии и возможности
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E366CA201C2_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E366CA201C2_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E366CA201C2_diagrams

@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E3160E1022B_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E3160E1022B' '4E3160C802DA.ms.model.script' ; // Печать документа
+MEDIAGRAMS ME_4E3160E1022B_diagrams
 
- MEVIEW ME_4E314D470350_view
-  MELINK Original WL 'ME_4E314D470350' '4E3160C802DA.ms.model.script' ; // Возможность печатать фиксированным шрифтом
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E314D470350_view
+ MEDIAGRAM ME_4E3160E1022B_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E3160E1022B' '4E3160C802DA.ms.model.script' ; // Печать документа
 
- MEVIEW ME_4F4B4800034D_view
-  MELINK Original WL 'ME_4F4B4800034D' '4E3160C802DA.ms.model.script' ; // Не должны печататься декоративные элементы баллонов про изменения документа
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4F4B4800034D_view
+  MEVIEW ME_4E314D470350_view
+   MELINK Original WL 'ME_4E314D470350' '4E3160C802DA.ms.model.script' ; // Возможность печатать фиксированным шрифтом
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E314D470350_view
 
-ENDMEDIAGRAM // ME_4E3160E1022B_main
+  MEVIEW ME_4F4B4800034D_view
+   MELINK Original WL 'ME_4F4B4800034D' '4E3160C802DA.ms.model.script' ; // Не должны печататься декоративные элементы баллонов про изменения документа
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F4B4800034D_view
+
+  MELIST Views
+   Seq: ( ME_4E314D470350_view // Возможность печатать фиксированным шрифтом
+   ME_4F4B4800034D_view // Не должны печататься декоративные элементы баллонов про изменения документа
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E3160E1022B_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E3160E1022B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E3160E1022B_diagrams

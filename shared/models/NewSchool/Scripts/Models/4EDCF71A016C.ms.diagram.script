@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4EDCF71A016C_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4EDCF71A016C' '484FA67302D7.ms.model.script' ; // Предупреждение к переводу документа должно показываться в виде баллона
+MEDIAGRAMS ME_4EDCF71A016C_diagrams
 
- MEVIEW ME_4EDDF998021B_view
-  MELINK Original WL 'ME_4EDDF998021B' '484FA67302D7.ms.model.script' ; // У перевода должна быть ТОЛЬКО ОДНА медаль - юридическое предупреждение
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4EDDF998021B_view
+ MEDIAGRAM ME_4EDCF71A016C_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4EDCF71A016C' '484FA67302D7.ms.model.script' ; // Предупреждение к переводу документа должно показываться в виде баллона
 
-ENDMEDIAGRAM // ME_4EDCF71A016C_main
+  MEVIEW ME_4EDDF998021B_view
+   MELINK Original WL 'ME_4EDDF998021B' '484FA67302D7.ms.model.script' ; // У перевода должна быть ТОЛЬКО ОДНА медаль - юридическое предупреждение
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4EDDF998021B_view
+
+  MELIST Views
+   Seq: ( ME_4EDDF998021B_view // У перевода должна быть ТОЛЬКО ОДНА медаль - юридическое предупреждение
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4EDCF71A016C_main
+
+ MELIST Diagrams
+  Seq: ( ME_4EDCF71A016C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4EDCF71A016C_diagrams

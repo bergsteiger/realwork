@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_550A606001EE_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_550A606001EE' '533E6F73014E.ms.model.script' ; // TChromeLikeTimerThread
+MEDIAGRAMS ME_550A606001EE_diagrams
 
- MEVIEW ME_550A6158014E_view
-  MELINK Original WL 'ME_550A6158014E' '533E6F73014E.ms.model.script' ; // DoExecute
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_550A6158014E_view
+ MEDIAGRAM ME_550A606001EE_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_550A606001EE' '533E6F73014E.ms.model.script' ; // TChromeLikeTimerThread
 
- MEVIEW ME_550A616A02E0_view
-  MELINK Original WL 'ME_550A616A02E0' '533E6F73014E.ms.model.script' ; // Create
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_550A616A02E0_view
+  MEVIEW ME_550A6158014E_view
+   MELINK Original WL 'ME_550A6158014E' '533E6F73014E.ms.model.script' ; // DoExecute
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_550A6158014E_view
 
-ENDMEDIAGRAM // ME_550A606001EE_main
+  MEVIEW ME_550A616A02E0_view
+   MELINK Original WL 'ME_550A616A02E0' '533E6F73014E.ms.model.script' ; // Create
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_550A616A02E0_view
+
+  MELIST Views
+   Seq: ( ME_550A6158014E_view // DoExecute
+   ME_550A616A02E0_view // Create
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_550A606001EE_main
+
+ MELIST Diagrams
+  Seq: ( ME_550A606001EE_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_550A606001EE_diagrams

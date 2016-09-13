@@ -1803,6 +1803,9 @@ uses
  , vcmFormDispatcherListenerList in 'w:\common\components\gui\Garant\VCM\implementation\vcmFormDispatcherListenerList.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoVCM)}
+ , vcmDispatcher in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmDispatcher.pas'
+ {$IfEnd} // NOT Defined(NoVCM)
+ {$If NOT Defined(NoVCM)}
  , vcmMenuManager in 'w:\common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManager.pas'
  {$IfEnd} // NOT Defined(NoVCM)
  {$If NOT Defined(NoTB97)}
@@ -2415,6 +2418,7 @@ uses
  , ddNSRC_r in 'w:\common\components\rtl\Garant\dd\ddNSRC_r.pas'
  , dt_AttrSchema in 'w:\common\components\rtl\Garant\dd\dt_AttrSchema.pas'
  , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
+ , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
  , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
  , ddNSRCSegments in 'w:\common\components\rtl\Garant\dd\ddNSRCSegments.pas'
  , segTargetList in 'w:\common\components\rtl\Garant\dd\segTargetList.pas'
@@ -3542,7 +3546,6 @@ uses
  , m3Interfaces in 'w:\common\components\rtl\Garant\m3\m3Interfaces.pas'
  , m3DBInterfaces in 'w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas'
  , m3DBTypes in 'w:\common\components\rtl\Garant\m3\m3DBTypes.pas'
- , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
  , m4DB in 'w:\common\components\rtl\Garant\m4\m4DB.pas'
  , m3DB in 'w:\common\components\rtl\Garant\m3\m3DB.pas'
  , m3BaseObject in 'w:\common\components\rtl\Garant\m3\m3BaseObject.pas'

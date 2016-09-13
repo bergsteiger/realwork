@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4C774E380004_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4C774E380004' '49D2080D020C.ms.model.script' ; // IevTableRowPainter
+MEDIAGRAMS ME_4C774E380004_diagrams
 
- MEVIEW ME_4C774E7D01CD_view
-  MELINK Original WL 'ME_4C774E7D01CD' '49D2080D020C.ms.model.script' ; // CheckChildren
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4C774E7D01CD_view
+ MEDIAGRAM ME_4C774E380004_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4C774E380004' '49D2080D020C.ms.model.script' ; // IevTableRowPainter
 
- MEVIEW ME_4D9AF0D00093_view
-  MELINK Original WL 'ME_4D9AF0D00093' '49D2080D020C.ms.model.script' ; // CorrectTopDelta
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4D9AF0D00093_view
+  MEVIEW ME_4C774E7D01CD_view
+   MELINK Original WL 'ME_4C774E7D01CD' '49D2080D020C.ms.model.script' ; // CheckChildren
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C774E7D01CD_view
 
- MEVIEW ME_4D9AFB1202F9_view
-  MELINK Original WL 'ME_4D9AFB1202F9' '49D2080D020C.ms.model.script' ; // IsTopAnchorAtStart
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4D9AFB1202F9_view
+  MEVIEW ME_4D9AF0D00093_view
+   MELINK Original WL 'ME_4D9AF0D00093' '49D2080D020C.ms.model.script' ; // CorrectTopDelta
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D9AF0D00093_view
 
- MEVIEW ME_50A2210D0105_view
-  MELINK Original WL 'ME_50A2210D0105' '49D2080D020C.ms.model.script' ; // GetTopAnchor4Row
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_50A2210D0105_view
+  MEVIEW ME_4D9AFB1202F9_view
+   MELINK Original WL 'ME_4D9AFB1202F9' '49D2080D020C.ms.model.script' ; // IsTopAnchorAtStart
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4D9AFB1202F9_view
 
-ENDMEDIAGRAM // ME_4C774E380004_main
+  MEVIEW ME_50A2210D0105_view
+   MELINK Original WL 'ME_50A2210D0105' '49D2080D020C.ms.model.script' ; // GetTopAnchor4Row
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_50A2210D0105_view
+
+  MELIST Views
+   Seq: ( ME_4C774E7D01CD_view // CheckChildren
+   ME_4D9AF0D00093_view // CorrectTopDelta
+   ME_4D9AFB1202F9_view // IsTopAnchorAtStart
+   ME_50A2210D0105_view // GetTopAnchor4Row
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4C774E380004_main
+
+ MELIST Diagrams
+  Seq: ( ME_4C774E380004_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4C774E380004_diagrams

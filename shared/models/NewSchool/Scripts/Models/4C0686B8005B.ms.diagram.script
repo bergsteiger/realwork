@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4C0686B8005B_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4C0686B8005B' '4C0686B8005B.ms.model.script' ; // BlockSelector
+MEDIAGRAMS ME_4C0686B8005B_diagrams
 
- MEVIEW ME_4C06874C0070_view
-  MELINK Original WL 'ME_4C06874C0070' '4C0686B8005B.ms.model.script' ; // GotoBlock
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4C06874C0070_view
+ MEDIAGRAM ME_4C0686B8005B_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4C0686B8005B' '4C0686B8005B.ms.model.script' ; // BlockSelector
 
- MEVIEW ME_4C0688930095_view
-  MELINK Original WL 'ME_4C0688930095' '4C0686B8005B.ms.model.script' ; // ClearBlocksInfo
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4C0688930095_view
+  MEVIEW ME_4C06874C0070_view
+   MELINK Original WL 'ME_4C06874C0070' '4C0686B8005B.ms.model.script' ; // GotoBlock
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C06874C0070_view
 
- MEVIEW ME_4C0691370291_view
-  MELINK Original WL 'ME_4C0691370291' '4C0686B8005B.ms.model.script' ; // GotoSub
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4C0691370291_view
+  MEVIEW ME_4C0688930095_view
+   MELINK Original WL 'ME_4C0688930095' '4C0686B8005B.ms.model.script' ; // ClearBlocksInfo
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C0688930095_view
 
- MEVIEW ME_4C068AB5026A_view
-  MELINK Original WL 'ME_4C068AB5026A' '4C0686B8005B.ms.model.script' ; // NeedGotoNeighbours
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4C068AB5026A_view
+  MEVIEW ME_4C0691370291_view
+   MELINK Original WL 'ME_4C0691370291' '4C0686B8005B.ms.model.script' ; // GotoSub
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C0691370291_view
 
-ENDMEDIAGRAM // ME_4C0686B8005B_main
+  MEVIEW ME_4C068AB5026A_view
+   MELINK Original WL 'ME_4C068AB5026A' '4C0686B8005B.ms.model.script' ; // NeedGotoNeighbours
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4C068AB5026A_view
+
+  MELIST Views
+   Seq: ( ME_4C06874C0070_view // GotoBlock
+   ME_4C0688930095_view // ClearBlocksInfo
+   ME_4C0691370291_view // GotoSub
+   ME_4C068AB5026A_view // NeedGotoNeighbours
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4C0686B8005B_main
+
+ MELIST Diagrams
+  Seq: ( ME_4C0686B8005B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4C0686B8005B_diagrams

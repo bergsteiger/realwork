@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4A3FAF1003DA_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4A3FAF1003DA' '4A3FAF1003DA.ms.model.script' ; // OvcCmd
+MEDIAGRAMS ME_4A3FAF1003DA_diagrams
 
- MEVIEW ME_515181D600DD_view
-  MELINK Original WL 'ME_515181D600DD' '4A3FAF1003DA.ms.model.script' ; // TUserCommandEvent
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_515181D600DD_view
+ MEDIAGRAM ME_4A3FAF1003DA_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4A3FAF1003DA' '4A3FAF1003DA.ms.model.script' ; // OvcCmd
 
- MEVIEW ME_4A3FAF1F00EC_view
-  MELINK Original WL 'ME_4A3FAF1F00EC' '4A3FAF1003DA.ms.model.script' ; // Command Tables
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4A3FAF1F00EC_view
+  MEVIEW ME_515181D600DD_view
+   MELINK Original WL 'ME_515181D600DD' '4A3FAF1003DA.ms.model.script' ; // TUserCommandEvent
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_515181D600DD_view
 
-ENDMEDIAGRAM // ME_4A3FAF1003DA_main
+  MEVIEW ME_4A3FAF1F00EC_view
+   MELINK Original WL 'ME_4A3FAF1F00EC' '4A3FAF1003DA.ms.model.script' ; // Command Tables
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A3FAF1F00EC_view
+
+  MELIST Views
+   Seq: ( ME_515181D600DD_view // TUserCommandEvent
+   ME_4A3FAF1F00EC_view // Command Tables
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A3FAF1003DA_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A3FAF1003DA_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A3FAF1003DA_diagrams

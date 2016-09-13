@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_53A2C805017C_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_53A2C805017C' '53A038340371.ms.model.script' ; // l3MultiThreadIntegerList
+MEDIAGRAMS ME_53A2C805017C_diagrams
 
- MEVIEW ME_53A2C8780191_view
-  MELINK Original WL 'ME_53A2C8780191' '53A038340371.ms.model.script' ; // IntegerIterator
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_53A2C8780191_view
+ MEDIAGRAM ME_53A2C805017C_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_53A2C805017C' '53A038340371.ms.model.script' ; // l3MultiThreadIntegerList
 
- MEVIEW ME_53A2C7AA03BF_view
-  MELINK Original WL 'ME_53A2C7AA03BF' '53A038340371.ms.model.script' ; // Tl3MultiThreadIntegerList
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53A2C7AA03BF_view
+  MEVIEW ME_53A2C8780191_view
+   MELINK Original WL 'ME_53A2C8780191' '53A038340371.ms.model.script' ; // IntegerIterator
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A2C8780191_view
 
-ENDMEDIAGRAM // ME_53A2C805017C_main
+  MEVIEW ME_53A2C7AA03BF_view
+   MELINK Original WL 'ME_53A2C7AA03BF' '53A038340371.ms.model.script' ; // Tl3MultiThreadIntegerList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A2C7AA03BF_view
+
+  MELIST Views
+   Seq: ( ME_53A2C8780191_view // IntegerIterator
+   ME_53A2C7AA03BF_view // Tl3MultiThreadIntegerList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53A2C805017C_main
+
+ MELIST Diagrams
+  Seq: ( ME_53A2C805017C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53A2C805017C_diagrams

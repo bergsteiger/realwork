@@ -22,39 +22,20 @@
 w:\common\components\gui\Garant\msm\msmModelElementMethodValueCache.pas
 //#UC END# *57B2E6B90102_ext:FileName
 //#UC START# *57B2E6B90102impl_uses*
+ , StrUtils
+ , l3String
+ , l3FileUtils
  , kwCompiledProcedure
  , kwForwardDeclaration
  , kwConstLikeCompiled
  , NewWordDefinitorPack
  , kwTemporaryCompiledCode
+ , tfwMainDictionary
 //#UC END# *57B2E6B90102impl_uses*
 //#UC START# *57BAFEC801C8_57B2E6B90102_impl*
- l_NeedClear := true;
- l_NeedClear := CanCacheWord(aWord);
- if l_NeedClear then
- begin
-  l_Index := 0;
-  FindData(TmsmModelElementMethodValue_C(aWord, nil), l_Index);
-  {if (l_Index > 0) then
-   Dec(l_Index);}
-  while (l_Index < Count) do
-  begin
-   if ItemSlot(l_Index).rWord = aWord then
-   begin
-    while (ItemSlot(l_Index).rWord = aWord) do
-     Delete(l_Index);
-    Exit;
-   end//ItemSlot(l_Index).rWord = aWord
-   else
-    Inc(l_Index);
-   break;
-  end;//while (l_Index < Count)
- end;//l_NeedClear
+ DeleteWordCachedValues(aWord);
 //#UC END# *57BAFEC801C8_57B2E6B90102_impl*
 //#UC START# *57BAFEC801C8_57B2E6B90102_var*
-var
- l_Index : Integer;
- l_NeedClear : Boolean;
 //#UC END# *57BAFEC801C8_57B2E6B90102_var*
 //#UC START# *57BC33D10097_57B2E6B90102_impl*
  l_Item := CheckItem(anItem);
@@ -104,6 +85,17 @@ var
 //#UC START# *57BC3A8400E3_57B2E6B90102_impl*
  Result := anItem;
  Result.rWord := Result.rWord.GetRefForCompare;
+ if TmsmWordsByName.Exists then
+  with TmsmWordsByName.Instance do
+  begin
+   Lock;
+   try
+    if Has(Result.rName) then
+     Result.rName := ValueSlotByKey(Result.rName).Key.AsCStr;
+   finally
+    Unlock;
+   end;//try..finally
+  end;//TmsmWordsByName.Instance
 //#UC END# *57BC3A8400E3_57B2E6B90102_impl*
 //#UC START# *57BC3A8400E3_57B2E6B90102_var*
 //#UC END# *57BC3A8400E3_57B2E6B90102_var*
@@ -117,3 +109,38 @@ var
 //#UC END# *57BC3FB202AF_57B2E6B90102_impl*
 //#UC START# *57BC3FB202AF_57B2E6B90102_var*
 //#UC END# *57BC3FB202AF_57B2E6B90102_var*
+//#UC START# *57D25F960241_57B2E6B90102_impl*
+ l_NeedClear := true;
+ l_NeedClear := CanCacheWord(aWord);
+ if l_NeedClear then
+ begin
+  l_Index := 0;
+  FindData(TmsmModelElementMethodValue_C(aWord, nil), l_Index);
+  {if (l_Index > 0) then
+   Dec(l_Index);}
+  while (l_Index < Count) do
+  begin
+   if ItemSlot(l_Index).rWord = aWord then
+   begin
+    while (ItemSlot(l_Index).rWord = aWord) do
+     Delete(l_Index);
+    Exit;
+   end//ItemSlot(l_Index).rWord = aWord
+   else
+    Inc(l_Index);
+   break;
+  end;//while (l_Index < Count)
+ end;//l_NeedClear
+//#UC END# *57D25F960241_57B2E6B90102_impl*
+//#UC START# *57D25F960241_57B2E6B90102_var*
+var
+ l_Index : Integer;
+ l_NeedClear : Boolean;
+//#UC END# *57D25F960241_57B2E6B90102_var*
+//#UC START# *57D66CDF00D6_57B2E6B90102_impl*
+ Result := TtfwCStringFactory.C(ConcatDirName(cPath, AnsiReplaceStr(l3Str(aMethodName), ':', '_')) + '.stub.script');
+//#UC END# *57D66CDF00D6_57B2E6B90102_impl*
+//#UC START# *57D66CDF00D6_57B2E6B90102_var*
+const
+ cPath = 'C:\Temp\Scripts\Stubs\';
+//#UC END# *57D66CDF00D6_57B2E6B90102_var*

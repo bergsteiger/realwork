@@ -1,0 +1,208 @@
+// msmConcreteUseCases 57D2DB49000A Interfaces Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57D2DB49000A
+
+FORWARD ME_57D2D2E90182
+
+ME ME_57D2D7C0039B
+ MEPROP UID '57D2D7C0039B'
+ MEPROP Name 'MainList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57D2D2E90182 // ImsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+ UP "pm" False
+
+ENDME // ME_57D2D7C0039B MainList
+
+ME ME_57D2D7D00023
+ MEPROP UID '57D2D7D00023'
+ MEPROP Name 'Navigator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57D2D2E90182 // ImsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57B198570162' '57ADC53E00B6.ms.model.script' // ImsmTreeModel
+ ;
+ UP "pm" False
+
+ENDME // ME_57D2D7D00023 Navigator
+
+ME ME_57D2D7DB0283
+ MEPROP UID '57D2D7DB0283'
+ MEPROP Name 'Drawing'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57D2D2E90182 // ImsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57D27E070278' '57ADC53E00B6.ms.model.script' // ImsmDrawingModel
+ ;
+ UP "pm" False
+
+ENDME // ME_57D2D7DB0283 Drawing
+
+ME ME_57D2D7E900D8
+ MEPROP UID '57D2D7E900D8'
+ MEPROP Name 'FloatingNavigator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57D2D2E90182 // ImsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57B198570162' '57ADC53E00B6.ms.model.script' // ImsmTreeModel
+ ;
+ UP "pm" False
+
+ENDME // ME_57D2D7E900D8 FloatingNavigator
+
+ME ME_57D2D7F40131
+ MEPROP UID '57D2D7F40131'
+ MEPROP Name 'Caption'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_57D2D2E90182 // ImsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57ADC53E00B6.ms.model.script' // ImsmCaptionModel
+ ;
+ UP "pm" False
+
+ENDME // ME_57D2D7F40131 Caption
+
+ME ME_57AD949C0005_ME_57D2D2E90182
+ MELINK Original WL 'ME_57AD949C0005' '57CEAF3602AB.ms.model.script' // AddController
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57AD949C0005_ME_57D2D2E90182 AddController
+
+ME ME_57B1ABA800A6_ME_57D2D2E90182
+ MELINK Original WL 'ME_57B1ABA800A6' '57CEAF3602AB.ms.model.script' // Activate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B1ABA800A6_ME_57D2D2E90182 Activate
+
+ME ME_57D29826015D_ME_57D2D2E90182
+ MELINK Original WL 'ME_57D29826015D' '57CEAF3602AB.ms.model.script' // Bind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57D29826015D_ME_57D2D2E90182 Bind
+
+ME ME_57D2D2E90182
+ MEPROP UID '57D2D2E90182'
+ MEPROP GUID 'DCEF0346-205B-4372-824F-153BCE359DAC'
+ MEPROP Name 'ImsmDrawingUseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57D2DB49000A // msmConcreteUseCases
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D2D7C0039B // MainList
+ HWL ME_57D2D7D00023 // Navigator
+ HWL ME_57D2D7DB0283 // Drawing
+ HWL ME_57D2D7E900D8 // FloatingNavigator
+ HWL ME_57D2D7F40131 // Caption
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_57AD949C0005_ME_57D2D2E90182 // AddController
+ ME_57B1ABA800A6_ME_57D2D2E90182 // Activate
+ ME_57D29826015D_ME_57D2D2E90182 // Bind
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmDrawingUseCase'
+
+ENDME // ME_57D2D2E90182 ImsmDrawingUseCase
+
+ME ME_57AD949C0005_ME_57D2DBFB0226
+ MELINK Original WL 'ME_57AD949C0005' '57CEAF3602AB.ms.model.script' // AddController
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57AD949C0005_ME_57D2DBFB0226 AddController
+
+ME ME_57B1ABA800A6_ME_57D2DBFB0226
+ MELINK Original WL 'ME_57B1ABA800A6' '57CEAF3602AB.ms.model.script' // Activate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B1ABA800A6_ME_57D2DBFB0226 Activate
+
+ME ME_57D29826015D_ME_57D2DBFB0226
+ MELINK Original WL 'ME_57D29826015D' '57CEAF3602AB.ms.model.script' // Bind
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57D29826015D_ME_57D2DBFB0226 Bind
+
+ME ME_57D2DBFB0226
+ MEPROP UID '57D2DBFB0226'
+ MEPROP GUID '638BB9EE-937E-4002-86CF-32AFFD0E700D'
+ MEPROP Name 'ImsmDrawingUseCaseView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57D2DB49000A // msmConcreteUseCases
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57AD949C0005_ME_57D2DBFB0226 // AddController
+ ME_57B1ABA800A6_ME_57D2DBFB0226 // Activate
+ ME_57D29826015D_ME_57D2DBFB0226 // Bind
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmDrawingUseCaseView'
+
+ENDME // ME_57D2DBFB0226 ImsmDrawingUseCaseView
+
+ME ME_57D2DB49000A
+ MEPROP UID '57D2DB49000A'
+ MEPROP Name 'msmConcreteUseCases'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Interfaces ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57A9C7A301DF' '57A9C7A301DF.ms.model.script' // msm$Lib
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57D2D2E90182 // ImsmDrawingUseCase
+ HWL ME_57D2DBFB0226 // ImsmDrawingUseCaseView
+ )
+ ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels
+ WL 'ME_57CEAF3602AB' '57CEAF3602AB.ms.model.script' // msmUseCases
+ )
+ ; // Depends
+ UP "is namespace" True
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmConcreteUseCases.pas'
+
+ENDME // ME_57D2DB49000A msmConcreteUseCases

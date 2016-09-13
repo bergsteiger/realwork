@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_50598FF6003B_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_50598FF6003B' '50598FD9019C.ms.model.script' ; // SewerPipe
+MEDIAGRAMS ME_50598FF6003B_diagrams
 
- MEVIEW ME_5059903E037D_view
-  MELINK Original WL 'ME_5059903E037D' '50598FD9019C.ms.model.script' ; // TSewerPipe
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5059903E037D_view
+ MEDIAGRAM ME_50598FF6003B_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_50598FF6003B' '50598FD9019C.ms.model.script' ; // SewerPipe
 
-ENDMEDIAGRAM // ME_50598FF6003B_main
+  MEVIEW ME_5059903E037D_view
+   MELINK Original WL 'ME_5059903E037D' '50598FD9019C.ms.model.script' ; // TSewerPipe
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5059903E037D_view
+
+  MELIST Views
+   Seq: ( ME_5059903E037D_view // TSewerPipe
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_50598FF6003B_main
+
+ MELIST Diagrams
+  Seq: ( ME_50598FF6003B_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_50598FF6003B_diagrams

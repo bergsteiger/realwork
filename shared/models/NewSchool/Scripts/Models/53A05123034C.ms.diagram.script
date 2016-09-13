@@ -2,38 +2,54 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_53A05123034C_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_53A05123034C' '53A05123034C.ms.model.script' ; // TasksLists
+MEDIAGRAMS ME_53A05123034C_diagrams
 
- MEVIEW ME_54CB5BB40321_view
-  MELINK Original WL 'ME_54CB5BB40321' '53A05123034C.ms.model.script' ; // TalcuTaskListBasePrim
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_54CB5BB40321_view
+ MEDIAGRAM ME_53A05123034C_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_53A05123034C' '53A05123034C.ms.model.script' ; // TasksLists
 
- MEVIEW ME_53A196B800AD_view
-  MELINK Original WL 'ME_53A196B800AD' '53A05123034C.ms.model.script' ; // TalcuSortedTaskList
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_53A196B800AD_view
+  MEVIEW ME_54CB5BB40321_view
+   MELINK Original WL 'ME_54CB5BB40321' '53A05123034C.ms.model.script' ; // TalcuTaskListBasePrim
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_54CB5BB40321_view
 
- MEVIEW ME_52FA3DB401BE_view
-  MELINK Original WL 'ME_52FA3DB401BE' '53A05123034C.ms.model.script' ; // TalcuTaskList
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_52FA3DB401BE_view
+  MEVIEW ME_53A196B800AD_view
+   MELINK Original WL 'ME_53A196B800AD' '53A05123034C.ms.model.script' ; // TalcuSortedTaskList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A196B800AD_view
 
- MEVIEW ME_53A19980030C_view
-  MELINK Original WL 'ME_53A19980030C' '53A05123034C.ms.model.script' ; // TalcuNotSortedTaskList
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_53A19980030C_view
+  MEVIEW ME_52FA3DB401BE_view
+   MELINK Original WL 'ME_52FA3DB401BE' '53A05123034C.ms.model.script' ; // TalcuTaskList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_52FA3DB401BE_view
 
- MEVIEW ME_53A051A703D1_view
-  MELINK Original WL 'ME_53A051A703D1' '53A05123034C.ms.model.script' ; // alcuTaskListBase
-  MEPROP X 450
-  MEPROP Y 10
- ENDMEVIEW // ME_53A051A703D1_view
+  MEVIEW ME_53A19980030C_view
+   MELINK Original WL 'ME_53A19980030C' '53A05123034C.ms.model.script' ; // TalcuNotSortedTaskList
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A19980030C_view
 
-ENDMEDIAGRAM // ME_53A05123034C_main
+  MEVIEW ME_53A051A703D1_view
+   MELINK Original WL 'ME_53A051A703D1' '53A05123034C.ms.model.script' ; // alcuTaskListBase
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_53A051A703D1_view
+
+  MELIST Views
+   Seq: ( ME_54CB5BB40321_view // TalcuTaskListBasePrim
+   ME_53A196B800AD_view // TalcuSortedTaskList
+   ME_52FA3DB401BE_view // TalcuTaskList
+   ME_53A19980030C_view // TalcuNotSortedTaskList
+   ME_53A051A703D1_view // alcuTaskListBase
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_53A05123034C_main
+
+ MELIST Diagrams
+  Seq: ( ME_53A05123034C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_53A05123034C_diagrams

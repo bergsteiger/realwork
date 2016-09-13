@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_5562DB5D0259_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_5562DB5D0259' '5562DB5D0259.ms.model.script' ; // TvtCalendarPanel
+MEDIAGRAMS ME_5562DB5D0259_diagrams
 
- MEVIEW ME_556709D10061_view
-  MELINK Original WL 'ME_556709D10061' '5562DB5D0259.ms.model.script' ; // TvtCustomCalendarPanel
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_556709D10061_view
+ MEDIAGRAM ME_5562DB5D0259_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5562DB5D0259' '5562DB5D0259.ms.model.script' ; // TvtCalendarPanel
 
- MEVIEW ME_5567126103D0_view
-  MELINK Original WL 'ME_5567126103D0' '5562DB5D0259.ms.model.script' ; // Calendar Panel const
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_5567126103D0_view
+  MEVIEW ME_556709D10061_view
+   MELINK Original WL 'ME_556709D10061' '5562DB5D0259.ms.model.script' ; // TvtCustomCalendarPanel
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_556709D10061_view
 
-ENDMEDIAGRAM // ME_5562DB5D0259_main
+  MEVIEW ME_5567126103D0_view
+   MELINK Original WL 'ME_5567126103D0' '5562DB5D0259.ms.model.script' ; // Calendar Panel const
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_5567126103D0_view
+
+  MELIST Views
+   Seq: ( ME_556709D10061_view // TvtCustomCalendarPanel
+   ME_5567126103D0_view // Calendar Panel const
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5562DB5D0259_main
+
+ MELIST Diagrams
+  Seq: ( ME_5562DB5D0259_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5562DB5D0259_diagrams

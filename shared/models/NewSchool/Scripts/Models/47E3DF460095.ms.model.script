@@ -5015,6 +5015,24 @@ ME ME_52D79D590074
 
 ENDME // ME_52D79D590074 Borders
 
+ME ME_57D112CB0392
+ MEPROP UID '57D112CB0392'
+ MEPROP Name 'SearchContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_57D1052B0133' '47C5207602D1.ms.model.script' // TevSearchContext
+ ;
+ UP "inherits getter from some ancestor" False
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_57D112CB0392 SearchContext
+
 FORWARD ME_5108D53B0312
 
 FORWARD ME_5108D56D0067
@@ -5393,59 +5411,68 @@ FORWARD ME_52D79F3B0081
 
 FORWARD ME_52D79F5803E2
 
-ME ME_52D79F5B0234
+ME ME_57D10DA300AB
  MEPROP Name 'aView'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
  ;
 
-ENDME // ME_52D79F5B0234 aView
+ENDME // ME_57D10DA300AB aView
 
-ME ME_52D79F5B024C
+ME ME_57D10DA300BA
  MEPROP Name 'aSearcher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
  ;
 
-ENDME // ME_52D79F5B024C aSearcher
+ENDME // ME_57D10DA300BA aSearcher
 
-ME ME_52D79F5B0265
+ME ME_57D10DA300DA
  MEPROP Name 'Progress'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
  ;
 
-ENDME // ME_52D79F5B0265 Progress
+ENDME // ME_57D10DA300DA Progress
 
-ME ME_52D79F5B0295
+ME ME_57D10DA300E9
  MEPROP Name 'aStart'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
  ;
 
-ENDME // ME_52D79F5B0295 aStart
+ENDME // ME_57D10DA300E9 aStart
 
-ME ME_52D79F5B02D5
+ME ME_57D10DA30108
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_57D1052B0133' '47C5207602D1.ms.model.script' // TevSearchContext
+ ;
+
+ENDME // ME_57D10DA30108 aContext
+
+ME ME_57D10DA30118
  MEPROP Name 'cFStart'
  MEPROP Class class_Parameter
  MELINK Stereotype st_out ;
  MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
  ;
 
-ENDME // ME_52D79F5B02D5 cFStart
+ENDME // ME_57D10DA30118 cFStart
 
-ME ME_52D79F5B0311
+ME ME_57D10DA30137
  MEPROP Name 'cFFinish'
  MEPROP Class class_Parameter
  MELINK Stereotype st_out ;
  MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
  ;
 
-ENDME // ME_52D79F5B0311 cFFinish
+ENDME // ME_57D10DA30137 cFFinish
 
 ME ME_52D79F5803E2
  MEPROP UID '52D79F5803E2'
@@ -5458,12 +5485,13 @@ ME ME_52D79F5803E2
  MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
  ;
  MELIST Parameters
-   Seq: ( ME_52D79F5B0234 // aView
- ME_52D79F5B024C // aSearcher
- ME_52D79F5B0265 // Progress
- ME_52D79F5B0295 // aStart
- ME_52D79F5B02D5 // cFStart
- ME_52D79F5B0311 // cFFinish
+   Seq: ( ME_57D10DA300AB // aView
+ ME_57D10DA300BA // aSearcher
+ ME_57D10DA300DA // Progress
+ ME_57D10DA300E9 // aStart
+ ME_57D10DA30108 // aContext
+ ME_57D10DA30118 // cFStart
+ ME_57D10DA30137 // cFFinish
  )
  ; // Parameters
 
@@ -6227,6 +6255,51 @@ ME ME_52D7CCD70340
 
 ENDME // ME_52D7CCD70340 DoSearchReplace
 
+FORWARD ME_57D113100258
+
+FORWARD ME_57D1133601AD
+
+ME ME_57D1135A0224
+ MEPROP Name 'aSearch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_57D1052B0133' '47C5207602D1.ms.model.script' // TevSearchContext
+ ;
+
+ENDME // ME_57D1135A0224 aSearch
+
+ME ME_57D1133601AD
+ MEPROP UID '57D1133601AD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D113100258 // IniSearchContext
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D1135A0224 // aSearch
+ )
+ ; // Parameters
+
+ENDME // ME_57D1133601AD DoIt
+
+ME ME_57D113100258
+ MEPROP UID '57D113100258'
+ MEPROP Name 'IniSearchContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D1133601AD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D113100258 IniSearchContext
+
 ME ME_52D7E6DC01B1
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -6593,6 +6666,7 @@ ME ME_4A2D2D4300BE
  MELIST Attributes
    Seq: ( HWL ME_50B730F30193 // Sharp
  HWL ME_52D79D590074 // Borders
+ HWL ME_57D112CB0392 // SearchContext
  )
  ; // Attributes
  MELIST Operations
@@ -6615,6 +6689,7 @@ ME ME_4A2D2D4300BE
  HWL ME_52D7CBD0020F // DoIterateF
  HWL ME_52D7CC2F036B // DoIterateBackF
  HWL ME_52D7CCD70340 // DoSearchReplace
+ HWL ME_57D113100258 // IniSearchContext
  )
  ; // Operations
  MELIST Implemented

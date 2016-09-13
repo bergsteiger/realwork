@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4D9058880214_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4D9058880214' '4D9058880214.ms.model.script' ; // TvtPopupFormModelPart
+MEDIAGRAMS ME_4D9058880214_diagrams
 
- MEVIEW ME_4F86D8A903E2_view
-  MELINK Original WL 'ME_4F86D8A903E2' '4D9058880214.ms.model.script' ; // TTailRects
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4F86D8A903E2_view
+ MEDIAGRAM ME_4D9058880214_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4D9058880214' '4D9058880214.ms.model.script' ; // TvtPopupFormModelPart
 
- MEVIEW ME_4F86D7E8030F_view
-  MELINK Original WL 'ME_4F86D7E8030F' '4D9058880214.ms.model.script' ; // TPopupFormBoundsRects
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4F86D7E8030F_view
+  MEVIEW ME_4F86D8A903E2_view
+   MELINK Original WL 'ME_4F86D8A903E2' '4D9058880214.ms.model.script' ; // TTailRects
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F86D8A903E2_view
 
-ENDMEDIAGRAM // ME_4D9058880214_main
+  MEVIEW ME_4F86D7E8030F_view
+   MELINK Original WL 'ME_4F86D7E8030F' '4D9058880214.ms.model.script' ; // TPopupFormBoundsRects
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F86D7E8030F_view
+
+  MELIST Views
+   Seq: ( ME_4F86D8A903E2_view // TTailRects
+   ME_4F86D7E8030F_view // TPopupFormBoundsRects
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4D9058880214_main
+
+ MELIST Diagrams
+  Seq: ( ME_4D9058880214_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4D9058880214_diagrams

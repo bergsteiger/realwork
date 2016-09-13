@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_5230224E02A3_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_5230224E02A3' '5230224E02A3.ms.model.script' ; // Shared Delphi Sand Box$TestApp
+MEDIAGRAMS ME_5230224E02A3_diagrams
 
- MEVIEW ME_523023C2008D_view
-  MELINK Original WL 'ME_523023C2008D' '523023C2008D.ms.model.script' ; // VCMSandBox
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_523023C2008D_view
+ MEDIAGRAM ME_5230224E02A3_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5230224E02A3' '5230224E02A3.ms.model.script' ; // Shared Delphi Sand Box$TestApp
 
-ENDMEDIAGRAM // ME_5230224E02A3_main
+  MEVIEW ME_523023C2008D_view
+   MELINK Original WL 'ME_523023C2008D' '523023C2008D.ms.model.script' ; // VCMSandBox
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_523023C2008D_view
+
+  MELIST Views
+   Seq: ( ME_523023C2008D_view // VCMSandBox
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5230224E02A3_main
+
+ MELIST Diagrams
+  Seq: ( ME_5230224E02A3_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5230224E02A3_diagrams

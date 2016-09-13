@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_505DA5E7038D_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_505DA5E7038D' '505DA8FC03CF.ms.model.script' ; // nscStatusBarItemNotification
+MEDIAGRAMS ME_505DA5E7038D_diagrams
 
- MEVIEW ME_50477AAF037C_view
-  MELINK Original WL 'ME_50477AAF037C' '505DA8FC03CF.ms.model.script' ; // StatusBarConsts
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_50477AAF037C_view
+ MEDIAGRAM ME_505DA5E7038D_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_505DA5E7038D' '505DA8FC03CF.ms.model.script' ; // nscStatusBarItemNotification
 
- MEVIEW ME_506022500317_view
-  MELINK Original WL 'ME_506022500317' '505DA8FC03CF.ms.model.script' ; // CMVisibleChanged
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_506022500317_view
+  MEVIEW ME_50477AAF037C_view
+   MELINK Original WL 'ME_50477AAF037C' '505DA8FC03CF.ms.model.script' ; // StatusBarConsts
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_50477AAF037C_view
 
-ENDMEDIAGRAM // ME_505DA5E7038D_main
+  MEVIEW ME_506022500317_view
+   MELINK Original WL 'ME_506022500317' '505DA8FC03CF.ms.model.script' ; // CMVisibleChanged
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_506022500317_view
+
+  MELIST Views
+   Seq: ( ME_50477AAF037C_view // StatusBarConsts
+   ME_506022500317_view // CMVisibleChanged
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_505DA5E7038D_main
+
+ MELIST Diagrams
+  Seq: ( ME_505DA5E7038D_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_505DA5E7038D_diagrams

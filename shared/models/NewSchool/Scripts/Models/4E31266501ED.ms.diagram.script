@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E31266501ED_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E31266501ED' '4E31266501ED.ms.model.script' ; // Visual Component Model
+MEDIAGRAMS ME_4E31266501ED_diagrams
 
- MEVIEW ME_484FA73B0391_view
-  MELINK Original WL 'ME_484FA73B0391' '4E31266501ED.ms.model.script' ; // VCM
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_484FA73B0391_view
+ MEDIAGRAM ME_4E31266501ED_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E31266501ED' '4E31266501ED.ms.model.script' ; // Visual Component Model
 
- MEVIEW ME_484FA7AF00B0_view
-  MELINK Original WL 'ME_484FA7AF00B0' '4E31266501ED.ms.model.script' ; // Операции
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_484FA7AF00B0_view
+  MEVIEW ME_484FA73B0391_view
+   MELINK Original WL 'ME_484FA73B0391' '4E31266501ED.ms.model.script' ; // VCM
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_484FA73B0391_view
 
- MEVIEW ME_484FA780003A_view
-  MELINK Original WL 'ME_484FA780003A' '4E31266501ED.ms.model.script' ; // Горячие клавиши
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_484FA780003A_view
+  MEVIEW ME_484FA7AF00B0_view
+   MELINK Original WL 'ME_484FA7AF00B0' '4E31266501ED.ms.model.script' ; // Операции
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_484FA7AF00B0_view
 
-ENDMEDIAGRAM // ME_4E31266501ED_main
+  MEVIEW ME_484FA780003A_view
+   MELINK Original WL 'ME_484FA780003A' '4E31266501ED.ms.model.script' ; // Горячие клавиши
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_484FA780003A_view
+
+  MELIST Views
+   Seq: ( ME_484FA73B0391_view // VCM
+   ME_484FA7AF00B0_view // Операции
+   ME_484FA780003A_view // Горячие клавиши
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E31266501ED_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E31266501ED_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E31266501ED_diagrams

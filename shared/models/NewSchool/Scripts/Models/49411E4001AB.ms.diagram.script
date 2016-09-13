@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_49411E4001AB_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_49411E4001AB' '49411E4001AB.ms.model.script' ; // Autoreferat
+MEDIAGRAMS ME_49411E4001AB_diagrams
 
- MEVIEW ME_492F0586030C_view
-  MELINK Original WL 'ME_492F0586030C' '492F0586030C.ms.model.script' ; // AutoreferatInterfaces
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_492F0586030C_view
+ MEDIAGRAM ME_49411E4001AB_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_49411E4001AB' '49411E4001AB.ms.model.script' ; // Autoreferat
 
- MEVIEW ME_491C3ADB03A5_view
-  MELINK Original WL 'ME_491C3ADB03A5' '491C3ADB03A5.ms.model.script' ; // Autoreferat
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_491C3ADB03A5_view
+  MEVIEW ME_492F0586030C_view
+   MELINK Original WL 'ME_492F0586030C' '492F0586030C.ms.model.script' ; // AutoreferatInterfaces
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_492F0586030C_view
 
-ENDMEDIAGRAM // ME_49411E4001AB_main
+  MEVIEW ME_491C3ADB03A5_view
+   MELINK Original WL 'ME_491C3ADB03A5' '491C3ADB03A5.ms.model.script' ; // Autoreferat
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_491C3ADB03A5_view
+
+  MELIST Views
+   Seq: ( ME_492F0586030C_view // AutoreferatInterfaces
+   ME_491C3ADB03A5_view // Autoreferat
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49411E4001AB_main
+
+ MELIST Diagrams
+  Seq: ( ME_49411E4001AB_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49411E4001AB_diagrams

@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4856410E0295_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4856410E0295' '484F80CF0274.ms.model.script' ; // Инфарм
+MEDIAGRAMS ME_4856410E0295_diagrams
 
- MEVIEW ME_4AC1CE96036C_view
-  MELINK Original WL 'ME_4AC1CE96036C' '484F80CF0274.ms.model.script' ; // Основное меню для Инфарм
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4AC1CE96036C_view
+ MEDIAGRAM ME_4856410E0295_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4856410E0295' '484F80CF0274.ms.model.script' ; // Инфарм
 
- MEVIEW ME_4F68A075031B_view
-  MELINK Original WL 'ME_4F68A075031B' '484F80CF0274.ms.model.script' ; // Работа со списком препаратов
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4F68A075031B_view
+  MEVIEW ME_4AC1CE96036C_view
+   MELINK Original WL 'ME_4AC1CE96036C' '484F80CF0274.ms.model.script' ; // Основное меню для Инфарм
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4AC1CE96036C_view
 
-ENDMEDIAGRAM // ME_4856410E0295_main
+  MEVIEW ME_4F68A075031B_view
+   MELINK Original WL 'ME_4F68A075031B' '484F80CF0274.ms.model.script' ; // Работа со списком препаратов
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F68A075031B_view
+
+  MELIST Views
+   Seq: ( ME_4AC1CE96036C_view // Основное меню для Инфарм
+   ME_4F68A075031B_view // Работа со списком препаратов
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4856410E0295_main
+
+ MELIST Diagrams
+  Seq: ( ME_4856410E0295_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4856410E0295_diagrams

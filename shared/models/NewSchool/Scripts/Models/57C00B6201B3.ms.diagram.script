@@ -2,20 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_57C00B6201B3_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_57C00B6201B3' '57C00B6201B3.ms.model.script' ; // DocStreamTransfer
+MEDIAGRAMS ME_57C00B6201B3_diagrams
 
- MEVIEW ME_57C00B9700F2_view
-  MELINK Original WL 'ME_57C00B9700F2' '57C00B6201B3.ms.model.script' ; // TalcuDownloadDocStreamExecutor
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_57C00B9700F2_view
+ MEDIAGRAM ME_57C00B6201B3_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57C00B6201B3' '57C00B6201B3.ms.model.script' ; // DocStreamTransfer
 
- MEVIEW ME_57C3FAF20200_view
-  MELINK Original WL 'ME_57C3FAF20200' '57C00B6201B3.ms.model.script' ; // TalcuDownloadDocRequest
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_57C3FAF20200_view
+  MEVIEW ME_57D2A6A70025_view
+   MELINK Original WL 'ME_57D2A6A70025' '57C00B6201B3.ms.model.script' ; // TalcuDocTransferRequestExecutor
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D2A6A70025_view
 
-ENDMEDIAGRAM // ME_57C00B6201B3_main
+  MEVIEW ME_57D29F210256_view
+   MELINK Original WL 'ME_57D29F210256' '57C00B6201B3.ms.model.script' ; // TalcuWaitableRequest
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D29F210256_view
+
+  MEVIEW ME_57C3FAF20200_view
+   MELINK Original WL 'ME_57C3FAF20200' '57C00B6201B3.ms.model.script' ; // TalcuDownloadDocRequest
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57C3FAF20200_view
+
+  MEVIEW ME_57C00B9700F2_view
+   MELINK Original WL 'ME_57C00B9700F2' '57C00B6201B3.ms.model.script' ; // TalcuDownloadDocStreamExecutor
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_57C00B9700F2_view
+
+  MELIST Views
+   Seq: ( ME_57D2A6A70025_view // TalcuDocTransferRequestExecutor
+   ME_57D29F210256_view // TalcuWaitableRequest
+   ME_57C3FAF20200_view // TalcuDownloadDocRequest
+   ME_57C00B9700F2_view // TalcuDownloadDocStreamExecutor
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57C00B6201B3_main
+
+ MELIST Diagrams
+  Seq: ( ME_57C00B6201B3_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57C00B6201B3_diagrams

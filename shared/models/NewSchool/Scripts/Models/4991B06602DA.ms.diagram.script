@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4991B06602DA_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4991B06602DA' '4991B06602DA.ms.model.script' ; // PreviewInterfaces
+MEDIAGRAMS ME_4991B06602DA_diagrams
 
- MEVIEW ME_4991B0AF009B_view
-  MELINK Original WL 'ME_4991B0AF009B' '4991B06602DA.ms.model.script' ; // TnsSuperPreviewKind
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4991B0AF009B_view
+ MEDIAGRAM ME_4991B06602DA_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4991B06602DA' '4991B06602DA.ms.model.script' ; // PreviewInterfaces
 
- MEVIEW ME_4890158A0251_view
-  MELINK Original WL 'ME_4890158A0251' '4991B06602DA.ms.model.script' ; // InsSuperComplexDocumentPreview
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4890158A0251_view
+  MEVIEW ME_4991B0AF009B_view
+   MELINK Original WL 'ME_4991B0AF009B' '4991B06602DA.ms.model.script' ; // TnsSuperPreviewKind
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991B0AF009B_view
 
- MEVIEW ME_4991B170012C_view
-  MELINK Original WL 'ME_4991B170012C' '4991B06602DA.ms.model.script' ; // InsTreeMultiDocumentPreviewContainer
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4991B170012C_view
+  MEVIEW ME_4890158A0251_view
+   MELINK Original WL 'ME_4890158A0251' '4991B06602DA.ms.model.script' ; // InsSuperComplexDocumentPreview
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4890158A0251_view
 
- MEVIEW ME_4991B18E00F4_view
-  MELINK Original WL 'ME_4991B18E00F4' '4991B06602DA.ms.model.script' ; // InsTinyPreview
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4991B18E00F4_view
+  MEVIEW ME_4991B170012C_view
+   MELINK Original WL 'ME_4991B170012C' '4991B06602DA.ms.model.script' ; // InsTreeMultiDocumentPreviewContainer
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991B170012C_view
 
-ENDMEDIAGRAM // ME_4991B06602DA_main
+  MEVIEW ME_4991B18E00F4_view
+   MELINK Original WL 'ME_4991B18E00F4' '4991B06602DA.ms.model.script' ; // InsTinyPreview
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4991B18E00F4_view
+
+  MELIST Views
+   Seq: ( ME_4991B0AF009B_view // TnsSuperPreviewKind
+   ME_4890158A0251_view // InsSuperComplexDocumentPreview
+   ME_4991B170012C_view // InsTreeMultiDocumentPreviewContainer
+   ME_4991B18E00F4_view // InsTinyPreview
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4991B06602DA_main
+
+ MELIST Diagrams
+  Seq: ( ME_4991B06602DA_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4991B06602DA_diagrams

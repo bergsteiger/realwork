@@ -103,7 +103,7 @@ ME ME_57CED28B007F
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_abstract
  MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57CED27203D3 // TmsmListOperation
+ MELINK Parent HWL ME_57CED27203D3 // TmsmListLikeOperation
  ;
  MELINK Target WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
  ;
@@ -112,7 +112,7 @@ ENDME // ME_57CED28B007F ConcreteModel
 
 ME ME_57CED27203D3
  MEPROP UID '57CED27203D3'
- MEPROP Name 'TmsmListOperation'
+ MEPROP Name 'TmsmListLikeOperation'
  MEPROP Class class_Class
  MELINK Stereotype st_SimpleClass ;
  MEPROP Kind kind_NormalClass
@@ -128,12 +128,12 @@ ME ME_57CED27203D3
    Seq: ( HWL ME_57CED28B007F // ConcreteModel
  )
  ; // Attributes
- UP extprop:pas:UnitName 'msmListOperation'
+ UP extprop:pas:UnitName 'msmListLikeOperation'
  UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'msmListOperation'
- UP intf.pas:Path 'common\components\gui\Garant\msm\msmListOperation.pas'
+ UP extprop:rc:SelfName 'msmListLikeOperation'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListLikeOperation.pas'
 
-ENDME // ME_57CED27203D3 TmsmListOperation
+ENDME // ME_57CED27203D3 TmsmListLikeOperation
 
 FORWARD ME_57CED1F0037B
 
@@ -164,7 +164,7 @@ ME ME_57CED1F0037B
  MELINK Parent HWL ME_57CEBB9200EA // ConcreteOperations
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57CED27203D3 // TmsmListOperation
+   Seq: ( HWL ME_57CED27203D3 // TmsmListLikeOperation
  )
  ; // Inherits
  MELIST Implemented
@@ -182,6 +182,79 @@ ME ME_57CED1F0037B
 
 ENDME // ME_57CED1F0037B TmsmOpenInNewWindow
 
+FORWARD ME_57D17D37021C
+
+ME ME_57D17D6E0269
+ MEPROP UID '57D17D6E0269'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D17D37021C // TmsmListOperation
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+
+ENDME // ME_57D17D6E0269 ConcreteModel
+
+ME ME_57D17D37021C
+ MEPROP UID '57D17D37021C'
+ MEPROP Name 'TmsmListOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57CEBB9200EA // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57CEB54C02B6' '57CEB008027D.ms.model.script' // msmConcreteModelOperation
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D17D6E0269 // ConcreteModel
+ )
+ ; // Attributes
+ UP extprop:pas:UnitName 'msmListOperation'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmListOperation'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListOperation.pas'
+
+ENDME // ME_57D17D37021C TmsmListOperation
+
+ME ME_57CEB1F602D1_ME_57D175C401BD
+ MELINK Original WL 'ME_57CEB1F602D1' '57CEB008027D.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57CEB1F602D1_ME_57D175C401BD DoDoIt
+
+ME ME_57D175C401BD
+ MEPROP UID '57D175C401BD'
+ MEPROP Name 'TmsmUpToParent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CEBB9200EA // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D17D37021C // TmsmListOperation
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_57CEB1F602D1_ME_57D175C401BD // DoDoIt
+ )
+ ; // Implemented
+ UP extprop:pas:UnitName 'msmUpToParent'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmUpToParent'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmUpToParent.pas'
+
+ENDME // ME_57D175C401BD TmsmUpToParent
+
 ME ME_57CEBB9200EA
  MEPROP UID '57CEBB9200EA'
  MEPROP Name 'ConcreteOperations'
@@ -195,8 +268,10 @@ ME ME_57CEBB9200EA
  MELIST Children
    Seq: ( HWL ME_57CEBBA601F1 // TmsmListToTreeOperation
  HWL ME_57CEBC210073 // TmsmShowInNavigator
- HWL ME_57CED27203D3 // TmsmListOperation
+ HWL ME_57CED27203D3 // TmsmListLikeOperation
  HWL ME_57CED1F0037B // TmsmOpenInNewWindow
+ HWL ME_57D17D37021C // TmsmListOperation
+ HWL ME_57D175C401BD // TmsmUpToParent
  )
  ; // Children
  MELIST Depends

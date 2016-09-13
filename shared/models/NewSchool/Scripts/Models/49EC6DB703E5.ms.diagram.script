@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_49EC6DB703E5_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_49EC6DB703E5' '49EC6DB703E5.ms.model.script' ; // InternetAgent
+MEDIAGRAMS ME_49EC6DB703E5_diagrams
 
- MEVIEW ME_49ECA984005F_view
-  MELINK Original WL 'ME_49ECA984005F' '49ECA984005F.ms.model.script' ; // TsdsInternetAgent
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_49ECA984005F_view
+ MEDIAGRAM ME_49EC6DB703E5_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_49EC6DB703E5' '49EC6DB703E5.ms.model.script' ; // InternetAgent
 
- MEVIEW ME_49ECA9AA0000_view
-  MELINK Original WL 'ME_49ECA9AA0000' '49ECA9AA0000.ms.model.script' ; // TdsInternetAgent
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_49ECA9AA0000_view
+  MEVIEW ME_49ECA984005F_view
+   MELINK Original WL 'ME_49ECA984005F' '49ECA984005F.ms.model.script' ; // TsdsInternetAgent
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_49ECA984005F_view
 
-ENDMEDIAGRAM // ME_49EC6DB703E5_main
+  MEVIEW ME_49ECA9AA0000_view
+   MELINK Original WL 'ME_49ECA9AA0000' '49ECA9AA0000.ms.model.script' ; // TdsInternetAgent
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_49ECA9AA0000_view
+
+  MELIST Views
+   Seq: ( ME_49ECA984005F_view // TsdsInternetAgent
+   ME_49ECA9AA0000_view // TdsInternetAgent
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_49EC6DB703E5_main
+
+ MELIST Diagrams
+  Seq: ( ME_49EC6DB703E5_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_49EC6DB703E5_diagrams

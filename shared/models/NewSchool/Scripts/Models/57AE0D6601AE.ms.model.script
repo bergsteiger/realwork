@@ -20,6 +20,89 @@ ME ME_57B3273D027E
 
 ENDME // ME_57B3273D027E f_ElementView
 
+FORWARD ME_57D271E300C2
+
+ME ME_57D271ED02E9
+ MEPROP UID '57D271ED02E9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D271E300C2 // DoGetList
+ ;
+ MELINK Target WL 'ME_57AEBE8A014F' '57B565F200E5.ms.model.script' // ImsmModelElementStringList
+ ;
+
+ENDME // ME_57D271ED02E9 DoIt
+
+ME ME_57D271E300C2
+ MEPROP UID '57D271E300C2'
+ MEPROP Name 'DoGetList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B57EDB003F // msmListLikeModel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D271ED02E9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D271E300C2 DoGetList
+
+FORWARD ME_57D2A7D900FE
+
+FORWARD ME_018919BBAEE9
+
+ME ME_EF96C292CF40
+ MEPROP Name 'anElement'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+
+ENDME // ME_EF96C292CF40 anElement
+
+ME ME_018919BBAEE9
+ MEPROP UID '018919BBAEE9'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D2A7D900FE // DoShowElementAsList
+ ;
+ MELIST Parameters
+   Seq: ( ME_EF96C292CF40 // anElement
+ )
+ ; // Parameters
+
+ENDME // ME_018919BBAEE9 DoIt
+
+ME ME_57D2A7D900FE
+ MEPROP UID '57D2A7D900FE'
+ MEPROP Name 'DoShowElementAsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B57EDB003F // msmListLikeModel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B1A3DA0382' '57ADC53E00B6.ms.model.script' // ShowElementAsList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_018919BBAEE9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D2A7D900FE DoShowElementAsList
+
 ME ME_57C99BE401C0
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -29,6 +112,12 @@ ME ME_57C99BE401C0
  ;
 
 ENDME // ME_57C99BE401C0 
+
+ME ME_57B1A3DA0382_ME_57B57EDB003F
+ MELINK Original WL 'ME_57B1A3DA0382' '57ADC53E00B6.ms.model.script' // ShowElementAsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B1A3DA0382_ME_57B57EDB003F ShowElementAsList
 
 ME ME_57B2B019009C_ME_57B57EDB003F
  MELINK Original WL 'ME_57B2B019009C' '57ADC53E00B6.ms.model.script' // ElementToAction
@@ -53,6 +142,13 @@ ME ME_57B49A8201E1_ME_57B57EDB003F
  UP "pm" False
 ENDME // ME_57B49A8201E1_ME_57B57EDB003F Caption
 
+ME ME_57B6A4550271_ME_57B57EDB003F
+ MELINK Original WL 'ME_57B6A4550271' '57ADC53E00B6.ms.model.script' // List
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_57B6A4550271_ME_57B57EDB003F List
+
 ME ME_57B57EDB003F
  MEPROP UID '57B57EDB003F'
  MEPROP Name 'msmListLikeModel'
@@ -68,17 +164,24 @@ ME ME_57B57EDB003F
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57B31CCA0246' '57ADC53E00B6.ms.model.script' // MmsmListLike
+   Seq: ( WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
  )
  ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_57B3273D027E // f_ElementView
  )
  ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57D271E300C2 // DoGetList
+ HWL ME_57D2A7D900FE // DoShowElementAsList
+ )
+ ; // Operations
  MELIST Implemented
-   Seq: ( ME_57B2B019009C_ME_57B57EDB003F // ElementToAction
+   Seq: ( ME_57B1A3DA0382_ME_57B57EDB003F // ShowElementAsList
+ ME_57B2B019009C_ME_57B57EDB003F // ElementToAction
  ME_57B31CF301D2_ME_57B57EDB003F // CurrentElement
  ME_57B49A8201E1_ME_57B57EDB003F // Caption
+ ME_57B6A4550271_ME_57B57EDB003F // List
  )
  ; // Implemented
  MELIST Dependencies
@@ -100,12 +203,17 @@ ME ME_57ADC5D70104_ME_57B198B401A7
  UP "pm" False
 ENDME // ME_57ADC5D70104_ME_57B198B401A7 Tree
 
-ME ME_57B6A4550271_ME_57B198B401A7
- MELINK Original WL 'ME_57B6A4550271' '57ADC53E00B6.ms.model.script' // List
+ME ME_57D271E300C2_ME_57B198B401A7
+ MELINK Original HWL ME_57D271E300C2 // DoGetList
  ;
  MEPROP OpKind opkind_Implemented
- UP "pm" False
-ENDME // ME_57B6A4550271_ME_57B198B401A7 List
+ENDME // ME_57D271E300C2_ME_57B198B401A7 DoGetList
+
+ME ME_57D2A7D900FE_ME_57B198B401A7
+ MELINK Original HWL ME_57D2A7D900FE // DoShowElementAsList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57D2A7D900FE_ME_57B198B401A7 DoShowElementAsList
 
 ME ME_57B198B401A7
  MEPROP UID '57B198B401A7'
@@ -127,7 +235,8 @@ ME ME_57B198B401A7
  ; // Implements
  MELIST Implemented
    Seq: ( ME_57ADC5D70104_ME_57B198B401A7 // Tree
- ME_57B6A4550271_ME_57B198B401A7 // List
+ ME_57D271E300C2_ME_57B198B401A7 // DoGetList
+ ME_57D2A7D900FE_ME_57B198B401A7 // DoShowElementAsList
  )
  ; // Implemented
  UP "Refcount" 'standard'
@@ -138,6 +247,79 @@ ME ME_57B198B401A7
 ENDME // ME_57B198B401A7 msmTreeModel
 
 FORWARD ME_57B189990202
+
+ME ME_57CFF8900357
+ MEPROP UID '57CFF8900357'
+ MEPROP Name 'f_IsDir'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B189990202 // msmListModel
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57CFF8900357 f_IsDir
+
+ME ME_57D27B5701C9
+ MEPROP UID '57D27B5701C9'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B189990202 // msmListModel
+ ;
+ MELINK Target WL 'ME_57AEBE8A014F' '57B565F200E5.ms.model.script' // ImsmModelElementStringList
+ ;
+
+ENDME // ME_57D27B5701C9 f_List
+
+FORWARD ME_57D274D20357
+
+FORWARD ME_57D274E0005D
+
+ME ME_57D274E50134
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AEBE8A014F' '57B565F200E5.ms.model.script' // ImsmModelElementStringList
+ ;
+
+ENDME // ME_57D274E50134 aValue
+
+ME ME_57D274E0005D
+ MEPROP UID '57D274E0005D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D274D20357 // SetList
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D274E50134 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57D274E0005D DoIt
+
+ME ME_57D274D20357
+ MEPROP UID '57D274D20357'
+ MEPROP Name 'SetList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B189990202 // msmListModel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D274E0005D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D274D20357 SetList
 
 ME ME_57B31A400249
  MEPROP Class class_Dependency
@@ -169,25 +351,17 @@ ME ME_57C99B9703BC
 
 ENDME // ME_57C99B9703BC 
 
-ME ME_57B167E2003A_ME_57B189990202
- MELINK Original WL 'ME_57B167E2003A' '57ADC53E00B6.ms.model.script' // List
+ME ME_57D271E300C2_ME_57B189990202
+ MELINK Original HWL ME_57D271E300C2 // DoGetList
  ;
  MEPROP OpKind opkind_Implemented
- UP "needs field" True
- UP "pm" False
-ENDME // ME_57B167E2003A_ME_57B189990202 List
+ENDME // ME_57D271E300C2_ME_57B189990202 DoGetList
 
-ME ME_57B1A3DA0382_ME_57B189990202
- MELINK Original WL 'ME_57B1A3DA0382' '57ADC53E00B6.ms.model.script' // ShowElementAsDir
+ME ME_57D2A7D900FE_ME_57B189990202
+ MELINK Original HWL ME_57D2A7D900FE // DoShowElementAsList
  ;
  MEPROP OpKind opkind_Implemented
-ENDME // ME_57B1A3DA0382_ME_57B189990202 ShowElementAsDir
-
-ME ME_57B32AEE0261_ME_57B189990202
- MELINK Original WL 'ME_57B32AEE0261' '57ADC53E00B6.ms.model.script' // ShowElementRelationList
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_57B32AEE0261_ME_57B189990202 ShowElementRelationList
+ENDME // ME_57D2A7D900FE_ME_57B189990202 DoShowElementAsList
 
 ME ME_57B189990202
  MEPROP UID '57B189990202'
@@ -207,10 +381,18 @@ ME ME_57B189990202
    Seq: ( WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
  )
  ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57CFF8900357 // f_IsDir
+ HWL ME_57D27B5701C9 // f_List
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57D274D20357 // SetList
+ )
+ ; // Operations
  MELIST Implemented
-   Seq: ( ME_57B167E2003A_ME_57B189990202 // List
- ME_57B1A3DA0382_ME_57B189990202 // ShowElementAsDir
- ME_57B32AEE0261_ME_57B189990202 // ShowElementRelationList
+   Seq: ( ME_57D271E300C2_ME_57B189990202 // DoGetList
+ ME_57D2A7D900FE_ME_57B189990202 // DoShowElementAsList
  )
  ; // Implemented
  MELIST Dependencies
@@ -336,6 +518,51 @@ ENDME // ME_57B31D5A00D2 TmsmTreeModel
 
 FORWARD ME_57B317B00274
 
+FORWARD ME_57CFF8AB0339
+
+FORWARD ME_57CFF8D20271
+
+ME ME_57CFF8D30148
+ MEPROP Name 'anElementView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B3262B00D2' '57B565F200E5.ms.model.script' // TmsmModelElementView
+ ;
+
+ENDME // ME_57CFF8D30148 anElementView
+
+ME ME_57CFF8D20271
+ MEPROP UID '57CFF8D20271'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CFF8AB0339 // CreateDir
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CFF8D30148 // anElementView
+ )
+ ; // Parameters
+
+ENDME // ME_57CFF8D20271 DoIt
+
+ME ME_57CFF8AB0339
+ MEPROP UID '57CFF8AB0339'
+ MEPROP Name 'CreateDir'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B317B00274 // TmsmListModel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CFF8D20271 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57CFF8AB0339 CreateDir
+
 FORWARD ME_57B326FD0285
 
 FORWARD ME_57B3270800EA
@@ -349,6 +576,15 @@ ME ME_57B3270C01F4
 
 ENDME // ME_57B3270C01F4 anElementView
 
+ME ME_57CFF9190003
+ MEPROP Name 'aIsDir'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57CFF9190003 aIsDir
+
 ME ME_57B3270800EA
  MEPROP UID '57B3270800EA'
  MEPROP Name 'DoIt'
@@ -359,6 +595,7 @@ ME ME_57B3270800EA
  ;
  MELIST Parameters
    Seq: ( ME_57B3270C01F4 // anElementView
+ ME_57CFF9190003 // aIsDir
  )
  ; // Parameters
 
@@ -383,7 +620,7 @@ ENDME // ME_57B326FD0285 Create
 
 ME ME_57B317FF0206
  MEPROP UID '57B317FF0206'
- MEPROP Name 'Make'
+ MEPROP Name 'MakeDir'
  MEPROP Class class_Class
  MELINK Stereotype st_Factory ;
  MEPROP Kind kind_NormalClass
@@ -392,7 +629,7 @@ ME ME_57B317FF0206
  MELINK Parent HWL ME_57B317B00274 // TmsmListModel
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57B326FD0285 // Create
+   Seq: ( HWL ME_57CFF8AB0339 // CreateDir
  )
  ; // Inherits
  MELIST Implements
@@ -400,7 +637,73 @@ ME ME_57B317FF0206
  )
  ; // Implements
 
-ENDME // ME_57B317FF0206 Make
+ENDME // ME_57B317FF0206 MakeDir
+
+FORWARD ME_57CFF8D9019D
+
+FORWARD ME_57CFF8E400AF
+
+ME ME_57CFF8E601D6
+ MEPROP Name 'anElementView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B3262B00D2' '57B565F200E5.ms.model.script' // TmsmModelElementView
+ ;
+
+ENDME // ME_57CFF8E601D6 anElementView
+
+ME ME_57CFF8E400AF
+ MEPROP UID '57CFF8E400AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CFF8D9019D // CreateList
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CFF8E601D6 // anElementView
+ )
+ ; // Parameters
+
+ENDME // ME_57CFF8E400AF DoIt
+
+ME ME_57CFF8D9019D
+ MEPROP UID '57CFF8D9019D'
+ MEPROP Name 'CreateList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B317B00274 // TmsmListModel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CFF8E400AF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57CFF8D9019D CreateList
+
+ME ME_57CFF8FF0217
+ MEPROP UID '57CFF8FF0217'
+ MEPROP Name 'MakeList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B317B00274 // TmsmListModel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CFF8D9019D // CreateList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ )
+ ; // Implements
+
+ENDME // ME_57CFF8FF0217 MakeList
 
 ME ME_57B317B00274
  MEPROP UID '57B317B00274'
@@ -417,8 +720,11 @@ ME ME_57B317B00274
  )
  ; // Inherits
  MELIST Operations
-   Seq: ( HWL ME_57B326FD0285 // Create
- HWL ME_57B317FF0206 // Make
+   Seq: ( HWL ME_57CFF8AB0339 // CreateDir
+ HWL ME_57B326FD0285 // Create
+ HWL ME_57B317FF0206 // MakeDir
+ HWL ME_57CFF8D9019D // CreateList
+ HWL ME_57CFF8FF0217 // MakeList
  )
  ; // Operations
  UP extprop:pas:UnitName 'msmListModel'
@@ -528,6 +834,58 @@ ME ME_57CD3E5A00F1
 
 ENDME // ME_57CD3E5A00F1 TmsmCaptionModel
 
+FORWARD ME_57D27E6802A5
+
+ME ME_57D29645013D
+ MEPROP UID '57D29645013D'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D27E6802A5 // TmsmDrawingModel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CFF8D9019D // CreateList
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57D27E070278' '57ADC53E00B6.ms.model.script' // ImsmDrawingModel
+ )
+ ; // Implements
+
+ENDME // ME_57D29645013D Make
+
+ME ME_57D27E6802A5
+ MEPROP UID '57D27E6802A5'
+ MEPROP Name 'TmsmDrawingModel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AE0D6601AE // ConcreteModels
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B317B00274 // TmsmListModel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57D27E070278' '57ADC53E00B6.ms.model.script' // ImsmDrawingModel
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_57D29645013D // Make
+ )
+ ; // Operations
+ UP extprop:pas:UnitName 'msmDrawingModel'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'msmDrawingModel'
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmDrawingModel.pas'
+
+ENDME // ME_57D27E6802A5 TmsmDrawingModel
+
 ME ME_57AE0D6601AE
  MEPROP UID '57AE0D6601AE'
  MEPROP Name 'ConcreteModels'
@@ -546,12 +904,14 @@ ME ME_57AE0D6601AE
  HWL ME_57B317B00274 // TmsmListModel
  HWL ME_57CD32280214 // msmCaptionModel
  HWL ME_57CD3E5A00F1 // TmsmCaptionModel
+ HWL ME_57D27E6802A5 // TmsmDrawingModel
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
  WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
  WL 'ME_57AC3A2D0145' '57AC3A2D0145.ms.model.script' // ElementTree

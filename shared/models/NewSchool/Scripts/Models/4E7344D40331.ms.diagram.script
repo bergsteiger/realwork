@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E7344D40331_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E7344D40331' '48563BA400A9.ms.model.script' ; // Тип изменяемой части основного меню
+MEDIAGRAMS ME_4E7344D40331_diagrams
 
- MEVIEW ME_4E7344FA037B_view
-  MELINK Original WL 'ME_4E7344FA037B' '48563BA400A9.ms.model.script' ; // Налоги и финансы
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4E7344FA037B_view
+ MEDIAGRAM ME_4E7344D40331_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E7344D40331' '48563BA400A9.ms.model.script' ; // Тип изменяемой части основного меню
 
- MEVIEW ME_4E73451001A2_view
-  MELINK Original WL 'ME_4E73451001A2' '48563BA400A9.ms.model.script' ; // Раздел для кадровиков
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4E73451001A2_view
+  MEVIEW ME_4E7344FA037B_view
+   MELINK Original WL 'ME_4E7344FA037B' '48563BA400A9.ms.model.script' ; // Налоги и финансы
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E7344FA037B_view
 
- MEVIEW ME_4E7345240159_view
-  MELINK Original WL 'ME_4E7345240159' '48563BA400A9.ms.model.script' ; // Раздел для юристов
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4E7345240159_view
+  MEVIEW ME_4E73451001A2_view
+   MELINK Original WL 'ME_4E73451001A2' '48563BA400A9.ms.model.script' ; // Раздел для кадровиков
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E73451001A2_view
 
- MEVIEW ME_4E73453900E0_view
-  MELINK Original WL 'ME_4E73453900E0' '48563BA400A9.ms.model.script' ; // Бюджетные организаций
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_4E73453900E0_view
+  MEVIEW ME_4E7345240159_view
+   MELINK Original WL 'ME_4E7345240159' '48563BA400A9.ms.model.script' ; // Раздел для юристов
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E7345240159_view
 
-ENDMEDIAGRAM // ME_4E7344D40331_main
+  MEVIEW ME_4E73453900E0_view
+   MELINK Original WL 'ME_4E73453900E0' '48563BA400A9.ms.model.script' ; // Бюджетные организаций
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_4E73453900E0_view
+
+  MELIST Views
+   Seq: ( ME_4E7344FA037B_view // Налоги и финансы
+   ME_4E73451001A2_view // Раздел для кадровиков
+   ME_4E7345240159_view // Раздел для юристов
+   ME_4E73453900E0_view // Бюджетные организаций
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E7344D40331_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E7344D40331_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E7344D40331_diagrams

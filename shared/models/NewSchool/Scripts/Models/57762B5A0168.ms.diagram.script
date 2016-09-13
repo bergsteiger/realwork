@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_57762B5A0168_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_57762B5A0168' '57762B5A0168.ms.model.script' ; // vtServices
+MEDIAGRAMS ME_57762B5A0168_diagrams
 
- MEVIEW ME_57762BA20039_view
-  MELINK Original WL 'ME_57762BA20039' '57762B5A0168.ms.model.script' ; // Tl3ClipSpyService
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_57762BA20039_view
+ MEDIAGRAM ME_57762B5A0168_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57762B5A0168' '57762B5A0168.ms.model.script' ; // vtServices
 
-ENDMEDIAGRAM // ME_57762B5A0168_main
+  MEVIEW ME_57762BA20039_view
+   MELINK Original WL 'ME_57762BA20039' '57762B5A0168.ms.model.script' ; // Tl3ClipSpyService
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57762BA20039_view
+
+  MELIST Views
+   Seq: ( ME_57762BA20039_view // Tl3ClipSpyService
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57762B5A0168_main
+
+ MELIST Diagrams
+  Seq: ( ME_57762B5A0168_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57762B5A0168_diagrams

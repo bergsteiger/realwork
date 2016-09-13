@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_550981CC01F6_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_550981CC01F6' '550981B402B9.ms.model.script' ; // IhtParamsStorage
+MEDIAGRAMS ME_550981CC01F6_diagrams
 
- MEVIEW ME_5512621F0352_view
-  MELINK Original WL 'ME_5512621F0352' '550981B402B9.ms.model.script' ; // StationErrorMessage
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5512621F0352_view
+ MEDIAGRAM ME_550981CC01F6_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_550981CC01F6' '550981B402B9.ms.model.script' ; // IhtParamsStorage
 
- MEVIEW ME_551262410001_view
-  MELINK Original WL 'ME_551262410001' '550981B402B9.ms.model.script' ; // TablePathErrorMessage
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_551262410001_view
+  MEVIEW ME_5512621F0352_view
+   MELINK Original WL 'ME_5512621F0352' '550981B402B9.ms.model.script' ; // StationErrorMessage
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5512621F0352_view
 
- MEVIEW ME_551262530061_view
-  MELINK Original WL 'ME_551262530061' '550981B402B9.ms.model.script' ; // LockPathErrorMessage
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_551262530061_view
+  MEVIEW ME_551262410001_view
+   MELINK Original WL 'ME_551262410001' '550981B402B9.ms.model.script' ; // TablePathErrorMessage
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_551262410001_view
 
-ENDMEDIAGRAM // ME_550981CC01F6_main
+  MEVIEW ME_551262530061_view
+   MELINK Original WL 'ME_551262530061' '550981B402B9.ms.model.script' ; // LockPathErrorMessage
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_551262530061_view
+
+  MELIST Views
+   Seq: ( ME_5512621F0352_view // StationErrorMessage
+   ME_551262410001_view // TablePathErrorMessage
+   ME_551262530061_view // LockPathErrorMessage
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_550981CC01F6_main
+
+ MELIST Diagrams
+  Seq: ( ME_550981CC01F6_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_550981CC01F6_diagrams

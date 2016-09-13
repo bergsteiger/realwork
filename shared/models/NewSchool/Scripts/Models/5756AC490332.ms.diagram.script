@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_5756AC490332_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_5756AC490332' '5432518A0316.ms.model.script' ; // daSelectFieldIterator
+MEDIAGRAMS ME_5756AC490332_diagrams
 
- MEVIEW ME_5756AC9B0213_view
-  MELINK Original WL 'ME_5756AC9B0213' '5432518A0316.ms.model.script' ; // IterateTables
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5756AC9B0213_view
+ MEDIAGRAM ME_5756AC490332_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_5756AC490332' '5432518A0316.ms.model.script' ; // daSelectFieldIterator
 
-ENDMEDIAGRAM // ME_5756AC490332_main
+  MEVIEW ME_5756AC9B0213_view
+   MELINK Original WL 'ME_5756AC9B0213' '5432518A0316.ms.model.script' ; // IterateTables
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5756AC9B0213_view
+
+  MELIST Views
+   Seq: ( ME_5756AC9B0213_view // IterateTables
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_5756AC490332_main
+
+ MELIST Diagrams
+  Seq: ( ME_5756AC490332_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_5756AC490332_diagrams

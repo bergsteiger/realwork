@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_56163B0902D7_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_56163B0902D7' '56163ADC014A.ms.model.script' ; // TnsSearchWindowManager
+MEDIAGRAMS ME_56163B0902D7_diagrams
 
- MEVIEW ME_56163BDB00E3_view
-  MELINK Original WL 'ME_56163BDB00E3' '56163ADC014A.ms.model.script' ; // TnsSearchWindowList
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_56163BDB00E3_view
+ MEDIAGRAM ME_56163B0902D7_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_56163B0902D7' '56163ADC014A.ms.model.script' ; // TnsSearchWindowManager
 
- MEVIEW ME_56163C39024C_view
-  MELINK Original WL 'ME_56163C39024C' '56163ADC014A.ms.model.script' ; // Subscribe
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_56163C39024C_view
+  MEVIEW ME_56163BDB00E3_view
+   MELINK Original WL 'ME_56163BDB00E3' '56163ADC014A.ms.model.script' ; // TnsSearchWindowList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_56163BDB00E3_view
 
- MEVIEW ME_56163C5903DB_view
-  MELINK Original WL 'ME_56163C5903DB' '56163ADC014A.ms.model.script' ; // Unsubscribe
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_56163C5903DB_view
+  MEVIEW ME_56163C39024C_view
+   MELINK Original WL 'ME_56163C39024C' '56163ADC014A.ms.model.script' ; // Subscribe
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_56163C39024C_view
 
- MEVIEW ME_56163C8A0267_view
-  MELINK Original WL 'ME_56163C8A0267' '56163ADC014A.ms.model.script' ; // CheckFindEnabled
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_56163C8A0267_view
+  MEVIEW ME_56163C5903DB_view
+   MELINK Original WL 'ME_56163C5903DB' '56163ADC014A.ms.model.script' ; // Unsubscribe
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_56163C5903DB_view
 
-ENDMEDIAGRAM // ME_56163B0902D7_main
+  MEVIEW ME_56163C8A0267_view
+   MELINK Original WL 'ME_56163C8A0267' '56163ADC014A.ms.model.script' ; // CheckFindEnabled
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_56163C8A0267_view
+
+  MELIST Views
+   Seq: ( ME_56163BDB00E3_view // TnsSearchWindowList
+   ME_56163C39024C_view // Subscribe
+   ME_56163C5903DB_view // Unsubscribe
+   ME_56163C8A0267_view // CheckFindEnabled
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_56163B0902D7_main
+
+ MELIST Diagrams
+  Seq: ( ME_56163B0902D7_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_56163B0902D7_diagrams

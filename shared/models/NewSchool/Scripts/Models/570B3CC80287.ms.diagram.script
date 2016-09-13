@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_570B3CC80287_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_570B3CC80287' '53F327E402A1.ms.model.script' ; // Вставка текстового шаблона
+MEDIAGRAMS ME_570B3CC80287_diagrams
 
- MEVIEW ME_5715C52B0299_view
-  MELINK Original WL 'ME_5715C52B0299' '53F327E402A1.ms.model.script' ; // Работа с диалогом шаблонов
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5715C52B0299_view
+ MEDIAGRAM ME_570B3CC80287_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_570B3CC80287' '53F327E402A1.ms.model.script' ; // Вставка текстового шаблона
 
-ENDMEDIAGRAM // ME_570B3CC80287_main
+  MEVIEW ME_5715C52B0299_view
+   MELINK Original WL 'ME_5715C52B0299' '53F327E402A1.ms.model.script' ; // Работа с диалогом шаблонов
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5715C52B0299_view
+
+  MELIST Views
+   Seq: ( ME_5715C52B0299_view // Работа с диалогом шаблонов
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_570B3CC80287_main
+
+ MELIST Diagrams
+  Seq: ( ME_570B3CC80287_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_570B3CC80287_diagrams

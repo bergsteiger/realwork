@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_51360760006C_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_51360760006C' '51360760006C.ms.model.script' ; // Implementation
+MEDIAGRAMS ME_51360760006C_diagrams
 
- MEVIEW ME_513607DC03D4_view
-  MELINK Original WL 'ME_513607DC03D4' '51360760006C.ms.model.script' ; // nsIntegration
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_513607DC03D4_view
+ MEDIAGRAM ME_51360760006C_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_51360760006C' '51360760006C.ms.model.script' ; // Implementation
 
- MEVIEW ME_51371A9402FA_view
-  MELINK Original WL 'ME_51371A9402FA' '51360760006C.ms.model.script' ; // nsIntegrationModelPart
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_51371A9402FA_view
+  MEVIEW ME_513607DC03D4_view
+   MELINK Original WL 'ME_513607DC03D4' '51360760006C.ms.model.script' ; // nsIntegration
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_513607DC03D4_view
 
- MEVIEW ME_51374B740366_view
-  MELINK Original WL 'ME_51374B740366' '51360760006C.ms.model.script' ; // LocaleMessages
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_51374B740366_view
+  MEVIEW ME_51371A9402FA_view
+   MELINK Original WL 'ME_51371A9402FA' '51360760006C.ms.model.script' ; // nsIntegrationModelPart
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_51371A9402FA_view
 
- MEVIEW ME_5135EFD80062_view
-  MELINK Original WL 'ME_5135EFD80062' '51360760006C.ms.model.script' ; // IntegrationWordsPack
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_5135EFD80062_view
+  MEVIEW ME_51374B740366_view
+   MELINK Original WL 'ME_51374B740366' '51360760006C.ms.model.script' ; // LocaleMessages
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_51374B740366_view
 
-ENDMEDIAGRAM // ME_51360760006C_main
+  MEVIEW ME_5135EFD80062_view
+   MELINK Original WL 'ME_5135EFD80062' '51360760006C.ms.model.script' ; // IntegrationWordsPack
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_5135EFD80062_view
+
+  MELIST Views
+   Seq: ( ME_513607DC03D4_view // nsIntegration
+   ME_51371A9402FA_view // nsIntegrationModelPart
+   ME_51374B740366_view // LocaleMessages
+   ME_5135EFD80062_view // IntegrationWordsPack
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_51360760006C_main
+
+ MELIST Diagrams
+  Seq: ( ME_51360760006C_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_51360760006C_diagrams

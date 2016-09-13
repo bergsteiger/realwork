@@ -381,7 +381,7 @@ ENDME // ME_57AA008300DE ResultValue
 
 ME ME_57AA034A0260
  MEPROP UID '57AA034A0260'
- MEPROP Name 'WordToCall'
+ MEPROP Name 'Parameter'
  MEPROP Class class_Attribute
  MELINK Stereotype st_readonly::Attribute ;
  MEPROP Visibility PublicAccess
@@ -389,25 +389,25 @@ ME ME_57AA034A0260
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
  ;
- MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
  ;
  UP "pm" True
  UP "reads field" True
 
-ENDME // ME_57AA034A0260 WordToCall
+ENDME // ME_57AA034A0260 Parameter
 
 FORWARD ME_57AA03740168
 
 FORWARD ME_57AA037A0247
 
-ME ME_57AA03850183
- MEPROP Name 'aWordToCall'
+ME ME_57CFC3F700D7
+ MEPROP Name 'aParameter'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
  ;
 
-ENDME // ME_57AA03850183 aWordToCall
+ENDME // ME_57CFC3F700D7 aParameter
 
 ME ME_57AA037A0247
  MEPROP UID '57AA037A0247'
@@ -418,7 +418,7 @@ ME ME_57AA037A0247
  MELINK Parent HWL ME_57AA03740168 // Create
  ;
  MELIST Parameters
-   Seq: ( ME_57AA03850183 // aWordToCall
+   Seq: ( ME_57CFC3F700D7 // aParameter
  )
  ; // Parameters
 
@@ -475,7 +475,7 @@ ME ME_57A9FEF503A3
  ; // Inherits
  MELIST Attributes
    Seq: ( HWL ME_57AA008300DE // ResultValue
- HWL ME_57AA034A0260 // WordToCall
+ HWL ME_57AA034A0260 // Parameter
  )
  ; // Attributes
  MELIST Operations
@@ -919,6 +919,65 @@ ME ME_57C438C803DC
 
 ENDME // ME_57C438C803DC CallProc
 
+FORWARD ME_57CFC420039B
+
+FORWARD ME_57CFC43802BF
+
+ME ME_57CFC44C03D5
+ MEPROP Name 'aParameter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57CFC44C03D5 aParameter
+
+ME ME_57CFC44D0015
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_57CFC44D0015 aMethodName
+
+ME ME_57CFC43802BF
+ MEPROP UID '57CFC43802BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CFC420039B // Call$OnAny
+ ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CFC44C03D5 // aParameter
+ ME_57CFC44D0015 // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57CFC43802BF DoIt
+
+ME ME_57CFC420039B
+ MEPROP UID '57CFC420039B'
+ MEPROP Name 'Call'
+ MEPROP OriginalName 'Call$OnAny'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CFC43802BF // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_57CFC420039B Call$OnAny
+
 ME ME_57AA00C90031
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -972,6 +1031,7 @@ ME ME_57AA00BD022E
  HWL ME_57AAD8130389 // CallAndGetBool
  HWL ME_57C437080131 // RawCall
  HWL ME_57C438C803DC // CallProc
+ HWL ME_57CFC420039B // Call$OnAny
  )
  ; // Operations
  MELIST Children
@@ -1500,6 +1560,51 @@ ME ME_57BC3FB202AF
 
 ENDME // ME_57BC3FB202AF FindData
 
+FORWARD ME_57D25F960241
+
+FORWARD ME_57D25FA8009B
+
+ME ME_57D25FAC0274
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57D25FAC0274 aWord
+
+ME ME_57D25FA8009B
+ MEPROP UID '57D25FA8009B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D25F960241 // DeleteWordCachedValues
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D25FAC0274 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_57D25FA8009B DoIt
+
+ME ME_57D25F960241
+ MEPROP UID '57D25F960241'
+ MEPROP Name 'DeleteWordCachedValues'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2E6B90102 // TmsmModelElementMethodValueCache
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D25FA8009B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D25F960241 DeleteWordCachedValues
+
 ME ME_57BB050500C8
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -1553,6 +1658,7 @@ ME ME_57B2E6B90102
  HWL ME_57BC34160261 // CanCacheWord
  HWL ME_57BC3A8400E3 // CheckItem
  HWL ME_57BC3FB202AF // FindData
+ HWL ME_57D25F960241 // DeleteWordCachedValues
  )
  ; // Operations
  MELIST Implemented

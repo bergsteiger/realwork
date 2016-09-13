@@ -2,32 +2,47 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4A96B6AE0071_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4A96B6AE0071' '4A96B6AE0071.ms.model.script' ; // PrimFolders
+MEDIAGRAMS ME_4A96B6AE0071_diagrams
 
- MEVIEW ME_4A97E85A0297_view
-  MELINK Original WL 'ME_4A97E85A0297' '4A96B6AE0071.ms.model.script' ; // ParentZone
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4A97E85A0297_view
+ MEDIAGRAM ME_4A96B6AE0071_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4A96B6AE0071' '4A96B6AE0071.ms.model.script' ; // PrimFolders
 
- MEVIEW ME_4A97E87C0390_view
-  MELINK Original WL 'ME_4A97E87C0390' '4A96B6AE0071.ms.model.script' ; // ChildZone
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_4A97E87C0390_view
+  MEVIEW ME_4A97E85A0297_view
+   MELINK Original WL 'ME_4A97E85A0297' '4A96B6AE0071.ms.model.script' ; // ParentZone
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A97E85A0297_view
 
- MEVIEW ME_4BD6C62402E7_view
-  MELINK Original WL 'ME_4BD6C62402E7' '4A96B6AE0071.ms.model.script' ; // utFolders
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_4BD6C62402E7_view
+  MEVIEW ME_4A97E87C0390_view
+   MELINK Original WL 'ME_4A97E87C0390' '4A96B6AE0071.ms.model.script' ; // ChildZone
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_4A97E87C0390_view
 
- MEVIEW ME_1BA52F720139_view
-  MELINK Original WL 'ME_1BA52F720139' '4A96B6AE0071.ms.model.script' ; // utFoldersQueryClose
-  MEPROP X 340
-  MEPROP Y 10
- ENDMEVIEW // ME_1BA52F720139_view
+  MEVIEW ME_4BD6C62402E7_view
+   MELINK Original WL 'ME_4BD6C62402E7' '4A96B6AE0071.ms.model.script' ; // utFolders
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4BD6C62402E7_view
 
-ENDMEDIAGRAM // ME_4A96B6AE0071_main
+  MEVIEW ME_1BA52F720139_view
+   MELINK Original WL 'ME_1BA52F720139' '4A96B6AE0071.ms.model.script' ; // utFoldersQueryClose
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_1BA52F720139_view
+
+  MELIST Views
+   Seq: ( ME_4A97E85A0297_view // ParentZone
+   ME_4A97E87C0390_view // ChildZone
+   ME_4BD6C62402E7_view // utFolders
+   ME_1BA52F720139_view // utFoldersQueryClose
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4A96B6AE0071_main
+
+ MELIST Diagrams
+  Seq: ( ME_4A96B6AE0071_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4A96B6AE0071_diagrams

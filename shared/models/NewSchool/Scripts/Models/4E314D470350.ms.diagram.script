@@ -2,14 +2,26 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_4E314D470350_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_4E314D470350' '4E3160C802DA.ms.model.script' ; // Возможность печатать фиксированным шрифтом
+MEDIAGRAMS ME_4E314D470350_diagrams
 
- MEVIEW ME_5214960C034B_view
-  MELINK Original WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' ; // Печать и экспорт
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_5214960C034B_view
+ MEDIAGRAM ME_4E314D470350_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_4E314D470350' '4E3160C802DA.ms.model.script' ; // Возможность печатать фиксированным шрифтом
 
-ENDMEDIAGRAM // ME_4E314D470350_main
+  MEVIEW ME_5214960C034B_view
+   MELINK Original WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' ; // Печать и экспорт
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_5214960C034B_view
+
+  MELIST Views
+   Seq: ( ME_5214960C034B_view // Печать и экспорт
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_4E314D470350_main
+
+ MELIST Diagrams
+  Seq: ( ME_4E314D470350_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_4E314D470350_diagrams

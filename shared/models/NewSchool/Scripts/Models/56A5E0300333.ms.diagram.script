@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_56A5E0300333_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_56A5E0300333' '56A5E0300333.ms.model.script' ; // Belarus
+MEDIAGRAMS ME_56A5E0300333_diagrams
 
- MEVIEW ME_56A5E3010270_view
-  MELINK Original WL 'ME_56A5E3010270' '56A5E0300333.ms.model.script' ; // TarBelaDateNumList
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_56A5E3010270_view
+ MEDIAGRAM ME_56A5E0300333_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_56A5E0300333' '56A5E0300333.ms.model.script' ; // Belarus
 
- MEVIEW ME_56AF378901B9_view
-  MELINK Original WL 'ME_56AF378901B9' '56A5E0300333.ms.model.script' ; // TarBelaPubList
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_56AF378901B9_view
+  MEVIEW ME_56A5E3010270_view
+   MELINK Original WL 'ME_56A5E3010270' '56A5E0300333.ms.model.script' ; // TarBelaDateNumList
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_56A5E3010270_view
 
- MEVIEW ME_56B08EB602EB_view
-  MELINK Original WL 'ME_56B08EB602EB' '56A5E0300333.ms.model.script' ; // TarBelaCountryList
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_56B08EB602EB_view
+  MEVIEW ME_56AF378901B9_view
+   MELINK Original WL 'ME_56AF378901B9' '56A5E0300333.ms.model.script' ; // TarBelaPubList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_56AF378901B9_view
 
-ENDMEDIAGRAM // ME_56A5E0300333_main
+  MEVIEW ME_56B08EB602EB_view
+   MELINK Original WL 'ME_56B08EB602EB' '56A5E0300333.ms.model.script' ; // TarBelaCountryList
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_56B08EB602EB_view
+
+  MELIST Views
+   Seq: ( ME_56A5E3010270_view // TarBelaDateNumList
+   ME_56AF378901B9_view // TarBelaPubList
+   ME_56B08EB602EB_view // TarBelaCountryList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_56A5E0300333_main
+
+ MELIST Diagrams
+  Seq: ( ME_56A5E0300333_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_56A5E0300333_diagrams

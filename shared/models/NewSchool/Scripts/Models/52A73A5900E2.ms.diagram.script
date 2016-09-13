@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_52A73A5900E2_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_52A73A5900E2' '52A73A4401B9.ms.model.script' ; // TvcmOperationsManager
+MEDIAGRAMS ME_52A73A5900E2_diagrams
 
- MEVIEW ME_52A73AE40326_view
-  MELINK Original WL 'ME_52A73AE40326' '52A73A4401B9.ms.model.script' ; // IvcmOperationsRegistrar
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_52A73AE40326_view
+ MEDIAGRAM ME_52A73A5900E2_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_52A73A5900E2' '52A73A4401B9.ms.model.script' ; // TvcmOperationsManager
 
- MEVIEW ME_52A73ABA0304_view
-  MELINK Original WL 'ME_52A73ABA0304' '52A73A4401B9.ms.model.script' ; // Register
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_52A73ABA0304_view
+  MEVIEW ME_52A73AE40326_view
+   MELINK Original WL 'ME_52A73AE40326' '52A73A4401B9.ms.model.script' ; // IvcmOperationsRegistrar
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_52A73AE40326_view
 
-ENDMEDIAGRAM // ME_52A73A5900E2_main
+  MEVIEW ME_52A73ABA0304_view
+   MELINK Original WL 'ME_52A73ABA0304' '52A73A4401B9.ms.model.script' ; // Register
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_52A73ABA0304_view
+
+  MELIST Views
+   Seq: ( ME_52A73AE40326_view // IvcmOperationsRegistrar
+   ME_52A73ABA0304_view // Register
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_52A73A5900E2_main
+
+ MELIST Diagrams
+  Seq: ( ME_52A73A5900E2_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_52A73A5900E2_diagrams

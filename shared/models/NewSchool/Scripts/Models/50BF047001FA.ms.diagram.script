@@ -2,20 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_50BF047001FA_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_50BF047001FA' '50C065860332.ms.model.script' ; // seThreadSupport
+MEDIAGRAMS ME_50BF047001FA_diagrams
 
- MEVIEW ME_4FFFDE6C016C_view
-  MELINK Original WL 'ME_4FFFDE6C016C' '50C065860332.ms.model.script' ; // TWordThread
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_4FFFDE6C016C_view
+ MEDIAGRAM ME_50BF047001FA_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_50BF047001FA' '50C065860332.ms.model.script' ; // seThreadSupport
 
- MEVIEW ME_50BF049002DB_view
-  MELINK Original WL 'ME_50BF049002DB' '50C065860332.ms.model.script' ; // TseWorkThreadList
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_50BF049002DB_view
+  MEVIEW ME_4FFFDE6C016C_view
+   MELINK Original WL 'ME_4FFFDE6C016C' '50C065860332.ms.model.script' ; // TWordThread
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_4FFFDE6C016C_view
 
-ENDMEDIAGRAM // ME_50BF047001FA_main
+  MEVIEW ME_50BF049002DB_view
+   MELINK Original WL 'ME_50BF049002DB' '50C065860332.ms.model.script' ; // TseWorkThreadList
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_50BF049002DB_view
+
+  MELIST Views
+   Seq: ( ME_4FFFDE6C016C_view // TWordThread
+   ME_50BF049002DB_view // TseWorkThreadList
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_50BF047001FA_main
+
+ MELIST Diagrams
+  Seq: ( ME_50BF047001FA_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_50BF047001FA_diagrams

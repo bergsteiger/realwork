@@ -2,26 +2,40 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-MEDIAGRAM ME_51DADE55035E_main
- MEPROP Name 'main'
- MELINK Original WL 'ME_51DADE55035E' '51DAD7EA02D0.ms.model.script' ; // l3MemorySizeUtilsPrim
+MEDIAGRAMS ME_51DADE55035E_diagrams
 
- MEVIEW ME_51DAD83E03B7_view
-  MELINK Original WL 'ME_51DAD83E03B7' '51DAD7EA02D0.ms.model.script' ; // Tl3MemorySizeFunc
-  MEPROP X 10
-  MEPROP Y 10
- ENDMEVIEW // ME_51DAD83E03B7_view
+ MEDIAGRAM ME_51DADE55035E_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_51DADE55035E' '51DAD7EA02D0.ms.model.script' ; // l3MemorySizeUtilsPrim
 
- MEVIEW ME_51DAD8DC00B2_view
-  MELINK Original WL 'ME_51DAD8DC00B2' '51DAD7EA02D0.ms.model.script' ; // l3MemorySizeDelphi7
-  MEPROP X 120
-  MEPROP Y 10
- ENDMEVIEW // ME_51DAD8DC00B2_view
+  MEVIEW ME_51DAD83E03B7_view
+   MELINK Original WL 'ME_51DAD83E03B7' '51DAD7EA02D0.ms.model.script' ; // Tl3MemorySizeFunc
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_51DAD83E03B7_view
 
- MEVIEW ME_51DADA9600F9_view
-  MELINK Original WL 'ME_51DADA9600F9' '51DAD7EA02D0.ms.model.script' ; // l3MemorySizeXE
-  MEPROP X 230
-  MEPROP Y 10
- ENDMEVIEW // ME_51DADA9600F9_view
+  MEVIEW ME_51DAD8DC00B2_view
+   MELINK Original WL 'ME_51DAD8DC00B2' '51DAD7EA02D0.ms.model.script' ; // l3MemorySizeDelphi7
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_51DAD8DC00B2_view
 
-ENDMEDIAGRAM // ME_51DADE55035E_main
+  MEVIEW ME_51DADA9600F9_view
+   MELINK Original WL 'ME_51DADA9600F9' '51DAD7EA02D0.ms.model.script' ; // l3MemorySizeXE
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_51DADA9600F9_view
+
+  MELIST Views
+   Seq: ( ME_51DAD83E03B7_view // Tl3MemorySizeFunc
+   ME_51DAD8DC00B2_view // l3MemorySizeDelphi7
+   ME_51DADA9600F9_view // l3MemorySizeXE
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_51DADE55035E_main
+
+ MELIST Diagrams
+  Seq: ( ME_51DADE55035E_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_51DADE55035E_diagrams
