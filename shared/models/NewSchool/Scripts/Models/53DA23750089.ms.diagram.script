@@ -44,6 +44,42 @@ MEDIAGRAMS ME_53DA23750089_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_56420D5500CC_view
 
+  MEVIEWLINK ME_53DA23CD0105_ME_53DA248C0014_uses::Dependency
+   MELINK Original WL 'ME_53DA24B80027' '53DA23750089.ms.model.script' ;
+   MELINK From ME_53DA23CD0105_view ;
+   MELINK To ME_53DA248C0014_view ;
+  ENDMEVIEWLINK // ME_53DA23CD0105_ME_53DA248C0014_uses::Dependency
+
+  MEVIEWLINK ME_53DA23CD0105_ME_56420D340374_uses::Dependency
+   MELINK Original WL 'ME_56420D3E03A0' '53DA23750089.ms.model.script' ;
+   MELINK From ME_53DA23CD0105_view ;
+   MELINK To ME_56420D340374_view ;
+  ENDMEVIEWLINK // ME_53DA23CD0105_ME_56420D340374_uses::Dependency
+
+  MEVIEWLINK ME_53DA248C0014_ME_53DA24F802A7_uses::Dependency
+   MELINK Original WL 'ME_53DA250F023C' '53DA23750089.ms.model.script' ;
+   MELINK From ME_53DA248C0014_view ;
+   MELINK To ME_53DA24F802A7_view ;
+  ENDMEVIEWLINK // ME_53DA248C0014_ME_53DA24F802A7_uses::Dependency
+
+  MEVIEWLINK ME_53DA24F802A7_ME_53DA257D011C_uses::Dependency
+   MELINK Original WL 'ME_53DA259202C3' '53DA23750089.ms.model.script' ;
+   MELINK From ME_53DA24F802A7_view ;
+   MELINK To ME_53DA257D011C_view ;
+  ENDMEVIEWLINK // ME_53DA24F802A7_ME_53DA257D011C_uses::Dependency
+
+  MEVIEWLINK ME_56420D340374_ME_56420D5500CC_uses::Dependency
+   MELINK Original WL 'ME_56420D650171' '53DA23750089.ms.model.script' ;
+   MELINK From ME_56420D340374_view ;
+   MELINK To ME_56420D5500CC_view ;
+  ENDMEVIEWLINK // ME_56420D340374_ME_56420D5500CC_uses::Dependency
+
+  MEVIEWLINK ME_56420D5500CC_ME_53DA24F802A7_Inherits
+   MELINK From ME_56420D5500CC_view ;
+   MELINK To ME_53DA24F802A7_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_56420D5500CC_ME_53DA24F802A7_Inherits
+
   MELIST Views
    Seq: ( ME_53DA23CD0105_view // ScriptsCompilingAndProcessingPack
    ME_53DA248C0014_view // script_CompileAndProcess
@@ -51,6 +87,12 @@ MEDIAGRAMS ME_53DA23750089_diagrams
    ME_53DA257D011C_view // TkwMainCodeController
    ME_56420D340374_view // script_CompileStringAndProcess
    ME_56420D5500CC_view // TkwCompiledScriptCompileStringAndProcess
+   ME_53DA23CD0105_ME_53DA248C0014_uses::Dependency // ScriptsCompilingAndProcessingPack -> script_CompileAndProcess
+   ME_53DA23CD0105_ME_56420D340374_uses::Dependency // ScriptsCompilingAndProcessingPack -> script_CompileStringAndProcess
+   ME_53DA248C0014_ME_53DA24F802A7_uses::Dependency // script_CompileAndProcess -> TkwCompiledScriptCompileAndProcess
+   ME_53DA24F802A7_ME_53DA257D011C_uses::Dependency // TkwCompiledScriptCompileAndProcess -> TkwMainCodeController
+   ME_56420D340374_ME_56420D5500CC_uses::Dependency // script_CompileStringAndProcess -> TkwCompiledScriptCompileStringAndProcess
+   ME_56420D5500CC_ME_53DA24F802A7_Inherits // TkwCompiledScriptCompileStringAndProcess -> TkwCompiledScriptCompileAndProcess
    )
   ; // Views
  ENDMEDIAGRAM // ME_53DA23750089_main
