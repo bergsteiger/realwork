@@ -376,12 +376,17 @@ end;//TnevControl.GetCanScroll
 
 function TnevControl.GetMousePos(var aPt: Tl3SPoint): Tl3Point;
 //#UC START# *48E1F78F024B_48E0E5C1032A_var*
+const
+ c_MaxInt = High(Integer) div 2;
 //#UC END# *48E1F78F024B_48E0E5C1032A_var*
 begin
 //#UC START# *48E1F78F024B_48E0E5C1032A_impl*
  aPt.GetCursorPos;
  aPt.Convert(ScreenToClient);
- Result := DP2LP(TPoint(aPt));
+ if (aPt.X >= c_MaxInt) or (aPt.X >= c_MaxInt) then
+  Result := l3Point0
+ else
+  Result := DP2LP(TPoint(aPt));
 //#UC END# *48E1F78F024B_48E0E5C1032A_impl*
 end;//TnevControl.GetMousePos
 

@@ -111,7 +111,6 @@ var
  l_Gen: Tk2TagGenerator;
  l_ReadFiler : Tl3CustomFiler;
  l_WriteFiler : Tl3CustomFiler;
- l_ComStream: IStream;
  l_FoundSelector: Tm4Addresses;
  l_IDX: Integer;
  l_Address: Tm3DocumentAddress;
@@ -126,18 +125,12 @@ begin
    l_Gen := nil;
    try
     TevdNativeWriter.SetTo(l_Gen);
-    l_ComStream := f_Reply.Data as IStream;
+    l_WriteFiler := MakeFilerForMessage(f_Reply.Data);
     try
-     l_WriteFiler := Tl3CustomFiler.Create;
-     try
-      l_WriteFiler.COMStream := l_ComStream;
-      (l_Gen as TevdNativeWriter).Filer := l_WriteFiler;
-      (l_Gen as TevdNativeWriter).Binary := True;
-     finally
-      FreeAndNil(l_WriteFiler);
-     end;
+     (l_Gen as TevdNativeWriter).Filer := l_WriteFiler;
+     (l_Gen as TevdNativeWriter).Binary := True;
     finally
-     l_ComStream := nil;
+     FreeAndNil(l_WriteFiler);
     end;
     l_ReadFiler := nil;
     if f_Message.FoundSelector.Count = 0 then

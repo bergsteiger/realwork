@@ -63,7 +63,7 @@ begin
  l_SS := GetKeys;
  l_Delta := GetDelta;
  if l_HotSpot = nil then
-  Assert(False, 'Не нашли хотспот!')
+  Exit
  else
  begin
   l_Effect.rNeedAsyncLoop := True;
@@ -130,7 +130,8 @@ function _ColumnResizeByMouse_.GetPoint(const aMap: InevMap): Tl3Point;
 //#UC END# *4C3C927B027E_4E32C9540390_var*
 begin
 //#UC START# *4C3C927B027E_4E32C9540390_impl*
- Result := l3Point(aMap.Bounds.Right, aMap.Outer.Bounds.Top + 7 * evEpsilon);
+ if aMap <> nil then
+  Result := l3Point(aMap.Bounds.Right, aMap.Outer.Bounds.Top + 7 * evEpsilon);
 //#UC END# *4C3C927B027E_4E32C9540390_impl*
 end;//_ColumnResizeByMouse_.GetPoint
 {$IfEnd} // NOT Defined(NoScripts)

@@ -1053,6 +1053,7 @@ uses
  , msmWordByNameListPrim in 'w:\common\components\gui\Garant\msm\msmWordByNameListPrim.pas'
  , msmModelElementMethodValueCache in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueCache.pas'
  , msmModelElementMethodValueList in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueList.pas'
+ , msmWordsByName in 'w:\common\components\gui\Garant\msm\msmWordsByName.pas'
  //#UC START# *57B6E36B01C8manualuses*
  //#UC END# *57B6E36B01C8manualuses*
 ;

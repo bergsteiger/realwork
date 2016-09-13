@@ -1,7 +1,10 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.163 2016/09/12 12:27:53 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.164 2016/09/13 07:04:37 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.164  2016/09/13 07:04:37  lukyanets
+// Принимаем и сохраняем
+//
 // Revision 1.163  2016/09/12 12:27:53  lukyanets
 // Принимаем и сохраняем
 //
@@ -1304,7 +1307,7 @@ type
     procedure DoChangeUserItem(aTask: TddProcessTask);
     procedure DoSaveUserDefinedExport(aTask: TddProcessTask);
     procedure DoDeleteDocs(aTask: TddProcessTask);
-    procedure DoDownloadDoc(aTask: TddProcessTask);
+    procedure DoRunRequest(aTask: TddProcessTask);
     procedure SpeedupRequestWndProc(var Msg: TMessage);
     function pm_GetActiveTaskListCount: Integer; // количества задач ожидающих выполнения
     function pm_GetCurrentUserName: string;
@@ -2754,8 +2757,9 @@ procedure TddServerTaskManager.WorkupRequests;
     DoCommand(anItem);
    cs_ttUserDefinedExport:
     DoSaveUserDefinedExport(anItem);
-   cs_ttDownloadDoc:
-    DoDownloadDoc(anItem);
+   cs_ttDownloadDoc,
+   cs_ttUploadDoc:
+    DoRunRequest(anItem);
    else
     Assert(false, 'WorkupRequests. Неизвестный тип задачи: ' + GetEnumName(TypeInfo(TcsTaskType), Ord(anItem.TaskType)));
   end;//case anItem.TaskType
@@ -3464,7 +3468,7 @@ begin
  end;
 end;
 
-procedure TddServerTaskManager.DoDownloadDoc(aTask: TddProcessTask);
+procedure TddServerTaskManager.DoRunRequest(aTask: TddProcessTask);
 begin
  aTask.Run(TddRunContext_C(f_Progressor));
  aTask.Done;

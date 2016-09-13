@@ -179,6 +179,8 @@ end;//TtfwLambdedArrayView.DoForEachBack
 initialization
  TtfwTwoLambdas.RegisterClass;
  {* Регистрация TtfwTwoLambdas }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
+ {* Регистрация типа RtfwTwoLambdas }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

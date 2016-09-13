@@ -1889,6 +1889,7 @@ begin
  FreeAndNil(f_RefreshTimer);
  DestroyConfig;
  FreeAndNil(f_CS);
+ FreeDictServer;
 end;
 
 procedure TalcuServerPrim.Cleanup;
@@ -4268,7 +4269,8 @@ begin
  begin
   f_CS.Acquire;
   try
-   GlobalDataProvider.UserManager.UnRegisterUserStatusChangedSubscriber(Self);
+   if GlobalDataProvider <> nil then
+    GlobalDataProvider.UserManager.UnRegisterUserStatusChangedSubscriber(Self);
    Scheduler.Stop;
 {$IFDEF MDPSyncIntegrated}
    f_DictSynchronizator.Stop;

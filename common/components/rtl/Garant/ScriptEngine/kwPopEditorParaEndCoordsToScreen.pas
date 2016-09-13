@@ -79,7 +79,10 @@ var
 begin
 //#UC START# *4C3C927B027E_4F265392010B_impl*
  l_DeltaX := f_Point.DeltaX(f_Editor.View, f_Editor.View.RootMap);
- Result := l3Point(l_DeltaX, aMap.Bounds.Bottom);
+ if aMap = nil then
+  Result := l3Point0
+ else
+  Result := l3Point(l_DeltaX, aMap.Bounds.Bottom);
 //#UC END# *4C3C927B027E_4F265392010B_impl*
 end;//TkwPopEditorParaEndCoordsToScreen.GetPoint
 

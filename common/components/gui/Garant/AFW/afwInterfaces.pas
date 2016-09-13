@@ -940,6 +940,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TafwPagesInfo_E: TafwPagesInfo;
@@ -993,5 +996,15 @@ begin
  Result.rOverallPagesCount := Self.rOverallPagesCount + anAdder.rOverallPagesCount;
 //#UC END# *4CC6B588002A_4CC6A3D403D7_impl*
 end;//TafwPagesInfo.Add
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TafwCustomImageList));
+ {* Регистрация типа TafwCustomImageList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TafwCustomForm));
+ {* Регистрация типа TafwCustomForm }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

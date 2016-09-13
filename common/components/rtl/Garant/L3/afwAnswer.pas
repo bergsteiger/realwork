@@ -61,6 +61,7 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
+ , TtfwClassRef_Proxy
  , l3Base
  {$If NOT Defined(NoVCL)}
  , Controls
@@ -233,6 +234,8 @@ begin
 end;//TafwAnswers.Exists
 
 initialization
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EafwTryEnterModalState));
+ {* Регистрация типа EafwTryEnterModalState }
  Tl3BatchService.Instance.Alien := TafwBatchService.Instance;
  {* Регистрация TafwBatchService }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EkwWaitBracketsBalance));

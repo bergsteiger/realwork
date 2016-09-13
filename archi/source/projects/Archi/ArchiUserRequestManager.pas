@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.119 2016/09/12 12:27:53 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.120 2016/09/13 07:45:01 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.120  2016/09/13 07:45:01  lukyanets
+// Неверное сообщение
+//
 // Revision 1.119  2016/09/12 12:27:53  lukyanets
 // Принимаем и сохраняем
 //
@@ -1538,7 +1541,7 @@ begin
    l_Transporter.Connect(CSClient.ServerIp, CSClient.ServerPort, l3CreateStringGUID);
    try
     if not l_Transporter.Connected then
-     raise Exception.Create(sidClientServerDocLoadFailed);
+     raise Exception.Create(sidClientServerDocSaveFailed);
     l_Transporter.Send(aMessage);
     l_Reply := nil;
     try

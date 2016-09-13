@@ -160,6 +160,9 @@ uses
  l3ImplUses
  , afwSettingsImplSing
  , afwSettingsImplemented
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  , Windows
  , SysUtils
  , l3Base
@@ -655,6 +658,10 @@ begin
 end;//Tafw.ControlDestroying
 
 initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TafwCustomForm));
+ {* Регистрация типа TafwCustomForm }
+{$IfEnd} // NOT Defined(NoScripts)
  Tl3MessagesService.Instance.Alien := TafwMessagesService.Instance;
  {* Регистрация TafwMessagesService }
 {$If NOT Defined(NoVCL)}

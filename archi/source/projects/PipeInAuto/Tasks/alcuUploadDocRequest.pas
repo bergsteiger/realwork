@@ -119,8 +119,6 @@ end;//TalcuUploadDocRequest.Cleanup
 procedure TalcuUploadDocRequest.DoRun(const aContext: TddRunContext);
 //#UC START# *53A2EEE90097_57D659B902A8_var*
 var
- l_DB: Im3DB;
- l_ComStream: IStream;
  l_NeedOpenFiler: Boolean;
  l_WriteFiler: Tl3CustomFiler;
  l_ReadFiler: Tl3CustomFiler;
@@ -134,12 +132,7 @@ begin
  l_Counter.Start;
  try
   try
-   l_DB := dtGetDB(f_Message.DocFamily);
-   try
-    l_WriteFiler := Tm3DBFiler.Create(l_DB, f_Message.DocID, f_Message.DocPart);
-   finally
-    l_DB := nil;
-   end;//try..finally
+   l_WriteFiler := MakeFilerForDB(f_Message.DocFamily, f_Message.DocID, f_Message.DocPart);
    try
     l_WriteFiler.Mode := l3_fmReadWrite;
     l_NeedOpenFiler := (f_Message.DocClass <> dtNone) and f_Message.NeedSaveText;
@@ -166,13 +159,7 @@ begin
        BuildDocSavePipe(f_Message.DocFamily, f_Message.DocID, f_Message.IsObjTopic, f_OnEraseNotify, l_Generator);
 
       TevdNativeReader.SetTo(l_Generator);
-      l_ComStream := f_Message.Data as IStream;
-      try
-       l_ReadFiler := Tl3CustomFiler.Create(nil);
-       l_ReadFiler.COMStream := l_ComStream;
-      finally
-       l_ComStream := nil;
-      end;
+      l_ReadFiler := MakeFilerForMessage(f_Message.Data);
       try
        TevdNativeReader(l_Generator).Filer := l_ReadFiler;
        TevdNativeReader(l_Generator).Execute;

@@ -73,6 +73,7 @@ begin
  l_Cursor := aPoint.MostInner;
  anEditor.Invalidate;
  l_Map := anEditor.View.MapByPoint(l_Cursor);
+ if l_Map = nil then Exit;
  while not l_Cursor.AsObject.IsKindOf(k2_typBlock) do
  begin
   l_Map := l_Map.Outer as InevMap;

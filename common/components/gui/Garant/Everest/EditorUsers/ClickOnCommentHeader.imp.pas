@@ -40,8 +40,13 @@ function _ClickOnCommentHeader_.GetPoint(const aMap: InevMap): Tl3Point;
 //#UC END# *4C3C927B027E_4DE7451703C8_var*
 begin
 //#UC START# *4C3C927B027E_4DE7451703C8_impl*
- Result.X := aMap.Bounds.Left + 100;
- Result.Y := aMap.Bounds.Top + 30;
+ if aMap = nil then
+   Result := l3Point0
+ else
+ begin
+   Result.X := aMap.Bounds.Left + 100;
+   Result.Y := aMap.Bounds.Top + 30;
+ end;
 //#UC END# *4C3C927B027E_4DE7451703C8_impl*
 end;//_ClickOnCommentHeader_.GetPoint
 {$IfEnd} // NOT Defined(NoScripts)

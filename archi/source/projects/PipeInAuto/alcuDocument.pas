@@ -1,9 +1,12 @@
 unit alcuDocument;
 { Примитивная реализация доступа к документу }
 
-{ $Id: alcuDocument.pas,v 1.6 2015/11/26 08:45:26 lukyanets Exp $ }
+{ $Id: alcuDocument.pas,v 1.7 2016/09/13 10:16:27 lukyanets Exp $ }
 
 // $Log: alcuDocument.pas,v $
+// Revision 1.7  2016/09/13 10:16:27  lukyanets
+// Обобщаем
+//
 // Revision 1.6  2015/11/26 08:45:26  lukyanets
 // КОнстанты переехали
 //
@@ -48,9 +51,9 @@ Uses
  daSchemeConsts,
  dt_Serv, dt_CFltr, dt_Const,
  evEvdRd, evdWriter,
- m3DBInterfaces, m3DB,
-
- m3DBFiler
+ arDocAttributesMixer,
+ l3Filer,
+ m3DBInterfaces
  ;
 
 constructor TalcuDocument.Make(aDocID: Integer);
@@ -61,18 +64,12 @@ end;
 
 procedure TalcuDocument.LoadDoc;
 var
- l_DB : Im3DB;
- l_Filer : Tm3DBFiler;
+ l_Filer : Tl3CustomFiler;
  l_Reader: TevEVDReader;
 begin
  l_Reader := TevEVDReader.Create;
  try
-  l_DB := dtGetDB(CurrentFamily);
-  try
-   l_Filer := Tm3DBFiler.Create(l_DB, f_DocID, m3_dsMain);
-  finally
-   l_DB := nil;
-  end;//try..finally
+  l_Filer := MakeFilerForDB(CurrentFamily, f_DocID, m3_dsMain);
   try
    l_Reader.Filer := l_Filer;
   finally
@@ -86,19 +83,13 @@ end;
 
 procedure TalcuDocument.SaveDoc;
 var
- l_DB          : Im3DB;
  l_Filter      : TUltraLiteSaveDocFilter;
  l_Writer      : TevdNativeWriter;
- l_Filer       : Tm3DBFiler;
+ l_Filer       : Tl3CustomFiler;
 begin
  l_Writer := TevdNativeWriter.Create;
  try
-  l_DB := dtGetDB(CurrentFamily);
-  try
-   l_Filer := Tm3DBFiler.Create(l_DB, f_DocID, m3_dsMain);
-  finally
-   l_DB := nil;
-  end;//try..finally
+  l_Filer := MakeFilerForDB(CurrentFamily, f_DocID, m3_dsMain);
   try
    l_Filer.Mode := l3_fmReadWrite;
    l_Filer.Open;

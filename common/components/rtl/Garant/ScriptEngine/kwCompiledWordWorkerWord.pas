@@ -418,6 +418,8 @@ initialization
  {* Регистрация TkwImmediateTemporaryCompiledCode }
  TkwCompiledWordWorkerWord.RegisterInEngine;
  {* Регистрация TkwCompiledWordWorkerWord }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
+ {* Регистрация типа RkwCompiledWordWorkerWord }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

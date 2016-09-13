@@ -1,6 +1,6 @@
 unit Editwin;
 
-{ $Id: Editwin.pas,v 1.196 2016/09/09 11:42:50 fireton Exp $ }
+{ $Id: Editwin.pas,v 1.197 2016/09/13 10:35:12 dinishev Exp $ }
 
 {$I arDefine.inc}
 
@@ -1515,6 +1515,7 @@ begin
  else
   Action := caFree;
  TSpellCheckDlg.CloseSpellCheck;
+ MainForm.CheckCurrChild(Self);
 end;
 
 function TDocEditorWindow.GetSprID: TDocID;

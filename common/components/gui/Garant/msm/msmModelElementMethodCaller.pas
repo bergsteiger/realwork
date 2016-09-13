@@ -21,6 +21,8 @@ uses
 
 type
  TmsmModelElementMethodCaller = class
+  protected
+   class function ScriptName(const aMethodName: AnsiString): Il3CString;
   public
    class function Call(aWord: TtfwWord;
     const aMethodName: AnsiString): TtfwStackValue; overload;
@@ -39,6 +41,12 @@ type
    class procedure CallProc(const aMethodName: AnsiString);
    class function Call(const aParameter: TtfwStackValue;
     const aMethodName: AnsiString): TtfwStackValue; overload;
+   class procedure CallSetter(aWord: TtfwWord;
+    const aMethodName: AnsiString;
+    const aValue: TtfwStackValue);
+   class procedure CallIntSetter(aWord: TtfwWord;
+    const aMethodName: AnsiString;
+    aValue: Integer);
  end;//TmsmModelElementMethodCaller
 
 implementation
@@ -50,9 +58,13 @@ uses
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThread
  {$IfEnd} // Defined(seThreadSafe)
+ , msmWordsByName
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If Defined(seCacheDict) AND NOT Defined(NoScripts)}
+ , tfwMainDictionaryCache
+ {$IfEnd} // Defined(seCacheDict) AND NOT Defined(NoScripts)
  //#UC START# *57AA00BD022Eimpl_uses*
  , SysUtils
  , StrUtils
@@ -271,74 +283,138 @@ var
  l_D : TtfwMainDictionary;
  l_W : TtfwWord;
  l_MethodName : Il3CString;
+ l_WasCompiled : Boolean;
 //#UC END# *57CFC420039B_57AA00BD022E_var*
 begin
 //#UC START# *57CFC420039B_57AA00BD022E_impl*
  l_Caller := TmsmModelElementMethodScriptCaller.Create(aParameter);
  try
+  l_ScriptName := ScriptName(aMethodName);
+  l_N := l3Str(l_ScriptName);
   if (aParameter.rType <> tfw_vtVoid) then
   begin
    l_Delim := '.';
-   l_Check := '';
-   l_Check := '.CheckValue';
   end//aParameter.rType <> tfw_vtVoid
   else
   begin
    l_Delim := '';
-   l_Check := '';
   end;//aParameter.rType <> tfw_vtVoid
-  l_S :=
-   'INCLUDE ' + cQuote + 'msm.ms.dict' + cQuote + #13#10 +
-   l_Delim + aMethodName + #13#10 +
-   l_Check
-  ;
-  l_ScriptName := ScriptName(aMethodName);
-  l_N := l3Str(l_ScriptName);
-  ForceDirectories(ExtractFilePath(l_N));
-  l_N1 := l_N + '.tmp';
-  l_F := Tl3FileStream.Create(l_N1, l3_fmWrite);
-  try
-   l_F.Write(PAnsiChar(l_S)^, Length(l_S));
-  finally
-   FreeAndNil(l_F);
-  end;//try..finally
-  if not FileExists(l_N) OR
-     not l3CompareFiles(l_N1, l_N)
-   then
+  l_MethodName := TtfwCStringFactory.C(l_Delim + aMethodName);
+  l_WasCompiled := TmsmWordsByName.Instance.Has(l_MethodName);
+  if not l_WasCompiled then
   begin
-   l3FileUtils.CopyFile(l_N1, l_N, cmNoBakCopy);
-  end;//not FileExists(l_N) 
+   if (aParameter.rType <> tfw_vtVoid) then
+   begin
+    l_Check := '.CheckValue';
+   end//aParameter.rType <> tfw_vtVoid
+   else
+   begin
+    l_Check := '';
+   end;//aParameter.rType <> tfw_vtVoid
+   l_S :=
+    'INCLUDE ' + cQuote + 'msm.ms.dict' + cQuote + #13#10 +
+    l_Delim + aMethodName + #13#10 +
+    l_Check
+   ;
+   ForceDirectories(ExtractFilePath(l_N));
+   l_N1 := l_N + '.tmp';
+   l_F := Tl3FileStream.Create(l_N1, l3_fmWrite);
+   try
+    l_F.Write(PAnsiChar(l_S)^, Length(l_S));
+   finally
+    FreeAndNil(l_F);
+   end;//try..finally
+   if not FileExists(l_N) OR
+      not l3CompareFiles(l_N1, l_N)
+    then
+   begin
+    l3FileUtils.CopyFile(l_N1, l_N, cmNoBakCopy);
+   end;//not FileExists(l_N)
+  end;//not l_WasCompiled
   TtfwScriptEngine.ScriptFromFile(l_N, l_Caller);
   //TtfwScriptEngine.Script(l_S, l_Caller);
-  if TtfwMainDictionaryCache.Exists then
+  if not l_WasCompiled then
   begin
-   l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_ScriptName);
-   if (l_D <> nil) then
+   if TtfwMainDictionaryCache.Exists then
    begin
-    if (l_D.CompiledCode <> nil) then
+    l_D := TtfwMainDictionaryCache.Instance.FindDictionary(l_ScriptName);
+    if (l_D <> nil) then
     begin
-     Assert(l_D.CompiledCode Is TkwRuntimeWordWithCode);
-     l_W := (l_D.CompiledCode As TkwRuntimeWordWithCode).Code[0];
-     Assert(l_W.Key <> nil);
-     l_MethodName := TtfwCStringFactory.C(l_Delim + aMethodName);
-     with TmsmWordsByName.Instance do
+     if (l_D.CompiledCode <> nil) then
      begin
-      Lock;
-      try
-       if not Has(l_MethodName) then
-        Add(l_MethodName, l_W);
-      finally
-       Unlock;
-      end;//try..finally
-     end;//TmsmWordsByName.Instance
-    end;//l_D.CompiledCode <> nil
-   end;//l_D <> nil
-  end;//TtfwMainDictionaryCache.Exists
+      Assert(l_D.CompiledCode Is TkwRuntimeWordWithCode);
+      l_W := (l_D.CompiledCode As TkwRuntimeWordWithCode).Code[0];
+      Assert(l_W.Key <> nil);
+      with TmsmWordsByName.Instance do
+      begin
+       Lock;
+       try
+        if not Has(l_MethodName) then
+         Add(l_MethodName, l_W);
+       finally
+        Unlock;
+       end;//try..finally
+      end;//TmsmWordsByName.Instance
+     end;//l_D.CompiledCode <> nil
+    end;//l_D <> nil
+   end;//TtfwMainDictionaryCache.Exists
+  end;//not l_WasCompiled
   Result := l_Caller.ResultValue;
  finally
   FreeAndNil(l_Caller);
  end;//try..finally
 //#UC END# *57CFC420039B_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.Call
+
+class function TmsmModelElementMethodCaller.ScriptName(const aMethodName: AnsiString): Il3CString;
+//#UC START# *57D66B490028_57AA00BD022E_var*
+//#UC END# *57D66B490028_57AA00BD022E_var*
+begin
+//#UC START# *57D66B490028_57AA00BD022E_impl*
+ Result := TmsmModelElementMethodValueCache.ScriptName(TtfwCStringFactory.C(aMethodName));
+//#UC END# *57D66B490028_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.ScriptName
+
+class procedure TmsmModelElementMethodCaller.CallSetter(aWord: TtfwWord;
+ const aMethodName: AnsiString;
+ const aValue: TtfwStackValue);
+//#UC START# *57D68123004E_57AA00BD022E_var*
+var
+ l_V : TmsmModelElementMethodValue;
+ l_Index : Integer;
+ l_MethodName: Il3CString;
+//#UC END# *57D68123004E_57AA00BD022E_var*
+begin
+//#UC START# *57D68123004E_57AA00BD022E_impl*
+ l_MethodName := TtfwCStringFactory.C('.' + aMethodName);
+ l_V := TmsmModelElementMethodValue_C(aWord, l_MethodName);
+ with TmsmModelElementMethodValueCache.Instance do
+ begin
+  Lock;
+  try
+   if FindData(l_V, l_Index) then
+    ItemSlot(l_Index).rValue := aValue
+   else
+   begin
+    l_V.rValue := aValue;
+    Insert(l_Index, l_V);
+   end;//FindData(l_V, l_Index)
+  finally
+   Unlock;
+  end;//try..finally
+ end;//with TmsmModelElementMethodValueCache.Instance
+//#UC END# *57D68123004E_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.CallSetter
+
+class procedure TmsmModelElementMethodCaller.CallIntSetter(aWord: TtfwWord;
+ const aMethodName: AnsiString;
+ aValue: Integer);
+//#UC START# *57D6815802B8_57AA00BD022E_var*
+//#UC END# *57D6815802B8_57AA00BD022E_var*
+begin
+//#UC START# *57D6815802B8_57AA00BD022E_impl*
+ CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
+//#UC END# *57D6815802B8_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.CallIntSetter
 
 end.

@@ -1,6 +1,6 @@
 unit DictMetaForm;
 
-{ $Id: DictMetaForm.pas,v 1.43 2015/07/02 07:34:41 lukyanets Exp $ }
+{ $Id: DictMetaForm.pas,v 1.44 2016/09/13 10:35:11 dinishev Exp $ }
 
 interface
 
@@ -246,6 +246,7 @@ begin
  else 
   Action := caHide;
  MainForm.SetDictEditorEnable(fDictID, True);
+ MainForm.CheckCurrChild(Self);
 end;
 
 procedure TDictMetaForm.SetSpeedButton(Enabled : Boolean);

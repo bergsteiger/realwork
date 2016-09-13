@@ -3173,6 +3173,8 @@ initialization
  {* Регистрация EtfwBreakIterator }
  TtfwWord.RegisterClass;
  {* Регистрация TtfwWord }
+ TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
+ {* Регистрация типа RtfwWord }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCompiler));
  {* Регистрация типа EtfwCompiler }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwRunner));
@@ -3183,6 +3185,16 @@ initialization
  {* Регистрация типа EtfwFail }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwManualBreak));
  {* Регистрация типа EtfwManualBreak }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwException));
+ {* Регистрация типа EtfwException }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCheck));
+ {* Регистрация типа EtfwCheck }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwNewWordDefinitor));
+ {* Регистрация типа TtfwNewWordDefinitor }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwKeywordFinder));
+ {* Регистрация типа TtfwKeywordFinder }
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwCompiler));
+ {* Регистрация типа TtfwCompiler }
  TtfwClassRef.Register(EtfwForSingleton);
  {* Регистрация EtfwForSingleton }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwConstantArray));

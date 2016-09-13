@@ -33,6 +33,14 @@ const
   {* The font pitch is set to variable. The characters in the font have different widths. }
  fpFixed = Graphics.fpFixed;
   {* The font pitch is set to fixed. All characters in the font have the same width. }
+ {* Алиасы для значений Graphics.TPenStyle }
+ psSolid = Graphics.psSolid;
+ psDash = Graphics.psDash;
+ psDot = Graphics.psDot;
+ psDashDot = Graphics.psDashDot;
+ psDashDotDot = Graphics.psDashDotDot;
+ psClear = Graphics.psClear;
+ psInsideFrame = Graphics.psInsideFrame;
  {* Кодировки символов. }
  CS_Ansi = Windows.ANSI_CHARSET;
  CS_OEM = Windows.OEM_CHARSET;
@@ -1581,6 +1589,8 @@ type
 
  Tl3SPoint = Tl3_SPoint;
 
+ TPenStyle = Graphics.TPenStyle;
+
 const
  {* Точки. }
  l3_Point0: Tl3_Point = (P: (X: 0; Y: 0));
@@ -1603,6 +1613,9 @@ uses
  , l3MinMax
  {$If NOT Defined(NoScripts)}
  , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 
@@ -1992,6 +2005,10 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(Il3IntegerList));
  {* Регистрация типа Il3IntegerList }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TPenStyle));
+ {* Регистрация типа TPenStyle }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

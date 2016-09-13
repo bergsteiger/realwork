@@ -85,6 +85,7 @@ type
    procedure WMSize(var Msg: TWMSize); message WM_SIZE;
    procedure WMEraseBkGnd(var Msg : TWMEraseBkGnd); message WM_ERASEBKGND;
    procedure SetScrollInfo;
+   procedure ScrollBy(const aDelta: Tl3SPoint);
  //#UC END# *57D00ACC01B0publ*
  end;//TmsmDrawing
 
@@ -176,6 +177,20 @@ procedure TmsmDrawing.Paint(const CN: Il3Canvas);
  {* процедура рисовани€ внешнего вида управл€ющего элемента }
 //#UC START# *48C6C044025E_57D00ACC01B0_var*
 
+ function FontName: AnsiString;
+ begin//FontName
+  if (Win32Platform = VER_PLATFORM_WIN32_NT) then
+  begin
+   if (Win32MajorVersion >= 6) then
+   // - Vista
+    Result := 'Segoe UI'
+   else
+    Result := 'Arial';
+  end//Win32Platform = VER_PLATFORM_WIN32_NT
+  else
+   Result := 'Arial';
+ end;//FontName
+
 var
  l_TextColor : TColor;
  l_FillColor : TColor;
@@ -213,11 +228,14 @@ var
    CN.Font.BackColor := l_FillColor;
   end;//SetBrush
 
+ var
+  l_PenColor : TColor;
+
   procedure SetPen;
   begin//SetPen
    CN.Canvas.Pen.Width := 2;
-   CN.Canvas.Pen.Color := clBlack;
-   CN.Canvas.Brush.Color := clBlack;
+   CN.Canvas.Pen.Color := l_PenColor;
+   CN.Canvas.Brush.Color := l_PenColor;
    CN.Canvas.Pen.Style := psSolid;
   end;//SetPen
 
@@ -228,10 +246,13 @@ var
   l_TextRect : Tl3SRect;
   l_WR : TRect;
   l_N : Il3CString;
+  l_IsCategory : Boolean;
  begin//DrawElement
   l_Rect := aRect;
   SetBrush;
-  if anElement.BoolProp['IsCategory'] then
+  l_IsCategory := anElement.BoolProp['IsCategory'];
+  l_PenColor := clBlack;
+  if l_IsCategory then
   begin
    l_Rect.Right := l_Rect.Left + (l_Rect.Right - l_Rect.Left) div 3;
    l_Rect.Bottom := l_Rect.Top + cCornerHeight;
@@ -241,10 +262,18 @@ var
    l_Rect := aRect;
    l_Rect.Top := l_Rect.Top + cCornerHeight - 1;
    SetBrush;
-  end;//anElement.BoolProp['IsCategory']
+  end//l_IsCategory
+  else
+  begin
+   if anElement.BoolProp['HasMainDiagram'] then
+    l_PenColor := clRed;
+  end;//l_IsCategory
   CN.FillRect(l_Rect);
 
+  CN.Font.Name := FontName;
   CN.Font.Size := 8;
+  CN.Font.Bold := false;
+  CN.Font.Italic := false;
   SetBrush;
   l_TextRect := l_Rect;
   l_TextRect.Inflate1(-3);
@@ -264,6 +293,8 @@ var
   l_N := anElement.StringProp['Signature'];
   CN.PushClipRect;
   try
+   CN.Font.Bold := anElement.BoolProp['IsFinal'];
+   CN.Font.Italic := anElement.BoolProp['IsAbstract'];
    l_WR := l_TextRect.R.WR;
    CN.DrawText(l3PCharLen(l_N), l_WR, DT_CALCRECT or DT_CENTER or DT_WORDBREAK or DT_END_ELLIPSIS);
    if (l_WR.Bottom > l_TextRect.Bottom) then
@@ -293,12 +324,15 @@ var
    CN.Font.BackColor := clWhite;
   end;//SetBrush
 
+ var
+  l_PenColor : TColor;
+   
   procedure SetPen;
   begin//SetPen
    CN.Canvas.Pen.Width := 1{2};
-   CN.Canvas.Pen.Color := clSilver{clBlack};
+   CN.Canvas.Pen.Color := l_PenColor{clBlack};
    CN.Canvas.Brush.Color := clWhite{clBlack};
-   CN.Canvas.Pen.Style := psDash;
+   CN.Canvas.Pen.Style := TPenStyle(anElement.IntProp['msm:View:LinkLineStyle']){psDash};
   end;//SetPen
 
  var
@@ -314,6 +348,7 @@ var
   l_TextRect : Tl3SRect;
   l_WR : TRect;
   l_Flags : Word;
+  l_BkMode: Cardinal;
  begin//DrawLink
   l_From := anElement.ElementProp['From'];
   l_To := anElement.ElementProp['To'];
@@ -325,6 +360,9 @@ var
    l_FromP.Y := (l_FromR.Top + l_FromR.Bottom) div 2;
    l_ToP.X := (l_ToR.Left + l_ToR.Right) div 2;
    l_ToP.Y := (l_ToR.Top + l_ToR.Bottom) div 2;
+   l_PenColor := anElement.IntProp['msm:View:LinkLineColor'];
+   if (l_PenColor = clDefault) then
+    l_PenColor := clSilver;
    SetPen;
    with CN.LR2DR(CN.ClipRect) do
    begin
@@ -378,12 +416,20 @@ var
      l_TextRect.Bottom := l_FromP.Y;
      l_TextRect.Top := l_ToP.Y;
     end;//l_FromP.Y < l_ToP.Y
+    CN.Font.Name := FontName;
     CN.Font.Size := 7;
+    CN.Font.Bold := false;
+    CN.Font.Italic := false;
     SetBrush;
     l_WR := l_TextRect.R.WR;
     l_Flags := CN.etoFlags;
     CN.etoFlags := l_Flags AND not eto_Opaque;
-    CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_VCENTER or DT_SINGLELINE {or DT_END_ELLIPSIS});
+    l_BkMode := SetBkMode(CN.DC, TRANSPARENT);
+    try
+     CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_VCENTER or DT_SINGLELINE {or DT_END_ELLIPSIS});
+    finally
+     SetBkMode(CN.DC, l_BkMode);
+    end;//try..finally
     CN.etoFlags := l_Flags;
    end;//not l3IsNil(l_N)
   end;//(l_From <> nil) AND (l_To <> nil)
@@ -416,7 +462,7 @@ begin
     if (l_E <> nil) AND l_E.IsView then
     begin
      l_TextColor := clBlack;
-     l_FillColor := l_E.IntProp['msm:View:ForeColor'];
+     l_FillColor := l_E.IntProp['msm:View:BackColor'];
      if (l_FillColor = clDefault) then
       l_FillColor := clYellow;
      if (l_FillColor = clRed)
@@ -545,6 +591,29 @@ begin
      finally
       l3System.Mouse.ReleaseCapture;
      end;//try..finally
+    end//l_E <> nil
+    else
+    begin
+     with l3System.Mouse do
+     begin
+      l_LeftButton := LeftButton;
+      SetCapture(Self.Handle);
+      // - activate capture
+     end;//with l3System.Mouse
+     try
+      repeat
+       l_NewPt.GetCursorPos;
+       l_NewPt.Convert(ScreenToClient);
+       if not l_Pt.EQ(l_NewPt) then
+       begin
+        ScrollBy(l_NewPt.Sub(l_Pt).Neg);
+        l_Pt := l_NewPt;
+        Update;
+       end;//not l_Pt.EQ(l_NewPt)
+      until not l3System.Keyboard.AsyncKey[l_LeftButton].Down;
+     finally
+      l3System.Mouse.ReleaseCapture;
+     end;//try..finally
     end;//l_E <> nil
    end;//ssDouble in Shift
   mbRight:
@@ -634,6 +703,14 @@ begin
  Invalidate;
 end;
 
+procedure TmsmDrawing.ScrollBy(const aDelta: Tl3SPoint);
+begin
+ f_Origin := f_Origin.Add(aDelta);
+ SetScrollPos(Self.Handle, SB_HORZ, Max(0, f_Origin.X), true);
+ SetScrollPos(Self.Handle, SB_VERT, Max(0, f_Origin.Y), true);
+ Windows.ScrollWindow(Self.Handle, -aDelta.X, -aDelta.Y, nil, nil);
+end;
+
 const
  cSmallDelta = 4;
  cWheelDelta = cSmallDelta * 10;
@@ -641,7 +718,7 @@ const
 const
  SB_WheelUp   = SB_EndScroll + 1;
  SB_WheelDown = SB_WheelUp + 1;
- 
+
 procedure TmsmDrawing.WMHScroll(var Msg: TWMHScroll);
 var
  l_Delta : Integer;
@@ -672,10 +749,7 @@ begin
   else
    Exit;
  end;//Case Msg.ScrollCode
- f_Origin.X := f_Origin.X + l_Delta;
- SetScrollPos(Self.Handle, SB_HORZ, Max(0, f_Origin.X), true);
- Windows.ScrollWindow(Self.Handle, -l_Delta, 0, nil, nil);
- //Invalidate;
+ ScrollBy(l3SPoint(l_Delta, 0));
 end;
 
 procedure TmsmDrawing.WMVScroll(var Msg: TWMVScroll);
@@ -712,10 +786,7 @@ begin
   else
    Exit;
  end;//Case Msg.ScrollCode
- f_Origin.Y := f_Origin.Y + l_Delta;
- SetScrollPos(Self.Handle, SB_VERT, Max(0, f_Origin.Y), true);
- Windows.ScrollWindow(Self.Handle, 0, -l_Delta, nil, nil);
- //Invalidate;
+ ScrollBy(l3SPoint(0, l_Delta));
 end;
 
 procedure TmsmDrawing.WndProc(var Message: TMessage);

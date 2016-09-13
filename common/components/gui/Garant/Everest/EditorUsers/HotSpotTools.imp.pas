@@ -51,8 +51,9 @@ begin
  l_State.rInitialPoint := aPoint;
  l_State.rPoint := aPoint;
  l_State.rKeys := [];
- if aText.Document.AsObject.QT(InevHotSpotTester2, l_HotSpotTester, aText.TextSource.Processor) then
-  l_HotSpotTester.GetAdvancedHotSpot(aText.View, l_State, l_Point, l_Map, Result);
+ if l_Point <> nil then
+   if aText.Document.AsObject.QT(InevHotSpotTester2, l_HotSpotTester, aText.TextSource.Processor) then
+    l_HotSpotTester.GetAdvancedHotSpot(aText.View, l_State, l_Point, l_Map, Result);
 //#UC END# *4D53D37F00AE_4D53D342026E_impl*
 end;//_HotSpotTools_.GetHotSpot
 {$IfEnd} // NOT Defined(NoScripts)

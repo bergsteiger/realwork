@@ -1,6 +1,6 @@
 unit StrShop;
 
-{ $Id: StrShop.pas,v 1.69 2016/09/07 08:48:32 fireton Exp $ }
+{ $Id: StrShop.pas,v 1.70 2016/09/13 07:45:01 lukyanets Exp $ }
 
 interface
  uses
@@ -205,7 +205,8 @@ interface
    sidAACRightBlockNotPresent = 'Нет корреспондирующей команды для правого блока.';
 
    sidRemoteStorageDisabled = 'Автономная работа запрещена, подключайтесь к серверу';
-   sidClientServerDOcLoadFailed = 'Не удалось получить документ с сервера - нет связи. Повторите попытку позже';
+   sidClientServerDocLoadFailed = 'Не удалось получить документ с сервера - нет связи. Повторите попытку позже';
+   sidClientServerDocSaveFailed = 'Не удалось записать документ на сервер - нет связи. Повторите попытку позже';
  //function SSLoadStr(Ident: Word): string;
  //function GetAssMaskStr(aMask : Longint) : String;
  //function GetAssGroupName(piAssGroupID : integer) : String;

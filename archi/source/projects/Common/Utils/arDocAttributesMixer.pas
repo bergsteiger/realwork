@@ -10,15 +10,17 @@ interface
 
 uses
  l3IntfUses
+ , l3Filer
  , daTypes
  , k2Base
  , l3MarshalledTypes
  , m4DocumentAddress
  , nevInternalInterfaces
- , l3Filer
  {$If NOT Defined(Nemesis)}
  , dt_IFltr
  {$IfEnd} // NOT Defined(Nemesis)
+ , k2SizedMemoryPool
+ , m3DBInterfaces
 ;
 
 procedure BuildDocLoadPipe(aDocFamily: TdaFamilyID;
@@ -37,12 +39,16 @@ procedure BuildDocSavePipe(aDocFamily: TdaFamilyID;
  anIsObjTopic: Boolean;
  aEraseNotify: TdtOnEraseAttrRecords;
  var aGen: Tk2TagGenerator);
+function MakeFilerForMessage(aData: Tk2RawData): Tl3CustomFiler;
+function MakeFilerForDB(aFamilyID: TdaFamilyID;
+ aDocID: TdaDocID = 0;
+ aDocPart: Tm3DocPartSelector = m3_defDocPart;
+ aLevel: Integer = 0): Tl3CustomFiler;
 
 implementation
 
 uses
  l3ImplUses
- , m3DBInterfaces
  {$If NOT Defined(Nemesis)}
  , dt_EFltr
  {$IfEnd} // NOT Defined(Nemesis)
@@ -64,6 +70,7 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_TblCacheDef
  {$IfEnd} // NOT Defined(Nemesis)
+ , l3Interfaces
  //#UC START# *57C52AA20128impl_uses*
  //#UC END# *57C52AA20128impl_uses*
 ;
@@ -80,8 +87,6 @@ procedure BuildDocLoadPipe(aDocFamily: TdaFamilyID;
  var aGen: Tk2TagGenerator;
  var theFiler: Tl3CustomFiler);
 //#UC START# *57C52ADD007E_57C52AA20128_var*
-var
- l_DB: Im3DB;
 //#UC END# *57C52ADD007E_57C52AA20128_var*
 begin
 //#UC START# *57C52ADD007E_57C52AA20128_impl*
@@ -116,12 +121,7 @@ begin
  TevTagsListFilter.SetTo(aGen, TevTagsListFilter.MakeAttrList(k2_typDocument, [k2_tiEditableParts, k2_tiExternalHandle]));
  TevdBadEVDToEmptyDocumentTranslator.SetTo(aGen, aDocumentType, GlobalDataProvider.BaseLanguage[aDocFamily].LanguageID);
 
- l_DB := dtGetDB(aDocFamily);
- try
-  theFiler := Tm3DBFiler.Create(l_DB, aDocID, aDocPart, aLevel);
- finally
-  l_DB := nil;
- end;//try..finally
+ theFiler := MakeFilerForDB(aDocFamily, aDocID, aDocPart, aLevel);
 //#UC END# *57C52ADD007E_57C52AA20128_impl*
 end;//BuildDocLoadPipe
 
@@ -159,5 +159,41 @@ begin
   end;
 //#UC END# *57CFF0F8008A_57C52AA20128_impl*
 end;//BuildDocSavePipe
+
+function MakeFilerForMessage(aData: Tk2RawData): Tl3CustomFiler;
+//#UC START# *57D7AD260299_57C52AA20128_var*
+var
+ l_ComStream: IStream;
+//#UC END# *57D7AD260299_57C52AA20128_var*
+begin
+//#UC START# *57D7AD260299_57C52AA20128_impl*
+ l_ComStream := aData as IStream;
+ try
+  Result := Tl3CustomFiler.Create(nil);
+  Result.COMStream := l_ComStream;
+ finally
+  l_ComStream := nil;
+ end;
+//#UC END# *57D7AD260299_57C52AA20128_impl*
+end;//MakeFilerForMessage
+
+function MakeFilerForDB(aFamilyID: TdaFamilyID;
+ aDocID: TdaDocID = 0;
+ aDocPart: Tm3DocPartSelector = m3_defDocPart;
+ aLevel: Integer = 0): Tl3CustomFiler;
+//#UC START# *57D7B69902C0_57C52AA20128_var*
+var
+ l_DB: Im3DB;
+//#UC END# *57D7B69902C0_57C52AA20128_var*
+begin
+//#UC START# *57D7B69902C0_57C52AA20128_impl*
+ l_DB := dtGetDB(aFamilyID);
+ try
+  Result := Tm3DBFiler.Create(l_DB, aDocID, aDocPart, aLevel);
+ finally
+  l_DB := nil;
+ end;//try..finally
+//#UC END# *57D7B69902C0_57C52AA20128_impl*
+end;//MakeFilerForDB
 
 end.

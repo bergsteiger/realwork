@@ -1622,6 +1622,7 @@ uses
  , msmWordByNameListPrim in 'w:\common\components\gui\Garant\msm\msmWordByNameListPrim.pas'
  , msmModelElementMethodValueCache in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueCache.pas'
  , msmModelElementMethodValueList in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueList.pas'
+ , msmWordsByName in 'w:\common\components\gui\Garant\msm\msmWordsByName.pas'
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThread in 'w:\common\components\gui\Garant\msm\msmModelLoadingThread.pas'
  {$IfEnd} // Defined(seThreadSafe)

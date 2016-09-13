@@ -116,7 +116,10 @@ function TkwPopEditorSetCursorByPoint.GetPoint(const aMap: InevMap): Tl3Point;
 //#UC END# *4C3C927B027E_4EA922390373_var*
 begin
 //#UC START# *4C3C927B027E_4EA922390373_impl*
- Result := l3Point(aMap.Bounds.Right - f_DeltaX, aMap.Bounds.Bottom - f_DeltaY);
+ if aMap = nil then
+  Result := l3Point0
+ else
+  Result := l3Point(aMap.Bounds.Right - f_DeltaX, aMap.Bounds.Bottom - f_DeltaY);
 //#UC END# *4C3C927B027E_4EA922390373_impl*
 end;//TkwPopEditorSetCursorByPoint.GetPoint
 

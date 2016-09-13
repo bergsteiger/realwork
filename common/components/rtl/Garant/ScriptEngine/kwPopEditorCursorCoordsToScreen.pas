@@ -77,9 +77,14 @@ var
 //#UC END# *4C3C927B027E_4FABE1110175_var*
 begin
 //#UC START# *4C3C927B027E_4FABE1110175_impl*
- l_DeltaX := f_Point.DeltaX(f_Editor.View, f_Editor.View.RootMap);
- l_DeltaY := f_Point.MostInner.AsLeaf.PaintOffsetY(f_Editor.View, aMap.FI);
- Result := l3Point(l_DeltaX, aMap.Bounds.Top + l_DeltaY);
+ if aMap = nil then
+  Result := l3Point0
+ else
+ begin
+   l_DeltaX := f_Point.DeltaX(f_Editor.View, f_Editor.View.RootMap);
+   l_DeltaY := f_Point.MostInner.AsLeaf.PaintOffsetY(f_Editor.View, aMap.FI);
+   Result := l3Point(l_DeltaX, aMap.Bounds.Top + l_DeltaY);
+ end;
 //#UC END# *4C3C927B027E_4FABE1110175_impl*
 end;//TkwPopEditorCursorCoordsToScreen.GetPoint
 

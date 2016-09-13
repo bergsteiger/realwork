@@ -49,7 +49,10 @@ function TkwPopEditorParaCoordsToScreen.GetPoint(const aMap: InevMap): Tl3Point;
 //#UC END# *4C3C927B027E_4EEB66D703A9_var*
 begin
 //#UC START# *4C3C927B027E_4EEB66D703A9_impl*
- Result := l3Point(aMap.Bounds.Left, aMap.Bounds.Top);
+ if aMap = nil then
+  Result := l3Point0
+ else
+  Result := l3Point(aMap.Bounds.Left, aMap.Bounds.Top);
 //#UC END# *4C3C927B027E_4EEB66D703A9_impl*
 end;//TkwPopEditorParaCoordsToScreen.GetPoint
 

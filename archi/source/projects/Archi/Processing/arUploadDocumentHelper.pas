@@ -87,9 +87,6 @@ constructor TarUploadDocumentHelper.Create(aDirectAccess: Boolean;
  aEraseNotify: TdtOnEraseAttrRecords;
  anIsObjTopic: Boolean);
 //#UC START# *57CFDE7701E9_57CFC14E01DF_var*
-var
- l_DB: Im3DB;
- l_ComStream: IStream;
 //#UC END# *57CFDE7701E9_57CFC14E01DF_var*
 begin
 //#UC START# *57CFDE7701E9_57CFC14E01DF_impl*
@@ -98,13 +95,7 @@ begin
  if aDirectAccess then
  begin
   f_Message := nil;
-  l_DB := dtGetDB(aFamily);
-  try
-   f_Filer := Tm3DBFiler.Create(l_DB, anID, aPart);
-  finally
-   l_DB := nil;
-  end;//try..finally
-
+  f_Filer := MakeFilerForDB(aFamily, anID, aPart);
   f_Filer.Mode := l3_fmReadWrite;
   f_NeedOpenFiler := (aClass <> dtNone) and NeedSaveText;
   if f_NeedOpenFiler then
@@ -123,14 +114,7 @@ begin
   f_Message.IsClassChanged := IsClassChanged;
   f_Message.NeedSaveText := NeedSaveText;
   f_Message.DocClass := aClass;
-
-  l_ComStream := f_Message.Data as IStream;
-  try
-   f_Filer := Tl3CustomFiler.Create(nil);
-   f_Filer.COMStream := l_ComStream;
-  finally
-   l_ComStream := nil;
-  end;
+  f_Filer := MakeFilerForMessage(f_Message.Data);
  end;
 
  f_Generator := nil;

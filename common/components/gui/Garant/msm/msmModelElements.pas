@@ -38,6 +38,8 @@ type
   function Get_List(const aName: AnsiString): ImsmModelElementList;
   function Get_StringProp(const aName: AnsiString): Il3CString;
   function Get_IntProp(const aName: AnsiString): Integer;
+  procedure Set_IntProp(const aName: AnsiString;
+   aValue: Integer);
   function Get_BoolProp(const aName: AnsiString): Boolean;
   function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
   function Get_MainWord: TtfwWord;
@@ -52,7 +54,8 @@ type
   property StringProp[const aName: AnsiString]: Il3CString
    read Get_StringProp;
   property IntProp[const aName: AnsiString]: Integer
-   read Get_IntProp;
+   read Get_IntProp
+   write Set_IntProp;
   property BoolProp[const aName: AnsiString]: Boolean
    read Get_BoolProp;
   property ElementProp[const aName: AnsiString]: ImsmModelElement

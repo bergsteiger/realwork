@@ -887,8 +887,7 @@ var
 //#UC END# *49E3568201B9_4A3A237A01C0_var*
 begin
 //#UC START# *49E3568201B9_4A3A237A01C0_impl*
- Assert(aMap <> nil);
- if (f_Child = nil) then
+ if (f_Child = nil) or (aMap = nil) then
   Result := 0
  else
  begin

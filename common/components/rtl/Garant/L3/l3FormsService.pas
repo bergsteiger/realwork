@@ -67,6 +67,9 @@ uses
  l3ImplUses
  , SysUtils
  , l3Base
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *5506D56601D6impl_uses*
  //#UC END# *5506D56601D6impl_uses*
 ;
@@ -168,6 +171,12 @@ begin
  Alien := nil;
  inherited;
 end;//Tl3FormsService.ClearFields
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TCustomForm));
+ {* Регистрация типа TCustomForm }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 end.

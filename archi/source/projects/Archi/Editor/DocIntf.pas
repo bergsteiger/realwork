@@ -1,6 +1,6 @@
 unit DocIntf;
 
-{ $Id: DocIntf.pas,v 1.113 2016/09/09 10:57:10 lukyanets Exp $ }
+{ $Id: DocIntf.pas,v 1.114 2016/09/13 10:16:30 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -1095,7 +1095,6 @@ end;
 
 procedure TarCustomDocument.GetDocStatistic(var aCharCount : Long; var aTableCharCount: Long; var aCellCount: Long);
 var
- l_DB        : Im3DB;
  lTextReader : TevEVDReader;
  lBaseFiler  : Tl3CustomFiler;
  lCntFilter  : TevStatisticsFilter;
@@ -1104,12 +1103,7 @@ begin
 
  lTextReader := TevEVDReader.Create;
  try
-  l_DB := dtGetDB(DocFamily);
-  try
-   lBaseFiler := Tm3DBFiler.Create(l_DB, DocID, m3_dsMain {DocStream});
-  finally
-   l_DB := nil;
-  end;//try..finally
+  lBaseFiler := MakeFilerForDB(DocFamily, DocID, m3_dsMain {DocStream});
   try
    lTextReader.Filer := lBaseFiler;
   finally
@@ -3260,7 +3254,7 @@ begin
   // правильнее было бы проверить DocInfo.DocClass, но он всегда dtText
   //if Assigned(anAdditionalData) and (TarDocObject(anAdditionalData).ObjType <> dotFlash) then
   // TddChildBiteOffFilter.SetTo(G, k2_idTextPara); // текстовые параграфы объектам не полагаются
-*)  
+*)
 end;
 
 function TarTextOfDocument.Commit_IsNeedSaveText : Boolean;
@@ -3273,7 +3267,6 @@ var
  l_NeedSaveText : Boolean;
 
  l_NeedOpen : Boolean;
- l_DB       : Im3DB;
  l_Filer    : Tm3DBFiler;
  G          : Tk2TagGenerator;
 
@@ -3306,12 +3299,8 @@ begin
 
 // G := nil;
  try
-(*  l_DB := dtGetDB(DocInfo.DocFamily);
-  try
-   l_Filer := Tm3DBFiler.Create(l_DB, DocInfo.DocID, DocPart);
-  finally
-   l_DB := nil;
-  end;//try..finally
+(*
+  l_Filer := MakeFilerForDB(DocInfo.DocFamily, DocInfo.DocID, DocPart);
   try
    l_Filer.Mode := l3_fmReadWrite;
    l_NeedOpen := (DocInfo.DocClass <> dtNone) and l_NeedSaveText;
@@ -3696,8 +3685,6 @@ end;
 procedure TarTextOfDocument.BuildRemoteLoadPipe(var aGen: Tk2TagGenerator;
   WithAttr: Boolean; DocPartSel: TDocPartSelector;
   aFoundSelector: Tm4Addresses; aLevel: Integer; var theFiler : Tl3CustomFiler);
-//var
-// l_DB: Im3DB;
 begin
  BuildDocLoadPipe(DocInfo.DocFamily, DocInfo.DocID, IsObjTopic, GetDocumentType,
   DocPart, aLevel, WithAttr, DocPartSel, aFoundSelector, aGen, theFiler);
@@ -3734,13 +3721,8 @@ begin
  TevdBadEVDToEmptyDocumentTranslator.SetTo(aGen, GetDocumentType, GlobalDataProvider.BaseLanguage[DocInfo.DocFamily].LanguageID);
 
 
- l_DB := dtGetDB(DocInfo.DocFamily);
- try
-  theFiler := Tm3DBFiler.Create(l_DB, DocInfo.DocID, DocPart, aLevel);
- finally
-  l_DB := nil;
- end;//try..finally
-*) 
+ theFiler := MakeFilerForDB(DocInfo.DocFamily, DocInfo.DocID, DocPart, aLevel);
+*)
 end;
 
 procedure TarTextOfDocument.BuildLoadPipeParams(out WithAttr: Boolean;

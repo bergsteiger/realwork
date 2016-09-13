@@ -121,6 +121,15 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwClassRef_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TComponent));
+ {* Регистрация типа TComponent }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

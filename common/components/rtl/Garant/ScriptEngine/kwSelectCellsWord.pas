@@ -98,7 +98,7 @@ begin
   l_Point := l_TablePoint.Obj^.AsPara.AsList.Para[l_StartRow].AsList.Para[l_StartCell].AsList.Para[0].MakePoint;
   l_Map := View.MapByPoint(l_Point);
  end; // with anEditor do
- Assert(l_Map <> nil);
+ if l_Map = nil then Exit;
  l_l3Pt := l3Point(l_Map.Bounds.Left + 3 * evEpsilon, l_Map.Bounds.Top + 3 * evEpsilon);
  l_EditorHotSpot := anEditor.HotSpotClass.Make(anEditor, nil);
  try

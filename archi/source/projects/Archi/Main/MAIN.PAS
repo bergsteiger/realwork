@@ -1,6 +1,6 @@
 unit Main;
 
-{ $Id: MAIN.PAS,v 1.132 2016/08/12 12:59:48 fireton Exp $ }
+{ $Id: MAIN.PAS,v 1.133 2016/09/13 10:35:12 dinishev Exp $ }
 
 {$I arDefine.inc }
 
@@ -574,6 +574,7 @@ type
     {$IFDEF InsiderTest}
     procedure ClearHistory;
     {$ENDIF InsiderTest}
+    procedure CheckCurrChild(aForm: TForm);
     function CheckServer(aQuietly: Boolean = False): Boolean;
     procedure CreateNewDocumentFromFile(const aParams: TNewDocParams);
     procedure LayMsg(const aMsg: AnsiString; aType: TMsgDlgType; aButtons: TMsgDlgButtons; aHelpCtx: Longint=0);
@@ -4520,6 +4521,12 @@ procedure TMainForm.Change;
 begin
  if (fCurrentChild <> nil) and fCurrentChild.HandleAllocated then
   PostMessage(fCurrentChild.Handle, wm_WinClipChange, 0, 0);
+end;
+
+procedure TMainForm.CheckCurrChild(aForm: TForm);
+begin
+ if fCurrentChild = aForm then
+  fCurrentChild := nil;
 end;
 
 end.
