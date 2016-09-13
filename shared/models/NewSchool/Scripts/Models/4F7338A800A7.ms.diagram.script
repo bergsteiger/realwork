@@ -38,12 +38,40 @@ MEDIAGRAMS ME_4F7338A800A7_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_55E9A8990116_view
 
+  MEVIEWLINK ME_4F733A0701F0_ME_53E107920007_uses::Dependency
+   MELINK Original WL 'ME_53E107A10024' '4F7338A800A7.ms.model.script' ;
+   MELINK From ME_4F733A0701F0_view ;
+   MELINK To ME_53E107920007_view ;
+  ENDMEVIEWLINK // ME_4F733A0701F0_ME_53E107920007_uses::Dependency
+
+  MEVIEWLINK ME_4F733A0701F0_ME_5509AA5400EA_uses::Dependency
+   MELINK Original WL 'ME_5509AA6900D2' '4F7338A800A7.ms.model.script' ;
+   MELINK From ME_4F733A0701F0_view ;
+   MELINK To ME_5509AA5400EA_view ;
+  ENDMEVIEWLINK // ME_4F733A0701F0_ME_5509AA5400EA_uses::Dependency
+
+  MEVIEWLINK ME_4F733A0701F0_ME_55E9A8990116_uses::Dependency
+   MELINK Original WL 'ME_55E9A8B703A1' '4F7338A800A7.ms.model.script' ;
+   MELINK From ME_4F733A0701F0_view ;
+   MELINK To ME_55E9A8990116_view ;
+  ENDMEVIEWLINK // ME_4F733A0701F0_ME_55E9A8990116_uses::Dependency
+
+  MEVIEWLINK ME_55648E5E03A1_viewlink
+   MELINK Original WL 'ME_55648E5E03A1' '4F7338A800A7.ms.model.script' ;
+   MELINK From ME_4F733A0701F0_view ;
+   MELINK To ME_55648E420189_view ;
+  ENDMEVIEWLINK // ME_55648E5E03A1_viewlink
+
   MELIST Views
    Seq: ( ME_55648E420189_view // TtfwSourcePointList
    ME_53E107920007_view // seWordsInfo
    ME_5509AA5400EA_view // Tl3ScriptService
    ME_4F733A0701F0_view // TtfwScriptEnginePrim
    ME_55E9A8990116_view // tfwScriptEngineExInterfaces
+   ME_4F733A0701F0_ME_53E107920007_uses::Dependency // TtfwScriptEnginePrim -> seWordsInfo
+   ME_4F733A0701F0_ME_5509AA5400EA_uses::Dependency // TtfwScriptEnginePrim -> Tl3ScriptService
+   ME_4F733A0701F0_ME_55E9A8990116_uses::Dependency // TtfwScriptEnginePrim -> tfwScriptEngineExInterfaces
+   ME_55648E5E03A1_viewlink // TtfwScriptEnginePrim -> TtfwSourcePointList
    )
   ; // Views
  ENDMEDIAGRAM // ME_4F7338A800A7_main
