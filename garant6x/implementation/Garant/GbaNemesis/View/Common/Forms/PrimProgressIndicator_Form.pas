@@ -125,6 +125,8 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimProgressIndicator_utProgressIndicator_UserType
  //#UC START# *4A93F1980324impl_uses*
+ , nsLogEvent
+ , LoggingUnit
  //#UC END# *4A93F1980324impl_uses*
 ;
 
@@ -222,11 +224,29 @@ begin
 //#UC END# *50F98780007B_4A93F1980324_impl*
 end;//TPrimProgressIndicatorForm.WMUserSetCurrent
 
+type
+  TTempLogEvent = class(TnsLogEvent)
+  protected
+   class procedure Log(const AString: String);
+  end;
+
+{ TTempLogEvent }
+
+class procedure TTempLogEvent.Log(const AString: String);
+var
+ l_ParamsList: InsLogEventData;
+begin
+ l_ParamsList := MakeParamsList;
+ l_ParamsList.AddString(PChar(AString));
+ GetLogger.AddEvent(LE_USER_OPERATION, l_ParamsList);
+end;
+
 procedure TPrimProgressIndicatorForm.WMUserFinishProcess(var Message: TMessage);
 //#UC START# *50F987AA03D9_4A93F1980324_var*
 //#UC END# *50F987AA03D9_4A93F1980324_var*
 begin
 //#UC START# *50F987AA03D9_4A93F1980324_impl*
+ TTempLogEvent.Log('WMUserFinishProcess message received');
  Message.Result := 0;
  f_CancelButton.Repaint;
  f_SearchFinished := True;

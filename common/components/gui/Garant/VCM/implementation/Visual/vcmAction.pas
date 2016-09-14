@@ -5,9 +5,12 @@ unit vcmAction;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmAction -     }
 { Начат: 25.02.2003 19:52 }
-{ $Id: vcmAction.pas,v 1.127 2015/06/03 12:26:29 lulin Exp $ }
+{ $Id: vcmAction.pas,v 1.128 2016/09/13 18:32:44 kostitsin Exp $ }
 
 // $Log: vcmAction.pas,v $
+// Revision 1.128  2016/09/13 18:32:44  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.127  2015/06/03 12:26:29  lulin
 // - пытаемся разрулить зависимости.
 //
@@ -961,7 +964,7 @@ begin
  else
  begin
   Result := true;
-  if not g_Dispatcher.IsLockActionUpdate and not IsUpdateLocked then
+  if not vcmDispatcher.IsLockActionUpdate and not IsUpdateLocked then
    DoUpdate;
  end;//FClients = nil
 end;

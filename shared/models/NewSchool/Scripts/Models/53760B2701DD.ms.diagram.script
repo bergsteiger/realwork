@@ -44,6 +44,18 @@ MEDIAGRAMS ME_53760B2701DD_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_53763D88015E_view
 
+  MEVIEW ME_53760D580355_view
+   MELINK Original WL 'ME_53760D580355' '47750CE700D0.ms.model.script' ; // f_Listeners
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_53760D580355_view
+
+  MEVIEWLINK ME_53760D420072_viewlink
+   MELINK Original WL 'ME_53760D420072' '47750CE700D0.ms.model.script' ;
+   MELINK From ME_53760D170199_view ;
+   MELINK To ME_53760C2B0357_view ;
+  ENDMEVIEWLINK // ME_53760D420072_viewlink
+
   MELIST Views
    Seq: ( ME_53760C2B0357_view // IspHelpNotifyListener
    ME_53760D170199_view // TspHelpNotifyListenerList
@@ -51,6 +63,8 @@ MEDIAGRAMS ME_53760B2701DD_diagrams
    ME_53760C9201F9_view // RemoveListener
    ME_53760DE9006D_view // HelpShown
    ME_53763D88015E_view // Exists
+   ME_53760D580355_view // f_Listeners
+   ME_53760D420072_viewlink // TspHelpNotifyListenerList -> IspHelpNotifyListener
    )
   ; // Views
  ENDMEDIAGRAM // ME_53760B2701DD_main

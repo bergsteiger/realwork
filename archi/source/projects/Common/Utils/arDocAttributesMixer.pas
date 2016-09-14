@@ -54,7 +54,7 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , ddFixFilter
  , ddExtObjectSupport
- , evCommonUtils
+ , arFiltersUtils
  , evOutTextParaEliminator
  , evTagsListFilter
  , Document_Const

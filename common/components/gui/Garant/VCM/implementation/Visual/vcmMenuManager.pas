@@ -736,6 +736,7 @@ uses
  {$IfDef XE}
  , System.Actions
  {$EndIf}
+ , vcmDispatcher
  //#UC END# *4B30EC67025Aimpl_uses*
 ;
 
@@ -990,7 +991,7 @@ var
 //#UC END# *476961930017_52A087CA0218_var*
 begin
 //#UC START# *476961930017_52A087CA0218_impl*
- if not vcmDispatcher.InOp(True) and
+ if not TvcmDispatcher.Instance.As_IvcmDispatcher.InOp(True) and
     (Action is TvcmOperationAction) and
     (TvcmOperationAction(Action).OpDef.OperationType in vcm_ComboOperations) and
     (Action.ActionComponent = nil) then
@@ -998,7 +999,7 @@ begin
   l_Form := afw.GetTopParentForm(FClient);
   if (l_Form <> nil) then
   begin
-   l_MF := vcmDispatcher.FormDispatcher.CurrentMainForm;
+   l_MF := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm;
    if (l_MF.VCLWinControl <> l_Form) then // 595975850
    begin
     l_ToolBar := FClient.Owner;
@@ -3270,7 +3271,7 @@ begin
   if (l_Form is TvcmMainForm) then
   begin
    BuildFormToolbars(l_Form, [vcm_ooShowInMainToolbar]);
-   with vcmDispatcher do
+   with TvcmDispatcher.Instance do
     for l_Index := 0 to Pred(ModulesCount) do
      BuildMainToolbars(l_Form, Module[l_Index].ModuleDef);
    MakeMainToolbarFromSettings(l_Form);
@@ -3578,11 +3579,11 @@ var
 begin
 //#UC START# *52A1FE58028C_4B30EC81021A_impl*
  lp_InvertFastenMode;
- with vcmDispatcher do
+ with TvcmDispatcher.Instance do
   for l_Index := 0 to EntitiesCount - 1 do
    if Supports(Entity[l_Index], IvcmEntityForm, l_Form) then
     lp_ChangeToolbarsMode(l_Form);
- with vcmDispatcher do
+ with TvcmDispatcher.Instance do
   for l_Index := 0 to FormDispatcher.MainFormsCount - 1 do
    if Supports(FormDispatcher.MainForm[l_Index], IvcmEntityForm, l_Form) then
     lp_ChangeToolbarsMode(l_Form, True);
@@ -4187,9 +4188,9 @@ procedure TvcmDispatcherHelper.ClearHistory;
 //#UC END# *CA1F3F463873_5501A60D002E_var*
 begin
 //#UC START# *CA1F3F463873_5501A60D002E_impl*
- if (vcmDispatcher <> nil) then
-  if (vcmDispatcher.History <> nil) then
-   vcmDispatcher.History.Clear(false);
+ if TvcmDispatcher.Exists then
+  if (TvcmDispatcher.Instance.History <> nil) then
+   TvcmDispatcher.Instance.History.Clear(false);
 //#UC END# *CA1F3F463873_5501A60D002E_impl*
 end;//TvcmDispatcherHelper.ClearHistory
 

@@ -32,11 +32,25 @@ MEDIAGRAMS ME_48F5EE2702FF_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_48F8B61F0032_view
 
+  MEVIEWLINK ME_4682706F038A_ME_4682704E0347_uses::Dependency
+   MELINK Original WL 'ME_48F5F5300199' '48F5EE2702FF.ms.model.script' ;
+   MELINK From ME_4682706F038A_view ;
+   MELINK To ME_4682704E0347_view ;
+  ENDMEVIEWLINK // ME_4682706F038A_ME_4682704E0347_uses::Dependency
+
+  MEVIEWLINK ME_48F72B630069_ME_4682706F038A_uses::Dependency
+   MELINK Original WL 'ME_48F72B6E02AF' '48F5EE2702FF.ms.model.script' ;
+   MELINK From ME_48F72B630069_view ;
+   MELINK To ME_4682706F038A_view ;
+  ENDMEVIEWLINK // ME_48F72B630069_ME_4682706F038A_uses::Dependency
+
   MELIST Views
    Seq: ( ME_4682704E0347_view // TnsSingleAttributeStorable
    ME_4682706F038A_view // TnsSingleAttributeDataObject
    ME_48F72B630069_view // TnsSingleAttributeData
    ME_48F8B61F0032_view // TnsContentsTreeStorable
+   ME_4682706F038A_ME_4682704E0347_uses::Dependency // TnsSingleAttributeDataObject -> TnsSingleAttributeStorable
+   ME_48F72B630069_ME_4682706F038A_uses::Dependency // TnsSingleAttributeData -> TnsSingleAttributeDataObject
    )
   ; // Views
  ENDMEDIAGRAM // ME_48F5EE2702FF_main

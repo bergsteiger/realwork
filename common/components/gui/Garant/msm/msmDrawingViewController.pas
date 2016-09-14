@@ -10,7 +10,7 @@ interface
 
 uses
  l3IntfUses
- , msmDrawing
+ , msmDrawingView
  , msmConcreteModels
  , msmViewControllersUtils
  , msmEvents
@@ -20,7 +20,7 @@ uses
 ;
 
 type
- _OwnViewClass_ = TmsmDrawing;
+ _OwnViewClass_ = TmsmDrawingView;
  _ConcreteModel_ = ImsmDrawingModel;
  _InitContext_ = TmsmDefaultInitContext;
  {$Include w:\common\components\gui\Garant\msm\msmConcreteModelOwnViewController.imp.pas}

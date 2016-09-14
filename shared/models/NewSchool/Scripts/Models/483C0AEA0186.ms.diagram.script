@@ -50,6 +50,30 @@ MEDIAGRAMS ME_483C0AEA0186_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4AC224FF02C0_view
 
+  MEVIEW ME_4AC21F5B030D_view
+   MELINK Original WL 'ME_4AC21F5B030D' '48078CC202EC.ms.model.script' ; // gbl_AdapterWorkerInstance
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_4AC21F5B030D_view
+
+  MEVIEWLINK ME_483C0B6B0167_ME_4B716BED024C_uses::Dependency
+   MELINK Original WL 'ME_4B716C1802B5' '48078CC202EC.ms.model.script' ;
+   MELINK From ME_483C0B6B0167_view ;
+   MELINK To ME_4B716BED024C_view ;
+  ENDMEVIEWLINK // ME_483C0B6B0167_ME_4B716BED024C_uses::Dependency
+
+  MEVIEWLINK ME_4AC218B50241_viewlink
+   MELINK Original WL 'ME_4AC218B50241' '48078CC202EC.ms.model.script' ;
+   MELINK From ME_483C0B6B0167_view ;
+   MELINK To ME_4AC2000A021C_view ;
+  ENDMEVIEWLINK // ME_4AC218B50241_viewlink
+
+  MEVIEWLINK ME_4AC21B9102CC_viewlink
+   MELINK Original WL 'ME_4AC21B9102CC' '48078CC202EC.ms.model.script' ;
+   MELINK From ME_483C0B6B0167_view ;
+   MELINK To ME_4AC21B6701C8_view ;
+  ENDMEVIEWLINK // ME_4AC21B9102CC_viewlink
+
   MELIST Views
    Seq: ( ME_4AC2000A021C_view // TatNotifierFacade
    ME_4AC21B6701C8_view // TatLoggedAs
@@ -58,6 +82,10 @@ MEDIAGRAMS ME_483C0AEA0186_diagrams
    ME_4B716BED024C_view // UserName
    ME_4AC1FEB6028B_view // Fini
    ME_4AC224FF02C0_view // Ini
+   ME_4AC21F5B030D_view // gbl_AdapterWorkerInstance
+   ME_483C0B6B0167_ME_4B716BED024C_uses::Dependency // TatGblAdapterWorker -> UserName
+   ME_4AC218B50241_viewlink // TatGblAdapterWorker -> TatNotifierFacade
+   ME_4AC21B9102CC_viewlink // TatGblAdapterWorker -> TatLoggedAs
    )
   ; // Views
  ENDMEDIAGRAM // ME_483C0AEA0186_main

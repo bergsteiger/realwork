@@ -26,10 +26,24 @@ MEDIAGRAMS ME_51304A0E0192_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_55C9F3800372_view
 
+  MEVIEWLINK ME_51304A1F02AD_ME_55C9F202036D_uses::Dependency
+   MELINK Original WL 'ME_55C9F20E0220' '51304A0E0192.ms.model.script' ;
+   MELINK From ME_51304A1F02AD_view ;
+   MELINK To ME_55C9F202036D_view ;
+  ENDMEVIEWLINK // ME_51304A1F02AD_ME_55C9F202036D_uses::Dependency
+
+  MEVIEWLINK ME_51304A1F02AD_ME_55C9F3800372_uses::Dependency
+   MELINK Original WL 'ME_55C9F3970123' '51304A0E0192.ms.model.script' ;
+   MELINK From ME_51304A1F02AD_view ;
+   MELINK To ME_55C9F3800372_view ;
+  ENDMEVIEWLINK // ME_51304A1F02AD_ME_55C9F3800372_uses::Dependency
+
   MELIST Views
    Seq: ( ME_51304A1F02AD_view // kwKeyWordsPack
    ME_55C9F202036D_view // ITestWordsPack
    ME_55C9F3800372_view // TTreeNodeForTestsWordsPack
+   ME_51304A1F02AD_ME_55C9F202036D_uses::Dependency // kwKeyWordsPack -> ITestWordsPack
+   ME_51304A1F02AD_ME_55C9F3800372_uses::Dependency // kwKeyWordsPack -> TTreeNodeForTestsWordsPack
    )
   ; // Views
  ENDMEDIAGRAM // ME_51304A0E0192_main

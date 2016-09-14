@@ -50,6 +50,60 @@ MEDIAGRAMS ME_57BC0538037B_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57BFDE7402F0_view
 
+  MEVIEWLINK ME_57BC05FD03A1_ME_57BC062801FF_uses::Dependency
+   MELINK Original WL 'ME_57BC063D0132' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BC05FD03A1_view ;
+   MELINK To ME_57BC062801FF_view ;
+  ENDMEVIEWLINK // ME_57BC05FD03A1_ME_57BC062801FF_uses::Dependency
+
+  MEVIEWLINK ME_57BC062801FF_ME_57BD366C02FD_uses::Dependency
+   MELINK Original WL 'ME_57BD7AD302C1' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BC062801FF_view ;
+   MELINK To ME_57BD366C02FD_view ;
+  ENDMEVIEWLINK // ME_57BC062801FF_ME_57BD366C02FD_uses::Dependency
+
+  MEVIEWLINK ME_57BC06F603E1_ME_57BD790600B0_uses::Dependency
+   MELINK Original WL 'ME_57BD7AAF001F' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BC06F603E1_view ;
+   MELINK To ME_57BD790600B0_view ;
+  ENDMEVIEWLINK // ME_57BC06F603E1_ME_57BD790600B0_uses::Dependency
+
+  MEVIEWLINK ME_57BC06F603E1_ME_57BD366C02FD_uses::Dependency
+   MELINK Original WL 'ME_57BD7AC700E8' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BC06F603E1_view ;
+   MELINK To ME_57BD366C02FD_view ;
+  ENDMEVIEWLINK // ME_57BC06F603E1_ME_57BD366C02FD_uses::Dependency
+
+  MEVIEWLINK ME_57BC06F603E1_ME_57BC05FD03A1_uses::Dependency
+   MELINK Original WL 'ME_57BD7AED03C0' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BC06F603E1_view ;
+   MELINK To ME_57BC05FD03A1_view ;
+  ENDMEVIEWLINK // ME_57BC06F603E1_ME_57BC05FD03A1_uses::Dependency
+
+  MEVIEWLINK ME_57BC06F603E1_ME_57BFDE7402F0_uses::Dependency
+   MELINK Original WL 'ME_57BFDF8E0074' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BC06F603E1_view ;
+   MELINK To ME_57BFDE7402F0_view ;
+  ENDMEVIEWLINK // ME_57BC06F603E1_ME_57BFDE7402F0_uses::Dependency
+
+  MEVIEWLINK ME_57BC06F603E1_ME_57BFDE5C014C_uses::Dependency
+   MELINK Original WL 'ME_57C008A3000B' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BC06F603E1_view ;
+   MELINK To ME_57BFDE5C014C_view ;
+  ENDMEVIEWLINK // ME_57BC06F603E1_ME_57BFDE5C014C_uses::Dependency
+
+  MEVIEWLINK ME_57BFDE5C014C_ME_57BC06F603E1_uses::Dependency
+   MELINK Original WL 'ME_57BFE7010374' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BFDE5C014C_view ;
+   MELINK To ME_57BC06F603E1_view ;
+  ENDMEVIEWLINK // ME_57BFDE5C014C_ME_57BC06F603E1_uses::Dependency
+
+  MEVIEWLINK ME_57BFDF7102A8_viewlink
+   MELINK Original WL 'ME_57BFDF7102A8' '57BC0538037B.ms.model.script' ;
+   MELINK From ME_57BFDE7402F0_view ;
+   MELINK To ME_57BFDE5C014C_view ;
+  ENDMEVIEWLINK // ME_57BFDF7102A8_viewlink
+
   MELIST Views
    Seq: ( ME_57BC05FD03A1_view // TnsDownloaderGUIService
    ME_57BC062801FF_view // nsOpenOrSaveInternetFileDialog
@@ -58,6 +112,15 @@ MEDIAGRAMS ME_57BC0538037B_diagrams
    ME_57BD790600B0_view // nsDownloaderRes
    ME_57BFDE5C014C_view // TnsDownloaderThread
    ME_57BFDE7402F0_view // TnsDownloaderThreadList
+   ME_57BC05FD03A1_ME_57BC062801FF_uses::Dependency // TnsDownloaderGUIService -> nsOpenOrSaveInternetFileDialog
+   ME_57BC062801FF_ME_57BD366C02FD_uses::Dependency // nsOpenOrSaveInternetFileDialog -> nsDownloaderInterfaces
+   ME_57BC06F603E1_ME_57BD790600B0_uses::Dependency // nsDownloader -> nsDownloaderRes
+   ME_57BC06F603E1_ME_57BD366C02FD_uses::Dependency // nsDownloader -> nsDownloaderInterfaces
+   ME_57BC06F603E1_ME_57BC05FD03A1_uses::Dependency // nsDownloader -> TnsDownloaderGUIService
+   ME_57BC06F603E1_ME_57BFDE7402F0_uses::Dependency // nsDownloader -> TnsDownloaderThreadList
+   ME_57BC06F603E1_ME_57BFDE5C014C_uses::Dependency // nsDownloader -> TnsDownloaderThread
+   ME_57BFDE5C014C_ME_57BC06F603E1_uses::Dependency // TnsDownloaderThread -> nsDownloader
+   ME_57BFDF7102A8_viewlink // TnsDownloaderThreadList -> TnsDownloaderThread
    )
   ; // Views
  ENDMEDIAGRAM // ME_57BC0538037B_main

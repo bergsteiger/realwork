@@ -68,6 +68,48 @@ MEDIAGRAMS ME_491C3E40007B_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_55FAEA9B0079_view
 
+  MEVIEWLINK ME_491C3E97009F_ME_4CF37A0400FB_uses::Dependency
+   MELINK Original WL 'ME_4CF37AF1004E' '491C3E97009F.ms.model.script' ;
+   MELINK From ME_491C3E97009F_view ;
+   MELINK To ME_4CF37A0400FB_view ;
+  ENDMEVIEWLINK // ME_491C3E97009F_ME_4CF37A0400FB_uses::Dependency
+
+  MEVIEWLINK ME_49228CA903BA_ME_491C3E97009F_uses::Dependency
+   MELINK Original WL 'ME_492FF6870268' '49228CA903BA.ms.model.script' ;
+   MELINK From ME_49228CA903BA_view ;
+   MELINK To ME_491C3E97009F_view ;
+  ENDMEVIEWLINK // ME_49228CA903BA_ME_491C3E97009F_uses::Dependency
+
+  MEVIEWLINK ME_49228CA903BA_ME_49216B3C02E8_uses::Dependency
+   MELINK Original WL 'ME_492FF71A0183' '49228CA903BA.ms.model.script' ;
+   MELINK From ME_49228CA903BA_view ;
+   MELINK To ME_49216B3C02E8_view ;
+  ENDMEVIEWLINK // ME_49228CA903BA_ME_49216B3C02E8_uses::Dependency
+
+  MEVIEWLINK ME_49228CA903BA_ME_4926BD6800C8_uses::Dependency
+   MELINK Original WL 'ME_492FF73F02A3' '49228CA903BA.ms.model.script' ;
+   MELINK From ME_49228CA903BA_view ;
+   MELINK To ME_4926BD6800C8_view ;
+  ENDMEVIEWLINK // ME_49228CA903BA_ME_4926BD6800C8_uses::Dependency
+
+  MEVIEWLINK ME_492FF1C500B5_ME_492FECE300EA_Inherits
+   MELINK From ME_492FF1C500B5_view ;
+   MELINK To ME_492FECE300EA_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_492FF1C500B5_ME_492FECE300EA_Inherits
+
+  MEVIEWLINK ME_492FF1C500B5_ME_491DD030014A_uses::Dependency
+   MELINK Original WL 'ME_492FF1F80082' '492FF1C500B5.ms.model.script' ;
+   MELINK From ME_492FF1C500B5_view ;
+   MELINK To ME_491DD030014A_view ;
+  ENDMEVIEWLINK // ME_492FF1C500B5_ME_491DD030014A_uses::Dependency
+
+  MEVIEWLINK ME_491DD030014A_ME_491DCCE101F3_Inherits
+   MELINK From ME_491DD030014A_view ;
+   MELINK To ME_491DCCE101F3_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_491DD030014A_ME_491DCCE101F3_Inherits
+
   MELIST Views
    Seq: ( ME_491C3E97009F_view // TdsConsultation
    ME_491DCCE101F3_view // TdsQuery
@@ -79,6 +121,13 @@ MEDIAGRAMS ME_491C3E40007B_diagrams
    ME_491DD030014A_view // TdsSendConsultation
    ME_4CF37A0400FB_view // TnsConsultationDocumentContainerNew
    ME_55FAEA9B0079_view // bsConsultationManager
+   ME_491C3E97009F_ME_4CF37A0400FB_uses::Dependency // TdsConsultation -> TnsConsultationDocumentContainerNew
+   ME_49228CA903BA_ME_491C3E97009F_uses::Dependency // TsdsConsultation -> TdsConsultation
+   ME_49228CA903BA_ME_49216B3C02E8_uses::Dependency // TsdsConsultation -> TdsConsultationMark
+   ME_49228CA903BA_ME_4926BD6800C8_uses::Dependency // TsdsConsultation -> TdsConsultationList
+   ME_492FF1C500B5_ME_492FECE300EA_Inherits // TsdsSendConsultation -> TsdsQuery
+   ME_492FF1C500B5_ME_491DD030014A_uses::Dependency // TsdsSendConsultation -> TdsSendConsultation
+   ME_491DD030014A_ME_491DCCE101F3_Inherits // TdsSendConsultation -> TdsQuery
    )
   ; // Views
  ENDMEDIAGRAM // ME_491C3E40007B_main

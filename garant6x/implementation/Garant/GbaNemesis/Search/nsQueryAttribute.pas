@@ -607,6 +607,7 @@ uses
  , SearchRes
  , SearchLite_Services
  //#UC START# *54E5C126001Dimpl_uses*
+ , vcmDispatcher
  //#UC END# *54E5C126001Dimpl_uses*
 ;
 
@@ -3566,7 +3567,7 @@ begin
 //#UC START# *52330265006F_4683A4A90094_impl*
  if NeedSettings then
  begin
-  g_Dispatcher.FormDispatcher.Lock;
+  TvcmDispatcher.Instance.FormDispatcher.Lock;
   try
    l_GroupCount := f_QueryCard.GroupCount - 1;
    l_Descriptions := afw.Settings.LoadString(nsAStr(MakeDescriptionsSettingId).S, '');
@@ -3600,7 +3601,7 @@ begin
       f_QueryCard.QueryGroup[0].Expanded := True;
      end;//l_GroupCount >= 0
   finally
-   g_Dispatcher.FormDispatcher.UnLock;
+   TvcmDispatcher.Instance.FormDispatcher.UnLock;
   end;// g_Dispatcher.FormDispatcher.Lock;
  end;//NeedSettings
 //#UC END# *52330265006F_4683A4A90094_impl*

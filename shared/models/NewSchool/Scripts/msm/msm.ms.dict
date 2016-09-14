@@ -187,6 +187,10 @@ elem_iterator MethodParameters
  >>> Result
 ; // MethodParameters
 
+USES
+ ElemMemberPrim.ms.dict
+;
+
 ModelElement elem_func MethodTarget
  Cached:
  (
@@ -195,6 +199,13 @@ ModelElement elem_func MethodTarget
     ( Self .FirstOperation .Target )
    ( Self .IsFunction )
     ( Self .FirstOperation .Target )
+   ( Self .IsViewLink )
+    RULES
+     ( Self .Target .IsNil )
+      ( Self .To )
+     DEFAULT
+      ( Self .Target )
+    ; // RULES
    DEFAULT
     ( Self .Target )
   ; // RULES
@@ -268,19 +279,35 @@ STRING elem_func Signature
  Cached:
  (
   [ Self .NameNotEmpty Self .ParametersString ] strings:Cat >>> Result
-  VAR l_T
-  Self .MethodTarget >>> l_T
   
-  if ( l_T .NotIsNil ) then
+  if ( Self .IsViewLink ) then
   begin
-   VAR l_Name
-   l_T .NameInModel >>> l_Name
-   if ( l_Name .IsNil ) then
+   if ( Self .From .NotIsNil ) then
    begin
-    'void' >>> l_Name
-   end // ( l_Name .IsNil )
-   [ Result ': ' l_Name ] strings:Cat >>> Result
-  end // ( l_T .NotIsNil )
+    [ Result ' ' Self .From .NameInModel ] strings:Cat >>> Result
+   end // ( Self .From .NotIsNil )
+   if ( Self .To .NotIsNil ) then
+   begin
+    [ Result ' -> ' Self .To .NameInModel ] strings:Cat >>> Result
+   end // ( Self .To .NotIsNil )
+  end // ( Self .IsViewLink )
+  else
+  begin
+   VAR l_T
+   Self .MethodTarget >>> l_T
+   
+   if ( l_T .NotIsNil ) then
+   begin
+    VAR l_Name
+    l_T .NameInModel >>> l_Name
+    if ( l_Name .IsNil ) then
+    begin
+     'void' >>> l_Name
+    end // ( l_Name .IsNil )
+    [ Result ': ' l_Name ] strings:Cat >>> Result
+   end // ( l_T .NotIsNil )
+  end // ( Self .IsViewLink )
+  
   Result
  )
  >>> Result
@@ -529,6 +556,75 @@ INTEGER elem_func msm:View:BackColor
  >>> Result
 ; // msm:View:BackColor
 
+STRING elem_func msm:View:LabelName
+
+ STRING elem_func StereotypeLabelName
+  Cached:
+  (
+   VAR l_Label
+   Self .GetUP "personal label" >>> l_Label
+   RULES
+    ( l_Label .NotIsNil )
+     l_Label
+    DEFAULT
+     begin 
+      Self .StereotypeInModel .GetUP "personal label" >>> l_Label
+      RULES
+       ( l_Label .NotIsNil )
+        l_Label
+       DEFAULT
+        begin
+         '' >>> l_Label
+         Self .Inherited.Words .for> (
+           IN anAncestor
+          VAR l_AncestorLabel 
+          anAncestor call.me >>> l_AncestorLabel
+          RULES
+           ( l_AncestorLabel .NotIsNil )
+            ( 
+             l_AncestorLabel >>> l_Label
+             BREAK-ITERATOR
+            )
+          ; // RULES
+         ) // Self .Inherited.Words .for>
+         l_Label
+        end // DEFAULT
+      ; // RULES
+     end // DEFAULT
+   ; // RULES  
+  )
+  >>> Result
+ ; // StereotypeLabelName
+ 
+ VAR l_Label
+ Self .Stereotype .StereotypeLabelName >>> l_Label
+ RULES
+  ( l_Label .NotIsNil )
+   l_Label
+  ( Self .IsUseCase )
+   'code_use_case'
+  ( Self .MDAClass class_Operation == ) 
+   'code_method'
+  ( Self .MDAClass class_Attribute == ) 
+   'code_attr'
+  ( Self .MDAClass class_Parameter == ) 
+   'code_param'
+  ( Self .MDAClass class_Dependency == ) 
+   'code_mda_dependency'
+  DEFAULT 
+   ''
+ ; // RESULT  
+ >>> Result
+; // msm:View:LabelName
+
+STRING elem_func msm:View:ImageFileName
+ Self .msm:View:LabelName >>> Result
+ if ( Result .NotIsNil ) then
+ begin
+  [ 'W:\MDProcess\MDAGenerator\other\images\' Result '.gif' ] strings:Cat >>> Result
+ end // ( Result .NotIsNil )
+; // msm:View:ImageFileName
+
 BOOLEAN elem_func IsCategory
  Self .MDAClass class_Category ==
  >>> Result
@@ -559,6 +655,10 @@ INTEGER elem_func msm:View:LinkLineStyle
   RULES
    ( Self .IsAttribute )
     TPenStyle::psSolid
+   ( Self .MDAClass class_Inherits ?== )
+    TPenStyle::psSolid
+   ( Self .MDAClass class_Implements ?== )
+    TPenStyle::psDash
    ( Self .LinkViewType 'Inherits' ?== )
     TPenStyle::psSolid
    ( Self .LinkViewType 'Implements' ?== )
@@ -575,6 +675,10 @@ INTEGER elem_func msm:View:LinkLineColor
  (
   RULES
    ( Self .IsAttribute )
+    TColor::clBlack
+   ( Self .MDAClass class_Inherits ?== )
+    TColor::clBlack
+   ( Self .MDAClass class_Implements ?== )
     TColor::clBlack
    ( Self .LinkViewType 'Inherits' ?== )
     TColor::clBlack

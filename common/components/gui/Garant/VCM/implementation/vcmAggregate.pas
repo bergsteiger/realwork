@@ -58,6 +58,7 @@ uses
  , SysUtils
  , vcmUserControls
  //#UC START# *528609ED0325impl_uses*
+ , vcmDispatcher
  //#UC END# *528609ED0325impl_uses*
 ;
 
@@ -73,8 +74,8 @@ begin
   CreateGUID(f_GUID)
  else
   f_GUID := aGUID^; 
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.AddAggregate(Self);
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.AddAggregate(Self);
 //#UC END# *52860CA00075_528609ED0325_impl*
 end;//TvcmAggregate.Create
 
@@ -86,8 +87,8 @@ var
 //#UC END# *52860CAD0035_528609ED0325_var*
 begin
 //#UC START# *52860CAD0035_528609ED0325_impl*
- if (aGUID = nil) OR (g_Dispatcher = nil) OR
-    not g_Dispatcher.FindAggregate(aGUID^, Result) then
+ if (aGUID = nil) or not TvcmDispatcher.Exists or
+    not TvcmDispatcher.Instance.As_IvcmDispatcher.FindAggregate(aGUID^, Result) then
  begin
   l_Aggregate := Create(aGUID, aCanBeCloned);
   try
@@ -278,8 +279,8 @@ procedure TvcmAggregate.Cleanup;
 //#UC END# *479731C50290_528609ED0325_var*
 begin
 //#UC START# *479731C50290_528609ED0325_impl*
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.RemoveAggregate(Self);
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.RemoveAggregate(Self);
  vcmFree(f_List);
  inherited;
 //#UC END# *479731C50290_528609ED0325_impl*

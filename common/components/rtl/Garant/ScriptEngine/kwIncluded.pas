@@ -109,8 +109,6 @@ end;//TkwIncluded.UnknownWord
 initialization
  TkwIncluded.RegisterInEngine;
  {* Регистрация TkwIncluded }
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа RkwIncluded }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

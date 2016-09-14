@@ -44,6 +44,30 @@ MEDIAGRAMS ME_4AA005310028_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4AE593970016_view
 
+  MEVIEWLINK ME_49242CB201D0_ME_492428D203A1_Implements
+   MELINK From ME_49242CB201D0_view ;
+   MELINK To ME_492428D203A1_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_49242CB201D0_ME_492428D203A1_Implements
+
+  MEVIEWLINK ME_49242CB201D0_ME_4924015202CD_Inherits
+   MELINK From ME_49242CB201D0_view ;
+   MELINK To ME_4924015202CD_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_49242CB201D0_ME_4924015202CD_Inherits
+
+  MEVIEWLINK ME_492437620004_ME_49242CB201D0_Inherits
+   MELINK From ME_492437620004_view ;
+   MELINK To ME_49242CB201D0_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_492437620004_ME_49242CB201D0_Inherits
+
+  MEVIEWLINK ME_492437620004_ME_4AE58E7C00A4_uses::Dependency
+   MELINK Original WL 'ME_4AE5902403A8' '492437620004.ms.model.script' ;
+   MELINK From ME_492437620004_view ;
+   MELINK To ME_4AE58E7C00A4_view ;
+  ENDMEVIEWLINK // ME_492437620004_ME_4AE58E7C00A4_uses::Dependency
+
   MELIST Views
    Seq: ( ME_4924015202CD_view // dsTagSimpleTree
    ME_492428D203A1_view // CurrentChangedListener
@@ -51,6 +75,10 @@ MEDIAGRAMS ME_4AA005310028_diagrams
    ME_492437620004_view // TdsTreeAttributeSelect
    ME_4AE58E7C00A4_view // TnsSelectedAttributesIterators
    ME_4AE593970016_view // TdeSearch
+   ME_49242CB201D0_ME_492428D203A1_Implements // dsSituation -> CurrentChangedListener
+   ME_49242CB201D0_ME_4924015202CD_Inherits // dsSituation -> dsTagSimpleTree
+   ME_492437620004_ME_49242CB201D0_Inherits // TdsTreeAttributeSelect -> dsSituation
+   ME_492437620004_ME_4AE58E7C00A4_uses::Dependency // TdsTreeAttributeSelect -> TnsSelectedAttributesIterators
    )
   ; // Views
  ENDMEDIAGRAM // ME_4AA005310028_main

@@ -1,8 +1,11 @@
 unit nsNotifiers;
 
-// $Id: nsNotifiers.pas,v 1.22 2016/08/04 12:43:09 lulin Exp $
+// $Id: nsNotifiers.pas,v 1.23 2016/09/13 18:31:59 kostitsin Exp $
 
 // $Log: nsNotifiers.pas,v $
+// Revision 1.23  2016/09/13 18:31:59  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.22  2016/08/04 12:43:09  lulin
 // - перегенерация.
 //
@@ -503,6 +506,7 @@ uses
 
  vcmBase,
  vcmForm,
+ vcmDispatcher,
 
  BaseTypesUnit,
  IOUnit,
@@ -707,7 +711,7 @@ procedure TnsSynchronizedNotification.UpdateStarted(aDataPtr: Tl3DataHolder);
    l_Data := afw.Application.Data;
    if (l_Data <> nil) then
    try
-    g_Dispatcher.FormDispatcher.Lock;
+    TvcmDispatcher.Instance.FormDispatcher.Lock;
     try
      defDataAdapter.FinishDataUpdate;
       // - уведомить адаптер об обновлении данных необходимо раньше, чем
@@ -715,7 +719,7 @@ procedure TnsSynchronizedNotification.UpdateStarted(aDataPtr: Tl3DataHolder);
       //   обновлении.
      l_Data.FinishUpdate;
     finally
-     g_Dispatcher.FormDispatcher.UnLock;
+     TvcmDispatcher.Instance.FormDispatcher.UnLock;
     end;//try..finally
    finally
     l_Data := nil;
@@ -732,7 +736,7 @@ procedure TnsSynchronizedNotification.UpdateStarted(aDataPtr: Tl3DataHolder);
    finally
     l_MessageForm := nil;
    end;//try..finally
-   g_Dispatcher.EndCancelModal;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.EndCancelModal;
   end;//lp_ShowUpdateWindow
 
   procedure CancelPopups;
@@ -748,10 +752,10 @@ begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=428876920
  Sleep(2000);
  Assert(GetCurrentThreadID = MainThreadID);
- if Assigned(g_Dispatcher) then
+ if TvcmDispatcher.Exists then
   // - если g_Dispatcher = nil, то это значит работает только сам Updater.
  begin
-  g_Dispatcher.LockActionUpdate;
+  TvcmDispatcher.Instance.As_IvcmDispatcher.LockActionUpdate;
   try
    CancelPopups;
    lp_ShowUpdateWindow;
@@ -759,7 +763,7 @@ begin
     defDataAdapter.AbnormalTermination(err_UpdateDataDestroyed);
    lp_NotifyDataUpdate;
   finally
-   g_Dispatcher.UnlockActionUpdate;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.UnlockActionUpdate;
   end;//try..finally
  end;//if Assigned(g_Dispatcher) then
 end;//UpdateStarted
@@ -771,13 +775,13 @@ begin
  Assert(GetCurrentThreadID = MainThreadID);
  f_UpdateComplete := PBytebool(aDataPtr.Data)^;
  // Если g_Dispatcher = nil, то это значит работает только сам Updater:
- if Assigned(g_Dispatcher) then
+ if TvcmDispatcher.Exists then
  begin
   // Обновим заголовок приложения, нужно делать до рассылки потому, что
   // главные формы, будут использовать его для корретировки своих
   // CaptionPrefix:
   DefDataAdapter.DefineApplicationTitle;
-  g_Dispatcher.BeginCancelModal;
+  TvcmDispatcher.Instance.As_IvcmDispatcher.BeginCancelModal;
  end;//if Assigned(g_Dispatcher) then
 end;//UpdateFinished
 
@@ -790,7 +794,7 @@ begin
 
  if (defDataAdapter = nil) or
     (defDataAdapter.CommonInterfaces = nil) or
-    not Assigned(g_Dispatcher) then
+    not TvcmDispatcher.Exists then
  begin
   Application.Terminate;
   Exit;
@@ -807,7 +811,7 @@ begin
 
  if (defDataAdapter = nil) or
     (defDataAdapter.CommonInterfaces = nil) or
-    not Assigned(g_Dispatcher) then
+    not TvcmDispatcher.Exists then
  begin
   Application.Terminate;
   Exit;
@@ -949,7 +953,7 @@ begin
 
  if (defDataAdapter = nil) or
     (defDataAdapter.CommonInterfaces = nil) or
-    not Assigned(g_Dispatcher) then
+    not TvcmDispatcher.Exists then
  begin
   Exit;
  end;
@@ -962,7 +966,7 @@ begin
 
  if (defDataAdapter = nil) or
     (defDataAdapter.CommonInterfaces = nil) or
-    not Assigned(g_Dispatcher) then
+    not TvcmDispatcher.Exists then
  begin
   Exit;
  end;
@@ -987,7 +991,7 @@ end;
 
 procedure TnsOnExternalFolderChange.FireImplementation(aDataPtr: Tl3DataHolder);
 begin
- if not Assigned(g_Dispatcher) then
+ if not TvcmDispatcher.Exists then
   Exit;
  Assert(GetCurrentThreadID = MainThreadID);
  with PNotifyData(aDataPtr.Data)^ do
@@ -1027,7 +1031,7 @@ end;
 
 procedure TnsOnControlledChange.FireImplementation(aDataPtr: Tl3DataHolder);
 begin
- if not Assigned(g_Dispatcher) then
+ if not TvcmDispatcher.Exists then
   Exit;
  Assert(GetCurrentThreadID = MainThreadID);
  TnsUnderControlNotificationManager.Instance.SetChangedNotification; 

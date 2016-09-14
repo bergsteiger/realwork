@@ -1,6 +1,6 @@
 unit DocIntf;
 
-{ $Id: DocIntf.pas,v 1.114 2016/09/13 10:16:30 lukyanets Exp $ }
+{ $Id: DocIntf.pas,v 1.115 2016/09/14 10:52:16 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -838,6 +838,7 @@ uses
   arSpravkaDocumentContainer,
   arDocumentContainerWithContentsTree,
   arUploadDocumentHelper,
+  arFiltersUtils,
 
   ArchiUserRequestManager,
 

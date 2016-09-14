@@ -10,8 +10,8 @@
  _msmListLikeModel_ = {abstract} class(TmsmModel, ImsmListLikeModel)
   private
    f_ElementView: TmsmModelElementView;
+   f_Selection: ImsmElementSelection;
    f_ElementToAction: ImsmModelElement;
-   f_CurrentElement: ImsmModelElement;
   protected
    function DoGetList: ImsmModelElementStringList; virtual; abstract;
    procedure DoShowElementAsList(const anElement: ImsmModelElement); virtual; abstract;
@@ -22,7 +22,12 @@
    procedure Set_CurrentElement(const aValue: ImsmModelElement);
    function Get_Caption: AnsiString;
    function Get_List: ImsmModelElementStringList;
+   function Get_Selection: ImsmElementSelection;
+   procedure InitFields; override;
    procedure ClearFields; override;
+  public
+   property Selection: ImsmElementSelection
+    read f_Selection;
  end;//_msmListLikeModel_
 
 {$Else msmListLikeModel_imp}
@@ -64,7 +69,7 @@ function _msmListLikeModel_.Get_CurrentElement: ImsmModelElement;
 //#UC END# *57B31CF301D2_57B57EDB003Fget_var*
 begin
 //#UC START# *57B31CF301D2_57B57EDB003Fget_impl*
- Result := f_CurrentElement;
+ Result := f_Selection.CurrentElement;
 //#UC END# *57B31CF301D2_57B57EDB003Fget_impl*
 end;//_msmListLikeModel_.Get_CurrentElement
 
@@ -73,8 +78,7 @@ procedure _msmListLikeModel_.Set_CurrentElement(const aValue: ImsmModelElement);
 //#UC END# *57B31CF301D2_57B57EDB003Fset_var*
 begin
 //#UC START# *57B31CF301D2_57B57EDB003Fset_impl*
- f_CurrentElement := aValue;
- Fire(CurrentElementChangedEvent.Instance);
+ f_Selection.CurrentElement := aValue;
 //#UC END# *57B31CF301D2_57B57EDB003Fset_impl*
 end;//_msmListLikeModel_.Set_CurrentElement
 
@@ -100,11 +104,30 @@ begin
 //#UC END# *57B6A4550271_57B57EDB003Fget_impl*
 end;//_msmListLikeModel_.Get_List
 
+function _msmListLikeModel_.Get_Selection: ImsmElementSelection;
+//#UC START# *57D8F1B70265_57B57EDB003Fget_var*
+//#UC END# *57D8F1B70265_57B57EDB003Fget_var*
+begin
+//#UC START# *57D8F1B70265_57B57EDB003Fget_impl*
+ Result := f_Selection;
+//#UC END# *57D8F1B70265_57B57EDB003Fget_impl*
+end;//_msmListLikeModel_.Get_Selection
+
+procedure _msmListLikeModel_.InitFields;
+//#UC START# *47A042E100E2_57B57EDB003F_var*
+//#UC END# *47A042E100E2_57B57EDB003F_var*
+begin
+//#UC START# *47A042E100E2_57B57EDB003F_impl*
+ inherited;
+ f_Selection := TmsmElementSelection.Make(Self);
+//#UC END# *47A042E100E2_57B57EDB003F_impl*
+end;//_msmListLikeModel_.InitFields
+
 procedure _msmListLikeModel_.ClearFields;
 begin
  Finalize(f_ElementView);
+ f_Selection := nil;
  f_ElementToAction := nil;
- f_CurrentElement := nil;
  inherited;
 end;//_msmListLikeModel_.ClearFields
 

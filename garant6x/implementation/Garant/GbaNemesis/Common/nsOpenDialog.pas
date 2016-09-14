@@ -81,6 +81,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4DDD468D0131impl_uses*
+ , vcmDispatcher
  //#UC END# *4DDD468D0131impl_uses*
 ;
 
@@ -222,9 +223,9 @@ begin
  try
   l_OwnerHandle := 0;
   l_FocusedWnd := 0;
-  if (vcmBase.g_Dispatcher <> nil) then
+  if TvcmDispatcher.Exists then
   begin
-   l_OwnerHandle := vcmBase.g_Dispatcher.FormDispatcher.CurrentMainForm.VCLWinControl.Handle;
+   l_OwnerHandle := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.VCLWinControl.Handle;
    l_FocusedWnd := Windows.GetFocus;
   end;//vcmBase.g_Dispatcher <> nil
   Result := DoExecute(@GetOpenFileName, l_OwnerHandle);

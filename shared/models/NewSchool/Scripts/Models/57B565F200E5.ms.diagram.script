@@ -32,11 +32,25 @@ MEDIAGRAMS ME_57B565F200E5_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57ADF14D01B1_view
 
+  MEVIEWLINK ME_57AEBE8A014F_ME_57B69C79026F_Inherits
+   MELINK From ME_57AEBE8A014F_view ;
+   MELINK To ME_57B69C79026F_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_57AEBE8A014F_ME_57B69C79026F_Inherits
+
+  MEVIEWLINK ME_57ADF14D01B1_ME_57AEBE8A014F_Implements
+   MELINK From ME_57ADF14D01B1_view ;
+   MELINK To ME_57AEBE8A014F_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_57ADF14D01B1_ME_57AEBE8A014F_Implements
+
   MELIST Views
    Seq: ( ME_57B3262B00D2_view // TmsmModelElementView
    ME_57B69C79026F_view // ImsmStringList
    ME_57AEBE8A014F_view // ImsmModelElementStringList
    ME_57ADF14D01B1_view // ImsmModelElementTree
+   ME_57AEBE8A014F_ME_57B69C79026F_Inherits // ImsmModelElementStringList -> ImsmStringList
+   ME_57ADF14D01B1_ME_57AEBE8A014F_Implements // ImsmModelElementTree -> ImsmModelElementStringList
    )
   ; // Views
  ENDMEDIAGRAM // ME_57B565F200E5_main

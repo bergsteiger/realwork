@@ -32,11 +32,32 @@ MEDIAGRAMS ME_4990510C0026_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_49006C6F02C8_view
 
+  MEVIEWLINK ME_499051B602D4_viewlink
+   MELINK Original WL 'ME_499051B602D4' '4990510C0026.ms.model.script' ;
+   MELINK From ME_4990513A00CF_view ;
+   MELINK To ME_49006BB201CB_view ;
+  ENDMEVIEWLINK // ME_499051B602D4_viewlink
+
+  MEVIEWLINK ME_49006BE702D7_ME_49006BB201CB_Inherits
+   MELINK From ME_49006BE702D7_view ;
+   MELINK To ME_49006BB201CB_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_49006BE702D7_ME_49006BB201CB_Inherits
+
+  MEVIEWLINK ME_49006CB00191_viewlink
+   MELINK Original WL 'ME_49006CB00191' '4990510C0026.ms.model.script' ;
+   MELINK From ME_49006C6F02C8_view ;
+   MELINK To ME_49006BE702D7_view ;
+  ENDMEVIEWLINK // ME_49006CB00191_viewlink
+
   MELIST Views
    Seq: ( ME_49006BB201CB_view // TLogicOperation
    ME_4990513A00CF_view // InsLogicOperation
    ME_49006BE702D7_view // TLogicOperationSet
    ME_49006C6F02C8_view // InsTaggedTreeInfo
+   ME_499051B602D4_viewlink // InsLogicOperation -> TLogicOperation
+   ME_49006BE702D7_ME_49006BB201CB_Inherits // TLogicOperationSet -> TLogicOperation
+   ME_49006CB00191_viewlink // InsTaggedTreeInfo -> TLogicOperationSet
    )
   ; // Views
  ENDMEDIAGRAM // ME_4990510C0026_main

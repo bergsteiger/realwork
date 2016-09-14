@@ -19,11 +19,11 @@ uses
 type
  TmsmDrawingUseCase = class(TmsmUseCase, ImsmDrawingUseCase)
   private
-   f_Navigator: ImsmTreeModel;
-   f_Drawing: ImsmDrawingModel;
    f_FloatingNavigator: ImsmTreeModel;
-   f_Caption: ImsmCaptionModel;
    f_MainList: ImsmListModel;
+   f_Drawing: ImsmDrawingModel;
+   f_Navigator: ImsmTreeModel;
+   f_Caption: ImsmCaptionModel;
   protected
    function Get_MainList: ImsmListModel;
    function Get_Navigator: ImsmTreeModel;
@@ -40,16 +40,16 @@ type
    class function Make(const aViewForTree: TmsmModelElementView;
     const aViewForList: TmsmModelElementView): ImsmDrawingUseCase; reintroduce;
   public
-   property Navigator: ImsmTreeModel
-    read f_Navigator;
-   property Drawing: ImsmDrawingModel
-    read f_Drawing;
    property FloatingNavigator: ImsmTreeModel
     read f_FloatingNavigator;
-   property Caption: ImsmCaptionModel
-    read f_Caption;
    property MainList: ImsmListModel
     read f_MainList;
+   property Drawing: ImsmDrawingModel
+    read f_Drawing;
+   property Navigator: ImsmTreeModel
+    read f_Navigator;
+   property Caption: ImsmCaptionModel
+    read f_Caption;
  end;//TmsmDrawingUseCase
 
 implementation
@@ -198,11 +198,11 @@ end;//TmsmDrawingUseCase.DoActivate
 
 procedure TmsmDrawingUseCase.ClearFields;
 begin
- f_Navigator := nil;
- f_Drawing := nil;
  f_FloatingNavigator := nil;
- f_Caption := nil;
  f_MainList := nil;
+ f_Drawing := nil;
+ f_Navigator := nil;
+ f_Caption := nil;
  inherited;
 end;//TmsmDrawingUseCase.ClearFields
 

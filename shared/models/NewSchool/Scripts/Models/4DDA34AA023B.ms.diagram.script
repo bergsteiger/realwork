@@ -38,12 +38,40 @@ MEDIAGRAMS ME_4DDA34AA023B_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_574480200219_view
 
+  MEVIEWLINK ME_4DDD468D0131_ME_4AF32FBD00F5_Inherits
+   MELINK From ME_4DDD468D0131_view ;
+   MELINK To ME_4AF32FBD00F5_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4DDD468D0131_ME_4AF32FBD00F5_Inherits
+
+  MEVIEWLINK ME_573A0A7E0387_ME_573B090C02C5_uses::Dependency
+   MELINK Original WL 'ME_5744682D005B' '4DDA34AA023B.ms.model.script' ;
+   MELINK From ME_573A0A7E0387_view ;
+   MELINK To ME_573B090C02C5_view ;
+  ENDMEVIEWLINK // ME_573A0A7E0387_ME_573B090C02C5_uses::Dependency
+
+  MEVIEWLINK ME_573A0A7E0387_ME_574480200219_uses::Dependency
+   MELINK Original WL 'ME_574480A60179' '4DDA34AA023B.ms.model.script' ;
+   MELINK From ME_573A0A7E0387_view ;
+   MELINK To ME_574480200219_view ;
+  ENDMEVIEWLINK // ME_573A0A7E0387_ME_574480200219_uses::Dependency
+
+  MEVIEWLINK ME_574480200219_ME_573A0A7E0387_uses::Dependency
+   MELINK Original WL 'ME_57448093012F' '4DDA34AA023B.ms.model.script' ;
+   MELINK From ME_574480200219_view ;
+   MELINK To ME_573A0A7E0387_view ;
+  ENDMEVIEWLINK // ME_574480200219_ME_573A0A7E0387_uses::Dependency
+
   MELIST Views
    Seq: ( ME_4AF32FBD00F5_view // TnsSaveDialog
    ME_4DDD468D0131_view // TnsOpenDialog
    ME_573B090C02C5_view // TnsSaveDialogImpl
    ME_573A0A7E0387_view // TnsSaveDialogExecutor
    ME_574480200219_view // SaveDialogWordsPack
+   ME_4DDD468D0131_ME_4AF32FBD00F5_Inherits // TnsOpenDialog -> TnsSaveDialog
+   ME_573A0A7E0387_ME_573B090C02C5_uses::Dependency // TnsSaveDialogExecutor -> TnsSaveDialogImpl
+   ME_573A0A7E0387_ME_574480200219_uses::Dependency // TnsSaveDialogExecutor -> SaveDialogWordsPack
+   ME_574480200219_ME_573A0A7E0387_uses::Dependency // SaveDialogWordsPack -> TnsSaveDialogExecutor
    )
   ; // Views
  ENDMEDIAGRAM // ME_4DDA34AA023B_main

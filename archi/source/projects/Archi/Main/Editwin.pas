@@ -1,6 +1,6 @@
 unit Editwin;
 
-{ $Id: Editwin.pas,v 1.197 2016/09/13 10:35:12 dinishev Exp $ }
+{ $Id: Editwin.pas,v 1.198 2016/09/14 11:35:38 dinishev Exp $ }
 
 {$I arDefine.inc}
 
@@ -1515,7 +1515,6 @@ begin
  else
   Action := caFree;
  TSpellCheckDlg.CloseSpellCheck;
- MainForm.CheckCurrChild(Self);
 end;
 
 function TDocEditorWindow.GetSprID: TDocID;
@@ -2784,6 +2783,7 @@ begin
  //l3Free(JrnlList);
  l3Free(fSelectedSubList);
  CleanupTempImgFile;
+ MainForm.CheckCurrChild(Self);
 end;
 
 procedure TDocEditorWindow.SetDocName(const aValue : AnsiString);

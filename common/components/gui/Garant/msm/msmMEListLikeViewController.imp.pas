@@ -12,6 +12,9 @@
    procedure DoGetItemFont(Sender: TObject;
     Index: LongInt;
     const aFont: Il3Font); override;
+   function DoGetItemImage(Sender: TObject;
+    Index: Integer;
+    var aImages: TCustomImageList): Integer; override;
  end;//_msmMEListLikeViewController_
 
 {$Else msmMEListLikeViewController_imp}
@@ -35,6 +38,17 @@ begin
  end;//with Self.Model.List[Index]
 //#UC END# *57B47A2102DE_57C977AE0264_impl*
 end;//_msmMEListLikeViewController_.DoGetItemFont
+
+function _msmMEListLikeViewController_.DoGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *57D9022D0322_57C977AE0264_var*
+//#UC END# *57D9022D0322_57C977AE0264_var*
+begin
+//#UC START# *57D9022D0322_57C977AE0264_impl*
+ Result := TmsmMEImages.Instance.GetMEImage(Self.Model.List[Index], aImages);
+//#UC END# *57D9022D0322_57C977AE0264_impl*
+end;//_msmMEListLikeViewController_.DoGetItemImage
 
 {$EndIf msmMEListLikeViewController_imp_impl}
 

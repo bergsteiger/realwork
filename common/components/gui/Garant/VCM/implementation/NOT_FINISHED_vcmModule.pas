@@ -62,10 +62,6 @@ initialization
  TtfwClassRef.Register(TvcmModule);
  {* Регистрация TvcmModule }
 {$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа RvcmModule }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

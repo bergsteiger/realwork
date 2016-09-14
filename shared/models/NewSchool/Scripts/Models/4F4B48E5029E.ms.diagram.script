@@ -32,11 +32,32 @@ MEDIAGRAMS ME_4F4B48E5029E_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4F4B4B10001B_view
 
+  MEVIEWLINK ME_4F33E6C302BD_ME_4F33E5FD009E_Inherits
+   MELINK From ME_4F33E6C302BD_view ;
+   MELINK To ME_4F33E5FD009E_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4F33E6C302BD_ME_4F33E5FD009E_Inherits
+
+  MEVIEWLINK ME_4F33E7CF0393_ME_4F33E6C302BD_Implements
+   MELINK From ME_4F33E7CF0393_view ;
+   MELINK To ME_4F33E6C302BD_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_4F33E7CF0393_ME_4F33E6C302BD_Implements
+
+  MEVIEWLINK ME_4F4B4B10001B_ME_4F33E7CF0393_Inherits
+   MELINK From ME_4F4B4B10001B_view ;
+   MELINK To ME_4F33E7CF0393_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4F4B4B10001B_ME_4F33E7CF0393_Inherits
+
   MELIST Views
    Seq: ( ME_4F33E5FD009E_view // nevDocumentContainerDecorationRules
    ME_4F33E6C302BD_view // MnevDocumentContainerDecorationRules
    ME_4F33E7CF0393_view // nsEditionsDecorationRules
    ME_4F4B4B10001B_view // PrintViewDecorationRules
+   ME_4F33E6C302BD_ME_4F33E5FD009E_Inherits // MnevDocumentContainerDecorationRules -> nevDocumentContainerDecorationRules
+   ME_4F33E7CF0393_ME_4F33E6C302BD_Implements // nsEditionsDecorationRules -> MnevDocumentContainerDecorationRules
+   ME_4F4B4B10001B_ME_4F33E7CF0393_Inherits // PrintViewDecorationRules -> nsEditionsDecorationRules
    )
   ; // Views
  ENDMEDIAGRAM // ME_4F4B48E5029E_main

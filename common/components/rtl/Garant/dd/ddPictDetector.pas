@@ -1,8 +1,11 @@
 Unit ddPictDetector;
 
-// $Id: ddPictDetector.pas,v 1.14 2013/04/11 16:46:28 lulin Exp $ 
+// $Id: ddPictDetector.pas,v 1.15 2016/09/14 11:40:10 lulin Exp $ 
 
 // $Log: ddPictDetector.pas,v $
+// Revision 1.15  2016/09/14 11:40:10  lulin
+// - подтачиваем.
+//
 // Revision 1.14  2013/04/11 16:46:28  lulin
 // - отлаживаем под XE3.
 //
@@ -35,12 +38,13 @@ interface
 Uses
   Classes,
   l3Types,
+  l3ProtoObject,
   l3Base,
   ddConst
   ;
 
 type
-  TddPictureFormatDetector = class(Tl3Base)
+  TddPictureFormatDetector = class(Tl3ProtoObject)
   private
     f_PictureFormat: Longint;
     f_Height: Longint;
@@ -50,7 +54,7 @@ type
     procedure Cleanup; override;
    procedure BMPDimension(aStream: TStream);
   public
-    constructor Create(aOwner: TObject); override;
+    constructor Create;
 
     function Check(Stream: TStream): Boolean; overload;
     function Check(FileName: AnsiString): Boolean; overload;
@@ -70,9 +74,10 @@ type
 implementation
 Uses
   SysUtils, Graphics,
+  l3Bitmap,
   l3Stream;
 
-constructor TddPictureFormatDetector.Create(aOwner: TObject);
+constructor TddPictureFormatDetector.Create;
 begin
   inherited;
   f_PictureFormat:= 0;

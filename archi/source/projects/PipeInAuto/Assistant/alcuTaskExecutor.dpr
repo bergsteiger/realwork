@@ -25,6 +25,10 @@ uses
 {$IFDEF AAC}
 {$IFDEF Courts}
   alcuDocument in '..\alcuDocument.pas',
+  arFiltersUtils in '..\..\Common\Utils\arFiltersUtils.pas',
+  arDocObjectMixer in '..\..\Common\Utils\arDocObjectMixer.pas',
+  arDocAttributesMixer in '..\..\Common\Utils\arDocAttributesMixer.pas',
+  arFoundSelectionFilter in '..\..\Common\Utils\arFoundSelectionFilter.pas',
   alcuCourtDecision in '..\Process\alcuCourtDecision.pas',
   alcuCourtDecisionSubChecker in '..\Process\alcuCourtDecisionSubChecker.pas',
 {$ENDIF Courts}

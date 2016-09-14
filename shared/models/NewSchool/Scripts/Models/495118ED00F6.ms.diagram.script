@@ -68,6 +68,72 @@ MEDIAGRAMS ME_495118ED00F6_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_54EED7DF0249_view
 
+  MEVIEW ME_4C7F94E001FA_view
+   MELINK Original WL 'ME_4C7F94E001FA' '495118ED00F6.ms.model.script' ; // SubPanel
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_4C7F94E001FA_view
+
+  MEVIEW ME_4DF7763F0275_view
+   MELINK Original WL 'ME_4DF7763F0275' '495118ED00F6.ms.model.script' ; // HScroll
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_4DF7763F0275_view
+
+  MEVIEW ME_498069760104_view
+   MELINK Original WL 'ME_498069760104' '495118ED00F6.ms.model.script' ; // FormDataChangedInfo
+   MEPROP X 840
+   MEPROP Y 180
+  ENDMEVIEW // ME_498069760104_view
+
+  MEVIEW ME_49513BB1031F_view
+   MELINK Original WL 'ME_49513BB1031F' '495118ED00F6.ms.model.script' ; // Document
+   MEPROP X 1000
+   MEPROP Y 180
+  ENDMEVIEW // ME_49513BB1031F_view
+
+  MEVIEW ME_495119370138_view
+   MELINK Original WL 'ME_495119370138' '495118ED00F6.ms.model.script' ; // 
+   MEPROP X 40
+   MEPROP Y 320
+  ENDMEVIEW // ME_495119370138_view
+
+  MEVIEW ME_4A1FF1360218_view
+   MELINK Original WL 'ME_4A1FF1360218' '495118ED00F6.ms.model.script' ; // BaseSearchSupportQuery
+   MEPROP X 200
+   MEPROP Y 320
+  ENDMEVIEW // ME_4A1FF1360218_view
+
+  MEVIEWLINK ME_4953909C02C9_viewlink
+   MELINK Original WL 'ME_4953909C02C9' '495118ED00F6.ms.model.script' ;
+   MELINK From ME_49538FAA0290_view ;
+   MELINK To ME_49538FC302CC_view ;
+  ENDMEVIEWLINK // ME_4953909C02C9_viewlink
+
+  MEVIEWLINK ME_49539788003E_ME_49538FC302CC_Implements
+   MELINK From ME_49539788003E_view ;
+   MELINK To ME_49538FC302CC_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_49539788003E_ME_49538FC302CC_Implements
+
+  MEVIEWLINK ME_49539A5102F1_ME_49538FAA0290_Implements
+   MELINK From ME_49539A5102F1_view ;
+   MELINK To ME_49538FAA0290_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_49539A5102F1_ME_49538FAA0290_Implements
+
+  MEVIEWLINK ME_49539A76025C_viewlink
+   MELINK Original WL 'ME_49539A76025C' '495118ED00F6.ms.model.script' ;
+   MELINK From ME_49539A5102F1_view ;
+   MELINK To ME_49538FC302CC_view ;
+  ENDMEVIEWLINK // ME_49539A76025C_viewlink
+
+  MEVIEWLINK ME_500D5D3C0051_ME_500D61A700B4_uses::Dependency
+   MELINK Original WL 'ME_500D61BC038F' '495118ED00F6.ms.model.script' ;
+   MELINK From ME_500D5D3C0051_view ;
+   MELINK To ME_500D61A700B4_view ;
+  ENDMEVIEWLINK // ME_500D5D3C0051_ME_500D61A700B4_uses::Dependency
+
   MELIST Views
    Seq: ( ME_49538FC302CC_view // InsDataSourceChangedInfo
    ME_49538FAA0290_view // InsTextFormHistory
@@ -79,6 +145,16 @@ MEDIAGRAMS ME_495118ED00F6_diagrams
    ME_500D61A700B4_view // IsDocumentForSaveInWorkJournal
    ME_54EED7B70228_view // GetParaIDForSaveInWorkJournal
    ME_54EED7DF0249_view // NeedSaveInWorkJournal
+   ME_4C7F94E001FA_view // SubPanel
+   ME_4DF7763F0275_view // HScroll
+   ME_498069760104_view // FormDataChangedInfo
+   ME_49513BB1031F_view // Document
+   ME_495119370138_view ME_4A1FF1360218_view // BaseSearchSupportQuery
+   ME_4953909C02C9_viewlink // InsTextFormHistory -> InsDataSourceChangedInfo
+   ME_49539788003E_ME_49538FC302CC_Implements // TnsDataSourceChangedInfo -> InsDataSourceChangedInfo
+   ME_49539A5102F1_ME_49538FAA0290_Implements // TnsTextFormHistory -> InsTextFormHistory
+   ME_49539A76025C_viewlink // TnsTextFormHistory -> InsDataSourceChangedInfo
+   ME_500D5D3C0051_ME_500D61A700B4_uses::Dependency // AddToWorkJournal -> IsDocumentForSaveInWorkJournal
    )
   ; // Views
  ENDMEDIAGRAM // ME_495118ED00F6_main

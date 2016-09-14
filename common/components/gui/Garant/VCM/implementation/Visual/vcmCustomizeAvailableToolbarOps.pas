@@ -4,11 +4,17 @@ unit vcmCustomizeAvailableToolbarOps;
 // Библиотека : VCM
 // Назначение : Настройка доступных для выбора операций при настройке панелей
 //              инструментов
-// Версия     : $Id: vcmCustomizeAvailableToolbarOps.pas,v 1.5 2009/02/12 13:33:58 lulin Exp $
+// Версия     : $Id: vcmCustomizeAvailableToolbarOps.pas,v 1.7 2016/09/13 20:48:10 lulin Exp $
 ////////////////////////////////////////////////////////////////////////////////
 
-{-------------------------------------------------------------------------------
+(*-------------------------------------------------------------------------------
   $Log: vcmCustomizeAvailableToolbarOps.pas,v $
+  Revision 1.7  2016/09/13 20:48:10  lulin
+  - подтачиваем.
+
+  Revision 1.6  2016/09/13 18:32:44  kostitsin
+  {requestlink: 630194905 }
+
   Revision 1.5  2009/02/12 13:33:58  lulin
   - <K>: 135604584. Выделен новый интерфейсный модуль.
 
@@ -24,7 +30,7 @@ unit vcmCustomizeAvailableToolbarOps;
   Revision 1.1  2008/06/25 09:25:00  mmorozov
   - new: Оптимизация панелей инструментов ---|> в списке доступных форм показываем только объединенные панели инструментов + рефакторинг + список форм проекта при редактировании доступных для выбора операций (CQ: OIT5-28281);
 
--------------------------------------------------------------------------------}
+-------------------------------------------------------------------------------*)
 
 interface
 
@@ -62,7 +68,8 @@ uses
   SysUtils,
   
   vcmSettings,
-  vcmBase
+  vcmBase,
+  vcmDispatcher
   ;
 
 { TvcmCustAvailableToolbarOps }
@@ -87,8 +94,8 @@ begin
     AddForm(aForm);
     // Для главной формы также доступны операции модулей:
     if Supports(aForm, IvcmMainForm) then
-     for l_Index := 0 to Pred(g_Dispatcher.ModulesCount) do
-      AddModule(g_Dispatcher.Module[l_Index].ModuleDef);
+     for l_Index := 0 to Pred(TvcmDispatcher.Instance.ModulesCount) do
+      AddModule(TvcmDispatcher.Instance.Module[l_Index].ModuleDef);
    finally
     IvcmLockListener_BeforeUnlock;
    end;

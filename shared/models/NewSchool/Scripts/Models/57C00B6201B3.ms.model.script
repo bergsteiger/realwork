@@ -686,6 +686,505 @@ ME ME_57C00B9700F2
 
 ENDME // ME_57C00B9700F2 TalcuDownloadDocStreamExecutor
 
+FORWARD ME_57D6592F0210
+
+ME ME_57D694FD02C8
+ MEPROP UID '57D694FD02C8'
+ MEPROP Name 'f_OnEraseNotify'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_57D140200240' '51B1C73B0056.ms.model.script' // TdtOnEraseAttrRecords
+ ;
+
+ENDME // ME_57D694FD02C8 f_OnEraseNotify
+
+FORWARD ME_57D69430002E
+
+FORWARD ME_57D694480371
+
+ME ME_57D6944F00C7
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FA5F460142' '52F8C298005C.ms.model.script' // TddServerTaskList
+ ;
+
+ENDME // ME_57D6944F00C7 aList
+
+ME ME_57D6944F00D6
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57C8105D02F5' '57C810400018.ms.model.script' // TalcuSpeedupRequestProc
+ ;
+
+ENDME // ME_57D6944F00D6 aProc
+
+ME ME_57D6944F00E6
+ MEPROP Name 'aEraseNotify'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57D140200240' '51B1C73B0056.ms.model.script' // TdtOnEraseAttrRecords
+ ;
+
+ENDME // ME_57D6944F00E6 aEraseNotify
+
+ME ME_57D694480371
+ MEPROP UID '57D694480371'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D69430002E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D6944F00C7 // aList
+ ME_57D6944F00D6 // aProc
+ ME_57D6944F00E6 // aEraseNotify
+ )
+ ; // Parameters
+
+ENDME // ME_57D694480371 DoIt
+
+ME ME_57D69430002E
+ MEPROP UID '57D69430002E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D694480371 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D69430002E Create
+
+ME ME_57D6946100F7
+ MEPROP UID '57D6946100F7'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D69430002E // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_5460731E025E' '544E0148010D.ms.model.script' // IncsExecutor
+ )
+ ; // Implements
+
+ENDME // ME_57D6946100F7 Make
+
+ME ME_57D65977038D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57D65977038D 
+
+ME ME_57D6597C025D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_57D6597C025D 
+
+ME ME_57D659930390
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_57D2706902F8' '57C686B70253.ms.model.script' // TcsUploadDocStream
+ ;
+
+ENDME // ME_57D659930390 
+
+ME ME_57D65997030D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_57D270880150' '57C686B70253.ms.model.script' // TcsUploadDocStreamReply
+ ;
+
+ENDME // ME_57D65997030D 
+
+FORWARD ME_57D659B902A8
+
+ME ME_57D67275018E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+
+ENDME // ME_57D67275018E 
+
+ME ME_57D67298033A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_57C823630210' '4678193C009C.ms.model.script' // Logging Levels
+ ;
+
+ENDME // ME_57D67298033A 
+
+ME ME_57D6729C0372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '47913B47006E.ms.model.script' // l3System
+ ;
+
+ENDME // ME_57D6729C0372 
+
+ME ME_57D672A00282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ ;
+ MELINK Target WL 'ME_548007530030' '47D0290B016D.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57D672A00282 
+
+ME ME_57D2A771002F_ME_57D6592F0210
+ MELINK Original HWL ME_57D2A771002F // DoExecute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57D2A771002F_ME_57D6592F0210 DoExecute
+
+ME ME_57D6592F0210
+ MEPROP UID '57D6592F0210'
+ MEPROP Name 'TalcuUploadDocStreamExecutor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C00B6201B3 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D2A6A70025 // TalcuDocTransferRequestExecutor
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57D694FD02C8 // f_OnEraseNotify
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57D69430002E // Create
+ HWL ME_57D6946100F7 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57D2A771002F_ME_57D6592F0210 // DoExecute
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57D65977038D // FreeAndNil
+ ME_57D6597C025D // UserConsts
+ ME_57D659930390 // TcsUploadDocStream
+ ME_57D65997030D // TcsUploadDocStreamReply
+ ME_57D67275018E // TalcuUploadDocRequest
+ ME_57D67298033A // Logging Levels
+ ME_57D6729C0372 // l3System
+ ME_57D672A00282 // Tl3StopWatch
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'alcuUploadDocStreamExecutor'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuUploadDocStreamExecutor'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuUploadDocStreamExecutor.pas'
+
+ENDME // ME_57D6592F0210 TalcuUploadDocStreamExecutor
+
+ME ME_57D65B91025A
+ MEPROP UID '57D65B91025A'
+ MEPROP Name 'Message'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_57D2706902F8' '57C686B70253.ms.model.script' // TcsUploadDocStream
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57D65B91025A Message
+
+ME ME_57D65BA4026B
+ MEPROP UID '57D65BA4026B'
+ MEPROP Name 'Reply'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_57D270880150' '57C686B70253.ms.model.script' // TcsUploadDocStreamReply
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57D65BA4026B Reply
+
+ME ME_57D6952002EE
+ MEPROP UID '57D6952002EE'
+ MEPROP Name 'OnEraseNotify'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_57D140200240' '51B1C73B0056.ms.model.script' // TdtOnEraseAttrRecords
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_57D6952002EE OnEraseNotify
+
+ME ME_57D65C0803AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_57D65C0803AA 
+
+ME ME_57D65C0C0356
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57D65C0C0356 
+
+ME ME_57D65C1002B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_47F0967A030B' '47F0893F0220.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_57D65C1002B3 
+
+ME ME_57D65C1500E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_57D65C1500E7 
+
+ME ME_57D65C190267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
+ ;
+
+ENDME // ME_57D65C190267 
+
+ME ME_57D65C1D0270
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ ;
+
+ENDME // ME_57D65C1D0270 
+
+ME ME_57D65C39030F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_57CFF0F8008A' '4E4B99A60349.ms.model.script' // BuildDocSavePipe
+ ;
+
+ENDME // ME_57D65C39030F 
+
+ME ME_57D6800702EB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_548007530030' '47D0290B016D.ms.model.script' // Tl3StopWatch
+ ;
+
+ENDME // ME_57D6800702EB 
+
+ME ME_57D6800B0134
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
+ ;
+
+ENDME // ME_57D6800B0134 
+
+ME ME_57D6800F0082
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_555C88FF0236' '4742C9DB033A.ms.model.script' // Tm3DBFiler
+ ;
+
+ENDME // ME_57D6800F0082 
+
+ME ME_57D6801300AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_5406A83E013E' '519B797A0048.ms.model.script' // dt_Serv
+ ;
+
+ENDME // ME_57D6801300AA 
+
+ME ME_57D6877E03C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_57D6877E03C2 
+
+ME ME_57D687830159
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_4E0ACD7D020D' '47BC51FE018B.ms.model.script' // TDocType
+ ;
+
+ENDME // ME_57D687830159 
+
+ME ME_57D68E540269
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '47913B47006E.ms.model.script' // l3System
+ ;
+
+ENDME // ME_57D68E540269 
+
+ME ME_479731C50290_ME_57D659B902A8
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57D659B902A8 Cleanup
+
+ME ME_53A2EEE90097_ME_57D659B902A8
+ MELINK Original WL 'ME_53A2EEE90097' '52F8C298005C.ms.model.script' // DoRun
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53A2EEE90097_ME_57D659B902A8 DoRun
+
+ME ME_57C4135700F7_ME_57D659B902A8
+ MELINK Original WL 'ME_57C4135700F7' '52F8C298005C.ms.model.script' // DoAbort
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57C4135700F7_ME_57D659B902A8 DoAbort
+
+ME ME_57D659B902A8
+ MEPROP UID '57D659B902A8'
+ MEPROP Name 'TalcuUploadDocRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C00B6201B3 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57D29F210256 // TalcuWaitableRequest
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57D659EF013A' '484A470100DD.ms.model.script' // UploadDocRequest
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57D65B91025A // Message
+ HWL ME_57D65BA4026B // Reply
+ HWL ME_57D6952002EE // OnEraseNotify
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57D659B902A8 // Cleanup
+ ME_53A2EEE90097_ME_57D659B902A8 // DoRun
+ ME_57C4135700F7_ME_57D659B902A8 // DoAbort
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57D65C0803AA // Tl3CustomFiler
+ ME_57D65C0C0356 // FreeAndNil
+ ME_57D65C1002B3 // Tk2TagGenerator
+ ME_57D65C1500E7 // IStream
+ ME_57D65C190267 // TevdNativeWriter
+ ME_57D65C1D0270 // TevdNativeReader
+ ME_57D65C39030F // BuildDocSavePipe
+ ME_57D6800702EB // Tl3StopWatch
+ ME_57D6800B0134 // Im3DB
+ ME_57D6800F0082 // Tm3DBFiler
+ ME_57D6801300AA // dt_Serv
+ ME_57D6877E03C2 // Tl3FileMode
+ ME_57D687830159 // TDocType
+ ME_57D68E540269 // l3System
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'alcuUploadDocRequest'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuUploadDocRequest'
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuUploadDocRequest.pas'
+
+ENDME // ME_57D659B902A8 TalcuUploadDocRequest
+
 ME ME_57C00B6201B3
  MEPROP UID '57C00B6201B3'
  MEPROP Name 'DocStreamTransfer'
@@ -701,13 +1200,18 @@ ME ME_57C00B6201B3
  HWL ME_57D29F210256 // TalcuWaitableRequest
  HWL ME_57C3FAF20200 // TalcuDownloadDocRequest
  HWL ME_57C00B9700F2 // TalcuDownloadDocStreamExecutor
+ HWL ME_57D6592F0210 // TalcuUploadDocStreamExecutor
+ HWL ME_57D659B902A8 // TalcuUploadDocRequest
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
  WL 'ME_4678193C009C' '4678193C009C.ms.model.script' // l3Types
+ WL 'ME_4720831F012D' '4720831F012D.ms.model.script' // m3DBInterfaces
+ WL 'ME_4742C9DB033A' '4742C9DB033A.ms.model.script' // m3DB
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
  WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
  WL 'ME_47F0893F0220' '47F0893F0220.ms.model.script' // nevInternalInterfaces
@@ -717,6 +1221,8 @@ ME ME_57C00B6201B3
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
  WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
+ WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
+ WL 'ME_51B1C73B0056' '51B1C73B0056.ms.model.script' // ImportExport
  WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
  WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
  WL 'ME_5432518A0316' '5432518A0316.ms.model.script' // daInterfaces

@@ -5,10 +5,13 @@ unit vcmTasksPanel;
 // Автор      : Морозов М.А.;
 // Модуль     : vcmCustOps - Панель задач.
 // Начат      : 22.02.2007                     
-// Версия     : $Id: vcmTasksPanel.pas,v 1.118 2014/02/17 16:25:57 lulin Exp $
+// Версия     : $Id: vcmTasksPanel.pas,v 1.119 2016/09/13 18:32:46 kostitsin Exp $
 
 (*-------------------------------------------------------------------------------
   $Log: vcmTasksPanel.pas,v $
+  Revision 1.119  2016/09/13 18:32:46  kostitsin
+  {requestlink: 630194905 }
+
   Revision 1.118  2014/02/17 16:25:57  lulin
   - избавляемся от ошибок молодости.
 
@@ -1389,7 +1392,8 @@ uses
   vcmBaseCollectionItem,
   vcmBaseMenuManager,
   vcmMenuManager,
-  vcmInternalConst
+  vcmInternalConst,
+  vcmDispatcher
   ;
 
 const
@@ -1553,8 +1557,7 @@ begin
   // - куда читать\писать настройки;
  UpdatePositionByOrder := False;
  EnableSaveToSettings := False; 
- if g_Dispatcher <> nil then
-  g_Dispatcher.FormDispatcher.AddLockListener(IvcmLockListener(Self));
+ TvcmDispatcher.Instance.FormDispatcher.AddLockListener(IvcmLockListener(Self));
 end;//Create
 
 function TvcmCustOps.AnalyzeOpForCurrentUseCase: Boolean;
@@ -1566,8 +1569,7 @@ end;
 
 procedure TvcmCustOps.Cleanup;
 begin
- if g_Dispatcher <> nil then
-  g_Dispatcher.FormDispatcher.RemoveLockListener(IvcmLockListener(Self));
+ TvcmDispatcher.Instance.FormDispatcher.RemoveLockListener(IvcmLockListener(Self));
  FreeAndNil(f_Groups);
  FreeAndNil(f_RepGroups);
  FreeAndNil(f_RepGroupsOperations);

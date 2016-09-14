@@ -154,6 +154,7 @@ uses
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4A8EC8AC02EEimpl_uses*
  , SysUtils
+ , vcmDispatcher
  //#UC END# *4A8EC8AC02EEimpl_uses*
 ;
 
@@ -217,7 +218,7 @@ begin
  {$IfNDef nsWithoutLogin}
  if defDataAdapter.Authorization.IsServerAlive then
  {$EndIf  nsWithoutLogin}
-  g_Dispatcher.CloseAllWindows;
+ TvcmDispatcher.Instance.As_IvcmDispatcher.CloseAllWindows;
  try
   try
    g_ShowFinalSplash := False;

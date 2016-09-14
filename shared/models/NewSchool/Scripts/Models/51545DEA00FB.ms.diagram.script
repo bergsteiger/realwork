@@ -32,11 +32,32 @@ MEDIAGRAMS ME_51545DEA00FB_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_51545EB100A8_view
 
+  MEVIEW ME_51545E7A007E_view
+   MELINK Original WL 'ME_51545E7A007E' '51545DDC0252.ms.model.script' ; // ItemType
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_51545E7A007E_view
+
+  MEVIEW ME_51545F0200C5_view
+   MELINK Original WL 'ME_51545F0200C5' '51545DDC0252.ms.model.script' ; // f_Items
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_51545F0200C5_view
+
+  MEVIEWLINK ME_51545EE401B5_viewlink
+   MELINK Original WL 'ME_51545EE401B5' '51545DDC0252.ms.model.script' ;
+   MELINK From ME_51545EC402A3_view ;
+   MELINK To ME_51545E6A02A3_view ;
+  ENDMEVIEWLINK // ME_51545EE401B5_viewlink
+
   MELIST Views
    Seq: ( ME_51545E6A02A3_view // ItemType
    ME_51545EC402A3_view // ItemsHolder
    ME_51545E8E032C_view // Push
    ME_51545EB100A8_view // Pop
+   ME_51545E7A007E_view // ItemType
+   ME_51545F0200C5_view // f_Items
+   ME_51545EE401B5_viewlink // ItemsHolder -> ItemType
    )
   ; // Views
  ENDMEDIAGRAM // ME_51545DEA00FB_main

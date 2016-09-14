@@ -274,8 +274,6 @@ end;//TkwCompiledWordWorkerWordRunner.SetValue
 initialization
  TkwCompiledWordWorkerWordRunner.RegisterClass;
  {* Регистрация TkwCompiledWordWorkerWordRunner }
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа RkwCompiledWordWorkerWordRunner }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

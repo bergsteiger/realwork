@@ -3173,8 +3173,6 @@ initialization
  {* Регистрация EtfwBreakIterator }
  TtfwWord.RegisterClass;
  {* Регистрация TtfwWord }
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа RtfwWord }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwCompiler));
  {* Регистрация типа EtfwCompiler }
  TtfwTypeRegistrator.RegisterType(TypeInfo(EtfwRunner));

@@ -61,12 +61,11 @@ implementation
 {$If NOT Defined(NoScripts)}
 uses
  l3ImplUses
- , TtfwClassRef_Proxy
+ , TtfwTypeRegistrator_Proxy
  , l3Base
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
- , TtfwTypeRegistrator_Proxy
  //#UC START# *4E03119F00B2impl_uses*
  //#UC END# *4E03119F00B2impl_uses*
 ;

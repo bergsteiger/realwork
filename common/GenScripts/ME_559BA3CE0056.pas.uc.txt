@@ -18,7 +18,7 @@
    Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseTab(l_Tab);
  end
  else
-   Result := g_Dispatcher.History.Back;
+   Result := TvcmDispatcher.Instance.History.Back;
 //#UC END# *18FC3BA729CF_559BA3E6014C_impl*
 //#UC START# *18FC3BA729CF_559BA3E6014C_var*
 var
@@ -35,7 +35,7 @@ var
  if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
   Result := GetFormHistory(aContainer.AsForm)
  else
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *27BEBF0EE9FD_559BA3E6014C_impl*
 //#UC START# *27BEBF0EE9FD_559BA3E6014C_var*
 //#UC END# *27BEBF0EE9FD_559BA3E6014C_var*
@@ -43,6 +43,7 @@ var
 w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabsHistoryService.pas
 //#UC END# *559BA3CE0056_ext:FileName
 //#UC START# *559BA3CE0056impl_uses*
+ , vcmDispatcher
 //#UC END# *559BA3CE0056impl_uses*
 //#UC START# *94ACDF598B06_559BA3E6014C_impl*
  f_CloneContainer := Pointer(aCloneContainer);
@@ -60,7 +61,7 @@ w:\common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabsHist
    Result := l_ContainedForm.ContainedFormHistory;
  end;
  if (Result = nil) then
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *96E2DB43E67B_559BA3E6014C_impl*
 //#UC START# *96E2DB43E67B_559BA3E6014C_var*
 var

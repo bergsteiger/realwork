@@ -134,7 +134,7 @@ var
  if (f_ContainerGUID = nil) then
   Result := aMainForm.AsContainer
  else
- if g_Dispatcher.FormDispatcher.FindForm(f_ContainerGUID^, l_Form) then
+ if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_ContainerGUID^, l_Form) then
  begin
   Assert(not l_Form.VCMClosing);
   // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
@@ -180,7 +180,7 @@ var
     l_Owner := nil
    else
    begin
-    if g_Dispatcher.FormDispatcher.FindForm(f_Owner^, l_Owner) then
+    if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_Owner^, l_Owner) then
      Assert(not l_Owner.VCMClosing);
      // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
    end;//f_Owner = nil
@@ -243,7 +243,7 @@ var
  begin
   l_Control := aForm.VCLWinControl.FindComponent(f_Focused) as TWinControl;
   if Assigned(l_Control) then
-   g_Dispatcher.StoreFocused(l_Control.Handle);
+   TvcmDispatcher.Instance.As_IvcmDispatcher.StoreFocused(l_Control.Handle);
  end;//f_Focused <> ''..
 //#UC END# *55081119039F_5506DC4F0011_impl*
 //#UC START# *55081119039F_5506DC4F0011_var*

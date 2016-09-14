@@ -399,6 +399,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4AA8AB7B038Fimpl_uses*
  , SysUtils
  //#UC END# *4AA8AB7B038Fimpl_uses*
@@ -1742,6 +1745,10 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TDblClickPopupCalendar);
  {* Регистрация TDblClickPopupCalendar }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TFoo));
+ {* Регистрация типа TFoo }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvtDateEdit);

@@ -5,9 +5,12 @@ unit vcmBase;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmBase -       }
 { Начат: 21.02.2003 16:19 }
-{ $Id: vcmBase.pas,v 1.265 2016/07/19 08:57:47 morozov Exp $ }
+{ $Id: vcmBase.pas,v 1.266 2016/09/13 18:32:46 kostitsin Exp $ }
 
 // $Log: vcmBase.pas,v $
+// Revision 1.266  2016/09/13 18:32:46  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.265  2016/07/19 08:57:47  morozov
 // {RequestLink: 604485202}
 //
@@ -1254,7 +1257,6 @@ function vcmDispatcher: IvcmDispatcher;
   {* - возвращает диспетчер. }
 
 var
-  g_Dispatcher        : IvcmDispatcher = nil;
   g_ToolbarsCustomize : IvcmToolbarsCustomize = nil;
 
 {$IfDef DesignTimeLibrary}
@@ -1378,7 +1380,8 @@ uses
   ,
   vcmCommandIDsListPrim,
   vcmCommandIDsList,
-  vcmMakeParams
+  vcmMakeParams,
+  vcmDispatcher
   ;
 
 procedure vcmSet(var theStr: TvcmWString; const aStr: AnsiString);
@@ -1630,24 +1633,11 @@ begin
  Result := TvcmMakeParams.Make(anAggregate, aContainer, anOwner);
 end;
 
-{$IfDef vcmStandAloneDispatcher}
-procedure FreeDisp;
-begin
- g_Dispatcher := nil;
-end;
-{$EndIf vcmStandAloneDispatcher}
-
 function vcmDispatcher: IvcmDispatcher;
   {* - возвращает диспетчер. }
 begin
- {$IfDef vcmStandAloneDispatcher}
- if (g_Dispatcher = nil) then
- begin
-  l3System.AddExitProc(FreeDisp);
-  g_Dispatcher := TvcmDispatcher.Make;
- end;//g_Dispatcher = nil
- {$EndIf vcmStandAloneDispatcher}
- Result := g_Dispatcher;
+ Assert(not l3SystemDown);
+ Result := TvcmDispatcher.Instance.As_IvcmDispatcher;
 end;
 
 {$IfDef DesignTimeLibrary}
@@ -1894,7 +1884,7 @@ function vcmEnterFactory: Boolean;
 var
  l_D : IvcmDispatcher;
 begin
- l_D := vcmDispatcher;
+ l_D := TvcmDispatcher.Instance;
  Result := (l_D <> nil);
  if Result then
  begin
@@ -1914,7 +1904,7 @@ begin
  try
   g_MenuManager.EndOp;
  finally
-  vcmDispatcher.EndOp;
+  TvcmDispatcher.Instance.As_IvcmDispatcher.EndOp;
  end;//try..finally
 end;
   
@@ -1924,16 +1914,16 @@ class procedure TvcmAFW.BeginOp;
   {* - начать операцию, внутри которой нельзя убивать контролы. }
 begin
  inherited;
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.BeginOp;
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.BeginOp;
 end;
 
 class procedure TvcmAFW.EndOp;
   //override;
   {* - закончить операцию, внутри которой нельзя убивать контролы. }
 begin
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.EndOp;
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.EndOp;
  inherited;
 end;
 
@@ -1941,10 +1931,9 @@ class function TvcmAFW.IsObjectLocked(aControl : TObject = nil): Boolean;
   //override;
   {-}
 begin
- Result := ((g_Dispatcher <> nil) AND g_Dispatcher.FormDispatcher.Locked){ OR
-           ((g_MenuManager <> nil) AND g_MenuManager.UnlockInProgress)};
+ Result := (TvcmDispatcher.Exists and TvcmDispatcher.Instance.FormDispatcher.Locked);
  if Result and (aControl <> nil) then
-  g_Dispatcher.FormDispatcher.AddControlForInvalidate(aControl);
+  TvcmDispatcher.Instance.FormDispatcher.AddControlForInvalidate(aControl);
 end;
 
 class function TvcmAFW.IsMenuLocked(const aControl : IafwMenuUnlockedPostBuild): Boolean;
@@ -2387,11 +2376,6 @@ initialization
 {!touched!}{$IfDef LogInit} WriteLn('W:\common\components\gui\Garant\VCM\implementation\vcmBase.pas initialization leave'); {$EndIf}
 finalization
  g_ToolbarsCustomize := nil;
- {$IfNDef vcmStandAloneDispatcher}
- g_Dispatcher := nil;
- {$EndIf  vcmStandAloneDispatcher}
-
-//{$IfEnd}
 {$EndIf NoVCM}
 
 end.

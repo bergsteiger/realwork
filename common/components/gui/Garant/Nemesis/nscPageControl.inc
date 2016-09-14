@@ -2,9 +2,12 @@
 // Автор      : М. Морозов
 // Начат      : 07.12.2006
 // Назначение : Настройка компонента с вкладками для проекта Немезис
-// Версия     : $Id: nscPageControl.inc,v 1.9 2013/09/11 10:51:39 lulin Exp $
+// Версия     : $Id: nscPageControl.inc,v 1.10 2016/09/13 18:32:40 kostitsin Exp $
 
 // $Log: nscPageControl.inc,v $
+// Revision 1.10  2016/09/13 18:32:40  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.9  2013/09/11 10:51:39  lulin
 // - добавляем операции для возможности определения состояний операций.
 //
@@ -122,8 +125,8 @@ begin
  // При переходе по истории происходит переход по прецедентам, в процессе
  // которого могут изменятся активные вкладки, что не имеет отношения к
  // пользовательским операциям:
- if (g_Dispatcher <> nil) and (g_Dispatcher.History <> nil) and
-   not g_Dispatcher.History.InBF then
+ if TvcmDispatcher.Exists and (TvcmDispatcher.Instance.History <> nil) and
+   not TvcmDispatcher.Instance.History.InBF then
   lp_NotifyControls(ActivePage);
  {$EndIf DesignTimeLibrary}
  {$EndIf NoVCM}

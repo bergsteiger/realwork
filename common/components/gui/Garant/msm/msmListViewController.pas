@@ -10,7 +10,7 @@ interface
 
 uses
  l3IntfUses
- , msmLister
+ , msmListView
  , msmConcreteModels
  , msmListAndTreeViewUtils
  , msmControllers
@@ -18,10 +18,13 @@ uses
  , msmModels
  , msmEvents
  , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
- _OwnViewClass_ = TmsmLister;
+ _OwnViewClass_ = TmsmListView;
  _ConcreteModel_ = ImsmListModel;
  _InitContext_ = TmsmListViewtInitContext;
  {$Include w:\common\components\gui\Garant\msm\msmConcreteModelOwnViewController.imp.pas}
@@ -42,6 +45,7 @@ uses
  , msmViewControllersUtils
  , msmListAndTreeInterfaces
  , msmModelElements
+ , vtStdRes
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -49,6 +53,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , msmWaitCursor
+ , msmMEImages
  //#UC START# *57AAF18F0065impl_uses*
  , Graphics
  , l3Base

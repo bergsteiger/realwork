@@ -1,8 +1,11 @@
 unit nsOpenUtils;
 
-// $Id: nsOpenUtils.pas,v 1.85 2016/08/04 14:29:02 lulin Exp $
+// $Id: nsOpenUtils.pas,v 1.86 2016/09/13 18:31:59 kostitsin Exp $
 
 // $Log: nsOpenUtils.pas,v $
+// Revision 1.86  2016/09/13 18:31:59  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.85  2016/08/04 14:29:02  lulin
 // - перегенерация.
 //
@@ -637,6 +640,7 @@ uses
   DataAdapter,
 
   vcmBase,
+  vcmDispatcher,
   vcmForm,
   vcmMainForm,
   {$If not Defined(Admin) AND not Defined(Monitorings) }
@@ -871,7 +875,7 @@ begin
       Assert(false);
       {$IfEnd not (defined(Monitorings) or defined(Admin))}
      FIT_OLD_HISTORY:
-      g_Dispatcher.ModuleOperation(mod_opcode_WorkJournalService_OpenJournal);
+      TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(mod_opcode_WorkJournalService_OpenJournal);
    end;//case TFoldersItemType(l_AdapterNode.GetObjectType) of
   finally
    l_BaseEntity := nil;
@@ -1186,15 +1190,15 @@ begin
     TQueryOpenService.Instance.OpenQuery(lg_qtSendConsultation, nil, nil);
    // Толковый словарь.
    NM_EXPLANATORY_DICTIONARY:
-    g_Dispatcher.ModuleOperation(mod_opcode_DictionService_OpenDict);
+    TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(mod_opcode_DictionService_OpenDict);
    NM_DOCUMENT:
     lp_OpenDocument;
    // Информация о комплекте
    NM_COMPLECT_INFO:
-    g_Dispatcher.ModuleOperation(mod_opcode_CommonService_ComplectInfo);
+    TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(mod_opcode_CommonService_ComplectInfo);
    // Список конфигураций
    NM_CONFIGURATION_LIST:
-    g_Dispatcher.ModuleOperation(mod_opcode_SettingsService_OpenConfList);
+    TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(mod_opcode_SettingsService_OpenConfList);
    // Обзор законодательства
    NM_REVIEW:
     TQueryOpenService.Instance.OpenQuery(lg_qtLegislationReview, nil, nil);
@@ -1204,11 +1208,11 @@ begin
    NM_PHARM_SEARCH:
     TQueryOpenService.Instance.OpenQuery(lg_qtInpharmSearch, nil, nil);
    NM_PHARM_LEK:
-    g_Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_DrugList);
+    TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(mod_opcode_InpharmOperations_DrugList);
    NM_PHARM_FIRMS:
-    g_Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicFirms);
+    TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicFirms);
    NM_PHARM_DICT:
-    g_Dispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicDiction);
+    TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(mod_opcode_InpharmOperations_MedicDiction);
    else
     // Открываем рубрикатор:
     if aNode.HasChildren then

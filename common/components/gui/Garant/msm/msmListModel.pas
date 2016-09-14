@@ -35,6 +35,7 @@ uses
  , msmModelElementDir
  , msmModelElementRelationList
  , msmListAndTreeInterfaces
+ , msmElementSelection
  //#UC START# *57B317B00274impl_uses*
  //#UC END# *57B317B00274impl_uses*
 ;

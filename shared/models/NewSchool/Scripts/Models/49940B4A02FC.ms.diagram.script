@@ -224,6 +224,42 @@ MEDIAGRAMS ME_49940B4A02FC_diagrams
    MEPROP Y 740
   ENDMEVIEW // ME_558A5FD70198_view
 
+  MEVIEW ME_49955AE20023_view
+   MELINK Original WL 'ME_49955AE20023' '4683F37902CF.ms.model.script' ; // InBF
+   MEPROP X 200
+   MEPROP Y 740
+  ENDMEVIEW // ME_49955AE20023_view
+
+  MEVIEW ME_49955AF40024_view
+   MELINK Original WL 'ME_49955AF40024' '4683F37902CF.ms.model.script' ; // InProcess
+   MEPROP X 360
+   MEPROP Y 740
+  ENDMEVIEW // ME_49955AF40024_view
+
+  MEVIEWLINK ME_5506D4AB03AF_ME_4995594A014C_Inherits
+   MELINK From ME_5506D4AB03AF_view ;
+   MELINK To ME_4995594A014C_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5506D4AB03AF_ME_4995594A014C_Inherits
+
+  MEVIEWLINK ME_558A5A260359_viewlink
+   MELINK Original WL 'ME_558A5A260359' '4683F37902CF.ms.model.script' ;
+   MELINK From ME_558946640194_view ;
+   MELINK To ME_5589489B004F_view ;
+  ENDMEVIEWLINK // ME_558A5A260359_viewlink
+
+  MEVIEWLINK ME_55910DA003E1_viewlink
+   MELINK Original WL 'ME_55910DA003E1' '4683F37902CF.ms.model.script' ;
+   MELINK From ME_558946640194_view ;
+   MELINK To ME_5506D4AB03AF_view ;
+  ENDMEVIEWLINK // ME_55910DA003E1_viewlink
+
+  MEVIEWLINK ME_55894A3F00A3_viewlink
+   MELINK Original WL 'ME_55894A3F00A3' '4683F37902CF.ms.model.script' ;
+   MELINK From ME_5589489B004F_view ;
+   MELINK To ME_4995594A014C_view ;
+  ENDMEVIEWLINK // ME_55894A3F00A3_viewlink
+
   MELIST Views
    Seq: ( ME_4995594A014C_view // IvcmHistoryItem
    ME_4683F451006D_view // TvcmHistoryItemType
@@ -261,6 +297,12 @@ MEDIAGRAMS ME_49940B4A02FC_diagrams
    ME_4DB0239600EC_view // Clear
    ME_558A5FAC01CC_view // MakeState
    ME_558A5FD70198_view // AssignState
+   ME_49955AE20023_view // InBF
+   ME_49955AF40024_view // InProcess
+   ME_5506D4AB03AF_ME_4995594A014C_Inherits // IvcmContainerHistoryItem -> IvcmHistoryItem
+   ME_558A5A260359_viewlink // IvcmHistoryState -> IvcmHistoryItems
+   ME_55910DA003E1_viewlink // IvcmHistoryState -> IvcmContainerHistoryItem
+   ME_55894A3F00A3_viewlink // IvcmHistoryItems -> IvcmHistoryItem
    )
   ; // Views
  ENDMEDIAGRAM // ME_49940B4A02FC_main

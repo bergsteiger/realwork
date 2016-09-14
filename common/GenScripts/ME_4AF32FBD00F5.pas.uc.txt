@@ -23,6 +23,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\Common\nsSaveDialog.pas
 //#UC START# *4AF32FBD00F5impl*
 //#UC END# *4AF32FBD00F5impl*
 //#UC START# *4AF32FBD00F5impl_uses*
+ , vcmDispatcher
 //#UC END# *4AF32FBD00F5impl_uses*
 //#UC START# *4AF32FBD00F5intf_uses*
 //#UC END# *4AF32FBD00F5intf_uses*
@@ -371,9 +372,9 @@ var
  try
   l_OwnerHandle := 0;
   l_FocusedWnd := 0;
-  if (vcmBase.g_Dispatcher <> nil) then
+  if TvcmDispatcher.Exists then
   begin
-   l_OwnerHandle := vcmBase.g_Dispatcher.FormDispatcher.CurrentMainForm.VCLWinControl.Handle;
+   l_OwnerHandle := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.VCLWinControl.Handle;
    // запоминаем окно с фокусом - сам он туда не возвращается почему-то...
    l_FocusedWnd := Windows.GetFocus;
   end;//vcmBase.g_Dispatcher <> nil

@@ -8,8 +8,11 @@ unit nsUtils;
 { Описание   : Общие функции проекта Немезис.                                  }
 {------------------------------------------------------------------------------}
 
-// $Id: nsUtils.pas,v 1.50 2016/08/03 13:13:06 lulin Exp $
+// $Id: nsUtils.pas,v 1.51 2016/09/14 13:01:18 kostitsin Exp $
 // $Log: nsUtils.pas,v $
+// Revision 1.51  2016/09/14 13:01:18  kostitsin
+// {requestlink: 630222434 }
+//
 // Revision 1.50  2016/08/03 13:13:06  lulin
 // - перегенерация.
 //
@@ -1032,13 +1035,9 @@ procedure nsSelectAndExpand(const aTreeView : TeeTreeView;
                             const aNode     : IeeNode;
                             const aAll      : Boolean = False);
   {-}
-var
- l_Index: LongInt;
 begin
  with aTreeView.TreeView do
- begin
-  l_Index := GoToNode(aNode);
-  if l_Index > 0 then
+  if (GoToNode(aNode) > 0) then
   begin
    // Развернуть все:
    if aAll then
@@ -1046,10 +1045,9 @@ begin
    // Только первый уровень:
    else
     Tree.ChangeExpand(aNode, ee_sbSelect);
-   aTreeView.DisableAlignTopIndex := true;
-   aTreeView.TopIndex := l_Index;
-  end;//if l_Index > 0 then
- end;//with aTreeView.TreeView do
+   aTreeView.DisableAlignTopIndex := True;
+   //aTreeView.TopIndex := l_Index;
+  end;//with aTreeView.TreeView do
 end;//nsSelectAndExpand
 
 { Документ }

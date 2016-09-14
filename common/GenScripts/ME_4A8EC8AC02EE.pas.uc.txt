@@ -92,6 +92,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimCommon\Forms\PrimShutDown_
 //#UC END# *4A8EC8AC02EE_ext:FileName
 //#UC START# *4A8EC8AC02EEimpl_uses*
  , SysUtils
+ , vcmDispatcher
 //#UC END# *4A8EC8AC02EEimpl_uses*
 //#UC START# *4A8EC9E902CD_4A8EC8AC02EEexec_impl*
  f_InShutdown := True;
@@ -158,7 +159,7 @@ var
  {$IfNDef nsWithoutLogin}
  if defDataAdapter.Authorization.IsServerAlive then
  {$EndIf  nsWithoutLogin}
-  g_Dispatcher.CloseAllWindows;
+ TvcmDispatcher.Instance.As_IvcmDispatcher.CloseAllWindows;
  try
   try
    g_ShowFinalSplash := False;

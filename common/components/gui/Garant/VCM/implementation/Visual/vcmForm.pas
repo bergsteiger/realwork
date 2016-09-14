@@ -5,9 +5,12 @@ unit vcmForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcm -           }
 { Начат: 24.02.2003 13:45 }
-{ $Id: vcmForm.pas,v 1.285 2015/12/22 12:13:51 morozov Exp $ }
+{ $Id: vcmForm.pas,v 1.286 2016/09/13 18:32:44 kostitsin Exp $ }
 
 // $Log: vcmForm.pas,v $
+// Revision 1.286  2016/09/13 18:32:44  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.285  2015/12/22 12:13:51  morozov
 // {RequestLink: 609899254}
 //
@@ -1251,6 +1254,7 @@ uses
   ,
   vcmMessagesCollectionItem,
   vcmBaseMenuManager,
+  vcmDispatcher,
   vcmMenuManager,
   vcmMainForm,
   {$IfDef vcmUseSettings}
@@ -2026,7 +2030,10 @@ end;
 function TvcmInterfacedForm.Get_Dispatcher: IvcmDispatcher;
   {-}
 begin
- Result := vcmDispatcher;
+ if TvcmDispatcher.Exists then
+  Result := TvcmDispatcher.Instance
+ else
+  Result := nil;
 end;
 
 // start class TvcmTextForm

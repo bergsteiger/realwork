@@ -20,8 +20,17 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *54C24DE1010Cimpl_uses*
  //#UC END# *54C24DE1010Cimpl_uses*
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TeeCustomEditor));
+ {* Регистрация типа TeeCustomEditor }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

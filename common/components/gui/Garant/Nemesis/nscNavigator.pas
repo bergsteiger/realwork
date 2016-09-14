@@ -4,9 +4,12 @@ unit nscNavigator;
 // Автор      : М. Морозов.
 // Начат      : 06.12.2006 г.
 // Назначение : Компонент с вкладками
-// Версия     : $Id: nscNavigator.pas,v 1.14 2015/04/24 14:55:31 lulin Exp $
+// Версия     : $Id: nscNavigator.pas,v 1.15 2016/09/13 18:32:40 kostitsin Exp $
 
 // $Log: nscNavigator.pas,v $
+// Revision 1.15  2016/09/13 18:32:40  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.14  2015/04/24 14:55:31  lulin
 // - правильный define.
 //
@@ -62,6 +65,7 @@ uses
 
   vcmExternalInterfaces,
   vcmInterfaces,
+  vcmDispatcher,
 
   nscInterfaces,
 

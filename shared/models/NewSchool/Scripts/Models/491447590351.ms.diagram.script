@@ -50,6 +50,48 @@ MEDIAGRAMS ME_491447590351_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4AD6FDC802F3_view
 
+  MEVIEWLINK ME_4AD58F5E0242_ME_4F6C571A00B2_Inherits
+   MELINK From ME_4AD58F5E0242_view ;
+   MELINK To ME_4F6C571A00B2_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4AD58F5E0242_ME_4F6C571A00B2_Inherits
+
+  MEVIEWLINK ME_4C99AEBC01B3_ME_4AD58F5E0242_Inherits
+   MELINK From ME_4C99AEBC01B3_view ;
+   MELINK To ME_4AD58F5E0242_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4C99AEBC01B3_ME_4AD58F5E0242_Inherits
+
+  MEVIEWLINK ME_4AD6FDC802F3_ME_4F6C571A00B2_Inherits
+   MELINK From ME_4AD6FDC802F3_view ;
+   MELINK To ME_4F6C571A00B2_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4AD6FDC802F3_ME_4F6C571A00B2_Inherits
+
+  MEVIEWLINK ME_4AD6FDC802F3_ME_4914488702EC_uses::Dependency
+   MELINK Original WL 'ME_4AD7021803BA' '491447590351.ms.model.script' ;
+   MELINK From ME_4AD6FDC802F3_view ;
+   MELINK To ME_4914488702EC_view ;
+  ENDMEVIEWLINK // ME_4AD6FDC802F3_ME_4914488702EC_uses::Dependency
+
+  MEVIEWLINK ME_4AD6FDC802F3_ME_4914482D0236_uses::Dependency
+   MELINK Original WL 'ME_4AD7021F01EB' '491447590351.ms.model.script' ;
+   MELINK From ME_4AD6FDC802F3_view ;
+   MELINK To ME_4914482D0236_view ;
+  ENDMEVIEWLINK // ME_4AD6FDC802F3_ME_4914482D0236_uses::Dependency
+
+  MEVIEWLINK ME_4AD6FFF8003E_viewlink
+   MELINK Original WL 'ME_4AD6FFF8003E' '491447590351.ms.model.script' ;
+   MELINK From ME_4AD6FDC802F3_view ;
+   MELINK To ME_4914482D0236_view ;
+  ENDMEVIEWLINK // ME_4AD6FFF8003E_viewlink
+
+  MEVIEWLINK ME_4AD700370046_viewlink
+   MELINK Original WL 'ME_4AD700370046' '491447590351.ms.model.script' ;
+   MELINK From ME_4AD6FDC802F3_view ;
+   MELINK To ME_4914488702EC_view ;
+  ENDMEVIEWLINK // ME_4AD700370046_viewlink
+
   MELIST Views
    Seq: ( ME_4914482D0236_view // TInsUserSettingsListenerPtrList
    ME_4914488702EC_view // TInsUserSettingsEditListenerPtrList
@@ -58,6 +100,13 @@ MEDIAGRAMS ME_491447590351_diagrams
    ME_4AD58F5E0242_view // TnsSettingsPrim
    ME_4C99AEBC01B3_view // TnsPrimeSettings
    ME_4AD6FDC802F3_view // TnsSettings
+   ME_4AD58F5E0242_ME_4F6C571A00B2_Inherits // TnsSettingsPrim -> nsSettings
+   ME_4C99AEBC01B3_ME_4AD58F5E0242_Inherits // TnsPrimeSettings -> TnsSettingsPrim
+   ME_4AD6FDC802F3_ME_4F6C571A00B2_Inherits // TnsSettings -> nsSettings
+   ME_4AD6FDC802F3_ME_4914488702EC_uses::Dependency // TnsSettings -> TInsUserSettingsEditListenerPtrList
+   ME_4AD6FDC802F3_ME_4914482D0236_uses::Dependency // TnsSettings -> TInsUserSettingsListenerPtrList
+   ME_4AD6FFF8003E_viewlink // TnsSettings -> TInsUserSettingsListenerPtrList
+   ME_4AD700370046_viewlink // TnsSettings -> TInsUserSettingsEditListenerPtrList
    )
   ; // Views
  ENDMEDIAGRAM // ME_491447590351_main

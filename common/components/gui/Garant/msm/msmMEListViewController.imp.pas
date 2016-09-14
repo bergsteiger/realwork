@@ -16,6 +16,7 @@
    procedure DoListChangedEvent(anEvent: TmsmEvent);
    procedure DoActionElementEvent(anEvent: TmsmEvent);
    procedure DoCurrentElementChangedEvent(anEvent: TmsmEvent);
+   procedure InitOwnView; override;
    procedure LinkEventHandlers; override;
  end;//_msmMEListViewController_
 
@@ -69,6 +70,16 @@ begin
  end;//Self.Model.List <> nil
 //#UC END# *57C9879A032D_57B31D1000FA_57C9879A032D_impl*
 end;//_msmMEListViewController_.DoCurrentElementChangedEvent
+
+procedure _msmMEListViewController_.InitOwnView;
+//#UC START# *57ADFB33027D_57C9879A032D_var*
+//#UC END# *57ADFB33027D_57C9879A032D_var*
+begin
+//#UC START# *57ADFB33027D_57C9879A032D_impl*
+ inherited;
+ OwnView.Images := vtResources.Images;
+//#UC END# *57ADFB33027D_57C9879A032D_impl*
+end;//_msmMEListViewController_.InitOwnView
 
 procedure _msmMEListViewController_.LinkEventHandlers;
 begin

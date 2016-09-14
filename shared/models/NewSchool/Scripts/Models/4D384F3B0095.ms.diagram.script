@@ -32,11 +32,32 @@ MEDIAGRAMS ME_4D384F3B0095_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4B1658140144_view
 
+  MEVIEWLINK ME_498721A60125_ME_4B1658140144_uses::Dependency
+   MELINK Original WL 'ME_4B1658330067' '498721A60125.ms.model.script' ;
+   MELINK From ME_498721A60125_view ;
+   MELINK To ME_4B1658140144_view ;
+  ENDMEVIEWLINK // ME_498721A60125_ME_4B1658140144_uses::Dependency
+
+  MEVIEWLINK ME_4986C5B30130_ME_498721A60125_Implements
+   MELINK From ME_4986C5B30130_view ;
+   MELINK To ME_498721A60125_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_4986C5B30130_ME_498721A60125_Implements
+
+  MEVIEWLINK ME_4CDE81A402A9_ME_4986C5B30130_Inherits
+   MELINK From ME_4CDE81A402A9_view ;
+   MELINK To ME_4986C5B30130_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4CDE81A402A9_ME_4986C5B30130_Inherits
+
   MELIST Views
    Seq: ( ME_498721A60125_view // StatusBarDocumentItems
    ME_4986C5B30130_view // CommonForTextAndFlash
    ME_4CDE81A402A9_view // CommonForTextAndFlashOperations
    ME_4B1658140144_view // TnsDocumentFromListNavigationEvent
+   ME_498721A60125_ME_4B1658140144_uses::Dependency // StatusBarDocumentItems -> TnsDocumentFromListNavigationEvent
+   ME_4986C5B30130_ME_498721A60125_Implements // CommonForTextAndFlash -> StatusBarDocumentItems
+   ME_4CDE81A402A9_ME_4986C5B30130_Inherits // CommonForTextAndFlashOperations -> CommonForTextAndFlash
    )
   ; // Views
  ENDMEDIAGRAM // ME_4D384F3B0095_main

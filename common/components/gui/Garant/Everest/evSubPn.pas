@@ -30,8 +30,37 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *547DC5BA0275impl_uses*
  //#UC END# *547DC5BA0275impl_uses*
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevSubPanel));
+ {* Регистрация типа TevSubPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomSubPanel));
+ {* Регистрация типа TevCustomSubPanel }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevCustomSubDescriptors));
+ {* Регистрация типа TevCustomSubDescriptors }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevSubDescriptor));
+ {* Регистрация типа TevSubDescriptor }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevSubLayerDescriptor));
+ {* Регистрация типа TevSubLayerDescriptor }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TevSubDescriptors));
+ {* Регистрация типа TevSubDescriptors }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

@@ -32,11 +32,32 @@ MEDIAGRAMS ME_57B1B48C00F8_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57ADBFD200CA_view
 
+  MEVIEWLINK ME_57ADE558018B_viewlink
+   MELINK Original WL 'ME_57ADE558018B' '57B1B48C00F8.ms.model.script' ;
+   MELINK From ME_57B6B275018D_view ;
+   MELINK To ME_57AB4966013D_view ;
+  ENDMEVIEWLINK // ME_57ADE558018B_viewlink
+
+  MEVIEWLINK ME_57ADBFD200CA_ME_57B6A905031E_Implements
+   MELINK From ME_57ADBFD200CA_view ;
+   MELINK To ME_57B6A905031E_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_57ADBFD200CA_ME_57B6A905031E_Implements
+
+  MEVIEWLINK ME_57ADBFD200CA_ME_57B6B275018D_Inherits
+   MELINK From ME_57ADBFD200CA_view ;
+   MELINK To ME_57B6B275018D_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_57ADBFD200CA_ME_57B6B275018D_Inherits
+
   MELIST Views
    Seq: ( ME_57AB4966013D_view // TImsmEventsSubscriberList
    ME_57B6A905031E_view // msmEventFire
    ME_57B6B275018D_view // msmEventsPublisher
    ME_57ADBFD200CA_view // TmsmModel
+   ME_57ADE558018B_viewlink // msmEventsPublisher -> TImsmEventsSubscriberList
+   ME_57ADBFD200CA_ME_57B6A905031E_Implements // TmsmModel -> msmEventFire
+   ME_57ADBFD200CA_ME_57B6B275018D_Inherits // TmsmModel -> msmEventsPublisher
    )
   ; // Views
  ENDMEDIAGRAM // ME_57B1B48C00F8_main

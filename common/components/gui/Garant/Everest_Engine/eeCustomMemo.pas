@@ -20,8 +20,17 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4AC5D35601BBimpl_uses*
  //#UC END# *4AC5D35601BBimpl_uses*
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TeeCustomMemo));
+ {* Регистрация типа TeeCustomMemo }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

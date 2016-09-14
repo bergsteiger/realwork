@@ -435,25 +435,6 @@ ME ME_52E8AA5F030A
 
 ENDME // ME_52E8AA5F030A TevSubEditParamEX
 
-ME ME_517FA601007E
- MEPROP UID '517FA601007E'
- MEPROP Name 'g_DisableMergeCellFilter'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4F5755FB0362 // evCommonUtils
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "ifdef" 'nsTest'
- UP extprop:pas:Value false
-
-ENDME // ME_517FA601007E g_DisableMergeCellFilter
-
 FORWARD ME_4F57565E01C1
 
 ME ME_4F575B420023
@@ -1196,118 +1177,6 @@ ME ME_50926CE4004C
 
 ENDME // ME_50926CE4004C evApplyWidthOfCells
 
-FORWARD ME_517F693A03DF
-
-ME ME_517F6A180338
- MEPROP Name 'aGen'
- MEPROP Class class_Parameter
- MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_47F0967A030B' '47F0893F0220.ms.model.script' // Tk2TagGenerator
- ;
-
-ENDME // ME_517F6A180338 aGen
-
-ME ME_517F6A180358
- MEPROP Name 'aNeedInit'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_517F6A180358 aNeedInit
-
-ME ME_517F69590388
- MEPROP UID '517F69590388'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
- ;
- MELIST Parameters
-   Seq: ( ME_517F6A180338 // aGen
- ME_517F6A180358 // aNeedInit
- )
- ; // Parameters
-
-ENDME // ME_517F69590388 DoIt
-
-ME ME_517F6A7A012D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
- ;
- MELINK Target WL 'ME_4E5E1032016E' '47ECACA70141.ms.model.script' // TevTabStopsFilter
- ;
-
-ENDME // ME_517F6A7A012D 
-
-ME ME_517F6A7F0395
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
- ;
- MELINK Target WL 'ME_4C07BD030266' '47ECACA70141.ms.model.script' // TevdEmptyRowFilter
- ;
-
-ENDME // ME_517F6A7F0395 
-
-ME ME_517F6A8400B2
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
- ;
- MELINK Target WL 'ME_4E48B5AE01E3' '47ECACA70141.ms.model.script' // TevTableFilter
- ;
-
-ENDME // ME_517F6A8400B2 
-
-ME ME_517F6A8A026D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
- ;
- MELINK Target WL 'ME_49C21D090093' '47ECACA70141.ms.model.script' // TevMergedCellFilter
- ;
-
-ENDME // ME_517F6A8A026D 
-
-ME ME_517F6A8F00B8
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
- ;
- MELINK Target WL 'ME_502B789B03CA' '47ECACA70141.ms.model.script' // TevTextInTableCorrector
- ;
-
-ENDME // ME_517F6A8F00B8 
-
-ME ME_517F693A03DF
- MEPROP UID '517F693A03DF'
- MEPROP Name 'evLinkTableFilters'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F5755FB0362 // evCommonUtils
- ;
- MELIST Operations
-   Seq: ( HWL ME_517F69590388 // DoIt
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_517F6A7A012D // TevTabStopsFilter
- ME_517F6A7F0395 // TevdEmptyRowFilter
- ME_517F6A8400B2 // TevTableFilter
- ME_517F6A8A026D // TevMergedCellFilter
- ME_517F6A8F00B8 // TevTextInTableCorrector
- )
- ; // Dependencies
- UP extprop:rc:SelfName 'LinkTableFilters'
-
-ENDME // ME_517F693A03DF evLinkTableFilters
-
 FORWARD ME_52B44C960040
 
 ME ME_52B45817011F
@@ -1982,10 +1851,6 @@ ME ME_4F5755FB0362
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E4B99A60349 // Tools
  ;
- MELIST Attributes
-   Seq: ( HWL ME_517FA601007E // g_DisableMergeCellFilter
- )
- ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_4F57565E01C1 // cnvDate2Text
  HWL ME_4F5756B50357 // evEditPicture
@@ -1996,7 +1861,6 @@ ME ME_4F5755FB0362
  HWL ME_4FC712940276 // evAlignCellsBoundary
  HWL ME_50926C5802E1 // evCopyWidthOfCells
  HWL ME_50926CE4004C // evApplyWidthOfCells
- HWL ME_517F693A03DF // evLinkTableFilters
  HWL ME_52B44C960040 // evSetTableStyle
  HWL ME_52E78F2D0266 // evSetSubPrim
  HWL ME_52E8A0960362 // evSubNameEdit
@@ -4070,6 +3934,8 @@ ME ME_57C572640079
 
 ENDME // ME_57C572640079 
 
+FORWARD ME_517F693A03DF
+
 ME ME_57C5731B018D
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -4241,6 +4107,159 @@ ME ME_57C52AA20128
 
 ENDME // ME_57C52AA20128 arDocAttributesMixer
 
+FORWARD ME_57D9125001E9
+
+ME ME_517FA601007E
+ MEPROP UID '517FA601007E'
+ MEPROP Name 'g_DisableMergeCellFilter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D9125001E9 // arFiltersUtils
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ UP "ifdef" 'nsTest'
+ UP extprop:pas:Value false
+
+ENDME // ME_517FA601007E g_DisableMergeCellFilter
+
+ME ME_517F6A180338
+ MEPROP Name 'aGen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47F0967A030B' '47F0893F0220.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_517F6A180338 aGen
+
+ME ME_517F6A180358
+ MEPROP Name 'aNeedInit'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_517F6A180358 aNeedInit
+
+ME ME_517F69590388
+ MEPROP UID '517F69590388'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
+ ;
+ MELIST Parameters
+   Seq: ( ME_517F6A180338 // aGen
+ ME_517F6A180358 // aNeedInit
+ )
+ ; // Parameters
+
+ENDME // ME_517F69590388 DoIt
+
+ME ME_517F6A7A012D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
+ ;
+ MELINK Target WL 'ME_4E5E1032016E' '47ECACA70141.ms.model.script' // TevTabStopsFilter
+ ;
+
+ENDME // ME_517F6A7A012D 
+
+ME ME_517F6A7F0395
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
+ ;
+ MELINK Target WL 'ME_4C07BD030266' '47ECACA70141.ms.model.script' // TevdEmptyRowFilter
+ ;
+
+ENDME // ME_517F6A7F0395 
+
+ME ME_517F6A8400B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
+ ;
+ MELINK Target WL 'ME_4E48B5AE01E3' '47ECACA70141.ms.model.script' // TevTableFilter
+ ;
+
+ENDME // ME_517F6A8400B2 
+
+ME ME_517F6A8A026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
+ ;
+ MELINK Target WL 'ME_49C21D090093' '47ECACA70141.ms.model.script' // TevMergedCellFilter
+ ;
+
+ENDME // ME_517F6A8A026D 
+
+ME ME_517F6A8F00B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_517F693A03DF // evLinkTableFilters
+ ;
+ MELINK Target WL 'ME_502B789B03CA' '47ECACA70141.ms.model.script' // TevTextInTableCorrector
+ ;
+
+ENDME // ME_517F6A8F00B8 
+
+ME ME_517F693A03DF
+ MEPROP UID '517F693A03DF'
+ MEPROP Name 'evLinkTableFilters'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D9125001E9 // arFiltersUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_517F69590388 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_517F6A7A012D // TevTabStopsFilter
+ ME_517F6A7F0395 // TevdEmptyRowFilter
+ ME_517F6A8400B2 // TevTableFilter
+ ME_517F6A8A026D // TevMergedCellFilter
+ ME_517F6A8F00B8 // TevTextInTableCorrector
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'LinkTableFilters'
+
+ENDME // ME_517F693A03DF evLinkTableFilters
+
+ME ME_57D9125001E9
+ MEPROP UID '57D9125001E9'
+ MEPROP Name 'arFiltersUtils'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B99A60349 // Tools
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_517FA601007E // g_DisableMergeCellFilter
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_517F693A03DF // evLinkTableFilters
+ )
+ ; // Operations
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arFiltersUtils.pas'
+
+ENDME // ME_57D9125001E9 arFiltersUtils
+
 ME ME_4E4B99A60349
  MEPROP UID '4E4B99A60349'
  MEPROP Name 'Tools'
@@ -4257,6 +4276,7 @@ ME ME_4E4B99A60349
  HWL ME_52E79910011F // evCommonRes
  HWL ME_52E7AD220052 // arTextUtils
  HWL ME_57C52AA20128 // arDocAttributesMixer
+ HWL ME_57D9125001E9 // arFiltersUtils
  )
  ; // Children
  MELIST Depends

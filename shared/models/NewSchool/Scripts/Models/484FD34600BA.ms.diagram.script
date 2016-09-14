@@ -20,9 +20,23 @@ MEDIAGRAMS ME_484FD34600BA_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4CEE61030388_view
 
+  MEVIEW ME_4CEE61690157_view
+   MELINK Original WL 'ME_4CEE61690157' '484A470100DD.ms.model.script' ; // g_ParaModifier
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_4CEE61690157_view
+
+  MEVIEWLINK ME_4CEE61030388_ME_4CEE60C90052_Inherits
+   MELINK From ME_4CEE61030388_view ;
+   MELINK To ME_4CEE60C90052_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4CEE61030388_ME_4CEE60C90052_Inherits
+
   MELIST Views
    Seq: ( ME_4CEE60C90052_view // TevdParaModifier
    ME_4CEE61030388_view // RevdParaModifier
+   ME_4CEE61690157_view // g_ParaModifier
+   ME_4CEE61030388_ME_4CEE60C90052_Inherits // RevdParaModifier -> TevdParaModifier
    )
   ; // Views
  ENDMEDIAGRAM // ME_484FD34600BA_main

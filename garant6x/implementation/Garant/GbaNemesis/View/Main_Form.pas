@@ -239,6 +239,7 @@ uses
  //#UC START# *4A952BA3006Dimpl_uses*
  , Common_F1CommonServices_Contracts
  , F1_Application_Template_Services
+ , vcmDispatcher
  //#UC END# *4A952BA3006Dimpl_uses*
 ;
 
@@ -484,7 +485,7 @@ function TMainForm.CheckStartupAdvertisingEnabled: Boolean;
 //#UC END# *4F8BF3B5012A_4A952BA3006D_var*
 begin
 //#UC START# *4F8BF3B5012A_4A952BA3006D_impl*
- Result := (g_Dispatcher.FormDispatcher.MainFormsCount = 1) and
+ Result := (TvcmDispatcher.Instance.FormDispatcher.MainFormsCount = 1) and
   not defDataAdapter.AdministratorLogin;
 //#UC END# *4F8BF3B5012A_4A952BA3006D_impl*
 end;//TMainForm.CheckStartupAdvertisingEnabled
@@ -511,7 +512,7 @@ function TMainForm.CanFirstLoginActivity: Boolean;
 //#UC END# *4F8BF3ED02D0_4A952BA3006D_var*
 begin
 //#UC START# *4F8BF3ED02D0_4A952BA3006D_impl*
- Result := (g_Dispatcher.FormDispatcher.MainFormsCount = 1) and
+ Result := (TvcmDispatcher.Instance.FormDispatcher.MainFormsCount = 1) and
   not defDataAdapter.AdministratorLogin;
 //#UC END# *4F8BF3ED02D0_4A952BA3006D_impl*
 end;//TMainForm.CanFirstLoginActivity

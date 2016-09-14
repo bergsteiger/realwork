@@ -44,6 +44,48 @@ MEDIAGRAMS ME_4ACF3E400050_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4906D40F0363_view
 
+  MEVIEWLINK ME_4901FC9F0096_ME_4901FD0A034A_uses::Dependency
+   MELINK Original WL 'ME_4901FD690289' '4ACF3E400050.ms.model.script' ;
+   MELINK From ME_4901FC9F0096_view ;
+   MELINK To ME_4901FD0A034A_view ;
+  ENDMEVIEWLINK // ME_4901FC9F0096_ME_4901FD0A034A_uses::Dependency
+
+  MEVIEWLINK ME_4901FC9F0096_ME_4AA4D6CF02A9_uses::Dependency
+   MELINK Original WL 'ME_4AA4D70F010B' '4ACF3E400050.ms.model.script' ;
+   MELINK From ME_4901FC9F0096_view ;
+   MELINK To ME_4AA4D6CF02A9_view ;
+  ENDMEVIEWLINK // ME_4901FC9F0096_ME_4AA4D6CF02A9_uses::Dependency
+
+  MEVIEWLINK ME_4906D1790319_ME_4906D40F0363_uses::Dependency
+   MELINK Original WL 'ME_4906D4340317' '4ACF3E400050.ms.model.script' ;
+   MELINK From ME_4906D1790319_view ;
+   MELINK To ME_4906D40F0363_view ;
+  ENDMEVIEWLINK // ME_4906D1790319_ME_4906D40F0363_uses::Dependency
+
+  MEVIEWLINK ME_4906D1790319_ME_4901FC9F0096_uses::Dependency
+   MELINK Original WL 'ME_4906D4990233' '4ACF3E400050.ms.model.script' ;
+   MELINK From ME_4906D1790319_view ;
+   MELINK To ME_4901FC9F0096_view ;
+  ENDMEVIEWLINK // ME_4906D1790319_ME_4901FC9F0096_uses::Dependency
+
+  MEVIEWLINK ME_4906D1790319_ME_4901FD0A034A_uses::Dependency
+   MELINK Original WL 'ME_4906D5CB01B8' '4ACF3E400050.ms.model.script' ;
+   MELINK From ME_4906D1790319_view ;
+   MELINK To ME_4901FD0A034A_view ;
+  ENDMEVIEWLINK // ME_4906D1790319_ME_4901FD0A034A_uses::Dependency
+
+  MEVIEWLINK ME_4906D1790319_ME_4AA4D6CF02A9_uses::Dependency
+   MELINK Original WL 'ME_4AA4D7550387' '4ACF3E400050.ms.model.script' ;
+   MELINK From ME_4906D1790319_view ;
+   MELINK To ME_4AA4D6CF02A9_view ;
+  ENDMEVIEWLINK // ME_4906D1790319_ME_4AA4D6CF02A9_uses::Dependency
+
+  MEVIEWLINK ME_4906D9DE02FA_ME_4906D1790319_Inherits
+   MELINK From ME_4906D9DE02FA_view ;
+   MELINK To ME_4906D1790319_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4906D9DE02FA_ME_4906D1790319_Inherits
+
   MELIST Views
    Seq: ( ME_4901FC9F0096_view // TnsBaseSearchPromptFilters
    ME_4AA4D6CF02A9_view // TnsPromptForDocFilter
@@ -51,6 +93,13 @@ MEDIAGRAMS ME_4ACF3E400050_diagrams
    ME_4906D1790319_view // TnsBaseSearchPromptTreeBase
    ME_4906D9DE02FA_view // TnsBaseSearchPromptTree
    ME_4906D40F0363_view // TnsPromptContextFilterParams
+   ME_4901FC9F0096_ME_4901FD0A034A_uses::Dependency // TnsBaseSearchPromptFilters -> TnsCutToLeafFilter
+   ME_4901FC9F0096_ME_4AA4D6CF02A9_uses::Dependency // TnsBaseSearchPromptFilters -> TnsPromptForDocFilter
+   ME_4906D1790319_ME_4906D40F0363_uses::Dependency // TnsBaseSearchPromptTreeBase -> TnsPromptContextFilterParams
+   ME_4906D1790319_ME_4901FC9F0096_uses::Dependency // TnsBaseSearchPromptTreeBase -> TnsBaseSearchPromptFilters
+   ME_4906D1790319_ME_4901FD0A034A_uses::Dependency // TnsBaseSearchPromptTreeBase -> TnsCutToLeafFilter
+   ME_4906D1790319_ME_4AA4D6CF02A9_uses::Dependency // TnsBaseSearchPromptTreeBase -> TnsPromptForDocFilter
+   ME_4906D9DE02FA_ME_4906D1790319_Inherits // TnsBaseSearchPromptTree -> TnsBaseSearchPromptTreeBase
    )
   ; // Views
  ENDMEDIAGRAM // ME_4ACF3E400050_main

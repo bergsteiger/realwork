@@ -192,6 +192,7 @@ uses
  , StdRes
  , Search_Services
  , SearchLite_Services
+ , vcmDispatcher
  //#UC END# *4AA641A3036Cimpl_uses*
 ;
 
@@ -581,7 +582,7 @@ begin
  __WasEnter := vcmEnterFactory;
  try
 //#UC START# *4AB7B8D30345_4AA641A3036C_impl*
- vcmDispatcher.FormDispatcher.Lock;
+ TvcmDispatcher.Instance.FormDispatcher.Lock;
  try
   l_MainContainer := TCommonSearchService.Instance.MakeSaveLoadForm(vcmCheckAggregate(
                                                  vcmMakeParams(nil,
@@ -590,8 +591,7 @@ begin
                                                 true,
                                                 Ord(slqtFilters));
   Result := TCommonSearchService.Instance.MakeQueryCardForm(true, // IsFilter
-                                        vcmMakeParams(l_MainContainer.Aggregate,
-                                                  l_MainContainer.AsContainer),
+                                        vcmMakeParams(l_MainContainer.Aggregate, l_MainContainer.AsContainer),
                                         vcm_ztAny,
                                         True,
                                         0);
@@ -599,7 +599,7 @@ begin
   if (aData <> nil) then
    op_SearchParameters_SetQuery.Call(l_MainContainer.Aggregate, aData.Query);
  finally
-  vcmDispatcher.FormDispatcher.UnLock;
+  TvcmDispatcher.Instance.FormDispatcher.UnLock;
  end;//try..finally
  if (l_MainContainer <> nil) AND (l_MainContainer.ZoneType = vcm_ztManualModal) then
  begin
@@ -976,9 +976,8 @@ class procedure TSearchModule.FillAllBaseListParams(const aParams: IvcmTestParam
 
  function IsCurrentObjectList : Boolean;
  begin//IsCurrentObjectList
-  if Assigned(g_Dispatcher.FormDispatcher.CurrentMainForm) then
-   Result := (g_Dispatcher.FormDispatcher.CurrentMainForm.asContainer)
-              .HasForm(fm_efList.rFormID, vcm_ztParent, true)
+  if Assigned(TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm) then
+   Result := (TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.asContainer).HasForm(fm_efList.rFormID, vcm_ztParent, true)
   else
    Result := False;
  end;//IsCurrentObjectList

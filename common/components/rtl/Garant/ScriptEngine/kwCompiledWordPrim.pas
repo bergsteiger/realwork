@@ -155,8 +155,6 @@ end;//TkwCompiledWordPrim.SetParent
 initialization
  TkwCompiledWordPrim.RegisterClass;
  {* Регистрация TkwCompiledWordPrim }
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа RkwCompiledWordPrim }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

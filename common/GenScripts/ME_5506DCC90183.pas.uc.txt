@@ -109,14 +109,14 @@ w:\common\components\gui\Garant\VCM\implementation\vcmHistory.pas
   else
   begin
    if NeedCheckHasForm then
-    Result := g_Dispatcher.FormDispatcher.FindForm(f_FormGUID, aForm);
+    Result := TvcmDispatcher.Instance.FormDispatcher.FindForm(f_FormGUID, aForm);
    if Result then
    begin
     //Assert(not aForm.VCMClosing);
     if aForm.VCMClosing then
     // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
     begin
-     g_Dispatcher.FormDispatcher.RemoveForm(aForm);
+     TvcmDispatcher.Instance.FormDispatcher.RemoveForm(aForm);
      // - удалить еЄ надо из диспетчера, чтобы больше не находилась
      aForm := nil;
      Result := False;

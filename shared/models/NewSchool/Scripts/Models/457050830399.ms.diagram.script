@@ -38,12 +38,40 @@ MEDIAGRAMS ME_457050830399_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_45FFCBD60196_view
 
+  MEVIEWLINK ME_45FFCCC9000F_ME_45FFCBD60196_uses::Dependency
+   MELINK Original WL 'ME_461CF8850319' '457050830399.ms.model.script' ;
+   MELINK From ME_45FFCCC9000F_view ;
+   MELINK To ME_45FFCBD60196_view ;
+  ENDMEVIEWLINK // ME_45FFCCC9000F_ME_45FFCBD60196_uses::Dependency
+
+  MEVIEWLINK ME_45FFDCB301C5_viewlink
+   MELINK Original WL 'ME_45FFDCB301C5' '457050830399.ms.model.script' ;
+   MELINK From ME_45FFDC5201F4_view ;
+   MELINK To ME_45FFDC16008C_view ;
+  ENDMEVIEWLINK // ME_45FFDCB301C5_viewlink
+
+  MEVIEWLINK ME_45FFDD1603D8_viewlink
+   MELINK Original WL 'ME_45FFDD1603D8' '457050830399.ms.model.script' ;
+   MELINK From ME_45FFCBD60196_view ;
+   MELINK To ME_45FFDC5201F4_view ;
+  ENDMEVIEWLINK // ME_45FFDD1603D8_viewlink
+
+  MEVIEWLINK ME_45FFDD5B002E_viewlink
+   MELINK Original WL 'ME_45FFDD5B002E' '457050830399.ms.model.script' ;
+   MELINK From ME_45FFCBD60196_view ;
+   MELINK To ME_45FFCCC9000F_view ;
+  ENDMEVIEWLINK // ME_45FFDD5B002E_viewlink
+
   MELIST Views
    Seq: ( ME_45F80F4E03C2_view // NodeVector
    ME_45FFCCC9000F_view // FolderNotifier_i
    ME_45FFDC16008C_view // Notify
    ME_45FFDC5201F4_view // NotifyDataList
    ME_45FFCBD60196_view // DoneNotifier_i
+   ME_45FFCCC9000F_ME_45FFCBD60196_uses::Dependency // FolderNotifier_i -> DoneNotifier_i
+   ME_45FFDCB301C5_viewlink // NotifyDataList -> Notify
+   ME_45FFDD1603D8_viewlink // DoneNotifier_i -> NotifyDataList
+   ME_45FFDD5B002E_viewlink // DoneNotifier_i -> FolderNotifier_i
    )
   ; // Views
  ENDMEDIAGRAM // ME_457050830399_main

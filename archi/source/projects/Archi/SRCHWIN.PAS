@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.304 2016/09/13 10:35:13 dinishev Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.305 2016/09/14 11:35:39 dinishev Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -430,7 +430,6 @@ procedure TSearchWin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
  MainForm.OEWin.DelFromExplorer(eotDocSet, Longint(Self));
  Action := caFree;
- MainForm.CheckCurrChild(Self);
 end;
 
 procedure TSearchWin.FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -483,6 +482,7 @@ end;
 procedure TSearchWin.FormDestroy(Sender: TObject);
 begin
  l3Free(fSavedQuery);
+ MainForm.CheckCurrChild(Self);
 end;
 
 procedure TSearchWin.ExecSrchDlg(aNewSrchLog : Boolean);

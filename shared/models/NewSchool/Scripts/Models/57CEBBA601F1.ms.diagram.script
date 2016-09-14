@@ -1,0 +1,34 @@
+// TmsmListToTreeOperation 57CEBBA601F1 SimpleClass Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57CEBBA601F1_diagrams
+
+ MEDIAGRAM ME_57CEBBA601F1_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57CEBBA601F1' '57CEBB9200EA.ms.model.script' ; // TmsmListToTreeOperation
+
+  MEVIEW ME_57CEBBCC023D_view
+   MELINK Original WL 'ME_57CEBBCC023D' '57CEBB9200EA.ms.model.script' ; // ModelToListen
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57CEBBCC023D_view
+
+  MEVIEW ME_57CEBBE2015F_view
+   MELINK Original WL 'ME_57CEBBE2015F' '57CEBB9200EA.ms.model.script' ; // ModelToFire
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57CEBBE2015F_view
+
+  MELIST Views
+   Seq: ( ME_57CEBBCC023D_view // ModelToListen
+   ME_57CEBBE2015F_view // ModelToFire
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57CEBBA601F1_main
+
+ MELIST Diagrams
+  Seq: ( ME_57CEBBA601F1_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57CEBBA601F1_diagrams

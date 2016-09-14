@@ -30,6 +30,7 @@ uses
  l3ImplUses
  , msmModelElementTree
  , msmListAndTreeInterfaces
+ , msmElementSelection
  //#UC START# *57B31D5A00D2impl_uses*
  //#UC END# *57B31D5A00D2impl_uses*
 ;

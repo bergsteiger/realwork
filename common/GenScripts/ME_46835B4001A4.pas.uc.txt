@@ -12,6 +12,7 @@
 w:\garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsTreeStruct.pas
 //#UC END# *46835B4001A4_ext:FileName
 //#UC START# *46835B4001A4impl_uses*
+ , vcmDispatcher
 //#UC END# *46835B4001A4impl_uses*
 //#UC START# *4772448C01D2_46835B4001A4_impl*
  inherited CursorTop;
@@ -563,15 +564,15 @@ var
 //#UC END# *48FDA1A60056_46835B4001A4_var*
 //#UC START# *48FDA1C3002E_46835B4001A4_impl*
  inherited;
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.LockActionUpdate;
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.LockActionUpdate;
 //#UC END# *48FDA1C3002E_46835B4001A4_impl*
 //#UC START# *48FDA1C3002E_46835B4001A4_var*
 //#UC END# *48FDA1C3002E_46835B4001A4_var*
 //#UC START# *48FDA1D0006F_46835B4001A4_impl*
  inherited;
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.UnLockActionUpdate;
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.UnLockActionUpdate;
 //#UC END# *48FDA1D0006F_46835B4001A4_impl*
 //#UC START# *48FDA1D0006F_46835B4001A4_var*
 //#UC END# *48FDA1D0006F_46835B4001A4_var*

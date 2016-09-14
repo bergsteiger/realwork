@@ -14,7 +14,6 @@ uses
  , nevGUIInterfaces
  , evCustomEditor
  , l3Variant
- , nevInternalInterfaces
  , evCustomEditorWindow
  , evCommonTypes
  , nevTools
@@ -78,8 +77,6 @@ procedure evInsertFormula(const aEditor: TevCustomEditor);
 procedure evAlignCellsBoundary(const aEditor: TevCustomEditor);
 procedure evCopyWidthOfCells(const anEditor: TevCustomEditor);
 procedure evApplyWidthOfCells(const anEditor: TevCustomEditor);
-procedure evLinkTableFilters(var aGen: Tk2TagGenerator;
- aNeedInit: Boolean);
 function evSetTableStyle(const anEditor: TevCustomEditorWindow): Boolean;
  {* Выставляет стиль на таблицу. }
 function evSetSubPrim(const aParam: TevSetSubParam;
@@ -98,10 +95,6 @@ procedure evSetStyleByName(const anEditor: TevCustomEditorWindow;
  anExpired: Boolean);
 procedure evSetExpiredStyle(const anEditor: TevCustomEditorWindow;
  aStyleID: Integer);
-
-{$If Defined(nsTest)}
-var g_DisableMergeCellFilter: Boolean = False;
-{$IfEnd} // Defined(nsTest)
 
 implementation
 
@@ -133,11 +126,6 @@ uses
  , l3Interfaces
  , evTableTools
  , evCopyTableCellWidth
- , evTabStopsFilter
- , evdEmptyRowFilter
- , evTableFilter
- , evMergedCellFilter
- , evTextInTableCorrector
  , evdStyles
  , evOp
  {$If Defined(k2ForEditor)}
@@ -425,28 +413,6 @@ begin
  end;
 //#UC END# *50926CE4004C_4F5755FB0362_impl*
 end;//evApplyWidthOfCells
-
-procedure evLinkTableFilters(var aGen: Tk2TagGenerator;
- aNeedInit: Boolean);
-//#UC START# *517F693A03DF_4F5755FB0362_var*
-//#UC END# *517F693A03DF_4F5755FB0362_var*
-begin
-//#UC START# *517F693A03DF_4F5755FB0362_impl*
- if aNeedInit then
-  aGen := nil;
- TevdEmptyRowFilter.SetTo(aGen);
- TevTableFilter.SetTo(aGen);
- {$IFDEF nsTest}
- if not g_DisableMergeCellFilter then
- {$ENDIF nsTest}
-  TevMergedCellFilter.SetTo(aGen);
- {$IFDEF nsTest}
- g_DisableMergeCellFilter := False;
- {$ENDIF nsTest}
- TevTabStopsFilter.SetTo(aGen);
- TevTextInTableCorrector.SetTo(aGen);
-//#UC END# *517F693A03DF_4F5755FB0362_impl*
-end;//evLinkTableFilters
 
 function evSetTableStyle(const anEditor: TevCustomEditorWindow): Boolean;
  {* Выставляет стиль на таблицу. }

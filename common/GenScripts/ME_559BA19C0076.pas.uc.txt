@@ -8,7 +8,7 @@
  if (f_Alien <> nil) then
   Result := f_Alien.Back(aForm)
  else
-  Result := g_Dispatcher.History.Back;
+  Result := TvcmDispatcher.Instance.History.Back;
 //#UC END# *18FC3BA729CF_559BA19C0076_impl*
 //#UC START# *18FC3BA729CF_559BA19C0076_var*
 //#UC END# *18FC3BA729CF_559BA19C0076_var*
@@ -22,7 +22,7 @@
  if (f_Alien <> nil) then
   Result := f_Alien.GetContainerHistory(aContainer)
  else
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *27BEBF0EE9FD_559BA19C0076_impl*
 //#UC START# *27BEBF0EE9FD_559BA19C0076_var*
 //#UC END# *27BEBF0EE9FD_559BA19C0076_var*
@@ -30,6 +30,7 @@
 w:\common\components\gui\Garant\VCM\vcmHistoryService.pas
 //#UC END# *559BA19C0076_ext:FileName
 //#UC START# *559BA19C0076impl_uses*
+ , vcmDispatcher
 //#UC END# *559BA19C0076impl_uses*
 //#UC START# *94ACDF598B06_559BA19C0076_impl*
  if (f_Alien <> nil) then
@@ -41,7 +42,7 @@ w:\common\components\gui\Garant\VCM\vcmHistoryService.pas
  if (f_Alien <> nil) then
   Result := f_Alien.GetFormHistory(aForm)
  else
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *96E2DB43E67B_559BA19C0076_impl*
 //#UC START# *96E2DB43E67B_559BA19C0076_var*
 //#UC END# *96E2DB43E67B_559BA19C0076_var*

@@ -53,6 +53,7 @@ uses
  , vcmFormSetHistory
  , l3Base
  //#UC START# *559BA3CE0056impl_uses*
+ , vcmDispatcher
  //#UC END# *559BA3CE0056impl_uses*
 ;
 
@@ -85,7 +86,7 @@ begin
    Result := l_ContainedForm.ContainedFormHistory;
  end;
  if (Result = nil) then
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *96E2DB43E67B_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.GetFormHistory
 
@@ -110,7 +111,7 @@ begin
  if Tl3TabbedContainersDispatcher.Instance.NeedUseTabs then
   Result := GetFormHistory(aContainer.AsForm)
  else
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *27BEBF0EE9FD_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.GetContainerHistory
 
@@ -144,7 +145,7 @@ begin
    Tl3TabbedContainersDispatcher.Instance.GetActiveTabbedContainer.CloseTab(l_Tab);
  end
  else
-   Result := g_Dispatcher.History.Back;
+   Result := TvcmDispatcher.Instance.History.Back;
 //#UC END# *18FC3BA729CF_559BA3E6014C_impl*
 end;//TvcmTabsHistoryService.Back
 

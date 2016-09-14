@@ -490,6 +490,7 @@ uses
  , vcmMessagesCollectionItem
  , Dialogs
  , vcmEntities
+ , vcmDispatcher
  //#UC END# *4AB24EF502BBimpl_uses*
 ;
 
@@ -1845,19 +1846,19 @@ begin
   if not (l_CustomForm is TvcmEntityForm) and
      (fsModal in l_CustomForm.FormState) then
    Exit;  
- if (vcmDispatcher <> nil) and g_ShortcutProcessingEnabled then
+ if g_ShortcutProcessingEnabled then
  begin
   with vcmCommandInfo(aCommand) do
    if rIsModule then
    begin
-    if l3BQueryInterface(vcmDispatcher.ActiveEntity, IvcmEntityForm, l_EntityForm) then
+    if l3BQueryInterface(TvcmDispatcher.Instance.ActiveEntity, IvcmEntityForm, l_EntityForm) then
      try
       if not l_EntityForm.IsModalForm then
       begin
        l_MOp.rMoID := TvcmControlID(rItemID);
        l_MOp.rOpID := TvcmControlID(rOperationID);
        // Вызов операции
-       Result := vcmDispatcher.ModuleOperation(l_MOp);
+       Result := TvcmDispatcher.Instance.As_IvcmDispatcher.ModuleOperation(l_MOp);
        if Result then
         // Нотификация о вызове горячей клавиши
         OperationExecuteNotify(vcm_octShortCut,
@@ -1875,7 +1876,7 @@ begin
     l_Op.rEnID := TvcmControlID(rItemID);
     l_Op.rOpID := TvcmControlID(rOperationID);
     // Вызов операции
-    Result := vcmDispatcher.EntityOperation(l_Op, vcmParams);
+    Result := TvcmDispatcher.Instance.As_IvcmDispatcher.EntityOperation(l_Op, vcmParams);
     if Result then
      // Нотификация о вызове горячей клавиши
      OperationExecuteNotify(vcm_octShortCut,
@@ -2189,7 +2190,7 @@ var
 //#UC END# *52A1FD5E02DC_4AD5DBBD0147_var*
 begin
 //#UC START# *52A1FD5E02DC_4AD5DBBD0147_impl*
- with vcmDispatcher do
+ with TvcmDispatcher.Instance.As_IvcmDispatcher do
   with FormDispatcher do
   begin
    for l_Index := 0 to MainFormsCount-1 do
@@ -2444,9 +2445,9 @@ begin
  NeedFreeForm := False;                 
  Result := nil;
  if aFormClass.InheritsFrom(TvcmMainForm) then
-  Result := (g_Dispatcher.FormDispatcher.MainForm[0].VCLWinControl as TvcmEntityForm)
+  Result := (TvcmDispatcher.Instance.FormDispatcher.MainForm[0].VCLWinControl as TvcmEntityForm)
  else
-  with g_Dispatcher do
+  with TvcmDispatcher.Instance do
    for l_Index := 0 to Pred(EntitiesCount) do
     with Entity[l_Index].AsForm do
      if (aUserType = vcm_utAny) or (UserType = aUserType) and
@@ -2564,7 +2565,7 @@ begin
  Case anOp.rKind of
   vcm_okModule :
    if (anOp.rMID.rMoID > 0) then
-    Result := g_Dispatcher.GetModuleByID(anOp.rMID.rMoID).GetOperationByID(anOp.rMID.rOpID)
+    Result := TvcmDispatcher.Instance.As_IvcmDispatcher.GetModuleByID(anOp.rMID.rMoID).GetOperationByID(anOp.rMID.rOpID)
    else
     Result := nil; 
   vcm_okEntity :
@@ -2582,9 +2583,9 @@ function TvcmBaseMenuManagerPrim.BuildAction(const anOp: TvcmOpSelector;
 //#UC END# *52A20071016B_4AD5DBBD0147_var*
 begin
 //#UC START# *52A20071016B_4AD5DBBD0147_impl*
- Case anOp.rKind of
+ case anOp.rKind of
   vcm_okModule :
-   with g_Dispatcher.GetModuleByID(anOp.rMID.rMoID) do
+   with TvcmDispatcher.Instance.As_IvcmDispatcher.GetModuleByID(anOp.rMID.rMoID) do
     Result := TvcmModuleAction.Make(ModuleDef, GetOperationByID(anOp.rMID.rOpID));
   vcm_okEntity :
    with TvcmBaseEntitiesCollectionItem(Entities.FindItemByID(anOp.rID.rEnID)) do

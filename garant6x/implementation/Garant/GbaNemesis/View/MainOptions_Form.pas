@@ -178,6 +178,7 @@ uses
  //#UC START# *4C8A29700261impl_uses*
  , Base_Operations_F1Services_Contracts
  , Common_F1CommonServices_Contracts
+ , vcmDispatcher
  //#UC END# *4C8A29700261impl_uses*
 ;
 
@@ -228,7 +229,7 @@ begin
 //#UC START# *4C8A33C301CA_4C8A29700261_impl*
  if not defDataAdapter.AdministratorLogin then
  begin
-  if (g_Dispatcher.FormDispatcher.MainFormsCount > 1) or
+  if (TvcmDispatcher.Instance.FormDispatcher.MainFormsCount > 1) or
      not lp_CheckCommandLine then
    (Self As InsIntegrationProcessor).ProcessCommand(ConvertOpenOnStartSetting, False, aParams.Container);
  end//not defDataAdapter.AdministratorLogin

@@ -1,5 +1,5 @@
 //#UC START# *476961930017_52A087CA0218_impl*
- if not vcmDispatcher.InOp(True) and
+ if not TvcmDispatcher.Instance.As_IvcmDispatcher.InOp(True) and
     (Action is TvcmOperationAction) and
     (TvcmOperationAction(Action).OpDef.OperationType in vcm_ComboOperations) and
     (Action.ActionComponent = nil) then
@@ -7,7 +7,7 @@
   l_Form := afw.GetTopParentForm(FClient);
   if (l_Form <> nil) then
   begin
-   l_MF := vcmDispatcher.FormDispatcher.CurrentMainForm;
+   l_MF := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm;
    if (l_MF.VCLWinControl <> l_Form) then // 595975850
    begin
     l_ToolBar := FClient.Owner;

@@ -1,8 +1,11 @@
 unit nsBaseSearcher;
 
-// $Id: nsBaseSearcher.pas,v 1.199 2016/08/15 12:02:40 morozov Exp $
+// $Id: nsBaseSearcher.pas,v 1.200 2016/09/13 18:32:13 kostitsin Exp $
 
 // $Log: nsBaseSearcher.pas,v $
+// Revision 1.200  2016/09/13 18:32:13  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.199  2016/08/15 12:02:40  morozov
 // {RequestLink: 624870575}
 //
@@ -913,6 +916,7 @@ uses
  afwFacade,
 
  vcmStringList,
+ vcmDispatcher,
 
  nsTypes,
  nsConst,
@@ -1352,7 +1356,7 @@ begin
    f_InitialNeedShowWindow := False;
   end
   else
-  if Assigned(f_SearchWindow) and (not g_Dispatcher.History.InBF) then
+  if Assigned(f_SearchWindow) and (not TvcmDispatcher.Instance.History.InBF) then
    CloseSearchWindow;
  end;//not l3IEQ(InsBaseSearchPresentation(f_Presentation), aPresentation)
 end;
@@ -1396,9 +1400,9 @@ begin
   if (f_SearchWindow = nil) and
      not f_LockOpenedFlag then
   begin
-   if (g_Dispatcher = nil) OR
-      (g_Dispatcher.History = nil) OR
-      not g_Dispatcher.History.InBF then
+   if TvcmDispatcher.Exists or
+      (TvcmDispatcher.Instance.History = nil) or
+      not TvcmDispatcher.Instance.History.InBF then
     f_WindowOpenedByUser := False;
   end;//f_SearchWindow = nil
   NotifyVisibleWatcher;
@@ -1482,7 +1486,7 @@ begin
     Assert(false, 'По идее форма базового поиска уже должна быть закрыта');
     l_Form.SafeClose;
    end;//Container.HasForm(fm_NewBaseSearchForm, vcm_ztMain, false, @l_Form)
-   if not ByUser AND vcmDispatcher.History.InBF then
+   if not ByUser and TvcmDispatcher.Instance.History.InBF then
    begin
    // - форма сама должна позаботится о сохранении базового поиска в историю и восстановлении его
     if (l_Container.rZone <> vcm_ztAny) then
@@ -1491,7 +1495,7 @@ begin
     Exit;
    end;//not ByUser AND vcmDispatcher.History.InBF
   end;//l_Container = nil
-  if not vcmDispatcher.History.InBF then
+  if not TvcmDispatcher.Instance.History.InBF then
   // http://mdp.garant.ru/pages/viewpage.action?pageId=257393788
   // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309
   // http://mdp.garant.ru/pages/viewpage.action?pageId=269069309&focusedCommentId=296636403#comment-296636403
@@ -1584,12 +1588,12 @@ end;
 function TnsBaseSearcher.pm_GetActiveClassForSaveState: InsBaseSearchClass;
   {-}
 begin
- if (g_Dispatcher <> nil) AND (g_Dispatcher.History <> nil) AND
-    g_Dispatcher.History.InBF then
+ if TvcmDispatcher.Exists and (TvcmDispatcher.Instance.History <> nil) and
+    TvcmDispatcher.Instance.History.InBF then
   Result := pm_GetActiveClass
   // - сохраняем то, что у нас во вкладке
  else 
- if f_ClassSaved AND (f_SavedClass <> nil) then
+ if f_ClassSaved and (f_SavedClass <> nil) then
   Result := f_SavedClass
   // - сохраняем то, что у нас БЫЛО во вкладке ДО ПОИСКА
   // http://mdp.garant.ru/pages/viewpage.action?pageId=300026165

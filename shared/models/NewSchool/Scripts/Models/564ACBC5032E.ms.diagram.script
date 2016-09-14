@@ -26,10 +26,24 @@ MEDIAGRAMS ME_564ACBC5032E_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_564AECF70353_view
 
+  MEVIEWLINK ME_564AE025006B_viewlink
+   MELINK Original WL 'ME_564AE025006B' '55D6CF3B014B.ms.model.script' ;
+   MELINK From ME_564AD17C02DC_view ;
+   MELINK To ME_564ACBEE0302_view ;
+  ENDMEVIEWLINK // ME_564AE025006B_viewlink
+
+  MEVIEWLINK ME_564AECF70353_ME_564ACBEE0302_Inherits
+   MELINK From ME_564AECF70353_view ;
+   MELINK To ME_564ACBEE0302_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_564AECF70353_ME_564ACBEE0302_Inherits
+
   MELIST Views
    Seq: ( ME_564ACBEE0302_view // TpgJournalCacheRec
    ME_564AD17C02DC_view // TpgJournalCacheList
    ME_564AECF70353_view // PpgJournalCacheRec
+   ME_564AE025006B_viewlink // TpgJournalCacheList -> TpgJournalCacheRec
+   ME_564AECF70353_ME_564ACBEE0302_Inherits // PpgJournalCacheRec -> TpgJournalCacheRec
    )
   ; // Views
  ENDMEDIAGRAM // ME_564ACBC5032E_main

@@ -44,6 +44,24 @@ MEDIAGRAMS ME_54F5D5E002E0_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_54F5E7BD01ED_view
 
+  MEVIEW ME_54F5D8C3022B_view
+   MELINK Original WL 'ME_54F5D8C3022B' '54F5D55D00C6.ms.model.script' ; // List
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_54F5D8C3022B_view
+
+  MEVIEWLINK ME_54F5D9170267_viewlink
+   MELINK Original WL 'ME_54F5D9170267' '54F5D55D00C6.ms.model.script' ;
+   MELINK From ME_54F5D8B60392_view ;
+   MELINK To ME_54F5D8820129_view ;
+  ENDMEVIEWLINK // ME_54F5D9170267_viewlink
+
+  MEVIEWLINK ME_54F5D987008A_ME_54F5D9540254_Inherits
+   MELINK From ME_54F5D987008A_view ;
+   MELINK To ME_54F5D9540254_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_54F5D987008A_ME_54F5D9540254_Inherits
+
   MELIST Views
    Seq: ( ME_54F5D8820129_view // If1NotificationListener
    ME_54F5D8B60392_view // Tf1NotificationList
@@ -51,6 +69,9 @@ MEDIAGRAMS ME_54F5D5E002E0_diagrams
    ME_54F5D987008A_view // RemoveListener
    ME_54F5D9F70383_view // ServerDown
    ME_54F5E7BD01ED_view // Exists
+   ME_54F5D8C3022B_view // List
+   ME_54F5D9170267_viewlink // Tf1NotificationList -> If1NotificationListener
+   ME_54F5D987008A_ME_54F5D9540254_Inherits // RemoveListener -> AddListener
    )
   ; // Views
  ENDMEDIAGRAM // ME_54F5D5E002E0_main

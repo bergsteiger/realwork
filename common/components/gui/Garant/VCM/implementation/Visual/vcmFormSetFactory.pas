@@ -167,6 +167,7 @@ uses
  , vcmFormDataSourceList
  , vcmZoneTypeList
  //#UC START# *47B97312006Dimpl_uses*
+ , vcmDispatcher
  //#UC END# *47B97312006Dimpl_uses*
 ;
 
@@ -301,7 +302,7 @@ begin
  if (aHistory <> nil) then
   l_History := aHistory
  else
-  l_History := g_Dispatcher.History;
+  l_History := TvcmDispatcher.Instance.History;
  with aItem do
   l_History.SaveClose(nil,
                       FormId,
@@ -483,8 +484,7 @@ var
 //#UC END# *55A4F6E1037D_47B97312006D_var*
 begin
 //#UC START# *55A4F6E1037D_47B97312006D_impl*
- Assert((g_Dispatcher.History = nil) OR
-        not g_Dispatcher.History.InBF, 'Нельзя создавать сборки при навигации по истории');
+ Assert((TvcmDispatcher.Instance.History = nil) or not TvcmDispatcher.Instance.History.InBF, 'Нельзя создавать сборки при навигации по истории');
 // Assert(not g_InMake, 'Нельзя создавать вложенные сборки');
 // g_InMake := true;
  try
@@ -984,7 +984,7 @@ begin
   // Инициализируем флажки на сборке
   InitForms(aParams);
 
- g_Dispatcher.FormDispatcher.Lock;
+ TvcmDispatcher.Instance.FormDispatcher.Lock;
  try
   aParams.DataSource.BeginRefresh;
   try
@@ -1008,7 +1008,7 @@ begin
   if Assigned(l_ModalForm) then
    l_ModalForm.ShowModal;
  finally
-  g_Dispatcher.FormDispatcher.Unlock;
+  TvcmDispatcher.Instance.FormDispatcher.Unlock;
  end;//try..finally
 //#UC END# *49957114002A_47B97312006D_impl*
 end;//TvcmFormSetFactory.Refresh
@@ -1073,7 +1073,7 @@ begin
  // Сохраняем только при обновлении текущей сборки, когда произойдет замена
  // сборки, то сохранение произойдет перед закрытием главной формы
  if IsFormSetExists(aContainer, l_FormSet) and
-   Assigned(g_Dispatcher.History) then
+   Assigned(TvcmDispatcher.Instance.History) then
  begin
   l_FormSet.PopToHistory;
   l_History := TvcmHistoryService.Instance.GetContainerHistory(aContainer);

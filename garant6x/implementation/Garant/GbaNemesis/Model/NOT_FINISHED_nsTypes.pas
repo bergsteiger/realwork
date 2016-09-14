@@ -105,6 +105,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4A6854C70390impl_uses*
  //#UC END# *4A6854C70390impl_uses*
 ;
@@ -144,5 +147,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4CF4DE5F0071_4A6854C70390_impl*
 end;//nsEStr
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TListLogicOperation));
+ {* Регистрация типа TListLogicOperation }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TnsFileFormat));
+ {* Регистрация типа TnsFileFormat }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

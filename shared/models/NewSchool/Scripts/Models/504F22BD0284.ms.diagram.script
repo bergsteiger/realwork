@@ -32,11 +32,32 @@ MEDIAGRAMS ME_504F22BD0284_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_504F319402B1_view
 
+  MEVIEW ME_504F22F302BA_view
+   MELINK Original WL 'ME_504F22F302BA' '48076E7F0260.ms.model.script' ; // SecondType
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_504F22F302BA_view
+
+  MEVIEW ME_504F230B0255_view
+   MELINK Original WL 'ME_504F230B0255' '48076E7F0260.ms.model.script' ; // FirstType
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_504F230B0255_view
+
+  MEVIEWLINK ME_504F32DB01F0_ME_504F326001E9_Inherits
+   MELINK From ME_504F32DB01F0_view ;
+   MELINK To ME_504F326001E9_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_504F32DB01F0_ME_504F326001E9_Inherits
+
   MELIST Views
    Seq: ( ME_504F326001E9_view // array of _BitMaskValueType_
    ME_504F32DB01F0_view // TBitMaskValues
    ME_504F313903B0_view // ToValues
    ME_504F319402B1_view // ToMask
+   ME_504F22F302BA_view // SecondType
+   ME_504F230B0255_view // FirstType
+   ME_504F32DB01F0_ME_504F326001E9_Inherits // TBitMaskValues -> array of _BitMaskValueType_
    )
   ; // Views
  ENDMEDIAGRAM // ME_504F22BD0284_main

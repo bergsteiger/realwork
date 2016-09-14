@@ -73,8 +73,6 @@ end;//TkwCompiledWordWorker.Cleanup
 initialization
  TkwCompiledWordWorker.RegisterClass;
  {* Регистрация TkwCompiledWordWorker }
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа RkwCompiledWordWorker }
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

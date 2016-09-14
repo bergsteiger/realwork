@@ -26,10 +26,31 @@ MEDIAGRAMS ME_48E225F102A3_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_48E2466300B3_view
 
+  MEVIEWLINK ME_48E22669037D_ME_48E2366202B9_uses::Dependency
+   MELINK Original WL 'ME_48E2369500EA' '48E22669037D.ms.model.script' ;
+   MELINK From ME_48E22669037D_view ;
+   MELINK To ME_48E2366202B9_view ;
+  ENDMEVIEWLINK // ME_48E22669037D_ME_48E2366202B9_uses::Dependency
+
+  MEVIEWLINK ME_48E22669037D_ME_48E2466300B3_uses::Dependency
+   MELINK Original WL 'ME_48E246BE020C' '48E22669037D.ms.model.script' ;
+   MELINK From ME_48E22669037D_view ;
+   MELINK To ME_48E2466300B3_view ;
+  ENDMEVIEWLINK // ME_48E22669037D_ME_48E2466300B3_uses::Dependency
+
+  MEVIEWLINK ME_48E2366202B9_ME_48E22669037D_uses::Dependency
+   MELINK Original WL 'ME_48E4AC730102' '48E225F102A3.ms.model.script' ;
+   MELINK From ME_48E2366202B9_view ;
+   MELINK To ME_48E22669037D_view ;
+  ENDMEVIEWLINK // ME_48E2366202B9_ME_48E22669037D_uses::Dependency
+
   MELIST Views
    Seq: ( ME_48E22669037D_view // TevQueryCardEditor
    ME_48E2366202B9_view // TevQueryCardEditorHotSpot
    ME_48E2466300B3_view // TevQueryCardSelection
+   ME_48E22669037D_ME_48E2366202B9_uses::Dependency // TevQueryCardEditor -> TevQueryCardEditorHotSpot
+   ME_48E22669037D_ME_48E2466300B3_uses::Dependency // TevQueryCardEditor -> TevQueryCardSelection
+   ME_48E2366202B9_ME_48E22669037D_uses::Dependency // TevQueryCardEditorHotSpot -> TevQueryCardEditor
    )
   ; // Views
  ENDMEDIAGRAM // ME_48E225F102A3_main

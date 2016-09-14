@@ -26,10 +26,31 @@ MEDIAGRAMS ME_4FFC33380166_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4FFC4C800030_view
 
+  MEVIEWLINK ME_4FFC3347011F_ME_4FFC4C800030_uses::Dependency
+   MELINK Original WL 'ME_55D33F500168' '4FFC33380166.ms.model.script' ;
+   MELINK From ME_4FFC3347011F_view ;
+   MELINK To ME_4FFC4C800030_view ;
+  ENDMEVIEWLINK // ME_4FFC3347011F_ME_4FFC4C800030_uses::Dependency
+
+  MEVIEWLINK ME_5607EB680196_viewlink
+   MELINK Original WL 'ME_5607EB680196' '4FFC33380166.ms.model.script' ;
+   MELINK From ME_4FFC4C800030_view ;
+   MELINK To ME_4FFC3347011F_view ;
+  ENDMEVIEWLINK // ME_5607EB680196_viewlink
+
+  MEVIEWLINK ME_5607EC18014E_viewlink
+   MELINK Original WL 'ME_5607EC18014E' '4FFC33380166.ms.model.script' ;
+   MELINK From ME_4FFC4C800030_view ;
+   MELINK To ME_4FFC335A011F_view ;
+  ENDMEVIEWLINK // ME_5607EC18014E_viewlink
+
   MELIST Views
    Seq: ( ME_4FFC335A011F_view // TvcmPrimCollectionItem
    ME_4FFC3347011F_view // TvcmBaseCollectionItem
    ME_4FFC4C800030_view // TvcmBaseCollection
+   ME_4FFC3347011F_ME_4FFC4C800030_uses::Dependency // TvcmBaseCollectionItem -> TvcmBaseCollection
+   ME_5607EB680196_viewlink // TvcmBaseCollection -> TvcmBaseCollectionItem
+   ME_5607EC18014E_viewlink // TvcmBaseCollection -> TvcmPrimCollectionItem
    )
   ; // Views
  ENDMEDIAGRAM // ME_4FFC33380166_main

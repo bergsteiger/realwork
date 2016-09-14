@@ -26,10 +26,24 @@ MEDIAGRAMS ME_544A09C403BE_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_5451E6E20117_view
 
+  MEVIEWLINK ME_5451E6B902C3_ME_5451E68E0399_Inherits
+   MELINK From ME_5451E6B902C3_view ;
+   MELINK To ME_5451E68E0399_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5451E6B902C3_ME_5451E68E0399_Inherits
+
+  MEVIEWLINK ME_5451E6E20117_ME_5451E68E0399_Inherits
+   MELINK From ME_5451E6E20117_view ;
+   MELINK To ME_5451E68E0399_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5451E6E20117_ME_5451E68E0399_Inherits
+
   MELIST Views
    Seq: ( ME_5451E68E0399_view // TncsConnection
    ME_5451E6B902C3_view // TncsClientConnection
    ME_5451E6E20117_view // TncsServerConnection
+   ME_5451E6B902C3_ME_5451E68E0399_Inherits // TncsClientConnection -> TncsConnection
+   ME_5451E6E20117_ME_5451E68E0399_Inherits // TncsServerConnection -> TncsConnection
    )
   ; // Views
  ENDMEDIAGRAM // ME_544A09C403BE_main

@@ -2056,55 +2056,11 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwDisableMergedCellFilter in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDisableMergedCellFilter.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , evCommonUtils in 'w:\archi\source\projects\Common\Utils\evCommonUtils.pas'
- , evCommonTypes in 'w:\common\components\gui\Garant\EverestCommon\evCommonTypes.pas'
- , arCommonTypes in 'w:\archi\source\projects\Common\Utils\arCommonTypes.pas'
- , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
- , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
- , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
- , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
- , D_PicSizeEdit in 'w:\archi\source\projects\Common\Dialogs\D_PicSizeEdit.pas'
- {$If NOT Defined(NoScripts)}
- , TPicSizeEditDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , evFacadeGUI in 'w:\common\components\gui\Garant\EverestCommon\evFacadeGUI.pas'
- , ExprEditForm in 'w:\archi\source\projects\Common\Dialogs\ExprEditForm.pas'
- {$If NOT Defined(NoScripts)}
- , TExprEditorWordsPack in 'w:\archi\source\projects\Common\Dialogs\TExprEditorWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , evTableTools in 'w:\common\components\gui\Garant\Everest\evTableTools.pas'
- , evCellsWidthCorrecter in 'w:\common\components\gui\Garant\Everest\evCellsWidthCorrecter.pas'
- , evRowAndTableTypeSupport in 'w:\common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas'
- , evCellsOffsetsPair in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsPair.pas'
- , evCellsCharOffsets in 'w:\common\components\gui\Garant\Everest\evCellsCharOffsets.pas'
- , evOneCharLongIntList in 'w:\common\components\gui\Garant\Everest\evOneCharLongIntList.pas'
- , edCellTypesList in 'w:\common\components\gui\Garant\Everest\edCellTypesList.pas'
- , evCellsOffsetsPairList in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsPairList.pas'
- , evCellWidthCorrecterSpy in 'w:\common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas'
- , evCellsOffsetsList in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsList.pas'
- , evCopyTableCellWidth in 'w:\common\components\gui\Garant\Everest\evCopyTableCellWidth.pas'
+ , arFiltersUtils in 'w:\archi\source\projects\Common\Utils\arFiltersUtils.pas'
  , evTabStopsFilter in 'w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas'
  , evdEmptyRowFilter in 'w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas'
  , evTableFilter in 'w:\common\components\gui\Garant\Everest\evTableFilter.pas'
  , evTextInTableCorrector in 'w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
- , evFacadeSelection in 'w:\common\components\gui\Garant\EverestCommon\evFacadeSelection.pas'
- , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'
- {$If NOT Defined(Nemesis)}
- , vtDialogs in 'w:\common\components\gui\Garant\VT\vtDialogs.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , evCommonRes in 'w:\archi\source\projects\Common\Utils\evCommonRes.pas'
- , evFacadeSub in 'w:\common\components\gui\Garant\EverestCommon\evFacadeSub.pas'
- , evStubs in 'w:\common\components\gui\Garant\EverestCommon\evStubs.pas'
- , d_edMSub in 'w:\archi\source\projects\Common\Dialogs\d_edMSub.pas'
- {$If NOT Defined(NoScripts)}
- , TNewSubDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TNewSubDlgWordsPack.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , arTextUtils in 'w:\archi\source\projects\Common\Utils\arTextUtils.pas'
- , l3SimpleCalc in 'w:\common\components\rtl\Garant\L3\ext\l3SimpleCalc.pas'
- , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
- , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
  {$If NOT Defined(NoScripts)}
  , kwClearFindDialog in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2178,6 +2134,51 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwPopEditorAlignCellsBoundary in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorAlignCellsBoundary.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , evCellWidthCorrecterSpy in 'w:\common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas'
+ , evCommonUtils in 'w:\archi\source\projects\Common\Utils\evCommonUtils.pas'
+ , evCommonTypes in 'w:\common\components\gui\Garant\EverestCommon\evCommonTypes.pas'
+ , arCommonTypes in 'w:\archi\source\projects\Common\Utils\arCommonTypes.pas'
+ , dt_Types in 'w:\common\components\rtl\Garant\dd\dt_Types.pas'
+ , l3MarshalledTypes in 'w:\common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
+ , evdDTTypes in 'w:\common\components\rtl\Garant\EVD\evdDTTypes.pas'
+ , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
+ , D_PicSizeEdit in 'w:\archi\source\projects\Common\Dialogs\D_PicSizeEdit.pas'
+ {$If NOT Defined(NoScripts)}
+ , TPicSizeEditDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TPicSizeEditDlgWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evFacadeGUI in 'w:\common\components\gui\Garant\EverestCommon\evFacadeGUI.pas'
+ , ExprEditForm in 'w:\archi\source\projects\Common\Dialogs\ExprEditForm.pas'
+ {$If NOT Defined(NoScripts)}
+ , TExprEditorWordsPack in 'w:\archi\source\projects\Common\Dialogs\TExprEditorWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , evTableTools in 'w:\common\components\gui\Garant\Everest\evTableTools.pas'
+ , evCellsWidthCorrecter in 'w:\common\components\gui\Garant\Everest\evCellsWidthCorrecter.pas'
+ , evRowAndTableTypeSupport in 'w:\common\components\gui\Garant\Everest\evRowAndTableTypeSupport.pas'
+ , evCellsOffsetsPair in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsPair.pas'
+ , evCellsCharOffsets in 'w:\common\components\gui\Garant\Everest\evCellsCharOffsets.pas'
+ , evOneCharLongIntList in 'w:\common\components\gui\Garant\Everest\evOneCharLongIntList.pas'
+ , edCellTypesList in 'w:\common\components\gui\Garant\Everest\edCellTypesList.pas'
+ , evCellsOffsetsPairList in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsPairList.pas'
+ , evCellsOffsetsList in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsList.pas'
+ , evCopyTableCellWidth in 'w:\common\components\gui\Garant\Everest\evCopyTableCellWidth.pas'
+ , evFacadeSelection in 'w:\common\components\gui\Garant\EverestCommon\evFacadeSelection.pas'
+ , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'
+ {$If NOT Defined(Nemesis)}
+ , vtDialogs in 'w:\common\components\gui\Garant\VT\vtDialogs.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , evCommonRes in 'w:\archi\source\projects\Common\Utils\evCommonRes.pas'
+ , evFacadeSub in 'w:\common\components\gui\Garant\EverestCommon\evFacadeSub.pas'
+ , evStubs in 'w:\common\components\gui\Garant\EverestCommon\evStubs.pas'
+ , d_edMSub in 'w:\archi\source\projects\Common\Dialogs\d_edMSub.pas'
+ {$If NOT Defined(NoScripts)}
+ , TNewSubDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TNewSubDlgWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , arTextUtils in 'w:\archi\source\projects\Common\Utils\arTextUtils.pas'
+ , l3SimpleCalc in 'w:\common\components\rtl\Garant\L3\ext\l3SimpleCalc.pas'
+ , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
+ {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
+ {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
  {$If NOT Defined(NoScripts)}
  , kwPopEditorSetStyle2Block in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Block.pas'
  {$IfEnd} // NOT Defined(NoScripts)

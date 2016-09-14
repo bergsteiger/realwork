@@ -128,6 +128,30 @@ MEDIAGRAMS ME_48FD8F78038B_diagrams
    MEPROP Y 320
   ENDMEVIEW // ME_48FDA7330175_view
 
+  MEVIEW ME_48FD9F220263_view
+   MELINK Original WL 'ME_48FD9F220263' '48FD8B2702F6.ms.model.script' ; // CountViewChanged
+   MEPROP X 1000
+   MEPROP Y 320
+  ENDMEVIEW // ME_48FD9F220263_view
+
+  MEVIEW ME_48FD9F4002E8_view
+   MELINK Original WL 'ME_48FD9F4002E8' '48FD8B2702F6.ms.model.script' ; // CountView
+   MEPROP X 40
+   MEPROP Y 460
+  ENDMEVIEW // ME_48FD9F4002E8_view
+
+  MEVIEWLINK ME_48FD9AE5001C_ME_48FD9B7B0284_uses::Dependency
+   MELINK Original WL 'ME_48FD9B2E0263' '48FD8B2702F6.ms.model.script' ;
+   MELINK From ME_48FD9AE5001C_view ;
+   MELINK To ME_48FD9B7B0284_view ;
+  ENDMEVIEWLINK // ME_48FD9AE5001C_ME_48FD9B7B0284_uses::Dependency
+
+  MEVIEWLINK ME_48FD9B7B0284_ME_48FD9B220307_Inherits
+   MELINK From ME_48FD9B7B0284_view ;
+   MELINK To ME_48FD9B220307_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_48FD9B7B0284_ME_48FD9B220307_Inherits
+
   MELIST Views
    Seq: ( ME_48FD9AE5001C_view // TnsNodeNotifierHolder
    ME_48FD9B220307_view // TnsThreadCallParamsRec
@@ -149,6 +173,10 @@ MEDIAGRAMS ME_48FD8F78038B_diagrams
    ME_48FDA7060268_view // ChangingThread
    ME_48FDA725033E_view // ChangedThread
    ME_48FDA7330175_view // ChangeChildrenCountThread
+   ME_48FD9F220263_view // CountViewChanged
+   ME_48FD9F4002E8_view // CountView
+   ME_48FD9AE5001C_ME_48FD9B7B0284_uses::Dependency // TnsNodeNotifierHolder -> PnsThreadCallParamsRec
+   ME_48FD9B7B0284_ME_48FD9B220307_Inherits // PnsThreadCallParamsRec -> TnsThreadCallParamsRec
    )
   ; // Views
  ENDMEDIAGRAM // ME_48FD8F78038B_main

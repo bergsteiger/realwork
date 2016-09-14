@@ -3,9 +3,12 @@ unit CustomizeTools_Form;
 { Библиотека "vcm"        }
 { Модуль: vcmCustomizeTools - }
 { Начат: 23.07.2003 21:04 }
-{ $Id: CustomizeTools_Form.pas,v 1.34 2016/09/01 16:58:28 kostitsin Exp $ }
+{ $Id: CustomizeTools_Form.pas,v 1.35 2016/09/13 18:32:42 kostitsin Exp $ }
 
 // $Log: CustomizeTools_Form.pas,v $
+// Revision 1.35  2016/09/13 18:32:42  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.34  2016/09/01 16:58:28  kostitsin
 // {requestlink: 600322829 }
 //
@@ -1049,6 +1052,7 @@ uses
   vcmUtils,
   vcmCustomizeUtils,
   vcmCustomizeAvailableToolbarOps,
+  //vcmDispatcher,
 
   vcmBaseCollectionItem,
   vcmUserTypesCollectionItem,
@@ -1631,7 +1635,7 @@ class function TCustomizeToolsForm.Execute(aMenuManager : TvcmBaseMenuManager;
 var
  l_Form: TCustomizeToolsForm;
 begin
- l_Form := Create(g_Dispatcher.FormDispatcher.CurrentMainForm.VCLWinControl);
+ l_Form := Create(vcmDispatcher.FormDispatcher.CurrentMainForm.VCLWinControl);
  with l_Form do
   try
    f_ManualUpdate := true;
@@ -2058,7 +2062,7 @@ procedure TCustomizeToolsForm.FillOperations(aTarget : TvtCustomOutliner;
   var
    l_Index : Integer;
   begin//DoModules
-   with g_Dispatcher do
+   with vcmDispatcher do
     for l_Index := 0 to Pred(ModulesCount) do
      DoModule(Module[l_Index].ModuleDef);
   end;//DoModules

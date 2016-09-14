@@ -11,6 +11,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas
  , StdRes
  , Search_Services
  , SearchLite_Services
+ , vcmDispatcher
 //#UC END# *4AA641A3036Cimpl_uses*
 //#UC START# *4AA64AFA0360_4AA641A3036C_impl*
  Result := ns_ffAttributeSearch;
@@ -103,7 +104,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas
 //#UC START# *4AB77FFF008F_4AA641A3036C_var*
 //#UC END# *4AB77FFF008F_4AA641A3036C_var*
 //#UC START# *4AB7B8D30345_4AA641A3036C_impl*
- vcmDispatcher.FormDispatcher.Lock;
+ TvcmDispatcher.Instance.FormDispatcher.Lock;
  try
   l_MainContainer := TCommonSearchService.Instance.MakeSaveLoadForm(vcmCheckAggregate(
                                                  vcmMakeParams(nil,
@@ -112,8 +113,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas
                                                 true,
                                                 Ord(slqtFilters));
   Result := TCommonSearchService.Instance.MakeQueryCardForm(true, // IsFilter
-                                        vcmMakeParams(l_MainContainer.Aggregate,
-                                                  l_MainContainer.AsContainer),
+                                        vcmMakeParams(l_MainContainer.Aggregate, l_MainContainer.AsContainer),
                                         vcm_ztAny,
                                         True,
                                         0);
@@ -121,7 +121,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas
   if (aData <> nil) then
    op_SearchParameters_SetQuery.Call(l_MainContainer.Aggregate, aData.Query);
  finally
-  vcmDispatcher.FormDispatcher.UnLock;
+  TvcmDispatcher.Instance.FormDispatcher.UnLock;
  end;//try..finally
  if (l_MainContainer <> nil) AND (l_MainContainer.ZoneType = vcm_ztManualModal) then
  begin
@@ -385,9 +385,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Search\Search_Module.pas
 
  function IsCurrentObjectList : Boolean;
  begin//IsCurrentObjectList
-  if Assigned(g_Dispatcher.FormDispatcher.CurrentMainForm) then
-   Result := (g_Dispatcher.FormDispatcher.CurrentMainForm.asContainer)
-              .HasForm(fm_efList.rFormID, vcm_ztParent, true)
+  if Assigned(TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm) then
+   Result := (TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.asContainer).HasForm(fm_efList.rFormID, vcm_ztParent, true)
   else
    Result := False;
  end;//IsCurrentObjectList

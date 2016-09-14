@@ -104,6 +104,60 @@ MEDIAGRAMS ME_47F086170200_diagrams
    MEPROP Y 320
   ENDMEVIEW // ME_47F100430323_view
 
+  MEVIEWLINK ME_47F0870E0034_ME_47F100430323_uses::Dependency
+   MELINK Original WL 'ME_47F1004C00BC' '47F086170200.ms.model.script' ;
+   MELINK From ME_47F0870E0034_view ;
+   MELINK To ME_47F100430323_view ;
+  ENDMEVIEWLINK // ME_47F0870E0034_ME_47F100430323_uses::Dependency
+
+  MEVIEWLINK ME_47F0870E0034_ME_47F1FBC30128_uses::Dependency
+   MELINK Original WL 'ME_47F1FBE50383' '47F086170200.ms.model.script' ;
+   MELINK From ME_47F0870E0034_view ;
+   MELINK To ME_47F1FBC30128_view ;
+  ENDMEVIEWLINK // ME_47F0870E0034_ME_47F1FBC30128_uses::Dependency
+
+  MEVIEWLINK ME_47F0870E0034_ME_47F259A300DA_uses::Dependency
+   MELINK Original WL 'ME_47F259DE0096' '47F086170200.ms.model.script' ;
+   MELINK From ME_47F0870E0034_view ;
+   MELINK To ME_47F259A300DA_view ;
+  ENDMEVIEWLINK // ME_47F0870E0034_ME_47F259A300DA_uses::Dependency
+
+  MEVIEWLINK ME_47F2358001B5_viewlink
+   MELINK Original WL 'ME_47F2358001B5' '47F086170200.ms.model.script' ;
+   MELINK From ME_47F0870E0034_view ;
+   MELINK To ME_47F0870E0034_view ;
+  ENDMEVIEWLINK // ME_47F2358001B5_viewlink
+
+  MEVIEWLINK ME_47F3513A017F_ME_47F0870E0034_Inherits
+   MELINK From ME_47F3513A017F_view ;
+   MELINK To ME_47F0870E0034_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_47F3513A017F_ME_47F0870E0034_Inherits
+
+  MEVIEWLINK ME_47F34F00021C_ME_4C220ECF0284_uses::Dependency
+   MELINK Original WL 'ME_4C220ED8018B' '47F086170200.ms.model.script' ;
+   MELINK From ME_47F34F00021C_view ;
+   MELINK To ME_4C220ECF0284_view ;
+  ENDMEVIEWLINK // ME_47F34F00021C_ME_4C220ECF0284_uses::Dependency
+
+  MEVIEWLINK ME_4C6A9B570103_ME_47F0870E0034_Inherits
+   MELINK From ME_4C6A9B570103_view ;
+   MELINK To ME_47F0870E0034_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4C6A9B570103_ME_47F0870E0034_Inherits
+
+  MEVIEWLINK ME_4C6AA2120355_ME_47F34F00021C_Inherits
+   MELINK From ME_4C6AA2120355_view ;
+   MELINK To ME_47F34F00021C_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4C6AA2120355_ME_47F34F00021C_Inherits
+
+  MEVIEWLINK ME_47F100430323_ME_5506FEE90052_Inherits
+   MELINK From ME_47F100430323_view ;
+   MELINK To ME_5506FEE90052_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_47F100430323_ME_5506FEE90052_Inherits
+
   MELIST Views
    Seq: ( ME_47F0870E0034_view // TnevDocumentContainer
    ME_5506FEE90052_view // TevDocumentsCachePrim
@@ -121,6 +175,15 @@ MEDIAGRAMS ME_47F086170200_diagrams
    ME_4C6AA2120355_view // MnevPrintableDocumentContainer
    ME_4EA6A47C0260_view // TevSearchWaiter
    ME_47F100430323_view // TevDocumentsCache
+   ME_47F0870E0034_ME_47F100430323_uses::Dependency // TnevDocumentContainer -> TevDocumentsCache
+   ME_47F0870E0034_ME_47F1FBC30128_uses::Dependency // TnevDocumentContainer -> TnevTextSourcePool
+   ME_47F0870E0034_ME_47F259A300DA_uses::Dependency // TnevDocumentContainer -> evNode
+   ME_47F2358001B5_viewlink // TnevDocumentContainer -> TnevDocumentContainer
+   ME_47F3513A017F_ME_47F0870E0034_Inherits // TevDocumentContainerWithProcessor -> TnevDocumentContainer
+   ME_47F34F00021C_ME_4C220ECF0284_uses::Dependency // TnevPrintableDocumentContainer -> TevFixedHAFMacroReplacer
+   ME_4C6A9B570103_ME_47F0870E0034_Inherits // MnevDocumentContainer -> TnevDocumentContainer
+   ME_4C6AA2120355_ME_47F34F00021C_Inherits // MnevPrintableDocumentContainer -> TnevPrintableDocumentContainer
+   ME_47F100430323_ME_5506FEE90052_Inherits // TevDocumentsCache -> TevDocumentsCachePrim
    )
   ; // Views
  ENDMEDIAGRAM // ME_47F086170200_main

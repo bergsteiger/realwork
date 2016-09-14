@@ -26,10 +26,24 @@ MEDIAGRAMS ME_53D0ABFF01D1_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_53D0B85603AE_view
 
+  MEVIEWLINK ME_53D0ACDE017D_viewlink
+   MELINK Original WL 'ME_53D0ACDE017D' '53CCC2F702C7.ms.model.script' ;
+   MELINK From ME_53D0AC2C0288_view ;
+   MELINK To ME_53D0ACC8010F_view ;
+  ENDMEVIEWLINK // ME_53D0ACDE017D_viewlink
+
+  MEVIEWLINK ME_53D0B85603AE_ME_53D0ACC8010F_Inherits
+   MELINK From ME_53D0B85603AE_view ;
+   MELINK To ME_53D0ACC8010F_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_53D0B85603AE_ME_53D0ACC8010F_Inherits
+
   MELIST Views
    Seq: ( ME_53D0ACC8010F_view // TalcuTaskExecutionCounter
    ME_53D0AC2C0288_view // TalcuTaskExecutingList
    ME_53D0B85603AE_view // PalcuTaskExecutionCounter
+   ME_53D0ACDE017D_viewlink // TalcuTaskExecutingList -> TalcuTaskExecutionCounter
+   ME_53D0B85603AE_ME_53D0ACC8010F_Inherits // PalcuTaskExecutionCounter -> TalcuTaskExecutionCounter
    )
   ; // Views
  ENDMEDIAGRAM // ME_53D0ABFF01D1_main

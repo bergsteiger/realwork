@@ -74,6 +74,30 @@ MEDIAGRAMS ME_5559A3F601FD_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_55E949D10216_view
 
+  MEVIEW ME_5559A5DD037C_view
+   MELINK Original WL 'ME_5559A5DD037C' '47D0E1500033.ms.model.script' ; // Map
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_5559A5DD037C_view
+
+  MEVIEWLINK ME_5559B460031C_ME_5559A50B0336_Inherits
+   MELINK From ME_5559B460031C_view ;
+   MELINK To ME_5559A50B0336_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5559B460031C_ME_5559A50B0336_Inherits
+
+  MEVIEWLINK ME_5559A56501B4_ME_55E04C2803D7_Implements
+   MELINK From ME_5559A56501B4_view ;
+   MELINK To ME_55E04C2803D7_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_5559A56501B4_ME_55E04C2803D7_Implements
+
+  MEVIEWLINK ME_5559A5B401A5_viewlink
+   MELINK Original WL 'ME_5559A5B401A5' '47D0E1500033.ms.model.script' ;
+   MELINK From ME_5559A56501B4_view ;
+   MELINK To ME_5559A50B0336_view ;
+  ENDMEVIEWLINK // ME_5559A5B401A5_viewlink
+
   MELIST Views
    Seq: ( ME_5559A50B0336_view // TvcmFormSetContainerMapItem
    ME_55E04C2803D7_view // TvcmFormSetContainerMapIterator
@@ -86,6 +110,10 @@ MEDIAGRAMS ME_5559A3F601FD_diagrams
    ME_5559A62F028B_view // UnregisterFormSet
    ME_55E5816E00D5_view // GetFormSetCount
    ME_55E949D10216_view // UnregisterContainer
+   ME_5559A5DD037C_view // Map
+   ME_5559B460031C_ME_5559A50B0336_Inherits // PvcmFormSetContainerMapItem -> TvcmFormSetContainerMapItem
+   ME_5559A56501B4_ME_55E04C2803D7_Implements // TvcmFormSetContainerMap -> TvcmFormSetContainerMapIterator
+   ME_5559A5B401A5_viewlink // TvcmFormSetContainerMap -> TvcmFormSetContainerMapItem
    )
   ; // Views
  ENDMEDIAGRAM // ME_5559A3F601FD_main

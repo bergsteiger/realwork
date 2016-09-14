@@ -32,11 +32,25 @@ MEDIAGRAMS ME_490873CD01B9_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_516FCA8C03CE_view
 
+  MEVIEWLINK ME_468368FC017F_ME_468276240241_uses::Dependency
+   MELINK Original WL 'ME_4909827503D6' '490873CD01B9.ms.model.script' ;
+   MELINK From ME_468368FC017F_view ;
+   MELINK To ME_468276240241_view ;
+  ENDMEVIEWLINK // ME_468368FC017F_ME_468276240241_uses::Dependency
+
+  MEVIEWLINK ME_468276240241_ME_4682778E0223_uses::Dependency
+   MELINK Original WL 'ME_4909885C02F8' '490873CD01B9.ms.model.script' ;
+   MELINK From ME_468276240241_view ;
+   MELINK To ME_4682778E0223_view ;
+  ENDMEVIEWLINK // ME_468276240241_ME_4682778E0223_uses::Dependency
+
   MELIST Views
    Seq: ( ME_468368FC017F_view // TnsComplectInfoTreeStruct
    ME_4682778E0223_view // TnsComplectInfoNode
    ME_468276240241_view // TnsComplectInfoRootNode
    ME_516FCA8C03CE_view // ComplectInfoRes
+   ME_468368FC017F_ME_468276240241_uses::Dependency // TnsComplectInfoTreeStruct -> TnsComplectInfoRootNode
+   ME_468276240241_ME_4682778E0223_uses::Dependency // TnsComplectInfoRootNode -> TnsComplectInfoNode
    )
   ; // Views
  ENDMEDIAGRAM // ME_490873CD01B9_main

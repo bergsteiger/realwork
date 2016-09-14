@@ -3,7 +3,7 @@ w:\common\components\gui\Garant\VCM\implementation\vcmHistory.pas
 //#UC END# *5506DCE50052_ext:ParentFileName
 //#UC START# *55080FE40284_5506DCE50052_impl*
  Result := True;
- if g_Dispatcher.FormDispatcher.FindForm(f_FormGUID, l_Form) then
+ if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_FormGUID, l_Form) then
  begin
   //Assert(not l_Form.VCMClosing);
   // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
@@ -13,7 +13,7 @@ w:\common\components\gui\Garant\VCM\implementation\vcmHistory.pas
    Exit
   // - форма уже восстановлена
   else
-   g_Dispatcher.FormDispatcher.RemoveForm(l_Form);
+   TvcmDispatcher.Instance.FormDispatcher.RemoveForm(l_Form);
    // - удалить еЄ надо из диспетчера, чтобы больше не находилась
  end;//g_Dispatcher.FormDispatcher.FindForm(f_FormGUID, l_Form)
  l_Form := MakeForm(aMainForm, anOwner, nil);
@@ -52,7 +52,7 @@ var
 //#UC START# *55082738022C_5506DCE50052_impl*
  if InDestroy then
  begin
-  g_Dispatcher.UpdateStatus;
+  TvcmDispatcher.Instance.As_IvcmDispatcher.UpdateStatus;
   with (aForm.VCLWinControl as TvcmEntityForm) do
    l_Item := Self.Create(aForm, aStateType, FormId, UserType, ZoneType,
     vcm_hitNone, SubUserType, aForClone);

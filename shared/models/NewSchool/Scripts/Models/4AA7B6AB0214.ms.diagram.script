@@ -86,6 +86,96 @@ MEDIAGRAMS ME_4AA7B6AB0214_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_5506DCE50052_view
 
+  MEVIEW ME_4AA7B6BB01BF_view
+   MELINK Original WL 'ME_4AA7B6BB01BF' '55082F190334.ms.model.script' ; // g_vcmHistoryLimit
+   MEPROP X 1000
+   MEPROP Y 180
+  ENDMEVIEW // ME_4AA7B6BB01BF_view
+
+  MEVIEW ME_5506DC210162_view
+   MELINK Original WL 'ME_5506DC210162' '55082F190334.ms.model.script' ; // g_LockHistory
+   MEPROP X 40
+   MEPROP Y 320
+  ENDMEVIEW // ME_5506DC210162_view
+
+  MEVIEW ME_55084C9D01E5_view
+   MELINK Original WL 'ME_55084C9D01E5' '55082F190334.ms.model.script' ; // cMaxCount
+   MEPROP X 200
+   MEPROP Y 320
+  ENDMEVIEW // ME_55084C9D01E5_view
+
+  MEVIEW ME_55084CDF0274_view
+   MELINK Original WL 'ME_55084CDF0274' '55082F190334.ms.model.script' ; // g_LockBeforeFormDestroy
+   MEPROP X 360
+   MEPROP Y 320
+  ENDMEVIEW // ME_55084CDF0274_view
+
+  MEVIEWLINK ME_5506D56E02FB_ME_5506D52B03E3_Implements
+   MELINK From ME_5506D56E02FB_view ;
+   MELINK To ME_5506D52B03E3_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_5506D56E02FB_ME_5506D52B03E3_Implements
+
+  MEVIEWLINK ME_5506DC4F0011_ME_5506D3B601B8_Implements
+   MELINK From ME_5506DC4F0011_view ;
+   MELINK To ME_5506D3B601B8_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_5506DC4F0011_ME_5506D3B601B8_Implements
+
+  MEVIEWLINK ME_55C0A7A20092_viewlink
+   MELINK Original WL 'ME_55C0A7A20092' '55082F190334.ms.model.script' ;
+   MELINK From ME_55C0B44002EA_view ;
+   MELINK To ME_5506D3B601B8_view ;
+  ENDMEVIEWLINK // ME_55C0A7A20092_viewlink
+
+  MEVIEWLINK ME_55C0A6F4039E_ME_55C0B44002EA_Implements
+   MELINK From ME_55C0A6F4039E_view ;
+   MELINK To ME_55C0B44002EA_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_55C0A6F4039E_ME_55C0B44002EA_Implements
+
+  MEVIEWLINK ME_55C0BF0500C6_viewlink
+   MELINK Original WL 'ME_55C0BF0500C6' '55082F190334.ms.model.script' ;
+   MELINK From ME_55C0A6F4039E_view ;
+   MELINK To ME_5506D3B601B8_view ;
+  ENDMEVIEWLINK // ME_55C0BF0500C6_viewlink
+
+  MEVIEWLINK ME_5506DC9F019D_ME_5506DC4F0011_Inherits
+   MELINK From ME_5506DC9F019D_view ;
+   MELINK To ME_5506DC4F0011_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5506DC9F019D_ME_5506DC4F0011_Inherits
+
+  MEVIEWLINK ME_550826550389_viewlink
+   MELINK Original WL 'ME_550826550389' '55082F190334.ms.model.script' ;
+   MELINK From ME_5506DC9F019D_view ;
+   MELINK To ME_55C0A6F4039E_view ;
+  ENDMEVIEWLINK // ME_550826550389_viewlink
+
+  MEVIEWLINK ME_5508264C03E7_viewlink
+   MELINK Original WL 'ME_5508264C03E7' '55082F190334.ms.model.script' ;
+   MELINK From ME_5506DC9F019D_view ;
+   MELINK To ME_55C0A6F4039E_view ;
+  ENDMEVIEWLINK // ME_5508264C03E7_viewlink
+
+  MEVIEWLINK ME_5506DCC90183_ME_5506DC9F019D_Inherits
+   MELINK From ME_5506DCC90183_view ;
+   MELINK To ME_5506DC9F019D_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5506DCC90183_ME_5506DC9F019D_Inherits
+
+  MEVIEWLINK ME_5506DD5502B6_ME_5506DD0C00BA_Inherits
+   MELINK From ME_5506DD5502B6_view ;
+   MELINK To ME_5506DD0C00BA_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5506DD5502B6_ME_5506DD0C00BA_Inherits
+
+  MEVIEWLINK ME_5506DCE50052_ME_5506DC9F019D_Inherits
+   MELINK From ME_5506DCE50052_view ;
+   MELINK To ME_5506DC9F019D_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5506DCE50052_ME_5506DC9F019D_Inherits
+
   MELIST Views
    Seq: ( ME_5506D3B601B8_view // IvcmFormHistoryItem
    ME_5506D52B03E3_view // IvcmInternalHistory
@@ -100,6 +190,21 @@ MEDIAGRAMS ME_4AA7B6AB0214_diagrams
    ME_5506DCC90183_view // TvcmHistoryItemPrim
    ME_5506DD5502B6_view // TvcmContainerFormSetHistoryItem
    ME_5506DCE50052_view // TvcmHistoryItem
+   ME_4AA7B6BB01BF_view // g_vcmHistoryLimit
+   ME_5506DC210162_view // g_LockHistory
+   ME_55084C9D01E5_view // cMaxCount
+   ME_55084CDF0274_view // g_LockBeforeFormDestroy
+   ME_5506D56E02FB_ME_5506D52B03E3_Implements // TvcmHistory -> IvcmInternalHistory
+   ME_5506DC4F0011_ME_5506D3B601B8_Implements // TvcmHistoryItemBase -> IvcmFormHistoryItem
+   ME_55C0A7A20092_viewlink // IvcmFormHistoryItemList -> IvcmFormHistoryItem
+   ME_55C0A6F4039E_ME_55C0B44002EA_Implements // TvcmFormHistoryItemList -> IvcmFormHistoryItemList
+   ME_55C0BF0500C6_viewlink // TvcmFormHistoryItemList -> IvcmFormHistoryItem
+   ME_5506DC9F019D_ME_5506DC4F0011_Inherits // TvcmHistoryItemRec -> TvcmHistoryItemBase
+   ME_550826550389_viewlink // TvcmHistoryItemRec -> TvcmFormHistoryItemList
+   ME_5508264C03E7_viewlink // TvcmHistoryItemRec -> TvcmFormHistoryItemList
+   ME_5506DCC90183_ME_5506DC9F019D_Inherits // TvcmHistoryItemPrim -> TvcmHistoryItemRec
+   ME_5506DD5502B6_ME_5506DD0C00BA_Inherits // TvcmContainerFormSetHistoryItem -> TvcmContainerHistoryItem
+   ME_5506DCE50052_ME_5506DC9F019D_Inherits // TvcmHistoryItem -> TvcmHistoryItemRec
    )
   ; // Views
  ENDMEDIAGRAM // ME_4AA7B6AB0214_main

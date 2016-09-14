@@ -3,10 +3,13 @@ unit nsConfigurationList;
 // Библиотека : Проект Немезис;
 // Название   : nsConfigurationList;
 // Назначение : Список конфигураций системы;
-// Версия     : $Id: nsConfigurationList.pas,v 1.29 2016/03/04 14:59:12 lulin Exp $
+// Версия     : $Id: nsConfigurationList.pas,v 1.30 2016/09/13 18:32:10 kostitsin Exp $
 
 (*-------------------------------------------------------------------------------
    $Log: nsConfigurationList.pas,v $
+   Revision 1.30  2016/09/13 18:32:10  kostitsin
+   {requestlink: 630194905 }
+
    Revision 1.29  2016/03/04 14:59:12  lulin
    - перегенерация.
 
@@ -195,6 +198,7 @@ uses
   afwFacade,
 
   vcmSettings,
+  vcmDispatcher,
   vcmBaseMenuManager,
 
   eeTreeMisc,
@@ -253,7 +257,7 @@ begin
       l_Settings.Data := DefDataAdapter.Settings;
       // Перечитаем таблицу стилей:
       LoadStyleTableFromSettings;
-      g_Dispatcher.ReinsertForms;
+      TvcmDispatcher.Instance.As_IvcmDispatcher.ReinsertForms;
       // toolbar-ы
       g_MenuManager.ReloadAllToolbars;
       g_MenuManager.LoadShortcuts;

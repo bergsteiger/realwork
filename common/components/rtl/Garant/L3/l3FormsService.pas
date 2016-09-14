@@ -68,7 +68,7 @@ uses
  , SysUtils
  , l3Base
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *5506D56601D6impl_uses*
  //#UC END# *5506D56601D6impl_uses*

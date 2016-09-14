@@ -4,9 +4,12 @@ unit vcmStatusElement;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmStatusElement - }
 { Начат: 23.12.2004 09:41 }
-{ $Id: vcmStatusElement.pas,v 1.17 2012/08/10 14:13:36 lulin Exp $ }
+{ $Id: vcmStatusElement.pas,v 1.18 2016/09/13 18:32:46 kostitsin Exp $ }
 
 // $Log: vcmStatusElement.pas,v $
+// Revision 1.18  2016/09/13 18:32:46  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.17  2012/08/10 14:13:36  lulin
 // {RequestLink:382420790}
 //
@@ -96,7 +99,8 @@ implementation
 uses
   SysUtils,
 
-  vcmInternalConst
+  vcmInternalConst,
+  vcmDispatcher
   ;
 
 // start class TvcmStatusElement
@@ -142,9 +146,9 @@ var
 begin
  theString := nil;
  theNeedProgress := False;
- if (vcmDispatcher <> nil) then
+ if TvcmDispatcher.Exists then
  begin
-  if Supports(vcmDispatcher.ActiveEntity, IvcmEntityForm, l_ActiveForm) then
+  if Supports(TvcmDispatcher.Instance.ActiveEntity, IvcmEntityForm, l_ActiveForm) then
   begin
    // Получим информацию для строки состояния у активной формы:
    lp_ExtractStatus(l_ActiveForm);
@@ -161,8 +165,7 @@ begin
    // Если активная форма ничего в строку состояния не пишет, то выводим
    // информацию формы в _vcm_ztParent зоне:
    if vcmIsNil(theString) then
-    if Supports(vcmDispatcher.FormDispatcher.
-         CurrentMainForm, IvcmContainer, l_Container) and
+    if Supports(TvcmDispatcher.Instance.FormDispatcher. CurrentMainForm, IvcmContainer, l_Container) and
          l_Container.HasForm(fm_Any, {_vcm_ztParent}vcm_ztMainObjectForm, True, @l_ParentForm) and
          (l_ParentForm <> l_ActiveForm) then
      lp_ExtractStatus(l_ParentForm);

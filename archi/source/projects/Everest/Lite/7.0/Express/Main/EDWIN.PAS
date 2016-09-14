@@ -1,7 +1,10 @@
 unit EdWin;
-{ $Id: EDWIN.PAS,v 1.16 2014/05/05 05:31:00 dinishev Exp $ }
+{ $Id: EDWIN.PAS,v 1.17 2016/09/14 11:34:11 lukyanets Exp $ }
 
 // $Log: EDWIN.PAS,v $
+// Revision 1.17  2016/09/14 11:34:11  lukyanets
+// Не собиралось
+//
 // Revision 1.16  2014/05/05 05:31:00  dinishev
 // Bug fix: не собиралось.
 //
@@ -767,6 +770,7 @@ uses
 
   evCommonUtils,
   evCommonRes,
+  arFiltersUtils,
 
   evDef,
   evSBSPar,

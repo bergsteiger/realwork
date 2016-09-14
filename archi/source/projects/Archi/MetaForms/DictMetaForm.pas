@@ -1,6 +1,6 @@
 unit DictMetaForm;
 
-{ $Id: DictMetaForm.pas,v 1.44 2016/09/13 10:35:11 dinishev Exp $ }
+{ $Id: DictMetaForm.pas,v 1.45 2016/09/14 11:35:37 dinishev Exp $ }
 
 interface
 
@@ -75,7 +75,7 @@ type
     acEdit: TAction;
     acDel: TAction;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-
+    procedure FormDestroy(Sender: TObject);
     //procedure WMWinSetBtn(var Message: TMessage); message wm_WinSetBtn;
     procedure WMWinAddClick(var Message: TMessage); message wm_WinAddClick;
     procedure WMWinEditClick(var Message: TMessage); message wm_WinEditClick;
@@ -469,5 +469,11 @@ begin
  l_Online := ArchiRequestManager.ServerOnline;
  SetSpeedButton(l_Online);
 end;
+
+procedure TDictMetaForm.FormDestroy(Sender: TObject);
+begin
+ MainForm.CheckCurrChild(Self);
+end;
+
 
 end.

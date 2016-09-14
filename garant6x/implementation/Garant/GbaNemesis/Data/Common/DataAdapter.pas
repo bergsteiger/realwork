@@ -1,8 +1,11 @@
 unit DataAdapter;
 
-// $Id: DataAdapter.pas,v 1.91 2016/08/16 13:26:41 kostitsin Exp $
+// $Id: DataAdapter.pas,v 1.92 2016/09/13 18:31:59 kostitsin Exp $
 
 // $Log: DataAdapter.pas,v $
+// Revision 1.92  2016/09/13 18:31:59  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.91  2016/08/16 13:26:41  kostitsin
 // no message
 //
@@ -2397,6 +2400,7 @@ uses
   vcmBaseMenuManager,
   vcmMessagesCollectionItem,
   vcmStringList,
+  vcmDispatcher,
 
   StdRes,
   DebugStr,
@@ -3011,12 +3015,12 @@ begin
  Result := (anException is EevInvalidPrintMargins);
  if Result then
  begin
-  if Assigned(g_Dispatcher) then
+  if TvcmDispatcher.Exists then
   begin
-   g_Dispatcher.UpdateStatus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.UpdateStatus;
    {$If not (defined(Monitorings) or defined(Admin))}
-   if g_Dispatcher.FormDispatcher.CurrentMainForm.AsContainer.HasForm(fm_efPreviewForm.rFormID) then
-    g_Dispatcher.History.Back;
+   if TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.AsContainer.HasForm(fm_efPreviewForm.rFormID) then
+    TvcmDispatcher.Instance.History.Back;
    {$IfEnd not (defined(Monitorings) or defined(Admin))}
   end;//g_Dispatcher
   // http://mdp.garant.ru/pages/viewpage.action?pageId=508825964
@@ -4820,8 +4824,8 @@ begin
  // !ѕотенциально опасно! т.к. при вызове g_Dispatcher.CloseAllWindows может оп€ть возникнуть тот же exception
  // по которому мы провалились в вызов AbnormalTermination и возникнет зацикливание.
  try
-  if Assigned(g_Dispatcher) then
-   g_Dispatcher.CloseAllWindows;
+  if TvcmDispatcher.Exists then
+   TvcmDispatcher.Instance.As_IvcmDispatcher.CloseAllWindows;
  except
   on E: Exception do
    l3System.Exception2Log(E);

@@ -154,6 +154,7 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4AF32FBD00F5impl_uses*
+ , vcmDispatcher
  //#UC END# *4AF32FBD00F5impl_uses*
 ;
 
@@ -677,9 +678,9 @@ begin
  try
   l_OwnerHandle := 0;
   l_FocusedWnd := 0;
-  if (vcmBase.g_Dispatcher <> nil) then
+  if TvcmDispatcher.Exists then
   begin
-   l_OwnerHandle := vcmBase.g_Dispatcher.FormDispatcher.CurrentMainForm.VCLWinControl.Handle;
+   l_OwnerHandle := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.VCLWinControl.Handle;
    // запоминаем окно с фокусом - сам он туда не возвращается почему-то...
    l_FocusedWnd := Windows.GetFocus;
   end;//vcmBase.g_Dispatcher <> nil

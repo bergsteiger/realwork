@@ -62,6 +62,42 @@ MEDIAGRAMS ME_4901F07D039B_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_49071DD902DC_view
 
+  MEVIEWLINK ME_4901F0CF03B0_ME_4901F13D034E_uses::Dependency
+   MELINK Original WL 'ME_4901F21C036E' '4901F07D039B.ms.model.script' ;
+   MELINK From ME_4901F0CF03B0_view ;
+   MELINK To ME_4901F13D034E_view ;
+  ENDMEVIEWLINK // ME_4901F0CF03B0_ME_4901F13D034E_uses::Dependency
+
+  MEVIEWLINK ME_49070AD5032C_ME_490707F10167_Inherits
+   MELINK From ME_49070AD5032C_view ;
+   MELINK To ME_490707F10167_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_49070AD5032C_ME_490707F10167_Inherits
+
+  MEVIEWLINK ME_490711B101F9_ME_4901F0CF03B0_uses::Dependency
+   MELINK Original WL 'ME_4907127E01FC' '4901F07D039B.ms.model.script' ;
+   MELINK From ME_490711B101F9_view ;
+   MELINK To ME_4901F0CF03B0_view ;
+  ENDMEVIEWLINK // ME_490711B101F9_ME_4901F0CF03B0_uses::Dependency
+
+  MEVIEWLINK ME_49071797031F_ME_490711B101F9_Inherits
+   MELINK From ME_49071797031F_view ;
+   MELINK To ME_490711B101F9_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_49071797031F_ME_490711B101F9_Inherits
+
+  MEVIEWLINK ME_49071CBB02BA_viewlink
+   MELINK Original WL 'ME_49071CBB02BA' '4901F07D039B.ms.model.script' ;
+   MELINK From ME_49071BFA03A4_view ;
+   MELINK To ME_49071C6300FF_view ;
+  ENDMEVIEWLINK // ME_49071CBB02BA_viewlink
+
+  MEVIEWLINK ME_49071DD902DC_ME_49071BFA03A4_Inherits
+   MELINK From ME_49071DD902DC_view ;
+   MELINK To ME_49071BFA03A4_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_49071DD902DC_ME_49071BFA03A4_Inherits
+
   MELIST Views
    Seq: ( ME_4901F0CF03B0_view // TnsMedicFirmListFilters
    ME_4901F13D034E_view // TnsCountryFilter
@@ -72,6 +108,12 @@ MEDIAGRAMS ME_4901F07D039B_diagrams
    ME_49071C6300FF_view // TnsMedicFirmsSubscribersList
    ME_49071BFA03A4_view // TnsMedicFirmsCountryFilterTreeBase
    ME_49071DD902DC_view // TnsMedicFirmsCountryFilterTree
+   ME_4901F0CF03B0_ME_4901F13D034E_uses::Dependency // TnsMedicFirmListFilters -> TnsCountryFilter
+   ME_49070AD5032C_ME_490707F10167_Inherits // TnsMedicDictionTree -> TnsMedicDictionTreeBase
+   ME_490711B101F9_ME_4901F0CF03B0_uses::Dependency // TnsMedicFirmsTreeBase -> TnsMedicFirmListFilters
+   ME_49071797031F_ME_490711B101F9_Inherits // TnsMedicFirmsTree -> TnsMedicFirmsTreeBase
+   ME_49071CBB02BA_viewlink // TnsMedicFirmsCountryFilterTreeBase -> TnsMedicFirmsSubscribersList
+   ME_49071DD902DC_ME_49071BFA03A4_Inherits // TnsMedicFirmsCountryFilterTree -> TnsMedicFirmsCountryFilterTreeBase
    )
   ; // Views
  ENDMEDIAGRAM // ME_4901F07D039B_main

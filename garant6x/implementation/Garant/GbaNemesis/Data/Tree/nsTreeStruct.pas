@@ -227,6 +227,7 @@ uses
  , nsINodeWrap
  , BaseTypesUnit
  //#UC START# *46835B4001A4impl_uses*
+ , vcmDispatcher
  //#UC END# *46835B4001A4impl_uses*
 ;
 
@@ -1481,8 +1482,8 @@ procedure TnsTreeStruct.ChangingPrim;
 begin
 //#UC START# *48FDA1C3002E_46835B4001A4_impl*
  inherited;
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.LockActionUpdate;
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.LockActionUpdate;
 //#UC END# *48FDA1C3002E_46835B4001A4_impl*
 end;//TnsTreeStruct.ChangingPrim
 
@@ -1492,8 +1493,8 @@ procedure TnsTreeStruct.ChangedPrim;
 begin
 //#UC START# *48FDA1D0006F_46835B4001A4_impl*
  inherited;
- if (g_Dispatcher <> nil) then
-  g_Dispatcher.UnLockActionUpdate;
+ if TvcmDispatcher.Exists then
+  TvcmDispatcher.Instance.As_IvcmDispatcher.UnLockActionUpdate;
 //#UC END# *48FDA1D0006F_46835B4001A4_impl*
 end;//TnsTreeStruct.ChangedPrim
 

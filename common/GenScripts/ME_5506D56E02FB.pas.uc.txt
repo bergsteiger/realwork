@@ -93,11 +93,11 @@ var
    Result := Back(aTruncate);
    Exit;
   end;
-  g_Dispatcher.FormDispatcher.Lock;
+  TvcmDispatcher.Instance.FormDispatcher.Lock;
   try
-   g_Dispatcher.StoreFocus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.StoreFocus;
    try
-    g_Dispatcher.BeginOp;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.BeginOp;
     try
      Dec(f_Current);
      l_Current := f_Current;
@@ -114,13 +114,13 @@ var
      end;//try..finally
      f_Current := l_Current;
     finally
-     g_Dispatcher.EndOp;
+     TvcmDispatcher.Instance.As_IvcmDispatcher.EndOp;
     end;//try..finally
    finally
-    g_Dispatcher.RestoreFocus;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.RestoreFocus;
    end;//try..finally
   finally
-   g_Dispatcher.FormDispatcher.Unlock;
+   TvcmDispatcher.Instance.FormDispatcher.Unlock;
   end;//try..finally
   if not l_Accept then
   begin
@@ -147,11 +147,11 @@ var
    Result := Forward;
    Exit;
   end;
-  g_Dispatcher.FormDispatcher.Lock;
+  TvcmDispatcher.Instance.FormDispatcher.Lock;
   try
-   g_Dispatcher.StoreFocus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.StoreFocus;
    try
-    g_Dispatcher.BeginOp;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.BeginOp;
     try
      l_Current := f_Current;
      f_InBF := True;
@@ -164,13 +164,13 @@ var
      end;//try..finally
      f_Current := Succ(l_Current);
     finally
-     g_Dispatcher.EndOp;
+     TvcmDispatcher.Instance.As_IvcmDispatcher.EndOp;
     end;//try..finally
    finally
-    g_Dispatcher.RestoreFocus;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.RestoreFocus;
    end;//try..finally
   finally
-   g_Dispatcher.FormDispatcher.Unlock;
+   TvcmDispatcher.Instance.FormDispatcher.Unlock;
   end;//try..finally
   if not l_Accept then
    if CanForward then

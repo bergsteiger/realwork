@@ -668,6 +668,14 @@ initialization
  {* Регистрация TvgScene }
 {$IfEnd} // NOT Defined(NoScripts)
 {$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TvgGradientPoint));
+ {* Регистрация типа TvgGradientPoint }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TvgGradientPoints));
+ {* Регистрация типа TvgGradientPoints }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TvgBackground);
  {* Регистрация TvgBackground }
 {$IfEnd} // NOT Defined(NoScripts)

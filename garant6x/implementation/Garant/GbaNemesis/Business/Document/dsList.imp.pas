@@ -1938,7 +1938,7 @@ procedure _dsList_.DoCurrentChanged(const aNode: Il3SimpleNode);
     (ucc_BaseDocument <> nil) then
     ucc_BaseDocument.ChangeDocument(lp_CloneDocument);
    // Обновим строку состояния (информация о выделенных в списке текущем и т.д.)
-   g_Dispatcher.UpdateStatus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.UpdateStatus;
   end;//lp_ShowDocument
 
 var

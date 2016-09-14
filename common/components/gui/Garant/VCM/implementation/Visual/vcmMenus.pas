@@ -5,9 +5,12 @@ unit vcmMenus;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmMenus -      }
 { Начат: 25.02.2003 20:06 }
-{ $Id: vcmMenus.pas,v 1.169 2016/04/29 07:13:30 lulin Exp $ }
+{ $Id: vcmMenus.pas,v 1.170 2016/09/13 18:32:44 kostitsin Exp $ }
 
 // $Log: vcmMenus.pas,v $
+// Revision 1.170  2016/09/13 18:32:44  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.169  2016/04/29 07:13:30  lulin
 // - перегенерация.
 //
@@ -1874,7 +1877,7 @@ var
  l_Strings : IvcmItems;
  l_Action  : IvcmAction;
 begin
- g_Dispatcher.LockActionUpdate;
+ vcmDispatcher.LockActionUpdate;
  try
   if Supports(anAction, IvcmAction, l_Action) then
   try
@@ -1911,7 +1914,7 @@ begin
    l_Action := nil;
   end;//try..finally
  finally
-  g_Dispatcher.UnlockActionUpdate;
+  vcmDispatcher.UnlockActionUpdate;
  end;//try..finally
 end;//vcmMakeComboMenu
 

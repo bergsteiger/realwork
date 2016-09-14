@@ -352,10 +352,6 @@ initialization
  TtfwClassRef.Register(TvcmBaseCollection);
  {* Регистрация TvcmBaseCollection }
 {$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа RvcmBaseCollection }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCM)
 
 end.

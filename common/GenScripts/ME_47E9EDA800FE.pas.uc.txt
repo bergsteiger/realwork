@@ -58,7 +58,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\Business\Document\dsList.imp.pas
     (ucc_BaseDocument <> nil) then
     ucc_BaseDocument.ChangeDocument(lp_CloneDocument);
    // Обновим строку состояния (информация о выделенных в списке текущем и т.д.)
-   g_Dispatcher.UpdateStatus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.UpdateStatus;
   end;//lp_ShowDocument
 
 var

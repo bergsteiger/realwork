@@ -20,9 +20,44 @@ MEDIAGRAMS ME_561F6D380330_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_561F70100377_view
 
+  MEVIEW ME_561F6E120142_view
+   MELINK Original WL 'ME_561F6E120142' '491D7CDC0221.ms.model.script' ; // f_CountryFilterTree
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_561F6E120142_view
+
+  MEVIEW ME_561F6E3D0340_view
+   MELINK Original WL 'ME_561F6E3D0340' '491D7CDC0221.ms.model.script' ; // f_CurrentCountryFilter
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_561F6E3D0340_view
+
+  MEVIEW ME_561F6E4F001C_view
+   MELINK Original WL 'ME_561F6E4F001C' '491D7CDC0221.ms.model.script' ; // f_Current
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_561F6E4F001C_view
+
+  MEVIEW ME_561F70F00091_view
+   MELINK Original WL 'ME_561F70F00091' '491D7CDC0221.ms.model.script' ; // f_DocInfo
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_561F70F00091_view
+
+  MEVIEWLINK ME_561F70100377_ME_561F6E61019E_Inherits
+   MELINK From ME_561F70100377_view ;
+   MELINK To ME_561F6E61019E_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_561F70100377_ME_561F6E61019E_Inherits
+
   MELIST Views
    Seq: ( ME_561F6E61019E_view // Create
    ME_561F70100377_view // Make
+   ME_561F6E120142_view // f_CountryFilterTree
+   ME_561F6E3D0340_view // f_CurrentCountryFilter
+   ME_561F6E4F001C_view // f_Current
+   ME_561F70F00091_view // f_DocInfo
+   ME_561F70100377_ME_561F6E61019E_Inherits // Make -> Create
    )
   ; // Views
  ENDMEDIAGRAM // ME_561F6D380330_main

@@ -85,6 +85,7 @@ uses
  , SysUtils
  , l3Base
  //#UC START# *559BA19C0076impl_uses*
+ , vcmDispatcher
  //#UC END# *559BA19C0076impl_uses*
 ;
 
@@ -111,7 +112,7 @@ begin
  if (f_Alien <> nil) then
   Result := f_Alien.GetFormHistory(aForm)
  else
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *96E2DB43E67B_559BA19C0076_impl*
 end;//TvcmHistoryService.GetFormHistory
 
@@ -141,7 +142,7 @@ begin
  if (f_Alien <> nil) then
   Result := f_Alien.GetContainerHistory(aContainer)
  else
-  Result := g_Dispatcher.History;
+  Result := TvcmDispatcher.Instance.History;
 //#UC END# *27BEBF0EE9FD_559BA19C0076_impl*
 end;//TvcmHistoryService.GetContainerHistory
 
@@ -170,7 +171,7 @@ begin
  if (f_Alien <> nil) then
   Result := f_Alien.Back(aForm)
  else
-  Result := g_Dispatcher.History.Back;
+  Result := TvcmDispatcher.Instance.History.Back;
 //#UC END# *18FC3BA729CF_559BA19C0076_impl*
 end;//TvcmHistoryService.Back
 

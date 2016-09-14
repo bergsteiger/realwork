@@ -122,7 +122,7 @@ implementation
 uses
  l3ImplUses
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
 ;
 

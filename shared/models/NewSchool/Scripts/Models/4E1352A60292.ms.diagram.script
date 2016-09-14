@@ -32,11 +32,46 @@ MEDIAGRAMS ME_4E1352A60292_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4D6BAF99010E_view
 
+  MEVIEWLINK ME_4D6B981E0319_ME_4CFF6CF60266_Inherits
+   MELINK From ME_4D6B981E0319_view ;
+   MELINK To ME_4CFF6CF60266_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4D6B981E0319_ME_4CFF6CF60266_Inherits
+
+  MEVIEWLINK ME_4D6B981E0319_ME_4D6BAF110364_uses::Dependency
+   MELINK Original WL 'ME_4D6BAF21020E' '4D6B981E0319.ms.model.script' ;
+   MELINK From ME_4D6B981E0319_view ;
+   MELINK To ME_4D6BAF110364_view ;
+  ENDMEVIEWLINK // ME_4D6B981E0319_ME_4D6BAF110364_uses::Dependency
+
+  MEVIEWLINK ME_4D6B981E0319_ME_4D6BAF110364_uses::Dependency
+   MELINK Original WL 'ME_4E1352CE03B1' '4D6B981E0319.ms.model.script' ;
+   MELINK From ME_4D6B981E0319_view ;
+   MELINK To ME_4D6BAF110364_view ;
+  ENDMEVIEWLINK // ME_4D6B981E0319_ME_4D6BAF110364_uses::Dependency
+
+  MEVIEWLINK ME_4D6BAF110364_ME_4D6BAF99010E_uses::Dependency
+   MELINK Original WL 'ME_4D6BAFBB00A5' '4E1352A60292.ms.model.script' ;
+   MELINK From ME_4D6BAF110364_view ;
+   MELINK To ME_4D6BAF99010E_view ;
+  ENDMEVIEWLINK // ME_4D6BAF110364_ME_4D6BAF99010E_uses::Dependency
+
+  MEVIEWLINK ME_4D6BAF110364_ME_4D6BAF99010E_uses::Dependency
+   MELINK Original WL 'ME_4E1352D80230' '4E1352A60292.ms.model.script' ;
+   MELINK From ME_4D6BAF110364_view ;
+   MELINK To ME_4D6BAF99010E_view ;
+  ENDMEVIEWLINK // ME_4D6BAF110364_ME_4D6BAF99010E_uses::Dependency
+
   MELIST Views
    Seq: ( ME_4CFF6CF60266_view // TnscSimpleEditor
    ME_4D6B981E0319_view // TnscSimpleEditorForDialogs
    ME_4D6BAF110364_view // TnscSimpleEditorForDialogsTextSource
    ME_4D6BAF99010E_view // TnscSimpleEditorForDialogsContainer
+   ME_4D6B981E0319_ME_4CFF6CF60266_Inherits // TnscSimpleEditorForDialogs -> TnscSimpleEditor
+   ME_4D6B981E0319_ME_4D6BAF110364_uses::Dependency // TnscSimpleEditorForDialogs -> TnscSimpleEditorForDialogsTextSource
+   ME_4D6B981E0319_ME_4D6BAF110364_uses::Dependency // TnscSimpleEditorForDialogs -> TnscSimpleEditorForDialogsTextSource
+   ME_4D6BAF110364_ME_4D6BAF99010E_uses::Dependency // TnscSimpleEditorForDialogsTextSource -> TnscSimpleEditorForDialogsContainer
+   ME_4D6BAF110364_ME_4D6BAF99010E_uses::Dependency // TnscSimpleEditorForDialogsTextSource -> TnscSimpleEditorForDialogsContainer
    )
   ; // Views
  ENDMEDIAGRAM // ME_4E1352A60292_main

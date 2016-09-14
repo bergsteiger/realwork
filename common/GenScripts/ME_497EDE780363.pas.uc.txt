@@ -41,7 +41,7 @@ var
 //#UC START# *495235F401C0_497EDE780363test_var*
 //#UC END# *495235F401C0_497EDE780363test_var*
 //#UC START# *497469C90140_497EDE780363_impl*
- g_Dispatcher.LockActionUpdate;
+ TvcmDispatcher.Instance.As_IvcmDispatcher.LockActionUpdate;
  inherited;
 
  if f_FlashLoaded then
@@ -76,7 +76,7 @@ var
   end;//Flash <> nil
   UpdateCaption;
  end;//aNew <> nil
- g_Dispatcher.UnlockActionUpdate;
+ TvcmDispatcher.Instance.As_IvcmDispatcher.UnlockActionUpdate;
 //#UC END# *497469C90140_497EDE780363_impl*
 //#UC START# *497469C90140_497EDE780363_var*
  procedure lp_AddDocumentToHistory;
@@ -111,6 +111,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\PrimDocumentWithFlash_Form.pas
 //#UC END# *497EDE780363_ext:FileName
 //#UC START# *497EDE780363impl_uses*
  , Math
+ , vcmDispatcher
 //#UC END# *497EDE780363impl_uses*
 //#UC START# *49803F5503AA_497EDE780363_impl*
  FromHistory := aFromHistory or InHistoryStep;

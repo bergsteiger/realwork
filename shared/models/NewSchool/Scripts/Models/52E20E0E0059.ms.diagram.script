@@ -32,11 +32,32 @@ MEDIAGRAMS ME_52E20E0E0059_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_54F47ECF0071_view
 
+  MEVIEWLINK ME_52E20EB3004D_ME_52E20E70006F_uses::Dependency
+   MELINK Original WL 'ME_52E20EBE02EF' '52E20E0E0059.ms.model.script' ;
+   MELINK From ME_52E20EB3004D_view ;
+   MELINK To ME_52E20E70006F_view ;
+  ENDMEVIEWLINK // ME_52E20EB3004D_ME_52E20E70006F_uses::Dependency
+
+  MEVIEWLINK ME_52E20EB3004D_ME_54F47ECF0071_uses::Dependency
+   MELINK Original WL 'ME_54F47EE30065' '52E20E0E0059.ms.model.script' ;
+   MELINK From ME_52E20EB3004D_view ;
+   MELINK To ME_54F47ECF0071_view ;
+  ENDMEVIEWLINK // ME_52E20EB3004D_ME_54F47ECF0071_uses::Dependency
+
+  MEVIEWLINK ME_52E20E70006F_ME_52E20F060237_Inherits
+   MELINK From ME_52E20E70006F_view ;
+   MELINK To ME_52E20F060237_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_52E20E70006F_ME_52E20F060237_Inherits
+
   MELIST Views
    Seq: ( ME_52E20F060237_view // TkwImageEnControl
    ME_52E20EB3004D_view // ImageEnPack
    ME_52E20E70006F_view // ImageEnViewer_SaveBitmap
    ME_54F47ECF0071_view // TImageEnViewRegistrator
+   ME_52E20EB3004D_ME_52E20E70006F_uses::Dependency // ImageEnPack -> ImageEnViewer_SaveBitmap
+   ME_52E20EB3004D_ME_54F47ECF0071_uses::Dependency // ImageEnPack -> TImageEnViewRegistrator
+   ME_52E20E70006F_ME_52E20F060237_Inherits // ImageEnViewer_SaveBitmap -> TkwImageEnControl
    )
   ; // Views
  ENDMEDIAGRAM // ME_52E20E0E0059_main

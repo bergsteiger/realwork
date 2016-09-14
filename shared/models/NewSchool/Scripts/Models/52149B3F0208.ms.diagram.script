@@ -32,11 +32,25 @@ MEDIAGRAMS ME_52149B3F0208_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_5231549C0302_view
 
+  MEVIEWLINK ME_5231546901F7_viewlink
+   MELINK Original WL 'ME_5231546901F7' '4B990EDE031A.ms.model.script' ;
+   MELINK From ME_5231541B00AA_view ;
+   MELINK To ME_5214CC59021D_view ;
+  ENDMEVIEWLINK // ME_5231546901F7_viewlink
+
+  MEVIEWLINK ME_5231549C0302_ME_5231541B00AA_Inherits
+   MELINK From ME_5231549C0302_view ;
+   MELINK To ME_5231541B00AA_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_5231549C0302_ME_5231541B00AA_Inherits
+
   MELIST Views
    Seq: ( ME_5214CC59021D_view // Tdd_acVersionUpgradeProc
    ME_5231541B00AA_view // Tdd_acVersionHandler
    ME_52149B620261_view // TddAppConfigVersionManager
    ME_5231549C0302_view // Pdd_acVersionHandler
+   ME_5231546901F7_viewlink // Tdd_acVersionHandler -> Tdd_acVersionUpgradeProc
+   ME_5231549C0302_ME_5231541B00AA_Inherits // Pdd_acVersionHandler -> Tdd_acVersionHandler
    )
   ; // Views
  ENDMEDIAGRAM // ME_52149B3F0208_main

@@ -17,14 +17,14 @@
   l_List := Model.List;
   if (l_List <> nil) then
   begin
-   l_Current := Model.CurrentElement;
+   l_Selection := Model.Selection;
    for l_Index := 0 to Pred(l_List.Count) do
    begin
     l_E := l_List[l_Index];
     if (l_E <> nil) AND l_E.IsView then
     begin
      l_TextColor := clBlack;
-     l_FillColor := l_E.IntProp['msm:View:ForeColor'];
+     l_FillColor := l_E.IntProp['msm:View:BackColor'];
      if (l_FillColor = clDefault) then
       l_FillColor := clYellow;
      if (l_FillColor = clRed)
@@ -33,7 +33,7 @@
         OR (l_FillColor = clGreen)
       then
       l_TextColor := clWhite;
-     DrawElement(l_E, ElementRect(l_E), l_Current);
+     DrawElement(l_E, ElementRect(l_E), l_Selection);
     end;//l_E <> nil
    end;//for l_Index
    FillEmpty;
@@ -50,13 +50,27 @@
 //#UC END# *48C6C044025E_57D00ACC01B0_impl*
 //#UC START# *48C6C044025E_57D00ACC01B0_var*
 
+ function FontName: AnsiString;
+ begin//FontName
+  if (Win32Platform = VER_PLATFORM_WIN32_NT) then
+  begin
+   if (Win32MajorVersion >= 6) then
+   // - Vista
+    Result := 'Segoe UI'
+   else
+    Result := 'Arial';
+  end//Win32Platform = VER_PLATFORM_WIN32_NT
+  else
+   Result := 'Arial';
+ end;//FontName
+
 var
  l_TextColor : TColor;
  l_FillColor : TColor;
 
  procedure DrawElement(const anElement: ImsmModelElement;
                        const aRect: Tl3SRect;
-                       const aCurrentElement: ImsmModelElement);
+                       const aSelection: ImsmElementSelection);
 
   procedure DrawSelection(const aRect: Tl3SRect);
   const
@@ -87,11 +101,14 @@ var
    CN.Font.BackColor := l_FillColor;
   end;//SetBrush
 
+ var
+  l_PenColor : TColor;
+
   procedure SetPen;
   begin//SetPen
    CN.Canvas.Pen.Width := 2;
-   CN.Canvas.Pen.Color := clBlack;
-   CN.Canvas.Brush.Color := clBlack;
+   CN.Canvas.Pen.Color := l_PenColor;
+   CN.Canvas.Brush.Color := l_PenColor;
    CN.Canvas.Pen.Style := psSolid;
   end;//SetPen
 
@@ -102,10 +119,14 @@ var
   l_TextRect : Tl3SRect;
   l_WR : TRect;
   l_N : Il3CString;
+  l_IsCategory : Boolean;
  begin//DrawElement
+  CN.SWindowOrg := l3SPoint(0, 0);
   l_Rect := aRect;
   SetBrush;
-  if anElement.BoolProp['IsCategory'] then
+  l_IsCategory := anElement.BoolProp['IsCategory'];
+  l_PenColor := clBlack;
+  if l_IsCategory then
   begin
    l_Rect.Right := l_Rect.Left + (l_Rect.Right - l_Rect.Left) div 3;
    l_Rect.Bottom := l_Rect.Top + cCornerHeight;
@@ -115,10 +136,18 @@ var
    l_Rect := aRect;
    l_Rect.Top := l_Rect.Top + cCornerHeight - 1;
    SetBrush;
-  end;//anElement.BoolProp['IsCategory']
+  end//l_IsCategory
+  else
+  begin
+   if anElement.BoolProp['HasMainDiagram'] then
+    l_PenColor := clRed;
+  end;//l_IsCategory
   CN.FillRect(l_Rect);
 
+  CN.Font.Name := FontName;
   CN.Font.Size := 8;
+  CN.Font.Bold := false;
+  CN.Font.Italic := false;
   SetBrush;
   l_TextRect := l_Rect;
   l_TextRect.Inflate1(-3);
@@ -138,6 +167,8 @@ var
   l_N := anElement.StringProp['Signature'];
   CN.PushClipRect;
   try
+   CN.Font.Bold := anElement.BoolProp['IsFinal'];
+   CN.Font.Italic := anElement.BoolProp['IsAbstract'];
    l_WR := l_TextRect.R.WR;
    CN.DrawText(l3PCharLen(l_N), l_WR, DT_CALCRECT or DT_CENTER or DT_WORDBREAK or DT_END_ELLIPSIS);
    if (l_WR.Bottom > l_TextRect.Bottom) then
@@ -155,7 +186,7 @@ var
 
   SetPen;
   CN.Canvas.FrameRect(l_Rect.R.WR);
-  if anElement.IsSameElement(aCurrentElement) then
+  if aSelection.IsElementSelectedOrCurrent(anElement) then
    DrawSelection(aRect);
  end;//DrawElement
 
@@ -167,12 +198,15 @@ var
    CN.Font.BackColor := clWhite;
   end;//SetBrush
 
+ var
+  l_PenColor : TColor;
+   
   procedure SetPen;
   begin//SetPen
    CN.Canvas.Pen.Width := 1{2};
-   CN.Canvas.Pen.Color := clSilver{clBlack};
+   CN.Canvas.Pen.Color := l_PenColor{clBlack};
    CN.Canvas.Brush.Color := clWhite{clBlack};
-   CN.Canvas.Pen.Style := psDash;
+   CN.Canvas.Pen.Style := TPenStyle(anElement.IntProp['msm:View:LinkLineStyle']){psDash};
   end;//SetPen
 
  var
@@ -188,6 +222,7 @@ var
   l_TextRect : Tl3SRect;
   l_WR : TRect;
   l_Flags : Word;
+  l_BkMode: Cardinal;
  begin//DrawLink
   l_From := anElement.ElementProp['From'];
   l_To := anElement.ElementProp['To'];
@@ -199,11 +234,15 @@ var
    l_FromP.Y := (l_FromR.Top + l_FromR.Bottom) div 2;
    l_ToP.X := (l_ToR.Left + l_ToR.Right) div 2;
    l_ToP.Y := (l_ToR.Top + l_ToR.Bottom) div 2;
+   l_PenColor := anElement.IntProp['msm:View:LinkLineColor'];
+   if (l_PenColor = clDefault) then
+    l_PenColor := clSilver;
    SetPen;
-   with CN.LR2DR(CN.ClipRect) do
+(*   with CN.LR2DR(CN.ClipRect) do
    begin
     l_ClipRgn := CreateRectRgn(Left, Top, Right, Bottom);
-   end;//with CN.LR2DR(CN.ClipRect)
+   end;//with CN.LR2DR(CN.ClipRect)*)
+   l_ClipRgn := CreateRectRgn(0, 0, Self.Width, Self.Height);
    try
     l_RectRgn := CreateRectRgn(l_FromR.Left, l_FromR.Top, l_FromR.Right, l_FromR.Bottom);
     try
@@ -219,7 +258,8 @@ var
     end;//try..finally
     CN.PushClipRect;
     try
-     SelectClipRgn(CN.DC, l_ClipRgn);
+     //SelectClipRgn(CN.DC, l_ClipRgn);
+     ExtSelectClipRgn(CN.DC, l_ClipRgn, RGN_AND);
      CN.Canvas.MoveTo(l_FromP.X, l_FromP.Y);
      CN.Canvas.LineTo(l_ToP.X, l_ToP.Y);
     finally
@@ -252,12 +292,20 @@ var
      l_TextRect.Bottom := l_FromP.Y;
      l_TextRect.Top := l_ToP.Y;
     end;//l_FromP.Y < l_ToP.Y
+    CN.Font.Name := FontName;
     CN.Font.Size := 7;
+    CN.Font.Bold := false;
+    CN.Font.Italic := false;
     SetBrush;
     l_WR := l_TextRect.R.WR;
     l_Flags := CN.etoFlags;
     CN.etoFlags := l_Flags AND not eto_Opaque;
-    CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_VCENTER or DT_SINGLELINE {or DT_END_ELLIPSIS});
+    l_BkMode := SetBkMode(CN.DC, TRANSPARENT);
+    try
+     CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_VCENTER or DT_SINGLELINE {or DT_END_ELLIPSIS});
+    finally
+     SetBkMode(CN.DC, l_BkMode);
+    end;//try..finally
     CN.etoFlags := l_Flags;
    end;//not l3IsNil(l_N)
   end;//(l_From <> nil) AND (l_To <> nil)
@@ -272,7 +320,7 @@ var
 var
  l_List : ImsmModelElementStringList;
  l_E : ImsmModelElement;
- l_Current : ImsmModelElement;
+ l_Selection: ImsmElementSelection;
  l_Index : Integer;
 //#UC END# *48C6C044025E_57D00ACC01B0_var*
 //#UC START# *48E22B250241_57D00ACC01B0_impl*
@@ -292,11 +340,34 @@ var
   Exit;
  Case Button of
   mbLeft:
-   if MilliSecondsBetween(Now, f_DoubleClickMoment) > 100 then
-    Model.CurrentElement := ElementOnPointOrParent(l3SPoint(X, Y));
+   if (MilliSecondsBetween(Now, f_DoubleClickMoment) > 100)
+      AND not f_DisableUpSelect then
+   begin
+    if (ssCtrl in Shift) then
+    begin
+     l_E := ElementOnPoint(l3SPoint(X, Y));
+     if (l_E <> nil) then
+     begin
+      Model.Selection.InvertElement(l_E);
+     end//l_E <> nil
+     else
+      SelectCurrent;
+    end//ssCtrl in Shift
+    else
+     SelectCurrent;
+   end;//MilliSecondsBetween(Now, f_DoubleClickMoment) > 100
  end;//Case Button
 //#UC END# *4E7896270076_57D00ACC01B0_impl*
 //#UC START# *4E7896270076_57D00ACC01B0_var*
+
+ procedure SelectCurrent;
+ begin//SelectCurrent
+  Model.Selection.Clear;
+  Model.CurrentElement := ElementOnPointOrParent(l3SPoint(X, Y));
+ end;//SelectCurrent
+ 
+var
+ l_E : ImsmModelElement;
 //#UC END# *4E7896270076_57D00ACC01B0_var*
 //#UC START# *4F88473B03CD_57D00ACC01B0_impl*
  inherited;
@@ -304,14 +375,19 @@ var
   Exit;
  Case Button of
   mbLeft:
+  begin
    if (ssDouble in Shift) then
    begin
     f_DoubleClickMoment := Now;
+    f_DisableUpSelect := true;
+    Model.Selection.Clear;
     Model.ElementToAction := ElementOnPointOrParent(l3SPoint(X, Y));
    end//ssDouble in Shift
    else
    begin
-    l_Pt := l3SPoint(X, Y);
+    f_DisableUpSelect := false;
+    l_Pt.GetCursorPos;
+    l_Pt.Convert(ScreenToClient);
     l_E := ElementOnPoint(l_Pt);
     if (l_E <> nil) then
     begin
@@ -322,16 +398,20 @@ var
       // - activate capture
      end;//with l3System.Mouse
      try
-      l_ElementOrigin := Self.ElementRect(l_E).TopLeft;
       repeat
        l_NewPt.GetCursorPos;
        l_NewPt.Convert(ScreenToClient);
        if not l_Pt.EQ(l_NewPt) then
        begin
-        l_ElementNewOrigin := l_ElementOrigin.Add(l_NewPt.Sub(l_Pt)).Add(f_Origin);
-        l_E.IntProp['msm:View:X'] := l_ElementNewOrigin.X;
-        l_E.IntProp['msm:View:Y'] := l_ElementNewOrigin.Y;
-        l_ElementOrigin := l_ElementNewOrigin.Sub(f_Origin);
+        f_DisableUpSelect := true;
+        if Self.Model.Selection.IsElementSelectedOrCurrent(l_E) then
+         Self.Model.Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement))
+        else
+        begin
+         Self.Model.Selection.Clear;
+         Model.CurrentElement := l_E;
+         DoElement(l_E);
+        end;//Self.Model.Selection.IsElementSelectedOrCurrent(l_E)
         l_Pt := l_NewPt;
         Invalidate;
         Repaint;
@@ -340,32 +420,77 @@ var
      finally
       l3System.Mouse.ReleaseCapture;
      end;//try..finally
+    end//l_E <> nil
+    else
+    begin
+     with l3System.Mouse do
+     begin
+      l_LeftButton := LeftButton;
+      SetCapture(Self.Handle);
+      // - activate capture
+     end;//with l3System.Mouse
+     try
+      repeat
+       l_NewPt.GetCursorPos;
+       l_NewPt.Convert(ScreenToClient);
+       if not l_Pt.EQ(l_NewPt) then
+       begin
+        f_DisableUpSelect := true;
+        ScrollBy(l_NewPt.Sub(l_Pt).Neg);
+        l_Pt := l_NewPt;
+        Update;
+       end;//not l_Pt.EQ(l_NewPt)
+      until not l3System.Keyboard.AsyncKey[l_LeftButton].Down;
+     finally
+      l3System.Mouse.ReleaseCapture;
+     end;//try..finally
     end;//l_E <> nil
    end;//ssDouble in Shift
+  end;//mbLeft
   mbRight:
+  begin
+   Model.Selection.Clear;
    Model.CurrentElement := ElementOnPointOrParent(l3SPoint(X, Y));
+  end;//mbRight
  end;//Case Button
 //#UC END# *4F88473B03CD_57D00ACC01B0_impl*
 //#UC START# *4F88473B03CD_57D00ACC01B0_var*
+
+var
+ l_Pt : Tl3SPoint;
+ l_NewPt : Tl3SPoint;
+ 
+ function DoElement(const anElement: ImsmModelElement): Boolean;
+ var
+  l_ElementOrigin : Tl3SPoint;
+  l_ElementNewOrigin : Tl3SPoint;
+ begin//DoElement
+  Result := true;
+  l_ElementOrigin := l3SPoint(anElement.IntProp['msm:View:X'],
+                              anElement.IntProp['msm:View:Y']);
+  l_ElementNewOrigin := l_ElementOrigin.Add(l_NewPt.Sub(l_Pt));
+  anElement.IntProp['msm:View:X'] := l_ElementNewOrigin.X;
+  anElement.IntProp['msm:View:Y'] := l_ElementNewOrigin.Y;
+ end;//DoElement
+
 var
  l_LeftButton : Byte;
  l_E : ImsmModelElement;
- l_Pt : Tl3SPoint;
- l_NewPt : Tl3SPoint;
- l_ElementOrigin : Tl3SPoint;
- l_ElementNewOrigin : Tl3SPoint;
 //#UC END# *4F88473B03CD_57D00ACC01B0_var*
 //#UC START# *57AD8E570241_57D00ACC01B0_impl*
  if (anEvent = ListChangedEvent.Instance) then
   ModelStateChanged
  else
  if (anEvent = CurrentElementChangedEvent.Instance) then
+  ModelStateChanged
+ else
+ if (anEvent = SelectionChangedEvent.Instance) then
   ModelStateChanged;
 //#UC END# *57AD8E570241_57D00ACC01B0_impl*
 //#UC START# *57AD8E570241_57D00ACC01B0_var*
 //#UC END# *57AD8E570241_57D00ACC01B0_var*
 //#UC START# *57D00ACC01B0_ext:FileName
-w:\common\components\gui\Garant\msm\msmDrawing.pas
+w:\common\components\gui\Garant\msm\msmDrawingView.pas
 //#UC END# *57D00ACC01B0_ext:FileName
 //#UC START# *57D00ACC01B0ci*
 //#UC END# *57D00ACC01B0ci*
@@ -373,7 +498,7 @@ w:\common\components\gui\Garant\msm\msmDrawing.pas
 //#UC END# *57D00ACC01B0cit*
 //#UC START# *57D00ACC01B0impl*
 
-function TmsmDrawing.ElementRect(const anElement: ImsmModelElement): Tl3SRect;
+function TmsmDrawingView.ElementRect(const anElement: ImsmModelElement): Tl3SRect;
 var
  l_X : Integer;
  l_Y : Integer;
@@ -389,7 +514,7 @@ begin
  Result := Result.SubPt(f_Origin);
 end;
 
-function TmsmDrawing.ElementOnPoint(const aPoint: Tl3SPoint): ImsmModelElement;
+function TmsmDrawingView.ElementOnPoint(const aPoint: Tl3SPoint): ImsmModelElement;
 var
  l_List : ImsmModelElementStringList;
  l_E : ImsmModelElement;
@@ -414,7 +539,7 @@ begin
  end;//Model <> nil
 end;
 
-function TmsmDrawing.ElementOnPointOrParent(const aPoint: Tl3SPoint): ImsmModelElement;
+function TmsmDrawingView.ElementOnPointOrParent(const aPoint: Tl3SPoint): ImsmModelElement;
 begin
  Result := ElementOnPoint(aPoint);
  if (Result = nil) then
@@ -424,25 +549,33 @@ begin
     //Result := Model.List.Owner;
 end;
 
-procedure TmsmDrawing.WMMouseActivate(var Msg: TWMMouseActivate);
+procedure TmsmDrawingView.WMMouseActivate(var Msg: TWMMouseActivate);
 begin
  if csDesigning in ComponentState then
   Exit;
  inherited;
  if CanFocus then
   SetFocus;
-end;//TmsmDrawing.WMMouseActivate
+end;//TmsmDrawingView.WMMouseActivate
 
-procedure TmsmDrawing.WMSetFocus(var Msg: TWMSetFocus);
+procedure TmsmDrawingView.WMSetFocus(var Msg: TWMSetFocus);
 begin
  inherited;
  Invalidate;
 end;
 
-procedure TmsmDrawing.WMKillFocus(var Msg: TWMKillFocus);
+procedure TmsmDrawingView.WMKillFocus(var Msg: TWMKillFocus);
 begin
  inherited;
  Invalidate;
+end;
+
+procedure TmsmDrawingView.ScrollBy(const aDelta: Tl3SPoint);
+begin
+ f_Origin := f_Origin.Add(aDelta);
+ SetScrollPos(Self.Handle, SB_HORZ, Max(0, f_Origin.X), true);
+ SetScrollPos(Self.Handle, SB_VERT, Max(0, f_Origin.Y), true);
+ Windows.ScrollWindow(Self.Handle, -aDelta.X, -aDelta.Y, nil, nil);
 end;
 
 const
@@ -452,8 +585,8 @@ const
 const
  SB_WheelUp   = SB_EndScroll + 1;
  SB_WheelDown = SB_WheelUp + 1;
- 
-procedure TmsmDrawing.WMHScroll(var Msg: TWMHScroll);
+
+procedure TmsmDrawingView.WMHScroll(var Msg: TWMHScroll);
 var
  l_Delta : Integer;
  l_ScrollInfo : TScrollInfo;
@@ -483,13 +616,10 @@ begin
   else
    Exit;
  end;//Case Msg.ScrollCode
- f_Origin.X := f_Origin.X + l_Delta;
- SetScrollPos(Self.Handle, SB_HORZ, Max(0, f_Origin.X), true);
- Windows.ScrollWindow(Self.Handle, -l_Delta, 0, nil, nil);
- //Invalidate;
+ ScrollBy(l3SPoint(l_Delta, 0));
 end;
 
-procedure TmsmDrawing.WMVScroll(var Msg: TWMVScroll);
+procedure TmsmDrawingView.WMVScroll(var Msg: TWMVScroll);
 var
  l_Delta : Integer;
  l_ScrollInfo : TScrollInfo;
@@ -523,13 +653,10 @@ begin
   else
    Exit;
  end;//Case Msg.ScrollCode
- f_Origin.Y := f_Origin.Y + l_Delta;
- SetScrollPos(Self.Handle, SB_VERT, Max(0, f_Origin.Y), true);
- Windows.ScrollWindow(Self.Handle, 0, -l_Delta, nil, nil);
- //Invalidate;
+ ScrollBy(l3SPoint(0, l_Delta));
 end;
 
-procedure TmsmDrawing.WndProc(var Message: TMessage);
+procedure TmsmDrawingView.WndProc(var Message: TMessage);
   {override;}
   {-}
 begin
@@ -544,19 +671,19 @@ begin
   inherited;
 end;
 
-procedure TmsmDrawing.WMSize(var Msg: TWMSize);
+procedure TmsmDrawingView.WMSize(var Msg: TWMSize);
 begin
  inherited;
  Self.SetScrollInfo;
 end;
 
-procedure TmsmDrawing.WMEraseBkGnd(var Msg : TWMEraseBkGnd);
+procedure TmsmDrawingView.WMEraseBkGnd(var Msg : TWMEraseBkGnd);
   {-}
 begin
  Msg.Result := 1;  {don't erase background}
 end;
 
-procedure TmsmDrawing.SetScrollInfo;
+procedure TmsmDrawingView.SetScrollInfo;
 var
  l_ScrollInfo : TScrollInfo;
 begin
@@ -606,6 +733,7 @@ end;
   private
    f_Origin : Tl3SPoint;
    f_DoubleClickMoment : TDateTime;
+   f_DisableUpSelect : Boolean;
   private
    function ElementRect(const anElement: ImsmModelElement): Tl3SRect;
    function ElementOnPoint(const aPoint: Tl3SPoint): ImsmModelElement;
@@ -619,6 +747,7 @@ end;
    procedure WMSize(var Msg: TWMSize); message WM_SIZE;
    procedure WMEraseBkGnd(var Msg : TWMEraseBkGnd); message WM_ERASEBKGND;
    procedure SetScrollInfo;
+   procedure ScrollBy(const aDelta: Tl3SPoint);
 //#UC END# *57D00ACC01B0publ*
 //#UC START# *57D00B180365_57D00ACC01B0set_impl*
  if (f_Model <> aValue) then

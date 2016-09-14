@@ -6,9 +6,12 @@ unit vcmEntityForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmEntityForm - }
 { Начат: 24.02.2003 14:07 }
-{ $Id: vcmEntityForm.pas,v 1.629 2016/08/23 11:46:43 kostitsin Exp $ }
+{ $Id: vcmEntityForm.pas,v 1.630 2016/09/13 18:32:44 kostitsin Exp $ }
 
 // $Log: vcmEntityForm.pas,v $
+// Revision 1.630  2016/09/13 18:32:44  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.629  2016/08/23 11:46:43  kostitsin
 // {requestlink: 624862173 }
 //
@@ -2588,11 +2591,10 @@ type
                                          const aDataSource: IvcmFormDataSource = nil;
                                          aSubUserType: TvcmUserType = vcm_utAny): IvcmEntityForm;
         virtual;
-    protected
-    // internal properties
+    public//for vcmDispatcher
       property Entity: IvcmEntity
         read pm_GetEntity;
-        {-}
+    protected
       property GUID: TGUID
         read f_GUID
         write f_GUID;
@@ -3077,6 +3079,7 @@ uses
   vcmFormEntity,
   vcmFormsUtils,
   vcmEntitiesDefIterator,
+  vcmDispatcher,
 
   vcmEntitiesCollectionItem,
 
@@ -3590,8 +3593,8 @@ begin
   begin
    if (l_Params.Container = nil) then
    begin
-    if (vcmDispatcher <> nil) then
-     l_MainForm := vcmDispatcher.FormDispatcher.CurrentMainForm
+    if TvcmDispatcher.Exists then
+     l_MainForm := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm
     else
      l_MainForm := nil;
     if (l_MainForm <> nil) then
@@ -3699,7 +3702,7 @@ begin
    begin
     Result.RegInContainer;
     if Result.IsMainObjectForm then
-     vcmDispatcher.FormDispatcher.UpdateMainCaption(Result);
+     TvcmDispatcher.Instance.FormDispatcher.UpdateMainCaption(Result);
    end;//ZoneType <> vcm_ztForToolbarsInfo
    Aggregate := l_Params.Aggregate;
    if (ZoneType <> vcm_ztForToolbarsInfo) then
@@ -4590,12 +4593,12 @@ begin//KillMe
  CleanDependencies;
  KillFromVCM;
  CleanQueue(Self);
- if (HandleAllocated AND (g_Dispatcher <> nil) AND g_Dispatcher.InOp) then
+ if (HandleAllocated and TvcmDispatcher.Exists and TvcmDispatcher.Instance.As_IvcmDispatcher.InOp) then
  begin
   if IsModal then
    ClearModal;
    // - иначе форма никогда не закроется
-  g_Dispatcher.FormDispatcher.AddToCloseQueue(Self.As_IvcmEntityForm);
+  TvcmDispatcher.Instance.FormDispatcher.AddToCloseQueue(Self.As_IvcmEntityForm);
   DestroyHandle;
  end//HandleAllocated
  else
@@ -6005,14 +6008,14 @@ begin
   if (g_MenuManager <> nil) then
    g_MenuManager.BackupOpStatus;
   try
-   if (g_Dispatcher <> nil) and (g_Dispatcher.FormDispatcher <> nil) then
-    g_Dispatcher.FormDispatcher.BackupLockStatus;
+   if TvcmDispatcher.Exists and (TvcmDispatcher.Instance.FormDispatcher <> nil) then
+    TvcmDispatcher.Instance.FormDispatcher.BackupLockStatus;
    try
     l_List := Tl3VCLFormPtrList.Make;
     try
      // гасим все Floating формы
-     if (vcmDispatcher <> nil) then
-      with vcmDispatcher do
+     if TvcmDispatcher.Exists then
+      with TvcmDispatcher.Instance do
        for l_Index := 0 to EntitiesCount - 1 do
         if Supports(Entity[l_Index], IvcmEntityForm, l_Form) then
          if l_Form.VCLWinControl.Visible then
@@ -6034,19 +6037,19 @@ begin
      FreeAndNil(l_List);
     end;//try..finally
    finally
-    if (g_Dispatcher <> nil) and (g_Dispatcher.FormDispatcher <> nil) then
-     g_Dispatcher.FormDispatcher.RestoreLockStatus;
+    if TvcmDispatcher.Exists and (TvcmDispatcher.Instance.FormDispatcher <> nil) then
+     TvcmDispatcher.Instance.FormDispatcher.RestoreLockStatus;
    end;//try..finally
   finally
    if (g_MenuManager <> nil) then
     g_MenuManager.RestoreOpStatus;
   end;//try..finally
  finally
-  if (g_Dispatcher <> nil) then
+  if TvcmDispatcher.Exists then
   begin
    // - нужно "вручную" обновить строку состояния, т.к. форме может не прийти
    //   CM_ACTIVATE(<K> - 107840079).
-   g_Dispatcher.UpdateStatus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.UpdateStatus;
   end;//g_Dispatcher <> nil
  end;//try..finally
 end;
@@ -6658,7 +6661,7 @@ var
 
     if (l_Component Is TvcmToolbarDef) then
     begin
-     if g_Dispatcher.InOp then
+     if TvcmDispatcher.Instance.As_IvcmDispatcher.InOp then
      begin
       if (l_Main = nil) OR not l_Main.HandleAllocated then
        FreeAndNil(l_Component)

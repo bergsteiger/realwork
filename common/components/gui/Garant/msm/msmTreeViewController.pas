@@ -10,7 +10,7 @@ interface
 
 uses
  l3IntfUses
- , msmOutliner
+ , msmTreeView
  , msmConcreteModels
  , msmListAndTreeViewUtils
  , msmParentedViewController
@@ -18,10 +18,13 @@ uses
  , msmModels
  , msmEvents
  , l3Interfaces
+ {$If NOT Defined(NoVCL)}
+ , ImgList
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
- _OwnViewClass_ = TmsmOutliner;
+ _OwnViewClass_ = TmsmTreeView;
  _ConcreteModel_ = ImsmTreeModel;
  _InitContext_ = TmsmTreeViewInitContext;
  {$Include w:\common\components\gui\Garant\msm\msmConcreteModelOwnViewController.imp.pas}
@@ -45,6 +48,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , msmWaitCursor
+ , msmMEImages
  //#UC START# *57AB57E20079impl_uses*
  , Graphics
  , l3Tree_TLB

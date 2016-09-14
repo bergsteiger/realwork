@@ -33,6 +33,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4E0072E100DBimpl_uses*
  //#UC END# *4E0072E100DBimpl_uses*
 ;
@@ -50,6 +53,10 @@ initialization
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TarTextOfDocument);
  {* Регистрация TarTextOfDocument }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(RarTextOfDocument));
+ {* Регистрация типа RarTextOfDocument }
 {$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(AppClientSide)
 

@@ -214,7 +214,7 @@ var
   if (l_Form is TvcmMainForm) then
   begin
    BuildFormToolbars(l_Form, [vcm_ooShowInMainToolbar]);
-   with vcmDispatcher do
+   with TvcmDispatcher.Instance do
     for l_Index := 0 to Pred(ModulesCount) do
      BuildMainToolbars(l_Form, Module[l_Index].ModuleDef);
    MakeMainToolbarFromSettings(l_Form);
@@ -463,11 +463,11 @@ var
 //#UC END# *52A1FE4B0329_4B30EC81021A_var*
 //#UC START# *52A1FE58028C_4B30EC81021A_impl*
  lp_InvertFastenMode;
- with vcmDispatcher do
+ with TvcmDispatcher.Instance do
   for l_Index := 0 to EntitiesCount - 1 do
    if Supports(Entity[l_Index], IvcmEntityForm, l_Form) then
     lp_ChangeToolbarsMode(l_Form);
- with vcmDispatcher do
+ with TvcmDispatcher.Instance do
   for l_Index := 0 to FormDispatcher.MainFormsCount - 1 do
    if Supports(FormDispatcher.MainForm[l_Index], IvcmEntityForm, l_Form) then
     lp_ChangeToolbarsMode(l_Form, True);

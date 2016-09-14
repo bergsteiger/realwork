@@ -74,6 +74,78 @@ MEDIAGRAMS ME_4B683B57028D_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_4B7023C7019B_view
 
+  MEVIEW ME_4B6864970085_view
+   MELINK Original WL 'ME_4B6864970085' '48078CC202EC.ms.model.script' ; // ConversationsCount
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_4B6864970085_view
+
+  MEVIEW ME_4B6BF44100E3_view
+   MELINK Original WL 'ME_4B6BF44100E3' '48078CC202EC.ms.model.script' ; // UIDsWithUnreadedMessages
+   MEPROP X 840
+   MEPROP Y 180
+  ENDMEVIEW // ME_4B6BF44100E3_view
+
+  MEVIEW ME_4B68653F0016_view
+   MELINK Original WL 'ME_4B68653F0016' '48078CC202EC.ms.model.script' ; // ChatManager
+   MEPROP X 1000
+   MEPROP Y 180
+  ENDMEVIEW // ME_4B68653F0016_view
+
+  MEVIEW ME_4B68676F0357_view
+   MELINK Original WL 'ME_4B68676F0357' '48078CC202EC.ms.model.script' ; // ConversationByIndex
+   MEPROP X 40
+   MEPROP Y 320
+  ENDMEVIEW // ME_4B68676F0357_view
+
+  MEVIEW ME_4B686B8202C5_view
+   MELINK Original WL 'ME_4B686B8202C5' '48078CC202EC.ms.model.script' ; // f_Conversations
+   MEPROP X 200
+   MEPROP Y 320
+  ENDMEVIEW // ME_4B686B8202C5_view
+
+  MEVIEW ME_4B6938B302F0_view
+   MELINK Original WL 'ME_4B6938B302F0' '48078CC202EC.ms.model.script' ; // f_ChatListener
+   MEPROP X 360
+   MEPROP Y 320
+  ENDMEVIEW // ME_4B6938B302F0_view
+
+  MEVIEW ME_4B6951380027_view
+   MELINK Original WL 'ME_4B6951380027' '48078CC202EC.ms.model.script' ; // ConversationByUID
+   MEPROP X 520
+   MEPROP Y 320
+  ENDMEVIEW // ME_4B6951380027_view
+
+  MEVIEW ME_4B6BFB11036F_view
+   MELINK Original WL 'ME_4B6BFB11036F' '48078CC202EC.ms.model.script' ; // f_UidsWithUnreadedMessages
+   MEPROP X 680
+   MEPROP Y 320
+  ENDMEVIEW // ME_4B6BFB11036F_view
+
+  MEVIEW ME_4B7293B40189_view
+   MELINK Original WL 'ME_4B7293B40189' '48078CC202EC.ms.model.script' ; // f_UWUMCS
+   MEPROP X 840
+   MEPROP Y 320
+  ENDMEVIEW // ME_4B7293B40189_view
+
+  MEVIEW ME_4B7412BA02AA_view
+   MELINK Original WL 'ME_4B7412BA02AA' '48078CC202EC.ms.model.script' ; // f_NotifyCS
+   MEPROP X 1000
+   MEPROP Y 320
+  ENDMEVIEW // ME_4B7412BA02AA_view
+
+  MEVIEWLINK ME_4B6937C20205_ME_4B6936A0011F_Implements
+   MELINK From ME_4B6937C20205_view ;
+   MELINK To ME_4B6936A0011F_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_4B6937C20205_ME_4B6936A0011F_Implements
+
+  MEVIEWLINK ME_4B6937D7027F_viewlink
+   MELINK Original WL 'ME_4B6937D7027F' '48078CC202EC.ms.model.script' ;
+   MELINK From ME_4B6937C20205_view ;
+   MELINK To ME_4B69375C01D9_view ;
+  ENDMEVIEWLINK // ME_4B6937D7027F_viewlink
+
   MELIST Views
    Seq: ( ME_4B683B6501EB_view // TatChatConversation
    ME_4B69375C01D9_view // TatChatListenerFireFunction
@@ -86,6 +158,18 @@ MEDIAGRAMS ME_4B683B57028D_diagrams
    ME_4B7021A30255_view // GetContactListUIDs
    ME_4B7023B703C5_view // AddUser
    ME_4B7023C7019B_view // DeleteUser
+   ME_4B6864970085_view // ConversationsCount
+   ME_4B6BF44100E3_view // UIDsWithUnreadedMessages
+   ME_4B68653F0016_view // ChatManager
+   ME_4B68676F0357_view // ConversationByIndex
+   ME_4B686B8202C5_view // f_Conversations
+   ME_4B6938B302F0_view // f_ChatListener
+   ME_4B6951380027_view // ConversationByUID
+   ME_4B6BFB11036F_view // f_UidsWithUnreadedMessages
+   ME_4B7293B40189_view // f_UWUMCS
+   ME_4B7412BA02AA_view // f_NotifyCS
+   ME_4B6937C20205_ME_4B6936A0011F_Implements // TatChatListener -> IatChatListener
+   ME_4B6937D7027F_viewlink // TatChatListener -> TatChatListenerFireFunction
    )
   ; // Views
  ENDMEDIAGRAM // ME_4B683B57028D_main

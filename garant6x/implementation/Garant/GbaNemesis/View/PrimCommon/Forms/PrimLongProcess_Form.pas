@@ -147,6 +147,7 @@ uses
  , StdRes
  {$IfEnd} // NOT Defined(NoVCM)
  //#UC START# *4A93DDAE0396impl_uses*
+ , vcmDispatcher
  //#UC END# *4A93DDAE0396impl_uses*
 ;
 
@@ -235,16 +236,15 @@ begin
    TvcmTabbedContainerFormDispatcher.Instance.CloseAll
   else
   {$IfEnd}
-   if Assigned(g_Dispatcher) then
-    with g_Dispatcher do
-    begin
-     BeginCancelModal;
-     try
-      CloseAllWindows;
-     finally
-      EndCancelModal;
-     end;
-    end;
+  with TvcmDispatcher.Instance.As_IvcmDispatcher do
+  begin
+   BeginCancelModal;
+   try
+    CloseAllWindows;
+   finally
+    EndCancelModal;
+   end;
+  end;
  end;//defDataAdapter.Authorization.IsServerAlive
 
  try

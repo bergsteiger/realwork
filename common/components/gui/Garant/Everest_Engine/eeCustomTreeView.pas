@@ -20,8 +20,17 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *531F2A0900B9impl_uses*
  //#UC END# *531F2A0900B9impl_uses*
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TeeCustomTreeView));
+ {* Регистрация типа TeeCustomTreeView }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

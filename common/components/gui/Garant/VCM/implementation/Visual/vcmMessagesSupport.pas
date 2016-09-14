@@ -142,6 +142,7 @@ uses
  , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4E01D696020Cimpl_uses*
+ , vcmDispatcher
  //#UC END# *4E01D696020Cimpl_uses*
 ;
 
@@ -217,54 +218,48 @@ function vcmShowMessageDlg(const aMsg: Tl3Message;
   
  function GetCurrentMainFormHWnd: HWnd;
  var
-  l_Dispatcher: IvcmDispatcher;
   l_FormDispatcher: IvcmFormDispatcher;
   l_EntityForm: IvcmEntityForm;
   l_CustomForm: TWinControl;
  begin//GetCurrentMainFormHWnd
   Result := HWnd(0);
-  l_Dispatcher := vcmDispatcher;
-  if (l_Dispatcher <> nil) then
+  if TvcmDispatcher.Exists then
+  begin
+   l_FormDispatcher := TvcmDispatcher.Instance.FormDispatcher;
+   if (l_FormDispatcher <> nil) then
    try
-    l_FormDispatcher := l_Dispatcher.FormDispatcher;
-    if (l_FormDispatcher <> nil) then
+    l_EntityForm := l_FormDispatcher.CurrentMainForm;
+    if (l_EntityForm <> nil) then
      try
-      l_EntityForm := l_FormDispatcher.CurrentMainForm;
-      if (l_EntityForm <> nil) then
-       try
-        l_CustomForm := l_EntityForm.VCLWinControl;
-        if (l_CustomForm <> nil) then
-         Result := l_CustomForm.Handle;
-       finally
-        l_EntityForm := nil;
-       end;//try..finally
+      l_CustomForm := l_EntityForm.VCLWinControl;
+      if (l_CustomForm <> nil) then
+       Result := l_CustomForm.Handle;
      finally
-      l_FormDispatcher := nil;
+      l_EntityForm := nil;
      end;//try..finally
    finally
-    l_Dispatcher := nil;
+    l_FormDispatcher := nil;
    end;//try..finally
+  end;
  end;//GetCurrentMainFormHWnd
 
 var
  l_Form: IvcmEntityForm;
  l_Index: Integer;
  l_List: Tl3VCLFormPtrList;
- l_Dispatcher: IvcmDispatcher;
 //#UC END# *4A9D12BB00CC_4E01D696020C_var*
 begin
 //#UC START# *4A9D12BB00CC_4E01D696020C_impl*
  g_MenuManager.BackupOpStatus;
  try
-  if (g_Dispatcher <> nil) and (g_Dispatcher.FormDispatcher <> nil) then
-   g_Dispatcher.FormDispatcher.BackupLockStatus;
+  if TvcmDispatcher.Exists and (TvcmDispatcher.Instance.FormDispatcher <> nil) then
+   TvcmDispatcher.Instance.FormDispatcher.BackupLockStatus;
   try
    l_List := Tl3VCLFormPtrList.Make;
    try
     // гасим все Floating формы
-    l_Dispatcher := vcmDispatcher;
-    if Assigned(l_Dispatcher) then
-     with l_Dispatcher do
+    if TvcmDispatcher.Exists then
+     with TvcmDispatcher.Instance do
      for l_Index := 0 to EntitiesCount - 1 do
       if Supports(Entity[l_Index], IvcmEntityForm, l_Form) then
        if (l_Form.ZoneType = vcm_ztFloating) and
@@ -290,8 +285,8 @@ begin
     FreeAndNil(l_List);
    end;//try..finally
   finally
-   if (g_Dispatcher <> nil) and (g_Dispatcher.FormDispatcher <> nil) then
-    g_Dispatcher.FormDispatcher.RestoreLockStatus;
+   if TvcmDispatcher.Exists and (TvcmDispatcher.Instance.FormDispatcher <> nil) then
+    TvcmDispatcher.Instance.FormDispatcher.RestoreLockStatus;
   end;//try..finally
  finally
   g_MenuManager.RestoreOpStatus;

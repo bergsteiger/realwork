@@ -22,6 +22,9 @@
     aOldCurrent: LongInt); virtual;
    procedure DoActionElement(Sender: TObject;
     Index: LongInt); virtual;
+   function DoGetItemImage(Sender: TObject;
+    Index: Integer;
+    var aImages: TCustomImageList): Integer; virtual;
    procedure InitOwnView; override;
  end;//_msmListLikeViewController_
 
@@ -99,6 +102,17 @@ begin
 //#UC END# *57B47A2102DE_57B6BF8A0210_impl*
 end;//_msmListLikeViewController_.DoGetItemFont
 
+function _msmListLikeViewController_.DoGetItemImage(Sender: TObject;
+ Index: Integer;
+ var aImages: TCustomImageList): Integer;
+//#UC START# *57D9022D0322_57B6BF8A0210_var*
+//#UC END# *57D9022D0322_57B6BF8A0210_var*
+begin
+//#UC START# *57D9022D0322_57B6BF8A0210_impl*
+ Result := -1;
+//#UC END# *57D9022D0322_57B6BF8A0210_impl*
+end;//_msmListLikeViewController_.DoGetItemImage
+
 procedure _msmListLikeViewController_.InitOwnView;
 //#UC START# *57ADFB33027D_57B6BF8A0210_var*
 //#UC END# *57ADFB33027D_57B6BF8A0210_var*
@@ -110,6 +124,7 @@ begin
  OwnView.OnCharToItem := Self.DoCharToItem;
  OwnView.MultiStrokeItem := InitContext.rMultiStrokeItem;
  OwnView.OnGetItemFont := Self.DoGetItemFont;
+ OwnView.OnGetItemImage := Self.DoGetItemImage;
 //#UC END# *57ADFB33027D_57B6BF8A0210_impl*
 end;//_msmListLikeViewController_.InitOwnView
 

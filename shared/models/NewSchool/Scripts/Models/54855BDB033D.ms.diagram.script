@@ -50,6 +50,30 @@ MEDIAGRAMS ME_54855BDB033D_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_5481B39101AF_view
 
+  MEVIEWLINK ME_54B7B37003C6_ME_54B66DB30346_uses::Dependency
+   MELINK Original WL 'ME_54B7C07101A8' '54855BDB033D.ms.model.script' ;
+   MELINK From ME_54B7B37003C6_view ;
+   MELINK To ME_54B66DB30346_view ;
+  ENDMEVIEWLINK // ME_54B7B37003C6_ME_54B66DB30346_uses::Dependency
+
+  MEVIEWLINK ME_5481B39101AF_ME_54B66DB30346_uses::Dependency
+   MELINK Original WL 'ME_54B7A2C40393' '54855BDB033D.ms.model.script' ;
+   MELINK From ME_5481B39101AF_view ;
+   MELINK To ME_54B66DB30346_view ;
+  ENDMEVIEWLINK // ME_5481B39101AF_ME_54B66DB30346_uses::Dependency
+
+  MEVIEWLINK ME_5481B39101AF_ME_54B7B37003C6_uses::Dependency
+   MELINK Original WL 'ME_54B7B3CB0364' '54855BDB033D.ms.model.script' ;
+   MELINK From ME_5481B39101AF_view ;
+   MELINK To ME_54B7B37003C6_view ;
+  ENDMEVIEWLINK // ME_5481B39101AF_ME_54B7B37003C6_uses::Dependency
+
+  MEVIEWLINK ME_5481B39101AF_ME_54B7B3D203C6_uses::Dependency
+   MELINK Original WL 'ME_54B7B406028A' '54855BDB033D.ms.model.script' ;
+   MELINK From ME_5481B39101AF_view ;
+   MELINK To ME_54B7B3D203C6_view ;
+  ENDMEVIEWLINK // ME_5481B39101AF_ME_54B7B3D203C6_uses::Dependency
+
   MELIST Views
    Seq: ( ME_54855C2F0088_view // TncsSendTask
    ME_54855C4200D7_view // TncsSendTaskReply
@@ -58,6 +82,10 @@ MEDIAGRAMS ME_54855BDB033D_diagrams
    ME_54B7B37003C6_view // TncsGetPartialTaskDescriptionExecutor
    ME_54B7B3D203C6_view // TncsGetFilePartExecutor
    ME_5481B39101AF_view // TncsTaskSendExecutorFactory
+   ME_54B7B37003C6_ME_54B66DB30346_uses::Dependency // TncsGetPartialTaskDescriptionExecutor -> TncsGetPartialTaskDescription
+   ME_5481B39101AF_ME_54B66DB30346_uses::Dependency // TncsTaskSendExecutorFactory -> TncsGetPartialTaskDescription
+   ME_5481B39101AF_ME_54B7B37003C6_uses::Dependency // TncsTaskSendExecutorFactory -> TncsGetPartialTaskDescriptionExecutor
+   ME_5481B39101AF_ME_54B7B3D203C6_uses::Dependency // TncsTaskSendExecutorFactory -> TncsGetFilePartExecutor
    )
   ; // Views
  ENDMEDIAGRAM // ME_54855BDB033D_main

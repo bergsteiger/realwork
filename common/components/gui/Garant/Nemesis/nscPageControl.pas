@@ -4,9 +4,12 @@ unit nscPageControl;
 // Автор      : М. Морозов.
 // Начат      : 06.12.2006 г.
 // Назначение : Компонент с вкладками
-// Версия     : $Id: nscPageControl.pas,v 1.12 2012/10/26 14:57:56 lulin Exp $
+// Версия     : $Id: nscPageControl.pas,v 1.13 2016/09/13 18:32:40 kostitsin Exp $
 
 // $Log: nscPageControl.pas,v $
+// Revision 1.13  2016/09/13 18:32:40  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.12  2012/10/26 14:57:56  lulin
 // {RequestLink:406489593}
 //
@@ -53,7 +56,8 @@ uses
   Classes,
   Messages,
 
-  ElPgCtl
+  ElPgCtl,
+  vcmDispatcher
   ;
 
 {$Include ElPack.inc}

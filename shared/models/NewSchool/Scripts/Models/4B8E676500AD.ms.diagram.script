@@ -44,6 +44,30 @@ MEDIAGRAMS ME_4B8E676500AD_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4F9151EF00EF_view
 
+  MEVIEW ME_4F8FFDB3017A_view
+   MELINK Original WL 'ME_4F8FFDB3017A' '4AADF9450143.ms.model.script' ; // ButtonWidths
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_4F8FFDB3017A_view
+
+  MEVIEWLINK ME_4F915D3E0135_ME_4F9000EA02E5_Inherits
+   MELINK From ME_4F915D3E0135_view ;
+   MELINK To ME_4F9000EA02E5_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4F915D3E0135_ME_4F9000EA02E5_Inherits
+
+  MEVIEWLINK ME_4B8E6787035D_ME_4F9000EA02E5_uses::Dependency
+   MELINK Original WL 'ME_4F9003C203D7' '4AADF9450143.ms.model.script' ;
+   MELINK From ME_4B8E6787035D_view ;
+   MELINK To ME_4F9000EA02E5_view ;
+  ENDMEVIEWLINK // ME_4B8E6787035D_ME_4F9000EA02E5_uses::Dependency
+
+  MEVIEWLINK ME_4B8E6787035D_ME_4F915A68031C_uses::Dependency
+   MELINK Original WL 'ME_4F915AC203AC' '4AADF9450143.ms.model.script' ;
+   MELINK From ME_4B8E6787035D_view ;
+   MELINK To ME_4F915A68031C_view ;
+  ENDMEVIEWLINK // ME_4B8E6787035D_ME_4F915A68031C_uses::Dependency
+
   MELIST Views
    Seq: ( ME_4F9000EA02E5_view // TMessageForm
    ME_4F915D3E0135_view // TMessageFormClass
@@ -51,6 +75,10 @@ MEDIAGRAMS ME_4B8E676500AD_diagrams
    ME_4F8FFF1901ED_view // GetAvgCharSize
    ME_4F915A68031C_view // vtCreateMessageDialog
    ME_4F9151EF00EF_view // new_ini_op
+   ME_4F8FFDB3017A_view // ButtonWidths
+   ME_4F915D3E0135_ME_4F9000EA02E5_Inherits // TMessageFormClass -> TMessageForm
+   ME_4B8E6787035D_ME_4F9000EA02E5_uses::Dependency // vcmMessageDlgPrim -> TMessageForm
+   ME_4B8E6787035D_ME_4F915A68031C_uses::Dependency // vcmMessageDlgPrim -> vtCreateMessageDialog
    )
   ; // Views
  ENDMEDIAGRAM // ME_4B8E676500AD_main

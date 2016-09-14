@@ -4,9 +4,12 @@ unit vcmUtils;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmUtils -      }
 { Начат: 24.11.2003 16:35 }
-{ $Id: vcmUtils.pas,v 1.49 2016/04/19 11:41:47 morozov Exp $ }
+{ $Id: vcmUtils.pas,v 1.50 2016/09/13 18:32:46 kostitsin Exp $ }
 
 // $Log: vcmUtils.pas,v $
+// Revision 1.50  2016/09/13 18:32:46  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.49  2016/04/19 11:41:47  morozov
 // {RequestLink: 452370459}
 //
@@ -237,6 +240,7 @@ uses
   vcmOperationsCollectionItem,
   vcmCalendarForm,
   vcmInternalConst,
+  vcmDispatcher,
 
   vcmOVCCommands,
   OvcCmd
@@ -267,10 +271,10 @@ var
 
  function lp_MakeOwner: TComponent;
  begin
-  if (g_Dispatcher <> nil) and
-     (g_Dispatcher.FormDispatcher <> nil) and
-     (g_Dispatcher.FormDispatcher.CurrentMainForm <> nil) then
-   Result := g_Dispatcher.FormDispatcher.CurrentMainForm.VCLWinControl
+  if TvcmDispatcher.Exists and
+     (TvcmDispatcher.Instance.FormDispatcher <> nil) and
+     (TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm <> nil) then
+   Result := TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.VCLWinControl
   else
    Result := nil;
  end;//lp_HasCurrentMainForm
@@ -481,13 +485,12 @@ begin
  if aForm.ZoneType in vcm_NotContainedForm then
  begin
   // Главная форма нам нужна для определения монитора:
-  if (g_Dispatcher = nil) then
+  if not TvcmDispatcher.Exists then
    Exit;
-  if not Assigned(g_Dispatcher.FormDispatcher.CurrentMainForm) then
+  if not Assigned(TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm) then
    Exit;
   l_Rect := vcmCheckWindowBounds(aForm.BoundsRect);
-  l_Desk := Screen.MonitorFromRect(g_Dispatcher.FormDispatcher.CurrentMainForm.
-   VCLWinControl.BoundsRect).WorkareaRect;
+  l_Desk := Screen.MonitorFromRect(TvcmDispatcher.Instance.FormDispatcher.CurrentMainForm.VCLWinControl.BoundsRect).WorkareaRect;
   case aForm.BorderStyle of
    // форма с изменяемыми размерами
    bsSizeable, bsToolWindow:

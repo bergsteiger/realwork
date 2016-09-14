@@ -10533,7 +10533,12 @@ BOOLEAN elem_func NeedRegisterInScripts
      ( Self .IsInterface )
       true
      ( Self .IsTypedef )
-      true
+      RULES
+       ( Self .IsClassRef )
+        false
+       DEFAULT
+        true
+      ; // RULES
      DEFAULT
       false
     ; // RULES
@@ -10634,6 +10639,10 @@ elem_iterator Used
      begin
       .join> ToArray: GarantModel::TtfwTypeRegistrator(Proxy)
      end // ( Self .IsInterface )
+    ( Self .IsTypedef )
+     begin
+      .join> ToArray: GarantModel::TtfwTypeRegistrator(Proxy)
+     end // ( Self .IsTypedef )
     ( Self GarantModel::TtfwWord .InheritsFrom ! )
      begin
       .join> ToArray: GarantModel::TtfwClassRef(Proxy) 
@@ -16762,7 +16771,8 @@ elem_generator diagram.script
       Indented: (
        [ 'MELINK From ' Self .WordName l_Suffix ' ;' ] .Out
        [ 'MELINK To ' aLink .WordName l_Suffix ' ;' ] .Out
-       [ 'MEPROP LinkViewType ' cQuote l_CollectionName cQuote ] .Out
+       //[ 'MEPROP LinkViewType ' cQuote l_CollectionName cQuote ] .Out
+       [ 'MEPROP Class class_' l_CollectionName ] .Out
       ) // Indented:
       [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
       OutLn

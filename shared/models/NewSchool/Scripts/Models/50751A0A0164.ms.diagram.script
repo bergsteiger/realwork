@@ -38,12 +38,26 @@ MEDIAGRAMS ME_50751A0A0164_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_50751F2001E9_view
 
+  MEVIEWLINK ME_50751AEF02A9_ME_50751AB90061_Inherits
+   MELINK From ME_50751AEF02A9_view ;
+   MELINK To ME_50751AB90061_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_50751AEF02A9_ME_50751AB90061_Inherits
+
+  MEVIEWLINK ME_50751F2001E9_ME_50751AB90061_Inherits
+   MELINK From ME_50751F2001E9_view ;
+   MELINK To ME_50751AB90061_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_50751F2001E9_ME_50751AB90061_Inherits
+
   MELIST Views
    Seq: ( ME_50751AB90061_view // TevTableTextSearcher
    ME_50751AEF02A9_view // TevFirstTableCellSearcher
    ME_50751B080168_view // TevOldNSRCFlagReplacer
    ME_50751B12004F_view // TevTableCellFrameReplacer
    ME_50751F2001E9_view // TevTextInContinueCellSearcher
+   ME_50751AEF02A9_ME_50751AB90061_Inherits // TevFirstTableCellSearcher -> TevTableTextSearcher
+   ME_50751F2001E9_ME_50751AB90061_Inherits // TevTextInContinueCellSearcher -> TevTableTextSearcher
    )
   ; // Views
  ENDMEDIAGRAM // ME_50751A0A0164_main

@@ -44,6 +44,48 @@ MEDIAGRAMS ME_57A9D5CD0111_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57AB39D10325_view
 
+  MEVIEWLINK ME_57A9D6D90249_ME_57AB39D10325_uses::Dependency
+   MELINK Original WL 'ME_57AB39DF0013' '57A9D5CD0111.ms.model.script' ;
+   MELINK From ME_57A9D6D90249_view ;
+   MELINK To ME_57AB39D10325_view ;
+  ENDMEVIEWLINK // ME_57A9D6D90249_ME_57AB39D10325_uses::Dependency
+
+  MEVIEWLINK ME_57AADABA0154_ME_57AB39D10325_uses::Dependency
+   MELINK Original WL 'ME_57AB3E690135' '57A9D5CD0111.ms.model.script' ;
+   MELINK From ME_57AADABA0154_view ;
+   MELINK To ME_57AB39D10325_view ;
+  ENDMEVIEWLINK // ME_57AADABA0154_ME_57AB39D10325_uses::Dependency
+
+  MEVIEWLINK ME_57A9F5170275_ME_57AB17E6022C_Inherits
+   MELINK From ME_57A9F5170275_view ;
+   MELINK To ME_57AB17E6022C_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_57A9F5170275_ME_57AB17E6022C_Inherits
+
+  MEVIEWLINK ME_57A9F5170275_ME_57AADABA0154_uses::Dependency
+   MELINK Original WL 'ME_57AADB310302' '57A9D5CD0111.ms.model.script' ;
+   MELINK From ME_57A9F5170275_view ;
+   MELINK To ME_57AADABA0154_view ;
+  ENDMEVIEWLINK // ME_57A9F5170275_ME_57AADABA0154_uses::Dependency
+
+  MEVIEWLINK ME_57A9F5170275_ME_57AB39D10325_uses::Dependency
+   MELINK Original WL 'ME_57AB39E80355' '57A9D5CD0111.ms.model.script' ;
+   MELINK From ME_57A9F5170275_view ;
+   MELINK To ME_57AB39D10325_view ;
+  ENDMEVIEWLINK // ME_57A9F5170275_ME_57AB39D10325_uses::Dependency
+
+  MEVIEWLINK ME_57AB3A3C01DF_viewlink
+   MELINK Original WL 'ME_57AB3A3C01DF' '57A9D5CD0111.ms.model.script' ;
+   MELINK From ME_57C021910000_view ;
+   MELINK To ME_57A9F5170275_view ;
+  ENDMEVIEWLINK // ME_57AB3A3C01DF_viewlink
+
+  MEVIEWLINK ME_57AB39D10325_ME_57C021910000_Inherits
+   MELINK From ME_57AB39D10325_view ;
+   MELINK To ME_57C021910000_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_57AB39D10325_ME_57C021910000_Inherits
+
   MELIST Views
    Seq: ( ME_57A9D6D90249_view // TmsmModelLoader
    ME_57AB17E6022C_view // TmsmBaseModelElement
@@ -51,6 +93,13 @@ MEDIAGRAMS ME_57A9D5CD0111_diagrams
    ME_57A9F5170275_view // TmsmModelElement
    ME_57C021910000_view // TmsmModelElementFactoryPrim
    ME_57AB39D10325_view // TmsmModelElementFactory
+   ME_57A9D6D90249_ME_57AB39D10325_uses::Dependency // TmsmModelLoader -> TmsmModelElementFactory
+   ME_57AADABA0154_ME_57AB39D10325_uses::Dependency // TmsmModelElementList -> TmsmModelElementFactory
+   ME_57A9F5170275_ME_57AB17E6022C_Inherits // TmsmModelElement -> TmsmBaseModelElement
+   ME_57A9F5170275_ME_57AADABA0154_uses::Dependency // TmsmModelElement -> TmsmModelElementList
+   ME_57A9F5170275_ME_57AB39D10325_uses::Dependency // TmsmModelElement -> TmsmModelElementFactory
+   ME_57AB3A3C01DF_viewlink // TmsmModelElementFactoryPrim -> TmsmModelElement
+   ME_57AB39D10325_ME_57C021910000_Inherits // TmsmModelElementFactory -> TmsmModelElementFactoryPrim
    )
   ; // Views
  ENDMEDIAGRAM // ME_57A9D5CD0111_main

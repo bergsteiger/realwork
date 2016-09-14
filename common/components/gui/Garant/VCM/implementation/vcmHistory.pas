@@ -254,6 +254,7 @@ uses
  , l3Base
  , RTLConsts
  //#UC START# *4AA7B6AB0214impl_uses*
+ , vcmDispatcher
  //#UC END# *4AA7B6AB0214impl_uses*
 ;
 
@@ -698,11 +699,11 @@ begin
    Result := Back(aTruncate);
    Exit;
   end;
-  g_Dispatcher.FormDispatcher.Lock;
+  TvcmDispatcher.Instance.FormDispatcher.Lock;
   try
-   g_Dispatcher.StoreFocus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.StoreFocus;
    try
-    g_Dispatcher.BeginOp;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.BeginOp;
     try
      Dec(f_Current);
      l_Current := f_Current;
@@ -719,13 +720,13 @@ begin
      end;//try..finally
      f_Current := l_Current;
     finally
-     g_Dispatcher.EndOp;
+     TvcmDispatcher.Instance.As_IvcmDispatcher.EndOp;
     end;//try..finally
    finally
-    g_Dispatcher.RestoreFocus;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.RestoreFocus;
    end;//try..finally
   finally
-   g_Dispatcher.FormDispatcher.Unlock;
+   TvcmDispatcher.Instance.FormDispatcher.Unlock;
   end;//try..finally
   if not l_Accept then
   begin
@@ -756,11 +757,11 @@ begin
    Result := Forward;
    Exit;
   end;
-  g_Dispatcher.FormDispatcher.Lock;
+  TvcmDispatcher.Instance.FormDispatcher.Lock;
   try
-   g_Dispatcher.StoreFocus;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.StoreFocus;
    try
-    g_Dispatcher.BeginOp;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.BeginOp;
     try
      l_Current := f_Current;
      f_InBF := True;
@@ -773,13 +774,13 @@ begin
      end;//try..finally
      f_Current := Succ(l_Current);
     finally
-     g_Dispatcher.EndOp;
+     TvcmDispatcher.Instance.As_IvcmDispatcher.EndOp;
     end;//try..finally
    finally
-    g_Dispatcher.RestoreFocus;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.RestoreFocus;
    end;//try..finally
   finally
-   g_Dispatcher.FormDispatcher.Unlock;
+   TvcmDispatcher.Instance.FormDispatcher.Unlock;
   end;//try..finally
   if not l_Accept then
    if CanForward then
@@ -1519,7 +1520,7 @@ begin
  if (f_ContainerGUID = nil) then
   Result := aMainForm.AsContainer
  else
- if g_Dispatcher.FormDispatcher.FindForm(f_ContainerGUID^, l_Form) then
+ if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_ContainerGUID^, l_Form) then
  begin
   Assert(not l_Form.VCMClosing);
   // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
@@ -1573,7 +1574,7 @@ begin
     l_Owner := nil
    else
    begin
-    if g_Dispatcher.FormDispatcher.FindForm(f_Owner^, l_Owner) then
+    if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_Owner^, l_Owner) then
      Assert(not l_Owner.VCMClosing);
      // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
    end;//f_Owner = nil
@@ -1642,7 +1643,7 @@ begin
  begin
   l_Control := aForm.VCLWinControl.FindComponent(f_Focused) as TWinControl;
   if Assigned(l_Control) then
-   g_Dispatcher.StoreFocused(l_Control.Handle);
+   TvcmDispatcher.Instance.As_IvcmDispatcher.StoreFocused(l_Control.Handle);
  end;//f_Focused <> ''..
 //#UC END# *55081119039F_5506DC4F0011_impl*
 end;//TvcmHistoryItemBase.RestoreFocused
@@ -2268,14 +2269,14 @@ function TvcmHistoryItemPrim.DoActivate(const aMainForm: IvcmEntityForm;
   else
   begin
    if NeedCheckHasForm then
-    Result := g_Dispatcher.FormDispatcher.FindForm(f_FormGUID, aForm);
+    Result := TvcmDispatcher.Instance.FormDispatcher.FindForm(f_FormGUID, aForm);
    if Result then
    begin
     //Assert(not aForm.VCMClosing);
     if aForm.VCMClosing then
     // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
     begin
-     g_Dispatcher.FormDispatcher.RemoveForm(aForm);
+     TvcmDispatcher.Instance.FormDispatcher.RemoveForm(aForm);
      // - удалить еЄ надо из диспетчера, чтобы больше не находилась
      aForm := nil;
      Result := False;
@@ -2446,7 +2447,7 @@ begin
      if (l_MainObjectForm.IsMainInFormSet) then
      begin
       l_NeedLock := True;
-      g_Dispatcher.History.BeforeFormDestroy(l_MainObjectForm);
+      TvcmDispatcher.Instance.History.BeforeFormDestroy(l_MainObjectForm);
      end;//l_MainObjectForm.IsMainInFormSet
    end;//aMainForm.AsContainer.HasForm(vcm_ztMainObjectForm
    if l_NeedLock then
@@ -2525,7 +2526,7 @@ begin
 //#UC START# *55082738022C_5506DCE50052_impl*
  if InDestroy then
  begin
-  g_Dispatcher.UpdateStatus;
+  TvcmDispatcher.Instance.As_IvcmDispatcher.UpdateStatus;
   with (aForm.VCLWinControl as TvcmEntityForm) do
    l_Item := Self.Create(aForm, aStateType, FormId, UserType, ZoneType,
     vcm_hitNone, SubUserType, aForClone);
@@ -2551,7 +2552,7 @@ var
 begin
 //#UC START# *55080FE40284_5506DCE50052_impl*
  Result := True;
- if g_Dispatcher.FormDispatcher.FindForm(f_FormGUID, l_Form) then
+ if TvcmDispatcher.Instance.FormDispatcher.FindForm(f_FormGUID, l_Form) then
  begin
   //Assert(not l_Form.VCMClosing);
   // - если форма ”∆≈ закрываетс€, то еЄ наверное повторно использовать Ќ≈Ћ№«я
@@ -2561,7 +2562,7 @@ begin
    Exit
   // - форма уже восстановлена
   else
-   g_Dispatcher.FormDispatcher.RemoveForm(l_Form);
+   TvcmDispatcher.Instance.FormDispatcher.RemoveForm(l_Form);
    // - удалить еЄ надо из диспетчера, чтобы больше не находилась
  end;//g_Dispatcher.FormDispatcher.FindForm(f_FormGUID, l_Form)
  l_Form := MakeForm(aMainForm, anOwner, nil);

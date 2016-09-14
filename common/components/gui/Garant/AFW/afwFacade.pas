@@ -161,7 +161,7 @@ uses
  , afwSettingsImplSing
  , afwSettingsImplemented
  {$If NOT Defined(NoScripts)}
- , TtfwClassRef_Proxy
+ , TtfwTypeRegistrator_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , Windows
  , SysUtils

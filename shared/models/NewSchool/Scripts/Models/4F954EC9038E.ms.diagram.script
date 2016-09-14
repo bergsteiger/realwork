@@ -50,6 +50,60 @@ MEDIAGRAMS ME_4F954EC9038E_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4F265392010B_view
 
+  MEVIEWLINK ME_4F955027033B_ME_54F06F760196_Implements
+   MELINK From ME_4F955027033B_view ;
+   MELINK To ME_54F06F760196_view ;
+   MEPROP LinkViewType 'Implements'
+  ENDMEVIEWLINK // ME_4F955027033B_ME_54F06F760196_Implements
+
+  MEVIEWLINK ME_4F95434701ED_ME_4F955027033B_Inherits
+   MELINK From ME_4F95434701ED_view ;
+   MELINK To ME_4F955027033B_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4F95434701ED_ME_4F955027033B_Inherits
+
+  MEVIEWLINK ME_4F954F670262_ME_4EEB66D703A9_uses::Dependency
+   MELINK Original WL 'ME_4F954F7D0178' '4F954EC9038E.ms.model.script' ;
+   MELINK From ME_4F954F670262_view ;
+   MELINK To ME_4EEB66D703A9_view ;
+  ENDMEVIEWLINK // ME_4F954F670262_ME_4EEB66D703A9_uses::Dependency
+
+  MEVIEWLINK ME_4F954F670262_ME_4F265392010B_uses::Dependency
+   MELINK Original WL 'ME_4F954F8103BF' '4F954EC9038E.ms.model.script' ;
+   MELINK From ME_4F954F670262_view ;
+   MELINK To ME_4F265392010B_view ;
+  ENDMEVIEWLINK // ME_4F954F670262_ME_4F265392010B_uses::Dependency
+
+  MEVIEWLINK ME_4F954F670262_ME_4F95434701ED_uses::Dependency
+   MELINK Original WL 'ME_4F954F8403DC' '4F954EC9038E.ms.model.script' ;
+   MELINK From ME_4F954F670262_view ;
+   MELINK To ME_4F95434701ED_view ;
+  ENDMEVIEWLINK // ME_4F954F670262_ME_4F95434701ED_uses::Dependency
+
+  MEVIEWLINK ME_4F954F670262_ME_4FABE1110175_uses::Dependency
+   MELINK Original WL 'ME_4FABE14F0392' '4F954EC9038E.ms.model.script' ;
+   MELINK From ME_4F954F670262_view ;
+   MELINK To ME_4FABE1110175_view ;
+  ENDMEVIEWLINK // ME_4F954F670262_ME_4FABE1110175_uses::Dependency
+
+  MEVIEWLINK ME_4EEB66D703A9_ME_4F955027033B_Inherits
+   MELINK From ME_4EEB66D703A9_view ;
+   MELINK To ME_4F955027033B_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4EEB66D703A9_ME_4F955027033B_Inherits
+
+  MEVIEWLINK ME_4FABE1110175_ME_4F955027033B_Inherits
+   MELINK From ME_4FABE1110175_view ;
+   MELINK To ME_4F955027033B_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4FABE1110175_ME_4F955027033B_Inherits
+
+  MEVIEWLINK ME_4F265392010B_ME_4F955027033B_Inherits
+   MELINK From ME_4F265392010B_view ;
+   MELINK To ME_4F955027033B_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4F265392010B_ME_4F955027033B_Inherits
+
   MELIST Views
    Seq: ( ME_54F06F760196_view // kwParaCoordsToScreenUses
    ME_4F955027033B_view // TkwParaCoordsToScreen
@@ -58,6 +112,15 @@ MEDIAGRAMS ME_4F954EC9038E_diagrams
    ME_4EEB66D703A9_view // pop_editor_ParaCoordsToScreen
    ME_4FABE1110175_view // pop_editor_CursorCoordsToScreen
    ME_4F265392010B_view // pop_editor_ParaEndCoordsToScreen
+   ME_4F955027033B_ME_54F06F760196_Implements // TkwParaCoordsToScreen -> kwParaCoordsToScreenUses
+   ME_4F95434701ED_ME_4F955027033B_Inherits // pop_editor_ParaMiddleCoordsToScreen -> TkwParaCoordsToScreen
+   ME_4F954F670262_ME_4EEB66D703A9_uses::Dependency // EditorParaCoordsToScreenPack -> pop_editor_ParaCoordsToScreen
+   ME_4F954F670262_ME_4F265392010B_uses::Dependency // EditorParaCoordsToScreenPack -> pop_editor_ParaEndCoordsToScreen
+   ME_4F954F670262_ME_4F95434701ED_uses::Dependency // EditorParaCoordsToScreenPack -> pop_editor_ParaMiddleCoordsToScreen
+   ME_4F954F670262_ME_4FABE1110175_uses::Dependency // EditorParaCoordsToScreenPack -> pop_editor_CursorCoordsToScreen
+   ME_4EEB66D703A9_ME_4F955027033B_Inherits // pop_editor_ParaCoordsToScreen -> TkwParaCoordsToScreen
+   ME_4FABE1110175_ME_4F955027033B_Inherits // pop_editor_CursorCoordsToScreen -> TkwParaCoordsToScreen
+   ME_4F265392010B_ME_4F955027033B_Inherits // pop_editor_ParaEndCoordsToScreen -> TkwParaCoordsToScreen
    )
   ; // Views
  ENDMEDIAGRAM // ME_4F954EC9038E_main

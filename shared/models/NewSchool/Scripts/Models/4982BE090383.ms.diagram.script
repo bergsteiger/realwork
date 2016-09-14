@@ -38,12 +38,26 @@ MEDIAGRAMS ME_4982BE090383_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_4981E70101D7_view
 
+  MEVIEWLINK ME_4982B4600057_viewlink
+   MELINK Original WL 'ME_4982B4600057' '4982BE090383.ms.model.script' ;
+   MELINK From ME_47EB514C0336_view ;
+   MELINK To ME_47FB5A0F0375_view ;
+  ENDMEVIEWLINK // ME_4982B4600057_viewlink
+
+  MEVIEWLINK ME_4982B4D00032_ME_47EB514C0336_Inherits
+   MELINK From ME_4982B4D00032_view ;
+   MELINK To ME_47EB514C0336_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4982B4D00032_ME_47EB514C0336_Inherits
+
   MELIST Views
    Seq: ( ME_47FB5A0F0375_view // TvcmNeedMakeDS
    ME_47EB514C0336_view // IvcmFormDataSourceRef
    ME_4982B4D00032_view // IvcmViewAreaControllerRef
    ME_497841510139_view // IvcmViewAreaController
    ME_4981E70101D7_view // IvcmUseCaseController
+   ME_4982B4600057_viewlink // IvcmFormDataSourceRef -> TvcmNeedMakeDS
+   ME_4982B4D00032_ME_47EB514C0336_Inherits // IvcmViewAreaControllerRef -> IvcmFormDataSourceRef
    )
   ; // Views
  ENDMEDIAGRAM // ME_4982BE090383_main

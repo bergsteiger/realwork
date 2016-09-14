@@ -6,9 +6,12 @@ unit nsAppConfig;
  Назначение: Отображение и редактирование настроек проекта.
  История:
 
- $Id: nsAppConfig.pas,v 1.340 2016/08/05 12:05:11 lukyanets Exp $
+ $Id: nsAppConfig.pas,v 1.341 2016/09/13 18:32:10 kostitsin Exp $
 
  $Log: nsAppConfig.pas,v $
+ Revision 1.341  2016/09/13 18:32:10  kostitsin
+ {requestlink: 630194905 }
+
  Revision 1.340  2016/08/05 12:05:11  lukyanets
  Редактируем отложенные данные
 
@@ -1524,6 +1527,7 @@ uses
   vcmBaseCollection,
   vcmHistory,
   vcmSettings,
+  vcmDispatcher,
   
   CustomizeTools_Form,  
 
@@ -2886,7 +2890,7 @@ procedure TnsConfigSettingsInfo.RestoreAllSettings;
 var
  l_SettingsInfo: InsEditSettingsInfo;
 begin
- vcmDispatcher.BeginRestoreAllSettings;
+ TvcmDispatcher.Instance.As_IvcmDispatcher.BeginRestoreAllSettings;
  try
   // Чтобы приложение получило нотификацию об изменении свойств, использовать
   // f_ManagerConf.Configuration.RestoreDefaultValues (IConfiguration) - нельзя.
@@ -2943,12 +2947,12 @@ begin
    g_MenuManager.ReloadAllToolbars;
    g_MenuManager.LoadShortcuts;
    (* Определим положение форм (вставим плавающие навигаторы) *)
-   g_Dispatcher.ReinsertForms;
-   vcmDispatcher.RestoreFormSize;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.ReinsertForms;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.RestoreFormSize;
    NotifySettingsChanged;
   end;
  finally
-  vcmDispatcher.EndRestoreAllSettings;
+  TvcmDispatcher.Instance.As_IvcmDispatcher.EndRestoreAllSettings;
  end;
 end;
 
@@ -3660,7 +3664,7 @@ begin
  if aRestoreDefault and not f_InRestoreAll then
  begin
   if IsActive then
-   g_Dispatcher.ReinsertForms;
+   TvcmDispatcher.Instance.As_IvcmDispatcher.ReinsertForms;
   NotifySettingsChanged;
  end;//if aRestoreDefault and not f_InRestoreAll then
  if Assigned(f_AppConfig) then
@@ -3672,7 +3676,7 @@ begin
  try
   inherited DoAfterSave(aSaveAsDefault);
   if f_NeedReinsertFormsAfterSave then
-   g_Dispatcher.ReinsertForms;
+    TvcmDispatcher.Instance.As_IvcmDispatcher.ReinsertForms;
   if f_AppConfig.Changed then
    NotifySettingsChanged;
   if Assigned(f_AppConfig) then

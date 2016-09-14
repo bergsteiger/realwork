@@ -65,6 +65,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
 ;
 
 function TmsmViewContext_C: TmsmViewContext;
@@ -76,5 +79,15 @@ begin
 //#UC START# *57B490440207_57B49009009A_impl*
 //#UC END# *57B490440207_57B49009009A_impl*
 end;//TmsmViewContext_C
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TmsmView));
+ {* Регистрация типа TmsmView }
+{$IfEnd} // NOT Defined(NoScripts)
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TmsmViewParentControl));
+ {* Регистрация типа TmsmViewParentControl }
+{$IfEnd} // NOT Defined(NoScripts)
 
 end.

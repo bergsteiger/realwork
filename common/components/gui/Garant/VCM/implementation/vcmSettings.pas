@@ -4,9 +4,12 @@ unit vcmSettings;
 { Автор: Люлин А.В. ©     }
 { Модуль: vcmSettings -   }
 { Начат: 31.07.2003 14:27 }
-{ $Id: vcmSettings.pas,v 1.127 2016/08/20 18:29:18 kostitsin Exp $ }
+{ $Id: vcmSettings.pas,v 1.128 2016/09/13 18:32:46 kostitsin Exp $ }
 
 // $Log: vcmSettings.pas,v $
+// Revision 1.128  2016/09/13 18:32:46  kostitsin
+// {requestlink: 630194905 }
+//
 // Revision 1.127  2016/08/20 18:29:18  kostitsin
 // {requestlink: 444236338 }
 //
@@ -653,6 +656,7 @@ uses
 
   vcmModuleAction,
   vcmEntityAction,
+  vcmDispatcher,
 
   vcmZonesCollectionItem,
 
@@ -995,7 +999,7 @@ begin
   end else
   if (anAction is TvcmModuleAction) then
   begin
-   l_Name := g_Dispatcher.GetModuleByID(TvcmModuleAction(anAction).ModuleID).ModuleDef.Name;
+   l_Name := TvcmDispatcher.Instance.As_IvcmDispatcher.GetModuleByID(TvcmModuleAction(anAction).ModuleID).ModuleDef.Name;
    l_OpName := TvcmModuleAction(anAction).OpDef.Name;
   end;
   vcmSaveToolbarAction(aUtName, aTbName, l_Name, l_OpName, anEnabled, anIndex, aNeedSep, aIconText);

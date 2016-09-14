@@ -396,6 +396,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *497EDE780363impl_uses*
  , Math
+ , vcmDispatcher
  //#UC END# *497EDE780363impl_uses*
 ;
 
@@ -1276,7 +1277,7 @@ procedure TPrimDocumentWithFlashForm.NotifyDataSourceChanged(const anOld: IvcmVi
 //#UC END# *497469C90140_497EDE780363_var*
 begin
 //#UC START# *497469C90140_497EDE780363_impl*
- g_Dispatcher.LockActionUpdate;
+ TvcmDispatcher.Instance.As_IvcmDispatcher.LockActionUpdate;
  inherited;
 
  if f_FlashLoaded then
@@ -1311,7 +1312,7 @@ begin
   end;//Flash <> nil
   UpdateCaption;
  end;//aNew <> nil
- g_Dispatcher.UnlockActionUpdate;
+ TvcmDispatcher.Instance.As_IvcmDispatcher.UnlockActionUpdate;
 //#UC END# *497469C90140_497EDE780363_impl*
 end;//TPrimDocumentWithFlashForm.NotifyDataSourceChanged
 

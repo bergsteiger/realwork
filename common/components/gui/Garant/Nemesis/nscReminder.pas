@@ -25,9 +25,18 @@ implementation
 {$If Defined(Nemesis)}
 uses
  l3ImplUses
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *535E3A1A018Aimpl_uses*
  //#UC END# *535E3A1A018Aimpl_uses*
 ;
+
+initialization
+{$If NOT Defined(NoScripts)}
+ TtfwTypeRegistrator.RegisterType(TypeInfo(TnscReminder));
+ {* Регистрация типа TnscReminder }
+{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // Defined(Nemesis)
 
 end.

@@ -38,12 +38,33 @@ MEDIAGRAMS ME_4C8DD8B8006C_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_559F8C7A0213_view
 
+  MEVIEWLINK ME_4C8E4D21001F_ME_5396F51300D8_uses::Dependency
+   MELINK Original WL 'ME_5396F526031F' '4C8E4D21001F.ms.model.script' ;
+   MELINK From ME_4C8E4D21001F_view ;
+   MELINK To ME_5396F51300D8_view ;
+  ENDMEVIEWLINK // ME_4C8E4D21001F_ME_5396F51300D8_uses::Dependency
+
+  MEVIEWLINK ME_4C8F77E7000A_viewlink
+   MELINK Original WL 'ME_4C8F77E7000A' '4C8DD8C602D3.ms.model.script' ;
+   MELINK From ME_4C8DD8C602D3_view ;
+   MELINK To ME_4C8DD8C602D3_view ;
+  ENDMEVIEWLINK // ME_4C8F77E7000A_viewlink
+
+  MEVIEWLINK ME_4C8DE85601C4_ME_4C8DD8C602D3_Inherits
+   MELINK From ME_4C8DE85601C4_view ;
+   MELINK To ME_4C8DD8C602D3_view ;
+   MEPROP LinkViewType 'Inherits'
+  ENDMEVIEWLINK // ME_4C8DE85601C4_ME_4C8DD8C602D3_Inherits
+
   MELIST Views
    Seq: ( ME_4C8E4D21001F_view // PrimCustomizeTasksPanel
    ME_4C8DD8C602D3_view // PrimTasksPanelMenu
    ME_4C8DE85601C4_view // TasksPanelMenu
    ME_5396F51300D8_view // CustomizeTasksPanelRes
    ME_559F8C7A0213_view // TvcmCustOpsRepGroupList
+   ME_4C8E4D21001F_ME_5396F51300D8_uses::Dependency // PrimCustomizeTasksPanel -> CustomizeTasksPanelRes
+   ME_4C8F77E7000A_viewlink // PrimTasksPanelMenu -> PrimTasksPanelMenu
+   ME_4C8DE85601C4_ME_4C8DD8C602D3_Inherits // TasksPanelMenu -> PrimTasksPanelMenu
    )
   ; // Views
  ENDMEDIAGRAM // ME_4C8DD8B8006C_main

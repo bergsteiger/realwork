@@ -141,6 +141,7 @@ uses
  , Windows
  , l3InterfacesMisc
  //#UC START# *492D687F0214impl_uses*
+ , vcmDispatcher
  //#UC END# *492D687F0214impl_uses*
 ;
 

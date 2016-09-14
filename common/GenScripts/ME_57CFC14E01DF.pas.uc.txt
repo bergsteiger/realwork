@@ -33,13 +33,7 @@ w:\archi\source\projects\Archi\Processing\arUploadDocumentHelper.pas
  if aDirectAccess then
  begin
   f_Message := nil;
-  l_DB := dtGetDB(aFamily);
-  try
-   f_Filer := Tm3DBFiler.Create(l_DB, anID, aPart);
-  finally
-   l_DB := nil;
-  end;//try..finally
-
+  f_Filer := MakeFilerForDB(aFamily, anID, aPart);
   f_Filer.Mode := l3_fmReadWrite;
   f_NeedOpenFiler := (aClass <> dtNone) and NeedSaveText;
   if f_NeedOpenFiler then
@@ -58,14 +52,7 @@ w:\archi\source\projects\Archi\Processing\arUploadDocumentHelper.pas
   f_Message.IsClassChanged := IsClassChanged;
   f_Message.NeedSaveText := NeedSaveText;
   f_Message.DocClass := aClass;
-
-  l_ComStream := f_Message.Data as IStream;
-  try
-   f_Filer := Tl3CustomFiler.Create(nil);
-   f_Filer.COMStream := l_ComStream;
-  finally
-   l_ComStream := nil;
-  end;
+  f_Filer := MakeFilerForMessage(f_Message.Data);
  end;
 
  f_Generator := nil;
@@ -83,9 +70,6 @@ w:\archi\source\projects\Archi\Processing\arUploadDocumentHelper.pas
   BuildDocSavePipe(aFamily, anID, anIsObjTopic, aEraseNotify, f_Generator);
 //#UC END# *57CFDE7701E9_57CFC14E01DF_impl*
 //#UC START# *57CFDE7701E9_57CFC14E01DF_var*
-var
- l_DB: Im3DB;
- l_ComStream: IStream;
 //#UC END# *57CFDE7701E9_57CFC14E01DF_var*
 //#UC START# *57D15A640079_57CFC14E01DF_impl*
  if f_Filer.Opened then
