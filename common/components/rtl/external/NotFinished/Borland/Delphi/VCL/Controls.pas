@@ -780,10 +780,6 @@ initialization
  TtfwClassRef.Register(TGraphicControl);
  {* Регистрация TGraphicControl }
 {$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
- TtfwTypeRegistrator.RegisterType(@tfw_tiClassRef);
- {* Регистрация типа TControlClass }
-{$IfEnd} // NOT Defined(NoScripts)
 {$IfEnd} // NOT Defined(NoVCL)
 
 end.
