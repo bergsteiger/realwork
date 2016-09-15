@@ -7,7 +7,7 @@
 //#UC END# *479731C50290_57D909F3037B_var*
 //#UC START# *47A042E100E2_57D909F3037B_impl*
  inherited;
- f_ImageNames := Tl3StringList.Create;
+ f_ImageNames := TmsmImageNames.Create;
  f_ImageNames.Sorted := false;
 //#UC END# *47A042E100E2_57D909F3037B_impl*
 //#UC START# *47A042E100E2_57D909F3037B_var*
@@ -46,14 +46,16 @@ w:\common\components\gui\Garant\msm\msmMEImages.pas
   if not l3IsNil(l_S) then
   begin
    l_N := l3Str(l_S);
-   l_Index := f_ImageNames.IndexOf(l_S);
+   l_Name := TmsmImageName_C(l_S, true);
+   l_Index := f_ImageNames.IndexOf(l_Name);
    if (l_Index < 0) then
    begin
     if (f_ImageList = nil) then
       f_ImageList := TvtNonFixedPngImageList.Create(nil);
-    l_Index := f_ImageNames.Add(l_S);  
+    l_Name.rIsValid := FileExists(l_N);
+    l_Index := f_ImageNames.Add(l_Name);
     f_ImageList.AddItem;
-    if FileExists(l_N) then
+    if l_Name.rIsValid then
     begin
      l_IO := TImageEnIO.Create(nil);
      try
@@ -75,11 +77,13 @@ w:\common\components\gui\Garant\msm\msmMEImages.pas
      finally
       FreeAndNil(l_IO);
      end;//try..finally
-    end;//FileExists(l_N)
-   end;//l_Index < 0
+    end;//l_Name.rIsValid
+   end//l_Index < 0
+   else
+    l_Name.rIsValid := f_ImageNames.ItemSlot(l_Index).rIsValid;
    if (l_Index >= 0) then
    begin
-    if not FileExists(l_N) then
+    if not l_Name.rIsValid then
      l_Index := -1;
    end;//l_Index >= 0
    Result := l_Index;
@@ -94,4 +98,5 @@ var
  l_Index : Integer;
  l_IO: TImageEnIO;
  l_Detect : TddPictureFormatDetector;
+ l_Name : TmsmImageName;
 //#UC END# *57D90AA201F1_57D909F3037B_var*

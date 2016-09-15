@@ -3,6 +3,12 @@
 //#UC END# *46A5AA4B003C_57B4564702F8_impl*
 //#UC START# *46A5AA4B003C_57B4564702F8_var*
 //#UC END# *46A5AA4B003C_57B4564702F8_var*
+//#UC START# *47D1602000C6_57B4564702F8_impl*
+ inherited;
+ Self.OnGetItemImageIndex := Self.DoGetItemImageIndex;
+//#UC END# *47D1602000C6_57B4564702F8_impl*
+//#UC START# *47D1602000C6_57B4564702F8_var*
+//#UC END# *47D1602000C6_57B4564702F8_var*
 //#UC START# *57B4564702F8_ext:FileName
 w:\common\components\gui\Garant\msm\msmListView.pas
 //#UC END# *57B4564702F8_ext:FileName
@@ -13,6 +19,7 @@ w:\common\components\gui\Garant\msm\msmListView.pas
 //#UC START# *57B4564702F8impl*
 //#UC END# *57B4564702F8impl*
 //#UC START# *57B4564702F8impl_uses*
+ , ImgList
 //#UC END# *57B4564702F8impl_uses*
 //#UC START# *57B4564702F8intf_uses*
 //#UC END# *57B4564702F8intf_uses*
@@ -25,3 +32,17 @@ w:\common\components\gui\Garant\msm\msmListView.pas
 //#UC END# *57B565DA01A1_57B4564702F8_impl*
 //#UC START# *57B565DA01A1_57B4564702F8_var*
 //#UC END# *57B565DA01A1_57B4564702F8_var*
+//#UC START# *57D94AB5005D_57B4564702F8_impl*
+ Result := -1;
+ if Assigned(f_OnGetItemImage) then
+ begin
+  l_Images := Self.Images;
+  Result := f_OnGetItemImage(Sender, Index, l_Images);
+  if (l_Images <> Self.Images) then
+   Self.Images := l_Images;
+ end;//Assigned(f_OnGetItemImage)
+//#UC END# *57D94AB5005D_57B4564702F8_impl*
+//#UC START# *57D94AB5005D_57B4564702F8_var*
+var
+ l_Images : TCustomImageList;
+//#UC END# *57D94AB5005D_57B4564702F8_var*

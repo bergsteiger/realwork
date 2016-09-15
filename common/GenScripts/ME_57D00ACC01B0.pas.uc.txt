@@ -41,7 +41,7 @@
    begin
     l_E := l_List[l_Index];
     if (l_E <> nil) AND not l_E.IsView then
-     DrawLink(l_E);
+     DrawLink(l_E, l_Selection);
    end;//for l_Index
    Exit;
   end;//l_List <> nil
@@ -190,7 +190,8 @@ var
    DrawSelection(aRect);
  end;//DrawElement
 
- procedure DrawLink(const anElement: ImsmModelElement);
+ procedure DrawLink(const anElement: ImsmModelElement;
+                    const aSelection: ImsmElementSelection);
 
   procedure SetBrush;
   begin//SetBrush
@@ -216,13 +217,14 @@ var
   l_ToR : Tl3SRect;
   l_FromP : Tl3SPoint;
   l_ToP : Tl3SPoint;
-  l_ClipRgn : HRGN;
-  l_RectRgn : HRGN;
+(*  l_ClipRgn : HRGN;
+  l_RectRgn : HRGN;*)
   l_N : Il3CString;
   l_TextRect : Tl3SRect;
   l_WR : TRect;
   l_Flags : Word;
   l_BkMode: Cardinal;
+  l_Line : TmsLineF;
  begin//DrawLink
   l_From := anElement.ElementProp['From'];
   l_To := anElement.ElementProp['To'];
@@ -234,7 +236,16 @@ var
    l_FromP.Y := (l_FromR.Top + l_FromR.Bottom) div 2;
    l_ToP.X := (l_ToR.Left + l_ToR.Right) div 2;
    l_ToP.Y := (l_ToR.Top + l_ToR.Bottom) div 2;
-   l_PenColor := anElement.IntProp['msm:View:LinkLineColor'];
+
+   l_Line := TmsLineF_Create(l_FromP, l_ToP);
+   TmsRectF_Create(l_FromR).Cross(l_Line, l_FromP);
+   TmsRectF_Create(l_ToR).Cross(l_Line, l_ToP);
+
+   if aSelection.IsElementSelectedOrCurrent(anElement) then
+    l_PenColor := clRed
+   else
+    l_PenColor := anElement.IntProp['msm:View:LinkLineColor'];
+    
    if (l_PenColor = clDefault) then
     l_PenColor := clSilver;
    SetPen;
@@ -242,7 +253,7 @@ var
    begin
     l_ClipRgn := CreateRectRgn(Left, Top, Right, Bottom);
    end;//with CN.LR2DR(CN.ClipRect)*)
-   l_ClipRgn := CreateRectRgn(0, 0, Self.Width, Self.Height);
+(*   l_ClipRgn := CreateRectRgn(0, 0, Self.Width, Self.Height);
    try
     l_RectRgn := CreateRectRgn(l_FromR.Left, l_FromR.Top, l_FromR.Right, l_FromR.Bottom);
     try
@@ -259,15 +270,15 @@ var
     CN.PushClipRect;
     try
      //SelectClipRgn(CN.DC, l_ClipRgn);
-     ExtSelectClipRgn(CN.DC, l_ClipRgn, RGN_AND);
+     ExtSelectClipRgn(CN.DC, l_ClipRgn, RGN_AND);*)
      CN.Canvas.MoveTo(l_FromP.X, l_FromP.Y);
      CN.Canvas.LineTo(l_ToP.X, l_ToP.Y);
-    finally
+(*    finally
      CN.PopClipRect;
     end;//try..finally
    finally
     DeleteObject(l_ClipRgn);
-   end;//try..finally
+   end;//try..finally*)
    l_N := anElement.StringProp['LinkName'];
    if not l3IsNil(l_N) then
    begin
@@ -723,6 +734,7 @@ end;
  , l3MinMax
  , l3Base
  , msmElementViews
+ , msmLineF
 //#UC END# *57D00ACC01B0impl_uses*
 //#UC START# *57D00ACC01B0intf_uses*
  , Messages

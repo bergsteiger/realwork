@@ -1,4 +1,4 @@
-// TmsmLister 57B4564702F8 SimpleClass Class
+// TmsmListView 57B4564702F8 SimpleClass Class
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
@@ -6,7 +6,7 @@ MEDIAGRAMS ME_57B4564702F8_diagrams
 
  MEDIAGRAM ME_57B4564702F8_main
   MEPROP Name 'main'
-  MELINK Original WL 'ME_57B4564702F8' '57B42D1A0044.ms.model.script' ; // TmsmLister
+  MELINK Original WL 'ME_57B4564702F8' '57B42D1A0044.ms.model.script' ; // TmsmListView
 
   MEVIEW ME_57B565DA01A1_view
    MELINK Original WL 'ME_57B565DA01A1' '57B42D1A0044.ms.model.script' ; // CallDropDrawPoints
@@ -14,8 +14,22 @@ MEDIAGRAMS ME_57B4564702F8_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57B565DA01A1_view
 
+  MEVIEW ME_57D94AB5005D_view
+   MELINK Original WL 'ME_57D94AB5005D' '57B42D1A0044.ms.model.script' ; // DoGetItemImageIndex
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D94AB5005D_view
+
+  MEVIEW ME_57D90FDC0174_view
+   MELINK Original WL 'ME_57D90FDC0174' '57B42D1A0044.ms.model.script' ; // OnGetItemImage
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D90FDC0174_view
+
   MELIST Views
    Seq: ( ME_57B565DA01A1_view // CallDropDrawPoints
+   ME_57D94AB5005D_view // DoGetItemImageIndex
+   ME_57D90FDC0174_view // OnGetItemImage
    )
   ; // Views
  ENDMEDIAGRAM // ME_57B4564702F8_main

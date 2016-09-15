@@ -15805,6 +15805,22 @@ ME ME_57D7ECEE0218
 
 ENDME // ME_57D7ECEE0218 ModulesCount
 
+FORWARD ME_57D7EEF703CD
+
+ME ME_57D7EF0801E5
+ MEPROP UID '57D7EF0801E5'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D7EEF703CD // Module
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_57D7EF0801E5 anIndex
+
 ME ME_57D7EEF703CD
  MEPROP UID '57D7EEF703CD'
  MEPROP Name 'Module'
@@ -15817,6 +15833,10 @@ ME ME_57D7EEF703CD
  ;
  MELINK Target WL 'ME_49930CFF03A3' '4683F37902CF.ms.model.script' // IvcmModule
  ;
+ MELIST Attributes
+   Seq: ( HWL ME_57D7EF0801E5 // anIndex
+ )
+ ; // Attributes
  UP "inherits getter from some ancestor" True
  UP "pm" False
 
@@ -16283,39 +16303,6 @@ ME ME_57D691730194
  ;
 
 ENDME // ME_57D691730194 Create
-
-FORWARD ME_57D693980213
-
-ME ME_57D693AC03BE
- MEPROP UID '57D693AC03BE'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57D693980213 // Make
- ;
- MELINK Target WL 'ME_499307A40098' '4683F37902CF.ms.model.script' // IvcmDispatcher
- ;
-
-ENDME // ME_57D693AC03BE DoIt
-
-ME ME_57D693980213
- MEPROP UID '57D693980213'
- MEPROP Name 'Make'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57D2C1600360 // TvcmDispatcher
- ;
- MELIST Operations
-   Seq: ( HWL ME_57D693AC03BE // DoIt
- )
- ; // Operations
- UP "is static" True
-
-ENDME // ME_57D693980213 Make
 
 FORWARD ME_57D6966401BF
 
@@ -16894,7 +16881,6 @@ ME ME_57D2C1600360
  HWL ME_57D6901B0325 // EntityOperation
  HWL ME_57D6908A0139 // ModuleOperation
  HWL ME_57D691730194 // Create
- HWL ME_57D693980213 // Make
  HWL ME_57D6966401BF // _GetMain
  )
  ; // Operations

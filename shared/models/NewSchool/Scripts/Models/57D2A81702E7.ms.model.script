@@ -6,9 +6,9 @@ FORWARD ME_57D2A81702E7
 
 FORWARD ME_57D2A86F0082
 
-ME ME_57D2AAB50082
- MEPROP UID '57D2AAB50082'
- MEPROP Name 'Navigator'
+ME ME_57D2A99D011F
+ MEPROP UID '57D2A99D011F'
+ MEPROP Name 'FloatingNavigator'
  MEPROP Class class_Attribute
  MELINK Stereotype st_readonly::Attribute ;
  MEPROP Visibility PublicAccess
@@ -21,7 +21,24 @@ ME ME_57D2AAB50082
  UP "pm" True
  UP "reads field" True
 
-ENDME // ME_57D2AAB50082 Navigator
+ENDME // ME_57D2A99D011F FloatingNavigator
+
+ME ME_57D2A9EE0113
+ MEPROP UID '57D2A9EE0113'
+ MEPROP Name 'MainList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_57D2A9EE0113 MainList
 
 ME ME_57D2AA1201BD
  MEPROP UID '57D2AA1201BD'
@@ -40,9 +57,9 @@ ME ME_57D2AA1201BD
 
 ENDME // ME_57D2AA1201BD Drawing
 
-ME ME_57D2A99D011F
- MEPROP UID '57D2A99D011F'
- MEPROP Name 'FloatingNavigator'
+ME ME_57D2AAB50082
+ MEPROP UID '57D2AAB50082'
+ MEPROP Name 'Navigator'
  MEPROP Class class_Attribute
  MELINK Stereotype st_readonly::Attribute ;
  MEPROP Visibility PublicAccess
@@ -55,7 +72,7 @@ ME ME_57D2A99D011F
  UP "pm" True
  UP "reads field" True
 
-ENDME // ME_57D2A99D011F FloatingNavigator
+ENDME // ME_57D2AAB50082 Navigator
 
 ME ME_57D2AC4E0319
  MEPROP UID '57D2AC4E0319'
@@ -73,23 +90,6 @@ ME ME_57D2AC4E0319
  UP "reads field" True
 
 ENDME // ME_57D2AC4E0319 Caption
-
-ME ME_57D2A9EE0113
- MEPROP UID '57D2A9EE0113'
- MEPROP Name 'MainList'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_ref
- MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
- ;
- MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
- ;
- UP "pm" True
- UP "reads field" True
-
-ENDME // ME_57D2A9EE0113 MainList
 
 FORWARD ME_57D2A8F301D0
 
@@ -333,11 +333,11 @@ ME ME_57D2A86F0082
  )
  ; // Implements
  MELIST Attributes
-   Seq: ( HWL ME_57D2AAB50082 // Navigator
- HWL ME_57D2AA1201BD // Drawing
- HWL ME_57D2A99D011F // FloatingNavigator
- HWL ME_57D2AC4E0319 // Caption
+   Seq: ( HWL ME_57D2A99D011F // FloatingNavigator
  HWL ME_57D2A9EE0113 // MainList
+ HWL ME_57D2AA1201BD // Drawing
+ HWL ME_57D2AAB50082 // Navigator
+ HWL ME_57D2AC4E0319 // Caption
  )
  ; // Attributes
  MELIST Operations

@@ -232,6 +232,82 @@ ME ME_57B47A2102DE
 
 ENDME // ME_57B47A2102DE DoGetItemFont
 
+FORWARD ME_57D9022D0322
+
+FORWARD ME_FD44ACD44EA4
+
+ME ME_AED58FE51EF9
+ MEPROP Name 'Sender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F8577004B' '4AB0C3C60310.ms.model.script' // TObject$Stub
+ ;
+
+ENDME // ME_AED58FE51EF9 Sender
+
+ME ME_38C82D14AC9A
+ MEPROP Name 'Index'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+
+ENDME // ME_38C82D14AC9A Index
+
+ME ME_70FD03936D98
+ MEPROP Name 'aImages'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_473DA2AF0168' '4799D29F033F.ms.model.script' // TCustomImageList
+ ;
+
+ENDME // ME_70FD03936D98 aImages
+
+ME ME_FD44ACD44EA4
+ MEPROP UID 'FD44ACD44EA4'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Event to get Index of Bitmap in ImageIndex.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D9022D0322 // DoGetItemImage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_AED58FE51EF9 // Sender
+ ME_38C82D14AC9A // Index
+ ME_70FD03936D98 // aImages
+ )
+ ; // Parameters
+
+ENDME // ME_FD44ACD44EA4 DoIt
+
+ME ME_57D9022D0322
+ MEPROP UID '57D9022D0322'
+ MEPROP Name 'DoGetItemImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B6BF8A0210 // msmListLikeViewController
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47D63B6D0157' '47D036150077.ms.model.script' // Tl3GetItemImage
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_FD44ACD44EA4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D9022D0322 DoGetItemImage
+
 ME ME_57B6CCDA02F8
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -288,6 +364,7 @@ ME ME_57B6BF8A0210
  HWL ME_57B3192403D2 // DoCurrentChanged
  HWL ME_57AB1EAE00C7 // DoActionElement
  HWL ME_57B47A2102DE // DoGetItemFont
+ HWL ME_57D9022D0322 // DoGetItemImage
  )
  ; // Operations
  MELIST Implemented
@@ -467,6 +544,7 @@ ME ME_57CD261B0318
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
  WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_47D036150077' '47D036150077.ms.model.script' // l3ControlsTypes
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
  WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers

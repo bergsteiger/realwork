@@ -77,6 +77,8 @@ var
 w:\garant6x\implementation\Garant\GbaNemesis\View\Common\Forms\PrimProgressIndicator_Form.pas
 //#UC END# *4A93F1980324_ext:FileName
 //#UC START# *4A93F1980324impl_uses*
+ , nsLogEvent
+ , LoggingUnit
 //#UC END# *4A93F1980324impl_uses*
 //#UC START# *4AC6270C00E2_4A93F1980324_impl*
    f_Owner := aProgress;
@@ -111,6 +113,7 @@ var
  l_Percentage: LongInt;
 //#UC END# *50F98780007B_4A93F1980324_var*
 //#UC START# *50F987AA03D9_4A93F1980324_impl*
+ TTempLogEvent.Log('WMUserFinishProcess message received');
  Message.Result := 0;
  f_CancelButton.Repaint;
  f_SearchFinished := True;

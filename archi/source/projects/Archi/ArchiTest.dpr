@@ -2169,10 +2169,6 @@ uses
  , evCellWidthCorrecterSpy in 'w:\common\components\gui\Garant\Everest\evCellWidthCorrecterSpy.pas'
  , evCellsOffsetsList in 'w:\common\components\gui\Garant\Everest\evCellsOffsetsList.pas'
  , evCopyTableCellWidth in 'w:\common\components\gui\Garant\Everest\evCopyTableCellWidth.pas'
- , evTabStopsFilter in 'w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas'
- , evdEmptyRowFilter in 'w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas'
- , evTableFilter in 'w:\common\components\gui\Garant\Everest\evTableFilter.pas'
- , evTextInTableCorrector in 'w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
  , evFacadeSelection in 'w:\common\components\gui\Garant\EverestCommon\evFacadeSelection.pas'
  , evMemo in 'w:\common\components\gui\Garant\Everest\evMemo.pas'
  {$If NOT Defined(Nemesis)}
@@ -2237,6 +2233,8 @@ uses
  , ddDocument in 'w:\common\components\rtl\Garant\dd\ddDocument.pas'
  , evdAllParaEliminator in 'w:\common\components\rtl\Garant\EVD\evdAllParaEliminator.pas'
  , ddTextToTableConverters in 'w:\common\components\rtl\Garant\dd\ddTextToTableConverters.pas'
+ , evdEmptyRowFilter in 'w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas'
+ , evTableFilter in 'w:\common\components\gui\Garant\Everest\evTableFilter.pas'
  {$If NOT Defined(NoScripts)}
  , archiDocEditorWindowWordsPack in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\archiDocEditorWindowWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2472,6 +2470,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwDisableMergedCellFilter in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDisableMergedCellFilter.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , arFiltersUtils in 'w:\archi\source\projects\Common\Utils\arFiltersUtils.pas'
+ , evTabStopsFilter in 'w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas'
+ , evTextInTableCorrector in 'w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
  {$If NOT Defined(NoScripts)}
  , kwClearFindDialog in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas'
  {$IfEnd} // NOT Defined(NoScripts)

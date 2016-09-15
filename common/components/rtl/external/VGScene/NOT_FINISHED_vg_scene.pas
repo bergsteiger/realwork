@@ -174,6 +174,9 @@ uses
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , l3ProcessMessagesManager
+ {$If NOT Defined(NoScripts)}
+ , TtfwTypeRegistrator_Proxy
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *4CFE3E000371impl_uses*
  //#UC END# *4CFE3E000371impl_uses*
 ;

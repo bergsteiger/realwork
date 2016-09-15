@@ -1761,6 +1761,8 @@ uses
  , msmListAndTreeInterfaces in 'w:\common\components\gui\Garant\msm\msmListAndTreeInterfaces.pas'
  , msmWaitCursor in 'w:\common\components\gui\Garant\msm\msmWaitCursor.pas'
  , msmViewUtilsInterfaces in 'w:\common\components\gui\Garant\msm\msmViewUtilsInterfaces.pas'
+ , msmMEImages in 'w:\common\components\gui\Garant\msm\msmMEImages.pas'
+ , msmImageNames in 'w:\common\components\gui\Garant\msm\msmImageNames.pas'
  , msmListViewController in 'w:\common\components\gui\Garant\msm\msmListViewController.pas'
  , msmListView in 'w:\common\components\gui\Garant\msm\msmListView.pas'
  , msmMainFormController in 'w:\common\components\gui\Garant\msm\msmMainFormController.pas'
