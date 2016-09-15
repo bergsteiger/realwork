@@ -502,6 +502,8 @@ FORWARD ME_53FF16320146
 
 FORWARD ME_57BEADD60037
 
+FORWARD ME_57DA8247013D
+
 ME ME_48495E29035B
  MEPROP UID '48495E29035B'
  MEPROP Name 'Address'
@@ -549,6 +551,7 @@ ME ME_48495E29035B
  HWL ME_53FF0C820388 // BasesIDListHelper
  HWL ME_53FF16320146 // InfoIDListHelper
  HWL ME_57BEADD60037 // FoundSelectorHelper
+ HWL ME_57DA8247013D // DocIDListHelper
  )
  ; // Implementors
  UP "Defines CompareTagWithInt" false
@@ -8318,6 +8321,181 @@ ME ME_57D659EF013A
 
 ENDME // ME_57D659EF013A UploadDocRequest
 
+FORWARD ME_57DA505703B1
+
+ME ME_57DA5CBB0233
+ MEPROP UID '57DA5CBB0233'
+ MEPROP Name 'Data'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA505703B1 // csMultiModifyDocs
+ ;
+ MELINK Target WL 'ME_48492B0701D8' '4849284D0067.ms.model.script' // RawData
+ ;
+ UP extprop:evd:NewTypeName 'csMultiModifyDocs_Data'
+
+ENDME // ME_57DA5CBB0233 Data
+
+ME ME_57DA6A97039A
+ MEPROP UID '57DA6A97039A'
+ MEPROP Name 'FamilyID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA505703B1 // csMultiModifyDocs
+ ;
+ MELINK Target WL 'ME_48492A0C00ED' '52669BFC024E.ms.model.script' // Long
+ ;
+ UP extprop:evd:NewTypeName 'csMultiModifyDocs_FamilyID'
+
+ENDME // ME_57DA6A97039A FamilyID
+
+ME ME_57DA6AC3021B
+ MEPROP UID '57DA6AC3021B'
+ MEPROP Name 'DocIDList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_array::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA505703B1 // csMultiModifyDocs
+ ;
+ MELINK Target HWL ME_48495E29035B // Address
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'csMultiModifyDocs_DocIDList'
+
+ENDME // ME_57DA6AC3021B DocIDList
+
+ME ME_57DA6E6A028C
+ MEPROP UID '57DA6E6A028C'
+ MEPROP Name 'ActionType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA505703B1 // csMultiModifyDocs
+ ;
+ MELINK Target WL 'ME_57DA6B2C03C0' '57BEAF780201.ms.model.script' // TOperActionType
+ ;
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'csMultiModifyDocs_ActionType'
+
+ENDME // ME_57DA6E6A028C ActionType
+
+ME ME_57DA505703B1
+ MEPROP UID '57DA505703B1'
+ MEPROP Name 'csMultiModifyDocs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537DFE740339 // evdTasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_546B3FB60258 // csMessageWithReply
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57DA5CBB0233 // Data
+ HWL ME_57DA6A97039A // FamilyID
+ HWL ME_57DA6AC3021B // DocIDList
+ HWL ME_57DA6E6A028C // ActionType
+ )
+ ; // Attributes
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\csMultiModifyDocs_Const.pas'
+ UP extprop:pas:TypeName 'csMultiModifyDocsTag'
+ UP extprop:pas:UnitName 'csMultiModifyDocs_Const'
+
+ENDME // ME_57DA505703B1 csMultiModifyDocs
+
+FORWARD ME_57DA507703CD
+
+ME ME_57DA6E8302F1
+ MEPROP UID '57DA6E8302F1'
+ MEPROP Name 'RejectedIDList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_array::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA507703CD // csMultiModifyDocsReply
+ ;
+ MELINK Target HWL ME_48495E29035B // Address
+ ;
+ UP "Duplicates" 'Ignore'
+ UP "HasStoreChildTrigger" false
+ UP extprop:evd:NeedsOwnType true
+ UP extprop:evd:NewTypeName 'csMultiModifyDocsReply_RejectedIDList'
+
+ENDME // ME_57DA6E8302F1 RejectedIDList
+
+ME ME_57DA6EA401B5
+ MEPROP UID '57DA6EA401B5'
+ MEPROP Name 'IsSuccess'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA507703CD // csMultiModifyDocsReply
+ ;
+ MELINK Target WL 'ME_48492A7A0255' '52669BFC024E.ms.model.script' // Bool
+ ;
+ UP extprop:evd:NewTypeName 'csMultiModifyDocsReply_IsSuccess'
+
+ENDME // ME_57DA6EA401B5 IsSuccess
+
+ME ME_57DA6EAD008E
+ MEPROP UID '57DA6EAD008E'
+ MEPROP Name 'ErrorMessage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA507703CD // csMultiModifyDocsReply
+ ;
+ MELINK Target WL 'ME_48492AC1023B' '52669BFC024E.ms.model.script' // String
+ ;
+ UP extprop:evd:NewTypeName 'csMultiModifyDocsReply_ErrorMessage'
+
+ENDME // ME_57DA6EAD008E ErrorMessage
+
+ME ME_57DA507703CD
+ MEPROP UID '57DA507703CD'
+ MEPROP Name 'csMultiModifyDocsReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537DFE740339 // evdTasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_546B3F86038D // csReply
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57DA6E8302F1 // RejectedIDList
+ HWL ME_57DA6EA401B5 // IsSuccess
+ HWL ME_57DA6EAD008E // ErrorMessage
+ )
+ ; // Attributes
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\csMultiModifyDocsReply_Const.pas'
+ UP extprop:pas:TypeName 'csMultiModifyDocsReplyTag'
+ UP extprop:pas:UnitName 'csMultiModifyDocsReply_Const'
+
+ENDME // ME_57DA507703CD csMultiModifyDocsReply
+
 ME ME_537DFE740339
  MEPROP UID '537DFE740339'
  MEPROP Name 'evdTasks'
@@ -8424,6 +8602,8 @@ ME ME_537DFE740339
  HWL ME_57D262200275 // csUploadDocStream
  HWL ME_57D262340370 // csUploadDocStreamReply
  HWL ME_57D659EF013A // UploadDocRequest
+ HWL ME_57DA505703B1 // csMultiModifyDocs
+ HWL ME_57DA507703CD // csMultiModifyDocsReply
  )
  ; // Children
  MELIST Injected
@@ -19153,6 +19333,47 @@ ME ME_57BEADEE00FC
 
 ENDME // ME_57BEADEE00FC TFoundSelectorHelper
 
+ME ME_57DA8247013D
+ MEPROP UID '57DA8247013D'
+ MEPROP Name 'DocIDListHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53BD13B4023B // evdTasksHelpers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53BD2DEA02B3 // DocumentIDListHelper
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_48495E29035B // Address
+ )
+ ; // Implements
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57DA8247013D DocIDListHelper
+
+ME ME_57DA82680196
+ MEPROP UID '57DA82680196'
+ MEPROP Name 'TDocIDListHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53BD13B4023B // evdTasksHelpers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53BD13DC0048 // TDocumentIDListHelper
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'DocIDListHelper'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57DA82680196 TDocIDListHelper
+
 ME ME_53BD13B4023B
  MEPROP UID '53BD13B4023B'
  MEPROP Name 'evdTasksHelpers'
@@ -19204,6 +19425,8 @@ ME ME_53BD13B4023B
  HWL ME_54646EB103D5 // TTasksIDListHelper
  HWL ME_53DB62E10109 // TAccGroupsIDListHelper
  HWL ME_57BEADEE00FC // TFoundSelectorHelper
+ HWL ME_57DA8247013D // DocIDListHelper
+ HWL ME_57DA82680196 // TDocIDListHelper
  )
  ; // Children
  UP "UseNewGen" true

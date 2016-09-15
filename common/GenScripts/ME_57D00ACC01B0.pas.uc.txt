@@ -64,6 +64,21 @@
    Result := 'Arial';
  end;//FontName
 
+const
+ cPtExtent = 3 * 2;
+
+ procedure DrawPoint(const aPoint: Tl3SPoint);
+ var
+  l_Rect : Tl3SRect;
+ begin//DrawPoint
+  l_Rect := l3SRectBnd(aPoint, l3SPoint(cPtExtent, cPtExtent));
+  if Focused then
+   CN.Font.BackColor := clBlack
+  else
+   CN.Font.BackColor := clSilver;
+  CN.FillRect(l_Rect);
+ end;//DrawPoint
+ 
 var
  l_TextColor : TColor;
  l_FillColor : TColor;
@@ -73,20 +88,6 @@ var
                        const aSelection: ImsmElementSelection);
 
   procedure DrawSelection(const aRect: Tl3SRect);
-  const
-   cPtExtent = 3 * 2;
-
-   procedure DrawPoint(const aPoint: Tl3SPoint);
-   var
-    l_Rect : Tl3SRect;
-   begin//DrawPoint
-    l_Rect := l3SRectBnd(aPoint, l3SPoint(cPtExtent, cPtExtent));
-    if Focused then
-     CN.Font.BackColor := clBlack
-    else
-     CN.Font.BackColor := clSilver;
-    CN.FillRect(l_Rect);
-   end;//DrawPoint
 
   begin//DrawSelection
    DrawPoint(aRect.TopLeft.Add(l3SPoint(-cPtExtent, -cPtExtent)));
@@ -273,6 +274,11 @@ var
      ExtSelectClipRgn(CN.DC, l_ClipRgn, RGN_AND);*)
      CN.Canvas.MoveTo(l_FromP.X, l_FromP.Y);
      CN.Canvas.LineTo(l_ToP.X, l_ToP.Y);
+     if not l_FromP.EQ(l_ToP) then
+     begin
+      CN.Canvas.Pen.Style := psSolid;
+      DrawArrow(l_FromP, l_ToP, CN.Canvas, anElement.BoolProp['msm:View:LinkArrowIsPolygon']);
+     end;//not l_FromP.EQ(l_ToP)
 (*    finally
      CN.PopClipRect;
     end;//try..finally
@@ -319,6 +325,13 @@ var
     end;//try..finally
     CN.etoFlags := l_Flags;
    end;//not l3IsNil(l_N)
+
+   if aSelection.IsElementSelectedOrCurrent(anElement) then
+   begin
+    DrawPoint(l_FromP.Add(l3SPoint(-cPtExtent div 2, -cPtExtent div 2)));
+    DrawPoint(l_ToP.Add(l3SPoint(-cPtExtent div 2, -cPtExtent div 2)));
+   end;//aSelection.IsElementSelectedOrCurrent(anElement)
+   
   end;//(l_From <> nil) AND (l_To <> nil)
  end;//DrawLink
 
@@ -735,6 +748,7 @@ end;
  , l3Base
  , msmElementViews
  , msmLineF
+ , msmDrawArrow
 //#UC END# *57D00ACC01B0impl_uses*
 //#UC START# *57D00ACC01B0intf_uses*
  , Messages

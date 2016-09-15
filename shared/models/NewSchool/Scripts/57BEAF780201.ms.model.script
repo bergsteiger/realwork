@@ -273,6 +273,103 @@ ME ME_57D265550389
 
 ENDME // ME_57D265550389 TDocType
 
+FORWARD ME_57DA6B2C03C0
+
+ME ME_57DA6B780357
+ MEPROP UID '57DA6B780357'
+ MEPROP Name 'atNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA6B2C03C0 // TOperActionType
+ ;
+
+ENDME // ME_57DA6B780357 atNone
+
+ME ME_57DA6B860295
+ MEPROP UID '57DA6B860295'
+ MEPROP Name 'atAdd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA6B2C03C0 // TOperActionType
+ ;
+
+ENDME // ME_57DA6B860295 atAdd
+
+ME ME_57DA6B9101D7
+ MEPROP UID '57DA6B9101D7'
+ MEPROP Name 'atDelete'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA6B2C03C0 // TOperActionType
+ ;
+
+ENDME // ME_57DA6B9101D7 atDelete
+
+ME ME_57DA6B9E008A
+ MEPROP UID '57DA6B9E008A'
+ MEPROP Name 'atEdit'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA6B2C03C0 // TOperActionType
+ ;
+
+ENDME // ME_57DA6B9E008A atEdit
+
+ME ME_57DA6BA802FA
+ MEPROP UID '57DA6BA802FA'
+ MEPROP Name 'atMove'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA6B2C03C0 // TOperActionType
+ ;
+
+ENDME // ME_57DA6BA802FA atMove
+
+ME ME_57DA6BB300E6
+ MEPROP UID '57DA6BB300E6'
+ MEPROP Name 'atJurEdit'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57DA6B2C03C0 // TOperActionType
+ ;
+
+ENDME // ME_57DA6BB300E6 atJurEdit
+
+ME ME_57DA6B2C03C0
+ MEPROP UID '57DA6B2C03C0'
+ MEPROP Name 'TOperActionType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BEAF780201 // l3MarshalledTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57DA6B780357 // atNone
+ HWL ME_57DA6B860295 // atAdd
+ HWL ME_57DA6B9101D7 // atDelete
+ HWL ME_57DA6B9E008A // atEdit
+ HWL ME_57DA6BA802FA // atMove
+ HWL ME_57DA6BB300E6 // atJurEdit
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57DA6B2C03C0 TOperActionType
+
 ME ME_57BEAF780201
  MEPROP UID '57BEAF780201'
  MEPROP Name 'l3MarshalledTypes'
@@ -287,6 +384,7 @@ ME ME_57BEAF780201
    Seq: ( HWL ME_578F46D3027D // Tm3DocPartSelector
  HWL ME_57BEB06902A1 // TDocPartSelector
  HWL ME_57D265550389 // TDocType
+ HWL ME_57DA6B2C03C0 // TOperActionType
  )
  ; // Children
  MELIST Depends

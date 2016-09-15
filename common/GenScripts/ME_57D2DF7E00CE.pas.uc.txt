@@ -1,3 +1,9 @@
+//#UC START# *479731C50290_57D2DF7E00CE_impl*
+ inherited;
+ FreeAndNil(f_DrawingPanel);
+//#UC END# *479731C50290_57D2DF7E00CE_impl*
+//#UC START# *479731C50290_57D2DF7E00CE_var*
+//#UC END# *479731C50290_57D2DF7E00CE_var*
 //#UC START# *57D2B82102BD_57D2DF7E00CE_impl*
  inherited;
  f_UseCase.Activate;
@@ -8,6 +14,7 @@
 w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
 //#UC END# *57D2DF7E00CE_ext:FileName
 //#UC START# *57D2DF7E00CEimpl_uses*
+ , SysUtils
  , msmConcreteModels
  , msmOpenInNewWindow
  , msmShowInNavigator
@@ -22,6 +29,8 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  , msmElementViews
  , msmDrawingViewController
  , msmTreeViewController
+ , msmMultiPanelViewParent
+ , msmParentedViewController
 //#UC END# *57D2DF7E00CEimpl_uses*
 //#UC START# *57D2DFA70064_57D2DF7E00CE_impl*
  inherited Create;
@@ -41,10 +50,21 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
   )
  );
 
+ l_DrawingPanel := TmsmProportionalPanel.Create(nil);
+ //l_DrawingPanel := TmsmPanel.Create(nil);
+ f_DrawingPanel := l_DrawingPanel;
+ l_DrawingZone := TmsmMultiPanelViewParent.Make(l_DrawingPanel);
+
+ AddController(
+  TmsmParentedViewController.Make(f_DrawingPanel, aUseCase.Drawing, aMainZone)
+  //TmsmParentedViewControllerWithOwnership.Make(f_DrawingPanel, aUseCase.Drawing, aMainZone)
+  // - с Ownership - не сложилось, ибо контролы удаляются не в том порядке
+ );
+
  AddController(
   AddDiagramOperations
   (
-   TmsmDrawingViewController.Make(aUseCase.Drawing, aMainZone)
+   TmsmDrawingViewController.Make(aUseCase.Drawing, l_DrawingZone)
    , aUseCase.Drawing
   )
  );
@@ -54,7 +74,7 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
   (
    DisableActionElementEvent
    (
-    TmsmListViewController.Make(aUseCase.Drawing, aMainZone)
+    TmsmListViewController.Make(aUseCase.Drawing, l_DrawingZone)
    )
    , aUseCase.Drawing
   )
@@ -151,4 +171,6 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  
 var
  l_ListContext : TmsmListViewtInitContext;
+ l_DrawingZone : ImsmViewParent;
+ l_DrawingPanel : TmsmViewParentControl;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*

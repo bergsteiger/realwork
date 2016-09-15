@@ -140,11 +140,28 @@ ME ME_57D8FB9102FA
 
 ENDME // ME_57D8FB9102FA 
 
+ME ME_57DA98D10210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B57EDB003F // msmListLikeModel
+ ;
+ MELINK Target WL 'ME_4F473F9402D8' '4F473F0902B2.ms.model.script' // TtfwCStringFactory
+ ;
+
+ENDME // ME_57DA98D10210 
+
 ME ME_57B1A3DA0382_ME_57B57EDB003F
  MELINK Original WL 'ME_57B1A3DA0382' '57ADC53E00B6.ms.model.script' // ShowElementAsList
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57B1A3DA0382_ME_57B57EDB003F ShowElementAsList
+
+ME ME_57B1A47403C5_ME_57B57EDB003F
+ MELINK Original WL 'ME_57B1A47403C5' '57AAE8D403E5.ms.model.script' // Caption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_57B1A47403C5_ME_57B57EDB003F Caption
 
 ME ME_57B2B019009C_ME_57B57EDB003F
  MELINK Original WL 'ME_57B2B019009C' '57ADC53E00B6.ms.model.script' // ElementToAction
@@ -160,13 +177,6 @@ ME ME_57B31CF301D2_ME_57B57EDB003F
  MEPROP OpKind opkind_Implemented
  UP "pm" false
 ENDME // ME_57B31CF301D2_ME_57B57EDB003F CurrentElement
-
-ME ME_57B49A8201E1_ME_57B57EDB003F
- MELINK Original WL 'ME_57B49A8201E1' '57ADC53E00B6.ms.model.script' // Caption
- ;
- MEPROP OpKind opkind_Implemented
- UP "pm" false
-ENDME // ME_57B49A8201E1_ME_57B57EDB003F Caption
 
 ME ME_57B6A4550271_ME_57B57EDB003F
  MELINK Original WL 'ME_57B6A4550271' '57ADC53E00B6.ms.model.script' // List
@@ -204,6 +214,7 @@ ME ME_57B57EDB003F
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_57CD626402C0' '57ADC53E00B6.ms.model.script' // ImsmListLikeModel
+ WL 'ME_57DA971502E6' '57ADC53E00B6.ms.model.script' // ImsmCaptionModel
  )
  ; // Implements
  MELIST Attributes
@@ -218,9 +229,9 @@ ME ME_57B57EDB003F
  ; // Operations
  MELIST Implemented
    Seq: ( ME_57B1A3DA0382_ME_57B57EDB003F // ShowElementAsList
+ ME_57B1A47403C5_ME_57B57EDB003F // Caption
  ME_57B2B019009C_ME_57B57EDB003F // ElementToAction
  ME_57B31CF301D2_ME_57B57EDB003F // CurrentElement
- ME_57B49A8201E1_ME_57B57EDB003F // Caption
  ME_57B6A4550271_ME_57B57EDB003F // List
  ME_57D8F1B70265_ME_57B57EDB003F // Selection
  )
@@ -232,6 +243,7 @@ ME ME_57B57EDB003F
  MELIST Dependencies
    Seq: ( ME_57C99BE401C0 // CurrentElementChangedEvent
  ME_57D8FB9102FA // TmsmElementSelection
+ ME_57DA98D10210 // TtfwCStringFactory
  )
  ; // Dependencies
  UP "Refcount" 'standard'
@@ -789,7 +801,7 @@ ME ME_57CD326402EB
 ENDME // ME_57CD326402EB f_Caption
 
 ME ME_57B1A47403C5_ME_57CD32280214
- MELINK Original WL 'ME_57B1A47403C5' '57ADC53E00B6.ms.model.script' // Caption
+ MELINK Original WL 'ME_57B1A47403C5' '57AAE8D403E5.ms.model.script' // Caption
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
@@ -810,7 +822,7 @@ ME ME_57CD32280214
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_57B1A4520214' '57ADC53E00B6.ms.model.script' // ImsmCaptionModel
+   Seq: ( WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
  )
  ; // Implements
  MELIST Attributes
@@ -841,7 +853,7 @@ ME ME_57CD3E7D029B
  MELINK Parent HWL ME_57CD3E5A00F1 // TmsmCaptionModel
  ;
  MELIST Implements
-   Seq: ( WL 'ME_57B1A4520214' '57ADC53E00B6.ms.model.script' // ImsmCaptionModel
+   Seq: ( WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
  )
  ; // Implements
 
@@ -1044,6 +1056,16 @@ ME ME_57D8FA84026C
 
 ENDME // ME_57D8FA84026C 
 
+ME ME_57DAA296009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D8F2850376 // TmsmElementSelection
+ ;
+ MELINK Target WL 'ME_57CD31A200FA' '57AAE8D403E5.ms.model.script' // CaptionChangedEvent
+ ;
+
+ENDME // ME_57DAA296009C 
+
 ME ME_47B07CF403D0_ME_57D8F2850376
  MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
  ;
@@ -1179,6 +1201,7 @@ ME ME_57D8F2850376
  ; // Overridden
  MELIST Dependencies
    Seq: ( ME_57D8FA84026C // CurrentElementChangedEvent
+ ME_57DAA296009C // CaptionChangedEvent
  )
  ; // Dependencies
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmElementSelection.pas'
@@ -1215,7 +1238,9 @@ ME ME_57AE0D6601AE
  WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4F473F0902B2' '4F473F0902B2.ms.model.script' // CString
  WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
+ WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
  WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
  WL 'ME_57AC3A2D0145' '57AC3A2D0145.ms.model.script' // ElementTree
  WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels

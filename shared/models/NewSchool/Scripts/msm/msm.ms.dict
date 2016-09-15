@@ -384,6 +384,8 @@ PROCEDURE TerminateLoadInner
  Log: 'Terminate Request'
 ; // TerminateLoadInner
 
+FORWARD .MainDiagram
+
 elem_proc LoadChildInfo
  if ( g_NeedTerminate ! ) then
  begin
@@ -392,9 +394,12 @@ elem_proc LoadChildInfo
   Self .DefaultText DROP
   Self .Parent DROP
   Self .IsSummoned DROP
-  //Self .Depends DROP
-  //Self .Inherits DROP
-  //Self .Implements DROP
+  Self .MainDiagram DROP
+  
+  Self .Depends DROP
+  Self .Inherits DROP
+  Self .Implements DROP
+  
   //Self .Implemented DROP
   //Self .Overridden DROP
   //Self .Dependencies DROP
@@ -611,6 +616,12 @@ STRING elem_func msm:View:LabelName
    'code_param'
   ( Self .MDAClass class_Dependency == ) 
    'code_mda_dependency'
+  ( Self .MDAClass class_Inherits == ) 
+   'code_mda_dependency'
+  ( Self .MDAClass class_Implements == ) 
+   'code_mda_dependency'
+  ( Self .MDAClass class_Depends == ) 
+   'code_dep'
   DEFAULT 
    ''
  ; // RESULT  
@@ -691,6 +702,27 @@ INTEGER elem_func msm:View:LinkLineColor
  >>> Result
 ; // msm:View:LinkLineColor
 
+BOOLEAN elem_func msm:View:LinkArrowIsPolygon
+ Cached:
+ (
+  RULES
+   ( Self .IsAttribute )
+    false
+   ( Self .MDAClass class_Inherits ?== )
+    true
+   ( Self .MDAClass class_Implements ?== )
+    true
+   ( Self .LinkViewType 'Inherits' ?== )
+    true
+   ( Self .LinkViewType 'Implements' ?== )
+    true
+   DEFAULT
+    false
+  ; // RULES  
+ )
+ >>> Result
+; // msm:View:LinkArrowIsPolygon
+
 USES
  LoadOnDemand.ms.dict
 ;
@@ -711,8 +743,21 @@ INTEGER elem_func Y
  Self 'Y' 0 .ElemMember >>> Result
 ; // Y
 
+INTEGER elem_func Width
+ Self 'Width' 120 .ElemMember >>> Result
+; // Width
+
+INTEGER elem_func Height
+ Self 'Height' 100 .ElemMember >>> Result
+; // Height
+
 WordAlias .msm:View:X .X
 WordAlias .msm:View:Y .Y
+WordAlias .msm:View:Width .Width
+WordAlias .msm:View:Height .Height
+
+WordAlias .msm:View:From .From
+WordAlias .msm:View:To .To
 
 elem_iterator Diagrams
  Self 'Diagrams' .ElemList >>> Result

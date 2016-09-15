@@ -100,6 +100,18 @@ ME ME_57D2732B035B
 
 ENDME // ME_57D2732B035B 
 
+FORWARD ME_57DA7796002F
+
+ME ME_57DA77E501C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
+ ;
+ MELINK Target HWL ME_57DA7796002F // TcsMultiModifyDocsReply
+ ;
+
+ENDME // ME_57DA77E501C7 
+
 ME ME_57C687CA01EE
  MEPROP UID '57C687CA01EE'
  MEPROP Name 'ncsClientRegister'
@@ -115,6 +127,7 @@ ME ME_57C687CA01EE
  ME_57C6881102F6 // TcsDownloadDocStreamReply
  ME_57C68837000C // ncsClientRegister
  ME_57D2732B035B // TcsUploadDocStreamReply
+ ME_57DA77E501C7 // TcsMultiModifyDocsReply
  )
  ; // Dependencies
 
@@ -164,6 +177,18 @@ ME ME_57D275B602AF
 
 ENDME // ME_57D275B602AF 
 
+FORWARD ME_57DA77B80161
+
+ME ME_57DA77E000F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
+ ;
+ MELINK Target HWL ME_57DA77B80161 // TcsMultiModifyDocs
+ ;
+
+ENDME // ME_57DA77E000F4 
+
 ME ME_57C687E100FF
  MEPROP UID '57C687E100FF'
  MEPROP Name 'ncsServerRegister'
@@ -179,6 +204,7 @@ ME ME_57C687E100FF
  ME_57C6880C0261 // TcsDownloadDocStream
  ME_57C688330012 // ncsServerRegister
  ME_57D275B602AF // TcsUploadDocStream
+ ME_57DA77E000F4 // TcsMultiModifyDocs
  )
  ; // Dependencies
 
@@ -253,6 +279,56 @@ ME ME_57D270880150
 
 ENDME // ME_57D270880150 TcsUploadDocStreamReply
 
+ME ME_57DA7796002F
+ MEPROP UID '57DA7796002F'
+ MEPROP Name 'TcsMultiModifyDocsReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547831BD02E5' '544E0148010D.ms.model.script' // TncsReply
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57DA507703CD' '484A470100DD.ms.model.script' // csMultiModifyDocsReply
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiModifyDocsReply.pas'
+ UP extprop:rc:SelfName 'csMultiModifyDocsReply'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMultiModifyDocsReply'
+
+ENDME // ME_57DA7796002F TcsMultiModifyDocsReply
+
+ME ME_57DA77B80161
+ MEPROP UID '57DA77B80161'
+ MEPROP Name 'TcsMultiModifyDocs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57DA505703B1' '484A470100DD.ms.model.script' // csMultiModifyDocs
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiModifyDocs.pas'
+ UP extprop:rc:SelfName 'csMultiModifyDocs'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMultiModifyDocs'
+
+ENDME // ME_57DA77B80161 TcsMultiModifyDocs
+
 ME ME_57C686B70253
  MEPROP UID '57C686B70253'
  MEPROP Name 'DocStreamTransfer'
@@ -269,6 +345,8 @@ ME ME_57C686B70253
  HWL ME_57C6874900D4 // ncsDocStorageTransferReg
  HWL ME_57D2706902F8 // TcsUploadDocStream
  HWL ME_57D270880150 // TcsUploadDocStreamReply
+ HWL ME_57DA7796002F // TcsMultiModifyDocsReply
+ HWL ME_57DA77B80161 // TcsMultiModifyDocs
  )
  ; // Children
  MELIST Depends

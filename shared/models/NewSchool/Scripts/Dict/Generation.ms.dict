@@ -16744,6 +16744,8 @@ elem_generator diagram.script
     OutLn
    ) // l_It .for>
 
+   VAR l_ViewNames
+   [] >>> l_ViewNames
    VAR l_LinkCount
    40 >>> l_LinkCount
 
@@ -16755,27 +16757,30 @@ elem_generator diagram.script
       IN aLink
      if ( aLink .InArray: l_Viewed ) then
      begin
-      Dec l_LinkCount
       VAR l_Name
       VAR l_CollectionName
       aLamdba .WordName '.' .CutPrefix >>> l_CollectionName
       [ Self .WordName '_' aLink .WordName '_' l_CollectionName ] strings:Cat >>> l_Name
 
-      l_Name MakeView: (
-        IN aMade
-       aMade -> OriginalName := ( [ Self .NameInModel ' -> ' aLink .NameInModel ] strings:Cat )
-      ) //l_Name MakeView:
-      .AddToArray: l_Views
-      
-      [ 'MEVIEWLINK ' l_Name ] .Out
-      Indented: (
-       [ 'MELINK From ' Self .WordName l_Suffix ' ;' ] .Out
-       [ 'MELINK To ' aLink .WordName l_Suffix ' ;' ] .Out
-       //[ 'MEPROP LinkViewType ' cQuote l_CollectionName cQuote ] .Out
-       [ 'MEPROP Class class_' l_CollectionName ] .Out
-      ) // Indented:
-      [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
-      OutLn
+      if ( l_Name .AddToArray?: l_ViewNames ) then
+      begin
+       Dec l_LinkCount
+       l_Name MakeView: (
+         IN aMade
+        aMade -> OriginalName := ( [ Self .NameInModel ' -> ' aLink .NameInModel ] strings:Cat )
+       ) //l_Name MakeView:
+       .AddToArray: l_Views
+
+       [ 'MEVIEWLINK ' l_Name ] .Out
+       Indented: (
+        [ 'MELINK From ' Self .WordName l_Suffix ' ;' ] .Out
+        [ 'MELINK To ' aLink .WordName l_Suffix ' ;' ] .Out
+        //[ 'MEPROP LinkViewType ' cQuote l_CollectionName cQuote ] .Out
+        [ 'MEPROP Class class_' l_CollectionName ] .Out
+       ) // Indented:
+       [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
+       OutLn
+      end // ( l_Name .AddToArray?: l_ViewNames )
      end // ( aLink .InArray: l_Viewed )
     ) // .for>
    ; // OutLinks:
@@ -16797,9 +16802,8 @@ elem_generator diagram.script
      begin
       if ( aLink .Target .InArray: l_Viewed ) then
       begin
-       Dec l_LinkCount
        VAR l_Name
-       if ( aLink .LUID .IsNil ) then
+       if ( aLink .WordName .IsNil ) then
        begin
         [
          anElement .WordName
@@ -16816,27 +16820,31 @@ elem_generator diagram.script
           '_' aLink .NameInModel
          end // ( aLink .NameInModel .NotIsNil )
         ] strings:Cat
-       end // ( aLink .LUID .IsNil )
+       end // ( aLink .WordName .IsNil )
        else
        begin
-        [ 'ME_' aLink .LUID '_viewlink' ] strings:Cat
+        [ aLink .WordName '_viewlink' ] strings:Cat
        end // // ( aLink .LUID .IsNil )
        >>> l_Name
 
-       l_Name MakeView: (
-         IN aMade
-        aMade -> OriginalName := ( [ anElement .NameInModel ' -> ' aLink .Target .NameInModel ] strings:Cat )
-       ) //l_Name MakeView:
-       .AddToArray: l_Views
+       if ( l_Name .AddToArray?: l_ViewNames ) then
+       begin
+        Dec l_LinkCount
+        l_Name MakeView: (
+          IN aMade
+         aMade -> OriginalName := ( [ anElement .NameInModel ' -> ' aLink .Target .NameInModel ] strings:Cat )
+        ) //l_Name MakeView:
+        .AddToArray: l_Views
 
-       [ 'MEVIEWLINK ' l_Name ] .Out
-       Indented: (
-        [ 'MELINK Original ' aLink .ScriptWordLink ' ;' /*{' // ' aLink .NameInModel}*/ ] .Out
-        [ 'MELINK From ' anElement .WordName l_Suffix ' ;' ] .Out
-        [ 'MELINK To ' aLink .Target .WordName l_Suffix ' ;' ] .Out
-       ) // Indented:
-       [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
-       OutLn
+        [ 'MEVIEWLINK ' l_Name ] .Out
+        Indented: (
+         [ 'MELINK Original ' aLink .ScriptWordLink ' ;' /*{' // ' aLink .NameInModel}*/ ] .Out
+         [ 'MELINK From ' anElement .WordName l_Suffix ' ;' ] .Out
+         [ 'MELINK To ' aLink .Target .WordName l_Suffix ' ;' ] .Out
+        ) // Indented:
+        [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
+        OutLn
+       end // ( l_Name .AddToArray?: l_ViewNames )
       end // ( aLink .Target .InArray: l_Viewed )
      end // ( aLink .Target .NotIsNil )
     ) // .for>

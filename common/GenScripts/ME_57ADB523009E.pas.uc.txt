@@ -11,6 +11,7 @@
 w:\common\components\gui\Garant\msm\msmParentedViewController.pas
 //#UC END# *57ADB523009E_ext:FileName
 //#UC START# *57ADB523009Eimpl_uses*
+ , SysUtils
  , Controls
 //#UC END# *57ADB523009Eimpl_uses*
 //#UC START# *57ADB54D017E_57ADB523009E_impl*
@@ -30,9 +31,13 @@ w:\common\components\gui\Garant\msm\msmParentedViewController.pas
 //#UC END# *57B1ABC80368_57ADB523009E_var*
 //#UC START# *57B4909B0293_57ADB523009Eget_impl*
  Result := TmsmViewContext_C;
+ if Supports(Self.Model, ImsmCaptionModel, l_CaptionModel) then
+  Result.rCaptionModel := l_CaptionModel;
  InitViewContext(Result);
 //#UC END# *57B4909B0293_57ADB523009Eget_impl*
 //#UC START# *57B4909B0293_57ADB523009Eget_var*
+var
+ l_CaptionModel : ImsmCaptionModel;
 //#UC END# *57B4909B0293_57ADB523009Eget_var*
 //#UC START# *57B490B60385_57ADB523009E_impl*
 //#UC END# *57B490B60385_57ADB523009E_impl*

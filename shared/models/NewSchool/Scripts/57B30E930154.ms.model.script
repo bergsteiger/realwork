@@ -240,6 +240,16 @@ ME ME_57B57DE500CF
 
 ENDME // ME_57B57DE500CF IsDir
 
+ME ME_57DA99AF0183
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B1674A02B6 // TmsmModelElementDir
+ ;
+ MELINK Target WL 'ME_4F473F9402D8' '4F473F0902B2.ms.model.script' // TtfwCStringFactory
+ ;
+
+ENDME // ME_57DA99AF0183 
+
 ME ME_57AAD86403AD_ME_57B1674A02B6
  MELINK Original WL 'ME_57AAD86403AD' '57A9F4A003C8.ms.model.script' // Item
  ;
@@ -335,6 +345,10 @@ ME ME_57B1674A02B6
    Seq: ( ME_47A6FEE600FC_ME_57B1674A02B6 // IsCacheable
  )
  ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57DA99AF0183 // TtfwCStringFactory
+ )
+ ; // Dependencies
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelElementDir.pas'
  UP extprop:rc:SelfName 'msmModelElementDir'
  UP extprop:rc:isAcceptableForScripts true
@@ -395,6 +409,7 @@ ME ME_57B30E930154
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ WL 'ME_4F473F0902B2' '4F473F0902B2.ms.model.script' // CString
  WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
  WL 'ME_57B565F200E5' '57B565F200E5.ms.model.script' // msmElementViews
  )

@@ -15,6 +15,11 @@
 //#UC END# *47A042E100E2_57B3468D0000_impl*
 //#UC START# *47A042E100E2_57B3468D0000_var*
 //#UC END# *47A042E100E2_57B3468D0000_var*
+//#UC START# *57B1AB98014B_57B3468D0000_impl*
+ // - ничего не делаем
+//#UC END# *57B1AB98014B_57B3468D0000_impl*
+//#UC START# *57B1AB98014B_57B3468D0000_var*
+//#UC END# *57B1AB98014B_57B3468D0000_var*
 //#UC START# *57B345EC0195_57B3468D0000_impl*
  Assert(f_Views.IndexOf(aView) < 0);
  if f_Views.Empty then
@@ -63,16 +68,26 @@ var
 //#UC START# *57B3461C0319_57B3468D0000_impl*
  Assert(f_Views.IndexOf(aView) >= 0);
  l_Parent := aView.Parent;
- Assert((l_Parent = f_Parent) OR (f_Parents.IndexOf(l_Parent) >= 0));
- aView.Parent := nil;
- // - изымаем контрол
- if (l_Parent <> f_Parent) then
+ if (l_Parent = nil) then
+ // - наверное родителя уже грохнули
  begin
-  l_Parent.Parent := nil;
-  // - изымаем родителя
-  f_Parents.Remove(l_Parent);
-  FreeAndNil(l_Parent);
- end;//l_Parent <> f_Parent
+  Assert(false);
+  f_Parents.Clear;
+  f_Parent := nil;
+ end//l_Parent = nil
+ else
+ begin
+  Assert((l_Parent = f_Parent) OR (f_Parents.IndexOf(l_Parent) >= 0));
+  aView.Parent := nil;
+  // - изымаем контрол
+  if (l_Parent <> f_Parent) then
+  begin
+   l_Parent.Parent := nil;
+   // - изымаем родителя
+   f_Parents.Remove(l_Parent);
+   FreeAndNil(l_Parent);
+  end;//l_Parent <> f_Parent
+ end;//l_Parent = nil
  f_Views.Remove(aView);
 //#UC END# *57B3461C0319_57B3468D0000_impl*
 //#UC START# *57B3461C0319_57B3468D0000_var*
@@ -104,3 +119,8 @@ w:\common\components\gui\Garant\msm\msmMultiPanelViewParent.pas
 //#UC END# *57B346D700A8_57B3468D0000_impl*
 //#UC START# *57B346D700A8_57B3468D0000_var*
 //#UC END# *57B346D700A8_57B3468D0000_var*
+//#UC START# *57B6A3EF0191_57B3468D0000_impl*
+ // - ничего не делаем
+//#UC END# *57B6A3EF0191_57B3468D0000_impl*
+//#UC START# *57B6A3EF0191_57B3468D0000_var*
+//#UC END# *57B6A3EF0191_57B3468D0000_var*

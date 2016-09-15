@@ -4,7 +4,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 
 FORWARD ME_57B1B6AE0204
 
-FORWARD ME_57AD94F00212
+FORWARD ME_57DA9E250137
 
 ME ME_57AD985F0163
  MEPROP UID '57AD985F0163'
@@ -14,12 +14,134 @@ ME ME_57AD985F0163
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_abstract
  MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
+ MELINK Parent HWL ME_57DA9E250137 // TImsmControllerList
  ;
  MELINK Target WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
  ;
 
 ENDME // ME_57AD985F0163 ItemType
+
+FORWARD ME_57D2B82102BD
+
+ME ME_8B7EB732FB47
+ MEPROP UID '8B7EB732FB47'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoActivate' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D2B82102BD // DoActivate
+ ;
+
+ENDME // ME_8B7EB732FB47 DoIt
+
+ME ME_57D2B82102BD
+ MEPROP UID '57D2B82102BD'
+ MEPROP Name 'DoActivate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57DA9E250137 // TImsmControllerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_8B7EB732FB47 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D2B82102BD DoActivate
+
+FORWARD ME_57DAB38900EF
+
+ME ME_46D98B77BEA8
+ MEPROP UID '46D98B77BEA8'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoActivated' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57DAB38900EF // DoActivated
+ ;
+
+ENDME // ME_46D98B77BEA8 DoIt
+
+ME ME_57DAB38900EF
+ MEPROP UID '57DAB38900EF'
+ MEPROP Name 'DoActivated'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57DA9E250137 // TImsmControllerList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B6A3EF0191' '57AAE8D403E5.ms.model.script' // Activated
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_46D98B77BEA8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57DAB38900EF DoActivated
+
+ME ME_57B1AB98014B_ME_57DA9E250137
+ MELINK Original WL 'ME_57B1AB98014B' '57AAE8D403E5.ms.model.script' // Activate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B1AB98014B_ME_57DA9E250137 Activate
+
+ME ME_57B6A3EF0191_ME_57DA9E250137
+ MELINK Original WL 'ME_57B6A3EF0191' '57AAE8D403E5.ms.model.script' // Activated
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57B6A3EF0191_ME_57DA9E250137 Activated
+
+ME ME_57DA9E250137
+ MEPROP UID '57DA9E250137'
+ MEPROP Name 'TImsmControllerList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B1B6AE0204 // UseCases
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57DAB28A0390' '57AAE8D403E5.ms.model.script' // MmsmActivateable
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57AD985F0163 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57D2B82102BD // DoActivate
+ HWL ME_57DAB38900EF // DoActivated
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57B1AB98014B_ME_57DA9E250137 // Activate
+ ME_57B6A3EF0191_ME_57DA9E250137 // Activated
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\msm\ImsmControllerList.pas'
+ UP extprop:rc:SelfName 'ImsmControllerList'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'ImsmControllerList'
+
+ENDME // ME_57DA9E250137 TImsmControllerList
+
+FORWARD ME_57AD94F00212
 
 ME ME_57B1AEDB0188
  MEPROP UID '57B1AEDB0188'
@@ -55,53 +177,11 @@ ME ME_57AD95590191
 
 ENDME // ME_57AD95590191 Make
 
-FORWARD ME_57D2B82102BD
-
-ME ME_8B7EB732FB47
- MEPROP UID '8B7EB732FB47'
- MEPROP Name 'DoIt'
- UP IsSummoned true
- MEPROP Class class_Operation
- %SUMMARY 'Сигнатура метода DoActivate' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57D2B82102BD // DoActivate
- ;
-
-ENDME // ME_8B7EB732FB47 DoIt
-
-ME ME_57D2B82102BD
- MEPROP UID '57D2B82102BD'
- MEPROP Name 'DoActivate'
- MEPROP Class class_Class
- MELINK Stereotype st_virtualmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57AD94F00212 // TmsmUseCase
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_57B1ABA800A6' '57CEAF3602AB.ms.model.script' // Activate
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_8B7EB732FB47 // DoIt
- )
- ; // Operations
-
-ENDME // ME_57D2B82102BD DoActivate
-
 ME ME_57AD949C0005_ME_57AD94F00212
  MELINK Original WL 'ME_57AD949C0005' '57CEAF3602AB.ms.model.script' // AddController
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57AD949C0005_ME_57AD94F00212 AddController
-
-ME ME_57B1ABA800A6_ME_57AD94F00212
- MELINK Original WL 'ME_57B1ABA800A6' '57CEAF3602AB.ms.model.script' // Activate
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_57B1ABA800A6_ME_57AD94F00212 Activate
 
 ME ME_57D29826015D_ME_57AD94F00212
  MELINK Original WL 'ME_57D29826015D' '57CEAF3602AB.ms.model.script' // Bind
@@ -120,27 +200,20 @@ ME ME_57AD94F00212
  MELINK Parent HWL ME_57B1B6AE0204 // UseCases
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
- WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+   Seq: ( HWL ME_57DA9E250137 // TImsmControllerList
  )
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
  )
  ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_57AD985F0163 // ItemType
- )
- ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_57B1AEDB0188 // Create
  HWL ME_57AD95590191 // Make
- HWL ME_57D2B82102BD // DoActivate
  )
  ; // Operations
  MELIST Implemented
    Seq: ( ME_57AD949C0005_ME_57AD94F00212 // AddController
- ME_57B1ABA800A6_ME_57AD94F00212 // Activate
  ME_57D29826015D_ME_57AD94F00212 // Bind
  )
  ; // Implemented
@@ -162,7 +235,8 @@ ME ME_57B1B6AE0204
  MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
  ;
  MELIST Children
-   Seq: ( HWL ME_57AD94F00212 // TmsmUseCase
+   Seq: ( HWL ME_57DA9E250137 // TImsmControllerList
+ HWL ME_57AD94F00212 // TmsmUseCase
  )
  ; // Children
  MELIST Depends

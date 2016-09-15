@@ -26,7 +26,10 @@
   f_Pages.UseXPThemes := False;
  end;//f_Pages = nil
  l_Page := f_Pages.NewPage;
- l_Page.Caption := aContext.rCaption;
+ if (aContext.rCaptionModel <> nil) then
+  Add(TmsmTabCaptionController.Make(l_Page, aContext.rCaptionModel))
+ else
+  l_Page.Caption := aContext.Caption;
  aView.Parent := l_Page;
  aView.Align := alClient;
 //#UC END# *57B345EC0195_57B4802B0112_impl*

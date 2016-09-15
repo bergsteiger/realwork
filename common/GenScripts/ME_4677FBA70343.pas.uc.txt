@@ -437,6 +437,11 @@ begin
   Self := Tl3_SPoint_C(X, Y);
  Result := Self;
 end;
+
+function Tl3_SPoint.Length: Single;
+begin
+ Result := Sqrt(X*X + Y*Y);
+end;
 //#UC END# *46A4988D03E1impl*
 //#UC START# *46A4988D03E1publ*
     public
@@ -467,6 +472,7 @@ end;
         {* - уменьшает координаты вектора на Z %. }
       function  Convert(CP: Tl3ConvertPointProc): Tl3_SPoint;
         {* - конвертирует точку процедурой CP. }
+      function Length: Single;  
 //#UC END# *46A4988D03E1publ*
 //#UC START# *47E0FA3E03CA_46A480790259_impl*
  Result.X := aX;
