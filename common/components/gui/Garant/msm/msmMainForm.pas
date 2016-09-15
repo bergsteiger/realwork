@@ -231,6 +231,7 @@ begin
  try
   f_UseCase := TmsmDrawingUseCaseView.Make(
    l_UseCase,
+   //TmsmMultiPanelViewParent.Make(f_MainPanel),
    TmsmTabbedViewParent.Make(f_MainPanel),
    TmsmTabbedViewParent.Make(f_ChildPanel),
    TmsmTabbedViewParent.Make(f_LeftPanel),

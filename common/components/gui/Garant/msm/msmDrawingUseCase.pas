@@ -13,6 +13,7 @@ uses
  , msmUseCase
  , msmConcreteUseCases
  , msmConcreteModels
+ , msmControllers
  , msmElementViews
 ;
 

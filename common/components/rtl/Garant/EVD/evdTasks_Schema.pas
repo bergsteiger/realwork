@@ -1925,6 +1925,67 @@ type
    function DoMakeTag(aRef: Integer): Il3TagRef; override;
  end;//UploadDocRequestTag
 
+ csMultiModifyDocsTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csMultiModifyDocs" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csMultiModifyDocsTagClass
+
+ csMultiModifyDocsTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csMultiModifyDocsTag
+
+ csMultiModifyDocs_DocIDList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiModifyDocs_DocIDList_Tag
+
+ csMultiModifyDocs_ActionType_TagClass = class(Tk2TypedAtomicTag)
+  {* Класс реализации тега "csMultiModifyDocs_ActionType" }
+ protected
+ // realized methods
+  function GetTagType: Tl3Type; override;
+   {* Тип параграфа }
+ end;//csMultiModifyDocs_ActionType_TagClass
+
+ csMultiModifyDocs_ActionType_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiModifyDocs_ActionType_Tag
+
+ csMultiModifyDocsReplyTagClass = class(Tk2TypedSmallLeafTag)
+  {* Класс реализации тега "csMultiModifyDocsReply" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//csMultiModifyDocsReplyTagClass
+
+ csMultiModifyDocsReplyTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//csMultiModifyDocsReplyTag
+
+ csMultiModifyDocsReply_RejectedIDList_Tag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+   function DoMakeTag(aRef : Integer): Il3TagRef; override;
+ end;//csMultiModifyDocsReply_RejectedIDList_Tag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -2068,6 +2129,11 @@ type
    t_csUploadDocStream_DocClass : csUploadDocStream_DocClass_Tag;
    t_csUploadDocStreamReply : csUploadDocStreamReplyTag;
    t_UploadDocRequest : UploadDocRequestTag;
+   t_csMultiModifyDocs : csMultiModifyDocsTag;
+   t_csMultiModifyDocs_DocIDList : csMultiModifyDocs_DocIDList_Tag;
+   t_csMultiModifyDocs_ActionType : csMultiModifyDocs_ActionType_Tag;
+   t_csMultiModifyDocsReply : csMultiModifyDocsReplyTag;
+   t_csMultiModifyDocsReply_RejectedIDList : csMultiModifyDocsReply_RejectedIDList_Tag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -2168,6 +2234,8 @@ uses
   csUploadDocStream_Const,
   csUploadDocStreamReply_Const,
   UploadDocRequest_Const,
+  csMultiModifyDocs_Const,
+  csMultiModifyDocsReply_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -4908,6 +4976,98 @@ begin
  Result := UploadDocRequestTagClass.Make(Self);
 end;
 
+function csMultiModifyDocs_DocIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiModifyDocs_DocIDList'));
+end;
+
+function csMultiModifyDocs_DocIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csMultiModifyDocs_DocIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
+end;
+
+function csMultiModifyDocs_ActionType_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiModifyDocs_ActionType'));
+end;
+
+function csMultiModifyDocs_ActionType_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_Enum.IsKindOf(anAtomType);
+end;
+
+function csMultiModifyDocs_ActionType_TagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsMultiModifyDocs_ActionType;
+end;//ActionTypeClass.TagType
+
+function csMultiModifyDocs_ActionType_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Self.MakeFromInt(aRef, csMultiModifyDocs_ActionType_TagClass);
+end;
+
+function csMultiModifyDocsTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsMultiModifyDocs;
+end;//csMultiModifyDocsTagClass.TagType
+
+function csMultiModifyDocsTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiModifyDocs'));
+end;
+
+function csMultiModifyDocsTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csMessageWithReply.IsKindOf(anAtomType);
+end;
+
+function csMultiModifyDocsTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csMultiModifyDocsTagClass.Make(Self);
+end;
+
+function csMultiModifyDocsReply_RejectedIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiModifyDocsReply_RejectedIDList'));
+end;
+
+function csMultiModifyDocsReply_RejectedIDList_Tag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR TevdTasksSchema(TypeTable).t_OList.IsKindOf(anAtomType);
+end;
+
+function csMultiModifyDocsReply_RejectedIDList_Tag.DoMakeTag(aRef : Integer): Il3TagRef;
+begin
+ Result := Tk2List.Make(Self);
+end;
+
+function csMultiModifyDocsReplyTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typcsMultiModifyDocsReply;
+end;//csMultiModifyDocsReplyTagClass.TagType
+
+function csMultiModifyDocsReplyTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('csMultiModifyDocsReply'));
+end;
+
+function csMultiModifyDocsReplyTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_csReply.IsKindOf(anAtomType);
+end;
+
+function csMultiModifyDocsReplyTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := csMultiModifyDocsReplyTagClass.Make(Self);
+end;
+
 constructor TevdTasksSchema.Create;
 begin
  inherited;
@@ -6934,6 +7094,63 @@ begin
    DefaultValue := Ord(cs_ttUploadDoc);
   end;//TaskType
  end;//UploadDocRequest
+ // csMultiModifyDocs
+ t_csMultiModifyDocs := DefineAutoType([t_csMessageWithReply], '', csMultiModifyDocsTag) As csMultiModifyDocsTag;
+ with t_csMultiModifyDocs do
+ begin
+  AtomClass := csMultiModifyDocsTagClass;
+  with DefineProperty(k2_attrData, t_RawData, '') do
+  begin
+  end;//Data
+  with DefineProperty(k2_attrFamilyID, t_Long, '') do
+  begin
+  end;//FamilyID
+  t_csMultiModifyDocs_DocIDList := DefineAutoType([t_OList], 'csMultiModifyDocs DocIDList', csMultiModifyDocs_DocIDList_Tag) As csMultiModifyDocs_DocIDList_Tag;
+  try
+   t_csMultiModifyDocs_DocIDList.DefineChildren(t_Address);
+   DefineProperty(k2_attrDocIDList, t_csMultiModifyDocs_DocIDList, '');
+   t_csMultiModifyDocs_DocIDList.Recalc;
+  except
+   FreeAndNil(t_csMultiModifyDocs_DocIDList);
+  end;//try..except
+  with t_csMultiModifyDocs_DocIDList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//DocIDList
+  t_csMultiModifyDocs_ActionType := DefineAutoType([t_Enum], 'csMultiModifyDocs ActionType', csMultiModifyDocs_ActionType_Tag) As csMultiModifyDocs_ActionType_Tag;
+  try
+   t_csMultiModifyDocs_ActionType.AtomType := TypeInfo(TOperActionType);
+   DefineProperty(k2_attrActionType, t_csMultiModifyDocs_ActionType, '');
+   t_csMultiModifyDocs_ActionType.Recalc;
+  except
+   FreeAndNil(t_csMultiModifyDocs_ActionType);
+  end;//try..except
+  with Tk2CustomProperty(Prop[k2_attrActionType]) do
+  begin
+  end;//ActionType
+ end;//csMultiModifyDocs
+ // csMultiModifyDocsReply
+ t_csMultiModifyDocsReply := DefineAutoType([t_csReply], '', csMultiModifyDocsReplyTag) As csMultiModifyDocsReplyTag;
+ with t_csMultiModifyDocsReply do
+ begin
+  AtomClass := csMultiModifyDocsReplyTagClass;
+  t_csMultiModifyDocsReply_RejectedIDList := DefineAutoType([t_OList], 'csMultiModifyDocsReply RejectedIDList', csMultiModifyDocsReply_RejectedIDList_Tag) As csMultiModifyDocsReply_RejectedIDList_Tag;
+  try
+   t_csMultiModifyDocsReply_RejectedIDList.DefineChildren(t_Address);
+   DefineProperty(k2_attrRejectedIDList, t_csMultiModifyDocsReply_RejectedIDList, '');
+   t_csMultiModifyDocsReply_RejectedIDList.Recalc;
+  except
+   FreeAndNil(t_csMultiModifyDocsReply_RejectedIDList);
+  end;//try..except
+  with t_csMultiModifyDocsReply_RejectedIDList.ArrayProp[k2_tiChildren] do
+  begin
+  end;//RejectedIDList
+  with DefineProperty(k2_attrIsSuccess, t_Bool, '') do
+  begin
+  end;//IsSuccess
+  with DefineProperty(k2_attrErrorMessage, t_String, '') do
+  begin
+  end;//ErrorMessage
+ end;//csMultiModifyDocsReply
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -7024,6 +7241,8 @@ begin
  t_csUploadDocStream.Recalc;
  t_csUploadDocStreamReply.Recalc;
  t_UploadDocRequest.Recalc;
+ t_csMultiModifyDocs.Recalc;
+ t_csMultiModifyDocsReply.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -7171,6 +7390,11 @@ begin
  t_csUploadDocStream_DocClass.InterfaceFactory := nil;
  t_csUploadDocStreamReply.InterfaceFactory := nil;
  t_UploadDocRequest.InterfaceFactory := nil;
+ t_csMultiModifyDocs.InterfaceFactory := nil;
+ t_csMultiModifyDocs_DocIDList.InterfaceFactory := nil;
+ t_csMultiModifyDocs_ActionType.InterfaceFactory := nil;
+ t_csMultiModifyDocsReply.InterfaceFactory := nil;
+ t_csMultiModifyDocsReply_RejectedIDList.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -7311,6 +7535,11 @@ begin
  FreeAndNil(t_csUploadDocStream_DocClass);
  FreeAndNil(t_csUploadDocStreamReply);
  FreeAndNil(t_UploadDocRequest);
+ FreeAndNil(t_csMultiModifyDocs);
+ FreeAndNil(t_csMultiModifyDocs_DocIDList);
+ FreeAndNil(t_csMultiModifyDocs_ActionType);
+ FreeAndNil(t_csMultiModifyDocsReply);
+ FreeAndNil(t_csMultiModifyDocsReply_RejectedIDList);
  inherited;
 end;
 

@@ -125,8 +125,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , PrimProgressIndicator_utProgressIndicator_UserType
  //#UC START# *4A93F1980324impl_uses*
- , nsLogEvent
- , LoggingUnit
  //#UC END# *4A93F1980324impl_uses*
 ;
 
@@ -229,7 +227,6 @@ procedure TPrimProgressIndicatorForm.WMUserFinishProcess(var Message: TMessage);
 //#UC END# *50F987AA03D9_4A93F1980324_var*
 begin
 //#UC START# *50F987AA03D9_4A93F1980324_impl*
- TTempLogEvent.Log('WMUserFinishProcess message received');
  Message.Result := 0;
  f_CancelButton.Repaint;
  f_SearchFinished := True;

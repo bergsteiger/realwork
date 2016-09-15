@@ -10,7 +10,7 @@ interface
 
 uses
  l3IntfUses
- , l3ProtoObject
+ , msmViewParentPrim
  , msmControllers
  , msmPageControl
  //#UC START# *57B4802B0112intf_uses*
@@ -22,7 +22,7 @@ type
  //#UC END# *57B4802B0112ci*
  //#UC START# *57B4802B0112cit*
  //#UC END# *57B4802B0112cit*
- TmsmTabbedViewParent = class(Tl3ProtoObject, ImsmViewParent)
+ TmsmTabbedViewParent = class(TmsmViewParentPrim, ImsmViewParent)
   private
    f_Pages: TmsmPageControl;
    f_Parent: TmsmViewParentControl;
@@ -43,6 +43,7 @@ implementation
 
 uses
  l3ImplUses
+ , msmTabCaptionController
  //#UC START# *57B4802B0112impl_uses*
  , SysUtils
  , Graphics
@@ -103,7 +104,10 @@ begin
   f_Pages.UseXPThemes := False;
  end;//f_Pages = nil
  l_Page := f_Pages.NewPage;
- l_Page.Caption := aContext.rCaption;
+ if (aContext.rCaptionModel <> nil) then
+  Add(TmsmTabCaptionController.Make(l_Page, aContext.rCaptionModel))
+ else
+  l_Page.Caption := aContext.Caption;
  aView.Parent := l_Page;
  aView.Align := alClient;
 //#UC END# *57B345EC0195_57B4802B0112_impl*

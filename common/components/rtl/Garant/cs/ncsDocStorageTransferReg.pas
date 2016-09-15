@@ -26,8 +26,10 @@ uses
  , csDownloadDocStreamReply
  , nscMessagesReg
  , csUploadDocStreamReply
+ , csMultiModifyDocsReply
  , csDownloadDocStream
  , csUploadDocStream
+ , csMultiModifyDocs
  //#UC START# *57C6874900D4impl_uses*
  //#UC END# *57C6874900D4impl_uses*
 ;
@@ -40,6 +42,7 @@ begin
  nscMessagesReg.ncsClientRegister;
  TncsMessageFactory.Instance.Register(TcsDownloadDocStreamReply);
  TncsMessageFactory.Instance.Register(TcsUploadDocStreamReply);
+ TncsMessageFactory.Instance.Register(TcsMultiModifyDocsReply);
 //#UC END# *57C687CA01EE_57C6874900D4_impl*
 end;//ncsClientRegister
 
@@ -51,6 +54,7 @@ begin
  nscMessagesReg.NcsServerRegister;
  TncsMessageFactory.Instance.Register(TcsDownloadDocStream);
  TncsMessageFactory.Instance.Register(TcsUploadDocStream);
+ TncsMessageFactory.Instance.Register(TcsMultiModifyDocs);
 //#UC END# *57C687E100FF_57C6874900D4_impl*
 end;//ncsServerRegister
 {$IfEnd} // NOT Defined(Nemesis)

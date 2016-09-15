@@ -54,6 +54,7 @@ implementation
 
 uses
  l3ImplUses
+ , tfwCStringFactory
  //#UC START# *57B1674A02B6impl_uses*
  , StrUtils
  , l3String
@@ -180,7 +181,7 @@ begin
   if (anIndex = 0) AND (f_Parent <> nil) then
   begin
    if IsDir then
-    Result := l3Cat([l3CStr('.. '), Result]);
+    Result := TtfwCStringFactory.Cat(TtfwCStringFactory.C('.. '), Result);
   end;//(anIndex = 0) AND (f_Parent <> nil)
 //#UC END# *57AEBED1018D_57B1674A02B6get_impl*
 end;//TmsmModelElementDir.Get_Strings

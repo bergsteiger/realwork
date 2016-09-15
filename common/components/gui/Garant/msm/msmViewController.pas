@@ -166,7 +166,7 @@ begin
  inherited;
  if not OperationsList.Empty then
  begin
-  f_PopupMenu := TPopupMenu.Create(View);
+  f_PopupMenu := TPopupMenu.Create(nil{View});
   for l_Index := 0 to Pred(OperationsList.Count) do
   begin
    l_Item := TmsmOperationMenuItem.Create(f_PopupMenu, OperationsList[l_Index]);

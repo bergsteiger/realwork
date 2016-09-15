@@ -42,6 +42,15 @@ type
   , dtGroupOp
  );//TDocType
 
+ TOperActionType = (
+  atNone
+  , atAdd
+  , atDelete
+  , atEdit
+  , atMove
+  , atJurEdit
+ );//TOperActionType
+
 implementation
 
 uses

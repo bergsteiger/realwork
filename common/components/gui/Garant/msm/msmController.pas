@@ -35,8 +35,6 @@ type
    function As_ImsmEventsSubscriber: ImsmEventsSubscriber;
     {* Метод приведения нашего интерфейса к ImsmEventsSubscriber }
    function Get_Model: ImsmModel;
-   procedure Activate;
-   procedure Activated;
    function Publisher: ImsmEventsPublisher; override;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -45,6 +43,8 @@ type
   public
    constructor Create(const aModel: ImsmModel); reintroduce;
    class function Make(const aModel: ImsmModel): ImsmController; reintroduce;
+   procedure Activate;
+   procedure Activated;
   protected
    property Model: ImsmModel
     read f_Model;

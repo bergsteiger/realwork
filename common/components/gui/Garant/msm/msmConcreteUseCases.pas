@@ -10,9 +10,9 @@ interface
 
 uses
  l3IntfUses
+ , msmControllers
  , msmConcreteModels
  , msmUseCases
- , msmControllers
 ;
 
 type

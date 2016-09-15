@@ -10,7 +10,7 @@ interface
 
 uses
  l3IntfUses
- , l3ProtoObject
+ , msmViewParentPrim
  , msmControllers
  , msmViewParentControlList
  , msmViewList
@@ -24,7 +24,7 @@ type
  //#UC END# *57B3468D0000ci*
  //#UC START# *57B3468D0000cit*
  //#UC END# *57B3468D0000cit*
- TmsmMultiPanelViewParent = class(Tl3ProtoObject, ImsmViewParent)
+ TmsmMultiPanelViewParent = class(TmsmViewParentPrim, ImsmViewParent)
   private
    f_Parent: TmsmViewParentControl;
    f_Parents: TmsmViewParentControlList;
@@ -136,16 +136,26 @@ begin
 //#UC START# *57B3461C0319_57B3468D0000_impl*
  Assert(f_Views.IndexOf(aView) >= 0);
  l_Parent := aView.Parent;
- Assert((l_Parent = f_Parent) OR (f_Parents.IndexOf(l_Parent) >= 0));
- aView.Parent := nil;
- // - изымаем контрол
- if (l_Parent <> f_Parent) then
+ if (l_Parent = nil) then
+ // - наверное родителя уже грохнули
  begin
-  l_Parent.Parent := nil;
-  // - изымаем родителя
-  f_Parents.Remove(l_Parent);
-  FreeAndNil(l_Parent);
- end;//l_Parent <> f_Parent
+  Assert(false);
+  f_Parents.Clear;
+  f_Parent := nil;
+ end//l_Parent = nil
+ else
+ begin
+  Assert((l_Parent = f_Parent) OR (f_Parents.IndexOf(l_Parent) >= 0));
+  aView.Parent := nil;
+  // - изымаем контрол
+  if (l_Parent <> f_Parent) then
+  begin
+   l_Parent.Parent := nil;
+   // - изымаем родителя
+   f_Parents.Remove(l_Parent);
+   FreeAndNil(l_Parent);
+  end;//l_Parent <> f_Parent
+ end;//l_Parent = nil
  f_Views.Remove(aView);
 //#UC END# *57B3461C0319_57B3468D0000_impl*
 end;//TmsmMultiPanelViewParent.RemoveView

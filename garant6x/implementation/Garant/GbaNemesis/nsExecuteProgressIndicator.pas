@@ -79,9 +79,6 @@ uses
  ProgressIndicator_Form,
  PrimProgressIndicator_Form
  , Common_F1CommonServices_Contracts
- , nsLogEvent
- , LoggingUnit
- , SysUtils
  ;
 
 function TnsExecuteProgressIndicator.Execute(const aCaption: Il3CString;
@@ -145,36 +142,14 @@ begin
   PostMessage((f_ProgressIndicator as IvcmEntityForm).VCLWinControl.Handle, WM_USER_SET_CURRENT, aCurCount, aArg);
 end;
 
-type
-  TTempLogEvent = class(TnsLogEvent)
-  protected
-   class procedure Log(const aSearchEntity: ISearchEntity);
-  end;
-
 procedure TnsExecuteProgressIndicator.FinishProcess(const aSearchEntity: ISearchEntity);
 begin
- TTempLogEvent.Log(aSearchEntity);
  f_Result := aSearchEntity;
-
  if Assigned(f_ProgressIndicator) then
   PostMessage((f_ProgressIndicator as IvcmEntityForm).VCLWinControl.Handle, WM_USER_FINISH_PROCESS, 0, 0);
  f_CancelLongProcess := nil;
  f_ProgressIndicator := nil;
 end;
 {$IfEnd} //not Admin
-
-{ TTempLogEvent }
-
-class procedure TTempLogEvent.Log(const aSearchEntity: ISearchEntity);
-var
- l_Str: String;
- l_ParamsList: InsLogEventData;
-begin
- l_Str := Format('nsExecuteProgressIndicator::FinishProcess SearchEntity == %p',
-  [Pointer(aSearchEntity)]);
- l_ParamsList := MakeParamsList;
- l_ParamsList.AddString(PChar(l_Str));
- GetLogger.AddEvent(LE_USER_OPERATION, l_ParamsList);
-end;
 
 end.

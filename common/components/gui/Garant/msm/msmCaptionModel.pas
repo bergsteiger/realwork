@@ -10,7 +10,7 @@ interface
 
 uses
  l3IntfUses
- , msmConcreteModels
+ , msmControllers
  , msmModel
  , l3Interfaces
 ;

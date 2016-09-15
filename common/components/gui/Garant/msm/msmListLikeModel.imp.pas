@@ -7,7 +7,7 @@
 
 {$Define msmListLikeModel_imp}
 
- _msmListLikeModel_ = {abstract} class(TmsmModel, ImsmListLikeModel)
+ _msmListLikeModel_ = {abstract} class(TmsmModel, ImsmListLikeModel, ImsmCaptionModel)
   private
    f_ElementView: TmsmModelElementView;
    f_Selection: ImsmElementSelection;
@@ -16,11 +16,12 @@
    function DoGetList: ImsmModelElementStringList; virtual; abstract;
    procedure DoShowElementAsList(const anElement: ImsmModelElement); virtual; abstract;
    procedure ShowElementAsList(const anElement: ImsmModelElement);
+   function Get_Caption: Il3CString;
+   procedure Set_Caption(const aValue: Il3CString);
    function Get_ElementToAction: ImsmModelElement;
    procedure Set_ElementToAction(const aValue: ImsmModelElement);
    function Get_CurrentElement: ImsmModelElement;
    procedure Set_CurrentElement(const aValue: ImsmModelElement);
-   function Get_Caption: AnsiString;
    function Get_List: ImsmModelElementStringList;
    function Get_Selection: ImsmElementSelection;
    procedure InitFields; override;
@@ -44,6 +45,31 @@ begin
  DoShowElementAsList(anElement);
 //#UC END# *57B1A3DA0382_57B57EDB003F_impl*
 end;//_msmListLikeModel_.ShowElementAsList
+
+function _msmListLikeModel_.Get_Caption: Il3CString;
+//#UC START# *57B1A47403C5_57B57EDB003Fget_var*
+var
+ l_Caption : AnsiString;
+//#UC END# *57B1A47403C5_57B57EDB003Fget_var*
+begin
+//#UC START# *57B1A47403C5_57B57EDB003Fget_impl*
+ l_Caption := f_ElementView.rListName;
+ if (l_Caption = 'SelfList') then
+  l_Caption := f_ElementView.rTextName;
+ if (l_Caption = 'DocumentationNotEmpty') then
+  l_Caption := 'Doc';
+ Result := TtfwCStringFactory.C(l_Caption); 
+//#UC END# *57B1A47403C5_57B57EDB003Fget_impl*
+end;//_msmListLikeModel_.Get_Caption
+
+procedure _msmListLikeModel_.Set_Caption(const aValue: Il3CString);
+//#UC START# *57B1A47403C5_57B57EDB003Fset_var*
+//#UC END# *57B1A47403C5_57B57EDB003Fset_var*
+begin
+//#UC START# *57B1A47403C5_57B57EDB003Fset_impl*
+ // - ничего не делаем
+//#UC END# *57B1A47403C5_57B57EDB003Fset_impl*
+end;//_msmListLikeModel_.Set_Caption
 
 function _msmListLikeModel_.Get_ElementToAction: ImsmModelElement;
 //#UC START# *57B2B019009C_57B57EDB003Fget_var*
@@ -81,19 +107,6 @@ begin
  f_Selection.CurrentElement := aValue;
 //#UC END# *57B31CF301D2_57B57EDB003Fset_impl*
 end;//_msmListLikeModel_.Set_CurrentElement
-
-function _msmListLikeModel_.Get_Caption: AnsiString;
-//#UC START# *57B49A8201E1_57B57EDB003Fget_var*
-//#UC END# *57B49A8201E1_57B57EDB003Fget_var*
-begin
-//#UC START# *57B49A8201E1_57B57EDB003Fget_impl*
- Result := f_ElementView.rListName;
- if (Result = 'SelfList') then
-  Result := f_ElementView.rTextName;
- if (Result = 'DocumentationNotEmpty') then
-  Result := 'Doc';
-//#UC END# *57B49A8201E1_57B57EDB003Fget_impl*
-end;//_msmListLikeModel_.Get_Caption
 
 function _msmListLikeModel_.Get_List: ImsmModelElementStringList;
 //#UC START# *57B6A4550271_57B57EDB003Fget_var*

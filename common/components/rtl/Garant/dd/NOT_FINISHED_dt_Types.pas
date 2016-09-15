@@ -39,6 +39,13 @@ const
  divTopic = evdDTTypes.divTopic;
  divAccRight = evdDTTypes.divAccRight;
  divSize = evdDTTypes.divSize;
+ {* Алиасы для значений l3MarshalledTypes.TOperActionType }
+ atNone = l3MarshalledTypes.atNone;
+ atAdd = l3MarshalledTypes.atAdd;
+ atDelete = l3MarshalledTypes.atDelete;
+ atEdit = l3MarshalledTypes.atEdit;
+ atMove = l3MarshalledTypes.atMove;
+ atJurEdit = l3MarshalledTypes.atJurEdit;
 
 type
  TDictID = LongWord;
@@ -105,8 +112,7 @@ type
  TOpenMode = record
  end;//TOpenMode
 
- TOperActionType = (
- );//TOperActionType
+ TOperActionType = l3MarshalledTypes.TOperActionType;
 
  TStageType = (
  );//TStageType

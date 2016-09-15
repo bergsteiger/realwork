@@ -25,6 +25,7 @@ type
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure DoActivate; override;
+   procedure DoActivated; override;
    procedure ClearFields; override;
   public
    constructor Create(aView: TmsmView;
@@ -43,16 +44,21 @@ implementation
 uses
  l3ImplUses
  //#UC START# *57ADB523009Eimpl_uses*
+ , SysUtils
  , Controls
  //#UC END# *57ADB523009Eimpl_uses*
 ;
 
 function TmsmParentedViewController.pm_GetViewContext: TmsmViewContext;
 //#UC START# *57B4909B0293_57ADB523009Eget_var*
+var
+ l_CaptionModel : ImsmCaptionModel;
 //#UC END# *57B4909B0293_57ADB523009Eget_var*
 begin
 //#UC START# *57B4909B0293_57ADB523009Eget_impl*
  Result := TmsmViewContext_C;
+ if Supports(Self.Model, ImsmCaptionModel, l_CaptionModel) then
+  Result.rCaptionModel := l_CaptionModel;
  InitViewContext(Result);
 //#UC END# *57B4909B0293_57ADB523009Eget_impl*
 end;//TmsmParentedViewController.pm_GetViewContext
@@ -115,8 +121,20 @@ begin
  inherited;
  Assert(f_Parent <> nil);
  f_Parent.InsertView(View, Self.ViewContext);
+ f_Parent.Activate;
 //#UC END# *57B1ABC80368_57ADB523009E_impl*
 end;//TmsmParentedViewController.DoActivate
+
+procedure TmsmParentedViewController.DoActivated;
+//#UC START# *57CEC64E0063_57ADB523009E_var*
+//#UC END# *57CEC64E0063_57ADB523009E_var*
+begin
+//#UC START# *57CEC64E0063_57ADB523009E_impl*
+ inherited;
+ Assert(f_Parent <> nil);
+ f_Parent.Activated;
+//#UC END# *57CEC64E0063_57ADB523009E_impl*
+end;//TmsmParentedViewController.DoActivated
 
 procedure TmsmParentedViewController.ClearFields;
 begin

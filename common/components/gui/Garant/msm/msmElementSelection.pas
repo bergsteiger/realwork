@@ -58,6 +58,7 @@ implementation
 uses
  l3ImplUses
  , msmListAndTreeInterfaces
+ , msmControllers
  , l3Base
  , l3MinMax
  , RTLConsts

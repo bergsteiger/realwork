@@ -17,8 +17,9 @@ type
  ImsmUseCase = interface
   ['{54200745-EE4F-42D0-840A-8209E1EBE0D3}']
   procedure AddController(const aController: ImsmController);
-  procedure Activate;
   procedure Bind(const aController: ImsmController);
+  procedure Activate;
+  procedure Activated;
  end;//ImsmUseCase
 
 implementation

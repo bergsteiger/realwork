@@ -1785,6 +1785,7 @@ uses
  , msmViewList in 'w:\common\components\gui\Garant\msm\msmViewList.pas'
  , msmSingleViewParent in 'w:\common\components\gui\Garant\msm\msmSingleViewParent.pas'
  , msmTabbedViewParent in 'w:\common\components\gui\Garant\msm\msmTabbedViewParent.pas'
+ , ImsmControllerList in 'w:\common\components\gui\Garant\msm\ImsmControllerList.pas'
  , msmPageControl in 'w:\common\components\gui\Garant\msm\msmPageControl.pas'
  , ElPgCtl in 'w:\common\components\gui\Garant\VT\elClone\Source\ElPgCtl.pas'
  , ElXPThemedControl in 'w:\common\components\gui\Garant\VT\elClone\Source\ElXPThemedControl.pas'
@@ -1793,6 +1794,7 @@ uses
  {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  , PageControlWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , msmTabCaptionController in 'w:\common\components\gui\Garant\msm\msmTabCaptionController.pas'
  , msmNavigatorForm in 'w:\common\components\gui\Garant\msm\msmNavigatorForm.pas'
  , msmForm in 'w:\common\components\gui\Garant\msm\msmForm.pas'
  , msmListOwnerToCurrentElementBinding in 'w:\common\components\gui\Garant\msm\msmListOwnerToCurrentElementBinding.pas'
@@ -1817,6 +1819,9 @@ uses
  , msmUseCase in 'w:\common\components\gui\Garant\msm\msmUseCase.pas'
  , msmConcreteUseCases in 'w:\common\components\gui\Garant\msm\msmConcreteUseCases.pas'
  , msmDrawingUseCaseView in 'w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas'
+ , msmParentedViewControllerWithOwnership in 'w:\common\components\gui\Garant\msm\msmParentedViewControllerWithOwnership.pas'
+ , msmProportionalPanel in 'w:\common\components\gui\Garant\msm\msmProportionalPanel.pas'
+ , vtProportionalPanel in 'w:\common\components\gui\Garant\VT\vtProportionalPanel.pas'
  //#UC START# *57A9BB9101F5manualuses*
  //#UC END# *57A9BB9101F5manualuses*
 ;

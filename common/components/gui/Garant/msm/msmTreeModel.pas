@@ -14,6 +14,7 @@ uses
  , msmElementViews
  , msmModelElements
  , msmModel
+ , l3Interfaces
 ;
 
 type
@@ -31,6 +32,7 @@ uses
  , msmModelElementTree
  , msmListAndTreeInterfaces
  , msmElementSelection
+ , tfwCStringFactory
  //#UC START# *57B31D5A00D2impl_uses*
  //#UC END# *57B31D5A00D2impl_uses*
 ;

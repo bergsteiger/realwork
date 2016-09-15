@@ -10,12 +10,12 @@ interface
 
 uses
  l3IntfUses
- , l3ProtoObject
+ , msmViewParentPrim
  , msmControllers
 ;
 
 type
- TmsmSingleViewParent = class(Tl3ProtoObject, ImsmViewParent)
+ TmsmSingleViewParent = class(TmsmViewParentPrim, ImsmViewParent)
   private
    f_View: TmsmView;
    f_Parent: TmsmViewParentControl;

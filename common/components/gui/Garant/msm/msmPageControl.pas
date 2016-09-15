@@ -16,6 +16,8 @@ uses
 ;
 
 type
+ TmsmTabSheet = TElTabSheet;
+
  //#UC START# *57B4437D02DCci*
  //#UC END# *57B4437D02DCci*
  //#UC START# *57B4437D02DCcit*

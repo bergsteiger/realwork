@@ -10,27 +10,15 @@ interface
 
 uses
  l3IntfUses
- , l3ProtoDataContainer
+ , ImsmControllerList
  , msmUseCases
  , msmControllers
- , l3Memory
- , l3Types
- , l3Interfaces
- , l3Core
- , l3Except
- , Classes
 ;
 
 type
- _ItemType_ = ImsmController;
- _l3InterfaceRefList_Parent_ = Tl3ProtoDataContainer;
- {$Define l3Items_IsProto}
- {$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
- TmsmUseCase = class(_l3InterfaceRefList_, ImsmUseCase)
+ TmsmUseCase = class(TImsmControllerList, ImsmUseCase)
   protected
-   procedure DoActivate; virtual;
    procedure AddController(const aController: ImsmController);
-   procedure Activate;
    procedure Bind(const aController: ImsmController);
   public
    constructor Create; reintroduce;
@@ -41,17 +29,9 @@ implementation
 
 uses
  l3ImplUses
- , l3Base
- , l3MinMax
- , RTLConsts
- , SysUtils
  //#UC START# *57AD94F00212impl_uses*
  //#UC END# *57AD94F00212impl_uses*
 ;
-
-type _Instance_R_ = TmsmUseCase;
-
-{$Include w:\common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas}
 
 constructor TmsmUseCase.Create;
 //#UC START# *57B1AEDB0188_57AD94F00212_var*
@@ -74,15 +54,6 @@ begin
  end;//try..finally
 end;//TmsmUseCase.Make
 
-procedure TmsmUseCase.DoActivate;
-//#UC START# *57D2B82102BD_57AD94F00212_var*
-//#UC END# *57D2B82102BD_57AD94F00212_var*
-begin
-//#UC START# *57D2B82102BD_57AD94F00212_impl*
- // - ничего не желаем, это для потомков
-//#UC END# *57D2B82102BD_57AD94F00212_impl*
-end;//TmsmUseCase.DoActivate
-
 procedure TmsmUseCase.AddController(const aController: ImsmController);
 //#UC START# *57AD949C0005_57AD94F00212_var*
 //#UC END# *57AD949C0005_57AD94F00212_var*
@@ -91,21 +62,6 @@ begin
  Add(aController);
 //#UC END# *57AD949C0005_57AD94F00212_impl*
 end;//TmsmUseCase.AddController
-
-procedure TmsmUseCase.Activate;
-//#UC START# *57B1ABA800A6_57AD94F00212_var*
-var
- l_Index : Integer;
-//#UC END# *57B1ABA800A6_57AD94F00212_var*
-begin
-//#UC START# *57B1ABA800A6_57AD94F00212_impl*
- for l_Index := 0 to Pred(Count) do
-  Items[l_Index].Activate;
- for l_Index := 0 to Pred(Count) do
-  Items[l_Index].Activated;
- DoActivate; 
-//#UC END# *57B1ABA800A6_57AD94F00212_impl*
-end;//TmsmUseCase.Activate
 
 procedure TmsmUseCase.Bind(const aController: ImsmController);
 //#UC START# *57D29826015D_57AD94F00212_var*

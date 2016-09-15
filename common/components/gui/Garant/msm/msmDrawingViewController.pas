@@ -70,7 +70,7 @@ procedure TmsmDrawingViewController.InitViewContext(var theContext: TmsmViewCont
 begin
 //#UC START# *57B490B60385_57D00B730178_impl*
  inherited;
- theContext.rCaption := Self.Model.Caption;
+ theContext.rCaptionModel := Self.Model;
 //#UC END# *57B490B60385_57D00B730178_impl*
 end;//TmsmDrawingViewController.InitViewContext
 

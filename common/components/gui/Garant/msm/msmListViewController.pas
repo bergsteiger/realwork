@@ -81,7 +81,7 @@ procedure TmsmListViewController.InitViewContext(var theContext: TmsmViewContext
 begin
 //#UC START# *57B490B60385_57AAF18F0065_impl*
  inherited;
- theContext.rCaption := Self.Model.Caption;
+ theContext.rCaptionModel := Self.Model;
 //#UC END# *57B490B60385_57AAF18F0065_impl*
 end;//TmsmListViewController.InitViewContext
 

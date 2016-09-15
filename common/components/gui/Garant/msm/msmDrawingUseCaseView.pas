@@ -19,7 +19,10 @@ type
  TmsmDrawingUseCaseView = class(TmsmUseCase, ImsmDrawingUseCaseView)
   private
    f_UseCase: ImsmDrawingUseCase;
+   f_DrawingPanel: TmsmView;
   protected
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    procedure DoActivate; override;
    procedure ClearFields; override;
   public
@@ -39,7 +42,12 @@ implementation
 
 uses
  l3ImplUses
+ , msmParentedViewControllerWithOwnership
+ , msmModel
+ , msmPanel
+ , msmProportionalPanel
  //#UC START# *57D2DF7E00CEimpl_uses*
+ , SysUtils
  , msmConcreteModels
  , msmOpenInNewWindow
  , msmShowInNavigator
@@ -54,6 +62,8 @@ uses
  , msmElementViews
  , msmDrawingViewController
  , msmTreeViewController
+ , msmMultiPanelViewParent
+ , msmParentedViewController
  //#UC END# *57D2DF7E00CEimpl_uses*
 ;
 
@@ -128,6 +138,8 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
  
 var
  l_ListContext : TmsmListViewtInitContext;
+ l_DrawingZone : ImsmViewParent;
+ l_DrawingPanel : TmsmViewParentControl;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
 begin
 //#UC START# *57D2DFA70064_57D2DF7E00CE_impl*
@@ -148,10 +160,21 @@ begin
   )
  );
 
+ l_DrawingPanel := TmsmProportionalPanel.Create(nil);
+ //l_DrawingPanel := TmsmPanel.Create(nil);
+ f_DrawingPanel := l_DrawingPanel;
+ l_DrawingZone := TmsmMultiPanelViewParent.Make(l_DrawingPanel);
+
+ AddController(
+  TmsmParentedViewController.Make(f_DrawingPanel, aUseCase.Drawing, aMainZone)
+  //TmsmParentedViewControllerWithOwnership.Make(f_DrawingPanel, aUseCase.Drawing, aMainZone)
+  // - с Ownership - не сложилось, ибо контролы удаляются не в том порядке
+ );
+
  AddController(
   AddDiagramOperations
   (
-   TmsmDrawingViewController.Make(aUseCase.Drawing, aMainZone)
+   TmsmDrawingViewController.Make(aUseCase.Drawing, l_DrawingZone)
    , aUseCase.Drawing
   )
  );
@@ -161,7 +184,7 @@ begin
   (
    DisableActionElementEvent
    (
-    TmsmListViewController.Make(aUseCase.Drawing, aMainZone)
+    TmsmListViewController.Make(aUseCase.Drawing, l_DrawingZone)
    )
    , aUseCase.Drawing
   )
@@ -209,6 +232,17 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TmsmDrawingUseCaseView.Make
+
+procedure TmsmDrawingUseCaseView.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_57D2DF7E00CE_var*
+//#UC END# *479731C50290_57D2DF7E00CE_var*
+begin
+//#UC START# *479731C50290_57D2DF7E00CE_impl*
+ inherited;
+ FreeAndNil(f_DrawingPanel);
+//#UC END# *479731C50290_57D2DF7E00CE_impl*
+end;//TmsmDrawingUseCaseView.Cleanup
 
 procedure TmsmDrawingUseCaseView.DoActivate;
 //#UC START# *57D2B82102BD_57D2DF7E00CE_var*

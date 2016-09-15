@@ -111,6 +111,7 @@ uses
  , l3Base
  , msmElementViews
  , msmLineF
+ , msmDrawArrow
  //#UC END# *57D00ACC01B0impl_uses*
 ;
 
@@ -196,6 +197,21 @@ procedure TmsmDrawingView.Paint(const CN: Il3Canvas);
    Result := 'Arial';
  end;//FontName
 
+const
+ cPtExtent = 3 * 2;
+
+ procedure DrawPoint(const aPoint: Tl3SPoint);
+ var
+  l_Rect : Tl3SRect;
+ begin//DrawPoint
+  l_Rect := l3SRectBnd(aPoint, l3SPoint(cPtExtent, cPtExtent));
+  if Focused then
+   CN.Font.BackColor := clBlack
+  else
+   CN.Font.BackColor := clSilver;
+  CN.FillRect(l_Rect);
+ end;//DrawPoint
+ 
 var
  l_TextColor : TColor;
  l_FillColor : TColor;
@@ -205,20 +221,6 @@ var
                        const aSelection: ImsmElementSelection);
 
   procedure DrawSelection(const aRect: Tl3SRect);
-  const
-   cPtExtent = 3 * 2;
-
-   procedure DrawPoint(const aPoint: Tl3SPoint);
-   var
-    l_Rect : Tl3SRect;
-   begin//DrawPoint
-    l_Rect := l3SRectBnd(aPoint, l3SPoint(cPtExtent, cPtExtent));
-    if Focused then
-     CN.Font.BackColor := clBlack
-    else
-     CN.Font.BackColor := clSilver;
-    CN.FillRect(l_Rect);
-   end;//DrawPoint
 
   begin//DrawSelection
    DrawPoint(aRect.TopLeft.Add(l3SPoint(-cPtExtent, -cPtExtent)));
@@ -323,6 +325,7 @@ var
  end;//DrawElement
 
  procedure DrawLink(const anElement: ImsmModelElement;
+                    const aRect: Tl3SRect;
                     const aSelection: ImsmElementSelection);
 
   procedure SetBrush;
@@ -343,115 +346,77 @@ var
   end;//SetPen
 
  var
-  l_From : ImsmModelElement;
-  l_To : ImsmModelElement;
-  l_FromR : Tl3SRect;
-  l_ToR : Tl3SRect;
   l_FromP : Tl3SPoint;
   l_ToP : Tl3SPoint;
-(*  l_ClipRgn : HRGN;
-  l_RectRgn : HRGN;*)
   l_N : Il3CString;
   l_TextRect : Tl3SRect;
   l_WR : TRect;
   l_Flags : Word;
   l_BkMode: Cardinal;
-  l_Line : TmsLineF;
  begin//DrawLink
-  l_From := anElement.ElementProp['From'];
-  l_To := anElement.ElementProp['To'];
-  if (l_From <> nil) AND (l_To <> nil) then
+  l_FromP := aRect.TopLeft;
+  l_ToP := aRect.BottomRight;
+  if aSelection.IsElementSelectedOrCurrent(anElement) then
+   l_PenColor := clRed
+  else
+   l_PenColor := anElement.IntProp['msm:View:LinkLineColor'];
+
+  if (l_PenColor = clDefault) then
+   l_PenColor := clSilver;
+  SetPen;
+  CN.Canvas.MoveTo(l_FromP.X, l_FromP.Y);
+  CN.Canvas.LineTo(l_ToP.X, l_ToP.Y);
+  if not l_FromP.EQ(l_ToP) then
   begin
-   l_FromR := ElementRect(l_From);
-   l_ToR := ElementRect(l_To);
-   l_FromP.X := (l_FromR.Left + l_FromR.Right) div 2;
-   l_FromP.Y := (l_FromR.Top + l_FromR.Bottom) div 2;
-   l_ToP.X := (l_ToR.Left + l_ToR.Right) div 2;
-   l_ToP.Y := (l_ToR.Top + l_ToR.Bottom) div 2;
-
-   l_Line := TmsLineF_Create(l_FromP, l_ToP);
-   TmsRectF_Create(l_FromR).Cross(l_Line, l_FromP);
-   TmsRectF_Create(l_ToR).Cross(l_Line, l_ToP);
-
-   if aSelection.IsElementSelectedOrCurrent(anElement) then
-    l_PenColor := clRed
+   CN.Canvas.Pen.Style := psSolid;
+   DrawArrow(l_FromP, l_ToP, CN.Canvas, anElement.BoolProp['msm:View:LinkArrowIsPolygon']);
+  end;//not l_FromP.EQ(l_ToP)
+  l_N := anElement.StringProp['LinkName'];
+  if not l3IsNil(l_N) then
+  begin
+   if (l_FromP.X < l_ToP.X) then
+   begin
+    l_TextRect.Left := l_FromP.X;
+    l_TextRect.Right := l_ToP.X;
+   end//l_FromP.X < l_ToP.X
    else
-    l_PenColor := anElement.IntProp['msm:View:LinkLineColor'];
-    
-   if (l_PenColor = clDefault) then
-    l_PenColor := clSilver;
-   SetPen;
-(*   with CN.LR2DR(CN.ClipRect) do
    begin
-    l_ClipRgn := CreateRectRgn(Left, Top, Right, Bottom);
-   end;//with CN.LR2DR(CN.ClipRect)*)
-(*   l_ClipRgn := CreateRectRgn(0, 0, Self.Width, Self.Height);
-   try
-    l_RectRgn := CreateRectRgn(l_FromR.Left, l_FromR.Top, l_FromR.Right, l_FromR.Bottom);
-    try
-     CombineRgn(l_ClipRgn, l_ClipRgn, l_RectRgn, RGN_DIFF);
-    finally
-     DeleteObject(l_RectRgn);
-    end;//try..finally
-    l_RectRgn := CreateRectRgn(l_ToR.Left, l_ToR.Top, l_ToR.Right, l_ToR.Bottom);
-    try
-     CombineRgn(l_ClipRgn, l_ClipRgn, l_RectRgn, RGN_DIFF);
-    finally
-     DeleteObject(l_RectRgn);
-    end;//try..finally
-    CN.PushClipRect;
-    try
-     //SelectClipRgn(CN.DC, l_ClipRgn);
-     ExtSelectClipRgn(CN.DC, l_ClipRgn, RGN_AND);*)
-     CN.Canvas.MoveTo(l_FromP.X, l_FromP.Y);
-     CN.Canvas.LineTo(l_ToP.X, l_ToP.Y);
-(*    finally
-     CN.PopClipRect;
-    end;//try..finally
-   finally
-    DeleteObject(l_ClipRgn);
-   end;//try..finally*)
-   l_N := anElement.StringProp['LinkName'];
-   if not l3IsNil(l_N) then
-   begin
-    if (l_FromP.X < l_ToP.X) then
-    begin
-     l_TextRect.Left := l_FromP.X;
-     l_TextRect.Right := l_ToP.X;
-    end//l_FromP.X < l_ToP.X
-    else
-    begin
-     l_TextRect.Right := l_FromP.X;
-     l_TextRect.Left := l_ToP.X;
-    end;//l_FromP.X < l_ToP.X
+    l_TextRect.Right := l_FromP.X;
+    l_TextRect.Left := l_ToP.X;
+   end;//l_FromP.X < l_ToP.X
 
-    if (l_FromP.Y < l_ToP.Y) then
-    begin
-     l_TextRect.Top := l_FromP.Y;
-     l_TextRect.Bottom := l_ToP.Y;
-    end//l_FromP.Y < l_ToP.Y
-    else
-    begin
-     l_TextRect.Bottom := l_FromP.Y;
-     l_TextRect.Top := l_ToP.Y;
-    end;//l_FromP.Y < l_ToP.Y
-    CN.Font.Name := FontName;
-    CN.Font.Size := 7;
-    CN.Font.Bold := false;
-    CN.Font.Italic := false;
-    SetBrush;
-    l_WR := l_TextRect.R.WR;
-    l_Flags := CN.etoFlags;
-    CN.etoFlags := l_Flags AND not eto_Opaque;
-    l_BkMode := SetBkMode(CN.DC, TRANSPARENT);
-    try
-     CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_VCENTER or DT_SINGLELINE {or DT_END_ELLIPSIS});
-    finally
-     SetBkMode(CN.DC, l_BkMode);
-    end;//try..finally
-    CN.etoFlags := l_Flags;
-   end;//not l3IsNil(l_N)
-  end;//(l_From <> nil) AND (l_To <> nil)
+   if (l_FromP.Y < l_ToP.Y) then
+   begin
+    l_TextRect.Top := l_FromP.Y;
+    l_TextRect.Bottom := l_ToP.Y;
+   end//l_FromP.Y < l_ToP.Y
+   else
+   begin
+    l_TextRect.Bottom := l_FromP.Y;
+    l_TextRect.Top := l_ToP.Y;
+   end;//l_FromP.Y < l_ToP.Y
+   CN.Font.Name := FontName;
+   CN.Font.Size := 7;
+   CN.Font.Bold := false;
+   CN.Font.Italic := false;
+   SetBrush;
+   l_WR := l_TextRect.R.WR;
+   l_Flags := CN.etoFlags;
+   CN.etoFlags := l_Flags AND not eto_Opaque;
+   l_BkMode := SetBkMode(CN.DC, TRANSPARENT);
+   try
+    CN.DrawText(l3PCharLen(l_N), l_WR, DT_CENTER or DT_VCENTER or DT_SINGLELINE {or DT_END_ELLIPSIS});
+   finally
+    SetBkMode(CN.DC, l_BkMode);
+   end;//try..finally
+   CN.etoFlags := l_Flags;
+  end;//not l3IsNil(l_N)
+
+  if aSelection.IsElementSelectedOrCurrent(anElement) then
+  begin
+   DrawPoint(l_FromP.Add(l3SPoint(-cPtExtent div 2, -cPtExtent div 2)));
+   DrawPoint(l_ToP.Add(l3SPoint(-cPtExtent div 2, -cPtExtent div 2)));
+  end;//aSelection.IsElementSelectedOrCurrent(anElement)
  end;//DrawLink
 
  procedure FillEmpty;
@@ -498,7 +463,7 @@ begin
    begin
     l_E := l_List[l_Index];
     if (l_E <> nil) AND not l_E.IsView then
-     DrawLink(l_E, l_Selection);
+     DrawLink(l_E, ElementRect(l_E), l_Selection);
    end;//for l_Index
    Exit;
   end;//l_List <> nil
@@ -565,8 +530,10 @@ begin
      begin
       Model.Selection.InvertElement(l_E);
      end//l_E <> nil
-     else
-      SelectCurrent;
+     {else
+      SelectCurrent};
+     // - не надо сбрасывать выделение при зажатом Ctrl, чтобы случайно не сбросить всё
+     //   Если пользователь захочет, то он отпустит Ctrl и ткнёт. Тогда выделение снимется. 
     end//ssCtrl in Shift
     else
      SelectCurrent;
@@ -593,11 +560,14 @@ var
   l_ElementNewOrigin : Tl3SPoint;
  begin//DoElement
   Result := true;
-  l_ElementOrigin := l3SPoint(anElement.IntProp['msm:View:X'],
-                              anElement.IntProp['msm:View:Y']);
-  l_ElementNewOrigin := l_ElementOrigin.Add(l_NewPt.Sub(l_Pt));
-  anElement.IntProp['msm:View:X'] := l_ElementNewOrigin.X;
-  anElement.IntProp['msm:View:Y'] := l_ElementNewOrigin.Y;
+  if anElement.IsView then
+  begin
+   l_ElementOrigin := l3SPoint(anElement.IntProp['msm:View:X'],
+                               anElement.IntProp['msm:View:Y']);
+   l_ElementNewOrigin := l_ElementOrigin.Add(l_NewPt.Sub(l_Pt));
+   anElement.IntProp['msm:View:X'] := l_ElementNewOrigin.X;
+   anElement.IntProp['msm:View:Y'] := l_ElementNewOrigin.Y;
+  end;//anElement.IsView
  end;//DoElement
 
 var
@@ -707,14 +677,102 @@ var
  l_Y : Integer;
  l_W : Integer;
  l_H : Integer;
+ l_From : ImsmModelElement;
+ l_To : ImsmModelElement;
+ l_ToR : Tl3SRect;
+ l_FromR : Tl3SRect;
+ l_FromP : Tl3SPoint;
+ l_ToP : Tl3SPoint;
+ l_Line : TmsLineF;
 begin
- l_X := anElement.IntProp['msm:View:X'];
- l_Y := anElement.IntProp['msm:View:Y'];
- l_W := 120;
- l_H := 100;
- Result := l3SBounds(l_X, l_Y, l_W, l_H);
- Result.Inflate1(-10);
- Result := Result.SubPt(f_Origin);
+ if anElement.IsView then
+ begin
+  l_X := anElement.IntProp['msm:View:X'];
+  l_Y := anElement.IntProp['msm:View:Y'];
+  l_W := anElement.IntProp['msm:View:Width'];
+  l_H := anElement.IntProp['msm:View:Height'];
+  Result := l3SBounds(l_X, l_Y, l_W, l_H);
+  Result.Inflate1(-10);
+  Result := Result.SubPt(f_Origin);
+ end//anElement.IsView
+ else
+ begin
+  l_From := anElement.ElementProp['msm:View:From'];
+  l_To := anElement.ElementProp['msm:View:To'];
+  if (l_From <> nil) AND (l_To <> nil) then
+  begin
+   l_FromR := ElementRect(l_From);
+   l_ToR := ElementRect(l_To);
+   l_FromP.X := (l_FromR.Left + l_FromR.Right) div 2;
+   l_FromP.Y := (l_FromR.Top + l_FromR.Bottom) div 2;
+   l_ToP.X := (l_ToR.Left + l_ToR.Right) div 2;
+   l_ToP.Y := (l_ToR.Top + l_ToR.Bottom) div 2;
+
+   l_Line := TmsLineF_Create(l_FromP, l_ToP);
+   TmsRectF_Create(l_FromR).Cross(l_Line, l_FromP);
+   TmsRectF_Create(l_ToR).Cross(l_Line, l_ToP);
+   Result := l3SRect(l_FromP, l_ToP);
+  end//(l_From <> nil) AND (l_To <> nil)
+  else
+   Result := l3SRect(0, 0, 0, 0);
+ end;//anElement.IsView
+end;
+
+type
+ TmsmLinePos =
+     (LEFT,  RIGHT,  BEYOND,  BEHIND, BETWEEN, ORIGIN, DESTINATION);
+//    СЛЕВА, СПРАВА, ВПЕРЕДИ, ПОЗАДИ, МЕЖДУ,   НАЧАЛО, КОНЕЦ
+
+function SamePoint(const A: Tl3SPoint; const B: Tl3SPoint): Boolean;
+const
+ cEpsilon = 5;
+begin
+ Result := (Abs(A.X - B.X) <= cEpsilon) AND (Abs(A.Y - B.Y) <= cEpsilon);
+end;
+
+function ClassifyLinePos(const this: Tl3SPoint; const p0: Tl3SPoint; const p1: Tl3SPoint): TmsmLinePos; overload;
+const
+ cEpsilon = 2000;
+var
+ p2 : Tl3SPoint;
+ a : Tl3SPoint;
+ b : Tl3SPoint;
+ sa : Pixel;
+begin
+  p2 := this;
+  a := p1.Sub(p0);
+  b := p2.Sub(p0);
+  sa := a.x * b.y - b.x * a.y;
+  if SamePoint(p0, p2) then
+   Result := ORIGIN
+  else
+  if SamePoint(p1, p2) then
+   Result := DESTINATION
+  else
+  if (sa > cEpsilon{0.0}) then
+   Result := LEFT
+  else
+  if (sa < -cEpsilon{0.0}) then
+   Result := RIGHT
+  else  
+  if ((a.x * b.x < 0.0) OR (a.y * b.y < 0.0)) then
+   Result := BEHIND
+  else
+  if (a.length < b.length) then
+   Result := BEYOND
+  else
+  if SamePoint(p0, p2) then
+   Result := ORIGIN
+  else
+  if SamePoint(p1, p2) then
+   Result := DESTINATION
+  else
+   Result := BETWEEN;
+end;
+
+function ClassifyLinePos(const this: Tl3SPoint; const aRect: Tl3SRect): TmsmLinePos; overload;
+begin
+ Result := ClassifyLinePos(this, aRect.TopLeft, aRect.BottomRight);
 end;
 
 function TmsmDrawingView.ElementOnPoint(const aPoint: Tl3SPoint): ImsmModelElement;
@@ -732,11 +790,29 @@ begin
    for l_Index := 0 to Pred(l_List.Count) do
    begin
     l_E := l_List[l_Index];
-    if ElementRect(l_E).ContainsPt(aPoint) then
+    if (l_E <> nil) then
     begin
-     Result := l_E;
-     Exit;
-    end;//ElementRect(l_E).ContainsPt(aPoint)
+     if l_E.IsView then
+     begin
+      if ElementRect(l_E).ContainsPt(aPoint) then
+      begin
+       Result := l_E;
+       Exit;
+      end;//ElementRect(l_E).ContainsPt(aPoint)
+     end//l_E.IsView
+     else
+     begin
+      Case ClassifyLinePos(aPoint, ElementRect(l_E)) of
+       BETWEEN,
+       ORIGIN,
+       DESTINATION:
+       begin
+        Result := l_E;
+        Exit;
+       end;//BETWEEN..
+      end;//Case ClassifyLinePos
+     end;//l_E.IsView
+    end;//l_E <> nil
    end;//for l_Index
   end;//l_List <> nil
  end;//Model <> nil
