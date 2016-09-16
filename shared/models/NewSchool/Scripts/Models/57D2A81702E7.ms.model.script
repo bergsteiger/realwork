@@ -84,7 +84,7 @@ ME ME_57D2AC4E0319
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
  ;
- MELINK Target WL 'ME_57B1A4520214' '57ADC53E00B6.ms.model.script' // ImsmCaptionModel
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
  ;
  UP "pm" True
  UP "reads field" True
@@ -394,6 +394,20 @@ ME ME_57D2E77D0372
 
 ENDME // ME_57D2E77D0372 f_UseCase
 
+ME ME_57DA84F80119
+ MEPROP UID '57DA84F80119'
+ MEPROP Name 'f_DrawingPanel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
+ ;
+
+ENDME // ME_57DA84F80119 f_DrawingPanel
+
 FORWARD ME_57D2DFA70064
 
 FORWARD ME_57D2DFC80165
@@ -500,6 +514,52 @@ ME ME_57D2DFAE02A7
 
 ENDME // ME_57D2DFAE02A7 Make
 
+ME ME_57DA79CC03DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57DA78D6035A' '57AAE90E02B6.ms.model.script' // TmsmParentedViewControllerWithOwnership
+ ;
+
+ENDME // ME_57DA79CC03DF 
+
+ME ME_57DA7A0800B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57ADBFD200CA' '57B1B48C00F8.ms.model.script' // TmsmModel
+ ;
+
+ENDME // ME_57DA7A0800B5 
+
+ME ME_57DA7A380016
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57B42D7C0217' '57B42D1A0044.ms.model.script' // TmsmPanel
+ ;
+
+ENDME // ME_57DA7A380016 
+
+ME ME_57DA89C000F6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57DA8745012E' '57B42D1A0044.ms.model.script' // TmsmProportionalPanel
+ ;
+
+ENDME // ME_57DA89C000F6 
+
+ME ME_479731C50290_ME_57D2DF7E00CE
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57D2DF7E00CE Cleanup
+
 ME ME_57D2B82102BD_ME_57D2DF7E00CE
  MELINK Original WL 'ME_57D2B82102BD' '57B1B6AE0204.ms.model.script' // DoActivate
  ;
@@ -526,6 +586,7 @@ ME ME_57D2DF7E00CE
  ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_57D2E77D0372 // f_UseCase
+ HWL ME_57DA84F80119 // f_DrawingPanel
  )
  ; // Attributes
  MELIST Operations
@@ -534,9 +595,17 @@ ME ME_57D2DF7E00CE
  )
  ; // Operations
  MELIST Overridden
-   Seq: ( ME_57D2B82102BD_ME_57D2DF7E00CE // DoActivate
+   Seq: ( ME_479731C50290_ME_57D2DF7E00CE // Cleanup
+ ME_57D2B82102BD_ME_57D2DF7E00CE // DoActivate
  )
  ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57DA79CC03DF // TmsmParentedViewControllerWithOwnership
+ ME_57DA7A0800B5 // TmsmModel
+ ME_57DA7A380016 // TmsmPanel
+ ME_57DA89C000F6 // TmsmProportionalPanel
+ )
+ ; // Dependencies
  UP extprop:pas:UnitName 'msmDrawingUseCaseView'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'msmDrawingUseCaseView'
@@ -562,10 +631,13 @@ ME ME_57D2A81702E7
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+ WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
  WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels
  WL 'ME_57AE0D6601AE' '57AE0D6601AE.ms.model.script' // ConcreteModels
  WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
+ WL 'ME_57B1B48C00F8' '57B1B48C00F8.ms.model.script' // Models
  WL 'ME_57B1B6AE0204' '57B1B6AE0204.ms.model.script' // UseCases
+ WL 'ME_57B42D1A0044' '57B42D1A0044.ms.model.script' // DefaultUsedControls
  WL 'ME_57B565F200E5' '57B565F200E5.ms.model.script' // msmElementViews
  WL 'ME_57CD2BB003D3' '57CD2BB003D3.ms.model.script' // ConcreteBindings
  WL 'ME_57CEAF3602AB' '57CEAF3602AB.ms.model.script' // msmUseCases

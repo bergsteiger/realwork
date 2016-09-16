@@ -80,6 +80,18 @@ MEDIAGRAMS ME_57AAE90E02B6_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_57B6BFD4012E_view
 
+  MEVIEW ME_57DA78D6035A_view
+   MELINK Original WL 'ME_57DA78D6035A' '57AAE90E02B6.ms.model.script' ; // TmsmParentedViewControllerWithOwnership
+   MEPROP X 840
+   MEPROP Y 180
+  ENDMEVIEW // ME_57DA78D6035A_view
+
+  MEVIEW ME_57DAAADC01B7_view
+   MELINK Original WL 'ME_57DAAADC01B7' '57AAE90E02B6.ms.model.script' ; // msmConcreteModelAndConcreteViewController
+   MEPROP X 1000
+   MEPROP Y 180
+  ENDMEVIEW // ME_57DAAADC01B7_view
+
   MEVIEWLINK ME_57AB0A810292_ME_57B1F28B030D_Inherits
    MELINK From ME_57AB0A810292_view ;
    MELINK To ME_57B1F28B030D_view ;
@@ -98,11 +110,11 @@ MEDIAGRAMS ME_57AAE90E02B6_diagrams
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_57AB5C9A00F3_ME_57ADB523009E_Inherits
 
-  MEVIEWLINK ME_57AB5C9A00F3_ME_57B45BA30322_uses::Dependency
+  MEVIEWLINK ME_57B45BBE009F_viewlink
    MELINK Original WL 'ME_57B45BBE009F' '57AAE90E02B6.ms.model.script' ;
    MELINK From ME_57AB5C9A00F3_view ;
    MELINK To ME_57B45BA30322_view ;
-  ENDMEVIEWLINK // ME_57AB5C9A00F3_ME_57B45BA30322_uses::Dependency
+  ENDMEVIEWLINK // ME_57B45BBE009F_viewlink
 
   MEVIEWLINK ME_57B179D70299_ME_57AAE9AD018B_Implements
    MELINK From ME_57B179D70299_view ;
@@ -146,6 +158,18 @@ MEDIAGRAMS ME_57AAE90E02B6_diagrams
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_57B6BFD4012E_ME_57AB5C9A00F3_Inherits
 
+  MEVIEWLINK ME_57DA78D6035A_ME_57ADB523009E_Inherits
+   MELINK From ME_57DA78D6035A_view ;
+   MELINK To ME_57ADB523009E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57DA78D6035A_ME_57ADB523009E_Inherits
+
+  MEVIEWLINK ME_57DAAADC01B7_ME_57AE0566006E_Inherits
+   MELINK From ME_57DAAADC01B7_view ;
+   MELINK To ME_57AE0566006E_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57DAAADC01B7_ME_57AE0566006E_Inherits
+
   MELIST Views
    Seq: ( ME_57AAE9AD018B_view // msmConcreteModelOwnViewControllerMixin
    ME_57B1F28B030D_view // TmsmController
@@ -159,10 +183,12 @@ MEDIAGRAMS ME_57AAE90E02B6_diagrams
    ME_57B45BA30322_view // msmViewControllersUtils
    ME_57B6BF1B0286_view // MmsmConcreteModelOwnViewController
    ME_57B6BFD4012E_view // MmsmOwnViewController
+   ME_57DA78D6035A_view // TmsmParentedViewControllerWithOwnership
+   ME_57DAAADC01B7_view // msmConcreteModelAndConcreteViewController
    ME_57AB0A810292_ME_57B1F28B030D_Inherits // TmsmViewController -> TmsmController
    ME_57ADB523009E_ME_57AB0A810292_Inherits // TmsmParentedViewController -> TmsmViewController
    ME_57AB5C9A00F3_ME_57ADB523009E_Inherits // msmOwnViewController -> TmsmParentedViewController
-   ME_57AB5C9A00F3_ME_57B45BA30322_uses::Dependency // msmOwnViewController -> msmViewControllersUtils
+   ME_57B45BBE009F_viewlink // msmOwnViewController -> msmViewControllersUtils
    ME_57B179D70299_ME_57AAE9AD018B_Implements // msmConcreteModelOwnViewController -> msmConcreteModelOwnViewControllerMixin
    ME_57B179D70299_ME_57AB5C9A00F3_Inherits // msmConcreteModelOwnViewController -> msmOwnViewController
    ME_57AE0566006E_ME_57AB0A810292_Inherits // msmConcreteModelViewController -> TmsmViewController
@@ -170,6 +196,8 @@ MEDIAGRAMS ME_57AAE90E02B6_diagrams
    ME_57B2B8FA0333_ME_57B2B7FF03E4_Inherits // msmModelToModelBinding -> msmConcreteModelController
    ME_57B6BF1B0286_ME_57AAE9AD018B_Inherits // MmsmConcreteModelOwnViewController -> msmConcreteModelOwnViewControllerMixin
    ME_57B6BFD4012E_ME_57AB5C9A00F3_Inherits // MmsmOwnViewController -> msmOwnViewController
+   ME_57DA78D6035A_ME_57ADB523009E_Inherits // TmsmParentedViewControllerWithOwnership -> TmsmParentedViewController
+   ME_57DAAADC01B7_ME_57AE0566006E_Inherits // msmConcreteModelAndConcreteViewController -> msmConcreteModelViewController
    )
   ; // Views
  ENDMEDIAGRAM // ME_57AAE90E02B6_main

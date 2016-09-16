@@ -20,11 +20,11 @@ MEDIAGRAMS ME_57B41F3C01C4_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57B420C602B2_view
 
-  MEVIEW ME_57B3468D0000_view
-   MELINK Original WL 'ME_57B3468D0000' '57B41F3C01C4.ms.model.script' ; // TmsmMultiPanelViewParent
+  MEVIEW ME_57DAB7CC02AF_view
+   MELINK Original WL 'ME_57DAB7CC02AF' '57B41F3C01C4.ms.model.script' ; // TmsmViewParentPrim
    MEPROP X 360
    MEPROP Y 40
-  ENDMEVIEW // ME_57B3468D0000_view
+  ENDMEVIEW // ME_57DAB7CC02AF_view
 
   MEVIEW ME_57B435880088_view
    MELINK Original WL 'ME_57B435880088' '57B41F3C01C4.ms.model.script' ; // TmsmSingleViewParent
@@ -37,6 +37,42 @@ MEDIAGRAMS ME_57B41F3C01C4_diagrams
    MEPROP X 680
    MEPROP Y 40
   ENDMEVIEW // ME_57B4802B0112_view
+
+  MEVIEW ME_57DAA6FB0365_view
+   MELINK Original WL 'ME_57DAA6FB0365' '57B41F3C01C4.ms.model.script' ; // TmsmTabCaptionController
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_57DAA6FB0365_view
+
+  MEVIEW ME_57B3468D0000_view
+   MELINK Original WL 'ME_57B3468D0000' '57B41F3C01C4.ms.model.script' ; // TmsmMultiPanelViewParent
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_57B3468D0000_view
+
+  MEVIEWLINK ME_57B435880088_ME_57DAB7CC02AF_Inherits
+   MELINK From ME_57B435880088_view ;
+   MELINK To ME_57DAB7CC02AF_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57B435880088_ME_57DAB7CC02AF_Inherits
+
+  MEVIEWLINK ME_57B4802B0112_ME_57DAB7CC02AF_Inherits
+   MELINK From ME_57B4802B0112_view ;
+   MELINK To ME_57DAB7CC02AF_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57B4802B0112_ME_57DAB7CC02AF_Inherits
+
+  MEVIEWLINK ME_57DAA7130225_viewlink
+   MELINK Original WL 'ME_57DAA7130225' '57B41F3C01C4.ms.model.script' ;
+   MELINK From ME_57B4802B0112_view ;
+   MELINK To ME_57DAA6FB0365_view ;
+  ENDMEVIEWLINK // ME_57DAA7130225_viewlink
+
+  MEVIEWLINK ME_57B3468D0000_ME_57DAB7CC02AF_Inherits
+   MELINK From ME_57B3468D0000_view ;
+   MELINK To ME_57DAB7CC02AF_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57B3468D0000_ME_57DAB7CC02AF_Inherits
 
   MEVIEWLINK ME_57B4214F03AE_viewlink
    MELINK Original WL 'ME_57B4214F03AE' '57B41F3C01C4.ms.model.script' ;
@@ -53,9 +89,15 @@ MEDIAGRAMS ME_57B41F3C01C4_diagrams
   MELIST Views
    Seq: ( ME_57B420A601C7_view // TmsmViewList
    ME_57B420C602B2_view // TmsmViewParentControlList
-   ME_57B3468D0000_view // TmsmMultiPanelViewParent
+   ME_57DAB7CC02AF_view // TmsmViewParentPrim
    ME_57B435880088_view // TmsmSingleViewParent
    ME_57B4802B0112_view // TmsmTabbedViewParent
+   ME_57DAA6FB0365_view // TmsmTabCaptionController
+   ME_57B3468D0000_view // TmsmMultiPanelViewParent
+   ME_57B435880088_ME_57DAB7CC02AF_Inherits // TmsmSingleViewParent -> TmsmViewParentPrim
+   ME_57B4802B0112_ME_57DAB7CC02AF_Inherits // TmsmTabbedViewParent -> TmsmViewParentPrim
+   ME_57DAA7130225_viewlink // TmsmTabbedViewParent -> TmsmTabCaptionController
+   ME_57B3468D0000_ME_57DAB7CC02AF_Inherits // TmsmMultiPanelViewParent -> TmsmViewParentPrim
    ME_57B4214F03AE_viewlink // TmsmMultiPanelViewParent -> TmsmViewParentControlList
    ME_57B4215E00ED_viewlink // TmsmMultiPanelViewParent -> TmsmViewList
    )

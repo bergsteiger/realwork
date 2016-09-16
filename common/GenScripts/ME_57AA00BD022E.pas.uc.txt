@@ -36,6 +36,7 @@ w:\common\components\gui\Garant\msm\msmModelElementMethodCaller.pas
  , msmModelElementMethodValueList
  , tfwMainDictionary
  , kwRuntimeWordWithCode
+ , kwForwardDeclarationHolder
 //#UC END# *57AA00BD022Eimpl_uses*
 //#UC START# *57AA00EB01D8_57AA00BD022E_impl*
  l_MethodName := TtfwCStringFactory.C('.' + aMethodName);
@@ -175,17 +176,30 @@ var
      begin
       Assert(l_D.CompiledCode Is TkwRuntimeWordWithCode);
       l_W := (l_D.CompiledCode As TkwRuntimeWordWithCode).Code[0];
-      Assert(l_W.Key <> nil);
-      with TmsmWordsByName.Instance do
+      if (l_W.Key = nil) then
       begin
-       Lock;
-       try
-        if not Has(l_MethodName) then
-         Add(l_MethodName, l_W);
-       finally
-        Unlock;
-       end;//try..finally
-      end;//TmsmWordsByName.Instance
+       if (l_W Is TkwForwardDeclarationHolder) then
+       begin
+        l_W := TkwForwardDeclarationHolder(l_W).Holded;
+        Assert(l_W.Key <> nil);
+       end//l_W Is TkwForwardDeclarationHolder 
+       else
+        Assert(false); 
+      end;//l_W.Key = nil
+      if (l_W.Key <> nil) then
+      begin
+       Assert(l_W.Key <> nil);
+       with TmsmWordsByName.Instance do
+       begin
+        Lock;
+        try
+         if not Has(l_MethodName) then
+          Add(l_MethodName, l_W);
+        finally
+         Unlock;
+        end;//try..finally
+       end;//TmsmWordsByName.Instance
+      end;//l_W.Key <> nil
      end;//l_D.CompiledCode <> nil
     end;//l_D <> nil
    end;//TtfwMainDictionaryCache.Exists
