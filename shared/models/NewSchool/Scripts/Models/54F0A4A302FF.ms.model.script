@@ -445,6 +445,53 @@ ME ME_57C9E8AC03C6
 
 ENDME // ME_57C9E8AC03C6 GetIsView
 
+FORWARD ME_57E2B4C50080
+
+FORWARD ME_57E2B4CC0317
+
+ME ME_57E2B4D402EF
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55C0A4F9013F' '4DAF19F600C5.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57E2B4D402EF anItem
+
+ME ME_57E2B4CC0317
+ MEPROP UID '57E2B4CC0317'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E2B4C50080 // DoAdd
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E2B4D402EF // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_57E2B4CC0317 DoIt
+
+ME ME_57E2B4C50080
+ MEPROP UID '57E2B4C50080'
+ MEPROP Name 'DoAdd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C81527030E // TtfwIteratableParentPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E2B4CC0317 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E2B4C50080 DoAdd
+
 ME ME_57C8157B02C3
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -467,6 +514,16 @@ ME ME_57C821DD019A
 
 ENDME // ME_57C821DD019A 
 
+ME ME_57E2B5350153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C81527030E // TtfwIteratableParentPrim
+ ;
+ MELINK Target WL 'ME_57C8114A01D2' '4DAF19F600C5.ms.model.script' // EtfwConstantArray
+ ;
+
+ENDME // ME_57E2B5350153 
+
 ME ME_57C81527030E
  MEPROP UID '57C81527030E'
  MEPROP Name 'TtfwIteratableParentPrim'
@@ -486,11 +543,13 @@ ME ME_57C81527030E
  HWL ME_57C8146602DB // GetItem
  HWL ME_57C821A402BB // GetSafeView
  HWL ME_57C9E8AC03C6 // GetIsView
+ HWL ME_57E2B4C50080 // DoAdd
  )
  ; // Operations
  MELIST Dependencies
    Seq: ( ME_57C8157B02C3 // EtfwNotImplemented
  ME_57C821DD019A // TtfwSafeArrayView
+ ME_57E2B5350153 // EtfwConstantArray
  )
  ; // Dependencies
  UP extprop:pas:UnitName 'tfwIteratableParentPrim'
@@ -1301,6 +1360,12 @@ ME ME_57C9E8AC03C6_ME_57C820E80374
  MEPROP OpKind opkind_Overridden
 ENDME // ME_57C9E8AC03C6_ME_57C820E80374 GetIsView
 
+ME ME_57E2B4C50080_ME_57C820E80374
+ MELINK Original HWL ME_57E2B4C50080 // DoAdd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57E2B4C50080_ME_57C820E80374 DoAdd
+
 ME ME_57C820E80374
  MEPROP UID '57C820E80374'
  MEPROP Name 'TtfwSafeArrayView'
@@ -1326,6 +1391,7 @@ ME ME_57C820E80374
  ME_57C8146602DB_ME_57C820E80374 // GetItem
  ME_57C821A402BB_ME_57C820E80374 // GetSafeView
  ME_57C9E8AC03C6_ME_57C820E80374 // GetIsView
+ ME_57E2B4C50080_ME_57C820E80374 // DoAdd
  )
  ; // Overridden
  MELIST Children

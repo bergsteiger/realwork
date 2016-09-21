@@ -533,3 +533,17 @@ var
 //#UC END# *57C9E8AC03C6_57C820E80374_impl*
 //#UC START# *57C9E8AC03C6_57C820E80374_var*
 //#UC END# *57C9E8AC03C6_57C820E80374_var*
+//#UC START# *57E2B4C50080_57C820E80374_impl*
+ Assert(f_Other <> nil);
+ try
+  Result := f_Other.Add(anItem);
+ except
+  on EtfwConstantArray do
+  begin
+   TransformArray;
+   Result := f_Other.Add(anItem);
+  end;//on EtfwConstantArray
+ end;//try..except 
+//#UC END# *57E2B4C50080_57C820E80374_impl*
+//#UC START# *57E2B4C50080_57C820E80374_var*
+//#UC END# *57E2B4C50080_57C820E80374_var*
