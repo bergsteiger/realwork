@@ -4669,6 +4669,7 @@ ME ME_53B3E8B500B4
  MEPROP Class class_Class
  MELINK Stereotype st_Enum ;
  MEPROP Kind kind_NormalClass
+ %SUMMARY 'Флаг предыдущей таблицы: нет, обычная, "стильная".' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4D88BFEA013A // TevCommentDecorator
@@ -4687,6 +4688,7 @@ ME ME_53B27E900130
  MEPROP UID '53B27E900130'
  MEPROP Name 'f_WhatOpen'
  MEPROP Class class_Attribute
+ %SUMMARY 'Флаг, показывающий какая часть таблицы открыта (записана в генератор)' ;
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
@@ -4713,8 +4715,9 @@ ENDME // ME_53B27F040399 f_InTable
 
 ME ME_53B27F1801BF
  MEPROP UID '53B27F1801BF'
- MEPROP Name 'f_AACSample'
+ MEPROP Name 'f_AACStyle'
  MEPROP Class class_Attribute
+ %SUMMARY 'Текущий используемый стиль. Стиль выставляется блоком/текстовым параграфом и сохраняется до следующего блока/текстового параграфа.' ;
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
@@ -4723,12 +4726,13 @@ ME ME_53B27F1801BF
  MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
  ;
 
-ENDME // ME_53B27F1801BF f_AACSample
+ENDME // ME_53B27F1801BF f_AACStyle
 
 ME ME_53B27F2300DB
  MEPROP UID '53B27F2300DB'
  MEPROP Name 'f_InAACBlock'
  MEPROP Class class_Attribute
+ %SUMMARY 'Вложаенность стильных блоков. Вложенные "нестильные" блоки не считаются.' ;
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
@@ -4755,8 +4759,9 @@ ENDME // ME_53B3E8F201BA f_WhatClosed
 
 ME ME_56EAD8D60059
  MEPROP UID '56EAD8D60059'
- MEPROP Name 'f_CellCount'
+ MEPROP Name 'f_CurrBlockStyle'
  MEPROP Class class_Attribute
+ %SUMMARY 'Текущий стиль блока.' ;
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
@@ -4765,7 +4770,7 @@ ME ME_56EAD8D60059
  MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
  ;
 
-ENDME // ME_56EAD8D60059 f_CellCount
+ENDME // ME_56EAD8D60059 f_CurrBlockStyle
 
 FORWARD ME_53B27F3E0397
 
@@ -5245,7 +5250,7 @@ ME ME_4D88BFEA013A
  MEPROP Class class_Class
  MELINK Stereotype st_SimpleClass ;
  MEPROP Kind kind_NormalClass
- %SUMMARY 'Поддержка экспорта стилей для ААК.' ;
+ %SUMMARY 'Поддержка экспорта стилей для ААК. Фактически оборачивает содержимое блока/текствого параграфа в таблицу с отступами в виде строк или ячеек, убирая сам блок. Приваивает стиль блока/текстового параграфа таблице. Ридер должен знать о таком преобразовании и иметь записывать таблицу. Выполняет объединение двух блоков с одинаковыми стилями как при отрисовке/печати. Для HTML-экспорта не совсем правлиьное решение, лучше бы использовать div.' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_47ECACA70141 // Generators
@@ -5257,10 +5262,10 @@ ME ME_4D88BFEA013A
  MELIST Attributes
    Seq: ( HWL ME_53B27E900130 // f_WhatOpen
  HWL ME_53B27F040399 // f_InTable
- HWL ME_53B27F1801BF // f_AACSample
+ HWL ME_53B27F1801BF // f_AACStyle
  HWL ME_53B27F2300DB // f_InAACBlock
  HWL ME_53B3E8F201BA // f_WhatClosed
- HWL ME_56EAD8D60059 // f_CellCount
+ HWL ME_56EAD8D60059 // f_CurrBlockStyle
  )
  ; // Attributes
  MELIST Operations

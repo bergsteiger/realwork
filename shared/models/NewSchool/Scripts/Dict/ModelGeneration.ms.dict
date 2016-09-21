@@ -1,0 +1,587 @@
+UNIT ModelGeneration.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ core.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ Chars.ms.dict
+;
+
+USES
+ DictName.ms.dict
+;
+
+USES
+ IsAutoElement.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+USES
+ LUID.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ Out.ms.dict
+;
+
+USES
+ Predicates.ms.dict
+;
+
+USES
+ g_ForwardedTypes.ms.dict
+;
+
+USES
+ CountIt.ms.dict
+;
+
+USES
+ FirstElement.ms.dict
+;
+
+USES
+ SaveVarAndDo.ms.dict
+;
+
+USES
+ InheritsAndImplementsNew.ms.dict
+;
+
+USES
+ MakeElements.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+STRING elem_func KindString
+ RULES
+  ( Self .Kind kind_NormalClass == )
+   'NormalClass'
+  ( Self .Kind kind_ParameterizedClass == )
+   'ParameterizedClass'
+  DEFAULT
+   ( Self .Kind ToPrintable )
+ ; // RULES
+ >>> Result
+; // KindString
+
+STRING elem_func VisibilityString
+ RULES
+  ( Self .Visibility PublicAccess == )
+   'PublicAccess'
+  ( Self .Visibility PrivateAccess == )
+   'PrivateAccess'
+  ( Self .Visibility ProtectedAccess == )
+   'ProtectedAccess'
+  DEFAULT
+   ( Self .Visibility ToPrintable ) 
+ ;
+ >>> Result
+; // VisibilityString
+ 
+STRING elem_func AbstractionString
+ RULES
+  ( Self .Abstraction at_final == )
+   'final'
+  ( Self .Abstraction at_regular == )
+   'regular'
+  ( Self .Abstraction at_abstract == )
+   'abstract'
+  ( Self .Abstraction at_optional == )
+   'optional'
+  DEFAULT
+   ( Self .Abstraction ToPrintable )
+ ;
+ >>> Result
+; // AbstractionString
+
+STRING elem_func LinkTypeString
+ RULES
+  ( Self .LinkType lt_lnk == )
+   'lnk'
+  ( Self .LinkType lt_ref == )
+   'ref'
+  ( Self .LinkType lt_agr == )
+   'agr'
+  DEFAULT
+   ( Self .LinkType ToPrintable )
+ ;
+ >>> Result
+; // LinkTypeString
+
+STRING elem_func OpKindString
+ RULES
+  ( Self .OpKind opkind_Normal == )
+   'Normal'
+  ( Self .OpKind opkind_Implemented == )
+   'Implemented'
+  ( Self .OpKind opkind_Overridden == )
+   'Overridden'
+  ( Self .OpKind opkind_DecoratedType == )
+   'DecoratedType'
+  DEFAULT
+   ( Self .OpKind ToPrintable )
+ ;
+ >>> Result
+; // OpKindString
+
+STRING FUNCTION .FineString
+  STRING IN Self
+ Self
+ cQuote '''''' string:Replace
+ #13#10 '''#13#10''' string:Replace
+ #13 '''#13''' string:Replace
+ #10 '''#10''' string:Replace
+ >>> Result
+; // .FineString
+
+STRING elem_func ScriptWordLink
+ [
+  'WL '
+  cQuote Self .WordName cQuote ' '
+  cQuote Self .DictName cModelScript cQuote
+ ] strings:Cat
+ >>> Result
+; // ScriptWordLink
+
+USES
+ GenerationFramework.ms.dict
+;
+
+elem_generator model.script
+
+ CONST Ext '.model.script'
+
+ BOOLEAN elem_func NeedOwnFilePrim
+  RULES
+   ( Self .IsAutoElement )
+   // - это "автоматически выдуманый элемент"
+    false
+   ( Self .IsSubRoot )
+    true
+   DEFAULT
+    false
+  ; // RULES
+  >>> Result
+ ; // NeedOwnFilePrim
+
+ BOOLEAN elem_func CanCopyToFinalFile
+  true >>> Result
+ ; // CanCopyToFinalFile
+
+ BOOLEAN elem_func CanDeleteFinalFile
+  RULES
+   ( Self .MDAClass class_Category == )
+    true
+   ( Self .IsSimpleClass )
+    true
+   DEFAULT
+    false 
+  ; // RULES
+  >>> Result
+ ; // CanDeleteFinalFile
+
+ BOOLEAN elem_func UseNewGenExcluded
+  false >>> Result
+ ; // UseNewGenExcluded
+ 
+ STRING elem_func FinalFileNamePrim
+  [
+   '\shared\models\NewSchool\Scripts\Models\'
+   if ( Self .LUID .IsNil ) then
+    ( Self .Name )
+   else
+    ( Self .LUID )
+   cModelScript
+  ] strings:Cat >>> Result
+ ; // FinalFileNamePrim
+
+ [
+  '// '
+  Self .NameInModel ' '
+  Self .LUID ' '
+  Self .Stereotype .Name ' '
+  Self .MDAClassString
+ ] .Out
+ OutLn
+ [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
+ OutLn
+
+ VAR l_DictName
+ Self .DictName >>> l_DictName
+
+ STRING elem_func pas_script_ReferencePrim
+   STRING IN aComment
+  [
+   RULES
+    ( Self .IsNil )
+     ''
+    DEFAULT
+     begin
+      RULES
+       ( l_DictName Self .DictName != )
+        ( Self .ScriptWordLink )
+       ( Self .MDAClass class_Parameter == )
+        ( Self .WordName )
+       ( Self .MDAClass class_Dependency == )
+        ( Self .WordName )
+       ( Self .Original .NotIsNil )
+        ( Self .WordName )
+       DEFAULT
+        ( [ 'HWL ' Self .WordName ] strings:Cat )
+      ; // RULES
+      ' // '
+      RULES
+       ( aComment .NotIsNil )
+        aComment
+       ( Self .MDAClass class_Dependency == )
+        (
+         if ( Self .NameInModel .NotIsNil ) then
+         begin
+          Self .NameInModel
+          ':'
+         end // ( Self .NameInModel .NotIsNil )
+         Self .Target .NameInModel
+        )
+       DEFAULT
+        ( Self .NameInModel )
+      ; // RULES
+      \n
+     end // DEFAULT
+   ; // RULES
+  ] strings:Cat
+  >>> Result
+ ; // pas_script_ReferencePrim
+
+ STRING elem_func pas_script_Reference
+  Self '' .pas_script_ReferencePrim
+  >>> Result
+ ; // pas_script_Reference
+
+ STRING FUNCTION .ValueToString
+   IN Self
+  RULES
+   ( Self IsString )
+    ( [ cQuote Self .FineString cQuote ] strings:Cat )
+   ( Self IsObj )
+    ( Self .pas_script_Reference )
+   DEFAULT
+    ( Self ToPrintable )
+  ; // RULES
+  >>> Result
+ ; // .ValueToString
+
+ elem_proc pas_script_GenerateDescription
+ 
+  elem_proc OutForward
+   RULES
+    ( Self .IsValueValid ! )
+     ()
+    ( Self .IsNil )
+     ()
+    ( l_DictName Self .DictName != )
+     ()
+    DEFAULT
+    begin
+     if ( Self .AddToArray?: g_ForwardedTypes ) then
+      ( [ 'FORWARD ' Self .WordName \n ] .Out )
+    end  
+   ; // RULES
+  ; // OutForward
+
+  Self .Forwarded .for> .OutForward
+  Self .Injected .for> .OutForward
+  Self .Inherits .for> .OutForward
+  Self .Implements .for> .OutForward
+  Self .Implementors .for> .OutForward
+  Self .Zones .for> .OutForward
+  Self .CanRaise .for> .OutForward
+  Self .CanRaiseInSet .for> .OutForward
+  Self .Target .OutForward
+  Self .ValueType .OutForward
+  Self .Original .OutForward
+  Self .SpelledFor .OutForward
+  Self .Speller .OutForward
+  Self .GetUP 'extprop:CASTER' .OutForward
+
+  Self .Children
+  .filter> .Not: .NeedOwnFile
+  .for> ( Self .OutForward call.me )
+
+  Self .Constants
+  .filter> .Not: .NeedOwnFile
+  .for> ( Self .OutForward call.me )
+  
+  Self .Attributes
+  .filter> .Not: .NeedOwnFile
+  .for> ( Self .OutForward call.me )
+
+  Self .Operations
+  .filter> .Not: .NeedOwnFile
+  .for> ( Self .OutForward call.me )
+
+  Self .Parameters
+  .filter> .Not: .NeedOwnFile
+  .for> ( Self .OutForward call.me )
+
+  Self .Dependencies
+  .filter> .Not: .NeedOwnFile
+  .for> ( Self .OutForward call.me )
+
+  elem_proc OutUPs
+   Self .UpList .NotEmpty ?
+   (
+    Self .UpList
+    .filter> ( .WordName 'IsSummoned' != )
+    .for> (
+      IN aUP
+     [
+      VAR l_Value
+      [ aUP DO ]
+      .FirstElement >>> l_Value
+      RULES
+       ( l_Value .IsValueValid ! )
+        ()
+       ( l_Value .IsAutoElement )
+        ()
+       ( l_Value IsObj )
+        ( 'UPLINK ' aUP .WordName ' ' l_Value .ValueToString ' ;' )
+       DEFAULT
+        ( 'UP ' aUP .WordName ' ' l_Value .ValueToString )
+      ; // RULES
+     ] .Out
+    ) // Self .UpList .for>
+   )
+  ; // OutUPs
+
+  elem_proc OutImplemented
+   Self .Original .OutForward
+   [ 'ME ' Self .WordName ] .Out
+   Indented: (
+    Self .Original .NotIsNil ?
+     ( [ 'MELINK Original ' Self .Original .pas_script_Reference ' ;' ] .Out )
+    Self .OpKind opkind_Normal != ?
+     ( [ 'MEPROP OpKind opkind_' Self .OpKindString ] .Out )
+    Self .IsAutoElement ?
+     ( [ 'UP IsAuto ' 'true' ] .Out )
+    Self .OutUPs 
+   ) // Indented:
+   [ 'ENDME ' '// ' Self .WordName ' ' Self .NameInModel ] .Out
+   OutLn
+  ; // OutImplemented
+
+  Self .Implemented
+  .filter> .Not: .NeedOwnFile
+  .for> .OutImplemented
+
+  Self .Overridden
+  .filter> .Not: .NeedOwnFile
+  .for> .OutImplemented
+
+  Self .AddToArray?: g_ForwardedTypes DROP
+  
+  [ 'ME ' Self .WordName ] .Out
+  Indented: (
+   Self .UID .NotIsNil ?
+    ( [ 'MEPROP UID ' cQuote Self .UID cQuote ] .Out )
+   Self .GUID .NotIsNil ?
+    ( [ 'MEPROP GUID ' cQuote Self .GUID cQuote ] .Out )
+   Self .Name .NotIsNil ?
+    ( [ 'MEPROP Name ' cQuote Self .Name .FineString cQuote ] .Out )
+   Self .OriginalName .NotIsNil ?
+    ( [ 'MEPROP OriginalName ' cQuote Self .OriginalName .FineString cQuote ] .Out )
+   Self .IsSummoned ?
+    ( [ 'UP IsSummoned ' 'true' ] .Out )
+   Self .IsAutoElement ?
+    ( [ 'UP IsAuto ' 'true' ] .Out )
+   Self .IsSubRoot ?
+    ( [ 'MEPROP IsSubRoot ' 'true' ] .Out )
+   Self .MDAClass class_Unknown != ?
+    ( [ 'MEPROP Class class_' Self .MDAClassString ] .Out )
+   Self .Stereotype .NotIsNil ?
+    ( [ 'MELINK Stereotype st_' Self .Stereotype .Name ' ;' ] .Out )
+   Self .Kind kind_Unknown != ?
+    ( [ 'MEPROP Kind kind_' Self .KindString ] .Out )
+   Self .Documentation .NotIsNil ?
+    ( [ '%SUMMARY ' cQuote Self .Documentation .FineString cQuote ' ;' ] .Out )
+   Self .Visibility UnknownAccess != ?
+    ( [ 'MEPROP Visibility ' Self .VisibilityString ] .Out )
+   ( Self .MDAClass class_Parameter != ) AND
+   ( Self .MDAClass class_Dependency != ) ?
+    ( [ 'MEPROP Abstraction at_' Self .AbstractionString ] .Out )
+   Self .LinkType lt_unknown != ?
+    ( [ 'MEPROP LinkType lt_' Self .LinkTypeString ] .Out )
+   Self .OpKind opkind_Normal != ?
+    ( [ 'MEPROP OpKind opkind_' Self .OpKindString ] .Out )
+   Self .Parent .NotIsNil ?
+    ( [ 'MELINK Parent ' Self .Parent .pas_script_Reference ' ;' ] .Out )
+   Self .Target .NotIsNil ?
+    ( [ 'MELINK Target ' Self .Target .pas_script_Reference ' ;' ] .Out )
+   Self .TargetStereotype .NotIsNil ?
+    ( [ 'MEPROP TargetStereotype ' cQuote Self .TargetStereotype cQuote ] .Out )
+   Self .GetUP 'Value' .IsValueValid ?
+    ( [ 'MEPROP Value ' Self .GetUP 'Value' .ValueToString ] .Out )
+   Self .ValueType .NotIsNil ?
+    ( [ 'MELINK ValueType ' Self .ValueType .pas_script_Reference ' ;' ] .Out )
+
+   Self .Inherits .NotEmpty ?
+   (
+    [ 'MELIST Inherits' ] .Out
+    [ '  Seq: ( ' Self .Inherits .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Inherits' ] .Out
+   )
+
+   Self .Implements .NotEmpty ?
+   (
+    [ 'MELIST Implements' ] .Out
+    [ '  Seq: ( ' Self .Implements .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Implements' ] .Out
+   )
+
+   Self .CanRaise .NotEmpty ?
+   (
+    [ 'MELIST CanRaise' ] .Out
+    [ '  Seq: ( ' Self .CanRaise .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // CanRaise' ] .Out
+   )
+
+   Self .CanRaiseInSet .NotEmpty ?
+   (
+    [ 'MELIST CanRaiseInSet' ] .Out
+    [ '  Seq: ( ' Self .CanRaiseInSet .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // CanRaiseInSet' ] .Out
+   )
+
+   Self .Attributes .NotEmpty ?
+   (
+    [ 'MELIST Attributes' ] .Out
+    [ '  Seq: ( ' Self .Attributes .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Attributes' ] .Out
+   )
+
+   Self .Operations .NotEmpty ?
+   (
+    [ 'MELIST Operations' ] .Out
+    [ '  Seq: ( ' Self .Operations .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Operations' ] .Out
+   )
+
+   Self .Implemented .NotEmpty ?
+   (
+    [ 'MELIST Implemented' ] .Out
+    [ '  Seq: ( ' Self .Implemented .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Implemented' ] .Out
+   )
+
+   Self .Overridden .NotEmpty ?
+   (
+    [ 'MELIST Overridden' ] .Out
+    [ '  Seq: ( ' Self .Overridden .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Overridden' ] .Out
+   )
+
+   Self .Children .NotEmpty ?
+   (
+    [ 'MELIST Children' ] .Out
+    [ '  Seq: ( ' Self .Children .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Children' ] .Out
+   )
+   
+   Self .Constants .NotEmpty ?
+   (
+    [ 'MELIST Constants' ] .Out
+    [ '  Seq: ( ' Self .Constants .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Constants' ] .Out
+   )
+   
+   Self .Parameters .NotEmpty ?
+   (
+    [ 'MELIST Parameters' ] .Out
+    [ '  Seq: ( ' Self .Parameters .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Parameters' ] .Out
+   )
+
+   Self .Dependencies .NotEmpty ?
+   (
+    [ 'MELIST Dependencies' ] .Out
+    [ '  Seq: ( ' Self .Dependencies .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Dependencies' ] .Out
+   )
+   
+   Self .Injected .NotEmpty ?
+   (
+    [ 'MELIST Injected' ] .Out
+    [ '  Seq: ( ' Self .Injected .for> ( DUP .Parent .NameInModel .pas_script_ReferencePrim ' ' ) ')' ] .Out
+    [ '; // Injected' ] .Out
+   )
+   
+   Self .Zones .NotEmpty ?
+   (
+    [ 'MELIST Zones' ] .Out
+    [ '  Seq: ( ' Self .Zones .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Zones' ] .Out
+   )
+   
+   Self .Implementors .NotEmpty ?
+   (
+    [ 'MELIST Implementors' ] .Out
+    [ '  Seq: ( ' Self .Implementors .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Implementors' ] .Out
+   )
+   
+   Self .Depends .NotEmpty ?
+   (
+    [ 'MELIST Depends' ] .Out
+    [ '  Seq: ( ' Self .Depends .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Depends' ] .Out
+   )
+   
+   Self .Forwarded .NotEmpty ?
+   (
+    [ 'MELIST Forwarded' ] .Out
+    [ '  Seq: ( ' Self .Forwarded .for> ( .pas_script_Reference ' ' ) ')' ] .Out
+    [ '; // Forwarded' ] .Out
+   )
+
+   Self .OutUPs
+   
+  ) // Indented:
+  OutLn
+  [ 'ENDME ' '// ' Self .WordName ' ' Self .NameInModel ] .Out
+  OutLn
+ ; // pas_script_GenerateDescription
+
+ TF g_ForwardedTypes (
+  [] >>> g_ForwardedTypes
+  Self .pas_script_GenerateDescription
+ ) // TF g_ForwardedTypes
+
+; // model.script
+

@@ -20,7 +20,6 @@ USES
  axiom:Wait
  axiom:Waited
  axiom:IniRec
-// axiom:Filter
  axiom:wnd
  
  ArchiSystem.script
@@ -29,6 +28,11 @@ USES
  DocumentConst.script
  ArchiControls.script
 ;  
+
+PROCEDURE "Начать установку гиперссылки"
+    "Убедиться, что операция Drag&Drop не выполняется"
+	'F11' key
+;
 
 PROCEDURE "Установить Zoom" INTEGER IN aZoom  
  "Установить фокус в контрол с именем" carZoomSpinEdit
@@ -1213,12 +1217,6 @@ STRING FUNCTION "Путь к копии Архивариуса" STRING IN aSourceDir
 	STRING VAR l_SubDir
 	script:FileName '' sysutils:ChangeFileExt sysutils:ExtractFileName >>> l_SubDir 
 	[ aSourceDir l_SubDir ] strings:Cat >>> Result	
-;
-
-PROCEDURE "Распаковка тестовой базы"
-	"Закрыть все окна"
-	"Обработать сообщения" 
-	csArchiveWithBaseName csTestDataBasePathNew ClearDataBase // csArchiveWithBaseName - имя БД 'testbase.zip'
 ;
 
 PROCEDURE "Очистка после теста"

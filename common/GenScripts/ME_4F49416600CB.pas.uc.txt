@@ -57,19 +57,20 @@ var
   for l_Index := 0 to Pred(aDictionary.Count) do
   begin
    l_W := TtfwKeyWord(aDictionary.Items[l_Index]).Word;
-   if l_W.IsVarLike AND not l_W.IsGlobalVar then
-   begin
-    if (l_SV = nil) then
-     l_SV := TtfwStoredValues.Make;
-    l_SVE := l_SV.Grow;
-    l_SVE.rWord := l_W;
-    l_SVE.rValue := l_W.GetValue(aCtx);
-    if (l_SVE.rValue.rType = tfw_vtList) then
-     l_W.SetValuePrim(TtfwStackValue_E, aCtx);
-     //l_W.InitValue(aCtx);
-     //l_W.SetValue(TtfwStackValue_C(TtfwArray.Make), aCtx);
-     // - чтобы последующий вызов не испортил наш массив
-   end;//l_W.IsVarLike
+   if (l_W <> nil) then
+    if l_W.IsVarLike AND not l_W.IsGlobalVar then
+    begin
+     if (l_SV = nil) then
+      l_SV := TtfwStoredValues.Make;
+     l_SVE := l_SV.Grow;
+     l_SVE.rWord := l_W;
+     l_SVE.rValue := l_W.GetValue(aCtx);
+     if (l_SVE.rValue.rType = tfw_vtList) then
+      l_W.SetValuePrim(TtfwStackValue_E, aCtx);
+      //l_W.InitValue(aCtx);
+      //l_W.SetValue(TtfwStackValue_C(TtfwArray.Make), aCtx);
+      // - чтобы последующий вызов не испортил наш массив
+    end;//l_W.IsVarLike
   end;//for l_Index
  end;//aDictionary <> nil
  Self.Add(l_SV);

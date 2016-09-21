@@ -458,6 +458,26 @@ ME ME_57AB0F1703C1
 
 ENDME // ME_57AB0F1703C1 DoGetStrItem
 
+ME ME_57E2C32402F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57B6C958008A // msmListViewController
+ ;
+ MELINK Target WL 'ME_57E2C2970206' '57C99A680247.ms.model.script' // ListContentChangedEvent
+ ;
+
+ENDME // ME_57E2C32402F7 
+
+ME ME_57E2C3460133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57B6C958008A // msmListViewController
+ ;
+ MELINK Target WL 'ME_57ADBA39026E' '57C99A680247.ms.model.script' // ListChangedEvent
+ ;
+
+ENDME // ME_57E2C3460133 
+
 ME ME_57ADFB33027D_ME_57B6C958008A
  MELINK Original WL 'ME_57ADFB33027D' '57AAE90E02B6.ms.model.script' // InitOwnView
  ;
@@ -494,6 +514,11 @@ ME ME_57B6C958008A
  ME_57B6A49900F4_ME_57B6C958008A // LinkDataToView
  )
  ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57E2C32402F7 // ListContentChangedEvent
+ ME_57E2C3460133 // ListChangedEvent
+ )
+ ; // Dependencies
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmListViewController.imp.pas'
  UP extprop:pas:TypeName '_msmListViewController_'
  UP extprop:pas:UnitName 'msmListViewController.imp'

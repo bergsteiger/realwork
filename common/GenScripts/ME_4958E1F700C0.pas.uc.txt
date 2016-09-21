@@ -6,6 +6,7 @@
 //#UC END# *479731C50290_4958E1F700C0_var*
 //#UC START# *47EA4E9002C6_4958E1F700C0_impl*
  inherited;
+ UpdateButtonsVisibility;
  UpdateSearchLabels;
  UpdateReferencesAndLawNewsCaptions;
  UpdateTaxesTreeCaption;
@@ -830,3 +831,12 @@ const
 //#UC END# *55CDC6110290_4958E1F700C0_impl*
 //#UC START# *55CDC6110290_4958E1F700C0_var*
 //#UC END# *55CDC6110290_4958E1F700C0_var*
+//#UC START# *57DFCC5F02E4_4958E1F700C0_impl*
+ pbIntranet.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
+                    and Assigned(defDataAdapter)
+                    and ((DefDataAdapter.RevisionCheckEnabled and
+                         (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+                      or DefDataAdapter.CommonInterfaces.IsEarlyInstalled);
+//#UC END# *57DFCC5F02E4_4958E1F700C0_impl*
+//#UC START# *57DFCC5F02E4_4958E1F700C0_var*
+//#UC END# *57DFCC5F02E4_4958E1F700C0_var*

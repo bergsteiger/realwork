@@ -32,8 +32,6 @@ USES
  SaveVarAndDo.ms.dict
 ;
 
-CONST cPathSep '\'
-
 USES
  Chars.ms.dict
 ;
@@ -57,12 +55,6 @@ USES
 USES
  axiom:WordBox
 ;
-
-BOOLEAN elem_func Not:
-  ^ IN aLambda
- Self aLambda DO !
- >>> Result
-; // Not:
 
 TtfwKeyWord FUNCTION AddMethodWithParams
   TtfwWord IN Self
@@ -100,53 +92,8 @@ PROCEDURE .AddMethodWithParams:
  Self aCode aName DO aParams AddMethodWithParams DROP
 ; // .AddMethodWithParams:
 
-TtfwWord FUNCTION .FindMemberRecur
-  STRING IN aName
-  TtfwWord IN aGen
-
- TtfwKeyWord VAR l_Member
- aName aGen pop:Word:FindMember >>> l_Member
-
- if ( l_Member .IsNil ) then
-  ( nil >>> Result )
- else
-  ( l_Member pop:KeyWord:Word >>> Result )
-
- if ( Result .IsNil ) then
-  ( 
-   aGen .Inherited.Words
-   .filterNil>
-   .for> (
-    IN anItem 
-    VAR l_Found 
-    aName anItem call.me >>> l_Found
-    ( Result .IsNil ) 
-    OR ( l_Found .IsNil ) 
-    OR ( Result = l_Found ) 
-     ?ASSURE [ 'Multiply inheritance. Word: ' aName ' generator ' aGen .WordName ' parent generator ' anItem .WordName ]
-    l_Found >>> Result
-   ) 
-  )
-
-; // .FindMemberRecur
-
 ARRAY CompileTime-VAR g_GeneratedFiles []
 %REMARK 'Ранее сгенерированные файлы'
-
-TtfwWord CompileTime-VAR g_CurrentGenerator nil
-%REMARK 'Текущий генератор'
-
-TtfwWord CompileTime-VAR g_PasGenerator nil
-
-: WithGen:
-  ^ IN aGen
-  ^ IN aLambda
- TF g_CurrentGenerator (
-  aGen |^@Deepest >>> g_CurrentGenerator
-  //aGen >>> g_CurrentGenerator
-  aLambda DO
- ) // TF g_CurrentGenerator
-; // WithGen:
 
 WordAlias .All .True
 %REMARK 'Функтор определяющий, что все значения подходят.'
@@ -154,21 +101,9 @@ WordAlias .All .True
 WordAlias GenCached: CacheMethod
 %REMARK 'Кеширует значение учитывая текущий генератор. Пока определено как Cached:'
 
-: .?
-  ^ IN aWord
-
- VAR l_Word
- nil >>> l_Word
-
- g_CurrentGenerator .NotIsNil ?ASSURE 'Нет текущего генератора'
- if ( g_CurrentGenerator .NotIsNil ) then
-  ( aWord |N g_CurrentGenerator .FindMemberRecur >>> l_Word )
-
- if ( l_Word .IsNil ) then
-  ( aWord DO )
- else
-  ( l_Word DO )
-; // .?
+USES
+ GenerationFramework.ms.dict
+;
 
 STRING FUNCTION Ext
  '.dump' >>> Result
@@ -217,8 +152,6 @@ FILE FUNCTION MakePathAndOpenWrite
  aFileName sysutils:ExtractFilePath ForceDirectories
  aFileName TryOpen: File:OpenWrite >>> Result
 ; // MakePathAndOpenWrite
-
-CONST cRoot 'w:'
 
 PROCEDURE BackupFile
   STRING IN aFileName
@@ -277,26 +210,9 @@ USES
  CountIt.ms.dict
 ;
 
-BOOLEAN FUNCTION .IsAutoElement
-  ANY IN Self
- RULES
-  ( Self IsIntf )
-   true
-  (
-   ( Self IsObj )
-   AND ( Self .IsAuto )
-  )
-   true
-  DEFAULT
-   false 
- ; // RULES
- >>> Result
-; // .IsAutoElement
-
-STRING elem_func LUID
- Self .UID
- >>> Result
-; // LUID
+USES
+ LUID.ms.dict
+;
 
 BOOLEAN elem_func IsSameModelElement
   ModelElement IN anOther
@@ -573,18 +489,6 @@ STRING FUNCTION .CutFinished
  >>> Result
 ; // .CutFinished
 
-STRING FUNCTION .CheckDrive
-  STRING IN Self
- Self >>> Result
- if ( cRoot Result StartsStr ! ) then
- begin
-  Result '\' .CutPrefix >>> Result
-  [ cRoot
-  // - это потому, что в пути нету диска, а для ExtractFileName он нужен
-  Result ] cPathSep strings:CatSep >>> Result
- end // ( cRoot Result StartsStr ! )
-; // .CheckDrive
-
 STRING elem_func CustomFinalFileName
   BOOLEAN IN aForCopy
  Self .? .FinalFileNamePrim >>> Result
@@ -659,31 +563,6 @@ STRING elem_func ElementUCPrefix
  g_CurrentGenerator ->^ ( [ Self DO .ElementUCPrefix aName DO ] strings:Cat )
  >>> Result
 ; // .uc->
-
-CONST cModelScript '.ms.model.script'
-
-STRING elem_func DictName
- Cached:
- (
-  RULES
-   ( Self .IsNil )
-    ''
-   DEFAULT
-    begin
-     RULES
-      ( Self IsIntf )
-       ( Self pop:WordBox:Boxed pop:Word:KeyWord )
-      DEFAULT
-       ( Self pop:Word:KeyWord )
-     ; // RULES  
-     pop:KeyWord:Dictionary pop:DictionaryEx:FileName
-     sysutils:ExtractFileName
-     cModelScript .CutSuffix
-    end // DEFAULT
-  ; // RULES
- )
- >>> Result
-; // DictName
 
 ^@ operator .extuc->
   ^@ IN Self
@@ -1419,10 +1298,6 @@ BOOLEAN elem_func NeedOwnFilePrim
  >>> Result
 ; // NeedOwnFilePrim
 
-elem_proc CurrentGenerator
- Self g_CurrentGenerator DO
-; // CurrentGenerator
-
 USES
  CallInherited.ms.dict
 ;
@@ -1465,7 +1340,7 @@ STRING FUNCTION .CutT
 
 CONST cProxy '_Proxy'
 
-//FORWARD .pas
+TtfwWord CompileTime-VAR g_PasGenerator nil
 
 STRING elem_func UnitNamePrim
  GenCached:
@@ -1561,98 +1436,8 @@ ModelElement elem_func KeywordObjectToOperate
 ; // KeywordObjectToOperate
 
 USES
- axiom:CompiledProcedure
- axiom:KeyValues
+ MakeElements.ms.dict
 ;
-
-USES
- KeyValuesCreateAndDo.ms.dict
-;
-
-: KeyValuesCreateAndDoEx:
-  ^ IN aLambda
- KeyValuesCreateAndDo: (
-   IN aMade
-  //if ( aMade .Parent .NotIsNil ) then
-  // ( aMade -> Parent := nil )
-  //aMade -> Creator := ( g_CurrentGeneratedElement .WeakRef )
-  //aMade -> IsAuto := true
-  aMade aLambda DO
- ) // KeyValuesCreateAndDo:
-; // KeyValuesCreateAndDoEx
-
-elem: DecorateMethodAndDo:
-  ^ IN aLambda
- KeyValuesCreateAndDoEx: (
-   IN aMethod
-  aMethod -> Original := ( Self .WeakRef )
-  aMethod aLambda DO
- ) // KeyValuesCreateAndDoEx:
-; // DecorateMethodAndDo:
-
-INTERFACE elem_func DecorateMethod:
-  ^ IN aLambda
- Self .DecorateMethodAndDo: (
-   IN aMethod
-  aMethod pop:Word:Box >>> Result
-  aMethod aLambda DO
- ) // Self .DecorateMethodAndDo:
-; // DecorateMethod:
-
-INTERFACE FUNCTION MakeParam:
-  STRING IN aName
-  ModelElement IN aType
-  ^ IN aLambda
- 
- KeyValuesCreateAndDoEx: (
-   IN l_Param
-  
-  l_Param pop:Word:Box >>> Result
-  
-  l_Param -> Name := aName
-  if ( aType .IsNotNil ) then
-  begin
-   l_Param -> Target := aType
-//   l_Param -> Creator := ( aType .WeakRef )
-//   l_Param -> Target := ( aType .WeakRef )
-/*{   if ( aType IsIntf ) then
-   begin
-    [ aName ' : ' aType .Name ] strings:Cat Msg
-   end // ( aType IsIntf )}*/
-  end // ( aType .IsNotNil )
-  
-  l_Param aLambda DO
- ) // KeyValuesCreateAndDoEx:
- 
-; // MakeParam:
-
-INTERFACE FUNCTION MakeParam
-  STRING IN aName
-  ModelElement IN aType
- 
- aName aType MakeParam: DROP
- >>> Result
-; // MakeParam
-
-WordAlias MakeFunction MakeParam
-WordAlias MakeFunction: MakeParam:
-
-WordAlias MakeField MakeParam
-WordAlias MakeField: MakeParam:
-
-WordAlias MakeProperty MakeParam
-WordAlias MakeProperty: MakeParam:
-
-: MakeProcedure
- nil MakeFunction
-; // MakeProcedure
-
-MACRO MakeProcedure:
- 'nil' Ctx:Parser:PushSymbol
- 'MakeFunction:' Ctx:Parser:PushSymbol
-; // MakeProcedure:
-
-WordAlias MakeView: MakeProcedure:
 
 STRING elem_func SelfName
  Self .GetUP 'extprop:rc:SelfName' >>> Result
@@ -2189,20 +1974,6 @@ elem_iterator ScriptKeywordsPackProperties
  )
  >>> Result
 ; // ScriptKeywordsPackProperties
-
-BOOLEAN elem_func IsUses
- RULES
-  ( Self .IsStereotype st_uses::Dependency )
-   true
-  ( Self .IsStereotype st_consume::Dependency )
-   true
-  ( Self .IsStereotype st_ContextMenuWeight::Dependency )
-   true
-  DEFAULT
-   false
- ; // RULES   
- >>> Result
-; // IsUses
 
 elem_iterator UsesInDependencies
  Cached:
@@ -4011,6 +3782,10 @@ ARRAY elem_func LoadList
   ) // l_Code script:CompileStringAndProcess
  end // ( l_FileName sysutils:FileExists )
 ; // LoadList
+
+USES
+ DictName.ms.dict
+;
 
 elem_iterator ImplementorsEx
  Cached:
@@ -13316,7 +13091,10 @@ elem_proc OutArray
 ; // OutArray
 
 ARRAY CompileTime-VAR g_OutedTypes nil
-ARRAY CompileTime-VAR g_ForwardedTypes nil
+
+USES
+ g_ForwardedTypes.ms.dict
+;
 
 elem_proc OutTypeKeyword
 
@@ -16131,755 +15909,13 @@ elem_generator rc
  //call.inherited
 ; // rc
 
-STRING elem_func KindString
- RULES
-  ( Self .Kind kind_NormalClass == )
-   'NormalClass'
-  ( Self .Kind kind_ParameterizedClass == )
-   'ParameterizedClass'
-  DEFAULT
-   ( Self .Kind ToPrintable )
- ; // RULES
- >>> Result
-; // KindString
+USES
+ ModelGeneration.ms.dict
+;
 
-STRING elem_func VisibilityString
- RULES
-  ( Self .Visibility PublicAccess == )
-   'PublicAccess'
-  ( Self .Visibility PrivateAccess == )
-   'PrivateAccess'
-  ( Self .Visibility ProtectedAccess == )
-   'ProtectedAccess'
-  DEFAULT
-   ( Self .Visibility ToPrintable ) 
- ;
- >>> Result
-; // VisibilityString
- 
-STRING elem_func AbstractionString
- RULES
-  ( Self .Abstraction at_final == )
-   'final'
-  ( Self .Abstraction at_regular == )
-   'regular'
-  ( Self .Abstraction at_abstract == )
-   'abstract'
-  ( Self .Abstraction at_optional == )
-   'optional'
-  DEFAULT
-   ( Self .Abstraction ToPrintable )
- ;
- >>> Result
-; // AbstractionString
-
-STRING elem_func LinkTypeString
- RULES
-  ( Self .LinkType lt_lnk == )
-   'lnk'
-  ( Self .LinkType lt_ref == )
-   'ref'
-  ( Self .LinkType lt_agr == )
-   'agr'
-  DEFAULT
-   ( Self .LinkType ToPrintable )
- ;
- >>> Result
-; // LinkTypeString
-
-STRING elem_func OpKindString
- RULES
-  ( Self .OpKind opkind_Normal == )
-   'Normal'
-  ( Self .OpKind opkind_Implemented == )
-   'Implemented'
-  ( Self .OpKind opkind_Overridden == )
-   'Overridden'
-  ( Self .OpKind opkind_DecoratedType == )
-   'DecoratedType'
-  DEFAULT
-   ( Self .OpKind ToPrintable )
- ;
- >>> Result
-; // OpKindString
-
-STRING FUNCTION .FineString
-  STRING IN Self
- Self
- cQuote '''''' string:Replace
- #13#10 '''#13#10''' string:Replace
- #13 '''#13''' string:Replace
- #10 '''#10''' string:Replace
- >>> Result
-; // .FineString
-
-STRING elem_func ScriptWordLink
- [
-  'WL '
-  cQuote Self .WordName cQuote ' '
-  cQuote Self .DictName cModelScript cQuote
- ] strings:Cat
- >>> Result
-; // ScriptWordLink
-
-elem_generator model.script
-
- CONST Ext '.model.script'
-
- BOOLEAN elem_func NeedOwnFilePrim
-  RULES
-   ( Self .IsAutoElement )
-   // - это "автоматически выдуманый элемент"
-    false
-   ( Self .IsSubRoot )
-    true
-   DEFAULT
-    false
-  ; // RULES
-  >>> Result
- ; // NeedOwnFilePrim
-
- BOOLEAN elem_func CanCopyToFinalFile
-  true >>> Result
- ; // CanCopyToFinalFile
-
- BOOLEAN elem_func CanDeleteFinalFile
-  RULES
-   ( Self .MDAClass class_Category == )
-    true
-   ( Self .IsSimpleClass )
-    true
-   DEFAULT
-    false 
-  ; // RULES
-  >>> Result
- ; // CanDeleteFinalFile
-
- BOOLEAN elem_func UseNewGenExcluded
-  false >>> Result
- ; // UseNewGenExcluded
- 
- STRING elem_func FinalFileNamePrim
-  [
-   '\shared\models\NewSchool\Scripts\Models\'
-   if ( Self .LUID .IsNil ) then
-    ( Self .Name )
-   else
-    ( Self .LUID )
-   cModelScript
-  ] strings:Cat >>> Result
- ; // FinalFileNamePrim
-
- [
-  '// '
-  Self .NameInModel ' '
-  Self .LUID ' '
-  Self .Stereotype .Name ' '
-  Self .MDAClassString
- ] .Out
- OutLn
- [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
- OutLn
-
- VAR l_DictName
- Self .DictName >>> l_DictName
-
- STRING elem_func pas_script_ReferencePrim
-   STRING IN aComment
-  [
-   RULES
-    ( Self .IsNil )
-     ''
-    DEFAULT
-     begin
-      RULES
-       ( l_DictName Self .DictName != )
-        ( Self .ScriptWordLink )
-       ( Self .MDAClass class_Parameter == )
-        ( Self .WordName )
-       ( Self .MDAClass class_Dependency == )
-        ( Self .WordName )
-       ( Self .Original .NotIsNil )
-        ( Self .WordName )
-       DEFAULT
-        ( [ 'HWL ' Self .WordName ] strings:Cat )
-      ; // RULES
-      ' // '
-      RULES
-       ( aComment .NotIsNil )
-        aComment
-       ( Self .MDAClass class_Dependency == )
-        (
-         if ( Self .NameInModel .NotIsNil ) then
-         begin
-          Self .NameInModel
-          ':'
-         end // ( Self .NameInModel .NotIsNil )
-         Self .Target .NameInModel
-        )
-       DEFAULT
-        ( Self .NameInModel )
-      ; // RULES
-      \n
-     end // DEFAULT
-   ; // RULES
-  ] strings:Cat
-  >>> Result
- ; // pas_script_ReferencePrim
-
- STRING elem_func pas_script_Reference
-  Self '' .pas_script_ReferencePrim
-  >>> Result
- ; // pas_script_Reference
-
- STRING FUNCTION .ValueToString
-   IN Self
-  RULES
-   ( Self IsString )
-    ( [ cQuote Self .FineString cQuote ] strings:Cat )
-   ( Self IsObj )
-    ( Self .pas_script_Reference )
-   DEFAULT
-    ( Self ToPrintable )
-  ; // RULES
-  >>> Result
- ; // .ValueToString
-
- elem_proc pas_script_GenerateDescription
- 
-  elem_proc OutForward
-   RULES
-    ( Self .IsValueValid ! )
-     ()
-    ( Self .IsNil )
-     ()
-    ( l_DictName Self .DictName != )
-     ()
-    DEFAULT
-    begin
-     if ( Self .AddToArray?: g_ForwardedTypes ) then
-      ( [ 'FORWARD ' Self .WordName \n ] .Out )
-    end  
-   ; // RULES
-  ; // OutForward
-
-  Self .Forwarded .for> .OutForward
-  Self .Injected .for> .OutForward
-  Self .Inherits .for> .OutForward
-  Self .Implements .for> .OutForward
-  Self .Implementors .for> .OutForward
-  Self .Zones .for> .OutForward
-  Self .CanRaise .for> .OutForward
-  Self .CanRaiseInSet .for> .OutForward
-  Self .Target .OutForward
-  Self .ValueType .OutForward
-  Self .Original .OutForward
-  Self .SpelledFor .OutForward
-  Self .Speller .OutForward
-  Self .GetUP 'extprop:CASTER' .OutForward
-
-  Self .Children
-  .filter> .Not: .NeedOwnFile
-  .for> ( Self .OutForward call.me )
-
-  Self .Constants
-  .filter> .Not: .NeedOwnFile
-  .for> ( Self .OutForward call.me )
-  
-  Self .Attributes
-  .filter> .Not: .NeedOwnFile
-  .for> ( Self .OutForward call.me )
-
-  Self .Operations
-  .filter> .Not: .NeedOwnFile
-  .for> ( Self .OutForward call.me )
-
-  Self .Parameters
-  .filter> .Not: .NeedOwnFile
-  .for> ( Self .OutForward call.me )
-
-  Self .Dependencies
-  .filter> .Not: .NeedOwnFile
-  .for> ( Self .OutForward call.me )
-
-  elem_proc OutUPs
-   Self .UpList .NotEmpty ?
-   (
-    Self .UpList
-    .filter> ( .WordName 'IsSummoned' != )
-    .for> (
-      IN aUP
-     [
-      VAR l_Value
-      [ aUP DO ]
-      .FirstElement >>> l_Value
-      RULES
-       ( l_Value .IsValueValid ! )
-        ()
-       ( l_Value .IsAutoElement )
-        ()
-       ( l_Value IsObj )
-        ( 'UPLINK ' aUP .WordName ' ' l_Value .ValueToString ' ;' )
-       DEFAULT
-        ( 'UP ' aUP .WordName ' ' l_Value .ValueToString )
-      ; // RULES
-     ] .Out
-    ) // Self .UpList .for>
-   )
-  ; // OutUPs
-
-  elem_proc OutImplemented
-   Self .Original .OutForward
-   [ 'ME ' Self .WordName ] .Out
-   Indented: (
-    Self .Original .NotIsNil ?
-     ( [ 'MELINK Original ' Self .Original .pas_script_Reference ' ;' ] .Out )
-    Self .OpKind opkind_Normal != ?
-     ( [ 'MEPROP OpKind opkind_' Self .OpKindString ] .Out )
-    Self .IsAutoElement ?
-     ( [ 'UP IsAuto ' 'true' ] .Out )
-    Self .OutUPs 
-   ) // Indented:
-   [ 'ENDME ' '// ' Self .WordName ' ' Self .NameInModel ] .Out
-   OutLn
-  ; // OutImplemented
-
-  Self .Implemented
-  .filter> .Not: .NeedOwnFile
-  .for> .OutImplemented
-
-  Self .Overridden
-  .filter> .Not: .NeedOwnFile
-  .for> .OutImplemented
-
-  Self .AddToArray?: g_ForwardedTypes DROP
-  
-  [ 'ME ' Self .WordName ] .Out
-  Indented: (
-   Self .UID .NotIsNil ?
-    ( [ 'MEPROP UID ' cQuote Self .UID cQuote ] .Out )
-   Self .GUID .NotIsNil ?
-    ( [ 'MEPROP GUID ' cQuote Self .GUID cQuote ] .Out )
-   Self .Name .NotIsNil ?
-    ( [ 'MEPROP Name ' cQuote Self .Name .FineString cQuote ] .Out )
-   Self .OriginalName .NotIsNil ?
-    ( [ 'MEPROP OriginalName ' cQuote Self .OriginalName .FineString cQuote ] .Out )
-   Self .IsSummoned ?
-    ( [ 'UP IsSummoned ' 'true' ] .Out )
-   Self .IsAutoElement ?
-    ( [ 'UP IsAuto ' 'true' ] .Out )
-   Self .IsSubRoot ?
-    ( [ 'MEPROP IsSubRoot ' 'true' ] .Out )
-   Self .MDAClass class_Unknown != ?
-    ( [ 'MEPROP Class class_' Self .MDAClassString ] .Out )
-   Self .Stereotype .NotIsNil ?
-    ( [ 'MELINK Stereotype st_' Self .Stereotype .Name ' ;' ] .Out )
-   Self .Kind kind_Unknown != ?
-    ( [ 'MEPROP Kind kind_' Self .KindString ] .Out )
-   Self .Documentation .NotIsNil ?
-    ( [ '%SUMMARY ' cQuote Self .Documentation .FineString cQuote ' ;' ] .Out )
-   Self .Visibility UnknownAccess != ?
-    ( [ 'MEPROP Visibility ' Self .VisibilityString ] .Out )
-   ( Self .MDAClass class_Parameter != ) AND
-   ( Self .MDAClass class_Dependency != ) ?
-    ( [ 'MEPROP Abstraction at_' Self .AbstractionString ] .Out )
-   Self .LinkType lt_unknown != ?
-    ( [ 'MEPROP LinkType lt_' Self .LinkTypeString ] .Out )
-   Self .OpKind opkind_Normal != ?
-    ( [ 'MEPROP OpKind opkind_' Self .OpKindString ] .Out )
-   Self .Parent .NotIsNil ?
-    ( [ 'MELINK Parent ' Self .Parent .pas_script_Reference ' ;' ] .Out )
-   Self .Target .NotIsNil ?
-    ( [ 'MELINK Target ' Self .Target .pas_script_Reference ' ;' ] .Out )
-   Self .TargetStereotype .NotIsNil ?
-    ( [ 'MEPROP TargetStereotype ' cQuote Self .TargetStereotype cQuote ] .Out )
-   Self .GetUP 'Value' .IsValueValid ?
-    ( [ 'MEPROP Value ' Self .GetUP 'Value' .ValueToString ] .Out )
-   Self .ValueType .NotIsNil ?
-    ( [ 'MELINK ValueType ' Self .ValueType .pas_script_Reference ' ;' ] .Out )
-
-   Self .Inherits .NotEmpty ?
-   (
-    [ 'MELIST Inherits' ] .Out
-    [ '  Seq: ( ' Self .Inherits .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Inherits' ] .Out
-   )
-
-   Self .Implements .NotEmpty ?
-   (
-    [ 'MELIST Implements' ] .Out
-    [ '  Seq: ( ' Self .Implements .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Implements' ] .Out
-   )
-
-   Self .CanRaise .NotEmpty ?
-   (
-    [ 'MELIST CanRaise' ] .Out
-    [ '  Seq: ( ' Self .CanRaise .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // CanRaise' ] .Out
-   )
-
-   Self .CanRaiseInSet .NotEmpty ?
-   (
-    [ 'MELIST CanRaiseInSet' ] .Out
-    [ '  Seq: ( ' Self .CanRaiseInSet .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // CanRaiseInSet' ] .Out
-   )
-
-   Self .Attributes .NotEmpty ?
-   (
-    [ 'MELIST Attributes' ] .Out
-    [ '  Seq: ( ' Self .Attributes .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Attributes' ] .Out
-   )
-
-   Self .Operations .NotEmpty ?
-   (
-    [ 'MELIST Operations' ] .Out
-    [ '  Seq: ( ' Self .Operations .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Operations' ] .Out
-   )
-
-   Self .Implemented .NotEmpty ?
-   (
-    [ 'MELIST Implemented' ] .Out
-    [ '  Seq: ( ' Self .Implemented .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Implemented' ] .Out
-   )
-
-   Self .Overridden .NotEmpty ?
-   (
-    [ 'MELIST Overridden' ] .Out
-    [ '  Seq: ( ' Self .Overridden .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Overridden' ] .Out
-   )
-
-   Self .Children .NotEmpty ?
-   (
-    [ 'MELIST Children' ] .Out
-    [ '  Seq: ( ' Self .Children .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Children' ] .Out
-   )
-   
-   Self .Constants .NotEmpty ?
-   (
-    [ 'MELIST Constants' ] .Out
-    [ '  Seq: ( ' Self .Constants .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Constants' ] .Out
-   )
-   
-   Self .Parameters .NotEmpty ?
-   (
-    [ 'MELIST Parameters' ] .Out
-    [ '  Seq: ( ' Self .Parameters .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Parameters' ] .Out
-   )
-
-   Self .Dependencies .NotEmpty ?
-   (
-    [ 'MELIST Dependencies' ] .Out
-    [ '  Seq: ( ' Self .Dependencies .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Dependencies' ] .Out
-   )
-   
-   Self .Injected .NotEmpty ?
-   (
-    [ 'MELIST Injected' ] .Out
-    [ '  Seq: ( ' Self .Injected .for> ( DUP .Parent .NameInModel .pas_script_ReferencePrim ' ' ) ')' ] .Out
-    [ '; // Injected' ] .Out
-   )
-   
-   Self .Zones .NotEmpty ?
-   (
-    [ 'MELIST Zones' ] .Out
-    [ '  Seq: ( ' Self .Zones .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Zones' ] .Out
-   )
-   
-   Self .Implementors .NotEmpty ?
-   (
-    [ 'MELIST Implementors' ] .Out
-    [ '  Seq: ( ' Self .Implementors .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Implementors' ] .Out
-   )
-   
-   Self .Depends .NotEmpty ?
-   (
-    [ 'MELIST Depends' ] .Out
-    [ '  Seq: ( ' Self .Depends .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Depends' ] .Out
-   )
-   
-   Self .Forwarded .NotEmpty ?
-   (
-    [ 'MELIST Forwarded' ] .Out
-    [ '  Seq: ( ' Self .Forwarded .for> ( .pas_script_Reference ' ' ) ')' ] .Out
-    [ '; // Forwarded' ] .Out
-   )
-
-   Self .OutUPs
-   
-  ) // Indented:
-  OutLn
-  [ 'ENDME ' '// ' Self .WordName ' ' Self .NameInModel ] .Out
-  OutLn
- ; // pas_script_GenerateDescription
-
- TF g_ForwardedTypes (
-  [] >>> g_ForwardedTypes
-  Self .pas_script_GenerateDescription
- ) // TF g_ForwardedTypes
-
-; // model.script
-
-elem_generator diagram.script
-
- Inherits .model.script
- 
- CONST Ext '.diagram.script'
-
- BOOLEAN elem_func NeedOwnFilePrim
-  RULES
-   ( Self .IsAutoElement )
-   // - это "автоматически выдуманый элемент"
-    false
-   ( Self .IsSubRoot )
-    true
-   ( Self .Children .NotEmpty )
-    true 
-   ( Self .Constants .NotEmpty )
-    true
-   ( Self .Operations .NotEmpty )
-    true
-   ( Self .Attributes .NotEmpty )
-    true
-   DEFAULT
-    false
-  ; // RULES
-  >>> Result
- ; // NeedOwnFilePrim
-
- STRING elem_func FinalFileNamePrim
-  [
-   '\shared\models\NewSchool\Scripts\Models\'
-   if ( Self .LUID .IsNil ) then
-    ( Self .Name )
-   else
-    ( Self .LUID )
-   '.ms.diagram.script'
-  ] strings:Cat >>> Result
- ; // FinalFileNamePrim
- 
- [
-  '// '
-  Self .NameInModel ' '
-  Self .LUID ' '
-  Self .Stereotype .Name ' '
-  Self .MDAClassString
- ] .Out
- OutLn
- [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
- OutLn
-
- VAR l_Suffix
- 'diagrams' >>> l_Suffix
- [ 'MEDIAGRAMS ' Self .WordName '_' l_Suffix ] .Out
- Indented: (
-  OutLn
-  VAR l_DiagramName
-  'main' >>> l_DiagramName
-
-  VAR l_Name
-  [ Self .WordName '_' l_DiagramName ] strings:Cat >>> l_Name
-
-  [ 'MEDIAGRAM ' l_Name ] .Out
-  Indented: (
-   [ 'MEPROP Name ' cQuote l_DiagramName cQuote ] .Out
-   [ 'MELINK Original ' Self .ScriptWordLink ' ;' ' // ' Self .NameInModel ] .Out
-   OutLn
-   CONST cOffsetX 40
-   CONST cOffsetY 40
-   VAR X
-   cOffsetX >>> X
-   VAR Y
-   cOffsetY >>> Y
-   VAR l_It
-   Self .Children
-   .join> ( Self .Constants )
-   .join> ( Self .Operations )
-   .join> ( Self .Attributes )
-   >>> l_It
-
-   VAR l_Suffix
-   '_view' >>> l_Suffix
-   VAR l_Views
-   [] >>> l_Views
-   VAR l_Viewed
-   [] >>> l_Viewed
-   l_It .for> (
-     IN anElement
-    VAR l_Name
-    [ anElement .WordName l_Suffix ] strings:Cat >>> l_Name
-
-    anElement .AddToArray: l_Viewed
-    l_Name MakeView: (
-      IN aMade
-     aMade -> OriginalName := ( anElement .NameInModel )
-    ) //l_Name MakeView:
-    .AddToArray: l_Views
-
-    [ 'MEVIEW ' l_Name ] .Out
-    Indented: (
-     [ 'MELINK Original ' anElement .ScriptWordLink ' ;' ' // ' anElement .NameInModel ] .Out
-     [ 'MEPROP X ' X ] .Out
-     [ 'MEPROP Y ' Y ] .Out
-     X 120 + cOffsetX + >>> X
-     if ( X > 1000 ) then
-     begin
-      cOffsetX >>> X
-      Y 100 + cOffsetY + >>> Y
-     end // ( X > 1000 )
-    ) // Indented:
-    [ 'ENDMEVIEW ' '// ' l_Name ] .Out
-    OutLn
-   ) // l_It .for>
-
-   VAR l_ViewNames
-   [] >>> l_ViewNames
-   VAR l_LinkCount
-   40 >>> l_LinkCount
-
-   elem_proc OutLinks:
-     ^ IN aLamdba
-    Self aLamdba DO
-    .filter> ( DROP l_LinkCount > 0 )
-    .for> (
-      IN aLink
-     if ( aLink .InArray: l_Viewed ) then
-     begin
-      VAR l_Name
-      VAR l_CollectionName
-      aLamdba .WordName '.' .CutPrefix >>> l_CollectionName
-      [ Self .WordName '_' aLink .WordName '_' l_CollectionName ] strings:Cat >>> l_Name
-
-      if ( l_Name .AddToArray?: l_ViewNames ) then
-      begin
-       Dec l_LinkCount
-       l_Name MakeView: (
-         IN aMade
-        aMade -> OriginalName := ( [ Self .NameInModel ' -> ' aLink .NameInModel ] strings:Cat )
-       ) //l_Name MakeView:
-       .AddToArray: l_Views
-
-       [ 'MEVIEWLINK ' l_Name ] .Out
-       Indented: (
-        [ 'MELINK From ' Self .WordName l_Suffix ' ;' ] .Out
-        [ 'MELINK To ' aLink .WordName l_Suffix ' ;' ] .Out
-        //[ 'MEPROP LinkViewType ' cQuote l_CollectionName cQuote ] .Out
-        [ 'MEPROP Class class_' l_CollectionName ] .Out
-       ) // Indented:
-       [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
-       OutLn
-      end // ( l_Name .AddToArray?: l_ViewNames )
-     end // ( aLink .InArray: l_Viewed )
-    ) // .for>
-   ; // OutLinks:
-
-   l_Viewed .for> (
-     IN anElement
-
-    anElement .OutLinks: .Depends
-    anElement .OutLinks: .Implements
-    anElement .OutLinks: .Inherits
-
-    anElement .Dependencies
-    .filter> .IsUses
-    .join> ( anElement .Attributes )
-    .filter> ( DROP l_LinkCount > 0 )
-    .for> (
-      IN aLink
-     if ( aLink .Target .NotIsNil ) then
-     begin
-      if ( aLink .Target .InArray: l_Viewed ) then
-      begin
-       VAR l_Name
-       if ( aLink .WordName .IsNil ) then
-       begin
-        [
-         anElement .WordName
-         if ( aLink .Target .WordName .NotIsNil ) then
-         begin
-          '_' aLink .Target .WordName
-         end // ( aLink .Target .WordName .NotIsNil )
-         if ( aLink .Stereotype .Name .NotIsNil ) then
-         begin
-          '_' aLink .Stereotype .Name
-         end // ( aLink .Stereotype .Name .NotIsNil )
-         if ( aLink .NameInModel .NotIsNil ) then
-         begin
-          '_' aLink .NameInModel
-         end // ( aLink .NameInModel .NotIsNil )
-        ] strings:Cat
-       end // ( aLink .WordName .IsNil )
-       else
-       begin
-        [ aLink .WordName '_viewlink' ] strings:Cat
-       end // // ( aLink .LUID .IsNil )
-       >>> l_Name
-
-       if ( l_Name .AddToArray?: l_ViewNames ) then
-       begin
-        Dec l_LinkCount
-        l_Name MakeView: (
-          IN aMade
-         aMade -> OriginalName := ( [ anElement .NameInModel ' -> ' aLink .Target .NameInModel ] strings:Cat )
-        ) //l_Name MakeView:
-        .AddToArray: l_Views
-
-        [ 'MEVIEWLINK ' l_Name ] .Out
-        Indented: (
-         [ 'MELINK Original ' aLink .ScriptWordLink ' ;' /*{' // ' aLink .NameInModel}*/ ] .Out
-         [ 'MELINK From ' anElement .WordName l_Suffix ' ;' ] .Out
-         [ 'MELINK To ' aLink .Target .WordName l_Suffix ' ;' ] .Out
-        ) // Indented:
-        [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
-        OutLn
-       end // ( l_Name .AddToArray?: l_ViewNames )
-      end // ( aLink .Target .InArray: l_Viewed )
-     end // ( aLink .Target .NotIsNil )
-    ) // .for>
-   ) // l_Viewed .for>
-   
-   [ 'MELIST Views' ] .Out
-   [
-     ' Seq: ( '
-     l_Views .for> (
-       IN anElement
-      anElement .Name
-      if ( anElement .OriginalName .NotIsNil ) then
-      begin
-       ' // '
-       anElement .OriginalName
-       \n
-      end // ( anElement .OriginalName .NotIsNil )
-      ' '
-     ) // l_It .for>
-     ')'
-   ] .Out
-   [ '; // Views' ] .Out
-  ) // Indented:
-  [ 'ENDMEDIAGRAM ' '// ' l_Name ] .Out
-  OutLn
-  [ 'MELIST Diagrams' ] .Out
-  [
-    ' Seq: ( '
-     l_Name \n ' '
-    ')'
-  ] .Out
-  [ '; // Diagrams' ] .Out
- ) // Indented:
- [ 'ENDMEDIAGRAMS ' '// ' Self .WordName '_' l_Suffix ] .Out
-; // diagram.script
+USES
+ DiagramGeneration.ms.dict
+;
 
 elem_generator null
 

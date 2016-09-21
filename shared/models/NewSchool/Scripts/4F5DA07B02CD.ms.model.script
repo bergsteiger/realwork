@@ -78,6 +78,18 @@ ME ME_52B17C970132
 
 ENDME // ME_52B17C970132 
 
+FORWARD ME_57E0CD600059
+
+ME ME_57E0CDC7034B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F5DA0BF025A // kwEditorKeyWordsPack
+ ;
+ MELINK Target HWL ME_57E0CD600059 // push_TextSearchDlg
+ ;
+
+ENDME // ME_57E0CDC7034B 
+
 ME ME_4F5DA0BF025A
  MEPROP UID '4F5DA0BF025A'
  MEPROP Name 'kwEditorKeyWordsPack'
@@ -95,6 +107,7 @@ ME ME_4F5DA0BF025A
  ME_502A2F450103 // pop_editor_InsertFormula
  ME_512DFBDC01AB // push_MainForm
  ME_52B17C970132 // pop_editor_SetStyle2Table
+ ME_57E0CDC7034B // push_TextSearchDlg
  )
  ; // Dependencies
  UP "ifndef" 'NoScripts'
@@ -529,6 +542,39 @@ ME ME_52B17C50008A
 
 ENDME // ME_52B17C50008A pop_editor_SetStyle2Table
 
+ME ME_57E0CE0103BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E0CD600059 // push_TextSearchDlg
+ ;
+ MELINK Target WL 'ME_4F8D61A100A6' '4DFB501A00F4.ms.model.script' // TTextSearchDlg
+ ;
+
+ENDME // ME_57E0CE0103BD 
+
+ME ME_57E0CD600059
+ MEPROP UID '57E0CD600059'
+ MEPROP Name 'push_TextSearchDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Кладет в стек указатель на окно поиска. Сделано специально, т.к. окно глобальное и найти его не всегда можно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F5DA07B02CD // EditorKeyWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57E0CE0103BD // TTextSearchDlg
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushTextSearchDlg.pas'
+ UP extprop:pas:TypeName 'TkwPushTextSearchDlg'
+ UP extprop:rc:SelfName 'PushTextSearchDlg'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwPushTextSearchDlg'
+
+ENDME // ME_57E0CD600059 push_TextSearchDlg
+
 ME ME_4F5DA07B02CD
  MEPROP UID '4F5DA07B02CD'
  MEPROP Name 'EditorKeyWords'
@@ -548,6 +594,7 @@ ME ME_4F5DA07B02CD
  HWL ME_502A2F3203D2 // pop_editor_InsertFormula
  HWL ME_4F8FE54E036E // push_MainForm
  HWL ME_52B17C50008A // pop_editor_SetStyle2Table
+ HWL ME_57E0CD600059 // push_TextSearchDlg
  )
  ; // Children
  MELIST Depends
@@ -564,6 +611,7 @@ ME ME_4F5DA07B02CD
  WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
  WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
+ WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
  WL 'ME_4E451815031E' '4E451815031E.ms.model.script' // CellUtils
  WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
  WL 'ME_4F4CB50403CC' '4F4CB50403CC.ms.model.script' // EditorFromStackKeyWords

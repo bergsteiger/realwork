@@ -1,0 +1,212 @@
+UNIT DiagramSaving.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ LUID.ms.dict
+;
+
+USES
+ InheritsAndImplementsNew.ms.dict
+;
+
+USES
+ ModelGeneration.ms.dict
+;
+
+USES
+ IsAutoElement.ms.dict
+;
+
+USES
+ CountIt.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ Out.ms.dict
+;
+
+USES
+ Chars.ms.dict
+;
+
+USES
+ MakeElements.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+USES
+ Diagrams.ms.dict
+;
+
+elem_generator diagram.save.script
+
+ Inherits .model.script
+ 
+ CONST Ext '.diagram.script'
+
+ BOOLEAN elem_func NeedOwnFilePrim
+  RULES
+   ( Self .IsAutoElement )
+   // - это "автоматически выдуманый элемент"
+    false
+   ( Self .IsSubRoot )
+    true
+   ( Self .Children .NotEmpty )
+    true 
+   ( Self .Constants .NotEmpty )
+    true
+   ( Self .Operations .NotEmpty )
+    true
+   ( Self .Attributes .NotEmpty )
+    true
+   DEFAULT
+    false
+  ; // RULES
+  >>> Result
+ ; // NeedOwnFilePrim
+
+ STRING elem_func FinalFileNamePrim
+  [
+   '\shared\models\NewSchool\Scripts\Models\'
+   if ( Self .LUID .IsNil ) then
+    ( Self .Name )
+   else
+    ( Self .LUID )
+   '.ms.diagram.script'
+  ] strings:Cat >>> Result
+ ; // FinalFileNamePrim
+ 
+ [
+  '// '
+  Self .NameInModel ' '
+  Self .LUID ' '
+  Self .Stereotype .Name ' '
+  Self .MDAClassString
+ ] .Out
+ OutLn
+ [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
+ OutLn
+
+ VAR l_Suffix
+ 'diagrams' >>> l_Suffix
+ [ 'MEDIAGRAMS ' Self .WordName '_' l_Suffix ] .Out
+ Indented: (
+  OutLn
+  Self .msm:Diagrams .for> (
+    IN aDiagram
+   VAR l_Name
+   aDiagram .WordName >>> l_Name 
+   [ 'MEDIAGRAM ' l_Name ] .Out
+   Indented: (
+    [ 'MEPROP Name ' cQuote aDiagram .Name cQuote ] .Out
+    [ 'MELINK Original ' aDiagram .Original .ScriptWordLink ' ;' ' // ' aDiagram .Original .NameInModel ] .Out
+    OutLn
+    aDiagram .Views 
+    .filter> .IsView
+    .for> (
+      IN aView
+     VAR l_Name
+     aView .WordName >>> l_Name 
+     [ 'MEVIEW ' l_Name ] .Out
+     Indented: (
+      aView .Original .NotIsNil ?
+       ( [ 'MELINK Original ' aView .Original .ScriptWordLink ' ;' 
+         aView .Original .NameInModel .NotIsNil ?
+          ( ' // ' aView .Original .NameInModel )
+         ] .Out )
+      [ 'MEPROP X ' aView .X ] .Out
+      [ 'MEPROP Y ' aView .Y ] .Out
+     ) // Indented:
+     [ 'ENDMEVIEW ' '// ' l_Name ] .Out
+     OutLn
+    ) // .for>
+    aDiagram .Views 
+    .filter> .IsViewLink
+    .for> (
+      IN aView
+     VAR l_Name
+     aView .WordName >>> l_Name 
+     [ 'MEVIEWLINK ' l_Name ] .Out
+     Indented: (
+      aView .Original .NotIsNil ?
+       ( [ 'MELINK Original ' aView .Original .ScriptWordLink ' ;'
+         aView .Original .NameInModel .NotIsNil ?
+          ( ' // ' aView .Original .NameInModel )
+         ] .Out )
+      [ 'MELINK From ' aView .From .WordName ' ;' ] .Out
+      [ 'MELINK To ' aView .To .WordName ' ;' ] .Out
+      aView .MDAClass class_Unknown ?!= 
+      AND ( aView .MDAClass aView .Original .MDAClass ?!= )
+      ?
+       ( [ 'MEPROP Class class_' aView .MDAClassString ] .Out )
+     ) // Indented:
+     [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
+     OutLn
+    ) // .for>
+    [ 'MELIST Views' ] .Out
+    [
+      ' Seq: ( '
+      aDiagram .Views .for> (
+        IN aView
+       aView .WordName
+       VAR l_NameInModel
+       RULES
+        ( aView .IsViewLink )
+         ( [ aView .From .NameInModel ' -> ' aView .To .NameInModel ] strings:Cat >>> l_NameInModel )
+        DEFAULT
+         ( aView .NameInModel >>> l_NameInModel )
+       ; // RULES
+       if ( l_NameInModel .NotIsNil ) then
+       begin
+        ' // '
+        l_NameInModel
+       end // ( l_NameInModel .NotIsNil )
+       \n
+       ' '
+      ) // aDiagram .Views .for>
+      ')'
+    ] .Out
+    [ '; // Views' ] .Out
+   ) // Indented:
+   [ 'ENDMEDIAGRAM ' '// ' l_Name ] .Out
+   OutLn
+  ) // Self .msm:Diagrams .for>
+  [ 'MELIST Diagrams' ] .Out
+  [
+    ' Seq: ( '
+    Self .msm:Diagrams .for> (
+      IN aDiagram
+     aDiagram .WordName \n ' '
+    ) // Self .msm:Diagrams .for>
+    ')'
+  ] .Out
+  [ '; // Diagrams' ] .Out
+ ) // Indented:
+ [ 'ENDMEDIAGRAMS ' '// ' Self .WordName '_' l_Suffix ] .Out
+; // diagram.save.script

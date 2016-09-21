@@ -106,12 +106,11 @@ PROCEDURE "Вызвать 'Удалить выбранный шаблон'"
 //  Работа с базой
 
 CONST csArchiveWithBaseName 'testbase.zip'
-CONST csTestDataBasePath 'C:\Base\testbase'
 
 PROCEDURE "Очистка тестовой базы" 
 	"Закрыть все окна" // Сделано, чтобы не было ошибок из-за очистки базы без закрытых окон
 	"Обработать сообщения"
-	csArchiveWithBaseName csTestDataBasePath ClearDataBase 
+	csArchiveWithBaseName ClearDataBase 
 ;
 
 CONST csExportNSRCDir 'C:\Base\222'
@@ -1651,8 +1650,10 @@ PROCEDURE "Обработка. Найти текст и заменить на стиль по координатам" BOOLEAN IN
 			g_ShowCount CASE
 				cnShowWindow (
 					OBJECT VAR l_Control
-					"Контрол по имени {("Диалог поиска")}" >>> l_Control
-					"Установить фокус в контрол с именем" "Поле 'Текст'"
+					push:TextSearchDlg >>> l_Control
+					OBJECT VAR l_Focus 
+					"Найти компонент по имени {(l_Control)} {("Поле 'Текст'")}" >>> l_Focus
+					"Установить фокус {(l_Focus)}"
 					"Набить текст {('РФ')}"
 					"Обработать сообщения"
 					@ ( "Контрол по имени {("Кнопка выбора типа замены")}" pop:Control:Click ) MODAL ( 

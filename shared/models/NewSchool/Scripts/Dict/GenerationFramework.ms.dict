@@ -1,0 +1,151 @@
+UNIT GenerationFramework.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ CompileTimeVAR.ms.dict
+;
+
+USES
+ SaveVarAndDo.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ WordsRTTI.ms.dict
+;
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+TtfwWord CompileTime-VAR g_CurrentGenerator nil
+%REMARK '“екущий генератор'
+
+: WithGen:
+  ^ IN aGen
+  ^ IN aLambda
+ TF g_CurrentGenerator (
+  aGen |^@Deepest >>> g_CurrentGenerator
+  //aGen >>> g_CurrentGenerator
+  aLambda DO
+ ) // TF g_CurrentGenerator
+; // WithGen:
+
+TtfwWord FUNCTION .FindMemberRecur
+  STRING IN aName
+  TtfwWord IN aGen
+
+ TtfwKeyWord VAR l_Member
+ aName aGen pop:Word:FindMember >>> l_Member
+
+ if ( l_Member .IsNil ) then
+  ( nil >>> Result )
+ else
+  ( l_Member pop:KeyWord:Word >>> Result )
+
+ if ( Result .IsNil ) then
+  ( 
+   aGen .Inherited.Words
+   .filterNil>
+   .for> (
+    IN anItem 
+    VAR l_Found 
+    aName anItem call.me >>> l_Found
+    ( Result .IsNil ) 
+    OR ( l_Found .IsNil ) 
+    OR ( Result = l_Found ) 
+     ?ASSURE [ 'Multiply inheritance. Word: ' aName ' generator ' aGen .WordName ' parent generator ' anItem .WordName ]
+    l_Found >>> Result
+   ) 
+  )
+
+; // .FindMemberRecur
+
+: .?
+  ^ IN aWord
+
+ VAR l_Word
+ nil >>> l_Word
+
+ g_CurrentGenerator .NotIsNil ?ASSURE 'Ќет текущего генератора'
+ if ( g_CurrentGenerator .NotIsNil ) then
+  ( aWord |N g_CurrentGenerator .FindMemberRecur >>> l_Word )
+
+ if ( l_Word .IsNil ) then
+  ( aWord DO )
+ else
+  ( l_Word DO )
+; // .?
+
+elem_proc CurrentGenerator
+ Self g_CurrentGenerator DO
+; // CurrentGenerator
+
+CONST cRoot 'w:'
+
+USES
+ Out.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+STRING FUNCTION .CheckDrive
+  STRING IN Self
+ Self >>> Result
+ if ( cRoot Result StartsStr ! ) then
+ begin
+  Result cPathSep .CutPrefix >>> Result
+  [ cRoot
+  // - это потому, что в пути нету диска, а дл€ ExtractFileName он нужен
+  Result ] cPathSep strings:CatSep >>> Result
+ end // ( cRoot Result StartsStr ! )
+; // .CheckDrive
+
+BOOLEAN elem_func NeedOwnFilePrim
+ false >>> Result
+; // NeedOwnFilePrim
+
+BOOLEAN elem_func NeedOwnFile
+ Self .? .NeedOwnFilePrim >>> Result
+; // NeedOwnFile
+
+STRING elem_func FinalFileNamePrim
+ '' >>> Result
+; // FinalFileNamePrim
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+elem_proc Save
+  IN aGenerator
+ WithGen: aGenerator (
+  if ( Self .NeedOwnFile ) then
+  begin
+   VAR l_FileName
+   Self .? .FinalFileNamePrim .CheckDrive >>> l_FileName
+   if ( l_FileName .NotIsNil ) then
+   begin
+    l_FileName .ProcessOut: (
+     Self .CurrentGenerator
+    ) // l_FileName .ProcessOut:
+   end // ( l_FileName .NotIsNil )
+  end // ( Self .NeedOwnFile )
+  else
+  begin
+   Self .Parent aGenerator call.me
+  end // ( Self .NeedOwnFile )
+ ) // WithGen:
+; // Save

@@ -15,6 +15,7 @@
  LoadTrees;
  UpdateSearchLabels;
  UpdateReferencesAndLawNewsCaptions;
+ UpdateButtonsVisibility;
  ArrangeControls;
 //#UC END# *47EA4E9002C6_56FA889202B4_impl*
 //#UC START# *47EA4E9002C6_56FA889202B4_var*
@@ -367,12 +368,7 @@ var
    else
     Assert(False);
   end;
-
-  pnlWebVersion.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
-                       and Assigned(defDataAdapter)
-                       and ((defDataAdapter.RevisionCheckEnabled
-                       and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
-                         or DefDataAdapter.CommonInterfaces.IsEarlyInstalled);
+  UpdateButtonsVisibility;
  end; // lp_SetupButtons
 
  procedure lp_SetupTrees;
@@ -941,3 +937,12 @@ var
 //#UC END# *5714AA3A022F_5714A94A0015_impl*
 //#UC START# *5714AA3A022F_5714A94A0015_var*
 //#UC END# *5714AA3A022F_5714A94A0015_var*
+//#UC START# *57DBCF9B0364_56FA889202B4_impl*
+ pnlWebVersion.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
+                      and Assigned(defDataAdapter)
+                      and ((defDataAdapter.RevisionCheckEnabled
+                      and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+                        or DefDataAdapter.CommonInterfaces.IsEarlyInstalled);
+//#UC END# *57DBCF9B0364_56FA889202B4_impl*
+//#UC START# *57DBCF9B0364_56FA889202B4_var*
+//#UC END# *57DBCF9B0364_56FA889202B4_var*

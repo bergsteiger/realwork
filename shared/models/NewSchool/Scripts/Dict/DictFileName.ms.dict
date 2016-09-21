@@ -1,0 +1,31 @@
+UNIT DictFileName.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+STRING elem_func DictFileName
+ Cached:
+ (
+  RULES
+   ( Self .IsNil )
+    ''
+   DEFAULT
+    begin
+     RULES
+      ( Self IsIntf )
+       ( Self pop:WordBox:Boxed pop:Word:KeyWord )
+      DEFAULT
+       ( Self pop:Word:KeyWord )
+     ; // RULES  
+     pop:KeyWord:Dictionary pop:DictionaryEx:FileName
+    end // DEFAULT
+  ; // RULES
+ )
+ >>> Result
+; // DictFileName
+

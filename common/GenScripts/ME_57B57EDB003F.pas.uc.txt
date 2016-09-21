@@ -74,3 +74,26 @@ w:\common\components\gui\Garant\msm\msmListLikeModel.imp.pas
 //#UC END# *57D8F1B70265_57B57EDB003Fset_impl*
 //#UC START# *57D8F1B70265_57B57EDB003Fset_var*
 //#UC END# *57D8F1B70265_57B57EDB003Fset_var*
+//#UC START# *57E283A603D2_57B57EDB003F_impl*
+ Assert(aSelection <> nil);
+ l_List := TtfwWordRefList.Create;
+ try
+  Self.Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  if
+  TtfwWordsIterator.Make(l_List);
+  //TmsmModelElementMethodCaller.Call([TtfwStackValue_C(TtfwWordsIterator.Make(l_List))], 'SaveElements');
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+//#UC END# *57E283A603D2_57B57EDB003F_impl*
+//#UC START# *57E283A603D2_57B57EDB003F_var*
+var
+ l_List : TtfwWordRefList;
+
+ function DoElement(const anElement: ImsmModelElement): Boolean;
+ begin
+  Result := true;
+  l_List.Add((anElement As ITmsmBaseModelElementWrap).GetSelf.MainWord);
+ end;
+
+//#UC END# *57E283A603D2_57B57EDB003F_var*

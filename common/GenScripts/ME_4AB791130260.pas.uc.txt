@@ -21,7 +21,6 @@
 //#UC START# *479731C50290_4AB791130260_var*
 //#UC END# *479731C50290_4AB791130260_var*
 //#UC START# *479731C50290_4ACB57C4023E_impl*
- f_Data := nil;
  inherited;
 //#UC END# *479731C50290_4ACB57C4023E_impl*
 //#UC START# *479731C50290_4ACB57C4023E_var*
@@ -219,8 +218,7 @@ var
    end
    else
     l_ClassToSave := f_BaseSearcher.WindowData.ActiveClassForSaveState;
-    theState := TnsBaseSearchFormState.Make(f_BaseSearcher.WindowData,
-    l_ClassToSave).As_IvcmBase;
+    theState := TnsBaseSearchFormState.Make(l_ClassToSave, f_BaseSearcher.MakeState).As_IvcmBase;
     Result := true;
   end;//f_BaseSearcher = nil
  end//aStateType = vcm_stContent
@@ -251,7 +249,7 @@ var
   else
   begin
    f_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
-   f_BaseSearcher.AssignState((l_State.Data as InsBaseSearcher).MakeStateParams(ns_sseAll, True));
+   f_BaseSearcher.AssignState(l_State.SearcherState);
    Assert(f_BaseSearcher <> nil);
    f_ActiveClassForSaveInHistory := l_State.ActiveClass;
    // http://mdp.garant.ru/pages/viewpage.action?pageId=327826220
@@ -457,10 +455,9 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\BaseSearch\Forms\PrimBaseSearc
 //#UC END# *4CF4D7110264_4AB791130260_var*
 //#UC START# *4CF4F8470359_4ACB57C4023E_impl*
  inherited Create;
- Assert(aData <> nil);
- f_Data := aData;
  Assert(anActiveClass <> nil);
  f_ActiveClass := anActiveClass;
+ f_SearcherState := aBaseSearcherState; 
  //f_ActiveClass := f_Data.ActiveClassForSaveState{ActiveClass};
 //#UC END# *4CF4F8470359_4ACB57C4023E_impl*
 //#UC START# *4CF4F8470359_4ACB57C4023E_var*
@@ -867,3 +864,8 @@ var
  l_BaseSearcher: InsBaseSearcher;
  l_SearchWindow: InsSearchWindow;
 //#UC END# *573AFFE5038D_4AB791130260_var*
+//#UC START# *57DA8F3102AE_4ACB57C4023Eget_impl*
+ Result := f_SearcherState;
+//#UC END# *57DA8F3102AE_4ACB57C4023Eget_impl*
+//#UC START# *57DA8F3102AE_4ACB57C4023Eget_var*
+//#UC END# *57DA8F3102AE_4ACB57C4023Eget_var*

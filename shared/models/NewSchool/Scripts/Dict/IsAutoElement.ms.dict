@@ -1,0 +1,21 @@
+UNIT IsAutoElement.ms.dict
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+BOOLEAN FUNCTION .IsAutoElement
+  ANY IN Self
+ RULES
+  ( Self IsIntf )
+   true
+  (
+   ( Self IsObj )
+   AND ( Self .IsAuto )
+  )
+   true
+  DEFAULT
+   false
+ ; // RULES
+ >>> Result
+; // .IsAutoElement

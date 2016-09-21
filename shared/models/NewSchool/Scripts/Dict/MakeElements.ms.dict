@@ -1,0 +1,104 @@
+UNIT MakeElements.ms.dict
+
+USES
+ ModelElementsDefinition.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ axiom:CompiledProcedure
+ axiom:KeyValues
+;
+
+USES
+ KeyValuesCreateAndDo.ms.dict
+;
+
+: KeyValuesCreateAndDoEx:
+  ^ IN aLambda
+ KeyValuesCreateAndDo: (
+   IN aMade
+  //if ( aMade .Parent .NotIsNil ) then
+  // ( aMade -> Parent := nil )
+  //aMade -> Creator := ( g_CurrentGeneratedElement .WeakRef )
+  //aMade -> IsAuto := true
+  aMade aLambda DO
+ ) // KeyValuesCreateAndDo:
+; // KeyValuesCreateAndDoEx
+
+elem: DecorateMethodAndDo:
+  ^ IN aLambda
+ KeyValuesCreateAndDoEx: (
+   IN aMethod
+  aMethod -> Original := ( Self .WeakRef )
+  aMethod aLambda DO
+ ) // KeyValuesCreateAndDoEx:
+; // DecorateMethodAndDo:
+
+INTERFACE elem_func DecorateMethod:
+  ^ IN aLambda
+ Self .DecorateMethodAndDo: (
+   IN aMethod
+  aMethod pop:Word:Box >>> Result
+  aMethod aLambda DO
+ ) // Self .DecorateMethodAndDo:
+; // DecorateMethod:
+
+INTERFACE FUNCTION MakeParam:
+  STRING IN aName
+  ModelElement IN aType
+  ^ IN aLambda
+ 
+ KeyValuesCreateAndDoEx: (
+   IN l_Param
+  
+  l_Param pop:Word:Box >>> Result
+  
+  l_Param -> Name := aName
+  if ( aType .IsNotNil ) then
+  begin
+   l_Param -> Target := aType
+//   l_Param -> Creator := ( aType .WeakRef )
+//   l_Param -> Target := ( aType .WeakRef )
+/*{   if ( aType IsIntf ) then
+   begin
+    [ aName ' : ' aType .Name ] strings:Cat Msg
+   end // ( aType IsIntf )}*/
+  end // ( aType .IsNotNil )
+  
+  l_Param aLambda DO
+ ) // KeyValuesCreateAndDoEx:
+ 
+; // MakeParam:
+
+INTERFACE FUNCTION MakeParam
+  STRING IN aName
+  ModelElement IN aType
+ 
+ aName aType MakeParam: DROP
+ >>> Result
+; // MakeParam
+
+WordAlias MakeFunction MakeParam
+WordAlias MakeFunction: MakeParam:
+
+WordAlias MakeField MakeParam
+WordAlias MakeField: MakeParam:
+
+WordAlias MakeProperty MakeParam
+WordAlias MakeProperty: MakeParam:
+
+: MakeProcedure
+ nil MakeFunction
+; // MakeProcedure
+
+MACRO MakeProcedure:
+ 'nil' Ctx:Parser:PushSymbol
+ 'MakeFunction:' Ctx:Parser:PushSymbol
+; // MakeProcedure:
+
+WordAlias MakeView: MakeProcedure:
+

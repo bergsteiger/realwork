@@ -5,6 +5,10 @@ USES
 ;
 
 USES
+ axiom_push.ms.dict
+;
+
+USES
  ModelElementsDefinition.ms.dict
 ;
 
@@ -545,19 +549,26 @@ INTEGER elem_func msm:View:BackColor
   >>> Result
  ; // StereotypeBackColor
  
- VAR l_Color
- Self .Stereotype .StereotypeBackColor >>> l_Color
  RULES
-  ( l_Color IsInt )
-   RULES
-    ( l_Color TColor::clDefault == )
-     ( Self .msm:View:ForeColor )
-    DEFAULT
-     l_Color
-   ; // RULES
-  DEFAULT 
-   ( Self .msm:View:ForeColor )
- ; // RESULT  
+  ( Self .Parent .Original Self .Original .Parent ?!= )
+   TColor::clWhite
+  DEFAULT
+   begin
+    VAR l_Color
+    Self .Stereotype .StereotypeBackColor >>> l_Color
+    RULES
+     ( l_Color IsInt )
+      RULES
+       ( l_Color TColor::clDefault == )
+        ( Self .msm:View:ForeColor )
+       DEFAULT
+        l_Color
+      ; // RULES
+     DEFAULT 
+      ( Self .msm:View:ForeColor )
+    ; // RULES
+   end // DEFAULT
+ ; // RULES  
  >>> Result
 ; // msm:View:BackColor
 
@@ -735,21 +746,9 @@ USES
  CutPrefix.ms.dict
 ;
 
-INTEGER elem_func X
- Self 'X' 0 .ElemMember >>> Result
-; // X
-
-INTEGER elem_func Y
- Self 'Y' 0 .ElemMember >>> Result
-; // Y
-
-INTEGER elem_func Width
- Self 'Width' 120 .ElemMember >>> Result
-; // Width
-
-INTEGER elem_func Height
- Self 'Height' 100 .ElemMember >>> Result
-; // Height
+USES
+ Diagrams.ms.dict
+;
 
 WordAlias .msm:View:X .X
 WordAlias .msm:View:Y .Y
@@ -759,30 +758,10 @@ WordAlias .msm:View:Height .Height
 WordAlias .msm:View:From .From
 WordAlias .msm:View:To .To
 
-elem_iterator Diagrams
- Self 'Diagrams' .ElemList >>> Result
-; // Diagrams
-
-elem_iterator Views
- Self 'Views' .ElemList >>> Result
-; // Views
-
-elem_iterator msm:Diagrams
- VAR l_Name
- Self .WordName '_view' .CutSuffix >>> l_Name
- VAR l_DictName
- l_Name 'ME_' .CutPrefix >>> l_DictName
- l_DictName '.ms.diagram.script' Cat >>> l_DictName
- l_Name '_diagrams' Cat >>> l_Name
- WL l_Name l_DictName
- .Diagrams
- >>> Result
-; // msm:Diagrams
-
-elem_iterator MainDiagram
+ModelElement elem_func MainDiagram
  Self .msm:Diagrams 
  .FirstElement
- .Views
+ //.Views
  >>> Result
 ; // MainDiagram
 
@@ -802,15 +781,196 @@ ModelElement FUNCTION .WordByDictionaryPath
  DROP // - выкидываем словарь
 ; // .WordByDictionaryPath
 
+USES
+ CheckValue.ms.dict
+;
+ 
+: .CheckValueSafe
+ if ( StackLevel > 0 ) then
+  .CheckValue
+; // .CheckValueSafe
+
+USES
+ DictFileName.ms.dict
+;
+
+USES
+ WordIsVar.ms.dict
+;
+
+elem_proc GenerateElement
+ RULES
+  ( Self .IsDiagram )
+   begin
+    Self .Original call.me
+   end // ( Self .IsDiagram )
+  ( Self .IsView )
+   begin
+    Self .Original call.me
+   end // ( Self .IsView )
+  ( Self .UID .IsNil ) then
+   begin
+    Self .Parent call.me
+   end // ( Self .UID .IsNil )
+  DEFAULT
+   begin
+    [ Self .DictFileName sysutils:ExtractFilePath 'cal.cmd' ' ' Self .DictFileName ] strings:Cat WinExec
+   end // ( Self .UID .IsNil )
+ ; // RULES
+; // GenerateElement
+
+elem_proc SetElementVar
+  STRING IN aName
+  IN aValue
+ aName '.' .CutPrefix >>> aName
+ 
+ VAR l_Var
+ Ctx:EnterCS
+ TRY
+  Self ->^ aName >>> l_Var
+  
+  if ( l_Var WordIsVar ! ) then
+  begin
+   aName false Self pop:NewWordDefinitor:CheckVarForce
+   // - создаём новую переменную
+   DUP l_Var pop:Word:Producer SWAP pop:Word:SetProducer
+   // - устанавливаем ей стереотип
+   >>> l_Var
+  end // ( l_Var WordIsVar ! )
+  
+  l_Var ^:= aValue
+ FINALLY
+  Ctx:LeaveCS
+ END // TRY..FINALLY
+; // SetElementVar
+
+USES
+ ModelGeneration.ms.dict
+;
+
+USES
+ DiagramGeneration.ms.dict
+;
+
+USES
+ DiagramSaving.ms.dict
+;
+
+USES
+ Out.ms.dict
+;
+
+USES
+ GenerationFramework.ms.dict
+;
+
+elem_proc SaveDiagrams
+ Self @ .diagram.save.script .Save
+; // SaveDiagrams
+
+PROCEDURE .SaveElements
+  ARRAY IN anElements
+ ARRAY VAR l_SavedElements 
+ [] >>> l_SavedElements
+ anElements .for> (
+   IN anElementToSave
+  RULES
+   ( anElementToSave .IsView )
+    ( anElementToSave .Parent >>> anElementToSave )
+   ( anElementToSave .IsViewLink )
+    ( anElementToSave .Parent >>> anElementToSave )
+  ; // RULES
+  //if ( anElementToSave .AddToArray?: l_SavedElements ) then
+  begin
+   RULES
+    ( anElementToSave .IsDiagram )
+     begin
+      if ( anElementToSave .Original .AddToArray?: l_SavedElements ) then
+       ( anElementToSave .Original .SaveDiagrams )
+     end // ( anElementToSave .IsDiagram )
+    DEFAULT
+     begin
+      if ( anElementToSave .AddToArray?: l_SavedElements ) then
+       ( anElementToSave pop:Word:Producer pop:Word:Name Msg ) 
+     end // DEFAULT
+   ; // RULES
+  end // ( anElementToSave .AddToArray?: l_SavedElements )
+ ) // anElements .for>
+; // .SaveElements
+
+STRING FUNCTION CreateUID
+ sysutils:CreateGUID '-' '' string:Replace '{' '' string:Replace '}' '' string:Replace
+ >>> Result
+; // CreateUID
+
+USES
+ LUID.ms.dict
+;
+
+USES
+ axiom:msm
+;
+
+USES
+ KeyValuesCreateAndDo.ms.dict
+;
+
+USES
+ Predicates.ms.dict
+;
+
+elem_proc msm:Diagram:PasteElements
+  ARRAY IN anElements
+ RULES  
+  ( Self .IsDiagram )
+   begin
+    anElements
+    .filter> .Not: .IsViewLink
+    .for> (
+      IN aView
+     VAR l_ViewName 
+     [ 'ME_' CreateUID ] strings:Cat >>> l_ViewName 
+     
+     VAR l_KeyWord
+     l_ViewName Self pop:NewWordDefinitor:CheckWord >>> l_KeyWord
+     if ( l_KeyWord pop:KeyWord:Word IsNil ) then
+     begin
+      KeyValuesCreateAndDo: (
+        IN aMade
+       @ MEVIEW aMade pop:Word:SetProducer 
+       aMade l_KeyWord pop:KeyWord:SetWord 
+       l_KeyWord aMade pop:Word:SetKey 
+       aMade -> X := ( aView .X 10 + )
+       aMade -> Y := ( aView .Y 10 + )
+       if ( aView .IsView ) then
+       begin
+        aMade -> Original := ( aView .Original )
+       end // ( aView .IsView )
+       else
+       begin
+        aMade -> Original := aView
+       end // ( aView .IsView )
+       aMade -> Parent := Self
+       aMade Self .Views Array:Add
+      ) // KeyValuesCreateAndDo:
+     end // ( l_KeyWord pop:KeyWord:Word IsNil )
+     else
+     begin
+      ERROR [ 'Слово ' l_ViewName ' уже есть' ]
+     end // ( l_KeyWord pop:KeyWord:Word IsNil )
+     Self msm:AddChangedElement
+    ) // .for>
+   end // ( Self .IsDiagram )
+  DEFAULT
+   ( Self pop:Word:Producer pop:Word:Name Msg )
+ ; // RULES  
+; // msm:Diagram:PasteElements
+
 EXPORTS
  arrays.ms.dict
  
 EXPORTS
  ElementsRTTI.ms.dict
- 
-USES
- CheckValue.ms.dict
-;
  
 EXPORTS
  CheckValue.ms.dict
@@ -824,3 +984,6 @@ USES
  
 EXPORTS
  ElemMemberPrim.ms.dict
+ 
+EXPORTS
+ Diagrams.ms.dict

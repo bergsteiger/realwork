@@ -1789,13 +1789,23 @@ ME ME_5281F7EC0234
 
 ENDME // ME_5281F7EC0234 
 
+ME ME_57E0FFB401BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E4A181002B0 // TkwClearDataBase
+ ;
+ MELINK Target WL 'ME_54352FD00015' '538DA20300A7.ms.model.script' // DoneClientBaseEngine
+ ;
+
+ENDME // ME_57E0FFB401BB 
+
 ME ME_4E4A181002B0
  MEPROP UID '4E4A181002B0'
  MEPROP Name 'TkwClearDataBase'
  MEPROP Class class_Class
  MELINK Stereotype st_ScriptKeyword ;
  MEPROP Kind kind_NormalClass
- %SUMMARY '*Формат:*  ''File_Name.zip'' ''Path2Base'' ClearDataBase'#13#10'*Описание:* Рапаковывает базу из архива ''File_Name.zip'' в заданный каталог ''Path2Base''. Каталог, в который рапаковывается база, предварительно очищается.. '#13#10'*Пример:*'#13#10'{code}'#13#10'  ''testBase.zip'' ''C:\Base\TestBase'' ClearDataBase'#13#10'{code}' ;
+ %SUMMARY '*Формат:*  ''File_Name.zip'' ClearDataBase'#13#10'*Описание:* Рапаковывает базу из архива ''File_Name.zip'' в заданный каталог Путь к базе берется из ini-файла. Каталог, в который рапаковывается база, предварительно очищается.. '#13#10'*Пример:*'#13#10'{code}'#13#10'  ''testBase.zip'' ClearDataBase'#13#10'{code}' ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4DE629810132 // Scripting
@@ -1804,6 +1814,7 @@ ME ME_4E4A181002B0
    Seq: ( ME_4E4A4140033A // arUnackBaseFromArchive
  ME_4E4B5D9A03A8 // acInitDB
  ME_5281F7EC0234 // EdtBrokenFileLock
+ ME_57E0FFB401BB // DoneClientBaseEngine
  )
  ; // Dependencies
  UP "NameForScript" 'ClearDataBase'

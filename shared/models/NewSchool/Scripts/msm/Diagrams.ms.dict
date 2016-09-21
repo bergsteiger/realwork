@@ -1,0 +1,80 @@
+UNIT Diagrams.ms.dict
+
+USES
+ core.ms.dict
+;
+
+USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+USES
+ CutSuffix.ms.dict
+;
+
+elem_iterator Diagrams
+ Cached:
+ (
+  RULES
+   ( Self .IsView )
+    ( Self .Original call.me )
+   ( Self .IsDiagram )
+    ( Self .Original call.me )
+   DEFAULT
+    ( Self 'Diagrams' .ElemList ) 
+  ; // RULES
+ )
+ >>> Result
+; // Diagrams
+
+elem_iterator Views
+ Self 'Views' .ElemList >>> Result
+; // Views
+
+elem_iterator msm:Diagrams
+ Cached:
+ (
+  RULES
+   ( Self .IsView )
+    ( Self .Original call.me )
+   ( Self .IsDiagram )
+    ( Self .Original call.me )
+   DEFAULT
+    begin
+     VAR l_Name
+     Self .WordName '_view' .CutSuffix >>> l_Name
+     VAR l_DictName
+     l_Name 'ME_' .CutPrefix >>> l_DictName
+     l_DictName '.ms.diagram.script' Cat >>> l_DictName
+     l_Name '_diagrams' Cat >>> l_Name
+     WL l_Name l_DictName
+     .Diagrams
+    end // DEFAULT 
+  ; // RULES
+ )
+ >>> Result
+; // msm:Diagrams
+
+INTEGER elem_func X
+ Self 'X' 0 .ElemMember >>> Result
+; // X
+
+INTEGER elem_func Y
+ Self 'Y' 0 .ElemMember >>> Result
+; // Y
+
+INTEGER elem_func Width
+ Self 'Width' 120 .ElemMember >>> Result
+; // Width
+
+INTEGER elem_func Height
+ Self 'Height' 100 .ElemMember >>> Result
+; // Height

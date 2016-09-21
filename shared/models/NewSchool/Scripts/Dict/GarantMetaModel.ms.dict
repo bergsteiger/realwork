@@ -645,3 +645,18 @@ BOOLEAN elem_func IsMixInMirror
  Self .IsStereotype st_MixInMirror
  >>> Result
 ; // IsMixInMirror
+
+BOOLEAN elem_func IsUses
+ RULES
+  ( Self .IsStereotype st_uses::Dependency )
+   true
+  ( Self .IsStereotype st_consume::Dependency )
+   true
+  ( Self .IsStereotype st_ContextMenuWeight::Dependency )
+   true
+  DEFAULT
+   false
+ ; // RULES   
+ >>> Result
+; // IsUses
+

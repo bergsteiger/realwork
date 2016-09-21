@@ -528,6 +528,11 @@ PROCEDURE "Нажать вправо с зажатым Shift"
 	cc:ExtendRight
 ;
 
+FUNCTION "Найти компонент по имени" OBJECT IN aControl STRING IN aName
+	aName aControl pop:Component:FindComponent >>> Result
+;
+
+
 PROCEDURE "Установить фокус" OBJECT IN aControl
 	aControl pop:Control:SetFocus ?ASSURE [ 'Не смогли поставить фокус в ' aControl pop:Component:Name ':' aControl pop:object:ClassName ]
 ;
@@ -671,10 +676,6 @@ PROCEDURE "Нажать 'Shift+Del'"
 
 PROCEDURE "Нажать 'Shift+Ins'"
 	'Shift+Ins' key		
-;
-
-PROCEDURE "Начать установку гиперссылки"
-	'F11' key
 ;
 
 PROCEDURE "Зажать 'Shift'"

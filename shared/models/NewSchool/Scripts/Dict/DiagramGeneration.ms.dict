@@ -1,0 +1,306 @@
+UNIT DiagramGeneration.ms.dict
+
+USES
+ axiom_push.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ LUID.ms.dict
+;
+
+USES
+ InheritsAndImplementsNew.ms.dict
+;
+
+USES
+ ModelGeneration.ms.dict
+;
+
+USES
+ IsAutoElement.ms.dict
+;
+
+USES
+ CountIt.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ Out.ms.dict
+;
+
+USES
+ Chars.ms.dict
+;
+
+USES
+ MakeElements.ms.dict
+;
+
+USES
+ CutPrefix.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+elem_generator diagram.script
+
+ Inherits .model.script
+ 
+ CONST Ext '.diagram.script'
+
+ BOOLEAN elem_func NeedOwnFilePrim
+  RULES
+   ( Self .IsAutoElement )
+   // - это "автоматически выдуманый элемент"
+    false
+   ( Self .IsSubRoot )
+    true
+   ( Self .Children .NotEmpty )
+    true 
+   ( Self .Constants .NotEmpty )
+    true
+   ( Self .Operations .NotEmpty )
+    true
+   ( Self .Attributes .NotEmpty )
+    true
+   DEFAULT
+    false
+  ; // RULES
+  >>> Result
+ ; // NeedOwnFilePrim
+
+ STRING elem_func FinalFileNamePrim
+  [
+   '\shared\models\NewSchool\Scripts\Models\'
+   if ( Self .LUID .IsNil ) then
+    ( Self .Name )
+   else
+    ( Self .LUID )
+   '.ms.diagram.script'
+  ] strings:Cat >>> Result
+ ; // FinalFileNamePrim
+ 
+ [
+  '// '
+  Self .NameInModel ' '
+  Self .LUID ' '
+  Self .Stereotype .Name ' '
+  Self .MDAClassString
+ ] .Out
+ OutLn
+ [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
+ OutLn
+
+ VAR l_Suffix
+ 'diagrams' >>> l_Suffix
+ [ 'MEDIAGRAMS ' Self .WordName '_' l_Suffix ] .Out
+ Indented: (
+  OutLn
+  VAR l_DiagramName
+  'main' >>> l_DiagramName
+
+  VAR l_Name
+  [ Self .WordName '_' l_DiagramName ] strings:Cat >>> l_Name
+
+  [ 'MEDIAGRAM ' l_Name ] .Out
+  Indented: (
+   [ 'MEPROP Name ' cQuote l_DiagramName cQuote ] .Out
+   [ 'MELINK Original ' Self .ScriptWordLink ' ;' ' // ' Self .NameInModel ] .Out
+   OutLn
+   CONST cOffsetX 40
+   CONST cOffsetY 40
+   VAR X
+   cOffsetX >>> X
+   VAR Y
+   cOffsetY >>> Y
+   VAR l_It
+   Self .Children
+   .join> ( Self .Constants )
+   .join> ( Self .Operations )
+   .join> ( Self .Attributes )
+   >>> l_It
+
+   VAR l_Suffix
+   '_view' >>> l_Suffix
+   VAR l_Views
+   [] >>> l_Views
+   VAR l_Viewed
+   [] >>> l_Viewed
+   l_It .for> (
+     IN anElement
+    VAR l_Name
+    [ anElement .WordName l_Suffix ] strings:Cat >>> l_Name
+
+    anElement .AddToArray: l_Viewed
+    l_Name MakeView: (
+      IN aMade
+     aMade -> OriginalName := ( anElement .NameInModel )
+    ) //l_Name MakeView:
+    .AddToArray: l_Views
+
+    [ 'MEVIEW ' l_Name ] .Out
+    Indented: (
+     [ 'MELINK Original ' anElement .ScriptWordLink ' ;' ' // ' anElement .NameInModel ] .Out
+     [ 'MEPROP X ' X ] .Out
+     [ 'MEPROP Y ' Y ] .Out
+     X 120 + cOffsetX + >>> X
+     if ( X > 1000 ) then
+     begin
+      cOffsetX >>> X
+      Y 100 + cOffsetY + >>> Y
+     end // ( X > 1000 )
+    ) // Indented:
+    [ 'ENDMEVIEW ' '// ' l_Name ] .Out
+    OutLn
+   ) // l_It .for>
+
+   VAR l_ViewNames
+   [] >>> l_ViewNames
+   VAR l_LinkCount
+   40 >>> l_LinkCount
+
+   elem_proc OutLinks:
+     ^ IN aLamdba
+    Self aLamdba DO
+    .filter> ( DROP l_LinkCount > 0 )
+    .for> (
+      IN aLink
+     if ( aLink .InArray: l_Viewed ) then
+     begin
+      VAR l_Name
+      VAR l_CollectionName
+      aLamdba .WordName '.' .CutPrefix >>> l_CollectionName
+      [ Self .WordName '_' aLink .WordName '_' l_CollectionName ] strings:Cat >>> l_Name
+
+      if ( l_Name .AddToArray?: l_ViewNames ) then
+      begin
+       Dec l_LinkCount
+       l_Name MakeView: (
+         IN aMade
+        aMade -> OriginalName := ( [ Self .NameInModel ' -> ' aLink .NameInModel ] strings:Cat )
+       ) //l_Name MakeView:
+       .AddToArray: l_Views
+
+       [ 'MEVIEWLINK ' l_Name ] .Out
+       Indented: (
+        [ 'MELINK From ' Self .WordName l_Suffix ' ;' ] .Out
+        [ 'MELINK To ' aLink .WordName l_Suffix ' ;' ] .Out
+        //[ 'MEPROP LinkViewType ' cQuote l_CollectionName cQuote ] .Out
+        [ 'MEPROP Class class_' l_CollectionName ] .Out
+       ) // Indented:
+       [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
+       OutLn
+      end // ( l_Name .AddToArray?: l_ViewNames )
+     end // ( aLink .InArray: l_Viewed )
+    ) // .for>
+   ; // OutLinks:
+
+   l_Viewed .for> (
+     IN anElement
+
+    anElement .OutLinks: .Depends
+    anElement .OutLinks: .Implements
+    anElement .OutLinks: .Inherits
+
+    anElement .Dependencies
+    .filter> .IsUses
+    .join> ( anElement .Attributes )
+    .filter> ( DROP l_LinkCount > 0 )
+    .for> (
+      IN aLink
+     if ( aLink .Target .NotIsNil ) then
+     begin
+      if ( aLink .Target .InArray: l_Viewed ) then
+      begin
+       VAR l_Name
+       if ( aLink .WordName .IsNil ) then
+       begin
+        [
+         anElement .WordName
+         if ( aLink .Target .WordName .NotIsNil ) then
+         begin
+          '_' aLink .Target .WordName
+         end // ( aLink .Target .WordName .NotIsNil )
+         if ( aLink .Stereotype .Name .NotIsNil ) then
+         begin
+          '_' aLink .Stereotype .Name
+         end // ( aLink .Stereotype .Name .NotIsNil )
+         if ( aLink .NameInModel .NotIsNil ) then
+         begin
+          '_' aLink .NameInModel
+         end // ( aLink .NameInModel .NotIsNil )
+        ] strings:Cat
+       end // ( aLink .WordName .IsNil )
+       else
+       begin
+        [ aLink .WordName '_viewlink' ] strings:Cat
+       end // // ( aLink .LUID .IsNil )
+       >>> l_Name
+
+       if ( l_Name .AddToArray?: l_ViewNames ) then
+       begin
+        Dec l_LinkCount
+        l_Name MakeView: (
+          IN aMade
+         aMade -> OriginalName := ( [ anElement .NameInModel ' -> ' aLink .Target .NameInModel ] strings:Cat )
+        ) //l_Name MakeView:
+        .AddToArray: l_Views
+
+        [ 'MEVIEWLINK ' l_Name ] .Out
+        Indented: (
+         [ 'MELINK Original ' aLink .ScriptWordLink ' ;' /*{' // ' aLink .NameInModel}*/ ] .Out
+         [ 'MELINK From ' anElement .WordName l_Suffix ' ;' ] .Out
+         [ 'MELINK To ' aLink .Target .WordName l_Suffix ' ;' ] .Out
+        ) // Indented:
+        [ 'ENDMEVIEWLINK ' '// ' l_Name ] .Out
+        OutLn
+       end // ( l_Name .AddToArray?: l_ViewNames )
+      end // ( aLink .Target .InArray: l_Viewed )
+     end // ( aLink .Target .NotIsNil )
+    ) // .for>
+   ) // l_Viewed .for>
+   
+   [ 'MELIST Views' ] .Out
+   [
+     ' Seq: ( '
+     l_Views .for> (
+       IN anElement
+      anElement .Name
+      if ( anElement .OriginalName .NotIsNil ) then
+      begin
+       ' // '
+       anElement .OriginalName
+       \n
+      end // ( anElement .OriginalName .NotIsNil )
+      ' '
+     ) // l_It .for>
+     ')'
+   ] .Out
+   [ '; // Views' ] .Out
+  ) // Indented:
+  [ 'ENDMEDIAGRAM ' '// ' l_Name ] .Out
+  OutLn
+  [ 'MELIST Diagrams' ] .Out
+  [
+    ' Seq: ( '
+     l_Name \n ' '
+    ')'
+  ] .Out
+  [ '; // Diagrams' ] .Out
+ ) // Indented:
+ [ 'ENDMEDIAGRAMS ' '// ' Self .WordName '_' l_Suffix ] .Out
+; // diagram.script

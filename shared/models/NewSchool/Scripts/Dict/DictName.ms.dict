@@ -1,0 +1,36 @@
+UNIT DictName.ms.dict
+
+USES
+ IsNil.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ DictFileName.ms.dict
+;
+
+USES
+ CutSuffix.ms.dict
+;
+
+CONST cModelScript '.ms.model.script'
+
+STRING elem_func DictName
+ Cached:
+ (
+  RULES
+   ( Self .IsNil )
+    ''
+   DEFAULT
+    begin
+     Self .DictFileName
+     sysutils:ExtractFileName
+     cModelScript .CutSuffix
+    end // DEFAULT
+  ; // RULES
+ )
+ >>> Result
+; // DictName

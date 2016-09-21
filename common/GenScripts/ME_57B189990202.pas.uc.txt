@@ -92,9 +92,17 @@ w:\common\components\gui\Garant\msm\msmListModel.imp.pas
   Self.SetList(nil)
  else 
  if f_IsDir then
-  Self.SetList(TmsmModelElementDir.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName))
+ begin
+  Assert(f_SubElementName = '');
+  Self.SetList(TmsmModelElementDir.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+ end//f_IsDir
  else
-  Self.SetList(TmsmModelElementRelationList.Make(anElement, anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+ begin
+  if (f_SubElementName <> '') then
+   Self.SetList(TmsmModelElementRelationList.Make(anElement.ElementProp[f_SubElementName].List[f_ElementView.rListName], f_ElementView.rTextName))
+  else
+   Self.SetList(TmsmModelElementRelationList.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+ end;//f_IsDir
 //#UC END# *57D2A7D900FE_57B189990202_impl*
 //#UC START# *57D2A7D900FE_57B189990202_var*
 //#UC END# *57D2A7D900FE_57B189990202_var*
