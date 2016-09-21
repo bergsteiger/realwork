@@ -12,7 +12,7 @@ interface
 uses
  l3IntfUses
  , csReply_Const
- , Address_Const
+ , DocIDWithComment_Const
  , k2Bool_Const
  , k2String_Const
 ;

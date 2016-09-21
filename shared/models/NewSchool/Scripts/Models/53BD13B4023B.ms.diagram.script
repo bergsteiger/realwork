@@ -68,17 +68,17 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_53DB62BC03B2_view
 
-  MEVIEW ME_53BD13DC0048_view
-   MELINK Original WL 'ME_53BD13DC0048' '484A470100DD.ms.model.script' ; // TDocumentIDListHelper
+  MEVIEW ME_57DB9EC90381_view
+   MELINK Original WL 'ME_57DB9EC90381' '484A470100DD.ms.model.script' ; // RejectedIDListHelper
    MEPROP X 520
    MEPROP Y 180
-  ENDMEVIEW // ME_53BD13DC0048_view
+  ENDMEVIEW // ME_57DB9EC90381_view
 
-  MEVIEW ME_53E0CA970184_view
-   MELINK Original WL 'ME_53E0CA970184' '484A470100DD.ms.model.script' ; // TImportedDocListHelper
+  MEVIEW ME_53BD13DC0048_view
+   MELINK Original WL 'ME_53BD13DC0048' '484A470100DD.ms.model.script' ; // TDocumentIDListHelper
    MEPROP X 680
    MEPROP Y 180
-  ENDMEVIEW // ME_53E0CA970184_view
+  ENDMEVIEW // ME_53BD13DC0048_view
 
   MEVIEW ME_53E0CACC0298_view
    MELINK Original WL 'ME_53E0CACC0298' '484A470100DD.ms.model.script' ; // ImportedDocListHelper
@@ -260,6 +260,18 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    MEPROP Y 740
   ENDMEVIEW // ME_57DA82680196_view
 
+  MEVIEW ME_53E0CA970184_view
+   MELINK Original WL 'ME_53E0CA970184' '484A470100DD.ms.model.script' ; // TImportedDocListHelper
+   MEPROP X 40
+   MEPROP Y 880
+  ENDMEVIEW // ME_53E0CA970184_view
+
+  MEVIEW ME_57DB9ED80225_view
+   MELINK Original WL 'ME_57DB9ED80225' '484A470100DD.ms.model.script' ; // TRejectedIDListHelper
+   MEPROP X 200
+   MEPROP Y 880
+  ENDMEVIEW // ME_57DB9ED80225_view
+
   MEVIEWLINK ME_53BD2DEA02B3_ME_53DA2F9A03A3_Implements
    MELINK From ME_53BD2DEA02B3_view ;
    MELINK To ME_53DA2F9A03A3_view ;
@@ -313,12 +325,6 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    MELINK To ME_53BFD54A01CC_view ;
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_53BD13DC0048_ME_53BFD54A01CC_Inherits
-
-  MEVIEWLINK ME_53E0CA970184_ME_53BD13DC0048_Inherits
-   MELINK From ME_53E0CA970184_view ;
-   MELINK To ME_53BD13DC0048_view ;
-   MEPROP Class class_Inherits
-  ENDMEVIEWLINK // ME_53E0CA970184_ME_53BD13DC0048_Inherits
 
   MEVIEWLINK ME_53E0CACC0298_ME_53BD2DEA02B3_Inherits
    MELINK From ME_53E0CACC0298_view ;
@@ -500,6 +506,12 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    MEPROP Class class_Implements
   ENDMEVIEWLINK // ME_57BEADEE00FC_ME_57BEADD60037_Implements
 
+  MEVIEWLINK ME_57BEADEE00FC_ME_53BFD54A01CC_Inherits
+   MELINK From ME_57BEADEE00FC_view ;
+   MELINK To ME_53BFD54A01CC_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57BEADEE00FC_ME_53BFD54A01CC_Inherits
+
   MELIST Views
    Seq: ( ME_53DA2F9A03A3_view // MIntegerListTransformator
    ME_53BD2DEA02B3_view // DocumentIDListHelper
@@ -511,8 +523,8 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    ME_54646E8C02EB_view // TasksIDListHelper
    ME_57BEADD60037_view // FoundSelectorHelper
    ME_53DB62BC03B2_view // AccGroupsIDListHelper
+   ME_57DB9EC90381_view // RejectedIDListHelper
    ME_53BD13DC0048_view // TDocumentIDListHelper
-   ME_53E0CA970184_view // TImportedDocListHelper
    ME_53E0CACC0298_view // ImportedDocListHelper
    ME_53EB4E0E03A7_view // TSourceIDListHelper
    ME_53EB4E2E0382_view // SourceIDListHelper
@@ -543,6 +555,8 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    ME_57BEADEE00FC_view // TFoundSelectorHelper
    ME_57DA8247013D_view // DocIDListHelper
    ME_57DA82680196_view // TDocIDListHelper
+   ME_53E0CA970184_view // TImportedDocListHelper
+   ME_57DB9ED80225_view // TRejectedIDListHelper
    ME_53BD2DEA02B3_ME_53DA2F9A03A3_Implements // DocumentIDListHelper -> MIntegerListTransformator
    ME_53BD48800095_ME_53BD2DEA02B3_Inherits // SABStreamHelper -> DocumentIDListHelper
    ME_53EDDCC203B4_ME_53BFCCE800ED_Implements // TAbstractStringListHelper -> StringListHelper
@@ -552,7 +566,6 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    ME_53DB62BC03B2_ME_53BD2DEA02B3_Inherits // AccGroupsIDListHelper -> DocumentIDListHelper
    ME_53BD13DC0048_ME_53BD2DEA02B3_Implements // TDocumentIDListHelper -> DocumentIDListHelper
    ME_53BD13DC0048_ME_53BFD54A01CC_Inherits // TDocumentIDListHelper -> TevdTagHelper
-   ME_53E0CA970184_ME_53BD13DC0048_Inherits // TImportedDocListHelper -> TDocumentIDListHelper
    ME_53E0CACC0298_ME_53BD2DEA02B3_Inherits // ImportedDocListHelper -> DocumentIDListHelper
    ME_53EB4E0E03A7_ME_53BD13DC0048_Inherits // TSourceIDListHelper -> TDocumentIDListHelper
    ME_53EB4E2E0382_ME_53BD2DEA02B3_Inherits // SourceIDListHelper -> DocumentIDListHelper
@@ -583,6 +596,7 @@ MEDIAGRAMS ME_53BD13B4023B_diagrams
    ME_54646EB103D5_ME_53EDDCC203B4_Inherits // TTasksIDListHelper -> TAbstractStringListHelper
    ME_53DB62E10109_ME_53BD13DC0048_Inherits // TAccGroupsIDListHelper -> TDocumentIDListHelper
    ME_57BEADEE00FC_ME_57BEADD60037_Implements // TFoundSelectorHelper -> FoundSelectorHelper
+   ME_57BEADEE00FC_ME_53BFD54A01CC_Inherits // TFoundSelectorHelper -> TevdTagHelper
    )
   ; // Views
  ENDMEDIAGRAM // ME_53BD13B4023B_main
