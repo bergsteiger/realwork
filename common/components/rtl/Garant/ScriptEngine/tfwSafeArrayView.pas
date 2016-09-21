@@ -24,6 +24,7 @@ type
    function GetItem(anIndex: Integer): TtfwStackValue; override;
    function GetSafeView: ItfwValueList; override;
    function GetIsView: Boolean; override;
+   function DoAdd(const anItem: TtfwStackValue): Integer; override;
   public
    procedure DoForEach(aLambda: TtfwWordPrim;
     const aCtx: TtfwContext); override;
@@ -108,6 +109,8 @@ var
 //#UC END# *57C823BB02D8_57C820E80374_var*
 begin
 //#UC START# *57C823BB02D8_57C820E80374_impl*
+ if not GetIsView then
+  Exit;
  l_A := TtfwArray.Create;
  try
   l_L := TtfwSafeArrayViewLambda.Create(l_A);
@@ -238,6 +241,24 @@ begin
   Result := f_Other.IsView; 
 //#UC END# *57C9E8AC03C6_57C820E80374_impl*
 end;//TtfwSafeArrayView.GetIsView
+
+function TtfwSafeArrayView.DoAdd(const anItem: TtfwStackValue): Integer;
+//#UC START# *57E2B4C50080_57C820E80374_var*
+//#UC END# *57E2B4C50080_57C820E80374_var*
+begin
+//#UC START# *57E2B4C50080_57C820E80374_impl*
+ Assert(f_Other <> nil);
+ try
+  Result := f_Other.Add(anItem);
+ except
+  on EtfwConstantArray do
+  begin
+   TransformArray;
+   Result := f_Other.Add(anItem);
+  end;//on EtfwConstantArray
+ end;//try..except 
+//#UC END# *57E2B4C50080_57C820E80374_impl*
+end;//TtfwSafeArrayView.DoAdd
 
 initialization
  TtfwSafeArrayViewLambda.RegisterClass;

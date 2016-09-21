@@ -1,9 +1,9 @@
 unit kwClearDataBase;
- {* *Формат:*  'File_Name.zip' 'Path2Base' ClearDataBase
-*Описание:* Рапаковывает базу из архива 'File_Name.zip' в заданный каталог 'Path2Base'. Каталог, в который рапаковывается база, предварительно очищается.. 
+ {* *Формат:*  'File_Name.zip' ClearDataBase
+*Описание:* Рапаковывает базу из архива 'File_Name.zip' в заданный каталог Путь к базе берется из ini-файла. Каталог, в который рапаковывается база, предварительно очищается.. 
 *Пример:*
 [code]
-  'testBase.zip' 'C:\Base\TestBase' ClearDataBase
+  'testBase.zip' ClearDataBase
 [code] }
 
 // Модуль: "w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearDataBase.pas"
@@ -23,11 +23,11 @@ uses
 
 type
  TkwClearDataBase = class(TtfwRegisterableWord)
-  {* *Формат:*  'File_Name.zip' 'Path2Base' ClearDataBase
-*Описание:* Рапаковывает базу из архива 'File_Name.zip' в заданный каталог 'Path2Base'. Каталог, в который рапаковывается база, предварительно очищается.. 
+  {* *Формат:*  'File_Name.zip' ClearDataBase
+*Описание:* Рапаковывает базу из архива 'File_Name.zip' в заданный каталог Путь к базе берется из ini-файла. Каталог, в который рапаковывается база, предварительно очищается.. 
 *Пример:*
 [code]
-  'testBase.zip' 'C:\Base\TestBase' ClearDataBase
+  'testBase.zip' ClearDataBase
 [code] }
   protected
    class function GetWordNameForRegister: AnsiString; override;
@@ -45,6 +45,9 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Jour
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If Defined(AppClientSide) AND NOT Defined(Nemesis)}
+ , ddClientBaseEngine
+ {$IfEnd} // Defined(AppClientSide) AND NOT Defined(Nemesis)
  //#UC START# *4E4A181002B0impl_uses*
  //#UC END# *4E4A181002B0impl_uses*
 ;
@@ -64,9 +67,8 @@ var
 begin
 //#UC START# *4DAEEDE10285_4E4A181002B0_impl*
  inherited;
- RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано директория для базы!', aCtx);
- l_DirName := aCtx.rEngine.PopDelphiString;
  RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано имя архива с базой!', aCtx);
+ l_DirName := g_BaseEngine.DataParams.DocStoragePath;
  l_FileName := aCtx.rCaller.ResolveInputFilePath(aCtx.rEngine.PopDelphiString);
  try
   acDeInitDB;

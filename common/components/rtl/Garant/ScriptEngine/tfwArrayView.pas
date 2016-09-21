@@ -169,9 +169,7 @@ function TtfwArrayView.Add(const anItem: TtfwStackValue): Integer;
 //#UC END# *482958A203D0_52E270AE02EA_var*
 begin
 //#UC START# *482958A203D0_52E270AE02EA_impl*
- EtfwConstantArray.Fail('Не реализовано');
- Result := -1;
- //Result := f_Other.Add(anItem);
+ Result := DoAdd(anItem);
 //#UC END# *482958A203D0_52E270AE02EA_impl*
 end;//TtfwArrayView.Add
 

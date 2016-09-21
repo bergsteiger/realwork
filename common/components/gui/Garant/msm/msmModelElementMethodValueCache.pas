@@ -27,7 +27,6 @@ type
  )
   protected
    function CanCacheWord(aWord: TtfwWord): Boolean;
-   function CheckItem(const anItem: TmsmModelElementMethodValue): TmsmModelElementMethodValue;
    {$If NOT Defined(NoScripts)}
    procedure Notify(aWord: TtfwWord);
    {$IfEnd} // NOT Defined(NoScripts)
@@ -37,6 +36,7 @@ type
    procedure Add(const anItem: TmsmModelElementMethodValue);
    procedure Insert(anIndex: Integer;
     const anItem: TmsmModelElementMethodValue);
+   function CheckItem(const anItem: TmsmModelElementMethodValue): TmsmModelElementMethodValue;
    function FindData(const anItem: TmsmModelElementMethodValue;
     out theIndex: Integer): Boolean;
    procedure DeleteWordCachedValues(aWord: TtfwWord);

@@ -409,10 +409,10 @@ uses
  afwFacade,
  OvcBase,
  OvcCmd
-  {$If not defined(NoScripts) AND not defined(NoVCM)}
-  ,
-  vcmTabbedMenuWordsPack
-  {$IfEnd} //not NoScripts AND not NoVCM
+ {$If not defined(NoScripts) AND not defined(NoVCM)}
+ ,
+ vcmTabbedMenuWordsPack
+ {$IfEnd} //not NoScripts AND not NoVCM
  ;
 
 { TvcmBaseMenuForChromeLike }
@@ -806,7 +806,7 @@ procedure TvcmBaseMenuForChromeLike.Idle(const aMsg: TMsg);
 var
  l_Done: Boolean;
 begin
- TKilledMenusList.Instance.ClearIfNeeded; 
+ TKilledMenusList.Instance.ClearIfNeeded;
  DoMouseIdle;
  if Application.ShowHint and (MouseControl = nil) then
   Application.CancelHint;
@@ -1171,9 +1171,12 @@ begin
      end;//WM_KEYFIRST..WM_KEYLAST
     WM_MOUSEFIRST..WM_MOUSELAST:
      begin
-      ProcessMouseMessage(l_Message);
-      if (not f_InMenuLoop) then
-       Break;
+      if (l_Message.message <> WM_MOUSEWHEEL) then
+      begin
+       ProcessMouseMessage(l_Message);
+       if (not f_InMenuLoop) then
+        Break;
+      end;
      end;
     WM_NCACTIVATE,
     WM_ACTIVATE,

@@ -1,5 +1,5 @@
  program Archi;
-{ $Id: Archi.dpr,v 1.138 2016/09/07 12:34:01 lukyanets Exp $ }
+{ $Id: Archi.dpr,v 1.139 2016/09/16 12:24:08 lukyanets Exp $ }
 
 //$(ex)\vcl6;$(DELPHI)\Source\ToolsAPI;$(DELPHI)\Source\Rtl\SYS;$(DELPHI)\Source\Rtl\Common\;$(DELPHI)\Lib;$(DELPHI)\Bin;$(DELPHI)\Imports;$(DELPHI)\Projects\Bpl;$(ex)\SysTools;$(in)\l3;$(in)\l3\ext;$(in)\k2;$(in)\m0\pas;$(in)\m1\src;$(in)\m2\src;$(in)\m3\src;$(in)\m4\src;$(in)\mg\pas;$(ing)\Everest;$(ing)\Everest\ext;$(ing)\Everest\Ext\Misc;$(ing)\vt;$(in)\DD;$(in)\DD\pipein;$(in)\DD\pipeout;$(in)\dt;$(in)\da;$(in)\ht;$(in)\pg;$(in)\ComboAccess;$(ex)\SRMgr;$(ex)\Orpheus;$(ex)\TB97\SOURCE;$(ex)\JEDI;$(ex)\RX6;$(ex)\Envision;$(ex)\1C\source;$(pkg);$(ex)\indy\source;$(ex)\DevExpress\ExpressBars\Sources;$(ex)\DevExpress\ExpressCommon\Sources;$(ex)\WinSock
 //X:\#PKG\D6
@@ -132,7 +132,8 @@
   D_Autolink in 'Dlg\D_Autolink.pas' {AutolinkDlg},
   arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas',
   arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas',
-  arUploadDocumentHelper in 'w:\archi\source\projects\archi\Processing\arUploadDocumentHelper.pas';
+  arUploadDocumentHelper in 'w:\archi\source\projects\archi\Processing\arUploadDocumentHelper.pas',
+  arMultiModifyDocsHelper in 'w:\archi\source\projects\archi\Processing\arMultiModifyDocsHelper.pas';
 
 //d_ReplCorresp in 'DLG\d_ReplCorresp.pas';
 

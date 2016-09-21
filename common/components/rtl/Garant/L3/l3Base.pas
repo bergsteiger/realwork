@@ -5,9 +5,12 @@ unit l3Base;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Base -                    }
 { Начат: 12.04.1998 16:28             }
-{ $Id: l3Base.pas,v 1.594 2016/08/31 09:01:58 lulin Exp $ }
+{ $Id: l3Base.pas,v 1.595 2016/09/21 12:42:25 lulin Exp $ }
 
 // $Log: l3Base.pas,v $
+// Revision 1.595  2016/09/21 12:42:25  lulin
+// - подтачиваем.
+//
 // Revision 1.594  2016/08/31 09:01:58  lulin
 // - подтачиваем.
 //
@@ -5565,7 +5568,11 @@ procedure Tl3System.ClearClipboard(aValue: Integer = IDNo);
 begin
 {$IfDef l3UseOleClipboard}
  if (aValue = IDYes) then
-  OleFlushClipboard
+ begin
+  OleFlushClipboard;
+  //if l3IOk(OleIsCurrentClipboard(ClipboardData)) then
+  // OleSetClipboard(nil);
+ end//aValue = IDYes
  else
  if (aValue = IDNo) then
   OleSetClipboard(nil)

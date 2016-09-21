@@ -12,13 +12,14 @@ uses
  l3IntfUses
  , msmListModel
  , msmConcreteModels
- , msmElementViews
+ , msmModelElements
 ;
 
 type
  TmsmDrawingModel = class(TmsmListModel, ImsmDrawingModel)
   public
-   class function Make(const anElementView: TmsmModelElementView): ImsmDrawingModel; reintroduce;
+   constructor Create(const anElement: ImsmModelElement); reintroduce;
+   class function Make(const anElement: ImsmModelElement): ImsmDrawingModel; reintroduce;
  end;//TmsmDrawingModel
 
 implementation
@@ -26,14 +27,24 @@ implementation
 uses
  l3ImplUses
  //#UC START# *57D27E6802A5impl_uses*
+ , msmElementViews
  //#UC END# *57D27E6802A5impl_uses*
 ;
 
-class function TmsmDrawingModel.Make(const anElementView: TmsmModelElementView): ImsmDrawingModel;
+constructor TmsmDrawingModel.Create(const anElement: ImsmModelElement);
+//#UC START# *57E297C403B4_57D27E6802A5_var*
+//#UC END# *57E297C403B4_57D27E6802A5_var*
+begin
+//#UC START# *57E297C403B4_57D27E6802A5_impl*
+ CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'MainDiagram');
+//#UC END# *57E297C403B4_57D27E6802A5_impl*
+end;//TmsmDrawingModel.Create
+
+class function TmsmDrawingModel.Make(const anElement: ImsmModelElement): ImsmDrawingModel;
 var
  l_Inst : TmsmDrawingModel;
 begin
- l_Inst := CreateList(anElementView);
+ l_Inst := Create(anElement);
  try
   Result := l_Inst;
  finally

@@ -23,6 +23,7 @@ type
  TStTime = ;
 
 procedure ExpandYear;
+procedure DateTimeToStDate;
 function DefDateFormat(FourDigitYear: Boolean): AnsiString;
 function DefDateMask(BlanksChar: AnsiChar;
  FourDigitYear: Boolean): AnsiString;
@@ -43,6 +44,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *4F575D8E0256_47D02918035D_impl*
 end;//ExpandYear
+
+procedure DateTimeToStDate;
+//#UC START# *57E0EAE100E9_47D02918035D_var*
+//#UC END# *57E0EAE100E9_47D02918035D_var*
+begin
+//#UC START# *57E0EAE100E9_47D02918035D_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57E0EAE100E9_47D02918035D_impl*
+end;//DateTimeToStDate
 
 function DefDateFormat(FourDigitYear: Boolean): AnsiString;
 //#UC START# *47D029310101_47D02918035D_var*

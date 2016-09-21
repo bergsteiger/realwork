@@ -27,12 +27,18 @@ type
  {$Define l3Items_IsProto}
  {$Include w:\common\components\rtl\Garant\L3\l3RefList.imp.pas}
  TmsmModelElementNodeList = class(_l3RefList_)
+  private
+   f_LastAccessedElementIndex: Integer;
+  protected
+   function GetItem(Index: Integer): _ItemType_; override;
   public
    function IndexOfNode(const aNode: Il3SimpleNode): Integer;
    function AddNode(const aNode: Il3SimpleNode): Integer;
    procedure InsertNode(anIndex: Integer;
     const aNode: Il3SimpleNode);
    procedure RemoveNode(const aNode: Il3SimpleNode);
+   function IndexOf(anItem: TmsmModelElementNode): Integer;
+   procedure Remove(anItem: TmsmModelElementNode);
  end;//TmsmModelElementNodeList
 
 implementation
@@ -173,5 +179,45 @@ begin
  Remove((aNode As ITmsmModelElementNodeWrap).GetSelf);
 //#UC END# *57AC79F901CC_57AC61D402B3_impl*
 end;//TmsmModelElementNodeList.RemoveNode
+
+function TmsmModelElementNodeList.IndexOf(anItem: TmsmModelElementNode): Integer;
+//#UC START# *57DFBB530171_57AC61D402B3_var*
+//#UC END# *57DFBB530171_57AC61D402B3_var*
+begin
+//#UC START# *57DFBB530171_57AC61D402B3_impl*
+ if (f_LastAccessedElementIndex >= 0) AND (f_LastAccessedElementIndex < Count) then
+ begin
+  if Il3SimpleNode(Items[f_LastAccessedElementIndex]).IsSame(anItem) then
+  begin
+   Result := f_LastAccessedElementIndex;
+   Exit;
+  end;//Il3SimpleNode(Items[f_LastAccessedElementIndex]).IsSame(anItem)
+ end;//f_LastAccessedElementIndex >= 0..
+ Result := inherited IndexOf(anItem);
+//#UC END# *57DFBB530171_57AC61D402B3_impl*
+end;//TmsmModelElementNodeList.IndexOf
+
+procedure TmsmModelElementNodeList.Remove(anItem: TmsmModelElementNode);
+//#UC START# *57DFBB730022_57AC61D402B3_var*
+var
+ l_Index : Integer;
+//#UC END# *57DFBB730022_57AC61D402B3_var*
+begin
+//#UC START# *57DFBB730022_57AC61D402B3_impl*
+ l_Index := IndexOf(anItem);
+ if (l_Index >= 0) then
+  Delete(l_Index);
+//#UC END# *57DFBB730022_57AC61D402B3_impl*
+end;//TmsmModelElementNodeList.Remove
+
+function TmsmModelElementNodeList.GetItem(Index: Integer): _ItemType_;
+//#UC START# *47B1CCC901BE_57AC61D402B3_var*
+//#UC END# *47B1CCC901BE_57AC61D402B3_var*
+begin
+//#UC START# *47B1CCC901BE_57AC61D402B3_impl*
+ Result := inherited GetItem(Index);
+ f_LastAccessedElementIndex := Index;
+//#UC END# *47B1CCC901BE_57AC61D402B3_impl*
+end;//TmsmModelElementNodeList.GetItem
 
 end.

@@ -3,9 +3,12 @@ unit ddHTMLWriter;
 {*  онвертаци€ формата Ёверест в HTML }
 
 
-//$Id: ddHTMLWriter.pas,v 1.205 2016/09/06 10:59:29 dinishev Exp $
+//$Id: ddHTMLWriter.pas,v 1.206 2016/09/16 12:27:30 dinishev Exp $
 
 // $Log: ddHTMLWriter.pas,v $
+// Revision 1.206  2016/09/16 12:27:30  dinishev
+// {Requestlink:630402726}
+//
 // Revision 1.205  2016/09/06 10:59:29  dinishev
 // {Requestlink:629809919}. ¬ернул стиль дл€ body. Ќе в нем было дело. ”брал пробелы перед in.
 //
@@ -1847,7 +1850,7 @@ begin
   cc_Less : OutString('&lt;');
   cc_More : OutString('&gt;');
   cc_Ampersand : OutString('&amp;');
-  cc_SingleQuote : OutString('&quot;');         {* - одинарна€ кавычка. }
+  cc_SingleQuote : OutString('&prime;');         {* - одинарна€ кавычка. }
   cc_DoubleQuote : OutString('&quot;');         {* - двойна€ кавычка. }
   cc_LSingleQuote: OutString('&quot;');         {* - открывающа€с€ одинарна€ кавычка. }
   cc_RSingleQuote: OutString('&quot;');         {* - закрывающа€с€ одинарна€ кавычка. }

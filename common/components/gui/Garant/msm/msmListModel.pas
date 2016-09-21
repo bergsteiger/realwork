@@ -23,10 +23,13 @@ type
   public
    constructor CreateDir(const anElementView: TmsmModelElementView); reintroduce;
    constructor Create(const anElementView: TmsmModelElementView;
-    aIsDir: Boolean); reintroduce;
+    aIsDir: Boolean;
+    const aSubElementName: AnsiString); reintroduce;
    class function MakeDir(const anElementView: TmsmModelElementView): ImsmListModel; reintroduce;
    constructor CreateList(const anElementView: TmsmModelElementView); reintroduce;
    class function MakeList(const anElementView: TmsmModelElementView): ImsmListModel; reintroduce;
+   constructor CreateSubElementList(const anElementView: TmsmModelElementView;
+    const aSubElementName: AnsiString); reintroduce;
  end;//TmsmListModel
 
 implementation
@@ -36,8 +39,20 @@ uses
  , msmModelElementDir
  , msmModelElementRelationList
  , msmListAndTreeInterfaces
+ {$If NOT Defined(NoScripts)}
+ , tfwWordRefList
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordsIterator
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
+ , msmBaseModelElement
+ , SysUtils
  , msmElementSelection
  , tfwCStringFactory
+ , msmModelElementMethodCaller
  //#UC START# *57B317B00274impl_uses*
  //#UC END# *57B317B00274impl_uses*
 ;
@@ -49,18 +64,20 @@ constructor TmsmListModel.CreateDir(const anElementView: TmsmModelElementView);
 //#UC END# *57CFF8AB0339_57B317B00274_var*
 begin
 //#UC START# *57CFF8AB0339_57B317B00274_impl*
- Create(anElementView, true);
+ Create(anElementView, true, '');
 //#UC END# *57CFF8AB0339_57B317B00274_impl*
 end;//TmsmListModel.CreateDir
 
 constructor TmsmListModel.Create(const anElementView: TmsmModelElementView;
- aIsDir: Boolean);
+ aIsDir: Boolean;
+ const aSubElementName: AnsiString);
 //#UC START# *57B326FD0285_57B317B00274_var*
 //#UC END# *57B326FD0285_57B317B00274_var*
 begin
 //#UC START# *57B326FD0285_57B317B00274_impl*
  f_ElementView := anElementView;
  f_IsDir := aIsDir;
+ f_SubElementName := aSubElementName;
  inherited Create;
  ShowElementAsList(anElementView.rElement);
 //#UC END# *57B326FD0285_57B317B00274_impl*
@@ -83,7 +100,7 @@ constructor TmsmListModel.CreateList(const anElementView: TmsmModelElementView);
 //#UC END# *57CFF8D9019D_57B317B00274_var*
 begin
 //#UC START# *57CFF8D9019D_57B317B00274_impl*
- Create(anElementView, false);
+ Create(anElementView, false, '');
 //#UC END# *57CFF8D9019D_57B317B00274_impl*
 end;//TmsmListModel.CreateList
 
@@ -98,5 +115,15 @@ begin
   l_Inst.Free;
  end;//try..finally
 end;//TmsmListModel.MakeList
+
+constructor TmsmListModel.CreateSubElementList(const anElementView: TmsmModelElementView;
+ const aSubElementName: AnsiString);
+//#UC START# *57E2977401C7_57B317B00274_var*
+//#UC END# *57E2977401C7_57B317B00274_var*
+begin
+//#UC START# *57E2977401C7_57B317B00274_impl*
+ Create(anElementView, false, aSubElementName);
+//#UC END# *57E2977401C7_57B317B00274_impl*
+end;//TmsmListModel.CreateSubElementList
 
 end.

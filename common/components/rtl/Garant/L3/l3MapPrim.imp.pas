@@ -86,7 +86,7 @@ function IsSameItems(const A: _ItemType_;
 begin
 //#UC START# *47B07CF403D0_560907E00134_impl*
  Result := false;
- Assert(false);
+ //Assert(false);
 //#UC END# *47B07CF403D0_560907E00134_impl*
 end;//IsSameItems
 {$IfEnd} // NOT Defined(l3Items_IsAtomic)

@@ -33,6 +33,18 @@ uses
  , msmListAndTreeInterfaces
  , msmElementSelection
  , tfwCStringFactory
+ , msmModelElementMethodCaller
+ , msmBaseModelElement
+ {$If NOT Defined(NoScripts)}
+ , tfwWordsIterator
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordRefList
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *57B31D5A00D2impl_uses*
  //#UC END# *57B31D5A00D2impl_uses*
 ;

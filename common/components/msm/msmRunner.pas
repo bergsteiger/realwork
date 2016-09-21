@@ -43,6 +43,7 @@ class procedure TmsmRunner.Run;
 //#UC END# *57A9BCA20257_57A9BC090082_var*
 begin
 //#UC START# *57A9BCA20257_57A9BC090082_impl*
+ Application.Initialize;
  TmsmMainForm.Run;
  Application.Run;
 //#UC END# *57A9BCA20257_57A9BC090082_impl*

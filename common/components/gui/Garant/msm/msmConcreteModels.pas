@@ -20,6 +20,8 @@ uses
 ;
 
 type
+ PmsmElementSelection = ^ImsmElementSelection;
+
  ImsmElementSelection_ProcessSelectedF_Action = function(const anItem: ImsmModelElement): Boolean;
   {* Тип подитеративной функции для ImsmElementSelection.ProcessSelectedF }
 
@@ -35,6 +37,7 @@ type
   procedure ProcessSelectedF(anAction: ImsmElementSelection_ProcessSelectedF_Action);
   function Empty: Boolean;
   function IsElementSelectedOrCurrent(const anElement: ImsmModelElement): Boolean;
+  function Clone: ImsmElementSelection;
   property CurrentElement: ImsmModelElement
    read Get_CurrentElement
    write Set_CurrentElement;
@@ -47,6 +50,7 @@ type
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
+  procedure Paste(const aSelection: ImsmElementSelection);
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -69,6 +73,7 @@ type
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
   procedure ShowElementAsList(const anElement: ImsmModelElement);
+  procedure Paste(const aSelection: ImsmElementSelection);
   property List: ImsmModelElementStringList
    read Get_List;
   property ElementToAction: ImsmModelElement
@@ -88,6 +93,7 @@ type
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
+  procedure Paste(const aSelection: ImsmElementSelection);
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -106,6 +112,7 @@ type
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
+  procedure Paste(const aSelection: ImsmElementSelection);
   property Tree: ImsmModelElementTree
    read Get_Tree;
   property ElementToAction: ImsmModelElement

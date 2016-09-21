@@ -4,9 +4,12 @@ unit vtProportionalPanel;
 { Автор: Лукьянец Р.В. ©     }
 { Модуль: vtProportionalPanel -   }
 { Начат: 31.01.2008 16:00 }
-{ $Id: vtProportionalPanel.pas,v 1.9 2013/01/22 15:51:48 kostitsin Exp $ }
+{ $Id: vtProportionalPanel.pas,v 1.10 2016/09/21 08:35:35 lulin Exp $ }
 
 // $Log: vtProportionalPanel.pas,v $
+// Revision 1.10  2016/09/21 08:35:35  lulin
+// - подтачиваем.
+//
 // Revision 1.9  2013/01/22 15:51:48  kostitsin
 // [$424399029]
 //
@@ -97,6 +100,9 @@ type
       write pm_SetSmartSizing
     default True;
      {-}
+   property WidthProportion: Double
+     read f_WidthProportion
+     write f_WidthProportion;  
   end;//TvtProportionalCustomPanel
 
   TvtProportionalPanel = class(TvtProportionalCustomPanel)

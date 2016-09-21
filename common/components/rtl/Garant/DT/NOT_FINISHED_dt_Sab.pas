@@ -19,6 +19,7 @@ type
  end;//IValueSetFiller
 
 procedure MakeSab;
+procedure dtMakeSortedIDListBySab;
 {$IfEnd} // NOT Defined(Nemesis)
 
 implementation
@@ -38,6 +39,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *559D266C032B_519B719002F1_impl*
 end;//MakeSab
+
+procedure dtMakeSortedIDListBySab;
+//#UC START# *57DFA9FB01B6_519B719002F1_var*
+//#UC END# *57DFA9FB01B6_519B719002F1_var*
+begin
+//#UC START# *57DFA9FB01B6_519B719002F1_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57DFA9FB01B6_519B719002F1_impl*
+end;//dtMakeSortedIDListBySab
 {$IfEnd} // NOT Defined(Nemesis)
 
 end.

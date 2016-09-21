@@ -12,6 +12,7 @@
   private
    f_IsDir: Boolean;
    f_List: ImsmModelElementStringList;
+   f_SubElementName: AnsiString;
   protected
    procedure SetList(const aValue: ImsmModelElementStringList);
    function DoGetList: ImsmModelElementStringList; override;
@@ -58,9 +59,21 @@ begin
   Self.SetList(nil)
  else 
  if f_IsDir then
-  Self.SetList(TmsmModelElementDir.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName))
+ begin
+  Assert(f_SubElementName = '');
+  if anElement.BoolProp['IsDiagram'] then
+   //Self.SetList(TmsmModelElementDir.Make(anElement.ElementProp['Original'].List[f_ElementView.rListName], f_ElementView.rTextName))
+   f_List := TmsmModelElementDir.Make(anElement.ElementProp['Original'].List[f_ElementView.rListName], f_ElementView.rTextName)
+  else
+   Self.SetList(TmsmModelElementDir.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+ end//f_IsDir
  else
-  Self.SetList(TmsmModelElementRelationList.Make(anElement, anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+ begin
+  if (f_SubElementName <> '') then
+   Self.SetList(TmsmModelElementRelationList.Make(anElement.ElementProp[f_SubElementName].List[f_ElementView.rListName], f_ElementView.rTextName))
+  else
+   Self.SetList(TmsmModelElementRelationList.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+ end;//f_IsDir
 //#UC END# *57D2A7D900FE_57B189990202_impl*
 end;//_msmListModel_.DoShowElementAsList
 

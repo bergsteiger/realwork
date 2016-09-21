@@ -82,7 +82,8 @@ begin
  f_FloatingNavigator := TmsmTreeModel.Make(aViewForTree);
  f_MainList := TmsmListModel.MakeDir(aViewForList);
  f_Caption := TmsmCaptionModel.Make;
- f_Drawing := TmsmDrawingModel.Make(TmsmModelElementView_C(aViewForList.rElement, 'MainDiagram'));
+ f_Drawing := TmsmDrawingModel.Make(aViewForList.rElement);
+ //f_Drawing := TmsmDrawingModel.Make(TmsmModelElementView_C(aViewForList.rElement, 'MainDiagram'));
 
  Bind(TmsmListOwnerNameToCaptionBinding.Make(MainList, Caption));
  // - показываем имя владельца списка в заголовке (формы)

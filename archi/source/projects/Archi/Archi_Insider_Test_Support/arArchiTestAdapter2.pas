@@ -25,7 +25,7 @@ procedure AcSaveDocAs(const aFileName: AnsiString);
 procedure AcSaveTextAs(const aFileName: AnsiString);
 procedure ArClearTemplateStorage;
 procedure AcMainFormFormClose;
-procedure AcClearConfig(aFileName, aDirname: AnsiString);
+procedure AcClearConfig(aFileName: AnsiString);
 {$IfEnd} //InsiderTest AND nsTest
 
 implementation
@@ -58,14 +58,18 @@ uses
  {$ENDIF nsTest}
 
  arTemplateProcessor,
- 
+
  ddRelPublish,
  ddAppConfig,
 
  evCommonUtils,
 
  IniShop,
- UsersMacro;
+ UsersMacro
+ {$If Defined(AppClientSide) AND NOT Defined(Nemesis)}
+ , ddClientBaseEngine
+ {$IfEnd} // Defined(AppClientSide) AND NOT Defined(Nemesis)
+ , daDataProviderParams;
 
 {$If defined(InsiderTest) AND defined(nsTest)}
 // unit methods
@@ -278,16 +282,18 @@ begin
 //#UC END# *53EB19C20101_4E4B5F29031C_impl*
 end;//AcMainFormFormClose
 
-procedure AcClearConfig(aFileName, aDirname: AnsiString);
+procedure AcClearConfig(aFileName: AnsiString);
 //#UC START# *56A09EF601E1_4E4B5F29031C_var*
 const
  csUserConfigFile = 'user.ini';
 var
- l_Msg: AnsiString;
+ l_Msg    : AnsiString;
+ l_DirName: AnsiString;
 //#UC END# *56A09EF601E1_4E4B5F29031C_var*
 begin
 //#UC START# *56A09EF601E1_4E4B5F29031C_impl*
- if not arUnackFileFromArchive(aFileName, aDirname, l_Msg, csUserConfigFile) then
+ l_DirName := g_BaseEngine.DataParams.DocStoragePath;
+ if not arUnackFileFromArchive(aFileName, l_DirName, l_Msg, csUserConfigFile) then
   Assert(False, l_Msg);
 //#UC END# *56A09EF601E1_4E4B5F29031C_impl*
 end;//AcClearConfig

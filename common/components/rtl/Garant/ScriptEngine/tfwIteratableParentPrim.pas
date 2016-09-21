@@ -22,6 +22,7 @@ type
    function GetItem(anIndex: Integer): TtfwStackValue; virtual;
    function GetSafeView: ItfwValueList; virtual;
    function GetIsView: Boolean; virtual;
+   function DoAdd(const anItem: TtfwStackValue): Integer; virtual;
  end;//TtfwIteratableParentPrim
 {$IfEnd} // NOT Defined(NoScripts)
 
@@ -72,6 +73,16 @@ begin
  Result := true;
 //#UC END# *57C9E8AC03C6_57C81527030E_impl*
 end;//TtfwIteratableParentPrim.GetIsView
+
+function TtfwIteratableParentPrim.DoAdd(const anItem: TtfwStackValue): Integer;
+//#UC START# *57E2B4C50080_57C81527030E_var*
+//#UC END# *57E2B4C50080_57C81527030E_var*
+begin
+//#UC START# *57E2B4C50080_57C81527030E_impl*
+ EtfwConstantArray.Fail('Не реализовано');
+ Result := -1;
+//#UC END# *57E2B4C50080_57C81527030E_impl*
+end;//TtfwIteratableParentPrim.DoAdd
 {$IfEnd} // NOT Defined(NoScripts)
 
 end.

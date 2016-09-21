@@ -27,6 +27,8 @@
    procedure InitFields; override;
    procedure ClearFields; override;
   public
+   procedure Paste(const aSelection: ImsmElementSelection);
+  public
    property Selection: ImsmElementSelection
     read f_Selection;
  end;//_msmListLikeModel_
@@ -125,6 +127,36 @@ begin
  Result := f_Selection;
 //#UC END# *57D8F1B70265_57B57EDB003Fget_impl*
 end;//_msmListLikeModel_.Get_Selection
+
+procedure _msmListLikeModel_.Paste(const aSelection: ImsmElementSelection);
+//#UC START# *57E283A603D2_57B57EDB003F_var*
+var
+ l_List : TtfwWordRefList;
+
+ function DoElement(const anElement: ImsmModelElement): Boolean;
+ begin
+  Result := true;
+  l_List.Add((anElement As ITmsmBaseModelElementWrap).GetSelf.MainWord);
+ end;
+
+//#UC END# *57E283A603D2_57B57EDB003F_var*
+begin
+//#UC START# *57E283A603D2_57B57EDB003F_impl*
+ Assert(aSelection <> nil);
+ l_List := TtfwWordRefList.Create;
+ try
+  aSelection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  Assert(Self.Get_List.Owner <> nil);
+  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+   TmsmModelElementMethodCaller.Call([TtfwStackValue_C((Self.Get_List.Owner As ITmsmBaseModelElementWrap).GetSelf.MainWord), TtfwStackValue_C(TtfwWordsIterator.Make(l_List))], 'msm:Diagram:PasteElements')
+  else
+   Assert(false);
+  Fire(ListContentChangedEvent.Instance); 
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+//#UC END# *57E283A603D2_57B57EDB003F_impl*
+end;//_msmListLikeModel_.Paste
 
 procedure _msmListLikeModel_.InitFields;
 //#UC START# *47A042E100E2_57B57EDB003F_var*

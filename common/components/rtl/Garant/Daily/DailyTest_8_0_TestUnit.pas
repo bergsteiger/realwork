@@ -40,6 +40,8 @@ uses
  , K627385907
  , K627817772
  , K628097544
+ , K630212534
+ , K630402726
 ;
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoScripts)
 

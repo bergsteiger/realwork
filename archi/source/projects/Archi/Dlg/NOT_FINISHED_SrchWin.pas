@@ -24,6 +24,7 @@ implementation
 uses
  l3ImplUses
  , F_DocList
+ , arMultiModifyDocsHelper
  //#UC START# *4F8D5E560101impl_uses*
  //#UC END# *4F8D5E560101impl_uses*
 ;

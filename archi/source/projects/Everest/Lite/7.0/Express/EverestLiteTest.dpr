@@ -2191,6 +2191,9 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwPopEditorSetStyle2Table in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Table.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , kwPushTextSearchDlg in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushTextSearchDlg.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
  , toKT in 'w:\archi\source\projects\Everest\Lite\7.0\Express\toKT.pas'
  , EverestLiteTests_TestLibrary in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\EverestLiteTests_TestLibrary.pas'
  , EverestLiteTests_FileFormatTests_TestUnit in 'w:\archi\source\projects\Everest\Lite\7.0\Express\Tests\EverestLiteTests_FileFormatTests_TestUnit.pas'

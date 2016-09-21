@@ -51,8 +51,6 @@ function arUnackBaseFromArchive(const aFileName: AnsiString;
  out aMessage: AnsiString): Boolean;
  {* –аспаковать базу данных в заданный каталог. }
 //#UC START# *4E4A366801E7_4E4A364200F7_var*
-var
- l_ExtractBaseCmd : string;
 //#UC END# *4E4A366801E7_4E4A364200F7_var*
 begin
 //#UC START# *4E4A366801E7_4E4A364200F7_impl*
@@ -115,7 +113,6 @@ begin
   Result := False;
   Exit;
  end; // if not FileExists('EmptyBase.rar') then
- 
  if DirectoryExists(aDirName) then
  begin
   Result := UnZipFiles(aFileName, aDirName, aFileMask);

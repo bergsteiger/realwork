@@ -12,14 +12,14 @@ interface
 uses
  l3IntfUses
  , ncsMessage
- , l3Variant
+ , evdTasksHelpers
  , k2Base
 ;
 
 type
  TcsMultiModifyDocsReply = class(TncsReply)
   protected
-   function pm_GetRejectedIDList: Tl3Tag;
+   function pm_GetRejectedIDList: RejectedIDListHelper;
    function pm_GetIsSuccess: Boolean;
    procedure pm_SetIsSuccess(aValue: Boolean);
    function pm_GetErrorMessage: AnsiString;
@@ -27,7 +27,7 @@ type
   public
    class function GetTaggedDataType: Tk2Type; override;
   public
-   property RejectedIDList: Tl3Tag
+   property RejectedIDList: RejectedIDListHelper
     read pm_GetRejectedIDList;
    property IsSuccess: Boolean
     read pm_GetIsSuccess
@@ -48,11 +48,11 @@ uses
  //#UC END# *57DA7796002Fimpl_uses*
 ;
 
-function TcsMultiModifyDocsReply.pm_GetRejectedIDList: Tl3Tag;
+function TcsMultiModifyDocsReply.pm_GetRejectedIDList: RejectedIDListHelper;
 begin
  Assert(Self <> nil);
  Assert(TaggedData <> nil);
- Result := TaggedData.cAtom(k2_attrRejectedIDList);
+ Result := TRejectedIDListHelper.Make(TaggedData.cAtom(k2_attrRejectedIDList));
 end;//TcsMultiModifyDocsReply.pm_GetRejectedIDList
 
 function TcsMultiModifyDocsReply.pm_GetIsSuccess: Boolean;

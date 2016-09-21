@@ -1963,6 +1963,13 @@ type
    function DoMakeTag(aRef : Integer): Il3TagRef; override;
  end;//csMultiModifyDocs_ActionType_Tag
 
+ DocIDWithCommentTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//DocIDWithCommentTag
+
  csMultiModifyDocsReplyTagClass = class(Tk2TypedSmallLeafTag)
   {* Класс реализации тега "csMultiModifyDocsReply" }
  protected
@@ -2132,6 +2139,7 @@ type
    t_csMultiModifyDocs : csMultiModifyDocsTag;
    t_csMultiModifyDocs_DocIDList : csMultiModifyDocs_DocIDList_Tag;
    t_csMultiModifyDocs_ActionType : csMultiModifyDocs_ActionType_Tag;
+   t_DocIDWithComment : DocIDWithCommentTag;
    t_csMultiModifyDocsReply : csMultiModifyDocsReplyTag;
    t_csMultiModifyDocsReply_RejectedIDList : csMultiModifyDocsReply_RejectedIDList_Tag;
  protected
@@ -2235,6 +2243,7 @@ uses
   csUploadDocStreamReply_Const,
   UploadDocRequest_Const,
   csMultiModifyDocs_Const,
+  DocIDWithComment_Const,
   csMultiModifyDocsReply_Const,
   SysUtils {a},
   TypInfo {a},
@@ -5032,6 +5041,16 @@ begin
  Result := csMultiModifyDocsTagClass.Make(Self);
 end;
 
+function DocIDWithCommentTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('DocIDWithComment'));
+end;
+
+function DocIDWithCommentTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := inherited DoMakeTag(aRef);
+end;
+
 function csMultiModifyDocsReply_RejectedIDList_Tag.GetAsPCharLen: Tl3PCharLenPrim;
 begin
  Result := l3PCharLen(AnsiString('csMultiModifyDocsReply_RejectedIDList'));
@@ -7128,6 +7147,17 @@ begin
   begin
   end;//ActionType
  end;//csMultiModifyDocs
+ // DocIDWithComment
+ t_DocIDWithComment := DefineAutoType([], '', DocIDWithCommentTag) As DocIDWithCommentTag;
+ with t_DocIDWithComment do
+ begin
+  with DefineProperty(k2_attrDocID, t_Long, '') do
+  begin
+  end;//DocID
+  with DefineProperty(k2_attrDocComment, t_String, '') do
+  begin
+  end;//DocComment
+ end;//DocIDWithComment
  // csMultiModifyDocsReply
  t_csMultiModifyDocsReply := DefineAutoType([t_csReply], '', csMultiModifyDocsReplyTag) As csMultiModifyDocsReplyTag;
  with t_csMultiModifyDocsReply do
@@ -7135,7 +7165,7 @@ begin
   AtomClass := csMultiModifyDocsReplyTagClass;
   t_csMultiModifyDocsReply_RejectedIDList := DefineAutoType([t_OList], 'csMultiModifyDocsReply RejectedIDList', csMultiModifyDocsReply_RejectedIDList_Tag) As csMultiModifyDocsReply_RejectedIDList_Tag;
   try
-   t_csMultiModifyDocsReply_RejectedIDList.DefineChildren(t_Address);
+   t_csMultiModifyDocsReply_RejectedIDList.DefineChildren(t_DocIDWithComment);
    DefineProperty(k2_attrRejectedIDList, t_csMultiModifyDocsReply_RejectedIDList, '');
    t_csMultiModifyDocsReply_RejectedIDList.Recalc;
   except
@@ -7242,6 +7272,7 @@ begin
  t_csUploadDocStreamReply.Recalc;
  t_UploadDocRequest.Recalc;
  t_csMultiModifyDocs.Recalc;
+ t_DocIDWithComment.Recalc;
  t_csMultiModifyDocsReply.Recalc;
 end;
 
@@ -7393,6 +7424,7 @@ begin
  t_csMultiModifyDocs.InterfaceFactory := nil;
  t_csMultiModifyDocs_DocIDList.InterfaceFactory := nil;
  t_csMultiModifyDocs_ActionType.InterfaceFactory := nil;
+ t_DocIDWithComment.InterfaceFactory := nil;
  t_csMultiModifyDocsReply.InterfaceFactory := nil;
  t_csMultiModifyDocsReply_RejectedIDList.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
@@ -7538,6 +7570,7 @@ begin
  FreeAndNil(t_csMultiModifyDocs);
  FreeAndNil(t_csMultiModifyDocs_DocIDList);
  FreeAndNil(t_csMultiModifyDocs_ActionType);
+ FreeAndNil(t_DocIDWithComment);
  FreeAndNil(t_csMultiModifyDocsReply);
  FreeAndNil(t_csMultiModifyDocsReply_RejectedIDList);
  inherited;

@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.305 2016/09/14 11:35:39 dinishev Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.309 2016/09/21 07:59:47 lukyanets Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -320,7 +320,10 @@ uses
  DtSupport,
  Dt_TblCache, dt_TblCacheDef,
 
+ arMultiModifyDocsHelper,
+
  arIZM,
+ arLockUtils,
  SewerPipe,
 
  ddDocNameUpdateFilter,
@@ -341,12 +344,6 @@ const
  cInactText : array[Boolean] of AnsiString = ('', ' Документ утратил силу');
  cDocDeleted = 'Удален документ %s пользователем %s';
  cDocDeleteEX = 'Удален документ #%d (Garant #%d) пользователем %s';
- cUserMsg      = 'Пользователь : %s';
- cUsersMsg     = 'Пользователи : %s';
- cStationMsg  = 'Станция : %s';
- cAccessHoldByUser = 'Доступ захвачен пользователем (';
- //cDocAccessDeny = 'Невозможно получить доступ к документу [GarantID = %d] по группе доступа "%S".';
- cDocAccessDeny = 'Невозможно получить доступ к документу [GarantID = %d].';
  cProblemWithTopic = 'Проблемы с топиком %d';
  cProcessOfSyncCompleate = 'Процесс синхронизации завершен';
  cNeedInputNumber = 'Установить "%S"';
@@ -723,44 +720,6 @@ begin
  LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAttrWork);
 end;
 
-procedure AddToDenyList(aFamily: TdaFamilyID; aDocID: TDocID;{ aAssessItem : Longint;}
-    aList: Tl3StringDataList; aReqUserNames: Boolean = False; aIgnoredLockHandle : TJLHandle = -1);
-var
- l_Msg      : AnsiString;
- l_Station  : TStationNameArray;
- l_UserID   : TdaUserIDArray;
- l_UsersStr : AnsiString;
- I          : Integer;
- lImpId     : TDocID;
-begin
- l_Msg := '';
- if aReqUserNames then
- begin
-  LockServer.WhoLockDoc(aFamily, aDocID, l_Station, l_UserID, aIgnoredLockHandle);
-  //l_Msg := Format(cStationMsg, [l_Station]);
-  if Length(l_UserID) > 0 then
-  begin
-   l_UsersStr := '';
-   for I := Low(l_UserID) to High(l_UserID) do
-   begin
-    if l_UsersStr <> '' then
-     l_UsersStr := l_UsersStr + ', ';
-    l_UsersStr := l_UsersStr + GlobalDataProvider.UserManager.GetUserName(l_UserID[I]);
-   end;
-
-   if High(l_UserID) > 0 then
-    l_Msg := l_Msg + Format(cUsersMsg, [l_UsersStr])
-   else
-    l_Msg := l_Msg + Format(cUserMsg, [l_UsersStr]);
-   l_Msg := ^M + cAccessHoldByUser + l_Msg +')';
-  end;
- end;
- lImpId := LinkServer(aFamily).Renum.GetExtDocID(aDocID);
- l_Msg := Format(cDocAccessDeny, [lImpId{, GetAssGroupName(aAssessItem)}]) + l_Msg;
- aList.AddStr(l_Msg, @lImpId);
-end;
-
-
 procedure TSearchWin.ExecGroupOperation(ADMode : TOperActionType);
 var
  l_It          : Longint;
@@ -774,6 +733,8 @@ var
  l_Doc         : PDocListAccessRec;
  l_ErrWin      : TAccessErrorWin;
  l_Attribute   : IDocAttribute;
+
+ l_Helper: TarMultiModifyDocsHelper;
 
  procedure l_AddToDenyList(const aIDList : Il3IDList);
  var
@@ -903,23 +864,48 @@ begin
     //                   or ExpDateSetted or ActDateSetted or (StatusSetted <> 0) or (rPriority > 0);
 
     l_EdWin.Document.PrepareEditablePartsInfo;
-    lDBFilter := lMakeDBFilter;
+
+//    l_Helper := TarMultiModifyDocsHelper.Create(IniRec.DirectDocStorageAccess, ADMode,
+//     l_EdWin.Document.DocFamily, IniRec.AnouncedDate, DocList.Query.GetDocIdList);
     try
-     lDBFilter.StartCachingData;
+(*
      try
-      l_EdWin.Document.TextSource.Save(lDBFilter);
+      try
+       l_EdWin.Document.TextSource.Save(l_Helper.Generator);
+      except
+       l_Helper.SignalException;
+       raise;
+      end;
      finally
-      lDBFilter.DoneCachingData;
+      l_Helper.ModifyDocs;
      end;
+     if l_Helper.HasLockedDocs then
+     begin
+      l_ErrWin := TAccessErrorWin.Create(Self);
+      l_ErrWin.ItemList.Items.DataSize := SizeOf(TdaDocID);
+      l_Helper.FillLockedList(l_ErrWin.ItemList.Items);
+     end;
+*)
 
-     ProcessForAnoncedList(lDBFilter.DocIDList_forAnonced);
-     ProcessForIZMList(lDBFilter.DocIDList_forIZM);
+     lDBFilter := lMakeDBFilter;
+     try
+      lDBFilter.StartCachingData;
+      try
+       l_EdWin.Document.TextSource.Save(lDBFilter);
+      finally
+       lDBFilter.DoneCachingData;
+      end;
 
-     l_AddToDenyList(lDBFilter.RejectedDocsID);
+      ProcessForAnoncedList(lDBFilter.DocIDList_forAnonced);
+      ProcessForIZMList(lDBFilter.DocIDList_forIZM);
+
+      l_AddToDenyList(lDBFilter.RejectedDocsID);
+     finally
+      l3Free(lDBFilter);
+     end;
     finally
-     l3Free(lDBFilter);
+     l3Free(l_Helper);
     end;
-
     //DocList.PercentMeter.ProgressProc(piEnd, 0, 0,'');
    finally
     Screen.Cursor := crDefault;

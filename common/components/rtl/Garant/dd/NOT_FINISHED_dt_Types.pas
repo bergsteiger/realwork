@@ -117,6 +117,8 @@ type
  TStageType = (
  );//TStageType
 
+ TJLHandle = ;
+
 implementation
 
 uses

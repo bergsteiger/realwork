@@ -2239,6 +2239,7 @@ uses
  , ComObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas' {$EndIf}
  , TaskID_Const in 'w:\common\components\rtl\Garant\EVD\TaskID_Const.pas'
  , FoundSelector_Const in 'w:\common\components\rtl\Garant\EVD\FoundSelector_Const.pas'
+ , DocIDWithComment_Const in 'w:\common\components\rtl\Garant\EVD\DocIDWithComment_Const.pas'
  , ddProgressObj in 'w:\common\components\rtl\Garant\dd\ddProgressObj.pas'
  , ProcessTask_Const in 'w:\common\components\rtl\Garant\EVD\ProcessTask_Const.pas'
  , csTaskResult in 'w:\common\components\rtl\Garant\EVD\csTaskResult.pas'

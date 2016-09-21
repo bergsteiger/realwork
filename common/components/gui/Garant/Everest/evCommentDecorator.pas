@@ -1,5 +1,5 @@
 unit evCommentDecorator;
- {* Поддержка экспорта стилей для ААК. }
+ {* Поддержка экспорта стилей для ААК. Фактически оборачивает содержимое блока/текствого параграфа в таблицу с отступами в виде строк или ячеек, убирая сам блок. Приваивает стиль блока/текстового параграфа таблице. Ридер должен знать о таком преобразовании и иметь записывать таблицу. Выполняет объединение двух блоков с одинаковыми стилями как при отрисовке/печати. Для HTML-экспорта не совсем правлиьное решение, лучше бы использовать div. }
 
 // Модуль: "w:\common\components\gui\Garant\Everest\evCommentDecorator.pas"
 // Стереотип: "SimpleClass"
@@ -23,20 +23,25 @@ type
  );//TevWhatOpen
 
  TevPrevClosed = (
+  {* Флаг предыдущей таблицы: нет, обычная, "стильная". }
   ev_pcNone
   , ev_pcTable
   , ev_pcAACTable
  );//TevPrevClosed
 
  TevCommentDecorator = class(TevCommentParaDecorator)
-  {* Поддержка экспорта стилей для ААК. }
+  {* Поддержка экспорта стилей для ААК. Фактически оборачивает содержимое блока/текствого параграфа в таблицу с отступами в виде строк или ячеек, убирая сам блок. Приваивает стиль блока/текстового параграфа таблице. Ридер должен знать о таком преобразовании и иметь записывать таблицу. Выполняет объединение двух блоков с одинаковыми стилями как при отрисовке/печати. Для HTML-экспорта не совсем правлиьное решение, лучше бы использовать div. }
   private
    f_WhatOpen: TevWhatOpen;
+    {* Флаг, показывающий какая часть таблицы открыта (записана в генератор) }
    f_InTable: Integer;
-   f_AACSample: Integer;
+   f_AACStyle: Integer;
+    {* Текущий используемый стиль. Стиль выставляется блоком/текстовым параграфом и сохраняется до следующего блока/текстового параграфа. }
    f_InAACBlock: Integer;
+    {* Вложаенность стильных блоков. Вложенные "нестильные" блоки не считаются. }
    f_WhatClosed: TevPrevClosed;
-   f_CellCount: Integer;
+   f_CurrBlockStyle: Integer;
+    {* Текущий стиль блока. }
   private
    procedure StartAACTable;
     {* Начало таблицы-обертки. }
@@ -103,9 +108,8 @@ procedure TevCommentDecorator.StartAACTable;
 begin
 //#UC START# *53B27F3E0397_4D88BFEA013A_impl*
  Generator.StartChild(k2_typTable);
- Generator.AddIntegerAtom(k2_tiStyle, f_AACSample);
+ Generator.AddIntegerAtom(k2_tiStyle, f_AACStyle);
  f_WhatOpen := ev_wnoTable;
- f_CellCount := 0;
 //#UC END# *53B27F3E0397_4D88BFEA013A_impl*
 end;//TevCommentDecorator.StartAACTable
 
@@ -123,7 +127,7 @@ begin
   try
    Generator.AddIntegerAtom(k2_tiWidth, def_inchSBSWidth);
    Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
-   l_Stream := evdStyles_Res.Style2Stream(f_AACSample);
+   l_Stream := evdStyles_Res.Style2Stream(f_AACStyle);
    if l_Stream <> nil then
     try
      Generator.StartChild(k2_typBitmapPara);
@@ -188,7 +192,6 @@ begin
  Generator.StartDefaultChild; // Открываем ячейку с текстом ААС
  Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
  Generator.AddIntegerAtom(k2_tiWidth, l_Width);
- Inc(f_CellCount);
  f_WhatOpen := ev_wnoRow;
 //#UC END# *53B280110031_4D88BFEA013A_impl*
 end;//TevCommentDecorator.StartAACRow
@@ -207,13 +210,11 @@ begin
  Generator.StartDefaultChild; // Открывам ячейку с шириной левого отступа
  Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
  Generator.AddIntegerAtom(k2_tiWidth, cnDefIndentValue);
- Inc(f_CellCount);
  Generator.Finish;
  Dec(l_Width, cnDefIndentValue);
  Generator.StartDefaultChild; // Открываем ячейку с текстом ААС
  Generator.AddIntegerAtom(k2_tiFrame, evd_fvEmpty);
  Generator.AddIntegerAtom(k2_tiWidth, l_Width);
- Inc(f_CellCount); 
  f_WhatOpen := ev_wnoRow;
 //#UC END# *53B280490098_4D88BFEA013A_impl*
 end;//TevCommentDecorator.StartAACRow4Table
@@ -229,7 +230,7 @@ begin
   f_WhatClosed := ev_pcNone
  else
   AddSpaceRow;
- if f_AACSample <> ev_saFormulaInAAC then
+ if f_AACStyle <> ev_saFormulaInAAC then
   AddHeaderRow;
  StartAACRow;
 //#UC END# *53B280860287_4D88BFEA013A_impl*
@@ -251,7 +252,6 @@ begin
   Generator.Finish;
  end; // if f_InTable = 0 then
  Generator.Finish; // Закрывем строку таблицы
- f_CellCount := 0;
  f_WhatOpen := ev_wnoTable;
 //#UC END# *53B282200211_4D88BFEA013A_impl*
 end;//TevCommentDecorator.EndRow
@@ -264,7 +264,7 @@ procedure TevCommentDecorator.EndRowAndTable;
  begin
   AddSpaceRow;
   if f_InAACBlock = 0 then
-   f_AACSample := 0;
+   f_AACStyle := 0;
   Generator.Finish;
   f_WhatOpen := ev_wnoNone;
  end;
@@ -301,7 +301,7 @@ procedure TevCommentDecorator.StartChild(TypeID: Tl3Type);
 begin
 //#UC START# *4836D4650177_4D88BFEA013A_impl*
  if TypeID.IsKindOf(k2_typTable) then
-  if (f_AACSample < 0) then
+  if (f_AACStyle < 0) then
   begin
    if (f_InAACBlock = 0) then
     EndRowAndTable
@@ -313,13 +313,16 @@ begin
     end // if f_InTable = 0 then
     else
      Inc(f_InTable);
-  end // if (f_AACSample < 0) then
+  end // if (f_AACStyle < 0) then
   else
    f_WhatClosed := ev_pcNone
  else
   if TypeID.IsKindOf(k2_typBlock) then
-   if (f_AACSample < 0) and (f_InAACBlock = 0) then
+  begin
+   f_CurrBlockStyle := 0;
+   if (f_AACStyle < 0) and (f_InAACBlock = 0) then
     EndRowAndTable;
+  end;  
  inherited;
 //#UC END# *4836D4650177_4D88BFEA013A_impl*
 end;//TevCommentDecorator.StartChild
@@ -331,13 +334,13 @@ procedure TevCommentDecorator.OpenStream;
 begin
 //#UC START# *4836D49800CA_4D88BFEA013A_impl*
  inherited;
- f_AACSample := 0;
+ f_AACStyle := 0;
  f_InAACBlock := 0;
+ f_CurrBlockStyle := 0;
  f_InTable := 0;
  f_WhatClosed := ev_pcNone;
  f_WhatOpen := ev_wnoNone;
  def_inchSBSWidth := def_inchSBSWidth;
- f_CellCount := 0;
 //#UC END# *4836D49800CA_4D88BFEA013A_impl*
 end;//TevCommentDecorator.OpenStream
 
@@ -347,7 +350,7 @@ procedure TevCommentDecorator.CloseStructure(NeedUndo: Boolean);
 //#UC END# *4836D4C20059_4D88BFEA013A_var*
 begin
 //#UC START# *4836D4C20059_4D88BFEA013A_impl*
- if f_AACSample < 0 then
+ if f_AACStyle < 0 then
  begin
   if CurrentType.IsKindOf(k2_typDocument) then
    EndRowAndTable;
@@ -362,20 +365,23 @@ begin
   end; // if CurrentType.IsKindOf(k2_typTable) then
   if CurrentType.IsKindOf(k2_typBlock) then
   begin
-   if f_InAACBlock > 0 then
-    Dec(f_InAACBlock);
-   if (f_InAACBlock = 0) and (f_AACSample < 0) then
+   if (f_InAACBlock > 0) then
+    if (f_CurrBlockStyle < 0) then
+     Dec(f_InAACBlock)
+    else
+     f_CurrBlockStyle := f_AACStyle;
+   if (f_InAACBlock = 0) and (f_AACStyle < 0) then
    begin
     if f_WhatOpen = ev_wnoNone then
     begin
-     f_AACSample := 0;
+     f_AACStyle := 0;
      Assert(False, 'Пустой стильный блок!');
     end // if f_WhatOpen = ev_wnoNone then
     else
      EndRowAndTable;
    end; // if f_InAACBlock = 0 then
   end; // if CurrentType.IsKindOf(k2_typBlock) then
- end; // if f_AACSample > 0 then
+ end; // if f_AACStyle > 0 then
  if CurrentType.IsKindOf(k2_typTable) then
   f_WhatClosed := ev_pcNone;
  inherited;
@@ -392,11 +398,12 @@ begin
  if (AtomIndex = k2_tiStyle) and CurrentType.IsKindOf(k2_typBlock) and not CurrentType.IsKindOf(k2_typDocument) then
   if evAACStyle(Value.AsInteger) then
   begin
-   f_AACSample := Value.AsInteger;
+   f_CurrBlockStyle := Value.AsInteger;
+   f_AACStyle := Value.AsInteger;
    Inc(f_InAACBlock);
   end // if (AtomIndex = k2_tiStyle) and CurrentType.IsKindOf(k2_typBlock) and EvAACStyle(Value.AsInteger) then
   else
-   if f_AACSample < 0 then
+   if f_AACStyle < 0 then
     Inc(f_InAACBlock);      
 //#UC END# *4836D52400D9_4D88BFEA013A_impl*
 end;//TevCommentDecorator.AddAtomEx
@@ -409,14 +416,14 @@ const
 
  procedure lp_StartAACStyle;
  begin
-  f_AACSample := aLeaf.IntA[k2_tiStyle];
+  f_AACStyle := aLeaf.IntA[k2_tiStyle];
   CheckWhatOpen(False);
   aLeaf.IntW[k2_tiStyle, nil] := cnDefaultStyleLeafPara;
  end;
 
  function lp_CheckContentsName: Boolean;
  var
-  l_Type: Tl3Type{Tk2Type};
+  l_Type: Tl3Type;
  begin
   Result := False;
   l_Type := TopType[2];
@@ -428,13 +435,13 @@ const
  var
   l_Style: Integer;
  begin                                                   
-  Result := f_AACSample < 0;
+  Result := f_AACStyle < 0;
   if Result then
   begin
    l_Style := aLeaf.IntA[k2_tiStyle];
    if EvAACStyle(l_Style) then
    begin
-    if l_Style = f_AACSample then
+    if l_Style = f_AACStyle then
      aLeaf.IntW[k2_tiStyle, nil] := cnDefaultStyleLeafPara
     else
      begin
@@ -448,7 +455,7 @@ const
     else
      if not lp_CheckContentsName then
       CheckWhatOpen(False);
-  end // if f_AACSample then
+  end // if f_AACStyle then
   else
    if EvAACStyle(aLeaf.IntA[k2_tiStyle]) then
    begin

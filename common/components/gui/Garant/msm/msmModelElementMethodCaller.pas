@@ -39,7 +39,7 @@ type
    class function RawCall(aWord: TtfwWord;
     const aMethodName: AnsiString): TtfwStackValue;
    class procedure CallProc(const aMethodName: AnsiString);
-   class function Call(const aParameter: TtfwStackValue;
+   class function Call(const aParameters: array of TtfwStackValue;
     const aMethodName: AnsiString): TtfwStackValue; overload;
    class procedure CallSetter(aWord: TtfwWord;
     const aMethodName: AnsiString;
@@ -54,11 +54,15 @@ implementation
 uses
  l3ImplUses
  , msmScriptCaller
+ {$If NOT Defined(NoScripts)}
+ , tfwValueList
+ {$IfEnd} // NOT Defined(NoScripts)
  , msmModelElementMethodValueCache
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThread
  {$IfEnd} // Defined(seThreadSafe)
  , msmWordsByName
+ , msmChangedElements
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine
  {$IfEnd} // NOT Defined(NoScripts)
@@ -84,8 +88,8 @@ uses
 type
  TmsmModelElementMethodScriptCaller = {final} class(TmsmScriptCaller)
   private
+   f_Parameters: TtfwValueList;
    f_ResultValue: TtfwStackValue;
-   f_Parameter: TtfwStackValue;
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
@@ -93,21 +97,25 @@ type
    procedure DoScriptWillRun(const aCtx: TtfwContext); override;
    procedure ClearFields; override;
   public
-   constructor Create(const aParameter: TtfwStackValue); reintroduce;
+   constructor Create(const aParameters: array of TtfwStackValue); reintroduce;
   public
+   property Parameters: TtfwValueList
+    read f_Parameters;
    property ResultValue: TtfwStackValue
     read f_ResultValue;
-   property Parameter: TtfwStackValue
-    read f_Parameter;
  end;//TmsmModelElementMethodScriptCaller
 
-constructor TmsmModelElementMethodScriptCaller.Create(const aParameter: TtfwStackValue);
+constructor TmsmModelElementMethodScriptCaller.Create(const aParameters: array of TtfwStackValue);
 //#UC START# *57AA03740168_57A9FEF503A3_var*
+var
+ l_Index : Integer;
 //#UC END# *57AA03740168_57A9FEF503A3_var*
 begin
 //#UC START# *57AA03740168_57A9FEF503A3_impl*
  inherited Create;
- f_Parameter := aParameter;
+ f_Parameters := TtfwValueList.Create;
+ for l_Index := Low(aParameters) to High(aParameters) do
+  f_Parameters.Add(aParameters[l_Index]);
 //#UC END# *57AA03740168_57A9FEF503A3_impl*
 end;//TmsmModelElementMethodScriptCaller.Create
 
@@ -117,7 +125,7 @@ procedure TmsmModelElementMethodScriptCaller.Cleanup;
 //#UC END# *479731C50290_57A9FEF503A3_var*
 begin
 //#UC START# *479731C50290_57A9FEF503A3_impl*
- Finalize(f_Parameter);
+ FreeAndNil(f_Parameters);
  Finalize(f_ResultValue);
  inherited;
 //#UC END# *479731C50290_57A9FEF503A3_impl*
@@ -138,19 +146,21 @@ end;//TmsmModelElementMethodScriptCaller.DoScriptDone
 
 procedure TmsmModelElementMethodScriptCaller.DoScriptWillRun(const aCtx: TtfwContext);
 //#UC START# *57A9FED102C4_57A9FEF503A3_var*
+var
+ l_Index : Integer;
 //#UC END# *57A9FED102C4_57A9FEF503A3_var*
 begin
 //#UC START# *57A9FED102C4_57A9FEF503A3_impl*
  inherited;
- if (f_Parameter.rType <> tfw_vtVoid) then
-  aCtx.rEngine.Push(f_Parameter);
+ if (f_Parameters <> nil) then
+  for l_Index := 0 to Pred(f_Parameters.Count) do
+    aCtx.rEngine.Push(f_Parameters[l_Index]);
 //#UC END# *57A9FED102C4_57A9FEF503A3_impl*
 end;//TmsmModelElementMethodScriptCaller.DoScriptWillRun
 
 procedure TmsmModelElementMethodScriptCaller.ClearFields;
 begin
  Finalize(f_ResultValue);
- Finalize(f_Parameter);
  inherited;
 end;//TmsmModelElementMethodScriptCaller.ClearFields
 
@@ -254,7 +264,7 @@ class function TmsmModelElementMethodCaller.RawCall(aWord: TtfwWord;
 //#UC END# *57C437080131_57AA00BD022E_var*
 begin
 //#UC START# *57C437080131_57AA00BD022E_impl*
- Result := Call(TtfwStackValue_C(aWord), aMethodName);
+ Result := Call([TtfwStackValue_C(aWord)], aMethodName);
 //#UC END# *57C437080131_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.RawCall
 
@@ -263,11 +273,11 @@ class procedure TmsmModelElementMethodCaller.CallProc(const aMethodName: AnsiStr
 //#UC END# *57C438C803DC_57AA00BD022E_var*
 begin
 //#UC START# *57C438C803DC_57AA00BD022E_impl*
- TmsmModelElementMethodCaller.Call(TtfwStackValue_E, aMethodName);
+ TmsmModelElementMethodCaller.Call([], aMethodName);
 //#UC END# *57C438C803DC_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.CallProc
 
-class function TmsmModelElementMethodCaller.Call(const aParameter: TtfwStackValue;
+class function TmsmModelElementMethodCaller.Call(const aParameters: array of TtfwStackValue;
  const aMethodName: AnsiString): TtfwStackValue;
 //#UC START# *57CFC420039B_57AA00BD022E_var*
 CONST cQuote = '''';
@@ -288,11 +298,11 @@ var
 //#UC END# *57CFC420039B_57AA00BD022E_var*
 begin
 //#UC START# *57CFC420039B_57AA00BD022E_impl*
- l_Caller := TmsmModelElementMethodScriptCaller.Create(aParameter);
+ l_Caller := TmsmModelElementMethodScriptCaller.Create(aParameters);
  try
   l_ScriptName := ScriptName(aMethodName);
   l_N := l3Str(l_ScriptName);
-  if (aParameter.rType <> tfw_vtVoid) then
+  if (Length(aParameters) > 0) then
   begin
    l_Delim := '.';
   end//aParameter.rType <> tfw_vtVoid
@@ -304,9 +314,9 @@ begin
   l_WasCompiled := TmsmWordsByName.Instance.Has(l_MethodName);
   if not l_WasCompiled then
   begin
-   if (aParameter.rType <> tfw_vtVoid) then
+   if true{(Length(aParameters) > 0)} then
    begin
-    l_Check := '.CheckValue';
+    l_Check := '.CheckValueSafe';
    end//aParameter.rType <> tfw_vtVoid
    else
    begin
@@ -406,6 +416,7 @@ begin
  begin
   Lock;
   try
+   l_V := CheckItem(l_V);
    if FindData(l_V, l_Index) then
     ItemSlot(l_Index).rValue := aValue
    else
@@ -413,10 +424,13 @@ begin
     l_V.rValue := aValue;
     Insert(l_Index, l_V);
    end;//FindData(l_V, l_Index)
+   //Call([TtfwStackValue_C(l_V.rWord), TtfwStackValue_C(l_V.rName), aValue], 'SetElementVar');
   finally
    Unlock;
   end;//try..finally
  end;//with TmsmModelElementMethodValueCache.Instance
+ Call([TtfwStackValue_C(l_V.rWord), TtfwStackValue_C(l_V.rName), aValue], 'SetElementVar');
+ TmsmChangedElements.Instance.Add(l_V.rWord);
 //#UC END# *57D68123004E_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.CallSetter
 

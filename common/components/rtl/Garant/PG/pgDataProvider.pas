@@ -20,6 +20,7 @@ uses
  , pgConnection
  , daTypes
  , l3Languages
+ , daUserIDList
  , pgRenumerator
  , pgFunctionFactory
  , pgFreeIDHelperHolder
@@ -44,7 +45,7 @@ type
    f_BaseLang: TLanguageObj;
    f_Factory: IdaTableQueryFactory;
    f_Journal: IdaJournal;
-   f_ImpersonatedUserID: TdaUserID;
+   f_ImpersonatedUserList: TdaUserIDList;
    f_UserManager: IdaUserManager;
    f_IsStarted: Boolean;
    f_RegionQuery: IdaTabledQuery;
@@ -55,7 +56,6 @@ type
    f_SetGlobalDataProvider: Boolean;
    f_HasAdminRights: Boolean;
    f_AlienSessionID: TdaSessionID;
-   f_ImpersonateCounter: Integer;
    f_FamilyHelper: TpgFamilyHelper;
    f_FreeIDHelperHolder: TpgFreeIDHelperHolder;
   private
@@ -174,13 +174,13 @@ begin
  aParams.SetRefTo(f_Params);
 // f_Helper := ThtDataSchemeHelper.Make(f_Params);
  f_AllowClearLocks := AllowClearLocks;
- f_ImpersonatedUserID := 0;
  f_CurHomePath:=aParams.HomeDirPath;
  f_Connection := TpgConnection.Create(f_LongProcessList);
  f_FunctionFactory := TpgFunctionFactory.Create(f_Connection, f_DataConverter);
  f_AlienSessionID := BlankSession;
  f_Factory := TpgTableQueryFactory.Make(f_DataConverter, f_Connection);
  f_FreeIDHelperHolder := TpgFreeIDHelperHolder.Create(f_Connection, f_Factory, f_FunctionFactory);
+ f_ImpersonatedUserList := TdaUserIDList.Make;
 //#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
 end;//TpgDataProvider.Create
 
@@ -796,10 +796,10 @@ function TpgDataProvider.Get_ImpersonatedUserID: TdaUserID;
 //#UC END# *561795EA02BF_55D6DA9E00BFget_var*
 begin
 //#UC START# *561795EA02BF_55D6DA9E00BFget_impl*
- if f_ImpersonatedUserID = usNone then
+ if f_ImpersonatedUserList.Count = 0 then
   Result := Get_UserID
  else
-  Result := f_ImpersonatedUserID;
+  Result := f_ImpersonatedUserList.Last;
 //#UC END# *561795EA02BF_55D6DA9E00BFget_impl*
 end;//TpgDataProvider.Get_ImpersonatedUserID
 
@@ -808,12 +808,7 @@ procedure TpgDataProvider.BeginImpersonate(anUserID: TdaUserID);
 //#UC END# *561796070253_55D6DA9E00BF_var*
 begin
 //#UC START# *561796070253_55D6DA9E00BF_impl*
- inc(f_ImpersonateCounter);
- if f_ImpersonateCounter = 1 then
-  f_ImpersonatedUserID := anUserID
- else
-  if f_ImpersonatedUserID <> anUserID then
-   l3System.Msg2Log('ALERT ImpersonateUser');
+ f_ImpersonatedUserList.Add(anUserID);
 //#UC END# *561796070253_55D6DA9E00BF_impl*
 end;//TpgDataProvider.BeginImpersonate
 
@@ -822,11 +817,7 @@ procedure TpgDataProvider.EndImpersonate;
 //#UC END# *5617961F0105_55D6DA9E00BF_var*
 begin
 //#UC START# *5617961F0105_55D6DA9E00BF_impl*
- Dec(f_ImpersonateCounter);
- if f_ImpersonateCounter = 0 then
-  f_ImpersonatedUserID := usNone;
- if f_ImpersonateCounter < 0 then
-  f_ImpersonateCounter := 0;
+ f_ImpersonatedUserList.Delete(f_ImpersonatedUserList.Count - 1);
 //#UC END# *5617961F0105_55D6DA9E00BF_impl*
 end;//TpgDataProvider.EndImpersonate
 
@@ -904,6 +895,7 @@ begin
  f_Journal := nil;
  f_DataConverter := nil;
  FreeANdNil(f_Connection);
+ FreeAndNil(f_ImpersonatedUserList);
  inherited;
 //#UC END# *479731C50290_55D6DA9E00BF_impl*
 end;//TpgDataProvider.Cleanup

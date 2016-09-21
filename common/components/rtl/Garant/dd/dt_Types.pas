@@ -1,8 +1,11 @@
 Unit Dt_Types;
 
-{ $Id: dt_Types.pas,v 1.77 2016/09/09 11:01:15 lukyanets Exp $ }
+{ $Id: dt_Types.pas,v 1.78 2016/09/19 11:57:00 lukyanets Exp $ }
 
 // $Log: dt_Types.pas,v $
+// Revision 1.78  2016/09/19 11:57:00  lukyanets
+// Выделяем функционал
+//
 // Revision 1.77  2016/09/09 11:01:15  lukyanets
 // Отправляем сообщение
 //
@@ -652,7 +655,16 @@ type
   TSortField      = (sfNone, sfName, sfDate, sfPriority, sfUrgency);
   TSortOrder      = (soUpDown,soDownUp);
   TOpenFlag       = (ofRead,ofWrite);
-  TOperActionType = (atNone,atAdd,atDelete,atEdit,atMove,atJurEdit);
+
+  TOperActionType = l3MarshalledTypes.TOperActionType;
+const
+  atNone = l3MarshalledTypes.atNone;
+  atAdd = l3MarshalledTypes.atAdd;
+  atDelete = l3MarshalledTypes.atDelete;
+  atEdit = l3MarshalledTypes.atEdit;
+  atMove = l3MarshalledTypes.atMove;
+  atJurEdit = l3MarshalledTypes.atJurEdit;
+type
   TExportTyp      = (etSelf,etWord,etText);
 
   PDNType         = ^TDNType;

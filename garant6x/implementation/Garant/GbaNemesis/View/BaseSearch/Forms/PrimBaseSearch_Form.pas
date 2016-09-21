@@ -60,13 +60,13 @@ type
   {* Состояние формы "Базоывый поиск" }
   ['{239F47AA-B37E-447C-BE52-E487DE8A8397}']
   function Get_ActiveClass: InsBaseSearchClass;
-  function Get_Data: InsBaseSearcherWindowData;
+  function Get_SearcherState: InsBaseSearcherInitialState;
   function As_IvcmBase: IvcmBase;
    {* Метод приведения нашего интерфейса к IvcmBase }
   property ActiveClass: InsBaseSearchClass
    read Get_ActiveClass;
-  property Data: InsBaseSearcherWindowData
-   read Get_Data;
+  property SearcherState: InsBaseSearcherInitialState
+   read Get_SearcherState;
  end;//InsBaseSearchFormState
 
  TnsUseBaseSearchExampleEvent = class(TnsCounterEvent)
@@ -361,21 +361,19 @@ type
  TnsBaseSearchFormState = class(_afwApplicationDataUpdate_, InsBaseSearchFormState, IvcmBase)
   private
    f_ActiveClass: InsBaseSearchClass;
-   f_Data: InsBaseSearcherWindowData;
+   f_SearcherState: InsBaseSearcherInitialState;
   protected
    function As_IvcmBase: IvcmBase;
     {* Метод приведения нашего интерфейса к IvcmBase }
-   function Get_Data: InsBaseSearcherWindowData;
    function Get_ActiveClass: InsBaseSearchClass;
-   procedure Cleanup; override;
-    {* Функция очистки полей объекта. }
+   function Get_SearcherState: InsBaseSearcherInitialState;
    procedure FinishDataUpdate; override;
    procedure ClearFields; override;
   public
-   constructor Create(const aData: InsBaseSearcherWindowData;
-    const anActiveClass: InsBaseSearchClass); reintroduce;
-   class function Make(const aData: InsBaseSearcherWindowData;
-    const anActiveClass: InsBaseSearchClass): InsBaseSearchFormState; reintroduce;
+   constructor Create(const anActiveClass: InsBaseSearchClass;
+    const aBaseSearcherState: InsBaseSearcherInitialState); reintroduce;
+   class function Make(const anActiveClass: InsBaseSearchClass;
+    const aBaseSearcherState: InsBaseSearcherInitialState): InsBaseSearchFormState; reintroduce;
  end;//TnsBaseSearchFormState
 
 var g_TnsUseBaseSearchExampleEvent: TnsUseBaseSearchExampleEvent = nil;
@@ -409,27 +407,26 @@ end;//TnsUseBackSearchButtonEventFree
 
 {$Include w:\common\components\gui\Garant\AFW\implementation\afwApplicationDataUpdate.imp.pas}
 
-constructor TnsBaseSearchFormState.Create(const aData: InsBaseSearcherWindowData;
- const anActiveClass: InsBaseSearchClass);
+constructor TnsBaseSearchFormState.Create(const anActiveClass: InsBaseSearchClass;
+ const aBaseSearcherState: InsBaseSearcherInitialState);
 //#UC START# *4CF4F8470359_4ACB57C4023E_var*
 //#UC END# *4CF4F8470359_4ACB57C4023E_var*
 begin
 //#UC START# *4CF4F8470359_4ACB57C4023E_impl*
  inherited Create;
- Assert(aData <> nil);
- f_Data := aData;
  Assert(anActiveClass <> nil);
  f_ActiveClass := anActiveClass;
+ f_SearcherState := aBaseSearcherState; 
  //f_ActiveClass := f_Data.ActiveClassForSaveState{ActiveClass};
 //#UC END# *4CF4F8470359_4ACB57C4023E_impl*
 end;//TnsBaseSearchFormState.Create
 
-class function TnsBaseSearchFormState.Make(const aData: InsBaseSearcherWindowData;
- const anActiveClass: InsBaseSearchClass): InsBaseSearchFormState;
+class function TnsBaseSearchFormState.Make(const anActiveClass: InsBaseSearchClass;
+ const aBaseSearcherState: InsBaseSearcherInitialState): InsBaseSearchFormState;
 var
  l_Inst : TnsBaseSearchFormState;
 begin
- l_Inst := Create(aData, anActiveClass);
+ l_Inst := Create(anActiveClass, aBaseSearcherState);
  try
   Result := l_Inst;
  finally
@@ -443,15 +440,6 @@ begin
  Result := Self;
 end;//TnsBaseSearchFormState.As_IvcmBase
 
-function TnsBaseSearchFormState.Get_Data: InsBaseSearcherWindowData;
-//#UC START# *4ACB5763027B_4ACB57C4023Eget_var*
-//#UC END# *4ACB5763027B_4ACB57C4023Eget_var*
-begin
-//#UC START# *4ACB5763027B_4ACB57C4023Eget_impl*
- Result := f_Data;
-//#UC END# *4ACB5763027B_4ACB57C4023Eget_impl*
-end;//TnsBaseSearchFormState.Get_Data
-
 function TnsBaseSearchFormState.Get_ActiveClass: InsBaseSearchClass;
 //#UC START# *4EB7CC550343_4ACB57C4023Eget_var*
 //#UC END# *4EB7CC550343_4ACB57C4023Eget_var*
@@ -461,16 +449,14 @@ begin
 //#UC END# *4EB7CC550343_4ACB57C4023Eget_impl*
 end;//TnsBaseSearchFormState.Get_ActiveClass
 
-procedure TnsBaseSearchFormState.Cleanup;
- {* Функция очистки полей объекта. }
-//#UC START# *479731C50290_4ACB57C4023E_var*
-//#UC END# *479731C50290_4ACB57C4023E_var*
+function TnsBaseSearchFormState.Get_SearcherState: InsBaseSearcherInitialState;
+//#UC START# *57DA8F3102AE_4ACB57C4023Eget_var*
+//#UC END# *57DA8F3102AE_4ACB57C4023Eget_var*
 begin
-//#UC START# *479731C50290_4ACB57C4023E_impl*
- f_Data := nil;
- inherited;
-//#UC END# *479731C50290_4ACB57C4023E_impl*
-end;//TnsBaseSearchFormState.Cleanup
+//#UC START# *57DA8F3102AE_4ACB57C4023Eget_impl*
+ Result := f_SearcherState;
+//#UC END# *57DA8F3102AE_4ACB57C4023Eget_impl*
+end;//TnsBaseSearchFormState.Get_SearcherState
 
 procedure TnsBaseSearchFormState.FinishDataUpdate;
 //#UC START# *47EA4E9002C6_4ACB57C4023E_var*
@@ -1508,8 +1494,7 @@ begin
    end
    else
     l_ClassToSave := f_BaseSearcher.WindowData.ActiveClassForSaveState;
-    theState := TnsBaseSearchFormState.Make(f_BaseSearcher.WindowData,
-    l_ClassToSave).As_IvcmBase;
+    theState := TnsBaseSearchFormState.Make(l_ClassToSave, f_BaseSearcher.MakeState).As_IvcmBase;
     Result := true;
   end;//f_BaseSearcher = nil
  end//aStateType = vcm_stContent
@@ -1548,7 +1533,7 @@ begin
   else
   begin
    f_BaseSearcher := TnsBaseSearchService.Instance.GetBaseSearcher(As_IvcmEntityForm);
-   f_BaseSearcher.AssignState((l_State.Data as InsBaseSearcher).MakeStateParams(ns_sseAll, True));
+   f_BaseSearcher.AssignState(l_State.SearcherState);
    Assert(f_BaseSearcher <> nil);
    f_ActiveClassForSaveInHistory := l_State.ActiveClass;
    // http://mdp.garant.ru/pages/viewpage.action?pageId=327826220

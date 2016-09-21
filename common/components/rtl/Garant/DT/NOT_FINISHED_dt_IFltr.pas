@@ -15,6 +15,9 @@ uses
 
 type
  TdtOnEraseAttrRecords = procedure;
+
+ TGroupOpFilter = class
+ end;//TGroupOpFilter
 {$IfEnd} // NOT Defined(Nemesis)
 
 implementation

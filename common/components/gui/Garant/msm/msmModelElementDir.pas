@@ -40,13 +40,10 @@ type
    constructor Create(const aList: ImsmModelElementList;
     const aTextName: AnsiString); reintroduce; overload;
    class function Make(const aList: ImsmModelElementList;
-    const aTextName: AnsiString): ImsmModelElementStringList; reintroduce; overload;
+    const aTextName: AnsiString): ImsmModelElementStringList; reintroduce;
    constructor Create(const aParent: ImsmModelElement;
     const aList: ImsmModelElementList;
     const aTextName: AnsiString); reintroduce; overload;
-   class function Make(const aParent: ImsmModelElement;
-    const aList: ImsmModelElementList;
-    const aTextName: AnsiString): ImsmModelElementStringList; reintroduce; overload;
    function IndexOf(const anElement: ImsmModelElement): Integer;
  end;//TmsmModelElementDir
 
@@ -102,20 +99,6 @@ begin
  inherited Create;
 //#UC END# *57B33A9E00C7_57B1674A02B6_impl*
 end;//TmsmModelElementDir.Create
-
-class function TmsmModelElementDir.Make(const aParent: ImsmModelElement;
- const aList: ImsmModelElementList;
- const aTextName: AnsiString): ImsmModelElementStringList;
-var
- l_Inst : TmsmModelElementDir;
-begin
- l_Inst := Create(aParent, aList, aTextName);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
-end;//TmsmModelElementDir.Make
 
 function TmsmModelElementDir.IsDir: Boolean;
 //#UC START# *57B57DE500CF_57B1674A02B6_var*

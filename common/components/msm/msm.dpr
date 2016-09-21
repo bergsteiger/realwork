@@ -1623,6 +1623,8 @@ uses
  , msmModelElementMethodValueCache in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueCache.pas'
  , msmModelElementMethodValueList in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueList.pas'
  , msmWordsByName in 'w:\common\components\gui\Garant\msm\msmWordsByName.pas'
+ , msmChangedElements in 'w:\common\components\gui\Garant\msm\msmChangedElements.pas'
+ , l3PointerUtils in 'w:\common\components\rtl\Garant\L3\l3PointerUtils.pas'
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThread in 'w:\common\components\gui\Garant\msm\msmModelLoadingThread.pas'
  {$IfEnd} // Defined(seThreadSafe)
@@ -1635,7 +1637,6 @@ uses
  {$If Defined(seThreadSafe)}
  , msmModelLoadingThreadPrimList in 'w:\common\components\gui\Garant\msm\msmModelLoadingThreadPrimList.pas'
  {$IfEnd} // Defined(seThreadSafe)
- , l3PointerUtils in 'w:\common\components\rtl\Garant\L3\l3PointerUtils.pas'
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine in 'w:\common\components\rtl\Garant\ScriptEngine\tfwScriptEngine.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1823,6 +1824,11 @@ uses
  , msmParentedViewControllerWithOwnership in 'w:\common\components\gui\Garant\msm\msmParentedViewControllerWithOwnership.pas'
  , msmProportionalPanel in 'w:\common\components\gui\Garant\msm\msmProportionalPanel.pas'
  , vtProportionalPanel in 'w:\common\components\gui\Garant\VT\vtProportionalPanel.pas'
+ , msmGenerateElement in 'w:\common\components\gui\Garant\msm\msmGenerateElement.pas'
+ , msmSaveChangedElements in 'w:\common\components\gui\Garant\msm\msmSaveChangedElements.pas'
+ , msmCopySelection in 'w:\common\components\gui\Garant\msm\msmCopySelection.pas'
+ , msmElementSelectionDataObject in 'w:\common\components\gui\Garant\msm\msmElementSelectionDataObject.pas'
+ , msmPaste in 'w:\common\components\gui\Garant\msm\msmPaste.pas'
  //#UC START# *57A9BB9101F5manualuses*
  //#UC END# *57A9BB9101F5manualuses*
 ;

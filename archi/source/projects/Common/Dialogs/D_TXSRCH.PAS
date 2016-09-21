@@ -295,7 +295,6 @@ uses
 
   l3String,
   l3Except,
-  //Main,
   {$IFNDEF NotArchiProject}
   EditWin,
   DocIntf,

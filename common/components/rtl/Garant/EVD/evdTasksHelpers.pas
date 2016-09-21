@@ -118,6 +118,18 @@ type
 
  AccGroupsIDListHelper = DocumentIDListHelper;
 
+ RejectedIDListHelper = interface
+  ['{DF923F97-69D2-4740-AC73-ED1ECA2C5207}']
+  function Get_Count: Integer;
+  procedure Add(anID: Cardinal;
+   const aComment: AnsiString);
+  procedure GetValue(anIndex: Integer;
+   out theID: Cardinal;
+   out theComment: AnsiString);
+  property Count: Integer
+   read Get_Count;
+ end;//RejectedIDListHelper
+
  TDocumentIDListHelper = class(TevdTagHelper, DocumentIDListHelper)
   protected
    procedure Save(aStream: TStream);
@@ -134,8 +146,6 @@ type
    procedure FromList(const aSource: Il3IntegerList); overload;
    function AsIntegerList: Il3IntegerList;
  end;//TDocumentIDListHelper
-
- TImportedDocListHelper = TDocumentIDListHelper;
 
  ImportedDocListHelper = DocumentIDListHelper;
 
@@ -224,6 +234,20 @@ type
 
  TDocIDListHelper = TDocumentIDListHelper;
 
+ TImportedDocListHelper = TDocumentIDListHelper;
+
+ TRejectedIDListHelper = class(TevdTagHelper, RejectedIDListHelper)
+  protected
+   function Get_Count: Integer;
+   procedure Add(anID: Cardinal;
+    const aComment: AnsiString);
+   procedure GetValue(anIndex: Integer;
+    out theID: Cardinal;
+    out theComment: AnsiString);
+  public
+   class function Make(aValue: Tl3Tag): RejectedIDListHelper; reintroduce;
+ end;//TRejectedIDListHelper
+
 implementation
 
 uses
@@ -234,6 +258,7 @@ uses
  , l3InterfacedIntegerList
  , TaskID_Const
  , FoundSelector_Const
+ , DocIDWithComment_Const
  //#UC START# *53BD13B4023Bimpl_uses*
  //#UC END# *53BD13B4023Bimpl_uses*
 ;
@@ -633,5 +658,56 @@ begin
  theDocument := l_Addr.IntA[k2_attrDocument];
 //#UC END# *57C55E5D000A_57BEADEE00FC_impl*
 end;//TFoundSelectorHelper.GetValue
+
+class function TRejectedIDListHelper.Make(aValue: Tl3Tag): RejectedIDListHelper;
+var
+ l_Inst : TRejectedIDListHelper;
+begin
+ l_Inst := Create(aValue);
+ try
+  Result := l_Inst;
+ finally
+  l_Inst.Free;
+ end;//try..finally
+end;//TRejectedIDListHelper.Make
+
+function TRejectedIDListHelper.Get_Count: Integer;
+//#UC START# *57DBA025026A_57DB9ED80225get_var*
+//#UC END# *57DBA025026A_57DB9ED80225get_var*
+begin
+//#UC START# *57DBA025026A_57DB9ED80225get_impl*
+ Result := f_Value.ChildrenCount;
+//#UC END# *57DBA025026A_57DB9ED80225get_impl*
+end;//TRejectedIDListHelper.Get_Count
+
+procedure TRejectedIDListHelper.Add(anID: Cardinal;
+ const aComment: AnsiString);
+//#UC START# *57DBA04200B7_57DB9ED80225_var*
+var
+ l_Addr : Tl3Tag;
+//#UC END# *57DBA04200B7_57DB9ED80225_var*
+begin
+//#UC START# *57DBA04200B7_57DB9ED80225_impl*
+ l_Addr := k2_typDocIDWithComment.MakeTag.AsObject;
+ l_Addr.IntA[k2_attrDocID] := anID;
+ l_Addr.StrA[k2_attrDocComment] := aComment;
+ f_Value.AddChild(l_Addr);
+//#UC END# *57DBA04200B7_57DB9ED80225_impl*
+end;//TRejectedIDListHelper.Add
+
+procedure TRejectedIDListHelper.GetValue(anIndex: Integer;
+ out theID: Cardinal;
+ out theComment: AnsiString);
+//#UC START# *57DBA11103B8_57DB9ED80225_var*
+var
+ l_Addr : Tl3Tag;
+//#UC END# *57DBA11103B8_57DB9ED80225_var*
+begin
+//#UC START# *57DBA11103B8_57DB9ED80225_impl*
+ l_Addr := f_Value.Child[anIndex];
+ theID := l_Addr.IntA[k2_attrDocID];
+ theComment := l_Addr.StrA[k2_attrDocComment];
+//#UC END# *57DBA11103B8_57DB9ED80225_impl*
+end;//TRejectedIDListHelper.GetValue
 
 end.

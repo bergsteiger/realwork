@@ -4,7 +4,7 @@ interface
 
 {see also D_DocAddr}
 
-{ $Id: AddrSup.pas,v 1.5 2016/05/16 10:31:58 dinishev Exp $ }
+{ $Id: AddrSup.pas,v 1.6 2016/09/16 09:49:43 dinishev Exp $ }
 
 uses
  DT_Types;
@@ -22,6 +22,8 @@ uses
  SysUtils,
 
  arTextUtils,
+
+ Math,
 
  l3Chars,
  l3String;
@@ -126,7 +128,7 @@ begin
    '0'..'9' :
     l_CStr := l_CStr + aAddrStr[I];
    else
-    raise Exception.CreateFmt('Неправильный формат ссылки "%s"', [aAddrStr]);
+    raise EInvalidArgument.CreateFmt('Неправильный формат ссылки "%s"', [aAddrStr]);
   end;
  SetVar;
  Result := True;

@@ -46,6 +46,10 @@ uses
  , msmModel
  , msmPanel
  , msmProportionalPanel
+ , msmGenerateElement
+ , msmSaveChangedElements
+ , msmCopySelection
+ , msmPaste
  //#UC START# *57D2DF7E00CEimpl_uses*
  , SysUtils
  , msmConcreteModels
@@ -74,10 +78,24 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
  const aFloatingZone: ImsmViewParent);
 //#UC START# *57D2DFA70064_57D2DF7E00CE_var*
 
+ function AddNavigatorOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
+ begin//AddNavigatorOperations
+  aController.AddOperation(TmsmOpenInNewWindow.Make('Open in new window', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmGenerateElement.Make('Generate element', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmSaveChangedElements.Make('Save changed', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmCopySelection.Make('Copy', aModel));
+  aController.AddOperation(TmsmPaste.Make('Paste', aModel));
+  Result := aController;
+ end;//AddNavigatorOperations
+
  function AddListLikeOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
  begin//AddListLikeOperations
   Assert(aUseCase.FloatingNavigator <> nil);
-  aController.AddOperation(TmsmOpenInNewWindow.Make('Open in new window', aModel));
+  AddNavigatorOperations(aController, aModel);
+  aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmShowInNavigator.Make('Show in navigator', aModel, aUseCase.FloatingNavigator));
   Result := aController;
  end;//AddListLikeOperations
@@ -149,17 +167,6 @@ begin
   TmsmMainFormController.Make(Self, aUseCase.Caption)
  );*)
 
- AddController(
-  AddMainListOperations
-  (
-   DisableActionElementEvent
-   (
-    TmsmListViewController.Make(aUseCase.MainList, aMainZone)
-   )
-   , aUseCase.MainList
-  )
- );
-
  l_DrawingPanel := TmsmProportionalPanel.Create(nil);
  //l_DrawingPanel := TmsmPanel.Create(nil);
  f_DrawingPanel := l_DrawingPanel;
@@ -191,29 +198,48 @@ begin
  );
 
  AddController(
-  AddListLikeOperations
+  AddMainListOperations
   (
-   TmsmTreeViewController.Make(aUseCase.Navigator, aLeftZone)
-   , aUseCase.Navigator
+   DisableActionElementEvent
+   (
+    TmsmListViewController.Make(aUseCase.MainList, aMainZone)
+   )
+   , aUseCase.MainList
   )
  );
 
- l_ListContext := TmsmListViewtInitContext_C;
- AddChildViews(['Depends', 'Inherits', 'Implements', 'Inner', 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
-               aChildZone,
-               l_ListContext
-               );
- AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('UpList', 'UpText')),
-              aChildZone,
-              l_ListContext);
- l_ListContext.rMultiStrokeItem := true;
- AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty')),
-              aChildZone,
-              l_ListContext);
+ if (aLeftZone <> nil) then
+  AddController(
+   AddListLikeOperations
+   (
+    TmsmTreeViewController.Make(aUseCase.Navigator, aLeftZone)
+    , aUseCase.Navigator
+   )
+  );
 
- AddController(
-  TmsmTreeViewController.Make(aUseCase.FloatingNavigator, aFloatingZone)
- );
+ if (aChildZone <> nil) then
+ begin
+  l_ListContext := TmsmListViewtInitContext_C;
+  AddChildViews(['Depends', 'Inherits', 'Implements', 'Inner', 'Children', 'Constants', 'Attributes', 'Operations', 'Implemented', 'Overridden', 'Dependencies'],
+                aChildZone,
+                l_ListContext
+                );
+  AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('UpList', 'UpText')),
+               aChildZone,
+               l_ListContext);
+  l_ListContext.rMultiStrokeItem := true;
+  AddChildView(TmsmListModel.MakeList(TmsmModelElementView_C('SelfList', 'DocumentationNotEmpty')),
+               aChildZone,
+               l_ListContext);
+ end;//aChildZone <> nil
+
+ if (aFloatingZone <> nil) then
+  AddController(
+   AddNavigatorOperations(
+    TmsmTreeViewController.Make(aUseCase.FloatingNavigator, aFloatingZone),
+    aUseCase.FloatingNavigator
+   )
+  );
 //#UC END# *57D2DFA70064_57D2DF7E00CE_impl*
 end;//TmsmDrawingUseCaseView.Create
 

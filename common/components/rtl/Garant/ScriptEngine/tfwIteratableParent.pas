@@ -99,8 +99,7 @@ function TtfwIteratableParent.Add(const anItem: _ItemType_): Integer;
 //#UC END# *482958A203D0_52E29ED5016B_var*
 begin
 //#UC START# *482958A203D0_52E29ED5016B_impl*
- EtfwConstantArray.Fail('Не реализовано');
- Result := -1;
+ Result := DoAdd(anItem);
 //#UC END# *482958A203D0_52E29ED5016B_impl*
 end;//TtfwIteratableParent.Add
 

@@ -104,6 +104,7 @@ type
    procedure LoadBanner;
    procedure lblTaxesChange(Sender: TObject);
    procedure lblProfNewsChange(Sender: TObject);
+   procedure UpdateButtonsVisibility;
   protected
    function DoBuildGrid: InscArrangeGrid; override;
    procedure Cleanup; override;
@@ -834,6 +835,19 @@ begin
 //#UC END# *5707BB480178_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.lblProfNewsChange
 
+procedure TPrimMainMenuWithProfNewsForm.UpdateButtonsVisibility;
+//#UC START# *57DBCF9B0364_56FA889202B4_var*
+//#UC END# *57DBCF9B0364_56FA889202B4_var*
+begin
+//#UC START# *57DBCF9B0364_56FA889202B4_impl*
+ pnlWebVersion.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
+                      and Assigned(defDataAdapter)
+                      and ((defDataAdapter.RevisionCheckEnabled
+                      and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+                        or DefDataAdapter.CommonInterfaces.IsEarlyInstalled);
+//#UC END# *57DBCF9B0364_56FA889202B4_impl*
+end;//TPrimMainMenuWithProfNewsForm.UpdateButtonsVisibility
+
 function TPrimMainMenuWithProfNewsForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *4AC9B6D00250_56FA889202B4_var*
 //#UC END# *4AC9B6D00250_56FA889202B4_var*
@@ -873,6 +887,7 @@ begin
  LoadTrees;
  UpdateSearchLabels;
  UpdateReferencesAndLawNewsCaptions;
+ UpdateButtonsVisibility;
  ArrangeControls;
 //#UC END# *47EA4E9002C6_56FA889202B4_impl*
 end;//TPrimMainMenuWithProfNewsForm.FinishDataUpdate
@@ -984,12 +999,7 @@ procedure TPrimMainMenuWithProfNewsForm.InitControls;
    else
     Assert(False);
   end;
-
-  pnlWebVersion.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
-                       and Assigned(defDataAdapter)
-                       and ((defDataAdapter.RevisionCheckEnabled
-                       and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
-                         or DefDataAdapter.CommonInterfaces.IsEarlyInstalled);
+  UpdateButtonsVisibility;
  end; // lp_SetupButtons
 
  procedure lp_SetupTrees;

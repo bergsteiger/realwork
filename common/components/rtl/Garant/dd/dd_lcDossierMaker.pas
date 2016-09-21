@@ -1,8 +1,11 @@
 unit dd_lcDossierMaker;
 { Создание справки для постановлений судов }
 
-{ $Id: dd_lcDossierMaker.pas,v 1.34 2015/11/26 09:05:21 lukyanets Exp $ }
+{ $Id: dd_lcDossierMaker.pas,v 1.35 2016/09/16 13:49:56 fireton Exp $ }
 // $Log: dd_lcDossierMaker.pas,v $
+// Revision 1.35  2016/09/16 13:49:56  fireton
+// - переведим на Tl3String чтобы избежать проблем с памятью, если много участников
+//
 // Revision 1.34  2015/11/26 09:05:21  lukyanets
 // КОнстанты переехали
 //
@@ -64,11 +67,11 @@ uses
  evdBufferedFilter,
  k2Interfaces,
  ddLawCaseXMLReader,
- dt_Types, SysUtils, dd_lcBaseFilter, l3Types, k2Types, l3LongintList,
+ dt_Types, SysUtils, dd_lcBaseFilter, l3Types, l3Base, k2Types, l3LongintList,
 
  k2Base,
 
- l3FieldSortRecList, k2TagGen, Dt_TblCache, l3Interfaces;
+ l3FieldSortRecList, k2TagGen, Dt_TblCache, l3Interfaces; 
 
 type
  PDocInfoRec = ^TDocInfoRec;
@@ -83,36 +86,36 @@ type
   f_OnNewDocument: TlcNewDocumentEvent;
   f_Code: AnsiString;
   f_CodeType: TDNType;
-  f_Creditor: AnsiString;
+  f_Creditor: Tl3String;
   f_CurDoc: TDocInfoRec;
-  f_Plaintiff: AnsiString;
-  f_Defendant: AnsiString;
+  f_Plaintiff: Tl3String;
+  f_Defendant: Tl3String;
   f_DocList: Tl3FieldSortRecList;
-  f_Dolzhnik: AnsiString;
+  f_Dolzhnik: Tl3String;
   f_DossierID: TDocID;
   f_ExtID: TDocID;
   f_Field: AnsiString;
-  f_Interested: AnsiString;
+  f_Interested: Tl3String;
   f_LinkAdded: Boolean;
   f_Name: AnsiString;
-  f_Participant: AnsiString;
+  f_Participant: Il3CString;
   f_ParticipantType: Integer;
   f_RelGenerator: Tk2TagGenerator;
   f_Source: AnsiString;
   f_SourcesList: Tl3LongintList;
-  f_Thirds: AnsiString;
-  f_ThirdSide: AnsiString;
+  f_Thirds: Tl3String;
+  f_ThirdSide: Tl3String;
   f_Type: AnsiString;
   f_TypesList: Tl3LongintList;
-  f_Zayavitel: AnsiString;
+  f_Zayavitel: Tl3String;
   procedure AddBelongs;
-  procedure AddParticipant(var aParticipant: AnsiString; aNewParticipant: AnsiString);
+  procedure AddParticipant(var theParticipant: Tl3String; aNewParticipant: Tl3WString);
   procedure AddPrefix;
   procedure CheckDossier;
   procedure GenerateAACDossier;
   procedure GenerateFACDossier;
   procedure GenerateVACDossier;
-  function MakeName: AnsiString;
+  //function MakeName: AnsiString;
   procedure ModifyCase(aDossierID: TDocID);
   procedure pm_SetSources(const Value: AnsiString);
   procedure pm_SetSourcesList(const Value: Tl3LongintList);
@@ -128,6 +131,7 @@ type
     {internal methods}
   procedure OpenStream; override;
  public
+  constructor Create(anOwner: Tk2TagGeneratorOwner = nil); override;
   property RelGenerator: Tk2TagGenerator read f_RelGenerator write f_RelGenerator;
   property Sources: AnsiString write pm_SetSources;
   property SourcesList: Tl3LongintList read f_SourcesList write pm_SetSourcesList;
@@ -145,9 +149,23 @@ uses
  TextPara_Const, k2Tags, Document_Const, evdStyles, HyperLink_Const,
  evTextParaTools, SegmentsLayer_Const, evdTypes, Address_Const, ddUtils,
  NumAndDate_Const, logRecord_Const, l3Date, DateUtils, DictItem_Const,
- Participant_Const, dtIntf, DT_Sab, DT_Query, l3Base,
+ Participant_Const, dtIntf, DT_Sab, DT_Query, 
  rxStrUtils, DT_Serv, DT_Const, DT_Doc, DT_Link, DT_LinkServ, DT_DictConst,
- DT_Dict, DT_Renum, Math, StrUtils, l3LingLib, l3String, dd_lcSourceUtils, dd_lcUtils;
+ DT_Dict, DT_Renum, Math, StrUtils, l3LingLib, l3String, dd_lcSourceUtils, dd_lcUtils,
+  l3_String;
+
+constructor TlcDossierMaker.Create(anOwner: Tk2TagGeneratorOwner = nil);
+begin
+ inherited;
+ f_Plaintiff := Tl3String.Create;
+ f_Defendant := Tl3String.Create;
+ f_ThirdSide := Tl3String.Create;
+ f_Interested := Tl3String.Create;
+ f_Creditor := Tl3String.Create;
+ f_Dolzhnik := Tl3String.Create;
+ f_Zayavitel := Tl3String.Create;
+ f_Thirds := Tl3String.Create;
+end;
 
 procedure TlcDossierMaker.AddBelongs;
 var
@@ -181,12 +199,11 @@ begin
   end// l_Belongs <> ''
 end;
 
-procedure TlcDossierMaker.AddParticipant(var aParticipant: AnsiString;
-    aNewParticipant: AnsiString);
+procedure TlcDossierMaker.AddParticipant(var theParticipant: Tl3String; aNewParticipant: Tl3WString);
 begin
- if aParticipant <> '' then
-  aParticipant:= aParticipant + ', ';
- aParticipant:= aParticipant + aNewParticipant;
+ if not theParticipant.Empty then
+  theParticipant.Append(l3PCharLen(', '));
+ theParticipant.Append(aNewParticipant);
 end;
 
 
@@ -232,6 +249,14 @@ end;
 procedure TlcDossierMaker.Cleanup;
 begin
  FreeAndNil(f_SourcesList);
+ FreeAndNil(f_Plaintiff);
+ FreeAndNil(f_Defendant);
+ FreeAndNil(f_ThirdSide);
+ FreeAndNil(f_Interested);
+ FreeAndNil(f_Creditor);
+ FreeAndNil(f_Dolzhnik);
+ FreeAndNil(f_Zayavitel);
+ FreeAndNil(f_Thirds);
  inherited;
 end;
 
@@ -288,31 +313,31 @@ begin
    k2_tiType:
     begin
      f_ParticipantType:= Value.AsInteger;
-     if f_Participant <> '' then
+     if not l3IsNil(f_Participant) then
       case f_ParticipantType of
-       Ord(ptPlaintiff): AddParticipant(f_Plaintiff, f_Participant);
-       Ord(ptDefendant): AddParticipant(f_Defendant, f_Participant);
-       Ord(ptThirdSide): AddParticipant(f_ThirdSide, f_Participant);
-       Ord(ptInterested): AddParticipant(f_Interested, f_Participant);
-       Ord(ptCreditor): AddParticipant(f_Creditor, f_Participant);
-       Ord(ptDolzhnik): AddParticipant(f_Dolzhnik, f_Participant);
-       Ord(ptZayavitel): AddParticipant(f_Zayavitel, f_Participant);
+       Ord(ptPlaintiff):  AddParticipant(f_Plaintiff,  f_Participant.AsWStr);
+       Ord(ptDefendant):  AddParticipant(f_Defendant,  f_Participant.AsWStr);
+       Ord(ptThirdSide):  AddParticipant(f_ThirdSide,  f_Participant.AsWStr);
+       Ord(ptInterested): AddParticipant(f_Interested, f_Participant.AsWStr);
+       Ord(ptCreditor):   AddParticipant(f_Creditor,   f_Participant.AsWStr);
+       Ord(ptDolzhnik):   AddParticipant(f_Dolzhnik,   f_Participant.AsWStr);
+       Ord(ptZayavitel):  AddParticipant(f_Zayavitel,  f_Participant.AsWStr);
       else
-       AddParticipant(f_Thirds, f_Participant);
+       AddParticipant(f_Thirds, f_Participant.AsWStr);
       end;
     end;
    k2_tiName:
     case f_ParticipantType of
-     -1 : f_Participant:= Value.AsString.AsString;
-     Ord(ptPlaintiff): AddParticipant(f_Plaintiff, Value.AsString.AsString);
-     Ord(ptDefendant): AddParticipant(f_Defendant, Value.AsString.AsString);
-     Ord(ptThirdSide): AddParticipant(f_ThirdSide, f_Participant);
-     Ord(ptInterested): AddParticipant(f_Interested, f_Participant);
-     Ord(ptCreditor): AddParticipant(f_Creditor, f_Participant);
-     Ord(ptDolzhnik): AddParticipant(f_Dolzhnik, f_Participant);
-     Ord(ptZayavitel): AddParticipant(f_Zayavitel, f_Participant);
+     -1 : f_Participant := l3CStr(Value.AsString.AsWStr);
+     Ord(ptPlaintiff):  AddParticipant(f_Plaintiff,  Value.AsString.AsWStr);
+     Ord(ptDefendant):  AddParticipant(f_Defendant,  Value.AsString.AsWStr);
+     Ord(ptThirdSide):  AddParticipant(f_ThirdSide,  Value.AsString.AsWStr);
+     Ord(ptInterested): AddParticipant(f_Interested, Value.AsString.AsWStr);
+     Ord(ptCreditor):   AddParticipant(f_Creditor,   Value.AsString.AsWStr);
+     Ord(ptDolzhnik):   AddParticipant(f_Dolzhnik,   Value.AsString.AsWStr);
+     Ord(ptZayavitel):  AddParticipant(f_Zayavitel,  Value.AsString.AsWStr);
     else
-     AddParticipant(f_Thirds, Value.AsString.AsString);
+     AddParticipant(f_Thirds, Value.AsString.AsWStr);
     end;
   end; // case
  end
@@ -334,7 +359,7 @@ begin
  if CurrentType.IsKindOf(k2_typParticipant) then
  begin
   f_ParticipantType:= -1;
-  f_Participant:= '';
+  f_Participant := nil;
  end; // CurrentType.IsKindOf(k2_typParticipant)
  inherited;
 
@@ -388,18 +413,18 @@ begin
  if CurrentType.IsKindOf(k2_typDocument) then
  begin
   f_Source:= '';
-  f_Plaintiff:= '';
-  f_Defendant:= '';
-  f_Thirds:= '';
-  f_Creditor:= '';
-  f_Dolzhnik:= '';
+  f_Plaintiff.Clear;
+  f_Defendant.Clear;
+  f_Thirds.Clear;
+  f_Creditor.Clear;
+  f_Dolzhnik.Clear;
   f_Field:= '';
-  f_Interested:= '';
-  f_Participant:= '';
+  f_Interested.Clear;
+  f_Participant := nil;
   f_Source:= '';
-  f_Thirds:= '';
-  f_ThirdSide:= '';
-  f_Zayavitel:= '';
+  f_Thirds.Clear;
+  f_ThirdSide.Clear;
+  f_Zayavitel.Clear;
   f_DossierID:= -1;
   f_Code:= '';
   l3FillChar(f_CurDoc.DocCode, SizeOf(f_CurDoc.DocCode), 32);
@@ -415,6 +440,21 @@ begin
 end;
 
 procedure TlcDossierMaker.GenerateAACDossier;
+
+ procedure AddOneParticipant(const aParticipant: Tl3String; const aPrefix: AnsiString);
+ begin
+  if not aParticipant.Empty then
+  begin
+   aParticipant.Insert(l3PCharLen(aPrefix), 0);
+   Generator.StartChild(k2_typTextPara);
+   try
+    Generator.AddStringAtom(k2_tiText, aParticipant.AsWStr);
+   finally
+    Generator.Finish;
+   end;
+  end;
+ end;
+
 begin
  Generator.StartChild(k2_typDocument);
  try
@@ -430,78 +470,15 @@ begin
   end;
   Generator.StartChild(k2_typTextPara);
   Generator.Finish;
-  if f_Zayavitel <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Заявитель: '+ f_Zayavitel);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Plaintiff <> ''
-  if f_Plaintiff <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Истец: '+ f_Plaintiff);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Plaintiff <> ''
-  if f_Defendant <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Ответчик: '+ f_Defendant);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Defendant <> ''
-  if f_Dolzhnik <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Должник: '+ f_Dolzhnik);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Plaintiff <> ''
-  if f_Creditor <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Кредитор: '+ f_Creditor);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Plaintiff <> ''
-  if f_Interested <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Заинтересованное лицо: '+ f_Interested);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Plaintiff <> ''
-  if f_ThirdSide <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Третье лицо: '+ f_ThirdSide);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Plaintiff <> ''
-  if f_Thirds <> '' then
-  begin
-   Generator.StartChild(k2_typTextPara);
-   try
-    Generator.AddStringAtom(k2_tiText, 'Иные лица: '+ f_Thirds);
-   finally
-    Generator.Finish;
-   end;
-  end; // f_Thirds <> ''
+
+  AddOneParticipant(f_Zayavitel, 'Заявитель: ');
+  AddOneParticipant(f_Plaintiff, 'Истец: ');
+  AddOneParticipant(f_Defendant, 'Ответчик: ');
+  AddOneParticipant(f_Dolzhnik,  'Должник: ');
+  AddOneParticipant(f_Creditor,  'Кредитор: ');
+  AddOneParticipant(f_Interested, 'Заинтересованное лицо: ');
+  AddOneParticipant(f_ThirdSide, 'Третье лицо: ');
+  AddOneParticipant(f_Thirds, 'Иные лица: ');
  finally
   Generator.Finish;
  end;
@@ -570,6 +547,7 @@ begin
  end;
 end;
 
+(*
 function TlcDossierMaker.MakeName: AnsiString;
 begin
  // Информация о судебном деле № <CASECODE>. Истец: <Plaintiff>. Ответчик: <Defendant>.
@@ -583,6 +561,7 @@ begin
  if f_Dolzhnik <> '' then
   Result:= Result + Format(' Должник: %s.', [f_Dolzhnik]);
 end;
+*)
 
 procedure TlcDossierMaker.ModifyCase(aDossierID: TDocID);
 begin

@@ -627,7 +627,10 @@ procedure ThtUserManager.GetFiltredUserList(aList: TStrings;
 //#UC END# *57A9DF2103CE_5629E343023B_var*
 begin
 //#UC START# *57A9DF2103CE_5629E343023B_impl*
- dt_User.xxxUserManager.xxxGetFiltredUserList(aList, aOnlyActive);
+ if dt_User.xxxUserManager = nil then
+  aList.Clear
+ else
+  dt_User.xxxUserManager.xxxGetFiltredUserList(aList, aOnlyActive);
 //#UC END# *57A9DF2103CE_5629E343023B_impl*
 end;//ThtUserManager.GetFiltredUserList
 

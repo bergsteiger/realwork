@@ -128,6 +128,9 @@ begin
  Assert(anElement.rTextName <> '');
  f_Element := anElement;
  if f_Element.rElement.IsView then
+  f_Element.rElement := f_Element.rElement.ElementProp['Original']
+ else
+ if f_Element.rElement.BoolProp['IsDiagram'] then
   f_Element.rElement := f_Element.rElement.ElementProp['Original'];
  f_ElementList := f_Element.rElement.List[f_Element.rListName];
  f_IndexInParent := anIndex;

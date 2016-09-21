@@ -150,6 +150,9 @@ begin
  if (anEvent = ListChangedEvent.Instance) then
   ModelStateChanged
  else
+ if (anEvent = ListContentChangedEvent.Instance) then
+  ModelStateChanged
+ else
  if (anEvent = CurrentElementChangedEvent.Instance) then
   ModelStateChanged
  else
@@ -824,8 +827,8 @@ begin
  if (Result = nil) then
   if (Model <> nil) then
    if (Model.List <> nil) then
-    Result := Model.List.Owner.Parent;
-    //Result := Model.List.Owner;
+    //Result := Model.List.Owner.Parent;
+    Result := Model.List.Owner;
 end;
 
 procedure TmsmDrawingView.WMMouseActivate(var Msg: TWMMouseActivate);

@@ -112,6 +112,7 @@ type
    procedure CourtsOnlineClick(aSender: TObject);
    function GetSearchLabelsLineFullWidth: Integer;
    procedure UpdatePbExpertPosition;
+   procedure UpdateButtonsVisibility;
   protected
    function DoBuildGrid: InscArrangeGrid; override;
    procedure Cleanup; override;
@@ -716,6 +717,19 @@ begin
 //#UC END# *55CDC6110290_4958E1F700C0_impl*
 end;//TPrimMainMenuNewForm.UpdatePbExpertPosition
 
+procedure TPrimMainMenuNewForm.UpdateButtonsVisibility;
+//#UC START# *57DFCC5F02E4_4958E1F700C0_var*
+//#UC END# *57DFCC5F02E4_4958E1F700C0_var*
+begin
+//#UC START# *57DFCC5F02E4_4958E1F700C0_impl*
+ pbIntranet.Visible := (afw.Application.LocaleInfo.Language = afw_lngRussian)
+                    and Assigned(defDataAdapter)
+                    and ((DefDataAdapter.RevisionCheckEnabled and
+                         (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+                      or DefDataAdapter.CommonInterfaces.IsEarlyInstalled);
+//#UC END# *57DFCC5F02E4_4958E1F700C0_impl*
+end;//TPrimMainMenuNewForm.UpdateButtonsVisibility
+
 function TPrimMainMenuNewForm.DoBuildGrid: InscArrangeGrid;
 //#UC START# *4AC9B6D00250_4958E1F700C0_var*
 //#UC END# *4AC9B6D00250_4958E1F700C0_var*
@@ -762,6 +776,7 @@ procedure TPrimMainMenuNewForm.FinishDataUpdate;
 begin
 //#UC START# *47EA4E9002C6_4958E1F700C0_impl*
  inherited;
+ UpdateButtonsVisibility;
  UpdateSearchLabels;
  UpdateReferencesAndLawNewsCaptions;
  UpdateTaxesTreeCaption;

@@ -42,6 +42,7 @@ type
    procedure ProcessSelectedF(anAction: ImsmElementSelection_ProcessSelectedF_Action);
    function Empty: Boolean;
    function IsElementSelectedOrCurrent(const anElement: ImsmModelElement): Boolean;
+   function Clone: ImsmElementSelection;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -118,7 +119,7 @@ constructor TmsmElementSelection.Create(aModel: TmsmModel);
 //#UC END# *57D8F3590260_57D8F2850376_var*
 begin
 //#UC START# *57D8F3590260_57D8F2850376_impl*
- Assert(aModel <> nil);
+ //Assert(aModel <> nil);
  f_Model := aModel;
  inherited Create;
 //#UC END# *57D8F3590260_57D8F2850376_impl*
@@ -145,7 +146,8 @@ begin
  if not IsElementSelected(anElement) then
  begin
   Add(anElement);
-  Model.Fire(SelectionChangedEvent.Instance);
+  if (Model <> nil) then
+   Model.Fire(SelectionChangedEvent.Instance);
  end;//not IsElementSelected(anElement)
 //#UC END# *57D8F1FA01A6_57D8F2850376_impl*
 end;//TmsmElementSelection.SelectElement
@@ -159,7 +161,8 @@ begin
  if IsElementSelected(anElement) then
  begin
   Remove(anElement);
-  Model.Fire(SelectionChangedEvent.Instance);
+  if (Model <> nil) then
+   Model.Fire(SelectionChangedEvent.Instance);
  end;//IsElementSelected(anElement)
 //#UC END# *57D8F212010D_57D8F2850376_impl*
 end;//TmsmElementSelection.DeselectElement
@@ -185,7 +188,8 @@ begin
   else
    Add(anElement);
  end;//anElement = nil
- Model.Fire(SelectionChangedEvent.Instance);  
+ if (Model <> nil) then
+  Model.Fire(SelectionChangedEvent.Instance);  
 //#UC END# *57D8F221019F_57D8F2850376_impl*
 end;//TmsmElementSelection.InvertElement
 
@@ -216,7 +220,8 @@ procedure TmsmElementSelection.Set_CurrentElement(const aValue: ImsmModelElement
 begin
 //#UC START# *57D8F7E2013F_57D8F2850376set_impl*
  f_CurrentElement := aValue;
- Model.Fire(CurrentElementChangedEvent.Instance);
+ if (Model <> nil) then
+  Model.Fire(CurrentElementChangedEvent.Instance);
 //#UC END# *57D8F7E2013F_57D8F2850376set_impl*
 end;//TmsmElementSelection.Set_CurrentElement
 
@@ -268,6 +273,26 @@ begin
   Result := IsElementSelected(anElement);
 //#UC END# *57D91FEE0317_57D8F2850376_impl*
 end;//TmsmElementSelection.IsElementSelectedOrCurrent
+
+function TmsmElementSelection.Clone: ImsmElementSelection;
+//#UC START# *57E2562D00BD_57D8F2850376_var*
+var
+ l_S : TmsmElementSelection;
+ l_Index : Integer;
+//#UC END# *57E2562D00BD_57D8F2850376_var*
+begin
+//#UC START# *57E2562D00BD_57D8F2850376_impl*
+ l_S := TmsmElementSelection.Create(nil);
+ try
+  l_S.f_CurrentElement := Self.f_CurrentElement;
+  for l_Index := 0 to Pred(Self.Count) do
+   l_S.Add(Self.Items[l_Index]);
+  Result := l_S;
+ finally
+  FreeAndNil(l_S);
+ end;//try..finally
+//#UC END# *57E2562D00BD_57D8F2850376_impl*
+end;//TmsmElementSelection.Clone
 
 procedure TmsmElementSelection.Cleanup;
  {* Функция очистки полей объекта. }

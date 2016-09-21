@@ -2390,6 +2390,9 @@ uses
  , kwPushMainForm in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushMainForm.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
+ , kwPushTextSearchDlg in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushTextSearchDlg.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
  , kwPopEditorSetStyle2Table in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Table.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If Defined(AppClientSide) AND NOT Defined(NoScripts)}
@@ -2876,7 +2879,8 @@ uses
   m4WordList,
   arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas',
   arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas',
-  arUploadDocumentHelper in 'w:\archi\source\projects\archi\Processing\arUploadDocumentHelper.pas'
+  arUploadDocumentHelper in 'w:\archi\source\projects\archi\Processing\arUploadDocumentHelper.pas',
+  arMultiModifyDocsHelper in 'w:\archi\source\projects\archi\Processing\arMultiModifyDocsHelper.pas'
 
  //#UC END# *4DE4A1D0031Emanualuses*
 ;

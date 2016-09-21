@@ -48,11 +48,9 @@ var
 begin
 //#UC START# *4DAEEDE10285_56A09E250064_impl*
  inherited;
- RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано директория для базы!', aCtx);
- l_DirName := aCtx.rEngine.PopDelphiString;
  RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано имя архива с базой!', aCtx);
  l_FileName := aCtx.rCaller.ResolveInputFilePath(aCtx.rEngine.PopDelphiString);
- AcClearConfig(l_FileName, l_DirName);
+ AcClearConfig(l_FileName);
 //#UC END# *4DAEEDE10285_56A09E250064_impl*
 end;//TkwClearConfig.DoDoIt
 

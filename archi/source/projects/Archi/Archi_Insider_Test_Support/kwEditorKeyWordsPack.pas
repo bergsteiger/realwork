@@ -25,6 +25,7 @@ uses
  , kwPopEditorInsertFormula
  , kwPushMainForm
  , kwPopEditorSetStyle2Table
+ , kwPushTextSearchDlg
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes

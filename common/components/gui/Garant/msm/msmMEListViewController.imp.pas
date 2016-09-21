@@ -36,7 +36,7 @@ procedure _msmMEListViewController_.DoListChangedEvent(anEvent: TmsmEvent);
 begin
 //#UC START# *57C9879A032D_57ADBA39026E_57C9879A032D_impl*
  inherited;
- LinkDataToView;
+ //LinkDataToView;
 //#UC END# *57C9879A032D_57ADBA39026E_57C9879A032D_impl*
 end;//_msmMEListViewController_.DoListChangedEvent
 

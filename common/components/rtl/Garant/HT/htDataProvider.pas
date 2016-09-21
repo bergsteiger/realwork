@@ -16,6 +16,7 @@ uses
  , daLongProcessSubscriberList
  , daProgressSubscriberList
  , htInterfaces
+ , daUserIDList
  , daTypes
  , l3Languages
  , l3DatLst
@@ -35,10 +36,9 @@ type
    f_DataConverter: IhtDataConverter;
    f_Helper: IhtDataSchemeHelper;
    f_AllowClearLocks: Boolean;
-   f_ImpersonatedUserID: TdaUserID;
+   f_ImpersonatedUserList: TdaUserIDList;
    f_UserManager: IdaUserManager;
    f_SetGlobalDataProvider: Boolean;
-   f_ImpersonateCounter: Integer;
   private
    function DoLongProcessNotify(aState: TdaProcessState): Boolean;
    procedure DoProgressNotify(aState: Byte;
@@ -146,7 +146,7 @@ begin
  aParams.SetRefTo(f_Params);
  f_Helper := ThtDataSchemeHelper.Make(f_Params);
  f_AllowClearLocks := AllowClearLocks;
- f_ImpersonatedUserID := 0;
+ f_ImpersonatedUserList := TdaUserIDList.Make;
 //#UC END# *551938260196_5519351D01BE_impl*
 end;//ThtDataProvider.Create
 
@@ -522,10 +522,10 @@ function ThtDataProvider.Get_ImpersonatedUserID: TdaUserID;
 //#UC END# *561795EA02BF_5519351D01BEget_var*
 begin
 //#UC START# *561795EA02BF_5519351D01BEget_impl*
- if f_ImpersonatedUserID = usNone then
+ if f_ImpersonatedUserList.Count = 0 then
   Result := Get_UserID
  else
-  Result := f_ImpersonatedUserID;
+  Result := f_ImpersonatedUserList.Last;
 //#UC END# *561795EA02BF_5519351D01BEget_impl*
 end;//ThtDataProvider.Get_ImpersonatedUserID
 
@@ -534,12 +534,7 @@ procedure ThtDataProvider.BeginImpersonate(anUserID: TdaUserID);
 //#UC END# *561796070253_5519351D01BE_var*
 begin
 //#UC START# *561796070253_5519351D01BE_impl*
- inc(f_ImpersonateCounter);
- if f_ImpersonateCounter = 1 then
-  f_ImpersonatedUserID := anUserID
- else
-  if f_ImpersonatedUserID <> anUserID then
-   l3System.Msg2Log('ALERT ImpersonateUser');
+ f_ImpersonatedUserList.Add(anUserID);
 //#UC END# *561796070253_5519351D01BE_impl*
 end;//ThtDataProvider.BeginImpersonate
 
@@ -548,11 +543,7 @@ procedure ThtDataProvider.EndImpersonate;
 //#UC END# *5617961F0105_5519351D01BE_var*
 begin
 //#UC START# *5617961F0105_5519351D01BE_impl*
- Dec(f_ImpersonateCounter);
- if f_ImpersonateCounter = 0 then
-  f_ImpersonatedUserID := usNone;
- if f_ImpersonateCounter < 0 then
-  f_ImpersonateCounter := 0;
+ f_ImpersonatedUserList.Delete(f_ImpersonatedUserList.Count - 1);
 //#UC END# *5617961F0105_5519351D01BE_impl*
 end;//ThtDataProvider.EndImpersonate
 
@@ -590,6 +581,7 @@ begin
  f_UserManager := nil;
  f_DataConverter := nil;
  f_Helper := nil;
+ FreeAndNil(f_ImpersonatedUserList);
  inherited;
 //#UC END# *479731C50290_5519351D01BE_impl*
 end;//ThtDataProvider.Cleanup
