@@ -129,6 +129,33 @@ ME ME_57B2DFE201B1
 
 ENDME // ME_57B2DFE201B1 msm_DoCache
 
+FORWARD ME_57E2AB6700A6
+
+ME ME_57E2AB770306
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_57E2AB770306 aWord
+
+ME ME_57E2AB6700A6
+ MEPROP UID '57E2AB6700A6'
+ MEPROP Name 'msm_AddChangedElement'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E2AB770306 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_57E2AB6700A6 msm_AddChangedElement
+
 ME ME_57B2D6AF0088
  MEPROP Class class_Dependency
  MELINK Stereotype st_injects::Dependency ;
@@ -161,6 +188,16 @@ ME ME_57BAD6FA0176
 
 ENDME // ME_57BAD6FA0176 
 
+ME ME_57E2AB4C03D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57B2D68E035D // msmWordsCachePack
+ ;
+ MELINK Target WL 'ME_57E103E402B8' '57AB4243034B.ms.model.script' // TmsmChangedElements
+ ;
+
+ENDME // ME_57E2AB4C03D1 
+
 ME ME_57B2D68E035D
  MEPROP UID '57B2D68E035D'
  MEPROP Name 'msmWordsCachePack'
@@ -175,12 +212,14 @@ ME ME_57B2D68E035D
    Seq: ( HWL ME_57B2D71E02B8 // msm_WordFromCache
  HWL ME_57B2D7420034 // msm_WordToCache
  HWL ME_57B2DFE201B1 // msm_DoCache
+ HWL ME_57E2AB6700A6 // msm_AddChangedElement
  )
  ; // Operations
  MELIST Dependencies
    Seq: ( ME_57B2D6AF0088 // TmsmScriptCaller
  ME_57B2D8DD0075 // TmsmWordsCache
  ME_57BAD6FA0176 // TmsmModelElementMethodValueCache
+ ME_57E2AB4C03D1 // TmsmChangedElements
  )
  ; // Dependencies
  UP "ifndef" 'NoScripts'

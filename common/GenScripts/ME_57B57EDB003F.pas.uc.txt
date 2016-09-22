@@ -78,10 +78,13 @@ w:\common\components\gui\Garant\msm\msmListLikeModel.imp.pas
  Assert(aSelection <> nil);
  l_List := TtfwWordRefList.Create;
  try
-  Self.Selection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
-  if
-  TtfwWordsIterator.Make(l_List);
-  //TmsmModelElementMethodCaller.Call([TtfwStackValue_C(TtfwWordsIterator.Make(l_List))], 'SaveElements');
+  aSelection.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  Assert(Self.Get_List.Owner <> nil);
+  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+   TmsmModelElementMethodCaller.Call([TtfwStackValue_C((Self.Get_List.Owner As ITmsmBaseModelElementWrap).GetSelf.MainWord), TtfwStackValue_C(TtfwWordsIterator.Make(l_List))], 'msm:Diagram:PasteElements')
+  else
+   Assert(false);
+  Fire(ListContentChangedEvent.Instance); 
  finally
   FreeAndNil(l_List);
  end;//try..finally

@@ -58,6 +58,24 @@ ME ME_57ADBA39026E
 
 ENDME // ME_57ADBA39026E ListChangedEvent
 
+ME ME_57E2C2970206
+ MEPROP UID '57E2C2970206'
+ MEPROP Name 'ListContentChangedEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Event ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57C99A680247 // msmListAndTreeInterfaces
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AD8C3B0155' '57AAE8D403E5.ms.model.script' // TmsmModelEvent
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_57E2C2970206 ListContentChangedEvent
+
 ME ME_57C99A680247
  MEPROP UID '57C99A680247'
  MEPROP Name 'msmListAndTreeInterfaces'
@@ -72,6 +90,7 @@ ME ME_57C99A680247
    Seq: ( HWL ME_57B2B0C602DF // ActionElementEvent
  HWL ME_57B31D1000FA // CurrentElementChangedEvent
  HWL ME_57ADBA39026E // ListChangedEvent
+ HWL ME_57E2C2970206 // ListContentChangedEvent
  )
  ; // Children
  MELIST Depends

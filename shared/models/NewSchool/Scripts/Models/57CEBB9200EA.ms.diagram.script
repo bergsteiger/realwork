@@ -44,6 +44,36 @@ MEDIAGRAMS ME_57CEBB9200EA_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57D175C401BD_view
 
+  MEVIEW ME_57DFE4880208_view
+   MELINK Original WL 'ME_57DFE4880208' '57CEBB9200EA.ms.model.script' ; // TmsmGenerateElement
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_57DFE4880208_view
+
+  MEVIEW ME_57E10D840208_view
+   MELINK Original WL 'ME_57E10D840208' '57CEBB9200EA.ms.model.script' ; // TmsmSaveChangedElements
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_57E10D840208_view
+
+  MEVIEW ME_57E2605E0153_view
+   MELINK Original WL 'ME_57E2605E0153' '57CEBB9200EA.ms.model.script' ; // TmsmElementSelectionDataObject
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_57E2605E0153_view
+
+  MEVIEW ME_57E2607203E3_view
+   MELINK Original WL 'ME_57E2607203E3' '57CEBB9200EA.ms.model.script' ; // TmsmCopySelection
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_57E2607203E3_view
+
+  MEVIEW ME_57E28018005C_view
+   MELINK Original WL 'ME_57E28018005C' '57CEBB9200EA.ms.model.script' ; // TmsmPaste
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_57E28018005C_view
+
   MEVIEWLINK ME_57CEBC210073_ME_57CEBBA601F1_Inherits
    MELINK From ME_57CEBC210073_view ;
    MELINK To ME_57CEBBA601F1_view ;
@@ -62,6 +92,30 @@ MEDIAGRAMS ME_57CEBB9200EA_diagrams
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_57D175C401BD_ME_57D17D37021C_Inherits
 
+  MEVIEWLINK ME_57DFE4880208_ME_57CED27203D3_Inherits
+   MELINK From ME_57DFE4880208_view ;
+   MELINK To ME_57CED27203D3_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57DFE4880208_ME_57CED27203D3_Inherits
+
+  MEVIEWLINK ME_57E2607203E3_ME_57CED27203D3_Inherits
+   MELINK From ME_57E2607203E3_view ;
+   MELINK To ME_57CED27203D3_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57E2607203E3_ME_57CED27203D3_Inherits
+
+  MEVIEWLINK ME_57E260850185_viewlink
+   MELINK Original WL 'ME_57E260850185' '57CEBB9200EA.ms.model.script' ;
+   MELINK From ME_57E2607203E3_view ;
+   MELINK To ME_57E2605E0153_view ;
+  ENDMEVIEWLINK // ME_57E260850185_viewlink
+
+  MEVIEWLINK ME_57E28018005C_ME_57CED27203D3_Inherits
+   MELINK From ME_57E28018005C_view ;
+   MELINK To ME_57CED27203D3_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57E28018005C_ME_57CED27203D3_Inherits
+
   MELIST Views
    Seq: ( ME_57CEBBA601F1_view // TmsmListToTreeOperation
    ME_57CEBC210073_view // TmsmShowInNavigator
@@ -69,9 +123,18 @@ MEDIAGRAMS ME_57CEBB9200EA_diagrams
    ME_57CED1F0037B_view // TmsmOpenInNewWindow
    ME_57D17D37021C_view // TmsmListOperation
    ME_57D175C401BD_view // TmsmUpToParent
+   ME_57DFE4880208_view // TmsmGenerateElement
+   ME_57E10D840208_view // TmsmSaveChangedElements
+   ME_57E2605E0153_view // TmsmElementSelectionDataObject
+   ME_57E2607203E3_view // TmsmCopySelection
+   ME_57E28018005C_view // TmsmPaste
    ME_57CEBC210073_ME_57CEBBA601F1_Inherits // TmsmShowInNavigator -> TmsmListToTreeOperation
    ME_57CED1F0037B_ME_57CED27203D3_Inherits // TmsmOpenInNewWindow -> TmsmListLikeOperation
    ME_57D175C401BD_ME_57D17D37021C_Inherits // TmsmUpToParent -> TmsmListOperation
+   ME_57DFE4880208_ME_57CED27203D3_Inherits // TmsmGenerateElement -> TmsmListLikeOperation
+   ME_57E2607203E3_ME_57CED27203D3_Inherits // TmsmCopySelection -> TmsmListLikeOperation
+   ME_57E260850185_viewlink // TmsmCopySelection -> TmsmElementSelectionDataObject
+   ME_57E28018005C_ME_57CED27203D3_Inherits // TmsmPaste -> TmsmListLikeOperation
    )
   ; // Views
  ENDMEDIAGRAM // ME_57CEBB9200EA_main

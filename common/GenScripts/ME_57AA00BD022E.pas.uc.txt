@@ -126,11 +126,11 @@ var
 //#UC START# *57C438C803DC_57AA00BD022E_var*
 //#UC END# *57C438C803DC_57AA00BD022E_var*
 //#UC START# *57CFC420039B_57AA00BD022E_impl*
- l_Caller := TmsmModelElementMethodScriptCaller.Create(aParameter);
+ l_Caller := TmsmModelElementMethodScriptCaller.Create(aParameters);
  try
   l_ScriptName := ScriptName(aMethodName);
   l_N := l3Str(l_ScriptName);
-  if (Length(aParameter) > 0) then
+  if (Length(aParameters) > 0) then
   begin
    l_Delim := '.';
   end//aParameter.rType <> tfw_vtVoid
@@ -142,7 +142,7 @@ var
   l_WasCompiled := TmsmWordsByName.Instance.Has(l_MethodName);
   if not l_WasCompiled then
   begin
-   if true{(Length(aParameter) > 0)} then
+   if true{(Length(aParameters) > 0)} then
    begin
     l_Check := '.CheckValueSafe';
    end//aParameter.rType <> tfw_vtVoid
@@ -259,6 +259,7 @@ var
   end;//try..finally
  end;//with TmsmModelElementMethodValueCache.Instance
  Call([TtfwStackValue_C(l_V.rWord), TtfwStackValue_C(l_V.rName), aValue], 'SetElementVar');
+ TmsmChangedElements.Instance.Add(l_V.rWord);
 //#UC END# *57D68123004E_57AA00BD022E_impl*
 //#UC START# *57D68123004E_57AA00BD022E_var*
 var

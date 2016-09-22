@@ -94,7 +94,11 @@ w:\common\components\gui\Garant\msm\msmListModel.imp.pas
  if f_IsDir then
  begin
   Assert(f_SubElementName = '');
-  Self.SetList(TmsmModelElementDir.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+  if anElement.BoolProp['IsDiagram'] then
+   //Self.SetList(TmsmModelElementDir.Make(anElement.ElementProp['Original'].List[f_ElementView.rListName], f_ElementView.rTextName))
+   f_List := TmsmModelElementDir.Make(anElement.ElementProp['Original'].List[f_ElementView.rListName], f_ElementView.rTextName)
+  else
+   Self.SetList(TmsmModelElementDir.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
  end//f_IsDir
  else
  begin

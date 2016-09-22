@@ -1,3 +1,27 @@
+//#UC START# *57CEB1F602D1_57E28018005C_impl*
+ if not l3IFail(OleGetClipboard(l_IData)) then
+  try
+   if Supports(l_IData, ImsmElementSelection, l_Sel) then
+    try
+     Self.Model.Paste(l_Sel);
+    finally
+     l_Sel := nil;
+    end;//try..finally
+  finally
+   l_IData := nil;
+  end;//try..finally
+//#UC END# *57CEB1F602D1_57E28018005C_impl*
+//#UC START# *57CEB1F602D1_57E28018005C_var*
+var
+ l_IData : IDataObject;
+ l_Sel : ImsmElementSelection;
+//#UC END# *57CEB1F602D1_57E28018005C_var*
 //#UC START# *57E28018005C_ext:FileName
 w:\common\components\gui\Garant\msm\msmPaste.pas
 //#UC END# *57E28018005C_ext:FileName
+//#UC START# *57E28018005Cimpl_uses*
+ , SysUtils
+ , l3Interfaces
+ , l3SysUtils
+ , l3Base
+//#UC END# *57E28018005Cimpl_uses*

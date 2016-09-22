@@ -6,51 +6,6 @@ FORWARD ME_57CFC13E033D
 
 FORWARD ME_57CFC14E01DF
 
-ME ME_57CFC2D40005
- MEPROP UID '57CFC2D40005'
- MEPROP Name 'Generator'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_47ECAA5B0394' '47ECA80B000D.ms.model.script' // Tk2TagGenerator
- ;
- UP "pm" True
- UP "reads field" True
-
-ENDME // ME_57CFC2D40005 Generator
-
-ME ME_57CFDFC4007B
- MEPROP UID '57CFDFC4007B'
- MEPROP Name 'f_Filer'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
- ;
-
-ENDME // ME_57CFDFC4007B f_Filer
-
-ME ME_57CFE0BA0159
- MEPROP UID '57CFE0BA0159'
- MEPROP Name 'f_NeedOpenFiler'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_57CFE0BA0159 f_NeedOpenFiler
-
 ME ME_57D272F80010
  MEPROP UID '57D272F80010'
  MEPROP Name 'f_Message'
@@ -58,7 +13,7 @@ ME ME_57D272F80010
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  ;
  MELINK Target WL 'ME_57D2706902F8' '57C686B70253.ms.model.script' // TcsUploadDocStream
  ;
@@ -69,95 +24,77 @@ FORWARD ME_57CFDE7701E9
 
 FORWARD ME_57CFDEA10148
 
-ME ME_57D2637303D7
- MEPROP Name 'aDirectAccess'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_57D2637303D7 aDirectAccess
-
-ME ME_57D2637303D8
+ME ME_57E27B830094
  MEPROP Name 'aFamily'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
  ;
 
-ENDME // ME_57D2637303D8 aFamily
+ENDME // ME_57E27B830094 aFamily
 
-ME ME_57D2637303E7
+ME ME_57E27B8300A4
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_551E7DC1024B' '5432448401BC.ms.model.script' // TdaDocID
  ;
 
-ENDME // ME_57D2637303E7 anID
+ENDME // ME_57E27B8300A4 anID
 
-ME ME_57D2637303E8
+ME ME_57E27B8300D3
  MEPROP Name 'aClass'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_57CFE92E0163' '5432448401BC.ms.model.script' // TdaDocType
  ;
 
-ENDME // ME_57D2637303E8 aClass
+ENDME // ME_57E27B8300D3 aClass
 
-ME ME_57D2637303E9
+ME ME_57E27B8300F2
  MEPROP Name 'aPart'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_578F46D3027D' '57BEAF780201.ms.model.script' // Tm3DocPartSelector
  ;
 
-ENDME // ME_57D2637303E9 aPart
+ENDME // ME_57E27B8300F2 aPart
 
-ME ME_57D2637303EA
+ME ME_57E27B830130
  MEPROP Name 'ParseToDB'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
  ;
 
-ENDME // ME_57D2637303EA ParseToDB
+ENDME // ME_57E27B830130 ParseToDB
 
-ME ME_57D2637303EB
+ME ME_57E27B83016E
  MEPROP Name 'NeedSaveText'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
  ;
 
-ENDME // ME_57D2637303EB NeedSaveText
+ENDME // ME_57E27B83016E NeedSaveText
 
-ME ME_57D26374000E
+ME ME_57E27B83019D
  MEPROP Name 'IsClassChanged'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
  ;
 
-ENDME // ME_57D26374000E IsClassChanged
+ENDME // ME_57E27B83019D IsClassChanged
 
-ME ME_57D26374000F
- MEPROP Name 'aEraseNotify'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_57D140200240' '51B1C73B0056.ms.model.script' // TdtOnEraseAttrRecords
- ;
-
-ENDME // ME_57D26374000F aEraseNotify
-
-ME ME_57D263740010
+ME ME_57E27B8301DC
  MEPROP Name 'anIsObjTopic'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
  ;
 
-ENDME // ME_57D263740010 anIsObjTopic
+ENDME // ME_57E27B8301DC anIsObjTopic
 
 ME ME_57CFDEA10148
  MEPROP UID '57CFDEA10148'
@@ -168,16 +105,14 @@ ME ME_57CFDEA10148
  MELINK Parent HWL ME_57CFDE7701E9 // Create
  ;
  MELIST Parameters
-   Seq: ( ME_57D2637303D7 // aDirectAccess
- ME_57D2637303D8 // aFamily
- ME_57D2637303E7 // anID
- ME_57D2637303E8 // aClass
- ME_57D2637303E9 // aPart
- ME_57D2637303EA // ParseToDB
- ME_57D2637303EB // NeedSaveText
- ME_57D26374000E // IsClassChanged
- ME_57D26374000F // aEraseNotify
- ME_57D263740010 // anIsObjTopic
+   Seq: ( ME_57E27B830094 // aFamily
+ ME_57E27B8300A4 // anID
+ ME_57E27B8300D3 // aClass
+ ME_57E27B8300F2 // aPart
+ ME_57E27B830130 // ParseToDB
+ ME_57E27B83016E // NeedSaveText
+ ME_57E27B83019D // IsClassChanged
+ ME_57E27B8301DC // anIsObjTopic
  )
  ; // Parameters
 
@@ -191,7 +126,7 @@ ME ME_57CFDE7701E9
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  ;
  MELIST Operations
    Seq: ( HWL ME_57CFDEA10148 // DoIt
@@ -200,104 +135,30 @@ ME ME_57CFDE7701E9
 
 ENDME // ME_57CFDE7701E9 Create
 
-ME ME_57CFC33E0089
- MEPROP UID '57CFC33E0089'
- MEPROP Name 'UploadDoc'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_57CFC33E0089 UploadDoc
-
-ME ME_57D15A640079
- MEPROP UID '57D15A640079'
- MEPROP Name 'HanldeException'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
-
-ENDME // ME_57D15A640079 HanldeException
-
 ME ME_57CFDFF5025F
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  ;
  MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_57CFDFF5025F 
 
-ME ME_57CFE0530084
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_5406A83E013E' '519B797A0048.ms.model.script' // dt_Serv
- ;
-
-ENDME // ME_57CFE0530084 
-
-ME ME_57CFE06E006B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_472084690055' '4720831F012D.ms.model.script' // Im3DB
- ;
-
-ENDME // ME_57CFE06E006B 
-
-ME ME_57CFE08C0240
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_555C88FF0236' '4742C9DB033A.ms.model.script' // Tm3DBFiler
- ;
-
-ENDME // ME_57CFE08C0240 
-
 ME ME_57CFEDF002C9
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  ;
  MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
  ;
 
 ENDME // ME_57CFEDF002C9 
 
-ME ME_57CFF29503BE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_57CFF0F8008A' '4E4B99A60349.ms.model.script' // BuildDocSavePipe
- ;
-
-ENDME // ME_57CFF29503BE 
-
-ME ME_57CFF8910016
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
- ;
- MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
- ;
-
-ENDME // ME_57CFF8910016 
-
 ME ME_57CFF8B502C5
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  ;
  MELINK Target WL 'ME_4E0ACD7D020D' '47BC51FE018B.ms.model.script' // TDocType
  ;
@@ -307,7 +168,7 @@ ENDME // ME_57CFF8B502C5
 ME ME_57D272D50009
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  ;
  MELINK Target WL 'ME_57D270880150' '57C686B70253.ms.model.script' // TcsUploadDocStreamReply
  ;
@@ -317,12 +178,34 @@ ENDME // ME_57D272D50009
 ME ME_57D28AC502F3
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  ;
  MELINK Target WL 'ME_57CFC26A0059' '57CFC1D401B7.ms.model.script' // ArchiRequestManager
  ;
 
 ENDME // ME_57D28AC502F3 
+
+ME ME_57E2866B01CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
+ ;
+ MELINK Target WL 'ME_57D7AD260299' '57E2336703B0.ms.model.script' // MakeFilerForMessage
+ ;
+
+ENDME // ME_57E2866B01CA 
+
+ME ME_57E270CF032F_ME_57CFC14E01DF
+ MELINK Original WL 'ME_57E270CF032F' '57E2336703B0.ms.model.script' // SaveDoc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57E270CF032F_ME_57CFC14E01DF SaveDoc
+
+ME ME_57E270DD0210_ME_57CFC14E01DF
+ MELINK Original WL 'ME_57E270DD0210' '57E2336703B0.ms.model.script' // HandleException
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57E270DD0210_ME_57CFC14E01DF HandleException
 
 ME ME_479731C50290_ME_57CFC14E01DF
  MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
@@ -332,7 +215,7 @@ ENDME // ME_479731C50290_ME_57CFC14E01DF Cleanup
 
 ME ME_57CFC14E01DF
  MEPROP UID '57CFC14E01DF'
- MEPROP Name 'TarUploadDocumentHelper'
+ MEPROP Name 'TarRemoteSaveDocumentHelper'
  MEPROP Class class_Class
  MELINK Stereotype st_SimpleClass ;
  MEPROP Kind kind_NormalClass
@@ -341,45 +224,41 @@ ME ME_57CFC14E01DF
  MELINK Parent HWL ME_57CFC13E033D // DocTransfer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+   Seq: ( WL 'ME_57E27091018D' '57E2336703B0.ms.model.script' // TarCustomSaveDocumentHelper
  )
  ; // Inherits
  MELIST Attributes
-   Seq: ( HWL ME_57CFC2D40005 // Generator
- HWL ME_57CFDFC4007B // f_Filer
- HWL ME_57CFE0BA0159 // f_NeedOpenFiler
- HWL ME_57D272F80010 // f_Message
+   Seq: ( HWL ME_57D272F80010 // f_Message
  )
  ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_57CFDE7701E9 // Create
- HWL ME_57CFC33E0089 // UploadDoc
- HWL ME_57D15A640079 // HanldeException
  )
  ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57E270CF032F_ME_57CFC14E01DF // SaveDoc
+ ME_57E270DD0210_ME_57CFC14E01DF // HandleException
+ )
+ ; // Implemented
  MELIST Overridden
    Seq: ( ME_479731C50290_ME_57CFC14E01DF // Cleanup
  )
  ; // Overridden
  MELIST Dependencies
    Seq: ( ME_57CFDFF5025F // FreeAndNil
- ME_57CFE0530084 // dt_Serv
- ME_57CFE06E006B // Im3DB
- ME_57CFE08C0240 // Tm3DBFiler
  ME_57CFEDF002C9 // TevdNativeWriter
- ME_57CFF29503BE // BuildDocSavePipe
- ME_57CFF8910016 // Tl3FileMode
  ME_57CFF8B502C5 // TDocType
  ME_57D272D50009 // TcsUploadDocStreamReply
  ME_57D28AC502F3 // ArchiRequestManager
+ ME_57E2866B01CA // MakeFilerForMessage
  )
  ; // Dependencies
- UP extprop:pas:UnitName 'arUploadDocumentHelper'
+ UP extprop:pas:UnitName 'arRemoteSaveDocumentHelper'
  UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'arUploadDocumentHelper'
- UP intf.pas:Path 'archi\source\projects\Archi\Processing\arUploadDocumentHelper.pas'
+ UP extprop:rc:SelfName 'arRemoteSaveDocumentHelper'
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arRemoteSaveDocumentHelper.pas'
 
-ENDME // ME_57CFC14E01DF TarUploadDocumentHelper
+ENDME // ME_57CFC14E01DF TarRemoteSaveDocumentHelper
 
 ME ME_57CFC13E033D
  MEPROP UID '57CFC13E033D'
@@ -392,7 +271,7 @@ ME ME_57CFC13E033D
  MELINK Parent WL 'ME_545C744800D9' '545C744800D9.ms.model.script' // Processing
  ;
  MELIST Children
-   Seq: ( HWL ME_57CFC14E01DF // TarUploadDocumentHelper
+   Seq: ( HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
  )
  ; // Children
  MELIST Depends
@@ -402,17 +281,22 @@ ME ME_57CFC13E033D
  WL 'ME_4742C9DB033A' '4742C9DB033A.ms.model.script' // m3DB
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_47BC51FE018B' '47BC51FE018B.ms.model.script' // dt_Types
+ WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
  WL 'ME_47ECA80B000D' '47ECA80B000D.ms.model.script' // Generators
  WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
+ WL 'ME_519A10AF03DE' '519A10AF03DE.ms.model.script' // dt_Const
  WL 'ME_519B70FC02AB' '519B70FC02AB.ms.model.script' // DataAccess
  WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
  WL 'ME_51B1C73B0056' '51B1C73B0056.ms.model.script' // ImportExport
  WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
+ WL 'ME_559D0BE101B4' '559D0BE101B4.ms.model.script' // dtIntf
  WL 'ME_57BEAF780201' '57BEAF780201.ms.model.script' // l3MarshalledTypes
  WL 'ME_57C686B70253' '57C686B70253.ms.model.script' // DocStreamTransfer
  WL 'ME_57CFC1D401B7' '57CFC1D401B7.ms.model.script' // ClientServer
+ WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' // DocTransfer
  )
  ; // Depends
 

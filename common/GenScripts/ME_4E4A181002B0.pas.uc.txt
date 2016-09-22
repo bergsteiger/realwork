@@ -1,8 +1,7 @@
 //#UC START# *4DAEEDE10285_4E4A181002B0_impl*
  inherited;
- RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано директория для базы!', aCtx);
- l_DirName := aCtx.rEngine.PopDelphiString;
  RunnerAssert(aCtx.rEngine.IsTopString, 'Не задано имя архива с базой!', aCtx);
+ l_DirName := g_BaseEngine.DataParams.DocStoragePath;
  l_FileName := aCtx.rCaller.ResolveInputFilePath(aCtx.rEngine.PopDelphiString);
  try
   acDeInitDB;

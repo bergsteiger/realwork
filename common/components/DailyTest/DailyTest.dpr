@@ -3489,6 +3489,8 @@ uses
  , K627385907 in 'w:\common\components\rtl\Garant\Daily\K627385907.pas'
  , K627817772 in 'w:\common\components\rtl\Garant\Daily\K627817772.pas'
  , K628097544 in 'w:\common\components\rtl\Garant\Daily\K628097544.pas'
+ , K630212534 in 'w:\common\components\rtl\Garant\Daily\K630212534.pas'
+ , K630402726 in 'w:\common\components\rtl\Garant\Daily\K630402726.pas'
  , Abstract_Tests_TestLibrary in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_TestLibrary.pas'
  , Abstract_Tests_EditorTests_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_EditorTests_TestUnit.pas'
  , Abstract_Tests_RenderEVD_TestUnit in 'w:\common\components\rtl\Garant\Abstract_Tests\Abstract_Tests_RenderEVD_TestUnit.pas'

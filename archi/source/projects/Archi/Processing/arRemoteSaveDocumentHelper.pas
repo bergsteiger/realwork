@@ -1,8 +1,8 @@
-unit arUploadDocumentHelper;
+unit arRemoteSaveDocumentHelper;
 
-// Модуль: "w:\archi\source\projects\Archi\Processing\arUploadDocumentHelper.pas"
+// Модуль: "w:\archi\source\projects\Archi\Processing\arRemoteSaveDocumentHelper.pas"
 // Стереотип: "SimpleClass"
-// Элемент модели: "TarUploadDocumentHelper" MUID: (57CFC14E01DF)
+// Элемент модели: "TarRemoteSaveDocumentHelper" MUID: (57CFC14E01DF)
 
 {$Include w:\archi\source\projects\Archi\arDefine.inc}
 
@@ -11,46 +11,33 @@ interface
 {$If Defined(AppClientSide)}
 uses
  l3IntfUses
- , l3ProtoObject
- , k2TagGen
- , l3Filer
+ , arCustomSaveDocumentHelper
  {$If NOT Defined(Nemesis)}
  , csUploadDocStream
  {$IfEnd} // NOT Defined(Nemesis)
  , daTypes
  , l3MarshalledTypes
- {$If NOT Defined(Nemesis)}
- , dt_IFltr
- {$IfEnd} // NOT Defined(Nemesis)
 ;
 
 type
- TarUploadDocumentHelper = class(Tl3ProtoObject)
+ TarRemoteSaveDocumentHelper = class(TarCustomSaveDocumentHelper)
   private
-   f_Filer: Tl3CustomFiler;
-   f_NeedOpenFiler: Boolean;
    f_Message: TcsUploadDocStream;
-   f_Generator: Tk2TagGenerator;
   protected
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
-   constructor Create(aDirectAccess: Boolean;
-    aFamily: TdaFamilyID;
+   constructor Create(aFamily: TdaFamilyID;
     anID: TdaDocID;
     aClass: TdaDocType;
     aPart: Tm3DocPartSelector;
     ParseToDB: Boolean;
     NeedSaveText: Boolean;
     IsClassChanged: Boolean;
-    aEraseNotify: TdtOnEraseAttrRecords;
     anIsObjTopic: Boolean); reintroduce;
-   function UploadDoc: Boolean;
-   procedure HanldeException;
-  public
-   property Generator: Tk2TagGenerator
-    read f_Generator;
- end;//TarUploadDocumentHelper
+   function SaveDoc: Boolean; override;
+   procedure HandleException; override;
+ end;//TarRemoteSaveDocumentHelper
 {$IfEnd} // Defined(AppClientSide)
 
 implementation
@@ -59,32 +46,24 @@ implementation
 uses
  l3ImplUses
  , SysUtils
- {$If NOT Defined(Nemesis)}
- , dt_Serv
- {$IfEnd} // NOT Defined(Nemesis)
- , m3DBInterfaces
- , m3DBFiler
  , evdNativeWriter
- , arDocAttributesMixer
- , l3Types
  , dt_Types
  {$If NOT Defined(Nemesis)}
  , csUploadDocStreamReply
  {$IfEnd} // NOT Defined(Nemesis)
  , ArchiUserRequestManager
+ , arDocAttributesMixer
  //#UC START# *57CFC14E01DFimpl_uses*
  //#UC END# *57CFC14E01DFimpl_uses*
 ;
 
-constructor TarUploadDocumentHelper.Create(aDirectAccess: Boolean;
- aFamily: TdaFamilyID;
+constructor TarRemoteSaveDocumentHelper.Create(aFamily: TdaFamilyID;
  anID: TdaDocID;
  aClass: TdaDocType;
  aPart: Tm3DocPartSelector;
  ParseToDB: Boolean;
  NeedSaveText: Boolean;
  IsClassChanged: Boolean;
- aEraseNotify: TdtOnEraseAttrRecords;
  anIsObjTopic: Boolean);
 //#UC START# *57CFDE7701E9_57CFC14E01DF_var*
 //#UC END# *57CFDE7701E9_57CFC14E01DF_var*
@@ -131,37 +110,27 @@ begin
  if aDirectAccess and ParseToDB then
   BuildDocSavePipe(aFamily, anID, anIsObjTopic, aEraseNotify, f_Generator);
 //#UC END# *57CFDE7701E9_57CFC14E01DF_impl*
-end;//TarUploadDocumentHelper.Create
+end;//TarRemoteSaveDocumentHelper.Create
 
-function TarUploadDocumentHelper.UploadDoc: Boolean;
-//#UC START# *57CFC33E0089_57CFC14E01DF_var*
-//#UC END# *57CFC33E0089_57CFC14E01DF_var*
+function TarRemoteSaveDocumentHelper.SaveDoc: Boolean;
+//#UC START# *57E270CF032F_57CFC14E01DF_var*
+//#UC END# *57E270CF032F_57CFC14E01DF_var*
 begin
-//#UC START# *57CFC33E0089_57CFC14E01DF_impl*
- if f_NeedOpenFiler then
-  f_Filer.Close;
- f_NeedOpenFiler := False;
- if Assigned(f_Message) then
- begin
-  Result := ArchiRequestManager.UploadDocStream(f_Message);
-  FreeAndNil(f_Message);
- end
- else
-  Result := True;
-//#UC END# *57CFC33E0089_57CFC14E01DF_impl*
-end;//TarUploadDocumentHelper.UploadDoc
+//#UC START# *57E270CF032F_57CFC14E01DF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57E270CF032F_57CFC14E01DF_impl*
+end;//TarRemoteSaveDocumentHelper.SaveDoc
 
-procedure TarUploadDocumentHelper.HanldeException;
-//#UC START# *57D15A640079_57CFC14E01DF_var*
-//#UC END# *57D15A640079_57CFC14E01DF_var*
+procedure TarRemoteSaveDocumentHelper.HandleException;
+//#UC START# *57E270DD0210_57CFC14E01DF_var*
+//#UC END# *57E270DD0210_57CFC14E01DF_var*
 begin
-//#UC START# *57D15A640079_57CFC14E01DF_impl*
- if f_Filer.Opened then
-  f_Filer.Rollback;
-//#UC END# *57D15A640079_57CFC14E01DF_impl*
-end;//TarUploadDocumentHelper.HanldeException
+//#UC START# *57E270DD0210_57CFC14E01DF_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57E270DD0210_57CFC14E01DF_impl*
+end;//TarRemoteSaveDocumentHelper.HandleException
 
-procedure TarUploadDocumentHelper.Cleanup;
+procedure TarRemoteSaveDocumentHelper.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_57CFC14E01DF_var*
 //#UC END# *479731C50290_57CFC14E01DF_var*
@@ -174,7 +143,7 @@ begin
  FreeAndNil(f_Message);
  inherited;
 //#UC END# *479731C50290_57CFC14E01DF_impl*
-end;//TarUploadDocumentHelper.Cleanup
+end;//TarRemoteSaveDocumentHelper.Cleanup
 {$IfEnd} // Defined(AppClientSide)
 
 end.

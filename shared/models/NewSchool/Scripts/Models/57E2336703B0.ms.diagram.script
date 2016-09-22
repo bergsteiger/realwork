@@ -1,0 +1,111 @@
+// DocTransfer 57E2336703B0 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+MEDIAGRAMS ME_57E2336703B0_diagrams
+
+ MEDIAGRAM ME_57E2336703B0_main
+  MEPROP Name 'main'
+  MELINK Original WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' ; // DocTransfer
+
+  MEVIEW ME_57C52AA20128_view
+   MELINK Original WL 'ME_57C52AA20128' '57E2336703B0.ms.model.script' ; // arDocAttributesMixer
+   MEPROP X 40
+   MEPROP Y 40
+  ENDMEVIEW // ME_57C52AA20128_view
+
+  MEVIEW ME_57D9125001E9_view
+   MELINK Original WL 'ME_57D9125001E9' '57E2336703B0.ms.model.script' ; // arFiltersUtils
+   MEPROP X 200
+   MEPROP Y 40
+  ENDMEVIEW // ME_57D9125001E9_view
+
+  MEVIEW ME_57E1136103D7_view
+   MELINK Original WL 'ME_57E1136103D7' '57E2336703B0.ms.model.script' ; // arLockUtils
+   MEPROP X 360
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E1136103D7_view
+
+  MEVIEW ME_57E102E10281_view
+   MELINK Original WL 'ME_57E102E10281' '57E2336703B0.ms.model.script' ; // arIZM
+   MEPROP X 520
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E102E10281_view
+
+  MEVIEW ME_57DFD0290323_view
+   MELINK Original WL 'ME_57DFD0290323' '57E2336703B0.ms.model.script' ; // arVAnouncedBlackList
+   MEPROP X 680
+   MEPROP Y 40
+  ENDMEVIEW // ME_57DFD0290323_view
+
+  MEVIEW ME_57E2548A0223_view
+   MELINK Original WL 'ME_57E2548A0223' '57E2336703B0.ms.model.script' ; // TarCustomMultiModifyDocsHelper
+   MEPROP X 840
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E2548A0223_view
+
+  MEVIEW ME_57DBBB3500CE_view
+   MELINK Original WL 'ME_57DBBB3500CE' '57E2336703B0.ms.model.script' ; // TarDirectMultiModifyDocsHelper
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_57DBBB3500CE_view
+
+  MEVIEW ME_57E27091018D_view
+   MELINK Original WL 'ME_57E27091018D' '57E2336703B0.ms.model.script' ; // TarCustomSaveDocumentHelper
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_57E27091018D_view
+
+  MEVIEW ME_57E2715500C8_view
+   MELINK Original WL 'ME_57E2715500C8' '57E2336703B0.ms.model.script' ; // TarDirectSaveDocumentHelper
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_57E2715500C8_view
+
+  MEVIEWLINK ME_57DBBB3500CE_ME_57E2548A0223_Inherits
+   MELINK From ME_57DBBB3500CE_view ;
+   MELINK To ME_57E2548A0223_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57DBBB3500CE_ME_57E2548A0223_Inherits
+
+  MEVIEWLINK ME_57DFD044028C_viewlink
+   MELINK Original WL 'ME_57DFD044028C' '57E2336703B0.ms.model.script' ;
+   MELINK From ME_57DBBB3500CE_view ;
+   MELINK To ME_57DFD0290323_view ;
+  ENDMEVIEWLINK // ME_57DFD044028C_viewlink
+
+  MEVIEWLINK ME_57E102F902E7_viewlink
+   MELINK Original WL 'ME_57E102F902E7' '57E2336703B0.ms.model.script' ;
+   MELINK From ME_57DBBB3500CE_view ;
+   MELINK To ME_57E102E10281_view ;
+  ENDMEVIEWLINK // ME_57E102F902E7_viewlink
+
+  MEVIEWLINK ME_57E2715500C8_ME_57E27091018D_Inherits
+   MELINK From ME_57E2715500C8_view ;
+   MELINK To ME_57E27091018D_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57E2715500C8_ME_57E27091018D_Inherits
+
+  MELIST Views
+   Seq: ( ME_57C52AA20128_view // arDocAttributesMixer
+   ME_57D9125001E9_view // arFiltersUtils
+   ME_57E1136103D7_view // arLockUtils
+   ME_57E102E10281_view // arIZM
+   ME_57DFD0290323_view // arVAnouncedBlackList
+   ME_57E2548A0223_view // TarCustomMultiModifyDocsHelper
+   ME_57DBBB3500CE_view // TarDirectMultiModifyDocsHelper
+   ME_57E27091018D_view // TarCustomSaveDocumentHelper
+   ME_57E2715500C8_view // TarDirectSaveDocumentHelper
+   ME_57DBBB3500CE_ME_57E2548A0223_Inherits // TarDirectMultiModifyDocsHelper -> TarCustomMultiModifyDocsHelper
+   ME_57DFD044028C_viewlink // TarDirectMultiModifyDocsHelper -> arVAnouncedBlackList
+   ME_57E102F902E7_viewlink // TarDirectMultiModifyDocsHelper -> arIZM
+   ME_57E2715500C8_ME_57E27091018D_Inherits // TarDirectSaveDocumentHelper -> TarCustomSaveDocumentHelper
+   )
+  ; // Views
+ ENDMEDIAGRAM // ME_57E2336703B0_main
+
+ MELIST Diagrams
+  Seq: ( ME_57E2336703B0_main
+  )
+ ; // Diagrams
+ENDMEDIAGRAMS // ME_57E2336703B0_diagrams

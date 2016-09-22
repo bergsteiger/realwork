@@ -103,8 +103,8 @@ var
  else
  begin
   l_Other := anOther;
-  if l_Other.IsView then
-   l_Other := l_Other.ElementProp['Original'];
+{  if l_Other.IsView then
+   l_Other := l_Other.ElementProp['Original'];}
   Result := l3IEQ(Self, l_Other);
   if not Result then
   begin
@@ -115,9 +115,9 @@ var
      l_W := nil;
     end;//try..finally
   end;//not Result
-  if not Result then
+{  if not Result then
    if Self.IsView then
-    Result := Self.Get_ElementProp('Original').IsSameElement(l_Other);
+    Result := Self.Get_ElementProp('Original').IsSameElement(l_Other);}
  end;//anOther = nil
 //#UC END# *57AC39AE0181_57A9F5170275_impl*
 //#UC START# *57AC39AE0181_57A9F5170275_var*

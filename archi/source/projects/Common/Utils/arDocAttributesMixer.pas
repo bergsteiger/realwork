@@ -16,9 +16,6 @@ uses
  , l3MarshalledTypes
  , m4DocumentAddress
  , nevInternalInterfaces
- {$If NOT Defined(Nemesis)}
- , dt_IFltr
- {$IfEnd} // NOT Defined(Nemesis)
  , k2SizedMemoryPool
  , m3DBInterfaces
 ;
@@ -34,11 +31,6 @@ procedure BuildDocLoadPipe(aDocFamily: TdaFamilyID;
  aFoundSelector: Tm4Addresses;
  var aGen: Tk2TagGenerator;
  var theFiler: Tl3CustomFiler);
-procedure BuildDocSavePipe(aDocFamily: TdaFamilyID;
- aDocID: TdaDocID;
- anIsObjTopic: Boolean;
- aEraseNotify: TdtOnEraseAttrRecords;
- var aGen: Tk2TagGenerator);
 function MakeFilerForMessage(aData: Tk2RawData): Tl3CustomFiler;
 function MakeFilerForDB(aFamilyID: TdaFamilyID;
  aDocID: TdaDocID = 0;
@@ -124,41 +116,6 @@ begin
  theFiler := MakeFilerForDB(aDocFamily, aDocID, aDocPart, aLevel);
 //#UC END# *57C52ADD007E_57C52AA20128_impl*
 end;//BuildDocLoadPipe
-
-procedure BuildDocSavePipe(aDocFamily: TdaFamilyID;
- aDocID: TdaDocID;
- anIsObjTopic: Boolean;
- aEraseNotify: TdtOnEraseAttrRecords;
- var aGen: Tk2TagGenerator);
-//#UC START# *57CFF0F8008A_57C52AA20128_var*
-//#UC END# *57CFF0F8008A_57C52AA20128_var*
-begin
-//#UC START# *57CFF0F8008A_57C52AA20128_impl*
- if not (anIsObjTopic) then
- begin
-  //TddImageHandleInsertFilter.SetTo(aGen);
-  // - этот функционал переехал в TddSavedObjectsList и TddExtObjExtractor
-  TddExtObjExtractor.SetTo(aGen);
- end;
- //else
- // TarDocObjectAdder.SetTo(G, TarDocObject(anAdditionalData));
-
-  // устанавливает фильтр, который укладывает данные в СУБД
-  with TDBFilter(TDocSaveDBFilter.SetTo(aGen)) do
-  begin
-   Family := aDocFamily;
-   CurDocID := aDocID;
-   InternalFormat := True;
-   SaveMode := smSave;
-   ExcludeAttr := CctAllAttributes; // рассчитывается через k2_tiEditablePartsв TDocSaveDBFilter,
-                                    // если k2_tiEditableParts не придет атрибуты записываться не будут
-   ExcludeMainRec := True;          // см. выше
-
-   NeedEventforEraseAttrRec := [ctKW];
-   OnEraseAttrRecords := aEraseNotify;
-  end;
-//#UC END# *57CFF0F8008A_57C52AA20128_impl*
-end;//BuildDocSavePipe
 
 function MakeFilerForMessage(aData: Tk2RawData): Tl3CustomFiler;
 //#UC START# *57D7AD260299_57C52AA20128_var*
