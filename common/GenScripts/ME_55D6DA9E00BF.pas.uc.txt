@@ -14,6 +14,7 @@
  f_Journal := nil;
  f_DataConverter := nil;
  FreeANdNil(f_Connection);
+ FreeAndNil(f_ImpersonatedUserList);
  inherited;
 //#UC END# *479731C50290_55D6DA9E00BF_impl*
 //#UC START# *479731C50290_55D6DA9E00BF_var*
@@ -394,13 +395,13 @@ w:\common\components\rtl\Garant\PG\pgDataProvider.pas
  aParams.SetRefTo(f_Params);
 // f_Helper := ThtDataSchemeHelper.Make(f_Params);
  f_AllowClearLocks := AllowClearLocks;
- f_ImpersonatedUserID := 0;
  f_CurHomePath:=aParams.HomeDirPath;
  f_Connection := TpgConnection.Create(f_LongProcessList);
  f_FunctionFactory := TpgFunctionFactory.Create(f_Connection, f_DataConverter);
  f_AlienSessionID := BlankSession;
  f_Factory := TpgTableQueryFactory.Make(f_DataConverter, f_Connection);
  f_FreeIDHelperHolder := TpgFreeIDHelperHolder.Create(f_Connection, f_Factory, f_FunctionFactory);
+ f_ImpersonatedUserList := TdaUserIDList.Make;
 //#UC END# *55E00D5A0297_55D6DA9E00BF_impl*
 //#UC START# *55E00D5A0297_55D6DA9E00BF_var*
 //#UC END# *55E00D5A0297_55D6DA9E00BF_var*
@@ -421,29 +422,20 @@ var
  l_BaseIni: TCfgList;
 //#UC END# *55F7F8080115_55D6DA9E00BF_var*
 //#UC START# *561795EA02BF_55D6DA9E00BFget_impl*
- if f_ImpersonatedUserID = usNone then
+ if f_ImpersonatedUserList.Count = 0 then
   Result := Get_UserID
  else
-  Result := f_ImpersonatedUserID;
+  Result := f_ImpersonatedUserList.Last;
 //#UC END# *561795EA02BF_55D6DA9E00BFget_impl*
 //#UC START# *561795EA02BF_55D6DA9E00BFget_var*
 //#UC END# *561795EA02BF_55D6DA9E00BFget_var*
 //#UC START# *561796070253_55D6DA9E00BF_impl*
- inc(f_ImpersonateCounter);
- if f_ImpersonateCounter = 1 then
-  f_ImpersonatedUserID := anUserID
- else
-  if f_ImpersonatedUserID <> anUserID then
-   l3System.Msg2Log('ALERT ImpersonateUser');
+ f_ImpersonatedUserList.Add(anUserID);
 //#UC END# *561796070253_55D6DA9E00BF_impl*
 //#UC START# *561796070253_55D6DA9E00BF_var*
 //#UC END# *561796070253_55D6DA9E00BF_var*
 //#UC START# *5617961F0105_55D6DA9E00BF_impl*
- Dec(f_ImpersonateCounter);
- if f_ImpersonateCounter = 0 then
-  f_ImpersonatedUserID := usNone;
- if f_ImpersonateCounter < 0 then
-  f_ImpersonateCounter := 0;
+ f_ImpersonatedUserList.Delete(f_ImpersonatedUserList.Count - 1);
 //#UC END# *5617961F0105_55D6DA9E00BF_impl*
 //#UC START# *5617961F0105_55D6DA9E00BF_var*
 //#UC END# *5617961F0105_55D6DA9E00BF_var*

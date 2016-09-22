@@ -1148,13 +1148,24 @@ var
  if f_Form.Visible then
  begin
   l_NextWindow := GetNextWindow(MainFormHandle, GW_HWNDPREV);
-  if IsWindow(l_NextWindow) then
-   SetWindowPos(f_Form.Handle, l_NextWindow, 0, 0, 0, 0, SWP_NOACTIVATE or SWP_NOMOVE or SWP_NOSIZE or SWP_NOOWNERZORDER or SWP_NOSENDCHANGING)
-  else
-   SetWindowPos(f_Form.Handle, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOACTIVATE or SWP_NOMOVE or SWP_NOSIZE or SWP_NOOWNERZORDER or SWP_NOSENDCHANGING);
+
+  if (not (IsWindow(l_NextWindow) and IsWindowVisible(l_NextWindow))) then
+  begin
+   lp_SetZOrder(f_Form.Handle, HWND_TOPMOST);
+   lp_SetZOrder(f_Form.Handle, HWND_NOTOPMOST);
+   Exit;
+  end;
+  lp_SetZOrder(f_Form.Handle, l_NextWindow);
  end;
 //#UC END# *5368D3FD03CD_532322D901A3_impl*
 //#UC START# *5368D3FD03CD_532322D901A3_var*
+
+ procedure lp_SetZOrder(ASubjectWnd: HWND; AInsertAfter: HWND);
+ begin
+  SetWindowPos(ASubjectWnd, AInsertAfter, 0, 0, 0, 0,
+   SWP_NOACTIVATE or SWP_NOMOVE or SWP_NOSIZE or SWP_NOOWNERZORDER or SWP_NOSENDCHANGING);
+ end;
+
 var
  l_NextWindow: THandle;
 //#UC END# *5368D3FD03CD_532322D901A3_var*
