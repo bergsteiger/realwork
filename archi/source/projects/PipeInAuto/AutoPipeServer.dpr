@@ -1952,9 +1952,6 @@ uses
  , csDownloadDocStreamReply_Const in 'w:\common\components\rtl\Garant\EVD\csDownloadDocStreamReply_Const.pas'
  , arDocAttributesMixer in 'w:\archi\source\projects\Common\Utils\arDocAttributesMixer.pas'
  , m4DocumentAddress in 'w:\common\components\rtl\Garant\m4\m4DocumentAddress.pas'
- {$If NOT Defined(Nemesis)}
- , dt_IFltr in 'w:\common\components\rtl\Garant\DT\dt_IFltr.pas'
- {$IfEnd} // NOT Defined(Nemesis)
  , m3DBInterfaces in 'w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas'
  , m3Interfaces in 'w:\common\components\rtl\Garant\m3\m3Interfaces.pas'
  , m3StorageInterfaces in 'w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas'
@@ -1995,6 +1992,9 @@ uses
  , alcuUploadDocStreamExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuUploadDocStreamExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
  {$If NOT Defined(Nemesis)}
+ , dt_IFltr in 'w:\common\components\rtl\Garant\DT\dt_IFltr.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
  , csUploadDocStream in 'w:\common\components\rtl\Garant\cs\csUploadDocStream.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , csUploadDocStream_Const in 'w:\common\components\rtl\Garant\EVD\csUploadDocStream_Const.pas'
@@ -2005,6 +2005,8 @@ uses
  {$If Defined(ServerTasks)}
  , alcuUploadDocRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuUploadDocRequest.pas'
  {$IfEnd} // Defined(ServerTasks)
+ , arDirectSaveDocumentHelper in 'w:\archi\source\projects\Common\Utils\arDirectSaveDocumentHelper.pas'
+ , arCustomSaveDocumentHelper in 'w:\archi\source\projects\Common\Utils\arCustomSaveDocumentHelper.pas'
  , UploadDocRequest_Const in 'w:\common\components\rtl\Garant\EVD\UploadDocRequest_Const.pas'
  , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}

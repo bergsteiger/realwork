@@ -1239,17 +1239,6 @@ ME ME_4ACF4CD10318
 
 ENDME // ME_4ACF4CD10318 Name
 
-ME ME_4ACDC1BA0174
- MEPROP UID '4ACDC1BA0174'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ACDC1AE00C1 // LoadBanner
- ;
-
-ENDME // ME_4ACDC1BA0174 DoIt
-
 ME ME_4ACDC23B033F
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -1346,10 +1335,6 @@ ME ME_4ACDC1AE00C1
  HWL ME_4ACF4CD10318 // Name
  )
  ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_4ACDC1BA0174 // DoIt
- )
- ; // Operations
  MELIST Dependencies
    Seq: ( ME_4ACDC23B033F // DataAdapter
  ME_4ACDC44903B0 // TResampleFilter
@@ -1636,17 +1621,6 @@ ENDME // ME_4AF972C9034E ReferencesResize
 
 FORWARD ME_4B716B8502F1
 
-ME ME_4B716BA20294
- MEPROP UID '4B716BA20294'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B716B8502F1 // UpdateSearchLabels
- ;
-
-ENDME // ME_4B716BA20294 DoIt
-
 ME ME_4B716BDA0279
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -1667,10 +1641,6 @@ ME ME_4B716B8502F1
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4958E1F700C0 // PrimMainMenuNew
  ;
- MELIST Operations
-   Seq: ( HWL ME_4B716BA20294 // DoIt
- )
- ; // Operations
  MELIST Dependencies
    Seq: ( ME_4B716BDA0279 // SearchLabelsLayout
  )
@@ -1796,19 +1766,6 @@ ME ME_4E733318014A
 
 ENDME // ME_4E733318014A TaxesStateChanged
 
-FORWARD ME_4E73342B0318
-
-ME ME_4E73343801A5
- MEPROP UID '4E73343801A5'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E73342B0318 // UpdateTaxesTree
- ;
-
-ENDME // ME_4E73343801A5 DoIt
-
 ME ME_4E73342B0318
  MEPROP UID '4E73342B0318'
  MEPROP Name 'UpdateTaxesTree'
@@ -1823,10 +1780,6 @@ ME ME_4E73342B0318
    Seq: ( WL 'ME_4E70D70C0055' '48563BA400A9.ms.model.script' // Основное меню должно уметь зависеть от должности пользователя
  )
  ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_4E73343801A5 // DoIt
- )
- ; // Operations
 
 ENDME // ME_4E73342B0318 UpdateTaxesTree
 
@@ -1879,19 +1832,6 @@ ME ME_4E73346C032A
 
 ENDME // ME_4E73346C032A TaxesNextTree
 
-FORWARD ME_4E73634801A2
-
-ME ME_4E73635003C2
- MEPROP UID '4E73635003C2'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E73634801A2 // UpdateTaxesTreeCaption
- ;
-
-ENDME // ME_4E73635003C2 DoIt
-
 ME ME_4E73634801A2
  MEPROP UID '4E73634801A2'
  MEPROP Name 'UpdateTaxesTreeCaption'
@@ -1907,25 +1847,8 @@ ME ME_4E73634801A2
  WL 'ME_4EA0087A0078' '48563BA400A9.ms.model.script' // Названия основных разделов Основного меню должны браться с адаптера
  )
  ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_4E73635003C2 // DoIt
- )
- ; // Operations
 
 ENDME // ME_4E73634801A2 UpdateTaxesTreeCaption
-
-FORWARD ME_4EA008B300DF
-
-ME ME_4EA008D00158
- MEPROP UID '4EA008D00158'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4EA008B300DF // UpdateReferencesAndLawNewsCaptions
- ;
-
-ENDME // ME_4EA008D00158 DoIt
 
 ME ME_4EA008B300DF
  MEPROP UID '4EA008B300DF'
@@ -1941,10 +1864,6 @@ ME ME_4EA008B300DF
    Seq: ( WL 'ME_4EA0087A0078' '48563BA400A9.ms.model.script' // Названия основных разделов Основного меню должны браться с адаптера
  )
  ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_4EA008D00158 // DoIt
- )
- ; // Operations
 
 ENDME // ME_4EA008B300DF UpdateReferencesAndLawNewsCaptions
 
@@ -2037,6 +1956,19 @@ ME ME_55CDC6110290
  ;
 
 ENDME // ME_55CDC6110290 UpdatePbExpertPosition
+
+ME ME_57DFCC5F02E4
+ MEPROP UID '57DFCC5F02E4'
+ MEPROP Name 'UpdateButtonsVisibility'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4958E1F700C0 // PrimMainMenuNew
+ ;
+
+ENDME // ME_57DFCC5F02E4 UpdateButtonsVisibility
 
 ME ME_4AC9DA290271
  MEPROP Class class_Dependency
@@ -2509,6 +2441,7 @@ ME ME_4958E1F700C0
  HWL ME_4F7451F501DB // CourtsOnlineClick
  HWL ME_526F53D3025F // GetSearchLabelsLineFullWidth
  HWL ME_55CDC6110290 // UpdatePbExpertPosition
+ HWL ME_57DFCC5F02E4 // UpdateButtonsVisibility
  )
  ; // Operations
  MELIST Implemented

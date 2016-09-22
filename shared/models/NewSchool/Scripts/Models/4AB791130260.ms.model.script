@@ -22,9 +22,9 @@ ME ME_4EB7CC550343
 
 ENDME // ME_4EB7CC550343 ActiveClass
 
-ME ME_4ACB5763027B
- MEPROP UID '4ACB5763027B'
- MEPROP Name 'Data'
+ME ME_57DA8F3102AE
+ MEPROP UID '57DA8F3102AE'
+ MEPROP Name 'SearcherState'
  MEPROP Class class_Attribute
  MELINK Stereotype st_readonly::Attribute ;
  MEPROP Visibility PublicAccess
@@ -32,11 +32,11 @@ ME ME_4ACB5763027B
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4ACB5740039A // InsBaseSearchFormState
  ;
- MELINK Target WL 'ME_496B629D0188' '4A9F98B901A5.ms.model.script' // InsBaseSearcherWindowData
+ MELINK Target WL 'ME_5433905403C7' '4A9F98B901A5.ms.model.script' // InsBaseSearcherInitialState
  ;
  UP "pm" False
 
-ENDME // ME_4ACB5763027B Data
+ENDME // ME_57DA8F3102AE SearcherState
 
 ME ME_4ACB5740039A
  MEPROP UID '4ACB5740039A'
@@ -58,7 +58,7 @@ ME ME_4ACB5740039A
  ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_4EB7CC550343 // ActiveClass
- HWL ME_4ACB5763027B // Data
+ HWL ME_57DA8F3102AE // SearcherState
  )
  ; // Attributes
  UP extprop:rc:isAcceptableForScripts True
@@ -82,41 +82,41 @@ ME ME_4EB7CC730282
 
 ENDME // ME_4EB7CC730282 f_ActiveClass
 
-ME ME_4ACB586B004E
- MEPROP UID '4ACB586B004E'
- MEPROP Name 'f_Data'
+ME ME_57DA918F033C
+ MEPROP UID '57DA918F033C'
+ MEPROP Name 'f_SearcherState'
  MEPROP Class class_Attribute
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4ACB57C4023E // TnsBaseSearchFormState
  ;
- MELINK Target WL 'ME_496B629D0188' '4A9F98B901A5.ms.model.script' // InsBaseSearcherWindowData
+ MELINK Target WL 'ME_5433905403C7' '4A9F98B901A5.ms.model.script' // InsBaseSearcherInitialState
  ;
 
-ENDME // ME_4ACB586B004E f_Data
+ENDME // ME_57DA918F033C f_SearcherState
 
 FORWARD ME_4CF4F8470359
 
 FORWARD ME_4CF4F8510139
 
-ME ME_4CF4F856010B
- MEPROP Name 'aData'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_496B629D0188' '4A9F98B901A5.ms.model.script' // InsBaseSearcherWindowData
- ;
-
-ENDME // ME_4CF4F856010B aData
-
-ME ME_4F1D630802B5
+ME ME_57DB839602D4
  MEPROP Name 'anActiveClass'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_496B5F7603B4' '4A9F98B901A5.ms.model.script' // InsBaseSearchClass
  ;
 
-ENDME // ME_4F1D630802B5 anActiveClass
+ENDME // ME_57DB839602D4 anActiveClass
+
+ME ME_57DB839602EF
+ MEPROP Name 'aBaseSearcherState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5433905403C7' '4A9F98B901A5.ms.model.script' // InsBaseSearcherInitialState
+ ;
+
+ENDME // ME_57DB839602EF aBaseSearcherState
 
 ME ME_4CF4F8510139
  MEPROP UID '4CF4F8510139'
@@ -127,8 +127,8 @@ ME ME_4CF4F8510139
  MELINK Parent HWL ME_4CF4F8470359 // Create
  ;
  MELIST Parameters
-   Seq: ( ME_4CF4F856010B // aData
- ME_4F1D630802B5 // anActiveClass
+   Seq: ( ME_57DB839602D4 // anActiveClass
+ ME_57DB839602EF // aBaseSearcherState
  )
  ; // Parameters
 
@@ -172,13 +172,6 @@ ME ME_4CF4F83200CD
 
 ENDME // ME_4CF4F83200CD Make
 
-ME ME_4ACB5763027B_ME_4ACB57C4023E
- MELINK Original HWL ME_4ACB5763027B // Data
- ;
- MEPROP OpKind opkind_Implemented
- UP "pm" False
-ENDME // ME_4ACB5763027B_ME_4ACB57C4023E Data
-
 ME ME_4EB7CC550343_ME_4ACB57C4023E
  MELINK Original HWL ME_4EB7CC550343 // ActiveClass
  ;
@@ -186,11 +179,12 @@ ME ME_4EB7CC550343_ME_4ACB57C4023E
  UP "pm" False
 ENDME // ME_4EB7CC550343_ME_4ACB57C4023E ActiveClass
 
-ME ME_479731C50290_ME_4ACB57C4023E
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ME ME_57DA8F3102AE_ME_4ACB57C4023E
+ MELINK Original HWL ME_57DA8F3102AE // SearcherState
  ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_4ACB57C4023E Cleanup
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_57DA8F3102AE_ME_4ACB57C4023E SearcherState
 
 ME ME_47EA4E9002C6_ME_4ACB57C4023E
  MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
@@ -219,7 +213,7 @@ ME ME_4ACB57C4023E
  ; // Implements
  MELIST Attributes
    Seq: ( HWL ME_4EB7CC730282 // f_ActiveClass
- HWL ME_4ACB586B004E // f_Data
+ HWL ME_57DA918F033C // f_SearcherState
  )
  ; // Attributes
  MELIST Operations
@@ -228,13 +222,12 @@ ME ME_4ACB57C4023E
  )
  ; // Operations
  MELIST Implemented
-   Seq: ( ME_4ACB5763027B_ME_4ACB57C4023E // Data
- ME_4EB7CC550343_ME_4ACB57C4023E // ActiveClass
+   Seq: ( ME_4EB7CC550343_ME_4ACB57C4023E // ActiveClass
+ ME_57DA8F3102AE_ME_4ACB57C4023E // SearcherState
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_479731C50290_ME_4ACB57C4023E // Cleanup
- ME_47EA4E9002C6_ME_4ACB57C4023E // FinishDataUpdate
+   Seq: ( ME_47EA4E9002C6_ME_4ACB57C4023E // FinishDataUpdate
  )
  ; // Overridden
  UP "author" 'Ëþëèí À.Â.'
