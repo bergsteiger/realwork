@@ -70,7 +70,7 @@ uses
  , l3Interfaces
  , evdNativeWriter
  , evdNativeReader
- , arDocAttributesMixer
+ , arDirectSaveDocumentHelper
  , l3StopWatch
  , m3DBInterfaces
  , m3DBFiler

@@ -2390,10 +2390,14 @@ uses
  , kwPushMainForm in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushMainForm.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , kwPushTextSearchDlg in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushTextSearchDlg.pas'
+ , kwPopEditorSetStyle2Table in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Table.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
- , kwPopEditorSetStyle2Table in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Table.pas'
+ , kwPushTextSearchDlg in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPushTextSearchDlg.pas'
+ {$IfEnd} // NOT Defined(NoScripts)
+ , D_TxSrch in 'w:\archi\source\projects\Common\Dialogs\D_TxSrch.pas'
+ {$If NOT Defined(NoScripts)}
+ , TTextSearchDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If Defined(AppClientSide) AND NOT Defined(NoScripts)}
  , kwCommonArchiWords in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwCommonArchiWords.pas'
@@ -2478,10 +2482,6 @@ uses
  , evTextInTableCorrector in 'w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
  {$If NOT Defined(NoScripts)}
  , kwClearFindDialog in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas'
- {$IfEnd} // NOT Defined(NoScripts)
- , D_TxSrch in 'w:\archi\source\projects\Common\Dialogs\D_TxSrch.pas'
- {$If NOT Defined(NoScripts)}
- , TTextSearchDlgWordsPack in 'w:\archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , kwAutoCompleteClear in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwAutoCompleteClear.pas'
