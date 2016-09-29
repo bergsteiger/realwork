@@ -13,9 +13,14 @@
 //#UC START# *57D2DF7E00CE_ext:FileName
 w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
 //#UC END# *57D2DF7E00CE_ext:FileName
+//#UC START# *57D2DF7E00CEci*
+//#UC END# *57D2DF7E00CEci*
+//#UC START# *57D2DF7E00CEcit*
+//#UC END# *57D2DF7E00CEcit*
+//#UC START# *57D2DF7E00CEimpl*
+//#UC END# *57D2DF7E00CEimpl*
 //#UC START# *57D2DF7E00CEimpl_uses*
  , SysUtils
- , msmConcreteModels
  , msmOpenInNewWindow
  , msmShowInNavigator
  , msmUpToParent
@@ -31,7 +36,12 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  , msmTreeViewController
  , msmMultiPanelViewParent
  , msmParentedViewController
+ , msmModelElement
 //#UC END# *57D2DF7E00CEimpl_uses*
+//#UC START# *57D2DF7E00CEintf_uses*
+//#UC END# *57D2DF7E00CEintf_uses*
+//#UC START# *57D2DF7E00CEpubl*
+//#UC END# *57D2DF7E00CEpubl*
 //#UC START# *57D2DFA70064_57D2DF7E00CE_impl*
  inherited Create;
  f_UseCase := aUseCase;
@@ -106,12 +116,39 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  end;//aChildZone <> nil
 
  if (aFloatingZone <> nil) then
+ begin
   AddController(
    AddNavigatorOperations(
     TmsmTreeViewController.Make(aUseCase.FloatingNavigator, aFloatingZone),
     aUseCase.FloatingNavigator
    )
   );
+  l_AllWords := TmsmLoadedWordsListModel.Make;
+  AddController(
+   AddReadonlyListOperations(
+    DisableActionElementEvent
+    (
+     TmsmListViewController.Make(l_AllWords, aFloatingZone)
+    )
+    , l_AllWords
+   )
+  );
+  Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
+
+  if (f_FoundElementsModel = nil) then
+   f_FoundElementsModel := TmsmSomeModelElementsListModel.Make(nil, 'Found');
+  AddController(
+   AddReadonlyListOperations(
+    DisableActionElementEvent
+    (
+     TmsmListViewController.Make(f_FoundElementsModel, aFloatingZone)
+    )
+    , f_FoundElementsModel
+   )
+  );
+  Bind(TmsmListOpener.Make(f_FoundElementsModel, aUseCase.MainList));
+
+ end;//aFloatingZone <> nil
 //#UC END# *57D2DFA70064_57D2DF7E00CE_impl*
 //#UC START# *57D2DFA70064_57D2DF7E00CE_var*
 
@@ -127,6 +164,14 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
   aController.AddOperation(TmsmPaste.Make('Paste', aModel));
   Result := aController;
  end;//AddNavigatorOperations
+
+ function AddReadonlyListOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
+ begin//
+  AddNavigatorOperations(aController, aModel);
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmShowInNavigator.Make('Show in navigator', aModel, aUseCase.FloatingNavigator));
+  Result := aController;
+ end;//AddReadonlyListOperations
 
  function AddListLikeOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
  begin//AddListLikeOperations
@@ -195,4 +240,17 @@ var
  l_ListContext : TmsmListViewtInitContext;
  l_DrawingZone : ImsmViewParent;
  l_DrawingPanel : TmsmViewParentControl;
+ l_AllWords : ImsmListModel;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
+//#UC START# *57E455C800E0_57D2DF7E00CE_impl*
+ f_UseCase.FloatingNavigator.CurrentElement := TmsmModelElement.MakeFromWord(TmsmWordsManaging.FindWord(aName));
+ if (f_FoundElementsModel <> nil) then
+  TmsmWordsManaging.FindWords(aName)
+//#UC END# *57E455C800E0_57D2DF7E00CE_impl*
+//#UC START# *57E455C800E0_57D2DF7E00CE_var*
+//#UC END# *57E455C800E0_57D2DF7E00CE_var*
+//#UC START# *57E557F2038A_57D2DF7E00CEget_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57E557F2038A_57D2DF7E00CEget_impl*
+//#UC START# *57E557F2038A_57D2DF7E00CEget_var*
+//#UC END# *57E557F2038A_57D2DF7E00CEget_var*

@@ -1,0 +1,78 @@
+//#UC START# *479731C50290_57E54DCD0141_impl*
+ f_List := nil;
+ inherited;
+//#UC END# *479731C50290_57E54DCD0141_impl*
+//#UC START# *479731C50290_57E54DCD0141_var*
+//#UC END# *479731C50290_57E54DCD0141_var*
+//#UC START# *57AAD86403AD_57E54DCD0141get_impl*
+ if (f_List = nil) then
+  Result := nil
+ else
+  Result := TmsmModelElement.MakeFromValue(f_List[anIndex]); 
+//#UC END# *57AAD86403AD_57E54DCD0141get_impl*
+//#UC START# *57AAD86403AD_57E54DCD0141get_var*
+//#UC END# *57AAD86403AD_57E54DCD0141get_var*
+//#UC START# *57AAD89C0277_57E54DCD0141get_impl*
+ if (f_List = nil) then
+  Result := 0
+ else
+  Result := f_List.Count;
+//#UC END# *57AAD89C0277_57E54DCD0141get_impl*
+//#UC START# *57AAD89C0277_57E54DCD0141get_var*
+//#UC END# *57AAD89C0277_57E54DCD0141get_var*
+//#UC START# *57AE2E140297_57E54DCD0141get_impl*
+ Result := nil;
+//#UC END# *57AE2E140297_57E54DCD0141get_impl*
+//#UC START# *57AE2E140297_57E54DCD0141get_var*
+//#UC END# *57AE2E140297_57E54DCD0141get_var*
+//#UC START# *57AEBED1018D_57E54DCD0141get_impl*
+ Result := Get_Item(anIndex).StringProp['DefaultText'];
+//#UC END# *57AEBED1018D_57E54DCD0141get_impl*
+//#UC START# *57AEBED1018D_57E54DCD0141get_var*
+//#UC END# *57AEBED1018D_57E54DCD0141get_var*
+//#UC START# *57B6C7D40215_57E54DCD0141get_impl*
+ Result := Get_Item(anIndex).StringProp['DefaultSearchText'];
+//#UC END# *57B6C7D40215_57E54DCD0141get_impl*
+//#UC START# *57B6C7D40215_57E54DCD0141get_var*
+//#UC END# *57B6C7D40215_57E54DCD0141get_var*
+//#UC START# *57D1327900BC_57E54DCD0141_impl*
+ Result := -1;
+ if (anElement <> nil) then
+ begin
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElement(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElement(anElement)
+  end;//for l_Index
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElementView(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElementView(anElement)
+  end;//for l_Index
+ end;//anElement <> nil
+//#UC END# *57D1327900BC_57E54DCD0141_impl*
+//#UC START# *57D1327900BC_57E54DCD0141_var*
+var
+ l_Index : Integer;
+ l_E : ImsmModelElement;
+//#UC END# *57D1327900BC_57E54DCD0141_var*
+//#UC START# *57E54DCD0141_ext:FileName
+w:\common\components\gui\Garant\msm\msmSomeModelElementsList.pas
+//#UC END# *57E54DCD0141_ext:FileName
+//#UC START# *57E54DCD0141impl_uses*
+//#UC END# *57E54DCD0141impl_uses*
+//#UC START# *57E54E69027B_57E54DCD0141_impl*
+ Assert(aList <> nil);
+ f_List := aList;
+ inherited Create;
+//#UC END# *57E54E69027B_57E54DCD0141_impl*
+//#UC START# *57E54E69027B_57E54DCD0141_var*
+//#UC END# *57E54E69027B_57E54DCD0141_var*

@@ -10,19 +10,18 @@ USES
 
 BOOLEAN FUNCTION WordNeedsTransform
   TtfwWord IN Self
-/*{ RULES
+ RULES
   ( 'uc:' Self pop:Word:Name StartsStr )
    false
   ( Self WordIsVar )
    false
   DEFAULT
    RULES
-    //( Self pop:Word:Name 'IsSummoned' ?== )
-    // false
-    DEFAULT
+    ( Self pop:Word:Producer @ MELIST == )
      true
+    DEFAULT
+     false
    ; // RULES
- ; // RULES}*/
- false
+ ; // RULES
  >>> Result 
 ; // WordNeedsTransform

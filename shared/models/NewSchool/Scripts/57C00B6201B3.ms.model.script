@@ -434,7 +434,7 @@ ME ME_57C52C4200A2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57C3FAF20200 // TalcuDownloadDocRequest
  ;
- MELINK Target WL 'ME_57C52ADD007E' '4E4B99A60349.ms.model.script' // BuildDocLoadPipe
+ MELINK Target WL 'ME_57C52ADD007E' '57E2336703B0.ms.model.script' // BuildDocLoadPipe
  ;
 
 ENDME // ME_57C52C4200A2 
@@ -1032,7 +1032,7 @@ ME ME_57D65C39030F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
  ;
- MELINK Target WL 'ME_57CFF0F8008A' '4E4B99A60349.ms.model.script' // BuildDocSavePipe
+ MELINK Target WL 'ME_57E2715500C8' '57E2336703B0.ms.model.script' // TarDirectSaveDocumentHelper
  ;
 
 ENDME // ME_57D65C39030F 
@@ -1107,6 +1107,16 @@ ME ME_57D68E540269
 
 ENDME // ME_57D68E540269 
 
+ME ME_57E39FA2001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D659B902A8 // TalcuUploadDocRequest
+ ;
+ MELINK Target WL 'ME_57D7AD260299' '57E2336703B0.ms.model.script' // MakeFilerForMessage
+ ;
+
+ENDME // ME_57E39FA2001A 
+
 ME ME_479731C50290_ME_57D659B902A8
  MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
  ;
@@ -1162,7 +1172,7 @@ ME ME_57D659B902A8
  ME_57D65C1500E7 // IStream
  ME_57D65C190267 // TevdNativeWriter
  ME_57D65C1D0270 // TevdNativeReader
- ME_57D65C39030F // BuildDocSavePipe
+ ME_57D65C39030F // TarDirectSaveDocumentHelper
  ME_57D6800702EB // Tl3StopWatch
  ME_57D6800B0134 // Im3DB
  ME_57D6800F0082 // Tm3DBFiler
@@ -1170,6 +1180,7 @@ ME ME_57D659B902A8
  ME_57D6877E03C2 // Tl3FileMode
  ME_57D687830159 // TDocType
  ME_57D68E540269 // l3System
+ ME_57E39FA2001A // MakeFilerForMessage
  )
  ; // Dependencies
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuUploadDocRequest.pas'
@@ -1226,6 +1237,7 @@ ME ME_57C00B6201B3
  WL 'ME_57C53E5D02DC' '57C53E5D02DC.ms.model.script' // Addresses
  WL 'ME_57C686B70253' '57C686B70253.ms.model.script' // DocStreamTransfer
  WL 'ME_57C810400018' '57C810400018.ms.model.script' // alcuImmidiateRequestInterfaces
+ WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' // DocTransfer
  )
  ; // Depends
 

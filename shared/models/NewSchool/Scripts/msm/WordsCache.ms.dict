@@ -1,6 +1,10 @@
 UNIT WordsCache.ms.dict
 
 USES
+ axiom_push.ms.dict
+;
+
+USES
  axiom:msm
 ;
 
@@ -17,10 +21,70 @@ USES
  IsNil.ms.dict
 ;
 
+USES
+ ref.ms.dict
+;
+
+USES
+ RoseModel.ms.dict
+;
+
 PROCEDURE WordToCache
   STRING IN aWordName
   TtfwWord IN aWord
  aWordName aWord msm:WordToCache 
+ 
+ if ( aWord .IsSomeView ! ) then
+ begin
+  if ( aWord pop:Word:Producer @ ME ?== ) then
+  begin
+   if ( aWord pop:Word:GetRefForCompare .NotIsNil ) then
+   begin
+    RULES
+     ( aWord .xStereotype IsString )
+      ()
+     ( aWord .xMDAClass class_Unknown == )
+      ()
+     ( aWord .xMDAClass class_Parameter == )
+      ()
+     ( aWord .xMDAClass class_Dependency == )
+      ()
+     ( aWord .xMDAClass class_Attribute == )
+      ()
+     ( aWord .xMDAClass class_Operation == )
+      ()
+     ( aWord .xStereotype .xName 'method' ?== )
+      ()
+     ( aWord .xStereotype .xName 'virtualmethod' ?== )
+      ()
+     ( aWord .xStereotype .xName 'abstractmethod' ?== )
+      ()
+     ( aWord .xStereotype .xName 'facetmethod' ?== )
+      ()
+     ( aWord .xStereotype .xName 'Constructor' ?== )
+      ()
+     ( aWord .xStereotype .xName 'Factory' ?== )
+      ()
+     ( aWord .xStereotype .xName 'UseCase' ?== )
+      ()
+     ( aWord .xStereotype .xName 'UseCaseSetting' ?== )
+      ()
+     ( aWord .xStereotype .xName 'UseCaseSettingValue' ?== )
+      ()
+     ( aWord .xStereotype .xName 'MDAAttribute' ?== )
+      ()
+     ( aWord .xStereotype .xName 'MDAOperation' ?== )
+      ()
+     ( aWord .xStereotype .xName 'MDADependency' ?== )
+      ()
+     ( aWord .xStereotype .xName 'MDAParameter' ?== )
+      ()
+     DEFAULT
+      ( aWord .xNameInModel aWord msm:AddWordToIndex )
+    ; // RULES
+   end // ( aWord pop:Word:GetRefForCompare .NotIsNil )
+  end // ( aWord pop:Word:Producer @ ME ?== )
+ end // ( aWord .IsSomeView ! )
  
   PROCEDURE .CheckChild
     IN aChild
@@ -46,3 +110,6 @@ PROCEDURE WordToCache
  end // ( aWord .IsDiagram )
 ; // WordToCache
 
+//USES
+// MDProcess_Templates.tpi.script
+//;

@@ -147,6 +147,49 @@ ENDME // ME_57D2D2E90182 ImsmDrawingUseCase
 
 FORWARD ME_57D2DBFB0226
 
+FORWARD ME_57E455C800E0
+
+ME ME_57E455E90294
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57E455E90294 aName
+
+ME ME_57E455DB01D6
+ MEPROP UID '57E455DB01D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E455C800E0 // LocateElement
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E455E90294 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57E455DB01D6 DoIt
+
+ME ME_57E455C800E0
+ MEPROP UID '57E455C800E0'
+ MEPROP Name 'LocateElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57D2DBFB0226 // ImsmDrawingUseCaseView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E455DB01D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E455C800E0 LocateElement
+
 ME ME_57AD949C0005_ME_57D2DBFB0226
  MELINK Original WL 'ME_57AD949C0005' '57CEAF3602AB.ms.model.script' // AddController
  ;
@@ -186,6 +229,10 @@ ME ME_57D2DBFB0226
    Seq: ( WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
  )
  ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57E455C800E0 // LocateElement
+ )
+ ; // Operations
  MELIST Implemented
    Seq: ( ME_57AD949C0005_ME_57D2DBFB0226 // AddController
  ME_57B1AB98014B_ME_57D2DBFB0226 // Activate
@@ -214,7 +261,9 @@ ME ME_57D2DB49000A
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
  WL 'ME_57ADC53E00B6' '57ADC53E00B6.ms.model.script' // msmConcreteModels
  WL 'ME_57CEAF3602AB' '57CEAF3602AB.ms.model.script' // msmUseCases
  )

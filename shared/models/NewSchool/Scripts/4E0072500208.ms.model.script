@@ -34,6 +34,16 @@ ME ME_4E007D4A02E9
 
 ENDME // ME_4E007D4A02E9 
 
+ME ME_57CFC1830125
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0072E100DB // TarTextOfDocument
+ ;
+ MELINK Target WL 'ME_57CFC14E01DF' '57CFC13E033D.ms.model.script' // TarRemoteSaveDocumentHelper
+ ;
+
+ENDME // ME_57CFC1830125 
+
 ME ME_482D9A030221_ME_4E0072E100DB
  MELINK Original WL 'ME_482D9A030221' '482BFB50007B.ms.model.script' // DoMakeDocumentContainer
  ;
@@ -64,6 +74,7 @@ ME ME_4E0072E100DB
  ; // Children
  MELIST Dependencies
    Seq: ( ME_4E007D4A02E9 // TarDocumentContainer
+ ME_57CFC1830125 // TarRemoteSaveDocumentHelper
  )
  ; // Dependencies
  UP "finished" false
@@ -101,6 +112,16 @@ ME ME_4F7D45950280
 
 ENDME // ME_4F7D45950280 
 
+ME ME_57E3AAFA0258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E007419002D // TarCustomDocument
+ ;
+ MELINK Target WL 'ME_57CFC14E01DF' '57CFC13E033D.ms.model.script' // TarRemoteSaveDocumentHelper
+ ;
+
+ENDME // ME_57E3AAFA0258 
+
 ME ME_4E007419002D
  MEPROP UID '4E007419002D'
  MEPROP Name 'TarCustomDocument'
@@ -117,6 +138,7 @@ ME ME_4E007419002D
  ; // Operations
  MELIST Dependencies
    Seq: ( ME_4F7D45950280 // TevOutTextParaEliminator
+ ME_57E3AAFA0258 // TarRemoteSaveDocumentHelper
  )
  ; // Dependencies
  UP "finished" false
@@ -421,6 +443,7 @@ ME ME_4E0072500208
  WL 'ME_482BFB50007B' '482BFB50007B.ms.model.script' // TextSources
  WL 'ME_4E004D460329' '4E004D460329.ms.model.script' // DocumentContainer
  WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
+ WL 'ME_57CFC13E033D' '57CFC13E033D.ms.model.script' // DocTransfer
  )
  ; // Depends
  UP "finished" false

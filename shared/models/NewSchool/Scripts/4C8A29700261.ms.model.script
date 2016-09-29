@@ -446,19 +446,6 @@ ME ME_4C8A33C301CA
 
 ENDME // ME_4C8A33C301CA LoadStartState
 
-FORWARD ME_4C8A4B95003E
-
-ME ME_4C8A4B9B0234
- MEPROP UID '4C8A4B9B0234'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4C8A4B95003E // OpenUnderControl
- ;
-
-ENDME // ME_4C8A4B9B0234 DoIt
-
 ME ME_4C8A4B95003E
  MEPROP UID '4C8A4B95003E'
  MEPROP Name 'OpenUnderControl'
@@ -469,25 +456,8 @@ ME ME_4C8A4B95003E
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4C8A29700261 // MainOptions
  ;
- MELIST Operations
-   Seq: ( HWL ME_4C8A4B9B0234 // DoIt
- )
- ; // Operations
 
 ENDME // ME_4C8A4B95003E OpenUnderControl
-
-FORWARD ME_4C8A4C9B00F9
-
-ME ME_4C8A4CA401F9
- MEPROP UID '4C8A4CA401F9'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4C8A4C9B00F9 // ShowWhatsNewHelpPage
- ;
-
-ENDME // ME_4C8A4CA401F9 DoIt
 
 ME ME_4C8A4C9B00F9
  MEPROP UID '4C8A4C9B00F9'
@@ -499,10 +469,6 @@ ME ME_4C8A4C9B00F9
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4C8A29700261 // MainOptions
  ;
- MELIST Operations
-   Seq: ( HWL ME_4C8A4CA401F9 // DoIt
- )
- ; // Operations
 
 ENDME // ME_4C8A4C9B00F9 ShowWhatsNewHelpPage
 
@@ -782,16 +748,6 @@ ME ME_4F86BEEE0312
 
 ENDME // ME_4F86BEEE0312 
 
-ME ME_4F86BF150280
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4C8A29700261 // MainOptions
- ;
- MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
- ;
-
-ENDME // ME_4F86BF150280 
-
 ME ME_4F86DFBF0252
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -938,7 +894,7 @@ ME ME_4C8A440F025D_ME_4C8A29700261
  UP "ShowInToolbar" false
  UP "has states" false
  UP "is FormActivate" false
- UP "is query" true
+ UP "is query" false
  UP "no prefix" false
 ENDME // ME_4C8A440F025D_ME_4C8A29700261 ReplyBook
 
@@ -1282,7 +1238,6 @@ ME ME_4C8A29700261
  ME_4F86BC25021B // nsUtils
  ME_4F86BC460069 // Forms
  ME_4F86BEEE0312 // Document
- ME_4F86BF150280 // l3CStr
  ME_4F86DFBF0252 // afwFacade
  ME_4F87E11301EE // Il3CString
  ME_4F87E121024F // Dialogs

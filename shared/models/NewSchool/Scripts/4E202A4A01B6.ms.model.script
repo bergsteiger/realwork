@@ -280,10 +280,30 @@ ME ME_57DBBC0A0128
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
  ;
- MELINK Target WL 'ME_57DBBB3500CE' '57CFC13E033D.ms.model.script' // TarMultiModifyDocsHelper
+ MELINK Target WL 'ME_57E2548A0223' '57E2336703B0.ms.model.script' // TarCustomMultiModifyDocsHelper
  ;
 
 ENDME // ME_57DBBC0A0128 
+
+ME ME_57E25F43000A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57DBBB3500CE' '57E2336703B0.ms.model.script' // TarDirectMultiModifyDocsHelper
+ ;
+
+ENDME // ME_57E25F43000A 
+
+ME ME_57E3AD32020C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57E3A9690059' '57CFC13E033D.ms.model.script' // TarRemoteMultiModifyDocsHelper
+ ;
+
+ENDME // ME_57E3AD32020C 
 
 ME ME_4F8D5E6B0120
  MEPROP UID '4F8D5E6B0120'
@@ -297,7 +317,9 @@ ME ME_4F8D5E6B0120
  ;
  MELIST Dependencies
    Seq: ( ME_4F8D742F024C // TDocumentList
- ME_57DBBC0A0128 // TarMultiModifyDocsHelper
+ ME_57DBBC0A0128 // TarCustomMultiModifyDocsHelper
+ ME_57E25F43000A // TarDirectMultiModifyDocsHelper
+ ME_57E3AD32020C // TarRemoteMultiModifyDocsHelper
  )
  ; // Dependencies
  UP extprop:rc:SelfName 'SearchWin'
@@ -388,6 +410,7 @@ ME ME_4E202A4A01B6
  WL 'ME_4E202BD501B7' '4E202BD501B7.ms.model.script' // BaseForms
  WL 'ME_4F8D7381019D' '4F8D7381019D.ms.model.script' // Frames
  WL 'ME_57CFC13E033D' '57CFC13E033D.ms.model.script' // DocTransfer
+ WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' // DocTransfer
  )
  ; // Depends
  UP "finished" false

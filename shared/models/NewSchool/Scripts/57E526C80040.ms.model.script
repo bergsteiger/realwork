@@ -1,0 +1,38 @@
+// FileUtils 57E526C80040 Unit Category
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E526C80040
+
+ME ME_57E526D50230
+ MEPROP UID '57E526D50230'
+ MEPROP Name 'l3TextSearch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E526C80040 // FileUtils
+ ;
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3TextSearch.pas'
+ UP extprop:rc:SelfName 'TextSearch'
+
+ENDME // ME_57E526D50230 l3TextSearch
+
+ME ME_57E526C80040
+ MEPROP UID '57E526C80040'
+ MEPROP Name 'FileUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Category
+ MELINK Stereotype st_Unit ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57E526D50230 // l3TextSearch
+ )
+ ; // Children
+
+ENDME // ME_57E526C80040 FileUtils

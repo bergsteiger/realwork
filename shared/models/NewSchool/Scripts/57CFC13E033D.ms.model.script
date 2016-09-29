@@ -258,6 +258,257 @@ ME ME_57CFC14E01DF
 
 ENDME // ME_57CFC14E01DF TarRemoteSaveDocumentHelper
 
+FORWARD ME_57E3A9690059
+
+ME ME_57E3AA4603CA
+ MEPROP UID '57E3AA4603CA'
+ MEPROP Name 'f_Message'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_57DA77B80161' '57C686B70253.ms.model.script' // TcsMultiModifyDocs
+ ;
+
+ENDME // ME_57E3AA4603CA f_Message
+
+ME ME_57E3AA4F0206
+ MEPROP UID '57E3AA4F0206'
+ MEPROP Name 'f_Reply'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_57DA7796002F' '57C686B70253.ms.model.script' // TcsMultiModifyDocsReply
+ ;
+
+ENDME // ME_57E3AA4F0206 f_Reply
+
+ME ME_57E3BDF9037F
+ MEPROP UID '57E3BDF9037F'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_57E3BDF9037F f_Filer
+
+FORWARD ME_57E3A9AB035A
+
+ME ME_57E3B8D402B8
+ MEPROP Name 'OperType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57DA6B2C03C0' '57BEAF780201.ms.model.script' // TOperActionType
+ ;
+
+ENDME // ME_57E3B8D402B8 OperType
+
+ME ME_57E3B8D402C8
+ MEPROP Name 'aFamily'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_57E3B8D402C8 aFamily
+
+ME ME_57E3B8D40306
+ MEPROP Name 'anAnouncedDate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_57E3B8D40306 anAnouncedDate
+
+ME ME_57E3B8D40335
+ MEPROP Name 'aDocIDList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_519B71CF03DC' '559D0BE101B4.ms.model.script' // ISab
+ ;
+
+ENDME // ME_57E3B8D40335 aDocIDList
+
+ME ME_57E3A9B403E7
+ MEPROP UID '57E3A9B403E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E3A9AB035A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E3B8D402B8 // OperType
+ ME_57E3B8D402C8 // aFamily
+ ME_57E3B8D40306 // anAnouncedDate
+ ME_57E3B8D40335 // aDocIDList
+ )
+ ; // Parameters
+
+ENDME // ME_57E3A9B403E7 DoIt
+
+ME ME_57E3A9AB035A
+ MEPROP UID '57E3A9AB035A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E3A9B403E7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E3A9AB035A Create
+
+ME ME_57E3AA620014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57E3AA620014 
+
+ME ME_57E3AA65034A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_57CFC26A0059' '57CFC1D401B7.ms.model.script' // ArchiRequestManager
+ ;
+
+ENDME // ME_57E3AA65034A 
+
+ME ME_57E3AA6900D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_57D7AD260299' '57E2336703B0.ms.model.script' // MakeFilerForMessage
+ ;
+
+ENDME // ME_57E3AA6900D4 
+
+ME ME_57E3BE1E02A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
+ ;
+
+ENDME // ME_57E3BE1E02A8 
+
+ME ME_57E3BE4A0271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_519B719002F1' '519B70FC02AB.ms.model.script' // dt_Sab
+ ;
+
+ENDME // ME_57E3BE4A0271 
+
+ME ME_57E3CC2A00E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
+ ;
+ MELINK Target WL 'ME_547831BD02E5' '544E0148010D.ms.model.script' // TncsReply
+ ;
+
+ENDME // ME_57E3CC2A00E9 
+
+ME ME_57E254A501FA_ME_57E3A9690059
+ MELINK Original WL 'ME_57E254A501FA' '57E2336703B0.ms.model.script' // ModifyDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57E254A501FA_ME_57E3A9690059 ModifyDocs
+
+ME ME_57E256520079_ME_57E3A9690059
+ MELINK Original WL 'ME_57E256520079' '57E2336703B0.ms.model.script' // HasLockedDocs
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57E256520079_ME_57E3A9690059 HasLockedDocs
+
+ME ME_57E256910017_ME_57E3A9690059
+ MELINK Original WL 'ME_57E256910017' '57E2336703B0.ms.model.script' // FillLockedList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57E256910017_ME_57E3A9690059 FillLockedList
+
+ME ME_479731C50290_ME_57E3A9690059
+ MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57E3A9690059 Cleanup
+
+ME ME_57E3A9690059
+ MEPROP UID '57E3A9690059'
+ MEPROP Name 'TarRemoteMultiModifyDocsHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CFC13E033D // DocTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57E2548A0223' '57E2336703B0.ms.model.script' // TarCustomMultiModifyDocsHelper
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57E3AA4603CA // f_Message
+ HWL ME_57E3AA4F0206 // f_Reply
+ HWL ME_57E3BDF9037F // f_Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57E3A9AB035A // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57E254A501FA_ME_57E3A9690059 // ModifyDocs
+ ME_57E256520079_ME_57E3A9690059 // HasLockedDocs
+ ME_57E256910017_ME_57E3A9690059 // FillLockedList
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57E3A9690059 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57E3AA620014 // FreeAndNil
+ ME_57E3AA65034A // ArchiRequestManager
+ ME_57E3AA6900D4 // MakeFilerForMessage
+ ME_57E3BE1E02A8 // TevdNativeWriter
+ ME_57E3BE4A0271 // dt_Sab
+ ME_57E3CC2A00E9 // TncsReply
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arRemoteMultiModifyDocsHelper.pas'
+ UP extprop:rc:SelfName 'arRemoteMultiModifyDocsHelper'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'arRemoteMultiModifyDocsHelper'
+
+ENDME // ME_57E3A9690059 TarRemoteMultiModifyDocsHelper
+
 ME ME_57CFC13E033D
  MEPROP UID '57CFC13E033D'
  MEPROP Name 'DocTransfer'
@@ -270,6 +521,7 @@ ME ME_57CFC13E033D
  ;
  MELIST Children
    Seq: ( HWL ME_57CFC14E01DF // TarRemoteSaveDocumentHelper
+ HWL ME_57E3A9690059 // TarRemoteMultiModifyDocsHelper
  )
  ; // Children
  MELIST Depends
@@ -290,6 +542,7 @@ ME ME_57CFC13E033D
  WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
  WL 'ME_51B1C73B0056' '51B1C73B0056.ms.model.script' // ImportExport
  WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
+ WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
  WL 'ME_559D0BE101B4' '559D0BE101B4.ms.model.script' // dtIntf
  WL 'ME_57BEAF780201' '57BEAF780201.ms.model.script' // l3MarshalledTypes
  WL 'ME_57C686B70253' '57C686B70253.ms.model.script' // DocStreamTransfer

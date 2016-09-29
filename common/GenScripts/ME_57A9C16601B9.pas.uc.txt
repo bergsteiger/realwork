@@ -28,6 +28,11 @@ w:\common\components\gui\Garant\msm\msmMainForm.pas
 //#UC END# *57A9C16601B9cit*
 //#UC START# *57A9C16601B9impl*
 {$R *.dfm}
+
+procedure TmsmMainForm.SearchClick(Sender: TObject);
+begin
+ f_UseCase.LocateElement(f_SearchEdit.Text);
+end;
 //#UC END# *57A9C16601B9impl*
 //#UC START# *57A9C16601B9impl_uses*
  , Controls
@@ -40,9 +45,14 @@ w:\common\components\gui\Garant\msm\msmMainForm.pas
  , msmConcreteModels
  , tfwParserService
  , msmControllers
- , msmConcreteUseCases
+ , l3TextSearch
+ //, msmConcreteUseCases
+ //, vtDirector
+ //, evEdit
 //#UC END# *57A9C16601B9impl_uses*
 //#UC START# *57A9C16601B9intf_uses*
+ , evEdit
+ , msmButtonEdit
 //#UC END# *57A9C16601B9intf_uses*
 //#UC START# *57A9C16601B9publ*
   private
@@ -50,6 +60,9 @@ w:\common\components\gui\Garant\msm\msmMainForm.pas
    f_ClientPanel : TmsmPanel;
    f_BottomPanel : TmsmPanel;
    f_TopPanel : TmsmPanel;
+   f_SearchEdit : TmsmButtonEdit;
+  private
+   procedure SearchClick(Sender: TObject); 
 //#UC END# *57A9C16601B9publ*
 //#UC START# *57A9C19A01CE_57A9C16601B9_impl*
  //l_Menu := TMainMenu.Create(Self);
@@ -60,6 +73,14 @@ w:\common\components\gui\Garant\msm\msmMainForm.pas
  f_TopPanel.Parent := Self;
  f_TopPanel.Height := 30;
  f_TopPanel.Align := alTop;
+ f_SearchEdit := TmsmButtonEdit.Create(Self);
+ f_SearchEdit.Parent := f_TopPanel;
+ f_SearchEdit.Left := 3;
+ f_SearchEdit.Top := 3;
+ f_SearchEdit.Height := 24;
+ f_SearchEdit.Width := 300;
+ f_SearchEdit.Anchors := [akLeft];
+ f_SearchEdit.OnButtonClick := SearchClick;
  f_BottomPanel := TmsmPanel.Create(Self);
  f_BottomPanel.Parent := Self;
  f_BottomPanel.Height := 20;

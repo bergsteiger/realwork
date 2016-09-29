@@ -2990,6 +2990,79 @@ ME ME_57DFADD40219
 
 ENDME // ME_57DFADD40219 l3IDList
 
+FORWARD ME_57E508B5039F
+
+ME ME_57E50D8C0241
+ MEPROP Name 'aA'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+
+ENDME // ME_57E50D8C0241 aA
+
+ME ME_57E50D8C027D
+ MEPROP Name 'aB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+
+ENDME // ME_57E50D8C027D aB
+
+ME ME_57E50D7500A3
+ MEPROP UID '57E50D7500A3'
+ MEPROP Name 'CompareValues'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_inline::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57E508B5039F // l3MultiMap
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E50D8C0241 // aA
+ ME_57E50D8C027D // aB
+ )
+ ; // Parameters
+
+ENDME // ME_57E50D7500A3 CompareValues
+
+ME ME_47A042E100E2_ME_57E508B5039F
+ MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_57E508B5039F InitFields
+
+ME ME_57E508B5039F
+ MEPROP UID '57E508B5039F'
+ MEPROP Name 'l3MultiMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6D65B9022A // Containers
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5609096C03BE // l3Map
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57E50D7500A3 // CompareValues
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57E508B5039F // InitFields
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MultiMap.imp.pas'
+ UP extprop:pas:TypeName '_l3MultiMap_'
+ UP extprop:pas:UnitName 'l3MultiMap.imp'
+
+ENDME // ME_57E508B5039F l3MultiMap
+
 ME ME_4A6D65B9022A
  MEPROP UID '4A6D65B9022A'
  MEPROP Name 'Containers'
@@ -3026,6 +3099,7 @@ ME ME_4A6D65B9022A
  HWL ME_57CE8E0B0357 // l3PointerUtils
  HWL ME_57CE9D2803DF // l3ReplacingMap
  HWL ME_57DFADD40219 // l3IDList
+ HWL ME_57E508B5039F // l3MultiMap
  )
  ; // Children
  MELIST Depends

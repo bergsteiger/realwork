@@ -13,6 +13,10 @@ USES
 ;
 
 USES
+ ElemMemberPrim.ms.dict
+;
+
+USES
  ElementsRTTI.ms.dict
 ;
 
@@ -190,10 +194,6 @@ elem_iterator MethodParameters
  )
  >>> Result
 ; // MethodParameters
-
-USES
- ElemMemberPrim.ms.dict
-;
 
 ModelElement elem_func MethodTarget
  Cached:
@@ -550,7 +550,7 @@ INTEGER elem_func msm:View:BackColor
  ; // StereotypeBackColor
  
  RULES
-  ( Self .Parent .Original Self .Original .Parent ?!= )
+  ( Self .Parent .Viewed Self .Viewed .Parent ?!= )
    TColor::clWhite
   DEFAULT
    begin
@@ -591,18 +591,25 @@ STRING elem_func msm:View:LabelName
        DEFAULT
         begin
          '' >>> l_Label
-         Self .Inherited.Words .for> (
-           IN anAncestor
-          VAR l_AncestorLabel 
-          anAncestor call.me >>> l_AncestorLabel
-          RULES
-           ( l_AncestorLabel .NotIsNil )
-            ( 
-             l_AncestorLabel >>> l_Label
-             BREAK-ITERATOR
-            )
-          ; // RULES
-         ) // Self .Inherited.Words .for>
+         RULES
+          ( Self IsString )
+           ()
+          DEFAULT
+           begin
+            Self .Inherited.Words .for> (
+              IN anAncestor
+             VAR l_AncestorLabel 
+             anAncestor call.me >>> l_AncestorLabel
+             RULES
+              ( l_AncestorLabel .NotIsNil )
+               ( 
+                l_AncestorLabel >>> l_Label
+                BREAK-ITERATOR
+               )
+             ; // RULES
+            ) // Self .Inherited.Words .for>
+           end // DEFAULT
+         ; // RULES
          l_Label
         end // DEFAULT
       ; // RULES
@@ -758,10 +765,23 @@ WordAlias .msm:View:Height .Height
 WordAlias .msm:View:From .From
 WordAlias .msm:View:To .To
 
-ModelElement elem_func MainDiagram
+ModelElement elem_func DiagramByName
+  STRING IN aName
  Self .msm:Diagrams 
+ .filter> ( .Name aName SameText )
  .FirstElement
- //.Views
+ >>> Result
+; // DiagramByName
+
+ModelElement elem_func DiagramByName:
+  ^L IN aName
+ Self aName |N .DiagramByName
+ >>> Result
+; // DiagramByName:
+
+ModelElement elem_func MainDiagram
+ Self .DiagramByName: main
+ //Self 'main' .DiagramByName
  >>> Result
 ; // MainDiagram
 
@@ -800,18 +820,10 @@ USES
 
 elem_proc GenerateElement
  RULES
-  ( Self .IsDiagram )
-   begin
-    Self .Original call.me
-   end // ( Self .IsDiagram )
-  ( Self .IsView )
-   begin
-    Self .Original call.me
-   end // ( Self .IsView )
+  ( Self .IsSomeView )
+    ( Self .Viewed call.me )
   ( Self .UID .IsNil ) then
-   begin
-    Self .Parent call.me
-   end // ( Self .UID .IsNil )
+    ( Self .Parent call.me )
   DEFAULT
    begin
     [ Self .DictFileName sysutils:ExtractFilePath 'cal.cmd' ' ' Self .DictFileName ] strings:Cat WinExec
@@ -885,8 +897,8 @@ PROCEDURE .SaveElements
    RULES
     ( anElementToSave .IsDiagram )
      begin
-      if ( anElementToSave .Original .AddToArray?: l_SavedElements ) then
-       ( anElementToSave .Original .SaveDiagrams )
+      if ( anElementToSave .Viewed .AddToArray?: l_SavedElements ) then
+       ( anElementToSave .Viewed .SaveDiagrams )
      end // ( anElementToSave .IsDiagram )
     DEFAULT
      begin
@@ -919,6 +931,47 @@ USES
  Predicates.ms.dict
 ;
 
+ModelElement elem_func msm:Diagram:PasteElement
+  ModelElement IN aView
+  INTEGER IN anX
+  INTEGER IN anY
+ nil >>> Result 
+ RULES  
+  ( aView .IsViewLink )
+   ( ERROR [ 'Вставка View от связей пока не поддерживается' ] )
+  ( Self .IsDiagram )
+   begin
+    VAR l_ViewName 
+    [ 'ME_' CreateUID ] strings:Cat >>> l_ViewName 
+    
+    VAR l_KeyWord
+    l_ViewName Self pop:NewWordDefinitor:CheckWord >>> l_KeyWord
+    if ( l_KeyWord pop:KeyWord:Word IsNil ) then
+    begin
+     KeyValuesCreateAndDo: (
+       IN aMade
+      @ MEVIEW aMade pop:Word:SetProducer 
+      aMade l_KeyWord pop:KeyWord:SetWord 
+      l_KeyWord aMade pop:Word:SetKey 
+      aMade -> X := anX
+      aMade -> Y := anY
+      aMade -> Original := ( aView .Viewed )
+      aMade -> Parent := Self
+      aMade Self .Views Array:Add
+      aMade >>> Result
+     ) // KeyValuesCreateAndDo:
+    end // ( l_KeyWord pop:KeyWord:Word IsNil )
+    else
+    begin
+     ERROR [ 'Слово ' l_ViewName ' уже есть' ]
+    end // ( l_KeyWord pop:KeyWord:Word IsNil )
+    Self msm:AddChangedElement
+   end // ( Self .IsDiagram )
+  DEFAULT
+   ( Self pop:Word:Producer pop:Word:Name Msg )
+ ; // RULES  
+; // msm:Diagram:PasteElement
+
 elem_proc msm:Diagram:PasteElements
   ARRAY IN anElements
  RULES  
@@ -928,43 +981,51 @@ elem_proc msm:Diagram:PasteElements
     .filter> .Not: .IsViewLink
     .for> (
       IN aView
-     VAR l_ViewName 
-     [ 'ME_' CreateUID ] strings:Cat >>> l_ViewName 
-     
-     VAR l_KeyWord
-     l_ViewName Self pop:NewWordDefinitor:CheckWord >>> l_KeyWord
-     if ( l_KeyWord pop:KeyWord:Word IsNil ) then
-     begin
-      KeyValuesCreateAndDo: (
-        IN aMade
-       @ MEVIEW aMade pop:Word:SetProducer 
-       aMade l_KeyWord pop:KeyWord:SetWord 
-       l_KeyWord aMade pop:Word:SetKey 
-       aMade -> X := ( aView .X 10 + )
-       aMade -> Y := ( aView .Y 10 + )
-       if ( aView .IsView ) then
-       begin
-        aMade -> Original := ( aView .Original )
-       end // ( aView .IsView )
-       else
-       begin
-        aMade -> Original := aView
-       end // ( aView .IsView )
-       aMade -> Parent := Self
-       aMade Self .Views Array:Add
-      ) // KeyValuesCreateAndDo:
-     end // ( l_KeyWord pop:KeyWord:Word IsNil )
-     else
-     begin
-      ERROR [ 'Слово ' l_ViewName ' уже есть' ]
-     end // ( l_KeyWord pop:KeyWord:Word IsNil )
-     Self msm:AddChangedElement
+     Self 
+     aView 
+     aView .X 10 +
+     aView .Y 10 +
+     .msm:Diagram:PasteElement DROP
     ) // .for>
    end // ( Self .IsDiagram )
   DEFAULT
    ( Self pop:Word:Producer pop:Word:Name Msg )
  ; // RULES  
 ; // msm:Diagram:PasteElements
+
+ModelElement FUNCTION .FindWord
+  ARRAY IN aWords
+  STRING IN aName
+ aWords 
+ .filter> ( .NameInModel aName SameText )
+ .filter> ( pop:Word:Producer @ ME ?== )
+ .FirstElement
+ >>> Result
+; // .FindWord
+
+USES
+ Chars.ms.dict
+;
+
+BOOLEAN FUNCTION .TryLoadWord
+  STRING IN aName
+  STRING IN aPath
+
+ : DoFile
+   STRING IN anItem
+  if ( [ 'MEPROP Name ' cQuote aName cQuote ] strings:Cat anItem FindInFile ) then
+  begin
+   true >>> Result
+   //anItem Msg
+   anItem DictionaryByName DROP
+  end // ( aName anItem FindInFile )
+  //anItem .
+  //anItem Msg
+ ; // DoFile
+ 
+ false >>> Result
+ @ DoFile '*.ms.model.script' aPath ProcessFilesWithMask
+; // .TryLoadWord
 
 EXPORTS
  arrays.ms.dict

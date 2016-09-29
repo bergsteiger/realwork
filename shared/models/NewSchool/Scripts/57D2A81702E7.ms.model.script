@@ -406,6 +406,20 @@ ME ME_57DA84F80119
 
 ENDME // ME_57DA84F80119 f_DrawingPanel
 
+ME ME_57E557F2038A
+ MEPROP UID '57E557F2038A'
+ MEPROP Name 'f_FoundElementsModel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57E54F7303C4' '57ADC53E00B6.ms.model.script' // ImsmSomeModelElementsListModel
+ ;
+
+ENDME // ME_57E557F2038A f_FoundElementsModel
+
 FORWARD ME_57D2DFA70064
 
 ME ME_57D2DFD502AD
@@ -590,6 +604,52 @@ ME ME_57E28049000D
 
 ENDME // ME_57E28049000D 
 
+ME ME_57E4580D00A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57E457780235' '57B2D67D038F.ms.model.script' // TmsmWordsManaging
+ ;
+
+ENDME // ME_57E4580D00A6 
+
+ME ME_57E51C05010E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57E51B3002A8' '57AE0D6601AE.ms.model.script' // TmsmLoadedWordsListModel
+ ;
+
+ENDME // ME_57E51C05010E 
+
+ME ME_57E552110130
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57E54EB00030' '57AE0D6601AE.ms.model.script' // TmsmSomeModelElementsListModel
+ ;
+
+ENDME // ME_57E552110130 
+
+ME ME_57E55C8B00B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57E54DCD0141' '57B30E930154.ms.model.script' // TmsmSomeModelElementsList
+ ;
+
+ENDME // ME_57E55C8B00B3 
+
+ME ME_57E455C800E0_ME_57D2DF7E00CE
+ MELINK Original WL 'ME_57E455C800E0' '57D2DB49000A.ms.model.script' // LocateElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57E455C800E0_ME_57D2DF7E00CE LocateElement
+
 ME ME_479731C50290_ME_57D2DF7E00CE
  MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
  ;
@@ -623,6 +683,7 @@ ME ME_57D2DF7E00CE
  MELIST Attributes
    Seq: ( HWL ME_57D2E77D0372 // f_UseCase
  HWL ME_57DA84F80119 // f_DrawingPanel
+ HWL ME_57E557F2038A // f_FoundElementsModel
  )
  ; // Attributes
  MELIST Operations
@@ -630,6 +691,10 @@ ME ME_57D2DF7E00CE
  HWL ME_57D2DFAE02A7 // Make
  )
  ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57E455C800E0_ME_57D2DF7E00CE // LocateElement
+ )
+ ; // Implemented
  MELIST Overridden
    Seq: ( ME_479731C50290_ME_57D2DF7E00CE // Cleanup
  ME_57D2B82102BD_ME_57D2DF7E00CE // DoActivate
@@ -644,8 +709,13 @@ ME ME_57D2DF7E00CE
  ME_57E10DC201AE // TmsmSaveChangedElements
  ME_57E261A2014A // TmsmCopySelection
  ME_57E28049000D // TmsmPaste
+ ME_57E4580D00A6 // TmsmWordsManaging
+ ME_57E51C05010E // TmsmLoadedWordsListModel
+ ME_57E552110130 // TmsmSomeModelElementsListModel
+ ME_57E55C8B00B3 // TmsmSomeModelElementsList
  )
  ; // Dependencies
+ UP "need UC" true
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmDrawingUseCaseView.pas'
  UP extprop:rc:SelfName 'msmDrawingUseCaseView'
  UP extprop:rc:isAcceptableForScripts true
@@ -677,6 +747,8 @@ ME ME_57D2A81702E7
  WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
  WL 'ME_57B1B48C00F8' '57B1B48C00F8.ms.model.script' // Models
  WL 'ME_57B1B6AE0204' '57B1B6AE0204.ms.model.script' // UseCases
+ WL 'ME_57B2D67D038F' '57B2D67D038F.ms.model.script' // WordsCache
+ WL 'ME_57B30E930154' '57B30E930154.ms.model.script' // StringLists
  WL 'ME_57B42D1A0044' '57B42D1A0044.ms.model.script' // DefaultUsedControls
  WL 'ME_57B565F200E5' '57B565F200E5.ms.model.script' // msmElementViews
  WL 'ME_57CD2BB003D3' '57CD2BB003D3.ms.model.script' // ConcreteBindings

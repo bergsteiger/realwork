@@ -356,8 +356,6 @@ ENDME // ME_57A9D663008F TmsmScriptCaller
 
 FORWARD ME_57AA00BD022E
 
-FORWARD ME_57A9FEF503A3
-
 FORWARD ME_57DFF5AD03C7
 
 ME ME_57DFF5CE01E1
@@ -381,7 +379,7 @@ ME ME_57DFF5AD03C7
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
  ;
  MELIST Attributes
    Seq: ( HWL ME_57DFF5CE01E1 // 
@@ -390,6 +388,8 @@ ME ME_57DFF5AD03C7
  UP "array type" 'open'
 
 ENDME // ME_57DFF5AD03C7 array of TtfwStackValue
+
+FORWARD ME_57A9FEF503A3
 
 ME ME_57AA034A0260
  MEPROP UID '57AA034A0260'
@@ -515,14 +515,43 @@ ME ME_57A9FEF503A3
  ME_57A9FED102C4_ME_57A9FEF503A3 // DoScriptWillRun
  )
  ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_57DFF5AD03C7 // array of TtfwStackValue
- )
- ; // Children
  UP extprop:rc:SelfName 'msmModelElementMethodScriptCaller'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_57A9FEF503A3 TmsmModelElementMethodScriptCaller
+
+FORWARD ME_57E3FE20029C
+
+ME ME_57E3FE2E006A
+ MEPROP UID '57E3FE2E006A'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57E3FE20029C // TtfwStackValuesArray
+ ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_57E3FE2E006A 
+
+ME ME_57E3FE20029C
+ MEPROP UID '57E3FE20029C'
+ MEPROP Name 'TtfwStackValuesArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AA00BD022E // TmsmModelElementMethodCaller
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57E3FE2E006A // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_57E3FE20029C TtfwStackValuesArray
 
 FORWARD ME_57AA00EB01D8
 
@@ -1262,7 +1291,9 @@ ME ME_57AA00BD022E
  )
  ; // Operations
  MELIST Children
-   Seq: ( HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+   Seq: ( HWL ME_57DFF5AD03C7 // array of TtfwStackValue
+ HWL ME_57A9FEF503A3 // TmsmModelElementMethodScriptCaller
+ HWL ME_57E3FE20029C // TtfwStackValuesArray
  )
  ; // Children
  MELIST Dependencies
@@ -2797,6 +2828,10 @@ ME ME_57E103E402B8
  ME_57E10548027C // TmsmModelElementMethodCaller
  )
  ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_57E3240500C0' '57B2D67D038F.ms.model.script' // msmChangedElementsPack
+ )
+ ; // Injected
  UP "singleton" true
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmChangedElements.pas'
  UP extprop:rc:SelfName 'msmChangedElements'

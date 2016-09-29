@@ -57,7 +57,7 @@ ME ME_57AD8E5E00E5
  MEPROP Class class_Operation
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_final
- MELINK Parent HWL ME_57AD8E570241 // Fire
+ MELINK Parent HWL ME_57AD8E570241 // HandleEvent
  ;
  MELIST Parameters
    Seq: ( ME_57AD8E66010A // anEvent
@@ -68,7 +68,7 @@ ENDME // ME_57AD8E5E00E5 DoIt
 
 ME ME_57AD8E570241
  MEPROP UID '57AD8E570241'
- MEPROP Name 'Fire'
+ MEPROP Name 'HandleEvent'
  MEPROP Class class_Class
  MELINK Stereotype st_facetmethod ;
  MEPROP Kind kind_NormalClass
@@ -81,7 +81,7 @@ ME ME_57AD8E570241
  )
  ; // Operations
 
-ENDME // ME_57AD8E570241 Fire
+ENDME // ME_57AD8E570241 HandleEvent
 
 ME ME_57AD9309039B
  MEPROP UID '57AD9309039B'
@@ -95,7 +95,7 @@ ME ME_57AD9309039B
  MELINK Parent HWL ME_57B5730D0123 // msmEvents
  ;
  MELIST Operations
-   Seq: ( HWL ME_57AD8E570241 // Fire
+   Seq: ( HWL ME_57AD8E570241 // HandleEvent
  )
  ; // Operations
  UP extprop:rc:SelfName 'msmEventsSubscriber'
@@ -196,7 +196,7 @@ ME ME_57ADE59000CB
  MELINK Parent HWL ME_57B4279900AD // MmsmEventFire
  ;
  MELIST Inherits
-   Seq: ( HWL ME_57AD8E570241 // Fire
+   Seq: ( HWL ME_57AD8E570241 // HandleEvent
  )
  ; // Inherits
 
@@ -390,7 +390,7 @@ ME ME_57B5730D0123
  MELINK Stereotype st_Interfaces ;
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_regular
- MELINK Parent WL 'ME_57B1DAE6030C' '57B1DAE6030C.ms.model.script' // msm$MVC
+ MELINK Parent WL 'ME_57E533C703E3' '57E533C703E3.ms.model.script' // msm$Events
  ;
  MELIST Children
    Seq: ( HWL ME_57B5681A00AE // TmsmSignal

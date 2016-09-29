@@ -511,6 +511,56 @@ ME ME_57B45B5B0175
 
 ENDME // ME_57B45B5B0175 InitContext
 
+FORWARD ME_57E56BDF005B
+
+ME ME_34F0987DD51B
+ MEPROP Name 'Sender'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ ;
+
+ENDME // ME_34F0987DD51B Sender
+
+ME ME_A4560C9A081E
+ MEPROP UID 'A4560C9A081E'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'TNotifyEvent is used for events that do not require parameters.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E56BDF005B // DoGetTotal
+ ;
+ MELIST Parameters
+   Seq: ( ME_34F0987DD51B // Sender
+ )
+ ; // Parameters
+
+ENDME // ME_A4560C9A081E DoIt
+
+ME ME_57E56BDF005B
+ MEPROP UID '57E56BDF005B'
+ MEPROP Name 'DoGetTotal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57AAF18F0065 // TmsmListViewController
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_A4560C9A081E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E56BDF005B DoGetTotal
+
 ME ME_57AAF20F0140
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -526,6 +576,12 @@ ME ME_57B6C9A5037B_ME_57AAF18F0065
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57B6C9A5037B_ME_57AAF18F0065 CallDropDrawPoints
+
+ME ME_57ADFB33027D_ME_57AAF18F0065
+ MELINK Original WL 'ME_57ADFB33027D' '57AAE90E02B6.ms.model.script' // InitOwnView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57ADFB33027D_ME_57AAF18F0065 InitOwnView
 
 ME ME_57B490B60385_ME_57AAF18F0065
  MELINK Original WL 'ME_57B490B60385' '57AAE90E02B6.ms.model.script' // InitViewContext
@@ -557,12 +613,17 @@ ME ME_57AAF18F0065
  HWL ME_57B45B5B0175 // InitContext
  )
  ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57E56BDF005B // DoGetTotal
+ )
+ ; // Operations
  MELIST Implemented
    Seq: ( ME_57B6C9A5037B_ME_57AAF18F0065 // CallDropDrawPoints
  )
  ; // Implemented
  MELIST Overridden
-   Seq: ( ME_57B490B60385_ME_57AAF18F0065 // InitViewContext
+   Seq: ( ME_57ADFB33027D_ME_57AAF18F0065 // InitOwnView
+ ME_57B490B60385_ME_57AAF18F0065 // InitViewContext
  )
  ; // Overridden
  MELIST Dependencies
@@ -1033,6 +1094,7 @@ ME ME_57AE0E4B00C5
  WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
  WL 'ME_4E1447600037' '4E1447600037.ms.model.script' // Common

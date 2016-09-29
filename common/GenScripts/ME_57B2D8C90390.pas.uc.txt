@@ -2,6 +2,9 @@
 w:\common\components\gui\Garant\msm\msmWordsCache.pas
 //#UC END# *57B2D8C90390_ext:FileName
 //#UC START# *57B2D8C90390impl_uses*
+ , l3String
+ , tfwWordRefList
+ , tfwWordsIterator
 //#UC END# *57B2D8C90390impl_uses*
 //#UC START# *57C4878D02D3_57B2D8C90390_impl*
  Lock;
@@ -43,3 +46,24 @@ w:\common\components\gui\Garant\msm\msmWordsCache.pas
 //#UC END# *57C48BE901A3_57B2D8C90390_impl*
 //#UC START# *57C48BE901A3_57B2D8C90390_var*
 //#UC END# *57C48BE901A3_57B2D8C90390_var*
+//#UC START# *57E45AE800E4_57B2D8C90390_impl*
+ Result := nil;
+ Lock;
+ try
+  l_List := TtfwWordRefList.Create;
+  try
+   for l_Index := 0 to Pred(Self.Count) do
+    l_List.Add(Self.Items[l_Index]);
+   Result := TtfwWordsIterator.Make(l_List); 
+  finally
+   FreeAndNil(l_List);
+  end;//try..finally
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57E45AE800E4_57B2D8C90390_impl*
+//#UC START# *57E45AE800E4_57B2D8C90390_var*
+var
+ l_Index : Integer;
+ l_List : TtfwWordRefList;
+//#UC END# *57E45AE800E4_57B2D8C90390_var*

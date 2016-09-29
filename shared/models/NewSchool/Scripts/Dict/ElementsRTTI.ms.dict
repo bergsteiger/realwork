@@ -36,77 +36,6 @@ USES
  axiom:WordBox
 ;
 
-USES
- DoCache.ms.dict
-;
-
-: CacheWord
-  ModelElement IN aCacheWhere
-  TtfwWord IN aWord
-  ^ IN aLambda
- aCacheWhere aWord .WordName nil DoCache ( aLambda DO )
-; // CacheWord
-
-MACRO Cache
- axiom:PushSymbol @SELF
- axiom:PushSymbol CacheWord
-; // Cache
-
-MACRO CacheMethod
- 'Self' Ctx:Parser:PushSymbol
- axiom:PushSymbol @SELF
- axiom:PushSymbol CacheWord
-; // CacheMethod
-
-WordAlias Cached: CacheMethod
-
-ANY elem_func ElemMember
-  STRING IN aMemberName
-  IN aDefaultValue
-  
- //Self aMemberName aDefaultValue DoCacheElemMember
- ( 
-  RULES 
-   ( Self IsNil )
-    aDefaultValue
-   ( Self IsString )
-    aDefaultValue
-   ( Self IsIntf ) 
-    ( Self pop:WordBox:Boxed aMemberName aDefaultValue .ElemMemberPrim )
-   DEFAULT
-    ( Self aMemberName aDefaultValue .ElemMemberPrim )
-  ; // RULES
- )
- >>> Result
-; // ElemMember
-
-elem_iterator ElemList
-  STRING IN aMemberName
- //Self aMemberName [empty] DoCache
- (
-  Self aMemberName [empty] .ElemMember 
- )
- >>> Result 
-; // ElemList
-
-STRING elem_func ElemString
-  STRING IN aMemberName
- //Self aMemberName '' DoCache
- (
-  Self aMemberName '' .ElemMember 
- ) 
- >>> Result 
-; // ElemString
-
-ModelElement elem_func ElemWord
-  STRING IN aMemberName
- //Self aMemberName nil DoCache
- (
-  Self aMemberName nil .ElemMember 
- ) 
- >>> Result 
-; // ElemWord
-
 elem_iterator Children
  Self 'Children' .ElemList >>> Result
 ; // Children
@@ -187,28 +116,6 @@ elem_iterator CanRaiseInSet
  Self 'CanRaiseInSet' .ElemList >>> Result
 ; // CanRaiseInSet
 
-STRING elem_func Name
- if ( Self IsString ) then
- begin
-  Self >>> Result
- end // Self IsString
- else
- begin
-  Self 'Name' .ElemString >>> Result
- end // Self IsString
-; // Name
-
-STRING elem_func OriginalName
- if ( Self IsString ) then
- begin
-  Self >>> Result
- end // Self IsString
- else
- begin
-  Self 'OriginalName' .ElemString >>> Result
- end // Self IsString
-; // OriginalName
-
 STRING elem_func Documentation
  Self '%SUM' .ElemString >>> Result
 ; // Documentation
@@ -237,61 +144,13 @@ BOOLEAN elem_func UPisTrue
  Self aName |N false .ElemMember true ?== >>> Result  
 ; // UPisTrue
 
-ModelElement STRING elem_func Stereotype
- Self 'Stereotype' .ElemWord >>> Result
-; // Stereotype
-
 ModelElement STRING elem_func StereotypeInModel
  Self 'StereotypeInModel' .ElemWord >>> Result
 ; // StereotypeInModel
 
-BOOLEAN elem_func IsStereotype
-  ^ IN aStereo
-  
- BOOLEAN FUNCTION IsStereoKindOf
-   ModelElement IN anOurStereo
-   ModelElement IN anOtherStereo
-  anOurStereo 
-  'isA:' anOtherStereo .WordName Cat 
-  false
-  DoCache (
-   BOOLEAN VAR l_Is
-   anOurStereo anOtherStereo ?== >>> l_Is
-   if ( l_Is ! ) then
-   begin
-    anOurStereo .Name anOtherStereo .Name ?== >>> l_Is
-   end // l_Is !
-   if ( l_Is ! ) then
-   begin
-    anOurStereo .Inherited.Words 
-    .trunc> ( DROP l_Is ! ) 
-    .for> (
-     ModelElement IN anAncestor
-     if ( anAncestor anOtherStereo call.me ) then
-     begin
-      true >>> l_Is
-     end
-    ) 
-   end // l_Is !
-   l_Is
-  ) >>> Result
- ; // IsStereoKindOf
-
- ModelElement VAR l_OurStereo
- Self .Stereotype >>> l_OurStereo
- 
- if ( l_OurStereo IsNil ) then
- begin
-  false >>> Result
- end // l_OurStereo IsNil
- else
- begin
-  ModelElement VAR l_Stereo
-  aStereo DO >>> l_Stereo
-  l_OurStereo l_Stereo IsStereoKindOf >>> Result
- end // // l_OurStereo IsNil
- 
-; // IsStereotype
+USES
+ DoCache.ms.dict
+;
 
 USES
  RoseModel.ms.dict
@@ -353,6 +212,25 @@ ModelElement elem_func Original
  Self 'Original' .ElemWord >>> Result
 ; // Original
 
+USES
+ IsNil.ms.dict
+;
+
+ModelElement elem_func Viewed
+ RULES
+  ( Self .IsSomeView )
+   RULES
+    ( Self .Original .NotIsNil )
+     ( Self .Original )
+    DEFAULT
+     Self
+   ; // RULES 
+  DEFAULT
+   Self
+ ; // RULES
+ >>> Result
+; // Viewed
+
 ModelElement elem_func From
  Self 'From' .ElemWord >>> Result
 ; // From
@@ -392,18 +270,6 @@ ModelElement elem_func Stub
 ModelElement elem_func Implementor
  Self 'Implementor' .ElemWord >>> Result
 ; // Implementor
-
-USES
- IsNil.ms.dict
-;
-
-STRING elem_func NameInModel
- Self .OriginalName >>> Result
- if ( Result .IsNil ) then
- begin
-  Self .Name >>> Result
- end // ( Result .IsNil )
-; // NameInModel
 
 USES
  ref.ms.dict
@@ -451,10 +317,8 @@ USES
 
 elem_iterator UpList
  RULES
-  ( Self .IsView )
-   ( Self .Original call.me )
-  ( Self .IsDiagram )
-   ( Self .Original call.me )
+  ( Self .IsSomeView )
+   ( Self .Viewed call.me )
   DEFAULT
    begin
     RULES
@@ -642,6 +506,9 @@ ENDME // st_noconst
 ME st_NodeType_
  MEPROP Name 'NodeType_'
 ENDME // st_NodeType_
+
+EXPORTS
+ ElemMemberPrim.ms.dict
 
 EXPORTS
  LoadOnDemand.ms.dict

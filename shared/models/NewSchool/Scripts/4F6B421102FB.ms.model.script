@@ -8,6 +8,20 @@ FORWARD ME_4ADC5146016D
 
 FORWARD ME_4ADC55470317
 
+ME ME_4ADC55FC02BB
+ MEPROP UID '4ADC55FC02BB'
+ MEPROP Name 'f_Unique'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC55470317 // TnsUniqueName
+ ;
+ MELINK Target WL 'ME_4683CF0601DB' '467BAB7F021E.ms.model.script' // IvcmStrings
+ ;
+
+ENDME // ME_4ADC55FC02BB f_Unique
+
 FORWARD ME_4ADC560A0041
 
 ME ME_521B85A20242
@@ -148,6 +162,10 @@ ME ME_4ADC55470317
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
  )
  ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4ADC55FC02BB // f_Unique
+ )
+ ; // Attributes
  MELIST Operations
    Seq: ( HWL ME_4ADC560A0041 // MakeName
  HWL ME_4ADC55A200AD // Create
@@ -262,6 +280,22 @@ ME ME_5273A25A0018
 
 ENDME // ME_5273A25A0018 Window
 
+ME ME_4ADC593A0338
+ MEPROP UID '4ADC593A0338'
+ MEPROP Name 'Child'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ADC54290390 // FindNode
+ ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4ADC593A0338 Child
+
 ME ME_4ADC544E0216
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
@@ -301,6 +335,7 @@ ME ME_4ADC54290390
  ;
  MELIST Attributes
    Seq: ( HWL ME_5273A25A0018 // Window
+ HWL ME_4ADC593A0338 // Child
  )
  ; // Attributes
  MELIST Operations

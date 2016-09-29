@@ -16,10 +16,10 @@ w:\common\components\gui\Garant\msm\msmModelLoader.pas
  , SysUtils
 //#UC END# *57A9D6D90249impl_uses*
 //#UC START# *57A9D6F8022B_57A9D6D90249_impl*
- Result := TmsmModelElementFactory.Make(
+ Result := TmsmModelElement.MakeFromValue(
   TmsmModelElementMethodCaller.Call(
    [TtfwStackValue_C(TtfwCStringFactory.C(aFileName))],
-   'WordByDictionaryPath').AsObject As TtfwWord
+   'WordByDictionaryPath')
   );
 //#UC END# *57A9D6F8022B_57A9D6D90249_impl*
 //#UC START# *57A9D6F8022B_57A9D6D90249_var*

@@ -9,8 +9,10 @@
 //#UC START# *57B167E2003A_57B189990202set_var*
 //#UC END# *57B167E2003A_57B189990202set_var*
 //#UC START# *57B189990202_ext:FileName
-w:\common\components\gui\Garant\msm\msmListModel.imp.pas
+w:\common\components\gui\Garant\msm\msmListModelPrim.pas
 //#UC END# *57B189990202_ext:FileName
+//#UC START# *57B189990202impl_uses*
+//#UC END# *57B189990202impl_uses*
 //#UC START# *57B18AEE021C_57B189990202get_impl*
  Result := Self;
 //#UC END# *57B18AEE021C_57B189990202get_impl*
@@ -89,24 +91,59 @@ w:\common\components\gui\Garant\msm\msmListModel.imp.pas
 //#UC END# *57D274D20357_57B189990202_var*
 //#UC START# *57D2A7D900FE_57B189990202_impl*
  if (anElement = nil) then
-  Self.SetList(nil)
- else 
+ begin
+  f_ElementView.rElement := nil;
+  Self.SetList(nil);
+  Exit;
+ end;//anElement = nil
+
+ if (f_ElementView.rElement <> nil)
+    AND f_ElementView.rElement.IsSameElement(anElement)
+    AND (f_List <> nil) then
+  Exit;
+
+ l_NewElement := anElement;
+
  if f_IsDir then
  begin
   Assert(f_SubElementName = '');
-  if anElement.BoolProp['IsDiagram'] then
-   //Self.SetList(TmsmModelElementDir.Make(anElement.ElementProp['Original'].List[f_ElementView.rListName], f_ElementView.rTextName))
-   f_List := TmsmModelElementDir.Make(anElement.ElementProp['Original'].List[f_ElementView.rListName], f_ElementView.rTextName)
-  else
-   Self.SetList(TmsmModelElementDir.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+  if l_NewElement.BoolProp['IsSomeView'] then
+   l_NewElement := l_NewElement.ElementProp['Viewed'];
  end//f_IsDir
  else
  begin
   if (f_SubElementName <> '') then
-   Self.SetList(TmsmModelElementRelationList.Make(anElement.ElementProp[f_SubElementName].List[f_ElementView.rListName], f_ElementView.rTextName))
-  else
-   Self.SetList(TmsmModelElementRelationList.Make(anElement.List[f_ElementView.rListName], f_ElementView.rTextName));
+  begin
+   l_NewElement := l_NewElement.ElementProp[f_SubElementName];
+  end;//f_SubElementName <> ''
  end;//f_IsDir
+
+ if (f_ElementView.rElement <> nil)
+    AND f_ElementView.rElement.IsSameElement(l_NewElement)
+    AND (f_List <> nil) then
+  Exit;
+  
+ f_ElementView.rElement := l_NewElement;
+ if (f_ElementView.rElement = nil) then
+  Self.SetList(nil)
+ else
+ if f_IsDir then
+  Self.SetList(TmsmModelElementDir.Make(f_ElementView))
+ else
+  Self.SetList(TmsmModelElementRelationList.Make(f_ElementView));
 //#UC END# *57D2A7D900FE_57B189990202_impl*
 //#UC START# *57D2A7D900FE_57B189990202_var*
+var
+ l_NewElement : ImsmModelElement;
 //#UC END# *57D2A7D900FE_57B189990202_var*
+//#UC START# *57E331B90378_57B189990202_impl*
+ if (f_SubElementName = '') then
+  Result := inherited DoGetCaption
+ else
+ if (f_ElementView.rElement <> nil) then
+  Result := l3Str(f_ElementView.rElement.Name)
+ else
+  Result := f_SubElementName; 
+//#UC END# *57E331B90378_57B189990202_impl*
+//#UC START# *57E331B90378_57B189990202_var*
+//#UC END# *57E331B90378_57B189990202_var*

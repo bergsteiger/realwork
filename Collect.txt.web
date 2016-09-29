@@ -1,0 +1,64 @@
+PROGRAM DictionaryByName.ms.script
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+USES
+ CollectElements.ms.dict
+;
+
+USES
+ Log.ms.dict
+;
+
+CollectInAllDictionaries: 
+( 
+  STRING IN aDictName 
+ '%%InjectedBy ' aDictName FindInFile 
+ OR ( 'MELINK Stereotype st_ScriptKeywordsPack ;' aDictName FindInFile )
+ DUP ? ( Log: ( [ 'Collect Injected: ' aDictName ] strings:Cat ) )
+) 
+(
+  IN aWord
+ aWord .Dependencies
+ .filter&gt; .IsInjects
+ .map&gt; .Target
+ if ( aWord .IsScriptKeywordsPack ) then
+ begin
+  .join&gt; ( aWord .Inherits )
+ end // ( aWord .IsScriptKeywordsPack )
+) // CollectInAllDictionaries:
+ '.ms.model.script.inj' '_InjectedElements' OutCollected
+
+CollectInAllDictionaries: 
+( 
+  STRING IN aDictName 
+ '%%ImplementedBy ' aDictName FindInFile
+ AND (
+  ( 'MELINK Stereotype st_VCMFormDefinition ;' aDictName FindInFile )
+  OR ( 'MELINK Stereotype st_Atom ;' aDictName FindInFile )
+  OR ( 'MELINK Stereotype st_Tag ;' aDictName FindInFile )
+ ) // AND
+ DUP ? ( Log: ( [ 'Collect Implementors: ' aDictName ] strings:Cat ) )
+) 
+(
+  IN aWord
+ aWord .Implements
+ .filter&gt; ( 
+   IN anElement
+  RULES 
+   ( anElement .IsVCMFormDefinition )
+    true
+   ( anElement .IsAtom )
+    true
+   DEFAULT
+    false
+  ; // RULES   
+ ) // .filter&gt;
+) // CollectInAllDictionaries:
+ '.ms.model.script.impl' '_Implementors' OutCollected

@@ -992,6 +992,43 @@ ME ME_570E700201A7
 
 ENDME // ME_570E700201A7 OpenAppend
 
+ME ME_57E5269300E6
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ ;
+
+ENDME // ME_57E5269300E6 aFileName
+
+ME ME_57E540AD0094
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57E540AD0094 aString
+
+ME ME_57E5266B024A
+ MEPROP UID '57E5266B024A'
+ MEPROP Name 'FindInFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E5269300E6 // aFileName
+ ME_57E540AD0094 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_57E5266B024A FindInFile
+
 ME ME_55B5FAD602C0
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -1092,6 +1129,16 @@ ME ME_56420DE10149
 
 ENDME // ME_56420DE10149 
 
+ME ME_57E542C2016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_57E526D50230' '57E526C80040.ms.model.script' // l3TextSearch
+ ;
+
+ENDME // ME_57E542C2016C 
+
 ME ME_4F4E4E7E0350_ME_4F4FD7EA00EB
  MELINK Original WL 'ME_4F4E4E7E0350' '4DAF19F600C5.ms.model.script' // ReadLn
  ;
@@ -1183,6 +1230,7 @@ ME ME_4F4FD7EA00EB
  HWL ME_56420DAD0276 // FileSize
  HWL ME_56420DEC002D // CompareFiles
  HWL ME_570E700201A7 // OpenAppend
+ HWL ME_57E5266B024A // FindInFile
  )
  ; // Operations
  MELIST Implemented
@@ -1212,6 +1260,7 @@ ME ME_4F4FD7EA00EB
  ME_55B5FD0E0078 // C$File
  ME_5601702B012C // Tl3ConstString
  ME_56420DE10149 // l3Stream
+ ME_57E542C2016C // l3TextSearch
  )
  ; // Dependencies
  UP "ifndef" 'NoScripts'
@@ -1244,6 +1293,7 @@ ME ME_4F4FD6CC0295
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
  WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
  WL 'ME_55BF153300A4' '55BF153300A4.ms.model.script' // tfwTypeInfo
+ WL 'ME_57E526C80040' '57E526C80040.ms.model.script' // FileUtils
  )
  ; // Depends
  UP "ifndef" 'NoScripts'

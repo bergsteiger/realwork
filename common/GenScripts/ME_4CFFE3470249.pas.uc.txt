@@ -221,93 +221,98 @@ var
 //#UC START# *48C6B7E80104_4CFFE36B00FA_var*
 //#UC END# *48C6B7E80104_4CFFE36B00FA_var*
 //#UC START# *48C6C044025E_4CFFE36B00FA_impl*
- if Enabled then
-  l_BaseBGColor := Color
- else
-  l_BaseBGColor := clBtnFace; // может, можно как-то получить цвет disabled окна?
- if SearchStr <> '' then
-  MakeSureCaretIsCreated;
- inherited Paint(CN);
- {Exit if the updating flag is set}
- if csDestroying in ComponentState then Exit;
+ Inc(f_LockTotal);
+ try
+  if Enabled then
+   l_BaseBGColor := Color
+  else
+   l_BaseBGColor := clBtnFace; // может, можно как-то получить цвет disabled окна?
+  if SearchStr <> '' then
+   MakeSureCaretIsCreated;
+  inherited Paint(CN);
+  {Exit if the updating flag is set}
+  if csDestroying in ComponentState then Exit;
 
- if InUpdating then Exit;
+  if InUpdating then Exit;
 
- CN.Font.AssignFont(Font);
- {we will erase our own background}
- SetBkMode(hDC(CN.DC), TRANSPARENT);
+  CN.Font.AssignFont(Font);
+  {we will erase our own background}
+  SetBkMode(hDC(CN.DC), TRANSPARENT);
 
- {get the clipping region}
- GetClipBox(hDC(CN.DC), Clip);
+  {get the clipping region}
+  GetClipBox(hDC(CN.DC), Clip);
 
- {calculate last visible item}
- Last := ItemOnScreen(False);
- if Last > f_Total - f_TopIndex then
-  Last := f_Total - f_TopIndex;
+  {calculate last visible item}
+  Last := ItemOnScreen(False);
+  if Last > f_Total - f_TopIndex then
+   Last := f_Total - f_TopIndex;
 
- CN.NotFocused := not Focused;
+  CN.NotFocused := not Focused;
 
- l_ItemVShift := GetItemVShift;
+  l_ItemVShift := GetItemVShift;
 
- if UseDrawPoints then
-  l_TopVShift := InterRowIndent div 2
- else
- if Images <> nil then
-  l_TopVShift := (f_RowHeight - Images.Height) div 2
- else
-  l_TopVShift := 0; // хоть он и не используется в этом случае, но на всякий пожарный...
+  if UseDrawPoints then
+   l_TopVShift := InterRowIndent div 2
+  else
+  if Images <> nil then
+   l_TopVShift := (f_RowHeight - Images.Height) div 2
+  else
+   l_TopVShift := 0; // хоть он и не используется в этом случае, но на всякий пожарный...
 
- {display each row}
- for I := 1 to Last do
-  DrawItem(f_TopIndex + Pred(I));
+  {display each row}
+  for I := 1 to Last do
+   DrawItem(f_TopIndex + Pred(I));
 
- {paint any blank area below last item and above first}
- CR.R.WR := ClientRect;
- l_TopIndent := GetTopIndent;
- if UseDrawPoints then
- begin
-  if (DrawPoints <> nil) and (DrawPoints.Count > 0) then
-   CR.Top := DrawPoints.Last;
-  Inc(CR.R.Top, l_TopIndent);
- end //UseDrawPoints
- else
-  CR.Top := CompleteRowHeight * Last + l_TopIndent;
-
- if (CR.Top < ClientHeight) and ((f_TopIndex + Last - 1 = f_HighIndex) or (Total = 0)) and FooterVisible then
-  CR.Top := DrawFooter(CN, CR.Top);
-
- if CR.Top < ClientHeight then
+  {paint any blank area below last item and above first}
+  CR.R.WR := ClientRect;
+  l_TopIndent := GetTopIndent;
+  if UseDrawPoints then
   begin
-   CR.R.Bottom := ClientHeight;
-   {clear the area}
+   if (DrawPoints <> nil) and (DrawPoints.Count > 0) then
+    CR.Top := DrawPoints.Last;
+   Inc(CR.R.Top, l_TopIndent);
+  end //UseDrawPoints
+  else
+   CR.Top := CompleteRowHeight * Last + l_TopIndent;
+
+  if (CR.Top < ClientHeight) and ((f_TopIndex + Last - 1 = f_HighIndex) or (Total = 0)) and FooterVisible then
+   CR.Top := DrawFooter(CN, CR.Top);
+
+  if CR.Top < ClientHeight then
+   begin
+    CR.R.Bottom := ClientHeight;
+    {clear the area}
+    CN.BackColor := l_BaseBGColor;
+    CN.FillRect(CR);
+   end;
+  if (InterRowIndent > 0) then
+  begin
+   CR.R.WR := ClientRect;
+   CR.R.Bottom := l_TopIndent;
+   CR.R.Top := CR.Bottom - InterRowIndent;
    CN.BackColor := l_BaseBGColor;
    CN.FillRect(CR);
   end;
- if (InterRowIndent > 0) then
- begin
-  CR.R.WR := ClientRect;
-  CR.R.Bottom := l_TopIndent;
-  CR.R.Top := CR.Bottom - InterRowIndent;
-  CN.BackColor := l_BaseBGColor;
-  CN.FillRect(CR);
- end;
 
- // рисуем вертикальные полоски сетки (если надо)
- if UseTabStops and DrawGrid then
- begin
-  CN.Canvas.Pen.Color := clLtGray;
-  lCurPos := 0;
-  for I := 0 to Header.Sections.Count-1 do
+  // рисуем вертикальные полоски сетки (если надо)
+  if UseTabStops and DrawGrid then
   begin
-   Inc(lCurPos, Header.SectionWidth[I]);
-   if lCurPos < ClientWidth then
+   CN.Canvas.Pen.Color := clLtGray;
+   lCurPos := 0;
+   for I := 0 to Header.Sections.Count-1 do
    begin
-    CN.Canvas.MoveTo(lCurPos, 0);
-    CN.Canvas.LineTo(lCurPos, ClientHeight);
-   end else
-    Break;
+    Inc(lCurPos, Header.SectionWidth[I]);
+    if lCurPos < ClientWidth then
+    begin
+     CN.Canvas.MoveTo(lCurPos, 0);
+     CN.Canvas.LineTo(lCurPos, ClientHeight);
+    end else
+     Break;
+   end;
   end;
- end;
+ finally
+  Dec(f_LockTotal);
+ end;//try..finally
 //#UC END# *48C6C044025E_4CFFE36B00FA_impl*
 //#UC START# *48C6C044025E_4CFFE36B00FA_var*
 var
@@ -1115,6 +1120,11 @@ var
 //#UC END# *514C884901B4_4CFFE36B00FAset_impl*
 //#UC START# *514C884901B4_4CFFE36B00FAset_var*
 //#UC END# *514C884901B4_4CFFE36B00FAset_var*
+//#UC START# *514C89A601FE_4CFFE36B00FAget_impl*
+ Result := f_Total;
+//#UC END# *514C89A601FE_4CFFE36B00FAget_impl*
+//#UC START# *514C89A601FE_4CFFE36B00FAget_var*
+//#UC END# *514C89A601FE_4CFFE36B00FAget_var*
 //#UC START# *514C89A601FE_4CFFE36B00FAset_impl*
  if aValue <> f_Total then
  begin

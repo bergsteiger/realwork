@@ -6,9 +6,23 @@
 //#UC START# *47D1602000C6_57B4564702F8_impl*
  inherited;
  Self.OnGetItemImageIndex := Self.DoGetItemImageIndex;
+ Self.OnQuickSearchStrChanged := Self.QuickSearchHandler;
 //#UC END# *47D1602000C6_57B4564702F8_impl*
 //#UC START# *47D1602000C6_57B4564702F8_var*
 //#UC END# *47D1602000C6_57B4564702F8_var*
+//#UC START# *514C89A601FE_57B4564702F8get_impl*
+ if Assigned(OnGetTotal) then
+  if (f_LockTotal <= 0) AND not InUpdating then
+   OnGetTotal(Self);
+ Result := inherited pm_GetTotal;
+//#UC END# *514C89A601FE_57B4564702F8get_impl*
+//#UC START# *514C89A601FE_57B4564702F8get_var*
+//#UC END# *514C89A601FE_57B4564702F8get_var*
+//#UC START# *514C89A601FE_57B4564702F8set_impl*
+ inherited;
+//#UC END# *514C89A601FE_57B4564702F8set_impl*
+//#UC START# *514C89A601FE_57B4564702F8set_var*
+//#UC END# *514C89A601FE_57B4564702F8set_var*
 //#UC START# *57B4564702F8_ext:FileName
 w:\common\components\gui\Garant\msm\msmListView.pas
 //#UC END# *57B4564702F8_ext:FileName
@@ -19,11 +33,17 @@ w:\common\components\gui\Garant\msm\msmListView.pas
 //#UC START# *57B4564702F8impl*
 //#UC END# *57B4564702F8impl*
 //#UC START# *57B4564702F8impl_uses*
+ , Windows
+ , Controls
+ , Forms
  , ImgList
 //#UC END# *57B4564702F8impl_uses*
 //#UC START# *57B4564702F8intf_uses*
+ , Types
 //#UC END# *57B4564702F8intf_uses*
 //#UC START# *57B4564702F8publ*
+  private
+   f_MousePos: TPoint;
   public
    property AllowWithoutCurrent; 
 //#UC END# *57B4564702F8publ*
@@ -46,3 +66,73 @@ w:\common\components\gui\Garant\msm\msmListView.pas
 var
  l_Images : TCustomImageList;
 //#UC END# *57D94AB5005D_57B4564702F8_var*
+//#UC START# *57E3EAD8009E_57B4564702F8_impl*
+ GetCursorPos(l_Point);
+ if (f_MousePos.X = l_Point.X) and (f_MousePos.Y = l_Point.Y) then
+  exit;
+ with ScreentoClient(l_Point) do
+  if (X < 0) or (X > ClientWidth) or (Y < 0) or (Y > ClientHeight) or (not Application.Active) then
+   FreeHintWindow;
+//#UC END# *57E3EAD8009E_57B4564702F8_impl*
+//#UC START# *57E3EAD8009E_57B4564702F8_var*
+var
+  l_Point: TPoint;
+//#UC END# *57E3EAD8009E_57B4564702F8_var*
+//#UC START# *57E3EB230241_57B4564702F8_impl*
+{use Application.Hint
+  if aString = '' then
+    FreeHintWindow
+  else begin
+    GetCursorPos(f_MousePos);
+    l_Rect := GetDrawTextRect(Current);
+    with l_Rect do begin
+      TopLeft := ClientToScreen(TopLeft);
+      BottomRight := ClientToScreen(BottomRight);
+      Top := Bottom;
+      Left := Left  - 1;
+      Top := Top - 3;
+      Right := Left + Canvas.Canvas.TextWidth(aString) + 6;
+      Bottom := Top + Canvas.Canvas.TextHeight(aString) + 2;
+      ShowHintWindow(aString, TopLeft);
+    end;
+    fHintTimer.OnTimer := QuickSearchHintTimerEvent;
+    fHintTimer.Enabled := True;
+  end;
+}
+//use fHintWindow
+  if (aString = '') then
+    FreeHintWindow
+  else
+  begin
+   l_HintWindow := GetHintWindow;
+   if Assigned(l_HintWindow) then
+   begin
+    GetCursorPos(f_MousePos);
+    l_Rect := GetDrawTextRect(Current);
+    with l_Rect do
+    begin
+     TopLeft := ClientToScreen(TopLeft);
+     BottomRight := ClientToScreen(BottomRight);
+     Top := Bottom;
+     DrawText(
+       hDC(l_HintWindow.Canvas.Handle),
+       PChar(aString),
+       -1,
+       l_Rect,//with
+       DT_CALCRECT or DT_LEFT);// or DT_WORDBREAK
+     Left := Left  - 1;
+     Top := Top - 3;
+     Right := Right + 6;
+     Bottom := Bottom - 2;
+    end;//with l_Rect
+    l_HintWindow.ActivateHint(l_Rect, aString);
+    f_HintTimer.OnTimer := QuickSearchHintTimerEvent;
+    f_HintTimer.Enabled := True;
+   end;//Assigned(l_HintWindow)
+  end;//aString = ''
+//#UC END# *57E3EB230241_57B4564702F8_impl*
+//#UC START# *57E3EB230241_57B4564702F8_var*
+var
+  l_HintWindow: THintWindow;
+  l_Rect: TRect;
+//#UC END# *57E3EB230241_57B4564702F8_var*

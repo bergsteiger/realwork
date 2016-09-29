@@ -145,3 +145,23 @@ var
  l_S : TmsmElementSelection;
  l_Index : Integer;
 //#UC END# *57E2562D00BD_57D8F2850376_var*
+//#UC START# *57E3F8490205_57D8F2850376_impl*
+ l_List := TtfwWordRefList.Create;
+ try
+  Self.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  Result := TtfwWordsIterator.Make(l_List);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+//#UC END# *57E3F8490205_57D8F2850376_impl*
+//#UC START# *57E3F8490205_57D8F2850376_var*
+var
+ l_List : TtfwWordRefList;
+
+ function DoElement(const anElement: ImsmModelElement): Boolean;
+ begin//DoElement
+  Result := true;
+  l_List.Add(anElement.MainWord);
+ end;//DoElement
+
+//#UC END# *57E3F8490205_57D8F2850376_var*

@@ -3278,6 +3278,38 @@ ME ME_554CABC100AC
 
 ENDME // ME_554CABC100AC KeyDown
 
+FORWARD ME_57E12CDC0172
+
+ME ME_7DEA1FBAD0BD
+ MEPROP UID '7DEA1FBAD0BD'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода AdjustSize' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E12CDC0172 // AdjustSize
+ ;
+
+ENDME // ME_7DEA1FBAD0BD DoIt
+
+ME ME_57E12CDC0172
+ MEPROP UID '57E12CDC0172'
+ MEPROP Name 'AdjustSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E124E90272 // TWinControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_7DEA1FBAD0BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57E12CDC0172 AdjustSize
+
 ME ME_482C4E18023A
  MEPROP Name 'Key'
  MEPROP Class class_Parameter
@@ -3451,6 +3483,7 @@ ME ME_47E124E90272
  HWL ME_52B9A6A80336 // GetSiteInfo
  HWL ME_53F45A560187 // DoEnter
  HWL ME_554CABC100AC // KeyDown
+ HWL ME_57E12CDC0172 // AdjustSize
  HWL ME_482C4E0E01E4 // KeyPress
  HWL ME_48C67EB000EE // CreateWindowHandle
  HWL ME_48C67EDF01C8 // DestroyWindowHandle
