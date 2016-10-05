@@ -51,7 +51,7 @@ function TarCustomSaveDocumentHelper.pm_GetGenerator: Tk2TagGenerator;
 //#UC END# *57E270C5018A_57E27091018Dget_var*
 begin
 //#UC START# *57E270C5018A_57E27091018Dget_impl*
- !!! Needs to be implemented !!!
+ Result := f_Generator;
 //#UC END# *57E270C5018A_57E27091018Dget_impl*
 end;//TarCustomSaveDocumentHelper.pm_GetGenerator
 
@@ -61,7 +61,9 @@ procedure TarCustomSaveDocumentHelper.Cleanup;
 //#UC END# *479731C50290_57E27091018D_var*
 begin
 //#UC START# *479731C50290_57E27091018D_impl*
- !!! Needs to be implemented !!!
+ FreeAndNil(f_Generator);
+ FreeAndNil(f_Filer);
+ inherited;
 //#UC END# *479731C50290_57E27091018D_impl*
 end;//TarCustomSaveDocumentHelper.Cleanup
 

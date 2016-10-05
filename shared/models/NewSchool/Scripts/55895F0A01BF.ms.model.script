@@ -1,0 +1,125 @@
+// KeyWordPack 55895F0A01BF ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55895F0A01BF
+
+ME ME_55895F3B010E
+ MEPROP UID '55895F3B010E'
+ MEPROP Name 'Word'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55895F0A01BF // KeyWordPack
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+ UP "mapped" true
+
+ENDME // ME_55895F3B010E Word
+
+ME ME_55895FC003A4
+ MEPROP UID '55895FC003A4'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55895F0A01BF // KeyWordPack
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55895FC003A4 Name
+
+ME ME_55ED650A0047
+ MEPROP UID '55ED650A0047'
+ MEPROP Name 'Dictionary'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55895F0A01BF // KeyWordPack
+ ;
+ MELINK Target WL 'ME_4DAEECD90016' '4F2275C00012.ms.model.script' // TtfwDictionary
+ ;
+
+ENDME // ME_55ED650A0047 Dictionary
+
+ME ME_5673CF5000C1
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_5673CF5000C1 aWord
+
+ME ME_5673CF480040
+ MEPROP UID '5673CF480040'
+ MEPROP Name 'SetWord'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55895F0A01BF // KeyWordPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_5673CF5000C1 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_5673CF480040 SetWord
+
+ME ME_55ED49950394
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55895F0A01BF // KeyWordPack
+ ;
+ MELINK Target WL 'ME_55E9A8DB03A4' '55E9A8990116.ms.model.script' // ItfwScriptEngineEx
+ ;
+
+ENDME // ME_55ED49950394 
+
+%%InheritedBy ME_4DAEF23D00EE ME_55895F0A01BF
+
+ME ME_55895F0A01BF
+ MEPROP UID '55895F0A01BF'
+ MEPROP Name 'KeyWordPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F37B7E60283' '4F37B7E60283.ms.model.script' // Words RTTI
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DAEF23D00EE' '4DAF19F600C5.ms.model.script' // TtfwKeyWord
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55895F3B010E // Word
+ HWL ME_55895FC003A4 // Name
+ HWL ME_55ED650A0047 // Dictionary
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5673CF480040 // SetWord
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55ED49950394 // ItfwScriptEngineEx
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyWordPack.pas'
+
+ENDME // ME_55895F0A01BF KeyWordPack

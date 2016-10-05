@@ -1,0 +1,82 @@
+// bsChangeRedationWorker 4A793DBB010E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A793DBB010E
+%%Inner ME_4A793DBB010E
+%%Inner ME_4A793DBB010E
+
+FORWARD ME_4A793DBB010E
+
+ME ME_4AD5AD840233
+ MEPROP UID '4AD5AD840233'
+ MEPROP Name 'TbsChangeRedationById'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A793DBB010E // bsChangeRedationWorker
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'bsChangeRedationById'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AD5AD840233 TbsChangeRedationById
+
+ME ME_4AD5AD9001CF
+ MEPROP UID '4AD5AD9001CF'
+ MEPROP Name 'TbsChangeRelationByDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A793DBB010E // bsChangeRedationWorker
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'bsChangeRelationByDate'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AD5AD9001CF TbsChangeRelationByDate
+
+ME ME_4AD5AD9C01DB
+ MEPROP UID '4AD5AD9C01DB'
+ MEPROP Name 'TbsChangeRelationByHyperlink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A793DBB010E // bsChangeRedationWorker
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'bsChangeRelationByHyperlink'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AD5AD9C01DB TbsChangeRelationByHyperlink
+
+ME ME_4A793DBB010E
+ MEPROP UID '4A793DBB010E'
+ MEPROP Name 'bsChangeRedationWorker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD5AD840233 // TbsChangeRedationById
+ HWL ME_4AD5AD9001CF // TbsChangeRelationByDate
+ HWL ME_4AD5AD9C01DB // TbsChangeRelationByHyperlink
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_bsChangeRedationWorker.pas'
+
+ENDME // ME_4A793DBB010E bsChangeRedationWorker

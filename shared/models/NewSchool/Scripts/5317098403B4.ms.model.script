@@ -1,0 +1,52 @@
+// csLineRequest 5317098403B4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5317098403B4
+
+FORWARD ME_5317098403B4
+
+%%InheritedBy ME_53B683D900A9 ME_5317099C017B
+
+ME ME_5317099C017B
+ MEPROP UID '5317099C017B'
+ MEPROP Name 'TcsLineRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5317098403B4 // csLineRequest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B683D900A9' '52F8C298005C.ms.model.script' // TcsLineRequestPrim
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'csLineRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5317099C017B TcsLineRequest
+
+ME ME_5317098403B4
+ MEPROP UID '5317098403B4'
+ MEPROP Name 'csLineRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5317099C017B // TcsLineRequest
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csLineRequest.pas'
+
+ENDME // ME_5317098403B4 csLineRequest

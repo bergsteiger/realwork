@@ -1,0 +1,80 @@
+// MainEditor 512DBDD903A5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_512DBDD903A5
+
+FORWARD ME_512DBDD903A5
+
+FORWARD ME_512DBDF8030B
+
+ME ME_57765EFC0217
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DBDF8030B // TMainEditorForm
+ ;
+ MELINK Target WL 'ME_5776300D0270' '47F485150151.ms.model.script' // TvtClipSpyService
+ ;
+
+ENDME // ME_57765EFC0217 
+
+ME ME_512DBDF8030B
+ MEPROP UID '512DBDF8030B'
+ MEPROP Name 'TMainEditorForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_512DBDD903A5 // MainEditor
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57765EFC0217 // TvtClipSpyService
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP extprop:rc:SelfName 'MainEditorForm'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_512DBDF8030B TMainEditorForm
+
+ME ME_512DBE1F01ED
+ MEPROP UID '512DBE1F01ED'
+ MEPROP Name 'MainForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_512DBDD903A5 // MainEditor
+ ;
+ MELINK Target HWL ME_512DBDF8030B // TMainEditorForm
+ ;
+
+ENDME // ME_512DBE1F01ED MainForm
+
+ME ME_512DBDD903A5
+ MEPROP UID '512DBDD903A5'
+ MEPROP Name 'MainEditor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_512DBAE001FA' '512DBAE001FA.ms.model.script' // MainUnits
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_512DBE1F01ED // MainForm
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_512DBDF8030B // TMainEditorForm
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_MainEditor.pas'
+
+ENDME // ME_512DBDD903A5 MainEditor

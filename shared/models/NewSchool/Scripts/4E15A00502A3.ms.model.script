@@ -2,7 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4E15A00502A3
+%%Inner ME_4E15A00502A3
+
 FORWARD ME_4E15A00502A3
+
+%%InheritedBy ME_4E159FC602F5 ME_4E15A01301E2
 
 ME ME_4E15A01301E2
  MEPROP UID '4E15A01301E2'
@@ -15,7 +20,7 @@ ME ME_4E15A01301E2
  MELINK Parent HWL ME_4E15A00502A3 // TvtStatusBar
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4E159FC602F5' '4799D29F033F.ms.model.script' // TCustomStatusBar
+   Seq: ( WL 'ME_4E159FC602F5' '4AC62798032A.ms.model.script' // TCustomStatusBar
  )
  ; // Inherits
  UP "register in scripts" true
@@ -45,10 +50,12 @@ ME ME_4E257A110115
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E15A00502A3 // TvtStatusBar
  ;
- MELINK Target WL 'ME_4E2579780027' '474144E20301.ms.model.script' // afwDrawing
+ MELINK Target WL 'ME_4E2579780027' '4E2579780027.ms.model.script' // afwDrawing
  ;
 
 ENDME // ME_4E257A110115 
+
+%%InheritedBy ME_4E15A01301E2 ME_4E15A00502A3
 
 ME ME_4E15A00502A3
  MEPROP UID '4E15A00502A3'
@@ -74,6 +81,9 @@ ME ME_4E15A00502A3
    Seq: ( ME_4E257A110115 // afwDrawing
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" false
  UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtStatusBar.pas'
  UP extprop:rc:SelfName 'StatusBar'

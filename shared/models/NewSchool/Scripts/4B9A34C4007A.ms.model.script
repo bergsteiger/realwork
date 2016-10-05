@@ -1,0 +1,127 @@
+// UnderControlBehaviour 4B9A34C4007A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B9A34C4007A
+
+ME ME_4B9E1D6301C7
+ MEPROP UID '4B9E1D6301C7'
+ MEPROP Name 'f_HasControlStatus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ MELINK Target WL 'ME_491BF08F035F' '4678193C009C.ms.model.script' // Tl3Bool
+ ;
+
+ENDME // ME_4B9E1D6301C7 f_HasControlStatus
+
+ME ME_4B9A37C90253
+ MEPROP UID '4B9A37C90253'
+ MEPROP Name 'DoGetControllable'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ MELINK Target WL 'ME_45EEC17501B5' '45EEAA800226.ms.model.script' // Controllable
+ ;
+
+ENDME // ME_4B9A37C90253 DoGetControllable
+
+ME ME_4BA09E450045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B9A34C4007A // UnderControlBehaviour
+ ;
+ MELINK Target WL 'ME_480F78BC0146' '480F78BC0146.ms.model.script' // l3Utils
+ ;
+
+ENDME // ME_4BA09E450045 
+
+ME ME_4B9A2F660115_ME_4B9A34C4007A
+ MELINK Original WL 'ME_4B9A2F660115' '4B9A1E7F0036.ms.model.script' // ClearControlStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B9A2F660115_ME_4B9A34C4007A ClearControlStatus
+
+ME ME_4B9A2F95007C_ME_4B9A34C4007A
+ MELINK Original WL 'ME_4B9A2F95007C' '4B9A1E7F0036.ms.model.script' // HasControlStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B9A2F95007C_ME_4B9A34C4007A HasControlStatus
+
+ME ME_4B9A2FB102EE_ME_4B9A34C4007A
+ MELINK Original WL 'ME_4B9A2FB102EE' '4B9A1E7F0036.ms.model.script' // Controllable
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B9A2FB102EE_ME_4B9A34C4007A Controllable
+
+ME ME_4B9A2FD30344_ME_4B9A34C4007A
+ MELINK Original WL 'ME_4B9A2FD30344' '4B9A1E7F0036.ms.model.script' // ControlStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4B9A2FD30344_ME_4B9A34C4007A ControlStatus
+
+ME ME_47EA4E9002C6_ME_4B9A34C4007A
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA4E9002C6_ME_4B9A34C4007A FinishDataUpdate
+
+%%ImplementedBy ME_4B9A2AB603D4 ME_4B9A34C4007A
+
+%%InheritedBy ME_47EA4BEF0140 ME_4B9A34C4007A
+
+ME ME_4B9A34C4007A
+ MEPROP UID '4B9A34C4007A'
+ MEPROP Name 'UnderControlBehaviour'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4B9A347B0217' '4B9A347B0217.ms.model.script' // UnderControlImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47EA4BEF0140' '47EA4BEF0140.ms.model.script' // afwApplicationDataUpdate
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4B9A2AB603D4' '4B9A1E7F0036.ms.model.script' // IucpUnderControl
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B9E1D6301C7 // f_HasControlStatus
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B9A37C90253 // DoGetControllable
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B9A2F660115_ME_4B9A34C4007A // ClearControlStatus
+ ME_4B9A2F95007C_ME_4B9A34C4007A // HasControlStatus
+ ME_4B9A2FB102EE_ME_4B9A34C4007A // Controllable
+ ME_4B9A2FD30344_ME_4B9A34C4007A // ControlStatus
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47EA4E9002C6_ME_4B9A34C4007A // FinishDataUpdate
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4BA09E450045 // l3Utils
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\UnderControl\UnderControlBehaviour.imp.pas'
+ UP extprop:pas:TypeName '_UnderControlBehaviour_'
+ UP extprop:pas:UnitName 'UnderControlBehaviour.imp'
+
+ENDME // ME_4B9A34C4007A UnderControlBehaviour

@@ -1,9 +1,12 @@
 Unit Dt_Serv;
 {$DEFINE UseCommServer}
 
-{ $Id: Dt_Serv.pas,v 1.343 2016/08/11 15:25:03 voba Exp $ }
+{ $Id: Dt_Serv.pas,v 1.344 2016/09/28 08:00:55 lukyanets Exp $ }
 
 // $Log: Dt_Serv.pas,v $
+// Revision 1.344  2016/09/28 08:00:55  lukyanets
+// Не собиралось
+//
 // Revision 1.343  2016/08/11 15:25:03  voba
 // no message
 //
@@ -1322,6 +1325,7 @@ uses
   Dt_Acces,
   Dt_Lock,
   Dt_LinkServ,
+  dt_LinkServerService,
   DT_AskList,
   Dt_List,
   DT_DocImages,

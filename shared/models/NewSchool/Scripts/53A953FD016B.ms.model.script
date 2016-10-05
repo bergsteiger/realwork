@@ -1,0 +1,116 @@
+// evdTaskTypes 53A953FD016B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53A953FD016B
+%%Inner ME_53A953FD016B
+%%Inner ME_53A953FD016B
+%%Inner ME_53A953FD016B
+
+FORWARD ME_53A953FD016B
+
+ME ME_53A9541803CB
+ MEPROP UID '53A9541803CB'
+ MEPROP Name 'TcsTaskStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A953FD016B // evdTaskTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53A9541803CB TcsTaskStatus
+
+ME ME_53A9542401D9
+ MEPROP UID '53A9542401D9'
+ MEPROP Name 'TcsTaskType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A953FD016B // evdTaskTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53A9542401D9 TcsTaskType
+
+ME ME_53B2424703C7
+ MEPROP UID '53B2424703C7'
+ MEPROP Name 'TCsNotificationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A953FD016B // evdTaskTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53B2424703C7 TCsNotificationType
+
+ME ME_550A7FA50320
+ MEPROP UID '550A7FA50320'
+ MEPROP Name 'TcsPredefinedUserIDs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A953FD016B // evdTaskTypes
+ ;
+ UP "spell names" false
+
+ENDME // ME_550A7FA50320 TcsPredefinedUserIDs
+
+%%InheritedBy ME_53B2424703C7 ME_56E7B3B103E2
+
+ME ME_56E7B3B103E2
+ MEPROP UID '56E7B3B103E2'
+ MEPROP Name 'TCsNotificationTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A953FD016B // evdTaskTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53B2424703C7 // TCsNotificationType
+ )
+ ; // Inherits
+
+ENDME // ME_56E7B3B103E2 TCsNotificationTypes
+
+ME ME_53A953FD016B
+ MEPROP UID '53A953FD016B'
+ MEPROP Name 'evdTaskTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53A9541803CB // TcsTaskStatus
+ HWL ME_53A9542401D9 // TcsTaskType
+ HWL ME_53B2424703C7 // TCsNotificationType
+ HWL ME_56E7B3B103E2 // TCsNotificationTypes
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_550A7FA50320 // TcsPredefinedUserIDs
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_evdTaskTypes.pas'
+ UP extprop:rc:SelfName 'dTaskTypes'
+
+ENDME // ME_53A953FD016B evdTaskTypes

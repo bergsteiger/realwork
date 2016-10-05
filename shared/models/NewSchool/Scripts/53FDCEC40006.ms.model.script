@@ -1,0 +1,323 @@
+// m3CustomHeaderStream 53FDCEC40006 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53FDCEC40006
+
+FORWARD ME_53FDCEC40006
+
+ME ME_53FF379A00E4
+ MEPROP UID '53FF379A00E4'
+ MEPROP Name 'HeaderType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ UP extprop:pas:TypeName '_HeaderType_'
+
+ENDME // ME_53FF379A00E4 HeaderType
+
+ME ME_53FF37A80145
+ MEPROP UID '53FF37A80145'
+ MEPROP Name 'HeaderData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target HWL ME_53FF379A00E4 // HeaderType
+ ;
+
+ENDME // ME_53FF37A80145 HeaderData
+
+ME ME_53FF37CA03D8
+ MEPROP UID '53FF37CA03D8'
+ MEPROP Name 'HeaderDataCompare'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target HWL ME_53FF379A00E4 // HeaderType
+ ;
+
+ENDME // ME_53FF37CA03D8 HeaderDataCompare
+
+FORWARD ME_53FF2351033E
+
+ME ME_53FF235B03B1
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_53FF235B03B1 aStream
+
+ME ME_53FF235B03DB
+ MEPROP Name 'aAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53FF235B03DB aAccess
+
+ME ME_53FF235902F1
+ MEPROP UID '53FF235902F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF2351033E // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_53FF235B03B1 // aStream
+ ME_53FF235B03DB // aAccess
+ )
+ ; // Parameters
+
+ENDME // ME_53FF235902F1 DoIt
+
+ME ME_53FF2351033E
+ MEPROP UID '53FF2351033E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF235902F1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF2351033E Create
+
+FORWARD ME_53FF37DC003A
+
+ME ME_53FF37F6037B
+ MEPROP UID '53FF37F6037B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF37DC003A // DefaultHeaderValue
+ ;
+ MELINK Target HWL ME_53FF379A00E4 // HeaderType
+ ;
+
+ENDME // ME_53FF37F6037B DoIt
+
+ME ME_53FF37DC003A
+ MEPROP UID '53FF37DC003A'
+ MEPROP Name 'DefaultHeaderValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF37F6037B // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_53FF37DC003A DefaultHeaderValue
+
+FORWARD ME_5408826C0072
+
+ME ME_5408828B01B3
+ MEPROP UID '5408828B01B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5408826C0072 // NeedHeaderAlignment
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5408828B01B3 DoIt
+
+ME ME_5408826C0072
+ MEPROP UID '5408826C0072'
+ MEPROP Name 'NeedHeaderAlignment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5408828B01B3 // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_5408826C0072 NeedHeaderAlignment
+
+ME ME_53FEF1A90353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target WL 'ME_53FE05EB019C' '53FE05EB019C.ms.model.script' // m2AddDbg
+ ;
+
+ENDME // ME_53FEF1A90353 
+
+ME ME_53FEF1AF0173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target WL 'ME_53FE05DC02E7' '53FE05DC02E7.ms.model.script' // m2AddPrc
+ ;
+
+ENDME // ME_53FEF1AF0173 
+
+ME ME_53FEF1B3001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target WL 'ME_49B952CD03A6' '49B952CD03A6.ms.model.script' // m2COMLib
+ ;
+
+ENDME // ME_53FEF1B3001B 
+
+ME ME_53FEF1B70073
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target WL 'ME_47BF045E0138' '47BF045E0138.ms.model.script' // m2MemLib
+ ;
+
+ENDME // ME_53FEF1B70073 
+
+ME ME_53FEF1BA01BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_53FEF1BA01BC 
+
+ME ME_53FEF4A90396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target WL 'ME_4981AC0701C1' '4981AC0701C1.ms.model.script' // ComObj
+ ;
+
+ENDME // ME_53FEF4A90396 
+
+ME ME_54859D3F017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FDCEC40006 // m3CustomHeaderStream
+ ;
+ MELINK Target WL 'ME_54217680017C' '54217680017C.ms.model.script' // m3Const
+ ;
+
+ENDME // ME_54859D3F017A 
+
+ME ME_53FDFDD90071_ME_53FDCEC40006
+ MELINK Original WL 'ME_53FDFDD90071' '5485C15F0072.ms.model.script' // DoLoadHeader
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53FDFDD90071_ME_53FDCEC40006 DoLoadHeader
+
+ME ME_53FDFDF503CE_ME_53FDCEC40006
+ MELINK Original WL 'ME_53FDFDF503CE' '5485C15F0072.ms.model.script' // DoSaveHeader
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53FDFDF503CE_ME_53FDCEC40006 DoSaveHeader
+
+ME ME_479731C50290_ME_53FDCEC40006
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53FDCEC40006 Cleanup
+
+%%ImplementedBy ME_53FDFADD027F ME_53FDCEC40006
+
+%%InheritedBy ME_53FF134A03BA ME_53FDCEC40006
+
+ME ME_53FDCEC40006
+ MEPROP UID '53FDCEC40006'
+ MEPROP Name 'm3CustomHeaderStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поток с заголовком-идентификатором' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5485C15F0072' '5485C15F0072.ms.model.script' // HeaderStream
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53FF134A03BA' '5485C15F0072.ms.model.script' // Tm3BaseHeaderStream
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53FDFADD027F' '53FDFADD027F.ms.model.script' // m3HeaderIDSupplier
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53FF37A80145 // HeaderData
+ HWL ME_53FF37CA03D8 // HeaderDataCompare
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53FF2351033E // Create
+ HWL ME_53FF37DC003A // DefaultHeaderValue
+ HWL ME_5408826C0072 // NeedHeaderAlignment
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53FDFDD90071_ME_53FDCEC40006 // DoLoadHeader
+ ME_53FDFDF503CE_ME_53FDCEC40006 // DoSaveHeader
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53FDCEC40006 // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_53FF379A00E4 // HeaderType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53FEF1A90353 // m2AddDbg
+ ME_53FEF1AF0173 // m2AddPrc
+ ME_53FEF1B3001B // m2COMLib
+ ME_53FEF1B70073 // m2MemLib
+ ME_53FEF1BA01BC // l3Base
+ ME_53FEF4A90396 // ComObj
+ ME_54859D3F017A // m3Const
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3CustomHeaderStream.imp.pas'
+ UP extprop:pas:TypeName '_m3CustomHeaderStream_'
+ UP extprop:pas:UnitName 'm3CustomHeaderStream.imp'
+
+ENDME // ME_53FDCEC40006 m3CustomHeaderStream

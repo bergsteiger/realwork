@@ -1,0 +1,64 @@
+// nsTagNodeTools 490865BF02D0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_490865BF02D0
+
+ME ME_4C99E10C012F
+ MEPROP UID '4C99E10C012F'
+ MEPROP Name 'nsCreateFilterForFindTagByID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490865BF02D0 // nsTagNodeTools
+ ;
+ UP extprop:rc:SelfName 'CreateFilterForFindTagByID'
+
+ENDME // ME_4C99E10C012F nsCreateFilterForFindTagByID
+
+%%ImplementedBy ME_4F325B840351 ME_4F325B5D0118
+
+ME ME_4F325B5D0118
+ MEPROP UID '4F325B5D0118'
+ MEPROP Name 'nsSelectByIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_490865BF02D0 // nsTagNodeTools
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4F325B840351' '484407720166.ms.model.script' // Если найденный текст находится в схлопнутом "баллоне", то надо раскрывать баллон и подсвечивать найденный тест, а не ругаться
+ )
+ ; // Implements
+ UP extprop:rc:SelfName 'SelectByIterator'
+
+ENDME // ME_4F325B5D0118 nsSelectByIterator
+
+ME ME_490865BF02D0
+ MEPROP UID '490865BF02D0'
+ MEPROP Name 'nsTagNodeTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_467FC9F80281' '467FC9F80281.ms.model.script' // DocumentTagNodes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C99E10C012F // nsCreateFilterForFindTagByID
+ HWL ME_4F325B5D0118 // nsSelectByIterator
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\NOT_FINISHED_nsTagNodeTools.pas'
+ UP extprop:rc:SelfName 'TagNodeTools'
+
+ENDME // ME_490865BF02D0 nsTagNodeTools

@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F9823DB021B
+%%Inner ME_4F9823DB021B
+%%Inner ME_4F9823DB021B
+%%Inner ME_4F9823DB021B
+
 FORWARD ME_4F9823DB021B
 
 FORWARD ME_4F98251800B4
@@ -21,6 +26,9 @@ ME ME_4F9825660350
 
 ENDME // ME_4F9825660350 ItemType
 
+%%InheritedBy ME_47B57D630029 ME_4F98251800B4
+%%InheritedBy ME_47BC3A07027F ME_4F98251800B4
+
 ME ME_4F98251800B4
  MEPROP UID '4F98251800B4'
  MEPROP Name 'TnsFiltersListenersList'
@@ -32,7 +40,7 @@ ME ME_4F98251800B4
  MELINK Parent HWL ME_4F9823DB021B // FiltersNotification
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
  WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
  )
  ; // Inherits
@@ -222,7 +230,7 @@ ME ME_4FFD49A801C4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F98242D007E // TnsFiltersListenersManagerPrim
  ;
- MELINK Target WL 'ME_4DFF098B00CC' '47913B47006E.ms.model.script' // l3Free
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
  ;
 
 ENDME // ME_4FFD49A801C4 
@@ -246,16 +254,20 @@ ME ME_4CB2B2910052_ME_4F98242D007E
 ENDME // ME_4CB2B2910052_ME_4F98242D007E filter_permanence_changed
 
 ME ME_479731C50290_ME_4F98242D007E
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4F98242D007E Cleanup
 
 ME ME_47A042E100E2_ME_4F98242D007E
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4F98242D007E InitFields
+
+%%ImplementedBy ME_4CB2B25302F7 ME_4F98242D007E
+
+%%InheritedBy ME_49E7754802A9 ME_4F98242D007E
 
 ME ME_4F98242D007E
  MEPROP UID '4F98242D007E'
@@ -301,6 +313,9 @@ ME ME_4F98242D007E
    Seq: ( ME_4FFD49A801C4 // l3Free
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Filters\nsFiltersListenersManagerPrim.pas'
  UP extprop:rc:SelfName 'FiltersListenersManagerPrim'
  UP extprop:rc:isAcceptableForScripts true
@@ -315,7 +330,7 @@ ME ME_4F98481E015F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F98440301D2 // TnsFiltersListenersDrugsManager
  ;
- MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
  ;
 
 ENDME // ME_4F98481E015F 
@@ -335,16 +350,18 @@ ME ME_4FFD45CD0313_ME_4F98440301D2
 ENDME // ME_4FFD45CD0313_ME_4F98440301D2 HasInstance
 
 ME ME_479731C50290_ME_4F98440301D2
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4F98440301D2 Cleanup
 
 ME ME_47A042E100E2_ME_4F98440301D2
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4F98440301D2 InitFields
+
+%%InheritedBy ME_4F98242D007E ME_4F98440301D2
 
 ME ME_4F98440301D2
  MEPROP UID '4F98440301D2'
@@ -389,7 +406,7 @@ ME ME_4F9848190238
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F98447C0378 // TnsFiltersListenersDocManager
  ;
- MELINK Target WL 'ME_4B1E8FAE0380' '48F747EC0073.ms.model.script' // DefDataAdapter
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
  ;
 
 ENDME // ME_4F9848190238 
@@ -409,16 +426,18 @@ ME ME_4FFD45CD0313_ME_4F98447C0378
 ENDME // ME_4FFD45CD0313_ME_4F98447C0378 HasInstance
 
 ME ME_479731C50290_ME_4F98447C0378
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4F98447C0378 Cleanup
 
 ME ME_47A042E100E2_ME_4F98447C0378
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4F98447C0378 InitFields
+
+%%InheritedBy ME_4F98242D007E ME_4F98447C0378
 
 ME ME_4F98447C0378
  MEPROP UID '4F98447C0378'
@@ -481,5 +500,8 @@ ME ME_4F9823DB021B
  WL 'ME_4CAC58E50231' '4CAC58E50231.ms.model.script' // nsFiltersInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4F9823DB021B FiltersNotification

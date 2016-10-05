@@ -1,0 +1,704 @@
+// l3StringIDEx 4B3B36EC03B2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B3B36EC03B2
+%%Inner ME_4B3B36EC03B2
+%%Inner ME_4B3B36EC03B2
+%%Inner ME_4B3B36EC03B2
+%%Inner ME_4B3B36EC03B2
+
+FORWARD ME_4B3B36EC03B2
+
+FORWARD ME_500700DF0376
+
+ME ME_4BB9D83702F4
+ MEPROP UID '4BB9D83702F4'
+ MEPROP Name 'rLocalized'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Строка локализована' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_500700DF0376 // Tl3StringIDExPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BB9D83702F4 rLocalized
+
+%%InheritedBy ME_4B98CE990318 ME_500700DF0376
+
+ME ME_500700DF0376
+ MEPROP UID '500700DF0376'
+ MEPROP Name 'Tl3StringIDExPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B3B36EC03B2 // l3StringIDEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B98CE990318' '4677FBA70343.ms.model.script' // Tl3StringID
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BB9D83702F4 // rLocalized
+ )
+ ; // Attributes
+ UP "not treat as record for XE4" true
+ UP extprop:rc:SelfName 'StringIDExPrim'
+
+ENDME // ME_500700DF0376 Tl3StringIDExPrim
+
+FORWARD ME_4B3B3728004C
+
+ME ME_561FDFF403DA
+ MEPROP UID '561FDFF403DA'
+ MEPROP Name 'rKey'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ключ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_561FDFF403DA rKey
+
+ME ME_561FE0000148
+ MEPROP UID '561FE0000148'
+ MEPROP Name 'rValue'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Значение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_561FE0000148 rValue
+
+FORWARD ME_4BB9D8550292
+
+ME ME_4BB9D88A0393
+ MEPROP Name 'aRus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4BB9D88A0393 aRus
+
+ME ME_4BB9D88A03D3
+ MEPROP Name 'anAlien'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4BB9D88A03D3 anAlien
+
+ME ME_4BB9D8770230
+ MEPROP UID '4BB9D8770230'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BB9D8550292 // Localize
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BB9D88A0393 // aRus
+ ME_4BB9D88A03D3 // anAlien
+ )
+ ; // Parameters
+
+ENDME // ME_4BB9D8770230 DoIt
+
+ME ME_4BB9D8550292
+ MEPROP UID '4BB9D8550292'
+ MEPROP Name 'Localize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Локализовать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BB9D8770230 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4BB9D8550292 Localize
+
+FORWARD ME_4CFE25B202FA
+
+ME ME_4CFE25BF0327
+ MEPROP UID '4CFE25BF0327'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFE25B202FA // AsWideString
+ ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_4CFE25BF0327 DoIt
+
+ME ME_4CFE25B202FA
+ MEPROP UID '4CFE25B202FA'
+ MEPROP Name 'AsWideString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CFE25BF0327 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CFE25B202FA AsWideString
+
+FORWARD ME_4D7258F003D4
+
+ME ME_4D7258FD0146
+ MEPROP UID '4D7258FD0146'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D7258F003D4 // AsWStr
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_4D7258FD0146 DoIt
+
+ME ME_4D7258F003D4
+ MEPROP UID '4D7258F003D4'
+ MEPROP Name 'AsWStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D7258FD0146 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D7258F003D4 AsWStr
+
+ME ME_4B3B3B51012A
+ MEPROP UID '4B3B3B51012A'
+ MEPROP Name 'AsCStr'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4B3B3B51012A AsCStr
+
+ME ME_4B3B3F25003B
+ MEPROP UID '4B3B3F25003B'
+ MEPROP Name 'AsStr'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B3B3F25003B AsStr
+
+ME ME_4B3B4D0A0026
+ MEPROP UID '4B3B4D0A0026'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ %SUMMARY 'Инициализирует строку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ENDME // ME_4B3B4D0A0026 Init
+
+%%InheritedBy ME_500700DF0376 ME_4B3B3728004C
+
+ME ME_4B3B3728004C
+ MEPROP UID '4B3B3728004C'
+ MEPROP Name 'Tl3StringIDEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B3B36EC03B2 // l3StringIDEx
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_500700DF0376 // Tl3StringIDExPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_561FDFF403DA // rKey
+ HWL ME_561FE0000148 // rValue
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BB9D8550292 // Localize
+ HWL ME_4CFE25B202FA // AsWideString
+ HWL ME_4D7258F003D4 // AsWStr
+ HWL ME_4B3B3B51012A // AsCStr
+ HWL ME_4B3B3F25003B // AsStr
+ HWL ME_4B3B4D0A0026 // Init
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "not treat as record for XE4" true
+ UP extprop:rc:SelfName 'StringIDEx'
+
+ENDME // ME_4B3B3728004C Tl3StringIDEx
+
+%%InheritedBy ME_4B3B3728004C ME_4B3B49B40262
+
+ME ME_4B3B49B40262
+ MEPROP UID '4B3B49B40262'
+ MEPROP Name 'Pl3StringIDEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B3B36EC03B2 // l3StringIDEx
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B3B3728004C // Tl3StringIDEx
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_4B3B49B40262 Pl3StringIDEx
+
+FORWARD ME_4BA223D801B3
+
+ME ME_4BA22CD70162
+ MEPROP UID '4BA22CD70162'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA223D801B3 // Tl3ConstStringsPrim
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4BA22CD70162 l3Items_NoSort
+
+ME ME_4BA2240501D9
+ MEPROP UID '4BA2240501D9'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BA223D801B3 // Tl3ConstStringsPrim
+ ;
+ MELINK Target HWL ME_4B3B49B40262 // Pl3StringIDEx
+ ;
+
+ENDME // ME_4BA2240501D9 ItemType
+
+ME ME_4BB9FBFE0053
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA223D801B3 // Tl3ConstStringsPrim
+ ;
+ MELINK Target WL 'ME_4B88E9270044' '47878E0E0191.ms.model.script' // l3Compare
+ ;
+
+ENDME // ME_4BB9FBFE0053 
+
+ME ME_4BB9FC5703C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA223D801B3 // Tl3ConstStringsPrim
+ ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_4BB9FC5703C1 
+
+ME ME_47B99D4503A2_ME_4BA223D801B3
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4BA223D801B3 CompareExistingItems
+
+ME ME_47A042E100E2_ME_4BA223D801B3
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4BA223D801B3 InitFields
+
+%%InheritedBy ME_4A54DD4E036F ME_4BA223D801B3
+%%InheritedBy ME_4B71611400B3 ME_4BA223D801B3
+
+ME ME_4BA223D801B3
+ MEPROP UID '4BA223D801B3'
+ MEPROP Name 'Tl3ConstStringsPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B3B36EC03B2 // l3StringIDEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B71611400B3' '4B71611400B3.ms.model.script' // l3AtomicListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4BA2240501D9 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_4BA223D801B3 // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4BA223D801B3 // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4BA22CD70162 // l3Items_NoSort
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BB9FBFE0053 // l3Compare
+ ME_4BB9FC5703C1 // Tl3SortIndex
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.03.2010 16:00'
+ UP extprop:rc:SelfName 'ConstStringsPrim'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BA223D801B3 Tl3ConstStringsPrim
+
+FORWARD ME_4B98D6C201AD
+
+FORWARD ME_38979385DFF9
+
+FORWARD ME_4B98D78501E1
+
+ME ME_1F5BE5CABF73
+ MEPROP Name 'aStr'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ENDME // ME_1F5BE5CABF73 aStr
+
+ME ME_201B50E5979A
+ MEPROP UID '201B50E5979A'
+ MEPROP Name 'AsCStr'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_38979385DFF9 // Ml3StringIDExHelper
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_1F5BE5CABF73 // aStr
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_4B98D78501E1 // AsCStr
+ ;
+
+ENDME // ME_201B50E5979A AsCStr
+
+FORWARD ME_4B98D7A50160
+
+ME ME_3F7C7858DF60
+ MEPROP Name 'aStr'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ENDME // ME_3F7C7858DF60 aStr
+
+ME ME_74E80608E1B4
+ MEPROP UID '74E80608E1B4'
+ MEPROP Name 'AsStr'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_38979385DFF9 // Ml3StringIDExHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_3F7C7858DF60 // aStr
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_4B98D7A50160 // AsStr
+ ;
+
+ENDME // ME_74E80608E1B4 AsStr
+
+FORWARD ME_4B98D7BA00C6
+
+ME ME_DCECFBB61D23
+ MEPROP Name 'theStr'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ENDME // ME_DCECFBB61D23 theStr
+
+ME ME_071573E75439
+ MEPROP UID '071573E75439'
+ MEPROP Name 'Init'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_38979385DFF9 // Ml3StringIDExHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_DCECFBB61D23 // theStr
+ )
+ ; // Parameters
+ UPLINK Speller HWL ME_4B98D7BA00C6 // Init
+ ;
+
+ENDME // ME_071573E75439 Init
+
+ME ME_38979385DFF9
+ MEPROP UID '38979385DFF9'
+ MEPROP Name 'Ml3StringIDExHelper'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контракт сервиса Tl3StringIDExHelper' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B98D6C201AD // Tl3StringIDExHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_201B50E5979A // AsCStr
+ HWL ME_74E80608E1B4 // AsStr
+ HWL ME_071573E75439 // Init
+ )
+ ; // Operations
+
+ENDME // ME_38979385DFF9 Ml3StringIDExHelper
+
+ME ME_4B98D79E0230
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ENDME // ME_4B98D79E0230 aStr
+
+ME ME_4B98D78501E1
+ MEPROP UID '4B98D78501E1'
+ MEPROP Name 'AsCStr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B98D6C201AD // Tl3StringIDExHelper
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B98D79E0230 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4B98D78501E1 AsCStr
+
+ME ME_4B98D7AD039F
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ENDME // ME_4B98D7AD039F aStr
+
+ME ME_4B98D7A50160
+ MEPROP UID '4B98D7A50160'
+ MEPROP Name 'AsStr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B98D6C201AD // Tl3StringIDExHelper
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B98D7AD039F // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4B98D7A50160 AsStr
+
+ME ME_4B98D7CB0329
+ MEPROP Name 'theStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_4B3B3728004C // Tl3StringIDEx
+ ;
+
+ENDME // ME_4B98D7CB0329 theStr
+
+ME ME_4B98D7BA00C6
+ MEPROP UID '4B98D7BA00C6'
+ MEPROP Name 'Init'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_responsibility::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B98D6C201AD // Tl3StringIDExHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B98D7CB0329 // theStr
+ )
+ ; // Parameters
+
+ENDME // ME_4B98D7BA00C6 Init
+
+ME ME_4B3B51E700BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B98D6C201AD // Tl3StringIDExHelper
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4B3B51E700BF 
+
+ME ME_4BB9C53201CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B98D6C201AD // Tl3StringIDExHelper
+ ;
+ MELINK Target WL 'ME_4BA2214002EE' '4F9BDEEE01BC.ms.model.script' // Tl3ConstStrings
+ ;
+
+ENDME // ME_4BB9C53201CA 
+
+%%InheritedBy ME_49E7754802A9 ME_4B98D6C201AD
+
+ME ME_4B98D6C201AD
+ MEPROP UID '4B98D6C201AD'
+ MEPROP Name 'Tl3StringIDExHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Service ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3B36EC03B2 // l3StringIDEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4B98D78501E1 // AsCStr
+ HWL ME_4B98D7A50160 // AsStr
+ HWL ME_4B98D7BA00C6 // Init
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_38979385DFF9 // Ml3StringIDExHelper
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B3B51E700BF // l3CStr
+ ME_4BB9C53201CA // Tl3ConstStrings
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "auto translate to alien" 'undefined'
+ UP "no hands" true
+ UP "started" '11.03.2010 14:41'
+ UP extprop:rc:SelfName 'StringIDExHelper'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B98D6C201AD Tl3StringIDExHelper
+
+ME ME_4B3B36EC03B2
+ MEPROP UID '4B3B36EC03B2'
+ MEPROP Name 'l3StringIDEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Строка для локализации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F9BDEEE01BC' '4F9BDEEE01BC.ms.model.script' // Поддержка локализованных сообщений
+ ;
+ MELIST Children
+   Seq: ( HWL ME_500700DF0376 // Tl3StringIDExPrim
+ HWL ME_4B3B3728004C // Tl3StringIDEx
+ HWL ME_4B3B49B40262 // Pl3StringIDEx
+ HWL ME_4BA223D801B3 // Tl3ConstStringsPrim
+ HWL ME_4B98D6C201AD // Tl3StringIDExHelper
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '30.12.2009 14:18'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3StringIDEx.pas'
+ UP extprop:rc:SelfName 'StringIDEx'
+
+ENDME // ME_4B3B36EC03B2 l3StringIDEx

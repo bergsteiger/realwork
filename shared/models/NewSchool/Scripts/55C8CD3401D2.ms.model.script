@@ -1,0 +1,44 @@
+// TTextSearchDlgWordsPack 55C8CD3401D2 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C8CD3401D2
+
+ME ME_55C8CD470049
+ MEPROP UID '55C8CD470049'
+ MEPROP Name 'Fake'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'Этот метод нужен лишь для того, чтобы зарегистировать диалог в скриптовой машине.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C8CD3401D2 // TTextSearchDlgWordsPack
+ ;
+
+ENDME // ME_55C8CD470049 Fake
+
+%%InheritedBy ME_4F8D61A100A6 ME_55C8CD3401D2
+
+ME ME_55C8CD3401D2
+ MEPROP UID '55C8CD3401D2'
+ MEPROP Name 'TTextSearchDlgWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_55C8CD14003A' '55C8CD14003A.ms.model.script' // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F8D61A100A6' '4F8D618800E7.ms.model.script' // TTextSearchDlg
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C8CD470049 // Fake
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'archi\source\projects\Common\Dialogs\TTextSearchDlgWordsPack.pas'
+
+ENDME // ME_55C8CD3401D2 TTextSearchDlgWordsPack

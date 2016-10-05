@@ -1,0 +1,51 @@
+// msmMETreeViewController 57C981AF03C7 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C981AF03C7
+
+ME ME_57C9B2DB024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57C981AF03C7 // msmMETreeViewController
+ ;
+ MELINK Target WL 'ME_57B31D1000FA' '57C99A680247.ms.model.script' // CurrentElementChangedEvent
+ ;
+
+ENDME // ME_57C9B2DB024D 
+
+%%ImplementedBy ME_57C977AE0264 ME_57C981AF03C7
+
+%%InheritedBy ME_57C97EB8036C ME_57C981AF03C7
+
+ME ME_57C981AF03C7
+ MEPROP UID '57C981AF03C7'
+ MEPROP Name 'msmMETreeViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57C97EB8036C' '57C97EB8036C.ms.model.script' // msmTreeViewController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57C977AE0264' '57C977AE0264.ms.model.script' // msmMEListLikeViewController
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_57C9B2DB024D // CurrentElementChangedEvent
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMETreeViewController.imp.pas'
+ UP extprop:pas:TypeName '_msmMETreeViewController_'
+ UP extprop:pas:UnitName 'msmMETreeViewController.imp'
+
+ENDME // ME_57C981AF03C7 msmMETreeViewController

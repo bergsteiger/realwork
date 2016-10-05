@@ -646,11 +646,24 @@ STRING elem_func msm:View:LabelName
  >>> Result
 ; // msm:View:LabelName
 
+USES
+ DictionaryByName.ms.dict
+;
+
+USES
+ Out.ms.dict
+;
+
 STRING elem_func msm:View:ImageFileName
  Self .msm:View:LabelName >>> Result
  if ( Result .NotIsNil ) then
  begin
-  [ 'W:\MDProcess\MDAGenerator\other\images\' Result '.gif' ] strings:Cat >>> Result
+  VAR l_Path
+  thisDictionary pop:DictionaryEx:FileName sysutils:ExtractFilePath >>> l_Path
+  [ l_Path 'images' ] cPathSep strings:CatSep >>> l_Path
+  l_Path sysutils:DirectoryExists ?ASSURE [ 'Директория не существует: "' l_Path '"']
+  [ [ l_Path Result ] cPathSep strings:CatSep '.gif' ] strings:Cat >>> Result
+  //[ 'W:\MDProcess\MDAGenerator\other\images\' Result '.gif' ] strings:Cat >>> Result
  end // ( Result .NotIsNil )
 ; // msm:View:ImageFileName
 
@@ -790,10 +803,6 @@ BOOLEAN elem_func HasMainDiagram
  >>> Result
 ; // HasMainDiagram
 
-USES
- DictionaryByName.ms.dict
-;
-
 ModelElement FUNCTION .WordByDictionaryPath
   IN aPath
  aPath DictionaryAndMainWordByName
@@ -820,13 +829,31 @@ USES
 
 elem_proc GenerateElement
  RULES
-  ( Self .IsSomeView )
+  (
+   ( Self .IsSomeView )
+   AND ( Self .Viewed Self ?!= )   
+  ) 
     ( Self .Viewed call.me )
   ( Self .UID .IsNil ) then
     ( Self .Parent call.me )
   DEFAULT
    begin
-    [ Self .DictFileName sysutils:ExtractFilePath 'cal.cmd' ' ' Self .DictFileName ] strings:Cat WinExec
+    VAR l_DictFileName
+    Self .DictFileName >>> l_DictFileName
+    VAR l_ListName 
+    Self .Name >>> l_ListName
+    l_ListName ' ' '_' string:Replace >>> l_ListName
+    [ 'C:\Temp\' l_ListName '.list' ] strings:Cat >>> l_ListName
+    //[ 'C:\Temp\' l_DictFileName sysutils:ExtractFileName '.list' ] strings:Cat >>> l_ListName
+    l_ListName .ProcessTmpOut: (
+     l_DictFileName .Out
+    ) // l_ListName .ProcessTmpOut:
+    l_ListName sysutils:FileExists ?ASSURE [ 'Файл не существует: "' l_ListName '"']
+    VAR l_CmdFileName
+    [ l_DictFileName sysutils:ExtractFilePath 'cal.cmd' ] strings:Cat >>> l_CmdFileName
+    l_CmdFileName sysutils:FileExists ?ASSURE [ 'Файл не существует: "' l_CmdFileName '"']
+    [ l_CmdFileName ' ' '-list:' l_ListName ' ' '-nomodel' ] strings:Cat WinExec
+    //[ l_DictFileName sysutils:ExtractFilePath 'cal.cmd' ' ' l_DictFileName ' ' '-nomodel' ] strings:Cat WinExec
    end // ( Self .UID .IsNil )
  ; // RULES
 ; // GenerateElement
@@ -869,10 +896,6 @@ USES
 ;
 
 USES
- Out.ms.dict
-;
-
-USES
  GenerationFramework.ms.dict
 ;
 
@@ -910,10 +933,9 @@ PROCEDURE .SaveElements
  ) // anElements .for>
 ; // .SaveElements
 
-STRING FUNCTION CreateUID
- sysutils:CreateGUID '-' '' string:Replace '{' '' string:Replace '}' '' string:Replace
- >>> Result
-; // CreateUID
+USES
+ CreateGUID.ms.dict
+;
 
 USES
  LUID.ms.dict
@@ -1013,14 +1035,17 @@ BOOLEAN FUNCTION .TryLoadWord
 
  : DoFile
    STRING IN anItem
+  if ( [ 'MEPROP OriginalName ' cQuote aName cQuote ] strings:Cat anItem FindInFile ) then
+  begin
+   true >>> Result
+   anItem .DictionaryByName DROP
+  end // ( aName anItem FindInFile )
+  else
   if ( [ 'MEPROP Name ' cQuote aName cQuote ] strings:Cat anItem FindInFile ) then
   begin
    true >>> Result
-   //anItem Msg
-   anItem DictionaryByName DROP
+   anItem .DictionaryByName DROP
   end // ( aName anItem FindInFile )
-  //anItem .
-  //anItem Msg
  ; // DoFile
  
  false >>> Result
@@ -1048,3 +1073,6 @@ EXPORTS
  
 EXPORTS
  Diagrams.ms.dict
+ 
+EXPORTS
+ DictionaryByName.ms.dict

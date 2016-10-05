@@ -1,0 +1,68 @@
+// nevParaTool 47F5D32F0059 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F5D32F0059
+
+ME ME_49D249D300FA
+ MEPROP UID '49D249D300FA'
+ MEPROP Name 'X'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F5D32F0059 // nevParaTool
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_49D249D300FA X
+
+ME ME_47F5D970036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F5D32F0059 // nevParaTool
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47F5D970036A 
+
+%%InheritedBy ME_480F48F301B9 ME_47F5D32F0059
+
+ME ME_47F5D32F0059
+ MEPROP UID '47F5D32F0059'
+ MEPROP Name 'nevParaTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Инструмент для InevPara' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_480F48F301B9' '480F48F301B9.ms.model.script' // nevParaXTool
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49D249D300FA // X
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_47F5D970036A // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '04.04.2008 11:05'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaTool.imp.pas'
+ UP extprop:pas:TypeName '_nevParaTool_'
+ UP extprop:pas:UnitName 'nevParaTool.imp'
+
+ENDME // ME_47F5D32F0059 nevParaTool

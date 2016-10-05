@@ -1,7 +1,7 @@
-call makeControls.cmd
+rem call makeControls.cmd
 call clear.cmd
-del *.script.inj
+rem del *.script.inj
 del *.script.inj.co
-del *.script.impl
+rem del *.script.impl
 del *.script.impl.co
-call c DictionaryByName.ms.script
+call c CollectBackLinks.ms.script

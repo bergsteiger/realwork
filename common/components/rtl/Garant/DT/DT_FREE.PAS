@@ -1,7 +1,10 @@
 Unit Dt_Free;
 
-{ $Id: DT_FREE.PAS,v 1.81 2016/07/13 09:41:59 lukyanets Exp $ }
+{ $Id: DT_FREE.PAS,v 1.82 2016/09/26 12:50:42 lukyanets Exp $ }
 // $Log: DT_FREE.PAS,v $
+// Revision 1.82  2016/09/26 12:50:42  lukyanets
+// ”величили число попыток
+//
 // Revision 1.81  2016/07/13 09:41:59  lukyanets
 // ѕересаживаем UserManager на новые рельсы
 //
@@ -490,7 +493,7 @@ uses
 
 const
  c_CaptureMark = '$';
- ATTEMPT_AMOUNT = 20;
+ ATTEMPT_AMOUNT = 100; //20;
  PAUSE_SIZE = 500; // 0,5 сек
 
 type
@@ -623,7 +626,10 @@ begin
  for l_AttemptNo := 1 to ATTEMPT_AMOUNT + 1 do
  begin
   if l_AttemptNo > ATTEMPT_AMOUNT then
+  begin
+   l3System.Stack2Log('Ќе удалось получить свободный номер из таблицы FREE.');
    raise Exception.Create('Ќе удалось получить свободный номер из таблицы FREE.');
+  end;
 
   if StartTA(MaxFreeOpTime) then
   try

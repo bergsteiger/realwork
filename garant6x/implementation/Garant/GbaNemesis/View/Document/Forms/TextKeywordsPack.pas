@@ -1658,16 +1658,22 @@ initialization
  {* Регистрация Tkw_Text_Component_TextSource }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTextForm));
  {* Регистрация типа TTextForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscRemindersLine));
  {* Регистрация типа TnscRemindersLine }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscReminder));
  {* Регистрация типа TnscReminder }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeSubPanel));
  {* Регистрация типа TeeSubPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtScrollBar));
  {* Регистрация типа TvtScrollBar }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

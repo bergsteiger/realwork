@@ -36,7 +36,8 @@ constructor TmsmDrawingModel.Create(const anElement: ImsmModelElement);
 //#UC END# *57E297C403B4_57D27E6802A5_var*
 begin
 //#UC START# *57E297C403B4_57D27E6802A5_impl*
- CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'MainDiagram');
+ //CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'MainDiagram');
+ CreateSubElementList(TmsmModelElementView_C(anElement, 'Views'), 'DiagramByName: main');
 //#UC END# *57E297C403B4_57D27E6802A5_impl*
 end;//TmsmDrawingModel.Create
 

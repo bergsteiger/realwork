@@ -1,0 +1,76 @@
+// l3Dictionary 53036F2101D3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53036F2101D3
+
+ME ME_530373A10221
+ MEPROP UID '530373A10221'
+ MEPROP Name 'StringType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53036F2101D3 // l3Dictionary
+ ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_530373A10221 StringType
+
+ME ME_530377A6025B
+ MEPROP UID '530377A6025B'
+ MEPROP Name 'IDIndexType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53036F2101D3 // l3Dictionary
+ ;
+ MELINK Target WL 'ME_47BAA0C70262' '47913B47006E.ms.model.script' // Tl3IDIndex
+ ;
+
+ENDME // ME_530377A6025B IDIndexType
+
+ME ME_5304D6C5002B_ME_53036F2101D3
+ MELINK Original WL 'ME_5304D6C5002B' '4B891136016F.ms.model.script' // ItemToWStr
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5304D6C5002B_ME_53036F2101D3 ItemToWStr
+
+%%InheritedBy ME_4B8BB87A0089 ME_53036F2101D3
+
+ME ME_53036F2101D3
+ MEPROP UID '53036F2101D3'
+ MEPROP Name 'l3Dictionary'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B8BB87A0089' '4B8BB87A0089.ms.model.script' // l3DictionaryPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_530373A10221 // StringType
+ HWL ME_530377A6025B // IDIndexType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_5304D6C5002B_ME_53036F2101D3 // ItemToWStr
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Dictionary.imp.pas'
+ UP extprop:pas:TypeName '_l3Dictionary_'
+ UP extprop:pas:UnitName 'l3Dictionary.imp'
+
+ENDME // ME_53036F2101D3 l3Dictionary

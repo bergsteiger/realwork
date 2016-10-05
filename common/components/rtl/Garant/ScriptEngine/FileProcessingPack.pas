@@ -62,6 +62,7 @@ uses
  , l3FileUtils
  , l3Base
  , l3Stream
+ , l3TextSearch
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
  //#UC START# *4F4FD7EA00EBimpl_uses*
@@ -229,6 +230,22 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwCompareFiles
+
+ TkwFindInFile = {final} class(TtfwGlobalKeyWord)
+  {* Слово скрипта FindInFile }
+  private
+   function FindInFile(const aCtx: TtfwContext;
+    const aFileName: AnsiString;
+    const aString: Il3CString): Boolean;
+    {* Реализация слова скрипта FindInFile }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwFindInFile
 
  TkwFileOpenRead = {final} class(TtfwClassLike)
   {* Слово скрипта File:OpenRead }
@@ -1238,6 +1255,63 @@ begin
  aCtx.rEngine.PushBool(CompareFiles(aCtx, l_aFile1, l_aFile2, l_aHeaderBegin));
 end;//TkwCompareFiles.DoDoIt
 
+function TkwFindInFile.FindInFile(const aCtx: TtfwContext;
+ const aFileName: AnsiString;
+ const aString: Il3CString): Boolean;
+ {* Реализация слова скрипта FindInFile }
+//#UC START# *57E5266B024A_57E5266B024A_Word_var*
+//#UC END# *57E5266B024A_57E5266B024A_Word_var*
+begin
+//#UC START# *57E5266B024A_57E5266B024A_Word_impl*
+ Result := Tl3BMHFileSearch.FindInFile(aFileName, l3Str(aString));
+//#UC END# *57E5266B024A_57E5266B024A_Word_impl*
+end;//TkwFindInFile.FindInFile
+
+class function TkwFindInFile.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'FindInFile';
+end;//TkwFindInFile.GetWordNameForRegister
+
+function TkwFindInFile.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(Boolean);
+end;//TkwFindInFile.GetResultTypeInfo
+
+function TkwFindInFile.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwFindInFile.GetAllParamsCount
+
+function TkwFindInFile.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([@tfw_tiString, @tfw_tiString]);
+end;//TkwFindInFile.ParamsTypes
+
+procedure TkwFindInFile.DoDoIt(const aCtx: TtfwContext);
+var l_aFileName: AnsiString;
+var l_aString: Il3CString;
+begin
+ try
+  l_aFileName := aCtx.rEngine.PopDelphiString;
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aFileName: AnsiString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aString := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aString: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushBool(FindInFile(aCtx, l_aFileName, l_aString));
+end;//TkwFindInFile.DoDoIt
+
 function TkwFileOpenRead.OpenRead(const aCtx: TtfwContext;
  const aName: AnsiString): ItfwFile;
  {* Реализация слова скрипта File:OpenRead }
@@ -1903,6 +1977,8 @@ initialization
  {* Регистрация FileSize }
  TkwCompareFiles.RegisterInEngine;
  {* Регистрация CompareFiles }
+ TkwFindInFile.RegisterInEngine;
+ {* Регистрация FindInFile }
  TkwFileOpenRead.RegisterInEngine;
  {* Регистрация File_OpenRead }
  TkwFileOpenWrite.RegisterInEngine;

@@ -11,13 +11,30 @@ interface
 uses
  l3IntfUses
  , msmEvents
+ {$If NOT Defined(NoVCL)}
+ , ActnList
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 type
+ TmsmOperationParams = {$IfDef XE4}record{$Else}object{$EndIf}
+  public
+   rCaption: AnsiString;
+   rEnabled: Boolean;
+   rImageIndex: Integer;
+ end;//TmsmOperationParams
+
  ImsmOperation = interface
   ['{09BB18A4-33A4-4074-9845-273279C761A7}']
+  function Get_Action: TAction;
+  function Get_Params: TmsmOperationParams;
   function Caption: AnsiString;
   procedure DoIt;
+  function Enabled: Boolean;
+  property Action: TAction
+   read Get_Action;
+  property Params: TmsmOperationParams
+   read Get_Params;
  end;//ImsmOperation
 
  ImsmOperationsList = interface
@@ -40,10 +57,39 @@ type
  end;//MmsmOperationsManaging
  *)
 
+function TmsmOperationParams_C(const aCaption: AnsiString;
+ anEnabled: Boolean): TmsmOperationParams; overload;
+function TmsmOperationParams_C(const aCaption: AnsiString): TmsmOperationParams; overload;
+
 implementation
 
 uses
  l3ImplUses
 ;
+
+function TmsmOperationParams_C(const aCaption: AnsiString;
+ anEnabled: Boolean): TmsmOperationParams;
+//#UC START# *57EBAD6A0303_57EBACBA00FA_var*
+//#UC END# *57EBAD6A0303_57EBACBA00FA_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *57EBAD6A0303_57EBACBA00FA_impl*
+ Result.rCaption := aCaption;
+ Result.rEnabled := anEnabled;
+ Result.rImageIndex := -1;
+//#UC END# *57EBAD6A0303_57EBACBA00FA_impl*
+end;//TmsmOperationParams_C
+
+function TmsmOperationParams_C(const aCaption: AnsiString): TmsmOperationParams;
+//#UC START# *57EBBC4903B7_57EBACBA00FA_var*
+//#UC END# *57EBBC4903B7_57EBACBA00FA_var*
+begin
+ Finalize(Result);
+ System.FillChar(Result, SizeOf(Result), 0);
+//#UC START# *57EBBC4903B7_57EBACBA00FA_impl*
+ Result := TmsmOperationParams_C(aCaption, true);
+//#UC END# *57EBBC4903B7_57EBACBA00FA_impl*
+end;//TmsmOperationParams_C
 
 end.

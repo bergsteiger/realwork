@@ -79,13 +79,13 @@ ME ME_53BA774300FC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDCD7D0002E // TsdsChangesBetweenEditions
  ;
- MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ MELINK Target WL 'ME_53BA488F00D8' '53BA488F00D8.ms.model.script' // nsTabbedInterfaceTypes
  ;
 
 ENDME // ME_53BA774300FC 
 
 ME ME_47F3778403D9_ME_4DDCD7D0002E
- MELINK Original WL 'ME_47F3778403D9' '47D0E1500033.ms.model.script' // MakeData
+ MELINK Original WL 'ME_47F3778403D9' '47F37723017A.ms.model.script' // MakeData
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47F3778403D9_ME_4DDCD7D0002E MakeData
@@ -113,10 +113,14 @@ ME ME_4ED906420134_ME_4DDCD7D0002E
 ENDME // ME_4ED906420134_ME_4DDCD7D0002E EditionsList
 
 ME ME_53B3BF9C00EF_ME_4DDCD7D0002E
- MELINK Original WL 'ME_53B3BF9C00EF' '47D0E1500033.ms.model.script' // DoGetFormSetImageIndex
+ MELINK Original WL 'ME_53B3BF9C00EF' '47F37723017A.ms.model.script' // DoGetFormSetImageIndex
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_53B3BF9C00EF_ME_4DDCD7D0002E DoGetFormSetImageIndex
+
+%%ImplementedBy ME_4DDCD72C006B ME_4DDCD7D0002E
+
+%%InheritedBy ME_47F37723017A ME_4DDCD7D0002E
 
 ME ME_4DDCD7D0002E
  MEPROP UID '4DDCD7D0002E'
@@ -131,7 +135,7 @@ ME ME_4DDCD7D0002E
  MELINK Parent WL 'ME_4DDCD7B600D5' '4DDCD7B600D5.ms.model.script' // ChangesBetweenEditionsImplementation
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47F37723017A' '47D0E1500033.ms.model.script' // vcmFormSetDataSource
+   Seq: ( WL 'ME_47F37723017A' '47F37723017A.ms.model.script' // vcmFormSetDataSource
  )
  ; // Inherits
  MELIST Implements
@@ -162,6 +166,9 @@ ME ME_4DDCD7D0002E
  ME_53BA774300FC // nsTabbedInterfaceTypes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ChangesBetweenEditions\sdsChangesBetweenEditions.pas'
  UP extprop:rc:SelfName 'sdsChangesBetweenEditions'
  UP extprop:rc:isAcceptableForScripts true

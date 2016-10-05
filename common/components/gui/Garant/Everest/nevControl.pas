@@ -383,7 +383,7 @@ begin
 //#UC START# *48E1F78F024B_48E0E5C1032A_impl*
  aPt.GetCursorPos;
  aPt.Convert(ScreenToClient);
- if (aPt.X >= c_MaxInt) or (aPt.X >= c_MaxInt) then
+ if (aPt.X >= c_MaxInt) or (aPt.Y >= c_MaxInt) then
   Result := l3Point0
  else
   Result := DP2LP(TPoint(aPt));

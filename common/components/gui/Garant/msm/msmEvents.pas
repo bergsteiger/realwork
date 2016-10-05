@@ -21,7 +21,7 @@ type
 
  ImsmEventsSubscriber = interface
   ['{0B2E9EE0-2D64-480C-AE79-79CC1110ADA5}']
-  procedure Fire(anEvent: TmsmEvent);
+  procedure HandleEvent(anEvent: TmsmEvent);
  end;//ImsmEventsSubscriber
 
  (*

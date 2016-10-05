@@ -24,7 +24,15 @@ implementation
 uses
  l3ImplUses
  , F_DocList
+ , arCustomMultiModifyDocsHelper
  , arDirectMultiModifyDocsHelper
+ , arRemoteMultiModifyDocsHelper
+ , arCustomMultiClearAttributesHelper
+ , arDirectMultiClearAttributesHelper
+ , arRemoteMultiClearAttributesHelper
+ , arCustomMultiOperationHelper
+ , arDirectMultiOperationHelper
+ , arRemoteMultiOperationHelper
  //#UC START# *4F8D5E560101impl_uses*
  //#UC END# *4F8D5E560101impl_uses*
 ;

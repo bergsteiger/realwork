@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57A9C7FF039E
+%%Inner ME_57A9C7FF039E
+
 FORWARD ME_57A9C7FF039E
 
 FORWARD ME_57A9C16601B9
@@ -17,6 +20,8 @@ ME ME_57CED51B03A0
  ;
 
 ENDME // ME_57CED51B03A0 
+
+%%InheritedBy ME_49E7754802A9 ME_57CED5100343
 
 ME ME_57CED5100343
  MEPROP UID '57CED5100343'
@@ -40,6 +45,95 @@ ME ME_57CED5100343
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_57CED5100343 TmsmOpenServiceImpl
+
+FORWARD ME_57EE7F1302F9
+
+ME ME_57EE82CE022B
+ MEPROP UID '57EE82CE022B'
+ MEPROP Name 'f_Progress'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57EE7F1302F9 // TmsmParserProgressServiceImpl
+ ;
+ MELINK Target WL 'ME_473D936D035F' '467823B7002C.ms.model.script' // IafwLongProcessVisualizer
+ ;
+
+ENDME // ME_57EE82CE022B f_Progress
+
+ME ME_57EE7F2A0382
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_57EE7F1302F9 // TmsmParserProgressServiceImpl
+ ;
+ MELINK Target WL 'ME_57EE71E103BF' '4F4734A40270.ms.model.script' // TtfwParserProgressService
+ ;
+
+ENDME // ME_57EE7F2A0382 
+
+ME ME_46A5A5430315_ME_57EE7F1302F9
+ MELINK Original WL 'ME_46A5A5430315' '4677FBA70343.ms.model.script' // ProgressProc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5A5430315_ME_57EE7F1302F9 ProgressProc
+
+ME ME_46A5A5DE01FF_ME_57EE7F1302F9
+ MELINK Original WL 'ME_46A5A5DE01FF' '4677FBA70343.ms.model.script' // FreeNotification
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5A5DE01FF_ME_57EE7F1302F9 FreeNotification
+
+ME ME_46A5A5F0010B_ME_57EE7F1302F9
+ MELINK Original WL 'ME_46A5A5F0010B' '4677FBA70343.ms.model.script' // RemoveFreeNotification
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5A5F0010B_ME_57EE7F1302F9 RemoveFreeNotification
+
+%%ImplementedBy ME_46A4B9BB02FD ME_57EE7F1302F9
+
+%%InheritedBy ME_49E7754802A9 ME_57EE7F1302F9
+
+ME ME_57EE7F1302F9
+ MEPROP UID '57EE7F1302F9'
+ MEPROP Name 'TmsmParserProgressServiceImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46A4B9BB02FD' '4677FBA70343.ms.model.script' // Il3Meter
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57EE82CE022B // f_Progress
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46A5A5430315_ME_57EE7F1302F9 // ProgressProc
+ ME_46A5A5DE01FF_ME_57EE7F1302F9 // FreeNotification
+ ME_46A5A5F0010B_ME_57EE7F1302F9 // RemoveFreeNotification
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_57EE7F2A0382 // TtfwParserProgressService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP extprop:rc:SelfName 'msmParserProgressServiceImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57EE7F1302F9 TmsmParserProgressServiceImpl
 
 ME ME_57B4313301EB
  MEPROP UID '57B4313301EB'
@@ -78,7 +172,7 @@ ME ME_57CEA7E802B4
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
  ;
- MELINK Target WL 'ME_57D2DBFB0226' '57D2DB49000A.ms.model.script' // ImsmDrawingUseCaseView
+ MELINK Target WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
  ;
 
 ENDME // ME_57CEA7E802B4 f_UseCase
@@ -174,8 +268,13 @@ ME ME_57A9D7D8039C
    Seq: ( ME_57A9D7FA016F // TmsmModelLoader
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_57A9D7D8039C LoadModel
+
+%%InheritedBy ME_57A9D7D8039C ME_57CD4BC0034E
 
 ME ME_57CD4BC0034E
  MEPROP UID '57CD4BC0034E'
@@ -238,6 +337,19 @@ ME ME_57CD5AAF0193
  UP "is static" true
 
 ENDME // ME_57CD5AAF0193 RunWithList
+
+ME ME_57EBC65F0320
+ MEPROP UID '57EBC65F0320'
+ MEPROP Name 'ClearZones'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
+ ;
+
+ENDME // ME_57EBC65F0320 ClearZones
 
 ME ME_57A9D72C02D1
  MEPROP Class class_Dependency
@@ -364,7 +476,7 @@ ME ME_57B464640299
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
  ;
- MELINK Target WL 'ME_57B45B2201A5' '57AE0E4B00C5.ms.model.script' // TmsmTreeViewInitContext
+ MELINK Target WL 'ME_57B45B2201A5' '57B45AC9019C.ms.model.script' // TmsmTreeViewInitContext
  ;
 
 ENDME // ME_57B464640299 
@@ -374,7 +486,7 @@ ME ME_57B4647600C2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57A9C16601B9 // TmsmMainForm
  ;
- MELINK Target WL 'ME_57B45B380244' '57AE0E4B00C5.ms.model.script' // TmsmListViewtInitContext
+ MELINK Target WL 'ME_57B45B380244' '57B45AC9019C.ms.model.script' // TmsmListViewtInitContext
  ;
 
 ENDME // ME_57B4647600C2 
@@ -612,10 +724,18 @@ ME ME_57E5398100D5
 ENDME // ME_57E5398100D5 
 
 ME ME_479731C50290_ME_57A9C16601B9
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_57A9C16601B9 Cleanup
+
+ME ME_5576E05C0204_ME_57A9C16601B9
+ MELINK Original WL 'ME_5576E05C0204' '47E13C6B0341.ms.model.script' // DoClose
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5576E05C0204_ME_57A9C16601B9 DoClose
+
+%%InheritedBy ME_57CD56D802A2 ME_57A9C16601B9
 
 ME ME_57A9C16601B9
  MEPROP UID '57A9C16601B9'
@@ -643,14 +763,17 @@ ME ME_57A9C16601B9
  HWL ME_57A9D7D8039C // LoadModel
  HWL ME_57CD4BC0034E // RunWith
  HWL ME_57CD5AAF0193 // RunWithList
+ HWL ME_57EBC65F0320 // ClearZones
  )
  ; // Operations
  MELIST Overridden
    Seq: ( ME_479731C50290_ME_57A9C16601B9 // Cleanup
+ ME_5576E05C0204_ME_57A9C16601B9 // DoClose
  )
  ; // Overridden
  MELIST Children
    Seq: ( HWL ME_57CED5100343 // TmsmOpenServiceImpl
+ HWL ME_57EE7F1302F9 // TmsmParserProgressServiceImpl
  )
  ; // Children
  MELIST Dependencies
@@ -693,6 +816,9 @@ ME ME_57A9C16601B9
  ME_57E5398100D5 // TmsmModelService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" true
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmMainForm.pas'
  UP extprop:rc:SelfName 'msmMainForm'
@@ -700,6 +826,8 @@ ME ME_57A9C16601B9
  UP extprop:pas:UnitName 'msmMainForm'
 
 ENDME // ME_57A9C16601B9 TmsmMainForm
+
+%%InheritedBy ME_57AB4B6D0236 ME_57B6C2D500AE
 
 ME ME_57B6C2D500AE
  MEPROP UID '57B6C2D500AE'
@@ -740,8 +868,11 @@ ME ME_57A9C7FF039E
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
+ WL 'ME_4677FBA70343' '4677FBA70343.ms.model.script' // l3Interfaces
+ WL 'ME_467823B7002C' '467823B7002C.ms.model.script' // afwInterfaces
  WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ WL 'ME_4F4734A40270' '4F4734A40270.ms.model.script' // Parser
  WL 'ME_57A9D5CD0111' '57A9D5CD0111.ms.model.script' // ModelLoading
  WL 'ME_57A9F4A003C8' '57A9F4A003C8.ms.model.script' // msmModelElements
  WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
@@ -765,5 +896,8 @@ ME ME_57A9C7FF039E
  WL 'ME_57D2DB49000A' '57D2DB49000A.ms.model.script' // msmConcreteUseCases
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_57A9C7FF039E View

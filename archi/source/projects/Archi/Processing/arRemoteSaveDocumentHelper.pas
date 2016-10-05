@@ -71,44 +71,24 @@ begin
 //#UC START# *57CFDE7701E9_57CFC14E01DF_impl*
  inherited Create;
 
- if aDirectAccess then
- begin
-  f_Message := nil;
-  f_Filer := MakeFilerForDB(aFamily, anID, aPart);
-  f_Filer.Mode := l3_fmReadWrite;
-  f_NeedOpenFiler := (aClass <> dtNone) and NeedSaveText;
-  if f_NeedOpenFiler then
-   f_Filer.Open;
-  if IsClassChanged and (Tm3DBFiler(f_Filer).Part <> nil) then
-   Tm3DBFiler(f_Filer).Part.Info := Tm3DBDocumentInfo_C(ord(aClass));
- end
- else
- begin
-  f_Message := TcsUploadDocStream.Create;
-  f_Message.IsObjTopic := anIsObjTopic;
-  f_Message.DocFamily := aFamily;
-  f_Message.DocID := anID;
-  f_Message.DocPart := aPart;
-  f_Message.ParseToDB := ParseToDB;
-  f_Message.IsClassChanged := IsClassChanged;
-  f_Message.NeedSaveText := NeedSaveText;
-  f_Message.DocClass := aClass;
-  f_Filer := MakeFilerForMessage(f_Message.Data);
- end;
+ f_Message := TcsUploadDocStream.Create;
+ f_Message.IsObjTopic := anIsObjTopic;
+ f_Message.DocFamily := aFamily;
+ f_Message.DocID := anID;
+ f_Message.DocPart := aPart;
+ f_Message.ParseToDB := ParseToDB;
+ f_Message.IsClassChanged := IsClassChanged;
+ f_Message.NeedSaveText := NeedSaveText;
+ f_Message.DocClass := aClass;
+ Filer := MakeFilerForMessage(f_Message.Data);
 
  f_Generator := nil;
- if NeedSaveText or not aDirectAccess then
+ TevdNativeWriter.SetTo(f_Generator);
+ with TevdNativeWriter(f_Generator) do
  begin
-  TevdNativeWriter.SetTo(f_Generator);
-  with TevdNativeWriter(f_Generator) do
-  begin
-   Filer := f_Filer;
-   Binary := true;
-  end;
+  Filer := Self.Filer;
+  Binary := true;
  end;
-
- if aDirectAccess and ParseToDB then
-  BuildDocSavePipe(aFamily, anID, anIsObjTopic, aEraseNotify, f_Generator);
 //#UC END# *57CFDE7701E9_57CFC14E01DF_impl*
 end;//TarRemoteSaveDocumentHelper.Create
 
@@ -117,7 +97,8 @@ function TarRemoteSaveDocumentHelper.SaveDoc: Boolean;
 //#UC END# *57E270CF032F_57CFC14E01DF_var*
 begin
 //#UC START# *57E270CF032F_57CFC14E01DF_impl*
- !!! Needs to be implemented !!!
+ Result := ArchiRequestManager.UploadDocStream(f_Message);
+ FreeAndNil(f_Message);
 //#UC END# *57E270CF032F_57CFC14E01DF_impl*
 end;//TarRemoteSaveDocumentHelper.SaveDoc
 
@@ -126,7 +107,7 @@ procedure TarRemoteSaveDocumentHelper.HandleException;
 //#UC END# *57E270DD0210_57CFC14E01DF_var*
 begin
 //#UC START# *57E270DD0210_57CFC14E01DF_impl*
- !!! Needs to be implemented !!!
+// Do nothing;
 //#UC END# *57E270DD0210_57CFC14E01DF_impl*
 end;//TarRemoteSaveDocumentHelper.HandleException
 
@@ -136,10 +117,6 @@ procedure TarRemoteSaveDocumentHelper.Cleanup;
 //#UC END# *479731C50290_57CFC14E01DF_var*
 begin
 //#UC START# *479731C50290_57CFC14E01DF_impl*
- if f_NeedOpenFiler then
-  f_Filer.Close;
- FreeAndNil(f_Filer);
- FreeAndNil(f_Generator);
  FreeAndNil(f_Message);
  inherited;
 //#UC END# *479731C50290_57CFC14E01DF_impl*

@@ -1,0 +1,228 @@
+// l3Filer 47A0686803A5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47A0686803A5
+%%Inner ME_47A0686803A5
+%%Inner ME_47A0686803A5
+%%Inner ME_47A0686803A5
+%%Inner ME_47A0686803A5
+
+FORWARD ME_47A0686803A5
+
+FORWARD ME_47A0679D00E4
+
+FORWARD ME_555C888301B0
+
+ME ME_555C889A014B
+ MEPROP UID '555C889A014B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555C888301B0 // DoOpen
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_555C889A014B DoIt
+
+ME ME_555C888301B0
+ MEPROP UID '555C888301B0'
+ MEPROP Name 'DoOpen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0679D00E4 // Tl3CustomFiler
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555C889A014B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_555C888301B0 DoOpen
+
+FORWARD ME_555C88B703E7
+
+ME ME_0F66AE1F0DD6
+ MEPROP UID '0F66AE1F0DD6'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoClose' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555C88B703E7 // DoClose
+ ;
+
+ENDME // ME_0F66AE1F0DD6 DoIt
+
+ME ME_555C88B703E7
+ MEPROP UID '555C88B703E7'
+ MEPROP Name 'DoClose'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0679D00E4 // Tl3CustomFiler
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_0F66AE1F0DD6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_555C88B703E7 DoClose
+
+%%InheritedBy ME_4754200F029E ME_47A0679D00E4
+
+ME ME_47A0679D00E4
+ MEPROP UID '47A0679D00E4'
+ MEPROP Name 'Tl3CustomFiler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация компонента-обертки вокруг потока.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0686803A5 // l3Filer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4754200F029E' '47913B47006E.ms.model.script' // Tl3ProgressComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_555C888301B0 // DoOpen
+ HWL ME_555C88B703E7 // DoClose
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '08.04.1997 18:33'
+ UP extprop:rc:SelfName 'Filer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47A0679D00E4 Tl3CustomFiler
+
+%%InheritedBy ME_47A0679D00E4 ME_4B4F61AD01AA
+
+ME ME_4B4F61AD01AA
+ MEPROP UID '4B4F61AD01AA'
+ MEPROP Name 'Tl3CustomDosFiler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0686803A5 // l3Filer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47A0679D00E4 // Tl3CustomFiler
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'DosFiler'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B4F61AD01AA Tl3CustomDosFiler
+
+ME ME_4FAD03D001D2
+ MEPROP UID '4FAD03D001D2'
+ MEPROP Name 'Tl3NextTokenFlag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0686803A5 // l3Filer
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FAD03D001D2 Tl3NextTokenFlag
+
+%%InheritedBy ME_4B4F61AD01AA ME_53A05AFD02CC
+
+ME ME_53A05AFD02CC
+ MEPROP UID '53A05AFD02CC'
+ MEPROP Name 'Tl3DOSFiler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0686803A5 // l3Filer
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B4F61AD01AA // Tl3CustomDosFiler
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'DOSFiler'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53A05AFD02CC Tl3DOSFiler
+
+ME ME_56D5B5CE004F
+ MEPROP UID '56D5B5CE004F'
+ MEPROP GUID 'B20273DF-48CC-4A83-ADA7-E2CC912A6F62'
+ MEPROP Name 'Il3FilerSource'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0686803A5 // l3Filer
+ ;
+ UP extprop:rc:SelfName 'FilerSource'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_56D5B5CE004F Il3FilerSource
+
+ME ME_4BA206E501B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47A0686803A5 // l3Filer
+ ;
+ MELINK Target WL 'ME_4BA206A400AC' '4BA206A400AC.ms.model.script' // l3FilerRes
+ ;
+
+ENDME // ME_4BA206E501B3 
+
+ME ME_47A0686803A5
+ MEPROP UID '47A0686803A5'
+ MEPROP Name 'l3Filer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация компонента-обертки вокруг потока.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47A0679D00E4 // Tl3CustomFiler
+ HWL ME_4B4F61AD01AA // Tl3CustomDosFiler
+ HWL ME_4FAD03D001D2 // Tl3NextTokenFlag
+ HWL ME_53A05AFD02CC // Tl3DOSFiler
+ HWL ME_56D5B5CE004F // Il3FilerSource
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BA206E501B3 // l3FilerRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '08.04.1997 18:33'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Filer.pas'
+ UP extprop:rc:SelfName 'Filer'
+
+ENDME // ME_47A0686803A5 l3Filer

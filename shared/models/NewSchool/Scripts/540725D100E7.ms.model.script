@@ -1,0 +1,126 @@
+// m3Exceptions 540725D100E7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_540725D100E7
+%%Inner ME_540725D100E7
+%%Inner ME_540725D100E7
+%%Inner ME_540725D100E7
+
+FORWARD ME_540725D100E7
+
+%%InheritedBy ME_4787B0FD0379 ME_54072B2D0053
+
+ME ME_54072B2D0053
+ MEPROP UID '54072B2D0053'
+ MEPROP Name 'Em3Exception'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540725D100E7 // m3Exceptions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787B0FD0379' '4787B0A8007B.ms.model.script' // El3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_54072B2D0053 Em3Exception
+
+%%InheritedBy ME_54072B2D0053 ME_55FFD42602CF
+
+ME ME_55FFD42602CF
+ MEPROP UID '55FFD42602CF'
+ MEPROP Name 'Em3InvalidStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540725D100E7 // m3Exceptions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54072B2D0053 // Em3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_55FFD42602CF Em3InvalidStream
+
+%%InheritedBy ME_55FFD42602CF ME_55FFD4380311
+
+ME ME_55FFD4380311
+ MEPROP UID '55FFD4380311'
+ MEPROP Name 'Em3NilStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540725D100E7 // m3Exceptions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55FFD42602CF // Em3InvalidStream
+ )
+ ; // Inherits
+
+ENDME // ME_55FFD4380311 Em3NilStream
+
+%%InheritedBy ME_54072B2D0053 ME_55FFD5D10180
+
+ME ME_55FFD5D10180
+ MEPROP UID '55FFD5D10180'
+ MEPROP Name 'Em3NoIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_540725D100E7 // m3Exceptions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_54072B2D0053 // Em3Exception
+ )
+ ; // Inherits
+
+ENDME // ME_55FFD5D10180 Em3NoIndex
+
+ME ME_54072B5E02A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_540725D100E7 // m3Exceptions
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_54072B5E02A9 
+
+ME ME_540725D100E7
+ MEPROP UID '540725D100E7'
+ MEPROP Name 'm3Exceptions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5485B0D1026C' '5485B0D1026C.ms.model.script' // Streams
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54072B2D0053 // Em3Exception
+ HWL ME_55FFD42602CF // Em3InvalidStream
+ HWL ME_55FFD4380311 // Em3NilStream
+ HWL ME_55FFD5D10180 // Em3NoIndex
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_54072B5E02A9 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3Exceptions.pas'
+
+ENDME // ME_540725D100E7 m3Exceptions

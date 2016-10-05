@@ -2,125 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_51B09C1D0367
-
-FORWARD ME_4DAC3D1B031C
-
-FORWARD ME_4DAC3D400271
-
-ME ME_4DAC3E24025B
- MEPROP UID '4DAC3E24025B'
- MEPROP Name 'JurorCommentHint'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DAC3D400271 // WarningConst
- ;
- MEPROP Value '''Документ с комментариями юристов'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Документ с комментариями юристов'''
-
-ENDME // ME_4DAC3E24025B JurorCommentHint
-
-ME ME_4DAC3E5B022D
- MEPROP UID '4DAC3E5B022D'
- MEPROP Name 'TimeMachineOffHint'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DAC3D400271 // WarningConst
- ;
- MEPROP Value '''Машина времени будет выключена, а текст документа будет представлен в актуальной редакции'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Машина времени будет выключена, а текст документа будет представлен в актуальной редакции'''
-
-ENDME // ME_4DAC3E5B022D TimeMachineOffHint
-
-ME ME_4DAC3E75024C
- MEPROP UID '4DAC3E75024C'
- MEPROP Name 'NotShureWarningHint'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DAC3D400271 // WarningConst
- ;
- MEPROP Value '''Период действия данной редакции документа не может быть определен однозначно'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Период действия данной редакции документа не может быть определен однозначно'''
-
-ENDME // ME_4DAC3E75024C NotShureWarningHint
-
-ME ME_4DAC3E8B00BF
- MEPROP UID '4DAC3E8B00BF'
- MEPROP Name 'ReferenceHint'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DAC3D400271 // WarningConst
- ;
- MEPROP Value '''Ссылка на справку к документу'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Ссылка на справку к документу'''
-
-ENDME // ME_4DAC3E8B00BF ReferenceHint
-
-ME ME_4DAC3D400271
- MEPROP UID '4DAC3D400271'
- MEPROP Name 'WarningConst'
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DAC3D1B031C // WarningConst
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4DAC3E24025B // JurorCommentHint
- HWL ME_4DAC3E5B022D // TimeMachineOffHint
- HWL ME_4DAC3E75024C // NotShureWarningHint
- HWL ME_4DAC3E8B00BF // ReferenceHint
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "children prefix" 'wg'
- UP "spell names" false
- UP extprop:pas:ElementPrefix 'wg'
-
-ENDME // ME_4DAC3D400271 WarningConst
-
-ME ME_4DAC3D1B031C
- MEPROP UID '4DAC3D1B031C'
- MEPROP Name 'WarningConst'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_51B09C1D0367 // Common
- ;
- MELIST Constants
-   Seq: ( HWL ME_4DAC3D400271 // WarningConst
- )
- ; // Constants
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '18.04.2011 17:31'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\WarningConst.pas'
-
-ENDME // ME_4DAC3D1B031C WarningConst
+%%Inner ME_51B09C1D0367
 
 ME ME_51B09C1D0367
  MEPROP UID '51B09C1D0367'
@@ -133,12 +15,15 @@ ME ME_51B09C1D0367
  MELINK Parent WL 'ME_4A7C099B004F' '4A7C099B004F.ms.model.script' // View
  ;
  MELIST Children
-   Seq: ( HWL ME_4DAC3D1B031C // WarningConst
+   Seq: ( WL 'ME_4DAC3D1B031C' '4DAC3D1B031C.ms.model.script' // WarningConst
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_51B09C1D0367 Common

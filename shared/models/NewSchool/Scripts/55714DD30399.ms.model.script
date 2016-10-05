@@ -1,0 +1,92 @@
+// vcmStringIDExHelper 55714DD30399 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55714DD30399
+
+FORWARD ME_55714DD30399
+
+FORWARD ME_4B98D9FD038B
+
+ME ME_4B98DA0C0226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B98D9FD038B // TvcmStringIDExHelper
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47F25BC801DB.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_4B98DA0C0226 
+
+ME ME_4B98DB9D03B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B98D9FD038B // TvcmStringIDExHelper
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4B98DB9D03B1 
+
+ME ME_55714EDF0062
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_4B98D9FD038B // TvcmStringIDExHelper
+ ;
+ MELINK Target WL 'ME_4B98D6C201AD' '4B3B36EC03B2.ms.model.script' // Tl3StringIDExHelper
+ ;
+
+ENDME // ME_55714EDF0062 
+
+%%InheritedBy ME_49E7754802A9 ME_4B98D9FD038B
+
+ME ME_4B98D9FD038B
+ MEPROP UID '4B98D9FD038B'
+ MEPROP Name 'TvcmStringIDExHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55714DD30399 // vcmStringIDExHelper
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4B98DA0C0226 // vcmBase
+ ME_4B98DB9D03B1 // l3CStr
+ ME_55714EDF0062 // Tl3StringIDExHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'StringIDExHelper'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B98D9FD038B TvcmStringIDExHelper
+
+ME ME_55714DD30399
+ MEPROP UID '55714DD30399'
+ MEPROP Name 'vcmStringIDExHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B98D9FD038B // TvcmStringIDExHelper
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmStringIDExHelper.pas'
+ UP extprop:rc:SelfName 'StringIDExHelper'
+
+ENDME // ME_55714DD30399 vcmStringIDExHelper

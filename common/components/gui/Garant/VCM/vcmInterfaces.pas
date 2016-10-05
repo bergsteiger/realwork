@@ -599,6 +599,7 @@ type
    procedure pm_SetFactory(const aValue: IvcmFormSetFactory);
    function pm_GetDataSource: IvcmFormSetDataSource;
    procedure pm_SetDataSource(const aValue: IvcmFormSetDataSource);
+   function pm_GetCanBeMain: Boolean;
    procedure Refresh(const aParams: IvcmFormSetRefreshDataParams);
      {* обновляет представление сборки }
    procedure SaveHistory;
@@ -656,6 +657,8 @@ type
      read Get_Entity;
    property EntitiesCount: Integer
      read Get_EntitiesCount;
+   property CanBeMain: Boolean
+     read pm_GetCanBeMain;
  end;//IvcmFormSet
 
 
@@ -1219,6 +1222,7 @@ type
    function GetSimpleFactory: IvcmFormSetSimpleFactory;
    function CanCloneFormSet(const aFormSet: IvcmFormSet): Boolean;
    function CanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
+   function CanFormsetBeMain: Boolean;
    property FormSetId: PvcmFormSetID
      read pm_GetFormSetId;
      {* идентификатор сборки, имя сборки указанное при описании сборки }

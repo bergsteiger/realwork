@@ -1,0 +1,46 @@
+// bsConst 47FAFA9601C8 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47FAFA9601C8
+
+FORWARD ME_47FAFA9601C8
+
+ME ME_47FAFB8C0338
+ MEPROP UID '47FAFB8C0338'
+ MEPROP Name 'cbsListNodeTypeMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Трансформирует адаптерный тип в тип бизнес уровня.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47FAFA9601C8 // bsConst
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47FAFB8C0338 cbsListNodeTypeMap
+
+ME ME_47FAFA9601C8
+ MEPROP UID '47FAFA9601C8'
+ MEPROP Name 'bsConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константы бизнес уровня.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47FAFB8C0338 // cbsListNodeTypeMap
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_bsConst.pas'
+
+ENDME // ME_47FAFA9601C8 bsConst

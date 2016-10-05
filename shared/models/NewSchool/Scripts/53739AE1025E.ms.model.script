@@ -2,121 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_53739AE1025E
-
-FORWARD ME_53739B29005D
-
-FORWARD ME_537383090350
-
-ME ME_5373832C00DD
- MEPROP Name 'aTask'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_52FA49DF00EF' '52FA49B901D3.ms.model.script' // TddTaskItem
- ;
-
-ENDME // ME_5373832C00DD aTask
-
-ME ME_5373832C010F
- MEPROP Name 'aPipe'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_5373832C010F aPipe
-
-ME ME_53AC2E6F023B
- MEPROP Name 'aAsEVD'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP extprop:pas:Value false
-
-ENDME // ME_53AC2E6F023B aAsEVD
-
-ME ME_537383150366
- MEPROP UID '537383150366'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_537383090350 // SaveTask
- ;
- MELIST Parameters
-   Seq: ( ME_5373832C00DD // aTask
- ME_5373832C010F // aPipe
- ME_53AC2E6F023B // aAsEVD
- )
- ; // Parameters
-
-ENDME // ME_537383150366 DoIt
-
-ME ME_537383090350
- MEPROP UID '537383090350'
- MEPROP Name 'SaveTask'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53739B29005D // TaskSaver
- ;
- MELIST Operations
-   Seq: ( HWL ME_537383150366 // DoIt
- )
- ; // Operations
-
-ENDME // ME_537383090350 SaveTask
-
-ME ME_53739C0A03E7
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53739B29005D // TaskSaver
- ;
- MELINK Target WL 'ME_4B4F61AD01AA' '47913B47006E.ms.model.script' // Tl3CustomDosFiler
- ;
-
-ENDME // ME_53739C0A03E7 
-
-ME ME_53739E2D01BB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53739B29005D // TaskSaver
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_53739E2D01BB 
-
-ME ME_53739B29005D
- MEPROP UID '53739B29005D'
- MEPROP Name 'TaskSaver'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_53739AE1025E // TaskSaveLoadMixIns
- ;
- MELIST Operations
-   Seq: ( HWL ME_537383090350 // SaveTask
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_53739C0A03E7 // Tl3CustomDosFiler
- ME_53739E2D01BB // FreeAndNil
- )
- ; // Dependencies
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\TaskSaver.imp.pas'
- UP extprop:pas:TypeName '_TaskSaver_'
- UP extprop:pas:UnitName 'TaskSaver.imp'
-
-ENDME // ME_53739B29005D TaskSaver
+%%Inner ME_53739AE1025E
 
 ME ME_53739AE1025E
  MEPROP UID '53739AE1025E'
@@ -129,7 +15,7 @@ ME ME_53739AE1025E
  MELINK Parent WL 'ME_52F275D40238' '52F275D40238.ms.model.script' // Low Level Tests
  ;
  MELIST Children
-   Seq: ( HWL ME_53739B29005D // TaskSaver
+   Seq: ( WL 'ME_53739B29005D' '53739B29005D.ms.model.script' // TaskSaver
  )
  ; // Children
  MELIST Depends
@@ -139,5 +25,8 @@ ME ME_53739AE1025E
  WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_53739AE1025E TaskSaveLoadMixIns

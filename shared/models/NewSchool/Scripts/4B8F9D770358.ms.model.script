@@ -1,0 +1,72 @@
+// vcmHistoryRes 4B8F9D770358 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8F9D770358
+
+FORWARD ME_4B8F9D9703B0
+
+ME ME_4B8F9DAC00C5
+ MEPROP UID '4B8F9DAC00C5'
+ MEPROP Name 'WrongHistoryElement'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8F9D9703B0 // Local
+ ;
+ MEPROP Value '''Ошибочный элемент истории'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Ошибочный элемент истории'''
+
+ENDME // ME_4B8F9DAC00C5 WrongHistoryElement
+
+ME ME_4B8F9D9703B0
+ MEPROP UID '4B8F9D9703B0'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8F9D770358 // vcmHistoryRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B8F9DAC00C5 // WrongHistoryElement
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'vcm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'vcm'
+
+ENDME // ME_4B8F9D9703B0 Local
+
+ME ME_4B8F9D770358
+ MEPROP UID '4B8F9D770358'
+ MEPROP Name 'vcmHistoryRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B8E967100D5' '4B8E967100D5.ms.model.script' // vcmL10nImpl
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B8F9D9703B0 // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '04.03.2010 14:46'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmHistoryRes.pas'
+ UP extprop:rc:SelfName 'HistoryRes'
+
+ENDME // ME_4B8F9D770358 vcmHistoryRes

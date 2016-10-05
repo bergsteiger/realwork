@@ -22,14 +22,7 @@ uses
 ;
 
 type
- TmsmBaseModelElement = class;
-
- ITmsmBaseModelElementWrap = interface
-  ['{D348035F-F7EF-47FB-9853-454DCCB77A3D}']
-  function GetSelf: TmsmBaseModelElement;
- end;//ITmsmBaseModelElementWrap
-
- TmsmBaseModelElement = {abstract} class(Tl3CProtoObject, ImsmBaseModelElement, ITmsmBaseModelElementWrap)
+ TmsmBaseModelElement = {abstract} class(Tl3CProtoObject, ImsmBaseModelElement)
   private
    f_Name: Il3CString;
    f_Dictionary: TtfwDictionaryEx;
@@ -37,7 +30,6 @@ type
   protected
    function Get_Name: Il3CString;
    function Get_UID: Il3CString;
-   function GetSelf: TmsmBaseModelElement;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -104,15 +96,6 @@ begin
  Result := TmsmModelElementMethodCaller.CallAndGetString(f_MainWord, 'UID');
 //#UC END# *57AADF560165_57AB17E6022Cget_impl*
 end;//TmsmBaseModelElement.Get_UID
-
-function TmsmBaseModelElement.GetSelf: TmsmBaseModelElement;
-//#UC START# *57AC39FE00B8_57AB17E6022C_var*
-//#UC END# *57AC39FE00B8_57AB17E6022C_var*
-begin
-//#UC START# *57AC39FE00B8_57AB17E6022C_impl*
- Result := Self;
-//#UC END# *57AC39FE00B8_57AB17E6022C_impl*
-end;//TmsmBaseModelElement.GetSelf
 
 procedure TmsmBaseModelElement.Cleanup;
  {* Функция очистки полей объекта. }

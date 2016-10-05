@@ -2,147 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4B30FC850092
+%%Inner ME_4B30FC850092
+
 FORWARD ME_4B30FC850092
-
-FORWARD ME_4B3235370235
-
-FORWARD ME_4B30EEEB01EF
-
-ME ME_4B3235790113
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
- ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
- ;
-
-ENDME // ME_4B3235790113 
-
-FORWARD ME_4B323587024D
-
-ME ME_4B32359B0123
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
- ;
- MELINK Target HWL ME_4B323587024D // FreeMM
- ;
-
-ENDME // ME_4B32359B0123 
-
-ME ME_4B3235B1023A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_4B3235B1023A 
-
-ME ME_55019A3D01DF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
- ;
- MELINK Target WL 'ME_550199070251' '550198F60382.ms.model.script' // Tl3MenuManagerHelper
- ;
-
-ENDME // ME_55019A3D01DF 
-
-ME ME_4B30EEA10210_ME_4B30EEEB01EF
- MELINK Original WL 'ME_4B30EEA10210' '4B2A0D6A0077.ms.model.script' // InitFields
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4B30EEA10210_ME_4B30EEEB01EF InitFields
-
-ME ME_4B30EEEB01EF
- MEPROP UID '4B30EEEB01EF'
- MEPROP Name 'TVCMBaseTest'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Базовый тест для тестирования объектов VCM' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4B3235370235 // VCMBaseTest
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4B30EEA10210_ME_4B30EEEB01EF // InitFields
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4B3235790113 // l3Base
- ME_4B32359B0123 // FreeMM
- ME_4B3235B1023A // FreeAndNil
- ME_55019A3D01DF // Tl3MenuManagerHelper
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '22.12.2009 20:07'
- UP extprop:rc:SelfName 'VCMBaseTest'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4B30EEEB01EF TVCMBaseTest
-
-ME ME_4B3235920286
- MEPROP UID '4B3235920286'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B323587024D // FreeMM
- ;
-
-ENDME // ME_4B3235920286 DoIt
-
-ME ME_4B323587024D
- MEPROP UID '4B323587024D'
- MEPROP Name 'FreeMM'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B3235370235 // VCMBaseTest
- ;
- MELIST Operations
-   Seq: ( HWL ME_4B3235920286 // DoIt
- )
- ; // Operations
-
-ENDME // ME_4B323587024D FreeMM
-
-ME ME_4B3235370235
- MEPROP UID '4B3235370235'
- MEPROP Name 'VCMBaseTest'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B30FC850092 // VCM_TFW
- ;
- MELIST Operations
-   Seq: ( HWL ME_4B323587024D // FreeMM
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4B30EEEB01EF // TVCMBaseTest
- )
- ; // Children
- UP "author" 'Люлин А.В.'
- UP "ifndef" 'NoVCM'
- UP "no hands" true
- UP "started" '23.12.209 18:30'
- UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\VCMBaseTest.pas'
-
-ENDME // ME_4B3235370235 VCMBaseTest
 
 FORWARD ME_4DAECE5D0060
 
@@ -155,7 +18,7 @@ ME ME_4DCA426E02C3
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_4B4F61AD01AA' '47913B47006E.ms.model.script' // Tl3CustomDosFiler
+ MELINK Target WL 'ME_4B4F61AD01AA' '47A0686803A5.ms.model.script' // Tl3CustomDosFiler
  ;
 
 ENDME // ME_4DCA426E02C3 f_Output
@@ -169,7 +32,7 @@ ME ME_4F8520820323
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4F8520820323 f_DontRaiseIfEtalonCreated
@@ -184,7 +47,7 @@ ME ME_52EBC6170315
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
@@ -227,7 +90,7 @@ ME ME_4DC2E1890397
  MEPROP Name 'aFile'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4DC2E1890397 aFile
@@ -240,7 +103,7 @@ ME ME_4DC2E12400E5
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4DC2E1040098 // DoResolveIncludedFilePath
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  MELIST Parameters
    Seq: ( ME_4DC2E1890397 // aFile
@@ -273,7 +136,7 @@ ME ME_52EBB63B010D
  MEPROP Name 'aWasException'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_52EBB63B010D aWasException
@@ -316,7 +179,7 @@ ME ME_4DCA92EB02CC
  MEPROP Name 'aFile'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4DCA92EB02CC aFile
@@ -329,7 +192,7 @@ ME ME_4DCA92E80092
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4DCA92D403C9 // DoResolveOutputFilePath
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  MELIST Parameters
    Seq: ( ME_4DCA92EB02CC // aFile
@@ -362,7 +225,7 @@ ME ME_4DECF5B70251
  MEPROP Name 'aFile'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4DECF5B70251 aFile
@@ -375,7 +238,7 @@ ME ME_4DECF5AD029E
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4DECF5A5003B // DoResolveInputFilePath
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  MELIST Parameters
    Seq: ( ME_4DECF5B70251 // aFile
@@ -410,7 +273,7 @@ ME ME_4DC263E8038F
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4DC263E8038F GetScriptName
@@ -420,7 +283,7 @@ ME ME_4DB0332200DD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_4DDA4CFE00E8' '4AB0C3C60310.ms.model.script' // ExtractFilePath
+ MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
  ;
 
 ENDME // ME_4DB0332200DD 
@@ -430,7 +293,7 @@ ME ME_4DB173FF0231
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_4DB173FF0231 
@@ -440,7 +303,7 @@ ME ME_4DCA424701DC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4DCA424701DC 
@@ -450,7 +313,7 @@ ME ME_4F5F29330198
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_4B2A6D4303A9' '4B2A112B011A.ms.model.script' // KTestRunner
+ MELINK Target WL 'ME_4B2A6D4303A9' '4B2A6D4303A9.ms.model.script' // KTestRunner
  ;
 
 ENDME // ME_4F5F29330198 
@@ -470,7 +333,7 @@ ME ME_4F8C13E300D9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_4F8C1297029C' '4B2A0D6A0077.ms.model.script' // ETestFailure
+ MELINK Target WL 'ME_4F8C1297029C' '4B2A0DCE03A9.ms.model.script' // ETestFailure
  ;
 
 ENDME // ME_4F8C13E300D9 
@@ -480,7 +343,7 @@ ME ME_52D805AA009E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DAECE5D0060 // TvcmInsiderTest
  ;
- MELINK Target WL 'ME_4BB3609E0331' '4AB0997B00A2.ms.model.script' // AnsiStartsText
+ MELINK Target WL 'ME_4BB3609E0331' '483C378301CB.ms.model.script' // AnsiStartsText
  ;
 
 ENDME // ME_52D805AA009E 
@@ -654,13 +517,13 @@ ME ME_57A9F99A01C4_ME_4DAECE5D0060
 ENDME // ME_57A9F99A01C4_ME_4DAECE5D0060 ScriptWillRun
 
 ME ME_4B2F40FD0088_ME_4DAECE5D0060
- MELINK Original WL 'ME_4B2F40FD0088' '4B2A0D6A0077.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_4B2F40FD0088' '4B2A0DCE03A9.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4B2F40FD0088_ME_4DAECE5D0060 Cleanup
 
 ME ME_4B30EEA10210_ME_4DAECE5D0060
- MELINK Original WL 'ME_4B30EEA10210' '4B2A0D6A0077.ms.model.script' // InitFields
+ MELINK Original WL 'ME_4B30EEA10210' '4B2A0DCE03A9.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4B30EEA10210_ME_4DAECE5D0060 InitFields
@@ -678,7 +541,7 @@ ME ME_4CA5DAD4014C_ME_4DAECE5D0060
 ENDME // ME_4CA5DAD4014C_ME_4DAECE5D0060 RaiseIfEtalonCreated
 
 ME ME_4DB03121022B_ME_4DAECE5D0060
- MELINK Original WL 'ME_4DB03121022B' '4DAEEA14018A.ms.model.script' // ResolveScriptFilePath
+ MELINK Original WL 'ME_4DB03121022B' '4DAEEA2B029A.ms.model.script' // ResolveScriptFilePath
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4DB03121022B_ME_4DAECE5D0060 ResolveScriptFilePath
@@ -708,6 +571,11 @@ ME ME_51B0AF8E0378_ME_4DAECE5D0060
  MEPROP OpKind opkind_Overridden
 ENDME // ME_51B0AF8E0378_ME_4DAECE5D0060 EtalonNeeds64
 
+%%ImplementedBy ME_4DAEEA2B029A ME_4DAECE5D0060
+%%ImplementedBy ME_4DAF1A1700F7 ME_4DAECE5D0060
+
+%%InheritedBy ME_4B2A11BC0255 ME_4DAECE5D0060
+
 ME ME_4DAECE5D0060
  MEPROP UID '4DAECE5D0060'
  MEPROP Name 'TvcmInsiderTest'
@@ -724,7 +592,7 @@ ME ME_4DAECE5D0060
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4DAEEA2B029A' '4DAEEA14018A.ms.model.script' // Scripter
+   Seq: ( WL 'ME_4DAEEA2B029A' '4DAEEA2B029A.ms.model.script' // Scripter
  WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
  )
  ; // Implements
@@ -794,6 +662,9 @@ ME ME_4DAECE5D0060
  ME_55E5D3890228 // Code Pages
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "ifdef" 'nsTest'
  UP "no hands" true
@@ -816,7 +687,7 @@ ME ME_4B30FC850092
  MELINK Parent WL 'ME_4B2A10C40309' '4B2A10C40309.ms.model.script' // DUnitTuning
  ;
  MELIST Children
-   Seq: ( HWL ME_4B3235370235 // VCMBaseTest
+   Seq: ( WL 'ME_4B3235370235' '4B3235370235.ms.model.script' // VCMBaseTest
  HWL ME_4DAECE5D0060 // TvcmInsiderTest
  )
  ; // Children
@@ -837,6 +708,9 @@ ME ME_4B30FC850092
  WL 'ME_555F498C03BA' '555F498C03BA.ms.model.script' // EtalonsServices
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_4B30FC850092 VCM_TFW

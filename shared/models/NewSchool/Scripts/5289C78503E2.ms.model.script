@@ -1,0 +1,774 @@
+// vcmFormSetFormItemList 5289C78503E2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5289C78503E2
+%%Inner ME_5289C78503E2
+%%Inner ME_5289C78503E2
+
+FORWARD ME_5289C78503E2
+
+FORWARD ME_5289C7D4012A
+
+ME ME_528CB40B0036
+ MEPROP UID '528CB40B0036'
+ MEPROP Name 'rZoneType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELINK Target WL 'ME_528C93FD01EA' '528C93040132.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_528CB40B0036 rZoneType
+
+ME ME_528CB41E025E
+ MEPROP UID '528CB41E025E'
+ MEPROP Name 'rFormID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELINK Target WL 'ME_528C9354017B' '528C93040132.ms.model.script' // TvcmFormID
+ ;
+
+ENDME // ME_528CB41E025E rFormID
+
+ME ME_5289CA200214
+ MEPROP UID '5289CA200214'
+ MEPROP Name 'rUserType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_5289CA200214 rUserType
+
+ME ME_528B562C00D2
+ MEPROP UID '528B562C00D2'
+ MEPROP Name 'rSubUserType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_528B562C00D2 rSubUserType
+
+FORWARD ME_5289CC6003B0
+
+ME ME_5289CC97019B
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_5289CC97019B anOther
+
+ME ME_5289CC860143
+ MEPROP UID '5289CC860143'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CC6003B0 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5289CC97019B // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5289CC860143 DoIt
+
+ME ME_5289CC6003B0
+ MEPROP UID '5289CC6003B0'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5289CC860143 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5289CC6003B0 EQ
+
+FORWARD ME_5289CC9F0130
+
+ME ME_5289CD060033
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_5289CD060033 anOther
+
+ME ME_5289CCFC01B9
+ MEPROP UID '5289CCFC01B9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CC9F0130 // Compare
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5289CD060033 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5289CCFC01B9 DoIt
+
+ME ME_5289CC9F0130
+ MEPROP UID '5289CC9F0130'
+ MEPROP Name 'Compare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5289CCFC01B9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5289CC9F0130 Compare
+
+FORWARD ME_528B525300DE
+
+ME ME_52A5681F0316
+ MEPROP Name 'aFormID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_528C9354017B' '528C93040132.ms.model.script' // TvcmFormID
+ ;
+
+ENDME // ME_52A5681F0316 aFormID
+
+ME ME_52A5681F0325
+ MEPROP Name 'aZoneType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_528C93FD01EA' '528C93040132.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_52A5681F0325 aZoneType
+
+ME ME_52A5681F033F
+ MEPROP Name 'aUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+
+ENDME // ME_52A5681F033F aUserType
+
+ME ME_52A5681F0376
+ MEPROP Name 'aSubUserType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+ MEPROP Value 'vcm_utAny'
+ MELINK ValueType WL 'ME_47F2534B010F' '499EAAE502A8.ms.model.script' // TvcmUserType
+ ;
+ UP extprop:pas:Value 'vcmUserControls.vcm_utAny'
+
+ENDME // ME_52A5681F0376 aSubUserType
+
+ME ME_528B52A001F8
+ MEPROP UID '528B52A001F8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528B525300DE // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A5681F0316 // aFormID
+ ME_52A5681F0325 // aZoneType
+ ME_52A5681F033F // aUserType
+ ME_52A5681F0376 // aSubUserType
+ )
+ ; // Parameters
+
+ENDME // ME_528B52A001F8 DoIt
+
+ME ME_528CBA8D0376
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528B525300DE // C
+ ;
+ MELINK Target WL 'ME_528C93FD01EA' '528C93040132.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_528CBA8D0376 
+
+ME ME_528B525300DE
+ MEPROP UID '528B525300DE'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528B52A001F8 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_528CBA8D0376 // TvcmZoneType
+ )
+ ; // Dependencies
+
+ENDME // ME_528B525300DE C
+
+ME ME_528CBBE9032E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+ MELINK Target WL 'ME_528C93FD01EA' '528C93040132.ms.model.script' // TvcmZoneType
+ ;
+
+ENDME // ME_528CBBE9032E 
+
+ME ME_5289C7D4012A
+ MEPROP UID '5289C7D4012A'
+ MEPROP Name 'TvcmFormSetFormItemDescr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_528CB40B0036 // rZoneType
+ HWL ME_528CB41E025E // rFormID
+ HWL ME_5289CA200214 // rUserType
+ HWL ME_528B562C00D2 // rSubUserType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5289CC6003B0 // EQ
+ HWL ME_5289CC9F0130 // Compare
+ HWL ME_528B525300DE // C
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_528CBBE9032E // TvcmZoneType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'FormSetFormItemDescr'
+
+ENDME // ME_5289C7D4012A TvcmFormSetFormItemDescr
+
+FORWARD ME_5289CA7803D8
+
+ME ME_528DA3E502AA
+ MEPROP UID '528DA3E502AA'
+ MEPROP Name 'rNeedMake'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ MELINK Target WL 'ME_528D9F530036' '528C93040132.ms.model.script' // TvcmNeedMakeDS
+ ;
+
+ENDME // ME_528DA3E502AA rNeedMake
+
+ME ME_5289CB2900CC
+ MEPROP UID '5289CB2900CC'
+ MEPROP Name 'rKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_5289CB2900CC rKey
+
+FORWARD ME_5289CD300046
+
+ME ME_5289CD5E010B
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+
+ENDME // ME_5289CD5E010B anOther
+
+ME ME_5289CD4602CC
+ MEPROP UID '5289CD4602CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CD300046 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5289CD5E010B // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5289CD4602CC DoIt
+
+ME ME_5289CD300046
+ MEPROP UID '5289CD300046'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5289CD4602CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5289CD300046 EQ
+
+FORWARD ME_5289CD3602F8
+
+ME ME_5289CD7D0243
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+
+ENDME // ME_5289CD7D0243 anOther
+
+ME ME_5289CD6201A0
+ MEPROP UID '5289CD6201A0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CD3602F8 // Compare
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5289CD7D0243 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5289CD6201A0 DoIt
+
+ME ME_5289CD3602F8
+ MEPROP UID '5289CD3602F8'
+ MEPROP Name 'Compare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5289CD6201A0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5289CD3602F8 Compare
+
+FORWARD ME_528B51C0030E
+
+ME ME_528DA429007C
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_528DA429007C aKey
+
+ME ME_528DA4290089
+ MEPROP Name 'aNeedMake'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_528D9F530036' '528C93040132.ms.model.script' // TvcmNeedMakeDS
+ ;
+ MEPROP Value 'vcm_nmNo'
+ MELINK ValueType WL 'ME_528D9F530036' '528C93040132.ms.model.script' // TvcmNeedMakeDS
+ ;
+ UP extprop:pas:Value 'vcmBaseTypes.vcm_nmNo'
+
+ENDME // ME_528DA4290089 aNeedMake
+
+ME ME_528B522E017D
+ MEPROP UID '528B522E017D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528B51C0030E // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_528DA429007C // aKey
+ ME_528DA4290089 // aNeedMake
+ )
+ ; // Parameters
+
+ENDME // ME_528B522E017D DoIt
+
+ME ME_528B51C0030E
+ MEPROP UID '528B51C0030E'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528B522E017D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_528B51C0030E C
+
+ME ME_5289CE3F01AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_5289CE3F01AB 
+
+ME ME_5289CA7803D8
+ MEPROP UID '5289CA7803D8'
+ MEPROP Name 'TvcmFormSetFormItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_528DA3E502AA // rNeedMake
+ HWL ME_5289CB2900CC // rKey
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5289CD300046 // EQ
+ HWL ME_5289CD3602F8 // Compare
+ HWL ME_528B51C0030E // C
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5289CE3F01AB // TvcmFormSetFormItemDescr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'FormSetFormItem'
+
+ENDME // ME_5289CA7803D8 TvcmFormSetFormItem
+
+FORWARD ME_5289CD8F0001
+
+FORWARD ME_528DB25B023B
+
+ME ME_528DB28103AA
+ MEPROP UID '528DB28103AA'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_528DB25B023B // NeedMakeDS
+ ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_528DB28103AA Index
+
+ME ME_528DB25B023B
+ MEPROP UID '528DB25B023B'
+ MEPROP Name 'NeedMakeDS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ MELINK Target WL 'ME_528D9F530036' '528C93040132.ms.model.script' // TvcmNeedMakeDS
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_528DB28103AA // Index
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_528DB25B023B NeedMakeDS
+
+ME ME_5289CE2D00F4
+ MEPROP UID '5289CE2D00F4'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ MELINK Target HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ ;
+
+ENDME // ME_5289CE2D00F4 ItemType
+
+FORWARD ME_528DB44C02D7
+
+ME ME_528DB46B003A
+ MEPROP Name 'aFormDescr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_528DB46B003A aFormDescr
+
+ME ME_528DB45B01FD
+ MEPROP UID '528DB45B01FD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528DB44C02D7 // GetFormIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_528DB46B003A // aFormDescr
+ )
+ ; // Parameters
+
+ENDME // ME_528DB45B01FD DoIt
+
+ME ME_528DB44C02D7
+ MEPROP UID '528DB44C02D7'
+ MEPROP Name 'GetFormIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528DB45B01FD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_528DB44C02D7 GetFormIndex
+
+FORWARD ME_529845780295
+
+ME ME_529845B1010D
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ ;
+
+ENDME // ME_529845B1010D aForm
+
+ME ME_529845B1011E
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_528D9F530036' '528C93040132.ms.model.script' // TvcmNeedMakeDS
+ ;
+
+ENDME // ME_529845B1011E aValue
+
+ME ME_52984594013A
+ MEPROP UID '52984594013A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_529845780295 // SetIfNeedMakeNo
+ ;
+ MELIST Parameters
+   Seq: ( ME_529845B1010D // aForm
+ ME_529845B1011E // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_52984594013A DoIt
+
+ME ME_529845780295
+ MEPROP UID '529845780295'
+ MEPROP Name 'SetIfNeedMakeNo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5289CD8F0001 // TvcmFormSetFormList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52984594013A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_529845780295 SetIfNeedMakeNo
+
+ME ME_47B2C42A0163_ME_5289CD8F0001
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_5289CD8F0001 AssignItem
+
+ME ME_47B99D4503A2_ME_5289CD8F0001
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_5289CD8F0001 CompareExistingItems
+
+ME ME_47A750E70096_ME_5289CD8F0001
+ MELINK Original WL 'ME_47A750E70096' '47A74A5F0123.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A750E70096_ME_5289CD8F0001 Add
+
+ME ME_47B9866E034D_ME_5289CD8F0001
+ MELINK Original WL 'ME_47B9866E034D' '47A74A5F0123.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47B9866E034D_ME_5289CD8F0001 Create
+
+%%InheritedBy ME_4A54DD4E036F ME_5289CD8F0001
+%%InheritedBy ME_4B223DB5024B ME_5289CD8F0001
+
+ME ME_5289CD8F0001
+ MEPROP UID '5289CD8F0001'
+ MEPROP Name 'TvcmFormSetFormList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223DB5024B' '4B223DB5024B.ms.model.script' // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_528DB25B023B // NeedMakeDS
+ HWL ME_5289CE2D00F4 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_528DB44C02D7 // GetFormIndex
+ HWL ME_529845780295 // SetIfNeedMakeNo
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_5289CD8F0001 // AssignItem
+ ME_47B99D4503A2_ME_5289CD8F0001 // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A750E70096_ME_5289CD8F0001 // Add
+ ME_47B9866E034D_ME_5289CD8F0001 // Create
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'FormSetFormList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5289CD8F0001 TvcmFormSetFormList
+
+ME ME_5289D1040214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5289C78503E2 // vcmFormSetFormItemList
+ ;
+ MELINK Target WL 'ME_4995624100A6' '499EAAE502A8.ms.model.script' // IvcmOperationDef
+ ;
+
+ENDME // ME_5289D1040214 
+
+ME ME_5289C78503E2
+ MEPROP UID '5289C78503E2'
+ MEPROP Name 'vcmFormSetFormItemList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_528C931303C3' '528C931303C3.ms.model.script' // vcmFormSetSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5289C7D4012A // TvcmFormSetFormItemDescr
+ HWL ME_5289CA7803D8 // TvcmFormSetFormItem
+ HWL ME_5289CD8F0001 // TvcmFormSetFormList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5289D1040214 // IvcmOperationDef
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmFormSetFormItemList.pas'
+ UP extprop:rc:SelfName 'FormSetFormItemList'
+
+ENDME // ME_5289C78503E2 vcmFormSetFormItemList

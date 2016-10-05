@@ -1,0 +1,84 @@
+// nsDownloaderRes 57BD790600B0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57BD790600B0
+
+FORWARD ME_57BD7914000D
+
+ME ME_57BD792902B7
+ MEPROP UID '57BD792902B7'
+ MEPROP Name 'UnknownFile'
+ MEPROP Class class_Attribute
+ %SUMMARY '''Неизвестный''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_57BD792902B7 UnknownFile
+
+ME ME_57BED4A800D2
+ MEPROP UID '57BED4A800D2'
+ MEPROP Name 'FileDownload'
+ MEPROP Class class_Attribute
+ %SUMMARY '''Загрузка файла''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57BD7914000D // nsDownloaderLocalConst
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_57BED4A800D2 FileDownload
+
+ME ME_57BD7914000D
+ MEPROP UID '57BD7914000D'
+ MEPROP Name 'nsDownloaderLocalConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57BD790600B0 // nsDownloaderRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57BD792902B7 // UnknownFile
+ HWL ME_57BED4A800D2 // FileDownload
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+ UP extprop:rc:SelfName 'DownloaderLocalConst'
+
+ENDME // ME_57BD7914000D nsDownloaderLocalConst
+
+ME ME_57BD790600B0
+ MEPROP UID '57BD790600B0'
+ MEPROP Name 'nsDownloaderRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57BC0538037B' '57BC0538037B.ms.model.script' // Downloader
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_57BD7914000D // nsDownloaderLocalConst
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nsDownloaderRes.pas'
+ UP extprop:rc:SelfName 'DownloaderRes'
+
+ENDME // ME_57BD790600B0 nsDownloaderRes

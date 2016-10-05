@@ -1,0 +1,762 @@
+// ddPDFExporter 53FF071F01E3 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53FF071F01E3
+%%Inner ME_53FF071F01E3
+%%Inner ME_53FF071F01E3
+
+FORWARD ME_53FF071F01E3
+
+FORWARD ME_53FF08DF0074
+
+ME ME_53FF0A4402AF
+ MEPROP Name 'aOrientation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4799E9D90376' '4799D2E6027B.ms.model.script' // TPrinterOrientation
+ ;
+
+ENDME // ME_53FF0A4402AF aOrientation
+
+ME ME_53FF090F032F
+ MEPROP UID '53FF090F032F'
+ MEPROP Name 'NewPage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FF08DF0074 // IddPDFDoc
+ ;
+ MELIST Parameters
+   Seq: ( ME_53FF0A4402AF // aOrientation
+ )
+ ; // Parameters
+
+ENDME // ME_53FF090F032F NewPage
+
+ME ME_53FF091B01DF
+ MEPROP UID '53FF091B01DF'
+ MEPROP Name 'EndDoc'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FF08DF0074 // IddPDFDoc
+ ;
+
+ENDME // ME_53FF091B01DF EndDoc
+
+ME ME_53FF08DF0074
+ MEPROP UID '53FF08DF0074'
+ MEPROP GUID 'E6E53277-C4AE-498E-8F56-5704832CCA61'
+ MEPROP Name 'IddPDFDoc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейс для управления созданием интерфейса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF071F01E3 // ddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF090F032F // NewPage
+ HWL ME_53FF091B01DF // EndDoc
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ddPDFDoc'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53FF08DF0074 IddPDFDoc
+
+FORWARD ME_53FF07670079
+
+FORWARD ME_53FF077501B7
+
+ME ME_53FF093200A8
+ MEPROP UID '53FF093200A8'
+ MEPROP Name 'f_PDFDoc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF077501B7 // TddPDFCanvas
+ ;
+ MELINK Target HWL ME_53FF08DF0074 // IddPDFDoc
+ ;
+
+ENDME // ME_53FF093200A8 f_PDFDoc
+
+ME ME_53FF107F0117
+ MEPROP Name 'anExpoter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_53FF07670079 // TddPDFExporter
+ ;
+
+ENDME // ME_53FF107F0117 anExpoter
+
+ME ME_53FF107F0127
+ MEPROP Name 'aPrinter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A4657201E7' '556F09AA036E.ms.model.script' // Il3Printer
+ ;
+
+ENDME // ME_53FF107F0127 aPrinter
+
+ME ME_53FF0CB80082
+ MEPROP UID '53FF0CB80082'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF077501B7 // TddPDFCanvas
+ ;
+ MELIST Parameters
+   Seq: ( ME_53FF107F0117 // anExpoter
+ ME_53FF107F0127 // aPrinter
+ )
+ ; // Parameters
+
+ENDME // ME_53FF0CB80082 Create
+
+ME ME_479731C50290_ME_53FF077501B7
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53FF077501B7 Cleanup
+
+ME ME_47DFCAAF0249_ME_53FF077501B7
+ MELINK Original WL 'ME_47DFCAAF0249' '473C3BEE0334.ms.model.script' // FillRectPrim
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47DFCAAF0249_ME_53FF077501B7 FillRectPrim
+
+ME ME_47DFCAEE0007_ME_53FF077501B7
+ MELINK Original WL 'ME_47DFCAEE0007' '473C3BEE0334.ms.model.script' // DoFillForeRect
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47DFCAEE0007_ME_53FF077501B7 DoFillForeRect
+
+ME ME_54B4DDF502DD_ME_53FF077501B7
+ MELINK Original WL 'ME_54B4DDF502DD' '473C3BEE0334.ms.model.script' // DoStartDrawAAC
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54B4DDF502DD_ME_53FF077501B7 DoStartDrawAAC
+
+ME ME_54B4DE1700CA_ME_53FF077501B7
+ MELINK Original WL 'ME_54B4DE1700CA' '473C3BEE0334.ms.model.script' // DoEndDrawAAC
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54B4DE1700CA_ME_53FF077501B7 DoEndDrawAAC
+
+ME ME_56B0B9790320_ME_53FF077501B7
+ MELINK Original WL 'ME_56B0B9790320' '473C3BEE0334.ms.model.script' // IsPreview
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B0B9790320_ME_53FF077501B7 IsPreview
+
+ME ME_56B4B5EF019F_ME_53FF077501B7
+ MELINK Original WL 'ME_56B4B5EF019F' '473C3BEE0334.ms.model.script' // StartPage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4B5EF019F_ME_53FF077501B7 StartPage
+
+ME ME_56B4BDA30301_ME_53FF077501B7
+ MELINK Original WL 'ME_56B4BDA30301' '473C3BEE0334.ms.model.script' // DoEndPaint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_56B4BDA30301_ME_53FF077501B7 DoEndPaint
+
+%%InheritedBy ME_478E3C97021E ME_53FF077501B7
+
+ME ME_53FF077501B7
+ MEPROP UID '53FF077501B7'
+ MEPROP Name 'TddPDFCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Канвая для экспорта.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF071F01E3 // ddPDFExporter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53FF093200A8 // f_PDFDoc
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53FF0CB80082 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53FF077501B7 // Cleanup
+ ME_47DFCAAF0249_ME_53FF077501B7 // FillRectPrim
+ ME_47DFCAEE0007_ME_53FF077501B7 // DoFillForeRect
+ ME_54B4DDF502DD_ME_53FF077501B7 // DoStartDrawAAC
+ ME_54B4DE1700CA_ME_53FF077501B7 // DoEndDrawAAC
+ ME_56B0B9790320_ME_53FF077501B7 // IsPreview
+ ME_56B4B5EF019F_ME_53FF077501B7 // StartPage
+ ME_56B4BDA30301_ME_53FF077501B7 // DoEndPaint
+ )
+ ; // Overridden
+ MELIST Forwarded
+   Seq: ( HWL ME_53FF07670079 // TddPDFExporter
+ )
+ ; // Forwarded
+ UP extprop:rc:SelfName 'ddPDFCanvas'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53FF077501B7 TddPDFCanvas
+
+ME ME_53FF0B94012E
+ MEPROP UID '53FF0B94012E'
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target HWL ME_53FF077501B7 // TddPDFCanvas
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_53FF0B94012E Canvas
+
+ME ME_53FF22520184
+ MEPROP UID '53FF22520184'
+ MEPROP Name 'f_Metafile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_47DFD79200BD' '473C3BEE0334.ms.model.script' // Tl3Metafile
+ ;
+
+ENDME // ME_53FF22520184 f_Metafile
+
+ME ME_54002FE201A9
+ MEPROP UID '54002FE201A9'
+ MEPROP Name 'f_Stream'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ссылка на "внешний" поток.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_54002FE201A9 f_Stream
+
+ME ME_546337B4038A
+ MEPROP UID '546337B4038A'
+ MEPROP Name 'f_PDFEngine'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_54632B090390' '545CBCF1008C.ms.model.script' // TGarantPDFDocument
+ ;
+
+ENDME // ME_546337B4038A f_PDFEngine
+
+ME ME_5463435F02E2
+ MEPROP UID '5463435F02E2'
+ MEPROP Name 'f_Orientation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_4799E9D90376' '4799D2E6027B.ms.model.script' // TPrinterOrientation
+ ;
+
+ENDME // ME_5463435F02E2 f_Orientation
+
+FORWARD ME_53FF142B018D
+
+ME ME_53FF1439023A
+ MEPROP UID '53FF1439023A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF142B018D // CheckMetaFile
+ ;
+
+ENDME // ME_53FF1439023A DoIt
+
+ME ME_53FF142B018D
+ MEPROP UID '53FF142B018D'
+ MEPROP Name 'CheckMetaFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF1439023A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF142B018D CheckMetaFile
+
+FORWARD ME_53FF145301E1
+
+ME ME_53FF145B0354
+ MEPROP UID '53FF145B0354'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF145301E1 // ClearMetaFile
+ ;
+
+ENDME // ME_53FF145B0354 DoIt
+
+ME ME_53FF145301E1
+ MEPROP UID '53FF145301E1'
+ MEPROP Name 'ClearMetaFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF145B0354 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF145301E1 ClearMetaFile
+
+FORWARD ME_53FF146A00A3
+
+ME ME_54002D4F0140
+ MEPROP UID '54002D4F0140'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF146A00A3 // CreatePDFEngine
+ ;
+
+ENDME // ME_54002D4F0140 DoIt
+
+ME ME_53FF146A00A3
+ MEPROP UID '53FF146A00A3'
+ MEPROP Name 'CreatePDFEngine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54002D4F0140 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF146A00A3 CreatePDFEngine
+
+FORWARD ME_53FF149700F5
+
+ME ME_53FF149D01CA
+ MEPROP UID '53FF149D01CA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF149700F5 // DeInitPDFEngine
+ ;
+
+ENDME // ME_53FF149D01CA DoIt
+
+ME ME_53FF149700F5
+ MEPROP UID '53FF149700F5'
+ MEPROP Name 'DeInitPDFEngine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF149D01CA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF149700F5 DeInitPDFEngine
+
+FORWARD ME_53FF14F40039
+
+ME ME_53FF2B160086
+ MEPROP Name 'aPrinter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A4657201E7' '556F09AA036E.ms.model.script' // Il3Printer
+ ;
+
+ENDME // ME_53FF2B160086 aPrinter
+
+ME ME_53FF15020104
+ MEPROP UID '53FF15020104'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF14F40039 // CreateCanvas
+ ;
+ MELIST Parameters
+   Seq: ( ME_53FF2B160086 // aPrinter
+ )
+ ; // Parameters
+
+ENDME // ME_53FF15020104 DoIt
+
+ME ME_53FF14F40039
+ MEPROP UID '53FF14F40039'
+ MEPROP Name 'CreateCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF15020104 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF14F40039 CreateCanvas
+
+FORWARD ME_53FF16C2017E
+
+ME ME_53FF16D30394
+ MEPROP UID '53FF16D30394'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF16C2017E // DropMetaFile2PDF
+ ;
+
+ENDME // ME_53FF16D30394 DoIt
+
+ME ME_53FF16C2017E
+ MEPROP UID '53FF16C2017E'
+ MEPROP Name 'DropMetaFile2PDF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF16D30394 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF16C2017E DropMetaFile2PDF
+
+FORWARD ME_53FF174601A7
+
+ME ME_54002F2D02B9
+ MEPROP Name 'aFileStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_54002F2D02B9 aFileStream
+
+ME ME_53FF175201C5
+ MEPROP UID '53FF175201C5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF174601A7 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_54002F2D02B9 // aFileStream
+ )
+ ; // Parameters
+
+ENDME // ME_53FF175201C5 DoIt
+
+ME ME_53FF174601A7
+ MEPROP UID '53FF174601A7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF175201C5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF174601A7 Create
+
+FORWARD ME_53FF2DAF030C
+
+ME ME_53FF2E4201B8
+ MEPROP Name 'aPrinter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A4657201E7' '556F09AA036E.ms.model.script' // Il3Printer
+ ;
+
+ENDME // ME_53FF2E4201B8 aPrinter
+
+ME ME_53FF2E190050
+ MEPROP UID '53FF2E190050'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF2DAF030C // GetCanvas
+ ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+ MELIST Parameters
+   Seq: ( ME_53FF2E4201B8 // aPrinter
+ )
+ ; // Parameters
+
+ENDME // ME_53FF2E190050 DoIt
+
+ME ME_53FF2DAF030C
+ MEPROP UID '53FF2DAF030C'
+ MEPROP Name 'GetCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FF2E190050 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53FF2DAF030C GetCanvas
+
+ME ME_53FF249302CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_47E0CB3C022E' '47D15712022D.ms.model.script' // TMetafileCanvas
+ ;
+
+ENDME // ME_53FF249302CB 
+
+ME ME_53FF27D503D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53FF27D503D5 
+
+ME ME_54361A8A01C6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_4799ECBF00D6' '4799ED060093.ms.model.script' // Defaults
+ ;
+
+ENDME // ME_54361A8A01C6 
+
+ME ME_546474BA002A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_52F8B15003A7' '4F6843C101D1.ms.model.script' // TddPicturePathListner
+ ;
+
+ENDME // ME_546474BA002A 
+
+ME ME_5485ABBC003A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_47E0C36201C7' '47E0C36201C7.ms.model.script' // l3Math
+ ;
+
+ENDME // ME_5485ABBC003A 
+
+ME ME_5485ABEE01BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_5485ABEE01BC 
+
+ME ME_5485AEB9017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_47E0CD4D0153' '48A41FF10094.ms.model.script' // Device Caps
+ ;
+
+ENDME // ME_5485AEB9017E 
+
+ME ME_54B4DFB403BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF07670079 // TddPDFExporter
+ ;
+ MELINK Target WL 'ME_54B4DF3C00FD' '545CBD310006.ms.model.script' // GDICommentStatAAC
+ ;
+
+ENDME // ME_54B4DFB403BA 
+
+ME ME_53FF090F032F_ME_53FF07670079
+ MELINK Original HWL ME_53FF090F032F // NewPage
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53FF090F032F_ME_53FF07670079 NewPage
+
+ME ME_53FF091B01DF_ME_53FF07670079
+ MELINK Original HWL ME_53FF091B01DF // EndDoc
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53FF091B01DF_ME_53FF07670079 EndDoc
+
+ME ME_479731C50290_ME_53FF07670079
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53FF07670079 Cleanup
+
+%%ImplementedBy ME_53FF08DF0074 ME_53FF07670079
+
+%%InheritedBy ME_47BC391D0259 ME_53FF07670079
+
+ME ME_53FF07670079
+ MEPROP UID '53FF07670079'
+ MEPROP Name 'TddPDFExporter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс-обертка над gtPDFEng.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FF071F01E3 // ddPDFExporter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC391D0259' '47913B47006E.ms.model.script' // Tl3SimpleObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53FF08DF0074 // IddPDFDoc
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53FF0B94012E // Canvas
+ HWL ME_53FF22520184 // f_Metafile
+ HWL ME_54002FE201A9 // f_Stream
+ HWL ME_546337B4038A // f_PDFEngine
+ HWL ME_5463435F02E2 // f_Orientation
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53FF142B018D // CheckMetaFile
+ HWL ME_53FF145301E1 // ClearMetaFile
+ HWL ME_53FF146A00A3 // CreatePDFEngine
+ HWL ME_53FF149700F5 // DeInitPDFEngine
+ HWL ME_53FF14F40039 // CreateCanvas
+ HWL ME_53FF16C2017E // DropMetaFile2PDF
+ HWL ME_53FF174601A7 // Create
+ HWL ME_53FF2DAF030C // GetCanvas
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53FF090F032F_ME_53FF07670079 // NewPage
+ ME_53FF091B01DF_ME_53FF07670079 // EndDoc
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53FF07670079 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53FF249302CB // TMetafileCanvas
+ ME_53FF27D503D5 // FreeAndNil
+ ME_54361A8A01C6 // Defaults
+ ME_546474BA002A // TddPicturePathListner
+ ME_5485ABBC003A // l3Math
+ ME_5485ABEE01BC // L3 Core Consts
+ ME_5485AEB9017E // Device Caps
+ ME_54B4DFB403BA // GDICommentStatAAC
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddPDFExporter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53FF07670079 TddPDFExporter
+
+ME ME_53FF071F01E3
+ MEPROP UID '53FF071F01E3'
+ MEPROP Name 'ddPDFExporter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обертка eDocEngine с нашей стороны.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53FF06D9011C' '53FF06D9011C.ms.model.script' // PDFSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53FF08DF0074 // IddPDFDoc
+ HWL ME_53FF077501B7 // TddPDFCanvas
+ HWL ME_53FF07670079 // TddPDFExporter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddPDFExporter.pas'
+
+ENDME // ME_53FF071F01E3 ddPDFExporter

@@ -1,0 +1,90 @@
+// k2TagHolder 4A573C5F01FF Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A573C5F01FF
+
+ME ME_533ED10E0160
+ MEPROP UID '533ED10E0160'
+ MEPROP Name 'Redirect'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A573C5F01FF // k2TagHolder
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_533ED10E0160 Redirect
+
+ME ME_533ED145031E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A573C5F01FF // k2TagHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_533ED145031E 
+
+ME ME_533ED59300CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A573C5F01FF // k2TagHolder
+ ;
+ MELINK Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.ms.model.script' // Tk2NullTagImpl
+ ;
+
+ENDME // ME_533ED59300CF 
+
+ME ME_479731C50290_ME_4A573C5F01FF
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A573C5F01FF Cleanup
+
+%%ImplementedBy ME_4A5CB93700CF ME_4A573C5F01FF
+
+ME ME_4A573C5F01FF
+ MEPROP UID '4A573C5F01FF'
+ MEPROP Name 'k2TagHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_533ED10E0160 // Redirect
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A573C5F01FF // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_533ED145031E // FreeAndNil
+ ME_533ED59300CF // Tk2NullTagImpl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '10.07.2009 17:04'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TagHolder.imp.pas'
+ UP extprop:pas:TypeName '_k2TagHolder_'
+ UP extprop:pas:UnitName 'k2TagHolder.imp'
+
+ENDME // ME_4A573C5F01FF k2TagHolder

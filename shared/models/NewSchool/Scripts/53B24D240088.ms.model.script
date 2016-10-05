@@ -1,0 +1,191 @@
+// vcmKeyDataListener 53B24D240088 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B24D240088
+
+FORWARD ME_53B24E7A0280
+
+ME ME_53B24E9E029B
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+
+ENDME // ME_53B24E9E029B aKey
+
+ME ME_53B24E9E02AF
+ MEPROP Name 'aShift'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728CE680258' '478CF30500C1.ms.model.script' // TShiftState
+ ;
+
+ENDME // ME_53B24E9E02AF aShift
+
+ME ME_53B24E920155
+ MEPROP UID '53B24E920155'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B24E7A0280 // NeedProcessKeyData
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53B24E9E029B // aKey
+ ME_53B24E9E02AF // aShift
+ )
+ ; // Parameters
+
+ENDME // ME_53B24E920155 DoIt
+
+ME ME_53B24E7A0280
+ MEPROP UID '53B24E7A0280'
+ MEPROP Name 'NeedProcessKeyData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53B24D240088 // vcmKeyDataListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B24E920155 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B24E7A0280 NeedProcessKeyData
+
+FORWARD ME_53B24F1D034F
+
+ME ME_53B24F3E01FA
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+
+ENDME // ME_53B24F3E01FA aKey
+
+ME ME_53B24F3E020F
+ MEPROP Name 'aShift'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728CE680258' '478CF30500C1.ms.model.script' // TShiftState
+ ;
+
+ENDME // ME_53B24F3E020F aShift
+
+ME ME_53B24F330197
+ MEPROP UID '53B24F330197'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B24F1D034F // DoProcessKeyData
+ ;
+ MELIST Parameters
+   Seq: ( ME_53B24F3E01FA // aKey
+ ME_53B24F3E020F // aShift
+ )
+ ; // Parameters
+
+ENDME // ME_53B24F330197 DoIt
+
+ME ME_53B24F1D034F
+ MEPROP UID '53B24F1D034F'
+ MEPROP Name 'DoProcessKeyData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53B24D240088 // vcmKeyDataListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53B24F330197 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53B24F1D034F DoProcessKeyData
+
+ME ME_53B24E4A004B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B24D240088 // vcmKeyDataListener
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_53B24E4A004B 
+
+ME ME_53B24E4F014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B24D240088 // vcmKeyDataListener
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_53B24E4F014A 
+
+ME ME_53B24ED701B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B24D240088 // vcmKeyDataListener
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '478CF30500C1.ms.model.script' // Classes
+ ;
+
+ENDME // ME_53B24ED701B3 
+
+ME ME_53B1197D0372_ME_53B24D240088
+ MELINK Original WL 'ME_53B1197D0372' '467C0CAA02AB.ms.model.script' // ProcessKeyData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53B1197D0372_ME_53B24D240088 ProcessKeyData
+
+%%ImplementedBy ME_53B11944038A ME_53B24D240088
+
+ME ME_53B24D240088
+ MEPROP UID '53B24D240088'
+ MEPROP Name 'vcmKeyDataListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_53B11944038A' '467C0CAA02AB.ms.model.script' // Il3KeyDataListener
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53B24E7A0280 // NeedProcessKeyData
+ HWL ME_53B24F1D034F // DoProcessKeyData
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53B1197D0372_ME_53B24D240088 // ProcessKeyData
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53B24E4A004B // Controls
+ ME_53B24E4F014A // Forms
+ ME_53B24ED701B3 // Classes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmKeyDataListener.imp.pas'
+ UP extprop:pas:TypeName '_vcmKeyDataListener_'
+ UP extprop:pas:UnitName 'vcmKeyDataListener.imp'
+
+ENDME // ME_53B24D240088 vcmKeyDataListener

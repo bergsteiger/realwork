@@ -2,56 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4B4DCD0B0295
-
-FORWARD ME_4B4DCD220000
-
-ME ME_4B4DCDA1023B
- MEPROP UID '4B4DCDA1023B'
- MEPROP Name 'CPUID'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B4DCD220000 // JclSysInfo
- ;
-
-ENDME // ME_4B4DCDA1023B CPUID
-
-ME ME_4B4DCD220000
- MEPROP UID '4B4DCD220000'
- MEPROP Name 'JclSysInfo'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B4DCD0B0295 // Common
- ;
- MELIST Operations
-   Seq: ( HWL ME_4B4DCDA1023B // CPUID
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\JEDI\source\common\NOT_FINISHED_JclSysInfo.pas'
-
-ENDME // ME_4B4DCD220000 JclSysInfo
-
-ME ME_546F146A0008
- MEPROP UID '546F146A0008'
- MEPROP Name 'zlibh'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B4DCD0B0295 // Common
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\JEDI\source\common\NOT_FINISHED_zlibh.pas'
-
-ENDME // ME_546F146A0008 zlibh
+%%Inner ME_4B4DCD0B0295
+%%Inner ME_4B4DCD0B0295
 
 ME ME_4B4DCD0B0295
  MEPROP UID '4B4DCD0B0295'
@@ -64,10 +16,13 @@ ME ME_4B4DCD0B0295
  MELINK Parent WL 'ME_4B4DCCBF034F' '4B4DCCBF034F.ms.model.script' // JEDI
  ;
  MELIST Children
-   Seq: ( HWL ME_4B4DCD220000 // JclSysInfo
- HWL ME_546F146A0008 // zlibh
+   Seq: ( WL 'ME_4B4DCD220000' '4B4DCD220000.ms.model.script' // JclSysInfo
+ WL 'ME_546F146A0008' '546F146A0008.ms.model.script' // zlibh
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "path prefix" '/source/common'
  UP intf.pas:PathOnly '\common\components\rtl\external\JEDI\source\common'
 

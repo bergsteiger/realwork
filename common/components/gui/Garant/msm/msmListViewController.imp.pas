@@ -81,6 +81,8 @@ end;//_msmListViewController_.InitOwnView
 
 procedure _msmListViewController_.LinkDataToView;
 //#UC START# *57B6A49900F4_57B6C958008A_var*
+var
+ l_Index : Integer;
 //#UC END# *57B6A49900F4_57B6C958008A_var*
 begin
 //#UC START# *57B6A49900F4_57B6C958008A_impl*
@@ -89,11 +91,21 @@ begin
   OwnView.Total := 0
  else
   OwnView.Total := Self.Model.List.Count;
- OwnView.Current := 0;
+ l_Index := 0; 
+ if (Self.Model.List = nil) then
+  OwnView.Current := 0
+ else
+ begin
+  l_Index := Self.Model.List.IndexOfElementView(Self.Model.CurrentElement);
+  if (l_Index < 0) then
+   OwnView.Current := 0
+  else
+   OwnView.Current := l_Index;
+ end;//Self.Model.List = nil
  if (OwnView.Total = 0) then
   //DoCurrentChanged(Self, -1, -1)
  else
-  DoCurrentChanged(Self, 0, -1);
+  DoCurrentChanged(Self, l_Index, -1);
  if OwnView.MultiStrokeItem then
   CallDropDrawPoints;
  OwnView.Invalidate;

@@ -1,0 +1,81 @@
+// TaskPanelWords 5101345E0143 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5101345E0143
+
+ME ME_552FCA4E006B
+ MEPROP UID '552FCA4E006B'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5101345E0143 // TaskPanelWords
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "mapped" true
+
+ENDME // ME_552FCA4E006B Count
+
+ME ME_552FCA9D02F3
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552FCA9D02F3 anIndex
+
+ME ME_552FCA800230
+ MEPROP UID '552FCA800230'
+ MEPROP Name 'GetHideField'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5101345E0143 // TaskPanelWords
+ ;
+ MELINK Target WL 'ME_508EBD7703BF' '4D3424C203C2.ms.model.script' // TnscTasksPanelHideField
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FCA9D02F3 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_552FCA800230 GetHideField
+
+%%InheritedBy ME_4D3424C203C2 ME_5101345E0143
+
+ME ME_5101345E0143
+ MEPROP UID '5101345E0143'
+ MEPROP Name 'TaskPanelWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_510134290310' '510134290310.ms.model.script' // TaskPanelWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D3424C203C2' '4D3424C203C2.ms.model.script' // TnscTasksPanelView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_552FCA4E006B // Count
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_552FCA800230 // GetHideField
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TaskPanelWords.pas'
+
+ENDME // ME_5101345E0143 TaskPanelWords

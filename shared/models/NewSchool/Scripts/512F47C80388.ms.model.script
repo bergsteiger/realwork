@@ -1,0 +1,72 @@
+// TreeViewWordsPack 512F47C80388 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512F47C80388
+
+ME ME_55C9CBDA0295
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55C9CBDA0295 anIndex
+
+ME ME_55C9CBCD0127
+ MEPROP UID '55C9CBCD0127'
+ MEPROP Name 'GetItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512F47C80388 // TreeViewWordsPack
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4AC62798032A.ms.model.script' // TTreeNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C9CBDA0295 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_55C9CBCD0127 GetItem
+
+ME ME_55C9CBBD028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512F47C80388 // TreeViewWordsPack
+ ;
+ MELINK Target WL 'ME_55C9CBB10045' '55C9CBB10045.ms.model.script' // TreeNodeWordsPack
+ ;
+
+ENDME // ME_55C9CBBD028C 
+
+%%InheritedBy ME_512F402F01BA ME_512F47C80388
+
+ME ME_512F47C80388
+ MEPROP UID '512F47C80388'
+ MEPROP Name 'TreeViewWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_512F475600DF' '512F475600DF.ms.model.script' // TreeViewWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_512F402F01BA' '4AC62798032A.ms.model.script' // TTreeView
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C9CBCD0127 // GetItem
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C9CBBD028C // TreeNodeWordsPack
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\TreeViewWordsPack.pas'
+
+ENDME // ME_512F47C80388 TreeViewWordsPack

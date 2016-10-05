@@ -1,0 +1,89 @@
+unit csMultiOperation;
+
+// Модуль: "w:\common\components\rtl\Garant\cs\csMultiOperation.pas"
+// Стереотип: "SimpleClass"
+// Элемент модели: "TcsMultiOperation" MUID: (57EE51860032)
+
+{$Include w:\common\components\rtl\Garant\cs\CsDefine.inc}
+
+interface
+
+{$If NOT Defined(Nemesis)}
+uses
+ l3IntfUses
+ , ncsMessage
+ , evdTasksHelpers
+ , l3MarshalledTypes
+ , k2Base
+;
+
+type
+ TcsMultiOperation = class(TncsMessage)
+  protected
+   function pm_GetFamilyID: Integer;
+   procedure pm_SetFamilyID(aValue: Integer);
+   function pm_GetDocIDList: DocIDListHelper;
+   function pm_GetOperation: TarMultiOperation;
+   procedure pm_SetOperation(aValue: TarMultiOperation);
+  public
+   class function GetTaggedDataType: Tk2Type; override;
+  public
+   property FamilyID: Integer
+    read pm_GetFamilyID
+    write pm_SetFamilyID;
+   property DocIDList: DocIDListHelper
+    read pm_GetDocIDList;
+   property Operation: TarMultiOperation
+    read pm_GetOperation
+    write pm_SetOperation;
+ end;//TcsMultiOperation
+{$IfEnd} // NOT Defined(Nemesis)
+
+implementation
+
+{$If NOT Defined(Nemesis)}
+uses
+ l3ImplUses
+ , csMultiOperation_Const
+ //#UC START# *57EE51860032impl_uses*
+ //#UC END# *57EE51860032impl_uses*
+;
+
+function TcsMultiOperation.pm_GetFamilyID: Integer;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.IntA[k2_attrFamilyID]);
+end;//TcsMultiOperation.pm_GetFamilyID
+
+procedure TcsMultiOperation.pm_SetFamilyID(aValue: Integer);
+begin
+ TaggedData.IntW[k2_attrFamilyID, nil] := (aValue);
+end;//TcsMultiOperation.pm_SetFamilyID
+
+function TcsMultiOperation.pm_GetDocIDList: DocIDListHelper;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TDocIDListHelper.Make(TaggedData.cAtom(k2_attrDocIDList));
+end;//TcsMultiOperation.pm_GetDocIDList
+
+function TcsMultiOperation.pm_GetOperation: TarMultiOperation;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := TarMultiOperation(TaggedData.IntA[k2_attrOperation]);
+end;//TcsMultiOperation.pm_GetOperation
+
+procedure TcsMultiOperation.pm_SetOperation(aValue: TarMultiOperation);
+begin
+ TaggedData.IntW[k2_attrOperation, nil] := Ord(aValue);
+end;//TcsMultiOperation.pm_SetOperation
+
+class function TcsMultiOperation.GetTaggedDataType: Tk2Type;
+begin
+ Result := k2_typcsMultiOperation;
+end;//TcsMultiOperation.GetTaggedDataType
+{$IfEnd} // NOT Defined(Nemesis)
+
+end.

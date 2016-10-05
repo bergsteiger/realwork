@@ -1,0 +1,332 @@
+// CsConst 538DA49902A4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_538DA49902A4
+
+FORWARD ME_545C9ADE01F3
+
+ME ME_545C9AED03B0
+ MEPROP UID '545C9AED03B0'
+ MEPROP Name 'c_CsVersion'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9ADE01F3 // cProtocolVersion
+ ;
+ MEPROP Value 27
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 27
+
+ENDME // ME_545C9AED03B0 c_CsVersion
+
+ME ME_545C9ADE01F3
+ MEPROP UID '545C9ADE01F3'
+ MEPROP Name 'cProtocolVersion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_538DA49902A4 // CsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_545C9AED03B0 // c_CsVersion
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_545C9ADE01F3 cProtocolVersion
+
+FORWARD ME_545C9E920331
+
+ME ME_545C9EA801E6
+ MEPROP UID '545C9EA801E6'
+ MEPROP Name 'c_AllStations'
+ MEPROP Class class_Attribute
+ %SUMMARY 'адрес для широковещания' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9E920331 // cPredefinedClients
+ ;
+ MEPROP Value '''*'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''*'''
+
+ENDME // ME_545C9EA801E6 c_AllStations
+
+ME ME_545C9EC303AE
+ MEPROP UID '545C9EC303AE'
+ MEPROP Name 'c_WrongClientId'
+ MEPROP Class class_Attribute
+ %SUMMARY 'говорит об отказе в регистрации' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9E920331 // cPredefinedClients
+ ;
+ MEPROP Value 'usWrongClient'
+ MELINK ValueType WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'daInterfaces.usWrongClient'
+
+ENDME // ME_545C9EC303AE c_WrongClientId
+
+ME ME_545C9EE003B3
+ MEPROP UID '545C9EE003B3'
+ MEPROP Name 'c_DuplicateClient'
+ MEPROP Class class_Attribute
+ %SUMMARY 'попытка войти повторно' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9E920331 // cPredefinedClients
+ ;
+ MEPROP Value 'usDuplicateClient'
+ MELINK ValueType WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'daInterfaces.usDuplicateClient'
+
+ENDME // ME_545C9EE003B3 c_DuplicateClient
+
+ME ME_545C9EFC03D5
+ MEPROP UID '545C9EFC03D5'
+ MEPROP Name 'c_DeadClient'
+ MEPROP Class class_Attribute
+ %SUMMARY 'не отвечает на запросы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9E920331 // cPredefinedClients
+ ;
+ MEPROP Value 'usDeadClient'
+ MELINK ValueType WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'daInterfaces.usDeadClient'
+
+ENDME // ME_545C9EFC03D5 c_DeadClient
+
+ME ME_545C9E920331
+ MEPROP UID '545C9E920331'
+ MEPROP Name 'cPredefinedClients'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_538DA49902A4 // CsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_545C9EA801E6 // c_AllStations
+ HWL ME_545C9EC303AE // c_WrongClientId
+ HWL ME_545C9EE003B3 // c_DuplicateClient
+ HWL ME_545C9EFC03D5 // c_DeadClient
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_545C9E920331 cPredefinedClients
+
+FORWARD ME_545C9F2A010C
+
+ME ME_545C9F430374
+ MEPROP UID '545C9F430374'
+ MEPROP Name 'cs_errOk'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 0
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 0
+
+ENDME // ME_545C9F430374 cs_errOk
+
+ME ME_545C9F55004C
+ MEPROP UID '545C9F55004C'
+ MEPROP Name 'cs_errError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 1
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1
+
+ENDME // ME_545C9F55004C cs_errError
+
+ME ME_545C9F630313
+ MEPROP UID '545C9F630313'
+ MEPROP Name 'cs_errConnClosedGracefully'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 2
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 2
+
+ENDME // ME_545C9F630313 cs_errConnClosedGracefully
+
+ME ME_545C9F8B02B4
+ MEPROP UID '545C9F8B02B4'
+ MEPROP Name 'cs_errConnectTimeout'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 3
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 3
+
+ENDME // ME_545C9F8B02B4 cs_errConnectTimeout
+
+ME ME_545C9F9E0296
+ MEPROP UID '545C9F9E0296'
+ MEPROP Name 'cs_errSocketError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 4
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 4
+
+ENDME // ME_545C9F9E0296 cs_errSocketError
+
+ME ME_545C9FAF025C
+ MEPROP UID '545C9FAF025C'
+ MEPROP Name 'cs_errConnAborted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 5
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 5
+
+ENDME // ME_545C9FAF025C cs_errConnAborted
+
+ME ME_545C9FC6015D
+ MEPROP UID '545C9FC6015D'
+ MEPROP Name 'cs_errConnRefused'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 6
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 6
+
+ENDME // ME_545C9FC6015D cs_errConnRefused
+
+ME ME_545C9FD20070
+ MEPROP UID '545C9FD20070'
+ MEPROP Name 'cs_errWrongServerVersion'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C9F2A010C // cErrorCodes
+ ;
+ MEPROP Value 7
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 7
+
+ENDME // ME_545C9FD20070 cs_errWrongServerVersion
+
+ME ME_545C9F2A010C
+ MEPROP UID '545C9F2A010C'
+ MEPROP Name 'cErrorCodes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'коды ошибок обработки запросов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_538DA49902A4 // CsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_545C9F430374 // cs_errOk
+ HWL ME_545C9F55004C // cs_errError
+ HWL ME_545C9F630313 // cs_errConnClosedGracefully
+ HWL ME_545C9F8B02B4 // cs_errConnectTimeout
+ HWL ME_545C9F9E0296 // cs_errSocketError
+ HWL ME_545C9FAF025C // cs_errConnAborted
+ HWL ME_545C9FC6015D // cs_errConnRefused
+ HWL ME_545C9FD20070 // cs_errWrongServerVersion
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_545C9F2A010C cErrorCodes
+
+ME ME_538DA49902A4
+ MEPROP UID '538DA49902A4'
+ MEPROP Name 'CsConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FBB2FC0386' '52FBB2FC0386.ms.model.script' // Core
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_545C9ADE01F3 // cProtocolVersion
+ HWL ME_545C9E920331 // cPredefinedClients
+ HWL ME_545C9F2A010C // cErrorCodes
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\CsConst.pas'
+
+ENDME // ME_538DA49902A4 CsConst

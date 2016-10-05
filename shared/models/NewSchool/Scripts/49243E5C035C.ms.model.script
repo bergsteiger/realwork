@@ -1,0 +1,37 @@
+// nsLogicOperationToFlags 49243E5C035C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49243E5C035C
+
+ME ME_49243E6B0354
+ MEPROP UID '49243E6B0354'
+ MEPROP Name 'GetOperationIterator'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49243E5C035C // nsLogicOperationToFlags
+ ;
+
+ENDME // ME_49243E6B0354 GetOperationIterator
+
+ME ME_49243E5C035C
+ MEPROP UID '49243E5C035C'
+ MEPROP Name 'nsLogicOperationToFlags'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F282AE0082' '47F282AE0082.ms.model.script' // Tree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49243E6B0354 // GetOperationIterator
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\NOT_FINISHED_nsLogicOperationToFlags.pas'
+ UP extprop:rc:SelfName 'LogicOperationToFlags'
+
+ENDME // ME_49243E5C035C nsLogicOperationToFlags

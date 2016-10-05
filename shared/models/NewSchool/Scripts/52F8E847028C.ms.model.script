@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_52F8E847028C
+
 FORWARD ME_52F8E847028C
 
 FORWARD ME_52F8E8A101EC
@@ -17,7 +19,7 @@ ME ME_52F8EE7401C2
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52F8EE5400B0 // TTaskDone
  ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
  ;
 
 ENDME // ME_52F8EE7401C2 f_Task
@@ -31,16 +33,18 @@ ME ME_52F8EE8E0293
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52F8EE5400B0 // TTaskDone
  ;
- MELINK Target WL 'ME_52F8E80D00A5' '53D656130130.ms.model.script' // TddServerTaskManager
+ MELINK Target WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
  ;
 
 ENDME // ME_52F8EE8E0293 ServerTaskManager
 
 ME ME_4FFFDF740099_ME_52F8EE5400B0
- MELINK Original WL 'ME_4FFFDF740099' '4AB0997B00A2.ms.model.script' // Execute
+ MELINK Original WL 'ME_4FFFDF740099' '478CF30500C1.ms.model.script' // Execute
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4FFFDF740099_ME_52F8EE5400B0 Execute
+
+%%InheritedBy ME_4FFFDF4601F9 ME_52F8EE5400B0
 
 ME ME_52F8EE5400B0
  MEPROP UID '52F8EE5400B0'
@@ -53,7 +57,7 @@ ME ME_52F8EE5400B0
  MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4FFFDF4601F9' '4AB0997B00A2.ms.model.script' // TThread
+   Seq: ( WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
  )
  ; // Inherits
  MELIST Attributes
@@ -78,6 +82,8 @@ ME ME_52FA2C99010A_ME_52FA2C470046
  MEPROP OpKind opkind_Overridden
  UP "is static" true
 ENDME // ME_52FA2C99010A_ME_52FA2C470046 DoMake
+
+%%InheritedBy ME_52FA29AE02C2 ME_52FA2C470046
 
 ME ME_52FA2C470046
  MEPROP UID '52FA2C470046'
@@ -119,7 +125,7 @@ ME ME_52F8EF0C014A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
  ;
- MELINK Target WL 'ME_52F8EEFA01C4' '4AB0C3C60310.ms.model.script' // Sleep
+ MELINK Target WL 'ME_52F8EEFA01C4' '47877EB202FB.ms.model.script' // Sleep
  ;
 
 ENDME // ME_52F8EF0C014A 
@@ -129,7 +135,7 @@ ME ME_52FA24F8016A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52F8E8A101EC // TddServerTaskManagerForTests
  ;
- MELINK Target WL 'ME_4E03119F00B2' '4E030FC801EB.ms.model.script' // afwAnswer
+ MELINK Target WL 'ME_4E03119F00B2' '4E03119F00B2.ms.model.script' // afwAnswer
  ;
 
 ENDME // ME_52FA24F8016A 
@@ -155,25 +161,27 @@ ME ME_557696F8026C
 ENDME // ME_557696F8026C 
 
 ME ME_52F8EDDA037F_ME_52F8E8A101EC
- MELINK Original WL 'ME_52F8EDDA037F' '53D656130130.ms.model.script' // SimulateTaskDone
+ MELINK Original WL 'ME_52F8EDDA037F' '52F8BE3100F5.ms.model.script' // SimulateTaskDone
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifdef" 'InsiderTest'
 ENDME // ME_52F8EDDA037F_ME_52F8E8A101EC SimulateTaskDone
 
 ME ME_52F8EDF703C0_ME_52F8E8A101EC
- MELINK Original WL 'ME_52F8EDF703C0' '53D656130130.ms.model.script' // BeforeSaveQuery
+ MELINK Original WL 'ME_52F8EDF703C0' '52F8BE3100F5.ms.model.script' // BeforeSaveQuery
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifdef" 'InsiderTest'
 ENDME // ME_52F8EDF703C0_ME_52F8E8A101EC BeforeSaveQuery
 
 ME ME_52F8F0990208_ME_52F8E8A101EC
- MELINK Original WL 'ME_52F8F0990208' '53D656130130.ms.model.script' // NeedRaiseInProcessQuery
+ MELINK Original WL 'ME_52F8F0990208' '52F8BE3100F5.ms.model.script' // NeedRaiseInProcessQuery
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifdef" 'InsiderTest'
 ENDME // ME_52F8F0990208_ME_52F8E8A101EC NeedRaiseInProcessQuery
+
+%%InheritedBy ME_52F8E80D00A5 ME_52F8E8A101EC
 
 ME ME_52F8E8A101EC
  MEPROP UID '52F8E8A101EC'
@@ -186,7 +194,7 @@ ME ME_52F8E8A101EC
  MELINK Parent HWL ME_52F8E847028C // TaskProcessingTuningForTests
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52F8E80D00A5' '53D656130130.ms.model.script' // TddServerTaskManager
+   Seq: ( WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
  )
  ; // Inherits
  MELIST Operations
@@ -211,6 +219,9 @@ ME ME_52F8E8A101EC
  ME_557696F8026C // Tl3BatchService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\ddServerTaskManagerForTests.pas'
  UP extprop:rc:SelfName 'ddServerTaskManagerForTests'
  UP extprop:rc:isAcceptableForScripts true
@@ -241,5 +252,8 @@ ME ME_52F8E847028C
  WL 'ME_53D656130130' '53D656130130.ms.model.script' // Server
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_52F8E847028C TaskProcessingTuningForTests

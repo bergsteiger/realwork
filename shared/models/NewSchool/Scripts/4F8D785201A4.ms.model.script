@@ -1,0 +1,66 @@
+// F_ImageView 4F8D785201A4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8D785201A4
+
+FORWARD ME_4F8D785201A4
+
+FORWARD ME_4F8D787901C4
+
+ME ME_54F57F450294
+ MEPROP UID '54F57F450294'
+ MEPROP Name 'PageView'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F8D787901C4 // TfrmImgViewer
+ ;
+ MELINK Target WL 'ME_4ACDBC6101A6' '4ACDBC4A0003.ms.model.script' // TImageEnView
+ ;
+
+ENDME // ME_54F57F450294 PageView
+
+ME ME_4F8D787901C4
+ MEPROP UID '4F8D787901C4'
+ MEPROP Name 'TfrmImgViewer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D785201A4 // F_ImageView
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54F57F450294 // PageView
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'frmImgViewer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F8D787901C4 TfrmImgViewer
+
+ME ME_4F8D785201A4
+ MEPROP UID '4F8D785201A4'
+ MEPROP Name 'F_ImageView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фрейм для просмотра многостраничных TIFF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F8D7381019D' '4F8D7381019D.ms.model.script' // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D787901C4 // TfrmImgViewer
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_ImageView.pas'
+
+ENDME // ME_4F8D785201A4 F_ImageView

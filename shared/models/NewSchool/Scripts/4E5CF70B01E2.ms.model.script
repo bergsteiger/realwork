@@ -2,6 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4E5CF70B01E2
+%%Inner ME_4E5CF70B01E2
+%%Inner ME_4E5CF70B01E2
+%%Inner ME_4E5CF70B01E2
+%%Inner ME_4E5CF70B01E2
+%%Inner ME_4E5CF70B01E2
+%%Inner ME_4E5CF70B01E2
+%%Inner ME_4E5CF70B01E2
+
 FORWARD ME_4E5CF70B01E2
 
 FORWARD ME_4E6A1BDA03DB
@@ -52,6 +61,9 @@ ME ME_4E5CF9ED03B7
    Seq: ( HWL ME_4E5CF72A00BC // "Шапка" комментариев должна отображаться целиком или не отображаться вовсе, если она не имеет собственной отдельной строки вывода
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E5CF9ED03B7 Отображение комментариев
 
@@ -100,6 +112,9 @@ ME ME_4E6A1BDA03DB
  HWL ME_4E6A2DF3030F // Отображение шапки параграфа
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E6A1BDA03DB Отображение документа
 
@@ -192,6 +207,9 @@ ME ME_4E8202E900AD
  HWL ME_4F69A97D02E2 // Карточки запросов должны уметь устанавливать фокус в требуемый атрибут из скриптов
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E8202E900AD Карточка запроса на основе EVD
 
@@ -243,6 +261,8 @@ ME ME_4E85AE2A017A
 
 ENDME // ME_4E85AE2A017A И в Архивариусе (с новым редактором) - тоже
 
+%%ImplementedBy ME_4E85AE2A017A ME_4E85A4EB02BD
+
 ME ME_4E85A4EB02BD
  MEPROP UID '4E85A4EB02BD'
  MEPROP Name 'Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой'
@@ -262,6 +282,9 @@ ME ME_4E85A4EB02BD
    Seq: ( HWL ME_4E85AE2A017A // И в Архивариусе (с новым редактором) - тоже
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E85A4EB02BD Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
 
@@ -279,6 +302,9 @@ ME ME_4E85A48D035E
    Seq: ( HWL ME_4E85A4EB02BD // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E85A48D035E Экспорт документа в форматы отличные от EVD
 
@@ -298,6 +324,8 @@ ME ME_4F352A3B036A
 
 ENDME // ME_4F352A3B036A В RTF не должны экспортироваться скриптовые ссылки
 
+%%InheritedBy ME_4E85A48D035E ME_4E85A4A500A5
+
 ME ME_4E85A4A500A5
  MEPROP UID '4E85A4A500A5'
  MEPROP Name 'Экспорт документа в RTF'
@@ -316,8 +344,13 @@ ME ME_4E85A4A500A5
    Seq: ( HWL ME_4F352A3B036A // В RTF не должны экспортироваться скриптовые ссылки
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E85A4A500A5 Экспорт документа в RTF
+
+%%InheritedBy ME_4E85A48D035E ME_4E85A4BD01A5
 
 ME ME_4E85A4BD01A5
  MEPROP UID '4E85A4BD01A5'
@@ -361,5 +394,8 @@ ME ME_4E5CF70B01E2
    Seq: ( WL 'ME_4E57B8C2010F' '4E57B8C2010F.ms.model.script' // Требования к схеме документа EVD
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E5CF70B01E2 Требования к редактору Эверест

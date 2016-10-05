@@ -518,6 +518,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3TextSearch in 'w:\common\components\rtl\Garant\L3\l3TextSearch.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1982,6 +1983,13 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Serv in 'w:\common\components\rtl\Garant\DT\dt_Serv.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_LinkServerService in 'w:\common\components\rtl\Garant\DT\dt_LinkServerService.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , daLinkServerService in 'w:\common\components\rtl\Garant\DA\daLinkServerService.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  , m3DBFiler in 'w:\common\components\rtl\Garant\m3\m3DBFiler.pas'
  {$If NOT Defined(Nemesis)}
  , dt_TblCacheDef in 'w:\common\components\rtl\Garant\DT\dt_TblCacheDef.pas'
@@ -2008,16 +2016,63 @@ uses
  , arDirectSaveDocumentHelper in 'w:\archi\source\projects\Common\Utils\arDirectSaveDocumentHelper.pas'
  , arCustomSaveDocumentHelper in 'w:\archi\source\projects\Common\Utils\arCustomSaveDocumentHelper.pas'
  , UploadDocRequest_Const in 'w:\common\components\rtl\Garant\EVD\UploadDocRequest_Const.pas'
- , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMultiModifyDocsExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiModifyDocsExecutor.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If Defined(ServerTasks)}
+ , alcuMultiModifyDocsRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiModifyDocsRequest.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , csMultiModifyDocs in 'w:\common\components\rtl\Garant\cs\csMultiModifyDocs.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiModifyDocs_Const in 'w:\common\components\rtl\Garant\EVD\csMultiModifyDocs_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , csMultiModifyDocsReply in 'w:\common\components\rtl\Garant\cs\csMultiModifyDocsReply.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiModifyDocsReply_Const in 'w:\common\components\rtl\Garant\EVD\csMultiModifyDocsReply_Const.pas'
+ , l3IDList in 'w:\common\components\rtl\Garant\L3\l3IDList.pas'
+ , arDirectMultiModifyDocsHelper in 'w:\archi\source\projects\Common\Utils\arDirectMultiModifyDocsHelper.pas'
+ , arCustomMultiModifyDocsHelper in 'w:\archi\source\projects\Common\Utils\arCustomMultiModifyDocsHelper.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_Sab in 'w:\common\components\rtl\Garant\DT\dt_Sab.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_Doc in 'w:\common\components\rtl\Garant\DT\dt_Doc.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
+ , arVAnouncedBlackList in 'w:\archi\source\projects\Common\Utils\arVAnouncedBlackList.pas'
+ , arIZM in 'w:\archi\source\projects\Common\Utils\arIZM.pas'
+ , arLockUtils in 'w:\archi\source\projects\Common\Utils\arLockUtils.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_Lock in 'w:\common\components\rtl\Garant\DT\dt_Lock.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
  , dtIntf in 'w:\common\components\rtl\Garant\DT\dtIntf.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ , MultiModifyDocsRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiModifyDocsRequest_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMultiClearAttributesExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiClearAttributesExecutor.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ {$If NOT Defined(Nemesis)}
+ , csMultiClearAttributes in 'w:\common\components\rtl\Garant\cs\csMultiClearAttributes.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiClearAttributes_Const in 'w:\common\components\rtl\Garant\EVD\csMultiClearAttributes_Const.pas'
+ {$If NOT Defined(Nemesis)}
+ , csMultiClearAttributesReply in 'w:\common\components\rtl\Garant\cs\csMultiClearAttributesReply.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csMultiClearAttributesReply_Const in 'w:\common\components\rtl\Garant\EVD\csMultiClearAttributesReply_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMultiClearAttributesRequest in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiClearAttributesRequest.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ , arDirectMultiClearAttributesHelper in 'w:\archi\source\projects\Common\Utils\arDirectMultiClearAttributesHelper.pas'
+ , arCustomMultiClearAttributesHelper in 'w:\archi\source\projects\Common\Utils\arCustomMultiClearAttributesHelper.pas'
+ , MultiClearAttributesRequest_Const in 'w:\common\components\rtl\Garant\EVD\MultiClearAttributesRequest_Const.pas'
+ {$If Defined(ServerTasks)}
+ , alcuMultiOperationExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuMultiOperationExecutor.pas'
+ {$IfEnd} // Defined(ServerTasks)
+ , alcuMdpSyncIntf in 'w:\archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
  {$If NOT Defined(Nemesis)}
  , dt_DictConst in 'w:\common\components\rtl\Garant\DT\dt_DictConst.pas'
- {$IfEnd} // NOT Defined(Nemesis)
- , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
- {$If NOT Defined(Nemesis)}
- , dt_Sab in 'w:\common\components\rtl\Garant\DT\dt_Sab.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , daSchemeConsts in 'w:\common\components\rtl\Garant\DA\daSchemeConsts.pas'
  {$If NOT Defined(Nemesis)}

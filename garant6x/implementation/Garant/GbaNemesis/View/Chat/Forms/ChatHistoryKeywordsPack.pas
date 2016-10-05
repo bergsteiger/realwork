@@ -190,8 +190,10 @@ initialization
  {* Регистрация Tkw_ChatHistory_Control_HistoryEditor_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TChatHistoryForm));
  {* Регистрация типа TChatHistoryForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscChatMemo));
  {* Регистрация типа TnscChatMemo }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

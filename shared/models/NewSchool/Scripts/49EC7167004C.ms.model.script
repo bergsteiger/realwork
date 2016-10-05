@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_49EC7167004C
+%%Inner ME_49EC7167004C
+%%Inner ME_49EC7167004C
+%%Inner ME_49EC7167004C
+%%Inner ME_49EC7167004C
+
 FORWARD ME_49EC7167004C
 
 FORWARD ME_49F0573B0332
@@ -32,7 +38,7 @@ ME ME_49F05B140375
  MEPROP Name 'aGUID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_469F3EEF0024' '4AB0C3C60310.ms.model.script' // TGUID
+ MELINK Target WL 'ME_469F3EEF0024' '4807744200AA.ms.model.script' // TGUID
  ;
 
 ENDME // ME_49F05B140375 aGUID
@@ -45,7 +51,7 @@ ME ME_49F05B0D02C7
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_49F0573B0332 // TnsWebBrowserPrim
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_49F05B140375 // aGUID
@@ -55,16 +61,18 @@ ME ME_49F05B0D02C7
 ENDME // ME_49F05B0D02C7 CheckStamp
 
 ME ME_48077504027E_ME_49F0573B0332
- MELINK Original WL 'ME_48077504027E' '4AB0C3C60310.ms.model.script' // Destroy
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48077504027E_ME_49F0573B0332 Destroy
 
 ME ME_49F057120234_ME_49F0573B0332
- MELINK Original WL 'ME_49F057120234' '4AB0C3C60310.ms.model.script' // AfterConstruction
+ MELINK Original WL 'ME_49F057120234' '4807744200AA.ms.model.script' // AfterConstruction
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49F057120234_ME_49F0573B0332 AfterConstruction
+
+%%InheritedBy ME_49EC9D0E00F0 ME_49F0573B0332
 
 ME ME_49F0573B0332
  MEPROP UID '49F0573B0332'
@@ -77,7 +85,7 @@ ME ME_49F0573B0332
  MELINK Parent HWL ME_49EC7167004C // InternetAgent
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49EC9D0E00F0' '49EC9CDD0093.ms.model.script' // TWebBrowser
+   Seq: ( WL 'ME_49EC9D0E00F0' '49EC9CF0030B.ms.model.script' // TWebBrowser
  )
  ; // Inherits
  MELIST Operations
@@ -101,111 +109,6 @@ ME ME_49F0573B0332
 
 ENDME // ME_49F0573B0332 TnsWebBrowserPrim
 
-FORWARD ME_4E9574DB0120
-
-FORWARD ME_4E957515024B
-
-ME ME_4E9575490144
- MEPROP Name 'hwnd'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4E95755B0162' '4AB0C3F60375.ms.model.script' // HWND
- ;
-
-ENDME // ME_4E9575490144 hwnd
-
-ME ME_4E95754901A6
- MEPROP Name 'lParam'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A5BA230233' '4AB0C3F60375.ms.model.script' // LPARAM
- ;
-
-ENDME // ME_4E95754901A6 lParam
-
-ME ME_4E95753501A3
- MEPROP UID '4E95753501A3'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E957515024B // EnumChildWindowProc
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_4E9575490144 // hwnd
- ME_4E95754901A6 // lParam
- )
- ; // Parameters
- UP "calling conventions" 'stdcall'
-
-ENDME // ME_4E95753501A3 DoIt
-
-ME ME_4E9575950367
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4E957515024B // EnumChildWindowProc
- ;
- MELINK Target WL 'ME_483C378301CB' '4AB0997B00A2.ms.model.script' // StrUtils
- ;
-
-ENDME // ME_4E9575950367 
-
-ME ME_4E957ACA02F3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4E957515024B // EnumChildWindowProc
- ;
- MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
- ;
-
-ENDME // ME_4E957ACA02F3 
-
-ME ME_4E957515024B
- MEPROP UID '4E957515024B'
- MEPROP Name 'EnumChildWindowProc'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E9574DB0120 // nsWebBrowserHelper
- ;
- MELIST Operations
-   Seq: ( HWL ME_4E95753501A3 // DoIt
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_4E9575950367 // StrUtils
- ME_4E957ACA02F3 // Msg Codes
- )
- ; // Dependencies
-
-ENDME // ME_4E957515024B EnumChildWindowProc
-
-ME ME_4E9574DB0120
- MEPROP UID '4E9574DB0120'
- MEPROP Name 'nsWebBrowserHelper'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49EC7167004C // InternetAgent
- ;
- MELIST Operations
-   Seq: ( HWL ME_4E957515024B // EnumChildWindowProc
- )
- ; // Operations
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '12.10.2011 15:07'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\InternetAgent\nsWebBrowserHelper.pas'
- UP extprop:rc:SelfName 'WebBrowserHelper'
-
-ENDME // ME_4E9574DB0120 nsWebBrowserHelper
-
 ME ME_49EC7167004C
  MEPROP UID '49EC7167004C'
  MEPROP Name 'InternetAgent'
@@ -222,7 +125,7 @@ ME ME_49EC7167004C
  WL 'ME_49ECB8E002B0' '49ECB8E002B0.ms.model.script' // TnsWebBrowser
  WL 'ME_49EC746B01E5' '49EC746B01E5.ms.model.script' // PrimInternetAgent
  WL 'ME_49EC739C0100' '49EC739C0100.ms.model.script' // PrimInternetAgent$FP
- HWL ME_4E9574DB0120 // nsWebBrowserHelper
+ WL 'ME_4E9574DB0120' '4E9574DB0120.ms.model.script' // nsWebBrowserHelper
  )
  ; // Children
  MELIST Depends
@@ -267,6 +170,9 @@ ME ME_49EC7167004C
  WL 'ME_57BC0538037B' '57BC0538037B.ms.model.script' // Downloader
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\InternetAgent'
 
 ENDME // ME_49EC7167004C InternetAgent

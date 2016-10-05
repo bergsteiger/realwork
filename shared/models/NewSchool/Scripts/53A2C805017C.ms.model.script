@@ -1,0 +1,403 @@
+// l3MultiThreadIntegerList 53A2C805017C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53A2C805017C
+%%Inner ME_53A2C805017C
+
+FORWARD ME_53A2C805017C
+
+FORWARD ME_53A2C8780191
+
+FORWARD ME_53A2C89B0302
+
+ME ME_53A2C8A503C1
+ MEPROP UID '53A2C8A503C1'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53A2C89B0302 // ForEachF
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A2C8A503C1 
+
+ME ME_53A2C89B0302
+ MEPROP UID '53A2C89B0302'
+ MEPROP Name 'ForEachF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetiterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53A2C8780191 // IntegerIterator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53A2C8A503C1 // 
+ )
+ ; // Attributes
+ UP "needs index" false
+ UP "needs result" false
+
+ENDME // ME_53A2C89B0302 ForEachF
+
+FORWARD ME_53A84EAD0005
+
+ME ME_53A84EBC0078
+ MEPROP UID '53A84EBC0078'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53A84EAD0005 // ForOneF
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A84EBC0078 
+
+ME ME_53A84EC102C8
+ MEPROP UID '53A84EC102C8'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_in::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53A84EAD0005 // ForOneF
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A84EC102C8 anIndex
+
+ME ME_53A84EAD0005
+ MEPROP UID '53A84EAD0005'
+ MEPROP Name 'ForOneF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetiterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53A2C8780191 // IntegerIterator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53A84EBC0078 // 
+ HWL ME_53A84EC102C8 // anIndex
+ )
+ ; // Attributes
+ UP "needs index" false
+ UP "needs result" false
+
+ENDME // ME_53A84EAD0005 ForOneF
+
+ME ME_53A2C8780191
+ MEPROP UID '53A2C8780191'
+ MEPROP Name 'IntegerIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2C805017C // l3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C89B0302 // ForEachF
+ HWL ME_53A84EAD0005 // ForOneF
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_53A2C8780191 IntegerIterator
+
+FORWARD ME_53A2C7AA03BF
+
+ME ME_53A2C7D50193
+ MEPROP UID '53A2C7D50193'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELINK Target WL 'ME_4CA9A2EB01E4' '47913B47006E.ms.model.script' // Tl3ProtoIntegerList
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53A2C7D50193 Items
+
+FORWARD ME_53A2C8C10024
+
+ME ME_53A2C8D101F8
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A2C8D101F8 anItem
+
+ME ME_53A2C8C902D3
+ MEPROP UID '53A2C8C902D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C8C10024 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A2C8D101F8 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53A2C8C902D3 DoIt
+
+ME ME_53A2C8C10024
+ MEPROP UID '53A2C8C10024'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C8C902D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2C8C10024 Add
+
+FORWARD ME_53A2C8EE02B5
+
+ME ME_53A2C90502D8
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53A2C90502D8 anItem
+
+ME ME_53A2C8FD03B6
+ MEPROP UID '53A2C8FD03B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C8EE02B5 // Remove
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A2C90502D8 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53A2C8FD03B6 DoIt
+
+ME ME_53A2C8EE02B5
+ MEPROP UID '53A2C8EE02B5'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C8FD03B6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2C8EE02B5 Remove
+
+FORWARD ME_53A2C90A0344
+
+ME ME_53A2C9140005
+ MEPROP UID '53A2C9140005'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C90A0344 // NeedSort
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53A2C9140005 DoIt
+
+ME ME_53A2C90A0344
+ MEPROP UID '53A2C90A0344'
+ MEPROP Name 'NeedSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2C9140005 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2C90A0344 NeedSort
+
+FORWARD ME_53A84920013D
+
+ME ME_53A8492C0159
+ MEPROP UID '53A8492C0159'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A84920013D // Clear
+ ;
+
+ENDME // ME_53A8492C0159 DoIt
+
+ME ME_53A84920013D
+ MEPROP UID '53A84920013D'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A8492C0159 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A84920013D Clear
+
+ME ME_53A2C7EC030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53A2C7EC030C 
+
+ME ME_53A2C89B0302_ME_53A2C7AA03BF
+ MELINK Original HWL ME_53A2C89B0302 // ForEachF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" false
+ UP "needs result" false
+ENDME // ME_53A2C89B0302_ME_53A2C7AA03BF ForEachF
+
+ME ME_53A84EAD0005_ME_53A2C7AA03BF
+ MELINK Original HWL ME_53A84EAD0005 // ForOneF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" false
+ UP "needs result" false
+ENDME // ME_53A84EAD0005_ME_53A2C7AA03BF ForOneF
+
+ME ME_479731C50290_ME_53A2C7AA03BF
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53A2C7AA03BF Cleanup
+
+ME ME_47A042E100E2_ME_53A2C7AA03BF
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_53A2C7AA03BF InitFields
+
+%%ImplementedBy ME_53A03846011C ME_53A2C7AA03BF
+%%ImplementedBy ME_53A2C8780191 ME_53A2C7AA03BF
+
+%%InheritedBy ME_49E7754802A9 ME_53A2C7AA03BF
+
+ME ME_53A2C7AA03BF
+ MEPROP UID '53A2C7AA03BF'
+ MEPROP Name 'Tl3MultiThreadIntegerList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2C805017C // l3MultiThreadIntegerList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53A03846011C' '53A03846011C.ms.model.script' // l3CriticalSectionHolder
+ HWL ME_53A2C8780191 // IntegerIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53A2C7D50193 // Items
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53A2C8C10024 // Add
+ HWL ME_53A2C8EE02B5 // Remove
+ HWL ME_53A2C90A0344 // NeedSort
+ HWL ME_53A84920013D // Clear
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53A2C89B0302_ME_53A2C7AA03BF // ForEachF
+ ME_53A84EAD0005_ME_53A2C7AA03BF // ForOneF
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53A2C7AA03BF // Cleanup
+ ME_47A042E100E2_ME_53A2C7AA03BF // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53A2C7EC030C // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'MultiThreadIntegerList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53A2C7AA03BF Tl3MultiThreadIntegerList
+
+ME ME_53A2C805017C
+ MEPROP UID '53A2C805017C'
+ MEPROP Name 'l3MultiThreadIntegerList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53A038340371' '53A038340371.ms.model.script' // MultiThread
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53A2C8780191 // IntegerIterator
+ HWL ME_53A2C7AA03BF // Tl3MultiThreadIntegerList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MultiThreadIntegerList.pas'
+ UP extprop:rc:SelfName 'MultiThreadIntegerList'
+
+ENDME // ME_53A2C805017C l3MultiThreadIntegerList

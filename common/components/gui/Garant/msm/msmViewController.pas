@@ -63,6 +63,9 @@ type
    {$If NOT Defined(NoVCL)}
    procedure Click; override;
    {$IfEnd} // NOT Defined(NoVCL)
+   {$If NOT Defined(NoVCL)}
+   procedure InitiateAction; override;
+   {$IfEnd} // NOT Defined(NoVCL)
   public
    constructor Create(anOwner: TComponent;
     const anOperation: ImsmOperation); reintroduce;
@@ -79,9 +82,11 @@ constructor TmsmOperationMenuItem.Create(anOwner: TComponent;
 //#UC END# *57CECAC202FB_57CECA080010_var*
 begin
 //#UC START# *57CECAC202FB_57CECA080010_impl*
+ Assert(anOperation <> nil);
  inherited Create(anOwner);
  f_Operation := anOperation;
- Self.Caption := anOperation.Caption;
+ Self.Action := f_Operation.Action;
+ //Self.Caption := anOperation.Caption;
 //#UC END# *57CECAC202FB_57CECA080010_impl*
 end;//TmsmOperationMenuItem.Create
 
@@ -101,9 +106,34 @@ procedure TmsmOperationMenuItem.Click;
 //#UC END# *57CECDB70264_57CECA080010_var*
 begin
 //#UC START# *57CECDB70264_57CECA080010_impl*
- f_Operation.DoIt;
+ inherited;
+ //f_Operation.DoIt;
 //#UC END# *57CECDB70264_57CECA080010_impl*
 end;//TmsmOperationMenuItem.Click
+{$IfEnd} // NOT Defined(NoVCL)
+
+{$If NOT Defined(NoVCL)}
+procedure TmsmOperationMenuItem.InitiateAction;
+//#UC START# *57EB857E015E_57CECA080010_var*
+var
+ l_Popup : Boolean;
+//#UC END# *57EB857E015E_57CECA080010_var*
+begin
+//#UC START# *57EB857E015E_57CECA080010_impl*
+ l_Popup := (GetParentMenu Is TPopupMenu);
+ inherited;
+ // Не показываем в контекстном меню не доступные операции. Вызывать нужно
+ // обязательно после inherited (Action.Update) когда состояние пункта меню
+ // станет актуальным:
+ if l_Popup then
+ begin
+  if Self.Enabled then
+   Self.Visible := true
+  else
+   Self.Visible := false;
+ end;//l_Popup
+//#UC END# *57EB857E015E_57CECA080010_impl*
+end;//TmsmOperationMenuItem.InitiateAction
 {$IfEnd} // NOT Defined(NoVCL)
 
 constructor TmsmViewController.Create(aView: TmsmView;

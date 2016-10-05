@@ -1,0 +1,77 @@
+// JwaWinBase 4C98A79C011D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C98A79C011D
+
+ME ME_4C98A7AB00F5
+ MEPROP UID '4C98A7AB00F5'
+ MEPROP Name 'WTSGetActiveConsoleSessionId'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+
+ENDME // ME_4C98A7AB00F5 WTSGetActiveConsoleSessionId
+
+ME ME_4C98AE620132
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+ MELINK Target WL 'ME_4C98AE5C02C8' '4C98AE5C02C8.ms.model.script' // JwaNtStatus
+ ;
+
+ENDME // ME_4C98AE620132 
+
+ME ME_4C98AE730336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+ MELINK Target WL 'ME_4C98AE6C0194' '4C98AE6C0194.ms.model.script' // JwaWinNT
+ ;
+
+ENDME // ME_4C98AE730336 
+
+ME ME_4C98AE86021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C98A79C011D // JwaWinBase
+ ;
+ MELINK Target WL 'ME_4C98AE7D0126' '4C98AE7D0126.ms.model.script' // JwaWinType
+ ;
+
+ENDME // ME_4C98AE86021A 
+
+ME ME_4C98A79C011D
+ MEPROP UID '4C98A79C011D'
+ MEPROP Name 'JwaWinBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4C98A77001C2' '4C98A77001C2.ms.model.script' // Win32API
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C98A7AB00F5 // WTSGetActiveConsoleSessionId
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C98AE620132 // JwaNtStatus
+ ME_4C98AE730336 // JwaWinNT
+ ME_4C98AE86021A // JwaWinType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\Win32API\NOT_FINISHED_JwaWinBase.pas'
+
+ENDME // ME_4C98A79C011D JwaWinBase

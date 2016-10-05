@@ -6,9 +6,12 @@ unit nsAppConfig;
  Назначение: Отображение и редактирование настроек проекта.
  История:
 
- $Id: nsAppConfig.pas,v 1.341 2016/09/13 18:32:10 kostitsin Exp $
+ $Id: nsAppConfig.pas,v 1.342 2016/09/26 13:39:57 kostitsin Exp $
 
  $Log: nsAppConfig.pas,v $
+ Revision 1.342  2016/09/26 13:39:57  kostitsin
+ {requestlink: 630589826 }
+
  Revision 1.341  2016/09/13 18:32:10  kostitsin
  {requestlink: 630194905 }
 
@@ -1546,7 +1549,7 @@ uses
   IOUnit,
 
   nscConst,
-
+  nsMainMenuNew,
   nsTypes,
   nsSettingsUtils,
   nsNodes,
@@ -3045,7 +3048,7 @@ var
 
    AddGroupItem(GetAliasName, vcmConstString(str_pui_MainManu));
     // Вид основного меню
-    AddComboBoxItem(nsCStr(pi_MainMenuKind), nsCStr(pui_MainPenuKind + ':'),
+    AddComboBoxItem(nsCStr(pi_MainMenuKind), vcmCat(str_pui_MainMenuKind.AsCStr, ':'),
      dv_MainMenuKind, nsIntegerMapManager.Map[imap_MainMenuKind]);
     // Последние открытые документы
     AddIntegerItem(nsCStr(pi_RecentlyOpenDocumentsCount), l_Map.ValueToDisplayName(nsCStr(pi_RecentlyOpenDocumentsCount)),

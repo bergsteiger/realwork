@@ -2,6 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_538DA20300A7
+%%Inner ME_538DA20300A7
+%%Inner ME_538DA20300A7
+%%Inner ME_538DA20300A7
+%%Inner ME_538DA20300A7
+%%Inner ME_538DA20300A7
+
 FORWARD ME_538DA20300A7
 
 FORWARD ME_538DA33503D9
@@ -12,7 +19,7 @@ ME ME_538DA3A403A5
  MEPROP Name 'aQueryId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
  ;
 
 ENDME // ME_538DA3A403A5 aQueryId
@@ -21,7 +28,7 @@ ME ME_538DA5410050
  MEPROP Name 'aClientID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F4A04037C' '52FBB2FC0386.ms.model.script' // TCsClientId
+ MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
  ;
 
 ENDME // ME_538DA5410050 aClientID
@@ -35,13 +42,11 @@ ME ME_538DA44C01E7
 
 ENDME // ME_538DA44C01E7 aPipe
 
-FORWARD ME_538DA3DA035E
-
 ME ME_538DA51300CC
  MEPROP Name 'aQueryProc'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target HWL ME_538DA3DA035E // TCsQueryProc
+ MELINK Target WL 'ME_538DA3DA035E' '538DA3BD02A0.ms.model.script' // TCsQueryProc
  ;
 
 ENDME // ME_538DA51300CC aQueryProc
@@ -50,7 +55,7 @@ ME ME_538DA58C03A6
  MEPROP Name 'aWrite2Log'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_538DA58C03A6 aWrite2Log
@@ -63,7 +68,7 @@ ME ME_538DA37301F1
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_538DA34E03C3 // ExecuteQuery
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_538DA3A403A5 // aQueryId
@@ -81,7 +86,7 @@ ME ME_538DA3F903B5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_538DA34E03C3 // ExecuteQuery
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_538DA3F903B5 
@@ -91,7 +96,7 @@ ME ME_538DA4B3025F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_538DA34E03C3 // ExecuteQuery
  ;
- MELINK Target WL 'ME_538DA49902A4' '52FBB2FC0386.ms.model.script' // CsConst
+ MELINK Target WL 'ME_538DA49902A4' '538DA49902A4.ms.model.script' // CsConst
  ;
 
 ENDME // ME_538DA4B3025F 
@@ -144,61 +149,15 @@ ME ME_538DA33503D9
    Seq: ( HWL ME_538DA34E03C3 // ExecuteQuery
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\cs\CsQueryRequesterTool.pas'
  UP extprop:rc:SelfName 'CsQueryRequesterTool'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'CsQueryRequesterTool'
 
 ENDME // ME_538DA33503D9 TCsQueryRequesterTool
-
-FORWARD ME_538DA3BD02A0
-
-ME ME_538DA3DA035E
- MEPROP UID '538DA3DA035E'
- MEPROP Name 'TCsQueryProc'
- MEPROP Class class_Class
- MELINK Stereotype st_Function ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_538DA3BD02A0 // CsQueryRequester
- ;
- UP "of object" false
-
-ENDME // ME_538DA3DA035E TCsQueryProc
-
-ME ME_538DA6440050
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_538DA3BD02A0 // CsQueryRequester
- ;
- MELINK Target HWL ME_538DA33503D9 // TCsQueryRequesterTool
- ;
-
-ENDME // ME_538DA6440050 
-
-ME ME_538DA3BD02A0
- MEPROP UID '538DA3BD02A0'
- MEPROP Name 'CsQueryRequester'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_538DA20300A7 // ClientSide
- ;
- MELIST Children
-   Seq: ( HWL ME_538DA3DA035E // TCsQueryProc
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_538DA6440050 // TCsQueryRequesterTool
- )
- ; // Dependencies
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryRequester.pas'
-
-ENDME // ME_538DA3BD02A0 CsQueryRequester
 
 FORWARD ME_54F044E00390
 
@@ -212,7 +171,7 @@ ME ME_54F0453103AF
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_54F044E00390 // TncsServiceProviderParams
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" true
  UP "reads field" true
@@ -230,7 +189,7 @@ ME ME_54F045E70318
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_54F044E00390 // TncsServiceProviderParams
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "pm" true
  UP "reads field" true
@@ -248,7 +207,7 @@ ME ME_54F046020148
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_54F044E00390 // TncsServiceProviderParams
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" true
  UP "reads field" true
@@ -266,7 +225,7 @@ ME ME_54F0463A0334
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_54F044E00390 // TncsServiceProviderParams
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" true
  UP "reads field" true
@@ -284,7 +243,7 @@ ME ME_54F0465E02FC
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_54F044E00390 // TncsServiceProviderParams
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" true
  UP "reads field" true
@@ -302,7 +261,7 @@ ME ME_54F0467602D6
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_54F044E00390 // TncsServiceProviderParams
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" true
  UP "reads field" true
@@ -320,7 +279,7 @@ ME ME_57D1169600E0
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_54F044E00390 // TncsServiceProviderParams
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" true
  UP "reads field" true
@@ -329,10 +288,12 @@ ME ME_57D1169600E0
 ENDME // ME_57D1169600E0 CorrectTempPath
 
 ME ME_47A042E100E2_ME_54F044E00390
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_54F044E00390 InitFields
+
+%%InheritedBy ME_49E7754802A9 ME_54F044E00390
 
 ME ME_54F044E00390
  MEPROP UID '54F044E00390'
@@ -377,7 +338,7 @@ ME ME_55C31AC2034E
  MEPROP Name 'aConfig'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4B990F100126' '4B990EDE031A.ms.model.script' // TddAppConfiguration
+ MELINK Target WL 'ME_4B990F100126' '4B990EF000AA.ms.model.script' // TddAppConfiguration
  ;
 
 ENDME // ME_55C31AC2034E aConfig
@@ -395,10 +356,10 @@ ME ME_55C31AC2036D
  MEPROP Name 'ForInfoOnly'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
@@ -444,7 +405,7 @@ ME ME_553A32EA001A
  MEPROP Name 'aConfig'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4B990F100126' '4B990EDE031A.ms.model.script' // TddAppConfiguration
+ MELINK Target WL 'ME_4B990F100126' '4B990EF000AA.ms.model.script' // TddAppConfiguration
  ;
 
 ENDME // ME_553A32EA001A aConfig
@@ -497,7 +458,7 @@ ME ME_55C332A903D8
  MEPROP Name 'aConfig'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4B990F100126' '4B990EDE031A.ms.model.script' // TddAppConfiguration
+ MELINK Target WL 'ME_4B990F100126' '4B990EF000AA.ms.model.script' // TddAppConfiguration
  ;
 
 ENDME // ME_55C332A903D8 aConfig
@@ -515,10 +476,10 @@ ME ME_55C332A903E8
  MEPROP Name 'aProviderKey'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  MEPROP Value ''''''
- MELINK ValueType WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP extprop:pas:Value ''''''
 
@@ -528,10 +489,10 @@ ME ME_55C332AA000F
  MEPROP Name 'ForInfoOnly'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
@@ -627,7 +588,7 @@ ME ME_54F06B83036B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54F04779024B // TncsServiceProviderParamsFactory
  ;
- MELINK Target WL 'ME_52304ABC01E7' '47913B47006E.ms.model.script' // l3Base64
+ MELINK Target WL 'ME_52304ABC01E7' '52304ABC01E7.ms.model.script' // l3Base64
  ;
 
 ENDME // ME_54F06B83036B 
@@ -637,7 +598,7 @@ ME ME_54F06D3501F3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54F04779024B // TncsServiceProviderParamsFactory
  ;
- MELINK Target WL 'ME_5437B2E60352' '47D0290B016D.ms.model.script' // l3Decrypt
+ MELINK Target WL 'ME_5437B2E60352' '480F78BC0146.ms.model.script' // l3Decrypt
  ;
 
 ENDME // ME_54F06D3501F3 
@@ -647,7 +608,7 @@ ME ME_5502D42E00DD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54F04779024B // TncsServiceProviderParamsFactory
  ;
- MELINK Target WL 'ME_51BAE2BF011A' '47D0290B016D.ms.model.script' // l3IniFile
+ MELINK Target WL 'ME_51BAE2BF011A' '51BAE2BF011A.ms.model.script' // l3IniFile
  ;
 
 ENDME // ME_5502D42E00DD 
@@ -657,7 +618,7 @@ ME ME_5513C702021D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54F04779024B // TncsServiceProviderParamsFactory
  ;
- MELINK Target WL 'ME_5227066903AF' '4B990EDE031A.ms.model.script' // TddContainerConfigItem
+ MELINK Target WL 'ME_5227066903AF' '52161F2B00C4.ms.model.script' // TddContainerConfigItem
  ;
 
 ENDME // ME_5513C702021D 
@@ -667,7 +628,7 @@ ME ME_5513CAAE0392
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54F04779024B // TncsServiceProviderParamsFactory
  ;
- MELINK Target WL 'ME_4B9E62B50054' '4B990EDE031A.ms.model.script' // TddStringConfigItem
+ MELINK Target WL 'ME_4B9E62B50054' '4B9E62980158.ms.model.script' // TddStringConfigItem
  ;
 
 ENDME // ME_5513CAAE0392 
@@ -677,10 +638,12 @@ ME ME_55C342CC038F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54F04779024B // TncsServiceProviderParamsFactory
  ;
- MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
  ;
 
 ENDME // ME_55C342CC038F 
+
+%%InheritedBy ME_49E7754802A9 ME_54F04779024B
 
 ME ME_54F04779024B
  MEPROP UID '54F04779024B'
@@ -714,6 +677,9 @@ ME ME_54F04779024B
  ME_55C342CC038F // Format
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
  UP "singleton" true
  UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsServiceProviderParamsFactory.pas'
  UP extprop:rc:SelfName 'ncsServiceProviderParamsFactory'
@@ -721,41 +687,6 @@ ME ME_54F04779024B
  UP extprop:pas:UnitName 'ncsServiceProviderParamsFactory'
 
 ENDME // ME_54F04779024B TncsServiceProviderParamsFactory
-
-FORWARD ME_54352FAB00E6
-
-ME ME_54352FD00015
- MEPROP UID '54352FD00015'
- MEPROP Name 'DoneClientBaseEngine'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54352FAB00E6 // ddClientBaseEngine
- ;
-
-ENDME // ME_54352FD00015 DoneClientBaseEngine
-
-ME ME_54352FAB00E6
- MEPROP UID '54352FAB00E6'
- MEPROP Name 'ddClientBaseEngine'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_538DA20300A7 // ClientSide
- ;
- MELIST Operations
-   Seq: ( HWL ME_54352FD00015 // DoneClientBaseEngine
- )
- ; // Operations
- UP "finished" false
- UP "ifdef" 'AppClientSide'
- UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_ddClientBaseEngine.pas'
-
-ENDME // ME_54352FAB00E6 ddClientBaseEngine
 
 FORWARD ME_5507E6CB0165
 
@@ -832,6 +763,10 @@ ME ME_55003A7D01E7
 
 ENDME // ME_55003A7D01E7 SectionNames
 
+%%ImplementedBy ME_5507D90F00D2 ME_550806B103D3
+
+%%InheritedBy ME_516D582B011F ME_550806B103D3
+
 ME ME_550806B103D3
  MEPROP UID '550806B103D3'
  MEPROP Name 'Make'
@@ -843,7 +778,7 @@ ME ME_550806B103D3
  MELINK Parent HWL ME_5507E6CB0165 // TncsClientParamsStorage
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_516D582B011F' '4AB0C3C60310.ms.model.script' // Create
+   Seq: ( WL 'ME_516D582B011F' '4807744200AA.ms.model.script' // Create
  )
  ; // Inherits
  MELIST Implements
@@ -858,7 +793,7 @@ ME ME_5507F22D03CF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E6CB0165 // TncsClientParamsStorage
  ;
- MELINK Target WL 'ME_51BAE2BF011A' '47D0290B016D.ms.model.script' // l3IniFile
+ MELINK Target WL 'ME_51BAE2BF011A' '51BAE2BF011A.ms.model.script' // l3IniFile
  ;
 
 ENDME // ME_5507F22D03CF 
@@ -868,7 +803,7 @@ ME ME_55096D780170
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E6CB0165 // TncsClientParamsStorage
  ;
- MELINK Target WL 'ME_5437B29C03BD' '47D0290B016D.ms.model.script' // l3Encrypt
+ MELINK Target WL 'ME_5437B29C03BD' '480F78BC0146.ms.model.script' // l3Encrypt
  ;
 
 ENDME // ME_55096D780170 
@@ -878,7 +813,7 @@ ME ME_55096D7D0243
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E6CB0165 // TncsClientParamsStorage
  ;
- MELINK Target WL 'ME_5437B2E60352' '47D0290B016D.ms.model.script' // l3Decrypt
+ MELINK Target WL 'ME_5437B2E60352' '480F78BC0146.ms.model.script' // l3Decrypt
  ;
 
 ENDME // ME_55096D7D0243 
@@ -888,7 +823,7 @@ ME ME_55096D810317
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E6CB0165 // TncsClientParamsStorage
  ;
- MELINK Target WL 'ME_52304ABC01E7' '47913B47006E.ms.model.script' // l3Base64
+ MELINK Target WL 'ME_52304ABC01E7' '52304ABC01E7.ms.model.script' // l3Base64
  ;
 
 ENDME // ME_55096D810317 
@@ -898,7 +833,7 @@ ME ME_55096D8503AC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E6CB0165 // TncsClientParamsStorage
  ;
- MELINK Target WL 'ME_4B57004201BD' '47D0290B016D.ms.model.script' // l3FileUtils
+ MELINK Target WL 'ME_4B57004201BD' '4B57004201BD.ms.model.script' // l3FileUtils
  ;
 
 ENDME // ME_55096D8503AC 
@@ -908,7 +843,7 @@ ME ME_55126853002E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E6CB0165 // TncsClientParamsStorage
  ;
- MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
  ;
 
 ENDME // ME_55126853002E 
@@ -1041,6 +976,12 @@ ME ME_5756BD40014A_ME_5507E6CB0165
  UP "pm" false
 ENDME // ME_5756BD40014A_ME_5507E6CB0165 DocImageCachePath
 
+%%ImplementedBy ME_5507D90F00D2 ME_5507E6CB0165
+%%ImplementedBy ME_550981CC01F6 ME_5507E6CB0165
+%%ImplementedBy ME_55DAD42802B1 ME_5507E6CB0165
+
+%%InheritedBy ME_49E7754802A9 ME_5507E6CB0165
+
 ME ME_5507E6CB0165
  MEPROP UID '5507E6CB0165'
  MEPROP Name 'TncsClientParamsStorage'
@@ -1100,6 +1041,9 @@ ME ME_5507E6CB0165
  ME_55126853002E // Format
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsClientParamsStorage.pas'
  UP extprop:rc:SelfName 'ncsClientParamsStorage'
  UP extprop:rc:isAcceptableForScripts true
@@ -1119,10 +1063,10 @@ ME ME_538DA20300A7
  ;
  MELIST Children
    Seq: ( HWL ME_538DA33503D9 // TCsQueryRequesterTool
- HWL ME_538DA3BD02A0 // CsQueryRequester
+ WL 'ME_538DA3BD02A0' '538DA3BD02A0.ms.model.script' // CsQueryRequester
  HWL ME_54F044E00390 // TncsServiceProviderParams
  HWL ME_54F04779024B // TncsServiceProviderParamsFactory
- HWL ME_54352FAB00E6 // ddClientBaseEngine
+ WL 'ME_54352FAB00E6' '54352FAB00E6.ms.model.script' // ddClientBaseEngine
  HWL ME_5507E6CB0165 // TncsClientParamsStorage
  )
  ; // Children
@@ -1142,5 +1086,8 @@ ME ME_538DA20300A7
  WL 'ME_55DAD4150001' '55DAD4150001.ms.model.script' // pgInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_538DA20300A7 ClientSide

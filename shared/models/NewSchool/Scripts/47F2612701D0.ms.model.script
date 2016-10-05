@@ -1,0 +1,250 @@
+// l3Bits 47F2612701D0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F2612701D0
+
+FORWARD ME_4B1E85F702A5
+
+ME ME_4DFF06F001B4
+ MEPROP Name 'W'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DFF06F001B4 W
+
+ME ME_4DFF06F001D3
+ MEPROP Name 'N'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DFF06F001D3 N
+
+ME ME_4DFF06E902AF
+ MEPROP UID '4DFF06E902AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1E85F702A5 // l3ClearMask
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DFF06F001B4 // W
+ ME_4DFF06F001D3 // N
+ )
+ ; // Parameters
+
+ENDME // ME_4DFF06E902AF DoIt
+
+ME ME_4B1E85F702A5
+ MEPROP UID '4B1E85F702A5'
+ MEPROP Name 'l3ClearMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F2612701D0 // l3Bits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DFF06E902AF // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ClearMask'
+
+ENDME // ME_4B1E85F702A5 l3ClearMask
+
+FORWARD ME_4DFF0695000B
+
+ME ME_4DFF06C0001B
+ MEPROP Name 'W'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DFF06C0001B W
+
+ME ME_4DFF06C0003B
+ MEPROP Name 'N'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DFF06C0003B N
+
+ME ME_4DFF06AA01C0
+ MEPROP UID '4DFF06AA01C0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFF0695000B // l3SetMask
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DFF06C0001B // W
+ ME_4DFF06C0003B // N
+ )
+ ; // Parameters
+
+ENDME // ME_4DFF06AA01C0 DoIt
+
+ME ME_4DFF0695000B
+ MEPROP UID '4DFF0695000B'
+ MEPROP Name 'l3SetMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F2612701D0 // l3Bits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DFF06AA01C0 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'SetMask'
+
+ENDME // ME_4DFF0695000B l3SetMask
+
+FORWARD ME_4DFF2F030041
+
+ME ME_4DFF2F4300BF
+ MEPROP Name 'W'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DFF2F4300BF W
+
+ME ME_4DFF2F4300DE
+ MEPROP Name 'N'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DFF2F4300DE N
+
+ME ME_4DFF2F2B0141
+ MEPROP UID '4DFF2F2B0141'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFF2F030041 // l3TestMask
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DFF2F4300BF // W
+ ME_4DFF2F4300DE // N
+ )
+ ; // Parameters
+
+ENDME // ME_4DFF2F2B0141 DoIt
+
+ME ME_4DFF2F030041
+ MEPROP UID '4DFF2F030041'
+ MEPROP Name 'l3TestMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F2612701D0 // l3Bits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DFF2F2B0141 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'TestMask'
+
+ENDME // ME_4DFF2F030041 l3TestMask
+
+ME ME_535F655902D1
+ MEPROP UID '535F655902D1'
+ MEPROP Name 'l3SetBit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F2612701D0 // l3Bits
+ ;
+ UP extprop:rc:SelfName 'SetBit'
+
+ENDME // ME_535F655902D1 l3SetBit
+
+ME ME_47F2615C00E6
+ MEPROP Name 'W'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47F2615C00E6 W
+
+ME ME_47F2615C00FF
+ MEPROP Name 'N'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47F2615C00FF N
+
+ME ME_47F2614B0203
+ MEPROP UID '47F2614B0203'
+ MEPROP Name 'l3TestBit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F2612701D0 // l3Bits
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F2615C00E6 // W
+ ME_47F2615C00FF // N
+ )
+ ; // Parameters
+
+ENDME // ME_47F2614B0203 l3TestBit
+
+ME ME_47F2612701D0
+ MEPROP UID '47F2612701D0'
+ MEPROP Name 'l3Bits'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функции для работы с битами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B1E85F702A5 // l3ClearMask
+ HWL ME_4DFF0695000B // l3SetMask
+ HWL ME_4DFF2F030041 // l3TestMask
+ HWL ME_535F655902D1 // l3SetBit
+ HWL ME_47F2614B0203 // l3TestBit
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '05.10.1999 15:31'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Bits.pas'
+ UP extprop:rc:SelfName 'Bits'
+
+ENDME // ME_47F2612701D0 l3Bits

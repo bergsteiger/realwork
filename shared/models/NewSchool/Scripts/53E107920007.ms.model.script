@@ -1,0 +1,97 @@
+// seWordsInfo 53E107920007 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53E107920007
+
+FORWARD ME_53E10704024E
+
+ME ME_53E1110901E2
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_53E1110901E2 aCtx
+
+ME ME_53E1072301A6
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_53E1072301A6 aWord
+
+ME ME_53E1071F00CC
+ MEPROP UID '53E1071F00CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53E10704024E // GetWordDirectives
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_53E1110901E2 // aCtx
+ ME_53E1072301A6 // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_53E1071F00CC DoIt
+
+ME ME_53E10CE00323
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53E10704024E // GetWordDirectives
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_53E10CE00323 
+
+ME ME_53E10704024E
+ MEPROP UID '53E10704024E'
+ MEPROP Name 'GetWordDirectives'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53E107920007 // seWordsInfo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53E1071F00CC // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53E10CE00323 // l3String
+ )
+ ; // Dependencies
+ UP "is static" false
+
+ENDME // ME_53E10704024E GetWordDirectives
+
+ME ME_53E107920007
+ MEPROP UID '53E107920007'
+ MEPROP Name 'seWordsInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F7338A800A7' '4F7338A800A7.ms.model.script' // ScriptEngineCore
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53E10704024E // GetWordDirectives
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seWordsInfo.pas'
+
+ENDME // ME_53E107920007 seWordsInfo

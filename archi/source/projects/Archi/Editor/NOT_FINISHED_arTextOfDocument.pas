@@ -30,6 +30,7 @@ implementation
 uses
  l3ImplUses
  , arDocumentContainer
+ , arRemoteSaveDocumentHelper
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)

@@ -62,7 +62,7 @@ function TarCustomMultiModifyDocsHelper.pm_GetGenerator: Tk2TagGenerator;
 //#UC END# *57E254D2005D_57E2548A0223get_var*
 begin
 //#UC START# *57E254D2005D_57E2548A0223get_impl*
- !!! Needs to be implemented !!!
+ Result := f_Generator;
 //#UC END# *57E254D2005D_57E2548A0223get_impl*
 end;//TarCustomMultiModifyDocsHelper.pm_GetGenerator
 
@@ -72,7 +72,11 @@ constructor TarCustomMultiModifyDocsHelper.Create(aFamily: TdaFamilyID;
 //#UC END# *57E256C401F8_57E2548A0223_var*
 begin
 //#UC START# *57E256C401F8_57E2548A0223_impl*
- !!! Needs to be implemented !!!
+ inherited Create;
+ f_WasException := False;
+ f_FamilyID := aFamily;
+ f_AnouncedDate := anAnouncedDate;
+ f_Generator := nil;
 //#UC END# *57E256C401F8_57E2548A0223_impl*
 end;//TarCustomMultiModifyDocsHelper.Create
 
@@ -81,7 +85,7 @@ procedure TarCustomMultiModifyDocsHelper.SignalException;
 //#UC END# *57E2566D037A_57E2548A0223_var*
 begin
 //#UC START# *57E2566D037A_57E2548A0223_impl*
- !!! Needs to be implemented !!!
+ f_WasException := True;
 //#UC END# *57E2566D037A_57E2548A0223_impl*
 end;//TarCustomMultiModifyDocsHelper.SignalException
 
@@ -91,7 +95,8 @@ procedure TarCustomMultiModifyDocsHelper.Cleanup;
 //#UC END# *479731C50290_57E2548A0223_var*
 begin
 //#UC START# *479731C50290_57E2548A0223_impl*
- !!! Needs to be implemented !!!
+ FreeAndNil(f_Generator);
+ inherited;
 //#UC END# *479731C50290_57E2548A0223_impl*
 end;//TarCustomMultiModifyDocsHelper.Cleanup
 

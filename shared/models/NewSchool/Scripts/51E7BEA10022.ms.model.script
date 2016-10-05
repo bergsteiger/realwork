@@ -1,0 +1,70 @@
+// ddLowLevelRTF 51E7BEA10022 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51E7BEA10022
+
+FORWARD ME_51E7BEA10022
+
+FORWARD ME_51E7BEC302DB
+
+ME ME_479731C50290_ME_51E7BEC302DB
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_51E7BEC302DB Cleanup
+
+ME ME_4F68343D038D_ME_51E7BEC302DB
+ MELINK Original WL 'ME_4F68343D038D' '482D6E960087.ms.model.script' // Read
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F68343D038D_ME_51E7BEC302DB Read
+
+%%InheritedBy ME_483E81520007 ME_51E7BEC302DB
+
+ME ME_51E7BEC302DB
+ MEPROP UID '51E7BEC302DB'
+ MEPROP Name 'TddRTFParser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7BEA10022 // ddLowLevelRTF
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483E81520007' '482D6E960087.ms.model.script' // Tk2CustomFileParser
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_51E7BEC302DB // Cleanup
+ ME_4F68343D038D_ME_51E7BEC302DB // Read
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'ddRTFParser'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_51E7BEC302DB TddRTFParser
+
+ME ME_51E7BEA10022
+ MEPROP UID '51E7BEA10022'
+ MEPROP Name 'ddLowLevelRTF'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5190A3470397' '5190A3470397.ms.model.script' // RTFSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51E7BEC302DB // TddRTFParser
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddLowLevelRTF.pas'
+
+ENDME // ME_51E7BEA10022 ddLowLevelRTF

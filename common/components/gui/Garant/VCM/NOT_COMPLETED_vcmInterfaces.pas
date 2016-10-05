@@ -588,6 +588,7 @@ type
   function pm_GetFormSetTabHint: IvcmCString;
   function pm_GetCanBeCloned: Boolean;
   function pm_GetCanBeSavedToHistory: Boolean;
+  function pm_GetCanBeMain: Boolean;
   function pm_GetContainer: IvcmContainer;
   procedure pm_SetContainer(const aValue: IvcmContainer);
   function pm_GetFactory: IvcmFormSetFactory;
@@ -636,6 +637,8 @@ type
    read pm_GetCanBeCloned;
   property CanBeSavedToHistory: Boolean
    read pm_GetCanBeSavedToHistory;
+  property CanBeMain: Boolean
+   read pm_GetCanBeMain;
   property Container: IvcmContainer
    read pm_GetContainer
    write pm_SetContainer;
@@ -1220,6 +1223,7 @@ type
   function GetSimpleFactory: IvcmFormSetSimpleFactory;
   function CanCloneFormSet(const aFormSet: IvcmFormSet): Boolean;
   function CanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
+  function CanFormsetBeMain: Boolean;
   property FormSetId: PvcmFormSetID
    read pm_GetFormSetId;
    {* идентификатор сборки, имя сборки указанное при описании сборки }

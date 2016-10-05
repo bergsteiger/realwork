@@ -1,0 +1,121 @@
+// nsNodeNotifierImplementation 48FDA9D500E4 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48FDA9D500E4
+
+ME ME_48FDAA2000B3
+ MEPROP UID '48FDAA2000B3'
+ MEPROP Name 'OldChanging'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDA9D500E4 // nsNodeNotifierImplementation
+ ;
+
+ENDME // ME_48FDAA2000B3 OldChanging
+
+ME ME_48FDAA330353
+ MEPROP UID '48FDAA330353'
+ MEPROP Name 'OldChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDA9D500E4 // nsNodeNotifierImplementation
+ ;
+
+ENDME // ME_48FDAA330353 OldChanged
+
+ME ME_45EEC8E102FE_ME_48FDA9D500E4
+ MELINK Original WL 'ME_45EEC8E102FE' '457450470167.ms.model.script' // change_children_count
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEC8E102FE_ME_48FDA9D500E4 change_children_count
+
+ME ME_45EEC8E10303_ME_48FDA9D500E4
+ MELINK Original WL 'ME_45EEC8E10303' '457450470167.ms.model.script' // reset_children_count
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEC8E10303_ME_48FDA9D500E4 reset_children_count
+
+ME ME_45EEC8E10304_ME_48FDA9D500E4
+ MELINK Original WL 'ME_45EEC8E10304' '457450470167.ms.model.script' // is_root_visible
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEC8E10304_ME_48FDA9D500E4 is_root_visible
+
+ME ME_45EEC8E10305_ME_48FDA9D500E4
+ MELINK Original WL 'ME_45EEC8E10305' '457450470167.ms.model.script' // is_one_level
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEC8E10305_ME_48FDA9D500E4 is_one_level
+
+ME ME_45EEC8E10306_ME_48FDA9D500E4
+ MELINK Original WL 'ME_45EEC8E10306' '457450470167.ms.model.script' // invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEC8E10306_ME_48FDA9D500E4 invalidate
+
+ME ME_45EEC8E10308_ME_48FDA9D500E4
+ MELINK Original WL 'ME_45EEC8E10308' '457450470167.ms.model.script' // changing
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEC8E10308_ME_48FDA9D500E4 changing
+
+ME ME_45EEC8E10309_ME_48FDA9D500E4
+ MELINK Original WL 'ME_45EEC8E10309' '457450470167.ms.model.script' // changed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEC8E10309_ME_48FDA9D500E4 changed
+
+ME ME_475E4B020072_ME_48FDA9D500E4
+ MELINK Original WL 'ME_475E4B020072' '457450470167.ms.model.script' // get_id
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_475E4B020072_ME_48FDA9D500E4 get_id
+
+%%ImplementedBy ME_45EEC8E102FD ME_48FDA9D500E4
+
+%%InheritedBy ME_48FD8F78038B ME_48FDA9D500E4
+
+ME ME_48FDA9D500E4
+ MEPROP UID '48FDA9D500E4'
+ MEPROP Name 'nsNodeNotifierImplementation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48FD8F78038B' '48FD8F78038B.ms.model.script' // nsNodeNotifierBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_45EEC8E102FD' '457450470167.ms.model.script' // NodeNotifier
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48FDAA2000B3 // OldChanging
+ HWL ME_48FDAA330353 // OldChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEC8E102FE_ME_48FDA9D500E4 // change_children_count
+ ME_45EEC8E10303_ME_48FDA9D500E4 // reset_children_count
+ ME_45EEC8E10304_ME_48FDA9D500E4 // is_root_visible
+ ME_45EEC8E10305_ME_48FDA9D500E4 // is_one_level
+ ME_45EEC8E10306_ME_48FDA9D500E4 // invalidate
+ ME_45EEC8E10308_ME_48FDA9D500E4 // changing
+ ME_45EEC8E10309_ME_48FDA9D500E4 // changed
+ ME_475E4B020072_ME_48FDA9D500E4 // get_id
+ )
+ ; // Implemented
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierImplementation.imp.pas'
+ UP extprop:pas:TypeName '_nsNodeNotifierImplementation_'
+ UP extprop:pas:UnitName 'nsNodeNotifierImplementation.imp'
+
+ENDME // ME_48FDA9D500E4 nsNodeNotifierImplementation

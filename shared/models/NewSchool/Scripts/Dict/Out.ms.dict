@@ -159,6 +159,36 @@ PROCEDURE .ProcessOut:
  ) // TF g_OutFile 
 ; // .ProcessOut:
 
+USES
+ CreateGUID.ms.dict
+;
+
+USES
+ IsNil.ms.dict
+;
+
+PROCEDURE .ProcessTmpOut:
+  STRING IN aFileName
+  ^ IN aLambda
+ VAR l_OutFileName 
+ VAR l_FileName
+ aFileName >>> l_FileName
+ if ( l_FileName sysutils:ExtractFilePath .IsNil ) then
+ begin
+  [ sysutils:GetCurrentDir l_FileName ] cPathSep strings:CatSep >>> l_FileName
+ end // ( l_FileName sysutils:ExtractFilePath .IsNil )
+ [ 'C:\Temp\' CreateUID '.tmp' ] strings:Cat >>> l_OutFileName
+ l_OutFileName .ProcessOut: ( aLambda DO ) 
+ if (
+     ( l_FileName sysutils:FileExists ! )
+     OR ( cEmptyStr l_FileName l_OutFileName CompareFiles ! ) 
+    ) then
+ begin
+  $20 l_FileName l_OutFileName CopyFile
+ end 
+ l_OutFileName DeleteFile DROP
+; // .ProcessTmpOut:
+
 PROCEDURE .ProcessIn:
   STRING IN aFileName
   ^ IN aLambda

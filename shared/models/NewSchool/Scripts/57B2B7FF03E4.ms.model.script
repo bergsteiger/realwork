@@ -1,0 +1,161 @@
+// msmConcreteModelController 57B2B7FF03E4 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57B2B7FF03E4
+
+FORWARD ME_57B2B7FF03E4
+
+ME ME_57B2B8550099
+ MEPROP UID '57B2B8550099'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B2B7FF03E4 // msmConcreteModelController
+ ;
+ UP extprop:pas:TypeName '_ConcreteModel_'
+
+ENDME // ME_57B2B8550099 ConcreteModel
+
+ME ME_57B2B86402BF
+ MEPROP UID '57B2B86402BF'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B2B7FF03E4 // msmConcreteModelController
+ ;
+ MELINK Target HWL ME_57B2B8550099 // ConcreteModel
+ ;
+
+ENDME // ME_57B2B86402BF ConcreteModel
+
+ME ME_57B2B86C025D
+ MEPROP UID '57B2B86C025D'
+ MEPROP Name 'Model'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B2B7FF03E4 // msmConcreteModelController
+ ;
+ MELINK Target HWL ME_57B2B8550099 // ConcreteModel
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57B2B86C025D Model
+
+FORWARD ME_57B2B8940291
+
+ME ME_57B2B8A80377
+ MEPROP Name 'aModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57B2B8550099 // ConcreteModel
+ ;
+
+ENDME // ME_57B2B8A80377 aModel
+
+ME ME_57B2B89C029E
+ MEPROP UID '57B2B89C029E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2B8940291 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B2B8A80377 // aModel
+ )
+ ; // Parameters
+
+ENDME // ME_57B2B89C029E DoIt
+
+ME ME_57B2B8940291
+ MEPROP UID '57B2B8940291'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2B7FF03E4 // msmConcreteModelController
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B2B89C029E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57B2B8940291 Create
+
+%%ImplementedBy ME_57B1E89F02AE ME_57B2B8AE032C
+
+%%InheritedBy ME_57B2B8940291 ME_57B2B8AE032C
+
+ME ME_57B2B8AE032C
+ MEPROP UID '57B2B8AE032C'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2B7FF03E4 // msmConcreteModelController
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B2B8940291 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+ )
+ ; // Implements
+
+ENDME // ME_57B2B8AE032C Make
+
+%%InheritedBy ME_57B1F28B030D ME_57B2B7FF03E4
+
+ME ME_57B2B7FF03E4
+ MEPROP UID '57B2B7FF03E4'
+ MEPROP Name 'msmConcreteModelController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B1F28B030D' '57AAE90E02B6.ms.model.script' // TmsmController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57B2B86402BF // ConcreteModel
+ HWL ME_57B2B86C025D // Model
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B2B8940291 // Create
+ HWL ME_57B2B8AE032C // Make
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57B2B8550099 // ConcreteModel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmConcreteModelController.imp.pas'
+ UP extprop:pas:TypeName '_msmConcreteModelController_'
+ UP extprop:pas:UnitName 'msmConcreteModelController.imp'
+
+ENDME // ME_57B2B7FF03E4 msmConcreteModelController

@@ -10,6 +10,7 @@ interface
 
 uses
  l3IntfUses
+ , l3Interfaces
  , msmControllers
  , msmConcreteModels
  , msmUseCases
@@ -23,6 +24,8 @@ type
   function Get_Drawing: ImsmDrawingModel;
   function Get_FloatingNavigator: ImsmTreeModel;
   function Get_Caption: ImsmCaptionModel;
+  function Get_FoundElements: ImsmListModel;
+  function Get_ElementToFind: ImsmCaptionModel;
   property MainList: ImsmListModel
    read Get_MainList;
   property Navigator: ImsmTreeModel
@@ -33,6 +36,10 @@ type
    read Get_FloatingNavigator;
   property Caption: ImsmCaptionModel
    read Get_Caption;
+  property FoundElements: ImsmListModel
+   read Get_FoundElements;
+  property ElementToFind: ImsmCaptionModel
+   read Get_ElementToFind;
  end;//ImsmDrawingUseCase
 
  ImsmDrawingUseCaseView = interface(ImsmUseCase)

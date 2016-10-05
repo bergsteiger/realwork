@@ -1,0 +1,93 @@
+// Mask 52A9ADB60286 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52A9ADB60286
+
+FORWARD ME_52A9ADB60286
+
+FORWARD ME_52A9ADCB0092
+
+FORWARD ME_554CBB4B0240
+
+ME ME_554CBB55006A
+ MEPROP UID '554CBB55006A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_554CBB4B0240 // TextFromClipboard
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_554CBB55006A DoIt
+
+ME ME_554CBB4B0240
+ MEPROP UID '554CBB4B0240'
+ MEPROP Name 'TextFromClipboard'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9ADCB0092 // TCustomMaskEdit
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_554CBB55006A // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'l3HackedVCL'
+ UP "ifndef" 'DesignTimeLibrary'
+
+ENDME // ME_554CBB4B0240 TextFromClipboard
+
+%%InheritedBy ME_52A9AE070267 ME_52A9ADCB0092
+
+ME ME_52A9ADCB0092
+ MEPROP UID '52A9ADCB0092'
+ MEPROP Name 'TCustomMaskEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9ADB60286 // Mask
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A9AE070267' '48C78D5402A6.ms.model.script' // TCustomEdit
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_554CBB4B0240 // TextFromClipboard
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'MaskEdit'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A9ADCB0092 TCustomMaskEdit
+
+ME ME_52A9ADB60286
+ MEPROP UID '52A9ADB60286'
+ MEPROP Name 'Mask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52A9ADCB0092 // TCustomMaskEdit
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Mask.pas'
+
+ENDME // ME_52A9ADB60286 Mask

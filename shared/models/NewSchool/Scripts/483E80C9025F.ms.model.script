@@ -2,21 +2,24 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_483E80C9025F
+%%Inner ME_483E80C9025F
+
 FORWARD ME_483E80C9025F
 
 FORWARD ME_483E80FA0312
-
-FORWARD ME_555DB607006F
 
 ME ME_555DB61203D5
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_483E80FA0312 // TevdNativeReader
  ;
- MELINK Target HWL ME_555DB607006F // evdNativeReaderServices
+ MELINK Target WL 'ME_555DB607006F' '555DB607006F.ms.model.script' // evdNativeReaderServices
  ;
 
 ENDME // ME_555DB61203D5 
+
+%%InheritedBy ME_483E81520007 ME_483E80FA0312
 
 ME ME_483E80FA0312
  MEPROP UID '483E80FA0312'
@@ -47,82 +50,6 @@ ME ME_483E80FA0312
 
 ENDME // ME_483E80FA0312 TevdNativeReader
 
-FORWARD ME_555DB62E036B
-
-ME ME_555DB6380224
- MEPROP Class class_Dependency
- MELINK Stereotype st_implements::Dependency ;
- MELINK Parent HWL ME_555DB62E036B // TevdEVDReaderService
- ;
- MELINK Target WL 'ME_555DB43B00BD' '482D6E960087.ms.model.script' // Tk2EVDReaderService
- ;
-
-ENDME // ME_555DB6380224 
-
-ME ME_555DB64C03E4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_555DB62E036B // TevdEVDReaderService
- ;
- MELINK Target HWL ME_483E80FA0312 // TevdNativeReader
- ;
-
-ENDME // ME_555DB64C03E4 
-
-ME ME_55702B7603B3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_555DB62E036B // TevdEVDReaderService
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_55702B7603B3 
-
-ME ME_555DB62E036B
- MEPROP UID '555DB62E036B'
- MEPROP Name 'TevdEVDReaderService'
- MEPROP Class class_Class
- MELINK Stereotype st_ServiceImplementation ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_555DB607006F // evdNativeReaderServices
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Dependencies
-   Seq: ( ME_555DB6380224 // Tk2EVDReaderService
- ME_555DB64C03E4 // TevdNativeReader
- ME_55702B7603B3 // FreeAndNil
- )
- ; // Dependencies
- UP extprop:rc:SelfName 'dEVDReaderService'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_555DB62E036B TevdEVDReaderService
-
-ME ME_555DB607006F
- MEPROP UID '555DB607006F'
- MEPROP Name 'evdNativeReaderServices'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_483E80C9025F // Readers
- ;
- MELIST Children
-   Seq: ( HWL ME_555DB62E036B // TevdEVDReaderService
- )
- ; // Children
- UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdNativeReaderServices.pas'
- UP extprop:rc:SelfName 'dNativeReaderServices'
-
-ENDME // ME_555DB607006F evdNativeReaderServices
-
 ME ME_483E80C9025F
  MEPROP UID '483E80C9025F'
  MEPROP Name 'Readers'
@@ -136,7 +63,7 @@ ME ME_483E80C9025F
  ;
  MELIST Children
    Seq: ( HWL ME_483E80FA0312 // TevdNativeReader
- HWL ME_555DB607006F // evdNativeReaderServices
+ WL 'ME_555DB607006F' '555DB607006F.ms.model.script' // evdNativeReaderServices
  )
  ; // Children
  MELIST Depends
@@ -146,6 +73,9 @@ ME ME_483E80C9025F
  WL 'ME_4C1B915E0261' '4C1B915E0261.ms.model.script' // Version Info
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "UseNewGen" true
  UP "elements prefix" '<none>'
 

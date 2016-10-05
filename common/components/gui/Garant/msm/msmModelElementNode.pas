@@ -10,12 +10,11 @@ interface
 
 uses
  l3IntfUses
- , msmModelElementNodeAncestor
+ , msmViewOfModelElementList
  , l3TreeInterfaces
+ , l3Interfaces
  , msmElementViews
  , msmModelElements
- , l3Interfaces
- , l3IID
  //#UC START# *57AC3AE0039Bintf_uses*
  //#UC END# *57AC3AE0039Bintf_uses*
 ;
@@ -32,15 +31,22 @@ type
  //#UC END# *57AC3AE0039Bci*
  //#UC START# *57AC3AE0039Bcit*
  //#UC END# *57AC3AE0039Bcit*
- TmsmModelElementNode = class(TmsmModelElementNodeAncestor, Il3SimpleNode, Il3SimpleRootNode, ITmsmModelElementNodeWrap)
+ TmsmModelElementNode = class(TmsmViewOfModelElementList, Il3SimpleNode, Il3SimpleRootNode, ITmsmModelElementNodeWrap)
   private
    f_Flags: Integer;
-   f_IndexInParent: Integer;
-   f_Element: TmsmModelElementView;
-   f_ElementList: ImsmModelElementList;
   protected
+   f_IndexInParent: Integer;
+  protected
+   function GetIsFirst: Boolean; virtual;
    function MakeNode(const anElement: ImsmModelElement;
     anIndex: Integer): Il3SimpleNode;
+   function GetChild: Il3SimpleNode; virtual;
+   function GetIsLast: Boolean; virtual;
+   function GetPrev: Il3SimpleNode; virtual;
+   function GetNext: Il3SimpleNode; virtual;
+   function GetParent: Il3SimpleNode; virtual;
+   function GetThisChildrenCount: Integer; virtual;
+   function GetText: Tl3PCharLenPrim; virtual;
    function IsFirst: Boolean;
     {* это первый узел внутри родителя? }
    function IsLast: Boolean;
@@ -84,21 +90,14 @@ type
    function GetSelf: TmsmModelElementNode;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   function COMQueryInterface(const IID: Tl3GUID;
-    out Obj): Tl3HResult; override;
-    {* Реализация запроса интерфейса }
-   procedure ClearFields; override;
   public
    constructor Create(const anElement: TmsmModelElementView;
     anIndex: Integer); reintroduce;
    class function Make(const anElement: TmsmModelElementView;
     anIndex: Integer): Il3SimpleRootNode; reintroduce;
-  public
-   property Element: TmsmModelElementView
-    read f_Element;
-   property ElementList: ImsmModelElementList
-    read f_ElementList;
  //#UC START# *57AC3AE0039Bpubl*
+  public
+   property Element;
  //#UC END# *57AC3AE0039Bpubl*
  end;//TmsmModelElementNode
 
@@ -107,6 +106,7 @@ implementation
 uses
  l3ImplUses
  , SysUtils
+ , msmModelElement
  {$If NOT Defined(NoScripts)}
  , l3NodesKeyWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
@@ -120,23 +120,34 @@ uses
 constructor TmsmModelElementNode.Create(const anElement: TmsmModelElementView;
  anIndex: Integer);
 //#UC START# *57AC3DD20352_57AC3AE0039B_var*
+var
+ l_Element : TmsmModelElementView;
 //#UC END# *57AC3DD20352_57AC3AE0039B_var*
 begin
 //#UC START# *57AC3DD20352_57AC3AE0039B_impl*
- Assert(anElement.rElement <> nil);
+ //Assert(anElement.rElement <> nil);
  Assert(anElement.rListName <> '');
  Assert(anElement.rTextName <> '');
- f_Element := anElement;
- if f_Element.rElement.IsView then
-  f_Element.rElement := f_Element.rElement.ElementProp['Original']
- else
- if f_Element.rElement.BoolProp['IsDiagram'] then
-  f_Element.rElement := f_Element.rElement.ElementProp['Original'];
- f_ElementList := f_Element.rElement.List[f_Element.rListName];
+ l_Element := anElement;
+ if (l_Element.rElement <> nil) then
+  if l_Element.rElement.BoolProp['IsSomeView'] then
+   l_Element.rElement := l_Element.rElement.ElementProp['Viewed'];
  f_IndexInParent := anIndex;
- inherited Create;
+ inherited Create(l_Element);
 //#UC END# *57AC3DD20352_57AC3AE0039B_impl*
 end;//TmsmModelElementNode.Create
+
+function TmsmModelElementNode.GetIsFirst: Boolean;
+//#UC START# *57E90FC602BD_57AC3AE0039B_var*
+var
+ l_P : ImsmModelElement;
+//#UC END# *57E90FC602BD_57AC3AE0039B_var*
+begin
+//#UC START# *57E90FC602BD_57AC3AE0039B_impl*
+ l_P := Element.rElement.Parent;
+ Result := ((l_P = nil) OR l_P.MEList[Element.rListName][0].IsSameElement(Element.rElement));
+//#UC END# *57E90FC602BD_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetIsFirst
 
 class function TmsmModelElementNode.Make(const anElement: TmsmModelElementView;
  anIndex: Integer): Il3SimpleRootNode;
@@ -157,40 +168,144 @@ function TmsmModelElementNode.MakeNode(const anElement: ImsmModelElement;
 //#UC END# *57AC3E47003C_57AC3AE0039B_var*
 begin
 //#UC START# *57AC3E47003C_57AC3AE0039B_impl*
- Result := TmsmModelElementNode.Make(TmsmModelElementView_C(anElement, Self.f_Element.rListName, Self.f_Element.rTextName), anIndex);
+ Result := TmsmModelElementNode.Make(TmsmModelElementView_C(anElement, Self.Element.rListName, Self.Element.rTextName), anIndex);
 //#UC END# *57AC3E47003C_57AC3AE0039B_impl*
 end;//TmsmModelElementNode.MakeNode
+
+function TmsmModelElementNode.GetChild: Il3SimpleNode;
+//#UC START# *57E90FF10291_57AC3AE0039B_var*
+//#UC END# *57E90FF10291_57AC3AE0039B_var*
+begin
+//#UC START# *57E90FF10291_57AC3AE0039B_impl*
+ if (List = nil) then
+  Result := nil
+ else
+ if (List.Count > 0) then
+  Result := MakeNode(TmsmModelElement.MakeFromValue(List[0]), 0)
+ else
+  Result := nil;
+//#UC END# *57E90FF10291_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetChild
+
+function TmsmModelElementNode.GetIsLast: Boolean;
+//#UC START# *57E90FDF00A5_57AC3AE0039B_var*
+var
+ l_P : ImsmModelElement;
+ l_C : ImsmModelElementList;
+//#UC END# *57E90FDF00A5_57AC3AE0039B_var*
+begin
+//#UC START# *57E90FDF00A5_57AC3AE0039B_impl*
+ l_P := Element.rElement.Parent;
+ if (l_P = nil) then
+  Result := true
+ else
+ begin
+  l_C := l_P.MEList[Element.rListName];
+  Result := l_C[l_C.Count - 1].IsSameElement(Element.rElement);
+ end;//(l_P = nil)
+//#UC END# *57E90FDF00A5_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetIsLast
+
+function TmsmModelElementNode.GetPrev: Il3SimpleNode;
+//#UC START# *57E9100A01F2_57AC3AE0039B_var*
+var
+ l_I : Integer;
+ l_P : ImsmModelElement;
+//#UC END# *57E9100A01F2_57AC3AE0039B_var*
+begin
+//#UC START# *57E9100A01F2_57AC3AE0039B_impl*
+ l_P := Element.rElement.Parent;
+ if (l_P = nil) then
+  Result := nil
+ else
+ begin
+  l_I := pm_GetIndexInParent;
+  if (l_I = 0) then
+   Result := nil
+  else
+   Result := MakeNode(l_P.MEList[Element.rListName][l_I - 1], l_I - 1);
+ end;//l_P = nil
+//#UC END# *57E9100A01F2_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetPrev
+
+function TmsmModelElementNode.GetNext: Il3SimpleNode;
+//#UC START# *57E9101E01C8_57AC3AE0039B_var*
+var
+ l_I : Integer;
+ l_P : ImsmModelElement;
+//#UC END# *57E9101E01C8_57AC3AE0039B_var*
+begin
+//#UC START# *57E9101E01C8_57AC3AE0039B_impl*
+ l_P := Element.rElement.Parent;
+ if (l_P = nil) then
+  Result := nil
+ else
+ begin
+  l_I := pm_GetIndexInParent;
+  if (l_I > l_P.ListProp[Element.rListName].Count - 1) then
+   Assert(false)
+  else
+  if (l_I >= l_P.ListProp[Element.rListName].Count - 1) then
+   Result := nil
+  else
+   Result := MakeNode(l_P.MEList[Element.rListName][l_I + 1], l_I + 1);
+ end;//l_P = nil
+//#UC END# *57E9101E01C8_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetNext
+
+function TmsmModelElementNode.GetParent: Il3SimpleNode;
+//#UC START# *57E9107B0059_57AC3AE0039B_var*
+var
+ l_P : ImsmModelElement;
+//#UC END# *57E9107B0059_57AC3AE0039B_var*
+begin
+//#UC START# *57E9107B0059_57AC3AE0039B_impl*
+ l_P := Element.rElement.Parent;
+ if (l_P = nil) then
+  Result := nil
+ else
+  Result := MakeNode(l_P, -1); 
+//#UC END# *57E9107B0059_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetParent
+
+function TmsmModelElementNode.GetThisChildrenCount: Integer;
+//#UC START# *57E910B0002C_57AC3AE0039B_var*
+//#UC END# *57E910B0002C_57AC3AE0039B_var*
+begin
+//#UC START# *57E910B0002C_57AC3AE0039B_impl*
+ if (List = nil) then
+  Result := 0
+ else
+  Result := List.Count;
+//#UC END# *57E910B0002C_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetThisChildrenCount
+
+function TmsmModelElementNode.GetText: Tl3PCharLenPrim;
+//#UC START# *57E91213016A_57AC3AE0039B_var*
+//#UC END# *57E91213016A_57AC3AE0039B_var*
+begin
+//#UC START# *57E91213016A_57AC3AE0039B_impl*
+ Result := l3PCharLen(Element.rElement.StringProp[Element.rTextName]);
+//#UC END# *57E91213016A_57AC3AE0039B_impl*
+end;//TmsmModelElementNode.GetText
 
 function TmsmModelElementNode.IsFirst: Boolean;
  {* это первый узел внутри родителя? }
 //#UC START# *47723CDB00A4_57AC3AE0039B_var*
-var
- l_P : ImsmModelElement;
 //#UC END# *47723CDB00A4_57AC3AE0039B_var*
 begin
 //#UC START# *47723CDB00A4_57AC3AE0039B_impl*
- l_P := f_Element.rElement.Parent;
- Result := ((l_P = nil) OR l_P.List[f_Element.rListName][0].IsSameElement(f_Element.rElement));
+ Result := GetIsFirst;
 //#UC END# *47723CDB00A4_57AC3AE0039B_impl*
 end;//TmsmModelElementNode.IsFirst
 
 function TmsmModelElementNode.IsLast: Boolean;
  {* это последний узел внутри родителя? }
 //#UC START# *47723CFF0148_57AC3AE0039B_var*
-var
- l_P : ImsmModelElement;
- l_C : ImsmModelElementList;
 //#UC END# *47723CFF0148_57AC3AE0039B_var*
 begin
 //#UC START# *47723CFF0148_57AC3AE0039B_impl*
- l_P := f_Element.rElement.Parent;
- if (l_P = nil) then
-  Result := true
- else
- begin
-  l_C := l_P.List[f_Element.rListName];
-  Result := l_C[l_C.Count - 1].IsSameElement(f_Element.rElement);
- end;//(l_P = nil)
+ Result := GetIsLast;
 //#UC END# *47723CFF0148_57AC3AE0039B_impl*
 end;//TmsmModelElementNode.IsLast
 
@@ -200,7 +315,7 @@ function TmsmModelElementNode.HasChild: Boolean;
 //#UC END# *47723D0F0392_57AC3AE0039B_var*
 begin
 //#UC START# *47723D0F0392_57AC3AE0039B_impl*
- Result := f_ElementList.Count > 0;
+ Result := (Get_ThisChildrenCount > 0);
 //#UC END# *47723D0F0392_57AC3AE0039B_impl*
 end;//TmsmModelElementNode.HasChild
 
@@ -236,6 +351,7 @@ function TmsmModelElementNode.GetLevelFor(const aNode: Il3SimpleNode): Integer;
 //#UC START# *47723D3B0058_57AC3AE0039B_var*
 var
  lCNode : Il3SimpleNode;
+ l_Child : Il3SimpleNode;
 //#UC END# *47723D3B0058_57AC3AE0039B_var*
 begin
 //#UC START# *47723D3B0058_57AC3AE0039B_impl*
@@ -245,6 +361,17 @@ begin
  while (lCNode <> nil) and not lCNode.IsSame(aNode) do
  begin
   Inc(Result);
+  if (lCNode.Parent = nil) then
+  begin
+   l_Child := aNode.Child;
+   while (l_Child <> nil) do
+   begin
+    if l_Child.IsSame(lCNode) then
+     Exit
+    else
+     l_Child := l_Child.Next; 
+   end;//while true
+  end;//lCNode.Parent = nil
   lCNode := lCNode.Parent;
  end;//while (lCNode <> nil)
  if (lCNode = nil) then
@@ -265,7 +392,10 @@ begin
  begin
   if Supports(aNode, ITmsmModelElementNodeWrap, l_W) then
    try
-    Result := Self.f_Element.rElement.IsSameElement(l_W.GetSelf.f_Element.rElement);
+    if (Self.Element.rElement = nil) then
+     Result := (l_W.GetSelf.Element.rElement = nil) 
+    else
+     Result := Self.Element.rElement.IsSameElement(l_W.GetSelf.Element.rElement);
    finally
     l_W := nil;
    end;//try..finally
@@ -319,22 +449,16 @@ function TmsmModelElementNode.Get_Text: Tl3PCharLenPrim;
 //#UC END# *47723E8C0086_57AC3AE0039Bget_var*
 begin
 //#UC START# *47723E8C0086_57AC3AE0039Bget_impl*
- Result := l3PCharLen(f_Element.rElement.StringProp[f_Element.rTextName]);
+ Result := GetText;
 //#UC END# *47723E8C0086_57AC3AE0039Bget_impl*
 end;//TmsmModelElementNode.Get_Text
 
 function TmsmModelElementNode.Get_Parent: Il3SimpleNode;
 //#UC START# *4772408A0361_57AC3AE0039Bget_var*
-var
- l_P : ImsmModelElement;
 //#UC END# *4772408A0361_57AC3AE0039Bget_var*
 begin
 //#UC START# *4772408A0361_57AC3AE0039Bget_impl*
- l_P := f_Element.rElement.Parent;
- if (l_P = nil) then
-  Result := nil
- else
-  Result := MakeNode(l_P, -1); 
+ Result := GetParent;
 //#UC END# *4772408A0361_57AC3AE0039Bget_impl*
 end;//TmsmModelElementNode.Get_Parent
 
@@ -343,35 +467,16 @@ function TmsmModelElementNode.Get_Child: Il3SimpleNode;
 //#UC END# *477240B10267_57AC3AE0039Bget_var*
 begin
 //#UC START# *477240B10267_57AC3AE0039Bget_impl*
- if (f_ElementList.Count > 0) then
-  Result := MakeNode(f_ElementList[0], 0)
- else
-  Result := nil;
+ Result := GetChild;
 //#UC END# *477240B10267_57AC3AE0039Bget_impl*
 end;//TmsmModelElementNode.Get_Child
 
 function TmsmModelElementNode.Get_Next: Il3SimpleNode;
 //#UC START# *477241AC00B9_57AC3AE0039Bget_var*
-var
- l_I : Integer;
- l_P : ImsmModelElement;
 //#UC END# *477241AC00B9_57AC3AE0039Bget_var*
 begin
 //#UC START# *477241AC00B9_57AC3AE0039Bget_impl*
- l_P := f_Element.rElement.Parent;
- if (l_P = nil) then
-  Result := nil
- else
- begin
-  l_I := pm_GetIndexInParent;
-  if (l_I > l_P.List[f_Element.rListName].Count - 1) then
-   Assert(false)
-  else
-  if (l_I >= l_P.List[f_Element.rListName].Count - 1) then
-   Result := nil
-  else
-   Result := MakeNode(l_P.List[f_Element.rListName][l_I + 1], l_I + 1);
- end;//l_P = nil
+ Result := GetNext;
 //#UC END# *477241AC00B9_57AC3AE0039Bget_impl*
 end;//TmsmModelElementNode.Get_Next
 
@@ -411,7 +516,7 @@ function TmsmModelElementNode.Get_ThisChildrenCount: Integer;
 //#UC END# *4772429202E4_57AC3AE0039Bget_var*
 begin
 //#UC START# *4772429202E4_57AC3AE0039Bget_impl*
- Result := f_ElementList.Count;
+ Result := GetThisChildrenCount;
 //#UC END# *4772429202E4_57AC3AE0039Bget_impl*
 end;//TmsmModelElementNode.Get_ThisChildrenCount
 
@@ -426,7 +531,7 @@ begin
 //#UC START# *477242A40219_57AC3AE0039Bget_impl*
  if (f_IndexInParent < 0) then
  begin
-  l_P := f_Element.rElement.Parent;
+  l_P := Element.rElement.Parent;
   if (l_P = nil) then
   begin
    Result := 0;
@@ -434,14 +539,14 @@ begin
   end//l_P = nil
   else
   begin
-   l_C := l_P.List[f_Element.rListName];
+   l_C := l_P.MEList[Element.rListName];
    for l_I := 0 to Pred(l_C.Count) do
-    if l_C[l_I].IsSameElement(f_Element.rElement) then
+    if l_C[l_I].IsSameElement(Element.rElement) then
     begin
      Result := l_I;
      f_IndexInParent := l_I;
      Exit;
-    end;//(l_C[l_I].IsSameElement(f_Element)
+    end;//(l_C[l_I].IsSameElement(Element)
    Result := 0;
    Assert(false);
   end;//l_P = nil
@@ -502,23 +607,10 @@ end;//TmsmModelElementNode.CanMove
 
 function TmsmModelElementNode.Get_Prev: Il3SimpleNode;
 //#UC START# *47B5759A03C0_57AC3AE0039Bget_var*
-var
- l_I : Integer;
- l_P : ImsmModelElement;
 //#UC END# *47B5759A03C0_57AC3AE0039Bget_var*
 begin
 //#UC START# *47B5759A03C0_57AC3AE0039Bget_impl*
- l_P := f_Element.rElement.Parent;
- if (l_P = nil) then
-  Result := nil
- else
- begin
-  l_I := pm_GetIndexInParent;
-  if (l_I = 0) then
-   Result := nil
-  else
-   Result := MakeNode(l_P.List[f_Element.rListName][l_I - 1], l_I - 1);
- end;//l_P = nil
+ Result := GetPrev;
 //#UC END# *47B5759A03C0_57AC3AE0039Bget_impl*
 end;//TmsmModelElementNode.Get_Prev
 
@@ -537,34 +629,9 @@ procedure TmsmModelElementNode.Cleanup;
 //#UC END# *479731C50290_57AC3AE0039B_var*
 begin
 //#UC START# *479731C50290_57AC3AE0039B_impl*
- Finalize(f_Element);
  inherited;
 //#UC END# *479731C50290_57AC3AE0039B_impl*
 end;//TmsmModelElementNode.Cleanup
-
-function TmsmModelElementNode.COMQueryInterface(const IID: Tl3GUID;
- out Obj): Tl3HResult;
- {* Реализация запроса интерфейса }
-//#UC START# *4A60B23E00C3_57AC3AE0039B_var*
-//#UC END# *4A60B23E00C3_57AC3AE0039B_var*
-begin
-//#UC START# *4A60B23E00C3_57AC3AE0039B_impl*
- if IID.EQ(ImsmModelElement) then
- begin
-  ImsmModelElement(Obj) := f_Element.rElement;
-  Result.SetOk;
- end//IID.EQ(ImsmModelElement)
- else
-  Result := inherited COMQueryInterface(IID, Obj);
-//#UC END# *4A60B23E00C3_57AC3AE0039B_impl*
-end;//TmsmModelElementNode.COMQueryInterface
-
-procedure TmsmModelElementNode.ClearFields;
-begin
- Finalize(f_Element);
- f_ElementList := nil;
- inherited;
-end;//TmsmModelElementNode.ClearFields
 
 //#UC START# *57AC3AE0039Bimpl*
 //#UC END# *57AC3AE0039Bimpl*

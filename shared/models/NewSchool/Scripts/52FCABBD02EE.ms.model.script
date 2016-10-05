@@ -2,7 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_52FCABBD02EE
+%%Inner ME_52FCABBD02EE
+%%Inner ME_52FCABBD02EE
+
 FORWARD ME_52FCABBD02EE
+
+%%InheritedBy ME_49E7754802A9 ME_52FCABD0022E
 
 ME ME_52FCABD0022E
  MEPROP UID '52FCABD0022E'
@@ -72,7 +78,7 @@ ME ME_52FCAC2B02FA
 ENDME // ME_52FCAC2B02FA ItemType
 
 ME ME_47B2C42A0163_ME_52FCAC0E0384
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -80,10 +86,18 @@ ME ME_47B2C42A0163_ME_52FCAC0E0384
 ENDME // ME_47B2C42A0163_ME_52FCAC0E0384 AssignItem
 
 ME ME_47B99D4503A2_ME_52FCAC0E0384
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_52FCAC0E0384 CompareExistingItems
+
+%%ImplementedBy ME_47B99E920196 ME_52FCAC0E0384
+%%ImplementedBy ME_48FCA1F20259 ME_52FCAC0E0384
+%%ImplementedBy ME_492ABDE901A7 ME_52FCAC0E0384
+%%ImplementedBy ME_4B86890E0307 ME_52FCAC0E0384
+
+%%InheritedBy ME_4A54DD4E036F ME_52FCAC0E0384
+%%InheritedBy ME_4A5CBFAB03AF ME_52FCAC0E0384
 
 ME ME_52FCAC0E0384
  MEPROP UID '52FCAC0E0384'
@@ -97,14 +111,14 @@ ME ME_52FCAC0E0384
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4A5CBFAB03AF' '47BB24D30205.ms.model.script' // l3Changing
+ WL 'ME_4A5CBFAB03AF' '4A5CBFAB03AF.ms.model.script' // l3Changing
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
- WL 'ME_48FCA1F20259' '47913B47006E.ms.model.script' // l3ChangingChangedNotifier
- WL 'ME_492ABDE901A7' '47BB24D30205.ms.model.script' // l3LockedChange
- WL 'ME_4B86890E0307' '47913B47006E.ms.model.script' // l3OpenArray
+   Seq: ( WL 'ME_47B99E920196' '47B99E920196.ms.model.script' // l3UncomparabeObjectRefList
+ WL 'ME_48FCA1F20259' '48FCA1F20259.ms.model.script' // l3ChangingChangedNotifier
+ WL 'ME_492ABDE901A7' '492ABDE901A7.ms.model.script' // l3LockedChange
+ WL 'ME_4B86890E0307' '4B86890E0307.ms.model.script' // l3OpenArray
  )
  ; // Implements
  MELIST Attributes
@@ -121,43 +135,15 @@ ME ME_52FCAC0E0384
  HWL ME_52FCB31C01E0 // l3Items_HasChanging
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\DT\QueryListPrim.pas'
  UP extprop:rc:SelfName 'QueryListPrim'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'QueryListPrim'
 
 ENDME // ME_52FCAC0E0384 TQueryListPrim
-
-FORWARD ME_52FCB4700035
-
-ME ME_52FCB4770122
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52FCB4700035 // DT_AskList
- ;
- MELINK Target HWL ME_52FCAC0E0384 // TQueryListPrim
- ;
-
-ENDME // ME_52FCB4770122 
-
-ME ME_52FCB4700035
- MEPROP UID '52FCB4700035'
- MEPROP Name 'DT_AskList'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52FCABBD02EE // Query
- ;
- MELIST Dependencies
-   Seq: ( ME_52FCB4770122 // TQueryListPrim
- )
- ; // Dependencies
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_DT_AskList.pas'
-
-ENDME // ME_52FCB4700035 DT_AskList
 
 ME ME_52FCABBD02EE
  MEPROP UID '52FCABBD02EE'
@@ -172,7 +158,7 @@ ME ME_52FCABBD02EE
  MELIST Children
    Seq: ( HWL ME_52FCABD0022E // TSavedQuery
  HWL ME_52FCAC0E0384 // TQueryListPrim
- HWL ME_52FCB4700035 // DT_AskList
+ WL 'ME_52FCB4700035' '52FCB4700035.ms.model.script' // DT_AskList
  )
  ; // Children
  MELIST Depends
@@ -180,5 +166,8 @@ ME ME_52FCABBD02EE
  WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_52FCABBD02EE Query

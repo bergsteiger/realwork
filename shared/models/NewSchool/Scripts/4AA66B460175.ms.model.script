@@ -2,47 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4AA66B460175
-
-FORWARD ME_4AA790E300D4
-
-ME ME_4AAA2F3A005E
- MEPROP UID '4AAA2F3A005E'
- MEPROP Name 'TnsRubricatorRes'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AA790E300D4 // RubricatorRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
- )
- ; // Inherits
- UP extprop:rc:SelfName 'RubricatorRes'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4AAA2F3A005E TnsRubricatorRes
-
-ME ME_4AA790E300D4
- MEPROP UID '4AA790E300D4'
- MEPROP Name 'RubricatorRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AA66B460175 // Rubricator
- ;
- MELIST Children
-   Seq: ( HWL ME_4AAA2F3A005E // TnsRubricatorRes
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Rubricator\NOT_FINISHED_RubricatorRes.pas'
-
-ENDME // ME_4AA790E300D4 RubricatorRes
+%%Inner ME_4AA66B460175
+%%Inner ME_4AA66B460175
+%%Inner ME_4AA66B460175
 
 ME ME_4AA66B460175
  MEPROP UID '4AA66B460175'
@@ -57,7 +19,7 @@ ME ME_4AA66B460175
  MELIST Children
    Seq: ( WL 'ME_4AA68CA10101' '4AA68CA10101.ms.model.script' // PrimRubricator
  WL 'ME_4AA67768038F' '4AA67768038F.ms.model.script' // Rubricator
- HWL ME_4AA790E300D4 // RubricatorRes
+ WL 'ME_4AA790E300D4' '4AA790E300D4.ms.model.script' // RubricatorRes
  )
  ; // Children
  MELIST Depends
@@ -109,6 +71,9 @@ ME ME_4AA66B460175
  WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Rubricator'
 
 ENDME // ME_4AA66B460175 Rubricator

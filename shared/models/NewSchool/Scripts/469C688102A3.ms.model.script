@@ -2,612 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_469C688102A3
+%%Inner ME_469C688102A3
+%%Inner ME_469C688102A3
+%%Inner ME_469C688102A3
+
 FORWARD ME_469C688102A3
-
-FORWARD ME_469C68EC0226
-
-FORWARD ME_4CDD4F46039D
-
-ME ME_4CDD4F5902EC
- MEPROP Name 'aData'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F8C8C201F0' '4680F5600033.ms.model.script' // DataType
- ;
-
-ENDME // ME_4CDD4F5902EC aData
-
-ME ME_4CDD4F59031E
- MEPROP Name 'aBitmap'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476F70910097' '467C0CAA02AB.ms.model.script' // Il3Bitmap
- ;
-
-ENDME // ME_4CDD4F59031E aBitmap
-
-ME ME_4CDD4F5401D4
- MEPROP UID '4CDD4F5401D4'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CDD4F46039D // Create
- ;
- MELIST Parameters
-   Seq: ( ME_4CDD4F5902EC // aData
- ME_4CDD4F59031E // aBitmap
- )
- ; // Parameters
-
-ENDME // ME_4CDD4F5401D4 DoIt
-
-ME ME_4CDD4F46039D
- MEPROP UID '4CDD4F46039D'
- MEPROP Name 'Create'
- MEPROP Class class_Class
- MELINK Stereotype st_Constructor ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELIST Operations
-   Seq: ( HWL ME_4CDD4F5401D4 // DoIt
- )
- ; // Operations
-
-ENDME // ME_4CDD4F46039D Create
-
-ME ME_4CDD4F24009A
- MEPROP UID '4CDD4F24009A'
- MEPROP Name 'Make'
- MEPROP Class class_Class
- MELINK Stereotype st_Factory ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4CDD4F46039D // Create
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
- )
- ; // Implements
-
-ENDME // ME_4CDD4F24009A Make
-
-ME ME_48F4B9F4010C
- MEPROP UID '48F4B9F4010C'
- MEPROP Name 'GetCaptions'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
- ;
-
-ENDME // ME_48F4B9F4010C GetCaptions
-
-ME ME_48F4BA0E0261
- MEPROP UID '48F4BA0E0261'
- MEPROP Name 'CreateFileName'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
-
-ENDME // ME_48F4BA0E0261 CreateFileName
-
-ME ME_48F4BA23031F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_48F4BA23031F 
-
-ME ME_48F4BACF016D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_48F4BACF016D 
-
-ME ME_48F4BAE201DF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_48F4BA89000D' '48F4BA770180.ms.model.script' // ddRTFWriter
- ;
-
-ENDME // ME_48F4BAE201DF 
-
-ME ME_48F4BB160032
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_47A0686803A5' '47913B47006E.ms.model.script' // l3Filer
- ;
-
-ENDME // ME_48F4BB160032 
-
-ME ME_48F4BCD5016A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
- ;
-
-ENDME // ME_48F4BCD5016A 
-
-ME ME_48F4BD3101F1
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
- ;
-
-ENDME // ME_48F4BD3101F1 
-
-ME ME_48F4BDE500A3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
- ;
-
-ENDME // ME_48F4BDE500A3 
-
-ME ME_48F4BE54019B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
- ;
-
-ENDME // ME_48F4BE54019B 
-
-ME ME_48F4BE74003A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
- ;
-
-ENDME // ME_48F4BE74003A 
-
-ME ME_49AE42370268
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
- ;
-
-ENDME // ME_49AE42370268 
-
-ME ME_49AE42460099
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_469C68EC0226 // ddTreeDataObject
- ;
- MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
- ;
-
-ENDME // ME_49AE42460099 
-
-ME ME_48F3504301B7_ME_469C68EC0226
- MELINK Original WL 'ME_48F3504301B7' '4680F5600033.ms.model.script' // WriteFilesAndSetNames
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48F3504301B7_ME_469C68EC0226 WriteFilesAndSetNames
-
-ME ME_48F4B33501DE_ME_469C68EC0226
- MELINK Original WL 'ME_48F4B33501DE' '4680F5600033.ms.model.script' // GetFormats
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48F4B33501DE_ME_469C68EC0226 GetFormats
-
-ME ME_469C68EC0226
- MEPROP UID '469C68EC0226'
- MEPROP Name 'ddTreeDataObject'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Объект данных дерева' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_469C688102A3 // DataObjects
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4680F8DE02E2' '4680F5600033.ms.model.script' // l3TreeDataObject
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_4CDD4F46039D // Create
- HWL ME_4CDD4F24009A // Make
- HWL ME_48F4B9F4010C // GetCaptions
- HWL ME_48F4BA0E0261 // CreateFileName
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_48F3504301B7_ME_469C68EC0226 // WriteFilesAndSetNames
- ME_48F4B33501DE_ME_469C68EC0226 // GetFormats
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_48F4BA23031F // SysUtils
- ME_48F4BACF016D // Tk2TagID
- ME_48F4BAE201DF // ddRTFWriter
- ME_48F4BB160032 // l3Filer
- ME_48F4BCD5016A // Il3SimpleNode
- ME_48F4BD3101F1 // Windows
- ME_48F4BDE500A3 // l3String
- ME_48F4BE54019B // Tl3FileMode
- ME_48F4BE74003A // l3Base
- ME_49AE42370268 // Document
- ME_49AE42460099 // TextPara
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '19.12.2006 13:08'
- UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\ddTreeDataObject.imp.pas'
- UP extprop:pas:TypeName '_ddTreeDataObject_'
- UP extprop:pas:UnitName 'ddTreeDataObject.imp'
-
-ENDME // ME_469C68EC0226 ddTreeDataObject
-
-FORWARD ME_48F895480266
-
-ME ME_48F8D3EA037C
- MEPROP UID '48F8D3EA037C'
- MEPROP Name 'DataClass'
- MEPROP Class class_Class
- MELINK Stereotype st_ImpurityParamType ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- UP extprop:pas:TypeName '_DataClass_'
-
-ENDME // ME_48F8D3EA037C DataClass
-
-ME ME_48F8D4B101F0
- MEPROP UID '48F8D4B101F0'
- MEPROP Name 'RDataClass'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELIST Inherits
-   Seq: ( HWL ME_48F8D3EA037C // DataClass
- )
- ; // Inherits
- UP "isClassRef" true
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_48F8D4B101F0 RDataClass
-
-ME ME_48F895A300E8
- MEPROP UID '48F895A300E8'
- MEPROP Name 'Ext'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "needs field" true
- UP "pm" true
- UP "reads field" true
-
-ENDME // ME_48F895A300E8 Ext
-
-ME ME_48F895E40122
- MEPROP UID '48F895E40122'
- MEPROP Name 'f_ExtData'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
- ;
-
-ENDME // ME_48F895E40122 f_ExtData
-
-ME ME_48F8D1450222
- MEPROP UID '48F8D1450222'
- MEPROP Name 'DataType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_param::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_48F8C8C201F0' '4680F5600033.ms.model.script' // DataType
- ;
-
-ENDME // ME_48F8D1450222 DataType
-
-ME ME_48F8D40502BC
- MEPROP UID '48F8D40502BC'
- MEPROP Name 'DataClass'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_param::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target HWL ME_48F8D3EA037C // DataClass
- ;
-
-ENDME // ME_48F8D40502BC DataClass
-
-FORWARD ME_4CDD4D9D0014
-
-ME ME_4CDD4DB90305
- MEPROP Name 'aData'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F8C8C201F0' '4680F5600033.ms.model.script' // DataType
- ;
-
-ENDME // ME_4CDD4DB90305 aData
-
-ME ME_4CDD4DB90324
- MEPROP Name 'aBitmap'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476F70910097' '467C0CAA02AB.ms.model.script' // Il3Bitmap
- ;
-
-ENDME // ME_4CDD4DB90324 aBitmap
-
-ME ME_4CDD4DAE018E
- MEPROP UID '4CDD4DAE018E'
- MEPROP Name 'Create'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CDD4D9D0014 // Create
- ;
- MELIST Parameters
-   Seq: ( ME_4CDD4DB90305 // aData
- ME_4CDD4DB90324 // aBitmap
- )
- ; // Parameters
-
-ENDME // ME_4CDD4DAE018E Create
-
-ME ME_4CDD4D9D0014
- MEPROP UID '4CDD4D9D0014'
- MEPROP Name 'Create'
- MEPROP Class class_Class
- MELINK Stereotype st_Constructor ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELIST Operations
-   Seq: ( HWL ME_4CDD4DAE018E // Create
- )
- ; // Operations
-
-ENDME // ME_4CDD4D9D0014 Create
-
-ME ME_4CDD4D79022C
- MEPROP UID '4CDD4D79022C'
- MEPROP Name 'Make'
- MEPROP Class class_Class
- MELINK Stereotype st_Factory ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4CDD4D9D0014 // Create
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
- )
- ; // Implements
-
-ENDME // ME_4CDD4D79022C Make
-
-ME ME_48F896070020
- MEPROP UID '48F896070020'
- MEPROP Name 'ExtData'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
- ;
-
-ENDME // ME_48F896070020 ExtData
-
-ME ME_48F89615037B
- MEPROP UID '48F89615037B'
- MEPROP Name 'MakeExtData'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_4680F4790135' '4677FBA70343.ms.model.script' // IDataObject
- ;
-
-ENDME // ME_48F89615037B MakeExtData
-
-ME ME_48F8D47302FD
- MEPROP UID '48F8D47302FD'
- MEPROP Name 'ExtDataClass'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target HWL ME_48F8D4B101F0 // RDataClass
- ;
-
-ENDME // ME_48F8D47302FD ExtDataClass
-
-ME ME_48F899B1015A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_48F899B1015A 
-
-ME ME_48F89AF50091
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
- ;
-
-ENDME // ME_48F89AF50091 
-
-ME ME_4CDD33580227
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_4680FBF2003C' '4677FBA70343.ms.model.script' // Il3DataObjectInfo
- ;
-
-ENDME // ME_4CDD33580227 
-
-ME ME_4CDD34B2025C
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48F895480266 // evTreeData
- ;
- MELINK Target WL 'ME_4B17E8F10299' '47BB24D30205.ms.model.script' // l3IFail
- ;
-
-ENDME // ME_4CDD34B2025C 
-
-ME ME_479731C50290_ME_48F895480266
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_48F895480266 Cleanup
-
-ME ME_48F3495D0398_ME_48F895480266
- MELINK Original WL 'ME_48F3495D0398' '4680F5600033.ms.model.script' // DoGetData
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48F3495D0398_ME_48F895480266 DoGetData
-
-ME ME_48F351BE0015_ME_48F895480266
- MELINK Original WL 'ME_48F351BE0015' '4680F5600033.ms.model.script' // AcceptableTymed
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48F351BE0015_ME_48F895480266 AcceptableTymed
-
-ME ME_4A60B23E00C3_ME_48F895480266
- MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4A60B23E00C3_ME_48F895480266 COMQueryInterface
-
-ME ME_48F895480266
- MEPROP UID '48F895480266'
- MEPROP Name 'evTreeData'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_469C688102A3 // DataObjects
- ;
- MELIST Inherits
-   Seq: ( HWL ME_469C68EC0226 // ddTreeDataObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_48F895A300E8 // Ext
- HWL ME_48F895E40122 // f_ExtData
- HWL ME_48F8D1450222 // DataType
- HWL ME_48F8D40502BC // DataClass
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_4CDD4D9D0014 // Create
- HWL ME_4CDD4D79022C // Make
- HWL ME_48F896070020 // ExtData
- HWL ME_48F89615037B // MakeExtData
- HWL ME_48F8D47302FD // ExtDataClass
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_48F895480266 // Cleanup
- ME_48F3495D0398_ME_48F895480266 // DoGetData
- ME_48F351BE0015_ME_48F895480266 // AcceptableTymed
- ME_4A60B23E00C3_ME_48F895480266 // COMQueryInterface
- )
- ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_48F8D3EA037C // DataClass
- HWL ME_48F8D4B101F0 // RDataClass
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_48F899B1015A // SysUtils
- ME_48F89AF50091 // l3Base
- ME_4CDD33580227 // Il3DataObjectInfo
- ME_4CDD34B2025C // l3IFail
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '17.10.2008 17:39'
- UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evTreeData.imp.pas'
- UP extprop:pas:TypeName '_evTreeData_'
- UP extprop:pas:UnitName 'evTreeData.imp'
-
-ENDME // ME_48F895480266 evTreeData
 
 FORWARD ME_48F7014003A5
 
@@ -656,16 +56,18 @@ ME ME_48F704C9034B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48F7014003A5 // TevNodeData
  ;
- MELINK Target WL 'ME_48F4B5300085' '4680F5600033.ms.model.script' // l3TreeConst
+ MELINK Target WL 'ME_48F4B5300085' '48F4B5300085.ms.model.script' // l3TreeConst
  ;
 
 ENDME // ME_48F704C9034B 
 
 ME ME_48F4B33501DE_ME_48F7014003A5
- MELINK Original WL 'ME_48F4B33501DE' '4680F5600033.ms.model.script' // GetFormats
+ MELINK Original WL 'ME_48F4B33501DE' '4680F8DE02E2.ms.model.script' // GetFormats
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48F4B33501DE_ME_48F7014003A5 GetFormats
+
+%%InheritedBy ME_48F895480266 ME_48F7014003A5
 
 ME ME_48F7014003A5
  MEPROP UID '48F7014003A5'
@@ -678,7 +80,7 @@ ME ME_48F7014003A5
  MELINK Parent HWL ME_469C688102A3 // DataObjects
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48F895480266 // evTreeData
+   Seq: ( WL 'ME_48F895480266' '48F895480266.ms.model.script' // evTreeData
  )
  ; // Inherits
  MELIST Attributes
@@ -695,6 +97,9 @@ ME ME_48F7014003A5
  ME_48F704C9034B // l3TreeConst
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '26.12.2006 17:02'
@@ -748,10 +153,12 @@ ME ME_48F4D21300FB
 ENDME // ME_48F4D21300FB 
 
 ME ME_48F4B33501DE_ME_48F4CF9903D6
- MELINK Original WL 'ME_48F4B33501DE' '4680F5600033.ms.model.script' // GetFormats
+ MELINK Original WL 'ME_48F4B33501DE' '4680F8DE02E2.ms.model.script' // GetFormats
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48F4B33501DE_ME_48F4CF9903D6 GetFormats
+
+%%InheritedBy ME_48F895480266 ME_48F4CF9903D6
 
 ME ME_48F4CF9903D6
  MEPROP UID '48F4CF9903D6'
@@ -764,7 +171,7 @@ ME ME_48F4CF9903D6
  MELINK Parent HWL ME_469C688102A3 // DataObjects
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48F895480266 // evTreeData
+   Seq: ( WL 'ME_48F895480266' '48F895480266.ms.model.script' // evTreeData
  )
  ; // Inherits
  MELIST Attributes
@@ -780,6 +187,9 @@ ME ME_48F4CF9903D6
    Seq: ( ME_48F4D21300FB // Clipboard Formats
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Лукьянец Р.В.'
  UP "no hands" true
  UP "started" '16.07.2007'
@@ -801,8 +211,8 @@ ME ME_469C688102A3
  MELINK Parent WL 'ME_48EEE54C0072' '48EEE54C0072.ms.model.script' // EverestCommon
  ;
  MELIST Children
-   Seq: ( HWL ME_469C68EC0226 // ddTreeDataObject
- HWL ME_48F895480266 // evTreeData
+   Seq: ( WL 'ME_469C68EC0226' '469C68EC0226.ms.model.script' // ddTreeDataObject
+ WL 'ME_48F895480266' '48F895480266.ms.model.script' // evTreeData
  HWL ME_48F7014003A5 // TevNodeData
  HWL ME_48F4CF9903D6 // TevConstStringData
  )
@@ -827,5 +237,8 @@ ME ME_469C688102A3
  WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_469C688102A3 DataObjects

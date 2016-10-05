@@ -1,0 +1,55 @@
+// archiHTInit 5272012D0254 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5272012D0254
+
+ME ME_5272013F001A
+ MEPROP UID '5272013F001A'
+ MEPROP Name 'InitArchiBaseEngine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5272012D0254 // archiHTInit
+ ;
+
+ENDME // ME_5272013F001A InitArchiBaseEngine
+
+ME ME_5272014F03E1
+ MEPROP UID '5272014F03E1'
+ MEPROP Name 'DoneBaseEngine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5272012D0254 // archiHTInit
+ ;
+
+ENDME // ME_5272014F03E1 DoneBaseEngine
+
+ME ME_5272012D0254
+ MEPROP UID '5272012D0254'
+ MEPROP Name 'archiHTInit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B607802DB' '4E4B607802DB.ms.model.script' // Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5272013F001A // InitArchiBaseEngine
+ HWL ME_5272014F03E1 // DoneBaseEngine
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_archiHTInit.pas'
+
+ENDME // ME_5272012D0254 archiHTInit

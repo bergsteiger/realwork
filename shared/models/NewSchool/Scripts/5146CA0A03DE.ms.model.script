@@ -1,0 +1,101 @@
+// EdWin 5146CA0A03DE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5146CA0A03DE
+
+FORWARD ME_5146CA0A03DE
+
+FORWARD ME_5146CA34003E
+
+FORWARD ME_5146CA96020D
+
+ME ME_5146CAAA013F
+ MEPROP UID '5146CAAA013F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5146CA96020D // IsNeedSave
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5146CAAA013F DoIt
+
+ME ME_5146CA96020D
+ MEPROP UID '5146CA96020D'
+ MEPROP Name 'IsNeedSave'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5146CA34003E // TEditorWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5146CAAA013F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5146CA96020D IsNeedSave
+
+ME ME_55C8E00E0011
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5146CA34003E // TEditorWindow
+ ;
+ MELINK Target WL 'ME_4F22A92D007F' '55C8D80A0304.ms.model.script' // TSpellCheckDlg
+ ;
+
+ENDME // ME_55C8E00E0011 
+
+ME ME_5146CA34003E
+ MEPROP UID '5146CA34003E'
+ MEPROP Name 'TEditorWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5146CA0A03DE // EdWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5146CA96020D // IsNeedSave
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C8E00E0011 // TSpellCheckDlg
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP extprop:rc:SelfName 'Editor'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5146CA34003E TEditorWindow
+
+ME ME_5146CA0A03DE
+ MEPROP UID '5146CA0A03DE'
+ MEPROP Name 'EdWin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_512DBAE001FA' '512DBAE001FA.ms.model.script' // MainUnits
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5146CA34003E // TEditorWindow
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\Main\NOT_FINISHED_EdWin.pas'
+
+ENDME // ME_5146CA0A03DE EdWin

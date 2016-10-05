@@ -10003,11 +10003,6 @@ elem_iterator IntfUses
  >>> Result
 ; // IntfUses
 
-BOOLEAN elem_func IsInjects
- Self .IsStereotype st_injects::Dependency 
- >>> Result
-; // IsInjects
-
 elem_iterator InjectedElements
  Cached:
  (
@@ -14535,8 +14530,10 @@ INTERFACE elem_func RegTypeMethod
   'Reg_Type_' l_TypeName Cat >>> l_Name
   l_Name MakeIniProcedure: (
     IN aMade
-   aMade -> "ifndef" := 'NoScripts'
-   aMade -> %SUM := ( 'Регистрация типа ' l_TypeName Cat ) 
+   //aMade -> "ifndef" := 'NoScripts'
+   aMade -> "ifdef" := ( Self .IfDefStr )
+   aMade -> "ifndef" := ( [ 'NoScripts' Self .IfNDefStr ] ',' strings:CatSep )
+   aMade -> %SUM := ( 'Регистрация типа ' l_TypeName Cat )
    aMade ->^ cUserCodePrefix ^:= [ 
     ' ' 
     'TtfwTypeRegistrator.RegisterType('
@@ -14923,7 +14920,7 @@ elem_iterator IniOperations
           ) // HookOut:
         ]
        ) // aMade .AddMethodWithParams: cUserCodePrefix aMixIn
-      ) // aMixIn .Name 'Include' Cat MakeIniProcedure:
+      ) // aMixIn .Name '_Include' Cat MakeIniProcedure:
      ) // .join> ToArray:
     end // l_HasIni
    ) // .for>
@@ -16012,6 +16009,15 @@ elem_proc Generate
   Self .call.generators.in.list @[ .null .model.script .diagram.script .pas .dfm .rc .rc.script .res.cmd ]
  ) // TF g_TransformWord
 ; // Generate
+
+elem_proc GenerateNoModel
+ @ .pas >>> g_PasGenerator
+ TF g_TransformWord (
+  @ .DoTransformWord >>> g_TransformWord
+  Self .DoTransformWord
+  Self .call.generators.in.list @[ .pas .dfm .rc .rc.script .res.cmd ]
+ ) // TF g_TransformWord
+; // GenerateNoModel
 
 elem_proc GenerateModel
  @ .pas >>> g_PasGenerator

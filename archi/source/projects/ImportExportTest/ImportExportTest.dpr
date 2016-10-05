@@ -516,6 +516,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3TextSearch in 'w:\common\components\rtl\Garant\L3\l3TextSearch.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1767,9 +1768,9 @@ uses
  , ddImportPipe in 'w:\common\components\rtl\Garant\dd\PipeIn\ddImportPipe.pas'
  , ExportPipe in 'w:\common\components\rtl\Garant\dd\PipeOut\ExportPipe.pas'
  , dt_AttrSchema in 'w:\common\components\rtl\Garant\dd\dt_AttrSchema.pas'
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ {$If NOT Defined(Nemesis)}
  , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ {$IfEnd} // NOT Defined(Nemesis)
  , ddPipeOutInterfaces in 'w:\common\components\rtl\Garant\dd\ddPipeOutInterfaces.pas'
  {$If NOT Defined(Nemesis)}
  , dt_Renum in 'w:\common\components\rtl\Garant\DT\dt_Renum.pas'

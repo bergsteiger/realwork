@@ -5,9 +5,12 @@ unit msmAppForm;
 { Автор: Люлин А.В. ©     }
 { Модуль: msmAppForm -     }
 { Начат: 14.09.2001 14:13 }
-{ $Id: msmAppForm.pas,v 1.1 2016/09/05 12:03:25 lulin Exp $ }
+{ $Id: msmAppForm.pas,v 1.2 2016/09/28 08:14:04 lulin Exp $ }
 
 // $Log: msmAppForm.pas,v $
+// Revision 1.2  2016/09/28 08:14:04  lulin
+// - подтачиваем.
+//
 // Revision 1.1  2016/09/05 12:03:25  lulin
 // - перегенерация.
 //
@@ -138,14 +141,17 @@ var
  i : Long;
  l_Form : TForm;
 begin
- if (Application.MainForm = Self) AND (Screen.FormCount > 1) then begin
-  for i := 0 to Pred(Screen.FormCount) do begin
+ if (Application.MainForm = Self) AND (Screen.FormCount > 1) then
+ begin
+  for i := 0 to Pred(Screen.FormCount) do
+  begin
    l_Form := Screen.Forms[i];
-   if (l_Form <> Self) AND (l_Form Is TmsmAppForm) then begin
+   if (l_Form <> Self) AND (l_Form Is TmsmAppForm) then
+   begin
     THackApplication(Application).FMainForm := l_Form;
    end;//l_Form <> Self
   end;//for i
- end;
+ end;//(Application.MainForm = Self) AND (Screen.FormCount > 1)
  Action := caFree;
  inherited;
 end;

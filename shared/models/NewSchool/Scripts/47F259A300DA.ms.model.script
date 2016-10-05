@@ -1,0 +1,179 @@
+// evNode 47F259A300DA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F259A300DA
+
+FORWARD ME_47F259A300DA
+
+FORWARD ME_4A573D87036D
+
+ME ME_46827CAF03CD_ME_4A573D87036D
+ MELINK Original WL 'ME_46827CAF03CD' '4682595B0268.ms.model.script' // Handle
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_46827CAF03CD_ME_4A573D87036D Handle
+
+ME ME_47710C6002AA_ME_4A573D87036D
+ MELINK Original WL 'ME_47710C6002AA' '476BF10A0280.ms.model.script' // Remove
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47710C6002AA_ME_4A573D87036D Remove
+
+ME ME_47710E730361_ME_4A573D87036D
+ MELINK Original WL 'ME_47710E730361' '476BF10A0280.ms.model.script' // AllChildrenCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_47710E730361_ME_4A573D87036D AllChildrenCount
+
+ME ME_4771102F01C3_ME_4A573D87036D
+ MELINK Original WL 'ME_4771102F01C3' '476BF10A0280.ms.model.script' // NextNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4771102F01C3_ME_4A573D87036D NextNode
+
+ME ME_477110580184_ME_4A573D87036D
+ MELINK Original WL 'ME_477110580184' '476BF10A0280.ms.model.script' // PrevNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_477110580184_ME_4A573D87036D PrevNode
+
+ME ME_4771108100D0_ME_4A573D87036D
+ MELINK Original WL 'ME_4771108100D0' '476BF10A0280.ms.model.script' // ParentNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4771108100D0_ME_4A573D87036D ParentNode
+
+ME ME_477110A2026C_ME_4A573D87036D
+ MELINK Original WL 'ME_477110A2026C' '476BF10A0280.ms.model.script' // ChildNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_477110A2026C_ME_4A573D87036D ChildNode
+
+%%ImplementedBy ME_46827C88016E ME_4A573D87036D
+%%ImplementedBy ME_48CF9748004F ME_4A573D87036D
+
+%%InheritedBy ME_4A573C5F01FF ME_4A573D87036D
+%%InheritedBy ME_4A573D2F00C6 ME_4A573D87036D
+
+ME ME_4A573D87036D
+ MEPROP UID '4A573D87036D'
+ MEPROP Name 'TevCustomNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F259A300DA // evNode
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A573C5F01FF' '4A573C5F01FF.ms.model.script' // k2TagHolder
+ WL 'ME_4A573D2F00C6' '54C61BFC0342.ms.model.script' // Tl3PlaceNode
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46827C88016E' '4682595B0268.ms.model.script' // Il3HandleNode
+ WL 'ME_48CF9748004F' '48CF9748004F.ms.model.script' // k2TagBox
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46827CAF03CD_ME_4A573D87036D // Handle
+ ME_47710C6002AA_ME_4A573D87036D // Remove
+ ME_47710E730361_ME_4A573D87036D // AllChildrenCount
+ ME_4771102F01C3_ME_4A573D87036D // NextNode
+ ME_477110580184_ME_4A573D87036D // PrevNode
+ ME_4771108100D0_ME_4A573D87036D // ParentNode
+ ME_477110A2026C_ME_4A573D87036D // ChildNode
+ )
+ ; // Implemented
+ UP "finished" false
+ UP extprop:rc:SelfName 'Node'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A573D87036D TevCustomNode
+
+ME ME_47F259D602FA
+ MEPROP Name 'Parent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF2570274' '4678209200A6.ms.model.script' // InevNode
+ ;
+
+ENDME // ME_47F259D602FA Parent
+
+ME ME_47F259D60323
+ MEPROP Name 'Param'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_47F259D60323 Param
+
+ME ME_47F259D6034D
+ MEPROP Name 'FindMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_47F259D6034D FindMode
+
+ME ME_47F259C00067
+ MEPROP UID '47F259C00067'
+ MEPROP Name 'FindNodeByTag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F259A300DA // evNode
+ ;
+ MELINK Target WL 'ME_476BF2570274' '4678209200A6.ms.model.script' // InevNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F259D602FA // Parent
+ ME_47F259D60323 // Param
+ ME_47F259D6034D // FindMode
+ )
+ ; // Parameters
+
+ENDME // ME_47F259C00067 FindNodeByTag
+
+ME ME_47F259A300DA
+ MEPROP UID '47F259A300DA'
+ MEPROP Name 'evNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F086170200' '47F086170200.ms.model.script' // DocumentContainers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47F259C00067 // FindNodeByTag
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4A573D87036D // TevCustomNode
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '26.08.1999 14:49'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evNode.pas'
+ UP extprop:rc:SelfName 'Node'
+
+ENDME // ME_47F259A300DA evNode

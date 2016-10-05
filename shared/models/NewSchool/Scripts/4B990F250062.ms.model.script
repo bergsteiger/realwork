@@ -1,0 +1,184 @@
+// ddAppConfigRes 4B990F250062 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B990F250062
+
+FORWARD ME_4B990F5B0148
+
+ME ME_4B990F90035D
+ MEPROP UID '4B990F90035D'
+ MEPROP Name 'SettingsCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B990F5B0148 // Local
+ ;
+ MEPROP Value '''Настройка конфигурации'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Настройка конфигурации'''
+
+ENDME // ME_4B990F90035D SettingsCaption
+
+ME ME_4B990FB30220
+ MEPROP UID '4B990FB30220'
+ MEPROP Name 'ErrorCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B990F5B0148 // Local
+ ;
+ MEPROP Value '''Ошибка'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Ошибка'''
+
+ENDME // ME_4B990FB30220 ErrorCaption
+
+ME ME_4B990F5B0148
+ MEPROP UID '4B990F5B0148'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B990F250062 // ddAppConfigRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B990F90035D // SettingsCaption
+ HWL ME_4B990FB30220 // ErrorCaption
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'ddmm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'ddmm'
+
+ENDME // ME_4B990F5B0148 Local
+
+FORWARD ME_5215FC5202D7
+
+ME ME_5215FC6E031D
+ MEPROP UID '5215FC6E031D'
+ MEPROP Name 'DifferentType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5215FC5202D7 // Errors
+ ;
+ MEPROP Value '''Тип свойства "%s" отличается от запрошенного'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Тип свойства "%s" отличается от запрошенного'''
+
+ENDME // ME_5215FC6E031D DifferentType
+
+ME ME_5215FC7C005E
+ MEPROP UID '5215FC7C005E'
+ MEPROP Name 'PropertyAbsent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5215FC5202D7 // Errors
+ ;
+ MEPROP Value '''Свойство "%s" отсутствует'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Свойство "%s" отсутствует'''
+
+ENDME // ME_5215FC7C005E PropertyAbsent
+
+ME ME_5215FC8603B5
+ MEPROP UID '5215FC8603B5'
+ MEPROP Name 'PropertyExists'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5215FC5202D7 // Errors
+ ;
+ MEPROP Value '''Свойство с именем "%s" уже существует'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Свойство с именем "%s" уже существует'''
+
+ENDME // ME_5215FC8603B5 PropertyExists
+
+ME ME_5215FC94011D
+ MEPROP UID '5215FC94011D'
+ MEPROP Name 'ListEmpty'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5215FC5202D7 // Errors
+ ;
+ MEPROP Value '''Конфигурация пуста'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Конфигурация пуста'''
+
+ENDME // ME_5215FC94011D ListEmpty
+
+ME ME_5215FC5202D7
+ MEPROP UID '5215FC5202D7'
+ MEPROP Name 'Errors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B990F250062 // ddAppConfigRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5215FC6E031D // DifferentType
+ HWL ME_5215FC7C005E // PropertyAbsent
+ HWL ME_5215FC8603B5 // PropertyExists
+ HWL ME_5215FC94011D // ListEmpty
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_5215FC5202D7 Errors
+
+ME ME_4B990F250062
+ MEPROP UID '4B990F250062'
+ MEPROP Name 'ddAppConfigRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы для ddAppConfig' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B990F5B0148 // Local
+ HWL ME_5215FC5202D7 // Errors
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '11.03.2010 18:41'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAppConfigRes.pas'
+
+ENDME // ME_4B990F250062 ddAppConfigRes

@@ -1,0 +1,128 @@
+// CustEditWin 4E5C897703B1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E5C897703B1
+
+FORWARD ME_4E5C897703B1
+
+FORWARD ME_4E5C8996022B
+
+FORWARD ME_4E5C89E1034B
+
+ME ME_4E5C8A3D0217
+ MEPROP Name 'aMoniker'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5BD35000A' '4A23935A0282.ms.model.script' // IevMoniker
+ ;
+
+ENDME // ME_4E5C8A3D0217 aMoniker
+
+ME ME_4E5C8A370195
+ MEPROP UID '4E5C8A370195'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5C89E1034B // DocEditorJumpTo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E5C8A3D0217 // aMoniker
+ )
+ ; // Parameters
+
+ENDME // ME_4E5C8A370195 DoIt
+
+ME ME_4E5C8BAA006F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5C89E1034B // DocEditorJumpTo
+ ;
+ MELINK Target WL 'ME_4E5C7FB10117' '4E5C7F4402E8.ms.model.script' // arOpenHyperLink
+ ;
+
+ENDME // ME_4E5C8BAA006F 
+
+ME ME_4E5C89E1034B
+ MEPROP UID '4E5C89E1034B'
+ MEPROP Name 'DocEditorJumpTo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5C8996022B // TCustomEditorWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5C8A370195 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E5C8BAA006F // arOpenHyperLink
+ )
+ ; // Dependencies
+
+ENDME // ME_4E5C89E1034B DocEditorJumpTo
+
+ME ME_55C8D88A01BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5C8996022B // TCustomEditorWindow
+ ;
+ MELINK Target WL 'ME_55C8D80A0304' '55C8D80A0304.ms.model.script' // D_spell
+ ;
+
+ENDME // ME_55C8D88A01BB 
+
+ME ME_4E5C8996022B
+ MEPROP UID '4E5C8996022B'
+ MEPROP Name 'TCustomEditorWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5C897703B1 // CustEditWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5C89E1034B // DocEditorJumpTo
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C8D88A01BB // D_spell
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP extprop:rc:SelfName 'EditorWindow'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E5C8996022B TCustomEditorWindow
+
+ME ME_4E5C897703B1
+ MEPROP UID '4E5C897703B1'
+ MEPROP Name 'CustEditWin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DFB49C40350' '4DFB49C40350.ms.model.script' // MainWindows
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E5C8996022B // TCustomEditorWindow
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_CustEditWin.pas'
+
+ENDME // ME_4E5C897703B1 CustEditWin

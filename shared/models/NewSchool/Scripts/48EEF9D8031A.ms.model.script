@@ -1,0 +1,190 @@
+// evFacadeGUI 48EEF9D8031A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48EEF9D8031A
+
+ME ME_5343D61703DB
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5343D61703DB aPara
+
+ME ME_48EEFA40027D
+ MEPROP UID '48EEFA40027D'
+ MEPROP Name 'evInvalidatePara'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5343D61703DB // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_48EEFA40027D evInvalidatePara
+
+ME ME_5343D61E0335
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F86E960118' '48EEE9330072.ms.model.script' // IevCommonDataObject
+ ;
+
+ENDME // ME_5343D61E0335 aBlock
+
+ME ME_48F86EE90216
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_48F86EE90216 anEditor
+
+ME ME_48EEFB7400DB
+ MEPROP UID '48EEFB7400DB'
+ MEPROP Name 'evCheckInTable'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5343D61E0335 // aBlock
+ ME_48F86EE90216 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEFB7400DB evCheckInTable
+
+ME ME_48EEFBD00046
+ MEPROP Name 'aTextSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482BFB7C00B6' '482BFB50007B.ms.model.script' // TevCustomTextSource
+ ;
+
+ENDME // ME_48EEFBD00046 aTextSource
+
+ME ME_48EEFBCD02EA
+ MEPROP UID '48EEFBCD02EA'
+ MEPROP Name 'evUnformatAll'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEFBD00046 // aTextSource
+ )
+ ; // Parameters
+
+ENDME // ME_48EEFBCD02EA evUnformatAll
+
+ME ME_48EEFCD400AC
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_48EEFCD400AC anEditor
+
+ME ME_48EEFCD2037C
+ MEPROP UID '48EEFCD2037C'
+ MEPROP Name 'evMouseLP2DP'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEFCD400AC // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEFCD2037C evMouseLP2DP
+
+ME ME_48F2EFF30222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELINK Target WL 'ME_47AC759800AF' '47AC75550330.ms.model.script' // ExtTags
+ ;
+
+ENDME // ME_48F2EFF30222 
+
+ME ME_48F5EBF800C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_48F5EBF800C2 
+
+ME ME_49AE8AC00163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_49AE8AC00163 
+
+ME ME_49D0FCA001E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EEF9D8031A // evFacadeGUI
+ ;
+ MELINK Target WL 'ME_4821E72001F9' '4678209200A6.ms.model.script' // TnevShapePart
+ ;
+
+ENDME // ME_49D0FCA001E9 
+
+ME ME_48EEF9D8031A
+ MEPROP UID '48EEF9D8031A'
+ MEPROP Name 'evFacadeGUI'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48EEE7AE0313' '48EEE7AE0313.ms.model.script' // evFacade
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48EEFA40027D // evInvalidatePara
+ HWL ME_48EEFB7400DB // evCheckInTable
+ HWL ME_48EEFBCD02EA // evUnformatAll
+ HWL ME_48EEFCD2037C // evMouseLP2DP
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48F2EFF30222 // ExtTags
+ ME_48F5EBF800C2 // InevPara
+ ME_49AE8AC00163 // Table
+ ME_49D0FCA001E9 // TnevShapePart
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeGUI.pas'
+ UP extprop:rc:SelfName 'FacadeGUI'
+
+ENDME // ME_48EEF9D8031A evFacadeGUI

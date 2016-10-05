@@ -1,0 +1,77 @@
+// dd_lcTableEliminator 4EA5339801FB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EA5339801FB
+%%Inner ME_4EA5339801FB
+
+FORWARD ME_4EA5339801FB
+
+%%InheritedBy ME_49E487A70144 ME_4EA533BC0133
+
+ME ME_4EA533BC0133
+ MEPROP UID '4EA533BC0133'
+ MEPROP Name 'TlcTableEliminator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA5339801FB // dd_lcTableEliminator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.ms.model.script' // Tk2TagFilter
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'lcTableEliminator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA533BC0133 TlcTableEliminator
+
+%%InheritedBy ME_4E48B57F0074 ME_4EA533CA015E
+
+ME ME_4EA533CA015E
+ MEPROP UID '4EA533CA015E'
+ MEPROP Name 'TlcTableEliminator2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA5339801FB // dd_lcTableEliminator
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E48B57F0074' '49E496880120.ms.model.script' // TevdCustomChildBufferedFilter
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'lcTableEliminator2'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA533CA015E TlcTableEliminator2
+
+ME ME_4EA5339801FB
+ MEPROP UID '4EA5339801FB'
+ MEPROP Name 'dd_lcTableEliminator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удаляет таблицы из текста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B324F930103' '4B324F930103.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA533BC0133 // TlcTableEliminator
+ HWL ME_4EA533CA015E // TlcTableEliminator2
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTableEliminator.pas'
+
+ENDME // ME_4EA5339801FB dd_lcTableEliminator

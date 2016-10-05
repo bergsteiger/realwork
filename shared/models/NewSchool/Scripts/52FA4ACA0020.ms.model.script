@@ -1,0 +1,212 @@
+// csRequestTask 52FA4ACA0020 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52FA4ACA0020
+%%Inner ME_52FA4ACA0020
+
+FORWARD ME_52FA4ACA0020
+
+FORWARD ME_52FA4AD90122
+
+ME ME_53B3DA12012D
+ MEPROP UID '53B3DA12012D'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52FA4AD90122 // TddRequestTask
+ ;
+
+ENDME // ME_53B3DA12012D ini
+
+ME ME_54C0FDB80161
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F62DD009F' '52FBB2FC0386.ms.model.script' // TCsDataPipe
+ ;
+
+ENDME // ME_54C0FDB80161 aPipe
+
+ME ME_54C0FDAD028B
+ MEPROP UID '54C0FDAD028B'
+ MEPROP Name 'SaveRequestToPipe'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA4AD90122 // TddRequestTask
+ ;
+ MELIST Parameters
+   Seq: ( ME_54C0FDB80161 // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_54C0FDAD028B SaveRequestToPipe
+
+ME ME_53B3D9BD024A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52FA4AD90122 // TddRequestTask
+ ;
+ MELINK Target WL 'ME_53A9542401D9' '53A953FD016B.ms.model.script' // TcsTaskType
+ ;
+
+ENDME // ME_53B3D9BD024A 
+
+ME ME_53B3D9F50212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52FA4AD90122 // TddRequestTask
+ ;
+ MELINK Target WL 'ME_53B3D9E702BA' '52FA49C7022C.ms.model.script' // RegisterTaskClass
+ ;
+
+ENDME // ME_53B3D9F50212 
+
+ME ME_53B3D8A8011F_ME_52FA4AD90122
+ MELINK Original WL 'ME_53B3D8A8011F' '52FA49C7022C.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53B3D8A8011F_ME_52FA4AD90122 Create
+
+%%ImplementedBy ME_53AC5E8B00CB ME_52FA4AD90122
+
+%%InheritedBy ME_52FA49DF00EF ME_52FA4AD90122
+
+ME ME_52FA4AD90122
+ MEPROP UID '52FA4AD90122'
+ MEPROP Name 'TddRequestTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA4ACA0020 // csRequestTask
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53AC5E8B00CB' '484A470100DD.ms.model.script' // RequestTask
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53B3DA12012D // ini
+ HWL ME_54C0FDAD028B // SaveRequestToPipe
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_53B3D8A8011F_ME_52FA4AD90122 // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B3D9BD024A // TcsTaskType
+ ME_53B3D9F50212 // RegisterTaskClass
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'ddRequestTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52FA4AD90122 TddRequestTask
+
+FORWARD ME_54C6504A003A
+
+ME ME_54C65068002A
+ MEPROP Name 'aPipe'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_537F62DD009F' '52FBB2FC0386.ms.model.script' // TCsDataPipe
+ ;
+
+ENDME // ME_54C65068002A aPipe
+
+ME ME_54C650610228
+ MEPROP UID '54C650610228'
+ MEPROP Name 'SaveTaskToPipe'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C6504A003A // TddRequestTaskAsTask
+ ;
+ MELIST Parameters
+   Seq: ( ME_54C65068002A // aPipe
+ )
+ ; // Parameters
+
+ENDME // ME_54C650610228 SaveTaskToPipe
+
+ME ME_54C65341016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54C6504A003A // TddRequestTaskAsTask
+ ;
+ MELINK Target WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_54C65341016F 
+
+ME ME_54C6555A01FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54C6504A003A // TddRequestTaskAsTask
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54C6555A01FC 
+
+%%InheritedBy ME_52FA4AD90122 ME_54C6504A003A
+
+ME ME_54C6504A003A
+ MEPROP UID '54C6504A003A'
+ MEPROP Name 'TddRequestTaskAsTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA4ACA0020 // csRequestTask
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52FA4AD90122 // TddRequestTask
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_54C650610228 // SaveTaskToPipe
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54C65341016F // Tl3MemoryStream
+ ME_54C6555A01FC // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'ddRequestTaskAsTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54C6504A003A TddRequestTaskAsTask
+
+ME ME_52FA4ACA0020
+ MEPROP UID '52FA4ACA0020'
+ MEPROP Name 'csRequestTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52FA4AD90122 // TddRequestTask
+ HWL ME_54C6504A003A // TddRequestTaskAsTask
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csRequestTask.pas'
+
+ENDME // ME_52FA4ACA0020 csRequestTask

@@ -1,0 +1,43 @@
+// vcmSettings 4E01F29C0139 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E01F29C0139
+
+ME ME_4E01F2B0003E
+ MEPROP UID '4E01F2B0003E'
+ MEPROP Name 'vcmSaveIntParam'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01F29C0139 // vcmSettings
+ ;
+ UP extprop:rc:SelfName 'SaveIntParam'
+
+ENDME // ME_4E01F2B0003E vcmSaveIntParam
+
+ME ME_4E01F29C0139
+ MEPROP UID '4E01F29C0139'
+ MEPROP Name 'vcmSettings'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01F2B0003E // vcmSaveIntParam
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmSettings.pas'
+ UP extprop:rc:SelfName 'Settings'
+
+ENDME // ME_4E01F29C0139 vcmSettings

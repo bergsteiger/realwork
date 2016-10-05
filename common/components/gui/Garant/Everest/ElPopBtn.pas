@@ -11,9 +11,12 @@ unit ElPopBtn;
 {$include elpack2.inc}
 {$I ElPack.inc}
 
-// $Id: ElPopBtn.pas,v 1.3 2015/02/13 07:01:19 morozov Exp $
+// $Id: ElPopBtn.pas,v 1.4 2016/09/28 13:03:02 lulin Exp $
 
 // $Log: ElPopBtn.pas,v $
+// Revision 1.4  2016/09/28 13:03:02  lulin
+// - подтачиваем.
+//
 // Revision 1.3  2015/02/13 07:01:19  morozov
 // {RequestLink: 587164624}
 //
@@ -696,8 +699,8 @@ type
     FAlphaDisabledImages,
     FHotImages,
     FDownImages,
-    FDisabledImages,
-    FImageList : TImageList;
+    FDisabledImages : TImageList;
+    FImageList : TCustomImageList;
     FUseImageList : boolean;
     FUseIcon : Boolean;
     FIsSwitch : Boolean;
@@ -796,7 +799,7 @@ type
     procedure SetImageIndex(newValue : Integer); virtual;
     function GetImageIndex : integer;
     procedure SetUseIcon(newValue : Boolean); virtual;
-    procedure SetImageList(newValue : TImageList); virtual;
+    procedure SetImageList(newValue : TCustomImageList); virtual;
     procedure SetAlphaImageList(newValue: TImageList); virtual;
     procedure SetUseImageList(newValue : Boolean); virtual;
     function GetUseImageList : boolean;
@@ -929,7 +932,7 @@ type
     property UseIcon : Boolean read FUseIcon write SetUseIcon default false; { Protected }
     property IsSwitch : Boolean read FIsSwitch write SetIsSwitch default false;
     property ImageIndex : Integer read GetImageIndex write SetImageIndex default -1;
-    property Images : TImageList read FImageList write SetImageList;
+    property Images : TCustomImageList read FImageList write SetImageList;
     property AlphaForImages: TImageList read FAlphaImageList write SetAlphaImageList;
     property AlphaForHotImages : TImageList read FAlphaHotImages write SetAlphaHotImages;
     property AlphaForDisabledImages : TImageList read FAlphaDisabledImages write SetAlphaDisabledImages;
@@ -1250,7 +1253,7 @@ var
   AColor : TColor;
   OldP,
   P      : TPoint;
-  SaveIL : TImageList;
+  SaveIL : TCustomImageList;
   SaveAIL : TImageList;
   GlyphState : TElButtonState;
   {$ifdef MSWINDOWS}
@@ -3340,7 +3343,7 @@ var
   dw : integer;
   aw : integer;
   AColor : TColor;
-  SaveIL : TImageList;
+  SaveIL : TCustomImageList;
   SaveAIL : TImageList;
   GlyphState : TElButtonState;
   sID     : integer;
@@ -4355,7 +4358,7 @@ begin
   end; {if}
 end;
 
-procedure TCustomElGraphicButton.SetImageList(newValue : TImageList);
+procedure TCustomElGraphicButton.SetImageList(newValue : TCustomImageList);
 var b : boolean;
 begin
   if FImageList <> newValue then

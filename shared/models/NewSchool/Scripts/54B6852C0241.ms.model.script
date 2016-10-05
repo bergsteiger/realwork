@@ -1,0 +1,201 @@
+// l3CriticalSectionHolderPrim 54B6852C0241 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54B6852C0241
+
+ME ME_54B685BC0260
+ MEPROP UID '54B685BC0260'
+ MEPROP Name 'f_LockCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54B685BC0260 f_LockCount
+
+ME ME_54B6858B03AC
+ MEPROP UID '54B6858B03AC'
+ MEPROP Name 'f_CS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ;
+ MELINK Target WL 'ME_4807833801D7' '48078324039E.ms.model.script' // TCriticalSection
+ ;
+ UP "ifndef" 'l3CriticalSectionHolder_Off'
+
+ENDME // ME_54B6858B03AC f_CS
+
+FORWARD ME_53A039050219
+
+ME ME_53A0390E0061
+ MEPROP UID '53A0390E0061'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A039050219 // Lock
+ ;
+
+ENDME // ME_53A0390E0061 DoIt
+
+ME ME_53A039050219
+ MEPROP UID '53A039050219'
+ MEPROP Name 'Lock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A0390E0061 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A039050219 Lock
+
+FORWARD ME_53A039150130
+
+ME ME_53A0391F034A
+ MEPROP UID '53A0391F034A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A039150130 // Unlock
+ ;
+
+ENDME // ME_53A0391F034A DoIt
+
+ME ME_53A039150130
+ MEPROP UID '53A039150130'
+ MEPROP Name 'Unlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A0391F034A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A039150130 Unlock
+
+FORWARD ME_54B6860D01ED
+
+ME ME_54B6861B03D9
+ MEPROP UID '54B6861B03D9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6860D01ED // CreateCS
+ ;
+
+ENDME // ME_54B6861B03D9 DoIt
+
+ME ME_54B6860D01ED
+ MEPROP UID '54B6860D01ED'
+ MEPROP Name 'CreateCS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B6861B03D9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B6860D01ED CreateCS
+
+FORWARD ME_54B686270035
+
+ME ME_54B6862F00BA
+ MEPROP UID '54B6862F00BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B686270035 // FreeCS
+ ;
+
+ENDME // ME_54B6862F00BA DoIt
+
+ME ME_54B686270035
+ MEPROP UID '54B686270035'
+ MEPROP Name 'FreeCS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B6862F00BA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B686270035 FreeCS
+
+ME ME_54B685570037
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54B6852C0241 // l3CriticalSectionHolderPrim
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54B685570037 
+
+ME ME_54B6852C0241
+ MEPROP UID '54B6852C0241'
+ MEPROP Name 'l3CriticalSectionHolderPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_545CDF1002C9' '545CDF1002C9.ms.model.script' // MemoryManagers
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54B685BC0260 // f_LockCount
+ HWL ME_54B6858B03AC // f_CS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53A039050219 // Lock
+ HWL ME_53A039150130 // Unlock
+ HWL ME_54B6860D01ED // CreateCS
+ HWL ME_54B686270035 // FreeCS
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54B685570037 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'l3CriticalSectionHolder_Off'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CriticalSectionHolderPrim.imp.pas'
+ UP extprop:pas:TypeName '_l3CriticalSectionHolderPrim_'
+ UP extprop:pas:UnitName 'l3CriticalSectionHolderPrim.imp'
+
+ENDME // ME_54B6852C0241 l3CriticalSectionHolderPrim

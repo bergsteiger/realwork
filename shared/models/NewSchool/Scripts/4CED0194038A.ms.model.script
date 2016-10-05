@@ -1,0 +1,120 @@
+// Para2Point 4CED0194038A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CED0194038A
+
+ME ME_4C9B256700AD
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C49600CD' '47C5207602D1.ms.model.script' // InevInputView
+ ;
+
+ENDME // ME_4C9B256700AD aView
+
+ME ME_4C9B25A50391
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4C9B25A50391 aDocument
+
+ME ME_4BF4E6A00093
+ MEPROP UID '4BF4E6A00093'
+ MEPROP Name 'GetInnerPara'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает параграф, относительно которого будет рассчитываться точка для выделения' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED0194038A // Para2Point
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B256700AD // aView
+ ME_4C9B25A50391 // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4BF4E6A00093 GetInnerPara
+
+ME ME_4C9B25C5031C
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4C9B25C5031C aMap
+
+ME ME_4C3C927B027E
+ MEPROP UID '4C3C927B027E'
+ MEPROP Name 'GetPoint'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает точку, на которую нужно спозиционироваться.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CED0194038A // Para2Point
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C9B25C5031C // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_4C3C927B027E GetPoint
+
+ME ME_4CED03CA031D
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4CED03CA031D aText
+
+ME ME_4CED034C0356
+ MEPROP UID '4CED034C0356'
+ MEPROP Name 'TranslatePara2Point'
+ MEPROP Class class_Operation
+ %SUMMARY 'Функци получения точки из мапы параграфа.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CED0194038A // Para2Point
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CED03CA031D // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4CED034C0356 TranslatePara2Point
+
+ME ME_4CED0194038A
+ MEPROP UID '4CED0194038A'
+ MEPROP Name 'Para2Point'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получение точки Tl3Point из мапы параграфа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BF4E6A00093 // GetInnerPara
+ HWL ME_4C3C927B027E // GetPoint
+ HWL ME_4CED034C0356 // TranslatePara2Point
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\Para2Point.imp.pas'
+ UP extprop:pas:TypeName '_Para2Point_'
+ UP extprop:pas:UnitName 'Para2Point.imp'
+
+ENDME // ME_4CED0194038A Para2Point

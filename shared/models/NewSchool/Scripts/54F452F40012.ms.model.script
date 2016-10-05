@@ -2,142 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_54F452F40012
-
-FORWARD ME_54F452710048
-
-ME ME_54F9BC580257
- MEPROP UID '54F9BC580257'
- MEPROP Name 'ComponentCount'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_54F452710048 // ComponentsProcessingPack
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "mapped" true
-
-ENDME // ME_54F9BC580257 ComponentCount
-
-ME ME_54F9BC800082
- MEPROP UID '54F9BC800082'
- MEPROP Name 'Owner'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_54F452710048 // ComponentsProcessingPack
- ;
- MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
- ;
- UP "mapped" true
-
-ENDME // ME_54F9BC800082 Owner
-
-ME ME_54F9BC9801F3
- MEPROP UID '54F9BC9801F3'
- MEPROP Name 'Name'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_54F452710048 // ComponentsProcessingPack
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- UP "mapped" true
-
-ENDME // ME_54F9BC9801F3 Name
-
-ME ME_54F9BCC40035
- MEPROP Name 'anIndex'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_54F9BCC40035 anIndex
-
-ME ME_54F9BCB401D4
- MEPROP UID '54F9BCB401D4'
- MEPROP Name 'GetComponent'
- MEPROP Class class_Operation
- MELINK Stereotype st_keyword::Operation ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54F452710048 // ComponentsProcessingPack
- ;
- MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
- ;
- MELIST Parameters
-   Seq: ( ME_54F9BCC40035 // anIndex
- )
- ; // Parameters
-
-ENDME // ME_54F9BCB401D4 GetComponent
-
-ME ME_54F9BCFD026C
- MEPROP Name 'aName'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
-
-ENDME // ME_54F9BCFD026C aName
-
-ME ME_54F9BCE8003D
- MEPROP UID '54F9BCE8003D'
- MEPROP Name 'FindComponent'
- MEPROP Class class_Operation
- MELINK Stereotype st_keyword::Operation ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54F452710048 // ComponentsProcessingPack
- ;
- MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
- ;
- MELIST Parameters
-   Seq: ( ME_54F9BCFD026C // aName
- )
- ; // Parameters
- UP "mapped" true
-
-ENDME // ME_54F9BCE8003D FindComponent
-
-ME ME_54F452710048
- MEPROP UID '54F452710048'
- MEPROP Name 'ComponentsProcessingPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54F452F40012 // ComponentsProcessing
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_54F9BC580257 // ComponentCount
- HWL ME_54F9BC800082 // Owner
- HWL ME_54F9BC9801F3 // Name
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_54F9BCB401D4 // GetComponent
- HWL ME_54F9BCE8003D // FindComponent
- )
- ; // Operations
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ComponentsProcessingPack.pas'
-
-ENDME // ME_54F452710048 ComponentsProcessingPack
+%%Inner ME_54F452F40012
 
 ME ME_54F452F40012
  MEPROP UID '54F452F40012'
@@ -150,13 +15,16 @@ ME ME_54F452F40012
  MELINK Parent WL 'ME_54DB92A80279' '54DB92A80279.ms.model.script' // ScriptEngine$RTLandVCL
  ;
  MELIST Children
-   Seq: ( HWL ME_54F452710048 // ComponentsProcessingPack
+   Seq: ( WL 'ME_54F452710048' '54F452710048.ms.model.script' // ComponentsProcessingPack
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_54F452F40012 ComponentsProcessing

@@ -1,0 +1,91 @@
+// ShadowWnd 545C5B8703C7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_545C5B8703C7
+%%Inner ME_545C5B8703C7
+
+FORWARD ME_545C5B8703C7
+
+ME ME_545C5BBE01BB
+ MEPROP UID '545C5BBE01BB'
+ MEPROP Name 'TShadowWindow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545C5B8703C7 // ShadowWnd
+ ;
+ UP extprop:rc:SelfName 'ShadowWindow'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_545C5BBE01BB TShadowWindow
+
+FORWARD ME_545C5BD10267
+
+ME ME_545C5BD801DF
+ MEPROP UID '545C5BD801DF'
+ MEPROP Name 'csRight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C5BD10267 // TControlSide
+ ;
+
+ENDME // ME_545C5BD801DF csRight
+
+ME ME_545C5BE100B8
+ MEPROP UID '545C5BE100B8'
+ MEPROP Name 'csBottom'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545C5BD10267 // TControlSide
+ ;
+
+ENDME // ME_545C5BE100B8 csBottom
+
+ME ME_545C5BD10267
+ MEPROP UID '545C5BD10267'
+ MEPROP Name 'TControlSide'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545C5B8703C7 // ShadowWnd
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_545C5BD801DF // csRight
+ HWL ME_545C5BE100B8 // csBottom
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_545C5BD10267 TControlSide
+
+ME ME_545C5B8703C7
+ MEPROP UID '545C5B8703C7'
+ MEPROP Name 'ShadowWnd'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_545C5BBE01BB // TShadowWindow
+ HWL ME_545C5BD10267 // TControlSide
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ShadowWnd.pas'
+
+ENDME // ME_545C5B8703C7 ShadowWnd

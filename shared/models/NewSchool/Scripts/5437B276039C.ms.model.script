@@ -1,0 +1,401 @@
+// daUtils 5437B276039C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5437B276039C
+
+FORWARD ME_551E861C0377
+
+ME ME_551E863301CC
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_551E863301CC aUserID
+
+ME ME_551E862A010F
+ MEPROP UID '551E862A010F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551E861C0377 // GetHomePathCode
+ ;
+ MELINK Target WL 'ME_551E88DF0073' '5432448401BC.ms.model.script' // TdaPathStr
+ ;
+ MELIST Parameters
+   Seq: ( ME_551E863301CC // aUserID
+ )
+ ; // Parameters
+
+ENDME // ME_551E862A010F DoIt
+
+ME ME_551E972403DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_551E861C0377 // GetHomePathCode
+ ;
+ MELINK Target WL 'ME_5511283A02C9' '47877EB202FB.ms.model.script' // IntToHex
+ ;
+
+ENDME // ME_551E972403DF 
+
+ME ME_551E861C0377
+ MEPROP UID '551E861C0377'
+ MEPROP Name 'GetHomePathCode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B276039C // daUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551E862A010F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_551E972403DF // IntToHex
+ )
+ ; // Dependencies
+
+ENDME // ME_551E861C0377 GetHomePathCode
+
+FORWARD ME_552279710064
+
+ME ME_55227D51036F
+ MEPROP Name 'DocBaseVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55227D51036F DocBaseVersion
+
+ME ME_55227D51038E
+ MEPROP Name 'AdminBaseVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55227D51038E AdminBaseVersion
+
+ME ME_55227D4B0195
+ MEPROP UID '55227D4B0195'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552279710064 // CheckDbVersion
+ ;
+ MELIST Parameters
+   Seq: ( ME_55227D51036F // DocBaseVersion
+ ME_55227D51038E // AdminBaseVersion
+ )
+ ; // Parameters
+
+ENDME // ME_55227D4B0195 DoIt
+
+ME ME_552279CA0320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552279710064 // CheckDbVersion
+ ;
+ MELINK Target WL 'ME_55190C630258' '5432518A0316.ms.model.script' // DBVersion
+ ;
+
+ENDME // ME_552279CA0320 
+
+ME ME_552279EA009C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552279710064 // CheckDbVersion
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_552279EA009C 
+
+ME ME_552279710064
+ MEPROP UID '552279710064'
+ MEPROP Name 'CheckDbVersion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B276039C // daUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55227D4B0195 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_552279CA0320 // DBVersion
+ ME_552279EA009C // Exception
+ )
+ ; // Dependencies
+
+ENDME // ME_552279710064 CheckDbVersion
+
+FORWARD ME_552287F70191
+
+ME ME_552288240254
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_552288240254 aUserID
+
+ME ME_552288240273
+ MEPROP Name 'aRegion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551A931F0071' '5432448401BC.ms.model.script' // TdaRegionID
+ ;
+
+ENDME // ME_552288240273 aRegion
+
+ME ME_552288010384
+ MEPROP UID '552288010384'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552287F70191 // UserIDBelongsToRegion
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_552288240254 // aUserID
+ ME_552288240273 // aRegion
+ )
+ ; // Parameters
+
+ENDME // ME_552288010384 DoIt
+
+ME ME_552287F70191
+ MEPROP UID '552287F70191'
+ MEPROP Name 'UserIDBelongsToRegion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B276039C // daUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552288010384 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552287F70191 UserIDBelongsToRegion
+
+FORWARD ME_55228D9D03B2
+
+ME ME_55228DC60087
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_55228DC60087 aUserID
+
+ME ME_55228DB30096
+ MEPROP UID '55228DB30096'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55228D9D03B2 // UserIsService
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55228DC60087 // aUserID
+ )
+ ; // Parameters
+
+ENDME // ME_55228DB30096 DoIt
+
+ME ME_55229545002F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55228D9D03B2 // UserIsService
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_55229545002F 
+
+ME ME_55228D9D03B2
+ MEPROP UID '55228D9D03B2'
+ MEPROP Name 'UserIsService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B276039C // daUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55228DB30096 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55229545002F // UserConsts
+ )
+ ; // Dependencies
+
+ENDME // ME_55228D9D03B2 UserIsService
+
+FORWARD ME_55228DAB0064
+
+ME ME_55228DCB039D
+ MEPROP Name 'aUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_55228DCB039D aUserID
+
+ME ME_55228DCA013E
+ MEPROP UID '55228DCA013E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55228DAB0064 // IsUserRequireReports
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55228DCB039D // aUserID
+ )
+ ; // Parameters
+
+ENDME // ME_55228DCA013E DoIt
+
+ME ME_552293D501ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55228DAB0064 // IsUserRequireReports
+ ;
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
+ ;
+
+ENDME // ME_552293D501ED 
+
+ME ME_55228DAB0064
+ MEPROP UID '55228DAB0064'
+ MEPROP Name 'IsUserRequireReports'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B276039C // daUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55228DCA013E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_552293D501ED // GlobalDataProvider
+ )
+ ; // Dependencies
+
+ENDME // ME_55228DAB0064 IsUserRequireReports
+
+FORWARD ME_5784E79A015A
+
+ME ME_5784E7AD015B
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_5784E7AD015B anUserID
+
+ME ME_5784E7A50252
+ MEPROP UID '5784E7A50252'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5784E79A015A // IsWrongUser
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5784E7AD015B // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_5784E7A50252 DoIt
+
+ME ME_5784E7D90365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5784E79A015A // IsWrongUser
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_5784E7D90365 
+
+ME ME_5784E79A015A
+ MEPROP UID '5784E79A015A'
+ MEPROP Name 'IsWrongUser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B276039C // daUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5784E7A50252 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5784E7D90365 // UserConsts
+ )
+ ; // Dependencies
+
+ENDME // ME_5784E79A015A IsWrongUser
+
+ME ME_5437B276039C
+ MEPROP UID '5437B276039C'
+ MEPROP Name 'daUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54F85B2500FB' '54F85B2500FB.ms.model.script' // Provider
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551E861C0377 // GetHomePathCode
+ HWL ME_552279710064 // CheckDbVersion
+ HWL ME_552287F70191 // UserIDBelongsToRegion
+ HWL ME_55228D9D03B2 // UserIsService
+ HWL ME_55228DAB0064 // IsUserRequireReports
+ HWL ME_5784E79A015A // IsWrongUser
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daUtils.pas'
+
+ENDME // ME_5437B276039C daUtils

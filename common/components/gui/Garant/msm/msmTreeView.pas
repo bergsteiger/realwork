@@ -10,14 +10,17 @@ interface
 
 uses
  l3IntfUses
- , vtOutliner
+ , vtOutlinerWithDragDrop
+ , Classes
 ;
 
 type
- TmsmTreeView = class(TvtOutliner)
+ TmsmTreeView = class(TvtOutlinerWithDragDrop)
   protected
    procedure Invalidate;
     {* Запрос на перерисовку. }
+  public
+   constructor Create(AOwner: TComponent); override;
  end;//TmsmTreeView
 
 implementation
@@ -40,6 +43,16 @@ begin
  inherited;
 //#UC END# *46A5AA4B003C_57B4565F007C_impl*
 end;//TmsmTreeView.Invalidate
+
+constructor TmsmTreeView.Create(AOwner: TComponent);
+//#UC START# *47D1602000C6_57B4565F007C_var*
+//#UC END# *47D1602000C6_57B4565F007C_var*
+begin
+//#UC START# *47D1602000C6_57B4565F007C_impl*
+ inherited;
+ Self.DragAndDropSupported := true;
+//#UC END# *47D1602000C6_57B4565F007C_impl*
+end;//TmsmTreeView.Create
 
 initialization
 {$If NOT Defined(NoScripts)}

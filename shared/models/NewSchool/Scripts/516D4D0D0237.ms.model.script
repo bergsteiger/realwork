@@ -1,0 +1,61 @@
+// UnknownImpl 516D4D0D0237 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_516D4D0D0237
+
+ME ME_47913C24007F_ME_516D4D0D0237
+ MELINK Original WL 'ME_47913C24007F' '4807744200AA.ms.model.script' // __AddRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "calling conventions" 'stdcall'
+ENDME // ME_47913C24007F_ME_516D4D0D0237 __AddRef
+
+ME ME_47913C5301A1_ME_516D4D0D0237
+ MELINK Original WL 'ME_47913C5301A1' '4807744200AA.ms.model.script' // __Release
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "calling conventions" 'stdcall'
+ENDME // ME_47913C5301A1_ME_516D4D0D0237 __Release
+
+ME ME_47913CBF0265_ME_516D4D0D0237
+ MELINK Original WL 'ME_47913CBF0265' '4807744200AA.ms.model.script' // QueryInterface
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "calling conventions" 'stdcall'
+ENDME // ME_47913CBF0265_ME_516D4D0D0237 QueryInterface
+
+%%ImplementedBy ME_516D4A8D0232 ME_516D4D0D0237
+
+%%InheritedBy ME_51614065019A ME_516D4D0D0237
+
+ME ME_516D4D0D0237
+ MEPROP UID '516D4D0D0237'
+ MEPROP Name 'UnknownImpl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51612EBB02F5' '51612EBB02F5.ms.model.script' // Ref Counting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51614065019A' '51614065019A.ms.model.script' // RefCounted
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_516D4A8D0232' '4807744200AA.ms.model.script' // MIUnknown
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47913C24007F_ME_516D4D0D0237 // __AddRef
+ ME_47913C5301A1_ME_516D4D0D0237 // __Release
+ ME_47913CBF0265_ME_516D4D0D0237 // QueryInterface
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\UnknownImpl.imp.pas'
+ UP extprop:pas:TypeName '_UnknownImpl_'
+ UP extprop:pas:UnitName 'UnknownImpl.imp'
+
+ENDME // ME_516D4D0D0237 UnknownImpl

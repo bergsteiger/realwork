@@ -2,7 +2,23 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+%%Inner ME_57C686B70253
+
 FORWARD ME_57C686B70253
+
+%%ImplementedBy ME_57BFF237005A ME_57BFF6EA005F
+
+%%InheritedBy ME_547831BD02E5 ME_57BFF6EA005F
 
 ME ME_57BFF6EA005F
  MEPROP UID '57BFF6EA005F'
@@ -15,7 +31,7 @@ ME ME_57BFF6EA005F
  MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_547831BD02E5' '544E0148010D.ms.model.script' // TncsReply
+   Seq: ( WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
  )
  ; // Inherits
  MELIST Implements
@@ -29,6 +45,10 @@ ME ME_57BFF6EA005F
 
 ENDME // ME_57BFF6EA005F TcsDownloadDocStreamReply
 
+%%ImplementedBy ME_57BEA2A8025C ME_57BECED40109
+
+%%InheritedBy ME_544E079E0253 ME_57BECED40109
+
 ME ME_57BECED40109
  MEPROP UID '57BECED40109'
  MEPROP Name 'TcsDownloadDocStream'
@@ -40,7 +60,7 @@ ME ME_57BECED40109
  MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+   Seq: ( WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
  )
  ; // Inherits
  MELIST Implements
@@ -54,180 +74,9 @@ ME ME_57BECED40109
 
 ENDME // ME_57BECED40109 TcsDownloadDocStream
 
-FORWARD ME_57C6874900D4
+%%ImplementedBy ME_57D262200275 ME_57D2706902F8
 
-FORWARD ME_57C687CA01EE
-
-ME ME_57C687F5010F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
- ;
- MELINK Target WL 'ME_54539F4702B1' '544E0148010D.ms.model.script' // TncsMessageFactory
- ;
-
-ENDME // ME_57C687F5010F 
-
-ME ME_57C6881102F6
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
- ;
- MELINK Target HWL ME_57BFF6EA005F // TcsDownloadDocStreamReply
- ;
-
-ENDME // ME_57C6881102F6 
-
-ME ME_57C68837000C
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
- ;
- MELINK Target WL 'ME_547C350000AA' '544E0148010D.ms.model.script' // ncsClientRegister
- ;
-
-ENDME // ME_57C68837000C 
-
-FORWARD ME_57D270880150
-
-ME ME_57D2732B035B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
- ;
- MELINK Target HWL ME_57D270880150 // TcsUploadDocStreamReply
- ;
-
-ENDME // ME_57D2732B035B 
-
-FORWARD ME_57DA7796002F
-
-ME ME_57DA77E501C7
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687CA01EE // ncsClientRegister
- ;
- MELINK Target HWL ME_57DA7796002F // TcsMultiModifyDocsReply
- ;
-
-ENDME // ME_57DA77E501C7 
-
-ME ME_57C687CA01EE
- MEPROP UID '57C687CA01EE'
- MEPROP Name 'ncsClientRegister'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57C6874900D4 // ncsDocStorageTransferReg
- ;
- MELIST Dependencies
-   Seq: ( ME_57C687F5010F // TncsMessageFactory
- ME_57C6881102F6 // TcsDownloadDocStreamReply
- ME_57C68837000C // ncsClientRegister
- ME_57D2732B035B // TcsUploadDocStreamReply
- ME_57DA77E501C7 // TcsMultiModifyDocsReply
- )
- ; // Dependencies
-
-ENDME // ME_57C687CA01EE ncsClientRegister
-
-FORWARD ME_57C687E100FF
-
-ME ME_57C687FB00E6
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
- ;
- MELINK Target WL 'ME_54539F4702B1' '544E0148010D.ms.model.script' // TncsMessageFactory
- ;
-
-ENDME // ME_57C687FB00E6 
-
-ME ME_57C6880C0261
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
- ;
- MELINK Target HWL ME_57BECED40109 // TcsDownloadDocStream
- ;
-
-ENDME // ME_57C6880C0261 
-
-ME ME_57C688330012
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
- ;
- MELINK Target WL 'ME_547C34E902C1' '544E0148010D.ms.model.script' // ncsServerRegister
- ;
-
-ENDME // ME_57C688330012 
-
-FORWARD ME_57D2706902F8
-
-ME ME_57D275B602AF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
- ;
- MELINK Target HWL ME_57D2706902F8 // TcsUploadDocStream
- ;
-
-ENDME // ME_57D275B602AF 
-
-FORWARD ME_57DA77B80161
-
-ME ME_57DA77E000F4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_57C687E100FF // ncsServerRegister
- ;
- MELINK Target HWL ME_57DA77B80161 // TcsMultiModifyDocs
- ;
-
-ENDME // ME_57DA77E000F4 
-
-ME ME_57C687E100FF
- MEPROP UID '57C687E100FF'
- MEPROP Name 'ncsServerRegister'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57C6874900D4 // ncsDocStorageTransferReg
- ;
- MELIST Dependencies
-   Seq: ( ME_57C687FB00E6 // TncsMessageFactory
- ME_57C6880C0261 // TcsDownloadDocStream
- ME_57C688330012 // ncsServerRegister
- ME_57D275B602AF // TcsUploadDocStream
- ME_57DA77E000F4 // TcsMultiModifyDocs
- )
- ; // Dependencies
-
-ENDME // ME_57C687E100FF ncsServerRegister
-
-ME ME_57C6874900D4
- MEPROP UID '57C6874900D4'
- MEPROP Name 'ncsDocStorageTransferReg'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
- ;
- MELIST Operations
-   Seq: ( HWL ME_57C687CA01EE // ncsClientRegister
- HWL ME_57C687E100FF // ncsServerRegister
- )
- ; // Operations
- UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsDocStorageTransferReg.pas'
-
-ENDME // ME_57C6874900D4 ncsDocStorageTransferReg
+%%InheritedBy ME_544E079E0253 ME_57D2706902F8
 
 ME ME_57D2706902F8
  MEPROP UID '57D2706902F8'
@@ -240,7 +89,7 @@ ME ME_57D2706902F8
  MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+   Seq: ( WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
  )
  ; // Inherits
  MELIST Implements
@@ -254,6 +103,10 @@ ME ME_57D2706902F8
 
 ENDME // ME_57D2706902F8 TcsUploadDocStream
 
+%%ImplementedBy ME_57D262340370 ME_57D270880150
+
+%%InheritedBy ME_547831BD02E5 ME_57D270880150
+
 ME ME_57D270880150
  MEPROP UID '57D270880150'
  MEPROP Name 'TcsUploadDocStreamReply'
@@ -265,7 +118,7 @@ ME ME_57D270880150
  MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_547831BD02E5' '544E0148010D.ms.model.script' // TncsReply
+   Seq: ( WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
  )
  ; // Inherits
  MELIST Implements
@@ -279,6 +132,10 @@ ME ME_57D270880150
 
 ENDME // ME_57D270880150 TcsUploadDocStreamReply
 
+%%ImplementedBy ME_57DA507703CD ME_57DA7796002F
+
+%%InheritedBy ME_547831BD02E5 ME_57DA7796002F
+
 ME ME_57DA7796002F
  MEPROP UID '57DA7796002F'
  MEPROP Name 'TcsMultiModifyDocsReply'
@@ -290,7 +147,7 @@ ME ME_57DA7796002F
  MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_547831BD02E5' '544E0148010D.ms.model.script' // TncsReply
+   Seq: ( WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
  )
  ; // Inherits
  MELIST Implements
@@ -304,6 +161,10 @@ ME ME_57DA7796002F
 
 ENDME // ME_57DA7796002F TcsMultiModifyDocsReply
 
+%%ImplementedBy ME_57DA505703B1 ME_57DA77B80161
+
+%%InheritedBy ME_544E079E0253 ME_57DA77B80161
+
 ME ME_57DA77B80161
  MEPROP UID '57DA77B80161'
  MEPROP Name 'TcsMultiModifyDocs'
@@ -315,7 +176,7 @@ ME ME_57DA77B80161
  MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_544E079E0253' '544E0148010D.ms.model.script' // TncsMessage
+   Seq: ( WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
  )
  ; // Inherits
  MELIST Implements
@@ -328,6 +189,122 @@ ME ME_57DA77B80161
  UP extprop:pas:UnitName 'csMultiModifyDocs'
 
 ENDME // ME_57DA77B80161 TcsMultiModifyDocs
+
+%%ImplementedBy ME_57EB98BA0367 ME_57EBA06202BE
+
+%%InheritedBy ME_547831BD02E5 ME_57EBA06202BE
+
+ME ME_57EBA06202BE
+ MEPROP UID '57EBA06202BE'
+ MEPROP Name 'TcsMultiClearAttributesReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57EB98BA0367' '484A470100DD.ms.model.script' // csMultiClearAttributesReply
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiClearAttributesReply.pas'
+ UP extprop:rc:SelfName 'csMultiClearAttributesReply'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMultiClearAttributesReply'
+
+ENDME // ME_57EBA06202BE TcsMultiClearAttributesReply
+
+%%ImplementedBy ME_57EB989602C6 ME_57EBA087012F
+
+%%InheritedBy ME_544E079E0253 ME_57EBA087012F
+
+ME ME_57EBA087012F
+ MEPROP UID '57EBA087012F'
+ MEPROP Name 'TcsMultiClearAttributes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57EB989602C6' '484A470100DD.ms.model.script' // csMultiClearAttributes
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiClearAttributes.pas'
+ UP extprop:rc:SelfName 'csMultiClearAttributes'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMultiClearAttributes'
+
+ENDME // ME_57EBA087012F TcsMultiClearAttributes
+
+%%ImplementedBy ME_57EE4F480370 ME_57EE517102EC
+
+%%InheritedBy ME_547831BD02E5 ME_57EE517102EC
+
+ME ME_57EE517102EC
+ MEPROP UID '57EE517102EC'
+ MEPROP Name 'TcsMultiOperationReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547831BD02E5' '5453986402AC.ms.model.script' // TncsReply
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57EE4F480370' '484A470100DD.ms.model.script' // csMultiOperationReply
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiOperationReply.pas'
+ UP extprop:rc:SelfName 'csMultiOperationReply'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMultiOperationReply'
+
+ENDME // ME_57EE517102EC TcsMultiOperationReply
+
+%%ImplementedBy ME_57EE4F6402C7 ME_57EE51860032
+
+%%InheritedBy ME_544E079E0253 ME_57EE51860032
+
+ME ME_57EE51860032
+ MEPROP UID '57EE51860032'
+ MEPROP Name 'TcsMultiOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C686B70253 // DocStreamTransfer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_544E079E0253' '5453986402AC.ms.model.script' // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57EE4F6402C7' '484A470100DD.ms.model.script' // csMultiOperation
+ )
+ ; // Implements
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMultiOperation.pas'
+ UP extprop:rc:SelfName 'csMultiOperation'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'csMultiOperation'
+
+ENDME // ME_57EE51860032 TcsMultiOperation
 
 ME ME_57C686B70253
  MEPROP UID '57C686B70253'
@@ -342,11 +319,15 @@ ME ME_57C686B70253
  MELIST Children
    Seq: ( HWL ME_57BFF6EA005F // TcsDownloadDocStreamReply
  HWL ME_57BECED40109 // TcsDownloadDocStream
- HWL ME_57C6874900D4 // ncsDocStorageTransferReg
+ WL 'ME_57C6874900D4' '57C6874900D4.ms.model.script' // ncsDocStorageTransferReg
  HWL ME_57D2706902F8 // TcsUploadDocStream
  HWL ME_57D270880150 // TcsUploadDocStreamReply
  HWL ME_57DA7796002F // TcsMultiModifyDocsReply
  HWL ME_57DA77B80161 // TcsMultiModifyDocs
+ HWL ME_57EBA06202BE // TcsMultiClearAttributesReply
+ HWL ME_57EBA087012F // TcsMultiClearAttributes
+ HWL ME_57EE517102EC // TcsMultiOperationReply
+ HWL ME_57EE51860032 // TcsMultiOperation
  )
  ; // Children
  MELIST Depends
@@ -354,5 +335,8 @@ ME ME_57C686B70253
  WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_57C686B70253 DocStreamTransfer

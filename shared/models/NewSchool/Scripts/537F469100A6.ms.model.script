@@ -1,0 +1,59 @@
+// IdGlobal 537F469100A6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_537F469100A6
+%%Inner ME_537F469100A6
+
+FORWARD ME_537F469100A6
+
+ME ME_537F46A40077
+ MEPROP UID '537F46A40077'
+ MEPROP Name 'TIdPort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537F469100A6 // IdGlobal
+ ;
+
+ENDME // ME_537F46A40077 TIdPort
+
+ME ME_538DBDE603A7
+ MEPROP UID '538DBDE603A7'
+ MEPROP Name 'TIdBytes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537F469100A6 // IdGlobal
+ ;
+ UP "array type" 'dynamic'
+
+ENDME // ME_538DBDE603A7 TIdBytes
+
+ME ME_537F469100A6
+ MEPROP UID '537F469100A6'
+ MEPROP Name 'IdGlobal'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_537F464A0198' '537F464A0198.ms.model.script' // System
+ ;
+ MELIST Children
+   Seq: ( HWL ME_537F46A40077 // TIdPort
+ HWL ME_538DBDE603A7 // TIdBytes
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\Indy\Source\System\NOT_FINISHED_IdGlobal.pas'
+
+ENDME // ME_537F469100A6 IdGlobal

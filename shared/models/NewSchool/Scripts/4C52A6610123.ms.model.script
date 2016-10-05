@@ -2,87 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4C52A6610123
-
-FORWARD ME_535E3A1A018A
-
-ME ME_4C52A66C0209
- MEPROP UID '4C52A66C0209'
- MEPROP Name 'TnscReminder'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_535E3A1A018A // nscReminder
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_533931C50210' '53288DFA03A7.ms.model.script' // TvgReminderWithAction
- )
- ; // Inherits
- UP extprop:rc:SelfName 'Reminder'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4C52A66C0209 TnscReminder
-
-ME ME_535E3A1A018A
- MEPROP UID '535E3A1A018A'
- MEPROP Name 'nscReminder'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4C52A6610123 // Reminders
- ;
- MELIST Children
-   Seq: ( HWL ME_4C52A66C0209 // TnscReminder
- )
- ; // Children
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscReminder.pas'
- UP extprop:rc:SelfName 'Reminder'
-
-ENDME // ME_535E3A1A018A nscReminder
-
-FORWARD ME_535E3A7703B5
-
-ME ME_4DA8339901A7
- MEPROP UID '4DA8339901A7'
- MEPROP Name 'TnscRemindersLine'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_535E3A7703B5 // nscRemindersLine
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_533BF7030112' '53288DFA03A7.ms.model.script' // TvgRemindersLineWithState
- )
- ; // Inherits
- UP extprop:rc:SelfName 'RemindersLine'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4DA8339901A7 TnscRemindersLine
-
-ME ME_535E3A7703B5
- MEPROP UID '535E3A7703B5'
- MEPROP Name 'nscRemindersLine'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4C52A6610123 // Reminders
- ;
- MELIST Children
-   Seq: ( HWL ME_4DA8339901A7 // TnscRemindersLine
- )
- ; // Children
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscRemindersLine.pas'
- UP extprop:rc:SelfName 'RemindersLine'
-
-ENDME // ME_535E3A7703B5 nscRemindersLine
+%%Inner ME_4C52A6610123
+%%Inner ME_4C52A6610123
 
 ME ME_4C52A6610123
  MEPROP UID '4C52A6610123'
@@ -95,8 +16,8 @@ ME ME_4C52A6610123
  MELINK Parent WL 'ME_490838AA02D0' '490838AA02D0.ms.model.script' // Nemesis
  ;
  MELIST Children
-   Seq: ( HWL ME_535E3A1A018A // nscReminder
- HWL ME_535E3A7703B5 // nscRemindersLine
+   Seq: ( WL 'ME_535E3A1A018A' '535E3A1A018A.ms.model.script' // nscReminder
+ WL 'ME_535E3A7703B5' '535E3A7703B5.ms.model.script' // nscRemindersLine
  )
  ; // Children
  MELIST Depends
@@ -108,6 +29,9 @@ ME ME_4C52A6610123
  WL 'ME_53288DFA03A7' '53288DFA03A7.ms.model.script' // NewReminders
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" true
 
 ENDME // ME_4C52A6610123 Reminders

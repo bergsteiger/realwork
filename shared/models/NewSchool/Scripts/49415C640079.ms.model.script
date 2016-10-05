@@ -1,0 +1,58 @@
+// vcmFormSetDataSourceWithoutData 49415C640079 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49415C640079
+
+ME ME_494164B30361
+ MEPROP UID '494164B30361'
+ MEPROP Name 'SetDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49415C640079 // vcmFormSetDataSourceWithoutData
+ ;
+ MELINK Target WL 'ME_47F378D3029B' '4683F37902CF.ms.model.script' // IvcmData
+ ;
+
+ENDME // ME_494164B30361 SetDataType
+
+ME ME_47F3778403D9_ME_49415C640079
+ MELINK Original WL 'ME_47F3778403D9' '47F37723017A.ms.model.script' // MakeData
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47F3778403D9_ME_49415C640079 MakeData
+
+%%InheritedBy ME_47F37723017A ME_49415C640079
+
+ME ME_49415C640079
+ MEPROP UID '49415C640079'
+ MEPROP Name 'vcmFormSetDataSourceWithoutData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект сборки. Без "данных сборки"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F37723017A' '47F37723017A.ms.model.script' // vcmFormSetDataSource
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_494164B30361 // SetDataType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47F3778403D9_ME_49415C640079 // MakeData
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithoutData.imp.pas'
+ UP extprop:pas:TypeName '_vcmFormSetDataSourceWithoutData_'
+ UP extprop:pas:UnitName 'vcmFormSetDataSourceWithoutData.imp'
+
+ENDME // ME_49415C640079 vcmFormSetDataSourceWithoutData

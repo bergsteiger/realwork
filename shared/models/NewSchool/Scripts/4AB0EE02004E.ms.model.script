@@ -1,0 +1,351 @@
+// Dialogs 4AB0EE02004E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AB0EE02004E
+%%Inner ME_4AB0EE02004E
+%%Inner ME_4AB0EE02004E
+%%Inner ME_4AB0EE02004E
+%%Inner ME_4AB0EE02004E
+%%Inner ME_4AB0EE02004E
+%%Inner ME_4AB0EE02004E
+%%Inner ME_4AB0EE02004E
+
+FORWARD ME_4AB0EE02004E
+
+ME ME_49930A4803E7
+ MEPROP UID '49930A4803E7'
+ MEPROP Name 'TMsgDlgBtn'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49930A4803E7 TMsgDlgBtn
+
+%%InheritedBy ME_49930A4803E7 ME_49930A3703D8
+
+ME ME_49930A3703D8
+ MEPROP UID '49930A3703D8'
+ MEPROP Name 'TMsgDlgButtons'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49930A4803E7 // TMsgDlgBtn
+ )
+ ; // Inherits
+
+ENDME // ME_49930A3703D8 TMsgDlgButtons
+
+ME ME_49930A29017B
+ MEPROP UID '49930A29017B'
+ MEPROP Name 'TMsgDlgType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49930A29017B TMsgDlgType
+
+ME ME_4C37266101EE
+ MEPROP UID '4C37266101EE'
+ MEPROP Name 'TOpenOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C37266101EE TOpenOption
+
+%%InheritedBy ME_4C37266101EE ME_4C37264D022F
+
+ME ME_4C37264D022F
+ MEPROP UID '4C37264D022F'
+ MEPROP Name 'TOpenOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4C37266101EE // TOpenOption
+ )
+ ; // Inherits
+
+ENDME // ME_4C37264D022F TOpenOptions
+
+FORWARD ME_4DCC0B2702A0
+
+FORWARD ME_4DCC1EF50061
+
+ME ME_4DCC1F5D0135
+ MEPROP UID '4DCC1F5D0135'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC1EF50061 // DoClose
+ ;
+
+ENDME // ME_4DCC1F5D0135 DoIt
+
+ME ME_4DCC1EF50061
+ MEPROP UID '4DCC1EF50061'
+ MEPROP Name 'DoClose'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DCC0B2702A0 // TCommonDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCC1F5D0135 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DCC1EF50061 DoClose
+
+FORWARD ME_4DCC1FEE0352
+
+ME ME_4DCC200500EF
+ MEPROP UID '4DCC200500EF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC1FEE0352 // DoShow
+ ;
+
+ENDME // ME_4DCC200500EF DoIt
+
+ME ME_4DCC1FEE0352
+ MEPROP UID '4DCC1FEE0352'
+ MEPROP Name 'DoShow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DCC0B2702A0 // TCommonDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCC200500EF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DCC1FEE0352 DoShow
+
+FORWARD ME_4DCC20C10116
+
+ME ME_4DCC20FB03CC
+ MEPROP UID '4DCC20FB03CC'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC20C10116 // Execute
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DCC20FB03CC Execute
+
+ME ME_4DCC20C10116
+ MEPROP UID '4DCC20C10116'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DCC0B2702A0 // TCommonDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCC20FB03CC // Execute
+ )
+ ; // Operations
+
+ENDME // ME_4DCC20C10116 Execute
+
+ME ME_47D1602000C6_ME_4DCC0B2702A0
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_4DCC0B2702A0 Create
+
+ME ME_48077504027E_ME_4DCC0B2702A0
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_4DCC0B2702A0 Destroy
+
+%%InheritedBy ME_479878FA0103 ME_4DCC0B2702A0
+
+ME ME_4DCC0B2702A0
+ MEPROP UID '4DCC0B2702A0'
+ MEPROP Name 'TCommonDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DCC1EF50061 // DoClose
+ HWL ME_4DCC1FEE0352 // DoShow
+ HWL ME_4DCC20C10116 // Execute
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47D1602000C6_ME_4DCC0B2702A0 // Create
+ ME_48077504027E_ME_4DCC0B2702A0 // Destroy
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'CommonDialog'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DCC0B2702A0 TCommonDialog
+
+FORWARD ME_4DA44E2C0153
+
+FORWARD ME_4DCC203E0199
+
+ME ME_4DCC205D0020
+ MEPROP UID '4DCC205D0020'
+ MEPROP Name 'DoCanClose'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCC203E0199 // DoCanClose
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DCC205D0020 DoCanClose
+
+ME ME_4DCC203E0199
+ MEPROP UID '4DCC203E0199'
+ MEPROP Name 'DoCanClose'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DA44E2C0153 // TOpenDialog
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCC205D0020 // DoCanClose
+ )
+ ; // Operations
+
+ENDME // ME_4DCC203E0199 DoCanClose
+
+ME ME_4DCC20C10116_ME_4DA44E2C0153
+ MELINK Original HWL ME_4DCC20C10116 // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DCC20C10116_ME_4DA44E2C0153 Execute
+
+%%InheritedBy ME_4DCC0B2702A0 ME_4DA44E2C0153
+
+ME ME_4DA44E2C0153
+ MEPROP UID '4DA44E2C0153'
+ MEPROP Name 'TOpenDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DCC0B2702A0 // TCommonDialog
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DCC203E0199 // DoCanClose
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DCC20C10116_ME_4DA44E2C0153 // Execute
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'OpenDialog'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DA44E2C0153 TOpenDialog
+
+%%InheritedBy ME_4DA44E2C0153 ME_4DCC0BE20198
+
+ME ME_4DCC0BE20198
+ MEPROP UID '4DCC0BE20198'
+ MEPROP Name 'TSaveDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB0EE02004E // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4DA44E2C0153 // TOpenDialog
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'SaveDialog'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DCC0BE20198 TSaveDialog
+
+ME ME_4AB0EE02004E
+ MEPROP UID '4AB0EE02004E'
+ MEPROP Name 'Dialogs'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49930A4803E7 // TMsgDlgBtn
+ HWL ME_49930A3703D8 // TMsgDlgButtons
+ HWL ME_49930A29017B // TMsgDlgType
+ HWL ME_4C37266101EE // TOpenOption
+ HWL ME_4C37264D022F // TOpenOptions
+ HWL ME_4DCC0B2702A0 // TCommonDialog
+ HWL ME_4DA44E2C0153 // TOpenDialog
+ HWL ME_4DCC0BE20198 // TSaveDialog
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Dialogs.pas'
+
+ENDME // ME_4AB0EE02004E Dialogs

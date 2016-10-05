@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57CEAF3602AB
+
 FORWARD ME_57CEAF3602AB
 
 FORWARD ME_57AD9468006E
@@ -24,6 +26,8 @@ ME ME_57AD94A60371
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57AD949C0005 // AddController
+ ;
+ MELINK Target WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
  ;
  MELIST Parameters
    Seq: ( ME_57AD94AE0382 // aController
@@ -48,6 +52,8 @@ ME ME_57AD949C0005
  ; // Operations
 
 ENDME // ME_57AD949C0005 AddController
+
+%%InheritedBy ME_57AD949C0005 ME_57D29826015D
 
 ME ME_57D29826015D
  MEPROP UID '57D29826015D'
@@ -78,6 +84,8 @@ ME ME_57B6A3EF0191_ME_57AD9468006E
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57B6A3EF0191_ME_57AD9468006E Activated
 
+%%ImplementedBy ME_57DAB28A0390 ME_57AD9468006E
+
 ME ME_57AD9468006E
  MEPROP UID '57AD9468006E'
  MEPROP GUID '54200745-EE4F-42D0-840A-8209E1EBE0D3'
@@ -103,6 +111,9 @@ ME ME_57AD9468006E
  ME_57B6A3EF0191_ME_57AD9468006E // Activated
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:SelfName 'msmUseCase'
  UP extprop:rc:isAcceptableForScripts true
 
@@ -123,10 +134,12 @@ ME ME_57CEAF3602AB
  )
  ; // Children
  MELIST Depends
-   Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
- WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
+   Seq: ( WL 'ME_57AAE8D403E5' '57AAE8D403E5.ms.model.script' // msmControllers
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" true
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmUseCases.pas'
 

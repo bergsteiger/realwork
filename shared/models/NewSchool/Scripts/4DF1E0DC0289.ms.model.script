@@ -1,0 +1,39 @@
+// PrintRowCompare 4DF1E0DC0289 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DF1E0DC0289
+
+ME ME_4DF1E14701F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF1E0DC0289 // PrintRowCompare
+ ;
+ MELINK Target WL 'ME_4DF1C7300012' '4DF1C6E90221.ms.model.script' // TPrintRowHeightsSpy
+ ;
+
+ENDME // ME_4DF1E14701F1 
+
+ME ME_4DF1E0DC0289
+ MEPROP UID '4DF1E0DC0289'
+ MEPROP Name 'PrintRowCompare'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DF1E14701F1 // TPrintRowHeightsSpy
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\PrintRowCompare.imp.pas'
+ UP extprop:pas:TypeName '_PrintRowCompare_'
+ UP extprop:pas:UnitName 'PrintRowCompare.imp'
+
+ENDME // ME_4DF1E0DC0289 PrintRowCompare

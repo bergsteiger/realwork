@@ -1,0 +1,52 @@
+// D_NameEd 50163EBB0377 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_50163EBB0377
+
+FORWARD ME_50163EBB0377
+
+%%InheritedBy ME_4E4B62A40251 ME_50163ED103BF
+
+ME ME_50163ED103BF
+ MEPROP UID '50163ED103BF'
+ MEPROP Name 'TNameEditDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50163EBB0377 // D_NameEd
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'NameEditDlg'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50163ED103BF TNameEditDlg
+
+ME ME_50163EBB0377
+ MEPROP UID '50163EBB0377'
+ MEPROP Name 'D_NameEd'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4ECB871B0028' '4ECB871B0028.ms.model.script' // Dialogs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_50163ED103BF // TNameEditDlg
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_NameEd.pas'
+
+ENDME // ME_50163EBB0377 D_NameEd

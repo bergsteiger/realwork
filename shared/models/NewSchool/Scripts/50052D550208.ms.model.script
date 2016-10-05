@@ -1,0 +1,315 @@
+// nevFormatInfoUtils 50052D550208 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50052D550208
+
+FORWARD ME_5005218F0347
+
+ME ME_5005420E01ED
+ MEPROP Name 'aTableFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_5005420E01ED aTableFI
+
+ME ME_5005420E0229
+ MEPROP Name 'anCellObj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_5005420E0229 anCellObj
+
+ME ME_5005420E026A
+ MEPROP Name 'anUp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5005420E026A anUp
+
+ME ME_500521B9018B
+ MEPROP UID '500521B9018B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005218F0347 // evGetContinueCell
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_5005420E01ED // aTableFI
+ ME_5005420E0229 // anCellObj
+ ME_5005420E026A // anUp
+ )
+ ; // Parameters
+
+ENDME // ME_500521B9018B DoIt
+
+ME ME_50052A2C00B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5005218F0347 // evGetContinueCell
+ ;
+ MELINK Target WL 'ME_48DB9D1A030D' '48185390010A.ms.model.script' // TnevTableCellFormatInfo
+ ;
+
+ENDME // ME_50052A2C00B3 
+
+ME ME_5005218F0347
+ MEPROP UID '5005218F0347'
+ MEPROP Name 'evGetContinueCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50052D550208 // nevFormatInfoUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_500521B9018B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_50052A2C00B3 // TnevTableCellFormatInfo
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'GetContinueCell'
+
+ENDME // ME_5005218F0347 evGetContinueCell
+
+FORWARD ME_5005221A0152
+
+ME ME_5006991A0368
+ MEPROP Name 'aTableFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_5006991A0368 aTableFI
+
+ME ME_5006991A0387
+ MEPROP Name 'anCellObj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_5006991A0387 anCellObj
+
+ME ME_5006991A03A6
+ MEPROP Name 'aUseCellFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5006991A03A6 aUseCellFI
+
+ME ME_500522290113
+ MEPROP UID '500522290113'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005221A0152 // evGetHeadCell
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_5006991A0368 // aTableFI
+ ME_5006991A0387 // anCellObj
+ ME_5006991A03A6 // aUseCellFI
+ )
+ ; // Parameters
+
+ENDME // ME_500522290113 DoIt
+
+ME ME_5005221A0152
+ MEPROP UID '5005221A0152'
+ MEPROP Name 'evGetHeadCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50052D550208 // nevFormatInfoUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_500522290113 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'GetHeadCell'
+
+ENDME // ME_5005221A0152 evGetHeadCell
+
+FORWARD ME_5005794B03CD
+
+ME ME_5005797201A0
+ MEPROP Name 'aCellInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_5005797201A0 aCellInfo
+
+ME ME_5005797201BE
+ MEPROP Name 'anCellObj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_5005797201BE anCellObj
+
+ME ME_5005797201D7
+ MEPROP Name 'anUp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5005797201D7 anUp
+
+ME ME_500579720218
+ MEPROP Name 'aCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_500579720218 aCell
+
+ME ME_5005796002AC
+ MEPROP UID '5005796002AC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5005794B03CD // evHasContinueCell$1
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5005797201A0 // aCellInfo
+ ME_5005797201BE // anCellObj
+ ME_5005797201D7 // anUp
+ ME_500579720218 // aCell
+ )
+ ; // Parameters
+
+ENDME // ME_5005796002AC DoIt
+
+ME ME_5005794B03CD
+ MEPROP UID '5005794B03CD'
+ MEPROP Name 'evHasContinueCell'
+ MEPROP OriginalName 'evHasContinueCell$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50052D550208 // nevFormatInfoUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5005796002AC // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'HasContinueCell'
+
+ENDME // ME_5005794B03CD evHasContinueCell$1
+
+FORWARD ME_5006A0AE03C2
+
+ME ME_5006ACC30104
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_5006ACC30104 aPara
+
+ME ME_5006ACC3011D
+ MEPROP Name 'aFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_5006ACC3011D aFI
+
+ME ME_5006A0C700C1
+ MEPROP UID '5006A0C700C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5006A0AE03C2 // evNeedIncludeHeight
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5006ACC30104 // aPara
+ ME_5006ACC3011D // aFI
+ )
+ ; // Parameters
+
+ENDME // ME_5006A0C700C1 DoIt
+
+ME ME_5006A0AE03C2
+ MEPROP UID '5006A0AE03C2'
+ MEPROP Name 'evNeedIncludeHeight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50052D550208 // nevFormatInfoUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5006A0C700C1 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'NeedIncludeHeight'
+
+ENDME // ME_5006A0AE03C2 evNeedIncludeHeight
+
+ME ME_50052D550208
+ MEPROP UID '50052D550208'
+ MEPROP Name 'nevFormatInfoUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Модуль, появившийся в результате оптимизации - см. {Requestlink:377753634}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48185390010A' '48185390010A.ms.model.script' // Rendering
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5005218F0347 // evGetContinueCell
+ HWL ME_5005221A0152 // evGetHeadCell
+ HWL ME_5005794B03CD // evHasContinueCell$1
+ HWL ME_5006A0AE03C2 // evNeedIncludeHeight
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevFormatInfoUtils.pas'
+ UP extprop:rc:SelfName 'FormatInfoUtils'
+
+ENDME // ME_50052D550208 nevFormatInfoUtils

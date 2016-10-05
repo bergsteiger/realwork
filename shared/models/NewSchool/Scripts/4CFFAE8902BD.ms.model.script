@@ -1,0 +1,65 @@
+// vg_layouts 4CFFAE8902BD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CFFAE8902BD
+%%Inner ME_4CFFAE8902BD
+
+FORWARD ME_4CFFAE8902BD
+
+ME ME_4CFFAE9802DF
+ MEPROP UID '4CFFAE9802DF'
+ MEPROP Name 'TvgNonVGLayout'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFFAE8902BD // vg_layouts
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'NonVGLayout'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFFAE9802DF TvgNonVGLayout
+
+ME ME_4CFFB1A00237
+ MEPROP UID '4CFFB1A00237'
+ MEPROP Name 'TvgLayout'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFFAE8902BD // vg_layouts
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'Layout'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFFB1A00237 TvgLayout
+
+ME ME_4CFFAE8902BD
+ MEPROP UID '4CFFAE8902BD'
+ MEPROP Name 'vg_layouts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.ms.model.script' // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFFAE9802DF // TvgNonVGLayout
+ HWL ME_4CFFB1A00237 // TvgLayout
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_layouts.pas'
+ UP extprop:rc:SelfName '_layouts'
+
+ENDME // ME_4CFFAE8902BD vg_layouts

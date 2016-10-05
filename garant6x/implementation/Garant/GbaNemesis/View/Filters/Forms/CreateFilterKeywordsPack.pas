@@ -312,8 +312,10 @@ initialization
  {* Регистрация типа TCreateFilterForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));
  {* Регистрация типа TvtLabel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEdit));
  {* Регистрация типа TnscEdit }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

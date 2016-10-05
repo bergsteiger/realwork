@@ -1,0 +1,61 @@
+// SystemWord 4DB95922039B Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DB95922039B
+
+ME ME_4DB959410236
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB95922039B // SystemWord
+ ;
+ MELINK Target WL 'ME_4DDE2C4C01CD' '48A41FF10094.ms.model.script' // GetFocus
+ ;
+
+ENDME // ME_4DB959410236 
+
+ME ME_4DB9594F038D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB95922039B // SystemWord
+ ;
+ MELINK Target WL 'ME_4AAF9CFA0263' '47E11FC3021E.ms.model.script' // FindControl
+ ;
+
+ENDME // ME_4DB9594F038D 
+
+ME ME_4DB961430283
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB95922039B // SystemWord
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4DB961430283 
+
+ME ME_4DB95922039B
+ MEPROP UID '4DB95922039B'
+ MEPROP Name 'SystemWord'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_54DB92D203C9' '54DB92D203C9.ms.model.script' // VCL bindings
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DB959410236 // GetFocus
+ ME_4DB9594F038D // FindControl
+ ME_4DB961430283 // Forms
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas'
+ UP extprop:pas:TypeName '_SystemWord_'
+ UP extprop:pas:UnitName 'SystemWord.imp'
+
+ENDME // ME_4DB95922039B SystemWord

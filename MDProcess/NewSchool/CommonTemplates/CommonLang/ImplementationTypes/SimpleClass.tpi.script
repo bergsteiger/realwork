@@ -2224,9 +2224,10 @@ implementation @ <<SimpleClass>>
 end. // <<SimpleClass>>
 
 : SimpleClassNeedsSpell OBJECT IN %S
-//	[{%SS=Service|%SS=ServiceImplementation|%SS=GuiControl|%S#f_IsVCMForm()=true|%S#f_IsUserType()=true|%S#_IsControl()=true|%SS=TestResults|%SS=VCMApplication|%SS=VCMTestApplication|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory}{\
+//	[{%SS=Service|%SS=ServiceImplementation|%SS=VCMModuleContract|%SS=GuiControl|%S#f_IsVCMForm()=true|%S#f_IsUserType()=true|%S#_IsControl()=true|%SS=TestResults|%SS=VCMApplication|%SS=VCMTestApplication|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory}{\
  if ( ( %S |S ) %== 'Service' OR 
    ( ( %S |S ) %== 'ServiceImplementation'  ) OR 
+   ( ( %S |S ) %== 'VCMModuleContract'  ) OR 
    ( ( %S |S ) %== 'GuiControl'  ) OR 
    ( ( %S %?f IsVCMForm %( )% ) %==  true  ) OR 
    ( ( %S %?f IsUserType %( )% ) %==  true  ) OR 

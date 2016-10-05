@@ -14,7 +14,7 @@ ME ME_49242D5F00D1
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49242CB201D0 // dsSituation
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" true
  UP "pm" true
@@ -54,13 +54,13 @@ ME ME_492D62CC0364
 ENDME // ME_492D62CC0364 InitDataType
 
 ME ME_479731C50290_ME_49242CB201D0
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_49242CB201D0 Cleanup
 
 ME ME_47A042E100E2_ME_49242CB201D0
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_49242CB201D0 InitFields
@@ -72,10 +72,15 @@ ME ME_47F0C1BF0314_ME_49242CB201D0
 ENDME // ME_47F0C1BF0314_ME_49242CB201D0 DoCurrentChanged
 
 ME ME_49242A4E0252_ME_49242CB201D0
- MELINK Original WL 'ME_49242A4E0252' '4AA005310028.ms.model.script' // CurrentChangedNotification
+ MELINK Original WL 'ME_49242A4E0252' '492428D203A1.ms.model.script' // CurrentChangedNotification
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49242A4E0252_ME_49242CB201D0 CurrentChangedNotification
+
+%%ImplementedBy ME_492428D203A1 ME_49242CB201D0
+%%ImplementedBy ME_49590A5E0315 ME_49242CB201D0
+
+%%InheritedBy ME_4924015202CD ME_49242CB201D0
 
 ME ME_49242CB201D0
  MEPROP UID '49242CB201D0'
@@ -94,7 +99,7 @@ ME ME_49242CB201D0
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_492428D203A1' '4AA005310028.ms.model.script' // CurrentChangedListener
+   Seq: ( WL 'ME_492428D203A1' '492428D203A1.ms.model.script' // CurrentChangedListener
  WL 'ME_49590A5E0315' '491DAF4202EE.ms.model.script' // IdsSituation
  )
  ; // Implements
@@ -111,6 +116,9 @@ ME ME_49242CB201D0
  ME_49242A4E0252_ME_49242CB201D0 // CurrentChangedNotification
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" true
  UP "started" '2008/01/30 08:25:26 '

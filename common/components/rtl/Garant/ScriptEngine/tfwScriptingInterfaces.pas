@@ -994,6 +994,8 @@ type
     {* Проверяет создан экземпляр синглетона или нет }
  end;//EtfwNotImplemented
 
+ ItfwArray = ItfwValueList;
+
 function TtfwSourcePoint_E: TtfwSourcePoint;
 function TtfwStackValue_C(const aValue: ItfwFile): TtfwStackValue; overload;
 function TtfwStackValue_C(const aValue: ItfwValueList): TtfwStackValue; overload;

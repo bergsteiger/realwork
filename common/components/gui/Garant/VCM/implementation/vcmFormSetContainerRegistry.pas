@@ -249,7 +249,7 @@ var
   if (anItem^.rContainer = Pointer(aContainer)) then
   begin
    l_FormSet := IvcmFormSet(anItem^.rFormSet);
-   Result := False;
+   Result := not l_FormSet.CanBeMain;
   end;
  end;
 

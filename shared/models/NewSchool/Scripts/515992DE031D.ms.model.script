@@ -1,0 +1,270 @@
+// StackTest 515992DE031D TestCaseMixIn Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_515992DE031D
+%%Inner ME_515992DE031D
+%%Inner ME_515992DE031D
+
+FORWARD ME_515992DE031D
+
+%%InheritedBy ME_51545EC402A3 ME_515992FB03D5
+
+ME ME_515992FB03D5
+ MEPROP UID '515992FB03D5'
+ MEPROP Name 'TEtalonData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51545EC402A3' '51545DEA00FB.ms.model.script' // ItemsHolder
+ )
+ ; // Inherits
+
+ENDME // ME_515992FB03D5 TEtalonData
+
+ME ME_5159933D023B
+ MEPROP UID '5159933D023B'
+ MEPROP Name 'StackType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ UP extprop:pas:TypeName '_StackType_'
+
+ENDME // ME_5159933D023B StackType
+
+FORWARD ME_51599B6E0153
+
+ME ME_51599BBD0105
+ MEPROP UID '51599BBD0105'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51599B6E0153 // EtalonData
+ ;
+ MELINK Target WL 'ME_51545E6A02A3' '51545DEA00FB.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_51599BBD0105 
+
+ME ME_51599B6E0153
+ MEPROP UID '51599B6E0153'
+ MEPROP Name 'EtalonData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51599BBD0105 // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_51599B6E0153 EtalonData
+
+ME ME_5159936100DC
+ MEPROP UID '5159936100DC'
+ MEPROP Name 'StackType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ MELINK Target HWL ME_5159933D023B // StackType
+ ;
+
+ENDME // ME_5159936100DC StackType
+
+FORWARD ME_5159938101A2
+
+ME ME_515993910266
+ MEPROP UID '515993910266'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5159938101A2 // DoDoIt
+ ;
+
+ENDME // ME_515993910266 DoIt
+
+ME ME_5159938101A2
+ MEPROP UID '5159938101A2'
+ MEPROP Name 'DoDoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_515993910266 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5159938101A2 DoDoIt
+
+FORWARD ME_515993A0015B
+
+ME ME_515993BC02B4
+ MEPROP UID '515993BC02B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_515993A0015B // GetEtalonData
+ ;
+ MELINK Target HWL ME_515992FB03D5 // TEtalonData
+ ;
+
+ENDME // ME_515993BC02B4 DoIt
+
+ME ME_515993A0015B
+ MEPROP UID '515993A0015B'
+ MEPROP Name 'GetEtalonData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_515993BC02B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_515993A0015B GetEtalonData
+
+FORWARD ME_51599BD5015F
+
+ME ME_51599C0101DC
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_51599B6E0153 // EtalonData
+ ;
+
+ENDME // ME_51599C0101DC aData
+
+ME ME_51599BF20334
+ MEPROP UID '51599BF20334'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51599BD5015F // ArrayToEtalon
+ ;
+ MELINK Target HWL ME_515992FB03D5 // TEtalonData
+ ;
+ MELIST Parameters
+   Seq: ( ME_51599C0101DC // aData
+ )
+ ; // Parameters
+
+ENDME // ME_51599BF20334 DoIt
+
+ME ME_51599BD5015F
+ MEPROP UID '51599BD5015F'
+ MEPROP Name 'ArrayToEtalon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вспомогательная функция появившаяся оттого, что динамические массивы умеют к открытым приводиться автоматом, а обратно - нет' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51599BF20334 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51599BD5015F ArrayToEtalon
+
+ME ME_515996DE014C
+ MEPROP UID '515996DE014C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+
+ENDME // ME_515996DE014C DoIt
+
+ME ME_515993E30114
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_515992DE031D // StackTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_515993E30114 
+
+%%InheritedBy ME_4B2A0DDE028B ME_515992DE031D
+
+ME ME_515992DE031D
+ MEPROP UID '515992DE031D'
+ MEPROP Name 'StackTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCaseMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5159929F0022' '5159929F0022.ms.model.script' // ContainersTestsPrim
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5159936100DC // StackType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5159938101A2 // DoDoIt
+ HWL ME_515993A0015B // GetEtalonData
+ HWL ME_51599BD5015F // ArrayToEtalon
+ HWL ME_515996DE014C // DoIt
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_515992FB03D5 // TEtalonData
+ HWL ME_5159933D023B // StackType
+ HWL ME_51599B6E0153 // EtalonData
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_515993E30114 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" false
+ UP intf.pas:Path 'common\components\SandBox\StackTest.imp.pas'
+ UP extprop:pas:TypeName '_StackTest_'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'StackTest.imp'
+
+ENDME // ME_515992DE031D StackTest

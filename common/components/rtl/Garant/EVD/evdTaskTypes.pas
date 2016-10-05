@@ -88,7 +88,9 @@ type
                 cs_ttMdpSyncStages,
                 cs_ttMdpSyncImport,
                 cs_ttDownloadDoc,
-                cs_ttUploadDoc
+                cs_ttUploadDoc,
+                cs_ttMultiModifyDocs,
+                cs_ttMultiClearAttributes
                 );
 
  TCsNotificationType = (ntEmpty,

@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_559F81FE0232
+%%Inner ME_559F81FE0232
+%%Inner ME_559F81FE0232
+
 FORWARD ME_559F81FE0232
 
 FORWARD ME_559F8232010B
@@ -22,7 +26,7 @@ ME ME_559F823E00B6
 ENDME // ME_559F823E00B6 ItemType
 
 ME ME_47B2C42A0163_ME_559F8232010B
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -30,10 +34,13 @@ ME ME_47B2C42A0163_ME_559F8232010B
 ENDME // ME_47B2C42A0163_ME_559F8232010B AssignItem
 
 ME ME_47B99D4503A2_ME_559F8232010B
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_559F8232010B CompareExistingItems
+
+%%InheritedBy ME_47B99E920196 ME_559F8232010B
+%%InheritedBy ME_4A54DD4E036F ME_559F8232010B
 
 ME ME_559F8232010B
  MEPROP UID '559F8232010B'
@@ -46,7 +53,7 @@ ME ME_559F8232010B
  MELINK Parent HWL ME_559F81FE0232 // WordInfoCache
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47B99E920196.ms.model.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -84,10 +91,13 @@ ME ME_559F84A9017C
 ENDME // ME_559F84A9017C FindDataType
 
 ME ME_47B9BAFD01F4_ME_559F840D0179
- MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47B9BAFD01F4_ME_559F840D0179 CompareItemWithData
+
+%%InheritedBy ME_47B47E230134 ME_559F840D0179
+%%InheritedBy ME_559F8232010B ME_559F840D0179
 
 ME ME_559F840D0179
  MEPROP UID '559F840D0179'
@@ -100,7 +110,7 @@ ME ME_559F840D0179
  MELINK Parent HWL ME_559F81FE0232 // WordInfoCache
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47B47E230134.ms.model.script' // l3Searcher
  HWL ME_559F8232010B // TtfwWordInfoListPrim
  )
  ; // Inherits
@@ -154,7 +164,7 @@ ME ME_559F85200064
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_559F82A60110 // GetTypeInfo
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_559F85200064 
@@ -192,10 +202,14 @@ ME ME_559F828E0296
 ENDME // ME_559F828E0296 
 
 ME ME_47A042E100E2_ME_559F828102D8
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_559F828102D8 InitFields
+
+%%InjectedBy ME_559D51430285 ME_559F828102D8
+
+%%InheritedBy ME_559F840D0179 ME_559F828102D8
 
 ME ME_559F828102D8
  MEPROP UID '559F828102D8'
@@ -223,6 +237,9 @@ ME ME_559F828102D8
    Seq: ( ME_559F828E0296 // TtfwWordInfoF
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "singleton" true
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordInfoCache.pas'
  UP extprop:rc:SelfName 'WordInfoCache'
@@ -254,6 +271,9 @@ ME ME_559F81FE0232
  WL 'ME_55BA28CE0290' '55BA28CE0290.ms.model.script' // tfwScriptingTypes
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" true
 
 ENDME // ME_559F81FE0232 WordInfoCache

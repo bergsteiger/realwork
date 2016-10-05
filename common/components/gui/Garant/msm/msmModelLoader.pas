@@ -23,7 +23,8 @@ implementation
 
 uses
  l3ImplUses
- , msmModelElementFactory
+ , msmModelElement
+ , msmModelService
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine
  {$IfEnd} // NOT Defined(NoScripts)
@@ -42,10 +43,10 @@ class function TmsmModelLoader.LoadFromFile(const aFileName: AnsiString): ImsmMo
 //#UC END# *57A9D6F8022B_57A9D6D90249_var*
 begin
 //#UC START# *57A9D6F8022B_57A9D6D90249_impl*
- Result := TmsmModelElementFactory.Make(
+ Result := TmsmModelElement.MakeFromValue(
   TmsmModelElementMethodCaller.Call(
    [TtfwStackValue_C(TtfwCStringFactory.C(aFileName))],
-   'WordByDictionaryPath').AsObject As TtfwWord
+   'WordByDictionaryPath')
   );
 //#UC END# *57A9D6F8022B_57A9D6D90249_impl*
 end;//TmsmModelLoader.LoadFromFile

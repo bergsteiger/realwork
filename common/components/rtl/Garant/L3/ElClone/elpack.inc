@@ -324,13 +324,17 @@ Different internal directives. Do not modify them.
 {$endif}
 
 
-{$ifdef DEBUG}
+{$IfDef MSM}
  {$DEBUGINFO ON}
  {$J+,R-,I-,Q-,O-,D+,L+,Y+,B-,W+,H+}
-{$else}
- {$J+,R-,I-,Q-,O-,D-,L-,Y-,B-,W+,H+}
-{$endif}
-
+{$Else  MSM} 
+ {$ifdef DEBUG}
+  {$DEBUGINFO ON}
+  {$J+,R-,I-,Q-,O-,D+,L+,Y+,B-,W+,H+}
+ {$else}
+  {$J+,R-,I-,Q-,O-,D-,L-,Y-,B-,W+,H+}
+ {$endif}
+{$EndIf MSM}
 
 {$IfDef XE}
  {$Define VCL_4_USED}

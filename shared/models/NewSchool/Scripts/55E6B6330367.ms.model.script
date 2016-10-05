@@ -1,0 +1,92 @@
+// dt_DictTypes 55E6B6330367 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55E6B6330367
+%%Inner ME_55E6B6330367
+
+FORWARD ME_55E6B6330367
+
+ME ME_55E6B69701C1
+ MEPROP UID '55E6B69701C1'
+ MEPROP Name 'TDictMessageRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55E6B6330367 // dt_DictTypes
+ ;
+ UP "finished" false
+
+ENDME // ME_55E6B69701C1 TDictMessageRec
+
+FORWARD ME_55E6B64E030E
+
+ME ME_55E6B6890215
+ MEPROP Name 'Info'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_55E6B69701C1 // TDictMessageRec
+ ;
+
+ENDME // ME_55E6B6890215 Info
+
+ME ME_55E6B66A036E
+ MEPROP UID '55E6B66A036E'
+ MEPROP Name 'dcn__DictionaryChange'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55E6B64E030E // IDictChangeNotifyRecipient
+ ;
+ MELIST Parameters
+   Seq: ( ME_55E6B6890215 // Info
+ )
+ ; // Parameters
+
+ENDME // ME_55E6B66A036E dcn__DictionaryChange
+
+ME ME_55E6B64E030E
+ MEPROP UID '55E6B64E030E'
+ MEPROP GUID '29F5993F-AEC6-4EAF-B8E6-393D6C6DFD09'
+ MEPROP Name 'IDictChangeNotifyRecipient'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55E6B6330367 // dt_DictTypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55E6B66A036E // dcn__DictionaryChange
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'DictChangeNotifyRecipient'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55E6B64E030E IDictChangeNotifyRecipient
+
+ME ME_55E6B6330367
+ MEPROP UID '55E6B6330367'
+ MEPROP Name 'dt_DictTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47BC50280350' '47BC50280350.ms.model.script' // Dictionary
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55E6B69701C1 // TDictMessageRec
+ HWL ME_55E6B64E030E // IDictChangeNotifyRecipient
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictTypes.pas'
+
+ENDME // ME_55E6B6330367 dt_DictTypes

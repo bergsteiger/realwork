@@ -2444,26 +2444,46 @@ initialization
  {* Регистрация Tkw_NewBaseSearch_Component_FlashTimer }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TNewBaseSearchForm));
  {* Регистрация типа TNewBaseSearchForm }
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgPathButton));
  {* Регистрация типа TvgPathButton }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgCloseButton));
  {* Регистрация типа TvgCloseButton }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgComboBox));
  {* Регистрация типа TvgComboBox }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgText));
  {* Регистрация типа TvgText }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgButton));
  {* Регистрация типа TvgButton }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgNonVGLayout));
  {* Регистрация типа TvgNonVGLayout }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgLayout));
  {* Регистрация типа TvgLayout }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgScene));
  {* Регистрация типа TvgScene }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgRectangle));
  {* Регистрация типа TvgRectangle }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeComboWithHistoryAndOperations));
  {* Регистрация типа TnscTreeComboWithHistoryAndOperations }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TTimer));
  {* Регистрация типа TTimer }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

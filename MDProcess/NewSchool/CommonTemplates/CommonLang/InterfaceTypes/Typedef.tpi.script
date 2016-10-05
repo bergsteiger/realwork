@@ -43,6 +43,7 @@ implementation @ <<Typedef>>
 //p newRTTI:b=false ? генерировать ли новые данные для RTTI
 //p isPointer:b=false ? Является ли TypeDef указателем на тип, а не самим типом (для переноса существующего кода).
 //p isClassRef:b=false ? Определяет, что тип является ссылкой на класс.
+//p register in scripts:tribool=undefined ? 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
@@ -86,6 +87,12 @@ implementation @ <<Typedef>>
  begin
   [%f] up_prefix %( %S )% ' *isClassRef* = *'
   %S get_up ( 'isClassRef' ) '* - Определяет, что тип является ссылкой на класс.'
+//	][{"%S{register in scripts}"!="%S{!register in scripts}"}%f_up_prefix(%S) *register in scripts* = *%S{register in scripts}*
+ end // if
+ if ( ( %S get_up ( 'register in scripts' ) ) %!= ( %S get_up_def ( 'register in scripts' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *register in scripts* = *'
+  %S get_up ( 'register in scripts' ) '*'
 //	]
  end // if
 

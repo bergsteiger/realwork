@@ -1,0 +1,287 @@
+// evResultFontInterfaces 4E68E4D40035 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E68E4D40035
+
+FORWARD ME_4E68E4D40035
+
+FORWARD ME_4E68E516025B
+
+ME ME_4E68E52102C7
+ MEPROP UID '4E68E52102C7'
+ MEPROP Name 'Font'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELINK Target WL 'ME_4E54CF180391' '480DBE6E01D0.ms.model.script' // PevResultFontEx
+ ;
+ UP "pm" false
+
+ENDME // ME_4E68E52102C7 Font
+
+ME ME_4E68E60C03BD
+ MEPROP UID '4E68E60C03BD'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+
+ENDME // ME_4E68E60C03BD Clear
+
+ME ME_4E68E63B0245
+ MEPROP Name 'aCorrectItalic'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E68E63B0245 aCorrectItalic
+
+ME ME_4E68E6A501D3
+ MEPROP Name 'aCheckNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E68E6A501D3 aCheckNew
+
+ME ME_4E68E62D01A6
+ MEPROP UID '4E68E62D01A6'
+ MEPROP Name 'AsFont'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELINK Target WL 'ME_46A614A202CA' '4677FBA70343.ms.model.script' // Il3Font
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E68E63B0245 // aCorrectItalic
+ ME_4E68E6A501D3 // aCheckNew
+ )
+ ; // Parameters
+
+ENDME // ME_4E68E62D01A6 AsFont
+
+ME ME_4E68ECF5011D
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4E68ECF5011D aTag
+
+ME ME_4E68ECE500E0
+ MEPROP UID '4E68ECE500E0'
+ MEPROP Name 'AddStyledTag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E68ECF5011D // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4E68ECE500E0 AddStyledTag
+
+ME ME_4E68EF1E03BF
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E68EF1E03BF anIndex
+
+ME ME_4E68EF1101EB
+ MEPROP UID '4E68EF1101EB'
+ MEPROP Name 'GetItem'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELINK Target WL 'ME_47C6A43F01A1' '46A5E026007E.ms.model.script' // PInteger
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E68EF1E03BF // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4E68EF1101EB GetItem
+
+ME ME_4E68F1330330
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E68F1330330 anIndex
+
+ME ME_4E68F1340024
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E68F1340024 aValue
+
+ME ME_4E68F1250350
+ MEPROP UID '4E68F1250350'
+ MEPROP Name 'SetItem'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E68F1330330 // anIndex
+ ME_4E68F1340024 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4E68F1250350 SetItem
+
+ME ME_4E68F2D100AF
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E68F2D100AF anIndex
+
+ME ME_4E68F2C100C6
+ MEPROP UID '4E68F2C100C6'
+ MEPROP Name 'IsTransparent'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E68F2D100AF // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_4E68F2C100C6 IsTransparent
+
+ME ME_4E68F418005A
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4E68F418005A aTag
+
+ME ME_4E68F40E0197
+ MEPROP UID '4E68F40E0197'
+ MEPROP Name 'AddTag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E68F418005A // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4E68F40E0197 AddTag
+
+ME ME_4E68F4F900C8
+ MEPROP Name 'aFont'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4E68E516025B // IevResultFont
+ ;
+
+ENDME // ME_4E68F4F900C8 aFont
+
+ME ME_4E68F4EB016A
+ MEPROP UID '4E68F4EB016A'
+ MEPROP Name 'AddFont'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E68E516025B // IevResultFont
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E68F4F900C8 // aFont
+ )
+ ; // Parameters
+
+ENDME // ME_4E68F4EB016A AddFont
+
+ME ME_4E68E516025B
+ MEPROP UID '4E68E516025B'
+ MEPROP GUID 'C40D1EE4-2C8A-4010-852A-6314617C65FD'
+ MEPROP Name 'IevResultFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E68E4D40035 // evResultFontInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E68E52102C7 // Font
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E68E60C03BD // Clear
+ HWL ME_4E68E62D01A6 // AsFont
+ HWL ME_4E68ECE500E0 // AddStyledTag
+ HWL ME_4E68EF1101EB // GetItem
+ HWL ME_4E68F1250350 // SetItem
+ HWL ME_4E68F2C100C6 // IsTransparent
+ HWL ME_4E68F40E0197 // AddTag
+ HWL ME_4E68F4EB016A // AddFont
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ResultFont'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E68E516025B IevResultFont
+
+ME ME_4E68E4D40035
+ MEPROP UID '4E68E4D40035'
+ MEPROP Name 'evResultFontInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E56909E0240' '4E56909E0240.ms.model.script' // evResultFont
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E68E516025B // IevResultFont
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '08.09.2011 19:53'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evResultFontInterfaces.pas'
+ UP extprop:rc:SelfName 'ResultFontInterfaces'
+
+ENDME // ME_4E68E4D40035 evResultFontInterfaces

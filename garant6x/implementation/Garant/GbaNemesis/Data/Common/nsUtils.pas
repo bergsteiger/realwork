@@ -8,8 +8,11 @@ unit nsUtils;
 { Описание   : Общие функции проекта Немезис.                                  }
 {------------------------------------------------------------------------------}
 
-// $Id: nsUtils.pas,v 1.51 2016/09/14 13:01:18 kostitsin Exp $
+// $Id: nsUtils.pas,v 1.52 2016/09/30 06:45:28 morozov Exp $
 // $Log: nsUtils.pas,v $
+// Revision 1.52  2016/09/30 06:45:28  morozov
+// {RequestLink: 630816084}
+//
 // Revision 1.51  2016/09/14 13:01:18  kostitsin
 // {requestlink: 630222434 }
 //
@@ -698,7 +701,13 @@ procedure nsParseDocumentNumber(const aNumber    : String;
   overload;
   {* - строку с документов перевести в идентификатор документа и номер
        вхождения. }
+
 {$If not Defined(Admin) AND not Defined(Monitorings)}
+function nsOpenDocumentByNumber(aDocId: Integer;
+                                out aDocument: IDocument;
+                                aFaultMessage: Boolean = True): Boolean;
+  overload;
+  {* - открыть документ по номеру. }
 function nsOpenDocumentByNumber(aDocId: Integer;
                                  aPosID: Integer;
                                  aPosType: TDocumentPositionType;
@@ -706,11 +715,6 @@ function nsOpenDocumentByNumber(aDocId: Integer;
                                  aIgnoreRefDoc: Boolean = False;
                                  aOpenKind: TvcmMainFormOpenKind = vcm_okInCurrentTab;
                                  aShowFaultMessageOnInvalidRef: Boolean = False): Boolean;
-  overload;
-  {* - открыть документ по номеру. }
-function nsOpenDocumentByNumber(aDocId: Integer;
-                                out aDocument: IDocument;
-                                aFaultMessage: Boolean = True): Boolean;
   overload;
   {* - открыть документ по номеру. }
 function nsOpenDocumentByNumber(const aDocPosition: String;
@@ -820,8 +824,6 @@ uses
 
   afwFacade,
 
-  //ShockwaveFlashObjects_TLB,
-
   vcmBase,
   vcmExternalInterfaces,
   {$If not (defined(Monitorings) or defined(Admin))}
@@ -872,9 +874,15 @@ uses
   LoggingWrapperInterfaces,
   l3SimpleObject,
   nsLogManager,
-  nsLogEventData
-  , Base_Operations_F1Services_Contracts
+  nsLogEventData,
+  Base_Operations_F1Services_Contracts
+  {$If not (defined(Monitorings) or defined(Admin))}
+  ,
+  nsTryingToOpenMissingDocumentFromLinkEvent,
+  bsConvert
+  {$IfEnd not (defined(Monitorings) or defined(Admin))}
   ;
+
 
 {$If not (defined(Monitorings) or defined(Admin))}
 type
@@ -929,11 +937,19 @@ begin
 end;
 {$IfEnd}
 
+{$If not (defined(Monitorings) or defined(Admin))}
+function nsOpenDocumentByNumberInternal(aDocId: Integer;
+                                out aDocument: IDocument;
+                                out aMissingInfo: IMissingInfo;
+                                aFaultMessage: Boolean = True): Boolean;
+  forward;
+{$IfEnd not (defined(Monitorings) or defined(Admin))}
+
 { Консультации }
 
 procedure nsWriteLetterAboutConsultation(const aNode: Il3SimpleNode);
   {* - aNode - узел в папках. }
-  
+
  { Получить название перечислимого типа }
 
  {$If not (defined(Monitorings) or defined(Admin))}
@@ -1053,25 +1069,40 @@ end;//nsSelectAndExpand
 { Документ }
 
 {$If not Defined(Admin) AND not Defined(Monitorings)}
-function nsOpenDocumentByNumber(aDocId: Integer;
-                                out aDocument: IDocument;
-                                aFaultMessage: Boolean = True): Boolean;
-  // overload;
+function nsOpenDocumentByNumberInternal(aDocId: Integer;
+                                        out aDocument: IDocument;
+                                        out aMissingInfo: IMissingInfo; 
+                                        aFaultMessage: Boolean = True): Boolean;
   {* - открыть документ по номеру. }
-var
- l_MI: IMissingInfo;
 begin
  // http://mdp.garant.ru/pages/viewpage.action?pageId=304875977
  try
   aDocument := nil;
   Result := DefDataAdapter.CommonInterfaces.
-   GetDocumentOnNumber(aDocId, aDocument, l_MI);
-  if not Result and aFaultMessage then
-   TbsDocumentMissingMessage.Show(False, l_MI);
+   GetDocumentOnNumber(aDocId, aDocument, aMissingInfo);
+  if (not Result) and aFaultMessage then
+    TbsDocumentMissingMessage.Show(False, aMissingInfo);
  except
   on ECanNotFindData do
    Result := false;
  end;{try..except}
+end;
+
+function nsOpenDocumentByNumber(aDocId: Integer;
+                                out aDocument: IDocument;
+                                aFaultMessage: Boolean = True): Boolean;
+  //overload;
+  {* - открыть документ по номеру. }
+var
+ l_MI: IMissingInfo;
+begin
+ Result := nsOpenDocumentByNumberInternal(aDocId, aDocument, l_MI, aFaultMessage);
+ if not Result then
+ begin
+  TnsTryingToOpenMissingDocumentFromLinkEvent.Log(aDocID);
+  if aFaultMessage then
+   TbsDocumentMissingMessage.Show(False, l_MI);
+ end;
 end;
 
 function  nsOpenDocumentByNumber(aDocId: Integer;
@@ -1087,8 +1118,25 @@ var
  l_Document : IDocument;
  l_Container: IvcmContainer;
  l_ContainerMaker: IvcmContainerMaker;
+ l_Topic: TTopic;
+ l_MI: IMissingInfo;
 begin
- Result := nsOpenDocumentByNumber(aDocId, l_Document, aFaultMessage);
+ Result := nsOpenDocumentByNumberInternal(aDocId, l_Document, l_MI, False);
+
+ if (not Result) then
+ begin
+  l3FillChar(l_Topic, SizeOf(l_Topic), 0);
+
+  l_Topic.rPid.rObjectId := aDocID;
+  l_Topic.rPid.rClassId := CI_TOPIC;
+  l_Topic.rPosition.rPoint := aPosID;
+  l_Topic.rPosition.rType := bsBusinessToAdapter(aPosType);
+
+  TnsTryingToOpenMissingDocumentFromLinkEvent.Log(l_Topic);
+
+  TbsDocumentMissingMessage.Show(False, l_MI);
+ end;
+
  if Result and ((l_Document.GetDocType = DT_REF) and (not aIgnoreRefDoc)) then
  begin
   Result := False;
@@ -1148,13 +1196,14 @@ var
  l_Topic: TTopic;
  l_ObjType      : TLinkedObjectType;
  l_Obj          : IUnknown;
+ l_MI: IMissingInfo;
 begin
  Result := nil;
  l_Link := nil;
  l_DocId := aDocId;
  if aInternalId then
   l_DocId := l_DocId + c_InternalDocShift;
- if nsOpenDocumentByNumber(l_DocId, l_Document, aFaultMessage) then
+ if nsOpenDocumentByNumberInternal(l_DocId, l_Document, l_MI, aFaultMessage) then
  try
   if (l_Document.GetDocType <> DT_REF) then
    Exit;
@@ -1263,6 +1312,7 @@ var
  l_Link: IExternalLink;
  l_Url: IString;
  l_UrlStr: WideString;
+ l_MI: IMissingInfo;
 begin
  Result := True;
  nsParseDocumentNumber(aDocPosition, l_DocId, l_PosId, l_PosType, l_NumberWrong);
@@ -1271,7 +1321,7 @@ begin
  begin
   if anInternalID then
    l_DocId := l_DocId + c_InternalDocShift;
-  if nsOpenDocumentByNumber(l_DocId, l_Document, False) then
+  if nsOpenDocumentByNumberInternal(l_DocId, l_Document, l_MI, False) then
   try
    if (l_Document.GetDocType <> DT_REF) then
     Exit

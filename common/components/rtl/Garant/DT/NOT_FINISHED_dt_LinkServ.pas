@@ -8,17 +8,17 @@ unit NOT_FINISHED_dt_LinkServ;
 
 interface
 
-{$If Defined(Archi) AND NOT Defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
  l3IntfUses
 ;
 
 procedure LinkServer;
-{$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+{$IfEnd} // NOT Defined(Nemesis)
 
 implementation
 
-{$If Defined(Archi) AND NOT Defined(Nemesis)}
+{$If NOT Defined(Nemesis)}
 uses
  l3ImplUses
  //#UC START# *519B79940228impl_uses*
@@ -33,6 +33,6 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *52E8BA5101A7_519B79940228_impl*
 end;//LinkServer
-{$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+{$IfEnd} // NOT Defined(Nemesis)
 
 end.

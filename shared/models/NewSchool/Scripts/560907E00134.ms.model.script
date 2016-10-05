@@ -1,0 +1,621 @@
+// l3MapPrim 560907E00134 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_560907E00134
+%%Inner ME_560907E00134
+%%Inner ME_560907E00134
+%%Inner ME_560907E00134
+
+FORWARD ME_560907E00134
+
+ME ME_560908600026
+ MEPROP UID '560908600026'
+ MEPROP Name 'KeyType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип ключа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ UP extprop:pas:TypeName '_KeyType_'
+
+ENDME // ME_560908600026 KeyType
+
+ME ME_560908710273
+ MEPROP UID '560908710273'
+ MEPROP Name 'ValueType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип значения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ UP extprop:pas:TypeName '_ValueType_'
+
+ENDME // ME_560908710273 ValueType
+
+FORWARD ME_5609089D0006
+
+ME ME_560908B30015
+ MEPROP UID '560908B30015'
+ MEPROP Name 'rKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5609089D0006 // Tl3KeyValuePair
+ ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_560908B30015 rKey
+
+ME ME_560908B80307
+ MEPROP UID '560908B80307'
+ MEPROP Name 'rValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_5609089D0006 // Tl3KeyValuePair
+ ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+
+ENDME // ME_560908B80307 rValue
+
+FORWARD ME_560909B400E6
+
+ME ME_560909C801B5
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_560909C801B5 aKey
+
+ME ME_560909C801D4
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+
+ENDME // ME_560909C801D4 aValue
+
+ME ME_560909B8036A
+ MEPROP UID '560909B8036A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560909B400E6 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_560909C801B5 // aKey
+ ME_560909C801D4 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_560909B8036A DoIt
+
+ME ME_560909B400E6
+ MEPROP UID '560909B400E6'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5609089D0006 // Tl3KeyValuePair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_560909B8036A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_560909B400E6 C
+
+FORWARD ME_560909D5014E
+
+ME ME_560909E40035
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_560909E40035 aKey
+
+ME ME_560909E00255
+ MEPROP UID '560909E00255'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560909D5014E // ForFind
+ ;
+ MELIST Parameters
+   Seq: ( ME_560909E40035 // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_560909E00255 DoIt
+
+ME ME_560909D5014E
+ MEPROP UID '560909D5014E'
+ MEPROP Name 'ForFind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5609089D0006 // Tl3KeyValuePair
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_560909E00255 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_560909D5014E ForFind
+
+ME ME_5609089D0006
+ MEPROP UID '5609089D0006'
+ MEPROP Name 'Tl3KeyValuePair'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пара ключ-значение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_560908B30015 // rKey
+ HWL ME_560908B80307 // rValue
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_560909B400E6 // C
+ HWL ME_560909D5014E // ForFind
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'KeyValuePair'
+
+ENDME // ME_5609089D0006 Tl3KeyValuePair
+
+%%InheritedBy ME_560908710273 ME_5609145F03DE
+
+ME ME_5609145F03DE
+ MEPROP UID '5609145F03DE'
+ MEPROP Name 'PValueType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_560908710273 // ValueType
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_5609145F03DE PValueType
+
+ME ME_560908C00058
+ MEPROP UID '560908C00058'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELINK Target HWL ME_5609089D0006 // Tl3KeyValuePair
+ ;
+
+ENDME // ME_560908C00058 ItemType
+
+ME ME_560908E30177
+ MEPROP UID '560908E30177'
+ MEPROP Name 'KeyType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_560908E30177 KeyType
+
+ME ME_560908F10234
+ MEPROP UID '560908F10234'
+ MEPROP Name 'ValueType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+
+ENDME // ME_560908F10234 ValueType
+
+FORWARD ME_560909F101B3
+
+ME ME_56090A030168
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_56090A030168 aKey
+
+ME ME_560909F900E9
+ MEPROP UID '560909F900E9'
+ MEPROP Name 'DoiT'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560909F101B3 // Has
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_56090A030168 // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_560909F900E9 DoiT
+
+ME ME_560909F101B3
+ MEPROP UID '560909F101B3'
+ MEPROP Name 'Has'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_560909F900E9 // DoiT
+ )
+ ; // Operations
+
+ENDME // ME_560909F101B3 Has
+
+FORWARD ME_56090A1801B9
+
+ME ME_56090A2701A3
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_56090A2701A3 aKey
+
+ME ME_56090A2701EA
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+
+ENDME // ME_56090A2701EA aValue
+
+ME ME_56090A23002E
+ MEPROP UID '56090A23002E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56090A1801B9 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_56090A2701A3 // aKey
+ ME_56090A2701EA // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_56090A23002E DoIt
+
+ME ME_56090A1801B9
+ MEPROP UID '56090A1801B9'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56090A23002E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56090A1801B9 Add
+
+FORWARD ME_560914720336
+
+ME ME_5609149B024A
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_5609149B024A aKey
+
+ME ME_5609149203A8
+ MEPROP UID '5609149203A8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560914720336 // ValueByKey
+ ;
+ MELINK Target HWL ME_560908710273 // ValueType
+ ;
+ MELIST Parameters
+   Seq: ( ME_5609149B024A // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_5609149203A8 DoIt
+
+ME ME_560914720336
+ MEPROP UID '560914720336'
+ MEPROP Name 'ValueByKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5609149203A8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_560914720336 ValueByKey
+
+FORWARD ME_560914A20271
+
+ME ME_560914B3011B
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_560914B3011B aKey
+
+ME ME_560914AE0062
+ MEPROP UID '560914AE0062'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560914A20271 // ValueSlotByKey
+ ;
+ MELINK Target HWL ME_5609145F03DE // PValueType
+ ;
+ MELIST Parameters
+   Seq: ( ME_560914B3011B // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_560914AE0062 DoIt
+
+ME ME_560914A20271
+ MEPROP UID '560914A20271'
+ MEPROP Name 'ValueSlotByKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_560914AE0062 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_560914A20271 ValueSlotByKey
+
+FORWARD ME_56092E020346
+
+ME ME_56092E1B00FE
+ MEPROP Name 'aKey'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_56092E1B00FE aKey
+
+ME ME_56092E150146
+ MEPROP UID '56092E150146'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56092E020346 // IndexByKey
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_56092E1B00FE // aKey
+ )
+ ; // Parameters
+
+ENDME // ME_56092E150146 DoIt
+
+ME ME_56092E020346
+ MEPROP UID '56092E020346'
+ MEPROP Name 'IndexByKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56092E150146 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56092E020346 IndexByKey
+
+ME ME_5609094701B6
+ MEPROP Name 'aA'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_5609094701B6 aA
+
+ME ME_5609094701EF
+ MEPROP Name 'aB'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_560908600026 // KeyType
+ ;
+
+ENDME // ME_5609094701EF aB
+
+ME ME_5609091B00C0
+ MEPROP UID '5609091B00C0'
+ MEPROP Name 'CompareKeys'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_inline::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_560907E00134 // l3MapPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5609094701B6 // aA
+ ME_5609094701EF // aB
+ )
+ ; // Parameters
+
+ENDME // ME_5609091B00C0 CompareKeys
+
+ME ME_47B07CF403D0_ME_560907E00134
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_560907E00134 IsSameItems
+
+ME ME_47B2C42A0163_ME_560907E00134
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_560907E00134 AssignItem
+
+ME ME_47B99D4503A2_ME_560907E00134
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_560907E00134 CompareExistingItems
+
+ME ME_47A042E100E2_ME_560907E00134
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_560907E00134 InitFields
+
+%%ImplementedBy ME_4A5CB93700CF ME_560907E00134
+
+%%InheritedBy ME_4B223ADC02BF ME_560907E00134
+
+ME ME_560907E00134
+ MEPROP UID '560907E00134'
+ MEPROP Name 'l3MapPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Словарь (ключ-значение)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_560908C00058 // ItemType
+ HWL ME_560908E30177 // KeyType
+ HWL ME_560908F10234 // ValueType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_560909F101B3 // Has
+ HWL ME_56090A1801B9 // Add
+ HWL ME_560914720336 // ValueByKey
+ HWL ME_560914A20271 // ValueSlotByKey
+ HWL ME_56092E020346 // IndexByKey
+ HWL ME_5609091B00C0 // CompareKeys
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_560907E00134 // IsSameItems
+ ME_47B2C42A0163_ME_560907E00134 // AssignItem
+ ME_47B99D4503A2_ME_560907E00134 // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_560907E00134 // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_560908600026 // KeyType
+ HWL ME_560908710273 // ValueType
+ HWL ME_5609089D0006 // Tl3KeyValuePair
+ HWL ME_5609145F03DE // PValueType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MapPrim.imp.pas'
+ UP extprop:pas:TypeName '_l3MapPrim_'
+ UP extprop:pas:UnitName 'l3MapPrim.imp'
+
+ENDME // ME_560907E00134 l3MapPrim

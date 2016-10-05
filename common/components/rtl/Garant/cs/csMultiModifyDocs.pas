@@ -28,6 +28,8 @@ type
    function pm_GetDocIDList: DocIDListHelper;
    function pm_GetActionType: TOperActionType;
    procedure pm_SetActionType(aValue: TOperActionType);
+   function pm_GetAnouncedDate: TDateTime;
+   procedure pm_SetAnouncedDate(aValue: TDateTime);
   public
    class function GetTaggedDataType: Tk2Type; override;
   public
@@ -42,6 +44,9 @@ type
    property ActionType: TOperActionType
     read pm_GetActionType
     write pm_SetActionType;
+   property AnouncedDate: TDateTime
+    read pm_GetAnouncedDate
+    write pm_SetAnouncedDate;
  end;//TcsMultiModifyDocs
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -97,6 +102,18 @@ procedure TcsMultiModifyDocs.pm_SetActionType(aValue: TOperActionType);
 begin
  TaggedData.IntW[k2_attrActionType, nil] := Ord(aValue);
 end;//TcsMultiModifyDocs.pm_SetActionType
+
+function TcsMultiModifyDocs.pm_GetAnouncedDate: TDateTime;
+begin
+ Assert(Self <> nil);
+ Assert(TaggedData <> nil);
+ Result := (TaggedData.DateTimeA[k2_attrAnouncedDate]);
+end;//TcsMultiModifyDocs.pm_GetAnouncedDate
+
+procedure TcsMultiModifyDocs.pm_SetAnouncedDate(aValue: TDateTime);
+begin
+ TaggedData.DateTimeW[k2_attrAnouncedDate, nil] := (aValue);
+end;//TcsMultiModifyDocs.pm_SetAnouncedDate
 
 class function TcsMultiModifyDocs.GetTaggedDataType: Tk2Type;
 begin

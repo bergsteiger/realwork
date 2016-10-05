@@ -1,0 +1,145 @@
+// nsConst 47FB50E4008E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47FB50E4008E
+
+FORWARD ME_47FB51FA0178
+
+ME ME_47FB521002FF
+ MEPROP UID '47FB521002FF'
+ MEPROP Name 'pi_List_Sheets_Filters'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Фильтры\Списки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47FB51FA0178 // Settings
+ ;
+ MEPROP Value ''''''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value ''''''
+
+ENDME // ME_47FB521002FF pi_List_Sheets_Filters
+
+ME ME_47FB51FA0178
+ MEPROP UID '47FB51FA0178'
+ MEPROP Name 'Settings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для настроек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47FB50E4008E // nsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47FB521002FF // pi_List_Sheets_Filters
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_47FB51FA0178 Settings
+
+FORWARD ME_4AC2046A0376
+
+ME ME_4AC2047100B4
+ MEPROP UID '4AC2047100B4'
+ MEPROP Name 'cNullDate'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2046A0376 // Dates
+ ;
+ MEPROP Value '(rDay:0; rMonth:0; rYear:0)'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rDay:0; rMonth:0; rYear:0)'
+
+ENDME // ME_4AC2047100B4 cNullDate
+
+ME ME_4AC2046A0376
+ MEPROP UID '4AC2046A0376'
+ MEPROP Name 'Dates'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47FB50E4008E // nsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AC2047100B4 // cNullDate
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4AC2046A0376 Dates
+
+FORWARD ME_50489740018C
+
+ME ME_5048974A00BD
+ MEPROP UID '5048974A00BD'
+ MEPROP Name 'cAACContentsBackColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50489740018C // Colors
+ ;
+ MEPROP Value '$F7F7F7'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '$F7F7F7'
+
+ENDME // ME_5048974A00BD cAACContentsBackColor
+
+ME ME_50489740018C
+ MEPROP UID '50489740018C'
+ MEPROP Name 'Colors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47FB50E4008E // nsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5048974A00BD // cAACContentsBackColor
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_50489740018C Colors
+
+ME ME_47FB50E4008E
+ MEPROP UID '47FB50E4008E'
+ MEPROP Name 'nsConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '-' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_47FB51FA0178 // Settings
+ HWL ME_4AC2046A0376 // Dates
+ HWL ME_50489740018C // Colors
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsConst.pas'
+ UP extprop:rc:SelfName 'Const'
+
+ENDME // ME_47FB50E4008E nsConst

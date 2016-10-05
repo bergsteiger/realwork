@@ -1,0 +1,79 @@
+// nsQuery 4AE8A02C03E7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AE8A02C03E7
+
+FORWARD ME_4AE8A02C03E7
+
+ME ME_4AE8A0440254
+ MEPROP UID '4AE8A0440254'
+ MEPROP GUID '07945683-120E-428A-B898-2AD2AA2B3D7B'
+ MEPROP Name 'InsSearchTypeState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AE8A02C03E7 // nsQuery
+ ;
+ UP extprop:rc:SelfName 'SearchTypeState'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AE8A0440254 InsSearchTypeState
+
+ME ME_4CF3BA7902C0
+ MEPROP UID '4CF3BA7902C0'
+ MEPROP Name 'GblAdapterDateToDateTime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8A02C03E7 // nsQuery
+ ;
+
+ENDME // ME_4CF3BA7902C0 GblAdapterDateToDateTime
+
+ME ME_4CFCD294024F
+ MEPROP UID '4CFCD294024F'
+ MEPROP Name 'CheckContext6x'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AE8A02C03E7 // nsQuery
+ ;
+
+ENDME // ME_4CFCD294024F CheckContext6x
+
+ME ME_4AE8A02C03E7
+ MEPROP UID '4AE8A02C03E7'
+ MEPROP Name 'nsQuery'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A85282C0252' '4A85282C0252.ms.model.script' // LiteSearch
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CF3BA7902C0 // GblAdapterDateToDateTime
+ HWL ME_4CFCD294024F // CheckContext6x
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AE8A0440254 // InsSearchTypeState
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP "ifndef" 'Admin'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\LiteSearch\NOT_FINISHED_nsQuery.pas'
+ UP extprop:rc:SelfName 'Query'
+
+ENDME // ME_4AE8A02C03E7 nsQuery

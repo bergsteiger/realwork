@@ -1,0 +1,294 @@
+// EverestLiteAdapter 512DBB5502E6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_512DBB5502E6
+
+FORWARD ME_512DBB8A00BE
+
+ME ME_512DBBA10359
+ MEPROP UID '512DBBA10359'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBB8A00BE // CreateNewDocument
+ ;
+
+ENDME // ME_512DBBA10359 DoIt
+
+ME ME_512DBF17038C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DBB8A00BE // CreateNewDocument
+ ;
+ MELINK Target WL 'ME_512DBDF8030B' '512DBDD903A5.ms.model.script' // TMainEditorForm
+ ;
+
+ENDME // ME_512DBF17038C 
+
+ME ME_512DBB8A00BE
+ MEPROP UID '512DBB8A00BE'
+ MEPROP Name 'CreateNewDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBB5502E6 // EverestLiteAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512DBBA10359 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_512DBF17038C // TMainEditorForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_512DBB8A00BE CreateNewDocument
+
+FORWARD ME_512DBBB003CE
+
+ME ME_512DC5430224
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_512DC5430224 aFileName
+
+ME ME_512DBBBA02A5
+ MEPROP UID '512DBBBA02A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBBB003CE // OpenDocument
+ ;
+ MELIST Parameters
+   Seq: ( ME_512DC5430224 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_512DBBBA02A5 DoIt
+
+ME ME_512DBFB60047
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DBBB003CE // OpenDocument
+ ;
+ MELINK Target WL 'ME_512DBDF8030B' '512DBDD903A5.ms.model.script' // TMainEditorForm
+ ;
+
+ENDME // ME_512DBFB60047 
+
+ME ME_512DBBB003CE
+ MEPROP UID '512DBBB003CE'
+ MEPROP Name 'OpenDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBB5502E6 // EverestLiteAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512DBBBA02A5 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_512DBFB60047 // TMainEditorForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_512DBBB003CE OpenDocument
+
+FORWARD ME_512DD17201EC
+
+ME ME_512DD180010A
+ MEPROP UID '512DD180010A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DD17201EC // CloseDocument
+ ;
+
+ENDME // ME_512DD180010A DoIt
+
+ME ME_512DD1B100CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD17201EC // CloseDocument
+ ;
+ MELINK Target WL 'ME_512DBDF8030B' '512DBDD903A5.ms.model.script' // TMainEditorForm
+ ;
+
+ENDME // ME_512DD1B100CC 
+
+ME ME_512DD17201EC
+ MEPROP UID '512DD17201EC'
+ MEPROP Name 'CloseDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBB5502E6 // EverestLiteAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512DD180010A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_512DD1B100CC // TMainEditorForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_512DD17201EC CloseDocument
+
+FORWARD ME_512DD27F0187
+
+ME ME_512DD29E01C3
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_512DD29E01C3 aFileName
+
+ME ME_512DD294006C
+ MEPROP UID '512DD294006C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DD27F0187 // SaveDocumentAs
+ ;
+ MELIST Parameters
+   Seq: ( ME_512DD29E01C3 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_512DD294006C DoIt
+
+ME ME_512DD2C9021A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_512DD27F0187 // SaveDocumentAs
+ ;
+ MELINK Target WL 'ME_512DBDF8030B' '512DBDD903A5.ms.model.script' // TMainEditorForm
+ ;
+
+ENDME // ME_512DD2C9021A 
+
+ME ME_512DD27F0187
+ MEPROP UID '512DD27F0187'
+ MEPROP Name 'SaveDocumentAs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBB5502E6 // EverestLiteAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512DD294006C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_512DD2C9021A // TMainEditorForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_512DD27F0187 SaveDocumentAs
+
+FORWARD ME_532171DE00C1
+
+ME ME_5321720E03DB
+ MEPROP UID '5321720E03DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532171DE00C1 // IsPreviewInProcess
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5321720E03DB DoIt
+
+ME ME_532172380213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_532171DE00C1 // IsPreviewInProcess
+ ;
+ MELINK Target WL 'ME_512DBDF8030B' '512DBDD903A5.ms.model.script' // TMainEditorForm
+ ;
+
+ENDME // ME_532172380213 
+
+ME ME_532171DE00C1
+ MEPROP UID '532171DE00C1'
+ MEPROP Name 'IsPreviewInProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512DBB5502E6 // EverestLiteAdapter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5321720E03DB // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_532172380213 // TMainEditorForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_532171DE00C1 IsPreviewInProcess
+
+ME ME_512DBB5502E6
+ MEPROP UID '512DBB5502E6'
+ MEPROP Name 'EverestLiteAdapter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_512DBB1F005F' '512DBB1F005F.ms.model.script' // EverestLiteTestUnit
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512DBB8A00BE // CreateNewDocument
+ HWL ME_512DBBB003CE // OpenDocument
+ HWL ME_512DD17201EC // CloseDocument
+ HWL ME_512DD27F0187 // SaveDocumentAs
+ HWL ME_532171DE00C1 // IsPreviewInProcess
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Everest\Lite\7.0\Express\EverestTestSupport\EverestLiteAdapter.pas'
+
+ENDME // ME_512DBB5502E6 EverestLiteAdapter

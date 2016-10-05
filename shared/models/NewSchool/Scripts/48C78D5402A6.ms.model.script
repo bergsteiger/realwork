@@ -1,0 +1,626 @@
+// StdCtrls 48C78D5402A6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+%%Inner ME_48C78D5402A6
+
+FORWARD ME_48C78D5402A6
+
+FORWARD ME_48C78D6601CC
+
+ME ME_48C78D7502DD
+ MEPROP UID '48C78D7502DD'
+ MEPROP Name 'ssNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C78D6601CC // TScrollStyle
+ ;
+
+ENDME // ME_48C78D7502DD ssNone
+
+ME ME_48C78D7B03BF
+ MEPROP UID '48C78D7B03BF'
+ MEPROP Name 'ssHorizontal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C78D6601CC // TScrollStyle
+ ;
+
+ENDME // ME_48C78D7B03BF ssHorizontal
+
+ME ME_48C78D8202A8
+ MEPROP UID '48C78D8202A8'
+ MEPROP Name 'ssVertical'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C78D6601CC // TScrollStyle
+ ;
+
+ENDME // ME_48C78D8202A8 ssVertical
+
+ME ME_48C78D8903CF
+ MEPROP UID '48C78D8903CF'
+ MEPROP Name 'ssBoth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C78D6601CC // TScrollStyle
+ ;
+
+ENDME // ME_48C78D8903CF ssBoth
+
+ME ME_48C78D6601CC
+ MEPROP UID '48C78D6601CC'
+ MEPROP Name 'TScrollStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Identifies a set of scrollbars by their orientation' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48C78D7502DD // ssNone
+ HWL ME_48C78D7B03BF // ssHorizontal
+ HWL ME_48C78D8202A8 // ssVertical
+ HWL ME_48C78D8903CF // ssBoth
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_48C78D6601CC TScrollStyle
+
+ME ME_4AE858B300E5
+ MEPROP UID '4AE858B300E5'
+ MEPROP Name 'TCheckBoxState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AE858B300E5 TCheckBoxState
+
+ME ME_4D5E5A3A0186
+ MEPROP UID '4D5E5A3A0186'
+ MEPROP Name 'TButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D5E5A3A0186 TButton
+
+ME ME_4DF7762A02B0
+ MEPROP UID '4DF7762A02B0'
+ MEPROP Name 'TScrollBar'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:SelfName 'ScrollBar'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DF7762A02B0 TScrollBar
+
+FORWARD ME_4F29268F035C
+
+FORWARD ME_4F2A44BC0297
+
+ME ME_4F2A861800C4
+ MEPROP UID '4F2A861800C4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A44BC0297 // AdjustBounds
+ ;
+
+ENDME // ME_4F2A861800C4 DoIt
+
+ME ME_4F2A44BC0297
+ MEPROP UID '4F2A44BC0297'
+ MEPROP Name 'AdjustBounds'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F29268F035C // TCustomLabel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A861800C4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2A44BC0297 AdjustBounds
+
+FORWARD ME_4F2A45C40091
+
+ME ME_4F2A85850321
+ MEPROP UID '4F2A85850321'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A45C40091 // GetLabelText
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F2A85850321 DoIt
+
+ME ME_4F2A45C40091
+ MEPROP UID '4F2A45C40091'
+ MEPROP Name 'GetLabelText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F29268F035C // TCustomLabel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A85850321 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'l3HackedVCL'
+
+ENDME // ME_4F2A45C40091 GetLabelText
+
+FORWARD ME_4F2A461702D8
+
+ME ME_4F2A85ED0267
+ MEPROP Name 'Rect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_4F2A85ED0267 Rect
+
+ME ME_4F2A85ED02AE
+ MEPROP Name 'Flags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2A85ED02AE Flags
+
+ME ME_4F2A85E80030
+ MEPROP UID '4F2A85E80030'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A461702D8 // DoDrawText
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2A85ED0267 // Rect
+ ME_4F2A85ED02AE // Flags
+ )
+ ; // Parameters
+
+ENDME // ME_4F2A85E80030 DoIt
+
+ME ME_4F2A461702D8
+ MEPROP UID '4F2A461702D8'
+ MEPROP Name 'DoDrawText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F29268F035C // TCustomLabel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A85E80030 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2A461702D8 DoDrawText
+
+%%InheritedBy ME_4F2A5AA1012C ME_4F29268F035C
+
+ME ME_4F29268F035C
+ MEPROP UID '4F29268F035C'
+ MEPROP Name 'TCustomLabel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F2A5AA1012C' '47E11FC3021E.ms.model.script' // TGraphicControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F2A44BC0297 // AdjustBounds
+ HWL ME_4F2A45C40091 // GetLabelText
+ HWL ME_4F2A461702D8 // DoDrawText
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Label'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F29268F035C TCustomLabel
+
+ME ME_4F69BC9C014A
+ MEPROP UID '4F69BC9C014A'
+ MEPROP Name 'TRadioButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP "register in scripts" true
+ UP extprop:rc:SelfName 'RadioButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F69BC9C014A TRadioButton
+
+ME ME_4F9161AE00F2
+ MEPROP UID '4F9161AE00F2'
+ MEPROP Name 'TCustomCheckBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:SelfName 'CheckBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F9161AE00F2 TCustomCheckBox
+
+%%InheritedBy ME_4F9161AE00F2 ME_4F91677002D7
+
+ME ME_4F91677002D7
+ MEPROP UID '4F91677002D7'
+ MEPROP Name 'TCheckBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F9161AE00F2 // TCustomCheckBox
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'CheckBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F91677002D7 TCheckBox
+
+ME ME_502211F903A8
+ MEPROP UID '502211F903A8'
+ MEPROP Name 'TScrollCode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_502211F903A8 TScrollCode
+
+FORWARD ME_50220F69008D
+
+ME ME_50220F94025A
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_50220F94025A Sender
+
+ME ME_50220F9402AF
+ MEPROP Name 'ScrollCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_502211F903A8 // TScrollCode
+ ;
+
+ENDME // ME_50220F9402AF ScrollCode
+
+ME ME_50220F940318
+ MEPROP Name 'ScrollPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50220F940318 ScrollPos
+
+ME ME_50220F870025
+ MEPROP UID '50220F870025'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50220F69008D // TScrollEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_50220F94025A // Sender
+ ME_50220F9402AF // ScrollCode
+ ME_50220F940318 // ScrollPos
+ )
+ ; // Parameters
+
+ENDME // ME_50220F870025 DoIt
+
+ME ME_50220F69008D
+ MEPROP UID '50220F69008D'
+ MEPROP Name 'TScrollEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50220F870025 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_50220F69008D TScrollEvent
+
+ME ME_5049DA5F0069
+ MEPROP UID '5049DA5F0069'
+ MEPROP Name 'TCustomCombo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:SelfName 'Combo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5049DA5F0069 TCustomCombo
+
+%%InheritedBy ME_5049DA5F0069 ME_5049DA2A035D
+
+ME ME_5049DA2A035D
+ MEPROP UID '5049DA2A035D'
+ MEPROP Name 'TCustomComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5049DA5F0069 // TCustomCombo
+ )
+ ; // Inherits
+ UP "register in scripts" false
+ UP extprop:rc:SelfName 'ComboBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5049DA2A035D TCustomComboBox
+
+%%InheritedBy ME_5049DA2A035D ME_5049CD720050
+
+ME ME_5049CD720050
+ MEPROP UID '5049CD720050'
+ MEPROP Name 'TComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5049DA2A035D // TCustomComboBox
+ )
+ ; // Inherits
+ UP "register in scripts" false
+ UP extprop:rc:SelfName 'ComboBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5049CD720050 TComboBox
+
+FORWARD ME_52A9AE070267
+
+FORWARD ME_554CAA8400E5
+
+ME ME_3BA8D050EEF2
+ MEPROP UID '3BA8D050EEF2'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода Change' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_554CAA8400E5 // Change
+ ;
+
+ENDME // ME_3BA8D050EEF2 DoIt
+
+ME ME_554CAA8400E5
+ MEPROP UID '554CAA8400E5'
+ MEPROP Name 'Change'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9AE070267 // TCustomEdit
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_3BA8D050EEF2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_554CAA8400E5 Change
+
+%%InheritedBy ME_47E124E90272 ME_52A9AE070267
+
+ME ME_52A9AE070267
+ MEPROP UID '52A9AE070267'
+ MEPROP Name 'TCustomEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_554CAA8400E5 // Change
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Edit'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A9AE070267 TCustomEdit
+
+ME ME_52148BC6031D
+ MEPROP UID '52148BC6031D'
+ MEPROP Name 'TComboBoxStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52148BC6031D TComboBoxStyle
+
+ME ME_522F5DBC01E5
+ MEPROP UID '522F5DBC01E5'
+ MEPROP Name 'TListBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ UP extprop:rc:SelfName 'ListBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_522F5DBC01E5 TListBox
+
+%%InheritedBy ME_52A9AE070267 ME_517C0FF50380
+
+ME ME_517C0FF50380
+ MEPROP UID '517C0FF50380'
+ MEPROP Name 'TEdit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C78D5402A6 // StdCtrls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A9AE070267 // TCustomEdit
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Edit'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_517C0FF50380 TEdit
+
+ME ME_48C78D5402A6
+ MEPROP UID '48C78D5402A6'
+ MEPROP Name 'StdCtrls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48C78D6601CC // TScrollStyle
+ HWL ME_4AE858B300E5 // TCheckBoxState
+ HWL ME_4D5E5A3A0186 // TButton
+ HWL ME_4DF7762A02B0 // TScrollBar
+ HWL ME_4F29268F035C // TCustomLabel
+ HWL ME_4F69BC9C014A // TRadioButton
+ HWL ME_4F9161AE00F2 // TCustomCheckBox
+ HWL ME_4F91677002D7 // TCheckBox
+ HWL ME_502211F903A8 // TScrollCode
+ HWL ME_50220F69008D // TScrollEvent
+ HWL ME_5049DA5F0069 // TCustomCombo
+ HWL ME_5049DA2A035D // TCustomComboBox
+ HWL ME_5049CD720050 // TComboBox
+ HWL ME_52A9AE070267 // TCustomEdit
+ HWL ME_52148BC6031D // TComboBoxStyle
+ HWL ME_522F5DBC01E5 // TListBox
+ HWL ME_517C0FF50380 // TEdit
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\StdCtrls.pas'
+
+ENDME // ME_48C78D5402A6 StdCtrls

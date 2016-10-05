@@ -1,0 +1,302 @@
+// evFacadeCursor 48EEE8A503AB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48EEE8A503AB
+
+ME ME_48EEED1A02A4
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_48EEED1A02A4 anEditor
+
+ME ME_48EEED050239
+ MEPROP UID '48EEED050239'
+ MEPROP Name 'evGetMostInnerPos'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает позицию самого внутреннего курсора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEED1A02A4 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEED050239 evGetMostInnerPos
+
+ME ME_48EEED370264
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_48EEED370264 anEditor
+
+ME ME_48EEED27002F
+ MEPROP UID '48EEED27002F'
+ MEPROP Name 'evGetMostInnerEntryPos'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает позицию самого внутреннего курсора или начала выделения' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEED370264 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEED27002F evGetMostInnerEntryPos
+
+ME ME_48EEED630064
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_48EEED630064 anEditor
+
+ME ME_48EEED52016E
+ MEPROP UID '48EEED52016E'
+ MEPROP Name 'evCursorInSel'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверка находится ли курсор в выделении' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEED630064 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEED52016E evCursorInSel
+
+ME ME_48EEED86004B
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_48EEED86004B anEditor
+
+ME ME_48EEED730106
+ MEPROP UID '48EEED730106'
+ MEPROP Name 'evMostInnerCursor'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает курсор самого нижнего уровня' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_48EEEC1502AA' '48EEE9330072.ms.model.script' // TnevBaseCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEED86004B // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEED730106 evMostInnerCursor
+
+ME ME_48EEEDB2032F
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_48EEEDB2032F anEditor
+
+ME ME_48EEEDA301B2
+ MEPROP UID '48EEEDA301B2'
+ MEPROP Name 'evCloneCursor'
+ MEPROP Class class_Operation
+ %SUMMARY 'Клонировать курсор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_48EEEC030354' '48EEE9330072.ms.model.script' // TnevCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEEDB2032F // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEEDA301B2 evCloneCursor
+
+ME ME_48EEEDC5035F
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_48EEEC030354' '48EEE9330072.ms.model.script' // TnevCursor
+ ;
+
+ENDME // ME_48EEEDC5035F aCursor
+
+ME ME_48EEEDBC02F0
+ MEPROP UID '48EEEDBC02F0'
+ MEPROP Name 'evFreeCursor'
+ MEPROP Class class_Operation
+ %SUMMARY 'Освобождает объект/интерфейс курсора' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEEDC5035F // aCursor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEEDBC02F0 evFreeCursor
+
+ME ME_48EEEDDC03B6
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_48EEEDDC03B6 anEditor
+
+ME ME_48EEEDDD000D
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_48EEEC030354' '48EEE9330072.ms.model.script' // TnevCursor
+ ;
+
+ENDME // ME_48EEEDDD000D aCursor
+
+ME ME_48EEEDD200CA
+ MEPROP UID '48EEEDD200CA'
+ MEPROP Name 'evSelectPoint'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEEDDC03B6 // anEditor
+ ME_48EEEDDD000D // aCursor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEEDD200CA evSelectPoint
+
+ME ME_48EEEDF9028E
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_48EEEDF9028E anEditor
+
+ME ME_48EEEDF902BD
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_48EEEC1502AA' '48EEE9330072.ms.model.script' // TnevBaseCursor
+ ;
+
+ENDME // ME_48EEEDF902BD aCursor
+
+ME ME_48EEEDE302E0
+ MEPROP UID '48EEEDE302E0'
+ MEPROP Name 'evGetChildCursor'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает дочерний курсор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_48EEEC1502AA' '48EEE9330072.ms.model.script' // TnevBaseCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_48EEEDF9028E // anEditor
+ ME_48EEEDF902BD // aCursor
+ )
+ ; // Parameters
+
+ENDME // ME_48EEEDE302E0 evGetChildCursor
+
+ME ME_48EEEF100271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_48EEEF100271 
+
+ME ME_48EEEF140289
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_48EEEF140289 
+
+ME ME_48F2F29F01D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48EEE8A503AB // evFacadeCursor
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_48F2F29F01D6 
+
+ME ME_48EEE8A503AB
+ MEPROP UID '48EEE8A503AB'
+ MEPROP Name 'evFacadeCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48EEE7AE0313' '48EEE7AE0313.ms.model.script' // evFacade
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48EEED050239 // evGetMostInnerPos
+ HWL ME_48EEED27002F // evGetMostInnerEntryPos
+ HWL ME_48EEED52016E // evCursorInSel
+ HWL ME_48EEED730106 // evMostInnerCursor
+ HWL ME_48EEEDA301B2 // evCloneCursor
+ HWL ME_48EEEDBC02F0 // evFreeCursor
+ HWL ME_48EEEDD200CA // evSelectPoint
+ HWL ME_48EEEDE302E0 // evGetChildCursor
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48EEEF100271 // TevCustomEditorWindow
+ ME_48EEEF140289 // TevCustomEditor
+ ME_48F2F29F01D6 // InevSelection
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\EverestCommon\evFacadeCursor.pas'
+ UP extprop:rc:SelfName 'FacadeCursor'
+
+ENDME // ME_48EEE8A503AB evFacadeCursor

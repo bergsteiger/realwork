@@ -40,9 +40,17 @@ uses
  , l3Core
  , l3Except
  , Classes
+ , l3StringIDEx
 ;
 
 const
+ {* Локализуемые строки Main menu settings }
+ str_pui_MainMenuKind: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'pui_MainMenuKind'; rValue : 'Вид Основного меню');
+  {* 'Вид Основного меню' }
+ str_li_mmkProfNews: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'li_mmkProfNews'; rValue : 'С профессиональными новостями (необходим постоянный доступ в Интернет)');
+  {* 'С профессиональными новостями (необходим постоянный доступ в Интернет)' }
+ str_li_mmkDefault: Tl3StringIDEx = (rS : -1; rLocalized : false; rKey : 'li_mmkDefault'; rValue : 'Стандартный вид');
+  {* 'Стандартный вид' }
  c_mmTreeColor = clWhite;
  c_mmSecondItemColor = $00F2F2F2;
 
@@ -579,6 +587,14 @@ begin
  f_QueryType := aQueryType;
 //#UC END# *559BC7CA015F_559BC4A30149_impl*
 end;//TnsQueryHistory.Create
+
+initialization
+ str_pui_MainMenuKind.Init;
+ {* Инициализация str_pui_MainMenuKind }
+ str_li_mmkProfNews.Init;
+ {* Инициализация str_li_mmkProfNews }
+ str_li_mmkDefault.Init;
+ {* Инициализация str_li_mmkDefault }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
 end.

@@ -2,70 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4CDD1854020C
-
-FORWARD ME_4CDD778501AA
-
-FORWARD ME_4CDD77A700E6
-
-ME ME_4CDD77BC007F
- MEPROP UID '4CDD77BC007F'
- MEPROP Name 'HyperlinkToDocumentProducerAppInfo'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4CDD77A700E6 // Local
- ;
- MEPROP Value ''', (ссылка на систему ГАРАНТ)'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value ''', (ссылка на систему ГАРАНТ)'''
-
-ENDME // ME_4CDD77BC007F HyperlinkToDocumentProducerAppInfo
-
-ME ME_4CDD77A700E6
- MEPROP UID '4CDD77A700E6'
- MEPROP Name 'Local'
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CDD778501AA // nsHyperlinkToDocumentProducerConst
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4CDD77BC007F // HyperlinkToDocumentProducerAppInfo
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "spell names" false
-
-ENDME // ME_4CDD77A700E6 Local
-
-ME ME_4CDD778501AA
- MEPROP UID '4CDD778501AA'
- MEPROP Name 'nsHyperlinkToDocumentProducerConst'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CDD1854020C // Forms
- ;
- MELIST Constants
-   Seq: ( HWL ME_4CDD77A700E6 // Local
- )
- ; // Constants
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '12.11.2010 20:21'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\LinksToGarant\nsHyperlinkToDocumentProducerConst.pas'
- UP extprop:rc:SelfName 'HyperlinkToDocumentProducerConst'
-
-ENDME // ME_4CDD778501AA nsHyperlinkToDocumentProducerConst
+%%Inner ME_4CDD1854020C
+%%Inner ME_4CDD1854020C
 
 ME ME_4CDD1854020C
  MEPROP UID '4CDD1854020C'
@@ -79,7 +17,7 @@ ME ME_4CDD1854020C
  ;
  MELIST Children
    Seq: ( WL 'ME_4CDD18E80034' '4CDD18E80034.ms.model.script' // HyperlinkToDocumentProducer
- HWL ME_4CDD778501AA // nsHyperlinkToDocumentProducerConst
+ WL 'ME_4CDD778501AA' '4CDD778501AA.ms.model.script' // nsHyperlinkToDocumentProducerConst
  )
  ; // Children
  MELIST Depends
@@ -95,5 +33,8 @@ ME ME_4CDD1854020C
  WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4CDD1854020C Forms

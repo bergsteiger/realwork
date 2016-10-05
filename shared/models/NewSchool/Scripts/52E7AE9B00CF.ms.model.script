@@ -2,43 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_52E7AE9B00CF
-
-FORWARD ME_52E7AEC802A6
-
-ME ME_52E7AEE4036B
- MEPROP UID '52E7AEE4036B'
- MEPROP Name 'l3Calc'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52E7AEC802A6 // l3SimpleCalc
- ;
- UP extprop:rc:SelfName 'Calc'
-
-ENDME // ME_52E7AEE4036B l3Calc
-
-ME ME_52E7AEC802A6
- MEPROP UID '52E7AEC802A6'
- MEPROP Name 'l3SimpleCalc'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52E7AE9B00CF // ext
- ;
- MELIST Operations
-   Seq: ( HWL ME_52E7AEE4036B // l3Calc
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\L3\ext\NOT_FINISHED_l3SimpleCalc.pas'
- UP extprop:rc:SelfName 'SimpleCalc'
-
-ENDME // ME_52E7AEC802A6 l3SimpleCalc
+%%Inner ME_52E7AE9B00CF
 
 ME ME_52E7AE9B00CF
  MEPROP UID '52E7AE9B00CF'
@@ -51,9 +15,12 @@ ME ME_52E7AE9B00CF
  MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
  ;
  MELIST Children
-   Seq: ( HWL ME_52E7AEC802A6 // l3SimpleCalc
+   Seq: ( WL 'ME_52E7AEC802A6' '52E7AEC802A6.ms.model.script' // l3SimpleCalc
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "path prefix" '/ext'
  UP intf.pas:PathOnly '\common\components\rtl\Garant\L3\ext'
 

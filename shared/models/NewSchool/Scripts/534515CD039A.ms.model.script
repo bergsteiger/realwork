@@ -1,0 +1,89 @@
+// l3VariantListPrim 534515CD039A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_534515CD039A
+
+ME ME_534515FA0363
+ MEPROP UID '534515FA0363'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_534515CD039A // l3VariantListPrim
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_534515FA0363 ItemType
+
+ME ME_534516250014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_534515CD039A // l3VariantListPrim
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_534516250014 
+
+ME ME_47B07CF403D0_ME_534515CD039A
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_534515CD039A IsSameItems
+
+ME ME_47B935AF0066_ME_534515CD039A
+ MELINK Original WL 'ME_47B935AF0066' '47B45152003F.ms.model.script' // FillItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B935AF0066_ME_534515CD039A FillItem
+
+ME ME_47B94A5C006E_ME_534515CD039A
+ MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B94A5C006E_ME_534515CD039A FreeItem
+
+%%InheritedBy ME_47B5786C033A ME_534515CD039A
+
+ME ME_534515CD039A
+ MEPROP UID '534515CD039A'
+ MEPROP Name 'l3VariantListPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5345157C01ED' '5345157C01ED.ms.model.script' // l3VariantsContainers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B5786C033A' '47B5786C033A.ms.model.script' // l3RefList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_534515FA0363 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_534515CD039A // IsSameItems
+ ME_47B935AF0066_ME_534515CD039A // FillItem
+ ME_47B94A5C006E_ME_534515CD039A // FreeItem
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_534516250014 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3VariantListPrim.imp.pas'
+ UP extprop:pas:TypeName '_l3VariantListPrim_'
+ UP extprop:pas:UnitName 'l3VariantListPrim.imp'
+
+ENDME // ME_534515CD039A l3VariantListPrim

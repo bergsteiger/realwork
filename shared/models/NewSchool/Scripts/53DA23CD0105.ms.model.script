@@ -1,0 +1,46 @@
+// ScriptsCompilingAndProcessingPack 53DA23CD0105 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53DA23CD0105
+
+ME ME_53DA24B80027
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ ;
+ MELINK Target WL 'ME_53DA248C0014' '53DA23750089.ms.model.script' // script_CompileAndProcess
+ ;
+
+ENDME // ME_53DA24B80027 
+
+ME ME_56420D3E03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53DA23CD0105 // ScriptsCompilingAndProcessingPack
+ ;
+ MELINK Target WL 'ME_56420D340374' '53DA23750089.ms.model.script' // script_CompileStringAndProcess
+ ;
+
+ENDME // ME_56420D3E03A0 
+
+ME ME_53DA23CD0105
+ MEPROP UID '53DA23CD0105'
+ MEPROP Name 'ScriptsCompilingAndProcessingPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53DA23750089' '53DA23750089.ms.model.script' // ScriptsCompilingAndProcessing
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53DA24B80027 // script_CompileAndProcess
+ ME_56420D3E03A0 // script_CompileStringAndProcess
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScriptsCompilingAndProcessingPack.pas'
+
+ENDME // ME_53DA23CD0105 ScriptsCompilingAndProcessingPack

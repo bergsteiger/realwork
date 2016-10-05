@@ -1,0 +1,57 @@
+// tfwWordBoxPack 567A8EB00176 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_567A8EB00176
+
+ME ME_567A8EC50138
+ MEPROP UID '567A8EC50138'
+ MEPROP Name 'Boxed'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_567A8EB00176 // tfwWordBoxPack
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_567A8EC50138 Boxed
+
+ME ME_567A8D840243_ME_567A8EB00176
+ MELINK Original WL 'ME_567A8D840243' '550C25D70182.ms.model.script' // Boxed
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_567A8D840243_ME_567A8EB00176 Boxed
+
+%%InheritedBy ME_567A8D710267 ME_567A8EB00176
+
+ME ME_567A8EB00176
+ MEPROP UID '567A8EB00176'
+ MEPROP Name 'tfwWordBoxPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F37B7E60283' '4F37B7E60283.ms.model.script' // Words RTTI
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_567A8D710267' '550C25D70182.ms.model.script' // ItfwWordBox
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_567A8EC50138 // Boxed
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_567A8D840243_ME_567A8EB00176 // Boxed
+ )
+ ; // Implemented
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwWordBoxPack.pas'
+ UP extprop:rc:SelfName 'WordBoxPack'
+
+ENDME // ME_567A8EB00176 tfwWordBoxPack

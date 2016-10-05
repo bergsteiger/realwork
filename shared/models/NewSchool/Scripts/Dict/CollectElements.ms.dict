@@ -49,7 +49,7 @@ USES
   IN aDictName
   ^ IN aWordLambda
  VAR l_Dict
- aDictName DictionaryByName >>> l_Dict
+ aDictName .DictionaryByName >>> l_Dict
  
  VAR l_DictFileName
  l_Dict pop:DictionaryEx:FileName sysutils:ExtractFileName >>> l_DictFileName
@@ -94,7 +94,7 @@ ARRAY FUNCTION .CollectInDictionary:
    begin
     @ ( 
       IN aDict
-     Log: aDict 
+     //Log: aDict 
      aDict aDictionaryLambda DO
     )
     '*.ms.model.script' 
@@ -109,11 +109,17 @@ ARRAY FUNCTION .CollectInDictionary:
 ; // ProcessAllDictionaries:
 
 ARRAY FUNCTION CollectInAllDictionaries:
+  ^ IN aDictionaryLambda
   ^ IN aCollectionLambda
  [ 
   ProcessAllDictionaries: (
-    IN aDict
-   aDict .CollectInDictionary: ( aCollectionLambda DO ) 
+    STRING IN aDict
+   if ( aDict aDictionaryLambda DO ) then
+   begin
+    aDict .CollectInDictionary: ( 
+     aCollectionLambda DO 
+    ) // aDict .CollectInDictionary:
+   end // ( aDict aDictionaryLambda DO )
   ) // ProcessAllDictionaries:
  ] >>> Result
 ; // CollectInAllDictionaries:
@@ -171,7 +177,7 @@ USES
  Out.ms.dict
 ;
 
-PROCEDURE OutCollected
+PROCEDURE .OutCollected
   ARRAY IN aCollected
   STRING IN anExt
   STRING IN aFuncSuffix
@@ -179,7 +185,7 @@ PROCEDURE OutCollected
  .map> pop:WordBox:Boxed
  .for> (
    IN aRec
-  aRec -> Target .UID anExt Cat .ProcessOut: (
+  aRec -> Target .UID anExt Cat .ProcessTmpOut: (
    [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
    OutLn
    [ ': ME_' aRec -> Target .UID aFuncSuffix ' // ' aRec -> Target .Name ] .Out
@@ -203,6 +209,6 @@ PROCEDURE OutCollected
     ') // Seq:' .Out
    ) // Indented:
    ';' .Out
-  ) // aRec -> Target .UID anExt Cat .ProcessOut:
+  ) // aRec -> Target .UID anExt Cat .ProcessTmpOut:
  ) // .for>
-; // OutCollected
+; // .OutCollected

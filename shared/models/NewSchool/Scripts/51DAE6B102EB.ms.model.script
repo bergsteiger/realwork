@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_51DAE6B102EB
+
 FORWARD ME_51DAE6B102EB
 
 FORWARD ME_51DAE6E20300
@@ -24,7 +26,7 @@ ME ME_51DAE6ED0180
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_51DAE6E20300 // MemorySizeTest
  ;
- MELINK Target WL 'ME_51DAD8180236' '51DAD7EA02D0.ms.model.script' // l3MemorySizeUtils
+ MELINK Target WL 'ME_51DAD8180236' '51DAD8180236.ms.model.script' // l3MemorySizeUtils
  ;
 
 ENDME // ME_51DAE6ED0180 
@@ -34,10 +36,12 @@ ME ME_51DAEAC80178
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_51DAE6E20300 // MemorySizeTest
  ;
- MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
  ;
 
 ENDME // ME_51DAEAC80178 
+
+%%InheritedBy ME_4B2A0DDE028B ME_51DAE6E20300
 
 ME ME_51DAE6E20300
  MEPROP UID '51DAE6E20300'
@@ -50,7 +54,7 @@ ME ME_51DAE6E20300
  MELINK Parent HWL ME_51DAE6B102EB // Memory
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.ms.model.script' // TTestCase
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
  )
  ; // Inherits
  MELIST Operations
@@ -62,6 +66,9 @@ ME ME_51DAE6E20300
  ME_51DAEAC80178 // Format
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\SandBox\MemorySizeTest.pas'
  UP extprop:pas:TypeName 'TMemorySizeTest'
  UP extprop:rc:SelfName 'MemorySizeTest'
@@ -89,6 +96,9 @@ ME ME_51DAE6B102EB
  WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.ms.model.script' // MemoryUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP Version 0
 
 ENDME // ME_51DAE6B102EB Memory

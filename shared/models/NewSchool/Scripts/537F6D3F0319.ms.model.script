@@ -1,0 +1,71 @@
+// Dt_containers 537F6D3F0319 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_537F6D3F0319
+
+FORWARD ME_537F6D3F0319
+
+FORWARD ME_537F6D5E0136
+
+ME ME_537F6F740241
+ MEPROP UID '537F6F740241'
+ MEPROP Name 'f_Ranges'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F6D5E0136 // TNumSet
+ ;
+ MELINK Target WL 'ME_537F6EED0090' '537F6D320018.ms.model.script' // TdtNumRangeList
+ ;
+
+ENDME // ME_537F6F740241 f_Ranges
+
+%%InheritedBy ME_49E7754802A9 ME_537F6D5E0136
+
+ME ME_537F6D5E0136
+ MEPROP UID '537F6D5E0136'
+ MEPROP Name 'TNumSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537F6D3F0319 // Dt_containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_537F6F740241 // f_Ranges
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'NumSet'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_537F6D5E0136 TNumSet
+
+ME ME_537F6D3F0319
+ MEPROP UID '537F6D3F0319'
+ MEPROP Name 'Dt_containers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_537F6D320018' '537F6D320018.ms.model.script' // Containers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_537F6D5E0136 // TNumSet
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_Dt_containers.pas'
+
+ENDME // ME_537F6D3F0319 Dt_containers

@@ -1,0 +1,57 @@
+// SupportKeyWords 509A5D0D0141 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_509A5D0D0141
+
+ME ME_509A5D18026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
+ ;
+ MELINK Target WL 'ME_509A5CCB022A' '509A5CB50110.ms.model.script' // LoadFromFile
+ ;
+
+ENDME // ME_509A5D18026B 
+
+ME ME_509B8C6B00EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
+ ;
+ MELINK Target WL 'ME_509B8C5A0200' '509A5CB50110.ms.model.script' // SetFontSize
+ ;
+
+ENDME // ME_509B8C6B00EE 
+
+ME ME_509B9A9F02E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
+ ;
+ MELINK Target WL 'ME_509B9A8A0270' '509A5CB50110.ms.model.script' // GetFontSize
+ ;
+
+ENDME // ME_509B9A9F02E3 
+
+ME ME_509A5D0D0141
+ MEPROP UID '509A5D0D0141'
+ MEPROP Name 'SupportKeyWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_509A5CB50110' '509A5CB50110.ms.model.script' // SupportWords
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509A5D18026B // LoadFromFile
+ ME_509B8C6B00EE // SetFontSize
+ ME_509B9A9F02E3 // GetFontSize
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\SupportKeyWords.pas'
+
+ENDME // ME_509A5D0D0141 SupportKeyWords

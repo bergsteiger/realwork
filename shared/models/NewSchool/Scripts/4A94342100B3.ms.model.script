@@ -1,0 +1,75 @@
+// JournalObjectTypeTranslator 4A94342100B3 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A94342100B3
+
+ME ME_4A9434790292
+ MEPROP Name 'adapter_type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
+ ;
+
+ENDME // ME_4A9434790292 adapter_type
+
+ME ME_4A9434510206
+ MEPROP UID '4A9434510206'
+ MEPROP Name 'translate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A9434790292 // adapter_type
+ )
+ ; // Parameters
+
+ENDME // ME_4A9434510206 translate
+
+ME ME_4A9434A30323
+ MEPROP Name 'server_type'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4A9434A30323 server_type
+
+ME ME_4A94348F01E6
+ MEPROP UID '4A94348F01E6'
+ MEPROP Name 'translate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
+ ;
+ MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A9434A30323 // server_type
+ )
+ ; // Parameters
+
+ENDME // ME_4A94348F01E6 translate
+
+ME ME_4A94342100B3
+ MEPROP UID '4A94342100B3'
+ MEPROP Name 'JournalObjectTypeTranslator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A92A27E01FD' '4A92A27E01FD.ms.model.script' // UserJournal_i
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A9434510206 // translate
+ HWL ME_4A94348F01E6 // translate
+ )
+ ; // Operations
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalObjectTypeTranslator.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalObjectTypeTranslator.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalObjectTypeTranslator.pas'
+
+ENDME // ME_4A94342100B3 JournalObjectTypeTranslator

@@ -1,0 +1,63 @@
+// TTreeNodeForTestsWordsPack 55C9F3800372 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C9F3800372
+
+ME ME_55C9F3B6011B
+ MEPROP UID '55C9F3B6011B'
+ MEPROP Name 'IsNodeFolder'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C9F3800372 // TTreeNodeForTestsWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55C9F3B6011B IsNodeFolder
+
+ME ME_55C9F97C0252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55C9F3800372 // TTreeNodeForTestsWordsPack
+ ;
+ MELINK Target WL 'ME_5136F4820266' '5136F46C0163.ms.model.script' // IsNodeFolder
+ ;
+
+ENDME // ME_55C9F97C0252 
+
+%%ImplementedBy ME_512F3FCB02F3 ME_55C9F3800372
+
+ME ME_55C9F3800372
+ MEPROP UID '55C9F3800372'
+ MEPROP Name 'TTreeNodeForTestsWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51304A0E0192' '51304A0E0192.ms.model.script' // DUnit Keywords
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_512F3FCB02F3' '4AC62798032A.ms.model.script' // TTreeNode
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55C9F3B6011B // IsNodeFolder
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C9F97C0252 // IsNodeFolder
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\TTreeNodeForTestsWordsPack.pas'
+
+ENDME // ME_55C9F3800372 TTreeNodeForTestsWordsPack

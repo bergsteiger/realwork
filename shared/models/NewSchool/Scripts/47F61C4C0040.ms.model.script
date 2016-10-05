@@ -1,0 +1,126 @@
+// nsDocumentTools 47F61C4C0040 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F61C4C0040
+
+ME ME_4ADF1473035D
+ MEPROP UID '4ADF1473035D'
+ MEPROP Name 'nsGetDocumentShortName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F61C4C0040 // nsDocumentTools
+ ;
+ UP extprop:rc:SelfName 'GetDocumentShortName'
+
+ENDME // ME_4ADF1473035D nsGetDocumentShortName
+
+ME ME_4AE1B27300BA
+ MEPROP UID '4AE1B27300BA'
+ MEPROP Name 'CreateFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F61C4C0040 // nsDocumentTools
+ ;
+
+ENDME // ME_4AE1B27300BA CreateFileName
+
+ME ME_4AE85B500231
+ MEPROP UID '4AE85B500231'
+ MEPROP Name 'nsGetBookmarkName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F61C4C0040 // nsDocumentTools
+ ;
+ UP extprop:rc:SelfName 'GetBookmarkName'
+
+ENDME // ME_4AE85B500231 nsGetBookmarkName
+
+ME ME_4C80D59101F1
+ MEPROP UID '4C80D59101F1'
+ MEPROP Name 'nsGetDocumentWarning'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F61C4C0040 // nsDocumentTools
+ ;
+ UP extprop:rc:SelfName 'GetDocumentWarning'
+
+ENDME // ME_4C80D59101F1 nsGetDocumentWarning
+
+ME ME_47F61D6301A7
+ MEPROP UID '47F61D6301A7'
+ MEPROP Name 'DocumentSaveAs'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить документ.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F61C4C0040 // nsDocumentTools
+ ;
+
+ENDME // ME_47F61D6301A7 DocumentSaveAs
+
+ME ME_54DC57030386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F61C4C0040 // nsDocumentTools
+ ;
+ MELINK Target WL 'ME_47F22D5701A7' '491DCA2C00A9.ms.model.script' // TnsDocumentPreview
+ ;
+
+ENDME // ME_54DC57030386 
+
+ME ME_54DC57210395
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F61C4C0040 // nsDocumentTools
+ ;
+ MELINK Target WL 'ME_54DC54FD024B' '491DCA2C00A9.ms.model.script' // TnsDocumentPreviewWithoutBlockNames
+ ;
+
+ENDME // ME_54DC57210395 
+
+ME ME_47F61C4C0040
+ MEPROP UID '47F61C4C0040'
+ MEPROP Name 'nsDocumentTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилиты для работы с документом.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F260DC003F' '47F260DC003F.ms.model.script' // ns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ADF1473035D // nsGetDocumentShortName
+ HWL ME_4AE1B27300BA // CreateFileName
+ HWL ME_4AE85B500231 // nsGetBookmarkName
+ HWL ME_4C80D59101F1 // nsGetDocumentWarning
+ HWL ME_47F61D6301A7 // DocumentSaveAs
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54DC57030386 // TnsDocumentPreview
+ ME_54DC57210395 // TnsDocumentPreviewWithoutBlockNames
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Common\NOT_FINISHED_nsDocumentTools.pas'
+ UP extprop:rc:SelfName 'DocumentTools'
+
+ENDME // ME_47F61C4C0040 nsDocumentTools

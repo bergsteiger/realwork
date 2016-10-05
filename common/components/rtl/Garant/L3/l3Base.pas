@@ -5,9 +5,12 @@ unit l3Base;
 { Автор: Люлин А.В. ©                 }
 { Модуль: l3Base -                    }
 { Начат: 12.04.1998 16:28             }
-{ $Id: l3Base.pas,v 1.595 2016/09/21 12:42:25 lulin Exp $ }
+{ $Id: l3Base.pas,v 1.596 2016/09/28 09:18:07 dinishev Exp $ }
 
 // $Log: l3Base.pas,v $
+// Revision 1.596  2016/09/28 09:18:07  dinishev
+// Выводим сообщения об утечках памяти для тестового Архивариуса в лог.
+//
 // Revision 1.595  2016/09/21 12:42:25  lulin
 // - подтачиваем.
 //
@@ -6405,7 +6408,14 @@ begin
  errSt := CheckResources;
  if (errSt <> EmptyStr) then
  begin
-  if True {$IfNDef nsTest} and FShowObjectsWindow {$EndIf} then
+  {$IF Defined(InsiderTest) and Defined(Archi)}
+   FShowObjectsWindow := False;
+  {$ELSE}
+  {$IfDef nsTest}
+   FShowObjectsWindow := True;
+  {$EndIf}
+  {$IfEnd}
+  if FShowObjectsWindow then
   begin
    {$IfDef l3TraceClasses}
    if (Screen = nil) then

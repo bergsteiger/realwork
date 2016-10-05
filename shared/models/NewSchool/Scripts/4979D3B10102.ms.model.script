@@ -2,47 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4979D3B10102
-
-FORWARD ME_50055BD201E1
-
-ME ME_50055BE8028C
- MEPROP UID '50055BE8028C'
- MEPROP Name 'TnsDictRes'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_50055BD201E1 // DictionRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
- )
- ; // Inherits
- UP extprop:rc:SelfName 'DictRes'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_50055BE8028C TnsDictRes
-
-ME ME_50055BD201E1
- MEPROP UID '50055BD201E1'
- MEPROP Name 'DictionRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4979D3B10102 // Diction
- ;
- MELIST Children
-   Seq: ( HWL ME_50055BE8028C // TnsDictRes
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Diction\NOT_FINISHED_DictionRes.pas'
-
-ENDME // ME_50055BD201E1 DictionRes
+%%Inner ME_4979D3B10102
+%%Inner ME_4979D3B10102
+%%Inner ME_4979D3B10102
+%%Inner ME_4979D3B10102
+%%Inner ME_4979D3B10102
+%%Inner ME_4979D3B10102
+%%Inner ME_4979D3B10102
 
 ME ME_4979D3B10102
  MEPROP UID '4979D3B10102'
@@ -62,7 +28,7 @@ ME ME_4979D3B10102
  WL 'ME_497ED770029D' '497ED770029D.ms.model.script' // PrimCommonDiction
  WL 'ME_4C87A1DF00B4' '4C87A1DF00B4.ms.model.script' // PrimCommonDictionOptions
  WL 'ME_4A9CE5F2036F' '4A9CE5F2036F.ms.model.script' // Diction$FP
- HWL ME_50055BD201E1 // DictionRes
+ WL 'ME_50055BD201E1' '50055BD201E1.ms.model.script' // DictionRes
  )
  ; // Children
  MELIST Depends
@@ -125,6 +91,9 @@ ME ME_4979D3B10102
  WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Diction'
 
 ENDME // ME_4979D3B10102 Diction

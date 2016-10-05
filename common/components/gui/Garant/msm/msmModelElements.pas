@@ -16,6 +16,7 @@ uses
  , tfwScriptingInterfaces
  {$IfEnd} // NOT Defined(NoScripts)
  , msmUsualData
+ , msmModelElementMethodCaller
 ;
 
 type
@@ -34,8 +35,7 @@ type
  ImsmModelElement = interface(ImsmBaseModelElement)
   ['{AD86B8AA-A81D-4203-AB9F-3851052AB311}']
   function Get_Parent: ImsmModelElement;
-  function Get_Children: ImsmModelElementList;
-  function Get_List(const aName: AnsiString): ImsmModelElementList;
+  function Get_MEList(const aName: AnsiString): ImsmModelElementList;
   function Get_StringProp(const aName: AnsiString): Il3CString;
   function Get_IntProp(const aName: AnsiString): Integer;
   procedure Set_IntProp(const aName: AnsiString;
@@ -43,14 +43,17 @@ type
   function Get_BoolProp(const aName: AnsiString): Boolean;
   function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
   function Get_MainWord: TtfwWord;
+  function Get_ListProp(const aName: AnsiString): ItfwValueList;
   function IsView: Boolean;
   function IsSameElement(const anOther: ImsmModelElement): Boolean;
+  function IsSameElementView(const anOther: ImsmModelElement): Boolean;
+  function IsViewLink: Boolean;
+  function Call(const aParameters: array of TtfwStackValue;
+   const aMethodName: AnsiString): TtfwStackValue;
   property Parent: ImsmModelElement
    read Get_Parent;
-  property Children: ImsmModelElementList
-   read Get_Children;
-  property List[const aName: AnsiString]: ImsmModelElementList
-   read Get_List;
+  property MEList[const aName: AnsiString]: ImsmModelElementList
+   read Get_MEList;
   property StringProp[const aName: AnsiString]: Il3CString
    read Get_StringProp;
   property IntProp[const aName: AnsiString]: Integer
@@ -62,13 +65,15 @@ type
    read Get_ElementProp;
   property MainWord: TtfwWord
    read Get_MainWord;
+  property ListProp[const aName: AnsiString]: ItfwValueList
+   read Get_ListProp;
  end;//ImsmModelElement
 
  (*
  MmsmModelElementList = interface(MmsmCountHolder)
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
-  function IndexOf(const anElement: ImsmModelElement): Integer;
+  function IndexOfElementView(const anElement: ImsmModelElement): Integer;
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;
@@ -82,7 +87,7 @@ type
   function Get_Item(anIndex: Integer): ImsmModelElement;
   function Get_Owner: ImsmModelElement;
   function Get_Count: Integer;
-  function IndexOf(const anElement: ImsmModelElement): Integer;
+  function IndexOfElementView(const anElement: ImsmModelElement): Integer;
   property Item[anIndex: Integer]: ImsmModelElement
    read Get_Item;
    default;

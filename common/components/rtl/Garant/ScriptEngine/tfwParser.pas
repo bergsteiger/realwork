@@ -120,6 +120,7 @@ uses
  , l3String
  , l3_String
  , tfwParserService
+ , tfwParserProgressService
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack
  {$IfEnd} // NOT Defined(NoScripts)
@@ -432,6 +433,7 @@ constructor TtfwParser.Create(aFiler: TtfwStreamFactory);
   f_CompiledCode := Tl3CustomDosFiler.Make(f_CompiledCodeName, aMode, false, 1000);
   f_CompiledCode.NeedProcessMessages := false;
   f_CompiledCode.Indicator.NeedProgressProc := false;
+  TtfwParserProgressService.Instance.TuneFiler(f_CompiledCode);
   l_Try := 5;
   while (l_Try > 0) do
   begin
@@ -498,6 +500,7 @@ begin
    f_CompiledCode.Indicator.NeedProgressProc := false;
    f_CompiledCode.Mode := l3_fmRead;
    f_CompiledCode.Stream := aFiler.Stream;
+   TtfwParserProgressService.Instance.TuneFiler(f_CompiledCode);
    try
     f_CompiledCode.Open;
     if l3Starts(cSig + cVersion, f_CompiledCode.ReadLn) then
@@ -525,6 +528,7 @@ begin
    l_Filer.NeedProcessMessages := false;
    l_Filer.Indicator.NeedProgressProc := false;
    l_Filer.CodePage := CP_ANSI;
+   TtfwParserProgressService.Instance.TuneFiler(l_Filer);
    f_Parser.Filer := l_Filer;
   finally
    FreeAndNil(l_Filer);

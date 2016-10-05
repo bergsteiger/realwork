@@ -386,6 +386,10 @@ type
 
  TdaDocType = TDocType;
 
+ TdaDictionaryTypeArray = array of TdaDictionaryType;
+
+ TdaLogActionType = TLogActionType;
+
 const
  cDeprecatedDicts: TdaDictionaryTypeSet = [da_dlNewClasses_Deprecated];
  da_dtIntegers: TdaDataTypesSet = [da_dtByte, da_dtDWord, da_dtWord, da_dtInteger, da_dtQWord];

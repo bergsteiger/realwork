@@ -1,0 +1,56 @@
+// DateToString 460B93D50242 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_460B93D50242
+
+ME ME_460CC05A0000
+ MEPROP Name 'date'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EA6F00109' '456EA56002BF.ms.model.script' // Date
+ ;
+
+ENDME // ME_460CC05A0000 date
+
+ME ME_460B93EB0290
+ MEPROP UID '460B93EB0290'
+ MEPROP Name 'to_string'
+ MEPROP Class class_Operation
+ %SUMMARY 'перевод даты в символьное представление' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460B93D50242 // DateToString
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ MEPROP TargetStereotype 'const'
+ MELIST Parameters
+   Seq: ( ME_460CC05A0000 // date
+ )
+ ; // Parameters
+
+ENDME // ME_460B93EB0290 to_string
+
+ME ME_460B93D50242
+ MEPROP UID '460B93D50242'
+ MEPROP Name 'DateToString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перевод даты в символьное представление' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_460B8FB00186' '460B8FB00186.ms.model.script' // Convertors
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_460B93EB0290 // to_string
+ )
+ ; // Operations
+ UP "is namespace" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\DateToString.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\DateToString.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DateToString.pas'
+
+ENDME // ME_460B93D50242 DateToString

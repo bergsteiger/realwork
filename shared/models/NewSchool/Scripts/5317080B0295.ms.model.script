@@ -1,0 +1,52 @@
+// csServerStatusRequest 5317080B0295 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5317080B0295
+
+FORWARD ME_5317080B0295
+
+%%InheritedBy ME_53B6843E03A3 ME_5317082500D7
+
+ME ME_5317082500D7
+ MEPROP UID '5317082500D7'
+ MEPROP Name 'TddServerStatusRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5317080B0295 // csServerStatusRequest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B6843E03A3' '52F8C298005C.ms.model.script' // TddServerStatusRequestPrim
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'ddServerStatusRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5317082500D7 TddServerStatusRequest
+
+ME ME_5317080B0295
+ MEPROP UID '5317080B0295'
+ MEPROP Name 'csServerStatusRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5317082500D7 // TddServerStatusRequest
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csServerStatusRequest.pas'
+
+ENDME // ME_5317080B0295 csServerStatusRequest

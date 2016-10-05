@@ -1,0 +1,52 @@
+// csCommonDataRequest 531706AF03D5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_531706AF03D5
+
+FORWARD ME_531706AF03D5
+
+%%InheritedBy ME_53B6834C0385 ME_531706BF00FF
+
+ME ME_531706BF00FF
+ MEPROP UID '531706BF00FF'
+ MEPROP Name 'TddCommonDataRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531706AF03D5 // csCommonDataRequest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B6834C0385' '52F8C298005C.ms.model.script' // TddCommonDataRequestPrim
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'ddCommonDataRequest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_531706BF00FF TddCommonDataRequest
+
+ME ME_531706AF03D5
+ MEPROP UID '531706AF03D5'
+ MEPROP Name 'csCommonDataRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_531706BF00FF // TddCommonDataRequest
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csCommonDataRequest.pas'
+
+ENDME // ME_531706AF03D5 csCommonDataRequest

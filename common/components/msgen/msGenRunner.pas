@@ -68,6 +68,7 @@ uses
 var g_ModelOnly: Boolean = False;
 var g_NullOnly: Boolean = False;
 var g_SpellOnly: Boolean = False;
+var g_NoModel: Boolean = False;
 
 class procedure TmsGenRunner.Run;
 //#UC START# *55C483850136_57B6E3BA005F_var*
@@ -79,6 +80,7 @@ begin
  g_SpellOnly := false;
  g_ModelOnly := false;
  g_NullOnly := false;
+ g_NoModel := false;
  for l_Index := 1 to ParamCount do
  begin
   if (ParamStr(l_Index) = '-modelonly') then
@@ -94,7 +96,12 @@ begin
   if (ParamStr(l_Index) = '-spellonly') then
   begin
    g_SpellOnly := true;
-  end;//ParamStr(l_Index) = '-spellonly'
+  end//ParamStr(l_Index) = '-spellonly'
+  else
+  if (ParamStr(l_Index) = '-nomodel') then
+  begin
+   g_NoModel := true;
+  end;//ParamStr(l_Index) = '-nomodel'
  end;//for l_Index
  inherited;
 //#UC END# *55C483850136_57B6E3BA005F_impl*
@@ -142,6 +149,9 @@ begin
    #13#10 +
    'ME_' + l_W + ' '
   ;
+  if g_NoModel then
+   l_S := l_S + '.GenerateNoModel'
+  else
   if g_SpellOnly then
    l_S := l_S + '.GenerateModelSpell'
   else
@@ -153,6 +163,12 @@ begin
   else
    l_S := l_S + '.Generate';
   l_Path := cPath; 
+  if g_NoModel then
+  begin
+   l_Path := ConcatDirName(l_Path, 'NoModel');
+   l_N := ConcatDirName(l_Path, l_N) + '.nomodel.runner';
+  end//g_NoModel
+  else
   if g_SpellOnly then
   begin
    l_Path := ConcatDirName(l_Path, 'Spell');

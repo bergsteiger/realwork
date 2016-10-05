@@ -1,13 +1,14 @@
 unit ddAutolinkDataLoader;
 
-{ $Id: ddAutolinkDataLoader.pas,v 1.2 2016/07/18 10:49:49 fireton Exp $ }
+{ $Id: ddAutolinkDataLoader.pas,v 1.5 2016/09/27 11:53:30 fireton Exp $ }
 
 interface
 uses
   dt_Types,
   ddAutolinkArbitraryDocList,
   ddCustomAutolinkDataLoader,
-  l3InterfaceList, l3LongintList;
+  l3InterfaceList, l3LongintList,
+  ddAutolinkTSMatchList;
 
 type
  TALMiscSettingsRec = record
@@ -19,6 +20,7 @@ type
  private
   f_ArbitraryDocList: TddAutolinkArbitraryDocList;
   f_Misc: TALMiscSettingsRec;
+  f_NoStructList: TddAutolinkTSMatchList;
  protected
   procedure LoadCodexes; override;
   procedure LoadFedLaws; override;
@@ -26,11 +28,12 @@ type
   procedure LoadLoneTypes; override;
   procedure LoadTypeSyns; override;
   procedure LoadMisc;
- protected
+  procedure LoadNoStruct;
   procedure DispatchSection; override;
+  procedure LoadSkippies; override;
  public
   constructor Create(const aFileName: string; aCodexData: Tl3InterfaceList; aLoneTypeList: Tl3LongintList;
-                     aArbitraryDocList: TddAutolinkArbitraryDocList);
+                     aArbitraryDocList: TddAutolinkArbitraryDocList; aNoStructList: TddAutolinkTSMatchList);
   property Misc: TALMiscSettingsRec read f_Misc write f_Misc;
  end;
 
@@ -54,13 +57,15 @@ uses
  ddAutolinkConst,
  ddAutolinkInterfaces,
  ddCodexDataHolder,
- ddAutolinkArbitraryDocEntry;
+ ddAutolinkArbitraryDocEntry,
+ ddAutolinkTSMatch;
 
-constructor TddAutolinkDataLoader.Create(const aFileName: string; aCodexData: Tl3InterfaceList;
-    aLoneTypeList: Tl3LongintList; aArbitraryDocList: TddAutolinkArbitraryDocList);
+constructor TddAutolinkDataLoader.Create(const aFileName: string; aCodexData: Tl3InterfaceList; aLoneTypeList:
+ Tl3LongintList; aArbitraryDocList: TddAutolinkArbitraryDocList; aNoStructList: TddAutolinkTSMatchList);
 begin
  inherited Create(aFileName, aCodexData, aLoneTypeList);
  f_ArbitraryDocList := aArbitraryDocList;
+ f_NoStructList := aNoStructList;
 end;
 
 procedure TddAutolinkDataLoader.DispatchSection;
@@ -70,6 +75,9 @@ begin
  else
  if l3Same(SectName, 'misc', True) then
   LoadMisc
+ else
+ if l3Same(SectName, 'nostruct', True) then
+  LoadNoStruct
  else
   inherited;
 end;
@@ -252,6 +260,51 @@ begin
    if l3Same(Values[0], 'ConstitutionDocID', True) then
     f_Misc.rConstitutionDocID := l3StrToIntDef(ValuesW[1], 0);
   end;
+end;
+
+procedure TddAutolinkDataLoader.LoadNoStruct;
+var
+ l_TypeID: Integer;
+ l_SrcID : Integer;
+
+ function GetDictID(aValueIdx: Integer; aDict: TdaDictionaryType; out theDictID: Integer): Boolean;
+ var
+  l_Str: Tl3WString;
+ begin
+  l_Str := l3Trim(ValuesW[aValueIdx]);
+  if l3Same(l_Str, '*') then
+  begin
+   theDictID := -1;
+   Result := True;
+  end
+  else
+  begin
+   theDictID := DictServer(CurrentFamily).Dict[aDict].FindIDByFullPath(l_Str);
+   Result :=  theDictID <> cUndefDictID;
+  end;
+ end;
+
+begin
+ while NextLine do
+ begin
+  if ValuesCount > 1 then
+  begin
+   if GetDictID(0, da_dlTypes, l_TypeID) and GetDictID(1, da_dlSources, l_SrcID) then
+    f_NoStructList.Add(TddAutolinkTSMatch.Make(l_TypeID, l_SrcID));
+  end;
+ end;
+end;
+
+procedure TddAutolinkDataLoader.LoadSkippies;
+var
+ I: Integer;
+begin
+ while NextLine do
+ begin
+  for I := 1 to ValuesCount do
+   DictServer(CurrentFamily).DictScanner.AddToDict(ValuesW[I-1], 0, cSkippiesDictID);
+ end;
+ DictServer(CurrentFamily).DictScanner.AddComplete;
 end;
 
 procedure TddAutolinkDataLoader.LoadTypeSyns;

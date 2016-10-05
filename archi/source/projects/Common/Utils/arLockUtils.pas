@@ -30,9 +30,9 @@ uses
  , dt_Lock
  {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ {$If NOT Defined(Nemesis)}
  , dt_LinkServ
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ {$IfEnd} // NOT Defined(Nemesis)
  //#UC START# *57E1136103D7impl_uses*
  //#UC END# *57E1136103D7impl_uses*
 ;

@@ -1,0 +1,374 @@
+// evdBufferedFilter 49E496880120 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49E496880120
+%%Inner ME_49E496880120
+%%Inner ME_49E496880120
+%%Inner ME_49E496880120
+%%Inner ME_49E496880120
+
+FORWARD ME_49E496880120
+
+FORWARD ME_49E496650211
+
+FORWARD ME_4CF7BC520161
+
+ME ME_4CF7BC6E006A
+ MEPROP Name 'aLeaf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4CF7BC6E006A aLeaf
+
+ME ME_4CF7BC6E009C
+ MEPROP Name 'aTagId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CF7BC6E009C aTagId
+
+ME ME_4CF7BC6501ED
+ MEPROP UID '4CF7BC6501ED'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CF7BC520161 // NeedFlushBuffer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CF7BC6E006A // aLeaf
+ ME_4CF7BC6E009C // aTagId
+ )
+ ; // Parameters
+
+ENDME // ME_4CF7BC6501ED DoIt
+
+ME ME_4CF7BC520161
+ MEPROP UID '4CF7BC520161'
+ MEPROP Name 'NeedFlushBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496650211 // TevdCustomBufferedFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CF7BC6501ED // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CF7BC520161 NeedFlushBuffer
+
+FORWARD ME_4CF7BEC40130
+
+ME ME_4CF7BEDB0129
+ MEPROP Name 'aLeaf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4CF7BEDB0129 aLeaf
+
+ME ME_4CF7BEDB0146
+ MEPROP Name 'aTagId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CF7BEDB0146 aTagId
+
+ME ME_4CF7BEDB0166
+ MEPROP Name 'aNeedCloseBracket'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CF7BEDB0166 aNeedCloseBracket
+
+ME ME_4CF7BED60088
+ MEPROP UID '4CF7BED60088'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CF7BEC40130 // DoFlushBuffer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CF7BEDB0129 // aLeaf
+ ME_4CF7BEDB0146 // aTagId
+ ME_4CF7BEDB0166 // aNeedCloseBracket
+ )
+ ; // Parameters
+
+ENDME // ME_4CF7BED60088 DoIt
+
+ME ME_4CF7BEC40130
+ MEPROP UID '4CF7BEC40130'
+ MEPROP Name 'DoFlushBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496650211 // TevdCustomBufferedFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CF7BED60088 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CF7BEC40130 DoFlushBuffer
+
+ME ME_4C56D5610373
+ MEPROP Name 'aID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C56D5610373 aID
+
+ME ME_4C56D54B002A
+ MEPROP UID '4C56D54B002A'
+ MEPROP Name 'NeedStartBuffering'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496650211 // TevdCustomBufferedFilter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C56D5610373 // aID
+ )
+ ; // Parameters
+
+ENDME // ME_4C56D54B002A NeedStartBuffering
+
+%%InheritedBy ME_49E487A70144 ME_49E496650211
+
+ME ME_49E496650211
+ MEPROP UID '49E496650211'
+ MEPROP Name 'TevdCustomBufferedFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.ms.model.script' // Tk2TagFilter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4CF7BC520161 // NeedFlushBuffer
+ HWL ME_4CF7BEC40130 // DoFlushBuffer
+ HWL ME_4C56D54B002A // NeedStartBuffering
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP extprop:rc:SelfName 'dCustomBufferedFilter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49E496650211 TevdCustomBufferedFilter
+
+FORWARD ME_49E4965202A1
+
+FORWARD ME_4D53D8BF00D5
+
+ME ME_4D53D8D60274
+ MEPROP Name 'aLeaf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4D53D8D60274 aLeaf
+
+ME ME_4D53D8D60291
+ MEPROP Name 'aTagId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D53D8D60291 aTagId
+
+ME ME_4D53D8D602B1
+ MEPROP Name 'aNeedCloseBracket'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D53D8D602B1 aNeedCloseBracket
+
+ME ME_4D53D8CF0007
+ MEPROP UID '4D53D8CF0007'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D53D8BF00D5 // DoFlushBuffer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D53D8D60274 // aLeaf
+ ME_4D53D8D60291 // aTagId
+ ME_4D53D8D602B1 // aNeedCloseBracket
+ )
+ ; // Parameters
+
+ENDME // ME_4D53D8CF0007 DoIt
+
+ME ME_4D53D8BF00D5
+ MEPROP UID '4D53D8BF00D5'
+ MEPROP Name 'DoFlushBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E4965202A1 // TevdBufferedFilter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D53D8CF0007 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D53D8BF00D5 DoFlushBuffer
+
+%%InheritedBy ME_49E496650211 ME_49E4965202A1
+
+ME ME_49E4965202A1
+ MEPROP UID '49E4965202A1'
+ MEPROP Name 'TevdBufferedFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E496650211 // TevdCustomBufferedFilter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D53D8BF00D5 // DoFlushBuffer
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP extprop:rc:SelfName 'dBufferedFilter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49E4965202A1 TevdBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_4D53D8A100AE
+
+ME ME_4D53D8A100AE
+ MEPROP UID '4D53D8A100AE'
+ MEPROP Name 'TevdChildBufferedFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'dChildBufferedFilter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D53D8A100AE TevdChildBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_4E48B57F0074
+
+ME ME_4E48B57F0074
+ MEPROP UID '4E48B57F0074'
+ MEPROP Name 'TevdCustomChildBufferedFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'dCustomChildBufferedFilter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E48B57F0074 TevdCustomChildBufferedFilter
+
+%%InheritedBy ME_49E4965202A1 ME_4F9BF9E40052
+
+ME ME_4F9BF9E40052
+ MEPROP UID '4F9BF9E40052'
+ MEPROP Name 'TevdTagBufferedFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49E496880120 // evdBufferedFilter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49E4965202A1 // TevdBufferedFilter
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'dTagBufferedFilter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F9BF9E40052 TevdTagBufferedFilter
+
+ME ME_49E496880120
+ MEPROP UID '49E496880120'
+ MEPROP Name 'evdBufferedFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49E496650211 // TevdCustomBufferedFilter
+ HWL ME_49E4965202A1 // TevdBufferedFilter
+ HWL ME_4D53D8A100AE // TevdChildBufferedFilter
+ HWL ME_4E48B57F0074 // TevdCustomChildBufferedFilter
+ HWL ME_4F9BF9E40052 // TevdTagBufferedFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_evdBufferedFilter.pas'
+ UP extprop:rc:SelfName 'dBufferedFilter'
+
+ENDME // ME_49E496880120 evdBufferedFilter

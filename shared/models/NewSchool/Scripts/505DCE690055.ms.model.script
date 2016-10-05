@@ -1,0 +1,379 @@
+// StatusBarUtils 505DCE690055 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_505DCE690055
+%%Inner ME_505DCE690055
+
+FORWARD ME_505DCE690055
+
+FORWARD ME_505DA91D017B
+
+FORWARD ME_505DA86200EB
+
+ME ME_505DA8730156
+ MEPROP UID '505DA8730156'
+ MEPROP Name 'sbintVisibleChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_505DA86200EB // TnscStatusBarItemNotificationType
+ ;
+
+ENDME // ME_505DA8730156 sbintVisibleChanged
+
+ME ME_505DA86200EB
+ MEPROP UID '505DA86200EB'
+ MEPROP Name 'TnscStatusBarItemNotificationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_505DA8730156 // sbintVisibleChanged
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_505DA86200EB TnscStatusBarItemNotificationType
+
+ME ME_505DD53B0349
+ MEPROP UID '505DD53B0349'
+ MEPROP Name 'Visible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" false
+
+ENDME // ME_505DD53B0349 Visible
+
+ME ME_505DDE8F02A1
+ MEPROP UID '505DDE8F02A1'
+ MEPROP Name 'NotificationClients'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'TnscStatusBarItemsList' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ UP "pm" false
+
+ENDME // ME_505DDE8F02A1 NotificationClients
+
+ME ME_50603D930238
+ MEPROP UID '50603D930238'
+ MEPROP Name 'ItemDef'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELINK Target WL 'ME_4980350B00FA' '490838E10313.ms.model.script' // InscStatusBarItemDef
+ ;
+ UP "pm" false
+
+ENDME // ME_50603D930238 ItemDef
+
+FORWARD ME_505DA9AF003E
+
+ME ME_505DA9C70358
+ MEPROP Name 'aClient'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+
+ENDME // ME_505DA9C70358 aClient
+
+ME ME_505DA9C401C8
+ MEPROP UID '505DA9C401C8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505DA9AF003E // Unsubscribe
+ ;
+ MELIST Parameters
+   Seq: ( ME_505DA9C70358 // aClient
+ )
+ ; // Parameters
+
+ENDME // ME_505DA9C401C8 DoIt
+
+ME ME_505DA9AF003E
+ MEPROP UID '505DA9AF003E'
+ MEPROP Name 'Unsubscribe'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_505DA9C401C8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_505DA9AF003E Unsubscribe
+
+FORWARD ME_505DA9D50000
+
+ME ME_505DD947016D
+ MEPROP Name 'aNotificationType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_505DA86200EB // TnscStatusBarItemNotificationType
+ ;
+
+ENDME // ME_505DD947016D aNotificationType
+
+ME ME_505DA9E20331
+ MEPROP UID '505DA9E20331'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505DA9D50000 // SendNotificationToClients
+ ;
+ MELIST Parameters
+   Seq: ( ME_505DD947016D // aNotificationType
+ )
+ ; // Parameters
+
+ENDME // ME_505DA9E20331 DoIt
+
+ME ME_505DA9D50000
+ MEPROP UID '505DA9D50000'
+ MEPROP Name 'SendNotificationToClients'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_505DA9E20331 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_505DA9D50000 SendNotificationToClients
+
+FORWARD ME_505DA97101BB
+
+ME ME_505DA99E0173
+ MEPROP Name 'aClient'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+
+ENDME // ME_505DA99E0173 aClient
+
+ME ME_505DA993034F
+ MEPROP UID '505DA993034F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505DA97101BB // Subscribe
+ ;
+ MELIST Parameters
+   Seq: ( ME_505DA99E0173 // aClient
+ )
+ ; // Parameters
+
+ENDME // ME_505DA993034F DoIt
+
+ME ME_505DA97101BB
+ MEPROP UID '505DA97101BB'
+ MEPROP Name 'Subscribe'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_505DA993034F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_505DA97101BB Subscribe
+
+FORWARD ME_505DCA6603AA
+
+ME ME_505DD95301FB
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+
+ENDME // ME_505DD95301FB aSender
+
+ME ME_505DD9530222
+ MEPROP Name 'aNotificationType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_505DA86200EB // TnscStatusBarItemNotificationType
+ ;
+
+ENDME // ME_505DD9530222 aNotificationType
+
+ME ME_505DD9520040
+ MEPROP UID '505DD9520040'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505DCA6603AA // Notify
+ ;
+ MELIST Parameters
+   Seq: ( ME_505DD95301FB // aSender
+ ME_505DD9530222 // aNotificationType
+ )
+ ; // Parameters
+
+ENDME // ME_505DD9520040 DoIt
+
+ME ME_505DCA6603AA
+ MEPROP UID '505DCA6603AA'
+ MEPROP Name 'Notify'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_505DD9520040 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_505DCA6603AA Notify
+
+ME ME_505DA91D017B
+ MEPROP UID '505DA91D017B'
+ MEPROP GUID 'F1EFAA8A-2134-43CC-AF3F-0B73FB275A89'
+ MEPROP Name 'InscStatusBarItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_505DCE690055 // StatusBarUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_505DD53B0349 // Visible
+ HWL ME_505DDE8F02A1 // NotificationClients
+ HWL ME_50603D930238 // ItemDef
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_505DA9AF003E // Unsubscribe
+ HWL ME_505DA9D50000 // SendNotificationToClients
+ HWL ME_505DA97101BB // Subscribe
+ HWL ME_505DCA6603AA // Notify
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_505DA86200EB // TnscStatusBarItemNotificationType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'StatusBarItem'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_505DA91D017B InscStatusBarItem
+
+FORWARD ME_505DA61E00A6
+
+ME ME_505DC5D003BE
+ MEPROP UID '505DC5D003BE'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_505DA61E00A6 // TnscStatusBarItemsList
+ ;
+ MELINK Target HWL ME_505DA91D017B // InscStatusBarItem
+ ;
+
+ENDME // ME_505DC5D003BE ItemType
+
+%%InheritedBy ME_47B57D630029 ME_505DA61E00A6
+%%InheritedBy ME_4A54DD4E036F ME_505DA61E00A6
+
+ME ME_505DA61E00A6
+ MEPROP UID '505DA61E00A6'
+ MEPROP Name 'TnscStatusBarItemsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_505DCE690055 // StatusBarUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_505DC5D003BE // ItemType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'StatusBarItemsList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_505DA61E00A6 TnscStatusBarItemsList
+
+ME ME_505DCE690055
+ MEPROP UID '505DCE690055'
+ MEPROP Name 'StatusBarUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_505DA8FC03CF' '505DA8FC03CF.ms.model.script' // StatusBarUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_505DA91D017B // InscStatusBarItem
+ HWL ME_505DA61E00A6 // TnscStatusBarItemsList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\StatusBarUtils.pas'
+
+ENDME // ME_505DCE690055 StatusBarUtils

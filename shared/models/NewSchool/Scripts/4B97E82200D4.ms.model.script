@@ -1,0 +1,73 @@
+// vtOutlinerWithDragDropRes 4B97E82200D4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97E82200D4
+
+FORWARD ME_4B97E8570381
+
+ME ME_4B97E86702AE
+ MEPROP UID '4B97E86702AE'
+ MEPROP Name 'MultiSelectDraggingText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97E8570381 // TreeViewMessages
+ ;
+ MEPROP Value '''Всего: %d'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Всего: %d'''
+
+ENDME // ME_4B97E86702AE MultiSelectDraggingText
+
+ME ME_4B97E8570381
+ MEPROP UID '4B97E8570381'
+ MEPROP Name 'TreeViewMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97E82200D4 // vtOutlinerWithDragDropRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B97E86702AE // MultiSelectDraggingText
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'nsc_'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'nsc_'
+
+ENDME // ME_4B97E8570381 TreeViewMessages
+
+ME ME_4B97E82200D4
+ MEPROP UID '4B97E82200D4'
+ MEPROP Name 'vtOutlinerWithDragDropRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы для TvtOutlinerWithDragDrop' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B97E8570381 // TreeViewMessages
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '10.03.2010 21:43'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas'
+ UP extprop:rc:SelfName 'OutlinerWithDragDropRes'
+
+ENDME // ME_4B97E82200D4 vtOutlinerWithDragDropRes

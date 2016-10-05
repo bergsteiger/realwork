@@ -1,0 +1,157 @@
+// vcmScrollableFormWithWheelSupport 528468A00346 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_528468A00346
+
+ME ME_52846B770042
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_4AC9A47200C3' '476F78840219.ms.model.script' // TWMMouseWheel
+ ;
+
+ENDME // ME_52846B770042 
+
+ME ME_52846B7B03E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_50291A30019C' '476F78840219.ms.model.script' // TWMNCHitTest
+ ;
+
+ENDME // ME_52846B7B03E1 
+
+ME ME_52846B7F0381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_502211A50263' '476F78840219.ms.model.script' // TWMVScroll
+ ;
+
+ENDME // ME_52846B7F0381 
+
+ME ME_52846BD00282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_46A5BA120102' '48A41FF10094.ms.model.script' // WPARAM
+ ;
+
+ENDME // ME_52846BD00282 
+
+ME ME_52846BD403B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_46A5BA230233' '48A41FF10094.ms.model.script' // LPARAM
+ ;
+
+ENDME // ME_52846BD403B1 
+
+ME ME_52846BD90392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_4F74563F0283' '48A41FF10094.ms.model.script' // LRESULT
+ ;
+
+ENDME // ME_52846BD90392 
+
+ME ME_52846BDE008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_46A104F4028B' '48A41FF10094.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_52846BDE008A 
+
+ME ME_52846BE202B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_4D6E60D6024F' '48A41FF10094.ms.model.script' // SendMessage
+ ;
+
+ENDME // ME_52846BE202B2 
+
+ME ME_52846BE602A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_4F8549470227' '48A41FF10094.ms.model.script' // WindowFromPoint
+ ;
+
+ENDME // ME_52846BE602A2 
+
+ME ME_528472D30372
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_528468A00346 // vcmScrollableFormWithWheelSupport
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_528472D30372 
+
+ME ME_515317860183_ME_528468A00346
+ MELINK Original WL 'ME_515317860183' '47E11FC3021E.ms.model.script' // MouseWheelHandler
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_515317860183_ME_528468A00346 MouseWheelHandler
+
+%%ImplementedBy ME_528469FC0256 ME_528468A00346
+
+ME ME_528468A00346
+ MEPROP UID '528468A00346'
+ MEPROP Name 'vcmScrollableFormWithWheelSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Обеспечивает возможность скроллирования колесом мыши как самой формы. так и вложенных контролов, имеющих скроллбары' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_528469FC0256' '4799D29F033F.ms.model.script' // MScrollingWinControl
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_515317860183_ME_528468A00346 // MouseWheelHandler
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52846B770042 // TWMMouseWheel
+ ME_52846B7B03E1 // TWMNCHitTest
+ ME_52846B7F0381 // TWMVScroll
+ ME_52846BD00282 // WPARAM
+ ME_52846BD403B1 // LPARAM
+ ME_52846BD90392 // LRESULT
+ ME_52846BDE008A // TPoint
+ ME_52846BE202B2 // SendMessage
+ ME_52846BE602A2 // WindowFromPoint
+ ME_528472D30372 // l3FillChar
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов В.'
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmScrollableFormWithWheelSupport.imp.pas'
+ UP extprop:pas:TypeName '_vcmScrollableFormWithWheelSupport_'
+ UP extprop:pas:UnitName 'vcmScrollableFormWithWheelSupport.imp'
+
+ENDME // ME_528468A00346 vcmScrollableFormWithWheelSupport

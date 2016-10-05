@@ -1,0 +1,79 @@
+// evEvdReader 4EA536A500EB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EA536A500EB
+%%Inner ME_4EA536A500EB
+
+FORWARD ME_4EA536A500EB
+
+%%InheritedBy ME_4C1B2AB301B1 ME_4EA536C0031B
+
+ME ME_4EA536C0031B
+ MEPROP UID '4EA536C0031B'
+ MEPROP Name 'TevCustomEvdStorageReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '„итатель тегов в формате evd из структурированного хранилища (IStorage)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA536A500EB // evEvdReader
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C1B2AB301B1' '4C1B2A94015D.ms.model.script' // TevCustomEvdReader
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'EvdStorageReader'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA536C0031B TevCustomEvdStorageReader
+
+%%InheritedBy ME_4EA536C0031B ME_4EA536EC013F
+
+ME ME_4EA536EC013F
+ MEPROP UID '4EA536EC013F'
+ MEPROP Name 'TevEvdStorageReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '„итатель тегов в формате evd (с published свойствами).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA536A500EB // evEvdReader
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4EA536C0031B // TevCustomEvdStorageReader
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'EvdStorageReader'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA536EC013F TevEvdStorageReader
+
+ME ME_4EA536A500EB
+ MEPROP UID '4EA536A500EB'
+ MEPROP Name 'evEvdReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_482D6E13011F' '482D6E13011F.ms.model.script' // Readers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA536C0031B // TevCustomEvdStorageReader
+ HWL ME_4EA536EC013F // TevEvdStorageReader
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEvdReader.pas'
+ UP extprop:rc:SelfName 'EvdReader'
+
+ENDME // ME_4EA536A500EB evEvdReader

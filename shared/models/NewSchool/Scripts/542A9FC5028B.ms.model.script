@@ -1,0 +1,145 @@
+// m3ArcCla 542A9FC5028B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_542A9FC5028B
+%%Inner ME_542A9FC5028B
+%%Inner ME_542A9FC5028B
+%%Inner ME_542A9FC5028B
+
+FORWARD ME_542A9FC5028B
+
+%%InheritedBy ME_53FF2D7500EB ME_542A9FF7001B
+
+ME ME_542A9FF7001B
+ MEPROP UID '542A9FF7001B'
+ MEPROP Name 'Tm3ArcInflateStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_542A9FC5028B // m3ArcCla
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53FF2D7500EB' '54870DB502F5.ms.model.script' // Tm3BaseArcStream
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'm3ArcInflateStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542A9FF7001B Tm3ArcInflateStream
+
+%%InheritedBy ME_53FF2D7500EB ME_542AA00C0250
+
+ME ME_542AA00C0250
+ MEPROP UID '542AA00C0250'
+ MEPROP Name 'Tm3ArcDeflateStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_542A9FC5028B // m3ArcCla
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53FF2D7500EB' '54870DB502F5.ms.model.script' // Tm3BaseArcStream
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'm3ArcDeflateStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542AA00C0250 Tm3ArcDeflateStream
+
+%%InheritedBy ME_542A9FF7001B ME_542AA02E0128
+
+ME ME_542AA02E0128
+ MEPROP UID '542AA02E0128'
+ MEPROP Name 'Tm3LZOInflateStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542A9FC5028B // m3ArcCla
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_542A9FF7001B // Tm3ArcInflateStream
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'm3LZOInflateStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542AA02E0128 Tm3LZOInflateStream
+
+%%InheritedBy ME_542AA00C0250 ME_542AA040007A
+
+ME ME_542AA040007A
+ MEPROP UID '542AA040007A'
+ MEPROP Name 'Tm3LZODeflateStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_542A9FC5028B // m3ArcCla
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_542AA00C0250 // Tm3ArcDeflateStream
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'm3LZODeflateStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_542AA040007A Tm3LZODeflateStream
+
+ME ME_54539D3F01C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542A9FC5028B // m3ArcCla
+ ;
+ MELINK Target WL 'ME_54539D300254' '54870DB502F5.ms.model.script' // Tm3ArcHandle
+ ;
+
+ENDME // ME_54539D3F01C1 
+
+ME ME_54539E310108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_542A9FC5028B // m3ArcCla
+ ;
+ MELINK Target WL 'ME_54539E0A00DA' '54870DB502F5.ms.model.script' // Tm3ArcHandleList
+ ;
+
+ENDME // ME_54539E310108 
+
+ME ME_542A9FC5028B
+ MEPROP UID '542A9FC5028B'
+ MEPROP Name 'm3ArcCla'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54870DB502F5' '54870DB502F5.ms.model.script' // ArchiveStreams
+ ;
+ MELIST Children
+   Seq: ( HWL ME_542A9FF7001B // Tm3ArcInflateStream
+ HWL ME_542AA00C0250 // Tm3ArcDeflateStream
+ HWL ME_542AA02E0128 // Tm3LZOInflateStream
+ HWL ME_542AA040007A // Tm3LZODeflateStream
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_54539D3F01C1 // Tm3ArcHandle
+ ME_54539E310108 // Tm3ArcHandleList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3ArcCla.pas'
+
+ENDME // ME_542A9FC5028B m3ArcCla

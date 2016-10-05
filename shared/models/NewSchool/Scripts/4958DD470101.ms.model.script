@@ -2,7 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4958DD470101
+%%Inner ME_4958DD470101
+%%Inner ME_4958DD470101
+%%Inner ME_4958DD470101
+%%Inner ME_4958DD470101
+%%Inner ME_4958DD470101
+%%Inner ME_4958DD470101
+
 FORWARD ME_4958DD470101
+
+%%InheritedBy ME_4F1EDCBC012F ME_4F2012220355
 
 ME ME_4F2012220355
  MEPROP UID '4F2012220355'
@@ -30,62 +40,6 @@ ME ME_4F2012220355
 
 ENDME // ME_4F2012220355 TnsMainMenuFormGUIDFactory
 
-FORWARD ME_571E23FB01C3
-
-ME ME_4DAF1471030D
- MEPROP UID '4DAF1471030D'
- MEPROP Name 'MainMenu'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_571E23FB01C3 // MainMenuProcessingWordsPack
- ;
- UP "NameForScript" 'ОсновноеМеню'
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '20.04.2011 21:14'
- UP extprop:pas:TypeName 'TkwMainMenu'
- UP extprop:rc:SelfName 'MainMenu'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4DAF1471030D MainMenu
-
-ME ME_571E2409028C
- MEPROP Class class_Dependency
- MELINK Stereotype st_injects::Dependency ;
- MELINK Parent HWL ME_571E23FB01C3 // MainMenuProcessingWordsPack
- ;
- MELINK Target WL 'ME_4AA7A1F80027' '4AA7A1F80027.ms.model.script' // MainMenu$FP
- ;
-
-ENDME // ME_571E2409028C 
-
-ME ME_571E23FB01C3
- MEPROP UID '571E23FB01C3'
- MEPROP Name 'MainMenuProcessingWordsPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4958DD470101 // MainMenu
- ;
- MELIST Children
-   Seq: ( HWL ME_4DAF1471030D // MainMenu
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_571E2409028C // MainMenu$FP
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP "need UC" true
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\MainMenu\MainMenuProcessingWordsPack.pas'
-
-ENDME // ME_571E23FB01C3 MainMenuProcessingWordsPack
-
 ME ME_4958DD470101
  MEPROP UID '4958DD470101'
  MEPROP Name 'MainMenu'
@@ -104,7 +58,7 @@ ME ME_4958DD470101
  WL 'ME_56FA889202B4' '56FA889202B4.ms.model.script' // PrimMainMenuWithProfNews
  HWL ME_4F2012220355 // TnsMainMenuFormGUIDFactory
  WL 'ME_4AA7A1F80027' '4AA7A1F80027.ms.model.script' // MainMenu$FP
- HWL ME_571E23FB01C3 // MainMenuProcessingWordsPack
+ WL 'ME_571E23FB01C3' '571E23FB01C3.ms.model.script' // MainMenuProcessingWordsPack
  )
  ; // Children
  MELIST Depends
@@ -167,6 +121,9 @@ ME ME_4958DD470101
  WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\MainMenu'
 
 ENDME // ME_4958DD470101 MainMenu

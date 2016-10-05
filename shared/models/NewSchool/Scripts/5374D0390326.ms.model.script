@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_5374D0390326
+
 FORWARD ME_5374D0390326
 
 FORWARD ME_53170DE90011
@@ -16,7 +18,7 @@ ME ME_53170E53008F
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_53170E4100CF // GetTaskClass
  ;
- MELINK Target WL 'ME_53170EB30071' '52FA49B901D3.ms.model.script' // TddTaskClass
+ MELINK Target WL 'ME_53170EB30071' '52FA49C7022C.ms.model.script' // TddTaskClass
  ;
 
 ENDME // ME_53170E53008F DoIt
@@ -50,6 +52,8 @@ ME ME_532008D203BA_ME_53170DE90011
  MEPROP OpKind opkind_Implemented
 ENDME // ME_532008D203BA_ME_53170DE90011 InitTask
 
+%%InheritedBy ME_532008240001 ME_53170DE90011
+
 ME ME_53170DE90011
  MEPROP UID '53170DE90011'
  MEPROP Name 'K517772970_TCheckSaveToStreamDefault'
@@ -74,6 +78,9 @@ ME ME_53170DE90011
  ME_532008D203BA_ME_53170DE90011 // InitTask
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract\K517772970_TCheckSaveToStreamDefault.pas'
  UP extprop:pas:TypeName 'TK517772970_TCheckSaveToStreamDefault'
  UP extprop:rc:SelfName 'K517772970_TCheckSaveToStreamDefault'
@@ -100,6 +107,9 @@ ME ME_5374D0390326
  WL 'ME_531FF6280311' '531FF6280311.ms.model.script' // TaskSaveLoad
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "path prefix" '/Tasks/SaveLoadWithDefault/Abstract'
  UP intf.pas:PathOnly '\archi\source\projects\PipeInAuto\Tests\Tasks\SaveLoadWithDefault\Abstract'
  UP Version 0

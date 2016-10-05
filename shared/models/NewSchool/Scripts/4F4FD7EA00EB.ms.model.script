@@ -1,0 +1,1297 @@
+// FileProcessingPack 4F4FD7EA00EB ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F4FD7EA00EB
+
+FORWARD ME_4F4FD7EA00EB
+
+FORWARD ME_4F4FD77B03CC
+
+ME ME_4F4FD78A01EF
+ MEPROP UID '4F4FD78A01EF'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELINK Target WL 'ME_4B4F61AD01AA' '47A0686803A5.ms.model.script' // Tl3CustomDosFiler
+ ;
+
+ENDME // ME_4F4FD78A01EF f_Filer
+
+FORWARD ME_4F4FD849026C
+
+ME ME_4F4FD85C007C
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F4FD85C007C aFileName
+
+ME ME_4F4FD85202B5
+ MEPROP UID '4F4FD85202B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD849026C // CreateRead
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F4FD85C007C // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4F4FD85202B5 DoIt
+
+ME ME_4F4FD849026C
+ MEPROP UID '4F4FD849026C'
+ MEPROP Name 'CreateRead'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F4FD85202B5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F4FD849026C CreateRead
+
+FORWARD ME_4F4FD85F033A
+
+ME ME_4F4FD88403DE
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F4FD88403DE aFileName
+
+ME ME_4F4FD8800331
+ MEPROP UID '4F4FD8800331'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD85F033A // CreateWrite
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F4FD88403DE // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4F4FD8800331 DoIt
+
+ME ME_4F4FD85F033A
+ MEPROP UID '4F4FD85F033A'
+ MEPROP Name 'CreateWrite'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F4FD8800331 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F4FD85F033A CreateWrite
+
+%%ImplementedBy ME_4F4E4E7101D6 ME_4F4FD88C01B2
+
+%%InheritedBy ME_4F4FD849026C ME_4F4FD88C01B2
+
+ME ME_4F4FD88C01B2
+ MEPROP UID '4F4FD88C01B2'
+ MEPROP Name 'MakeRead'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4FD849026C // CreateRead
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.ms.model.script' // ItfwFile
+ )
+ ; // Implements
+
+ENDME // ME_4F4FD88C01B2 MakeRead
+
+%%ImplementedBy ME_4F4E4E7101D6 ME_4F4FD89C00DB
+
+%%InheritedBy ME_4F4FD85F033A ME_4F4FD89C00DB
+
+ME ME_4F4FD89C00DB
+ MEPROP UID '4F4FD89C00DB'
+ MEPROP Name 'MakeWrite'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F4FD85F033A // CreateWrite
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.ms.model.script' // ItfwFile
+ )
+ ; // Implements
+
+ENDME // ME_4F4FD89C00DB MakeWrite
+
+FORWARD ME_570E70230377
+
+ME ME_570E703102A4
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_570E703102A4 aFileName
+
+ME ME_570E70300295
+ MEPROP UID '570E70300295'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_570E70230377 // CreateAppend
+ ;
+ MELIST Parameters
+   Seq: ( ME_570E703102A4 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_570E70300295 DoIt
+
+ME ME_570E70230377
+ MEPROP UID '570E70230377'
+ MEPROP Name 'CreateAppend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_570E70300295 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_570E70230377 CreateAppend
+
+%%ImplementedBy ME_4F4E4E7101D6 ME_570E7037029C
+
+%%InheritedBy ME_570E70230377 ME_570E7037029C
+
+ME ME_570E7037029C
+ MEPROP UID '570E7037029C'
+ MEPROP Name 'MakeAppend'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_570E70230377 // CreateAppend
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.ms.model.script' // ItfwFile
+ )
+ ; // Implements
+
+ENDME // ME_570E7037029C MakeAppend
+
+ME ME_4F4FD7BB0384
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4F4FD7BB0384 
+
+ME ME_4F4FD8DA01C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_4F4FD8DA01C1 
+
+ME ME_4F4FD9E7017E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4F4FD9E7017E 
+
+ME ME_4F4E4E7E0350_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_4F4E4E7E0350' '4DAF19F600C5.ms.model.script' // ReadLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4E4E7E0350_ME_4F4FD77B03CC ReadLn
+
+ME ME_4F4E4EA7007D_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_4F4E4EA7007D' '4DAF19F600C5.ms.model.script' // WriteLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4E4EA7007D_ME_4F4FD77B03CC WriteLn
+
+ME ME_4F4FDC540264_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_4F4FDC540264' '4DAF19F600C5.ms.model.script' // WriteChar
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FDC540264_ME_4F4FD77B03CC WriteChar
+
+ME ME_4F4FE16A0269_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_4F4FE16A0269' '4DAF19F600C5.ms.model.script' // ReadWStrLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FE16A0269_ME_4F4FD77B03CC ReadWStrLn
+
+ME ME_4F4FE19301A1_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_4F4FE19301A1' '4DAF19F600C5.ms.model.script' // WriteWStrLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FE19301A1_ME_4F4FD77B03CC WriteWStrLn
+
+ME ME_4F4FE1B40314_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_4F4FE1B40314' '4DAF19F600C5.ms.model.script' // WriteWStr
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FE1B40314_ME_4F4FD77B03CC WriteWStr
+
+ME ME_4F50821201E7_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_4F50821201E7' '4DAF19F600C5.ms.model.script' // EOF
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F50821201E7_ME_4F4FD77B03CC EOF
+
+ME ME_52E23B7A00EC_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.ms.model.script' // ForEach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52E23B7A00EC_ME_4F4FD77B03CC ForEach
+
+ME ME_52E23BB102FA_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_52E23BB102FA' '4DAF19F600C5.ms.model.script' // ForEachBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52E23BB102FA_ME_4F4FD77B03CC ForEachBack
+
+ME ME_479731C50290_ME_4F4FD77B03CC
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4F4FD77B03CC Cleanup
+
+%%ImplementedBy ME_4F4E4E7101D6 ME_4F4FD77B03CC
+
+%%InheritedBy ME_4AE5CA2D0034 ME_4F4FD77B03CC
+
+ME ME_4F4FD77B03CC
+ MEPROP UID '4F4FD77B03CC'
+ MEPROP Name 'TtfwFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.ms.model.script' // Tl3CProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.ms.model.script' // ItfwFile
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4F4FD78A01EF // f_Filer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F4FD849026C // CreateRead
+ HWL ME_4F4FD85F033A // CreateWrite
+ HWL ME_4F4FD88C01B2 // MakeRead
+ HWL ME_4F4FD89C00DB // MakeWrite
+ HWL ME_570E70230377 // CreateAppend
+ HWL ME_570E7037029C // MakeAppend
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4E4E7E0350_ME_4F4FD77B03CC // ReadLn
+ ME_4F4E4EA7007D_ME_4F4FD77B03CC // WriteLn
+ ME_4F4FDC540264_ME_4F4FD77B03CC // WriteChar
+ ME_4F4FE16A0269_ME_4F4FD77B03CC // ReadWStrLn
+ ME_4F4FE19301A1_ME_4F4FD77B03CC // WriteWStrLn
+ ME_4F4FE1B40314_ME_4F4FD77B03CC // WriteWStr
+ ME_4F50821201E7_ME_4F4FD77B03CC // EOF
+ ME_52E23B7A00EC_ME_4F4FD77B03CC // ForEach
+ ME_52E23BB102FA_ME_4F4FD77B03CC // ForEachBack
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F4FD77B03CC // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F4FD7BB0384 // Tl3FileMode
+ ME_4F4FD8DA01C1 // Format
+ ME_4F4FD9E7017E // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'File'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F4FD77B03CC TtfwFile
+
+ME ME_55B5FB5F0397
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B5FB5F0397 aName
+
+ME ME_55B5FB4B0008
+ MEPROP UID '55B5FB4B0008'
+ MEPROP Name 'OpenRead'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_creator::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B5FB5F0397 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55B5FB4B0008 OpenRead
+
+ME ME_55B5FB8200DD
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B5FB8200DD aName
+
+ME ME_55B5FB780316
+ MEPROP UID '55B5FB780316'
+ MEPROP Name 'OpenWrite'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_creator::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B5FB8200DD // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55B5FB780316 OpenWrite
+
+ME ME_55B5FB9E01EF
+ MEPROP UID '55B5FB9E01EF'
+ MEPROP Name 'EOF'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55B5FB9E01EF EOF
+
+ME ME_55B5FBE20353
+ MEPROP UID '55B5FBE20353'
+ MEPROP Name 'ReadLn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55B5FBE20353 ReadLn
+
+ME ME_55B5FC080154
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55B5FC080154 aValue
+
+ME ME_55B5FBFE02E9
+ MEPROP UID '55B5FBFE02E9'
+ MEPROP Name 'WriteLn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B5FC080154 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55B5FBFE02E9 WriteLn
+
+ME ME_55B5FC220390
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_55B5FC220390 aValue
+
+ME ME_55B5FC1C0184
+ MEPROP UID '55B5FC1C0184'
+ MEPROP Name 'WriteChar'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B5FC220390 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55B5FC1C0184 WriteChar
+
+ME ME_55B5FC5A007D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_55B5FC5A007D aValue
+
+ME ME_55B5FC500169
+ MEPROP UID '55B5FC500169'
+ MEPROP Name 'WriteStr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B5FC5A007D // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55B5FC500169 WriteStr
+
+ME ME_55B6044A038E
+ MEPROP UID '55B6044A038E'
+ MEPROP Name 'ReadLines'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_wordworker::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ UP "SupressNextImmediate" 'None'
+
+ENDME // ME_55B6044A038E ReadLines
+
+ME ME_55B6048C02D6
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B6048C02D6 aName
+
+ME ME_55B6047F005B
+ MEPROP UID '55B6047F005B'
+ MEPROP Name 'DeleteFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B6048C02D6 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55B6047F005B DeleteFile
+
+ME ME_55B604D30106
+ MEPROP Name 'aNewName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B604D30106 aNewName
+
+ME ME_55B604D3017B
+ MEPROP Name 'anOldName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B604D3017B anOldName
+
+ME ME_55B6049F0019
+ MEPROP UID '55B6049F0019'
+ MEPROP Name 'RenameFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'RenameFile - переименовывает файл.'#13#10'*Формат:* aOldFileName aNewFileName RenameFile'#13#10'* aNewFileName - новое имя файла.'#13#10'* aOldFileName - старое имя файла.'#13#10'В стек помещается результат операции: true - если успешно, false - если переименование не получилось.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B604D30106 // aNewName
+ ME_55B604D3017B // anOldName
+ )
+ ; // Parameters
+
+ENDME // ME_55B6049F0019 RenameFile
+
+ME ME_55B6055E02D4
+ MEPROP Name 'aSourceDir'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B6055E02D4 aSourceDir
+
+ME ME_55B6055E034A
+ MEPROP Name 'aDestDir'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B6055E034A aDestDir
+
+ME ME_55B6055E03AE
+ MEPROP Name 'aFileMask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B6055E03AE aFileMask
+
+ME ME_55B604FC0108
+ MEPROP UID '55B604FC0108'
+ MEPROP Name 'CopyFilesByMask'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'CopyFilesByMask- копирует файлы по маске..'#13#10'*Формат:* '#13#10'{code}'#13#10' aFileMask aDestDir aSourceDir  CopyFilesByMask'#13#10'{code}'#13#10'* aSourceDir - директория откуда копируем.'#13#10'* aDestDir - директория куда копируем.'#13#10'* aFileMask - маска, по которой копируем файлы.'#13#10'Результат слово не возвращает. Если появляется ошибка, то будет Exception' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B6055E02D4 // aSourceDir
+ ME_55B6055E034A // aDestDir
+ ME_55B6055E03AE // aFileMask
+ )
+ ; // Parameters
+
+ENDME // ME_55B604FC0108 CopyFilesByMask
+
+ME ME_55B605E30082
+ MEPROP Name 'aSourceFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B605E30082 aSourceFile
+
+ME ME_55B605E300DC
+ MEPROP Name 'aDestFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B605E300DC aDestFile
+
+ME ME_55B605E30140
+ MEPROP Name 'aCopyMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55B605E30140 aCopyMode
+
+ME ME_55B605890120
+ MEPROP UID '55B605890120'
+ MEPROP Name 'CopyFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'CopyFile - копирует файл.'#13#10'*Формат:*  aCopyMode aDestFile aSourceFile CopyFile'#13#10'* aSourceFile - имя исходного файла'#13#10'* aDestFile - имя файла, куда копируем'#13#10'* aCopyMode - режим копирования файла.'#13#10'Результат слово не возвращает. Если появляется ошибка, то будет Exception' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B605E30082 // aSourceFile
+ ME_55B605E300DC // aDestFile
+ ME_55B605E30140 // aCopyMode
+ )
+ ; // Parameters
+
+ENDME // ME_55B605890120 CopyFile
+
+ME ME_55B606CD001A
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B606CD001A aName
+
+ME ME_55B606A70227
+ MEPROP UID '55B606A70227'
+ MEPROP Name 'PureDir'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'PureDir - очищает директорию.'#13#10'*Формат:* aDirName PureDir'#13#10'* aDirName  - имя директории.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B606CD001A // aName
+ )
+ ; // Parameters
+
+ENDME // ME_55B606A70227 PureDir
+
+ME ME_55B6071B0030
+ MEPROP Name 'aDirName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B6071B0030 aDirName
+
+ME ME_55B6071B0092
+ MEPROP Name 'aMask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B6071B0092 aMask
+
+ME ME_55B606F1003D
+ MEPROP UID '55B606F1003D'
+ MEPROP Name 'DeleteFilesByMask'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'DeleteFilesByMask - очищает директорию.'#13#10'*Формат:* aMask aDirName DeleteFilesByMask'#13#10'* aDirName  - имя директории.'#13#10'* aMask - маска, по которой отбираются файлы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B6071B0030 // aDirName
+ ME_55B6071B0092 // aMask
+ )
+ ; // Parameters
+
+ENDME // ME_55B606F1003D DeleteFilesByMask
+
+ME ME_55B607B003D6
+ MEPROP Name 'aDirName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B607B003D6 aDirName
+
+ME ME_55B607B100A9
+ MEPROP Name 'aFileMask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B607B100A9 aFileMask
+
+ME ME_55B607B10103
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_55B607B10103 aProc
+
+ME ME_55B6075302CC
+ MEPROP UID '55B6075302CC'
+ MEPROP Name 'ProcessFilesWithMask'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'ProcessFilesWithMask - перебирает файлы по маске в заданной директории и вызывает для каждого найденного функцию.'#13#10'*Формат:*'#13#10'aProc aFileMask aDirName ProcessFilesWithMask'#13#10'* aProc - функция, которая вызывается для каждого файла. В стек при вызове помещается имя файла.'#13#10'* aFileMask - маска, по которой отбираются файлы, например ''*.script'''#13#10'* aDirName - путь, по которому ищутся файлы.'#13#10'*Пример:*'#13#10'{code}'#13#10': PrintFileName'#13#10' .'#13#10';'#13#10''#13#10'@ PrintFileName ''*.script'' ''w:\archi\source\projects\Archi\TestSet\Scripts\'' ProcessFilesWithMask'#13#10'{code}'#13#10'В результате будет создан файл с имя_скрипта.prn с именами файлов с полными путями.'#13#10'*Примечание:* Если ни один файл не найден, то функция не будет вызвана ни разу. Ни дирректории, ни ссылки на файлы, ни имена дисков в поиск не попадают. Поиск во вложенных директориях не прозводится. Имя файла передается с полным путем.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B607B003D6 // aDirName
+ ME_55B607B100A9 // aFileMask
+ ME_55B607B10103 // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_55B6075302CC ProcessFilesWithMask
+
+ME ME_55B6080103A0
+ MEPROP Name 'aDirName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55B6080103A0 aDirName
+
+ME ME_55B608020035
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_55B608020035 aProc
+
+ME ME_55B607D400E0
+ MEPROP UID '55B607D400E0'
+ MEPROP Name 'ProcessSubDirs'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'ProcessSubDirs - перебирает директории в заданной директории и вызывает для каждого найденного функцию.'#13#10'*Формат:*'#13#10'aProc aDirName ProcessSubDirs'#13#10'* aProc - функция, которая вызывается для каждой директории. В стек при вызове помещается имя директории.'#13#10'* aDirName - путь, по которому ищутся директории.'#13#10'*Пример:*'#13#10'{code}'#13#10': PrintFileName'#13#10' .'#13#10';'#13#10''#13#10'@ PrintFileName ''w:\archi\source\projects\Archi\TestSet\'' ProcessSubDirs'#13#10'{code}'#13#10'В результате будет создан файл с имя_скрипта.prn с именами директорий с полными путями.'#13#10'*Примечание:* Если ни одна директория  не найдена, то функция не будет вызвана ни разу.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B6080103A0 // aDirName
+ ME_55B608020035 // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_55B607D400E0 ProcessSubDirs
+
+ME ME_55B609A3029D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_55B609A3029D aValue
+
+ME ME_55B60993020B
+ MEPROP UID '55B60993020B'
+ MEPROP Name 'WriteWStr'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B609A3029D // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55B60993020B WriteWStr
+
+ME ME_55B618940267
+ MEPROP UID '55B618940267'
+ MEPROP Name 'ReadWStrLn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_55B618940267 ReadWStrLn
+
+ME ME_55B618BA0311
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_55B618BA0311 aValue
+
+ME ME_55B618AB03C3
+ MEPROP UID '55B618AB03C3'
+ MEPROP Name 'WriteWStrLn'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55B618BA0311 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_55B618AB03C3 WriteWStrLn
+
+ME ME_56420DC20183
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_56420DC20183 aFileName
+
+ME ME_56420DAD0276
+ MEPROP UID '56420DAD0276'
+ MEPROP Name 'FileSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_56420DC20183 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_56420DAD0276 FileSize
+
+ME ME_56420E360080
+ MEPROP Name 'aFile1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_56420E360080 aFile1
+
+ME ME_56420E3600EE
+ MEPROP Name 'aFile2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_56420E3600EE aFile2
+
+ME ME_56420E36015C
+ MEPROP Name 'aHeaderBegin'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_56420E36015C aHeaderBegin
+
+ME ME_56420DEC002D
+ MEPROP UID '56420DEC002D'
+ MEPROP Name 'CompareFiles'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_56420E360080 // aFile1
+ ME_56420E3600EE // aFile2
+ ME_56420E36015C // aHeaderBegin
+ )
+ ; // Parameters
+
+ENDME // ME_56420DEC002D CompareFiles
+
+ME ME_570E700B014F
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_570E700B014F aName
+
+ME ME_570E700201A7
+ MEPROP UID '570E700201A7'
+ MEPROP Name 'OpenAppend'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_creator::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_570E700B014F // aName
+ )
+ ; // Parameters
+
+ENDME // ME_570E700201A7 OpenAppend
+
+ME ME_57E5269300E6
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57E5269300E6 aFileName
+
+ME ME_57E540AD0094
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57E540AD0094 aString
+
+ME ME_57E5266B024A
+ MEPROP UID '57E5266B024A'
+ MEPROP Name 'FindInFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E5269300E6 // aFileName
+ ME_57E540AD0094 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_57E5266B024A FindInFile
+
+ME ME_55B5FAD602C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target HWL ME_4F4FD77B03CC // TtfwFile
+ ;
+
+ENDME // ME_55B5FAD602C0 
+
+ME ME_55B5FAF602A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_55B5FAF602A4 
+
+ME ME_55B5FC6D01FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_55B5FC6D01FE 
+
+ME ME_55B5FCBC0256
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_509116F601C3' '47877EB202FB.ms.model.script' // RenameFile
+ ;
+
+ENDME // ME_55B5FCBC0256 
+
+ME ME_55B5FCCF00CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_53FDBED602A4' '4B57004201BD.ms.model.script' // CopyFilesByMask
+ ;
+
+ENDME // ME_55B5FCCF00CF 
+
+ME ME_55B5FCE103D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_502550E80220' '47877EB202FB.ms.model.script' // TSearchRec
+ ;
+
+ENDME // ME_55B5FCE103D3 
+
+ME ME_55B5FCF601AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_4F191FDD0358' '4B57004201BD.ms.model.script' // ConcatDirName
+ ;
+
+ENDME // ME_55B5FCF601AE 
+
+ME ME_55B5FD0E0078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_4F4E5D6C038D' '4DAF19F600C5.ms.model.script' // C$File
+ ;
+
+ENDME // ME_55B5FD0E0078 
+
+ME ME_5601702B012C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_5579351F0143' '4773D64E036C.ms.model.script' // Tl3ConstString
+ ;
+
+ENDME // ME_5601702B012C 
+
+ME ME_56420DE10149
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_47A080670100' '47A080670100.ms.model.script' // l3Stream
+ ;
+
+ENDME // ME_56420DE10149 
+
+ME ME_57E542C2016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4FD7EA00EB // FileProcessingPack
+ ;
+ MELINK Target WL 'ME_57E526D50230' '57E526D50230.ms.model.script' // l3TextSearch
+ ;
+
+ENDME // ME_57E542C2016C 
+
+ME ME_4F4E4E7E0350_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_4F4E4E7E0350' '4DAF19F600C5.ms.model.script' // ReadLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4E4E7E0350_ME_4F4FD7EA00EB ReadLn
+
+ME ME_4F4E4EA7007D_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_4F4E4EA7007D' '4DAF19F600C5.ms.model.script' // WriteLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4E4EA7007D_ME_4F4FD7EA00EB WriteLn
+
+ME ME_4F4FDC540264_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_4F4FDC540264' '4DAF19F600C5.ms.model.script' // WriteChar
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FDC540264_ME_4F4FD7EA00EB WriteChar
+
+ME ME_4F4FE16A0269_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_4F4FE16A0269' '4DAF19F600C5.ms.model.script' // ReadWStrLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FE16A0269_ME_4F4FD7EA00EB ReadWStrLn
+
+ME ME_4F4FE19301A1_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_4F4FE19301A1' '4DAF19F600C5.ms.model.script' // WriteWStrLn
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FE19301A1_ME_4F4FD7EA00EB WriteWStrLn
+
+ME ME_4F4FE1B40314_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_4F4FE1B40314' '4DAF19F600C5.ms.model.script' // WriteWStr
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F4FE1B40314_ME_4F4FD7EA00EB WriteWStr
+
+ME ME_4F50821201E7_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_4F50821201E7' '4DAF19F600C5.ms.model.script' // EOF
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F50821201E7_ME_4F4FD7EA00EB EOF
+
+ME ME_52E23B7A00EC_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.ms.model.script' // ForEach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52E23B7A00EC_ME_4F4FD7EA00EB ForEach
+
+ME ME_52E23BB102FA_ME_4F4FD7EA00EB
+ MELINK Original WL 'ME_52E23BB102FA' '4DAF19F600C5.ms.model.script' // ForEachBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52E23BB102FA_ME_4F4FD7EA00EB ForEachBack
+
+%%InjectedBy ME_4DAEED140007 ME_4F4FD7EA00EB
+
+%%ImplementedBy ME_4F4E4E7101D6 ME_4F4FD7EA00EB
+
+ME ME_4F4FD7EA00EB
+ MEPROP UID '4F4FD7EA00EB'
+ MEPROP Name 'FileProcessingPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F4FD6CC0295' '4F4FD6CC0295.ms.model.script' // FileProcessing
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4F4E4E7101D6' '4DAF19F600C5.ms.model.script' // ItfwFile
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55B5FB4B0008 // OpenRead
+ HWL ME_55B5FB780316 // OpenWrite
+ HWL ME_55B5FB9E01EF // EOF
+ HWL ME_55B5FBE20353 // ReadLn
+ HWL ME_55B5FBFE02E9 // WriteLn
+ HWL ME_55B5FC1C0184 // WriteChar
+ HWL ME_55B5FC500169 // WriteStr
+ HWL ME_55B6044A038E // ReadLines
+ HWL ME_55B6047F005B // DeleteFile
+ HWL ME_55B6049F0019 // RenameFile
+ HWL ME_55B604FC0108 // CopyFilesByMask
+ HWL ME_55B605890120 // CopyFile
+ HWL ME_55B606A70227 // PureDir
+ HWL ME_55B606F1003D // DeleteFilesByMask
+ HWL ME_55B6075302CC // ProcessFilesWithMask
+ HWL ME_55B607D400E0 // ProcessSubDirs
+ HWL ME_55B60993020B // WriteWStr
+ HWL ME_55B618940267 // ReadWStrLn
+ HWL ME_55B618AB03C3 // WriteWStrLn
+ HWL ME_56420DAD0276 // FileSize
+ HWL ME_56420DEC002D // CompareFiles
+ HWL ME_570E700201A7 // OpenAppend
+ HWL ME_57E5266B024A // FindInFile
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F4E4E7E0350_ME_4F4FD7EA00EB // ReadLn
+ ME_4F4E4EA7007D_ME_4F4FD7EA00EB // WriteLn
+ ME_4F4FDC540264_ME_4F4FD7EA00EB // WriteChar
+ ME_4F4FE16A0269_ME_4F4FD7EA00EB // ReadWStrLn
+ ME_4F4FE19301A1_ME_4F4FD7EA00EB // WriteWStrLn
+ ME_4F4FE1B40314_ME_4F4FD7EA00EB // WriteWStr
+ ME_4F50821201E7_ME_4F4FD7EA00EB // EOF
+ ME_52E23B7A00EC_ME_4F4FD7EA00EB // ForEach
+ ME_52E23BB102FA_ME_4F4FD7EA00EB // ForEachBack
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4F4FD77B03CC // TtfwFile
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55B5FAD602C0 // TtfwFile
+ ME_55B5FAF602A4 // TtfwWord
+ ME_55B5FC6D01FE // l3String
+ ME_55B5FCBC0256 // RenameFile
+ ME_55B5FCCF00CF // CopyFilesByMask
+ ME_55B5FCE103D3 // TSearchRec
+ ME_55B5FCF601AE // ConcatDirName
+ ME_55B5FD0E0078 // C$File
+ ME_5601702B012C // Tl3ConstString
+ ME_56420DE10149 // l3Stream
+ ME_57E542C2016C // l3TextSearch
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "no_pop" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
+
+ENDME // ME_4F4FD7EA00EB FileProcessingPack

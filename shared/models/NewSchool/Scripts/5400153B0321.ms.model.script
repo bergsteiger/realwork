@@ -1,0 +1,46 @@
+// gtPDFEng 5400153B0321 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5400153B0321
+
+FORWARD ME_5400153B0321
+
+ME ME_5400158A013C
+ MEPROP UID '5400158A013C'
+ MEPROP Name 'TgtPDFEngine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5400153B0321 // gtPDFEng
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'gtPDFEngine'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5400158A013C TgtPDFEngine
+
+ME ME_5400153B0321
+ MEPROP UID '5400153B0321'
+ MEPROP Name 'gtPDFEng'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_540013B002E1' '540013B002E1.ms.model.script' // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5400158A013C // TgtPDFEngine
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtPDFEng.pas'
+
+ENDME // ME_5400153B0321 gtPDFEng

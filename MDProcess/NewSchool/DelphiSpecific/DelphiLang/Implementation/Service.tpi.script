@@ -24,6 +24,11 @@ implementation @ <<Service>>
 // - тип абстракции
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p auto translate to alien:tribool=undefined ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
 
 //%f _st_space_key
@@ -31,8 +36,21 @@ implementation @ <<Service>>
 //	SHD
  'SHD'
 
-//%f _CheckMixin
+//%f _wiki_up_print
 ; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{auto translate to alien}"!="%S{!auto translate to alien}"}%f_up_prefix(%S) *auto translate to alien* = *%S{auto translate to alien}*
+ ?inherited
+ if ( ( %S get_up ( 'auto translate to alien' ) ) %!= ( %S get_up_def ( 'auto translate to alien' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *auto translate to alien* = *'
+  %S get_up ( 'auto translate to alien' ) '*'
+//	]
+ end // if
+
+//%f _CheckMixin
+; // wiki_up_print
 
 : CheckMixin OBJECT IN %S
 //#UC START# *5502CBF50065for5502BABC0193*
@@ -224,6 +242,10 @@ implementation @ <<Service>>
      ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifdef' %, %C get_up ( 'ifdef' ) )% ) 
 //	%{Op_Instance}%f_set_up(ifndef,%C{ifndef})\
      ( get_global_var ( 'Op_Instance' ) %f set_up %( 'ifndef' %, %C get_up ( 'ifndef' ) )% ) 
+//	%{Op_Instance}%f_set_up(OriginalStereotype,%CS)\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'OriginalStereotype' %, %C |S )% ) 
+//	%{Op_Instance}%f_set_var(Speller,C)\
+     ( get_global_var ( 'Op_Instance' ) %f set_var %( 'Speller' %, 'C' )% ) 
 //	]\
     end // if
 //	>\
@@ -301,10 +323,62 @@ implementation @ <<Service>>
      ( get_global_var ( 'Op_Instance' ) %f set_up %( 'needs index' %, %C get_up ( 'needs index' ) )% ) 
 //	%{Op_Instance}%f_set_up(needs result,%C{needs result})\
      ( get_global_var ( 'Op_Instance' ) %f set_up %( 'needs result' %, %C get_up ( 'needs result' ) )% ) 
-//	%{Op_Instance}%f_set_var(SPELLER,C)\
-     ( get_global_var ( 'Op_Instance' ) %f set_var %( 'SPELLER' %, 'C' )% ) 
+//	%{Op_Instance}%f_set_up(OriginalStereotype,%CS)\
+     ( get_global_var ( 'Op_Instance' ) %f set_up %( 'OriginalStereotype' %, %C |S )% ) 
+//	%{Op_Instance}%f_set_var(Speller,C)\
+     ( get_global_var ( 'Op_Instance' ) %f set_var %( 'Speller' %, 'C' )% ) 
 //	]\
     end // if
+//	>\
+
+    ++! l_Counter
+   end // if
+  end // for C
+
+ ) // bind
+
+//	%f_clear_list(RESPS)\
+ [%f] clear_list %( 'RESPS' )% 
+
+//	<{}{%C#f_IsFactoryOnModule()=true}\
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if ( ( %C %?f IsFactoryOnModule %( )% ) %==  true ) then
+  begin
+//	%f_add_to_list(RESPS,C)\
+   [%f] add_to_list %( 'RESPS' %, 'C' )% 
+//	>\
+
+   ++! l_Counter
+  end // if
+ end // for C
+
+//	%{RESPS}<{}{}{%C}\
+ ( get_global_var ( 'RESPS' ) ) 
+ bind ( 
+  OBJECT VAR %S
+  INTEGER VAR l_Counter l_Counter := 0
+  for %S%C
+  begin
+   OBJECT IN %C
+   if true then
+   begin
+//	%C%f_copy_element(%1%{Mixin}U_%CU_Resp,%1%{Mixin}U,facetmethod,%CN$%CU,true,Op_Instance)\
+    %C %f copy_element %( %1 ( get_object_var ( 'Mixin' ) |U )  '_'
+    %C |U '_Resp' %, %1 ( get_object_var ( 'Mixin' ) |U )  %, 'facetmethod' %, %C |N '$'
+    %C |U %, true %, 'Op_Instance' )% 
+//	%{Op_Instance}%f_set_documentation(%CD)\
+    ( get_global_var ( 'Op_Instance' ) %f set_documentation %( %C |D )% ) 
+//	%{Op_Instance}%f_set_visibility_type(PublicAccess)\
+    ( get_global_var ( 'Op_Instance' ) %f set_visibility_type %( 'PublicAccess' )% ) 
+//	%{Op_Instance}%f_set_abstraction_type(abstract)\
+    ( get_global_var ( 'Op_Instance' ) %f set_abstraction_type %( 'abstract' )% ) 
+//	%{Op_Instance}%f_set_up(OriginalStereotype,%CS)\
+    ( get_global_var ( 'Op_Instance' ) %f set_up %( 'OriginalStereotype' %, %C |S )% ) 
+//	%{Op_Instance}%f_set_var(Speller,C)\
+    ( get_global_var ( 'Op_Instance' ) %f set_var %( 'Speller' %, 'C' )% ) 
 //	>\
 
     ++! l_Counter
@@ -450,8 +524,39 @@ implementation @ :: <<Service>> <<responsibility>> ;
 ; // wiki_up_add_gen
 
 
+//: Service::Class::implements::ClassDependency
+end. // :: <<Service>> <<responsibility>> ;
+
+implementation @ :: <<Service>> <<implements>> ;
+//= ServicePrim::Class::implements::ClassDependency
+
+// Пользовательские свойства
+//p auto implements:tribool=undefined ? 
+
+// Функции стереотипа
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{auto implements}"!="%S{!auto implements}"}%f_up_prefix(%S) *auto implements* = *%S{auto implements}*
+ ?inherited
+ if ( ( %S get_up ( 'auto implements' ) ) %!= ( %S get_up_def ( 'auto implements' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *auto implements* = *'
+  %S get_up ( 'auto implements' ) '*'
+//	]
+ end // if
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-end. // :: <<Service>> <<responsibility>> ;
+; // wiki_up_print
+
+end. // :: <<Service>> <<implements>> ;
 

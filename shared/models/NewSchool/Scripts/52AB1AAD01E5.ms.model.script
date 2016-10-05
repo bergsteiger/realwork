@@ -2,83 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_52AB1AAD01E5
-
-FORWARD ME_52AB1AC403E7
-
-FORWARD ME_52EB804601CE
-
-ME ME_52EB80B60166
- MEPROP UID '52EB80B60166'
- MEPROP Name 'CM_TBMOUSEQUERY'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52EB804601CE // MessageConstants
- ;
- MEPROP Value 'WM_USER + 12345'
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 'WM_USER + 12345'
-
-ENDME // ME_52EB80B60166 CM_TBMOUSEQUERY
-
-ME ME_52EB80CB00DD
- MEPROP UID '52EB80CB00DD'
- MEPROP Name 'CM_TBCHECKCONTROL'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52EB804601CE // MessageConstants
- ;
- MEPROP Value 'CB_TBMOUSEQUERY + 1'
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 'CB_TBMOUSEQUERY + 1'
-
-ENDME // ME_52EB80CB00DD CM_TBCHECKCONTROL
-
-ME ME_52EB804601CE
- MEPROP UID '52EB804601CE'
- MEPROP Name 'MessageConstants'
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52AB1AC403E7 // tb97vt
- ;
- MELIST Attributes
-   Seq: ( HWL ME_52EB80B60166 // CM_TBMOUSEQUERY
- HWL ME_52EB80CB00DD // CM_TBCHECKCONTROL
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_52EB804601CE MessageConstants
-
-ME ME_52AB1AC403E7
- MEPROP UID '52AB1AC403E7'
- MEPROP Name 'tb97vt'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52AB1AAD01E5 // TB97
- ;
- MELIST Constants
-   Seq: ( HWL ME_52EB804601CE // MessageConstants
- )
- ; // Constants
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\tb97\NOT_FINISHED_tb97vt.pas'
-
-ENDME // ME_52AB1AC403E7 tb97vt
+%%Inner ME_52AB1AAD01E5
 
 ME ME_52AB1AAD01E5
  MEPROP UID '52AB1AAD01E5'
@@ -91,13 +15,16 @@ ME ME_52AB1AAD01E5
  MELINK Parent WL 'ME_4C43E84F0304' '4C43E84F0304.ms.model.script' // tb97
  ;
  MELIST Children
-   Seq: ( HWL ME_52AB1AC403E7 // tb97vt
+   Seq: ( WL 'ME_52AB1AC403E7' '52AB1AC403E7.ms.model.script' // tb97vt
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" false
 
 ENDME // ME_52AB1AAD01E5 TB97

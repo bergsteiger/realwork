@@ -1,0 +1,91 @@
+// l3ParserInterfaces 4DC95A8D016F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DC95A8D016F
+
+FORWARD ME_4DC95A8D016F
+
+FORWARD ME_4DC95AB20023
+
+FORWARD ME_4DC95AF703B8
+
+ME ME_52F0FA170076
+ MEPROP UID '52F0FA170076'
+ MEPROP Name 'aName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DC95AF703B8 // KeywordByName
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_52F0FA170076 aName
+
+ME ME_4DC95AF703B8
+ MEPROP UID '4DC95AF703B8'
+ MEPROP Name 'KeywordByName'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4DC95AB20023 // Il3KeywordFinder
+ ;
+ MELINK Target WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52F0FA170076 // aName
+ )
+ ; // Attributes
+ UP "pm" false
+
+ENDME // ME_4DC95AF703B8 KeywordByName
+
+ME ME_4DC95AB20023
+ MEPROP UID '4DC95AB20023'
+ MEPROP GUID '6B7313C8-EC12-43A4-9B0C-89C07EED8DA7'
+ MEPROP Name 'Il3KeywordFinder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC95A8D016F // l3ParserInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DC95AF703B8 // KeywordByName
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'KeywordFinder'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DC95AB20023 Il3KeywordFinder
+
+ME ME_4DC95A8D016F
+ MEPROP UID '4DC95A8D016F'
+ MEPROP Name 'l3ParserInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DC95AB20023 // Il3KeywordFinder
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '10.05.2011 19:32'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ParserInterfaces.pas'
+ UP extprop:rc:SelfName 'ParserInterfaces'
+
+ENDME // ME_4DC95A8D016F l3ParserInterfaces

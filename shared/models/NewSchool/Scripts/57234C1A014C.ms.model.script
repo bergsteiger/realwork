@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57234C1A014C
+%%Inner ME_57234C1A014C
+%%Inner ME_57234C1A014C
+%%Inner ME_57234C1A014C
+
 FORWARD ME_57234C1A014C
 
 FORWARD ME_52FBA57600AB
@@ -98,7 +103,7 @@ ME ME_572B22E40156
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_572B22E40156 f_Active
@@ -112,7 +117,7 @@ ME ME_572B22F40005
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_572B22F40005 f_HasAdminRights
@@ -126,7 +131,7 @@ ME ME_572B2310015F
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_572B2310015F f_IP
@@ -140,7 +145,7 @@ ME ME_572B2320031A
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
  ;
 
 ENDME // ME_572B2320031A f_LoginDate
@@ -154,7 +159,7 @@ ME ME_572B233B0161
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_572B233B0161 f_LoginName
@@ -168,7 +173,7 @@ ME ME_572B23480256
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_572B23480256 f_Password
@@ -182,7 +187,7 @@ ME ME_572B2352016C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_572B2352016C f_UserName
@@ -244,6 +249,10 @@ ME ME_572B1324003C
 
 ENDME // ME_572B1324003C Create
 
+%%ImplementedBy ME_5729DCE2003D ME_572B132E02CA
+
+%%InheritedBy ME_572B1324003C ME_572B132E02CA
+
 ME ME_572B132E02CA
  MEPROP UID '572B132E02CA'
  MEPROP Name 'Make'
@@ -270,7 +279,7 @@ ME ME_572B310E0311
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52FBA57600AB // TdaArchiUser
  ;
- MELINK Target WL 'ME_521C9F880038' '4F6843C101D1.ms.model.script' // ddStreamUtils
+ MELINK Target WL 'ME_521C9F880038' '521C9F880038.ms.model.script' // ddStreamUtils
  ;
 
 ENDME // ME_572B310E0311 
@@ -358,10 +367,14 @@ ME ME_572B12AE028C_ME_52FBA57600AB
 ENDME // ME_572B12AE028C_ME_52FBA57600AB UserName
 
 ME ME_479731C50290_ME_52FBA57600AB
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_52FBA57600AB Cleanup
+
+%%ImplementedBy ME_5729DCE2003D ME_52FBA57600AB
+
+%%InheritedBy ME_49E7754802A9 ME_52FBA57600AB
 
 ME ME_52FBA57600AB
  MEPROP UID '52FBA57600AB'
@@ -427,6 +440,9 @@ ME ME_52FBA57600AB
    Seq: ( ME_572B310E0311 // ddStreamUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\DA\daArchiUser.pas'
  UP extprop:rc:SelfName 'daArchiUser'
  UP extprop:rc:isAcceptableForScripts true
@@ -451,6 +467,9 @@ ME ME_52FBA7D90378
 
 ENDME // ME_52FBA7D90378 ItemType
 
+%%InheritedBy ME_47B57D830369 ME_52FBA7D00393
+%%InheritedBy ME_4A54DD4E036F ME_52FBA7D00393
+
 ME ME_52FBA7D00393
  MEPROP UID '52FBA7D00393'
  MEPROP Name 'TdaArchiUserList'
@@ -462,7 +481,7 @@ ME ME_52FBA7D00393
  MELINK Parent HWL ME_57234C1A014C // Users
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -494,6 +513,9 @@ ME ME_573983E20189
 
 ENDME // ME_573983E20189 ItemType
 
+%%InheritedBy ME_47B57D630029 ME_573983CB019E
+%%InheritedBy ME_4A54DD4E036F ME_573983CB019E
+
 ME ME_573983CB019E
  MEPROP UID '573983CB019E'
  MEPROP Name 'TdaUserStatusChangedSubscriberList'
@@ -505,7 +527,7 @@ ME ME_573983CB019E
  MELINK Parent HWL ME_57234C1A014C // Users
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -537,6 +559,9 @@ ME ME_57E12BB2001D
 
 ENDME // ME_57E12BB2001D ItemType
 
+%%InheritedBy ME_47A1B04702C2 ME_57E12B9702E6
+%%InheritedBy ME_4A54DD4E036F ME_57E12B9702E6
+
 ME ME_57E12B9702E6
  MEPROP UID '57E12B9702E6'
  MEPROP Name 'TdaUserIDList'
@@ -548,7 +573,7 @@ ME ME_57E12B9702E6
  MELINK Parent HWL ME_57234C1A014C // Users
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47A1B04702C2' '47913B47006E.ms.model.script' // l3AtomicList
+   Seq: ( WL 'ME_47A1B04702C2' '47A1B04702C2.ms.model.script' // l3AtomicList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -589,5 +614,8 @@ ME ME_57234C1A014C
  WL 'ME_5432518A0316' '5432518A0316.ms.model.script' // daInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_57234C1A014C Users

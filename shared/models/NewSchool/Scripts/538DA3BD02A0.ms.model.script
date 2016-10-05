@@ -1,0 +1,58 @@
+// CsQueryRequester 538DA3BD02A0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_538DA3BD02A0
+
+FORWARD ME_538DA3BD02A0
+
+ME ME_538DA3DA035E
+ MEPROP UID '538DA3DA035E'
+ MEPROP Name 'TCsQueryProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_538DA3BD02A0 // CsQueryRequester
+ ;
+ UP "of object" false
+
+ENDME // ME_538DA3DA035E TCsQueryProc
+
+ME ME_538DA6440050
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_538DA3BD02A0 // CsQueryRequester
+ ;
+ MELINK Target WL 'ME_538DA33503D9' '538DA20300A7.ms.model.script' // TCsQueryRequesterTool
+ ;
+
+ENDME // ME_538DA6440050 
+
+ME ME_538DA3BD02A0
+ MEPROP UID '538DA3BD02A0'
+ MEPROP Name 'CsQueryRequester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_538DA20300A7' '538DA20300A7.ms.model.script' // ClientSide
+ ;
+ MELIST Children
+   Seq: ( HWL ME_538DA3DA035E // TCsQueryProc
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_538DA6440050 // TCsQueryRequesterTool
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryRequester.pas'
+
+ENDME // ME_538DA3BD02A0 CsQueryRequester

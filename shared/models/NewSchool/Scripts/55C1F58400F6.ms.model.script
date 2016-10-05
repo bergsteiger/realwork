@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_55C1F58400F6
+
 FORWARD ME_55C1F58400F6
 
 FORWARD ME_55C1F59F001C
@@ -12,7 +14,7 @@ ME ME_55C1F5DB02B4
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_55C1F5DB02B4 aFileName
@@ -37,7 +39,7 @@ ME ME_55C2040B0284
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C1F5C100CC // Make
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_55C2040B0284 
@@ -47,7 +49,7 @@ ME ME_55C2053102E8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C1F5C100CC // Make
  ;
- MELINK Target WL 'ME_4C1B475101C5' '4C1B474600AD.ms.model.script' // l3Parser
+ MELINK Target WL 'ME_4C1B475101C5' '4C1B475101C5.ms.model.script' // l3Parser
  ;
 
 ENDME // ME_55C2053102E8 
@@ -125,6 +127,9 @@ ME ME_55C1F59F001C
  ME_55C1F5B40343 // TtfwFileStreamFactory
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCOMaker.pas'
  UP extprop:rc:SelfName 'COMaker'
  UP extprop:rc:isAcceptableForScripts true
@@ -153,5 +158,8 @@ ME ME_55C1F58400F6
  WL 'ME_52EF72190220' '52EF72190220.ms.model.script' // tfwParserInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_55C1F58400F6 Tools

@@ -432,8 +432,10 @@ initialization
  {* Регистрация типа TContactListForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));
  {* Регистрация типа TnscContextFilter }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeTreeView));
  {* Регистрация типа TeeTreeView }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

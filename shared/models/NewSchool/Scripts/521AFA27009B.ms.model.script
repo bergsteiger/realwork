@@ -1,0 +1,475 @@
+// ddRTFUnits 521AFA27009B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_521AFA27009B
+
+FORWARD ME_521AFAF9024B
+
+ME ME_521AFCCC0250
+ MEPROP Name 'aInch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFCCC0250 aInch
+
+ME ME_521AFCCC0260
+ MEPROP Name 'aDPI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 96
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 96
+
+ENDME // ME_521AFCCC0260 aDPI
+
+ME ME_521AFB0403BF
+ MEPROP UID '521AFB0403BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFAF9024B // Inch2Pixel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFCCC0250 // aInch
+ ME_521AFCCC0260 // aDPI
+ )
+ ; // Parameters
+
+ENDME // ME_521AFB0403BF DoIt
+
+ME ME_521AFAF9024B
+ MEPROP UID '521AFAF9024B'
+ MEPROP Name 'Inch2Pixel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFB0403BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFAF9024B Inch2Pixel
+
+FORWARD ME_521AFB2401E5
+
+ME ME_521AFB3A0275
+ MEPROP Name 'aInch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFB3A0275 aInch
+
+ME ME_521AFB2C0039
+ MEPROP UID '521AFB2C0039'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFB2401E5 // Inch2Point
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFB3A0275 // aInch
+ )
+ ; // Parameters
+
+ENDME // ME_521AFB2C0039 DoIt
+
+ME ME_521AFB2401E5
+ MEPROP UID '521AFB2401E5'
+ MEPROP Name 'Inch2Point'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFB2C0039 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFB2401E5 Inch2Point
+
+FORWARD ME_521AFB3F0168
+
+ME ME_521AFB59006E
+ MEPROP Name 'aInch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFB59006E aInch
+
+ME ME_521AFB4A03AB
+ MEPROP UID '521AFB4A03AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFB3F0168 // Inch2Twip
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFB59006E // aInch
+ )
+ ; // Parameters
+
+ENDME // ME_521AFB4A03AB DoIt
+
+ME ME_521AFB3F0168
+ MEPROP UID '521AFB3F0168'
+ MEPROP Name 'Inch2Twip'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFB4A03AB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFB3F0168 Inch2Twip
+
+FORWARD ME_521AFB5E039F
+
+ME ME_521AFB7A0185
+ MEPROP Name 'aPixel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFB7A0185 aPixel
+
+ME ME_521AFB7A01B4
+ MEPROP Name 'aDPI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 96
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 96
+
+ENDME // ME_521AFB7A01B4 aDPI
+
+ME ME_521AFB7102A4
+ MEPROP UID '521AFB7102A4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFB5E039F // Pixel2Inch
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFB7A0185 // aPixel
+ ME_521AFB7A01B4 // aDPI
+ )
+ ; // Parameters
+
+ENDME // ME_521AFB7102A4 DoIt
+
+ME ME_521AFB5E039F
+ MEPROP UID '521AFB5E039F'
+ MEPROP Name 'Pixel2Inch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFB7102A4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFB5E039F Pixel2Inch
+
+FORWARD ME_521AFB8401C4
+
+ME ME_521AFB9D01B2
+ MEPROP Name 'aPixels'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFB9D01B2 aPixels
+
+ME ME_521AFB9D01C1
+ MEPROP Name 'aDPI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 96
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 96
+
+ENDME // ME_521AFB9D01C1 aDPI
+
+ME ME_521AFB8B01A9
+ MEPROP UID '521AFB8B01A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFB8401C4 // Pixel2Twip
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFB9D01B2 // aPixels
+ ME_521AFB9D01C1 // aDPI
+ )
+ ; // Parameters
+
+ENDME // ME_521AFB8B01A9 DoIt
+
+ME ME_521AFB8401C4
+ MEPROP UID '521AFB8401C4'
+ MEPROP Name 'Pixel2Twip'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFB8B01A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFB8401C4 Pixel2Twip
+
+FORWARD ME_521AFBA60106
+
+ME ME_521AFBBE0271
+ MEPROP Name 'aPoints'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFBBE0271 aPoints
+
+ME ME_521AFBB501EB
+ MEPROP UID '521AFBB501EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFBA60106 // Point2Inch
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFBBE0271 // aPoints
+ )
+ ; // Parameters
+
+ENDME // ME_521AFBB501EB DoIt
+
+ME ME_521AFBA60106
+ MEPROP UID '521AFBA60106'
+ MEPROP Name 'Point2Inch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFBB501EB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFBA60106 Point2Inch
+
+FORWARD ME_521AFBC702B5
+
+ME ME_521AFBDA018C
+ MEPROP Name 'aTwip'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFBDA018C aTwip
+
+ME ME_521AFBD40242
+ MEPROP UID '521AFBD40242'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFBC702B5 // Twip2Inch
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFBDA018C // aTwip
+ )
+ ; // Parameters
+
+ENDME // ME_521AFBD40242 DoIt
+
+ME ME_521AFBC702B5
+ MEPROP UID '521AFBC702B5'
+ MEPROP Name 'Twip2Inch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFBD40242 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFBC702B5 Twip2Inch
+
+FORWARD ME_521AFBE20296
+
+ME ME_521AFBF700B4
+ MEPROP Name 'aTwips'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_521AFBF700B4 aTwips
+
+ME ME_521AFBF700C3
+ MEPROP Name 'aDPI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 96
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 96
+
+ENDME // ME_521AFBF700C3 aDPI
+
+ME ME_521AFBEB023F
+ MEPROP UID '521AFBEB023F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFBE20296 // Twip2Pixel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_521AFBF700B4 // aTwips
+ ME_521AFBF700C3 // aDPI
+ )
+ ; // Parameters
+
+ENDME // ME_521AFBEB023F DoIt
+
+ME ME_521AFBE20296
+ MEPROP UID '521AFBE20296'
+ MEPROP Name 'Twip2Pixel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFBEB023F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_521AFBE20296 Twip2Pixel
+
+ME ME_521AFFA00150
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELINK Target WL 'ME_47E0C36201C7' '47E0C36201C7.ms.model.script' // l3Math
+ ;
+
+ENDME // ME_521AFFA00150 
+
+ME ME_521B048F0070
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_521AFA27009B // ddRTFUnits
+ ;
+ MELINK Target WL 'ME_518A5AF901D5' '518A1E9F0274.ms.model.script' // TddMainConst
+ ;
+
+ENDME // ME_521B048F0070 
+
+ME ME_521AFA27009B
+ MEPROP UID '521AFA27009B'
+ MEPROP Name 'ddRTFUnits'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6843C101D1' '4F6843C101D1.ms.model.script' // ddCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_521AFAF9024B // Inch2Pixel
+ HWL ME_521AFB2401E5 // Inch2Point
+ HWL ME_521AFB3F0168 // Inch2Twip
+ HWL ME_521AFB5E039F // Pixel2Inch
+ HWL ME_521AFB8401C4 // Pixel2Twip
+ HWL ME_521AFBA60106 // Point2Inch
+ HWL ME_521AFBC702B5 // Twip2Inch
+ HWL ME_521AFBE20296 // Twip2Pixel
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_521AFFA00150 // l3Math
+ ME_521B048F0070 // TddMainConst
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRTFUnits.pas'
+
+ENDME // ME_521AFA27009B ddRTFUnits

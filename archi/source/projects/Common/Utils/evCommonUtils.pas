@@ -148,9 +148,7 @@ uses
  , l3SimpleCalc
  , dt_Const
  , evdTypes
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
- , dt_LinkServ
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ , daLinkServerService
  , evEditorInterfaces
  //#UC START# *4F5755FB0362impl_uses*
  //#UC END# *4F5755FB0362impl_uses*
@@ -867,9 +865,7 @@ begin
  if aParam.rSubID > -1 then
  begin
   lModify := True;
-  {$IFDEF Archi}
-  LinkServer(aParam.rFamilyID).SubTbl.ChangeSubID(aParam.rDocID, aSub.ID, aParam.rSubID); // оставил из-за коррекции SUBID в субатрибутах
-  {$ENDIF Archi}
+  TdaLinkServerService.Instance.ChangeSubID(aParam.rFamilyID, aParam.rDocID, aSub.ID, aParam.rSubID); // оставил из-за коррекции SUBID в субатрибутах
   aSub.ID := aParam.rSubID;
  end; // if aParam.rSubID > -1 then
 

@@ -2,7 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4754101B004F
+%%Inner ME_4754101B004F
+%%Inner ME_4754101B004F
+%%Inner ME_4754101B004F
+%%Inner ME_4754101B004F
+
 FORWARD ME_4754101B004F
+
+%%InheritedBy ME_47541E17024E ME_475415C50224
 
 ME ME_475415C50224
  MEPROP UID '475415C50224'
@@ -27,73 +35,6 @@ ME ME_475415C50224
 
 ENDME // ME_475415C50224 TOvcController
 
-FORWARD ME_5150530901CE
-
-ME ME_514C8A3B0262
- MEPROP UID '514C8A3B0262'
- MEPROP Name 'TOvcColors'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5150530901CE // OvcColor
- ;
- UP "finished" false
- UP extprop:rc:SelfName 'OvcColors'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_514C8A3B0262 TOvcColors
-
-ME ME_5150530901CE
- MEPROP UID '5150530901CE'
- MEPROP Name 'OvcColor'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4754101B004F // OvcBase
- ;
- MELIST Children
-   Seq: ( HWL ME_514C8A3B0262 // TOvcColors
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcColor.pas'
-
-ENDME // ME_5150530901CE OvcColor
-
-ME ME_5159566B0063
- MEPROP UID '5159566B0063'
- MEPROP Name 'OvcData'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4754101B004F // OvcBase
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcData.pas'
-
-ENDME // ME_5159566B0063 OvcData
-
-ME ME_515956AC0167
- MEPROP UID '515956AC0167'
- MEPROP Name 'OvcExcpt'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4754101B004F // OvcBase
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcExcpt.pas'
-
-ENDME // ME_515956AC0167 OvcExcpt
-
 ME ME_4754101B004F
  MEPROP UID '4754101B004F'
  MEPROP Name 'OvcBase'
@@ -108,9 +49,9 @@ ME ME_4754101B004F
  MELIST Children
    Seq: ( HWL ME_475415C50224 // TOvcController
  WL 'ME_475410380119' '475410380119.ms.model.script' // TOvcBase
- HWL ME_5150530901CE // OvcColor
- HWL ME_5159566B0063 // OvcData
- HWL ME_515956AC0167 // OvcExcpt
+ WL 'ME_5150530901CE' '5150530901CE.ms.model.script' // OvcColor
+ WL 'ME_5159566B0063' '5159566B0063.ms.model.script' // OvcData
+ WL 'ME_515956AC0167' '515956AC0167.ms.model.script' // OvcExcpt
  )
  ; // Children
  MELIST Depends
@@ -119,5 +60,8 @@ ME ME_4754101B004F
  WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4754101B004F OvcBase

@@ -1,0 +1,126 @@
+// dBaseDrugDocument 47F07A9F0098 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F07A9F0098
+
+ME ME_47F07C1E0213
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F07A9F0098 // dBaseDrugDocument
+ ;
+ MELINK Target WL 'ME_47EB55FD007A' '4982B6510327.ms.model.script' // TvcmFormDataSourceRef
+ ;
+
+ENDME // ME_47F07C1E0213 
+
+ME ME_4B192EC00218
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F07A9F0098 // dBaseDrugDocument
+ ;
+ MELINK Target WL 'ME_4982B6510327' '4982B6510327.ms.model.script' // vcmFormDataSourceRef
+ ;
+
+ENDME // ME_4B192EC00218 
+
+ME ME_4B192ED10385
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F07A9F0098 // dBaseDrugDocument
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B192ED10385 
+
+ME ME_4B192EE702B0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F07A9F0098 // dBaseDrugDocument
+ ;
+ MELINK Target WL 'ME_480F78BC0146' '480F78BC0146.ms.model.script' // l3Utils
+ ;
+
+ENDME // ME_4B192EE702B0 
+
+ME ME_64B8F5213895_ME_47F07A9F0098
+ MELINK Original WL 'ME_64B8F5213895' '491D7C9603B2.ms.model.script' // dsDrugInternationalNameSynonimsRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_64B8F5213895_ME_47F07A9F0098 dsDrugInternationalNameSynonimsRef
+
+ME ME_B07FE8A09521_ME_47F07A9F0098
+ MELINK Original WL 'ME_B07FE8A09521' '491D7C9603B2.ms.model.script' // HasDrugInternationalNameSynonims
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_B07FE8A09521_ME_47F07A9F0098 HasDrugInternationalNameSynonims
+
+ME ME_4B16B8CF0307_ME_47F07A9F0098
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B16B8CF0307_ME_47F07A9F0098 AssignData
+
+ME ME_4B18134E01F8_ME_47F07A9F0098
+ MELINK Original WL 'ME_4B18134E01F8' '47F085A9004C.ms.model.script' // DoResetBooleans
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B18134E01F8_ME_47F07A9F0098 DoResetBooleans
+
+%%ImplementedBy ME_47F076DD0260 ME_47F07A9F0098
+
+%%InheritedBy ME_47F085A9004C ME_47F07A9F0098
+
+ME ME_47F07A9F0098
+ MEPROP UID '47F07A9F0098'
+ MEPROP Name 'dBaseDrugDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные описания препарата.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A9FCCDB035B' '4A9FCCDB035B.ms.model.script' // DrugData
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F085A9004C' '47F085A9004C.ms.model.script' // dBaseDocumentWithAttributes
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47F076DD0260' '491D7C9603B2.ms.model.script' // IdBaseDrugDocument
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_64B8F5213895_ME_47F07A9F0098 // dsDrugInternationalNameSynonimsRef
+ ME_B07FE8A09521_ME_47F07A9F0098 // HasDrugInternationalNameSynonims
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B16B8CF0307_ME_47F07A9F0098 // AssignData
+ ME_4B18134E01F8_ME_47F07A9F0098 // DoResetBooleans
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47F07C1E0213 // TvcmFormDataSourceRef
+ ME_4B192EC00218 // vcmFormDataSourceRef
+ ME_4B192ED10385 // Supports
+ ME_4B192EE702B0 // l3Utils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А. '
+ UP "no hands" true
+ UP "started" '12.07.2006'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Drug\dBaseDrugDocument.imp.pas'
+ UP extprop:pas:TypeName '_dBaseDrugDocument_'
+ UP extprop:pas:UnitName 'dBaseDrugDocument.imp'
+
+ENDME // ME_47F07A9F0098 dBaseDrugDocument

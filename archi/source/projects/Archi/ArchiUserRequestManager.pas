@@ -1,7 +1,13 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.120 2016/09/13 07:45:01 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.122 2016/09/26 11:50:49 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.122  2016/09/26 11:50:49  lukyanets
+// Отладка
+//
+// Revision 1.121  2016/09/22 13:30:20  lukyanets
+// Отправляем сообщение
+//
 // Revision 1.120  2016/09/13 07:45:01  lukyanets
 // Неверное сообщение
 //
@@ -561,6 +567,7 @@ uses
   Menus, csUserRequestManager, l3LongintList,
   ddServerTask,
   Dt_EFltr, m4DocumentAddress,
+  ncsMessage,
 
   ddServerTaskListPrim,
   ddTaskItemList,
@@ -646,6 +653,7 @@ type
     aDocPart: Tm3DocPartSelector; aLevel: Integer; WithAttr: Boolean;
     DocPartSel: TDocPartSelector; aFoundSelector: Tm4Addresses; out theStream: IStream): Boolean;
    function UploadDocStream(const aMessage: TcsUploadDocStream): Boolean;
+   function SendRequestWithReply(const aMessage: TncsMessage): TncsReply;
    property OnAnouncedDateChanged: TOnAnouncedDateChanged read f_OnAnouncedDateChanged write f_OnAnouncedDateChanged;
    property OnProgressProc: Tl3ProgressProc read f_OnProgressProc write
        f_OnProgressProc;
@@ -675,7 +683,7 @@ Uses
  IdException, DateUtils, dt_DictConst, dt_Const, TypInfo, csLineRequest,
  csServerStatusRequest, csExportResultRequest, csImport, csCommonDataRequest, csRequestTask,
  l3FileUtils, csSpellCorrectTask, CsExport,
-  ncsMessageInterfaces, ncsSynchroCompatibilityClientTransporter, ncsMessage,
+  ncsMessageInterfaces, ncsSynchroCompatibilityClientTransporter,
   csCommandsManager, csAutoAnnoExport, csAACImport, csAutoClassTask, csAnnotationTask,
   csAutoSpell, arDeliveryList, csRelPublishTask, l3StopWatch, csMdpSyncDicts, csMdpImportDocs,
   csContainerTask, csSchedulerProxyTask, csMdpSyncStages, csMdpSyncImport,
@@ -1556,6 +1564,37 @@ begin
     finally
      FreeAndNil(l_Reply);
     end;
+   finally
+    l_Transporter.Disconnect;
+   end;
+  finally
+   l_Transporter := nil;
+  end;
+ end;
+end;
+
+function TArchiUserRequestManager.SendRequestWithReply(
+  const aMessage: TncsMessage): TncsReply;
+var
+ l_Transporter: IncsClientTransporter;
+ l_Reply: TncsMessage;
+begin
+ Result := nil;
+ if ArchiRequestManager.CSClient.IsStarted then
+ begin
+  l_Transporter := TncsSynchroCompatibilityClientTransporter.Make(qtalcuSendCustomMessage);
+  try
+   l_Transporter.Connect(CSClient.ServerIp, CSClient.ServerPort, l3CreateStringGUID);
+   try
+    if not l_Transporter.Connected then
+     raise Exception.Create(sidClientServerDocSaveFailed);
+    l_Transporter.Send(aMessage);
+    l_Reply := nil;
+    if not l_Transporter.WaitForReply(aMessage, l_Reply) then
+     raise Exception.Create('Нет связи с сервером');
+    if (l_Reply = nil) or not (l_Reply is TncsReply) then
+     raise Exception.Create('Нет связи с сервером');
+    Result := l_Reply as TncsReply;
    finally
     l_Transporter.Disconnect;
    end;

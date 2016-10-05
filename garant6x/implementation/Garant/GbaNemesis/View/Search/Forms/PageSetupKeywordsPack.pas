@@ -312,8 +312,10 @@ initialization
  {* Регистрация типа Ten_PageSetup }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtGroupBox));
  {* Регистрация типа TvtGroupBox }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscPageControl));
  {* Регистрация типа TnscPageControl }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

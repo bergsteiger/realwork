@@ -1,0 +1,222 @@
+// atEntity 4FC8E3BF0125 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FC8E3BF0125
+
+ME ME_4FC8E50801F5
+ MEPROP UID '4FC8E50801F5'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELINK Target WL 'ME_4FC8E41800B6' '48078CC202EC.ms.model.script' // EntityInterface
+ ;
+
+ENDME // ME_4FC8E50801F5 
+
+ME ME_4FC8E5230034
+ MEPROP UID '4FC8E5230034'
+ MEPROP Name 'Entity'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELINK Target WL 'ME_4FC8E41800B6' '48078CC202EC.ms.model.script' // EntityInterface
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4FC8E5230034 Entity
+
+ME ME_4FC8E4E00022
+ MEPROP Name 'anEntity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4FC8E4E00022 anEntity
+
+ME ME_4FC8E4970307
+ MEPROP UID '4FC8E4970307'
+ MEPROP Name 'IsItMe'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC8E4E00022 // anEntity
+ )
+ ; // Parameters
+ UP extprop:pas:Value false
+
+ENDME // ME_4FC8E4970307 IsItMe
+
+ME ME_4FD242D401F0
+ MEPROP Name 'anEntityBase'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EB3E10177' '456EA56002BF.ms.model.script' // EntityBase
+ ;
+
+ENDME // ME_4FD242D401F0 anEntityBase
+
+ME ME_4FC8E5780345
+ MEPROP UID '4FC8E5780345'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FD242D401F0 // anEntityBase
+ )
+ ; // Parameters
+ UP "force overload" true
+
+ENDME // ME_4FC8E5780345 Create
+
+ME ME_4FD0E3D202C8
+ MEPROP Name 'anEntity'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4FC8E41800B6' '48078CC202EC.ms.model.script' // EntityInterface
+ ;
+
+ENDME // ME_4FD0E3D202C8 anEntity
+
+ME ME_4FD0E3B80139
+ MEPROP UID '4FD0E3B80139'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FD0E3D202C8 // anEntity
+ )
+ ; // Parameters
+
+ENDME // ME_4FD0E3B80139 Create
+
+ME ME_5051EAE8011D
+ MEPROP Name 'aNodeBase'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_5051EAE8011D aNodeBase
+
+ME ME_5051EAD80280
+ MEPROP UID '5051EAD80280'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELIST Parameters
+   Seq: ( ME_5051EAE8011D // aNodeBase
+ )
+ ; // Parameters
+
+ENDME // ME_5051EAD80280 Create
+
+ME ME_4FC8EC6E0252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4FC8EC6E0252 
+
+ME ME_4FD24AE50119
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC8E3BF0125 // atEntity
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4FD24AE50119 
+
+ME ME_47A6FEE600FC_ME_4FC8E3BF0125
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_47A6FEE600FC_ME_4FC8E3BF0125 IsCacheable
+
+ME ME_5000565C019C_ME_4FC8E3BF0125
+ MELINK Original WL 'ME_5000565C019C' '47913F4E02E0.ms.model.script' // ClearFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5000565C019C_ME_4FC8E3BF0125 ClearFields
+
+%%InheritedBy ME_47879856035F ME_4FC8E3BF0125
+
+ME ME_4FC8E3BF0125
+ MEPROP UID '4FC8E3BF0125'
+ MEPROP Name 'atEntity'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48078CC202EC' '48078CC202EC.ms.model.script' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.ms.model.script' // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FC8E50801F5 // 
+ HWL ME_4FC8E5230034 // Entity
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FC8E4970307 // IsItMe
+ HWL ME_4FC8E5780345 // Create
+ HWL ME_4FD0E3B80139 // Create
+ HWL ME_5051EAD80280 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_4FC8E3BF0125 // IsCacheable
+ ME_5000565C019C_ME_4FC8E3BF0125 // ClearFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4FC8EC6E0252 // SysUtils
+ ME_4FD24AE50119 // String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atEntity.imp.pas'
+ UP extprop:pas:TypeName '_atEntity_'
+ UP extprop:pas:UnitName 'atEntity.imp'
+
+ENDME // ME_4FC8E3BF0125 atEntity

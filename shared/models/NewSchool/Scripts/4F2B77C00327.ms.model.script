@@ -1,0 +1,778 @@
+// evTableTools 4F2B77C00327 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F2B77C00327
+
+FORWARD ME_4F2B77FD0024
+
+ME ME_5346B2F401B2
+ MEPROP Name 'aRange'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E38399034C' '48E3836D00C8.ms.model.script' // IedRange
+ ;
+
+ENDME // ME_5346B2F401B2 aRange
+
+ME ME_5346B2F401F1
+ MEPROP Name 'aProgress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5346B2F401F1 aProgress
+
+ME ME_4F2B7E1F01C1
+ MEPROP UID '4F2B7E1F01C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5346B2F401B2 // aRange
+ ME_5346B2F401F1 // aProgress
+ )
+ ; // Parameters
+
+ENDME // ME_4F2B7E1F01C1 DoIt
+
+ME ME_4F2BAECF02A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_533C138F0003' '4678137501EA.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_4F2BAECF02A3 
+
+ME ME_4F2BAEF103BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_4773DEF0021B' '47913B47006E.ms.model.script' // Tl3CustomString
+ ;
+
+ENDME // ME_4F2BAEF103BF 
+
+ME ME_4F2BB4B6004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_4F2B767D015E' '4E451815031E.ms.model.script' // TevCellsWidthCorrecter
+ ;
+
+ENDME // ME_4F2BB4B6004C 
+
+ME ME_4F2BB4D7017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4F2BB4D7017B 
+
+ME ME_4F2BB4FF0337
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4F2BB4FF0337 
+
+ME ME_4F2BB529017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4F2BB529017F 
+
+ME ME_4F2BB541024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
+ ;
+
+ENDME // ME_4F2BB541024F 
+
+ME ME_4F2BB56F0266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77FD0024 // evMakeTableRegular
+ ;
+ MELINK Target WL 'ME_47E3C7030369' '47E3C64F037E.ms.model.script' // Tk2Op
+ ;
+
+ENDME // ME_4F2BB56F0266 
+
+ME ME_4F2B77FD0024
+ MEPROP UID '4F2B77FD0024'
+ MEPROP Name 'evMakeTableRegular'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'делает таблицу "регулярной" структуры, т.е. подгоняет ширины ячеек.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2B7E1F01C1 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F2BAECF02A3 // Ik2Tag
+ ME_4F2BAEF103BF // Tl3CustomString
+ ME_4F2BB4B6004C // TevCellsWidthCorrecter
+ ME_4F2BB4D7017B // l3CStr
+ ME_4F2BB4FF0337 // Msg Codes
+ ME_4F2BB529017F // afwFacade
+ ME_4F2BB541024F // l3Free
+ ME_4F2BB56F0266 // Tk2Op
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'Nemesis'
+ UP extprop:rc:SelfName 'MakeTableRegular'
+
+ENDME // ME_4F2B77FD0024 evMakeTableRegular
+
+FORWARD ME_4F2B781C0164
+
+ME ME_5346B2EB00A2
+ MEPROP Name 'aRange'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E38399034C' '48E3836D00C8.ms.model.script' // IedRange
+ ;
+
+ENDME // ME_5346B2EB00A2 aRange
+
+ME ME_4F2B7E11023D
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4F2B7E11023D aWidth
+
+ME ME_4F2B7E02008E
+ MEPROP UID '4F2B7E02008E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B781C0164 // evTable_FixNSRCWidth
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5346B2EB00A2 // aRange
+ ME_4F2B7E11023D // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4F2B7E02008E DoIt
+
+ME ME_54C2192103AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B781C0164 // evTable_FixNSRCWidth
+ ;
+ MELINK Target WL 'ME_54C218510209' '48452B7D0314.ms.model.script' // EevTooLargeColumnWidth
+ ;
+
+ENDME // ME_54C2192103AD 
+
+ME ME_4F2B781C0164
+ MEPROP UID '4F2B781C0164'
+ MEPROP Name 'evTable_FixNSRCWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'устанавливает ширину колонки таблицы для выливки в NSRC.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2B7E02008E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54C2192103AD // EevTooLargeColumnWidth
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'Nemesis'
+ UP extprop:rc:SelfName 'Table_FixNSRCWidth'
+
+ENDME // ME_4F2B781C0164 evTable_FixNSRCWidth
+
+FORWARD ME_4F2B7DD502A3
+
+ME ME_52BD34E20176
+ MEPROP Name 'aColumn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC958A01C3' '48E3836D00C8.ms.model.script' // IedColumn
+ ;
+
+ENDME // ME_52BD34E20176 aColumn
+
+ME ME_4F2BA318014E
+ MEPROP Name 'theWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F2BA318014E theWidth
+
+ME ME_4F2BA2F301D0
+ MEPROP UID '4F2BA2F301D0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD34E20176 // aColumn
+ ME_4F2BA318014E // theWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4F2BA2F301D0 DoIt
+
+ME ME_4F2BAF9F020C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4F2BAF9F020C 
+
+ME ME_4F2BB0F6037A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ MELINK Target WL 'ME_4F2BB0D6021C' '47878E0E0191.ms.model.script' // l3CharSetPresent
+ ;
+
+ENDME // ME_4F2BB0F6037A 
+
+ME ME_4F2BB3FB011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4F2BB3FB011D 
+
+ME ME_4F2BB4540199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ MELINK Target WL 'ME_4F2A3451001B' '4A3918BB0114.ms.model.script' // evChar2Inch
+ ;
+
+ENDME // ME_4F2BB4540199 
+
+ME ME_4F2BB47401C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ ;
+ MELINK Target WL 'ME_4B17E8E10102' '47CFE7F00221.ms.model.script' // l3IOK
+ ;
+
+ENDME // ME_4F2BB47401C5 
+
+ME ME_4F2B7DD502A3
+ MEPROP UID '4F2B7DD502A3'
+ MEPROP Name 'evTable_CalculateNSRCWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'вычисляет ширину колонки таблицы для выливки в NSRC.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2BA2F301D0 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F2BAF9F020C // l3MinMax
+ ME_4F2BB0F6037A // l3CharSetPresent
+ ME_4F2BB3FB011D // Ext Chars
+ ME_4F2BB4540199 // evChar2Inch
+ ME_4F2BB47401C5 // l3IOK
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'Nemesis'
+ UP extprop:rc:SelfName 'Table_CalculateNSRCWidth'
+
+ENDME // ME_4F2B7DD502A3 evTable_CalculateNSRCWidth
+
+FORWARD ME_4F2BBCB400BF
+
+ME ME_52BD34DB0020
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_52BD34DB0020 aTable
+
+ME ME_4F2BBCC7036D
+ MEPROP UID '4F2BBCC7036D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2BBCB400BF // evCheckTableRegular
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD34DB0020 // aTable
+ )
+ ; // Parameters
+
+ENDME // ME_4F2BBCC7036D DoIt
+
+ME ME_4F2BBF3A01DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2BBCB400BF // evCheckTableRegular
+ ;
+ MELINK Target WL 'ME_4C3849220132' '4C3849220132.ms.model.script' // evTableCellUtils
+ ;
+
+ENDME // ME_4F2BBF3A01DB 
+
+ME ME_4F2BBCB400BF
+ MEPROP UID '4F2BBCB400BF'
+ MEPROP Name 'evCheckTableRegular'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2BBCC7036D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F2BBF3A01DB // evTableCellUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'Nemesis'
+ UP extprop:rc:SelfName 'CheckTableRegular'
+
+ENDME // ME_4F2BBCB400BF evCheckTableRegular
+
+FORWARD ME_4F2BBD58017D
+
+ME ME_5346B2E1013F
+ MEPROP Name 'aColumnsIterator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC95BF001F' '48E3836D00C8.ms.model.script' // IedColumnsIterator
+ ;
+
+ENDME // ME_5346B2E1013F aColumnsIterator
+
+ME ME_4F2BBD82002B
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4F2BBD82002B aWidth
+
+ME ME_4F2BBD63036C
+ MEPROP UID '4F2BBD63036C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2BBD58017D // evTable_FixNSRCWidth$1
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5346B2E1013F // aColumnsIterator
+ ME_4F2BBD82002B // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4F2BBD63036C DoIt
+
+ME ME_4F2BBD58017D
+ MEPROP UID '4F2BBD58017D'
+ MEPROP Name 'evTable_FixNSRCWidth'
+ MEPROP OriginalName 'evTable_FixNSRCWidth$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2BBD63036C // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'Nemesis'
+ UP extprop:rc:SelfName 'Table_FixNSRCWidth'
+
+ENDME // ME_4F2BBD58017D evTable_FixNSRCWidth$1
+
+FORWARD ME_4F2BBD9400E2
+
+ME ME_5346B2E402D1
+ MEPROP Name 'aColumn'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC958A01C3' '48E3836D00C8.ms.model.script' // IedColumn
+ ;
+
+ENDME // ME_5346B2E402D1 aColumn
+
+ME ME_4F2BBDD70292
+ MEPROP Name 'aWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4F2BBDD70292 aWidth
+
+ME ME_4F2BBDD101F6
+ MEPROP UID '4F2BBDD101F6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2BBD9400E2 // evTable_FixNSRCWidth$2
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5346B2E402D1 // aColumn
+ ME_4F2BBDD70292 // aWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4F2BBDD101F6 DoIt
+
+ME ME_4F2BBD9400E2
+ MEPROP UID '4F2BBD9400E2'
+ MEPROP Name 'evTable_FixNSRCWidth'
+ MEPROP OriginalName 'evTable_FixNSRCWidth$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2BBDD101F6 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'Nemesis'
+ UP extprop:rc:SelfName 'Table_FixNSRCWidth'
+
+ENDME // ME_4F2BBD9400E2 evTable_FixNSRCWidth$2
+
+FORWARD ME_4F2BBFAC0192
+
+ME ME_52BD34D30039
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_52BD34D30039 aTable
+
+ME ME_4F2BBFE303A3
+ MEPROP Name 'aSeparateOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F2BBFE303A3 aSeparateOp
+
+ME ME_52BD34D30064
+ MEPROP Name 'aProgress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52BD34D30064 aProgress
+
+ME ME_4F2BBFBB0011
+ MEPROP UID '4F2BBFBB0011'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2BBFAC0192 // evMakeTableRegular$1
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD34D30039 // aTable
+ ME_4F2BBFE303A3 // aSeparateOp
+ ME_52BD34D30064 // aProgress
+ )
+ ; // Parameters
+
+ENDME // ME_4F2BBFBB0011 DoIt
+
+ME ME_4F2BBFAC0192
+ MEPROP UID '4F2BBFAC0192'
+ MEPROP Name 'evMakeTableRegular'
+ MEPROP OriginalName 'evMakeTableRegular$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2BBFBB0011 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'Nemesis'
+ UP extprop:rc:SelfName 'MakeTableRegular'
+
+ENDME // ME_4F2BBFAC0192 evMakeTableRegular$1
+
+FORWARD ME_4F2BC0450156
+
+ME ME_52BD34EE0293
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52BD34EE0293 aView
+
+ME ME_52BD34F60321
+ MEPROP Name 'aCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_52BD34F60321 aCell
+
+ME ME_4FC47A8C0175
+ MEPROP Name 'anUp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C7F0A9014B' '47C5207602D1.ms.model.script' // TevNeighbourPos
+ ;
+
+ENDME // ME_4FC47A8C0175 anUp
+
+ME ME_4F2BC0510204
+ MEPROP UID '4F2BC0510204'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD34EE0293 // aView
+ ME_52BD34F60321 // aCell
+ ME_4FC47A8C0175 // anUp
+ )
+ ; // Parameters
+
+ENDME // ME_4F2BC0510204 DoIt
+
+ME ME_4FC47BA5033D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4FC47BA5033D 
+
+ME ME_4FC47BCB0225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4FC47BCB0225 
+
+ME ME_4FC47C190045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2BC0450156 // evTable_GetNeighbour
+ ;
+ MELINK Target WL 'ME_47D00CC20108' '47D00CC20108.ms.model.script' // nevFacade
+ ;
+
+ENDME // ME_4FC47C190045 
+
+ME ME_4F2BC0450156
+ MEPROP UID '4F2BC0450156'
+ MEPROP Name 'evTable_GetNeighbour'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2BC0510204 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4FC47BA5033D // Operations
+ ME_4FC47BCB0225 // evL3CoreConsts
+ ME_4FC47C190045 // nevFacade
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Table_GetNeighbour'
+
+ENDME // ME_4F2BC0450156 evTable_GetNeighbour
+
+ME ME_52BD34BE02FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD34BE02FE 
+
+ME ME_5346B2B70361
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2B77C00327 // evTableTools
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_5346B2B70361 
+
+ME ME_4F2B77C00327
+ MEPROP UID '4F2B77C00327'
+ MEPROP Name 'evTableTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Всякие полезные инструменты для работы с таблицами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E451815031E' '4E451815031E.ms.model.script' // CellUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2B77FD0024 // evMakeTableRegular
+ HWL ME_4F2B781C0164 // evTable_FixNSRCWidth
+ HWL ME_4F2B7DD502A3 // evTable_CalculateNSRCWidth
+ HWL ME_4F2BBCB400BF // evCheckTableRegular
+ HWL ME_4F2BBD58017D // evTable_FixNSRCWidth$1
+ HWL ME_4F2BBD9400E2 // evTable_FixNSRCWidth$2
+ HWL ME_4F2BBFAC0192 // evMakeTableRegular$1
+ HWL ME_4F2BC0450156 // evTable_GetNeighbour
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52BD34BE02FE // Tk2TagID
+ ME_5346B2B70361 // Tl3Tag
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableTools.pas'
+ UP extprop:rc:SelfName 'TableTools'
+
+ENDME // ME_4F2B77C00327 evTableTools

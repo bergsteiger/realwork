@@ -1,0 +1,66 @@
+// StdRes 47F260EC02C7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F260EC02C7
+
+FORWARD ME_47F260EC02C7
+
+ME ME_47F261320044
+ MEPROP UID '47F261320044'
+ MEPROP Name 'TdmStdRes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы приложения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F260EC02C7 // StdRes
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'dmStdRes'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47F261320044 TdmStdRes
+
+ME ME_490885C402F8
+ MEPROP UID '490885C402F8'
+ MEPROP Name 'Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F260EC02C7 // StdRes
+ ;
+ UP "spell names" false
+
+ENDME // ME_490885C402F8 Messages
+
+ME ME_47F260EC02C7
+ MEPROP UID '47F260EC02C7'
+ MEPROP Name 'StdRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы приложения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47F261320044 // TdmStdRes
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_490885C402F8 // Messages
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\NOT_FINISHED_StdRes.pas'
+
+ENDME // ME_47F260EC02C7 StdRes

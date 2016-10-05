@@ -10,16 +10,13 @@ interface
 
 uses
  l3IntfUses
+ , msmTreeModelPrim
  , msmConcreteModels
  , msmElementViews
- , msmModelElements
- , msmModel
- , l3Interfaces
 ;
 
 type
- {$Include w:\common\components\gui\Garant\msm\msmTreeModel.imp.pas}
- TmsmTreeModel = class(_msmTreeModel_)
+ TmsmTreeModel = class(TmsmTreeModelPrim)
   public
    constructor Create(const anElementView: TmsmModelElementView); reintroduce;
    class function Make(const anElementView: TmsmModelElementView): ImsmTreeModel; reintroduce;
@@ -30,26 +27,9 @@ implementation
 uses
  l3ImplUses
  , msmModelElementTree
- , msmListAndTreeInterfaces
- , msmElementSelection
- , tfwCStringFactory
- , msmModelElementMethodCaller
- , msmBaseModelElement
- {$If NOT Defined(NoScripts)}
- , tfwWordsIterator
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwWordRefList
- {$IfEnd} // NOT Defined(NoScripts)
- , SysUtils
- {$If NOT Defined(NoScripts)}
- , tfwScriptingInterfaces
- {$IfEnd} // NOT Defined(NoScripts)
  //#UC START# *57B31D5A00D2impl_uses*
  //#UC END# *57B31D5A00D2impl_uses*
 ;
-
-{$Include w:\common\components\gui\Garant\msm\msmTreeModel.imp.pas}
 
 constructor TmsmTreeModel.Create(const anElementView: TmsmModelElementView);
 //#UC START# *57B31E3F034D_57B31D5A00D2_var*
@@ -58,7 +38,7 @@ begin
 //#UC START# *57B31E3F034D_57B31D5A00D2_impl*
  Assert(anElementView.rElement <> nil);
  f_ElementView := anElementView;
- inherited Create;
+ inherited Create(anElementView);
  f_Tree := TmsmModelElementTree.Make(f_ElementView);
 //#UC END# *57B31E3F034D_57B31D5A00D2_impl*
 end;//TmsmTreeModel.Create

@@ -2,194 +2,21 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+%%Inner ME_5284E8850019
+
 FORWARD ME_5284E8850019
-
-FORWARD ME_5284E8BD02CB
-
-FORWARD ME_4F51EC180118
-
-FORWARD ME_4F51EC380222
-
-ME ME_4F51EC4E0133
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F51EC180118 // RULES
- ;
- MELINK Target HWL ME_4F51EC380222 // TkwCompiledRules
- ;
-
-ENDME // ME_4F51EC4E0133 
-
-ME ME_52D7AE530364
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F51EC180118 // RULES
- ;
- MELINK Target WL 'ME_52D6AC5402E7' '4DAEEA14018A.ms.model.script' // StandardProcedureCloseBracket
- ;
-
-ENDME // ME_52D7AE530364 
-
-ME ME_4DB6C99F026E_ME_4F51EC180118
- MELINK Original WL 'ME_4DB6C99F026E' '54F079B5035C.ms.model.script' // EndBracket
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4DB6C99F026E_ME_4F51EC180118 EndBracket
-
-ME ME_4DBAEE0D028D_ME_4F51EC180118
- MELINK Original WL 'ME_4DBAEE0D028D' '54F079B5035C.ms.model.script' // CompiledWordClass
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4DBAEE0D028D_ME_4F51EC180118 CompiledWordClass
-
-ME ME_4F51EC180118
- MEPROP UID '4F51EC180118'
- MEPROP Name 'RULES'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Аналог CASE и трансформаторов в MDP. Если условие выполняется, то выполняется следующий за ним оператор и осуществляется выход' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4DBAEF29031F' '54F079B5035C.ms.model.script' // TtfwBeginLikeWord
- )
- ; // Inherits
- MELIST Implemented
-   Seq: ( ME_4DB6C99F026E_ME_4F51EC180118 // EndBracket
- )
- ; // Implemented
- MELIST Overridden
-   Seq: ( ME_4DBAEE0D028D_ME_4F51EC180118 // CompiledWordClass
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4F51EC4E0133 // TkwCompiledRules
- ME_52D7AE530364 // StandardProcedureCloseBracket
- )
- ; // Dependencies
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwRULES.pas'
- UP extprop:pas:TypeName 'TkwRULES'
- UP extprop:rc:SelfName 'RULES'
- UP extprop:rc:isAcceptableForScripts true
- UP extprop:pas:UnitName 'kwRULES'
-
-ENDME // ME_4F51EC180118 RULES
-
-FORWARD ME_5284E9670258
-
-ME ME_5284E97C020E
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELINK Target HWL ME_5284E9670258 // if_else
- ;
-
-ENDME // ME_5284E97C020E 
-
-FORWARD ME_5284F739012F
-
-ME ME_5284F7490075
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELINK Target HWL ME_5284F739012F // else
- ;
-
-ENDME // ME_5284F7490075 
-
-FORWARD ME_4DBAEE8103DB
-
-ME ME_52D691A603DE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELINK Target HWL ME_4DBAEE8103DB // CASE
- ;
-
-ENDME // ME_52D691A603DE 
-
-FORWARD ME_4DBAF3D60039
-
-ME ME_52D691B5027E
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELINK Target HWL ME_4DBAF3D60039 // DEFAULT
- ;
-
-ENDME // ME_52D691B5027E 
-
-FORWARD ME_4DBAE64F02F7
-
-ME ME_52D693380394
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELINK Target HWL ME_4DBAE64F02F7 // RAISE
- ;
-
-ENDME // ME_52D693380394 
-
-FORWARD ME_4DBFBBE603E5
-
-ME ME_52D693E80012
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELINK Target HWL ME_4DBFBBE603E5 // BracketBegin
- ;
-
-ENDME // ME_52D693E80012 
-
-FORWARD ME_4DB9BB8D0388
-
-ME ME_52D6947400E2
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5284E8BD02CB // CodeBranchingPack
- ;
- MELINK Target HWL ME_4DB9BB8D0388 // BEGIN
- ;
-
-ENDME // ME_52D6947400E2 
-
-ME ME_5284E8BD02CB
- MEPROP UID '5284E8BD02CB'
- MEPROP Name 'CodeBranchingPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5284E8850019 // CodeBranchingWords
- ;
- MELIST Children
-   Seq: ( HWL ME_4F51EC180118 // RULES
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_5284E97C020E // if_else
- ME_5284F7490075 // else
- ME_52D691A603DE // CASE
- ME_52D691B5027E // DEFAULT
- ME_52D693380394 // RAISE
- ME_52D693E80012 // BracketBegin
- ME_52D6947400E2 // BEGIN
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CodeBranchingPack.pas'
-
-ENDME // ME_5284E8BD02CB CodeBranchingPack
 
 FORWARD ME_5284E9510053
 
@@ -331,7 +158,7 @@ ME ME_5284EF5701BA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5284E9510053 // TkwCompiledIfElse
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_5284EF5701BA 
@@ -341,14 +168,14 @@ ME ME_55E842A30109
  MELINK Stereotype st_injects::Dependency ;
  MELINK Parent HWL ME_5284E9510053 // TkwCompiledIfElse
  ;
- MELINK Target WL 'ME_550C25D70182' '4F37B7E60283.ms.model.script' // WordsRTTIPack
+ MELINK Target WL 'ME_550C25D70182' '550C25D70182.ms.model.script' // WordsRTTIPack
  ;
  UP "injects as" 'interface'
 
 ENDME // ME_55E842A30109 
 
 ME ME_479731C50290_ME_5284E9510053
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_5284E9510053 Cleanup
@@ -358,6 +185,10 @@ ME ME_4DAEEDE10285_ME_5284E9510053
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4DAEEDE10285_ME_5284E9510053 DoDoIt
+
+%%InjectedBy ME_550C25D70182 ME_5284E9510053
+
+%%InheritedBy ME_4DB6EE250251 ME_5284E9510053
 
 ME ME_5284E9510053
  MEPROP UID '5284E9510053'
@@ -392,12 +223,17 @@ ME ME_5284E9510053
  ME_55E842A30109 // WordsRTTIPack
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledIfElse.pas'
  UP extprop:rc:SelfName 'CompiledIfElse'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'kwCompiledIfElse'
 
 ENDME // ME_5284E9510053 TkwCompiledIfElse
+
+FORWARD ME_5284E9670258
 
 ME ME_5284E976015D
  MEPROP Class class_Dependency
@@ -443,6 +279,8 @@ ME ME_5284D8180211_ME_5284E9670258
  MEPROP OpKind opkind_Overridden
 ENDME // ME_5284D8180211_ME_5284E9670258 MakeCompiledWordWorker
 
+%%InheritedBy ME_4DCBD489023A ME_5284E9670258
+
 ME ME_5284E9670258
  MEPROP UID '5284E9670258'
  MEPROP Name 'if_else'
@@ -480,6 +318,8 @@ ME ME_5284E9670258
  UP extprop:pas:UnitName 'kwIfElse'
 
 ENDME // ME_5284E9670258 if_else
+
+FORWARD ME_5284F739012F
 
 ME ME_5284FCD300FC
  MEPROP Class class_Dependency
@@ -525,6 +365,8 @@ ME ME_5284D8180211_ME_5284F739012F
  MEPROP OpKind opkind_Overridden
 ENDME // ME_5284D8180211_ME_5284F739012F MakeCompiledWordWorker
 
+%%InheritedBy ME_4DCBD489023A ME_5284F739012F
+
 ME ME_5284F739012F
  MEPROP UID '5284F739012F'
  MEPROP Name 'else'
@@ -561,6 +403,8 @@ ME ME_5284F739012F
  UP extprop:pas:UnitName 'kwElse'
 
 ENDME // ME_5284F739012F else
+
+FORWARD ME_4DBAEE8103DB
 
 ME ME_53DFBF4E03D0
  MEPROP Class class_Dependency
@@ -601,6 +445,8 @@ ME ME_4DBAEE0D028D_ME_4DBAEE8103DB
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4DBAEE0D028D_ME_4DBAEE8103DB CompiledWordClass
+
+%%InheritedBy ME_4DBAEF29031F ME_4DBAEE8103DB
 
 ME ME_4DBAEE8103DB
  MEPROP UID '4DBAEE8103DB'
@@ -658,6 +504,8 @@ ME ME_4DAEEDE10285_ME_4DBAEEEC00CF
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4DAEEDE10285_ME_4DBAEEEC00CF DoDoIt
 
+%%InheritedBy ME_52D55D7B0178 ME_4DBAEEEC00CF
+
 ME ME_4DBAEEEC00CF
  MEPROP UID '4DBAEEEC00CF'
  MEPROP Name 'TkwCompiledCase'
@@ -680,6 +528,9 @@ ME ME_4DBAEEEC00CF
    Seq: ( ME_53DFBB0303E7 // TtfwClassRef
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '29.04.2011 21:01'
@@ -689,6 +540,8 @@ ME ME_4DBAEEEC00CF
  UP extprop:pas:UnitName 'kwCompiledCase'
 
 ENDME // ME_4DBAEEEC00CF TkwCompiledCase
+
+FORWARD ME_4DBAF3D60039
 
 ME ME_4DAEEDE10285_ME_4DBAF3D60039
  MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
@@ -707,6 +560,8 @@ ME ME_4DBAF4630154_ME_4DBAF3D60039
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4DBAF4630154_ME_4DBAF3D60039 IsDefaultBranch
+
+%%InheritedBy ME_53EDC0E701BC ME_4DBAF3D60039
 
 ME ME_4DBAF3D60039
  MEPROP UID '4DBAF3D60039'
@@ -743,12 +598,14 @@ ME ME_4DBAF3D60039
 
 ENDME // ME_4DBAF3D60039 DEFAULT
 
+FORWARD ME_4DBAE64F02F7
+
 ME ME_4DBAE6930072
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DBAE64F02F7 // RAISE
  ;
- MELINK Target WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
  ;
 
 ENDME // ME_4DBAE6930072 
@@ -768,6 +625,9 @@ ME ME_4DBAE64F02F7
    Seq: ( ME_4DBAE6930072 // Exception
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '29.04.2011 20:25'
@@ -778,6 +638,8 @@ ME ME_4DBAE64F02F7
  UP extprop:pas:UnitName 'kwRAISE'
 
 ENDME // ME_4DBAE64F02F7 RAISE
+
+FORWARD ME_4DBFBBE603E5
 
 FORWARD ME_52D7B7360146
 
@@ -827,6 +689,8 @@ ME ME_560941240035_ME_4DBFBBE603E5
  MEPROP OpKind opkind_Overridden
 ENDME // ME_560941240035_ME_4DBFBBE603E5 CheckWordInfoOnCompile
 
+%%InheritedBy ME_4DBAEF29031F ME_4DBFBBE603E5
+
 ME ME_4DBFBBE603E5
  MEPROP UID '4DBFBBE603E5'
  MEPROP Name 'BracketBegin'
@@ -869,6 +733,8 @@ ME ME_4DBFBBE603E5
 
 ENDME // ME_4DBFBBE603E5 BracketBegin
 
+FORWARD ME_4DB9BB8D0388
+
 ME ME_52D7B72B004C
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -890,6 +756,8 @@ ME ME_4DB0614603C8_ME_4DB9BB8D0388
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4DB0614603C8_ME_4DB9BB8D0388 GetWordNameForRegister
+
+%%InheritedBy ME_4DBAEF29031F ME_4DB9BB8D0388
 
 ME ME_4DB9BB8D0388
  MEPROP UID '4DB9BB8D0388'
@@ -929,6 +797,8 @@ ME ME_4DB9BB8D0388
 
 ENDME // ME_4DB9BB8D0388 BEGIN
 
+%%InheritedBy ME_52D6AC0F0186 ME_52D7B7360146
+
 ME ME_52D7B7360146
  MEPROP UID '52D7B7360146'
  MEPROP Name 'BracketEnd'
@@ -952,6 +822,8 @@ ME ME_52D7B7360146
 
 ENDME // ME_52D7B7360146 BracketEnd
 
+FORWARD ME_4F51EC380222
+
 ME ME_53DF7BD000AF
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -967,6 +839,8 @@ ME ME_4DAEEDE10285_ME_4F51EC380222
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4DAEEDE10285_ME_4F51EC380222 DoDoIt
+
+%%InheritedBy ME_52D55D7B0178 ME_4F51EC380222
 
 ME ME_4F51EC380222
  MEPROP UID '4F51EC380222'
@@ -990,6 +864,9 @@ ME ME_4F51EC380222
    Seq: ( ME_53DF7BD000AF // TtfwClassRef
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledRules.pas'
  UP extprop:rc:SelfName 'CompiledRules'
  UP extprop:rc:isAcceptableForScripts true
@@ -1016,7 +893,7 @@ ME ME_560D0DDE03CE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_560937350073 // TkwTypedBeginLikeCompiledCode
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_560D0DDE03CE 
@@ -1039,6 +916,8 @@ ME ME_52EA6A2C0111_ME_560937350073
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_52EA6A2C0111_ME_560937350073 SetResultTypeInfo
+
+%%InheritedBy ME_52DFF03B0030 ME_560937350073
 
 ME ME_560937350073
  MEPROP UID '560937350073'
@@ -1068,6 +947,9 @@ ME ME_560937350073
    Seq: ( ME_560D0DDE03CE // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwTypedBeginLikeCompiledCode.pas'
  UP extprop:rc:SelfName 'TypedBeginLikeCompiledCode'
  UP extprop:rc:isAcceptableForScripts true
@@ -1086,7 +968,7 @@ ME ME_5284E8850019
  MELINK Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
  ;
  MELIST Children
-   Seq: ( HWL ME_5284E8BD02CB // CodeBranchingPack
+   Seq: ( WL 'ME_5284E8BD02CB' '5284E8BD02CB.ms.model.script' // CodeBranchingPack
  HWL ME_5284E9510053 // TkwCompiledIfElse
  HWL ME_5284E9670258 // if_else
  HWL ME_5284F739012F // else
@@ -1111,6 +993,9 @@ ME ME_5284E8850019
  WL 'ME_54F079B5035C' '54F079B5035C.ms.model.script' // CompiledWords
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" true
  UP "ifndef" 'NoScripts'
 

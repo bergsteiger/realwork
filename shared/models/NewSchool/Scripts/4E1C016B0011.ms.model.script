@@ -1,0 +1,232 @@
+// DrawOutputSupport 4E1C016B0011 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E1C016B0011
+
+ME ME_4E1C0C53030F
+ MEPROP UID '4E1C0C53030F'
+ MEPROP Name 'f_Editor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E1C016B0011 // DrawOutputSupport
+ ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4E1C0C53030F f_Editor
+
+FORWARD ME_4E1C02500330
+
+ME ME_4E1C045C02BB
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4E1C045C02BB aText
+
+ME ME_4E1C028C03B3
+ MEPROP UID '4E1C028C03B3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1C02500330 // SaveDrawing
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E1C045C02BB // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4E1C028C03B3 DoIt
+
+ME ME_4E1C02500330
+ MEPROP UID '4E1C02500330'
+ MEPROP Name 'SaveDrawing'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сохранить информацию об отрисованном.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E1C016B0011 // DrawOutputSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E1C028C03B3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E1C02500330 SaveDrawing
+
+FORWARD ME_4EB100CE0160
+
+ME ME_4EB100DE00F2
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4EB100DE00F2 aText
+
+ME ME_4EB100D900D7
+ MEPROP UID '4EB100D900D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EB100CE0160 // DoRepaint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EB100DE00F2 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4EB100D900D7 DoIt
+
+ME ME_4EB100CE0160
+ MEPROP UID '4EB100CE0160'
+ MEPROP Name 'DoRepaint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E1C016B0011 // DrawOutputSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EB100D900D7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EB100CE0160 DoRepaint
+
+ME ME_4E2046FB031C
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4E2046FB031C aView
+
+ME ME_4E1C0C6C026C
+ MEPROP UID '4E1C0C6C026C'
+ MEPROP Name 'DoOpenLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E1C016B0011 // DrawOutputSupport
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E2046FB031C // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4E1C0C6C026C DoOpenLog
+
+ME ME_4E2047000027
+ MEPROP Name 'aLogName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4E2047000027 aLogName
+
+ME ME_4E1C0C8C0007
+ MEPROP UID '4E1C0C8C0007'
+ MEPROP Name 'DoCloseLog'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4E1C016B0011 // DrawOutputSupport
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E2047000027 // aLogName
+ )
+ ; // Parameters
+
+ENDME // ME_4E1C0C8C0007 DoCloseLog
+
+ME ME_4E1C0D53022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E1C016B0011 // DrawOutputSupport
+ ;
+ MELINK Target WL 'ME_47C5BD7C0329' '47C5207602D1.ms.model.script' // InevControl
+ ;
+
+ENDME // ME_4E1C0D53022E 
+
+ME ME_4CA5D0430096_ME_4E1C016B0011
+ MELINK Original WL 'ME_4CA5D0430096' '4811D4EC0237.ms.model.script' // OpenLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CA5D0430096_ME_4E1C016B0011 OpenLog
+
+ME ME_4CA5D0540033_ME_4E1C016B0011
+ MELINK Original WL 'ME_4CA5D0540033' '4811D4EC0237.ms.model.script' // CloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CA5D0540033_ME_4E1C016B0011 CloseLog
+
+ME ME_4CACAF4F008D_ME_4E1C016B0011
+ MELINK Original WL 'ME_4CACAF4F008D' '4811D4EC0237.ms.model.script' // LogScreen
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4CACAF4F008D_ME_4E1C016B0011 LogScreen
+
+%%ImplementedBy ME_4CA5CD47037B ME_4E1C016B0011
+
+ME ME_4E1C016B0011
+ MEPROP UID '4E1C016B0011'
+ MEPROP Name 'DrawOutputSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка сохранения информации об отрисованном в файл для последующего сравнение с эталоном.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1C0134031B' '4E1C0134031B.ms.model.script' // MixIns
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4CA5CD47037B' '4811D4EC0237.ms.model.script' // InevShapesLogger
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E1C0C53030F // f_Editor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E1C02500330 // SaveDrawing
+ HWL ME_4EB100CE0160 // DoRepaint
+ HWL ME_4E1C0C6C026C // DoOpenLog
+ HWL ME_4E1C0C8C0007 // DoCloseLog
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4CA5D0430096_ME_4E1C016B0011 // OpenLog
+ ME_4CA5D0540033_ME_4E1C016B0011 // CloseLog
+ ME_4CACAF4F008D_ME_4E1C016B0011 // LogScreen
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4E1C0D53022E // InevControl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\DrawOutputSupport.imp.pas'
+ UP extprop:pas:TypeName '_DrawOutputSupport_'
+ UP extprop:pas:UnitName 'DrawOutputSupport.imp'
+
+ENDME // ME_4E1C016B0011 DrawOutputSupport

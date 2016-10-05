@@ -673,8 +673,10 @@ initialization
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));
  {* Регистрация типа TvtSizeablePanel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscChatMemo));
  {* Регистрация типа TnscChatMemo }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

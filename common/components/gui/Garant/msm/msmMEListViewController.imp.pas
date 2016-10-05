@@ -66,7 +66,7 @@ begin
    if (l_E <> nil) AND l_E.IsSameElement(Self.Model.CurrentElement) then
     Exit;
   end;//(OwnView.Current >= 0) AND (OwnView.Current < Self.Model.List.Count)
-  OwnView.Current := Self.Model.List.IndexOf(Self.Model.CurrentElement);
+  OwnView.Current := Self.Model.List.IndexOfElementView(Self.Model.CurrentElement);
  end;//Self.Model.List <> nil
 //#UC END# *57C9879A032D_57B31D1000FA_57C9879A032D_impl*
 end;//_msmMEListViewController_.DoCurrentElementChangedEvent

@@ -1,0 +1,82 @@
+// evExtFormat 4D514CA600C2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D514CA600C2
+
+FORWARD ME_4F35353B00EE
+
+ME ME_5549BC8500CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F35353B00EE // GetWriter
+ ;
+ MELINK Target WL 'ME_53FEE940022B' '47EA968D0155.ms.model.script' // TevPDFWriter
+ ;
+
+ENDME // ME_5549BC8500CC 
+
+%%ImplementedBy ME_4F352A3B036A ME_4F35353B00EE
+
+ME ME_4F35353B00EE
+ MEPROP UID '4F35353B00EE'
+ MEPROP Name 'GetWriter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D514CA600C2 // evExtFormat
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4F352A3B036A' '4E5CF70B01E2.ms.model.script' // В RTF не должны экспортироваться скриптовые ссылки
+ )
+ ; // Implements
+ MELIST Dependencies
+   Seq: ( ME_5549BC8500CC // TevPDFWriter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4F35353B00EE GetWriter
+
+ME ME_4F352B670298
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D514CA600C2 // evExtFormat
+ ;
+ MELINK Target WL 'ME_4F352A840264' '47ECACA70141.ms.model.script' // TevdScriptHyperlinkEliminator
+ ;
+
+ENDME // ME_4F352B670298 
+
+ME ME_4D514CA600C2
+ MEPROP UID '4D514CA600C2'
+ MEPROP Name 'evExtFormat'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Модуль для обработки дополнительных форматов. Для обработки форматов достаточно подключения данного модуля в секции uses.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B322B67038B' '4B322B67038B.ms.model.script' // ext
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F35353B00EE // GetWriter
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F352B670298 // TevdScriptHyperlinkEliminator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\ext\NOT_FINISHED_evExtFormat.pas'
+ UP extprop:rc:SelfName 'ExtFormat'
+
+ENDME // ME_4D514CA600C2 evExtFormat

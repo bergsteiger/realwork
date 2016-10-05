@@ -2,6 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A825D760190
+%%Inner ME_4A825D760190
+%%Inner ME_4A825D760190
+%%Inner ME_4A825D760190
+
 FORWARD ME_4A825D760190
 
 FORWARD ME_4A83AC9D0128
@@ -21,6 +26,9 @@ ME ME_4A83ACC6021F
 
 ENDME // ME_4A83ACC6021F ItemType
 
+%%InheritedBy ME_47B57D630029 ME_4A83AC9D0128
+%%InheritedBy ME_47BC3A07027F ME_4A83AC9D0128
+
 ME ME_4A83AC9D0128
  MEPROP UID '4A83AC9D0128'
  MEPROP Name 'TnsWorkJournalListeners'
@@ -32,7 +40,7 @@ ME ME_4A83AC9D0128
  MELINK Parent HWL ME_4A825D760190 // WorkJournalImpl
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
  WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
  )
  ; // Inherits
@@ -104,7 +112,7 @@ ME ME_4A82767A0145
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
  ;
 
 ENDME // ME_4A82767A0145 
@@ -144,7 +152,7 @@ ME ME_4A828FCC0091
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_4A828FCC0091 
@@ -154,7 +162,7 @@ ME ME_4A82C5DC0363
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A825E02010E // TbsWorkJournalPrim
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL 'ME_47F260EC02C7' '47F260EC02C7.ms.model.script' // StdRes
  ;
 
 ENDME // ME_4A82C5DC0363 
@@ -220,10 +228,14 @@ ME ME_4A83ADA701C0_ME_4A825E02010E
 ENDME // ME_4A83ADA701C0_ME_4A825E02010E NotifyJournalShrinked
 
 ME ME_479731C50290_ME_4A825E02010E
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4A825E02010E Cleanup
+
+%%ImplementedBy ME_4A825D920164 ME_4A825E02010E
+
+%%InheritedBy ME_47BC391D0259 ME_4A825E02010E
 
 ME ME_4A825E02010E
  MEPROP UID '4A825E02010E'
@@ -279,6 +291,9 @@ ME ME_4A825E02010E
  ME_4A82C5DC0363 // StdRes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\bsWorkJournalPrim.pas'
  UP extprop:rc:SelfName 'bsWorkJournalPrim'
  UP extprop:rc:isAcceptableForScripts true
@@ -291,7 +306,7 @@ ME ME_4A8274F500E6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4A8260EC0099 // TnsJournalTreeStruct
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
  ;
 
 ENDME // ME_4A8274F500E6 
@@ -301,6 +316,8 @@ ME ME_48FF64F60078_ME_4A8260EC0099
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_48FF64F60078_ME_4A8260EC0099 ReAqurieUnfilteredRoot
+
+%%InheritedBy ME_468361010204 ME_4A8260EC0099
 
 ME ME_4A8260EC0099
  MEPROP UID '4A8260EC0099'
@@ -324,6 +341,9 @@ ME ME_4A8260EC0099
    Seq: ( ME_4A8274F500E6 // DataAdapter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\WorkJournal\nsJournalTreeStruct.pas'
  UP extprop:rc:SelfName 'JournalTreeStruct'
  UP extprop:rc:isAcceptableForScripts true
@@ -346,6 +366,8 @@ ME ME_4A82922D028D
  ;
 
 ENDME // ME_4A82922D028D Make
+
+%%InheritedBy ME_4A825E02010E ME_4A825E1200F4
 
 ME ME_4A825E1200F4
  MEPROP UID '4A825E1200F4'
@@ -403,5 +425,8 @@ ME ME_4A825D760190
  WL 'ME_521C9DA50125' '521C9DA50125.ms.model.script' // Application Resources
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4A825D760190 WorkJournalImpl

@@ -2,7 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_55BB9712001F
+%%Inner ME_55BB9712001F
+%%Inner ME_55BB9712001F
+
 FORWARD ME_55BB9712001F
+
+%%InheritedBy ME_4787A405013D ME_54F994E10154
 
 ME ME_54F994E10154
  MEPROP UID '54F994E10154'
@@ -15,7 +21,7 @@ ME ME_54F994E10154
  MELINK Parent HWL ME_55BB9712001F // tfwScriptingExceptions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
  )
  ; // Inherits
 
@@ -29,7 +35,7 @@ ME ME_54F874490155
  MEPROP Name 'aCondition'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_54F874490155 aCondition
@@ -38,7 +44,7 @@ ME ME_54F874490191
  MEPROP Name 'aMessage'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_54F874490191 aMessage
@@ -83,7 +89,7 @@ ME ME_550C433E026F
  MEPROP Name 'aMessage'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_550C433E026F aMessage
@@ -121,6 +127,8 @@ ME ME_550C432A0223
 
 ENDME // ME_550C432A0223 Fail
 
+%%InheritedBy ME_54F994E10154 ME_54F873F5009A
+
 ME ME_54F873F5009A
  MEPROP UID '54F873F5009A'
  MEPROP Name 'EtfwCheckPrim'
@@ -140,9 +148,14 @@ ME ME_54F873F5009A
  HWL ME_550C432A0223 // Fail
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_54F873F5009A EtfwCheckPrim
+
+%%InheritedBy ME_54F873F5009A ME_54F99536034A
 
 ME ME_54F99536034A
  MEPROP UID '54F99536034A'
@@ -177,6 +190,9 @@ ME ME_55BB9712001F
  HWL ME_54F99536034A // EtfwCheck
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "UseNewGen" true
  UP "is namespace" true
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptingExceptions.pas'

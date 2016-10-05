@@ -1,0 +1,177 @@
+// nsTabbedContainerUtils 53A403330029 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53A403330029
+
+FORWARD ME_53A4034102D5
+
+ME ME_53A4049702A9
+ MEPROP UID '53A4049702A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A4034102D5 // DocumentsFromListOpenKind
+ ;
+ MELINK Target WL 'ME_53A410AA031B' '4683F37902CF.ms.model.script' // TvcmMainFormOpenKind
+ ;
+
+ENDME // ME_53A4049702A9 DoIt
+
+ME ME_53A4034102D5
+ MEPROP UID '53A4034102D5'
+ MEPROP Name 'DocumentsFromListOpenKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A403330029 // nsTabbedContainerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A4049702A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A4034102D5 DocumentsFromListOpenKind
+
+FORWARD ME_53A403510223
+
+ME ME_53A404B60022
+ MEPROP UID '53A404B60022'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A403510223 // LinksFromDocumentOpenKind
+ ;
+ MELINK Target WL 'ME_53A410AA031B' '4683F37902CF.ms.model.script' // TvcmMainFormOpenKind
+ ;
+
+ENDME // ME_53A404B60022 DoIt
+
+ME ME_53A403510223
+ MEPROP UID '53A403510223'
+ MEPROP Name 'LinksFromDocumentOpenKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A403330029 // nsTabbedContainerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A404B60022 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A403510223 LinksFromDocumentOpenKind
+
+FORWARD ME_53A40360003B
+
+ME ME_53A404B201C9
+ MEPROP Name 'aSettingsName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_53A404B201C9 aSettingsName
+
+ME ME_53A404A80245
+ MEPROP UID '53A404A80245'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A40360003B // GetOpenKindSettingsValue
+ ;
+ MELINK Target WL 'ME_53A410AA031B' '4683F37902CF.ms.model.script' // TvcmMainFormOpenKind
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A404B201C9 // aSettingsName
+ )
+ ; // Parameters
+
+ENDME // ME_53A404A80245 DoIt
+
+ME ME_53A40360003B
+ MEPROP UID '53A40360003B'
+ MEPROP Name 'GetOpenKindSettingsValue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A403330029 // nsTabbedContainerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A404A80245 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A40360003B GetOpenKindSettingsValue
+
+ME ME_53A405050139
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A403330029 // nsTabbedContainerUtils
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '47FB50E4008E.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_53A405050139 
+
+ME ME_53A405700389
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A403330029 // nsTabbedContainerUtils
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_53A405700389 
+
+ME ME_53A416130371
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A403330029 // nsTabbedContainerUtils
+ ;
+ MELINK Target WL 'ME_53A410AA031B' '4683F37902CF.ms.model.script' // TvcmMainFormOpenKind
+ ;
+
+ENDME // ME_53A416130371 
+
+ME ME_53A403330029
+ MEPROP UID '53A403330029'
+ MEPROP Name 'nsTabbedContainerUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53A402C7010D' '53A402C7010D.ms.model.script' // TabbedInterfaceSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A4034102D5 // DocumentsFromListOpenKind
+ HWL ME_53A403510223 // LinksFromDocumentOpenKind
+ HWL ME_53A40360003B // GetOpenKindSettingsValue
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53A405050139 // nsConst
+ ME_53A405700389 // afwFacade
+ ME_53A416130371 // TvcmMainFormOpenKind
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "children prefix" 'ns'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\TabInterface\nsTabbedContainerUtils.pas'
+ UP extprop:rc:SelfName 'TabbedContainerUtils'
+ UP extprop:pas:ElementPrefix 'ns'
+
+ENDME // ME_53A403330029 nsTabbedContainerUtils

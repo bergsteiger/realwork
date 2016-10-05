@@ -1,0 +1,114 @@
+// vcmPopupControlWindowService 5587AAF10290 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5587AAF10290
+
+FORWARD ME_5587AAF10290
+
+FORWARD ME_5587AB210223
+
+ME ME_5587ABDD01BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5587AB210223 // TvcmPopupControlWindowService
+ ;
+ MELINK Target WL 'ME_55879E12008D' '55879DBD0111.ms.model.script' // Tl3PopupControlService
+ ;
+
+ENDME // ME_5587ABDD01BD 
+
+%%InheritedBy ME_49E7754802A9 ME_5587AB210223
+
+ME ME_5587AB210223
+ MEPROP UID '5587AB210223'
+ MEPROP Name 'TvcmPopupControlWindowService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5587AAF10290 // vcmPopupControlWindowService
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_5587ABDD01BD // Tl3PopupControlService
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'PopupControlWindowService'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5587AB210223 TvcmPopupControlWindowService
+
+ME ME_5587ACAB0365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5587AAF10290 // vcmPopupControlWindowService
+ ;
+ MELINK Target WL 'ME_545C51F90170' '545C51F90170.ms.model.script' // TvcmDropDownMenuForChromeLike
+ ;
+
+ENDME // ME_5587ACAB0365 
+
+ME ME_5587ACB000C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5587AAF10290 // vcmPopupControlWindowService
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5587ACB000C5 
+
+ME ME_5587ACB40054
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5587AAF10290 // vcmPopupControlWindowService
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_5587ACB40054 
+
+ME ME_5587B1300205
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5587AAF10290 // vcmPopupControlWindowService
+ ;
+ MELINK Target WL 'ME_55879E12008D' '55879DBD0111.ms.model.script' // Tl3PopupControlService
+ ;
+
+ENDME // ME_5587B1300205 
+
+ME ME_5587AAF10290
+ MEPROP UID '5587AAF10290'
+ MEPROP Name 'vcmPopupControlWindowService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5587AB210223 // TvcmPopupControlWindowService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5587ACAB0365 // TvcmDropDownMenuForChromeLike
+ ME_5587ACB000C5 // Windows
+ ME_5587ACB40054 // Controls
+ ME_5587B1300205 // Tl3PopupControlService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmPopupControlWindowService.pas'
+ UP extprop:rc:SelfName 'PopupControlWindowService'
+
+ENDME // ME_5587AAF10290 vcmPopupControlWindowService

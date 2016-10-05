@@ -1,0 +1,185 @@
+// msmUseCaseView 57EA6BAE038E Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57EA6BAE038E
+
+FORWARD ME_57EA6BAE038E
+
+ME ME_57EA6BE7004D
+ MEPROP UID '57EA6BE7004D'
+ MEPROP Name 'ConcreteUseCase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57EA6BAE038E // msmUseCaseView
+ ;
+ UP extprop:pas:TypeName '_ConcreteUseCase_'
+
+ENDME // ME_57EA6BE7004D ConcreteUseCase
+
+ME ME_57EA6BF802BB
+ MEPROP UID '57EA6BF802BB'
+ MEPROP Name 'ConcreteUseCase'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57EA6BAE038E // msmUseCaseView
+ ;
+ MELINK Target HWL ME_57EA6BE7004D // ConcreteUseCase
+ ;
+
+ENDME // ME_57EA6BF802BB ConcreteUseCase
+
+ME ME_57EA6C04005F
+ MEPROP UID '57EA6C04005F'
+ MEPROP Name 'UseCase'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57EA6BAE038E // msmUseCaseView
+ ;
+ MELINK Target HWL ME_57EA6BE7004D // ConcreteUseCase
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57EA6C04005F UseCase
+
+FORWARD ME_57EA6C2C02EA
+
+ME ME_57EA6C410327
+ MEPROP Name 'aUseCase'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57EA6BE7004D // ConcreteUseCase
+ ;
+
+ENDME // ME_57EA6C410327 aUseCase
+
+ME ME_57EA6C3800DE
+ MEPROP UID '57EA6C3800DE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA6C2C02EA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57EA6C410327 // aUseCase
+ )
+ ; // Parameters
+
+ENDME // ME_57EA6C3800DE DoIt
+
+ME ME_57EA6C2C02EA
+ MEPROP UID '57EA6C2C02EA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA6BAE038E // msmUseCaseView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57EA6C3800DE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EA6C2C02EA Create
+
+%%ImplementedBy ME_57AD9468006E ME_57EA6C4E015F
+
+%%InheritedBy ME_57EA6C2C02EA ME_57EA6C4E015F
+
+ME ME_57EA6C4E015F
+ MEPROP UID '57EA6C4E015F'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EA6BAE038E // msmUseCaseView
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57EA6C2C02EA // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57AD9468006E' '57CEAF3602AB.ms.model.script' // ImsmUseCase
+ )
+ ; // Implements
+
+ENDME // ME_57EA6C4E015F Make
+
+ME ME_479731C50290_ME_57EA6BAE038E
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57EA6BAE038E Cleanup
+
+ME ME_57D2B82102BD_ME_57EA6BAE038E
+ MELINK Original WL 'ME_57D2B82102BD' '57B1B6AE0204.ms.model.script' // DoActivate
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57D2B82102BD_ME_57EA6BAE038E DoActivate
+
+ME ME_57DAB38900EF_ME_57EA6BAE038E
+ MELINK Original WL 'ME_57DAB38900EF' '57B1B6AE0204.ms.model.script' // DoActivated
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57DAB38900EF_ME_57EA6BAE038E DoActivated
+
+%%InheritedBy ME_57AD94F00212 ME_57EA6BAE038E
+
+ME ME_57EA6BAE038E
+ MEPROP UID '57EA6BAE038E'
+ MEPROP Name 'msmUseCaseView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_57B1B6AE0204' '57B1B6AE0204.ms.model.script' // UseCases
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57AD94F00212' '57B1B6AE0204.ms.model.script' // TmsmUseCase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57EA6BF802BB // ConcreteUseCase
+ HWL ME_57EA6C04005F // UseCase
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57EA6C2C02EA // Create
+ HWL ME_57EA6C4E015F // Make
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57EA6BAE038E // Cleanup
+ ME_57D2B82102BD_ME_57EA6BAE038E // DoActivate
+ ME_57DAB38900EF_ME_57EA6BAE038E // DoActivated
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_57EA6BE7004D // ConcreteUseCase
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmUseCaseView.imp.pas'
+ UP extprop:pas:TypeName '_msmUseCaseView_'
+ UP extprop:pas:UnitName 'msmUseCaseView.imp'
+
+ENDME // ME_57EA6BAE038E msmUseCaseView

@@ -11,9 +11,12 @@ unit ElGlyphs;
 {$include elpack2.inc}
 {$I ElPack.inc}
 
-// $Id: ElGlyphs.pas,v 1.9 2013/04/04 11:20:40 lulin Exp $
+// $Id: ElGlyphs.pas,v 1.10 2016/09/28 13:03:06 lulin Exp $
 
 // $Log: ElGlyphs.pas,v $
+// Revision 1.10  2016/09/28 13:03:06  lulin
+// - подтачиваем.
+//
 // Revision 1.9  2013/04/04 11:20:40  lulin
 // - портируем.
 //
@@ -121,7 +124,7 @@ type
 
   TElButtonGlyph = class(Tl3ProtoObject)
   protected
-    FImageList : TImageList;
+    FImageList : TCustomImageList;
     FAlphaImageList: TImageList;
     FImageIndex : Integer;
     FUseImageList : Boolean;
@@ -137,7 +140,7 @@ type
     FStrW,
       FStrH : integer;
     //procedure ImageListChanged(Sender : TObject);
-    procedure SetImageList(NewValue  : TImageList);
+    procedure SetImageList(NewValue  : TCustomImageList);
     procedure SetAlphaImageList(NewValue: TImageList);
     procedure SetImageIndex(NewValue : Integer);
     procedure GlyphChanged(Sender : TObject);
@@ -164,7 +167,7 @@ type
     function GetGlyphSize : TRect;
     procedure SetUseIcon(NewValue : boolean);
   protected
-    property ImageList : TImageList read FImageList write SetImageList;
+    property ImageList : TCustomImageList read FImageList write SetImageList;
     property AlphaImageList: TImageList read FAlphaImageList write SetAlphaImageList;
     property ImageIndex : Integer read FImageIndex write SetImageIndex default -1;
     property UseImageList : Boolean read FUseImageList write FUseImageList;
@@ -429,7 +432,7 @@ begin
   end;
 end;
 
-procedure TElButtonGlyph.SetImageList(NewValue : TImageList);
+procedure TElButtonGlyph.SetImageList(NewValue : TCustomImageList);
 begin
   if FImageList <> NewValue then
   begin

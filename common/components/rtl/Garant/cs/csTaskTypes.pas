@@ -1,9 +1,15 @@
 unit csTaskTypes;
 { Типы задач }
 
-{ $Id: csTaskTypes.pas,v 1.54 2016/09/12 12:29:55 lukyanets Exp $ }
+{ $Id: csTaskTypes.pas,v 1.56 2016/09/28 12:29:04 lukyanets Exp $ }
 
 // $Log: csTaskTypes.pas,v $
+// Revision 1.56  2016/09/28 12:29:04  lukyanets
+// Отправляем сообщение очистки атрибутов
+//
+// Revision 1.55  2016/09/26 09:07:52  lukyanets
+// Принимаем сообщение
+//
 // Revision 1.54  2016/09/12 12:29:55  lukyanets
 // Принимаем и сохраняем
 //
@@ -227,6 +233,8 @@ const
  cs_ttSchedulerProxy = evdTaskTypes.cs_ttSchedulerProxy;
  cs_ttDownloadDoc = evdTaskTypes.cs_ttDownloadDoc;
  cs_ttUploadDoc = evdTaskTypes.cs_ttUploadDoc;
+ cs_ttMultiModifyDocs = evdTaskTypes.cs_ttMultiModifyDocs;
+ cs_ttMultiClearAttributes = evdTaskTypes.cs_ttMultiClearAttributes;
 
 (*  TcsFileRenameMode = (cs_frmUnique//, // создать уникальное имя Для нового файла
                        //cs_frmBackup, // создать bak-копию старого файла

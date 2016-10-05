@@ -1,0 +1,1486 @@
+// vcmMessagesSupport 4E01D696020C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E01D696020C
+%%Inner ME_4E01D696020C
+%%Inner ME_4E01D696020C
+%%Inner ME_4E01D696020C
+
+FORWARD ME_4E01D696020C
+
+%%InheritedBy ME_4787A405013D ME_4F3BE42D030A
+
+ME ME_4F3BE42D030A
+ MEPROP UID '4F3BE42D030A'
+ MEPROP Name 'EvcmDialogHasChoices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4F3BE42D030A EvcmDialogHasChoices
+
+%%InheritedBy ME_4787A405013D ME_4F3BE4650350
+
+ME ME_4F3BE4650350
+ MEPROP UID '4F3BE4650350'
+ MEPROP Name 'EvcmInvalidWaitedButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4F3BE4650350 EvcmInvalidWaitedButton
+
+%%InheritedBy ME_4787A405013D ME_4F3BE8A6029E
+
+ME ME_4F3BE8A6029E
+ MEPROP UID '4F3BE8A6029E'
+ MEPROP Name 'EvcmUnwaitedDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4F3BE8A6029E EvcmUnwaitedDialog
+
+FORWARD ME_5515501B009E
+
+ME ME_5515514F0007
+ MEPROP UID '5515514F0007'
+ MEPROP Name 'f_OnClick'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5515501B009E // TvcmHugeMessageDlgWithWikiImpl
+ ;
+ MELINK Target WL 'ME_5515434903D6' '55001317029B.ms.model.script' // Tl3WikiLinkClicked
+ ;
+
+ENDME // ME_5515514F0007 f_OnClick
+
+%%InheritedBy ME_50041C7C0270 ME_5515515F0098
+
+ME ME_5515515F0098
+ MEPROP UID '5515515F0098'
+ MEPROP Name 'OnJumpTo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5515501B009E // TvcmHugeMessageDlgWithWikiImpl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ )
+ ; // Inherits
+
+ENDME // ME_5515515F0098 OnJumpTo
+
+ME ME_55155038024B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5515501B009E // TvcmHugeMessageDlgWithWikiImpl
+ ;
+ MELINK Target WL 'ME_551542E902F5' '55001317029B.ms.model.script' // Tl3HugeMessageDlgWithWikiHelper
+ ;
+
+ENDME // ME_55155038024B 
+
+ME ME_5515518902EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5515501B009E // TvcmHugeMessageDlgWithWikiImpl
+ ;
+ MELINK Target WL 'ME_4AB0EE02004E' '4AB0EE02004E.ms.model.script' // Dialogs
+ ;
+
+ENDME // ME_5515518902EA 
+
+%%InheritedBy ME_49E7754802A9 ME_5515501B009E
+
+ME ME_5515501B009E
+ MEPROP UID '5515501B009E'
+ MEPROP Name 'TvcmHugeMessageDlgWithWikiImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5515514F0007 // f_OnClick
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5515515F0098 // OnJumpTo
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55155038024B // Tl3HugeMessageDlgWithWikiHelper
+ ME_5515518902EA // Dialogs
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'HugeMessageDlgWithWikiImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5515501B009E TvcmHugeMessageDlgWithWikiImpl
+
+ME ME_4E01EEC501D2
+ MEPROP UID '4E01EEC501D2'
+ MEPROP Name 'g_HasMesssage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E01EEC501D2 g_HasMesssage
+
+FORWARD ME_4A9D129E00FA
+
+ME ME_4E01E0FF020A
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_4E01E0FF020A aMsg
+
+ME ME_4E01E0FF0244
+ MEPROP Name 'aDlgType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930A29017B' '4AB0EE02004E.ms.model.script' // TMsgDlgType
+ ;
+ MEPROP Value 'mtError'
+ MELINK ValueType WL 'ME_49930A29017B' '4AB0EE02004E.ms.model.script' // TMsgDlgType
+ ;
+ UP extprop:pas:Value 'Dialogs.mtError'
+
+ENDME // ME_4E01E0FF0244 aDlgType
+
+ME ME_4E01E0F10284
+ MEPROP UID '4E01E0F10284'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A9D129E00FA // Say
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E0FF020A // aMsg
+ ME_4E01E0FF0244 // aDlgType
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E0F10284 DoIt
+
+ME ME_4A9D129E00FA
+ MEPROP UID '4A9D129E00FA'
+ MEPROP Name 'Say'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E0F10284 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4A9D129E00FA Say
+
+FORWARD ME_4A9D12BB00CC
+
+ME ME_4E01E06D01AF
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E08A63701DB' '4E01D1980071.ms.model.script' // Tl3Message
+ ;
+
+ENDME // ME_4E01E06D01AF aMsg
+
+ME ME_4E0B31B703BB
+ MEPROP Name 'theChecked'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E0B31B703BB theChecked
+
+ME ME_4E01E06E01D4
+ MEPROP Name 'aChoices'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F9BD2A103C7' '4F9BDEEE01BC.ms.model.script' // TPl3StringIDExList
+ ;
+
+ENDME // ME_4E01E06E01D4 aChoices
+
+ME ME_532051B80024
+ MEPROP Name 'aJumpTo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ ;
+ UP extprop:pas:Value 'evCustomEditorWindow.nil'
+
+ENDME // ME_532051B80024 aJumpTo
+
+ME ME_4E01E003009D
+ MEPROP UID '4E01E003009D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E06D01AF // aMsg
+ ME_4E0B31B703BB // theChecked
+ ME_4E01E06E01D4 // aChoices
+ ME_532051B80024 // aJumpTo
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E003009D DoIt
+
+ME ME_4E01EAF4005E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_499307A40098' '4683F37902CF.ms.model.script' // IvcmDispatcher
+ ;
+
+ENDME // ME_4E01EAF4005E 
+
+ME ME_4E01EB1200F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_4E01EB1200F0 
+
+ME ME_4E01EB3100E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
+ ;
+
+ENDME // ME_4E01EB3100E9 
+
+ME ME_4E01EB590044
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4E01EB590044 
+
+ME ME_4E01EB7A0255
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4DAEBDD2010D' '4A6D65B9022A.ms.model.script' // Tl3VCLFormPtrList
+ ;
+
+ENDME // ME_4E01EB7A0255 
+
+ME ME_4E01EBA400DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_4E01EBA400DD 
+
+ME ME_4E01EBBD02C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4ACF4D6E03B5' '47878E0E0191.ms.model.script' // l3Str
+ ;
+
+ENDME // ME_4E01EBBD02C0 
+
+ME ME_4E01EBD20337
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4E01EBD20337 
+
+ME ME_4E01EC060364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4D99E1B401B5' '4D99E1B401B5.ms.model.script' // vtDialogsResEx
+ ;
+
+ENDME // ME_4E01EC060364 
+
+ME ME_4E01EC3E0011
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4AB24EF502BB' '4AB24EF502BB.ms.model.script' // vcmBaseMenuManager
+ ;
+
+ENDME // ME_4E01EC3E0011 
+
+ME ME_4E01F2C8032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4E01F2B0003E' '4E01F29C0139.ms.model.script' // vcmSaveIntParam
+ ;
+
+ENDME // ME_4E01F2C8032D 
+
+ME ME_4E01F35C01F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_47F2612701D0' '47F2612701D0.ms.model.script' // l3Bits
+ ;
+
+ENDME // ME_4E01F35C01F0 
+
+ME ME_4E01F3A20358
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_46A5ED8B0129' '4677FBA70343.ms.model.script' // Tl3Alignment
+ ;
+
+ENDME // ME_4E01F3A20358 
+
+ME ME_4E01F63803B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4A840F5703AC' '478CF30500C1.ms.model.script' // TAlignment
+ ;
+
+ENDME // ME_4E01F63803B8 
+
+ME ME_4E036A830136
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4E03119F00B2' '4E03119F00B2.ms.model.script' // afwAnswer
+ ;
+
+ENDME // ME_4E036A830136 
+
+ME ME_4E0897410399
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4E0897410399 
+
+ME ME_4E089F8E011C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A9D12BB00CC // ShowMessageDlg
+ ;
+ MELINK Target WL 'ME_4E01EE1A01B4' '4AADF9450143.ms.model.script' // TvcmMessageQueueItem
+ ;
+
+ENDME // ME_4E089F8E011C 
+
+ME ME_4A9D12BB00CC
+ MEPROP UID '4A9D12BB00CC'
+ MEPROP Name 'ShowMessageDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E003009D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E01EAF4005E // IvcmDispatcher
+ ME_4E01EB1200F0 // TCustomForm
+ ME_4E01EB3100E9 // vcmDispatcher
+ ME_4E01EB590044 // IvcmEntityForm
+ ME_4E01EB7A0255 // Tl3VCLFormPtrList
+ ME_4E01EBA400DD // Exception
+ ME_4E01EBBD02C0 // l3Str
+ ME_4E01EBD20337 // ModalResults
+ ME_4E01EC060364 // vtDialogsResEx
+ ME_4E01EC3E0011 // vcmBaseMenuManager
+ ME_4E01F2C8032D // vcmSaveIntParam
+ ME_4E01F35C01F0 // l3Bits
+ ME_4E01F3A20358 // Tl3Alignment
+ ME_4E01F63803B8 // TAlignment
+ ME_4E036A830136 // afwAnswer
+ ME_4E0897410399 // l3CStr
+ ME_4E089F8E011C // TvcmMessageQueueItem
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4A9D12BB00CC ShowMessageDlg
+
+FORWARD ME_4AA13EB80322
+
+ME ME_4E01E19002F4
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01E19002F4 aMsg
+
+ME ME_4E01E18B02D8
+ MEPROP UID '4E01E18B02D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA13EB80322 // Ask
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E19002F4 // aMsg
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E18B02D8 DoIt
+
+ME ME_4AA13EB80322
+ MEPROP UID '4AA13EB80322'
+ MEPROP Name 'Ask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E18B02D8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4AA13EB80322 Ask
+
+FORWARD ME_4E01E08F0038
+
+ME ME_4E01E0AA030F
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01E0AA030F aMsg
+
+ME ME_4E01E0A400B7
+ MEPROP UID '4E01E0A400B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01E08F0038 // MessageDlg$1
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E0AA030F // aMsg
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E0A400B7 DoIt
+
+ME ME_4E01E6FC00B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E01E08F0038 // MessageDlg$1
+ ;
+ MELINK Target WL 'ME_4E01E6DF003A' '4AB34028023E.ms.model.script' // TvcmMessagesCollectionItem
+ ;
+
+ENDME // ME_4E01E6FC00B4 
+
+ME ME_4E01E08F0038
+ MEPROP UID '4E01E08F0038'
+ MEPROP Name 'MessageDlg'
+ MEPROP OriginalName 'MessageDlg$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E0A400B7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E01E6FC00B4 // TvcmMessagesCollectionItem
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4E01E08F0038 MessageDlg$1
+
+FORWARD ME_4E01E0B8018E
+
+ME ME_4E01E0E3013C
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01E0E3013C aMsg
+
+ME ME_4E01E0E30158
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484A797B0390' '4807744200AA.ms.model.script' // array of const
+ ;
+
+ENDME // ME_4E01E0E30158 aData
+
+ME ME_4E01E0CD02D6
+ MEPROP UID '4E01E0CD02D6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01E0B8018E // MessageDlg$2
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E0E3013C // aMsg
+ ME_4E01E0E30158 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E0CD02D6 DoIt
+
+ME ME_4E01E0B8018E
+ MEPROP UID '4E01E0B8018E'
+ MEPROP Name 'MessageDlg'
+ MEPROP OriginalName 'MessageDlg$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E0CD02D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01E0B8018E MessageDlg$2
+
+FORWARD ME_4E01E11201EB
+
+ME ME_4E01E13600DE
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_4E01E13600DE aMsg
+
+ME ME_4E01E13600FB
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484A797B0390' '4807744200AA.ms.model.script' // array of const
+ ;
+
+ENDME // ME_4E01E13600FB aData
+
+ME ME_4E01E1360118
+ MEPROP Name 'aDlgType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930A29017B' '4AB0EE02004E.ms.model.script' // TMsgDlgType
+ ;
+ MEPROP Value 'mtError'
+ MELINK ValueType WL 'ME_49930A29017B' '4AB0EE02004E.ms.model.script' // TMsgDlgType
+ ;
+ UP extprop:pas:Value 'Dialogs.mtError'
+
+ENDME // ME_4E01E1360118 aDlgType
+
+ME ME_4E01E1230142
+ MEPROP UID '4E01E1230142'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01E11201EB // Say$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E13600DE // aMsg
+ ME_4E01E13600FB // aData
+ ME_4E01E1360118 // aDlgType
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E1230142 DoIt
+
+ME ME_4E01E11201EB
+ MEPROP UID '4E01E11201EB'
+ MEPROP Name 'Say'
+ MEPROP OriginalName 'Say$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E1230142 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01E11201EB Say$1
+
+FORWARD ME_4E01E14400AB
+
+ME ME_4E01E1570044
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01E1570044 aMsg
+
+ME ME_4E01E15201A1
+ MEPROP UID '4E01E15201A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01E14400AB // Say$2
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E1570044 // aMsg
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E15201A1 DoIt
+
+ME ME_4E01E14400AB
+ MEPROP UID '4E01E14400AB'
+ MEPROP Name 'Say'
+ MEPROP OriginalName 'Say$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E15201A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01E14400AB Say$2
+
+FORWARD ME_4E01E15B03AA
+
+ME ME_4E01E17A03AD
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01E17A03AD aMsg
+
+ME ME_4E01E17A03DE
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484A797B0390' '4807744200AA.ms.model.script' // array of const
+ ;
+
+ENDME // ME_4E01E17A03DE aData
+
+ME ME_4E01E16F02E6
+ MEPROP UID '4E01E16F02E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01E15B03AA // Say$3
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E17A03AD // aMsg
+ ME_4E01E17A03DE // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E16F02E6 DoIt
+
+ME ME_4E01E15B03AA
+ MEPROP UID '4E01E15B03AA'
+ MEPROP Name 'Say'
+ MEPROP OriginalName 'Say$3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E16F02E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01E15B03AA Say$3
+
+FORWARD ME_4E01E19B00CB
+
+ME ME_4E01E1B80297
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01E1B80297 aMsg
+
+ME ME_4E01E1B802B7
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484A797B0390' '4807744200AA.ms.model.script' // array of const
+ ;
+
+ENDME // ME_4E01E1B802B7 aData
+
+ME ME_4E01E1A600B0
+ MEPROP UID '4E01E1A600B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01E19B00CB // Ask$1
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01E1B80297 // aMsg
+ ME_4E01E1B802B7 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E1A600B0 DoIt
+
+ME ME_4E01E19B00CB
+ MEPROP UID '4E01E19B00CB'
+ MEPROP Name 'Ask'
+ MEPROP OriginalName 'Ask$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E1A600B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01E19B00CB Ask$1
+
+FORWARD ME_4E01E90202D0
+
+ME ME_4E08A92A0001
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E08A63701DB' '4E01D1980071.ms.model.script' // Tl3Message
+ ;
+
+ENDME // ME_4E08A92A0001 anItem
+
+ME ME_5320521400F7
+ MEPROP Name 'aJumpTo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_50041C7C0270' '4829D92A037B.ms.model.script' // TevJumpToEvent
+ ;
+ UP extprop:pas:Value 'evCustomEditorWindow.nil'
+
+ENDME // ME_5320521400F7 aJumpTo
+
+ME ME_4E01E92200A6
+ MEPROP UID '4E01E92200A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01E90202D0 // MessageDlg$3
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E08A92A0001 // anItem
+ ME_5320521400F7 // aJumpTo
+ )
+ ; // Parameters
+
+ENDME // ME_4E01E92200A6 DoIt
+
+ME ME_4E01E90202D0
+ MEPROP UID '4E01E90202D0'
+ MEPROP Name 'MessageDlg'
+ MEPROP OriginalName 'MessageDlg$3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01E92200A6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01E90202D0 MessageDlg$3
+
+FORWARD ME_4E01EF000123
+
+ME ME_4E01EF0702AD
+ MEPROP UID '4E01EF0702AD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01EF000123 // ProcessMessageFromQueue
+ ;
+
+ENDME // ME_4E01EF0702AD DoIt
+
+ME ME_4E01EF000123
+ MEPROP UID '4E01EF000123'
+ MEPROP Name 'ProcessMessageFromQueue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01EF0702AD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01EF000123 ProcessMessageFromQueue
+
+FORWARD ME_4E01EF180178
+
+ME ME_4E01EF4300EF
+ MEPROP Name 'aItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E01E6DF003A' '4AB34028023E.ms.model.script' // TvcmMessagesCollectionItem
+ ;
+
+ENDME // ME_4E01EF4300EF aItem
+
+ME ME_4E01EF430114
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E01EF430114 aMsg
+
+ME ME_4E01EF430139
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484A797B0390' '4807744200AA.ms.model.script' // array of const
+ ;
+
+ENDME // ME_4E01EF430139 aData
+
+ME ME_4E01EF2F0161
+ MEPROP UID '4E01EF2F0161'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01EF180178 // AddMessageToQueue
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E01EF4300EF // aItem
+ ME_4E01EF430114 // aMsg
+ ME_4E01EF430139 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4E01EF2F0161 DoIt
+
+ME ME_4E01EF180178
+ MEPROP UID '4E01EF180178'
+ MEPROP Name 'AddMessageToQueue'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E01EF2F0161 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E01EF180178 AddMessageToQueue
+
+FORWARD ME_4E0890BE038F
+
+ME ME_4E0890F10230
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E0890F10230 aName
+
+ME ME_4E08958603BF
+ MEPROP Name 'aChoices'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F9BD2A103C7' '4F9BDEEE01BC.ms.model.script' // TPl3StringIDExList
+ ;
+
+ENDME // ME_4E08958603BF aChoices
+
+ME ME_4E0895870020
+ MEPROP Name 'aDlgType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49930A29017B' '4AB0EE02004E.ms.model.script' // TMsgDlgType
+ ;
+
+ENDME // ME_4E0895870020 aDlgType
+
+ME ME_4E0890D0009F
+ MEPROP UID '4E0890D0009F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0890BE038F // GetVisibleName
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0890F10230 // aName
+ ME_4E08958603BF // aChoices
+ ME_4E0895870020 // aDlgType
+ )
+ ; // Parameters
+
+ENDME // ME_4E0890D0009F DoIt
+
+ME ME_4E08913C018D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0890BE038F // GetVisibleName
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4E08913C018D 
+
+ME ME_4E0890BE038F
+ MEPROP UID '4E0890BE038F'
+ MEPROP Name 'GetVisibleName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0890D0009F // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E08913C018D // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4E0890BE038F GetVisibleName
+
+FORWARD ME_4E08A89601F5
+
+ME ME_4E08A8EF02A3
+ MEPROP Name 'aMsgID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E08A8EF02A3 aMsgID
+
+ME ME_4E08A8EF0316
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E08A8EF0316 aMessage
+
+ME ME_4E08A8E9024C
+ MEPROP UID '4E08A8E9024C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E08A89601F5 // MessageIDToMessage
+ ;
+ MELINK Target WL 'ME_4E08A63701DB' '4E01D1980071.ms.model.script' // Tl3Message
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E08A8EF02A3 // aMsgID
+ ME_4E08A8EF0316 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_4E08A8E9024C DoIt
+
+ME ME_4E08A89601F5
+ MEPROP UID '4E08A89601F5'
+ MEPROP Name 'MessageIDToMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E08A8E9024C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E08A89601F5 MessageIDToMessage
+
+FORWARD ME_4E08A8FC038F
+
+ME ME_4E08A90E030A
+ MEPROP Name 'aMsgId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683F49101F5' '49942E3202B3.ms.model.script' // TvcmMessageID
+ ;
+
+ENDME // ME_4E08A90E030A aMsgId
+
+ME ME_4E08A90E032D
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4E08A90E032D aMessage
+
+ME ME_4E08A90B0298
+ MEPROP UID '4E08A90B0298'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E08A8FC038F // MessageDlg$4
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E08A90E030A // aMsgId
+ ME_4E08A90E032D // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_4E08A90B0298 DoIt
+
+ME ME_4E08A8FC038F
+ MEPROP UID '4E08A8FC038F'
+ MEPROP Name 'MessageDlg'
+ MEPROP OriginalName 'MessageDlg$4'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E08A90B0298 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E08A8FC038F MessageDlg$4
+
+FORWARD ME_4E0B316101C7
+
+ME ME_4E0B319E0216
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E08A63701DB' '4E01D1980071.ms.model.script' // Tl3Message
+ ;
+
+ENDME // ME_4E0B319E0216 aMsg
+
+ME ME_4E0B31930158
+ MEPROP UID '4E0B31930158'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0B316101C7 // ShowMessageDlg$1
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0B319E0216 // aMsg
+ )
+ ; // Parameters
+
+ENDME // ME_4E0B31930158 DoIt
+
+ME ME_4E0B316101C7
+ MEPROP UID '4E0B316101C7'
+ MEPROP Name 'ShowMessageDlg'
+ MEPROP OriginalName 'ShowMessageDlg$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0B31930158 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E0B316101C7 ShowMessageDlg$1
+
+FORWARD ME_4E7CA37100CD
+
+ME ME_4E7CA3B20002
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_4E7CA3B20002 aMsg
+
+ME ME_4E7CA3B20050
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484A797B0390' '4807744200AA.ms.model.script' // array of const
+ ;
+
+ENDME // ME_4E7CA3B20050 aData
+
+ME ME_4E7CA3AA00CE
+ MEPROP UID '4E7CA3AA00CE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7CA37100CD // Ask$2
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E7CA3B20002 // aMsg
+ ME_4E7CA3B20050 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4E7CA3AA00CE DoIt
+
+ME ME_4E7CA37100CD
+ MEPROP UID '4E7CA37100CD'
+ MEPROP Name 'Ask'
+ MEPROP OriginalName 'Ask$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7CA3AA00CE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E7CA37100CD Ask$2
+
+FORWARD ME_4E9E898302DC
+
+ME ME_4E9E89BA03A1
+ MEPROP Name 'aMsg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_4E9E89BA03A1 aMsg
+
+ME ME_4E9E89BB000C
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484A797B0390' '4807744200AA.ms.model.script' // array of const
+ ;
+
+ENDME // ME_4E9E89BB000C aData
+
+ME ME_4E9E89AB008F
+ MEPROP UID '4E9E89AB008F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E9E898302DC // MessageDlg$5
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E9E89BA03A1 // aMsg
+ ME_4E9E89BB000C // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4E9E89AB008F DoIt
+
+ME ME_4E9E898302DC
+ MEPROP UID '4E9E898302DC'
+ MEPROP Name 'MessageDlg'
+ MEPROP OriginalName 'MessageDlg$5'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E9E89AB008F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E9E898302DC MessageDlg$5
+
+ME ME_4E089B0203B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELINK Target WL 'ME_4E089AEB01DA' '4AADF9450143.ms.model.script' // TvcmMessageQueue
+ ;
+
+ENDME // ME_4E089B0203B5 
+
+ME ME_5003D775016D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELINK Target WL 'ME_4B8E676500AD' '4B8E676500AD.ms.model.script' // vcmDialogs
+ ;
+
+ENDME // ME_5003D775016D 
+
+ME ME_553F57900314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E01D696020C // vcmMessagesSupport
+ ;
+ MELINK Target WL 'ME_5507FDD203E1' '4E030FC801EB.ms.model.script' // Tl3BatchService
+ ;
+
+ENDME // ME_553F57900314 
+
+ME ME_4E01D696020C
+ MEPROP UID '4E01D696020C'
+ MEPROP Name 'vcmMessagesSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E01EEC501D2 // g_HasMesssage
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A9D129E00FA // Say
+ HWL ME_4A9D12BB00CC // ShowMessageDlg
+ HWL ME_4AA13EB80322 // Ask
+ HWL ME_4E01E08F0038 // MessageDlg$1
+ HWL ME_4E01E0B8018E // MessageDlg$2
+ HWL ME_4E01E11201EB // Say$1
+ HWL ME_4E01E14400AB // Say$2
+ HWL ME_4E01E15B03AA // Say$3
+ HWL ME_4E01E19B00CB // Ask$1
+ HWL ME_4E01E90202D0 // MessageDlg$3
+ HWL ME_4E01EF000123 // ProcessMessageFromQueue
+ HWL ME_4E01EF180178 // AddMessageToQueue
+ HWL ME_4E0890BE038F // GetVisibleName
+ HWL ME_4E08A89601F5 // MessageIDToMessage
+ HWL ME_4E08A8FC038F // MessageDlg$4
+ HWL ME_4E0B316101C7 // ShowMessageDlg$1
+ HWL ME_4E7CA37100CD // Ask$2
+ HWL ME_4E9E898302DC // MessageDlg$5
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4F3BE42D030A // EvcmDialogHasChoices
+ HWL ME_4F3BE4650350 // EvcmInvalidWaitedButton
+ HWL ME_4F3BE8A6029E // EvcmUnwaitedDialog
+ HWL ME_5515501B009E // TvcmHugeMessageDlgWithWikiImpl
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E089B0203B5 // TvcmMessageQueue
+ ME_5003D775016D // vcmDialogs
+ ME_553F57900314 // Tl3BatchService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "children prefix" 'vcm'
+ UP "no hands" true
+ UP "started" '22.06.2011 15:49'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMessagesSupport.pas'
+ UP extprop:rc:SelfName 'MessagesSupport'
+ UP extprop:pas:ElementPrefix 'vcm'
+
+ENDME // ME_4E01D696020C vcmMessagesSupport

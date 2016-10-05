@@ -1,0 +1,50 @@
+// ScrollSupport 4CE2958803D0 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CE2958803D0
+
+ME ME_4CE295BA025D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE2958803D0 // ScrollSupport
+ ;
+ MELINK Target WL 'ME_467D37430253' '467C0CAA02AB.ms.model.script' // Il3CommandTarget
+ ;
+
+ENDME // ME_4CE295BA025D 
+
+ME ME_4CE2960B02C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CE2958803D0 // ScrollSupport
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_4CE2960B02C7 
+
+ME ME_4CE2958803D0
+ MEPROP UID '4CE2958803D0'
+ MEPROP Name 'ScrollSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4CE295BA025D // Il3CommandTarget
+ ME_4CE2960B02C7 // Forms
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\ScrollSupport.imp.pas'
+ UP extprop:pas:TypeName '_ScrollSupport_'
+ UP extprop:pas:UnitName 'ScrollSupport.imp'
+
+ENDME // ME_4CE2958803D0 ScrollSupport

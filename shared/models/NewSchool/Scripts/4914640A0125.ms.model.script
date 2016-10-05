@@ -1,0 +1,243 @@
+// dsDocumentFromList 4914640A0125 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4914640A0125
+
+ME ME_491466040150
+ MEPROP UID '491466040150'
+ MEPROP Name 'HasListNode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'есть ли узел списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_491466040150 HasListNode
+
+ME ME_491465DD03DD
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_491465DD03DD aList
+
+ME ME_491465DE000F
+ MEPROP Name 'aNodeForPositioning'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_491465DE000F aNodeForPositioning
+
+ME ME_491465BF0275
+ MEPROP UID '491465BF0275'
+ MEPROP Name 'DoReturnToList'
+ MEPROP Class class_Operation
+ %SUMMARY 'параметры создания списка' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELIST Parameters
+   Seq: ( ME_491465DD03DD // aList
+ ME_491465DE000F // aNodeForPositioning
+ )
+ ; // Parameters
+
+ENDME // ME_491465BF0275 DoReturnToList
+
+ME ME_4914665403E5
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDB730265' '45700BFD0251.ms.model.script' // DynList
+ ;
+
+ENDME // ME_4914665403E5 aList
+
+ME ME_4914664B019A
+ MEPROP UID '4914664B019A'
+ MEPROP Name 'CloneSearchInfo'
+ MEPROP Class class_Operation
+ %SUMMARY 'Коллеги, это что?' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_4822962A0071' '4B1D3D250382.ms.model.script' // IdeSearchInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4914665403E5 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4914664B019A CloneSearchInfo
+
+ME ME_491D719E0014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_491D718A00A9' '491DCA2C00A9.ms.model.script' // TdeSearchInfo
+ ;
+
+ENDME // ME_491D719E0014 
+
+ME ME_491D72880339
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_491D72880339 
+
+ME ME_491D731E00A7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_4909AEB00352' '48FD8B2702F6.ms.model.script' // TnsINodeWrap
+ ;
+
+ENDME // ME_491D731E00A7 
+
+ME ME_491D738101D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '47F21FE90379.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_491D738101D4 
+
+ME ME_491D73D40396
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47F25BC801DB.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_491D73D40396 
+
+ME ME_491D73EC01B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '47F260EC02C7.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_491D73EC01B7 
+
+ME ME_57A0AC9800F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4914640A0125 // dsDocumentFromList
+ ;
+ MELINK Target WL 'ME_57A0ADEC0150' '579F7F680321.ms.model.script' // TDocumentOpenService
+ ;
+
+ENDME // ME_57A0AC9800F1 
+
+ME ME_49145C5D0015_ME_4914640A0125
+ MELINK Original WL 'ME_49145C5D0015' '491B305A0096.ms.model.script' // SwitchToDocumentFromList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49145C5D0015_ME_4914640A0125 SwitchToDocumentFromList
+
+ME ME_49145C6E00F8_ME_4914640A0125
+ MELINK Original WL 'ME_49145C6E00F8' '491B305A0096.ms.model.script' // ReturnToList
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49145C6E00F8_ME_4914640A0125 ReturnToList
+
+ME ME_49145C7C0021_ME_4914640A0125
+ MELINK Original WL 'ME_49145C7C0021' '491B305A0096.ms.model.script' // CanOpenPrevDoc
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49145C7C0021_ME_4914640A0125 CanOpenPrevDoc
+
+ME ME_49145C86028D_ME_4914640A0125
+ MELINK Original WL 'ME_49145C86028D' '491B305A0096.ms.model.script' // CanOpenNextDoc
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49145C86028D_ME_4914640A0125 CanOpenNextDoc
+
+ME ME_49145C940250_ME_4914640A0125
+ MELINK Original WL 'ME_49145C940250' '491B305A0096.ms.model.script' // CanReturnToList
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49145C940250_ME_4914640A0125 CanReturnToList
+
+%%ImplementedBy ME_49145C530239 ME_4914640A0125
+
+ME ME_4914640A0125
+ MEPROP UID '4914640A0125'
+ MEPROP Name 'dsDocumentFromList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь для документа открытого из списка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47F22C7501F6' '47F22C7501F6.ms.model.script' // Document
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49145C530239' '491B305A0096.ms.model.script' // DocumentFromList
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_491466040150 // HasListNode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_491465BF0275 // DoReturnToList
+ HWL ME_4914664B019A // CloneSearchInfo
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49145C5D0015_ME_4914640A0125 // SwitchToDocumentFromList
+ ME_49145C6E00F8_ME_4914640A0125 // ReturnToList
+ ME_49145C7C0021_ME_4914640A0125 // CanOpenPrevDoc
+ ME_49145C86028D_ME_4914640A0125 // CanOpenNextDoc
+ ME_49145C940250_ME_4914640A0125 // CanReturnToList
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_491D719E0014 // TdeSearchInfo
+ ME_491D72880339 // NodeBase
+ ME_491D731E00A7 // TnsINodeWrap
+ ME_491D738101D4 // bsUtils
+ ME_491D73D40396 // vcmBase
+ ME_491D73EC01B7 // StdRes
+ ME_57A0AC9800F1 // TDocumentOpenService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsDocumentFromList.imp.pas'
+ UP extprop:pas:TypeName '_dsDocumentFromList_'
+ UP extprop:pas:UnitName 'dsDocumentFromList.imp'
+
+ENDME // ME_4914640A0125 dsDocumentFromList

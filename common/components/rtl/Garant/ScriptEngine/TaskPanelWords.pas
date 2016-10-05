@@ -178,10 +178,14 @@ initialization
  {* Регистрация pop_TaskPanel_GetHideField }
  TkwPopTaskPanelCount.RegisterInEngine;
  {* Регистрация pop_TaskPanel_Count }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTasksPanelView));
  {* Регистрация типа TnscTasksPanelView }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTasksPanelHideField));
  {* Регистрация типа TnscTasksPanelHideField }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCM)

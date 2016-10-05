@@ -11,17 +11,16 @@ interface
 
 uses
  l3IntfUses
- , l3ProtoObject
+ , msmViewOfModelElement
  , msmElementViews
  , msmModelElements
  , l3Interfaces
 ;
 
 type
- TmsmModelElementDir = class(Tl3ProtoObject, ImsmModelElementStringList)
+ TmsmModelElementDir = class(TmsmViewOfModelElement, ImsmModelElementStringList)
   {* Список содержимого элемента в виде директории }
   private
-   f_TextName: AnsiString;
    f_List: ImsmModelElementList;
    f_Parent: ImsmModelElement;
   protected
@@ -31,20 +30,17 @@ type
    function Get_Owner: ImsmModelElement;
    function Get_Strings(anIndex: Integer): Il3CString;
    function Get_StringsToFind(anIndex: Integer): Il3CString;
+   procedure Cleanup; override;
+    {* Функция очистки полей объекта. }
    {$If NOT Defined(DesignTimeLibrary)}
    class function IsCacheable: Boolean; override;
     {* функция класса, определяющая могут ли объекты данного класса попадать в кэш повторного использования. }
    {$IfEnd} // NOT Defined(DesignTimeLibrary)
    procedure ClearFields; override;
   public
-   constructor Create(const aList: ImsmModelElementList;
-    const aTextName: AnsiString); reintroduce; overload;
-   class function Make(const aList: ImsmModelElementList;
-    const aTextName: AnsiString): ImsmModelElementStringList; reintroduce;
-   constructor Create(const aParent: ImsmModelElement;
-    const aList: ImsmModelElementList;
-    const aTextName: AnsiString); reintroduce; overload;
-   function IndexOf(const anElement: ImsmModelElement): Integer;
+   constructor Create(const anElement: TmsmModelElementView); reintroduce;
+   class function Make(const anElement: TmsmModelElementView): ImsmModelElementStringList; reintroduce;
+   function IndexOfElementView(const anElement: ImsmModelElement): Integer;
  end;//TmsmModelElementDir
 
 implementation
@@ -59,46 +55,34 @@ uses
  //#UC END# *57B1674A02B6impl_uses*
 ;
 
-constructor TmsmModelElementDir.Create(const aList: ImsmModelElementList;
- const aTextName: AnsiString);
+constructor TmsmModelElementDir.Create(const anElement: TmsmModelElementView);
 //#UC START# *57B1682902FF_57B1674A02B6_var*
 //#UC END# *57B1682902FF_57B1674A02B6_var*
 begin
 //#UC START# *57B1682902FF_57B1674A02B6_impl*
- Assert(aList <> nil);
- Assert(aTextName <> '');
- Create(aList.Owner.Parent, aList, aTextName);
+ if (anElement.rElement = nil) then
+  f_Parent := nil
+ else
+  f_Parent := anElement.rElement.Parent;
+ if (anElement.rElement = nil) then
+  f_List := nil
+ else
+  f_List := anElement.rElement.MEList[anElement.rListName];
+ inherited Create(anElement);
 //#UC END# *57B1682902FF_57B1674A02B6_impl*
 end;//TmsmModelElementDir.Create
 
-class function TmsmModelElementDir.Make(const aList: ImsmModelElementList;
- const aTextName: AnsiString): ImsmModelElementStringList;
+class function TmsmModelElementDir.Make(const anElement: TmsmModelElementView): ImsmModelElementStringList;
 var
  l_Inst : TmsmModelElementDir;
 begin
- l_Inst := Create(aList, aTextName);
+ l_Inst := Create(anElement);
  try
   Result := l_Inst;
  finally
   l_Inst.Free;
  end;//try..finally
 end;//TmsmModelElementDir.Make
-
-constructor TmsmModelElementDir.Create(const aParent: ImsmModelElement;
- const aList: ImsmModelElementList;
- const aTextName: AnsiString);
-//#UC START# *57B33A9E00C7_57B1674A02B6_var*
-//#UC END# *57B33A9E00C7_57B1674A02B6_var*
-begin
-//#UC START# *57B33A9E00C7_57B1674A02B6_impl*
- Assert(aList <> nil);
- Assert(aTextName <> '');
- f_Parent := aParent;
- f_List := aList;
- f_TextName := aTextName;
- inherited Create;
-//#UC END# *57B33A9E00C7_57B1674A02B6_impl*
-end;//TmsmModelElementDir.Create
 
 function TmsmModelElementDir.IsDir: Boolean;
 //#UC START# *57B57DE500CF_57B1674A02B6_var*
@@ -150,7 +134,7 @@ function TmsmModelElementDir.Get_Owner: ImsmModelElement;
 //#UC END# *57AE2E140297_57B1674A02B6get_var*
 begin
 //#UC START# *57AE2E140297_57B1674A02B6get_impl*
- Result := f_List.Owner;
+ Result := Element.rElement;
 //#UC END# *57AE2E140297_57B1674A02B6get_impl*
 end;//TmsmModelElementDir.Get_Owner
 
@@ -159,7 +143,7 @@ function TmsmModelElementDir.Get_Strings(anIndex: Integer): Il3CString;
 //#UC END# *57AEBED1018D_57B1674A02B6get_var*
 begin
 //#UC START# *57AEBED1018D_57B1674A02B6get_impl*
- Result := Get_Item(anIndex).StringProp[f_TextName];
+ Result := Get_Item(anIndex).StringProp[Element.rTextName];
  if IsDir then
   if (anIndex = 0) AND (f_Parent <> nil) then
   begin
@@ -178,25 +162,37 @@ begin
 //#UC END# *57B6C7D40215_57B1674A02B6get_impl*
 end;//TmsmModelElementDir.Get_StringsToFind
 
-function TmsmModelElementDir.IndexOf(const anElement: ImsmModelElement): Integer;
+function TmsmModelElementDir.IndexOfElementView(const anElement: ImsmModelElement): Integer;
 //#UC START# *57D1327900BC_57B1674A02B6_var*
 //#UC END# *57D1327900BC_57B1674A02B6_var*
 begin
 //#UC START# *57D1327900BC_57B1674A02B6_impl*
  if IsDir then
   if (f_Parent <> nil) then
-   if f_Parent.IsSameElement(anElement) then
+   if f_Parent.IsSameElementView(anElement) then
    begin
     Result := 0;
     Exit;
    end;//f_Parent.IsSameElement(anElement)
- Result := f_List.IndexOf(anElement);
+ Result := f_List.IndexOfElementView(anElement);
  if (Result >= 0) then  
   if IsDir then
    if (f_Parent <> nil) then
     Inc(Result);
 //#UC END# *57D1327900BC_57B1674A02B6_impl*
-end;//TmsmModelElementDir.IndexOf
+end;//TmsmModelElementDir.IndexOfElementView
+
+procedure TmsmModelElementDir.Cleanup;
+ {* Функция очистки полей объекта. }
+//#UC START# *479731C50290_57B1674A02B6_var*
+//#UC END# *479731C50290_57B1674A02B6_var*
+begin
+//#UC START# *479731C50290_57B1674A02B6_impl*
+ f_List := nil;
+ f_Parent := nil;
+ inherited;
+//#UC END# *479731C50290_57B1674A02B6_impl*
+end;//TmsmModelElementDir.Cleanup
 
 {$If NOT Defined(DesignTimeLibrary)}
 class function TmsmModelElementDir.IsCacheable: Boolean;
@@ -212,7 +208,6 @@ end;//TmsmModelElementDir.IsCacheable
 
 procedure TmsmModelElementDir.ClearFields;
 begin
- f_TextName := '';
  f_List := nil;
  f_Parent := nil;
  inherited;

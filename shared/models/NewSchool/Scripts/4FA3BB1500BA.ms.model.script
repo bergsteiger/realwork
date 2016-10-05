@@ -1,0 +1,218 @@
+// LinesDrawOutput 4FA3BB1500BA Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FA3BB1500BA
+
+ME ME_4FA3BD63037A
+ MEPROP UID '4FA3BD63037A'
+ MEPROP Name 'f_OutputFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA3BB1500BA // LinesDrawOutput
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4FA3BD63037A f_OutputFileName
+
+ME ME_4FA3C49701B6
+ MEPROP UID '4FA3C49701B6'
+ MEPROP Name 'f_ObjID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA3BB1500BA // LinesDrawOutput
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FA3C49701B6 f_ObjID
+
+ME ME_4FA3D8FD0126
+ MEPROP UID '4FA3D8FD0126'
+ MEPROP Name 'f_Precision'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA3BB1500BA // LinesDrawOutput
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4FA3D8FD0126 f_Precision
+
+FORWARD ME_4FA3C6D2025F
+
+ME ME_4FA3C6F500AD
+ MEPROP Name 'aLogName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4FA3C6F500AD aLogName
+
+ME ME_4FA3C6E402D5
+ MEPROP UID '4FA3C6E402D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA3C6D2025F // DoCloseLog
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FA3C6F500AD // aLogName
+ )
+ ; // Parameters
+
+ENDME // ME_4FA3C6E402D5 DoIt
+
+ME ME_4FA3C6D2025F
+ MEPROP UID '4FA3C6D2025F'
+ MEPROP Name 'DoCloseLog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FA3BB1500BA // LinesDrawOutput
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA3C6E402D5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA3C6D2025F DoCloseLog
+
+FORWARD ME_4FA3CBA503D7
+
+ME ME_51B6F2E50375
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_51B6F2E50375 anEditor
+
+ME ME_51B6F2E5038A
+ MEPROP Name 'aPrinting'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51B6F2E5038A aPrinting
+
+ME ME_4FA3CBB40052
+ MEPROP UID '4FA3CBB40052'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA3CBA503D7 // SaveDrawing
+ ;
+ MELIST Parameters
+   Seq: ( ME_51B6F2E50375 // anEditor
+ ME_51B6F2E5038A // aPrinting
+ )
+ ; // Parameters
+
+ENDME // ME_4FA3CBB40052 DoIt
+
+ME ME_4FA3CBA503D7
+ MEPROP UID '4FA3CBA503D7'
+ MEPROP Name 'SaveDrawing'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA3BB1500BA // LinesDrawOutput
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA3CBB40052 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA3CBA503D7 SaveDrawing
+
+ME ME_4FA3C80103D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FA3BB1500BA // LinesDrawOutput
+ ;
+ MELINK Target WL 'ME_4B2A12BA0288' '47877EB202FB.ms.model.script' // IntToStr
+ ;
+
+ENDME // ME_4FA3C80103D4 
+
+ME ME_4D00C91B03B2_ME_4FA3BB1500BA
+ MELINK Original WL 'ME_4D00C91B03B2' '473C3BEE0334.ms.model.script' // OpenLinesLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D00C91B03B2_ME_4FA3BB1500BA OpenLinesLog
+
+ME ME_4D00C9410153_ME_4FA3BB1500BA
+ MELINK Original WL 'ME_4D00C9410153' '473C3BEE0334.ms.model.script' // CloseLinesLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4D00C9410153_ME_4FA3BB1500BA CloseLinesLog
+
+ME ME_4FA3D5A500A9_ME_4FA3BB1500BA
+ MELINK Original WL 'ME_4FA3D5A500A9' '473C3BEE0334.ms.model.script' // GetPrecision
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FA3D5A500A9_ME_4FA3BB1500BA GetPrecision
+
+%%ImplementedBy ME_4D00C63C03E2 ME_4FA3BB1500BA
+
+ME ME_4FA3BB1500BA
+ MEPROP UID '4FA3BB1500BA'
+ MEPROP Name 'LinesDrawOutput'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1C0134031B' '4E1C0134031B.ms.model.script' // MixIns
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4D00C63C03E2' '473C3BEE0334.ms.model.script' // Il3FrameLinesLogger
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FA3BD63037A // f_OutputFileName
+ HWL ME_4FA3C49701B6 // f_ObjID
+ HWL ME_4FA3D8FD0126 // f_Precision
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FA3C6D2025F // DoCloseLog
+ HWL ME_4FA3CBA503D7 // SaveDrawing
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4D00C91B03B2_ME_4FA3BB1500BA // OpenLinesLog
+ ME_4D00C9410153_ME_4FA3BB1500BA // CloseLinesLog
+ ME_4FA3D5A500A9_ME_4FA3BB1500BA // GetPrecision
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4FA3C80103D4 // IntToStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\LinesDrawOutput.imp.pas'
+ UP extprop:pas:TypeName '_LinesDrawOutput_'
+ UP extprop:pas:UnitName 'LinesDrawOutput.imp'
+
+ENDME // ME_4FA3BB1500BA LinesDrawOutput

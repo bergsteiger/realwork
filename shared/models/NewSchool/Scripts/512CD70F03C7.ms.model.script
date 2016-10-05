@@ -1,0 +1,174 @@
+// nsExternalObjectModelPart 512CD70F03C7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_512CD70F03C7
+
+FORWARD ME_512CD70F03C7
+
+FORWARD ME_512CD73E01E6
+
+ME ME_512CD7B603E0
+ MEPROP UID '512CD7B603E0'
+ MEPROP Name 'rStream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_512CD73E01E6 // TnsGetGenOutputStruct
+ ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_512CD7B603E0 rStream
+
+ME ME_512CD7BE00D3
+ MEPROP UID '512CD7BE00D3'
+ MEPROP Name 'rName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_512CD73E01E6 // TnsGetGenOutputStruct
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_512CD7BE00D3 rName
+
+FORWARD ME_512CD7E60330
+
+ME ME_512CD7F9010C
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_512CD7F9010C aStream
+
+ME ME_512CD7F10134
+ MEPROP UID '512CD7F10134'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512CD7E60330 // Create$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_512CD7F9010C // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_512CD7F10134 DoIt
+
+ME ME_512CD7E60330
+ MEPROP UID '512CD7E60330'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512CD73E01E6 // TnsGetGenOutputStruct
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512CD7F10134 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_512CD7E60330 Create$1
+
+FORWARD ME_512CD80201BC
+
+ME ME_512CD81803D7
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_512CD81803D7 aName
+
+ME ME_512CD80D0216
+ MEPROP UID '512CD80D0216'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512CD80201BC // Create$2
+ ;
+ MELIST Parameters
+   Seq: ( ME_512CD81803D7 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_512CD80D0216 DoIt
+
+ME ME_512CD80201BC
+ MEPROP UID '512CD80201BC'
+ MEPROP Name 'Create'
+ MEPROP OriginalName 'Create$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_512CD73E01E6 // TnsGetGenOutputStruct
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_512CD80D0216 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_512CD80201BC Create$2
+
+ME ME_512CD73E01E6
+ MEPROP UID '512CD73E01E6'
+ MEPROP Name 'TnsGetGenOutputStruct'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_512CD70F03C7 // nsExternalObjectModelPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_512CD7B603E0 // rStream
+ HWL ME_512CD7BE00D3 // rName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_512CD7E60330 // Create$1
+ HWL ME_512CD80201BC // Create$2
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_512CD73E01E6 TnsGetGenOutputStruct
+
+ME ME_512CD70F03C7
+ MEPROP UID '512CD70F03C7'
+ MEPROP Name 'nsExternalObjectModelPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F4B8FA60272' '4F4B8FA60272.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_512CD73E01E6 // TnsGetGenOutputStruct
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ExternalObjects\nsExternalObjectModelPart.pas'
+ UP extprop:rc:SelfName 'ExternalObjectModelPart'
+
+ENDME // ME_512CD70F03C7 nsExternalObjectModelPart

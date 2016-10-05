@@ -1,0 +1,376 @@
+// daUserManagerUtils 5714CBFE00FA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5714CBFE00FA
+
+FORWARD ME_5714CC1501B0
+
+ME ME_5714CC6603CF
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_5714CC6603CF anID
+
+ME ME_5714CC6603DF
+ MEPROP Name 'CropIfLocal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_5714CC6603DF CropIfLocal
+
+ME ME_5714CC4F0099
+ MEPROP UID '5714CC4F0099'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CC1501B0 // GetRegionStringFromUserID
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5714CC6603CF // anID
+ ME_5714CC6603DF // CropIfLocal
+ )
+ ; // Parameters
+
+ENDME // ME_5714CC4F0099 DoIt
+
+ME ME_5714D4580196
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5714CC1501B0 // GetRegionStringFromUserID
+ ;
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
+ ;
+
+ENDME // ME_5714D4580196 
+
+ME ME_5714CC1501B0
+ MEPROP UID '5714CC1501B0'
+ MEPROP Name 'GetRegionStringFromUserID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5714CC4F0099 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5714D4580196 // GlobalDataProvider
+ )
+ ; // Dependencies
+
+ENDME // ME_5714CC1501B0 GetRegionStringFromUserID
+
+FORWARD ME_5714CC980361
+
+ME ME_5714CCC40118
+ MEPROP Name 'aRegionName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5714CCC40118 aRegionName
+
+ME ME_5714CCC40138
+ MEPROP Name 'aUserName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5714CCC40138 aUserName
+
+ME ME_5714CCAC0312
+ MEPROP UID '5714CCAC0312'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CC980361 // ConcatRegionAndUserNames
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5714CCC40118 // aRegionName
+ ME_5714CCC40138 // aUserName
+ )
+ ; // Parameters
+
+ENDME // ME_5714CCAC0312 DoIt
+
+ME ME_5714CC980361
+ MEPROP UID '5714CC980361'
+ MEPROP Name 'ConcatRegionAndUserNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5714CCAC0312 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5714CC980361 ConcatRegionAndUserNames
+
+FORWARD ME_5714CD00006F
+
+ME ME_5714CD320291
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_5714CD320291 anID
+
+ME ME_5714CD3202B0
+ MEPROP Name 'aUserName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5714CD3202B0 aUserName
+
+ME ME_5714CD1D0081
+ MEPROP UID '5714CD1D0081'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CD00006F // ConcatRegionAndUserNames$overload
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5714CD320291 // anID
+ ME_5714CD3202B0 // aUserName
+ )
+ ; // Parameters
+
+ENDME // ME_5714CD1D0081 DoIt
+
+ME ME_5714CD00006F
+ MEPROP UID '5714CD00006F'
+ MEPROP Name 'ConcatRegionAndUserNames'
+ MEPROP OriginalName 'ConcatRegionAndUserNames$overload'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5714CD1D0081 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5714CD00006F ConcatRegionAndUserNames$overload
+
+FORWARD ME_5715FBBC0249
+
+ME ME_5715FBEA0193
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_5715FBEA0193 anUserID
+
+ME ME_5715FBE1005A
+ MEPROP UID '5715FBE1005A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5715FBBC0249 // GetUserRegion
+ ;
+ MELINK Target WL 'ME_551A931F0071' '5432448401BC.ms.model.script' // TdaRegionID
+ ;
+ MELIST Parameters
+   Seq: ( ME_5715FBEA0193 // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_5715FBE1005A DoIt
+
+ME ME_5715FBBC0249
+ MEPROP UID '5715FBBC0249'
+ MEPROP Name 'GetUserRegion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5715FBE1005A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5715FBBC0249 GetUserRegion
+
+FORWARD ME_5785F6D00275
+
+ME ME_5785F724026C
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_5785F724026C anUserID
+
+ME ME_5785F70E034A
+ MEPROP UID '5785F70E034A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5785F6D00275 // GetLocalUserID
+ ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+ MELIST Parameters
+   Seq: ( ME_5785F724026C // anUserID
+ )
+ ; // Parameters
+
+ENDME // ME_5785F70E034A DoIt
+
+ME ME_57861D2E0275
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5785F6D00275 // GetLocalUserID
+ ;
+ MELINK Target WL 'ME_55229480008E' '5432518A0316.ms.model.script' // UserConsts
+ ;
+
+ENDME // ME_57861D2E0275 
+
+ME ME_5785F6D00275
+ MEPROP UID '5785F6D00275'
+ MEPROP Name 'GetLocalUserID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Отрезать ID региона от полного ID пользователя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5785F70E034A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57861D2E0275 // UserConsts
+ )
+ ; // Dependencies
+
+ENDME // ME_5785F6D00275 GetLocalUserID
+
+FORWARD ME_578617D303D9
+
+ME ME_578617FB02DD
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_578617FB02DD anUserID
+
+ME ME_578617FB02FD
+ MEPROP Name 'aRegionID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551A931F0071' '5432448401BC.ms.model.script' // TdaRegionID
+ ;
+
+ENDME // ME_578617FB02FD aRegionID
+
+ME ME_578617DD00FB
+ MEPROP UID '578617DD00FB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_578617D303D9 // CalcGlobalUserID
+ ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+ MELIST Parameters
+   Seq: ( ME_578617FB02DD // anUserID
+ ME_578617FB02FD // aRegionID
+ )
+ ; // Parameters
+
+ENDME // ME_578617DD00FB DoIt
+
+ME ME_578617D303D9
+ MEPROP UID '578617D303D9'
+ MEPROP Name 'CalcGlobalUserID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5714CBFE00FA // daUserManagerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_578617DD00FB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_578617D303D9 CalcGlobalUserID
+
+ME ME_5714CBFE00FA
+ MEPROP UID '5714CBFE00FA'
+ MEPROP Name 'daUserManagerUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54F85B2500FB' '54F85B2500FB.ms.model.script' // Provider
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5714CC1501B0 // GetRegionStringFromUserID
+ HWL ME_5714CC980361 // ConcatRegionAndUserNames
+ HWL ME_5714CD00006F // ConcatRegionAndUserNames$overload
+ HWL ME_5715FBBC0249 // GetUserRegion
+ HWL ME_5785F6D00275 // GetLocalUserID
+ HWL ME_578617D303D9 // CalcGlobalUserID
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daUserManagerUtils.pas'
+
+ENDME // ME_5714CBFE00FA daUserManagerUtils

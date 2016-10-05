@@ -233,6 +233,22 @@ elem_generator model.script
  OutLn
  [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
  OutLn
+ 
+ begin
+  VAR l_NeedLn
+  false >>> l_NeedLn
+  Self .Children
+  .filterNil>
+  .map> .WordName
+  .filterNil>
+  .for> (
+    IN aChildName
+   [ '%%Inner ' aChildName ] .Out 
+   true >>> l_NeedLn
+  ) // .for>
+  if l_NeedLn then
+   OutLn
+ end
 
  VAR l_DictName
  Self .DictName >>> l_DictName
@@ -332,26 +348,32 @@ elem_generator model.script
   Self .GetUP 'extprop:CASTER' .OutForward
 
   Self .Children
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> ( Self .OutForward call.me )
 
   Self .Constants
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> ( Self .OutForward call.me )
   
   Self .Attributes
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> ( Self .OutForward call.me )
 
   Self .Operations
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> ( Self .OutForward call.me )
 
   Self .Parameters
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> ( Self .OutForward call.me )
 
   Self .Dependencies
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> ( Self .OutForward call.me )
 
@@ -398,14 +420,59 @@ elem_generator model.script
   ; // OutImplemented
 
   Self .Implemented
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> .OutImplemented
 
   Self .Overridden
+  .filterNil>
   .filter> .Not: .NeedOwnFile
   .for> .OutImplemented
 
   Self .AddToArray?: g_ForwardedTypes DROP
+  
+  begin
+   VAR l_NeedLn
+   false >>> l_NeedLn
+   Self .Dependencies
+   .filterNil>
+   .filter> .IsInjects
+   .for> (
+     IN aDep
+    [ '%%InjectedBy ' aDep .Target .WordName ' ' Self .WordName ] .Out 
+    true >>> l_NeedLn
+   ) // .for>
+   if l_NeedLn then
+    OutLn
+  end
+  
+  begin
+   VAR l_NeedLn
+   false >>> l_NeedLn
+   Self .Implements
+   .filterNil>
+   .for> (
+     IN aDep
+    [ '%%ImplementedBy ' aDep .WordName ' ' Self .WordName ] .Out 
+    true >>> l_NeedLn
+   ) // .for>
+   if l_NeedLn then
+    OutLn
+  end
+  
+  begin
+   VAR l_NeedLn
+   false >>> l_NeedLn
+   Self .Inherits
+   .filterNil>
+   .for> (
+     IN aDep
+    [ '%%InheritedBy ' aDep .WordName ' ' Self .WordName ] .Out 
+    true >>> l_NeedLn
+   ) // .for>
+   if l_NeedLn then
+    OutLn
+  end
   
   [ 'ME ' Self .WordName ] .Out
   Indented: (
@@ -570,6 +637,13 @@ elem_generator model.script
     [ '; // Forwarded' ] .Out
    )
 
+   Self .DiagramsNames .NotEmpty ?
+   (
+    [ 'MESTRINGLIST DiagramsNames' ] .Out
+    [ '  Seq: ( ' Self .DiagramsNames .for> ( .Name cQuote SWAP cQuote ' ' ) ')' ] .Out
+    [ '; // DiagramsNames' ] .Out
+   )
+   
    Self .OutUPs
    
   ) // Indented:

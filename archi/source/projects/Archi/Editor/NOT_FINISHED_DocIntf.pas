@@ -44,6 +44,7 @@ implementation
 uses
  l3ImplUses
  , evOutTextParaEliminator
+ , arRemoteSaveDocumentHelper
  , arSpravkaTextOfDocument
  //#UC START# *4E0072C40154impl_uses*
  //#UC END# *4E0072C40154impl_uses*

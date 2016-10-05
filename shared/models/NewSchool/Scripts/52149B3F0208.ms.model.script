@@ -1,0 +1,424 @@
+// ddAppConfigVersions 52149B3F0208 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52149B3F0208
+%%Inner ME_52149B3F0208
+%%Inner ME_52149B3F0208
+%%Inner ME_52149B3F0208
+
+FORWARD ME_52149B3F0208
+
+FORWARD ME_5214CC59021D
+
+ME ME_5214CC6E0186
+ MEPROP Name 'aStorage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+
+ENDME // ME_5214CC6E0186 aStorage
+
+ME ME_5214CC6B00B6
+ MEPROP UID '5214CC6B00B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5214CC59021D // Tdd_acVersionUpgradeProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_5214CC6E0186 // aStorage
+ )
+ ; // Parameters
+
+ENDME // ME_5214CC6B00B6 DoIt
+
+ME ME_5214CC59021D
+ MEPROP UID '5214CC59021D'
+ MEPROP Name 'Tdd_acVersionUpgradeProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52149B3F0208 // ddAppConfigVersions
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5214CC6B00B6 // DoIt
+ )
+ ; // Operations
+ UP "of object" false
+
+ENDME // ME_5214CC59021D Tdd_acVersionUpgradeProc
+
+FORWARD ME_5231541B00AA
+
+ME ME_523154360119
+ MEPROP UID '523154360119'
+ MEPROP Name 'FromVersion'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5231541B00AA // Tdd_acVersionHandler
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_523154360119 FromVersion
+
+ME ME_5231545903B1
+ MEPROP UID '5231545903B1'
+ MEPROP Name 'ToVersion'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5231541B00AA // Tdd_acVersionHandler
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5231545903B1 ToVersion
+
+ME ME_5231546901F7
+ MEPROP UID '5231546901F7'
+ MEPROP Name 'Proc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5231541B00AA // Tdd_acVersionHandler
+ ;
+ MELINK Target HWL ME_5214CC59021D // Tdd_acVersionUpgradeProc
+ ;
+
+ENDME // ME_5231546901F7 Proc
+
+ME ME_5231541B00AA
+ MEPROP UID '5231541B00AA'
+ MEPROP Name 'Tdd_acVersionHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52149B3F0208 // ddAppConfigVersions
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_523154360119 // FromVersion
+ HWL ME_5231545903B1 // ToVersion
+ HWL ME_5231546901F7 // Proc
+ )
+ ; // Attributes
+
+ENDME // ME_5231541B00AA Tdd_acVersionHandler
+
+FORWARD ME_52149B620261
+
+ME ME_523155370292
+ MEPROP UID '523155370292'
+ MEPROP Name 'f_Handlers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52149B620261 // TddAppConfigVersionManager
+ ;
+ MELINK Target WL 'ME_479F10C70202' '4B880BC203B6.ms.model.script' // Tl3RecList
+ ;
+
+ENDME // ME_523155370292 f_Handlers
+
+FORWARD ME_52315563028B
+
+ME ME_523155700078
+ MEPROP Name 'aFromVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_523155700078 aFromVersion
+
+ME ME_5231557000A6
+ MEPROP Name 'aHandler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_5231541B00AA // Tdd_acVersionHandler
+ ;
+
+ENDME // ME_5231557000A6 aHandler
+
+ME ME_5231556C0283
+ MEPROP UID '5231556C0283'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52315563028B // FindHandler
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_523155700078 // aFromVersion
+ ME_5231557000A6 // aHandler
+ )
+ ; // Parameters
+
+ENDME // ME_5231556C0283 DoIt
+
+ME ME_52315563028B
+ MEPROP UID '52315563028B'
+ MEPROP Name 'FindHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52149B620261 // TddAppConfigVersionManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5231556C0283 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52315563028B FindHandler
+
+FORWARD ME_5231558003C0
+
+ME ME_52315595027D
+ MEPROP Name 'aFromVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52315595027D aFromVersion
+
+ME ME_523155950296
+ MEPROP Name 'aToVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_523155950296 aToVersion
+
+ME ME_5231559502AE
+ MEPROP Name 'aProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5214CC59021D // Tdd_acVersionUpgradeProc
+ ;
+
+ENDME // ME_5231559502AE aProc
+
+ME ME_5231558E0107
+ MEPROP UID '5231558E0107'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5231558003C0 // AddHandler
+ ;
+ MELIST Parameters
+   Seq: ( ME_52315595027D // aFromVersion
+ ME_523155950296 // aToVersion
+ ME_5231559502AE // aProc
+ )
+ ; // Parameters
+
+ENDME // ME_5231558E0107 DoIt
+
+ME ME_5231558003C0
+ MEPROP UID '5231558003C0'
+ MEPROP Name 'AddHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52149B620261 // TddAppConfigVersionManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5231558E0107 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5231558003C0 AddHandler
+
+FORWARD ME_523155A20230
+
+ME ME_523155B90324
+ MEPROP Name 'aFromVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_523155B90324 aFromVersion
+
+ME ME_523155B9033C
+ MEPROP Name 'aToVersion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_523155B9033C aToVersion
+
+ME ME_523155B90365
+ MEPROP Name 'aStorage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+
+ENDME // ME_523155B90365 aStorage
+
+ME ME_523155B2004B
+ MEPROP UID '523155B2004B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523155A20230 // Upgrade
+ ;
+ MELIST Parameters
+   Seq: ( ME_523155B90324 // aFromVersion
+ ME_523155B9033C // aToVersion
+ ME_523155B90365 // aStorage
+ )
+ ; // Parameters
+
+ENDME // ME_523155B2004B DoIt
+
+ME ME_523155A20230
+ MEPROP UID '523155A20230'
+ MEPROP Name 'Upgrade'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52149B620261 // TddAppConfigVersionManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523155B2004B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523155A20230 Upgrade
+
+ME ME_5231568D02CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52149B620261 // TddAppConfigVersionManager
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5231568D02CC 
+
+ME ME_47914F960008_ME_52149B620261
+ MELINK Original WL 'ME_47914F960008' '47913B47006E.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47914F960008_ME_52149B620261 Create
+
+ME ME_479731C50290_ME_52149B620261
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_52149B620261 Cleanup
+
+%%InheritedBy ME_46780CCE037B ME_52149B620261
+
+ME ME_52149B620261
+ MEPROP UID '52149B620261'
+ MEPROP Name 'TddAppConfigVersionManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52149B3F0208 // ddAppConfigVersions
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_523155370292 // f_Handlers
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52315563028B // FindHandler
+ HWL ME_5231558003C0 // AddHandler
+ HWL ME_523155A20230 // Upgrade
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47914F960008_ME_52149B620261 // Create
+ ME_479731C50290_ME_52149B620261 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5231568D02CC // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddAppConfigVersionManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52149B620261 TddAppConfigVersionManager
+
+%%InheritedBy ME_5231541B00AA ME_5231549C0302
+
+ME ME_5231549C0302
+ MEPROP UID '5231549C0302'
+ MEPROP Name 'Pdd_acVersionHandler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52149B3F0208 // ddAppConfigVersions
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5231541B00AA // Tdd_acVersionHandler
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_5231549C0302 Pdd_acVersionHandler
+
+ME ME_52149B3F0208
+ MEPROP UID '52149B3F0208'
+ MEPROP Name 'ddAppConfigVersions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5214CC59021D // Tdd_acVersionUpgradeProc
+ HWL ME_5231541B00AA // Tdd_acVersionHandler
+ HWL ME_52149B620261 // TddAppConfigVersionManager
+ HWL ME_5231549C0302 // Pdd_acVersionHandler
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAppConfigVersions.pas'
+
+ENDME // ME_52149B3F0208 ddAppConfigVersions

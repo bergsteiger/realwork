@@ -310,8 +310,10 @@ initialization
  {* Регистрация Tkw_GroupProperty_Control_Label1_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefGroupProperty));
  {* Регистрация типа TefGroupProperty }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEdit));
  {* Регистрация типа TnscEdit }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));
  {* Регистрация типа TvtLabel }
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

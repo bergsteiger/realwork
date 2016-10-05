@@ -1991,10 +1991,14 @@ initialization
  {* Регистрация типа TvtLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPaintBox));
  {* Регистрация типа TPaintBox }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscComboBoxWithReadOnly));
  {* Регистрация типа TnscComboBoxWithReadOnly }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscComboBoxWithPwdChar));
  {* Регистрация типа TnscComboBoxWithPwdChar }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtFocusLabel));
  {* Регистрация типа TvtFocusLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCheckBox));

@@ -1,0 +1,51 @@
+// archiDocEditorWindowWordsPack 55B664E00149 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B664E00149
+
+ME ME_55B6651703CB
+ MEPROP UID '55B6651703CB'
+ MEPROP Name 'IsNeedSaveDocument'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B664E00149 // archiDocEditorWindowWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55B6651703CB IsNeedSaveDocument
+
+%%InheritedBy ME_4DFB4B01001D ME_55B664E00149
+
+ME ME_55B664E00149
+ MEPROP UID '55B664E00149'
+ MEPROP Name 'archiDocEditorWindowWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DE629810132' '4DE629810132.ms.model.script' // Scripting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DFB4B01001D' '4DFB4AD800BA.ms.model.script' // TDocEditorWindow
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B6651703CB // IsNeedSaveDocument
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP "no class name" false
+ UP "no_pop" true
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\archiDocEditorWindowWordsPack.pas'
+
+ENDME // ME_55B664E00149 archiDocEditorWindowWordsPack

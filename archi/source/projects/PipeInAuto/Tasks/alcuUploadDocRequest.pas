@@ -64,22 +64,15 @@ implementation
 {$If Defined(ServerTasks)}
 uses
  l3ImplUses
- , l3Filer
  , SysUtils
  , nevInternalInterfaces
- , l3Interfaces
- , evdNativeWriter
  , evdNativeReader
  , arDirectSaveDocumentHelper
  , l3StopWatch
- , m3DBInterfaces
- , m3DBFiler
- {$If NOT Defined(Nemesis)}
- , dt_Serv
- {$IfEnd} // NOT Defined(Nemesis)
- , l3Types
- , dt_Types
  , l3Base
+ , arDocAttributesMixer
+ , l3Filer
+ , l3Types
  , UploadDocRequest_Const
  //#UC START# *57D659B902A8impl_uses*
  //#UC END# *57D659B902A8impl_uses*
@@ -119,71 +112,50 @@ end;//TalcuUploadDocRequest.Cleanup
 procedure TalcuUploadDocRequest.DoRun(const aContext: TddRunContext);
 //#UC START# *53A2EEE90097_57D659B902A8_var*
 var
- l_NeedOpenFiler: Boolean;
- l_WriteFiler: Tl3CustomFiler;
+ l_Helper: TarDirectSaveDocumentHelper;
+
  l_ReadFiler: Tl3CustomFiler;
  l_Generator: Tk2TagGenerator;
  l_Counter: Tl3StopWatch;
 //#UC END# *53A2EEE90097_57D659B902A8_var*
 begin
 //#UC START# *53A2EEE90097_57D659B902A8_impl*
- l_NeedOpenFiler := False;
  l_Counter.Reset;
  l_Counter.Start;
  try
+  l_Helper := TarDirectSaveDocumentHelper.Create(f_Message.DocFamily, f_Message.DocID,
+   f_Message.DocClass, f_Message.DocPart, f_Message.ParseToDB, f_Message.NeedSaveText,
+   f_Message.IsClassChanged, f_OnEraseNotify, f_Message.IsObjTopic);
   try
-   l_WriteFiler := MakeFilerForDB(f_Message.DocFamily, f_Message.DocID, f_Message.DocPart);
    try
-    l_WriteFiler.Mode := l3_fmReadWrite;
-    l_NeedOpenFiler := (f_Message.DocClass <> dtNone) and f_Message.NeedSaveText;
-    if l_NeedOpenFiler then
-     l_WriteFiler.Open;
+    l_Generator := nil;
+    l_Helper.Generator.SetRefTo(l_Generator);
     try
-     if f_Message.IsClassChanged and (Tm3DBFiler(l_WriteFiler).Part <> nil) then
-      Tm3DBFiler(l_WriteFiler).Part.Info := Tm3DBDocumentInfo_C(ord(f_Message.DocClass));
-
-
-     l_Generator := nil;
+     TevdNativeReader.SetTo(l_Generator);
+     l_ReadFiler := MakeFilerForMessage(f_Message.Data);
      try
-      if f_Message.NeedSaveText then
-      begin
-       TevdNativeWriter.SetTo(l_Generator);
-       with TevdNativeWriter(l_Generator) do
-       begin
-        Filer := l_WriteFiler;
-        Binary := true;
-       end;
-      end;
-
-      if f_Message.ParseToDB then
-       BuildDocSavePipe(f_Message.DocFamily, f_Message.DocID, f_Message.IsObjTopic, f_OnEraseNotify, l_Generator);
-
-      TevdNativeReader.SetTo(l_Generator);
-      l_ReadFiler := MakeFilerForMessage(f_Message.Data);
-      try
-       TevdNativeReader(l_Generator).Filer := l_ReadFiler;
-       TevdNativeReader(l_Generator).Execute;
-      finally
-       FreeAndNil(l_ReadFiler);
-      end;
+      TevdNativeReader(l_Generator).Filer := l_ReadFiler;
+      TevdNativeReader(l_Generator).Execute;
+      l_Helper.SaveDoc;
      finally
-      FreeAndNil(l_Generator);
+      FreeAndNil(l_ReadFiler);
      end;
     finally
-     if l_NeedOpenFiler then
-      l_WriteFiler.Open;
+     FreeAndNil(l_Generator);
     end;
-   finally
-    FreeAndNil(l_WriteFiler);
+    f_Reply.ErrorMessage := '';
+    f_Reply.IsSuccess := True;
+   except
+    on E: Exception do
+    begin
+     f_Reply.ErrorMessage := E.Message;
+     f_Reply.IsSuccess := False;
+     l_Helper.HandleException;
+     l3System.Exception2Log(E);
+    end;
    end;
-   f_Reply.ErrorMessage := '';
-   f_Reply.IsSuccess := True;
-  except
-   on E: Exception do
-   begin
-    f_Reply.ErrorMessage := E.Message;
-    f_Reply.IsSuccess := False;
-   end;
+  finally
+   FreeAndNil(l_Helper);
   end;
  finally
   l_Counter.Stop;

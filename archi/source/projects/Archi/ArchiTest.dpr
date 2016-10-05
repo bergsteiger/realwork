@@ -518,6 +518,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3TextSearch in 'w:\common\components\rtl\Garant\L3\l3TextSearch.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2069,8 +2070,144 @@ uses
  , arSubImplementation in 'w:\archi\source\projects\Archi\Editor\arSubImplementation.pas'
  {$IfEnd} // Defined(AppClientSide)
  , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
+ {$If Defined(AppClientSide)}
+ , arRemoteSaveDocumentHelper in 'w:\archi\source\projects\Archi\Processing\arRemoteSaveDocumentHelper.pas'
+ {$IfEnd} // Defined(AppClientSide)
+ , arCustomSaveDocumentHelper in 'w:\archi\source\projects\Common\Utils\arCustomSaveDocumentHelper.pas'
+ {$If NOT Defined(Nemesis)}
+ , csUploadDocStream in 'w:\common\components\rtl\Garant\cs\csUploadDocStream.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , ncsMessage in 'w:\common\components\rtl\Garant\cs\ncsMessage.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , evdNcsTypes in 'w:\common\components\rtl\Garant\EVD\evdNcsTypes.pas'
+ , csMessage_Const in 'w:\common\components\rtl\Garant\EVD\csMessage_Const.pas'
+ , DateTime_Const in 'w:\common\components\rtl\Garant\EVD\DateTime_Const.pas'
+ , csDisconnect_Const in 'w:\common\components\rtl\Garant\EVD\csDisconnect_Const.pas'
+ , csMessageWithReply_Const in 'w:\common\components\rtl\Garant\EVD\csMessageWithReply_Const.pas'
+ , csDisconnectReply_Const in 'w:\common\components\rtl\Garant\EVD\csDisconnectReply_Const.pas'
+ , csReply_Const in 'w:\common\components\rtl\Garant\EVD\csReply_Const.pas'
+ , k2SizedMemoryPool in 'w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas'
+ , k2MemoryPoolAdapter in 'w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas'
+ , k2MemoryStream in 'w:\common\components\rtl\Garant\K2\k2MemoryStream.pas'
+ , l3TempMemoryStream in 'w:\common\components\rtl\Garant\L3\l3TempMemoryStream.pas'
+ , ComObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas' {$EndIf}
+ , csUploadDocStream_Const in 'w:\common\components\rtl\Garant\EVD\csUploadDocStream_Const.pas'
  , daTypes in 'w:\common\components\rtl\Garant\DA\daTypes.pas'
+ {$If NOT Defined(Nemesis)}
+ , csUploadDocStreamReply in 'w:\common\components\rtl\Garant\cs\csUploadDocStreamReply.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csUploadDocStreamReply_Const in 'w:\common\components\rtl\Garant\EVD\csUploadDocStreamReply_Const.pas'
+ {$If Defined(AppClientSide)}
+ , ArchiUserRequestManager in 'w:\archi\source\projects\Archi\ArchiUserRequestManager.pas'
+ {$IfEnd} // Defined(AppClientSide)
+ , arDocAttributesMixer in 'w:\archi\source\projects\Common\Utils\arDocAttributesMixer.pas'
+ , m4DocumentAddress in 'w:\common\components\rtl\Garant\m4\m4DocumentAddress.pas'
+ , m3DBInterfaces in 'w:\common\components\rtl\Garant\m3\m3DBInterfaces.pas'
+ , m3Interfaces in 'w:\common\components\rtl\Garant\m3\m3Interfaces.pas'
+ , m3StorageInterfaces in 'w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas'
+ , m3StorageTypes in 'w:\common\components\rtl\Garant\m3\m3StorageTypes.pas'
+ , m3DBTypes in 'w:\common\components\rtl\Garant\m3\m3DBTypes.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_EFltr in 'w:\common\components\rtl\Garant\DT\dt_EFltr.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , ddFixFilter in 'w:\common\components\rtl\Garant\dd\PipeOut\ddFixFilter.pas'
+ , ddExtObjectSupport in 'w:\common\components\rtl\Garant\dd\ddExtObjectSupport.pas'
+ , ddExtObjInserter in 'w:\common\components\rtl\Garant\dd\ddExtObjInserter.pas'
+ , ddExtObjectMachine in 'w:\common\components\rtl\Garant\dd\ddExtObjectMachine.pas'
+ , ddExtObjectDataList in 'w:\common\components\rtl\Garant\dd\ddExtObjectDataList.pas'
+ , ddExtObjectData in 'w:\common\components\rtl\Garant\dd\ddExtObjectData.pas'
+ , ddExtObjectDataStream in 'w:\common\components\rtl\Garant\dd\ddExtObjectDataStream.pas'
+ , ddExtObjExtractor in 'w:\common\components\rtl\Garant\dd\ddExtObjExtractor.pas'
+ , ddSavedObjectsList in 'w:\common\components\rtl\Garant\dd\ddSavedObjectsList.pas'
+ , arFiltersUtils in 'w:\archi\source\projects\Common\Utils\arFiltersUtils.pas'
+ , evTabStopsFilter in 'w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas'
+ , evdEmptyRowFilter in 'w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas'
+ , evTableFilter in 'w:\common\components\gui\Garant\Everest\evTableFilter.pas'
+ , evTextInTableCorrector in 'w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
  , evOutTextParaEliminator in 'w:\common\components\gui\Garant\Everest\evOutTextParaEliminator.pas'
+ , arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas'
+ , arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas'
+ , evdBadEVDToEmptyDocumentTranslator in 'w:\common\components\gui\Garant\Everest\evdBadEVDToEmptyDocumentTranslator.pas'
+ , k2TagTranslator in 'w:\common\components\rtl\Garant\K2\k2TagTranslator.pas'
+ , daDataProvider in 'w:\common\components\rtl\Garant\DA\daDataProvider.pas'
+ , daInterfaces in 'w:\common\components\rtl\Garant\DA\daInterfaces.pas'
+ , evdTaskTypes in 'w:\common\components\rtl\Garant\EVD\evdTaskTypes.pas'
+ , ddAppConfig in 'w:\common\components\rtl\Garant\dd\ddAppConfig.pas'
+ , ddAppConfigTypes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypes.pas'
+ , ddConfigStorages in 'w:\common\components\rtl\Garant\dd\ddConfigStorages.pas'
+ , ddAppConfigBase in 'w:\common\components\rtl\Garant\dd\ddAppConfigBase.pas'
+ , ddAppConfigConst in 'w:\common\components\rtl\Garant\dd\ddAppConfigConst.pas'
+ , vtLabel in 'w:\common\components\gui\Garant\VT\vtLabel.pas'
+ , l3GraphicControlCanvas in 'w:\common\components\rtl\Garant\L3\l3GraphicControlCanvas.pas'
+ , l3ProtoPersistentRefList in 'w:\common\components\rtl\Garant\L3\l3ProtoPersistentRefList.pas'
+ , Contnrs {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\Contnrs.pas' {$EndIf}
+ , ddAppConfigTypesRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigTypesRes.pas'
+ , vtSpinEdit in 'w:\common\components\gui\Garant\VT\vtSpinEdit.pas'
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , SpinEditWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , vtRadioButton in 'w:\common\components\gui\Garant\VT\vtRadioButton.pas'
+ , vtGroupBox in 'w:\common\components\gui\Garant\VT\vtGroupBox.pas'
+ , vtPanel in 'w:\common\components\gui\Garant\VT\vtPanel.pas'
+ , afwTextControl in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControl.pas'
+ , afwTextControlPrim in 'w:\common\components\gui\Garant\AFW\implementation\Visual\afwTextControlPrim.pas'
+ , vtButton in 'w:\common\components\gui\Garant\VT\vtButton.pas'
+ , eeButton in 'w:\common\components\gui\Garant\VT\eeButton.pas'
+ , vtCheckBox in 'w:\common\components\gui\Garant\VT\vtCheckBox.pas'
+ , eeCheckBox in 'w:\common\components\gui\Garant\VT\eeCheckBox.pas'
+ {$If NOT Defined(NoVCL)}
+ , CheckLst {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\CheckLst.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ {$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
+ , CheckListBoxWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
+ {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+ , ddAppConfigRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigRes.pas'
+ , ddAppConfigStrings in 'w:\common\components\rtl\Garant\dd\ddAppConfigStrings.pas'
+ , ddAppConfigStringsRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigStringsRes.pas'
+ , l3Base64 in 'w:\common\components\rtl\Garant\L3\l3Base64.pas'
+ {$If NOT Defined(NoVCL)}
+ , FileCtrl {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Vcl\FileCtrl.pas' {$EndIf}
+ {$IfEnd} // NOT Defined(NoVCL)
+ , MMSystem {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\MMSystem.pas' {$EndIf}
+ , ddAppConfigVersions in 'w:\common\components\rtl\Garant\dd\ddAppConfigVersions.pas'
+ , l3RecList in 'w:\common\components\rtl\Garant\L3\l3RecList.pas'
+ , l3BaseRecList in 'w:\common\components\rtl\Garant\L3\l3BaseRecList.pas'
+ , l3ProtoPtrRecList in 'w:\common\components\rtl\Garant\L3\l3ProtoPtrRecList.pas'
+ , l3RecListWithPartialFind in 'w:\common\components\rtl\Garant\L3\l3RecListWithPartialFind.pas'
+ , l3ProtoPtrRecListPrim in 'w:\common\components\rtl\Garant\L3\l3ProtoPtrRecListPrim.pas'
+ , ddAppConfigWFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigWFrame.pas'
+ , ddAppConfigDataAdapters in 'w:\common\components\rtl\Garant\dd\ddAppConfigDataAdapters.pas'
+ , ddAppConfigUtils in 'w:\common\components\rtl\Garant\dd\ddAppConfigUtils.pas'
+ , ddAppConfigSimpleBFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigSimpleBFrame.pas'
+ , ddAppConfigDates in 'w:\common\components\rtl\Garant\dd\ddAppConfigDates.pas'
+ , l3TypedIntegerValueMap in 'w:\common\components\rtl\Garant\L3\l3TypedIntegerValueMap.pas'
+ , ddAppConfigLists in 'w:\common\components\rtl\Garant\dd\ddAppConfigLists.pas'
+ , ddAppConfigListsRes in 'w:\common\components\rtl\Garant\dd\ddAppConfigListsRes.pas'
+ {$If NOT Defined(Nemesis)}
+ , ddIniStorage in 'w:\common\components\rtl\Garant\dd\ddIniStorage.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , ddCustomIniStorage in 'w:\common\components\rtl\Garant\dd\ddCustomIniStorage.pas'
+ , ddTemporaryStorage in 'w:\common\components\rtl\Garant\dd\ddTemporaryStorage.pas'
+ , ddAppConfigTFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigTFrame.pas'
+ , ddAppConfigBFrame in 'w:\common\components\rtl\Garant\dd\ddAppConfigBFrame.pas'
+ , multimon {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Win\multimon.pas' {$EndIf}
+ , vtSizeablePanel in 'w:\common\components\gui\Garant\VT\vtSizeablePanel.pas'
+ , l3Languages in 'w:\common\components\rtl\Garant\L3\l3Languages.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_Serv in 'w:\common\components\rtl\Garant\DT\dt_Serv.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , dt_LinkServerService in 'w:\common\components\rtl\Garant\DT\dt_LinkServerService.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , daLinkServerService in 'w:\common\components\rtl\Garant\DA\daLinkServerService.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , m3DBFiler in 'w:\common\components\rtl\Garant\m3\m3DBFiler.pas'
+ {$If NOT Defined(Nemesis)}
+ , dt_TblCacheDef in 'w:\common\components\rtl\Garant\DT\dt_TblCacheDef.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(AppClientSide)}
  , arSpravkaTextOfDocument in 'w:\archi\source\projects\Archi\Editor\arSpravkaTextOfDocument.pas'
  {$IfEnd} // Defined(AppClientSide)
@@ -2183,9 +2320,6 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , arTextUtils in 'w:\archi\source\projects\Common\Utils\arTextUtils.pas'
  , l3SimpleCalc in 'w:\common\components\rtl\Garant\L3\ext\l3SimpleCalc.pas'
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
- , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
  , evTableConverter in 'w:\archi\source\projects\Common\Utils\evTableConverter.pas'
  , ddTableConvTypes in 'w:\common\components\rtl\Garant\dd\ddTableConvTypes.pas'
  , ddTableConvParamDlg in 'w:\archi\source\projects\Common\Dialogs\ddTableConvParamDlg.pas'
@@ -2233,8 +2367,6 @@ uses
  , ddDocument in 'w:\common\components\rtl\Garant\dd\ddDocument.pas'
  , evdAllParaEliminator in 'w:\common\components\rtl\Garant\EVD\evdAllParaEliminator.pas'
  , ddTextToTableConverters in 'w:\common\components\rtl\Garant\dd\ddTextToTableConverters.pas'
- , evdEmptyRowFilter in 'w:\common\components\gui\Garant\Everest\evdEmptyRowFilter.pas'
- , evTableFilter in 'w:\common\components\gui\Garant\Everest\evTableFilter.pas'
  {$If NOT Defined(NoScripts)}
  , archiDocEditorWindowWordsPack in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\archiDocEditorWindowWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2248,15 +2380,12 @@ uses
  , m3StorageHolderListPrim1 in 'w:\common\components\rtl\Garant\m3\m3StorageHolderListPrim1.pas'
  , m3StorageHolderListPrim in 'w:\common\components\rtl\Garant\m3\m3StorageHolderListPrim.pas'
  , m3StorageHolder in 'w:\common\components\rtl\Garant\m3\m3StorageHolder.pas'
- , m3StorageInterfaces in 'w:\common\components\rtl\Garant\m3\m3StorageInterfaces.pas'
- , m3StorageTypes in 'w:\common\components\rtl\Garant\m3\m3StorageTypes.pas'
  , m3CommonStorage in 'w:\common\components\rtl\Garant\m3\m3CommonStorage.pas'
  , m3StoragePrim in 'w:\common\components\rtl\Garant\m3\m3StoragePrim.pas'
  , m3BaseStorage in 'w:\common\components\rtl\Garant\m3\m3BaseStorage.pas'
  , m3BaseStore in 'w:\common\components\rtl\Garant\m3\m3BaseStore.pas'
  , m2InternalInterfaces in 'w:\common\components\rtl\Garant\L3\m2\m2InternalInterfaces.pas'
  , m2COMLib in 'w:\common\components\rtl\Garant\L3\m2\m2COMLib.pas'
- , ComObj {$IfNDef XE4} in 'w:\common\components\rtl\external\Borland\Delphi\Rtl\Common\ComObj.pas' {$EndIf}
  , m3TOCHandleList in 'w:\common\components\rtl\Garant\m3\m3TOCHandleList.pas'
  , m3TOCHandle in 'w:\common\components\rtl\Garant\m3\m3TOCHandle.pas'
  , m3Persistent in 'w:\common\components\rtl\Garant\m3\m3Persistent.pas'
@@ -2452,7 +2581,6 @@ uses
  , l3LongintListReverseSorter in 'w:\common\components\rtl\Garant\L3\l3LongintListReverseSorter.pas'
  , l3EventedRecListView in 'w:\common\components\rtl\Garant\L3\l3EventedRecListView.pas'
  , l3CustomRecListView in 'w:\common\components\rtl\Garant\L3\l3CustomRecListView.pas'
- , l3ProtoPtrRecListPrim in 'w:\common\components\rtl\Garant\L3\l3ProtoPtrRecListPrim.pas'
  , k2TagByHandleView in 'w:\common\components\rtl\Garant\K2\k2TagByHandleView.pas'
  , k2CustomTagView in 'w:\common\components\rtl\Garant\K2\k2CustomTagView.pas'
  {$If NOT Defined(NoScripts)}
@@ -2477,9 +2605,6 @@ uses
  {$If NOT Defined(NoScripts)}
  , kwDisableMergedCellFilter in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwDisableMergedCellFilter.pas'
  {$IfEnd} // NOT Defined(NoScripts)
- , arFiltersUtils in 'w:\archi\source\projects\Common\Utils\arFiltersUtils.pas'
- , evTabStopsFilter in 'w:\common\components\gui\Garant\Everest\evTabStopsFilter.pas'
- , evTextInTableCorrector in 'w:\common\components\gui\Garant\Everest\evTextInTableCorrector.pas'
  {$If NOT Defined(NoScripts)}
  , kwClearFindDialog in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwClearFindDialog.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2762,11 +2887,9 @@ uses
  , ddServerTask in 'w:\common\components\rtl\Garant\cs\ddServerTask.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , ddTaskItemPrim in 'w:\common\components\rtl\Garant\EVD\ddTaskItemPrim.pas'
- , evdTaskTypes in 'w:\common\components\rtl\Garant\EVD\evdTaskTypes.pas'
  , csTaskListening in 'w:\common\components\rtl\Garant\EVD\csTaskListening.pas'
  , Task_Const in 'w:\common\components\rtl\Garant\EVD\Task_Const.pas'
  , DateTimeNotNull_Const in 'w:\common\components\rtl\Garant\EVD\DateTimeNotNull_Const.pas'
- , DateTime_Const in 'w:\common\components\rtl\Garant\EVD\DateTime_Const.pas'
  , ULong_Const in 'w:\common\components\rtl\Garant\EVD\ULong_Const.pas'
  {$If NOT Defined(Nemesis)}
  , ddTaskClassManager in 'w:\common\components\rtl\Garant\cs\ddTaskClassManager.pas'
@@ -2877,11 +3000,16 @@ uses
   m4WordIDStrList,
   m4Word,
   m4WordList,
-  arDocObjectMixer in 'w:\archi\source\projects\Common\Utils\arDocObjectMixer.pas',
-  arFoundSelectionFilter in 'w:\archi\source\projects\Common\Utils\arFoundSelectionFilter.pas',
-  arUploadDocumentHelper in 'w:\archi\source\projects\archi\Processing\arUploadDocumentHelper.pas',
-  arMultiModifyDocsHelper in 'w:\archi\source\projects\archi\Processing\arMultiModifyDocsHelper.pas'
-
+  arDirectSaveDocumentHelper in 'W:\archi\source\projects\Common\Utils\arDirectSaveDocumentHelper.pas',
+  arCustomMultiModifyDocsHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiModifyDocsHelper.pas',
+  arDirectMultiModifyDocsHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiModifyDocsHelper.pas',
+  arRemoteMultiModifyDocsHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiModifyDocsHelper.pas',
+  arCustomMultiClearAttributesHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiClearAttributesHelper.pas',
+  arDirectMultiClearAttributesHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiClearAttributesHelper.pas',
+  arRemoteMultiClearAttributesHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiClearAttributesHelper.pas',
+  arCustomMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arCustomMultiOperationHelper.pas',
+  arDirectMultiOperationHelper in 'W:\archi\source\projects\Common\Utils\arDirectMultiOperationHelper.pas',
+  arRemoteMultiOperationHelper in 'w:\archi\source\projects\archi\Processing\arRemoteMultiOperationHelper.pas' 
  //#UC END# *4DE4A1D0031Emanualuses*
 ;
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest)

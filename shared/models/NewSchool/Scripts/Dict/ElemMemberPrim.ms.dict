@@ -321,11 +321,18 @@ STRING elem_func OriginalName
 ; // OriginalName
 
 STRING elem_func NameInModel
- Self .OriginalName >>> Result
- if ( Result .IsNil ) then
- begin
-  Self .Name >>> Result
- end // ( Result .IsNil )
+ RULES
+  ( Self .IsDiagram )
+   ( Self .Name >>> Result )
+  DEFAULT 
+   begin
+    Self .OriginalName >>> Result
+    if ( Result .IsNil ) then
+    begin
+     Self .Name >>> Result
+    end // ( Result .IsNil )
+   end // DEFAULT
+ ; // RULES
 ; // NameInModel
 
 USES
@@ -414,3 +421,22 @@ BOOLEAN elem_func IsStereotype
  end // // l_OurStereo IsNil
  
 ; // IsStereotype
+
+VOID IMMEDIATE operator %%Inner
+ ^L IN aName
+; // %%Inner
+
+VOID IMMEDIATE operator %%InjectedBy
+ ^L IN aTo
+ ^L IN aFrom
+; // %%InjectedBy
+
+VOID IMMEDIATE operator %%ImplementedBy
+ ^L IN aTo
+ ^L IN aFrom
+; // %%ImplementedBy
+
+VOID IMMEDIATE operator %%InheritedBy
+ ^L IN aTo
+ ^L IN aFrom
+; // %%InheritedBy

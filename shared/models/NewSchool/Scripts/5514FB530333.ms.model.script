@@ -1,0 +1,92 @@
+// evCollapsedStylePainter 5514FB530333 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5514FB530333
+
+FORWARD ME_5514FC280243
+
+ME ME_551507EF01F6
+ MEPROP Name 'aTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_551507EF01F6 aTop
+
+ME ME_551507EF01F7
+ MEPROP Name 'aSpace'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551507EF01F7 aSpace
+
+ME ME_551507EF0205
+ MEPROP Name 'aFirstIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551507EF0205 aFirstIndent
+
+ME ME_5514FC4F03E1
+ MEPROP UID '5514FC4F03E1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5514FC280243 // DoDoDrawFrameText
+ ;
+ MELIST Parameters
+   Seq: ( ME_551507EF01F6 // aTop
+ ME_551507EF01F7 // aSpace
+ ME_551507EF0205 // aFirstIndent
+ )
+ ; // Parameters
+
+ENDME // ME_5514FC4F03E1 DoIt
+
+ME ME_5514FC280243
+ MEPROP UID '5514FC280243'
+ MEPROP Name 'DoDoDrawFrameText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5514FB530333 // evCollapsedStylePainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5514FC4F03E1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5514FC280243 DoDoDrawFrameText
+
+ME ME_5514FB530333
+ MEPROP UID '5514FB530333'
+ MEPROP Name 'evCollapsedStylePainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49DCBC09029B' '49DCBC09029B.ms.model.script' // Drawing Framework
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5514FC280243 // DoDoDrawFrameText
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCollapsedStylePainter.imp.pas'
+ UP extprop:pas:TypeName '_evCollapsedStylePainter_'
+ UP extprop:pas:UnitName 'evCollapsedStylePainter.imp'
+
+ENDME // ME_5514FB530333 evCollapsedStylePainter

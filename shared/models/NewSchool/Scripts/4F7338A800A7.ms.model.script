@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F7338A800A7
+%%Inner ME_4F7338A800A7
+%%Inner ME_4F7338A800A7
+%%Inner ME_4F7338A800A7
+%%Inner ME_4F7338A800A7
+
 FORWARD ME_4F7338A800A7
 
 FORWARD ME_55648E420189
@@ -22,14 +28,14 @@ ME ME_55648E520349
 ENDME // ME_55648E520349 ItemType
 
 ME ME_47B07CF403D0_ME_55648E420189
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_55648E420189 IsSameItems
 
 ME ME_47B2C42A0163_ME_55648E420189
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -37,10 +43,13 @@ ME ME_47B2C42A0163_ME_55648E420189
 ENDME // ME_47B2C42A0163_ME_55648E420189 AssignItem
 
 ME ME_47B99D4503A2_ME_55648E420189
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_55648E420189 CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_55648E420189
+%%InheritedBy ME_4B223ADC02BF ME_55648E420189
 
 ME ME_55648E420189
  MEPROP UID '55648E420189'
@@ -54,7 +63,7 @@ ME ME_55648E420189
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -73,96 +82,6 @@ ME ME_55648E420189
  UP extprop:pas:UnitName 'tfwSourcePointList'
 
 ENDME // ME_55648E420189 TtfwSourcePointList
-
-FORWARD ME_53E107920007
-
-FORWARD ME_53E10704024E
-
-ME ME_53E1110901E2
- MEPROP Name 'aCtx'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
- ;
-
-ENDME // ME_53E1110901E2 aCtx
-
-ME ME_53E1072301A6
- MEPROP Name 'aWord'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
- ;
-
-ENDME // ME_53E1072301A6 aWord
-
-ME ME_53E1071F00CC
- MEPROP UID '53E1071F00CC'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53E10704024E // GetWordDirectives
- ;
- MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
- ;
- MELIST Parameters
-   Seq: ( ME_53E1110901E2 // aCtx
- ME_53E1072301A6 // aWord
- )
- ; // Parameters
-
-ENDME // ME_53E1071F00CC DoIt
-
-ME ME_53E10CE00323
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53E10704024E // GetWordDirectives
- ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
- ;
-
-ENDME // ME_53E10CE00323 
-
-ME ME_53E10704024E
- MEPROP UID '53E10704024E'
- MEPROP Name 'GetWordDirectives'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53E107920007 // seWordsInfo
- ;
- MELIST Operations
-   Seq: ( HWL ME_53E1071F00CC // DoIt
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_53E10CE00323 // l3String
- )
- ; // Dependencies
- UP "is static" false
-
-ENDME // ME_53E10704024E GetWordDirectives
-
-ME ME_53E107920007
- MEPROP UID '53E107920007'
- MEPROP Name 'seWordsInfo'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F7338A800A7 // ScriptEngineCore
- ;
- MELIST Operations
-   Seq: ( HWL ME_53E10704024E // GetWordDirectives
- )
- ; // Operations
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seWordsInfo.pas'
-
-ENDME // ME_53E107920007 seWordsInfo
 
 FORWARD ME_5509AA5400EA
 
@@ -244,6 +163,8 @@ ME ME_5509AA7D0270
 
 ENDME // ME_5509AA7D0270 LeaveScript
 
+%%InheritedBy ME_49E7754802A9 ME_5509AA5400EA
+
 ME ME_5509AA5400EA
  MEPROP UID '5509AA5400EA'
  MEPROP Name 'Tl3ScriptService'
@@ -274,16 +195,6 @@ ME ME_5509AA5400EA
  UP extprop:pas:UnitName 'l3ScriptService'
 
 ENDME // ME_5509AA5400EA Tl3ScriptService
-
-FORWARD ME_55E9A8DB03A4
-
-FORWARD ME_55E9A95F027B
-
-FORWARD ME_55E9A993038B
-
-FORWARD ME_55E9A9BA02AD
-
-FORWARD ME_55ED597602F4
 
 FORWARD ME_4F733A0701F0
 
@@ -327,7 +238,7 @@ ME ME_52612C1B02A5
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_52612C1B02A5 f_ScriptFileName
@@ -654,7 +565,7 @@ ME ME_55AF8AA700F2
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55AF8A9D03A2 // CacheDict
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_55AF8AA700F2 DoIt
@@ -682,7 +593,7 @@ ME ME_55E9C2880317
  MEPROP Name 'anIndent'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_55E9C2880317 anIndent
@@ -727,7 +638,7 @@ ME ME_4F733B2301B8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
  ;
 
 ENDME // ME_4F733B2301B8 
@@ -737,7 +648,7 @@ ME ME_4F733B290360
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_4F733B290360 
@@ -747,7 +658,7 @@ ME ME_4F733B3900B7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_4F733B3900B7 
@@ -787,7 +698,7 @@ ME ME_4F733C1F005A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
  ;
 
 ENDME // ME_4F733C1F005A 
@@ -797,7 +708,7 @@ ME ME_4F733C3A0122
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_4C1B475101C5' '4C1B474600AD.ms.model.script' // l3Parser
+ MELINK Target WL 'ME_4C1B475101C5' '4C1B475101C5.ms.model.script' // l3Parser
  ;
 
 ENDME // ME_4F733C3A0122 
@@ -817,7 +728,7 @@ ME ME_4F733D0C003E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_495230C40219' '47913B47006E.ms.model.script' // Tl3NamedTextStream
+ MELINK Target WL 'ME_495230C40219' '47A080670100.ms.model.script' // Tl3NamedTextStream
  ;
 
 ENDME // ME_4F733D0C003E 
@@ -847,7 +758,7 @@ ME ME_52612C0101E8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_47AB1FDE03E4' '47913B47006E.ms.model.script' // l3Memory
+ MELINK Target WL 'ME_47AB1FDE03E4' '47AB1FDE03E4.ms.model.script' // l3Memory
  ;
 
 ENDME // ME_52612C0101E8 
@@ -857,7 +768,7 @@ ME ME_53E107A10024
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target HWL ME_53E107920007 // seWordsInfo
+ MELINK Target WL 'ME_53E107920007' '53E107920007.ms.model.script' // seWordsInfo
  ;
 
 ENDME // ME_53E107A10024 
@@ -937,7 +848,7 @@ ME ME_55A53C420242
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target WL 'ME_50BF049002DB' '50C065860332.ms.model.script' // TseWorkThreadList
+ MELINK Target WL 'ME_50BF049002DB' '50BF047001FA.ms.model.script' // TseWorkThreadList
  ;
 
 ENDME // ME_55A53C420242 
@@ -972,14 +883,12 @@ ME ME_55B1EC1E011F
 
 ENDME // ME_55B1EC1E011F 
 
-FORWARD ME_55E9A8990116
-
 ME ME_55E9A8B703A1
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
  ;
- MELINK Target HWL ME_55E9A8990116 // tfwScriptEngineExInterfaces
+ MELINK Target WL 'ME_55E9A8990116' '55E9A8990116.ms.model.script' // tfwScriptEngineExInterfaces
  ;
 
 ENDME // ME_55E9A8B703A1 
@@ -1406,28 +1315,28 @@ ME ME_55E84904001E_ME_4F733A0701F0
 ENDME // ME_55E84904001E_ME_4F733A0701F0 DropN
 
 ME ME_55E9A95F027B_ME_4F733A0701F0
- MELINK Original HWL ME_55E9A95F027B // Dictionaries
+ MELINK Original WL 'ME_55E9A95F027B' '55E9A8990116.ms.model.script' // Dictionaries
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
 ENDME // ME_55E9A95F027B_ME_4F733A0701F0 Dictionaries
 
 ME ME_55E9A993038B_ME_4F733A0701F0
- MELINK Original HWL ME_55E9A993038B // InitedDictionaries
+ MELINK Original WL 'ME_55E9A993038B' '55E9A8990116.ms.model.script' // InitedDictionaries
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
 ENDME // ME_55E9A993038B_ME_4F733A0701F0 InitedDictionaries
 
 ME ME_55E9A9BA02AD_ME_4F733A0701F0
- MELINK Original HWL ME_55E9A9BA02AD // MainDictionary
+ MELINK Original WL 'ME_55E9A9BA02AD' '55E9A8990116.ms.model.script' // MainDictionary
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
 ENDME // ME_55E9A9BA02AD_ME_4F733A0701F0 MainDictionary
 
 ME ME_55ED597602F4_ME_4F733A0701F0
- MELINK Original HWL ME_55ED597602F4 // DisabledForHelp
+ MELINK Original WL 'ME_55ED597602F4' '55E9A8990116.ms.model.script' // DisabledForHelp
  ;
  MEPROP OpKind opkind_Implemented
  UP "pm" false
@@ -1446,7 +1355,7 @@ ME ME_5613FA08013C_ME_4F733A0701F0
 ENDME // ME_5613FA08013C_ME_4F733A0701F0 PushIntf
 
 ME ME_479731C50290_ME_4F733A0701F0
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4F733A0701F0 Cleanup
@@ -1499,6 +1408,12 @@ ME ME_55ACF0F5025D_ME_4F733A0701F0
  MEPROP OpKind opkind_Overridden
 ENDME // ME_55ACF0F5025D_ME_4F733A0701F0 GetParentFinder
 
+%%ImplementedBy ME_4A5CB93700CF ME_4F733A0701F0
+%%ImplementedBy ME_4DB008DD01BD ME_4F733A0701F0
+%%ImplementedBy ME_55E9A8DB03A4 ME_4F733A0701F0
+
+%%InheritedBy ME_4DB6C8F30161 ME_4F733A0701F0
+
 ME ME_4F733A0701F0
  MEPROP UID '4F733A0701F0'
  MEPROP Name 'TtfwScriptEnginePrim'
@@ -1516,7 +1431,7 @@ ME ME_4F733A0701F0
  MELIST Implements
    Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
  WL 'ME_4DB008DD01BD' '4DAF19F600C5.ms.model.script' // ItfwScriptEngine
- HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
+ WL 'ME_55E9A8DB03A4' '55E9A8990116.ms.model.script' // ItfwScriptEngineEx
  )
  ; // Implements
  MELIST Attributes
@@ -1661,6 +1576,9 @@ ME ME_4F733A0701F0
  ME_55E9A8B703A1 // tfwScriptEngineExInterfaces
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "needs InstanceR" true
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptEnginePrim.pas'
  UP extprop:rc:SelfName 'ScriptEnginePrim'
@@ -1668,112 +1586,6 @@ ME ME_4F733A0701F0
  UP extprop:pas:UnitName 'tfwScriptEnginePrim'
 
 ENDME // ME_4F733A0701F0 TtfwScriptEnginePrim
-
-ME ME_55E9A95F027B
- MEPROP UID '55E9A95F027B'
- MEPROP Name 'Dictionaries'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
- ;
- MELINK Target WL 'ME_55A4E71403B3' '4F2275C00012.ms.model.script' // TtfwDictionaryList
- ;
- UP "pm" false
-
-ENDME // ME_55E9A95F027B Dictionaries
-
-ME ME_55E9A993038B
- MEPROP UID '55E9A993038B'
- MEPROP Name 'InitedDictionaries'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
- ;
- MELINK Target WL 'ME_55A53B44029F' '4F2275C00012.ms.model.script' // TtfwInitedDictionariesList
- ;
- UP "pm" false
-
-ENDME // ME_55E9A993038B InitedDictionaries
-
-ME ME_55E9A9BA02AD
- MEPROP UID '55E9A9BA02AD'
- MEPROP Name 'MainDictionary'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
- ;
- MELINK Target WL 'ME_55A0005D02CC' '4F2275C00012.ms.model.script' // TtfwMainDictionary
- ;
- UP "pm" false
-
-ENDME // ME_55E9A9BA02AD MainDictionary
-
-ME ME_55ED597602F4
- MEPROP UID '55ED597602F4'
- MEPROP Name 'DisabledForHelp'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_lnk
- MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
- ;
- MELINK Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.ms.model.script' // TtfwWordRefList
- ;
- UP "pm" false
-
-ENDME // ME_55ED597602F4 DisabledForHelp
-
-ME ME_55E9A8DB03A4
- MEPROP UID '55E9A8DB03A4'
- MEPROP GUID 'E6A6471F-967A-49B5-B0AB-E86FDFC44EB4'
- MEPROP Name 'ItfwScriptEngineEx'
- MEPROP Class class_Class
- MELINK Stereotype st_Facet ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55E9A8990116 // tfwScriptEngineExInterfaces
- ;
- MELIST Attributes
-   Seq: ( HWL ME_55E9A95F027B // Dictionaries
- HWL ME_55E9A993038B // InitedDictionaries
- HWL ME_55E9A9BA02AD // MainDictionary
- HWL ME_55ED597602F4 // DisabledForHelp
- )
- ; // Attributes
- UP extprop:rc:SelfName 'ScriptEngineEx'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55E9A8DB03A4 ItfwScriptEngineEx
-
-ME ME_55E9A8990116
- MEPROP UID '55E9A8990116'
- MEPROP Name 'tfwScriptEngineExInterfaces'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F7338A800A7 // ScriptEngineCore
- ;
- MELIST Children
-   Seq: ( HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
- )
- ; // Children
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptEngineExInterfaces.pas'
- UP extprop:rc:SelfName 'ScriptEngineExInterfaces'
-
-ENDME // ME_55E9A8990116 tfwScriptEngineExInterfaces
 
 ME ME_4F7338A800A7
  MEPROP UID '4F7338A800A7'
@@ -1787,10 +1599,10 @@ ME ME_4F7338A800A7
  ;
  MELIST Children
    Seq: ( HWL ME_55648E420189 // TtfwSourcePointList
- HWL ME_53E107920007 // seWordsInfo
+ WL 'ME_53E107920007' '53E107920007.ms.model.script' // seWordsInfo
  HWL ME_5509AA5400EA // Tl3ScriptService
  HWL ME_4F733A0701F0 // TtfwScriptEnginePrim
- HWL ME_55E9A8990116 // tfwScriptEngineExInterfaces
+ WL 'ME_55E9A8990116' '55E9A8990116.ms.model.script' // tfwScriptEngineExInterfaces
  )
  ; // Children
  MELIST Depends
@@ -1811,5 +1623,8 @@ ME ME_4F7338A800A7
  WL 'ME_55C481E00003' '55C481E00003.ms.model.script' // ScriptCallers
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4F7338A800A7 ScriptEngineCore

@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57A9BB9101F5
+
 FORWARD ME_57A9BB9101F5
 
 FORWARD ME_57A9BC090082
@@ -25,7 +27,7 @@ ME ME_57A9BC7D01F2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57A9BC090082 // TmsmRunner
  ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
  ;
 
 ENDME // ME_57A9BC7D01F2 
@@ -59,6 +61,9 @@ ME ME_57A9BC090082
  ME_57A9C17802F5 // TmsmMainForm
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" true
  UP intf.pas:Path 'common\components\msm\msmRunner.pas'
  UP extprop:rc:SelfName 'msmRunner'
@@ -91,11 +96,14 @@ ME ME_57A9BB9101F5
  WL 'ME_57B576330217' '57B576330217.ms.model.script' // msm$GUI
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "defines" 'msm.inc'
  UP "need UC in project" true
  UP "path suffix" '/msm'
  UP intf.pas:Path 'common\components\msm\msm.dpr'
  UP intf.pas:PathOnly '\common\components\msm'
- UP Version 152
+ UP Version 161
 
 ENDME // ME_57A9BB9101F5 msm

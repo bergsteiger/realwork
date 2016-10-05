@@ -518,6 +518,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3TextSearch in 'w:\common\components\rtl\Garant\L3\l3TextSearch.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -2176,9 +2177,7 @@ uses
  , arTextUtils in 'w:\archi\source\projects\Common\Utils\arTextUtils.pas'
  , l3SimpleCalc in 'w:\common\components\rtl\Garant\L3\ext\l3SimpleCalc.pas'
  , dt_Const in 'w:\common\components\rtl\Garant\dd\dt_Const.pas'
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
- , dt_LinkServ in 'w:\common\components\rtl\Garant\DT\dt_LinkServ.pas'
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ , daLinkServerService in 'w:\common\components\rtl\Garant\DA\daLinkServerService.pas'
  {$If NOT Defined(NoScripts)}
  , kwPopEditorSetStyle2Block in 'w:\archi\source\projects\Archi\Archi_Insider_Test_Support\kwPopEditorSetStyle2Block.pas'
  {$IfEnd} // NOT Defined(NoScripts)

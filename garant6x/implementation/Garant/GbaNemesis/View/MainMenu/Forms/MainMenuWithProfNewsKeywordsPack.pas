@@ -4832,20 +4832,32 @@ initialization
  {* Регистрация типа TBevel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPaintBox));
  {* Регистрация типа TPaintBox }
+{$If NOT Defined(NoImageEn)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnView));
  {* Регистрация типа TImageEnView }
+{$IfEnd} // NOT Defined(NoImageEn)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewHotTruck));
  {* Регистрация типа TnscTreeViewHotTruck }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscComboLabel));
  {* Регистрация типа TnscComboLabel }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStyledLabel));
  {* Регистрация типа TvtStyledLabel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscFocusLabel));
  {* Регистрация типа TnscFocusLabel }
+{$IfEnd} // Defined(Nemesis)
+{$If NOT Defined(NoImageEn)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnIO));
  {* Регистрация типа TImageEnIO }
+{$IfEnd} // NOT Defined(NoImageEn)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscHideField));
  {* Регистрация типа TnscHideField }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

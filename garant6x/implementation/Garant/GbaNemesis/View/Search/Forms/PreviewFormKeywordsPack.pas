@@ -190,8 +190,10 @@ initialization
  {* Регистрация Tkw_PreviewForm_Control_PreviewPanel_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefPreviewForm));
  {* Регистрация типа TefPreviewForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscPreviewPanel));
  {* Регистрация типа TnscPreviewPanel }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

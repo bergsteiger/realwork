@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4979E75C00C7
+%%Inner ME_4979E75C00C7
+
 FORWARD ME_4979E75C00C7
 
 FORWARD ME_4B150F140142
@@ -41,6 +44,8 @@ ME ME_4B150F550148
 
 ENDME // ME_4B150F550148 
 
+%%InheritedBy ME_4B0A6109010C ME_4B150F140142
+
 ME ME_4B150F140142
  MEPROP UID '4B150F140142'
  MEPROP Name 'TnsSynchroviewActivateEvent'
@@ -69,6 +74,8 @@ ME ME_4B150F140142
 ENDME // ME_4B150F140142 TnsSynchroviewActivateEvent
 
 FORWARD ME_4C8619720088
+
+%%InheritedBy ME_4C8619720088 ME_52821A27026A
 
 ME ME_52821A27026A
  MEPROP UID '52821A27026A'
@@ -164,7 +171,7 @@ ME ME_52821AB602C4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4979E75C00C7 // PrimSynchroView
  ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
  ;
 
 ENDME // ME_52821AB602C4 
@@ -174,13 +181,13 @@ ME ME_52821AB90268
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4979E75C00C7 // PrimSynchroView
  ;
- MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
  ;
 
 ENDME // ME_52821AB90268 
 
 ME ME_497F16AC015A_ME_4979E75C00C7
- MELINK Original WL 'ME_497F16AC015A' '4A7C0BB70162.ms.model.script' // DoTabActivate
+ MELINK Original WL 'ME_497F16AC015A' '497F0F17036D.ms.model.script' // DoTabActivate
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_497F16AC015A_ME_4979E75C00C7 DoTabActivate
@@ -206,10 +213,15 @@ ME ME_F5C4A5904D01_ME_4979E75C00C7
 ENDME // ME_F5C4A5904D01_ME_4979E75C00C7 svSynchroViewQueryClose
 
 ME ME_4A8E8F2E0195_ME_4979E75C00C7
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4979E75C00C7 InitControls
+
+%%ImplementedBy ME_497F0F17036D ME_4979E75C00C7
+%%ImplementedBy ME_4A82BCFA02EF ME_4979E75C00C7
+%%ImplementedBy ME_4AE9E3C2031C ME_4979E75C00C7
+%%ImplementedBy ME_4FFBDD570171 ME_4979E75C00C7
 
 ME ME_4979E75C00C7
  MEPROP UID '4979E75C00C7'
@@ -224,7 +236,7 @@ ME ME_4979E75C00C7
  MELINK Parent WL 'ME_4D39A65E01AF' '4D39A65E01AF.ms.model.script' // SynchroView
  ;
  MELIST Implements
-   Seq: ( WL 'ME_497F0F17036D' '4A7C0BB70162.ms.model.script' // PageControlNotification
+   Seq: ( WL 'ME_497F0F17036D' '497F0F17036D.ms.model.script' // PageControlNotification
  WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
  WL 'ME_4AE9E3C2031C' '4A9807DB01A5.ms.model.script' // SynchroView
  WL 'ME_4FFBDD570171' '4FFBDD570171.ms.model.script' // SynchroViewUserTypes
@@ -258,6 +270,9 @@ ME ME_4979E75C00C7
  ME_52821AB90268 // Controls
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Logging' )
+ ; // DiagramsNames
  UP "NeedsHackRef" false
  UP "ZoneType" 'Child'
  UP "author" 'Ëþëèí À.Â.'

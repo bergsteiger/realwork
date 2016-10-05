@@ -1,0 +1,50 @@
+// eeCustomMemo 4AC5D35601BB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AC5D35601BB
+
+FORWARD ME_4AC5D35601BB
+
+%%InheritedBy ME_54C26D790097 ME_54C2765801AA
+
+ME ME_54C2765801AA
+ MEPROP UID '54C2765801AA'
+ MEPROP Name 'TeeCustomMemo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC5D35601BB // eeCustomMemo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_54C26D790097' '4AC5D3DB0371.ms.model.script' // TeeCustomMemo
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'eeCustomMemo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54C2765801AA TeeCustomMemo
+
+ME ME_4AC5D35601BB
+ MEPROP UID '4AC5D35601BB'
+ MEPROP Name 'eeCustomMemo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4952683C007B' '4952683C007B.ms.model.script' // Editor
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54C2765801AA // TeeCustomMemo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCustomMemo.pas'
+
+ENDME // ME_4AC5D35601BB eeCustomMemo

@@ -1,0 +1,89 @@
+// evdCustomNativeWriterServices 555DCF340385 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_555DCF340385
+
+FORWARD ME_555DCF340385
+
+FORWARD ME_555DCF5A0060
+
+ME ME_555DCF650257
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
+ ;
+ MELINK Target WL 'ME_555DCEA8017E' '482D6E960087.ms.model.script' // Tk2EVDWriterService
+ ;
+
+ENDME // ME_555DCF650257 
+
+ME ME_555DCF790378
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
+ ;
+ MELINK Target WL 'ME_483D7C2A032C' '47ECB8BD00A8.ms.model.script' // TevdCustomNativeWriter
+ ;
+
+ENDME // ME_555DCF790378 
+
+ME ME_55714D660056
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_555DCF5A0060 // TevdEVDWriterService
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55714D660056 
+
+%%InheritedBy ME_49E7754802A9 ME_555DCF5A0060
+
+ME ME_555DCF5A0060
+ MEPROP UID '555DCF5A0060'
+ MEPROP Name 'TevdEVDWriterService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555DCF340385 // evdCustomNativeWriterServices
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_555DCF650257 // Tk2EVDWriterService
+ ME_555DCF790378 // TevdCustomNativeWriter
+ ME_55714D660056 // FreeAndNil
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'dEVDWriterService'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_555DCF5A0060 TevdEVDWriterService
+
+ME ME_555DCF340385
+ MEPROP UID '555DCF340385'
+ MEPROP Name 'evdCustomNativeWriterServices'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECB8BD00A8' '47ECB8BD00A8.ms.model.script' // Generators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_555DCF5A0060 // TevdEVDWriterService
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdCustomNativeWriterServices.pas'
+ UP extprop:rc:SelfName 'dCustomNativeWriterServices'
+
+ENDME // ME_555DCF340385 evdCustomNativeWriterServices

@@ -48,6 +48,9 @@ uses
  l3ImplUses
  , l3PointerUtils
  , msmModelElementMethodCaller
+ {$If NOT Defined(NoScripts)}
+ , msmChangedElementsPack
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3Base
  , l3MinMax
  , RTLConsts

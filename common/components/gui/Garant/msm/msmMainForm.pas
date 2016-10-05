@@ -15,6 +15,9 @@ uses
  , msmSizeablePanel
  , msmUseCases
  , msmModelElements
+ {$If NOT Defined(NoVCL)}
+ , Forms
+ {$IfEnd} // NOT Defined(NoVCL)
  //#UC START# *57A9C16601B9intf_uses*
  //#UC END# *57A9C16601B9intf_uses*
 ;
@@ -36,8 +39,12 @@ type
    procedure Init;
    class procedure RunWith(const anElementForTree: ImsmModelElement;
     const anElementForList: ImsmModelElement);
+   procedure ClearZones;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   {$If NOT Defined(NoVCL)}
+   procedure DoClose(var Action: TCloseAction); override;
+   {$IfEnd} // NOT Defined(NoVCL)
    procedure ClearFields; override;
   public
    class procedure Run;
@@ -57,6 +64,11 @@ uses
  l3ImplUses
  , l3ProtoObject
  , msmOpenService
+ , l3Interfaces
+ , tfwParserProgressService
+ , afwInterfaces
+ , l3Core
+ , l3Filer
  , msmModelLoader
  , msmTreeViewController
  , msmListViewController
@@ -89,23 +101,31 @@ uses
  , msmListOwnerShowAsListBinding
  , msmDrawingUseCase
  , msmDrawingUseCaseView
+ , msmModelService
  {$If NOT Defined(NoScripts)}
  , TtfwClassRef_Proxy
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
  //#UC START# *57A9C16601B9impl_uses*
+ , Windows
  , Controls
  , Menus
- , Forms
- , vtPanel
- , vtSizeablePanel
+ //, Forms
  , msmViewController
  , msmElementViews
  , msmConcreteModels
  , tfwParserService
  , msmControllers
  , msmConcreteUseCases
+ , vtSizeablePanel
+ , msmChangedElements
+ , msmWordsManaging
+ , msmModelElement
+ , tfwScriptingInterfaces
+ , l3String
+ , afwFacade
+ , afwLongProcessVisualizer
  //#UC END# *57A9C16601B9impl_uses*
 ;
 
@@ -119,14 +139,48 @@ type
     {* Проверяет создан экземпляр синглетона или нет }
  end;//TmsmOpenServiceImpl
 
+ //#UC START# *57EE7F1302F9ci*
+ //#UC END# *57EE7F1302F9ci*
+ //#UC START# *57EE7F1302F9cit*
+ //#UC END# *57EE7F1302F9cit*
+ TmsmParserProgressServiceImpl = {final} class(Tl3ProtoObject, Il3Meter, ItfwParserProgressService)
+  private
+   f_Progress: IafwLongProcessVisualizer;
+  protected
+   procedure ProgressProc(aState: Byte;
+    aValue: Integer;
+    const aMsg: Il3CString);
+   procedure FreeNotification(AComponent: TComponent);
+   procedure RemoveFreeNotification(AComponent: TComponent);
+   procedure ClearFields; override;
+  public
+   procedure TuneFiler(aFiler: Tl3CustomFiler);
+   class function Instance: TmsmParserProgressServiceImpl;
+    {* Метод получения экземпляра синглетона TmsmParserProgressServiceImpl }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ //#UC START# *57EE7F1302F9publ*
+  private
+   f_ProgressCount : Integer;
+ //#UC END# *57EE7F1302F9publ*
+ end;//TmsmParserProgressServiceImpl
+
 var g_TmsmOpenServiceImpl: TmsmOpenServiceImpl = nil;
  {* Экземпляр синглетона TmsmOpenServiceImpl }
+var g_TmsmParserProgressServiceImpl: TmsmParserProgressServiceImpl = nil;
+ {* Экземпляр синглетона TmsmParserProgressServiceImpl }
 
 procedure TmsmOpenServiceImplFree;
  {* Метод освобождения экземпляра синглетона TmsmOpenServiceImpl }
 begin
  l3Free(g_TmsmOpenServiceImpl);
 end;//TmsmOpenServiceImplFree
+
+procedure TmsmParserProgressServiceImplFree;
+ {* Метод освобождения экземпляра синглетона TmsmParserProgressServiceImpl }
+begin
+ l3Free(g_TmsmParserProgressServiceImpl);
+end;//TmsmParserProgressServiceImplFree
 
 procedure TmsmOpenServiceImpl.OpenListInNewWindow(const anElementForList: ImsmModelElement);
 //#UC START# *5077A5E39FAB_57CED5100343_var*
@@ -153,6 +207,105 @@ class function TmsmOpenServiceImpl.Exists: Boolean;
 begin
  Result := g_TmsmOpenServiceImpl <> nil;
 end;//TmsmOpenServiceImpl.Exists
+
+procedure TmsmParserProgressServiceImpl.ProgressProc(aState: Byte;
+ aValue: Integer;
+ const aMsg: Il3CString);
+//#UC START# *46A5A5430315_57EE7F1302F9_var*
+var
+ l_S : Il3CString;
+//#UC END# *46A5A5430315_57EE7F1302F9_var*
+begin
+//#UC START# *46A5A5430315_57EE7F1302F9_impl*
+ Case aState of
+  piStart:
+  begin
+   Inc(f_ProgressCount);
+   if (f_Progress = nil) then
+   begin
+    if l3IsNil(aMsg) then
+     l_S := TtfwCStringFactory.C('Загрузка')
+    else
+     l_S := aMsg;
+    if (afw.Application = nil) then
+     f_Progress := TafwLongProcessVisualizer.Make(l_S)
+    else
+     f_Progress := afw.Application.MakeLongProcessVisualizer(l_S);
+   end;//f_Progress = nil
+  end;//piStart
+  piCurrent:
+   ;
+  piEnd:
+  begin
+   Dec(f_ProgressCount);
+   if (f_ProgressCount < 0) then
+    f_ProgressCount := 0;
+   if (f_ProgressCount = 0) then
+    f_Progress := nil;
+  end;//piEnd
+ end;//Case aState
+//#UC END# *46A5A5430315_57EE7F1302F9_impl*
+end;//TmsmParserProgressServiceImpl.ProgressProc
+
+procedure TmsmParserProgressServiceImpl.FreeNotification(AComponent: TComponent);
+//#UC START# *46A5A5DE01FF_57EE7F1302F9_var*
+//#UC END# *46A5A5DE01FF_57EE7F1302F9_var*
+begin
+//#UC START# *46A5A5DE01FF_57EE7F1302F9_impl*
+ //Assert(false);
+//#UC END# *46A5A5DE01FF_57EE7F1302F9_impl*
+end;//TmsmParserProgressServiceImpl.FreeNotification
+
+procedure TmsmParserProgressServiceImpl.RemoveFreeNotification(AComponent: TComponent);
+//#UC START# *46A5A5F0010B_57EE7F1302F9_var*
+//#UC END# *46A5A5F0010B_57EE7F1302F9_var*
+begin
+//#UC START# *46A5A5F0010B_57EE7F1302F9_impl*
+ //Assert(false);
+//#UC END# *46A5A5F0010B_57EE7F1302F9_impl*
+end;//TmsmParserProgressServiceImpl.RemoveFreeNotification
+
+procedure TmsmParserProgressServiceImpl.TuneFiler(aFiler: Tl3CustomFiler);
+//#UC START# *D5EA2D973852_57EE7F1302F9_var*
+//#UC END# *D5EA2D973852_57EE7F1302F9_var*
+begin
+//#UC START# *D5EA2D973852_57EE7F1302F9_impl*
+ if (aFiler <> nil) then
+ begin
+  if (GetCurrentThreadID = MainThreadID) then
+  begin
+   aFiler.Indicator.NeedProgressProc := true;
+   aFiler.Indicator.Meter := Self;
+  end;//GetCurrentThreadID = MainThreadID
+ end;//aFiler <> nil
+//#UC END# *D5EA2D973852_57EE7F1302F9_impl*
+end;//TmsmParserProgressServiceImpl.TuneFiler
+
+class function TmsmParserProgressServiceImpl.Instance: TmsmParserProgressServiceImpl;
+ {* Метод получения экземпляра синглетона TmsmParserProgressServiceImpl }
+begin
+ if (g_TmsmParserProgressServiceImpl = nil) then
+ begin
+  l3System.AddExitProc(TmsmParserProgressServiceImplFree);
+  g_TmsmParserProgressServiceImpl := Create;
+ end;
+ Result := g_TmsmParserProgressServiceImpl;
+end;//TmsmParserProgressServiceImpl.Instance
+
+class function TmsmParserProgressServiceImpl.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TmsmParserProgressServiceImpl <> nil;
+end;//TmsmParserProgressServiceImpl.Exists
+
+procedure TmsmParserProgressServiceImpl.ClearFields;
+begin
+ f_Progress := nil;
+ inherited;
+end;//TmsmParserProgressServiceImpl.ClearFields
+
+//#UC START# *57EE7F1302F9impl*
+//#UC END# *57EE7F1302F9impl*
 
 procedure TmsmMainForm.Init;
 //#UC START# *57A9C19A01CE_57A9C16601B9_var*
@@ -209,12 +362,33 @@ class procedure TmsmMainForm.Run;
 const
  cModelRoot = 'W:\shared\models\NewSchool\Scripts\Models\';
  //cModelRoot = 'M:\NewSchool\Scripts\Models\';
+var
+ l_ModelName : AnsiString; 
 //#UC END# *57A9C3B40133_57A9C16601B9_var*
 begin
 //#UC START# *57A9C3B40133_57A9C16601B9_impl*
  //l3System.ShowObjectsWindow := false;
+ TmsmModelService.Instance.SetModelRoot(cModelRoot);
  TtfwParserService.Instance.AddIncludePath(cModelRoot);
- RunWithList(TmsmModelLoader.LoadFromFile(cModelRoot + 'garant.ms.model.script'));
+ //RunWithList(TmsmModelLoader.LoadFromFile(cModelRoot + 'garant.ms.model.script'));
+ //RunWithList(TmsmModelLoader.LoadFromFile(cModelRoot + '4ABCC25A0322.ms.model.script'));
+ if (ParamCount >= 1) then
+  l_ModelName := l3StripDoubleQuotes(ParamStr(1));
+ if (l_ModelName = '') then
+  l_ModelName := 'Shared Delphi SandBoxNew';
+  //l_ModelName := 'garant';
+  //l_ModelName := 'Shared Delphi Low Level';
+  //l_ModelName := 'Shared Delphi$SandBox';
+  //l_ModelName := 'L3';
+ RunWithList(
+  TmsmModelElement.MakeFromWord(
+   TmsmWordsManaging.FindWord(
+    TtfwCStringFactory.C(
+     l_ModelName
+    )
+   )
+  )
+ );
 //#UC END# *57A9C3B40133_57A9C16601B9_impl*
 end;//TmsmMainForm.Run
 
@@ -222,12 +396,13 @@ procedure TmsmMainForm.LoadModel(const anElementForTree: ImsmModelElement;
  const anElementForList: ImsmModelElement);
 //#UC START# *57A9D7D8039C_57A9C16601B9_var*
 var
- l_UseCase : ImsmDrawingUseCase;
  l_Navigator : TmsmNavigatorForm;
  l_MainZone : ImsmViewParent;
  l_ChildZone : ImsmViewParent;
  l_LeftZone : ImsmViewParent;
  l_NavigatorZone : ImsmViewParent;
+ l_TopZone : ImsmViewParent;
+ l_Caption : ImsmCaptionModel;
 //#UC END# *57A9D7D8039C_57A9C16601B9_var*
 begin
 //#UC START# *57A9D7D8039C_57A9C16601B9_impl*
@@ -240,15 +415,14 @@ begin
  else
   l_Navigator := nil;
 
- l_UseCase := TmsmDrawingUseCase.Make(
-  TmsmModelElementView_C(anElementForTree),
-  TmsmModelElementView_C(anElementForList)
- );
+ l_Caption := TmsmCaptionModel.Make; 
 
  l_MainZone :=
   //TmsmMultiPanelViewParent.Make(f_MainPanel);
   TmsmTabbedViewParent.Make(f_MainPanel);
 
+ l_TopZone := TmsmMultiPanelViewParent.Make(f_TopPanel);
+ 
  if (f_ChildPanel = nil) then
   l_ChildZone := nil
  else
@@ -271,20 +445,26 @@ begin
    //TmsmSingleViewParent.Make(l_Navigator);
  end;//l_Navigator = nil
 
+ f_UseCase := TmsmDrawingUseCaseView.Make(
+  TmsmDrawingUseCase.Make(
+   TmsmModelElementView_C(anElementForTree),
+   TmsmModelElementView_C(anElementForList),
+   l_Caption
+  ),
+  l_MainZone,
+  l_ChildZone,
+  l_LeftZone,
+  l_NavigatorZone,
+  l_TopZone
+ );
+ f_UseCase.AddController(
+  TmsmMainFormController.Make(Self, l_Caption)
+ );
+ //Self.DisableAlign;
  try
-  f_UseCase := TmsmDrawingUseCaseView.Make(
-   l_UseCase,
-   l_MainZone,
-   l_ChildZone,
-   l_LeftZone,
-   l_NavigatorZone
-  );
-  f_UseCase.AddController(
-   TmsmMainFormController.Make(Self, l_UseCase.Caption)
-  );
   f_UseCase.Activate;
  finally
-  l_UseCase := nil;
+  //Self.EnableAlign;
  end;//try..finally
  if (l_Navigator <> nil) then
   l_Navigator.Show;
@@ -333,6 +513,15 @@ begin
 //#UC END# *57CD5AAF0193_57A9C16601B9_impl*
 end;//TmsmMainForm.RunWithList
 
+procedure TmsmMainForm.ClearZones;
+//#UC START# *57EBC65F0320_57A9C16601B9_var*
+//#UC END# *57EBC65F0320_57A9C16601B9_var*
+begin
+//#UC START# *57EBC65F0320_57A9C16601B9_impl*
+ // nothing
+//#UC END# *57EBC65F0320_57A9C16601B9_impl*
+end;//TmsmMainForm.ClearZones
+
 procedure TmsmMainForm.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_57A9C16601B9_var*
@@ -340,6 +529,7 @@ procedure TmsmMainForm.Cleanup;
 begin
 //#UC START# *479731C50290_57A9C16601B9_impl*
  inherited;
+ ClearZones;
  f_UseCase := nil;
  if (Application.MainForm = Self)
     OR (Application.MainForm = nil)
@@ -347,6 +537,57 @@ begin
   l3System.CheckClipboard;
 //#UC END# *479731C50290_57A9C16601B9_impl*
 end;//TmsmMainForm.Cleanup
+
+{$If NOT Defined(NoVCL)}
+procedure TmsmMainForm.DoClose(var Action: TCloseAction);
+//#UC START# *5576E05C0204_57A9C16601B9_var*
+var
+ l_Res : Integer;
+//#UC END# *5576E05C0204_57A9C16601B9_var*
+begin
+//#UC START# *5576E05C0204_57A9C16601B9_impl*
+ Action := caFree;
+ inherited DoClose(Action);
+ Assert(Action <> caHide);
+ if (Action <> caFree) then
+  Exit;
+ if (Application.MainForm = Self)
+    OR (Application.MainForm = nil)
+    then
+ begin
+  if TmsmChangedElements.Exists then
+   if not TmsmChangedElements.Instance.Empty then
+   begin
+    l_Res := MessageBox(0,
+                        'Model changed. Save it?',
+                        'Warning',
+                        MB_ICONQUESTION OR MB_YesNoCancel);
+    Case l_Res of
+     IDYes:
+      TmsmChangedElements.Instance.Save;
+     IDNo:
+     begin
+     end;//IDNo
+     IDCancel:
+     begin
+      Action := caNone;
+      Exit;
+     end;//IDCancel
+     else
+      Assert(false);
+    end;//Case l_Res
+   end;//not TmsmChangedElements.Instance.Empty
+  if (l3System.CheckClipboard = IDCancel) then
+  begin
+   Action := caNone;
+   Exit;
+  end;//l3System.CheckClipboard = IDCancel
+ end;//Application.MainForm = Self
+ ClearZones;
+ f_UseCase := nil;
+//#UC END# *5576E05C0204_57A9C16601B9_impl*
+end;//TmsmMainForm.DoClose
+{$IfEnd} // NOT Defined(NoVCL)
 
 procedure TmsmMainForm.ClearFields;
 begin
@@ -361,6 +602,8 @@ end;//TmsmMainForm.ClearFields
 initialization
  TmsmOpenService.Instance.Alien := TmsmOpenServiceImpl.Instance;
  {* Регистрация TmsmOpenServiceImpl }
+ TtfwParserProgressService.Instance.Alien := TmsmParserProgressServiceImpl.Instance;
+ {* Регистрация TmsmParserProgressServiceImpl }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TmsmMainForm);
  {* Регистрация TmsmMainForm }

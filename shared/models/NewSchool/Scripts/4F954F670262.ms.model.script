@@ -1,0 +1,81 @@
+// EditorParaCoordsToScreenPack 4F954F670262 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F954F670262
+
+ME ME_4F954F7D0178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ MELINK Target WL 'ME_4EEB66D703A9' '4F954EC9038E.ms.model.script' // pop_editor_ParaCoordsToScreen
+ ;
+
+ENDME // ME_4F954F7D0178 
+
+ME ME_4F954F8103BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ MELINK Target WL 'ME_4F265392010B' '4F954EC9038E.ms.model.script' // pop_editor_ParaEndCoordsToScreen
+ ;
+
+ENDME // ME_4F954F8103BF 
+
+ME ME_4F954F8403DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ MELINK Target WL 'ME_4F95434701ED' '4F954EC9038E.ms.model.script' // pop_editor_ParaMiddleCoordsToScreen
+ ;
+
+ENDME // ME_4F954F8403DC 
+
+ME ME_4FABE14F0392
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ MELINK Target WL 'ME_4FABE1110175' '4F954EC9038E.ms.model.script' // pop_editor_CursorCoordsToScreen
+ ;
+
+ENDME // ME_4FABE14F0392 
+
+ME ME_54F06F45006B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
+ ;
+ MELINK Target WL 'ME_4B28D63A00EC' '4B28D63A00EC.ms.model.script' // TevCustomEditorWindowPrim
+ ;
+
+ENDME // ME_54F06F45006B 
+
+%%InjectedBy ME_4B28D63A00EC ME_4F954F670262
+
+ME ME_4F954F670262
+ MEPROP UID '4F954F670262'
+ MEPROP Name 'EditorParaCoordsToScreenPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F954EC9038E' '4F954EC9038E.ms.model.script' // MoveMouseByPara
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F954F7D0178 // pop_editor_ParaCoordsToScreen
+ ME_4F954F8103BF // pop_editor_ParaEndCoordsToScreen
+ ME_4F954F8403DC // pop_editor_ParaMiddleCoordsToScreen
+ ME_4FABE14F0392 // pop_editor_CursorCoordsToScreen
+ ME_54F06F45006B // TevCustomEditorWindowPrim
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas'
+
+ENDME // ME_4F954F670262 EditorParaCoordsToScreenPack

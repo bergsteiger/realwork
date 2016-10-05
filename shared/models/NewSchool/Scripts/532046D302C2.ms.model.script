@@ -1,0 +1,211 @@
+// csTaskTypes 532046D302C2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_532046D302C2
+%%Inner ME_532046D302C2
+%%Inner ME_532046D302C2
+%%Inner ME_532046D302C2
+
+FORWARD ME_532046D302C2
+
+ME ME_532047060349
+ MEPROP UID '532047060349'
+ MEPROP Name 'TcsTaskStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532046D302C2 // csTaskTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532047060349 TcsTaskStatus
+
+ME ME_532047140237
+ MEPROP UID '532047140237'
+ MEPROP Name 'TcsTaskType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532046D302C2 // csTaskTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532047140237 TcsTaskType
+
+ME ME_532047210179
+ MEPROP UID '532047210179'
+ MEPROP Name 'TcsFileRenameMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532046D302C2 // csTaskTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_532047210179 TcsFileRenameMode
+
+%%InheritedBy ME_532047140237 ME_532047380399
+
+ME ME_532047380399
+ MEPROP UID '532047380399'
+ MEPROP Name 'TcsTaskTypes'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532046D302C2 // csTaskTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_532047140237 // TcsTaskType
+ )
+ ; // Inherits
+
+ENDME // ME_532047380399 TcsTaskTypes
+
+FORWARD ME_53C916400254
+
+ME ME_53C9165900CE
+ MEPROP UID '53C9165900CE'
+ MEPROP Name 'cs_arsSuccess'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C916400254 // TcsExecutionStatus
+ ;
+ MEPROP Value 0
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 0
+
+ENDME // ME_53C9165900CE cs_arsSuccess
+
+ME ME_53C91679014A
+ MEPROP UID '53C91679014A'
+ MEPROP Name 'cs_arsAborted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C916400254 // TcsExecutionStatus
+ ;
+ MEPROP Value 1
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 1
+
+ENDME // ME_53C91679014A cs_arsAborted
+
+ME ME_53C916C10357
+ MEPROP UID '53C916C10357'
+ MEPROP Name 'cs_arsGeneralError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C916400254 // TcsExecutionStatus
+ ;
+ MEPROP Value 2
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 2
+
+ENDME // ME_53C916C10357 cs_arsGeneralError
+
+ME ME_53C916FC0126
+ MEPROP UID '53C916FC0126'
+ MEPROP Name 'cs_arsUtilityNotFound'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Утилита не найдена' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C916400254 // TcsExecutionStatus
+ ;
+ MEPROP Value 3
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 3
+
+ENDME // ME_53C916FC0126 cs_arsUtilityNotFound
+
+ME ME_53D770A201A1
+ MEPROP UID '53D770A201A1'
+ MEPROP Name 'cs_arsTaskUnregistered'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53C916400254 // TcsExecutionStatus
+ ;
+ MEPROP Value 4
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 4
+
+ENDME // ME_53D770A201A1 cs_arsTaskUnregistered
+
+ME ME_53C916400254
+ MEPROP UID '53C916400254'
+ MEPROP Name 'TcsExecutionStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532046D302C2 // csTaskTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53C9165900CE // cs_arsSuccess
+ HWL ME_53C91679014A // cs_arsAborted
+ HWL ME_53C916C10357 // cs_arsGeneralError
+ HWL ME_53C916FC0126 // cs_arsUtilityNotFound
+ HWL ME_53D770A201A1 // cs_arsTaskUnregistered
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_53C916400254 TcsExecutionStatus
+
+ME ME_532046D302C2
+ MEPROP UID '532046D302C2'
+ MEPROP Name 'csTaskTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_532047060349 // TcsTaskStatus
+ HWL ME_532047140237 // TcsTaskType
+ HWL ME_532047210179 // TcsFileRenameMode
+ HWL ME_532047380399 // TcsTaskTypes
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_53C916400254 // TcsExecutionStatus
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csTaskTypes.pas'
+
+ENDME // ME_532046D302C2 csTaskTypes

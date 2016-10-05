@@ -1,0 +1,66 @@
+// alcuAutoSpell 53FD8188018E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53FD8188018E
+
+FORWARD ME_53FD8188018E
+
+%%InheritedBy ME_531706390030 ME_53FD821B01FD
+
+ME ME_53FD821B01FD
+ MEPROP UID '53FD821B01FD'
+ MEPROP Name 'TalcuAutoSpellTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53FD8188018E // alcuAutoSpell
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_531706390030' '5317062900DF.ms.model.script' // TcsAutoSpellTask
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'alcuAutoSpellTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53FD821B01FD TalcuAutoSpellTask
+
+ME ME_53FD8203008E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FD8188018E // alcuAutoSpell
+ ;
+ MELINK Target WL 'ME_53FD813101B0' '52FA3DD30094.ms.model.script' // TalcuAutoSpellTaskResult
+ ;
+
+ENDME // ME_53FD8203008E 
+
+ME ME_53FD8188018E
+ MEPROP UID '53FD8188018E'
+ MEPROP Name 'alcuAutoSpell'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FA3DD30094' '52FA3DD30094.ms.model.script' // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53FD821B01FD // TalcuAutoSpellTask
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53FD8203008E // TalcuAutoSpellTaskResult
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoSpell.pas'
+
+ENDME // ME_53FD8188018E alcuAutoSpell

@@ -1,0 +1,64 @@
+// ShlObj 48F34C48034D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48F34C48034D
+%%Inner ME_48F34C48034D
+
+FORWARD ME_48F34C48034D
+
+ME ME_48F34C8D030F
+ MEPROP UID '48F34C8D030F'
+ MEPROP Name 'TDropFiles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F34C48034D // ShlObj
+ ;
+
+ENDME // ME_48F34C8D030F TDropFiles
+
+%%InheritedBy ME_48F34C8D030F ME_48F34C980291
+
+ME ME_48F34C980291
+ MEPROP UID '48F34C980291'
+ MEPROP Name 'PDropFiles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F34C48034D // ShlObj
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F34C8D030F // TDropFiles
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_48F34C980291 PDropFiles
+
+ME ME_48F34C48034D
+ MEPROP UID '48F34C48034D'
+ MEPROP Name 'ShlObj'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48F34C8D030F // TDropFiles
+ HWL ME_48F34C980291 // PDropFiles
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\ShlObj.pas'
+
+ENDME // ME_48F34C48034D ShlObj

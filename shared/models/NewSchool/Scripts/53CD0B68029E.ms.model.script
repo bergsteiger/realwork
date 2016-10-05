@@ -1,0 +1,87 @@
+// evAutoComplete 53CD0B68029E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53CD0B68029E
+%%Inner ME_53CD0B68029E
+%%Inner ME_53CD0B68029E
+
+FORWARD ME_53CD0B68029E
+
+ME ME_53CD0B9F005B
+ MEPROP UID '53CD0B9F005B'
+ MEPROP GUID '2452B486-253F-49D8-A3DD-B778EB05C1E2'
+ MEPROP Name 'IevAutoComplete'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53CD0B68029E // evAutoComplete
+ ;
+ UP extprop:rc:SelfName 'AutoComplete'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53CD0B9F005B IevAutoComplete
+
+%%ImplementedBy ME_53CD0B9F005B ME_53CD0B8200B8
+
+ME ME_53CD0B8200B8
+ MEPROP UID '53CD0B8200B8'
+ MEPROP Name 'TevAutoComplete'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CD0B68029E // evAutoComplete
+ ;
+ MELIST Implements
+   Seq: ( HWL ME_53CD0B9F005B // IevAutoComplete
+ )
+ ; // Implements
+ UP extprop:rc:SelfName 'AutoComplete'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53CD0B8200B8 TevAutoComplete
+
+ME ME_53CD0BB00244
+ MEPROP UID '53CD0BB00244'
+ MEPROP Name 'TevACMacro'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53CD0B68029E // evAutoComplete
+ ;
+ UP extprop:rc:SelfName 'ACMacro'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53CD0BB00244 TevACMacro
+
+ME ME_53CD0B68029E
+ MEPROP UID '53CD0B68029E'
+ MEPROP Name 'evAutoComplete'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53CD0B9F005B // IevAutoComplete
+ HWL ME_53CD0B8200B8 // TevAutoComplete
+ HWL ME_53CD0BB00244 // TevACMacro
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evAutoComplete.pas'
+ UP extprop:rc:SelfName 'AutoComplete'
+
+ENDME // ME_53CD0B68029E evAutoComplete

@@ -41,7 +41,7 @@ begin
    ModelToFire.CurrentElement := ModelToListen.CurrentElement;
  end//ModelToFire.CurrentElement = nil
  else
- if not ModelToFire.CurrentElement.IsSameElement(ModelToListen.CurrentElement) then
+ if not ModelToFire.CurrentElement.IsSameElementView(ModelToListen.CurrentElement) then
   ModelToFire.CurrentElement := ModelToListen.CurrentElement;
 //#UC END# *57D1737F03CB_57B31D1000FA_57D1737F03CB_impl*
 end;//TmsmCurrentElementSynchronizeBinding.DoCurrentElementChangedEvent

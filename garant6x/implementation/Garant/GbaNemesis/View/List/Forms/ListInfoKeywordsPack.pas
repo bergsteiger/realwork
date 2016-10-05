@@ -289,10 +289,14 @@ initialization
  {* Регистрация Tkw_ListInfo_Component_TextSource }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefListInfo));
  {* Регистрация типа TefListInfo }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTextSource));
  {* Регистрация типа TnscTextSource }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

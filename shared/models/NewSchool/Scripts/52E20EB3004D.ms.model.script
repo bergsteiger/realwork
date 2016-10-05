@@ -1,0 +1,59 @@
+// ImageEnPack 52E20EB3004D ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E20EB3004D
+
+ME ME_52E20EBE02EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E20EB3004D // ImageEnPack
+ ;
+ MELINK Target WL 'ME_52E20E70006F' '52E20E0E0059.ms.model.script' // ImageEnViewer_SaveBitmap
+ ;
+
+ENDME // ME_52E20EBE02EF 
+
+ME ME_54F4642100D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_52E20EB3004D // ImageEnPack
+ ;
+ MELINK Target WL 'ME_4ACDBC6101A6' '4ACDBC4A0003.ms.model.script' // TImageEnView
+ ;
+
+ENDME // ME_54F4642100D0 
+
+ME ME_54F47EE30065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52E20EB3004D // ImageEnPack
+ ;
+ MELINK Target WL 'ME_54F47ECF0071' '52E20E0E0059.ms.model.script' // TImageEnViewRegistrator
+ ;
+
+ENDME // ME_54F47EE30065 
+
+%%InjectedBy ME_4ACDBC6101A6 ME_52E20EB3004D
+
+ME ME_52E20EB3004D
+ MEPROP UID '52E20EB3004D'
+ MEPROP Name 'ImageEnPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52E20E0E0059' '52E20E0E0059.ms.model.script' // ImageEnView
+ ;
+ MELIST Dependencies
+   Seq: ( ME_52E20EBE02EF // ImageEnViewer_SaveBitmap
+ ME_54F4642100D0 // TImageEnView
+ ME_54F47EE30065 // TImageEnViewRegistrator
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ImageEnPack.pas'
+
+ENDME // ME_52E20EB3004D ImageEnPack

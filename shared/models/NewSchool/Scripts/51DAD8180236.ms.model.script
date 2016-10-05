@@ -1,0 +1,88 @@
+// l3MemorySizeUtils 51DAD8180236 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51DAD8180236
+
+FORWARD ME_51DAD8180236
+
+%%InheritedBy ME_51DAD86D0324 ME_51DAD88F0359
+
+ME ME_51DAD88F0359
+ MEPROP UID '51DAD88F0359'
+ MEPROP Name 'PMem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DAD8180236 // l3MemorySizeUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51DAD86D0324' '4807744200AA.ms.model.script' // PANSIChar
+ )
+ ; // Inherits
+
+ENDME // ME_51DAD88F0359 PMem
+
+ME ME_51DADCD1010E
+ MEPROP UID '51DADCD1010E'
+ MEPROP Name 'l3MemorySize'
+ MEPROP OriginalName 'l3MemorySize$Delphi7'
+ MEPROP Class class_Attribute
+ %SUMMARY 'функция для получения размера куска памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DAD8180236 // l3MemorySizeUtils
+ ;
+ MELINK Target WL 'ME_51DAD8DC00B2' '51DADE55035E.ms.model.script' // l3MemorySizeDelphi7
+ ;
+ UP "ifndef" 'XE'
+
+ENDME // ME_51DADCD1010E l3MemorySize$Delphi7
+
+ME ME_51DAE51F02E1
+ MEPROP UID '51DAE51F02E1'
+ MEPROP Name 'l3MemorySize'
+ MEPROP OriginalName 'l3MemorySize$XE'
+ MEPROP Class class_Attribute
+ %SUMMARY 'функция для получения размера куска памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51DAD8180236 // l3MemorySizeUtils
+ ;
+ MELINK Target WL 'ME_51DADA9600F9' '51DADE55035E.ms.model.script' // l3MemorySizeXE
+ ;
+ UP "ifdef" 'XE'
+
+ENDME // ME_51DAE51F02E1 l3MemorySize$XE
+
+ME ME_51DAD8180236
+ MEPROP UID '51DAD8180236'
+ MEPROP Name 'l3MemorySizeUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.ms.model.script' // MemoryUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51DADCD1010E // l3MemorySize$Delphi7
+ HWL ME_51DAE51F02E1 // l3MemorySize$XE
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_51DAD88F0359 // PMem
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MemorySizeUtils.pas'
+ UP extprop:rc:SelfName 'MemorySizeUtils'
+
+ENDME // ME_51DAD8180236 l3MemorySizeUtils

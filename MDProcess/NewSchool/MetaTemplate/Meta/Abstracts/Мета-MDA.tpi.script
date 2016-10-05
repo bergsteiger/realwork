@@ -45,7 +45,7 @@ implementation @ Мета-MDA
 //R  
 //#UC START# *5655E2B600CAfor46E28D3A01E4*
 //P true
-//C %S#f_pas_script_Path()
+//C %f_tpi_script_Path(%S)
 //O %S%f_tpi_script_FileName()
 //F %S%f_tpi_script_GenerateForward()
 //	[{"%SO"!=""}\
@@ -53,8 +53,8 @@ implementation @ Мета-MDA
  begin
 //	%f_clear_list(GENERATED_STEREOS)\
   [%f] clear_list %( 'GENERATED_STEREOS' )% 
-//	INCLUDE 'classRelations.ms.dict'\n\n\
-  'INCLUDE ''classRelations.ms.dict'''#13#10#13#10
+//	INCLUDE 'ME.ms.dict'\n\n\
+  'INCLUDE ''ME.ms.dict'''#13#10#13#10
 
 
 //	<{}{"%D#f_tpi_script_FileName()"!=""}\
@@ -115,8 +115,8 @@ implementation @ Мета-MDA
   end // for F
 
 
-//	: %S%f_tpi_script_Name()\
-  ': '
+//	ME %S%f_tpi_script_Name()\
+  'ME '
   %S %f tpi_script_Name %( )% 
 //	[ Inherits ( <%G#f_tpi_script_Name() ><%R#f_tpi_script_Name() >)]
   if NOT-EMPTY
@@ -145,29 +145,34 @@ implementation @ Мета-MDA
    ')' 
   end // if
   NOP
-//	 CONST UID '%SU'
-  ' CONST UID '''
+//	 MEPROP UID '%SU'
+  ' MEPROP UID '''
   %S |U '''
 //	[{"%SN"!=""}\
   if ( ( %S |N ) %!= '' ) then
   begin
-//	 CONST Name '%S%f_tpi_script_NamePrim()'
-   ' CONST Name '''
+//	 MEPROP Name '%S%f_tpi_script_NamePrim()'
+   ' MEPROP Name '''
    %S %f tpi_script_NamePrim %( )% '''
 //	]\
   end // if
 //	[{"%SS"!=""}\
   if ( ( %S |S ) %!= '' ) then
   begin
-//	 CONST Stereotype '%f_str_replace(%SS,','')'
-   ' CONST Stereotype '''
+//	 MEPROP Stereotype '%f_str_replace(%SS,','')'
+   ' MEPROP Stereotype '''
    [%f] str_replace %( %S |S %, '''' %, '''''' )% '''
 //	]\
   end // if
-//	 @SELF
-  ' @SELF'
-//	; // %S%f_tpi_script_Name()\n\n\
-  '; // '
+//	%f_with_gen_id(pas.script,%f_StereotypeInModelRef(%S))\
+  [%f] with_gen_id %( 'pas.script' %, [%f] StereotypeInModelRef %( %S )% )% 
+//	%S#f_pas_script_GenerateUserProperties()\
+  %S %?f pas_script_GenerateUserProperties %( )% 
+//	
+  #13#10
+
+//	ENDME // %S%f_tpi_script_Name()\n\n\
+  'ENDME // '
   %S %f tpi_script_Name %( )% #13#10#13#10
 //	]\
  end // if
@@ -185,14 +190,38 @@ implementation @ Мета-MDA
    ++! l_Counter
   end // if
  end // for C
-//#UC END# *5655E2B600CAfor46E28D3A01E4*
+
+//f _StereotypeInModelRef
 ; // tpi.script
+
+end. // Мета-MDA
+
+: StereotypeInModelRef OBJECT IN %S
+//	[\
+ if NOT-EMPTY
+ begin
+//	 MELINK StereotypeInModel %S#f_pas_script_Reference() ;
+  ' MELINK StereotypeInModel '
+  %S %?f pas_script_Reference %( )% ' ;'
+//	]
+ end // if
+ NOP
+
+//f _tpi_script_Path
+; // StereotypeInModelRef
+
+: tpi_script_Path OBJECT IN %S
+//	%S#f_pas_script_Path()/Stereotypes
+ %S %?f pas_script_Path %( )% '/Stereotypes'
+//#UC END# *5655E2B600CAfor46E28D3A01E4*
+; // tpi_script_Path
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
 
 //%f _st_space_key
+implementation @ Мета-MDA
 : st_space_key OBJECT IN %S
 //	MDP
  'MDP'

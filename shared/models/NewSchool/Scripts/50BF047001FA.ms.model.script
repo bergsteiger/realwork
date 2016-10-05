@@ -1,0 +1,260 @@
+// seThreadSupport 50BF047001FA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_50BF047001FA
+%%Inner ME_50BF047001FA
+
+FORWARD ME_50BF047001FA
+
+FORWARD ME_4FFFDE6C016C
+
+ME ME_4FFFF64D01AE
+ MEPROP UID '4FFFF64D01AE'
+ MEPROP Name 'f_Context'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFFDE6C016C // TWordThread
+ ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4FFFF64D01AE f_Context
+
+ME ME_4FFFF887007C
+ MEPROP UID '4FFFF887007C'
+ MEPROP Name 'f_Word'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FFFDE6C016C // TWordThread
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4FFFF887007C f_Word
+
+ME ME_500003150010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFFDE6C016C // TWordThread
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_500003150010 
+
+ME ME_4FFFDF740099_ME_4FFFDE6C016C
+ MELINK Original WL 'ME_4FFFDF740099' '478CF30500C1.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FFFDF740099_ME_4FFFDE6C016C Execute
+
+ME ME_48077504027E_ME_4FFFDE6C016C
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_4FFFDE6C016C Destroy
+
+%%InheritedBy ME_4FFFDF4601F9 ME_4FFFDE6C016C
+
+ME ME_4FFFDE6C016C
+ MEPROP UID '4FFFDE6C016C'
+ MEPROP Name 'TWordThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50BF047001FA // seThreadSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FFFF64D01AE // f_Context
+ HWL ME_4FFFF887007C // f_Word
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4FFFDF740099_ME_4FFFDE6C016C // Execute
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_4FFFDE6C016C // Destroy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_500003150010 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'WordThread'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FFFDE6C016C TWordThread
+
+FORWARD ME_50BF049002DB
+
+ME ME_50BF07020290
+ MEPROP UID '50BF07020290'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50BF049002DB // TseWorkThreadList
+ ;
+ MELINK Target HWL ME_4FFFDE6C016C // TWordThread
+ ;
+
+ENDME // ME_50BF07020290 ItemType
+
+FORWARD ME_50BF1C6D0267
+
+ME ME_50BF1C800223
+ MEPROP UID '50BF1C800223'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50BF1C6D0267 // WaitForAllThreads
+ ;
+
+ENDME // ME_50BF1C800223 DoIt
+
+ME ME_50BF1C6D0267
+ MEPROP UID '50BF1C6D0267'
+ MEPROP Name 'WaitForAllThreads'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50BF049002DB // TseWorkThreadList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50BF1C800223 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50BF1C6D0267 WaitForAllThreads
+
+FORWARD ME_50BF1E9C001F
+
+ME ME_50BF1EFF017E
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50BF1EFF017E aContext
+
+ME ME_50BF1EFF019E
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_50BF1EFF019E aWord
+
+ME ME_50BF1ED30035
+ MEPROP UID '50BF1ED30035'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50BF1E9C001F // AddAndResumeThread
+ ;
+ MELIST Parameters
+   Seq: ( ME_50BF1EFF017E // aContext
+ ME_50BF1EFF019E // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_50BF1ED30035 DoIt
+
+ME ME_50BF1E9C001F
+ MEPROP UID '50BF1E9C001F'
+ MEPROP Name 'AddAndResumeThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50BF049002DB // TseWorkThreadList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50BF1ED30035 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50BF1E9C001F AddAndResumeThread
+
+%%InheritedBy ME_47B57B7800A7 ME_50BF049002DB
+%%InheritedBy ME_4A54DD4E036F ME_50BF049002DB
+
+ME ME_50BF049002DB
+ MEPROP UID '50BF049002DB'
+ MEPROP Name 'TseWorkThreadList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50BF047001FA // seThreadSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57B7800A7' '47B57B7800A7.ms.model.script' // l3ObjectPtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_50BF07020290 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50BF1C6D0267 // WaitForAllThreads
+ HWL ME_50BF1E9C001F // AddAndResumeThread
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" true
+ UP extprop:rc:SelfName 'seWorkThreadList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50BF049002DB TseWorkThreadList
+
+ME ME_50BF047001FA
+ MEPROP UID '50BF047001FA'
+ MEPROP Name 'seThreadSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_50C065860332' '50C065860332.ms.model.script' // CodeFlowSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4FFFDE6C016C // TWordThread
+ HWL ME_50BF049002DB // TseWorkThreadList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seThreadSupport.pas'
+
+ENDME // ME_50BF047001FA seThreadSupport

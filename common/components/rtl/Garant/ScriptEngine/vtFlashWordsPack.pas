@@ -97,8 +97,10 @@ end;//TkwPopFlashGetFrame.DoDoIt
 initialization
  TkwPopFlashGetFrame.RegisterInEngine;
  {* Регистрация pop_Flash_GetFrame }
+{$If NOT Defined(NoFlash)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtShockwaveFlashEx));
  {* Регистрация типа TvtShockwaveFlashEx }
+{$IfEnd} // NOT Defined(NoFlash)
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)

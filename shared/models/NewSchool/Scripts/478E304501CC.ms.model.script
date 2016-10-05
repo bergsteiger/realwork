@@ -1,0 +1,95 @@
+// afwTypedIntegerValueMap 478E304501CC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_478E304501CC
+
+FORWARD ME_478E304501CC
+
+FORWARD ME_478E31250074
+
+ME ME_473D93290004_ME_478E31250074
+ MELINK Original WL 'ME_473D93290004' '467823B7002C.ms.model.script' // FillStrings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473D93290004_ME_478E31250074 FillStrings
+
+%%ImplementedBy ME_473D93190033 ME_478E31250074
+
+%%InheritedBy ME_478E1E3A0182 ME_478E31250074
+
+ME ME_478E31250074
+ MEPROP UID '478E31250074'
+ MEPROP Name 'TafwSimpleTypedIntegerValueMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E304501CC // afwTypedIntegerValueMap
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_478E1E3A0182' '478E1D94023E.ms.model.script' // Tl3SimpleTypedIntegerValueMap
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_473D93190033' '467823B7002C.ms.model.script' // IafwStringsSource
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_473D93290004_ME_478E31250074 // FillStrings
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'afwSimpleTypedIntegerValueMap'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_478E31250074 TafwSimpleTypedIntegerValueMap
+
+ME ME_478E307A02AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478E304501CC // afwTypedIntegerValueMap
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_478E307A02AC 
+
+ME ME_478E309B0279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478E304501CC // afwTypedIntegerValueMap
+ ;
+ MELINK Target WL 'ME_478E1D94023E' '478E1D94023E.ms.model.script' // l3TypedIntegerValueMap
+ ;
+
+ENDME // ME_478E309B0279 
+
+ME ME_478E304501CC
+ MEPROP UID '478E304501CC'
+ MEPROP Name 'afwTypedIntegerValueMap'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'реализаци€ мапы "строка"-"число" дл€ чистой замены array [TSomeType] of string.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47764CED0308' '47764CED0308.ms.model.script' // Standard
+ ;
+ MELIST Children
+   Seq: ( HWL ME_478E31250074 // TafwSimpleTypedIntegerValueMap
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_478E307A02AC // l3Base
+ ME_478E309B0279 // l3TypedIntegerValueMap
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwTypedIntegerValueMap.pas'
+
+ENDME // ME_478E304501CC afwTypedIntegerValueMap

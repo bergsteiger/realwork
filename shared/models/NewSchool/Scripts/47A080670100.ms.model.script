@@ -1,0 +1,428 @@
+// l3Stream 47A080670100 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47A080670100
+%%Inner ME_47A080670100
+%%Inner ME_47A080670100
+%%Inner ME_47A080670100
+%%Inner ME_47A080670100
+%%Inner ME_47A080670100
+%%Inner ME_47A080670100
+%%Inner ME_47A080670100
+
+FORWARD ME_47A080670100
+
+FORWARD ME_47A0818C0025
+
+ME ME_47A08195015E
+ MEPROP UID '47A08195015E'
+ MEPROP Name 'bsUnknown'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A0818C0025 // Tl3BufferState
+ ;
+
+ENDME // ME_47A08195015E bsUnknown
+
+ME ME_47A0819A0127
+ MEPROP UID '47A0819A0127'
+ MEPROP Name 'bsRead'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A0818C0025 // Tl3BufferState
+ ;
+
+ENDME // ME_47A0819A0127 bsRead
+
+ME ME_47A0819E03BF
+ MEPROP UID '47A0819E03BF'
+ MEPROP Name 'bsWrite'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A0818C0025 // Tl3BufferState
+ ;
+
+ENDME // ME_47A0819E03BF bsWrite
+
+ME ME_47A0818C0025
+ MEPROP UID '47A0818C0025'
+ MEPROP Name 'Tl3BufferState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Состояние буфера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47A08195015E // bsUnknown
+ HWL ME_47A0819A0127 // bsRead
+ HWL ME_47A0819E03BF // bsWrite
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47A0818C0025 Tl3BufferState
+
+ME ME_47B17EA203B8
+ MEPROP UID '47B17EA203B8'
+ MEPROP Name 'Tl3TextStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ UP extprop:rc:SelfName 'TextStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47B17EA203B8 Tl3TextStream
+
+ME ME_495230C40219
+ MEPROP UID '495230C40219'
+ MEPROP Name 'Tl3NamedTextStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'NamedTextStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_495230C40219 Tl3NamedTextStream
+
+ME ME_4C74ED51025F
+ MEPROP UID '4C74ED51025F'
+ MEPROP Name 'Tl3FileStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'FileStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C74ED51025F Tl3FileStream
+
+%%InheritedBy ME_48F4748E0192 ME_53078F2001B2
+
+ME ME_53078F2001B2
+ MEPROP UID '53078F2001B2'
+ MEPROP Name 'Tl3HandleStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'HandleStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53078F2001B2 Tl3HandleStream
+
+%%InheritedBy ME_53078F2001B2 ME_53078F0D032A
+
+ME ME_53078F0D032A
+ MEPROP UID '53078F0D032A'
+ MEPROP Name 'Tl3TempFileStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53078F2001B2 // Tl3HandleStream
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'TempFileStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53078F0D032A Tl3TempFileStream
+
+ME ME_53733E060113
+ MEPROP UID '53733E060113'
+ MEPROP Name 'Tl3NamedFileStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ UP extprop:rc:SelfName 'NamedFileStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53733E060113 Tl3NamedFileStream
+
+%%InheritedBy ME_499D47A502DE ME_55795D8E03BA
+
+ME ME_55795D8E03BA
+ MEPROP UID '55795D8E03BA'
+ MEPROP Name 'Tl3ResourceStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_499D47A502DE' '47AB1FDE03E4.ms.model.script' // Tl3ConstMemoryStream
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ResourceStream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55795D8E03BA Tl3ResourceStream
+
+ME ME_4B2FC528001C
+ MEPROP UID '4B2FC528001C'
+ MEPROP Name 'l3CompareFiles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ UP extprop:rc:SelfName 'CompareFiles'
+
+ENDME // ME_4B2FC528001C l3CompareFiles
+
+ME ME_47A080B2027B
+ MEPROP Name 'anIStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_47A080B2027B anIStream
+
+ME ME_47A080B2029A
+ MEPROP Name 'theStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
+ ;
+
+ENDME // ME_47A080B2029A theStream
+
+ME ME_47A080A301E7
+ MEPROP UID '47A080A301E7'
+ MEPROP Name 'l3IStream2Stream'
+ MEPROP Class class_Operation
+ %SUMMARY 'преобразует IStream в TStream.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A080B2027B // anIStream
+ ME_47A080B2029A // theStream
+ )
+ ; // Parameters
+
+ENDME // ME_47A080A301E7 l3IStream2Stream
+
+ME ME_47A080C001A9
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
+ ;
+
+ENDME // ME_47A080C001A9 aStream
+
+ME ME_47A080BA000E
+ MEPROP UID '47A080BA000E'
+ MEPROP Name 'l3Stream2IStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'преобразует TStream в IStream.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A080C001A9 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_47A080BA000E l3Stream2IStream
+
+ME ME_47A080D7005C
+ MEPROP Name 'anInStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
+ ;
+
+ENDME // ME_47A080D7005C anInStream
+
+ME ME_47A080D7007B
+ MEPROP Name 'anOutStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
+ ;
+
+ENDME // ME_47A080D7007B anOutStream
+
+ME ME_47A080C802F4
+ MEPROP UID '47A080C802F4'
+ MEPROP Name 'l3CopyStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'копирует из одного потока в другой.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELINK Target WL 'ME_476F784B0232' '4677FBA70343.ms.model.script' // Large
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A080D7005C // anInStream
+ ME_47A080D7007B // anOutStream
+ )
+ ; // Parameters
+
+ENDME // ME_47A080C802F4 l3CopyStream
+
+ME ME_47A0812B01F8
+ MEPROP Name 'aStream1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_47A0812B01F8 aStream1
+
+ME ME_47A0812B0217
+ MEPROP Name 'aStream2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_47A0812B0217 aStream2
+
+ME ME_47A0811D03D3
+ MEPROP UID '47A0811D03D3'
+ MEPROP Name 'l3CompareStreams'
+ MEPROP Class class_Operation
+ %SUMMARY 'сравнивает побайтово два потока.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A0812B01F8 // aStream1
+ ME_47A0812B0217 // aStream2
+ )
+ ; // Parameters
+
+ENDME // ME_47A0811D03D3 l3CompareStreams
+
+ME ME_47A0814601EC
+ MEPROP Name 'aStream1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
+ ;
+
+ENDME // ME_47A0814601EC aStream1
+
+ME ME_47A08146021B
+ MEPROP Name 'aStream2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F85A900E3' '478CF30500C1.ms.model.script' // TStream$Stub
+ ;
+
+ENDME // ME_47A08146021B aStream2
+
+ME ME_47A081370242
+ MEPROP UID '47A081370242'
+ MEPROP Name 'l3CompareStreams'
+ MEPROP Class class_Operation
+ %SUMMARY 'сравнивает побайтово два потока.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A080670100 // l3Stream
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A0814601EC // aStream1
+ ME_47A08146021B // aStream2
+ )
+ ; // Parameters
+
+ENDME // ME_47A081370242 l3CompareStreams
+
+ME ME_47A080670100
+ MEPROP UID '47A080670100'
+ MEPROP Name 'l3Stream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Различные потоки данных.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2FC528001C // l3CompareFiles
+ HWL ME_47A080A301E7 // l3IStream2Stream
+ HWL ME_47A080BA000E // l3Stream2IStream
+ HWL ME_47A080C802F4 // l3CopyStream
+ HWL ME_47A0811D03D3 // l3CompareStreams
+ HWL ME_47A081370242 // l3CompareStreams
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_47A0818C0025 // Tl3BufferState
+ HWL ME_47B17EA203B8 // Tl3TextStream
+ HWL ME_495230C40219 // Tl3NamedTextStream
+ HWL ME_4C74ED51025F // Tl3FileStream
+ HWL ME_53078F2001B2 // Tl3HandleStream
+ HWL ME_53078F0D032A // Tl3TempFileStream
+ HWL ME_53733E060113 // Tl3NamedFileStream
+ HWL ME_55795D8E03BA // Tl3ResourceStream
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '28.01.1999 18:24'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Stream.pas'
+ UP extprop:rc:SelfName 'Stream'
+
+ENDME // ME_47A080670100 l3Stream

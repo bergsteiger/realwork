@@ -1,0 +1,134 @@
+// Math 4808A20402DC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4808A20402DC
+
+ME ME_4C341F8A008E
+ MEPROP UID '4C341F8A008E'
+ MEPROP Name 'IfThen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A20402DC // Math
+ ;
+
+ENDME // ME_4C341F8A008E IfThen
+
+ME ME_4E8C103D01B1
+ MEPROP UID '4E8C103D01B1'
+ MEPROP Name 'Sign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A20402DC // Math
+ ;
+
+ENDME // ME_4E8C103D01B1 Sign
+
+ME ME_51909822025E
+ MEPROP UID '51909822025E'
+ MEPROP Name 'InRange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A20402DC // Math
+ ;
+
+ENDME // ME_51909822025E InRange
+
+ME ME_5475911A0274
+ MEPROP UID '5475911A0274'
+ MEPROP Name 'Min'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A20402DC // Math
+ ;
+
+ENDME // ME_5475911A0274 Min
+
+ME ME_56459FB100FF
+ MEPROP UID '56459FB100FF'
+ MEPROP Name 'Max'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A20402DC // Math
+ ;
+
+ENDME // ME_56459FB100FF Max
+
+ME ME_4808A23B00E1
+ MEPROP Name 'aFrom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4808A23B00E1 aFrom
+
+ME ME_4808A23B00F5
+ MEPROP Name 'aTo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4808A23B00F5 aTo
+
+ME ME_4808A21203A5
+ MEPROP UID '4808A21203A5'
+ MEPROP Name 'RandomRange'
+ MEPROP Class class_Operation
+ %SUMMARY 'Returns a random integer from a specified range.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4808A20402DC // Math
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4808A23B00E1 // aFrom
+ ME_4808A23B00F5 // aTo
+ )
+ ; // Parameters
+
+ENDME // ME_4808A21203A5 RandomRange
+
+ME ME_4808A20402DC
+ MEPROP UID '4808A20402DC'
+ MEPROP Name 'Math'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C341F8A008E // IfThen
+ HWL ME_4E8C103D01B1 // Sign
+ HWL ME_51909822025E // InRange
+ HWL ME_5475911A0274 // Min
+ HWL ME_56459FB100FF // Max
+ HWL ME_4808A21203A5 // RandomRange
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Math.pas'
+
+ENDME // ME_4808A20402DC Math

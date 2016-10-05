@@ -80,7 +80,28 @@ constructor TarDirectSaveDocumentHelper.Create(aFamily: TdaFamilyID;
 //#UC END# *57E272BE029B_57E2715500C8_var*
 begin
 //#UC START# *57E272BE029B_57E2715500C8_impl*
- !!! Needs to be implemented !!!
+ inherited Create;
+ Filer := MakeFilerForDB(aFamily, anID, aPart);
+ Filer.Mode := l3_fmReadWrite;
+ f_NeedOpenFiler := (aClass <> dtNone) and NeedSaveText;
+ if f_NeedOpenFiler then
+  Filer.Open;
+ if IsClassChanged and (Tm3DBFiler(Filer).Part <> nil) then
+  Tm3DBFiler(Filer).Part.Info := Tm3DBDocumentInfo_C(ord(aClass));
+
+ f_Generator := nil;
+ if NeedSaveText then
+ begin
+  TevdNativeWriter.SetTo(f_Generator);
+  with TevdNativeWriter(f_Generator) do
+  begin
+   Filer := Self.Filer;
+   Binary := true;
+  end;
+ end;
+
+ if ParseToDB then
+  BuildDocSavePipe(aFamily, anID, anIsObjTopic, aEraseNotify, f_Generator);
 //#UC END# *57E272BE029B_57E2715500C8_impl*
 end;//TarDirectSaveDocumentHelper.Create
 
@@ -93,7 +114,29 @@ procedure TarDirectSaveDocumentHelper.BuildDocSavePipe(aDocFamily: TdaFamilyID;
 //#UC END# *57CFF0F8008A_57E2715500C8_var*
 begin
 //#UC START# *57CFF0F8008A_57E2715500C8_impl*
- !!! Needs to be implemented !!!
+ if not (anIsObjTopic) then
+ begin
+  //TddImageHandleInsertFilter.SetTo(aGen);
+  // - этот функционал переехал в TddSavedObjectsList и TddExtObjExtractor
+  TddExtObjExtractor.SetTo(aGen);
+ end;
+ //else
+ // TarDocObjectAdder.SetTo(G, TarDocObject(anAdditionalData));
+
+  // устанавливает фильтр, который укладывает данные в СУБД
+  with TDBFilter(TDocSaveDBFilter.SetTo(aGen)) do
+  begin
+   Family := aDocFamily;
+   CurDocID := aDocID;
+   InternalFormat := True;
+   SaveMode := smSave;
+   ExcludeAttr := CctAllAttributes; // рассчитывается через k2_tiEditablePartsв TDocSaveDBFilter,
+                                    // если k2_tiEditableParts не придет атрибуты записываться не будут
+   ExcludeMainRec := True;          // см. выше
+
+   NeedEventforEraseAttrRec := [ctKW];
+   OnEraseAttrRecords := aEraseNotify;
+  end;
 //#UC END# *57CFF0F8008A_57E2715500C8_impl*
 end;//TarDirectSaveDocumentHelper.BuildDocSavePipe
 
@@ -102,7 +145,10 @@ function TarDirectSaveDocumentHelper.SaveDoc: Boolean;
 //#UC END# *57E270CF032F_57E2715500C8_var*
 begin
 //#UC START# *57E270CF032F_57E2715500C8_impl*
- !!! Needs to be implemented !!!
+ if f_NeedOpenFiler then
+  Filer.Close;
+ f_NeedOpenFiler := False;
+ Result := True;
 //#UC END# *57E270CF032F_57E2715500C8_impl*
 end;//TarDirectSaveDocumentHelper.SaveDoc
 
@@ -111,7 +157,8 @@ procedure TarDirectSaveDocumentHelper.HandleException;
 //#UC END# *57E270DD0210_57E2715500C8_var*
 begin
 //#UC START# *57E270DD0210_57E2715500C8_impl*
- !!! Needs to be implemented !!!
+ if Filer.Opened then
+  Filer.Rollback;
 //#UC END# *57E270DD0210_57E2715500C8_impl*
 end;//TarDirectSaveDocumentHelper.HandleException
 
@@ -121,7 +168,9 @@ procedure TarDirectSaveDocumentHelper.Cleanup;
 //#UC END# *479731C50290_57E2715500C8_var*
 begin
 //#UC START# *479731C50290_57E2715500C8_impl*
- !!! Needs to be implemented !!!
+ if f_NeedOpenFiler then
+  Filer.Close;
+ inherited;
 //#UC END# *479731C50290_57E2715500C8_impl*
 end;//TarDirectSaveDocumentHelper.Cleanup
 

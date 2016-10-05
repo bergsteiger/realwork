@@ -35,6 +35,8 @@ function k2_attrFamilyID: Integer;
 function k2_attrDocIDList: Integer;
 
 function k2_attrActionType: Integer;
+
+function k2_attrAnouncedDate: Integer;
 function k2_typcsMultiModifyDocs: csMultiModifyDocsTag;
 
 implementation
@@ -96,6 +98,16 @@ begin
  if (g_k2_attrActionType = -1) then
   g_k2_attrActionType :=  Tk2Attributes.Instance.CheckIDByName('ActionType');
  Result := g_k2_attrActionType;
+end;
+
+var
+ g_k2_attrAnouncedDate: Integer = -1;
+
+function k2_attrAnouncedDate: Integer;
+begin
+ if (g_k2_attrAnouncedDate = -1) then
+  g_k2_attrAnouncedDate :=  Tk2Attributes.Instance.CheckIDByName('AnouncedDate');
+ Result := g_k2_attrAnouncedDate;
 end;
 
 

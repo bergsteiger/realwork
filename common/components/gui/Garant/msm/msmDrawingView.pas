@@ -13,6 +13,7 @@ uses
  , afwControl
  , msmEvents
  , msmConcreteModels
+ , l3Interfaces
  , Classes
  , l3InternalInterfaces
  {$If NOT Defined(NoVCL)}
@@ -36,9 +37,16 @@ type
   protected
    procedure pm_SetModel(const aValue: ImsmDrawingModel);
    procedure ModelStateChanged;
-   procedure Fire(anEvent: TmsmEvent);
+   procedure HandleEvent(anEvent: TmsmEvent);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
+   function DoDoDragOver(const aData: IDataObject;
+    const aPoint: TPoint): Boolean; override;
+   function DoGetAcceptableFormats: Tl3ClipboardFormats; override;
+   function DoDoDrop(aFormat: Tl3ClipboardFormat;
+    const aMedium: Tl3StoragePlace;
+    var dwEffect: Integer): Boolean; override;
+   function DoKeys2Effect(aKeys: Integer): Integer; override;
    procedure Paint(const CN: Il3Canvas); override;
     {* процедура рисования внешнего вида управляющего элемента }
    {$If NOT Defined(NoVCL)}
@@ -104,14 +112,15 @@ uses
  , DateUtils
  , StdCtrls
  , Graphics
- , l3Interfaces
  , l3String
  , l3Bits
  , l3MinMax
  , l3Base
+ , l3TreeConst
  , msmElementViews
  , msmLineF
  , msmDrawArrow
+ , msmElementSelectionDataObject
  //#UC END# *57D00ACC01B0impl_uses*
 ;
 
@@ -142,7 +151,7 @@ begin
 //#UC END# *57D0199B00F9_57D00ACC01B0_impl*
 end;//TmsmDrawingView.ModelStateChanged
 
-procedure TmsmDrawingView.Fire(anEvent: TmsmEvent);
+procedure TmsmDrawingView.HandleEvent(anEvent: TmsmEvent);
 //#UC START# *57AD8E570241_57D00ACC01B0_var*
 //#UC END# *57AD8E570241_57D00ACC01B0_var*
 begin
@@ -159,7 +168,7 @@ begin
  if (anEvent = SelectionChangedEvent.Instance) then
   ModelStateChanged;
 //#UC END# *57AD8E570241_57D00ACC01B0_impl*
-end;//TmsmDrawingView.Fire
+end;//TmsmDrawingView.HandleEvent
 
 procedure TmsmDrawingView.Cleanup;
  {* Функция очистки полей объекта. }
@@ -181,6 +190,58 @@ begin
  ScrollStyle := ssBoth;
 //#UC END# *47D1602000C6_57D00ACC01B0_impl*
 end;//TmsmDrawingView.Create
+
+function TmsmDrawingView.DoDoDragOver(const aData: IDataObject;
+ const aPoint: TPoint): Boolean;
+//#UC START# *48BFA1300211_57D00ACC01B0_var*
+//#UC END# *48BFA1300211_57D00ACC01B0_var*
+begin
+//#UC START# *48BFA1300211_57D00ACC01B0_impl*
+ Result := (Model <> nil);
+ //Result := inherited DoDoDragOver(aData, aPoint);
+//#UC END# *48BFA1300211_57D00ACC01B0_impl*
+end;//TmsmDrawingView.DoDoDragOver
+
+function TmsmDrawingView.DoGetAcceptableFormats: Tl3ClipboardFormats;
+//#UC START# *48BFB42C002A_57D00ACC01B0_var*
+//#UC END# *48BFB42C002A_57D00ACC01B0_var*
+begin
+//#UC START# *48BFB42C002A_57D00ACC01B0_impl*
+ Result := l3FormatArray([CF_TreeNode, TmsmElementSelectionDataObject.CF_msmSelection]);
+//#UC END# *48BFB42C002A_57D00ACC01B0_impl*
+end;//TmsmDrawingView.DoGetAcceptableFormats
+
+function TmsmDrawingView.DoDoDrop(aFormat: Tl3ClipboardFormat;
+ const aMedium: Tl3StoragePlace;
+ var dwEffect: Integer): Boolean;
+//#UC START# *48BFB6D800B3_57D00ACC01B0_var*
+var
+ l_Pt : Tl3SPoint;
+//#UC END# *48BFB6D800B3_57D00ACC01B0_var*
+begin
+//#UC START# *48BFB6D800B3_57D00ACC01B0_impl*
+ if (Model <> nil) then
+ begin
+  l_Pt.GetCursorPos;
+  l_Pt.Convert(ScreenToClient);
+  Result := Model.Drop(aFormat, aMedium, dwEffect, l_Pt.Add(f_Origin));
+  if Result then
+   if CanFocus then
+    SetFocus;
+ end//Model <> nil
+ else
+  Result := inherited DoDoDrop(aFormat, aMedium, dwEffect);
+//#UC END# *48BFB6D800B3_57D00ACC01B0_impl*
+end;//TmsmDrawingView.DoDoDrop
+
+function TmsmDrawingView.DoKeys2Effect(aKeys: Integer): Integer;
+//#UC START# *48BFB75F01ED_57D00ACC01B0_var*
+//#UC END# *48BFB75F01ED_57D00ACC01B0_var*
+begin
+//#UC START# *48BFB75F01ED_57D00ACC01B0_impl*
+ Result := inherited DoKeys2Effect(aKeys);
+//#UC END# *48BFB75F01ED_57D00ACC01B0_impl*
+end;//TmsmDrawingView.DoKeys2Effect
 
 procedure TmsmDrawingView.Paint(const CN: Il3Canvas);
  {* процедура рисования внешнего вида управляющего элемента }
@@ -465,7 +526,7 @@ begin
    for l_Index := 0 to Pred(l_List.Count) do
    begin
     l_E := l_List[l_Index];
-    if (l_E <> nil) AND not l_E.IsView then
+    if (l_E <> nil) AND l_E.IsViewLink then
      DrawLink(l_E, ElementRect(l_E), l_Selection);
    end;//for l_Index
    Exit;
@@ -658,8 +719,13 @@ begin
   end;//mbLeft
   mbRight:
   begin
-   Model.Selection.Clear;
-   Model.CurrentElement := ElementOnPointOrParent(l3SPoint(X, Y));
+   l_E := ElementOnPoint(l3SPoint(X, Y));
+   if (l_E = nil) OR
+      not Self.Model.Selection.IsElementSelectedOrCurrent(l_E) then
+   begin
+    Model.Selection.Clear;
+    Model.CurrentElement := ElementOnPointOrParent(l3SPoint(X, Y));
+   end;//l_E = nil
   end;//mbRight
  end;//Case Button
 //#UC END# *4F88473B03CD_57D00ACC01B0_impl*
@@ -699,6 +765,7 @@ begin
   Result := Result.SubPt(f_Origin);
  end//anElement.IsView
  else
+ if anElement.IsViewLink then
  begin
   l_From := anElement.ElementProp['msm:View:From'];
   l_To := anElement.ElementProp['msm:View:To'];
@@ -804,6 +871,7 @@ begin
       end;//ElementRect(l_E).ContainsPt(aPoint)
      end//l_E.IsView
      else
+     if l_E.IsViewLink then
      begin
       Case ClassifyLinePos(aPoint, ElementRect(l_E)) of
        BETWEEN,

@@ -1,0 +1,45 @@
+// F_TextEditor 4F8D7830015D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8D7830015D
+
+FORWARD ME_4F8D7830015D
+
+ME ME_4F8D783E00FC
+ MEPROP UID '4F8D783E00FC'
+ MEPROP Name 'TTextEditorWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D7830015D // F_TextEditor
+ ;
+ UP extprop:rc:SelfName 'TextEditorWin'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F8D783E00FC TTextEditorWin
+
+ME ME_4F8D7830015D
+ MEPROP UID '4F8D7830015D'
+ MEPROP Name 'F_TextEditor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F8D7381019D' '4F8D7381019D.ms.model.script' // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D783E00FC // TTextEditorWin
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_TextEditor.pas'
+
+ENDME // ME_4F8D7830015D F_TextEditor

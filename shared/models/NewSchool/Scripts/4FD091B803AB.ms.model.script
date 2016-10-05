@@ -1,0 +1,58 @@
+// evdStylesRes 4FD091B803AB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FD091B803AB
+
+FORWARD ME_4FD091B803AB
+
+%%InheritedBy ME_4AAA214A0250 ME_4FD091CD0011
+
+ME ME_4FD091CD0011
+ MEPROP UID '4FD091CD0011'
+ MEPROP Name 'TevdStyles_Res'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FD091B803AB // evdStylesRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '478CF30500C1.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'dStyles_Res'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FD091CD0011 TevdStyles_Res
+
+%%ImplementedBy ME_4FD09229012E ME_4FD091B803AB
+
+ME ME_4FD091B803AB
+ MEPROP UID '4FD091B803AB'
+ MEPROP Name 'evdStylesRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4FD09229012E' '4E57B8C2010F.ms.model.script' // У стилей ДПЭ должны быть картинки
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_4FD091CD0011 // TevdStyles_Res
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\NOT_FINISHED_evdStylesRes.pas'
+ UP extprop:rc:SelfName 'dStylesRes'
+
+ENDME // ME_4FD091B803AB evdStylesRes

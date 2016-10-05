@@ -2,9 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57B1B48C00F8
+
 FORWARD ME_57B1B48C00F8
 
 FORWARD ME_57ADBFD200CA
+
+%%ImplementedBy ME_57ADBE5B024A ME_57ADC0130133
 
 ME ME_57ADC0130133
  MEPROP UID '57ADC0130133'
@@ -24,10 +28,16 @@ ME ME_57ADC0130133
 ENDME // ME_57ADC0130133 Make
 
 ME ME_479731C50290_ME_57ADBFD200CA
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_57ADBFD200CA Cleanup
+
+%%ImplementedBy ME_57ADBE5B024A ME_57ADBFD200CA
+%%ImplementedBy ME_57B6A905031E ME_57ADBFD200CA
+
+%%InheritedBy ME_49E7754802A9 ME_57ADBFD200CA
+%%InheritedBy ME_57B6B275018D ME_57ADBFD200CA
 
 ME ME_57ADBFD200CA
  MEPROP UID '57ADBFD200CA'
@@ -41,12 +51,12 @@ ME ME_57ADBFD200CA
  ;
  MELIST Inherits
    Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- WL 'ME_57B6B275018D' '57CE85BE0100.ms.model.script' // msmEventsPublisher
+ WL 'ME_57B6B275018D' '57B6B275018D.ms.model.script' // msmEventsPublisher
  )
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_57ADBE5B024A' '57CEB4640283.ms.model.script' // ImsmModel
- WL 'ME_57B6A905031E' '57CE85BE0100.ms.model.script' // msmEventFire
+ WL 'ME_57B6A905031E' '57B6A905031E.ms.model.script' // msmEventFire
  )
  ; // Implements
  MELIST Operations
@@ -57,6 +67,9 @@ ME ME_57ADBFD200CA
    Seq: ( ME_479731C50290_ME_57ADBFD200CA // Cleanup
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmModel.pas'
  UP extprop:rc:SelfName 'msmModel'
  UP extprop:rc:isAcceptableForScripts true
@@ -85,5 +98,8 @@ ME ME_57B1B48C00F8
  WL 'ME_57CEB4640283' '57CEB4640283.ms.model.script' // msmModels
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_57B1B48C00F8 Models

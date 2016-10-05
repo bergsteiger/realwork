@@ -1,0 +1,158 @@
+// l3MemorySizeUtilsPrim 51DADE55035E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51DADE55035E
+
+FORWARD ME_51DADE55035E
+
+FORWARD ME_51DAD83E03B7
+
+ME ME_51DAD8CB00E0
+ MEPROP Name 'aPtr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_51DAD8CB00E0 aPtr
+
+ME ME_51DAD8B40203
+ MEPROP UID '51DAD8B40203'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DAD83E03B7 // Tl3MemorySizeFunc
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_51DAD8CB00E0 // aPtr
+ )
+ ; // Parameters
+
+ENDME // ME_51DAD8B40203 DoIt
+
+ME ME_51DAD83E03B7
+ MEPROP UID '51DAD83E03B7'
+ MEPROP Name 'Tl3MemorySizeFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'прототип функции для получения размера куска памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DADE55035E // l3MemorySizeUtilsPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DAD8B40203 // DoIt
+ )
+ ; // Operations
+ UP "of object" false
+
+ENDME // ME_51DAD83E03B7 Tl3MemorySizeFunc
+
+FORWARD ME_51DAD8DC00B2
+
+ME ME_51DAE3FC00A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DAD8DC00B2 // l3MemorySizeDelphi7
+ ;
+ MELINK Target WL 'ME_51DAD88F0359' '51DAD8180236.ms.model.script' // PMem
+ ;
+
+ENDME // ME_51DAE3FC00A8 
+
+%%InheritedBy ME_51DAD83E03B7 ME_51DAD8DC00B2
+
+ME ME_51DAD8DC00B2
+ MEPROP UID '51DAD8DC00B2'
+ MEPROP Name 'l3MemorySizeDelphi7'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'функция для получения размера куска памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DADE55035E // l3MemorySizeUtilsPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51DAD83E03B7 // Tl3MemorySizeFunc
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_51DAE3FC00A8 // PMem
+ )
+ ; // Dependencies
+ UP "ifndef" 'XE'
+ UP extprop:rc:SelfName 'MemorySizeDelphi7'
+
+ENDME // ME_51DAD8DC00B2 l3MemorySizeDelphi7
+
+FORWARD ME_51DADA9600F9
+
+ME ME_51DAE40302B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DADA9600F9 // l3MemorySizeXE
+ ;
+ MELINK Target WL 'ME_51DAD88F0359' '51DAD8180236.ms.model.script' // PMem
+ ;
+
+ENDME // ME_51DAE40302B8 
+
+%%InheritedBy ME_51DAD83E03B7 ME_51DADA9600F9
+
+ME ME_51DADA9600F9
+ MEPROP UID '51DADA9600F9'
+ MEPROP Name 'l3MemorySizeXE'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'функция для получения размера куска памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DADE55035E // l3MemorySizeUtilsPrim
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51DAD83E03B7 // Tl3MemorySizeFunc
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_51DAE40302B8 // PMem
+ )
+ ; // Dependencies
+ UP "ifdef" 'XE'
+ UP extprop:rc:SelfName 'MemorySizeXE'
+
+ENDME // ME_51DADA9600F9 l3MemorySizeXE
+
+ME ME_51DADE55035E
+ MEPROP UID '51DADE55035E'
+ MEPROP Name 'l3MemorySizeUtilsPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.ms.model.script' // MemoryUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DAD8DC00B2 // l3MemorySizeDelphi7
+ HWL ME_51DADA9600F9 // l3MemorySizeXE
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_51DAD83E03B7 // Tl3MemorySizeFunc
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MemorySizeUtilsPrim.pas'
+ UP extprop:rc:SelfName 'MemorySizeUtilsPrim'
+
+ENDME // ME_51DADE55035E l3MemorySizeUtilsPrim

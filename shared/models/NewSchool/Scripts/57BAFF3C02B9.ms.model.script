@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57BAFF3C02B9
+%%Inner ME_57BAFF3C02B9
+
 FORWARD ME_57BAFF3C02B9
 
 FORWARD ME_57BAFF5F01D5
@@ -64,6 +67,8 @@ ME ME_57BB00560345
 
 ENDME // ME_57BB00560345 Subscribe
 
+%%InheritedBy ME_57BB00560345 ME_57BB007302F3
+
 ME ME_57BB007302F3
  MEPROP UID '57BB007302F3'
  MEPROP Name 'Unsubscribe'
@@ -124,6 +129,10 @@ ME ME_57BB027A01CD
 
 ENDME // ME_57BB027A01CD Fire
 
+%%ImplementedBy ME_47B57D630029 ME_57BAFF5F01D5
+
+%%InheritedBy ME_4A54DD4E036F ME_57BAFF5F01D5
+
 ME ME_57BAFF5F01D5
  MEPROP UID '57BAFF5F01D5'
  MEPROP Name 'TItfwWordListenerList'
@@ -139,7 +148,7 @@ ME ME_57BAFF5F01D5
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
  )
  ; // Implements
  MELIST Attributes
@@ -152,6 +161,9 @@ ME ME_57BAFF5F01D5
  HWL ME_57BB027A01CD // Fire
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ItfwWordListenerList.pas'
  UP extprop:rc:SelfName 'ItfwWordListenerList'
  UP extprop:rc:isAcceptableForScripts true
@@ -171,6 +183,10 @@ ME ME_57BB003E00D5
  UP "injects as" 'interface'
 
 ENDME // ME_57BB003E00D5 
+
+%%InjectedBy ME_4DAEED140007 ME_57BB002402E9
+
+%%InheritedBy ME_57BAFF5F01D5 ME_57BB002402E9
 
 ME ME_57BB002402E9
  MEPROP UID '57BB002402E9'
@@ -218,5 +234,8 @@ ME ME_57BAFF3C02B9
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_57BAFF3C02B9 WordsListening

@@ -85,6 +85,18 @@ type
    read Get_Abbreviations;
  end;//ICodexDataHolder
 
+ IddAutolinkTSMatch = interface
+  ['{3569EE79-1666-4B6D-AFD9-1F67A3CE8535}']
+  function Get_DocType: Integer;
+  function Get_Source: Integer;
+  function IsMatch(aType: Integer;
+   aSource: Integer): Boolean;
+  property DocType: Integer
+   read Get_DocType;
+  property Source: Integer
+   read Get_Source;
+ end;//IddAutolinkTSMatch
+
 implementation
 
 uses

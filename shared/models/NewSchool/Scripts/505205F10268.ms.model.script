@@ -1,0 +1,49 @@
+// atEntityWithName 505205F10268 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_505205F10268
+
+ME ME_4FD249FB01FC
+ MEPROP UID '4FD249FB01FC'
+ MEPROP Name 'Name'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_505205F10268 // atEntityWithName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_4FD249FB01FC Name
+
+%%InheritedBy ME_4FC8E3BF0125 ME_505205F10268
+
+ME ME_505205F10268
+ MEPROP UID '505205F10268'
+ MEPROP Name 'atEntityWithName'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48078CC202EC' '48078CC202EC.ms.model.script' // AdapterHelpers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FC8E3BF0125' '4FC8E3BF0125.ms.model.script' // atEntity
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FD249FB01FC // Name
+ )
+ ; // Attributes
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atEntityWithName.imp.pas'
+ UP extprop:pas:TypeName '_atEntityWithName_'
+ UP extprop:pas:UnitName 'atEntityWithName.imp'
+
+ENDME // ME_505205F10268 atEntityWithName

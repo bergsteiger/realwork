@@ -1,0 +1,50 @@
+// afwImpurity 5093D47602BF Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5093D47602BF
+
+ME ME_5093D4BF0220
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5093D47602BF // afwImpurity
+ ;
+ MELINK Target WL 'ME_5507FDD203E1' '4E030FC801EB.ms.model.script' // Tl3BatchService
+ ;
+
+ENDME // ME_5093D4BF0220 
+
+ME ME_5093DC25011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5093D47602BF // afwImpurity
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_5093DC25011A 
+
+ME ME_5093D47602BF
+ MEPROP UID '5093D47602BF'
+ MEPROP Name 'afwImpurity'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4FFFDA8302A7' '4FFFDA8302A7.ms.model.script' // ModalDialogs
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5093D4BF0220 // Tl3BatchService
+ ME_5093DC25011A // ModalResults
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\afwImpurity.imp.pas'
+ UP extprop:pas:TypeName '_afwImpurity_'
+ UP extprop:pas:UnitName 'afwImpurity.imp'
+
+ENDME // ME_5093D47602BF afwImpurity

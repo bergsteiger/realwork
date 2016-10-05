@@ -1,0 +1,69 @@
+// AtomicList 51DED48301D9 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51DED48301D9
+
+FORWARD ME_51DED48301D9
+
+ME ME_51DED49F0220
+ MEPROP UID '51DED49F0220'
+ MEPROP Name 'l3Items_IsAtomic'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DED48301D9 // AtomicList
+ ;
+ UP extprop:rc:SelfName 'Items_IsAtomic'
+
+ENDME // ME_51DED49F0220 l3Items_IsAtomic
+
+ME ME_51DEC20B01D7_ME_51DED48301D9
+ MELINK Original WL 'ME_51DEC20B01D7' '51DEB07E03E4.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_51DEC20B01D7_ME_51DED48301D9 FreeItem
+
+ME ME_51DECB440087_ME_51DED48301D9
+ MELINK Original WL 'ME_51DECB440087' '51DEB07E03E4.ms.model.script' // FillItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_51DECB440087_ME_51DED48301D9 FillItem
+
+%%InheritedBy ME_51DED02E0163 ME_51DED48301D9
+
+ME ME_51DED48301D9
+ MEPROP UID '51DED48301D9'
+ MEPROP Name 'AtomicList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список атомарных значений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51DEB06A03CB' '51DEB06A03CB.ms.model.script' // STLLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51DED02E0163' '51DED02E0163.ms.model.script' // UnrefcountedListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_51DEC20B01D7_ME_51DED48301D9 // FreeItem
+ ME_51DECB440087_ME_51DED48301D9 // FillItem
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_51DED49F0220 // l3Items_IsAtomic
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\SandBox\AtomicList.imp.pas'
+ UP extprop:pas:TypeName '_AtomicList_'
+ UP extprop:pas:UnitName 'AtomicList.imp'
+
+ENDME // ME_51DED48301D9 AtomicList

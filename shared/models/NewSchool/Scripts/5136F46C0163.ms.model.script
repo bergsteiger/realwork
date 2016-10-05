@@ -1,0 +1,218 @@
+// FolderSupport 5136F46C0163 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5136F46C0163
+
+FORWARD ME_5136F50C0264
+
+ME ME_5136F529023B
+ MEPROP UID '5136F529023B'
+ MEPROP Name 'csRegistryShowFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5136F50C0264 // FoldersConstants
+ ;
+ MEPROP Value '''ShowFolder'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''ShowFolder'''
+
+ENDME // ME_5136F529023B csRegistryShowFolder
+
+ME ME_5136F50C0264
+ MEPROP UID '5136F50C0264'
+ MEPROP Name 'FoldersConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5136F46C0163 // FolderSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5136F529023B // csRegistryShowFolder
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_5136F50C0264 FoldersConstants
+
+FORWARD ME_5136F53C00C2
+
+ME ME_5136F555010F
+ MEPROP UID '5136F555010F'
+ MEPROP Name 'cnFolderIndex'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Признак папки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5136F53C00C2 // InternalFolderConstants
+ ;
+ MEPROP Value 'High(Integer)'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'High(Integer)'
+
+ENDME // ME_5136F555010F cnFolderIndex
+
+ME ME_5136F53C00C2
+ MEPROP UID '5136F53C00C2'
+ MEPROP Name 'InternalFolderConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5136F46C0163 // FolderSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5136F555010F // cnFolderIndex
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_5136F53C00C2 InternalFolderConstants
+
+FORWARD ME_5136F4820266
+
+ME ME_5136F4D1034A
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4AC62798032A.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_5136F4D1034A aNode
+
+ME ME_5136F4BE00C8
+ MEPROP UID '5136F4BE00C8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5136F4820266 // IsNodeFolder
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5136F4D1034A // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_5136F4BE00C8 DoIt
+
+ME ME_5136F4820266
+ MEPROP UID '5136F4820266'
+ MEPROP Name 'IsNodeFolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5136F46C0163 // FolderSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5136F4BE00C8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5136F4820266 IsNodeFolder
+
+FORWARD ME_5136F4DC012D
+
+ME ME_5136F4F601B0
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_512F402F01BA' '4AC62798032A.ms.model.script' // TTreeView
+ ;
+
+ENDME // ME_5136F4F601B0 aTree
+
+ME ME_5136F4F601CF
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4AC62798032A.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_5136F4F601CF aNode
+
+ME ME_5136F4F601DF
+ MEPROP Name 'aFoldeName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5136F4F601DF aFoldeName
+
+ME ME_5136F4E303CF
+ MEPROP UID '5136F4E303CF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5136F4DC012D // AddFolderNode
+ ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4AC62798032A.ms.model.script' // TTreeNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_5136F4F601B0 // aTree
+ ME_5136F4F601CF // aNode
+ ME_5136F4F601DF // aFoldeName
+ )
+ ; // Parameters
+
+ENDME // ME_5136F4E303CF DoIt
+
+ME ME_5136F4DC012D
+ MEPROP UID '5136F4DC012D'
+ MEPROP Name 'AddFolderNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5136F46C0163 // FolderSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5136F4E303CF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5136F4DC012D AddFolderNode
+
+ME ME_5136F46C0163
+ MEPROP UID '5136F46C0163'
+ MEPROP Name 'FolderSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5136F4820266 // IsNodeFolder
+ HWL ME_5136F4DC012D // AddFolderNode
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_5136F50C0264 // FoldersConstants
+ HWL ME_5136F53C00C2 // InternalFolderConstants
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\DUnit\src\FolderSupport.pas'
+
+ENDME // ME_5136F46C0163 FolderSupport

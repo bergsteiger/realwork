@@ -2,6 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_47BC50280350
+%%Inner ME_47BC50280350
+%%Inner ME_47BC50280350
+%%Inner ME_47BC50280350
+%%Inner ME_47BC50280350
+%%Inner ME_47BC50280350
+%%Inner ME_47BC50280350
+
 FORWARD ME_47BC50280350
 
 FORWARD ME_47BC507501AB
@@ -24,12 +32,14 @@ ME ME_47BC528601A2
 ENDME // ME_47BC528601A2 Handle
 
 ME ME_47BC3BFD017F_ME_47BC507501AB
- MELINK Original WL 'ME_47BC3BFD017F' '47913B47006E.ms.model.script' // StringID
+ MELINK Original WL 'ME_47BC3BFD017F' '53317D14019D.ms.model.script' // StringID
  ;
  MEPROP OpKind opkind_Overridden
  UP "needs field" false
  UP "pm" true
 ENDME // ME_47BC3BFD017F_ME_47BC507501AB StringID
+
+%%InheritedBy ME_47BC50F5038E ME_47BC507501AB
 
 ME ME_47BC507501AB
  MEPROP UID '47BC507501AB'
@@ -79,7 +89,7 @@ ME ME_47BC5421007E
 ENDME // ME_47BC5421007E ItemType
 
 ME ME_47B2C42A0163_ME_47BC53EE023A
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -87,10 +97,13 @@ ME ME_47B2C42A0163_ME_47BC53EE023A
 ENDME // ME_47B2C42A0163_ME_47BC53EE023A AssignItem
 
 ME ME_47B99D4503A2_ME_47BC53EE023A
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_47BC53EE023A CompareExistingItems
+
+%%InheritedBy ME_47B99E920196 ME_47BC53EE023A
+%%InheritedBy ME_47BC3A07027F ME_47BC53EE023A
 
 ME ME_47BC53EE023A
  MEPROP UID '47BC53EE023A'
@@ -104,7 +117,7 @@ ME ME_47BC53EE023A
  MELINK Parent HWL ME_47BC50280350 // Dictionary
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47B99E920196.ms.model.script' // l3UncomparabeObjectRefList
  WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
  )
  ; // Inherits
@@ -142,10 +155,13 @@ ME ME_47BC55F90059
 ENDME // ME_47BC55F90059 FindDataType
 
 ME ME_47B9BAFD01F4_ME_47BC55C00240
- MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47B9BAFD01F4_ME_47BC55C00240 CompareItemWithData
+
+%%InheritedBy ME_47B47E230134 ME_47BC55C00240
+%%InheritedBy ME_47BC53EE023A ME_47BC55C00240
 
 ME ME_47BC55C00240
  MEPROP UID '47BC55C00240'
@@ -159,7 +175,7 @@ ME ME_47BC55C00240
  MELINK Parent HWL ME_47BC50280350 // Dictionary
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47B47E230134.ms.model.script' // l3Searcher
  HWL ME_47BC53EE023A // TdtDictItemsPrim
  )
  ; // Inherits
@@ -178,353 +194,6 @@ ME ME_47BC55C00240
 
 ENDME // ME_47BC55C00240 TdtDictItems
 
-FORWARD ME_4E25307E022D
-
-FORWARD ME_4E253095034C
-
-ME ME_4E2530AD00AB
- MEPROP Name 'aDictID'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55409CB903D4' '5432448401BC.ms.model.script' // TdaDictionaryType
- ;
-
-ENDME // ME_4E2530AD00AB aDictID
-
-ME ME_4E25309D027D
- MEPROP UID '4E25309D027D'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E253095034C // GetDictName
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_4E2530AD00AB // aDictID
- )
- ; // Parameters
-
-ENDME // ME_4E25309D027D DoIt
-
-ME ME_4E253095034C
- MEPROP UID '4E253095034C'
- MEPROP Name 'GetDictName'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E25307E022D // DictsSup
- ;
- MELIST Operations
-   Seq: ( HWL ME_4E25309D027D // DoIt
- )
- ; // Operations
-
-ENDME // ME_4E253095034C GetDictName
-
-ME ME_4E25307E022D
- MEPROP UID '4E25307E022D'
- MEPROP Name 'DictsSup'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47BC50280350 // Dictionary
- ;
- MELIST Operations
-   Seq: ( HWL ME_4E253095034C // GetDictName
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_DictsSup.pas'
-
-ENDME // ME_4E25307E022D DictsSup
-
-FORWARD ME_55E6B6330367
-
-ME ME_55E6B69701C1
- MEPROP UID '55E6B69701C1'
- MEPROP Name 'TDictMessageRec'
- MEPROP Class class_Class
- MELINK Stereotype st_Struct ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55E6B6330367 // dt_DictTypes
- ;
- UP "finished" false
-
-ENDME // ME_55E6B69701C1 TDictMessageRec
-
-FORWARD ME_55E6B64E030E
-
-ME ME_55E6B6890215
- MEPROP Name 'Info'
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target HWL ME_55E6B69701C1 // TDictMessageRec
- ;
-
-ENDME // ME_55E6B6890215 Info
-
-ME ME_55E6B66A036E
- MEPROP UID '55E6B66A036E'
- MEPROP Name 'dcn__DictionaryChange'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_55E6B64E030E // IDictChangeNotifyRecipient
- ;
- MELIST Parameters
-   Seq: ( ME_55E6B6890215 // Info
- )
- ; // Parameters
-
-ENDME // ME_55E6B66A036E dcn__DictionaryChange
-
-ME ME_55E6B64E030E
- MEPROP UID '55E6B64E030E'
- MEPROP GUID '29F5993F-AEC6-4EAF-B8E6-393D6C6DFD09'
- MEPROP Name 'IDictChangeNotifyRecipient'
- MEPROP Class class_Class
- MELINK Stereotype st_Facet ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55E6B6330367 // dt_DictTypes
- ;
- MELIST Operations
-   Seq: ( HWL ME_55E6B66A036E // dcn__DictionaryChange
- )
- ; // Operations
- UP extprop:rc:SelfName 'DictChangeNotifyRecipient'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55E6B64E030E IDictChangeNotifyRecipient
-
-ME ME_55E6B6330367
- MEPROP UID '55E6B6330367'
- MEPROP Name 'dt_DictTypes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47BC50280350 // Dictionary
- ;
- MELIST Children
-   Seq: ( HWL ME_55E6B69701C1 // TDictMessageRec
- HWL ME_55E6B64E030E // IDictChangeNotifyRecipient
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictTypes.pas'
-
-ENDME // ME_55E6B6330367 dt_DictTypes
-
-FORWARD ME_55E6DBED01B3
-
-ME ME_55E6DC5C02C0
- MEPROP UID '55E6DC5C02C0'
- MEPROP Name 'TDictionaryServer'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55E6DBED01B3 // dt_Dict
- ;
- UP "finished" false
- UP extprop:rc:SelfName 'DictionaryServer'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55E6DC5C02C0 TDictionaryServer
-
-FORWARD ME_55E6DC0802A7
-
-ME ME_55E6DC4C0134
- MEPROP Name 'aFamily'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
- ;
-
-ENDME // ME_55E6DC4C0134 aFamily
-
-ME ME_55E6DC37006A
- MEPROP UID '55E6DC37006A'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55E6DC0802A7 // DictServer
- ;
- MELINK Target HWL ME_55E6DC5C02C0 // TDictionaryServer
- ;
- MELIST Parameters
-   Seq: ( ME_55E6DC4C0134 // aFamily
- )
- ; // Parameters
-
-ENDME // ME_55E6DC37006A DoIt
-
-ME ME_55E6DC0802A7
- MEPROP UID '55E6DC0802A7'
- MEPROP Name 'DictServer'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55E6DBED01B3 // dt_Dict
- ;
- MELIST Operations
-   Seq: ( HWL ME_55E6DC37006A // DoIt
- )
- ; // Operations
- UP "finished" false
-
-ENDME // ME_55E6DC0802A7 DictServer
-
-ME ME_55E6DBED01B3
- MEPROP UID '55E6DBED01B3'
- MEPROP Name 'dt_Dict'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47BC50280350 // Dictionary
- ;
- MELIST Operations
-   Seq: ( HWL ME_55E6DC0802A7 // DictServer
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_55E6DC5C02C0 // TDictionaryServer
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Dict.pas'
-
-ENDME // ME_55E6DBED01B3 dt_Dict
-
-FORWARD ME_55E7042003D3
-
-FORWARD ME_55E94F580288
-
-ME ME_55E94F65037D
- MEPROP UID '55E94F65037D'
- MEPROP Name 'cPublInNumLen'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E94F580288 // cLengths
- ;
- MEPROP Value 30
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 30
-
-ENDME // ME_55E94F65037D cPublInNumLen
-
-ME ME_55E94F8E02C6
- MEPROP UID '55E94F8E02C6'
- MEPROP Name 'cSourceNameLen'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E94F580288 // cLengths
- ;
- MEPROP Value 200
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 200
-
-ENDME // ME_55E94F8E02C6 cSourceNameLen
-
-ME ME_55E94FA40006
- MEPROP UID '55E94FA40006'
- MEPROP Name 'cSourceShortNameLen'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E94F580288 // cLengths
- ;
- MEPROP Value 70
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 70
-
-ENDME // ME_55E94FA40006 cSourceShortNameLen
-
-ME ME_55E94FB2010A
- MEPROP UID '55E94FB2010A'
- MEPROP Name 'cSourceSynonimsLen'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E94F580288 // cLengths
- ;
- MEPROP Value 800
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 800
-
-ENDME // ME_55E94FB2010A cSourceSynonimsLen
-
-ME ME_55E94F580288
- MEPROP UID '55E94F580288'
- MEPROP Name 'cLengths'
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55E7042003D3 // dt_DictConst
- ;
- MELIST Attributes
-   Seq: ( HWL ME_55E94F65037D // cPublInNumLen
- HWL ME_55E94F8E02C6 // cSourceNameLen
- HWL ME_55E94FA40006 // cSourceShortNameLen
- HWL ME_55E94FB2010A // cSourceSynonimsLen
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_55E94F580288 cLengths
-
-ME ME_55E7042003D3
- MEPROP UID '55E7042003D3'
- MEPROP Name 'dt_DictConst'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47BC50280350 // Dictionary
- ;
- MELIST Constants
-   Seq: ( HWL ME_55E94F580288 // cLengths
- )
- ; // Constants
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictConst.pas'
-
-ENDME // ME_55E7042003D3 dt_DictConst
-
 ME ME_47BC50280350
  MEPROP UID '47BC50280350'
  MEPROP Name 'Dictionary'
@@ -540,10 +209,10 @@ ME ME_47BC50280350
    Seq: ( HWL ME_47BC507501AB // TdtCustomDictItem
  HWL ME_47BC53EE023A // TdtDictItemsPrim
  HWL ME_47BC55C00240 // TdtDictItems
- HWL ME_4E25307E022D // DictsSup
- HWL ME_55E6B6330367 // dt_DictTypes
- HWL ME_55E6DBED01B3 // dt_Dict
- HWL ME_55E7042003D3 // dt_DictConst
+ WL 'ME_4E25307E022D' '4E25307E022D.ms.model.script' // DictsSup
+ WL 'ME_55E6B6330367' '55E6B6330367.ms.model.script' // dt_DictTypes
+ WL 'ME_55E6DBED01B3' '55E6DBED01B3.ms.model.script' // dt_Dict
+ WL 'ME_55E7042003D3' '55E7042003D3.ms.model.script' // dt_DictConst
  )
  ; // Children
  MELIST Depends
@@ -556,5 +225,8 @@ ME ME_47BC50280350
  WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_47BC50280350 Dictionary

@@ -1,0 +1,50 @@
+// CsNotification 52FB98CB008D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52FB98CB008D
+
+FORWARD ME_52FB98CB008D
+
+%%InheritedBy ME_53B2424703C7 ME_52FB98DE00E8
+
+ME ME_52FB98DE00E8
+ MEPROP UID '52FB98DE00E8'
+ MEPROP Name 'TCsNotificationType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FB98CB008D // CsNotification
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B2424703C7' '53A953FD016B.ms.model.script' // TCsNotificationType
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52FB98DE00E8 TCsNotificationType
+
+ME ME_52FB98CB008D
+ MEPROP UID '52FB98CB008D'
+ MEPROP Name 'CsNotification'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52FB98DE00E8 // TCsNotificationType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsNotification.pas'
+
+ENDME // ME_52FB98CB008D CsNotification

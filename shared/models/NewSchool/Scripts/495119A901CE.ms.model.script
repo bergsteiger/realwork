@@ -2,7 +2,19 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+%%Inner ME_495119A901CE
+
 FORWARD ME_495119A901CE
+
+%%InheritedBy ME_47542F360372 ME_49512B040003
 
 ME ME_49512B040003
  MEPROP UID '49512B040003'
@@ -28,72 +40,6 @@ ME ME_49512B040003
 
 ENDME // ME_49512B040003 TnscTextSource
 
-FORWARD ME_4B97EE59039E
-
-FORWARD ME_4B97EE8B032F
-
-ME ME_4B97EEB7015F
- MEPROP UID '4B97EEB7015F'
- MEPROP Name 'CloseHyperlinkText'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B97EE8B032F // MiscMessages
- ;
- MEPROP Value '''Закрыть'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Закрыть'''
-
-ENDME // ME_4B97EEB7015F CloseHyperlinkText
-
-ME ME_4B97EE8B032F
- MEPROP UID '4B97EE8B032F'
- MEPROP Name 'MiscMessages'
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4B97EEB7015F // CloseHyperlinkText
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "children prefix" 'nsc_'
- UP "spell names" false
- UP extprop:pas:ElementPrefix 'nsc_'
-
-ENDME // ME_4B97EE8B032F MiscMessages
-
-ME ME_4B97EE59039E
- MEPROP UID '4B97EE59039E'
- MEPROP Name 'nscCustomTreeComboWithHistoryRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ресурсы для TnscCustomTreeComboWithHistory' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_495119A901CE // Editor
- ;
- MELIST Constants
-   Seq: ( HWL ME_4B97EE8B032F // MiscMessages
- )
- ; // Constants
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '10.03.2010 22:09'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistoryRes.pas'
- UP extprop:rc:SelfName 'TreeComboWithHistoryRes'
-
-ENDME // ME_4B97EE59039E nscCustomTreeComboWithHistoryRes
-
 ME ME_495119A901CE
  MEPROP UID '495119A901CE'
  MEPROP Name 'Editor'
@@ -113,7 +59,7 @@ ME ME_495119A901CE
  WL 'ME_4AC63691012B' '4AC63691012B.ms.model.script' // TnscComboBox
  WL 'ME_4B97EE390310' '4B97EE390310.ms.model.script' // TnscTreeComboWithHistory
  WL 'ME_4CF4D14700AE' '4CF4D14700AE.ms.model.script' // TnscTreeComboWithHistoryAndOperations
- HWL ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
+ WL 'ME_4B97EE59039E' '4B97EE59039E.ms.model.script' // nscCustomTreeComboWithHistoryRes
  WL 'ME_4AF46F430293' '4AF46F430293.ms.model.script' // TnscComboBoxWithReadOnly
  )
  ; // Children
@@ -160,6 +106,9 @@ ME ME_495119A901CE
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" true
 
 ENDME // ME_495119A901CE Editor

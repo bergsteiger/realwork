@@ -1,0 +1,90 @@
+// ModalDialogsKeywordsPack 4FFFDEE701EA ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FFFDEE701EA
+
+ME ME_4FFFDF5B0173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFFDEE701EA // ModalDialogsKeywordsPack
+ ;
+ MELINK Target WL 'ME_4DB94B3103DB' '4FFFDA8302A7.ms.model.script' // Was_Wait
+ ;
+
+ENDME // ME_4FFFDF5B0173 
+
+ME ME_4FFFDF6000FF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFFDEE701EA // ModalDialogsKeywordsPack
+ ;
+ MELINK Target WL 'ME_4DB94AE60059' '4FFFDA8302A7.ms.model.script' // wait_No
+ ;
+
+ENDME // ME_4FFFDF6000FF 
+
+ME ME_4FFFDF6401B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFFDEE701EA // ModalDialogsKeywordsPack
+ ;
+ MELINK Target WL 'ME_4DDE8A650180' '4FFFDA8302A7.ms.model.script' // wait_Ok
+ ;
+
+ENDME // ME_4FFFDF6401B4 
+
+ME ME_4FFFDF680059
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFFDEE701EA // ModalDialogsKeywordsPack
+ ;
+ MELINK Target WL 'ME_4DB94A330111' '4FFFDA8302A7.ms.model.script' // wait_Yes
+ ;
+
+ENDME // ME_4FFFDF680059 
+
+ME ME_4FFFE2E202D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFFDEE701EA // ModalDialogsKeywordsPack
+ ;
+ MELINK Target WL 'ME_4FFFE217028B' '4FFFDA8302A7.ms.model.script' // wait_Cancel
+ ;
+
+ENDME // ME_4FFFE2E202D1 
+
+ME ME_4FFFF86503D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FFFDEE701EA // ModalDialogsKeywordsPack
+ ;
+ MELINK Target WL 'ME_4FFFF8520204' '4FFFDA8302A7.ms.model.script' // wait_Choice
+ ;
+
+ENDME // ME_4FFFF86503D4 
+
+ME ME_4FFFDEE701EA
+ MEPROP UID '4FFFDEE701EA'
+ MEPROP Name 'ModalDialogsKeywordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4FFFDA8302A7' '4FFFDA8302A7.ms.model.script' // ModalDialogs
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4FFFDF5B0173 // Was_Wait
+ ME_4FFFDF6000FF // wait_No
+ ME_4FFFDF6401B4 // wait_Ok
+ ME_4FFFDF680059 // wait_Yes
+ ME_4FFFE2E202D1 // wait_Cancel
+ ME_4FFFF86503D4 // wait_Choice
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ModalDialogsKeywordsPack.pas'
+
+ENDME // ME_4FFFDEE701EA ModalDialogsKeywordsPack

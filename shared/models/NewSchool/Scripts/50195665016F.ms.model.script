@@ -1,0 +1,69 @@
+// KeyboardInputPack 50195665016F ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50195665016F
+
+ME ME_501956770078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target WL 'ME_4DB1A01E01F4' '5019517A022F.ms.model.script' // Key
+ ;
+
+ENDME // ME_501956770078 
+
+ME ME_50195691015A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target WL 'ME_501956850225' '5019517A022F.ms.model.script' // HardKey
+ ;
+
+ENDME // ME_50195691015A 
+
+ME ME_5220A473029B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target WL 'ME_5220A3ED0104' '5019517A022F.ms.model.script' // KeyDown
+ ;
+
+ENDME // ME_5220A473029B 
+
+ME ME_5220A4770079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50195665016F // KeyboardInputPack
+ ;
+ MELINK Target WL 'ME_5220A3FC021A' '5019517A022F.ms.model.script' // KeyUp
+ ;
+
+ENDME // ME_5220A4770079 
+
+ME ME_50195665016F
+ MEPROP UID '50195665016F'
+ MEPROP Name 'KeyboardInputPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5019517A022F' '5019517A022F.ms.model.script' // KeyBoardInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_501956770078 // Key
+ ME_50195691015A // HardKey
+ ME_5220A473029B // KeyDown
+ ME_5220A4770079 // KeyUp
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.pas'
+
+ENDME // ME_50195665016F KeyboardInputPack

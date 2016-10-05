@@ -1,0 +1,112 @@
+// nevRangeListTools 4A23BAEF006A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23BAEF006A
+
+ME ME_4A23BBC4006C
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E26A16008E' '47C52679006D.ms.model.script' // TnevRangeList
+ ;
+
+ENDME // ME_4A23BBC4006C aList
+
+ME ME_4A23BBC4009B
+ MEPROP Name 'aRange'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_4A23BBC4009B aRange
+
+ME ME_4A23BB1700A7
+ MEPROP UID '4A23BB1700A7'
+ MEPROP Name 'nevAddRangeToList'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет и добавляет Range к списку.'#13#10'Контролирует пересечение и вложенность.'#13#10'Возвращает признак того, что Range был реально добавлен к списку' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A23BBC4006C // aList
+ ME_4A23BBC4009B // aRange
+ )
+ ; // Parameters
+
+ENDME // ME_4A23BB1700A7 nevAddRangeToList
+
+ME ME_4A23BF0D0394
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
+ ;
+ MELINK Target WL 'ME_476127E40065' '4678193C009C.ms.model.script' // PIUnknown
+ ;
+
+ENDME // ME_4A23BF0D0394 
+
+ME ME_4A23BF8801B6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
+ ;
+ MELINK Target WL 'ME_4A23BF6402DA' '4A23BF6402DA.ms.model.script' // evRangeTools
+ ;
+
+ENDME // ME_4A23BF8801B6 
+
+ME ME_4A23C1E000D3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
+ ;
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4A23C1E000D3 
+
+ME ME_4A23C2DC0133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4A23C2DC0133 
+
+ME ME_4A23BAEF006A
+ MEPROP UID '4A23BAEF006A'
+ MEPROP Name 'nevRangeListTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A23BB1700A7 // nevAddRangeToList
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A23BF0D0394 // PIUnknown
+ ME_4A23BF8801B6 // evRangeTools
+ ME_4A23C1E000D3 // l3MinMax
+ ME_4A23C2DC0133 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRangeListTools.pas'
+ UP extprop:rc:SelfName 'RangeListTools'
+
+ENDME // ME_4A23BAEF006A nevRangeListTools

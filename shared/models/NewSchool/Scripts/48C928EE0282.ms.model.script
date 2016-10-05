@@ -1,0 +1,180 @@
+// evDelayedPainters 48C928EE0282 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48C928EE0282
+
+ME ME_48C9291B03C6
+ MEPROP UID '48C9291B03C6'
+ MEPROP Name 'f_SelectedList'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Список кусочков выделения' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ MELINK Target WL 'ME_48C911C702A4' '49DCC860038B.ms.model.script' // TevSelectedParts
+ ;
+
+ENDME // ME_48C9291B03C6 f_SelectedList
+
+ME ME_48C929410274
+ MEPROP UID '48C929410274'
+ MEPROP Name 'f_RowHeights'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Массив высот строк' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_48C929410274 f_RowHeights
+
+ME ME_48C9294D0370
+ MEPROP UID '48C9294D0370'
+ MEPROP Name 'GetRowHeights'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_48C9294D0370 GetRowHeights
+
+ME ME_48C929A40284
+ MEPROP UID '48C929A40284'
+ MEPROP Name 'PaintSelectionParts'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+
+ENDME // ME_48C929A40284 PaintSelectionParts
+
+ME ME_4A56234C0060
+ MEPROP UID '4A56234C0060'
+ MEPROP Name 'Release'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ UP "is static" false
+
+ENDME // ME_4A56234C0060 Release
+
+ME ME_4A56235D01C9
+ MEPROP UID '4A56235D01C9'
+ MEPROP Name 'BeforeAddToCache'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ UP "is static" false
+
+ENDME // ME_4A56235D01C9 BeforeAddToCache
+
+ME ME_48C92A90037B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_48C92A90037B 
+
+ME ME_48C92B8F0121
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48C92B8F0121 
+
+ME ME_4D6F3F9E0228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
+ ;
+ MELINK Target WL 'ME_4D6F3F42007C' '49DCC860038B.ms.model.script' // TevDelayedPaintersSpy
+ ;
+ UP "ifdef" 'nsTest'
+
+ENDME // ME_4D6F3F9E0228 
+
+ME ME_47C7DE3200E4_ME_48C928EE0282
+ MELINK Original WL 'ME_47C7DE3200E4' '49D2080D020C.ms.model.script' // RemeberSelPart
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C7DE3200E4_ME_48C928EE0282 RemeberSelPart
+
+ME ME_47C7DE42020F_ME_48C928EE0282
+ MELINK Original WL 'ME_47C7DE42020F' '49D2080D020C.ms.model.script' // SetHeight
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C7DE42020F_ME_48C928EE0282 SetHeight
+
+%%ImplementedBy ME_47C7DE24022A ME_48C928EE0282
+
+ME ME_48C928EE0282
+ MEPROP UID '48C928EE0282'
+ MEPROP Name 'evDelayedPainters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49DCC860038B' '49DCC860038B.ms.model.script' // ParaList Painters
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47C7DE24022A' '49D2080D020C.ms.model.script' // InevPaintersHolder
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48C9291B03C6 // f_SelectedList
+ HWL ME_48C929410274 // f_RowHeights
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48C9294D0370 // GetRowHeights
+ HWL ME_48C929A40284 // PaintSelectionParts
+ HWL ME_4A56234C0060 // Release
+ HWL ME_4A56235D01C9 // BeforeAddToCache
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C7DE3200E4_ME_48C928EE0282 // RemeberSelPart
+ ME_47C7DE42020F_ME_48C928EE0282 // SetHeight
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48C92A90037B // Tl3Point
+ ME_48C92B8F0121 // l3Base
+ ME_4D6F3F9E0228 // TevDelayedPaintersSpy
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP "no hands" true
+ UP "started" '06.06.2007 11:44'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDelayedPainters.imp.pas'
+ UP extprop:pas:TypeName '_evDelayedPainters_'
+ UP extprop:pas:UnitName 'evDelayedPainters.imp'
+
+ENDME // ME_48C928EE0282 evDelayedPainters

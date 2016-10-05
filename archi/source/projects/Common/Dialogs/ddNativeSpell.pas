@@ -4,9 +4,12 @@ unit ddNativeSpell;
 { Автор: Люлин А.В. ©     }
 { Модуль: ddNativeSpell - }
 { Начат: 29.10.2002 13:11 }
-{ $Id: ddNativeSpell.pas,v 1.36 2016/04/12 12:45:04 voba Exp $ }
+{ $Id: ddNativeSpell.pas,v 1.37 2016/09/23 09:33:45 voba Exp $ }
 
 // $Log: ddNativeSpell.pas,v $
+// Revision 1.37  2016/09/23 09:33:45  voba
+// no message
+//
 // Revision 1.36  2016/04/12 12:45:04  voba
 // no message
 //
@@ -313,7 +316,7 @@ var
    I : integer;
  begin
   for I := 0 to pred(aStr.SLen) do
-   if not (aStr.S[I] in [cc_Dot, cc_Underline]) then
+   if not (aStr.S[I] in [cc_Dot, cc_Underline, cc_Apostrophe, cc_RSingleQuote]) then
    begin
     Result := False;
     Exit;
@@ -337,10 +340,12 @@ var
 
   f_NormFormFound := False;
   // Если на конце точка, то надо об этом сказать движку спеллчекера
-  if aStr.S[aStr.SLen-1] = cc_Dot then
+  if aStr.S[aStr.SLen-1] in [cc_Dot, cc_Apostrophe, cc_RSingleQuote] then
    aStr.SLen := aStr.SLen -1;
 
   // собственно, проверка правописания
+  l3Replace(aStr, [cc_RSingleQuote], cc_Apostrophe);
+
   f_NormFormFound := gSpeller.CheckSpell(aStr);
   if (not f_NormFormFound) and
      not ((IsIgnoreForm(aStr) or (Assigned(FFilter) and FFilter(aStr)))) then
@@ -353,7 +358,7 @@ var
  end;
 
 const
- cExceptChars: array [Boolean] of TCharSet = ([cc_Dot], []);
+ cExceptChars: array [Boolean] of TCharSet = ([cc_Dot, cc_Apostrophe, cc_RSingleQuote], [cc_Apostrophe, cc_RSingleQuote]);
 begin
  Result:=False;
  if AString = nil then

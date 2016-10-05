@@ -2316,17 +2316,17 @@
    begin
 //	%f_pas_PutToUsesPrim(%S)\
     [%f] pas_PutToUsesPrim %( %S )% 
-//	[{%SS=VCMControls}\
-    if ( ( %S |S ) %== 'VCMControls' ) then
+//	[{%S#f_IsVCMControls()=true}\
+    if ( ( %S %?f IsVCMControls %( )% ) %==  true ) then
     begin
 
 
-//	<{}{%wS=VCMControls}\
+//	<{}{%w#f_IsVCMControls()=true}\
      INTEGER VAR l_Counter l_Counter := 0
      for %S%w
      begin
       OBJECT IN %w
-      if ( ( %w |S ) %== 'VCMControls' ) then
+      if ( ( %w %?f IsVCMControls %( )% ) %==  true ) then
       begin
 //	%f_pas_PutToUses(%w)\
        [%f] pas_PutToUses %( %w )% 
@@ -2337,12 +2337,12 @@
      end // for w
 
 
-//	<{}{%DS=VCMControls}\
+//	<{}{%D#f_IsVCMControls()=true}\
      INTEGER VAR l_Counter l_Counter := 0
      for %S%D
      begin
       OBJECT IN %D
-      if ( ( %D |S ) %== 'VCMControls' ) then
+      if ( ( %D %?f IsVCMControls %( )% ) %==  true ) then
       begin
 //	%f_pas_PutToUses(%D)\
        [%f] pas_PutToUses %( %D )% 
@@ -2399,8 +2399,8 @@
  end // if
  else
  begin
-//	[{%SS=VCMControls}{false}\
-  if ( ( %S |S ) %== 'VCMControls' ) then
+//	[{%S#f_IsVCMControls()=true}{false}\
+  if ( ( %S %?f IsVCMControls %( )% ) %==  true ) then
   begin
 //	[{%f_pas_UnitName(%S)!=%f_pas_UnitName(%B)}{false}true]\
    if ( ( [%f] pas_UnitName %( %S )% ) %!= ( [%f] pas_UnitName %( %B )% ) ) then

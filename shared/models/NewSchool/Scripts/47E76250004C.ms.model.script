@@ -1,0 +1,1068 @@
+// ActnList 47E76250004C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47E76250004C
+%%Inner ME_47E76250004C
+%%Inner ME_47E76250004C
+%%Inner ME_47E76250004C
+%%Inner ME_47E76250004C
+%%Inner ME_47E76250004C
+%%Inner ME_47E76250004C
+
+FORWARD ME_47E76250004C
+
+%%InheritedBy ME_47E762B6004C ME_47E76278025E
+
+ME ME_47E76278025E
+ MEPROP UID '47E76278025E'
+ MEPROP Name 'TContainedAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E76250004C // ActnList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E762B6004C' '478CF30500C1.ms.model.script' // TBasicAction
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ContainedAction'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47E76278025E TContainedAction
+
+%%InheritedBy ME_47E76278025E ME_47E7626B0083
+
+ME ME_47E7626B0083
+ MEPROP UID '47E7626B0083'
+ MEPROP Name 'TCustomAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E76250004C // ActnList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E76278025E // TContainedAction
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Action'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47E7626B0083 TCustomAction
+
+ME ME_499563790006
+ MEPROP UID '499563790006'
+ MEPROP Name 'TShortCutList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E76250004C // ActnList
+ ;
+ UP extprop:rc:SelfName 'ShortCutList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499563790006 TShortCutList
+
+%%InheritedBy ME_47E7626B0083 ME_4AC0EFDD029A
+
+ME ME_4AC0EFDD029A
+ MEPROP UID '4AC0EFDD029A'
+ MEPROP Name 'TAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E76250004C // ActnList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E7626B0083 // TCustomAction
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Action'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AC0EFDD029A TAction
+
+ME ME_52A823770326
+ MEPROP UID '52A823770326'
+ MEPROP Name 'TCustomActionList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E76250004C // ActnList
+ ;
+ UP extprop:rc:SelfName 'ActionList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A823770326 TCustomActionList
+
+FORWARD ME_508F9823023D
+
+%%InheritedBy ME_508F9823023D ME_508F9AC6006D
+
+ME ME_508F9AC6006D
+ MEPROP UID '508F9AC6006D'
+ MEPROP Name 'TActionLinkClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_508F9823023D // TActionLink
+ )
+ ; // Inherits
+ UP "isClassRef" true
+ UP extprop:rc:SelfName 'ActionLinkClass'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_508F9AC6006D TActionLinkClass
+
+FORWARD ME_508F983B0344
+
+ME ME_508F98CD03C9
+ MEPROP UID '508F98CD03C9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F983B0344 // IsCaptionLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98CD03C9 DoIt
+
+ME ME_508F983B0344
+ MEPROP UID '508F983B0344'
+ MEPROP Name 'IsCaptionLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98CD03C9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F983B0344 IsCaptionLinked
+
+FORWARD ME_508F984903AB
+
+ME ME_508F98D90170
+ MEPROP UID '508F98D90170'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F984903AB // IsCheckedLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98D90170 DoIt
+
+ME ME_508F984903AB
+ MEPROP UID '508F984903AB'
+ MEPROP Name 'IsCheckedLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98D90170 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F984903AB IsCheckedLinked
+
+FORWARD ME_508F985802BC
+
+ME ME_508F98DE0026
+ MEPROP UID '508F98DE0026'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F985802BC // IsEnabledLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98DE0026 DoIt
+
+ME ME_508F985802BC
+ MEPROP UID '508F985802BC'
+ MEPROP Name 'IsEnabledLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98DE0026 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F985802BC IsEnabledLinked
+
+FORWARD ME_508F986500A8
+
+ME ME_508F98E2002D
+ MEPROP UID '508F98E2002D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F986500A8 // IsGroupIndexLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98E2002D DoIt
+
+ME ME_508F986500A8
+ MEPROP UID '508F986500A8'
+ MEPROP Name 'IsGroupIndexLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98E2002D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F986500A8 IsGroupIndexLinked
+
+FORWARD ME_508F98890136
+
+ME ME_508F98E60141
+ MEPROP UID '508F98E60141'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F98890136 // IsHelpContextLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98E60141 DoIt
+
+ME ME_508F98890136
+ MEPROP UID '508F98890136'
+ MEPROP Name 'IsHelpContextLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98E60141 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F98890136 IsHelpContextLinked
+
+FORWARD ME_508F98940186
+
+ME ME_508F98EB00E7
+ MEPROP UID '508F98EB00E7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F98940186 // IsHelpLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98EB00E7 DoIt
+
+ME ME_508F98940186
+ MEPROP UID '508F98940186'
+ MEPROP Name 'IsHelpLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98EB00E7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F98940186 IsHelpLinked
+
+FORWARD ME_508F98A000B7
+
+ME ME_508F98EF0101
+ MEPROP UID '508F98EF0101'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F98A000B7 // IsHintLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98EF0101 DoIt
+
+ME ME_508F98A000B7
+ MEPROP UID '508F98A000B7'
+ MEPROP Name 'IsHintLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98EF0101 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F98A000B7 IsHintLinked
+
+FORWARD ME_508F98AD0210
+
+ME ME_508F98F2027B
+ MEPROP UID '508F98F2027B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F98AD0210 // IsImageIndexLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98F2027B DoIt
+
+ME ME_508F98AD0210
+ MEPROP UID '508F98AD0210'
+ MEPROP Name 'IsImageIndexLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98F2027B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F98AD0210 IsImageIndexLinked
+
+FORWARD ME_508F98B80325
+
+ME ME_508F98F602E6
+ MEPROP UID '508F98F602E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F98B80325 // IsShortCutLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98F602E6 DoIt
+
+ME ME_508F98B80325
+ MEPROP UID '508F98B80325'
+ MEPROP Name 'IsShortCutLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98F602E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F98B80325 IsShortCutLinked
+
+FORWARD ME_508F98C402D2
+
+ME ME_508F98FA0208
+ MEPROP UID '508F98FA0208'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F98C402D2 // IsVisibleLinked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F98FA0208 DoIt
+
+ME ME_508F98C402D2
+ MEPROP UID '508F98C402D2'
+ MEPROP Name 'IsVisibleLinked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F98FA0208 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F98C402D2 IsVisibleLinked
+
+FORWARD ME_508F990A01A7
+
+ME ME_508F99AE00E5
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F99AE00E5 Value
+
+ME ME_508F99A903B0
+ MEPROP UID '508F99A903B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F990A01A7 // SetAutoCheck
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F99AE00E5 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F99A903B0 DoIt
+
+ME ME_508F990A01A7
+ MEPROP UID '508F990A01A7'
+ MEPROP Name 'SetAutoCheck'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F99A903B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F990A01A7 SetAutoCheck
+
+FORWARD ME_508F991B003B
+
+ME ME_5175380C01FA
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51546CAE03B7' '4807744200AA.ms.model.script' // String$XE
+ ;
+
+ENDME // ME_5175380C01FA Value
+
+ME ME_508F99E6039C
+ MEPROP UID '508F99E6039C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F991B003B // SetCaption
+ ;
+ MELIST Parameters
+   Seq: ( ME_5175380C01FA // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F99E6039C DoIt
+
+ME ME_508F991B003B
+ MEPROP UID '508F991B003B'
+ MEPROP Name 'SetCaption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F99E6039C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F991B003B SetCaption
+
+FORWARD ME_508F992700F4
+
+ME ME_508F99B8015E
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F99B8015E Value
+
+ME ME_508F99B7001E
+ MEPROP UID '508F99B7001E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F992700F4 // SetChecked
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F99B8015E // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F99B7001E DoIt
+
+ME ME_508F992700F4
+ MEPROP UID '508F992700F4'
+ MEPROP Name 'SetChecked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F99B7001E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F992700F4 SetChecked
+
+FORWARD ME_508F99340058
+
+ME ME_508F99C70017
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F99C70017 Value
+
+ME ME_508F99C600C7
+ MEPROP UID '508F99C600C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F99340058 // SetEnabled
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F99C70017 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F99C600C7 DoIt
+
+ME ME_508F99340058
+ MEPROP UID '508F99340058'
+ MEPROP Name 'SetEnabled'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F99C600C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F99340058 SetEnabled
+
+FORWARD ME_508F993F026A
+
+ME ME_508F9A14031F
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_508F9A14031F Value
+
+ME ME_508F9A120047
+ MEPROP UID '508F9A120047'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F993F026A // SetGroupIndex
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F9A14031F // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F9A120047 DoIt
+
+ME ME_508F993F026A
+ MEPROP UID '508F993F026A'
+ MEPROP Name 'SetGroupIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F9A120047 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F993F026A SetGroupIndex
+
+FORWARD ME_508F994C023C
+
+ME ME_508F9A3801D0
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_508FA905037C' '478CF30500C1.ms.model.script' // THelpContext
+ ;
+
+ENDME // ME_508F9A3801D0 Value
+
+ME ME_508F9A3502F9
+ MEPROP UID '508F9A3502F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F994C023C // SetHelpContext
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F9A3801D0 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F9A3502F9 DoIt
+
+ME ME_508F994C023C
+ MEPROP UID '508F994C023C'
+ MEPROP Name 'SetHelpContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F9A3502F9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F994C023C SetHelpContext
+
+FORWARD ME_508F9958019E
+
+ME ME_508F9A4D031E
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_508F9A4D031E Value
+
+ME ME_508F9A4901B0
+ MEPROP UID '508F9A4901B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F9958019E // SetHelpKeyword
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F9A4D031E // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F9A4901B0 DoIt
+
+ME ME_508F9958019E
+ MEPROP UID '508F9958019E'
+ MEPROP Name 'SetHelpKeyword'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F9A4901B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F9958019E SetHelpKeyword
+
+FORWARD ME_508F99650101
+
+ME ME_508F9A5A01BE
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_508FA9150190' '478CF30500C1.ms.model.script' // THelpType
+ ;
+
+ENDME // ME_508F9A5A01BE Value
+
+ME ME_508F9A57006A
+ MEPROP UID '508F9A57006A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F99650101 // SetHelpType
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F9A5A01BE // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F9A57006A DoIt
+
+ME ME_508F99650101
+ MEPROP UID '508F99650101'
+ MEPROP Name 'SetHelpType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F9A57006A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F99650101 SetHelpType
+
+FORWARD ME_508F99710030
+
+ME ME_508F9A000327
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51546CAE03B7' '4807744200AA.ms.model.script' // String$XE
+ ;
+
+ENDME // ME_508F9A000327 Value
+
+ME ME_508F99FF03D8
+ MEPROP UID '508F99FF03D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F99710030 // SetHint
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F9A000327 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F99FF03D8 DoIt
+
+ME ME_508F99710030
+ MEPROP UID '508F99710030'
+ MEPROP Name 'SetHint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F99FF03D8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F99710030 SetHint
+
+FORWARD ME_508F997C0142
+
+ME ME_508F9A210029
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_508F9A210029 Value
+
+ME ME_508F9A1F0301
+ MEPROP UID '508F9A1F0301'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F997C0142 // SetImageIndex
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F9A210029 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F9A1F0301 DoIt
+
+ME ME_508F997C0142
+ MEPROP UID '508F997C0142'
+ MEPROP Name 'SetImageIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F9A1F0301 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F997C0142 SetImageIndex
+
+FORWARD ME_508F998A00F3
+
+ME ME_508F9A6C006B
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_499562B802E7' '478CF30500C1.ms.model.script' // TShortCut
+ ;
+
+ENDME // ME_508F9A6C006B Value
+
+ME ME_508F9A6902F3
+ MEPROP UID '508F9A6902F3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F998A00F3 // SetShortCut
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F9A6C006B // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F9A6902F3 DoIt
+
+ME ME_508F998A00F3
+ MEPROP UID '508F998A00F3'
+ MEPROP Name 'SetShortCut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F9A6902F3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F998A00F3 SetShortCut
+
+FORWARD ME_508F99970386
+
+ME ME_508F99D00078
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_508F99D00078 Value
+
+ME ME_508F99CE02C1
+ MEPROP UID '508F99CE02C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508F99970386 // SetVisible
+ ;
+ MELIST Parameters
+   Seq: ( ME_508F99D00078 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_508F99CE02C1 DoIt
+
+ME ME_508F99970386
+ MEPROP UID '508F99970386'
+ MEPROP Name 'SetVisible'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_508F9823023D // TActionLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508F99CE02C1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_508F99970386 SetVisible
+
+%%InheritedBy ME_52A088B20026 ME_508F9823023D
+
+ME ME_508F9823023D
+ MEPROP UID '508F9823023D'
+ MEPROP Name 'TActionLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E76250004C // ActnList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A088B20026' '478CF30500C1.ms.model.script' // TBasicActionLink
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_508F983B0344 // IsCaptionLinked
+ HWL ME_508F984903AB // IsCheckedLinked
+ HWL ME_508F985802BC // IsEnabledLinked
+ HWL ME_508F986500A8 // IsGroupIndexLinked
+ HWL ME_508F98890136 // IsHelpContextLinked
+ HWL ME_508F98940186 // IsHelpLinked
+ HWL ME_508F98A000B7 // IsHintLinked
+ HWL ME_508F98AD0210 // IsImageIndexLinked
+ HWL ME_508F98B80325 // IsShortCutLinked
+ HWL ME_508F98C402D2 // IsVisibleLinked
+ HWL ME_508F990A01A7 // SetAutoCheck
+ HWL ME_508F991B003B // SetCaption
+ HWL ME_508F992700F4 // SetChecked
+ HWL ME_508F99340058 // SetEnabled
+ HWL ME_508F993F026A // SetGroupIndex
+ HWL ME_508F994C023C // SetHelpContext
+ HWL ME_508F9958019E // SetHelpKeyword
+ HWL ME_508F99650101 // SetHelpType
+ HWL ME_508F99710030 // SetHint
+ HWL ME_508F997C0142 // SetImageIndex
+ HWL ME_508F998A00F3 // SetShortCut
+ HWL ME_508F99970386 // SetVisible
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_508F9AC6006D // TActionLinkClass
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ActionLink'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_508F9823023D TActionLink
+
+%%InheritedBy ME_52A823770326 ME_4EF32DDB0235
+
+ME ME_4EF32DDB0235
+ MEPROP UID '4EF32DDB0235'
+ MEPROP Name 'TActionList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E76250004C // ActnList
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A823770326 // TCustomActionList
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ActionList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EF32DDB0235 TActionList
+
+ME ME_47E76250004C
+ MEPROP UID '47E76250004C'
+ MEPROP Name 'ActnList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47E76278025E // TContainedAction
+ HWL ME_47E7626B0083 // TCustomAction
+ HWL ME_499563790006 // TShortCutList
+ HWL ME_4AC0EFDD029A // TAction
+ HWL ME_52A823770326 // TCustomActionList
+ HWL ME_508F9823023D // TActionLink
+ HWL ME_4EF32DDB0235 // TActionList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\ActnList.pas'
+
+ENDME // ME_47E76250004C ActnList

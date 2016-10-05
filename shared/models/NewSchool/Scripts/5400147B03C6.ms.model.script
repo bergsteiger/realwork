@@ -2,41 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_5400147B03C6
-
-FORWARD ME_540014C10254
-
-ME ME_540018DD025D
- MEPROP UID '540018DD025D'
- MEPROP Name 'gtRect'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_540014C10254 // gtUtils3
- ;
-
-ENDME // ME_540018DD025D gtRect
-
-ME ME_540014C10254
- MEPROP UID '540014C10254'
- MEPROP Name 'gtUtils3'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5400147B03C6 // RTL
- ;
- MELIST Operations
-   Seq: ( HWL ME_540018DD025D // gtRect
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\gnotice_Shared\Source\Rtl\NOT_FINISHED_gtUtils3.pas'
-
-ENDME // ME_540014C10254 gtUtils3
+%%Inner ME_5400147B03C6
 
 ME ME_5400147B03C6
  MEPROP UID '5400147B03C6'
@@ -49,9 +15,12 @@ ME ME_5400147B03C6
  MELINK Parent WL 'ME_5400141B00BE' '5400141B00BE.ms.model.script' // gnotice_Shared
  ;
  MELIST Children
-   Seq: ( HWL ME_540014C10254 // gtUtils3
+   Seq: ( WL 'ME_540014C10254' '540014C10254.ms.model.script' // gtUtils3
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "path prefix" '/Source/Rtl'
  UP intf.pas:PathOnly '\common\components\rtl\external\gnotice_Shared\Source\Rtl'
 

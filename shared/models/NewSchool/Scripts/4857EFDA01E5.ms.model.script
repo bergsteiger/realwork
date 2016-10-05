@@ -1,0 +1,674 @@
+// evStyleInterfaceEx 4857EFDA01E5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4857EFDA01E5
+%%Inner ME_4857EFDA01E5
+
+FORWARD ME_4857EFDA01E5
+
+FORWARD ME_55522B5101D3
+
+ME ME_55522BCE00BC
+ MEPROP UID '55522BCE00BC'
+ MEPROP Name 'ForExport'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_55522BCE00BC ForExport
+
+FORWARD ME_55522C52008B
+
+ME ME_55522C6101FF
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F226C7001F' '47ECA80B000D.ms.model.script' // Tk2DocumentGenerator
+ ;
+
+ENDME // ME_55522C6101FF G
+
+ME ME_55522C61021D
+ MEPROP Name 'Atom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47F2272B0394' '47ECA80B000D.ms.model.script' // Tk2StackAtom
+ ;
+
+ENDME // ME_55522C61021D Atom
+
+ME ME_55522C5C00A1
+ MEPROP UID '55522C5C00A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522C52008B // DoFinishAtom
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55522C6101FF // G
+ ME_55522C61021D // Atom
+ )
+ ; // Parameters
+
+ENDME // ME_55522C5C00A1 DoIt
+
+ME ME_55522C52008B
+ MEPROP UID '55522C52008B'
+ MEPROP Name 'DoFinishAtom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55522C5C00A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55522C52008B DoFinishAtom
+
+FORWARD ME_55522CA900D2
+
+ME ME_55522CBB01AA
+ MEPROP Name 'Reader'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F09669027A' '47F0893F0220.ms.model.script' // Tk2CustomReader
+ ;
+
+ENDME // ME_55522CBB01AA Reader
+
+ME ME_55522CB802B8
+ MEPROP UID '55522CB802B8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522CA900D2 // Load$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_55522CBB01AA // Reader
+ )
+ ; // Parameters
+
+ENDME // ME_55522CB802B8 DoIt
+
+ME ME_55522CA900D2
+ MEPROP UID '55522CA900D2'
+ MEPROP Name 'Load'
+ MEPROP OriginalName 'Load$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55522CB802B8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55522CA900D2 Load$1
+
+FORWARD ME_55522CC50260
+
+ME ME_55522CD400C0
+ MEPROP Name 'S'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_55522CD400C0 S
+
+ME ME_55522CCE0154
+ MEPROP UID '55522CCE0154'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522CC50260 // Load$2
+ ;
+ MELIST Parameters
+   Seq: ( ME_55522CD400C0 // S
+ )
+ ; // Parameters
+
+ENDME // ME_55522CCE0154 DoIt
+
+ME ME_55522CC50260
+ MEPROP UID '55522CC50260'
+ MEPROP Name 'Load'
+ MEPROP OriginalName 'Load$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55522CCE0154 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55522CC50260 Load$2
+
+FORWARD ME_55522CDE0277
+
+ME ME_55522CE900DB
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_55522CE900DB G
+
+ME ME_55522CE6023E
+ MEPROP UID '55522CE6023E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522CDE0277 // Save$1
+ ;
+ MELIST Parameters
+   Seq: ( ME_55522CE900DB // G
+ )
+ ; // Parameters
+
+ENDME // ME_55522CE6023E DoIt
+
+ME ME_55522CDE0277
+ MEPROP UID '55522CDE0277'
+ MEPROP Name 'Save'
+ MEPROP OriginalName 'Save$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55522CE6023E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55522CDE0277 Save$1
+
+FORWARD ME_55522D1803AB
+
+ME ME_55522D270001
+ MEPROP Name 'S'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_55522D270001 S
+
+ME ME_55522D270015
+ MEPROP Name 'aBinary'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_55522D270015 aBinary
+
+ME ME_55522D2201DB
+ MEPROP UID '55522D2201DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522D1803AB // Save$2
+ ;
+ MELIST Parameters
+   Seq: ( ME_55522D270001 // S
+ ME_55522D270015 // aBinary
+ )
+ ; // Parameters
+
+ENDME // ME_55522D2201DB DoIt
+
+ME ME_55522D1803AB
+ MEPROP UID '55522D1803AB'
+ MEPROP Name 'Save'
+ MEPROP OriginalName 'Save$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55522D2201DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55522D1803AB Save$2
+
+FORWARD ME_55522D4500AB
+
+ME ME_55522D4E000C
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_55522D4E000C G
+
+ME ME_55522D4B0385
+ MEPROP UID '55522D4B0385'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522D4500AB // SaveCurrent
+ ;
+ MELIST Parameters
+   Seq: ( ME_55522D4E000C // G
+ )
+ ; // Parameters
+
+ENDME // ME_55522D4B0385 DoIt
+
+ME ME_55522D4500AB
+ MEPROP UID '55522D4500AB'
+ MEPROP Name 'SaveCurrent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55522D4B0385 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55522D4500AB SaveCurrent
+
+ME ME_55522E5B0139
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_4860AF86034F' '467FC43F01F9.ms.model.script' // Tk2Dictionary
+ ;
+
+ENDME // ME_55522E5B0139 
+
+ME ME_47A042E100E2_ME_55522B5101D3
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_55522B5101D3 InitFields
+
+%%InheritedBy ME_480DB927035A ME_55522B5101D3
+
+ME ME_55522B5101D3
+ MEPROP UID '55522B5101D3'
+ MEPROP Name 'TevStyleInterfaceEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55522BCE00BC // ForExport
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55522C52008B // DoFinishAtom
+ HWL ME_55522CA900D2 // Load$1
+ HWL ME_55522CC50260 // Load$2
+ HWL ME_55522CDE0277 // Save$1
+ HWL ME_55522D1803AB // Save$2
+ HWL ME_55522D4500AB // SaveCurrent
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_55522B5101D3 // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55522E5B0139 // Tk2Dictionary
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'StyleInterfaceEx'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55522B5101D3 TevStyleInterfaceEx
+
+FORWARD ME_55522D920268
+
+ME ME_55522DCC00B5
+ MEPROP UID '55522DCC00B5'
+ MEPROP Name 'f_StyleTable'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55522D920268 // TevStyleTableGenerator
+ ;
+ MELINK Target WL 'ME_4860AF86034F' '467FC43F01F9.ms.model.script' // Tk2Dictionary
+ ;
+
+ENDME // ME_55522DCC00B5 f_StyleTable
+
+%%InheritedBy ME_47F226C7001F ME_55522D920268
+
+ME ME_55522D920268
+ MEPROP UID '55522D920268'
+ MEPROP Name 'TevStyleTableGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F226C7001F' '47ECA80B000D.ms.model.script' // Tk2DocumentGenerator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55522DCC00B5 // f_StyleTable
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'StyleTableGenerator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55522D920268 TevStyleTableGenerator
+
+ME ME_55522B3B0275
+ MEPROP UID '55522B3B0275'
+ MEPROP Name 'g_InCreateDocumentSchema'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55522B3B0275 g_InCreateDocumentSchema
+
+ME ME_555329720039
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_555329720039 
+
+ME ME_5553298E0026
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5553298E0026 
+
+ME ME_555329AB024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_484D11240282' '484A470100DD.ms.model.script' // Style
+ ;
+
+ENDME // ME_555329AB024F 
+
+ME ME_555329DC002A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_469F6D170322' '49A6646B0044.ms.model.script' // Tk2AssignMode
+ ;
+
+ENDME // ME_555329DC002A 
+
+ME ME_55532A0E0137
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_55532A0E0137 
+
+ME ME_55532A310157
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_47D15712022D' '47D15712022D.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_55532A310157 
+
+ME ME_55532A46033F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_47F351BC0145' '47F351BC0145.ms.model.script' // evOpProc
+ ;
+
+ENDME // ME_55532A46033F 
+
+ME ME_55532A5D026D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_4BE404E701DB' '47E3C64F037E.ms.model.script' // Tk2Context
+ ;
+
+ENDME // ME_55532A5D026D 
+
+ME ME_55532ACD004B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_476BED360201' '4678209200A6.ms.model.script' // TevLoadFlag
+ ;
+
+ENDME // ME_55532ACD004B 
+
+ME ME_55532AE50398
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_55532AE50398 
+
+ME ME_55532AFB028B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_47A0686803A5' '47A0686803A5.ms.model.script' // l3Filer
+ ;
+
+ENDME // ME_55532AFB028B 
+
+ME ME_55532B1F0083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ ;
+
+ENDME // ME_55532B1F0083 
+
+ME ME_55532B31031E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_483C378301CB' '483C378301CB.ms.model.script' // StrUtils
+ ;
+
+ENDME // ME_55532B31031E 
+
+ME ME_55532B440168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
+ ;
+
+ENDME // ME_55532B440168 
+
+ME ME_55532B5E0391
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_5319CECC039A' '5319CE3F02E2.ms.model.script' // Tk2SimpleTagList
+ ;
+
+ENDME // ME_55532B5E0391 
+
+ME ME_55532BBF02A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_4E32AB1401C0' '47ECB2870309.ms.model.script' // TevStyleTableFontSizeCorrector
+ ;
+
+ENDME // ME_55532BBF02A6 
+
+ME ME_55532BE4001F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_55532BE4001F 
+
+ME ME_55532C1D0107
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_531075C102DD' '47E3C64F037E.ms.model.script' // Tk2NonOptimizeContext
+ ;
+
+ENDME // ME_55532C1D0107 
+
+ME ME_555330EC02B9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
+ ;
+ MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
+ ;
+
+ENDME // ME_555330EC02B9 
+
+ME ME_4857EFDA01E5
+ MEPROP UID '4857EFDA01E5'
+ MEPROP Name 'evStyleInterfaceEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55522B3B0275 // g_InCreateDocumentSchema
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_55522B5101D3 // TevStyleInterfaceEx
+ HWL ME_55522D920268 // TevStyleTableGenerator
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_555329720039 // Tk2TagID
+ ME_5553298E0026 // Tl3Variant
+ ME_555329AB024F // Style
+ ME_555329DC002A // Tk2AssignMode
+ ME_55532A0E0137 // Standard
+ ME_55532A310157 // Graphics
+ ME_55532A46033F // evOpProc
+ ME_55532A5D026D // Tk2Context
+ ME_55532ACD004B // TevLoadFlag
+ ME_55532AE50398 // l3Base
+ ME_55532AFB028B // l3Filer
+ ME_55532B1F0083 // TevdNativeReader
+ ME_55532B31031E // StrUtils
+ ME_55532B440168 // k2Base
+ ME_55532B5E0391 // Tk2SimpleTagList
+ ME_55532BBF02A6 // TevStyleTableFontSizeCorrector
+ ME_55532BE4001F // Tl3FileMode
+ ME_55532C1D0107 // Tk2NonOptimizeContext
+ ME_555330EC02B9 // TevdNativeWriter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '20.05.2005 17:28'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleInterfaceEx.pas'
+ UP extprop:rc:SelfName 'StyleInterfaceEx'
+
+ENDME // ME_4857EFDA01E5 evStyleInterfaceEx

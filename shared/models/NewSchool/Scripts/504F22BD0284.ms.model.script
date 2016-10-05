@@ -1,0 +1,183 @@
+// atBitMaskConverter 504F22BD0284 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_504F22BD0284
+%%Inner ME_504F22BD0284
+
+FORWARD ME_504F22BD0284
+
+FORWARD ME_504F326001E9
+
+ME ME_504F328E034B
+ MEPROP UID '504F328E034B'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_504F326001E9 // array of _BitMaskValueType_
+ ;
+ MELINK Target WL 'ME_504F22E101DD' '48076E7F0260.ms.model.script' // BitMaskValueType
+ ;
+
+ENDME // ME_504F328E034B 
+
+ME ME_504F326001E9
+ MEPROP UID '504F326001E9'
+ MEPROP Name 'array of _BitMaskValueType_'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F22BD0284 // atBitMaskConverter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_504F328E034B // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_504F326001E9 array of _BitMaskValueType_
+
+%%InheritedBy ME_504F326001E9 ME_504F32DB01F0
+
+ME ME_504F32DB01F0
+ MEPROP UID '504F32DB01F0'
+ MEPROP Name 'TBitMaskValues'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F22BD0284 // atBitMaskConverter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_504F326001E9 // array of _BitMaskValueType_
+ )
+ ; // Inherits
+
+ENDME // ME_504F32DB01F0 TBitMaskValues
+
+ME ME_504F22F302BA
+ MEPROP UID '504F22F302BA'
+ MEPROP Name 'SecondType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F22BD0284 // atBitMaskConverter
+ ;
+ MELINK Target WL 'ME_504F22D5027D' '48076E7F0260.ms.model.script' // BitMaskType
+ ;
+
+ENDME // ME_504F22F302BA SecondType
+
+ME ME_504F230B0255
+ MEPROP UID '504F230B0255'
+ MEPROP Name 'FirstType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F22BD0284 // atBitMaskConverter
+ ;
+ MELINK Target WL 'ME_504F22E101DD' '48076E7F0260.ms.model.script' // BitMaskValueType
+ ;
+
+ENDME // ME_504F230B0255 FirstType
+
+ME ME_504F315802D3
+ MEPROP Name 'aMask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_504F22D5027D' '48076E7F0260.ms.model.script' // BitMaskType
+ ;
+
+ENDME // ME_504F315802D3 aMask
+
+ME ME_504F313903B0
+ MEPROP UID '504F313903B0'
+ MEPROP Name 'ToValues'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F22BD0284 // atBitMaskConverter
+ ;
+ MELINK Target HWL ME_504F32DB01F0 // TBitMaskValues
+ ;
+ MELIST Parameters
+   Seq: ( ME_504F315802D3 // aMask
+ )
+ ; // Parameters
+
+ENDME // ME_504F313903B0 ToValues
+
+ME ME_504F31B000EF
+ MEPROP Name 'aValues'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_504F326001E9 // array of _BitMaskValueType_
+ ;
+
+ENDME // ME_504F31B000EF aValues
+
+ME ME_504F319402B1
+ MEPROP UID '504F319402B1'
+ MEPROP Name 'ToMask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_504F22BD0284 // atBitMaskConverter
+ ;
+ MELINK Target WL 'ME_504F22D5027D' '48076E7F0260.ms.model.script' // BitMaskType
+ ;
+ MELIST Parameters
+   Seq: ( ME_504F31B000EF // aValues
+ )
+ ; // Parameters
+
+ENDME // ME_504F319402B1 ToMask
+
+%%InheritedBy ME_503E2BCA01E8 ME_504F22BD0284
+
+ME ME_504F22BD0284
+ MEPROP UID '504F22BD0284'
+ MEPROP Name 'atBitMaskConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48076E7F0260' '48076E7F0260.ms.model.script' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503E2BCA01E8' '503E2BCA01E8.ms.model.script' // atConverter
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_504F22F302BA // SecondType
+ HWL ME_504F230B0255 // FirstType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_504F313903B0 // ToValues
+ HWL ME_504F319402B1 // ToMask
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_504F326001E9 // array of _BitMaskValueType_
+ HWL ME_504F32DB01F0 // TBitMaskValues
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atBitMaskConverter.imp.pas'
+ UP extprop:pas:TypeName '_atBitMaskConverter_'
+ UP extprop:pas:UnitName 'atBitMaskConverter.imp'
+
+ENDME // ME_504F22BD0284 atBitMaskConverter

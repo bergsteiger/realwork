@@ -1,0 +1,92 @@
+// evDisp 4DD4F6EA03D9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DD4F6EA03D9
+
+FORWARD ME_4DD4F6EA03D9
+
+FORWARD ME_4DD4F6FB0012
+
+ME ME_5776502302CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD4F6FB0012 // TevOperationDispatcher
+ ;
+ MELINK Target WL 'ME_57762BA20039' '57762B5A0168.ms.model.script' // Tl3ClipSpyService
+ ;
+
+ENDME // ME_5776502302CC 
+
+ME ME_57762C1A029F_ME_4DD4F6FB0012
+ MELINK Original WL 'ME_57762C1A029F' '57762BD601E1.ms.model.script' // Change
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57762C1A029F_ME_4DD4F6FB0012 Change
+
+%%ImplementedBy ME_57762C030193 ME_4DD4F6FB0012
+
+ME ME_4DD4F6FB0012
+ MEPROP UID '4DD4F6FB0012'
+ MEPROP Name 'TevOperationDispatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DD4F6EA03D9 // evDisp
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_57762C1A029F_ME_4DD4F6FB0012 // Change
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_5776502302CC // Tl3ClipSpyService
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'OperationDispatcher'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DD4F6FB0012 TevOperationDispatcher
+
+ME ME_4DD4F71E0262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DD4F6EA03D9 // evDisp
+ ;
+ MELINK Target WL 'ME_4DD4F7060070' '4DD4F6C40009.ms.model.script' // TevOperationDispatcherEx
+ ;
+
+ENDME // ME_4DD4F71E0262 
+
+ME ME_4DD4F6EA03D9
+ MEPROP UID '4DD4F6EA03D9'
+ MEPROP Name 'evDisp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DD4F6C40009' '4DD4F6C40009.ms.model.script' // Dispatcher
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DD4F6FB0012 // TevOperationDispatcher
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DD4F71E0262 // TevOperationDispatcherEx
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evDisp.pas'
+ UP extprop:rc:SelfName 'Disp'
+
+ENDME // ME_4DD4F6EA03D9 evDisp

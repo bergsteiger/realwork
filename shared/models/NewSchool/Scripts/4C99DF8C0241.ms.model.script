@@ -1,0 +1,471 @@
+// nsTagNodeToolsNew 4C99DF8C0241 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C99DF8C0241
+
+FORWARD ME_4C99D9AF02E2
+
+ME ME_4C99E08200AF
+ MEPROP UID '4C99E08200AF'
+ MEPROP Name 'Path'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_45EEC8680109' '457450470167.ms.model.script' // NodeIndexPath
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C99E08200AF Path
+
+ME ME_4C99E09A02FC
+ MEPROP UID '4C99E09A02FC'
+ MEPROP Name 'List'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_45EEBD050271' '457450470167.ms.model.script' // FilterList
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C99E09A02FC List
+
+ME ME_4C99E94202AA
+ MEPROP UID '4C99E94202AA'
+ MEPROP Name 'Provider'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_4C5AA5CA02DF' '4570511E038A.ms.model.script' // DocumentTextProvider
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C99E94202AA Provider
+
+ME ME_4C9B1A510076
+ MEPROP UID '4C9B1A510076'
+ MEPROP Name 'Type'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C9B1A510076 Type
+
+ME ME_4C99E012038D
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C99E012038D aTag
+
+ME ME_4C99E01203C0
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4C99E01203C0 aType
+
+ME ME_4C99E0130013
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C99E0130013 anID
+
+ME ME_4C99DFF102D2
+ MEPROP UID '4C99DFF102D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C99E012038D // aTag
+ ME_4C99E01203C0 // aType
+ ME_4C99E0130013 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_4C99DFF102D2 DoIt
+
+ME ME_4C99E0B50232
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4C99E0B50232 
+
+ME ME_4C99E0E30210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_4C99E10C012F' '490865BF02D0.ms.model.script' // nsCreateFilterForFindTagByID
+ ;
+
+ENDME // ME_4C99E0E30210 
+
+FORWARD ME_4C72558F00BC
+
+ME ME_4C99E0FF02BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target HWL ME_4C72558F00BC // nsTagByPath
+ ;
+
+ENDME // ME_4C99E0FF02BE 
+
+ME ME_4C9B12230344
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4C9B12230344 
+
+ME ME_4C9B12320307
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_48579E4A003C' '48492FC0029D.ms.model.script' // ParaList
+ ;
+
+ENDME // ME_4C9B12320307 
+
+ME ME_4C9B1246029D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_485669C9009D' '484A470100DD.ms.model.script' // LeafPara
+ ;
+
+ENDME // ME_4C9B1246029D 
+
+ME ME_4C9B125602BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_484F95C1026A' '484A470100DD.ms.model.script' // Sub
+ ;
+
+ENDME // ME_4C9B125602BC 
+
+ME ME_4C9B12D60244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4C9B12D60244 
+
+ME ME_4C9B12F602D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_480DBA760390' '480DBA760390.ms.model.script' // k2Facade
+ ;
+
+ENDME // ME_4C9B12F602D6 
+
+ME ME_4CE50D61013B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4CE50D61013B 
+
+ME ME_4CEFEA090326
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_484FAB98031E' '484A470100DD.ms.model.script' // Bookmark
+ ;
+
+ENDME // ME_4CEFEA090326 
+
+ME ME_4D66992402A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4D66992402A2 
+
+ME ME_4D669A790314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C99D9AF02E2 // nsFindTagByID
+ ;
+ MELINK Target WL 'ME_4A8D2711030C' '469D0AC7005E.ms.model.script' // Sub Const
+ ;
+
+ENDME // ME_4D669A790314 
+
+ME ME_4C99D9AF02E2
+ MEPROP UID '4C99D9AF02E2'
+ MEPROP Name 'nsFindTagByID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C99DF8C0241 // nsTagNodeToolsNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C99E08200AF // Path
+ HWL ME_4C99E09A02FC // List
+ HWL ME_4C99E94202AA // Provider
+ HWL ME_4C9B1A510076 // Type
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C99DFF102D2 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C99E0B50232 // Supports
+ ME_4C99E0E30210 // nsCreateFilterForFindTagByID
+ ME_4C99E0FF02BE // nsTagByPath
+ ME_4C9B12230344 // Block
+ ME_4C9B12320307 // ParaList
+ ME_4C9B1246029D // LeafPara
+ ME_4C9B125602BC // Sub
+ ME_4C9B12D60244 // Tk2Type
+ ME_4C9B12F602D6 // k2Facade
+ ME_4CE50D61013B // CanNotFindData
+ ME_4CEFEA090326 // Bookmark
+ ME_4D66992402A2 // Tk2TagID
+ ME_4D669A790314 // Sub Const
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'FindTagByID'
+
+ENDME // ME_4C99D9AF02E2 nsFindTagByID
+
+ME ME_4C99EADD03CA
+ MEPROP UID '4C99EADD03CA'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C72558F00BC // nsTagByPath
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C99EADD03CA Index
+
+ME ME_4C99EB0D0314
+ MEPROP UID '4C99EB0D0314'
+ MEPROP Name 'Child'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C72558F00BC // nsTagByPath
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ UP "IsResult" false
+
+ENDME // ME_4C99EB0D0314 Child
+
+ME ME_4C99EAB40008
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4C99EAB40008 aDocument
+
+ME ME_4C99EAB40036
+ MEPROP Name 'aPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8680109' '457450470167.ms.model.script' // NodeIndexPath
+ ;
+
+ENDME // ME_4C99EAB40036 aPath
+
+ME ME_4C99EAB40067
+ MEPROP Name 'aNewSchool'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C99EAB40067 aNewSchool
+
+ME ME_4C99EA6B034C
+ MEPROP UID '4C99EA6B034C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C72558F00BC // nsTagByPath
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C99EAB40008 // aDocument
+ ME_4C99EAB40036 // aPath
+ ME_4C99EAB40067 // aNewSchool
+ )
+ ; // Parameters
+
+ENDME // ME_4C99EA6B034C DoIt
+
+ME ME_4D0F860A0210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C72558F00BC // nsTagByPath
+ ;
+ MELINK Target WL 'ME_4857C9C20131' '48492FC0029D.ms.model.script' // CommentPara
+ ;
+
+ENDME // ME_4D0F860A0210 
+
+ME ME_4D0F861503C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C72558F00BC // nsTagByPath
+ ;
+ MELINK Target WL 'ME_4857920901AF' '48492FC0029D.ms.model.script' // DecorTextPara
+ ;
+
+ENDME // ME_4D0F861503C2 
+
+ME ME_4D0F861F005A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C72558F00BC // nsTagByPath
+ ;
+ MELINK Target WL 'ME_4CEBC4B702DD' '48492FC0029D.ms.model.script' // LeafParaDecorationsHolder
+ ;
+
+ENDME // ME_4D0F861F005A 
+
+ME ME_4D0F863401A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C72558F00BC // nsTagByPath
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4D0F863401A1 
+
+ME ME_4C72558F00BC
+ MEPROP UID '4C72558F00BC'
+ MEPROP Name 'nsTagByPath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C99DF8C0241 // nsTagNodeToolsNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4C99EADD03CA // Index
+ HWL ME_4C99EB0D0314 // Child
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4C99EA6B034C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D0F860A0210 // CommentPara
+ ME_4D0F861503C2 // DecorTextPara
+ ME_4D0F861F005A // LeafParaDecorationsHolder
+ ME_4D0F863401A1 // Block
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TagByPath'
+
+ENDME // ME_4C72558F00BC nsTagByPath
+
+ME ME_4C99DF8C0241
+ MEPROP UID '4C99DF8C0241'
+ MEPROP Name 'nsTagNodeToolsNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_467FC9F80281' '467FC9F80281.ms.model.script' // DocumentTagNodes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C99D9AF02E2 // nsFindTagByID
+ HWL ME_4C72558F00BC // nsTagByPath
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '22.09.2010 14:51'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\f1DocumentTagsImplementation\nsTagNodeToolsNew.pas'
+ UP extprop:rc:SelfName 'TagNodeToolsNew'
+
+ENDME // ME_4C99DF8C0241 nsTagNodeToolsNew

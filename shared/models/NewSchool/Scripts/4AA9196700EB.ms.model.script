@@ -2,115 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4AA9196700EB
-
-FORWARD ME_4AAF996900DC
-
-ME ME_4AAF99E00261
- MEPROP Name 'aWnd'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A5DA1F0255' '4AB0C3F60375.ms.model.script' // hWnd
- ;
-
-ENDME // ME_4AAF99E00261 aWnd
-
-ME ME_4AAF99E00285
- MEPROP Name 'aParam'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
- ;
-
-ENDME // ME_4AAF99E00285 aParam
-
-ME ME_4AAF99C703C7
- MEPROP UID '4AAF99C703C7'
- MEPROP Name 'FindSelectDialog'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
- ;
- MELINK Target WL 'ME_47726BE30305' '46A5E026007E.ms.model.script' // WinBool
- ;
- MELIST Parameters
-   Seq: ( ME_4AAF99E00261 // aWnd
- ME_4AAF99E00285 // aParam
- )
- ; // Parameters
- UP "calling conventions" 'stdcall'
-
-ENDME // ME_4AAF99C703C7 FindSelectDialog
-
-ME ME_4AAF9A190399
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
- ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
- ;
-
-ENDME // ME_4AAF9A190399 
-
-ME ME_4AAF9B5A028C
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
- ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
- ;
-
-ENDME // ME_4AAF9B5A028C 
-
-ME ME_4AAF9C2E03AB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
- ;
- MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
- ;
-
-ENDME // ME_4AAF9C2E03AB 
-
-ME ME_4AAF9D0D0330
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4AAF996900DC // nsFindSelectDialog
- ;
- MELINK Target WL 'ME_4AAF9CFA0263' '4799D29F033F.ms.model.script' // FindControl
- ;
-
-ENDME // ME_4AAF9D0D0330 
-
-ME ME_4AAF996900DC
- MEPROP UID '4AAF996900DC'
- MEPROP Name 'nsFindSelectDialog'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AA9196700EB // Monitorings
- ;
- MELIST Operations
-   Seq: ( HWL ME_4AAF99C703C7 // FindSelectDialog
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_4AAF9A190399 // Windows
- ME_4AAF9B5A028C // Forms
- ME_4AAF9C2E03AB // TMessage
- ME_4AAF9D0D0330 // FindControl
- )
- ; // Dependencies
- UP "author" 'Ëþëèí À.Â.'
- UP "no hands" true
- UP "started" '15.09.2009 17:41'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Monitorings\nsFindSelectDialog.pas'
- UP extprop:rc:SelfName 'FindSelectDialog'
-
-ENDME // ME_4AAF996900DC nsFindSelectDialog
+%%Inner ME_4AA9196700EB
+%%Inner ME_4AA9196700EB
+%%Inner ME_4AA9196700EB
+%%Inner ME_4AA9196700EB
 
 ME ME_4AA9196700EB
  MEPROP UID '4AA9196700EB'
@@ -124,7 +19,7 @@ ME ME_4AA9196700EB
  ;
  MELIST Children
    Seq: ( WL 'ME_4AAFA13C01B0' '4AAFA13C01B0.ms.model.script' // PrimPostingsList
- HWL ME_4AAF996900DC // nsFindSelectDialog
+ WL 'ME_4AAF996900DC' '4AAF996900DC.ms.model.script' // nsFindSelectDialog
  WL 'ME_4DF789BF02EF' '4DF789BF02EF.ms.model.script' // PrimPostingsListOptions
  WL 'ME_4AA919B200AB' '4AA919B200AB.ms.model.script' // CommonPost
  )
@@ -176,6 +71,9 @@ ME ME_4AA9196700EB
  WL 'ME_57A2E803024D' '57A2E803024D.ms.model.script' // Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Monitorings'
 
 ENDME // ME_4AA9196700EB Monitorings

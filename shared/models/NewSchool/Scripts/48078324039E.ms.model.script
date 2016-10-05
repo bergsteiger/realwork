@@ -1,0 +1,81 @@
+// SyncObjs 48078324039E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48078324039E
+%%Inner ME_48078324039E
+%%Inner ME_48078324039E
+
+FORWARD ME_48078324039E
+
+ME ME_4807833801D7
+ MEPROP UID '4807833801D7'
+ MEPROP Name 'TCriticalSection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TCriticalSection allows a thread in a multi-threaded application to temporarily block other threads from accessing a block of code.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078324039E // SyncObjs
+ ;
+ UP extprop:rc:SelfName 'CriticalSection'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4807833801D7 TCriticalSection
+
+ME ME_483BE09901F5
+ MEPROP UID '483BE09901F5'
+ MEPROP Name 'TSimpleEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TSimpleEvent represents an unnamed manual event object.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078324039E // SyncObjs
+ ;
+ UP extprop:rc:SelfName 'SimpleEvent'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_483BE09901F5 TSimpleEvent
+
+ME ME_491D9DB8010F
+ MEPROP UID '491D9DB8010F'
+ MEPROP Name 'TEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TEvent represents an external event.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48078324039E // SyncObjs
+ ;
+ UP extprop:rc:SelfName 'Event'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_491D9DB8010F TEvent
+
+ME ME_48078324039E
+ MEPROP UID '48078324039E'
+ MEPROP Name 'SyncObjs'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4807833801D7 // TCriticalSection
+ HWL ME_483BE09901F5 // TSimpleEvent
+ HWL ME_491D9DB8010F // TEvent
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\SyncObjs.pas'
+
+ENDME // ME_48078324039E SyncObjs

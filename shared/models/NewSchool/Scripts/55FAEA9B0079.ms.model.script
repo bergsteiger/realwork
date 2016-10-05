@@ -1,0 +1,338 @@
+// bsConsultationManager 55FAEA9B0079 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55FAEA9B0079
+
+FORWARD ME_55FAEA9B0079
+
+FORWARD ME_492FFDF7011A
+
+ME ME_55FACBF603B5
+ MEPROP UID '55FACBF603B5'
+ MEPROP Name 'f_Unread'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492FFDF7011A // TbsConsultationManager
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55FACBF603B5 f_Unread
+
+ME ME_55FACCE20172
+ MEPROP UID '55FACCE20172'
+ MEPROP Name 'f_CurrentStatus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492FFDF7011A // TbsConsultationManager
+ ;
+ MELINK Target WL 'ME_550136350165' '47EA07FA02CE.ms.model.script' // TbsConsultationOperations
+ ;
+
+ENDME // ME_55FACCE20172 f_CurrentStatus
+
+ME ME_55FACCF500B4
+ MEPROP UID '55FACCF500B4'
+ MEPROP Name 'UpdateUnread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_492FFDF7011A // TbsConsultationManager
+ ;
+
+ENDME // ME_55FACCF500B4 UpdateUnread
+
+ME ME_55FACD130143
+ MEPROP UID '55FACD130143'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_492FFDF7011A // TbsConsultationManager
+ ;
+
+ENDME // ME_55FACD130143 Create
+
+%%ImplementedBy ME_49527999013D ME_55FACD4C0399
+
+%%InheritedBy ME_55FACD130143 ME_55FACD4C0399
+
+ME ME_55FACD4C0399
+ MEPROP UID '55FACD4C0399'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_492FFDF7011A // TbsConsultationManager
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55FACD130143 // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+ )
+ ; // Implements
+
+ENDME // ME_55FACD4C0399 Make
+
+ME ME_55FAF45A03B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492FFDF7011A // TbsConsultationManager
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_55FAF45A03B1 
+
+ME ME_495279E501CB_ME_492FFDF7011A
+ MELINK Original WL 'ME_495279E501CB' '47ECAAF901F8.ms.model.script' // UnreadChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_495279E501CB_ME_492FFDF7011A UnreadChanged
+
+ME ME_495279F20005_ME_492FFDF7011A
+ MELINK Original WL 'ME_495279F20005' '47ECAAF901F8.ms.model.script' // NoConnection
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_495279F20005_ME_492FFDF7011A NoConnection
+
+ME ME_495279FD039E_ME_492FFDF7011A
+ MELINK Original WL 'ME_495279FD039E' '47ECAAF901F8.ms.model.script' // NoSubscription
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_495279FD039E_ME_492FFDF7011A NoSubscription
+
+ME ME_49527A1B0162_ME_492FFDF7011A
+ MELINK Original WL 'ME_49527A1B0162' '47ECAAF901F8.ms.model.script' // InternetConnected
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49527A1B0162_ME_492FFDF7011A InternetConnected
+
+ME ME_49527A2702F4_ME_492FFDF7011A
+ MELINK Original WL 'ME_49527A2702F4' '47ECAAF901F8.ms.model.script' // HasUnread
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49527A2702F4_ME_492FFDF7011A HasUnread
+
+ME ME_4BCD8E0B00AE_ME_492FFDF7011A
+ MELINK Original WL 'ME_4BCD8E0B00AE' '47ECAAF901F8.ms.model.script' // InternetDisConnected
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BCD8E0B00AE_ME_492FFDF7011A InternetDisConnected
+
+ME ME_5501366003A9_ME_492FFDF7011A
+ MELINK Original WL 'ME_5501366003A9' '47ECAAF901F8.ms.model.script' // CurrentStatus
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_5501366003A9_ME_492FFDF7011A CurrentStatus
+
+%%ImplementedBy ME_47F07B3E02E4 ME_492FFDF7011A
+%%ImplementedBy ME_49527999013D ME_492FFDF7011A
+
+%%InheritedBy ME_47F25BEE0389 ME_492FFDF7011A
+
+ME ME_492FFDF7011A
+ MEPROP UID '492FFDF7011A'
+ MEPROP Name 'TbsConsultationManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FAEA9B0079 // bsConsultationManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F25BEE0389' '47F25BC801DB.ms.model.script' // TvcmBase
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47F07B3E02E4' '47F07B3E02E4.ms.model.script' // l3Notifier
+ WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_55FACBF603B5 // f_Unread
+ HWL ME_55FACCE20172 // f_CurrentStatus
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55FACCF500B4 // UpdateUnread
+ HWL ME_55FACD130143 // Create
+ HWL ME_55FACD4C0399 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_495279E501CB_ME_492FFDF7011A // UnreadChanged
+ ME_495279F20005_ME_492FFDF7011A // NoConnection
+ ME_495279FD039E_ME_492FFDF7011A // NoSubscription
+ ME_49527A1B0162_ME_492FFDF7011A // InternetConnected
+ ME_49527A2702F4_ME_492FFDF7011A // HasUnread
+ ME_4BCD8E0B00AE_ME_492FFDF7011A // InternetDisConnected
+ ME_5501366003A9_ME_492FFDF7011A // CurrentStatus
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_55FAF45A03B1 // DataAdapter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'bsConsultationManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_492FFDF7011A TbsConsultationManager
+
+ME ME_55FAEB7E0176
+ MEPROP UID '55FAEB7E0176'
+ MEPROP Name 'gv_ConsultationManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55FAEA9B0079 // bsConsultationManager
+ ;
+ MELINK Target WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_55FAEB7E0176 gv_ConsultationManager
+
+FORWARD ME_55FAEB22015B
+
+ME ME_55FAEB3702D1
+ MEPROP UID '55FAEB3702D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FAEB22015B // g__ConsultationManager
+ ;
+ MELINK Target WL 'ME_49527999013D' '47ECAAF901F8.ms.model.script' // IbsConsultationManager
+ ;
+
+ENDME // ME_55FAEB3702D1 DoIt
+
+ME ME_55FAEB22015B
+ MEPROP UID '55FAEB22015B'
+ MEPROP Name 'g__ConsultationManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FAEA9B0079 // bsConsultationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55FAEB3702D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55FAEB22015B g__ConsultationManager
+
+FORWARD ME_55FBE42C03DF
+
+ME ME_55FBE4390193
+ MEPROP UID '55FBE4390193'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FBE42C03DF // IsConsultationManagerAssigned
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55FBE4390193 DoIt
+
+ME ME_55FBE42C03DF
+ MEPROP UID '55FBE42C03DF'
+ MEPROP Name 'IsConsultationManagerAssigned'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FAEA9B0079 // bsConsultationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55FBE4390193 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55FBE42C03DF IsConsultationManagerAssigned
+
+ME ME_55FAEB6B0372
+ MEPROP UID '55FAEB6B0372'
+ MEPROP Name 'new_fini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_fini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FAEA9B0079 // bsConsultationManager
+ ;
+
+ENDME // ME_55FAEB6B0372 new_fini_op
+
+ME ME_55FAFF0C0027
+ MEPROP UID '55FAFF0C0027'
+ MEPROP Name 'new_ini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55FAEA9B0079 // bsConsultationManager
+ ;
+
+ENDME // ME_55FAFF0C0027 new_ini_op
+
+ME ME_55FAEA9B0079
+ MEPROP UID '55FAEA9B0079'
+ MEPROP Name 'bsConsultationManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_491C3E40007B' '491C3E40007B.ms.model.script' // Consultation
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55FAEB7E0176 // gv_ConsultationManager
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55FAEB22015B // g__ConsultationManager
+ HWL ME_55FBE42C03DF // IsConsultationManagerAssigned
+ HWL ME_55FAEB6B0372 // new_fini_op
+ HWL ME_55FAFF0C0027 // new_ini_op
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_492FFDF7011A // TbsConsultationManager
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Consultation\bsConsultationManager.pas'
+
+ENDME // ME_55FAEA9B0079 bsConsultationManager

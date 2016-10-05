@@ -1,0 +1,97 @@
+// evEvdWriter 4EA52FD6034D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EA52FD6034D
+%%Inner ME_4EA52FD6034D
+%%Inner ME_4EA52FD6034D
+
+FORWARD ME_4EA52FD6034D
+
+%%InheritedBy ME_483D7C2A032C ME_4EA530470244
+
+ME ME_4EA530470244
+ MEPROP UID '4EA530470244'
+ MEPROP Name 'TevCustomEvdStorageWriter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA52FD6034D // evEvdWriter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483D7C2A032C' '47ECB8BD00A8.ms.model.script' // TevdCustomNativeWriter
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'EvdStorageWriter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA530470244 TevCustomEvdStorageWriter
+
+%%InheritedBy ME_4EA530470244 ME_4EA53012014D
+
+ME ME_4EA53012014D
+ MEPROP UID '4EA53012014D'
+ MEPROP Name 'TevEvdStorageWriter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Писатель тегов в формате evd в структурированное хранилище (IStorage). (С published свойствами)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA52FD6034D // evEvdWriter
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4EA530470244 // TevCustomEvdStorageWriter
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'EvdStorageWriter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA53012014D TevEvdStorageWriter
+
+ME ME_4EA530660342
+ MEPROP UID '4EA530660342'
+ MEPROP Name 'TevPartContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA52FD6034D // evEvdWriter
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'PartContainer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4EA530660342 TevPartContainer
+
+ME ME_4EA52FD6034D
+ MEPROP UID '4EA52FD6034D'
+ MEPROP Name 'evEvdWriter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Писатель тегов в формате evd в структурированное хранилище (IStorage).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA530470244 // TevCustomEvdStorageWriter
+ HWL ME_4EA53012014D // TevEvdStorageWriter
+ HWL ME_4EA530660342 // TevPartContainer
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEvdWriter.pas'
+ UP extprop:rc:SelfName 'EvdWriter'
+
+ENDME // ME_4EA52FD6034D evEvdWriter

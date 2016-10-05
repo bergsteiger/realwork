@@ -1,0 +1,97 @@
+// CellFormatInfoCommon 5209DFCE0116 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5209DFCE0116
+
+FORWARD ME_5209E00C0113
+
+ME ME_5209E01C0369
+ MEPROP UID '5209E01C0369'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5209E00C0113 // GetVerticalAlignmentMargin
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5209E01C0369 DoIt
+
+ME ME_5209E2B800D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5209E00C0113 // GetVerticalAlignmentMargin
+ ;
+ MELINK Target WL 'ME_467BC89800B9' '469D0AC7005E.ms.model.script' // VerticalAligment
+ ;
+
+ENDME // ME_5209E2B800D4 
+
+ME ME_5209E3D401E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5209E00C0113 // GetVerticalAlignmentMargin
+ ;
+ MELINK Target WL 'ME_49D0EE850221' '4678209200A6.ms.model.script' // OverlapTypes
+ ;
+
+ENDME // ME_5209E3D401E0 
+
+ME ME_5209E90202BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5209E00C0113 // GetVerticalAlignmentMargin
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5209E90202BF 
+
+ME ME_5209E00C0113
+ MEPROP UID '5209E00C0113'
+ MEPROP Name 'GetVerticalAlignmentMargin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5209DFCE0116 // CellFormatInfoCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5209E01C0369 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5209E2B800D4 // VerticalAligment
+ ME_5209E3D401E0 // OverlapTypes
+ ME_5209E90202BF // Tk2TagID
+ )
+ ; // Dependencies
+
+ENDME // ME_5209E00C0113 GetVerticalAlignmentMargin
+
+ME ME_5209DFCE0116
+ MEPROP UID '5209DFCE0116'
+ MEPROP Name 'CellFormatInfoCommon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48185390010A' '48185390010A.ms.model.script' // Rendering
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5209E00C0113 // GetVerticalAlignmentMargin
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\CellFormatInfoCommon.imp.pas'
+ UP extprop:pas:TypeName '_CellFormatInfoCommon_'
+ UP extprop:pas:UnitName 'CellFormatInfoCommon.imp'
+
+ENDME // ME_5209DFCE0116 CellFormatInfoCommon

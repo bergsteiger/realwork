@@ -1,0 +1,1376 @@
+// evTableConverter 4DCA3A7302B1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DCA3A7302B1
+
+FORWARD ME_4DCA3A7302B1
+
+FORWARD ME_4DCA3AB8028E
+
+FORWARD ME_4F683C2802E0
+
+ME ME_4F683C8D029E
+ MEPROP UID '4F683C8D029E'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4F683C2802E0 // TddTextAndTableConverterRow
+ ;
+ MELINK Target WL 'ME_4DCA38AF0022' '4DCA38890051.ms.model.script' // TddAbstractTable
+ ;
+
+ENDME // ME_4F683C8D029E 
+
+%%InheritedBy ME_4E0D96DC0288 ME_4F683C2802E0
+
+ME ME_4F683C2802E0
+ MEPROP UID '4F683C2802E0'
+ MEPROP Name 'TddTextAndTableConverterRow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E0D96DC0288' '4E0D98F50163.ms.model.script' // TddCellSeparator
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F683C8D029E // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_4F683C2802E0 TddTextAndTableConverterRow
+
+ME ME_4F6834C40073
+ MEPROP UID '4F6834C40073'
+ MEPROP Name 'Editor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4F6834C40073 Editor
+
+ME ME_4F6835290107
+ MEPROP UID '4F6835290107'
+ MEPROP Name 'CellSeparator'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4E0D96DC0288' '4E0D98F50163.ms.model.script' // TddCellSeparator
+ ;
+ UP "needs field" true
+ UP "pm" false
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4F6835290107 CellSeparator
+
+ME ME_4F6838BF03B2
+ MEPROP UID '4F6838BF03B2'
+ MEPROP Name 'TableWidth'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "inherits setter from some ancestor" false
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4F6838BF03B2 TableWidth
+
+ME ME_4F6838ED022F
+ MEPROP UID '4F6838ED022F'
+ MEPROP Name 'CodePageIn'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" false
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4F6838ED022F CodePageIn
+
+ME ME_4F68391E0341
+ MEPROP UID '4F68391E0341'
+ MEPROP Name 'CodePageOut'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ UP "needs field" true
+ UP "pm" false
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_4F68391E0341 CodePageOut
+
+ME ME_4F683980002E
+ MEPROP UID '4F683980002E'
+ MEPROP Name 'f_CellCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F683980002E f_CellCount
+
+ME ME_4F6839D902B1
+ MEPROP UID '4F6839D902B1'
+ MEPROP Name 'f_MyStream'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
+ ;
+
+ENDME // ME_4F6839D902B1 f_MyStream
+
+ME ME_4F683A070055
+ MEPROP UID '4F683A070055'
+ MEPROP Name 'f_Lines'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4773DCE302FF' '47913B47006E.ms.model.script' // Tl3StringList
+ ;
+
+ENDME // ME_4F683A070055 f_Lines
+
+ME ME_4F683A2A0212
+ MEPROP UID '4F683A2A0212'
+ MEPROP Name 'f_GlueLines'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F683A2A0212 f_GlueLines
+
+ME ME_4F683A400056
+ MEPROP UID '4F683A400056'
+ MEPROP Name 'f_AbortConversion'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F683A400056 f_AbortConversion
+
+ME ME_4F683A6F002D
+ MEPROP UID '4F683A6F002D'
+ MEPROP Name 'f_ColumnSeparator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F683A6F002D f_ColumnSeparator
+
+ME ME_4F683AF40307
+ MEPROP UID '4F683AF40307'
+ MEPROP Name 'f_Dialog'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4F683ACF03C5' '4F684D610146.ms.model.script' // TTableConvParamDialog
+ ;
+
+ENDME // ME_4F683AF40307 f_Dialog
+
+ME ME_4F683C9B01C9
+ MEPROP UID '4F683C9B01C9'
+ MEPROP Name 'f_Rows'
+ MEPROP Class class_Attribute
+ %SUMMARY '"Ёталонные" €чейки' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target HWL ME_4F683C2802E0 // TddTextAndTableConverterRow
+ ;
+
+ENDME // ME_4F683C9B01C9 f_Rows
+
+ME ME_4F683CFB0353
+ MEPROP UID '4F683CFB0353'
+ MEPROP Name 'f_Table'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ячейки с текстом' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4F683CE400D6' '4DCA381E01E3.ms.model.script' // TddVirtualTable
+ ;
+
+ENDME // ME_4F683CFB0353 f_Table
+
+ME ME_4F683E190278
+ MEPROP UID '4F683E190278'
+ MEPROP Name 'f_DocGen'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4F683DA30260' '4E1C271501E5.ms.model.script' // TddDocumentGenerator
+ ;
+
+ENDME // ME_4F683E190278 f_DocGen
+
+ME ME_4F683E240277
+ MEPROP UID '4F683E240277'
+ MEPROP Name 'f_PreviewEnabled'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F683E240277 f_PreviewEnabled
+
+FORWARD ME_4F683E3D003E
+
+ME ME_4F683E5D01C0
+ MEPROP Name 'Enable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F683E5D01C0 Enable
+
+ME ME_4F683E5103D1
+ MEPROP UID '4F683E5103D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683E3D003E // DialogShowPreview
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F683E5D01C0 // Enable
+ )
+ ; // Parameters
+
+ENDME // ME_4F683E5103D1 DoIt
+
+ME ME_4F683E3D003E
+ MEPROP UID '4F683E3D003E'
+ MEPROP Name 'DialogShowPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ќачальное определение количества €чеек и строк дл€ каждого типа разделител€' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683E5103D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F683E3D003E DialogShowPreview
+
+FORWARD ME_4F683E6502E7
+
+ME ME_4F683E6D0356
+ MEPROP UID '4F683E6D0356'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683E6502E7 // AnalyzeStream
+ ;
+
+ENDME // ME_4F683E6D0356 DoIt
+
+ME ME_4F686A9A0006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683E6502E7 // AnalyzeStream
+ ;
+ MELINK Target WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ ;
+
+ENDME // ME_4F686A9A0006 
+
+ME ME_4F686B270007
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683E6502E7 // AnalyzeStream
+ ;
+ MELINK Target WL 'ME_47C5BA5F017D' '47C5207602D1.ms.model.script' // InevSelection
+ ;
+
+ENDME // ME_4F686B270007 
+
+ME ME_4F686B350118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683E6502E7 // AnalyzeStream
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4F686B350118 
+
+ME ME_4F686B7900C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683E6502E7 // AnalyzeStream
+ ;
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
+ ;
+
+ENDME // ME_4F686B7900C0 
+
+ME ME_4F686C2A02D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683E6502E7 // AnalyzeStream
+ ;
+ MELINK Target WL 'ME_46A626BC0145' '4677FBA70343.ms.model.script' // ClipboardFormats
+ ;
+
+ENDME // ME_4F686C2A02D1 
+
+ME ME_4F686C7B01AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F683E6502E7 // AnalyzeStream
+ ;
+ MELINK Target WL 'ME_476BED2603D7' '48F4E61C0060.ms.model.script' // StoreFlags
+ ;
+
+ENDME // ME_4F686C7B01AF 
+
+ME ME_4F683E6502E7
+ MEPROP UID '4F683E6502E7'
+ MEPROP Name 'AnalyzeStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перерасчет количества —“–ќ  в зависимости от количества €чеек дл€ каждого типа разделител€' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683E6D0356 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F686A9A0006 // InevDataObjectPrim2
+ ME_4F686B270007 // InevSelection
+ ME_4F686B350118 // Tl3CustomFiler
+ ME_4F686B7900C0 // Tl3FileStream
+ ME_4F686C2A02D1 // ClipboardFormats
+ ME_4F686C7B01AF // StoreFlags
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4F683E6502E7 AnalyzeStream
+
+FORWARD ME_4F683E990117
+
+ME ME_4F68427F018A
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_4F68427F018A aText
+
+ME ME_4F68427F01B4
+ MEPROP Name 'CellLen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F68427F01B4 CellLen
+
+ME ME_4F683EA4014C
+ MEPROP UID '4F683EA4014C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683E990117 // CorrectCellLen
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F68427F018A // aText
+ ME_4F68427F01B4 // CellLen
+ )
+ ; // Parameters
+
+ENDME // ME_4F683EA4014C DoIt
+
+ME ME_4F683E990117
+ MEPROP UID '4F683E990117'
+ MEPROP Name 'CorrectCellLen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683EA4014C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F683E990117 CorrectCellLen
+
+FORWARD ME_4F683EC70009
+
+ME ME_4F683ED90187
+ MEPROP Name 'aBorder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F6843EE00B1' '4F6843C101D1.ms.model.script' // TddBorder
+ ;
+
+ENDME // ME_4F683ED90187 aBorder
+
+ME ME_4F683ECE0281
+ MEPROP UID '4F683ECE0281'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683EC70009 // WriteBorders
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F683ED90187 // aBorder
+ )
+ ; // Parameters
+
+ENDME // ME_4F683ECE0281 DoIt
+
+ME ME_4F683EC70009
+ MEPROP UID '4F683EC70009'
+ MEPROP Name 'WriteBorders'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683ECE0281 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4F683EC70009 WriteBorders
+
+FORWARD ME_4F683EE00365
+
+ME ME_4F683EE8036D
+ MEPROP UID '4F683EE8036D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683EE00365 // WriteToPreview
+ ;
+
+ENDME // ME_4F683EE8036D DoIt
+
+ME ME_4F683EE00365
+ MEPROP UID '4F683EE00365'
+ MEPROP Name 'WriteToPreview'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683EE8036D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F683EE00365 WriteToPreview
+
+FORWARD ME_4F683F0E02D9
+
+ME ME_4F683F160299
+ MEPROP UID '4F683F160299'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683F0E02D9 // GetTable
+ ;
+ MELINK Target WL 'ME_4F683CE400D6' '4DCA381E01E3.ms.model.script' // TddVirtualTable
+ ;
+
+ENDME // ME_4F683F160299 DoIt
+
+ME ME_4F683F0E02D9
+ MEPROP UID '4F683F0E02D9'
+ MEPROP Name 'GetTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683F160299 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F683F0E02D9 GetTable
+
+FORWARD ME_4F683FC4034D
+
+ME ME_4F6845440259
+ MEPROP Name 'aCellCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F6845440259 aCellCount
+
+ME ME_4F683FCB00D4
+ MEPROP UID '4F683FCB00D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683FC4034D // DialogCellCount
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6845440259 // aCellCount
+ )
+ ; // Parameters
+
+ENDME // ME_4F683FCB00D4 DoIt
+
+ME ME_4F683FC4034D
+ MEPROP UID '4F683FC4034D'
+ MEPROP Name 'DialogCellCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683FCB00D4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F683FC4034D DialogCellCount
+
+FORWARD ME_4F683FE50015
+
+ME ME_4F683FF7022C
+ MEPROP Name 'aCellSeparator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E0D96DC0288' '4E0D98F50163.ms.model.script' // TddCellSeparator
+ ;
+
+ENDME // ME_4F683FF7022C aCellSeparator
+
+ME ME_4F683FEC03B5
+ MEPROP UID '4F683FEC03B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683FE50015 // DialogCellSeparator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F683FF7022C // aCellSeparator
+ )
+ ; // Parameters
+
+ENDME // ME_4F683FEC03B5 DoIt
+
+ME ME_4F683FE50015
+ MEPROP UID '4F683FE50015'
+ MEPROP Name 'DialogCellSeparator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F683FEC03B5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F683FE50015 DialogCellSeparator
+
+FORWARD ME_4F683FFE02F4
+
+ME ME_4F6840160181
+ MEPROP Name 'aAutoFit'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E0D97220074' '4E0D98F50163.ms.model.script' // TddAutoFitBehavior
+ ;
+
+ENDME // ME_4F6840160181 aAutoFit
+
+ME ME_4F68400F0384
+ MEPROP UID '4F68400F0384'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F683FFE02F4 // DialogAutoFit
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6840160181 // aAutoFit
+ )
+ ; // Parameters
+
+ENDME // ME_4F68400F0384 DoIt
+
+ME ME_4F683FFE02F4
+ MEPROP UID '4F683FFE02F4'
+ MEPROP Name 'DialogAutoFit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F68400F0384 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F683FFE02F4 DialogAutoFit
+
+FORWARD ME_4F6840220354
+
+ME ME_4F68403803E3
+ MEPROP Name 'Enable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F68403803E3 Enable
+
+ME ME_4F68402C038D
+ MEPROP UID '4F68402C038D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6840220354 // DialogGlueLines
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F68403803E3 // Enable
+ )
+ ; // Parameters
+
+ENDME // ME_4F68402C038D DoIt
+
+ME ME_4F6840220354
+ MEPROP UID '4F6840220354'
+ MEPROP Name 'DialogGlueLines'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F68402C038D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6840220354 DialogGlueLines
+
+FORWARD ME_4F68404500E9
+
+ME ME_4F68404B026C
+ MEPROP UID '4F68404B026C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F68404500E9 // RecalcRows
+ ;
+
+ENDME // ME_4F68404B026C DoIt
+
+ME ME_4F68404500E9
+ MEPROP UID '4F68404500E9'
+ MEPROP Name 'RecalcRows'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F68404B026C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F68404500E9 RecalcRows
+
+FORWARD ME_4F68405D0117
+
+ME ME_4F68406E022A
+ MEPROP UID '4F68406E022A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F68405D0117 // Tune
+ ;
+
+ENDME // ME_4F68406E022A DoIt
+
+ME ME_4F685B3E02CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68405D0117 // Tune
+ ;
+ MELINK Target WL 'ME_4C8A2ADD01B1' '47E13C6B0341.ms.model.script' // Application
+ ;
+
+ENDME // ME_4F685B3E02CC 
+
+ME ME_4F68405D0117
+ MEPROP UID '4F68405D0117'
+ MEPROP Name 'Tune'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F68406E022A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F685B3E02CC // Application
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4F68405D0117 Tune
+
+FORWARD ME_4F68407C003D
+
+ME ME_4F6840880049
+ MEPROP UID '4F6840880049'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+
+ENDME // ME_4F6840880049 DoIt
+
+ME ME_4F685ABC005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_47F0967A030B' '47F0893F0220.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_4F685ABC005F 
+
+ME ME_4F685BA60320
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_4F685BA60320 
+
+ME ME_4F685BFA0322
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4F685BFA0322 
+
+ME ME_4F685C4E0267
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_4C07BD030266' '47ECACA70141.ms.model.script' // TevdEmptyRowFilter
+ ;
+
+ENDME // ME_4F685C4E0267 
+
+ME ME_4F685C5B0306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_4E48B5AE01E3' '47ECACA70141.ms.model.script' // TevTableFilter
+ ;
+
+ENDME // ME_4F685C5B0306 
+
+ME ME_4F685ED40252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_47ECAA270135' '47ECAA270135.ms.model.script' // k2TagGen
+ ;
+
+ENDME // ME_4F685ED40252 
+
+ME ME_4F685F2E029C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4F685F2E029C 
+
+ME ME_4F685F3C03AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4F685F3C03AA 
+
+ME ME_4F685F51010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_4857D2F8006D' '48492FC0029D.ms.model.script' // TableRow
+ ;
+
+ENDME // ME_4F685F51010A 
+
+ME ME_4F685F610293
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4F685F610293 
+
+ME ME_4F685FA702FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4F685FA702FA 
+
+ME ME_4F685FEA02F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_4F2A3451001B' '4A3918BB0114.ms.model.script' // evChar2Inch
+ ;
+
+ENDME // ME_4F685FEA02F0 
+
+ME ME_4F686022034E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F68407C003D // Text2Table
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_4F686022034E 
+
+ME ME_4F68407C003D
+ MEPROP UID '4F68407C003D'
+ MEPROP Name 'Text2Table'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6840880049 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F685ABC005F // Tk2TagGenerator
+ ME_4F685BA60320 // InevOp
+ ME_4F685BFA0322 // Operations
+ ME_4F685C4E0267 // TevdEmptyRowFilter
+ ME_4F685C5B0306 // TevTableFilter
+ ME_4F685ED40252 // k2TagGen
+ ME_4F685F2E029C // Document
+ ME_4F685F3C03AA // Table
+ ME_4F685F51010A // TableRow
+ ME_4F685F610293 // TableCell
+ ME_4F685FA702FA // MergeStatus
+ ME_4F685FEA02F0 // evChar2Inch
+ ME_4F686022034E // Standard
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4F68407C003D Text2Table
+
+FORWARD ME_4F6852880115
+
+ME ME_4F6852BD0254
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4F6852BD0254 anOwner
+
+ME ME_4F6852950056
+ MEPROP UID '4F6852950056'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6852880115 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6852BD0254 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_4F6852950056 DoIt
+
+ME ME_4F6852880115
+ MEPROP UID '4F6852880115'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6852950056 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6852880115 Create
+
+ME ME_51503F9F0377
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4FACE127032F' '4F6843C101D1.ms.model.script' // TddTableCell
+ ;
+
+ENDME // ME_51503F9F0377 
+
+ME ME_51503FC4029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4FACE1370377' '4F6843C101D1.ms.model.script' // TddTableRow
+ ;
+
+ENDME // ME_51503FC4029F 
+
+ME ME_51503FF30286
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4FACE14F0231' '51E8DBEC0212.ms.model.script' // TddTextParagraph
+ ;
+
+ENDME // ME_51503FF30286 
+
+ME ME_5150401A00B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_5111FC5402AA' '4F6843C101D1.ms.model.script' // TddTextSegment
+ ;
+
+ENDME // ME_5150401A00B2 
+
+ME ME_525E558B024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_4F6843EE00B1' '4F6843C101D1.ms.model.script' // TddBorder
+ ;
+
+ENDME // ME_525E558B024D 
+
+ME ME_525E56D90239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_5111FE6903A1' '518A1E9F0274.ms.model.script' // TddBorderParts
+ ;
+
+ENDME // ME_525E56D90239 
+
+ME ME_525E5858018A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_5111FEC00247' '4F6843C101D1.ms.model.script' // TddCellProperty
+ ;
+
+ENDME // ME_525E5858018A 
+
+ME ME_52CFC99802F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_5111FEC00247' '4F6843C101D1.ms.model.script' // TddCellProperty
+ ;
+
+ENDME // ME_52CFC99802F9 
+
+ME ME_52CFCE6203AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52CFCE6203AA 
+
+ME ME_56C2DE1A0278
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ ;
+ MELINK Target WL 'ME_56C2B20A03B9' '52CFA9D5031E.ms.model.script' // TddLiteVersion
+ ;
+
+ENDME // ME_56C2DE1A0278 
+
+ME ME_479731C50290_ME_4DCA3AB8028E
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4DCA3AB8028E Cleanup
+
+ME ME_4F68343D038D_ME_4DCA3AB8028E
+ MELINK Original WL 'ME_4F68343D038D' '482D6E960087.ms.model.script' // Read
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F68343D038D_ME_4DCA3AB8028E Read
+
+%%InheritedBy ME_483E81520007 ME_4DCA3AB8028E
+
+ME ME_4DCA3AB8028E
+ MEPROP UID '4DCA3AB8028E'
+ MEPROP Name 'TddTextAndTableConverter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DCA3A7302B1 // evTableConverter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483E81520007' '482D6E960087.ms.model.script' // Tk2CustomFileParser
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F6834C40073 // Editor
+ HWL ME_4F6835290107 // CellSeparator
+ HWL ME_4F6838BF03B2 // TableWidth
+ HWL ME_4F6838ED022F // CodePageIn
+ HWL ME_4F68391E0341 // CodePageOut
+ HWL ME_4F683980002E // f_CellCount
+ HWL ME_4F6839D902B1 // f_MyStream
+ HWL ME_4F683A070055 // f_Lines
+ HWL ME_4F683A2A0212 // f_GlueLines
+ HWL ME_4F683A400056 // f_AbortConversion
+ HWL ME_4F683A6F002D // f_ColumnSeparator
+ HWL ME_4F683AF40307 // f_Dialog
+ HWL ME_4F683C9B01C9 // f_Rows
+ HWL ME_4F683CFB0353 // f_Table
+ HWL ME_4F683E190278 // f_DocGen
+ HWL ME_4F683E240277 // f_PreviewEnabled
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F683E3D003E // DialogShowPreview
+ HWL ME_4F683E6502E7 // AnalyzeStream
+ HWL ME_4F683E990117 // CorrectCellLen
+ HWL ME_4F683EC70009 // WriteBorders
+ HWL ME_4F683EE00365 // WriteToPreview
+ HWL ME_4F683F0E02D9 // GetTable
+ HWL ME_4F683FC4034D // DialogCellCount
+ HWL ME_4F683FE50015 // DialogCellSeparator
+ HWL ME_4F683FFE02F4 // DialogAutoFit
+ HWL ME_4F6840220354 // DialogGlueLines
+ HWL ME_4F68404500E9 // RecalcRows
+ HWL ME_4F68405D0117 // Tune
+ HWL ME_4F68407C003D // Text2Table
+ HWL ME_4F6852880115 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DCA3AB8028E // Cleanup
+ ME_4F68343D038D_ME_4DCA3AB8028E // Read
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4F683C2802E0 // TddTextAndTableConverterRow
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_51503F9F0377 // TddTableCell
+ ME_51503FC4029F // TddTableRow
+ ME_51503FF30286 // TddTextParagraph
+ ME_5150401A00B2 // TddTextSegment
+ ME_525E558B024D // TddBorder
+ ME_525E56D90239 // TddBorderParts
+ ME_525E5858018A // TddCellProperty
+ ME_52CFC99802F9 // TddCellProperty
+ ME_52CFCE6203AA // Tk2TagID
+ ME_56C2DE1A0278 // TddLiteVersion
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddTextAndTableConverter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DCA3AB8028E TddTextAndTableConverter
+
+FORWARD ME_4DCA3AE202DB
+
+ME ME_4DCA3B1500AE
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_4DCA3B1500AE anEditor
+
+ME ME_4DCA3AFC01BD
+ MEPROP UID '4DCA3AFC01BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3AE202DB // ConvertText2Table
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DCA3B1500AE // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_4DCA3AFC01BD DoIt
+
+ME ME_4F685D690144
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3AE202DB // ConvertText2Table
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_4F685D690144 
+
+ME ME_4DCA3AE202DB
+ MEPROP UID '4DCA3AE202DB'
+ MEPROP Name 'ConvertText2Table'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA3A7302B1 // evTableConverter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCA3AFC01BD // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F685D690144 // Code Pages
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4DCA3AE202DB ConvertText2Table
+
+ME ME_4DCA3D550266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA3A7302B1 // evTableConverter
+ ;
+ MELINK Target WL 'ME_4829D89703D2' '4829D89703D2.ms.model.script' // TevCustomEditor
+ ;
+
+ENDME // ME_4DCA3D550266 
+
+ME ME_4DCA3A7302B1
+ MEPROP UID '4DCA3A7302B1'
+ MEPROP Name 'evTableConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DCA3AE202DB // ConvertText2Table
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4DCA3AB8028E // TddTextAndTableConverter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DCA3D550266 // TevCustomEditor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\evTableConverter.pas'
+ UP extprop:rc:SelfName 'TableConverter'
+
+ENDME // ME_4DCA3A7302B1 evTableConverter

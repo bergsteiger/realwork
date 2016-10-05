@@ -1,0 +1,333 @@
+// ChromeLikeLegacyWindowCaptionButtons 533D14960061 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_533D14960061
+%%Inner ME_533D14960061
+%%Inner ME_533D14960061
+%%Inner ME_533D14960061
+
+FORWARD ME_533D14960061
+
+FORWARD ME_533D0BCB00A2
+
+FORWARD ME_533D11CA0022
+
+ME ME_533D11E200B4
+ MEPROP UID '533D11E200B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D11CA0022 // GetButtonStateFlag
+ ;
+ MELINK Target WL 'ME_49B14F7E013A' '48A41FF10094.ms.model.script' // UINT
+ ;
+
+ENDME // ME_533D11E200B4 DoIt
+
+ME ME_533D11CA0022
+ MEPROP UID '533D11CA0022'
+ MEPROP Name 'GetButtonStateFlag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533D11E200B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_533D11CA0022 GetButtonStateFlag
+
+ME ME_533D0CE4012C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_533D0CE4012C 
+
+ME ME_533D0CEB0074
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_533D0CEB0074 
+
+ME ME_533D0CF102CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_533D0CF102CC 
+
+ME ME_533D120803A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ ;
+ MELINK Target WL 'ME_49B14F7E013A' '48A41FF10094.ms.model.script' // UINT
+ ;
+
+ENDME // ME_533D120803A4 
+
+%%InheritedBy ME_533D01CB01B1 ME_533D0BCB00A2
+
+ME ME_533D0BCB00A2
+ MEPROP UID '533D0BCB00A2'
+ MEPROP Name 'TChromeLikeLegacyWindowCaptionButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_533D01CB01B1' '533D01CB01B1.ms.model.script' // TChromeLikeBaseWindowCaptionButton
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_533D11CA0022 // GetButtonStateFlag
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_533D0CE4012C // Windows
+ ME_533D0CEB0074 // Controls
+ ME_533D0CF102CC // Forms
+ ME_533D120803A4 // UINT
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ChromeLikeLegacyWindowCaptionButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_533D0BCB00A2 TChromeLikeLegacyWindowCaptionButton
+
+FORWARD ME_533D0C2F000A
+
+ME ME_5028A60300AD_ME_533D0C2F000A
+ MELINK Original WL 'ME_5028A60300AD' '47E11FC3021E.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A60300AD_ME_533D0C2F000A Paint
+
+ME ME_5474500600DA_ME_533D0C2F000A
+ MELINK Original WL 'ME_5474500600DA' '533D01CB01B1.ms.model.script' // GetHintText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5474500600DA_ME_533D0C2F000A GetHintText
+
+%%InheritedBy ME_533D0BCB00A2 ME_533D0C2F000A
+
+ME ME_533D0C2F000A
+ MEPROP UID '533D0C2F000A'
+ MEPROP Name 'TChromeLikeLegacyMinimizeCaptionButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5028A60300AD_ME_533D0C2F000A // Paint
+ ME_5474500600DA_ME_533D0C2F000A // GetHintText
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'ChromeLikeLegacyMinimizeCaptionButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_533D0C2F000A TChromeLikeLegacyMinimizeCaptionButton
+
+FORWARD ME_533D0C3A0179
+
+ME ME_5028A60300AD_ME_533D0C3A0179
+ MELINK Original WL 'ME_5028A60300AD' '47E11FC3021E.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A60300AD_ME_533D0C3A0179 Paint
+
+ME ME_54744FED0113_ME_533D0C3A0179
+ MELINK Original WL 'ME_54744FED0113' '533D01CB01B1.ms.model.script' // NeedUpdateHint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54744FED0113_ME_533D0C3A0179 NeedUpdateHint
+
+ME ME_5474500600DA_ME_533D0C3A0179
+ MELINK Original WL 'ME_5474500600DA' '533D01CB01B1.ms.model.script' // GetHintText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5474500600DA_ME_533D0C3A0179 GetHintText
+
+%%InheritedBy ME_533D0BCB00A2 ME_533D0C3A0179
+
+ME ME_533D0C3A0179
+ MEPROP UID '533D0C3A0179'
+ MEPROP Name 'TChromeLikeLegacyMaximizeCaptionButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5028A60300AD_ME_533D0C3A0179 // Paint
+ ME_54744FED0113_ME_533D0C3A0179 // NeedUpdateHint
+ ME_5474500600DA_ME_533D0C3A0179 // GetHintText
+ )
+ ; // Overridden
+ UP extprop:rc:SelfName 'ChromeLikeLegacyMaximizeCaptionButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_533D0C3A0179 TChromeLikeLegacyMaximizeCaptionButton
+
+FORWARD ME_533D0C20013A
+
+ME ME_533D0CFD024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_533D0CFD024C 
+
+ME ME_5028A60300AD_ME_533D0C20013A
+ MELINK Original WL 'ME_5028A60300AD' '47E11FC3021E.ms.model.script' // Paint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028A60300AD_ME_533D0C20013A Paint
+
+ME ME_5474500600DA_ME_533D0C20013A
+ MELINK Original WL 'ME_5474500600DA' '533D01CB01B1.ms.model.script' // GetHintText
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5474500600DA_ME_533D0C20013A GetHintText
+
+%%InheritedBy ME_533D0BCB00A2 ME_533D0C20013A
+
+ME ME_533D0C20013A
+ MEPROP UID '533D0C20013A'
+ MEPROP Name 'TChromeLikeLegacyCloseCaptionButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_5028A60300AD_ME_533D0C20013A // Paint
+ ME_5474500600DA_ME_533D0C20013A // GetHintText
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_533D0CFD024C // Windows
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'ChromeLikeLegacyCloseCaptionButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_533D0C20013A TChromeLikeLegacyCloseCaptionButton
+
+ME ME_547453A803E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_547453A803E3 
+
+ME ME_547453AC0100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_547453AC0100 
+
+ME ME_547453AF007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_547453AF007E 
+
+ME ME_547463CD039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D14960061 // ChromeLikeLegacyWindowCaptionButtons
+ ;
+ MELINK Target WL 'ME_545B531C026F' '545B531C026F.ms.model.script' // ChromeLikeWindowCaptionButtonsRes
+ ;
+
+ENDME // ME_547463CD039A 
+
+ME ME_533D14960061
+ MEPROP UID '533D14960061'
+ MEPROP Name 'ChromeLikeLegacyWindowCaptionButtons'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D01A201A9' '533D01A201A9.ms.model.script' // ChromeLikeWindowCaptionButtons
+ ;
+ MELIST Children
+   Seq: ( HWL ME_533D0BCB00A2 // TChromeLikeLegacyWindowCaptionButton
+ HWL ME_533D0C2F000A // TChromeLikeLegacyMinimizeCaptionButton
+ HWL ME_533D0C3A0179 // TChromeLikeLegacyMaximizeCaptionButton
+ HWL ME_533D0C20013A // TChromeLikeLegacyCloseCaptionButton
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_547453A803E3 // Controls
+ ME_547453AC0100 // Windows
+ ME_547453AF007E // Forms
+ ME_547463CD039A // ChromeLikeWindowCaptionButtonsRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeLegacyWindowCaptionButtons.pas'
+
+ENDME // ME_533D14960061 ChromeLikeLegacyWindowCaptionButtons

@@ -1,0 +1,73 @@
+UNIT CollectBackLinks.ms.dict
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+USES
+ CollectElements.ms.dict
+;
+
+USES
+ Log.ms.dict
+;
+
+PROCEDURE CollectBackLinks
+ CollectInAllDictionaries: 
+ ( 
+   STRING IN aDictName 
+  '%%InjectedBy ' aDictName FindInFile 
+  OR ( 'MELINK Stereotype st_ScriptKeywordsPack ;' aDictName FindInFile )
+  DUP ? ( Log: ( [ 'Collect Injected: ' aDictName ] strings:Cat ) )
+ ) 
+ (
+   IN aWord
+  aWord .Dependencies
+  .filter> .IsInjects
+  .map> .Target
+  if ( aWord .IsScriptKeywordsPack ) then
+  begin
+   .join> ( aWord .Inherits )
+  end // ( aWord .IsScriptKeywordsPack )
+ ) // CollectInAllDictionaries:
+  '.ms.model.script.inj' '_InjectedElements' .OutCollected
+ 
+ CollectInAllDictionaries: 
+ ( 
+   STRING IN aDictName 
+  '%%ImplementedBy ' aDictName FindInFile
+  AND (
+   ( 'MELINK Stereotype st_VCMFormDefinition ;' aDictName FindInFile )
+   OR ( 'MELINK Stereotype st_Atom ;' aDictName FindInFile )
+   OR ( 'MELINK Stereotype st_Tag ;' aDictName FindInFile )
+   OR ( 'MELINK Stereotype st_TagOverride ;' aDictName FindInFile )
+   // - тут ересь конечно написана. Надо узнавать стереотип РЕАЛИЗУЕМОГО элемента, а НЕ реализующего
+   // А может всё же и не ересь. Ибо нам же интересно - КТО НАС реализует.
+   OR ( 'MELINK Stereotype st_InterfaceFactoryProxy ;' aDictName FindInFile )
+   OR ( 'MELINK Stereotype st_InterfaceFactory ;' aDictName FindInFile )
+   OR ( 'MELINK Stereotype st_Wrapper ;' aDictName FindInFile )
+   OR ( 'MELINK Stereotype st_SimpleClass ;' aDictName FindInFile )
+  ) // AND
+  DUP ? ( Log: ( [ 'Collect Implementors: ' aDictName ] strings:Cat ) )
+ ) 
+ (
+   IN aWord
+  aWord .Implements
+  .filter> ( 
+    IN anElement
+   RULES 
+    ( anElement .IsVCMFormDefinition )
+     true
+    ( anElement .IsAtom )
+     true
+    DEFAULT
+     false
+   ; // RULES   
+  ) // .filter>
+ ) // CollectInAllDictionaries:
+  '.ms.model.script.impl' '_Implementors' .OutCollected
+; // CollectBackLinks

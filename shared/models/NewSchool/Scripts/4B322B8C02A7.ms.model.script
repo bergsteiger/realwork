@@ -1,0 +1,77 @@
+// evLoadDocumentManager 4B322B8C02A7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B322B8C02A7
+%%Inner ME_4B322B8C02A7
+
+FORWARD ME_4B322B8C02A7
+
+%%InheritedBy ME_47541E17024E ME_4B322BA8016F
+
+ME ME_4B322BA8016F
+ MEPROP UID '4B322BA8016F'
+ MEPROP Name 'TevCustomLoadDocumentManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B322B8C02A7 // evLoadDocumentManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47541E17024E' '47913B47006E.ms.model.script' // Tl3InterfacedComponent
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'LoadDocumentManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B322BA8016F TevCustomLoadDocumentManager
+
+%%InheritedBy ME_4B322BA8016F ME_4B322B9C0326
+
+ME ME_4B322B9C0326
+ MEPROP UID '4B322B9C0326'
+ MEPROP Name 'TevLoadDocumentManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B322B8C02A7 // evLoadDocumentManager
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B322BA8016F // TevCustomLoadDocumentManager
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'LoadDocumentManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B322B9C0326 TevLoadDocumentManager
+
+ME ME_4B322B8C02A7
+ MEPROP UID '4B322B8C02A7'
+ MEPROP Name 'evLoadDocumentManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B322B67038B' '4B322B67038B.ms.model.script' // ext
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B322BA8016F // TevCustomLoadDocumentManager
+ HWL ME_4B322B9C0326 // TevLoadDocumentManager
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\ext\NOT_FINISHED_evLoadDocumentManager.pas'
+ UP extprop:rc:SelfName 'LoadDocumentManager'
+
+ENDME // ME_4B322B8C02A7 evLoadDocumentManager

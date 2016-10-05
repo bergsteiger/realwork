@@ -83,56 +83,25 @@ end. // "Delphi интерфейсы и реализация"
 //	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
  if ( ( %S %f pas_script_runner_NeedOwnFile %( )% ) %==  true ) then
  begin
-//	W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
-  'W:/common/env/QuickLaunch/Appender.exe "'
+//	W:/common/env/QuickLaunch/Appender.cmd "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
+  'W:/common/env/QuickLaunch/Appender.cmd "'
   %S |R %S |d '/Generated.script.list" "'
   %S %f pas_script_runner_FileName %( )% 
 //	]
  end // if
 //	[{%S%f_pas_script_runner_NeedOwnFile()=true&%f_exists_in_list(Append_CALL,"%S%f_pas_script_runner_FileName()")!=true}\
 //	%f_add_to_list(Append_CALL,"%S%f_pas_script_runner_FileName()")\
-//	W:/common/env/QuickLaunch/Appender.exe "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
+//	W:/common/env/QuickLaunch/Appender.cmd "%SR%Sd/Generated.script.list" "%S%f_pas_script_runner_FileName()"\
 //	]
 //#UC END# *563244E50325for470F151302FD*
 ; // CallAppend
-
-
-//+ pas.script.runner
-implementation @ "Delphi интерфейсы и реализация"
-<<generator>> pas.script.runner OBJECT IN %S
-//R  
-//#UC START# *563CBCC10243for470F151302FD*
-//P true
-//X %f_CallAppend(%S)
-//C %S%f_pas_script_Path()
-//O %S%f_pas_script_runner_FileName()
-//	[{%S%f_pas_script_runner_NeedOwnFile()=true}\
- if ( ( %S %f pas_script_runner_NeedOwnFile %( )% ) %==  true ) then
- begin
-//	%S%f_pas_script_runner_Generate()\
-  %S %f pas_script_runner_Generate %( )% 
-//	]\
- end // if
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-//	<{}{%C#f_pas_script_runner_NeedOwnFile()=true}%CX>
-//#UC END# *563CBCC10243for470F151302FD*
-; // pas.script.runner
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Трансформаторы стереотипа
 
 //%t _IsTypeForCleanup
+implementation @ "Delphi интерфейсы и реализация"
 <<transformator>> IsTypeForCleanup OBJECT IN %S
 //#UC START# *4AE0718003CDfor470F151302FD*
 //@ %SU
@@ -5895,8 +5864,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{%S%f_pas_script_NeedOwnFile()=true}\
  if ( ( %S %f pas_script_NeedOwnFile %( )% ) %==  true ) then
  begin
-//	%SU.pas.ms.script\
-  %S |U '.pas.ms.script'
+//	%SU.ms.model.script\
+  %S |U '.ms.model.script'
 //	]
  end // if
 //#UC END# *5632451B0167for470F151302FD*
@@ -6060,9 +6029,9 @@ implementation @ "Delphi интерфейсы и реализация"
 
 //	\n\
  #13#10
-//	: %S%f_pas_script_Name()
- ': '
- %S %f pas_script_Name %( )% 
+//	ME %S#f_pas_script_Name()
+ 'ME '
+ %S %?f pas_script_Name %( )% 
 
 //	[{%SC!=Dependency&%SC!=Parameter}\
  if ( ( %S |C ) %!= 'Dependency' AND 
@@ -6071,8 +6040,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST UID '%SU'
-   ' CONST UID '''
+//	 MEPROP UID '%SU'
+   ' MEPROP UID '''
    %S |U '''
 //	]\
   end // if
@@ -6083,8 +6052,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{%S#f_IsInterface()=true}\
  if ( ( %S %?f IsInterface %( )% ) %==  true ) then
  begin
-//	 CONST GUID '%SG'
-  ' CONST GUID '''
+//	 MEPROP GUID '%SG'
+  ' MEPROP GUID '''
   %S |G '''
 //	]\
  end // if
@@ -6092,25 +6061,47 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%SN"!=""}\
  if ( ( %S |N ) %!= '' ) then
  begin
-//	 CONST Name '%f_str_replace(%f_N(%S),','')'
-  ' CONST Name '''
+//	 MEPROP Name '%f_str_replace(%f_N(%S),','')'
+  ' MEPROP Name '''
   [%f] str_replace %( [%f] N %( %S )% %, '''' %, '''''' )% '''
+//	]\
+ end // if
+
+//	[{"%SN"!=""}\
+ if ( ( %S |N ) %!= '' ) then
+ begin
+//	[{%f_N(%S)!=%SN}\
+  if ( ( [%f] N %( %S )% ) %!= ( %S |N ) ) then
+  begin
+//	 MEPROP OriginalName '%f_str_replace(%SN,','')'
+   ' MEPROP OriginalName '''
+   [%f] str_replace %( %S |N %, '''' %, '''''' )% '''
+//	]\
+  end // if
 //	]\
  end // if
 
 //	[{%S#f_is_virtual()=true}\
  if ( ( %S %?f is_virtual %( )% ) %==  true ) then
  begin
-//	 CONST IsSummoned true
-  ' CONST IsSummoned true'
+//	 UP IsSummoned true
+  ' UP IsSummoned true'
+//	]\
+ end // if
+
+//	[{%S%f_pas_script_NeedOwnFile()=true}\
+ if ( ( %S %f pas_script_NeedOwnFile %( )% ) %==  true ) then
+ begin
+//	 MEPROP IsSubRoot true
+  ' MEPROP IsSubRoot true'
 //	]\
  end // if
 
 //	[\
  if NOT-EMPTY
  begin
-//	 CONST Class class_%SC
-  ' CONST Class class_'
+//	 MEPROP Class class_%SC
+  ' MEPROP Class class_'
   %S |C 
 //	]\
  end // if
@@ -6123,8 +6114,8 @@ implementation @ "Delphi интерфейсы и реализация"
   if ( ( %S |C ) %== 'Category' OR 
     ( ( %S |C ) %== 'Class'  ) ) then
   begin
-//	 : Stereotype st_%f_str_replace(%SS, ,_) ;
-   ' : Stereotype st_'
+//	 MELINK Stereotype st_%f_str_replace(%SS, ,_) ;
+   ' MELINK Stereotype st_'
    [%f] str_replace %( %S |S %, ' ' %, '_' )% ' ;'
 //	]\
   end // if
@@ -6135,16 +6126,16 @@ implementation @ "Delphi интерфейсы и реализация"
      ( ( %S |C ) %== 'Attribute'  ) OR 
      ( ( %S |C ) %== 'Dependency'  ) ) then
    begin
-//	 : Stereotype st_%f_str_replace(%SS, ,_)::%SC ;
-    ' : Stereotype st_'
+//	 MELINK Stereotype st_%f_str_replace(%SS, ,_)::%SC ;
+    ' MELINK Stereotype st_'
     [%f] str_replace %( %S |S %, ' ' %, '_' )% '::'
     %S |C ' ;'
 //	]\
    end // if
    else
    begin
-//	 : Stereotype st_%f_str_replace(%SS, ,_) ;
-    ' : Stereotype st_'
+//	 MELINK Stereotype st_%f_str_replace(%SS, ,_) ;
+    ' MELINK Stereotype st_'
     [%f] str_replace %( %S |S %, ' ' %, '_' )% ' ;'
 //	}\
    end // else
@@ -6155,8 +6146,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%SK"!=""}\
  if ( ( %S |K ) %!= '' ) then
  begin
-//	 CONST Kind kind_%SK
-  ' CONST Kind kind_'
+//	 MEPROP Kind kind_%SK
+  ' MEPROP Kind kind_'
   %S |K 
 //	]\
  end // if
@@ -6176,8 +6167,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST Visibility %SV
-   ' CONST Visibility '
+//	 MEPROP Visibility %SV
+   ' MEPROP Visibility '
    %S |V 
 //	]\
   end // if
@@ -6191,8 +6182,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST Abstraction at_%Sa
-   ' CONST Abstraction at_'
+//	 MEPROP Abstraction at_%Sa
+   ' MEPROP Abstraction at_'
    %S |a 
 //	]\
   end // if
@@ -6202,8 +6193,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%Sl"!=""}\
  if ( ( %S |l ) %!= '' ) then
  begin
-//	 CONST LinkType lt_%Sl
-  ' CONST LinkType lt_'
+//	 MEPROP LinkType lt_%Sl
+  ' MEPROP LinkType lt_'
   %S |l 
 //	]\
  end // if
@@ -6215,8 +6206,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Parent %P#f_pas_script_Reference() ;
-   ' : Parent '
+//	 MELINK Parent %P#f_pas_script_Reference() ;
+   ' MELINK Parent '
    %P %?f pas_script_Reference %( )% ' ;'
 //	]\
   end // if
@@ -6230,8 +6221,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Target %T#f_pas_script_Reference() ;
-   ' : Target '
+//	 MELINK Target %T#f_pas_script_Reference() ;
+   ' MELINK Target '
    %T %?f pas_script_Reference %( )% ' ;'
 //	]\
   end // if
@@ -6241,16 +6232,16 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%Ss"!=""}\
  if ( ( %S |s ) %!= '' ) then
  begin
-//	 CONST TargetStereotype '%Ss'
-  ' CONST TargetStereotype '''
+//	 MEPROP TargetStereotype '%Ss'
+  ' MEPROP TargetStereotype '''
   %S |s '''
 //	]\
  end // if
 //	[{"%VN"!=""}\
  if ( ( %V |N ) %!= '' ) then
  begin
-//	 CONST Value %f_out_val(%f_fine_string("%VN"))
-  ' CONST Value '
+//	 MEPROP Value %f_out_val(%f_fine_string("%VN"))
+  ' MEPROP Value '
   [%f] out_val %( [%f] fine_string %( %V |N )% )% 
 //	]\
  end // if
@@ -6262,8 +6253,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : ValueType %V%T#f_pas_script_Reference() ;
-   ' : ValueType '
+//	 MELINK ValueType %V%T#f_pas_script_Reference() ;
+   ' MELINK ValueType '
    %V ->T %?f pas_script_Reference %( )%  ' ;'
 //	]\
   end // if
@@ -6274,8 +6265,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Inherits
-  ' : Inherits'
+//	 MELIST Inherits
+  ' MELIST Inherits'
 //	   Seq: (< %G#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6298,8 +6289,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Implements
-  ' : Implements'
+//	 MELIST Implements
+  ' MELIST Implements'
 //	   Seq: (< %R#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6322,8 +6313,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : CanRaise
-  ' : CanRaise'
+//	 MELIST CanRaise
+  ' MELIST CanRaise'
 //	   Seq: (< %E#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6346,8 +6337,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : CanRaiseInSet
-  ' : CanRaiseInSet'
+//	 MELIST CanRaiseInSet
+  ' MELIST CanRaiseInSet'
 //	   Seq: (< %e#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6370,8 +6361,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Attributes
-  ' : Attributes'
+//	 MELIST Attributes
+  ' MELIST Attributes'
 //	   Seq: (<{}{%C#f_pas_script_IsAttribute()=true} %C#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6394,8 +6385,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Operations
-  ' : Operations'
+//	 MELIST Operations
+  ' MELIST Operations'
 //	   Seq: (<{}{%C#f_pas_script_IsOperation()=true} %C#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6422,8 +6413,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Implemented
-   ' : Implemented'
+//	 MELIST Implemented
+   ' MELIST Implemented'
 //	   Seq: (<{}{}{%o} %f_OverrideLink(%o,%S)> )
    '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
@@ -6446,8 +6437,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Overridden
-   ' : Overridden'
+//	 MELIST Overridden
+   ' MELIST Overridden'
 //	   Seq: (<{}{}{%O} %f_OverrideLink(%O,%S)> )
    '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
@@ -6473,8 +6464,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Children
-  ' : Children'
+//	 MELIST Children
+  ' MELIST Children'
 //	   Seq: (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)!=true} %C#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6498,8 +6489,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Constants
-  ' : Constants'
+//	 MELIST Constants
+  ' MELIST Constants'
 //	   Seq: (<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)=true} %C#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6523,8 +6514,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Parameters
-  ' : Parameters'
+//	 MELIST Parameters
+  ' MELIST Parameters'
 //	   Seq: (<{}{%CC=Parameter} %C#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6547,8 +6538,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Dependencies
-  ' : Dependencies'
+//	 MELIST Dependencies
+  ' MELIST Dependencies'
 //	   Seq: (<{}{%CC=Dependency} %C#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6571,8 +6562,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Injected
-  ' : Injected'
+//	 MELIST Injected
+  ' MELIST Injected'
 //	   Seq: (<{}{%aC=Dependency&%aS=injects&%f_IsSameProject(%S,%a)=true}{Sg} %a#f_pas_script_Reference(%a%P)> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6597,8 +6588,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Zones
-  ' : Zones'
+//	 MELIST Zones
+  ' MELIST Zones'
 //	   Seq: (<{}{%ZS=VCMFormZone}{Sg} %Z#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6626,8 +6617,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Implementors
-   ' : Implementors'
+//	 MELIST Implementors
+   ' MELIST Implementors'
 //	   Seq: (<{}{%f_IsSameProject(%S,%L)=true}{%LSg} %L#f_pas_script_Reference()> )
    '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
@@ -6652,8 +6643,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
  if NOT-EMPTY
  begin
-//	 : Depends
-  ' : Depends'
+//	 MELIST Depends
+  ' MELIST Depends'
 //	   Seq: (< %D#f_pas_script_Reference()> )
   '   Seq: ('
   INTEGER VAR l_Counter l_Counter := 0
@@ -6680,8 +6671,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Forwarded
-   ' : Forwarded'
+//	 MELIST Forwarded
+   ' MELIST Forwarded'
 //	   Seq: (< %F#f_pas_script_Reference()> )
    '   Seq: ('
    INTEGER VAR l_Counter l_Counter := 0
@@ -6704,8 +6695,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
-//	%S%f_pas_script_GenerateUserProperties()\
- %S %f pas_script_GenerateUserProperties %( )% 
+//	%S#f_pas_script_GenerateUserProperties()\
+ %S %?f pas_script_GenerateUserProperties %( )% 
 
 //	[{%SC=Class|%SC=Category}\
  if ( ( %S |C ) %== 'Class' OR 
@@ -6739,8 +6730,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%f_with_gen_id(%{GEN_ID}N,%SL)"!=""}\
        if ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% ) %!= '' ) then
        begin
-//	 CONST %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
-        ' CONST '
+//	 UP %{GEN_ID}N:Path '%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%SL),/,\\)'
+        ' UP '
         ( get_global_var ( 'GEN_ID' ) |N ) ':Path '''
         [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |L )% %, '/' %, '\' )% '''
 //	]\
@@ -6759,8 +6750,8 @@ implementation @ "Delphi интерфейсы и реализация"
         if ( ( %S %?f IsProject %( )% ) %==  true OR 
           ( ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %P |d )% ) %!= ( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% )  ) ) then
         begin
-//	 CONST %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
-         ' CONST '
+//	 UP %{GEN_ID}N:PathOnly '%f_str_replace(%f_str_replace(%f_with_gen_id(%{GEN_ID}N,%Sd),/,\\),\\\\,\\)'
+         ' UP '
          ( get_global_var ( 'GEN_ID' ) |N ) ':PathOnly '''
          [%f] str_replace %( [%f] str_replace %( [%f] with_gen_id %( ( get_global_var ( 'GEN_ID' ) |N ) %, %S |d )% %, '/' %, '\' )% %, '\\' %, '\' )% '''
 //	]\
@@ -6793,8 +6784,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:pas:TypeName '%f_pas_TypeName(%S)'
-    ' CONST extprop:pas:TypeName '''
+//	 UP extprop:pas:TypeName '%f_pas_TypeName(%S)'
+    ' UP extprop:pas:TypeName '''
     [%f] pas_TypeName %( %S )% '''
 //	]\
    end // if
@@ -6813,8 +6804,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:rc:SelfName '%t_SelfName(%S)'
-    ' CONST extprop:rc:SelfName '''
+//	 UP extprop:rc:SelfName '%t_SelfName(%S)'
+    ' UP extprop:rc:SelfName '''
     [%t] SelfName %( %S )% '''
 //	]\
    end // if
@@ -6833,8 +6824,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:rc:isAcceptableForScripts %t_isAcceptableForScripts(%S)
-    ' CONST extprop:rc:isAcceptableForScripts '
+//	 UP extprop:rc:isAcceptableForScripts %t_isAcceptableForScripts(%S)
+    ' UP extprop:rc:isAcceptableForScripts '
     [%t] isAcceptableForScripts %( %S )% 
 //	]\
    end // if
@@ -6858,8 +6849,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
     if NOT-EMPTY
     begin
-//	 CONST extprop:pas:UnitName '%f_fine_string(%f_pas_UnitName(%S))'
-     ' CONST extprop:pas:UnitName '''
+//	 UP extprop:pas:UnitName '%f_fine_string(%f_pas_UnitName(%S))'
+     ' UP extprop:pas:UnitName '''
      [%f] fine_string %( [%f] pas_UnitName %( %S )% )% '''
 //	]\
     end // if
@@ -6878,8 +6869,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST extprop:pas:ElementPrefixBase '%S#f_pas_ElementPrefixBase()'
-   ' CONST extprop:pas:ElementPrefixBase '''
+//	 UP extprop:pas:ElementPrefixBase '%S#f_pas_ElementPrefixBase()'
+   ' UP extprop:pas:ElementPrefixBase '''
    %S %?f pas_ElementPrefixBase %( )% '''
 //	]\
   end // if
@@ -6887,8 +6878,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST extprop:pas:ElementPrefix '%S#f_pas_ElementPrefix()'
-   ' CONST extprop:pas:ElementPrefix '''
+//	 UP extprop:pas:ElementPrefix '%S#f_pas_ElementPrefix()'
+   ' UP extprop:pas:ElementPrefix '''
    %S %?f pas_ElementPrefix %( )% '''
 //	]\
   end // if
@@ -6901,8 +6892,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:isGlobal %f_out_val("%S{isGlobal}")
-    ' CONST extprop:isGlobal '
+//	 UP extprop:isGlobal %f_out_val("%S{isGlobal}")
+    ' UP extprop:isGlobal '
     [%f] out_val %( %S get_up ( 'isGlobal' ) )% 
 //	]\
    end // if
@@ -6917,8 +6908,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:pas:InitFields %f_out_val(%f_fine_string("%f_with_gen_id(intf.pas,%S#f_InitFieldsUC())"))
-    ' CONST extprop:pas:InitFields '
+//	 UP extprop:pas:InitFields %f_out_val(%f_fine_string("%f_with_gen_id(intf.pas,%S#f_InitFieldsUC())"))
+    ' UP extprop:pas:InitFields '
     [%f] out_val %( [%f] fine_string %( [%f] with_gen_id %( 'intf.pas' %, %S %?f InitFieldsUC %( )% )% )% )% 
 //	]\
    end // if
@@ -6940,8 +6931,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
-    ' CONST extprop:evd:NeedsOwnType '
+//	 UP extprop:evd:NeedsOwnType %f_out_val("%S#f_NeedsOwnType()")
+    ' UP extprop:evd:NeedsOwnType '
     [%f] out_val %( %S %?f NeedsOwnType %( )% )% 
 //	]\
    end // if
@@ -6956,8 +6947,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
-    ' CONST extprop:evd:NewTypeName '
+//	 UP extprop:evd:NewTypeName %f_out_val("%S#f_NewTypeName()")
+    ' UP extprop:evd:NewTypeName '
     [%f] out_val %( %S %?f NewTypeName %( )% )% 
 //	]\
    end // if
@@ -6973,8 +6964,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST extprop:prop_stereo %f_out_val("%S{prop_stereo}")
-   ' CONST extprop:prop_stereo '
+//	 UP extprop:prop_stereo %f_out_val("%S{prop_stereo}")
+   ' UP extprop:prop_stereo '
    [%f] out_val %( %S get_up ( 'prop_stereo' ) )% 
 //	]\
   end // if
@@ -6988,8 +6979,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST extprop:prop_name %f_out_val("%S{prop_name}")
-   ' CONST extprop:prop_name '
+//	 UP extprop:prop_name %f_out_val("%S{prop_name}")
+   ' UP extprop:prop_name '
    [%f] out_val %( %S get_up ( 'prop_name' ) )% 
 //	]\
   end // if
@@ -7003,8 +6994,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST extprop:isAsm %f_out_val("%S{isAsm}")
-   ' CONST extprop:isAsm '
+//	 UP extprop:isAsm %f_out_val("%S{isAsm}")
+   ' UP extprop:isAsm '
    [%f] out_val %( %S get_up ( 'isAsm' ) )% 
 //	]\
   end // if
@@ -7012,19 +7003,28 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 
+//	[{%S%{IsBool}N=true}\
+ if ( ( %S ( get_object_var ( 'IsBool' ) |N )  ) %==  true ) then
+ begin
+//	 UP extprop:IsBool %f_out_val(%S%{IsBool})
+  ' UP extprop:IsBool '
+  [%f] out_val %( %S ( get_object_var ( 'IsBool' ) )  )% 
+//	]\
+ end // if
+
 //	[{%S{isSynchroEnum}=true}\
  if ( ( %S get_up ( 'isSynchroEnum' ) ) %==  true ) then
  begin
-//	 CONST extprop:isSynchroEnum true
-  ' CONST extprop:isSynchroEnum true'
+//	 UP extprop:isSynchroEnum true
+  ' UP extprop:isSynchroEnum true'
 //	]\
  end // if
 
 //	[{"%S%{SDS_CASTER}N"!=""}\
  if ( ( %S ( get_object_var ( 'SDS_CASTER' ) |N )  ) %!= '' ) then
  begin
-//	 CONST extprop:SDS_CASTER %f_out_val("%S%{SDS_CASTER}N")
-  ' CONST extprop:SDS_CASTER '
+//	 UP extprop:SDS_CASTER %f_out_val("%S%{SDS_CASTER}N")
+  ' UP extprop:SDS_CASTER '
   [%f] out_val %( %S ( get_object_var ( 'SDS_CASTER' ) |N )  )% 
 //	]\
  end // if
@@ -7032,8 +7032,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%S%{CASTER}U"!=""}\
  if ( ( %S ( get_object_var ( 'CASTER' ) |U )  ) %!= '' ) then
  begin
-//	 : extprop:CASTER %S%{CASTER}#f_pas_script_Reference() ;
-  ' : extprop:CASTER '
+//	 UPLINK extprop:CASTER %S%{CASTER}#f_pas_script_Reference() ;
+  ' UPLINK extprop:CASTER '
   %S ( get_object_var ( 'CASTER' ) )  out_indent 'f_pas_script_Reference() ;'
 //	]\
  end // if
@@ -7047,8 +7047,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
    if NOT-EMPTY
    begin
-//	 CONST extprop:clearViaProperty '%S%{clearViaProperty}N'
-    ' CONST extprop:clearViaProperty '''
+//	 UP extprop:clearViaProperty '%S%{clearViaProperty}N'
+    ' UP extprop:clearViaProperty '''
     %S ( get_object_var ( 'clearViaProperty' ) |N )  '''
 //	]\
    end // if
@@ -7064,8 +7064,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST extprop:pas:Value %f_out_val(%f_fine_string(%S#f_OutValue()))
-   ' CONST extprop:pas:Value '
+//	 UP extprop:pas:Value %f_out_val(%f_fine_string(%S#f_OutValue()))
+   ' UP extprop:pas:Value '
    [%f] out_val %( [%f] fine_string %( %S %?f OutValue %( )% )% )% 
 //	]\
   end // if
@@ -7076,8 +7076,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{%S#f_NeedsInitEntities()=true}\
  if ( ( %S %?f NeedsInitEntities %( )% ) %==  true ) then
  begin
-//	 CONST extprop:NeedsInitEntities true
-  ' CONST extprop:NeedsInitEntities true'
+//	 UP extprop:NeedsInitEntities true
+  ' UP extprop:NeedsInitEntities true'
 //	]\
  end // if
 
@@ -7087,8 +7087,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Speller %S%{Speller}#f_pas_script_Reference() ;
-   ' : Speller '
+//	 UPLINK Speller %S%{Speller}#f_pas_script_Reference() ;
+   ' UPLINK Speller '
    %S ( get_object_var ( 'Speller' ) )  out_indent 'f_pas_script_Reference() ;'
 //	]\
   end // if
@@ -7102,8 +7102,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : SpelledFor %S%{SpelledFor}#f_pas_script_Reference() ;
-   ' : SpelledFor '
+//	 UPLINK SpelledFor %S%{SpelledFor}#f_pas_script_Reference() ;
+   ' UPLINK SpelledFor '
    %S ( get_object_var ( 'SpelledFor' ) )  out_indent 'f_pas_script_Reference() ;'
 //	]\
   end // if
@@ -7117,8 +7117,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Action %S%{Action}#f_pas_script_Reference() ;
-   ' : Action '
+//	 UPLINK Action %S%{Action}#f_pas_script_Reference() ;
+   ' UPLINK Action '
    %S ( get_object_var ( 'Action' ) )  out_indent 'f_pas_script_Reference() ;'
 //	]\
   end // if
@@ -7132,8 +7132,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 : Stub %S%{Stub}#f_pas_script_Reference() ;
-   ' : Stub '
+//	 UPLINK Stub %S%{Stub}#f_pas_script_Reference() ;
+   ' UPLINK Stub '
    %S ( get_object_var ( 'Stub' ) )  out_indent 'f_pas_script_Reference() ;'
 //	]\
   end // if
@@ -7149,8 +7149,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[\
   if NOT-EMPTY
   begin
-//	 CONST Version %SA
-   ' CONST Version '
+//	 UP Version %SA
+   ' UP Version '
    %S |A 
 //	]\
   end // if
@@ -7158,9 +7158,9 @@ implementation @ "Delphi интерфейсы и реализация"
 //	]\
  end // if
 //	
-//	ref; // %S%f_pas_script_Name() %SN\n
- 'ref; // '
- %S %f pas_script_Name %( )% ' '
+//	ENDME // %S#f_pas_script_Name() %SN\n
+ 'ENDME // '
+ %S %?f pas_script_Name %( )% ' '
  %S |N #13#10
 
 //t _SelfNamePrim
@@ -7174,6 +7174,7 @@ end. // "Delphi интерфейсы и реализация"
 //r {%t_interface(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),I)}
 //r {%S#f_IsStaticObject()=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
 //r {%t_simple_class(%S)=true}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
+//r {%SS=Event}: {%f_cut_prefix(%f_pas_TypeName(%S),T)}
 //r {""=""}: {%f_pas_TypeName(%S)}
 
 //t _SelfNameEx
@@ -7261,6 +7262,7 @@ end. // "Delphi интерфейсы и реализация"
 //r {%t_isClassRef(%S)=true}: {true}
 //r {%f_pas_TypeName(%S)=Tl3WString|%f_pas_TypeName(%S)=Tl3PCharLenPrim|%f_pas_TypeName(%S)=Tl3PCharLen}: {true}
 //r {%f_pas_TypeName(%S)=Il3CString}: {true}
+//r {%SS=Event}: {true}
 //r {%t_simple_class(%S)=true}: {true}
 //r {%t_interface(%S)=true}: {true}
 //r {%f_pas_TypeName(%S)=String}: {true}
@@ -9119,53 +9121,69 @@ implementation @ "Delphi интерфейсы и реализация"
 end. // "Delphi интерфейсы и реализация"
 
 : OverrideName OBJECT IN %S
-//	%S%f_pas_script_Name()_%1%f_pas_script_Name()
- %S %f pas_script_Name %( )% '_'
- %1 %f pas_script_Name %( )% 
+//	[{"%S#f_pas_script_Name()"!=""&"%1#f_pas_script_Name()"!=""}\
+ if ( ( %S %?f pas_script_Name %( )% ) %!= '' AND 
+   ( ( %1 %?f pas_script_Name %( )% ) %!= ''  ) ) then
+ begin
+//	%S#f_pas_script_Name()_%1#f_pas_script_Name()\
+  %S %?f pas_script_Name %( )% '_'
+  %1 %?f pas_script_Name %( )% 
+//	]
+ end // if
 
 //f _OverrideLink
 ; // OverrideName
 
 : OverrideLink OBJECT IN %S
-//	%f_OverrideName(%S,%1) // %SN\n
- [%f] OverrideName %( %S %, %1 )% ' // '
- %S |N #13#10
+//	[%f_OverrideName(%S,%1) // %SN\n]
+ if NOT-EMPTY
+ begin
+  [%f] OverrideName %( %S %, %1 )% ' // '
+  %S |N #13#10 
+ end // if
+ NOP
 
 //f _OutOverride
 ; // OverrideLink
 
 : OutOverride OBJECT IN %S
+//	[{"%f_OverrideName(%S,%1)"!=""}\
+ if ( ( [%f] OverrideName %( %S %, %1 )% ) %!= '' ) then
+ begin
 //	\n\
- #13#10
-//	: %f_OverrideName(%S,%1)
- ': '
- [%f] OverrideName %( %S %, %1 )% 
-//	 CONST UID '%SU'
-//	[{"%SN"!=""}\
-//	 CONST Name '%f_str_replace(%f_N(%S),','')'
-//	]\
-//	 : Original %S#f_pas_script_Reference() ;
- ' : Original '
- %S %?f pas_script_Reference %( )% ' ;'
+  #13#10
+//	ME %f_OverrideName(%S,%1)
+  'ME '
+  [%f] OverrideName %( %S %, %1 )% 
 //	[\
-//	 : Implementor %1#f_pas_script_Reference() ;
+  if NOT-EMPTY
+  begin
+//	 MELINK Original %S#f_pas_script_Reference() ;
+   ' MELINK Original '
+   %S %?f pas_script_Reference %( )% ' ;'
 //	]\
+  end // if
+  NOP
+
 
 //	[{"%2N"!=""}\
- if ( ( %2 |N ) %!= '' ) then
- begin
-//	 CONST OpKind %2N
-  ' CONST OpKind '
-  %2 |N 
+  if ( ( %2 |N ) %!= '' ) then
+  begin
+//	 MEPROP OpKind %2N
+   ' MEPROP OpKind '
+   %2 |N 
 //	]\
- end // if
+  end // if
 
-//	%S%f_pas_script_GenerateUserProperties()\
- %S %f pas_script_GenerateUserProperties %( )% 
-//	ref; // %f_OverrideName(%S,%1) %SN\n
- 'ref; // '
- [%f] OverrideName %( %S %, %1 )% ' '
- %S |N #13#10
+
+//	%S#f_pas_script_GenerateUserProperties()\
+  %S %?f pas_script_GenerateUserProperties %( )% 
+//	ENDME // %f_OverrideName(%S,%1) %SN\n\
+  'ENDME // '
+  [%f] OverrideName %( %S %, %1 )% ' '
+  %S |N #13#10
+//	]
+ end // if
 //#UC END# *563378C200C8for470F151302FD*
 ; // OutOverride
 
@@ -9216,8 +9234,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{%f_is_default_up_value(%S,%{LEFT},%{RIGHT})!=true}\
        if ( ( [%f] is_default_up_value %( %S %, ( get_global_var ( 'LEFT' ) ) %, ( get_global_var ( 'RIGHT' ) ) )% ) %!=  true ) then
        begin
-//	 CONST \
-        ' CONST '
+//	 UP \
+        ' UP '
 
 
 //	"%{LEFT}N" \
@@ -9283,9 +9301,9 @@ implementation @ "Delphi интерфейсы и реализация"
 //	[{"%S#f_pas_script_FileNameForLink()"!="%BO"}{\
  if ( ( %S %?f pas_script_FileNameForLink %( )% ) %!= ( %B |O ) ) then
  begin
-//	WL '%S%f_pas_script_Name()' \
+//	WL '%S#f_pas_script_Name()' \
   'WL '''
-  %S %f pas_script_Name %( )% ''' '
+  %S %?f pas_script_Name %( )% ''' '
 //	'%f_pas_script_FileNameForLinkSafe(%S)'\
   ''''
   [%f] pas_script_FileNameForLinkSafe %( %S )% ''''
@@ -9305,8 +9323,8 @@ implementation @ "Delphi интерфейсы и реализация"
    'HWL '
 //	}\
   end // else
-//	%S%f_pas_script_Name()\
-  %S %f pas_script_Name %( )% 
+//	%S#f_pas_script_Name()\
+  %S %?f pas_script_Name %( )% 
 //	}\
  end // else
  ' '
@@ -9503,8 +9521,8 @@ implementation @ "Delphi интерфейсы и реализация"
 //	%f_clear_list(INCLUDED_FILES)\
  [%f] clear_list %( 'INCLUDED_FILES' )% 
 //	
-//	%S%f_pas_script_Name() .Generate
- %S %f pas_script_Name %( )% ' .Generate'
+//	%S#f_pas_script_Name() .Generate
+ %S %?f pas_script_Name %( )% ' .Generate'
 //#UC END# *563CBD450198for470F151302FD*
 ; // pas_script_runner_Generate
 
@@ -9529,9 +9547,15 @@ implementation @ "Delphi интерфейсы и реализация"
   begin
 //	%f_add_to_list(FORWARDED_ELEMENTS,S)\
    [%f] add_to_list %( 'FORWARDED_ELEMENTS' %, 'S' )% 
-//	\nFORWARD %S%f_pas_script_Name()\n\
-   #13#10'FORWARD '
-   %S %f pas_script_Name %( )% #13#10
+//	[\
+   if NOT-EMPTY
+   begin
+//	\nFORWARD %S#f_pas_script_Name()\n\
+    #13#10'FORWARD '
+    %S %?f pas_script_Name %( )% #13#10
+//	]\
+   end // if
+   NOP
 //	]\
   end // if
 //	]

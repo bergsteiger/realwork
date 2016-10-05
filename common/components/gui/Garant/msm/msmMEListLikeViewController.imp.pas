@@ -30,6 +30,9 @@ procedure _msmMEListLikeViewController_.DoGetItemFont(Sender: TObject;
 //#UC END# *57B47A2102DE_57C977AE0264_var*
 begin
 //#UC START# *57B47A2102DE_57C977AE0264_impl*
+ inherited;
+ if (Index < 0) then
+  Exit;
  with Self.Model.List[Index] do
  begin
   aFont.Italic := BoolProp['IsSummoned'];

@@ -1,0 +1,62 @@
+// nevParentPointFactoryEx 49D25A310104 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49D25A310104
+
+ME ME_49D25B190118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49D25A310104 // nevParentPointFactoryEx
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_49D25B190118 
+
+ME ME_49D243600057_ME_49D25A310104
+ MELINK Original WL 'ME_49D243600057' '47C5207602D1.ms.model.script' // PointToParentByLevel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49D243600057_ME_49D25A310104 PointToParentByLevel
+
+ME ME_49D2437302B2_ME_49D25A310104
+ MELINK Original WL 'ME_49D2437302B2' '47C5207602D1.ms.model.script' // PointToTypedParent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49D2437302B2_ME_49D25A310104 PointToTypedParent
+
+%%ImplementedBy ME_49D2431702AE ME_49D25A310104
+
+ME ME_49D25A310104
+ MEPROP UID '49D25A310104'
+ MEPROP Name 'nevParentPointFactoryEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49D2431702AE' '47C5207602D1.ms.model.script' // MnevParentPointFactoryEx
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_49D243600057_ME_49D25A310104 // PointToParentByLevel
+ ME_49D2437302B2_ME_49D25A310104 // PointToTypedParent
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49D25B190118 // InevObject
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevParentPointFactoryEx.imp.pas'
+ UP extprop:pas:TypeName '_nevParentPointFactoryEx_'
+ UP extprop:pas:UnitName 'nevParentPointFactoryEx.imp'
+
+ENDME // ME_49D25A310104 nevParentPointFactoryEx

@@ -49,6 +49,8 @@ constructor _msmModelToModelOperation_.Create(const aCaption: AnsiString;
 //#UC END# *57CEBB400249_57CEBA960062_var*
 begin
 //#UC START# *57CEBB400249_57CEBA960062_impl*
+ Assert(aModelToListen <> nil);
+ Assert(aModelToFire <> nil);
  f_ModelToListen := aModelToListen;
  f_ModelToFire := aModelToFire;
  inherited Create(aCaption, aModelToListen);

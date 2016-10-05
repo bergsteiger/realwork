@@ -2,129 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4CA0D33A02D6
-
-FORWARD ME_4CA0D35D00BF
-
-ME ME_4CA0D369004C
- MEPROP UID '4CA0D369004C'
- MEPROP Name 'TLocalORBObject'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CA0D35D00BF // orb
- ;
- UP "finished" false
- UP extprop:rc:SelfName 'LocalORBObject'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4CA0D369004C TLocalORBObject
-
-FORWARD ME_4CA1CCDD0268
-
-ME ME_4CA1CCF10138
- MEPROP Name 'props'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E21A8A0324' '4AB0997B00A2.ms.model.script' // TStrings
- ;
-
-ENDME // ME_4CA1CCF10138 props
-
-ME ME_4CA1CCEA0033
- MEPROP UID '4CA1CCEA0033'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CA1CCDD0268 // ORB__Init
- ;
- MELINK Target WL 'ME_4CA1C4840186' '4CA1C4660358.ms.model.script' // IORB
- ;
- MELIST Parameters
-   Seq: ( ME_4CA1CCF10138 // props
- )
- ; // Parameters
-
-ENDME // ME_4CA1CCEA0033 DoIt
-
-ME ME_4CA1CCDD0268
- MEPROP UID '4CA1CCDD0268'
- MEPROP Name 'ORB__Init'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CA0D35D00BF // orb
- ;
- MELIST Operations
-   Seq: ( HWL ME_4CA1CCEA0033 // DoIt
- )
- ; // Operations
-
-ENDME // ME_4CA1CCDD0268 ORB__Init
-
-ME ME_4CA0D35D00BF
- MEPROP UID '4CA0D35D00BF'
- MEPROP Name 'orb'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CA0D33A02D6 // orb
- ;
- MELIST Operations
-   Seq: ( HWL ME_4CA1CCDD0268 // ORB__Init
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4CA0D369004C // TLocalORBObject
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\orb\NOT_FINISHED_orb.pas'
-
-ENDME // ME_4CA0D35D00BF orb
-
-FORWARD ME_4CA0D8A80194
-
-ME ME_4CA0D8BA0012
- MEPROP UID '4CA0D8BA0012'
- MEPROP Name 'TPIManager'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4CA0D8A80194 // pi_impl
- ;
- UP extprop:rc:SelfName 'PIManager'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4CA0D8BA0012 TPIManager
-
-ME ME_4CA0D8A80194
- MEPROP UID '4CA0D8A80194'
- MEPROP Name 'pi_impl'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4CA0D33A02D6 // orb
- ;
- MELIST Children
-   Seq: ( HWL ME_4CA0D8BA0012 // TPIManager
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\orb\NOT_FINISHED_pi_impl.pas'
-
-ENDME // ME_4CA0D8A80194 pi_impl
+%%Inner ME_4CA0D33A02D6
+%%Inner ME_4CA0D33A02D6
 
 ME ME_4CA0D33A02D6
  MEPROP UID '4CA0D33A02D6'
@@ -137,8 +16,8 @@ ME ME_4CA0D33A02D6
  MELINK Parent WL 'ME_4CA0BEBC011E' '4CA0BEBC011E.ms.model.script' // MTDOrb
  ;
  MELIST Children
-   Seq: ( HWL ME_4CA0D35D00BF // orb
- HWL ME_4CA0D8A80194 // pi_impl
+   Seq: ( WL 'ME_4CA0D35D00BF' '4CA0D35D00BF.ms.model.script' // orb
+ WL 'ME_4CA0D8A80194' '4CA0D8A80194.ms.model.script' // pi_impl
  )
  ; // Children
  MELIST Depends
@@ -146,6 +25,9 @@ ME ME_4CA0D33A02D6
  WL 'ME_4CA1C4660358' '4CA1C4660358.ms.model.script' // orb_int
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "path prefix" '/src/orb'
  UP intf.pas:PathOnly '\common\components\rtl\external\MTDOrb\src\orb'
 

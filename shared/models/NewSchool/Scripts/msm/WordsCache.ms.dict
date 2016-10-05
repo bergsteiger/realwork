@@ -29,6 +29,10 @@ USES
  RoseModel.ms.dict
 ;
 
+//USES
+// DictionaryByName.ms.dict
+//;
+
 PROCEDURE WordToCache
   STRING IN aWordName
   TtfwWord IN aWord
@@ -69,6 +73,8 @@ PROCEDURE WordToCache
       ()
      ( aWord .xStereotype .xName 'UseCaseSetting' ?== )
       ()
+     ( aWord .xStereotype .xName 'UseCaseTagRequirement' ?== )
+      ()
      ( aWord .xStereotype .xName 'UseCaseSettingValue' ?== )
       ()
      ( aWord .xStereotype .xName 'MDAAttribute' ?== )
@@ -107,6 +113,37 @@ PROCEDURE WordToCache
  if ( aWord .IsDiagram ) then
  begin
   aWord .xViews .for> .CheckChild
+ end // ( aWord .IsDiagram )
+ else
+ begin
+  //if ( aWord .xParent .IsNil ) then
+  begin
+   if (
+       ( l_Name 'Project' == )
+       OR ( l_Name 'VCMDomain' == )
+       OR ( l_Name 'VCMProject' == )
+       OR ( l_Name 'VCMTestProject' == )
+       OR ( l_Name 'VCMUseCases' == )
+      ) then
+   begin   
+    if ( aWord .xParent .IsNil ) then
+    begin
+     //aWord .xName Msg
+     
+     : DoFile
+       STRING IN anItem
+      if ( [ '%%Inner ' aWordName ] strings:Cat anItem FindInFile ) then 
+      begin
+       //anItem .DictionaryByName DROP
+       //anItem Msg
+       anItem msm:DictionaryByFile DROP
+      end
+     ; // DoFile
+      
+     @ DoFile '*.ms.model.script' msm:ModelRoot ProcessFilesWithMask
+    end // ( aWord .xParent .IsNil )
+   end 
+  end // ( aWord .xParent .IsNil )
  end // ( aWord .IsDiagram )
 ; // WordToCache
 

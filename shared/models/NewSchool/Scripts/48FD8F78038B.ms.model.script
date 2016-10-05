@@ -1,0 +1,643 @@
+// nsNodeNotifierBase 48FD8F78038B Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48FD8F78038B
+%%Inner ME_48FD8F78038B
+%%Inner ME_48FD8F78038B
+
+FORWARD ME_48FD8F78038B
+
+FORWARD ME_48FD9AE5001C
+
+FORWARD ME_48FD9B7B0284
+
+ME ME_48FD9B2E0263
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48FD9AE5001C // TnsNodeNotifierHolder
+ ;
+ MELINK Target HWL ME_48FD9B7B0284 // PnsThreadCallParamsRec
+ ;
+
+ENDME // ME_48FD9B2E0263 
+
+ME ME_479731C50290_ME_48FD9AE5001C
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_48FD9AE5001C Cleanup
+
+ME ME_47A042E100E2_ME_48FD9AE5001C
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_48FD9AE5001C InitFields
+
+%%InheritedBy ME_48FD94080208 ME_48FD9AE5001C
+
+ME ME_48FD9AE5001C
+ MEPROP UID '48FD9AE5001C'
+ MEPROP Name 'TnsNodeNotifierHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48FD94080208' '48FD8E460027.ms.model.script' // Tl3DataHolder
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_48FD9AE5001C // Cleanup
+ ME_47A042E100E2_ME_48FD9AE5001C // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_48FD9B2E0263 // PnsThreadCallParamsRec
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'NodeNotifierHolder'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_48FD9AE5001C TnsNodeNotifierHolder
+
+FORWARD ME_48FD9B220307
+
+ME ME_48FD9B3E0142
+ MEPROP UID '48FD9B3E0142'
+ MEPROP Name 'rNodeIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FD9B220307 // TnsThreadCallParamsRec
+ ;
+ MELINK Target WL 'ME_45EEC48C01EC' '457450470167.ms.model.script' // VisibleIndex
+ ;
+
+ENDME // ME_48FD9B3E0142 rNodeIndex
+
+ME ME_48FD9B530058
+ MEPROP UID '48FD9B530058'
+ MEPROP Name 'rDelta'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FD9B220307 // TnsThreadCallParamsRec
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FD9B530058 rDelta
+
+ME ME_48FD9B6101CC
+ MEPROP UID '48FD9B6101CC'
+ MEPROP Name 'rIndexPath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FD9B220307 // TnsThreadCallParamsRec
+ ;
+ MELINK Target WL 'ME_45EEC8680109' '457450470167.ms.model.script' // NodeIndexPath
+ ;
+
+ENDME // ME_48FD9B6101CC rIndexPath
+
+ME ME_48FD9B6C035F
+ MEPROP UID '48FD9B6C035F'
+ MEPROP Name 'rChildIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FD9B220307 // TnsThreadCallParamsRec
+ ;
+ MELINK Target WL 'ME_45EEC48C01F0' '457450470167.ms.model.script' // IndexInParent
+ ;
+
+ENDME // ME_48FD9B6C035F rChildIndex
+
+ME ME_48FD9B220307
+ MEPROP UID '48FD9B220307'
+ MEPROP Name 'TnsThreadCallParamsRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48FD9B3E0142 // rNodeIndex
+ HWL ME_48FD9B530058 // rDelta
+ HWL ME_48FD9B6101CC // rIndexPath
+ HWL ME_48FD9B6C035F // rChildIndex
+ )
+ ; // Attributes
+
+ENDME // ME_48FD9B220307 TnsThreadCallParamsRec
+
+%%InheritedBy ME_48FD9B220307 ME_48FD9B7B0284
+
+ME ME_48FD9B7B0284
+ MEPROP UID '48FD9B7B0284'
+ MEPROP Name 'PnsThreadCallParamsRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48FD9B220307 // TnsThreadCallParamsRec
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_48FD9B7B0284 PnsThreadCallParamsRec
+
+ME ME_48FD9F220263
+ MEPROP UID '48FD9F220263'
+ MEPROP Name 'CountViewChanged'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_48FD9F220263 CountViewChanged
+
+ME ME_48FD9F4002E8
+ MEPROP UID '48FD9F4002E8'
+ MEPROP Name 'CountView'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_48FD9F4002E8 CountView
+
+ME ME_48FDA0CB01AD
+ MEPROP UID '48FDA0CB01AD'
+ MEPROP Name 'IsInGetByVisibleIndex'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48FDA0CB01AD IsInGetByVisibleIndex
+
+ME ME_48FDA0DD02E1
+ MEPROP UID '48FDA0DD02E1'
+ MEPROP Name 'IsOneLevelPrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48FDA0DD02E1 IsOneLevelPrim
+
+ME ME_48FDA106006F
+ MEPROP Name 'aNodeIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC48C01EC' '457450470167.ms.model.script' // VisibleIndex
+ ;
+
+ENDME // ME_48FDA106006F aNodeIndex
+
+ME ME_48FDA1060094
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDA1060094 aDelta
+
+ME ME_48FDA0F500F9
+ MEPROP UID '48FDA0F500F9'
+ MEPROP Name 'DoChangeChildrenCount'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDA106006F // aNodeIndex
+ ME_48FDA1060094 // aDelta
+ )
+ ; // Parameters
+
+ENDME // ME_48FDA0F500F9 DoChangeChildrenCount
+
+ME ME_48FDA13C027B
+ MEPROP Name 'aNodeIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC48C01EC' '457450470167.ms.model.script' // VisibleIndex
+ ;
+
+ENDME // ME_48FDA13C027B aNodeIndex
+
+ME ME_48FDA13C02A3
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDA13C02A3 aDelta
+
+ME ME_48FDA13C02D6
+ MEPROP Name 'aIndexPath'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8680109' '457450470167.ms.model.script' // NodeIndexPath
+ ;
+
+ENDME // ME_48FDA13C02D6 aIndexPath
+
+ME ME_48FDA13C0300
+ MEPROP Name 'aChildIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC48C01F0' '457450470167.ms.model.script' // IndexInParent
+ ;
+
+ENDME // ME_48FDA13C0300 aChildIndex
+
+ME ME_48FDA11E02D1
+ MEPROP UID '48FDA11E02D1'
+ MEPROP Name 'ChangeChildrenCountPrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDA13C027B // aNodeIndex
+ ME_48FDA13C02A3 // aDelta
+ ME_48FDA13C02D6 // aIndexPath
+ ME_48FDA13C0300 // aChildIndex
+ )
+ ; // Parameters
+
+ENDME // ME_48FDA11E02D1 ChangeChildrenCountPrim
+
+ME ME_48FDA14302AE
+ MEPROP UID '48FDA14302AE'
+ MEPROP Name 'ResetChildrenCountPrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+
+ENDME // ME_48FDA14302AE ResetChildrenCountPrim
+
+ME ME_48FDA1A60056
+ MEPROP UID '48FDA1A60056'
+ MEPROP Name 'GetShowRoot'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48FDA1A60056 GetShowRoot
+
+ME ME_48FDA1C3002E
+ MEPROP UID '48FDA1C3002E'
+ MEPROP Name 'ChangingPrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+
+ENDME // ME_48FDA1C3002E ChangingPrim
+
+ME ME_48FDA1D0006F
+ MEPROP UID '48FDA1D0006F'
+ MEPROP Name 'ChangedPrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+
+ENDME // ME_48FDA1D0006F ChangedPrim
+
+ME ME_48FDA1DB0344
+ MEPROP UID '48FDA1DB0344'
+ MEPROP Name 'InvalidatePrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+
+ENDME // ME_48FDA1DB0344 InvalidatePrim
+
+ME ME_48FDA1E701DF
+ MEPROP UID '48FDA1E701DF'
+ MEPROP Name 'ExternalInvalidate'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+
+ENDME // ME_48FDA1E701DF ExternalInvalidate
+
+ME ME_48FDA1F20208
+ MEPROP UID '48FDA1F20208'
+ MEPROP Name 'DropCurrent'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+
+ENDME // ME_48FDA1F20208 DropCurrent
+
+ME ME_48FDA32800D7
+ MEPROP Name 'aNewCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDA32800D7 aNewCount
+
+ME ME_48FDA3280113
+ MEPROP Name 'aNodeIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDA3280113 aNodeIndex
+
+ME ME_48FDA3280153
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_48FDA3280153 aDelta
+
+ME ME_48FDA30E0390
+ MEPROP UID '48FDA30E0390'
+ MEPROP Name 'ExternalVisibleCountChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'нотификация визуальному дереву о смене количества видимых элементов' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDA32800D7 // aNewCount
+ ME_48FDA3280113 // aNodeIndex
+ ME_48FDA3280153 // aDelta
+ )
+ ; // Parameters
+
+ENDME // ME_48FDA30E0390 ExternalVisibleCountChanged
+
+ME ME_48FDA6EE0028
+ MEPROP UID '48FDA6EE0028'
+ MEPROP Name 'DropCountView'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+
+ENDME // ME_48FDA6EE0028 DropCountView
+
+ME ME_48FDA6FF031D
+ MEPROP Name 'aDataPtr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD94080208' '48FD8E460027.ms.model.script' // Tl3DataHolder
+ ;
+
+ENDME // ME_48FDA6FF031D aDataPtr
+
+ME ME_48FDA6F902B8
+ MEPROP UID '48FDA6F902B8'
+ MEPROP Name 'InvalidateThread'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDA6FF031D // aDataPtr
+ )
+ ; // Parameters
+
+ENDME // ME_48FDA6F902B8 InvalidateThread
+
+ME ME_48FDA71E0391
+ MEPROP Name 'aDataPtr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD94080208' '48FD8E460027.ms.model.script' // Tl3DataHolder
+ ;
+
+ENDME // ME_48FDA71E0391 aDataPtr
+
+ME ME_48FDA7060268
+ MEPROP UID '48FDA7060268'
+ MEPROP Name 'ChangingThread'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDA71E0391 // aDataPtr
+ )
+ ; // Parameters
+
+ENDME // ME_48FDA7060268 ChangingThread
+
+ME ME_48FDA72B02E8
+ MEPROP Name 'aDataPtr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD94080208' '48FD8E460027.ms.model.script' // Tl3DataHolder
+ ;
+
+ENDME // ME_48FDA72B02E8 aDataPtr
+
+ME ME_48FDA725033E
+ MEPROP UID '48FDA725033E'
+ MEPROP Name 'ChangedThread'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDA72B02E8 // aDataPtr
+ )
+ ; // Parameters
+
+ENDME // ME_48FDA725033E ChangedThread
+
+ME ME_48FDA73902E0
+ MEPROP Name 'aDataPtr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD94080208' '48FD8E460027.ms.model.script' // Tl3DataHolder
+ ;
+
+ENDME // ME_48FDA73902E0 aDataPtr
+
+ME ME_48FDA7330175
+ MEPROP UID '48FDA7330175'
+ MEPROP Name 'ChangeChildrenCountThread'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELIST Parameters
+   Seq: ( ME_48FDA73902E0 // aDataPtr
+ )
+ ; // Parameters
+
+ENDME // ME_48FDA7330175 ChangeChildrenCountThread
+
+ME ME_48FDCDBD00BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48FD8F78038B // nsNodeNotifierBase
+ ;
+ MELINK Target WL 'ME_47F244C1009A' '4A6854C70390.ms.model.script' // TreeConstants
+ ;
+
+ENDME // ME_48FDCDBD00BD 
+
+ME ME_48FD9562004C_ME_48FD8F78038B
+ MELINK Original WL 'ME_48FD9562004C' '48FD8E460027.ms.model.script' // HolderClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48FD9562004C_ME_48FD8F78038B HolderClass
+
+ME ME_48FD97BC0335_ME_48FD8F78038B
+ MELINK Original WL 'ME_48FD97BC0335' '48FD8E460027.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" false
+ENDME // ME_48FD97BC0335_ME_48FD8F78038B Cleanup
+
+%%ImplementedBy ME_48FD8B76020F ME_48FD8F78038B
+
+%%InheritedBy ME_48FD8E460027 ME_48FD8F78038B
+
+ME ME_48FD8F78038B
+ MEPROP UID '48FD8F78038B'
+ MEPROP Name 'nsNodeNotifierBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48FD8E460027' '48FD8E460027.ms.model.script' // l3ThreadNotifier
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_48FD8B76020F' '48FD8B76020F.ms.model.script' // nsNodeNotifierPrim
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48FD9F220263 // CountViewChanged
+ HWL ME_48FD9F4002E8 // CountView
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48FDA0CB01AD // IsInGetByVisibleIndex
+ HWL ME_48FDA0DD02E1 // IsOneLevelPrim
+ HWL ME_48FDA0F500F9 // DoChangeChildrenCount
+ HWL ME_48FDA11E02D1 // ChangeChildrenCountPrim
+ HWL ME_48FDA14302AE // ResetChildrenCountPrim
+ HWL ME_48FDA1A60056 // GetShowRoot
+ HWL ME_48FDA1C3002E // ChangingPrim
+ HWL ME_48FDA1D0006F // ChangedPrim
+ HWL ME_48FDA1DB0344 // InvalidatePrim
+ HWL ME_48FDA1E701DF // ExternalInvalidate
+ HWL ME_48FDA1F20208 // DropCurrent
+ HWL ME_48FDA30E0390 // ExternalVisibleCountChanged
+ HWL ME_48FDA6EE0028 // DropCountView
+ HWL ME_48FDA6F902B8 // InvalidateThread
+ HWL ME_48FDA7060268 // ChangingThread
+ HWL ME_48FDA725033E // ChangedThread
+ HWL ME_48FDA7330175 // ChangeChildrenCountThread
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48FD9562004C_ME_48FD8F78038B // HolderClass
+ ME_48FD97BC0335_ME_48FD8F78038B // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_48FD9AE5001C // TnsNodeNotifierHolder
+ HWL ME_48FD9B220307 // TnsThreadCallParamsRec
+ HWL ME_48FD9B7B0284 // PnsThreadCallParamsRec
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_48FDCDBD00BD // TreeConstants
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifierBase.imp.pas'
+ UP extprop:pas:TypeName '_nsNodeNotifierBase_'
+ UP extprop:pas:UnitName 'nsNodeNotifierBase.imp'
+
+ENDME // ME_48FD8F78038B nsNodeNotifierBase

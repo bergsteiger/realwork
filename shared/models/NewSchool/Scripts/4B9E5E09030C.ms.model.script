@@ -1,0 +1,125 @@
+// ddAppConfigListsRes 4B9E5E09030C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B9E5E09030C
+
+FORWARD ME_4B9E5E4B03A6
+
+ME ME_4B9E5EBB0162
+ MEPROP UID '4B9E5EBB0162'
+ MEPROP Name 'AddConfigValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9E5E4B03A6 // ConfigMessages
+ ;
+ MEPROP Value '''Добавить'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Добавить'''
+
+ENDME // ME_4B9E5EBB0162 AddConfigValue
+
+ME ME_4B9E5EC80039
+ MEPROP UID '4B9E5EC80039'
+ MEPROP Name 'ChangeConfigValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9E5E4B03A6 // ConfigMessages
+ ;
+ MEPROP Value '''Исправить'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Исправить'''
+
+ENDME // ME_4B9E5EC80039 ChangeConfigValue
+
+ME ME_4B9E5EEA0056
+ MEPROP UID '4B9E5EEA0056'
+ MEPROP Name 'DeleteConfigValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9E5E4B03A6 // ConfigMessages
+ ;
+ MEPROP Value '''Удалить'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Удалить'''
+
+ENDME // ME_4B9E5EEA0056 DeleteConfigValue
+
+ME ME_4B9E5EFD0165
+ MEPROP UID '4B9E5EFD0165'
+ MEPROP Name 'ConfirmDeleteConfigValue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9E5E4B03A6 // ConfigMessages
+ ;
+ MEPROP Value '''Вы действительно хотите удалить элемент "%s"?'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Вы действительно хотите удалить элемент "%s"?'''
+
+ENDME // ME_4B9E5EFD0165 ConfirmDeleteConfigValue
+
+ME ME_4B9E5E4B03A6
+ MEPROP UID '4B9E5E4B03A6'
+ MEPROP Name 'ConfigMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B9E5E09030C // ddAppConfigListsRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B9E5EBB0162 // AddConfigValue
+ HWL ME_4B9E5EC80039 // ChangeConfigValue
+ HWL ME_4B9E5EEA0056 // DeleteConfigValue
+ HWL ME_4B9E5EFD0165 // ConfirmDeleteConfigValue
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'ddcm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'ddcm'
+
+ENDME // ME_4B9E5E4B03A6 ConfigMessages
+
+ME ME_4B9E5E09030C
+ MEPROP UID '4B9E5E09030C'
+ MEPROP Name 'ddAppConfigListsRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B9E5E4B03A6 // ConfigMessages
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '15.10.201. 19:19'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAppConfigListsRes.pas'
+
+ENDME // ME_4B9E5E09030C ddAppConfigListsRes

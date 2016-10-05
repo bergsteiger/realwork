@@ -1,0 +1,131 @@
+// l3BaseStream 48F4745E0023 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48F4745E0023
+
+FORWARD ME_48F4745E0023
+
+FORWARD ME_48F4748E0192
+
+ME ME_48F4754F0159
+ MEPROP Name 'IID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8F202C7' '478CF8070260.ms.model.script' // Tl3GUID
+ ;
+
+ENDME // ME_48F4754F0159 IID
+
+ME ME_48F4754F0187
+ MEPROP Name 'Obj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_48F4754F0187 Obj
+
+ME ME_48F475350256
+ MEPROP UID '48F475350256'
+ MEPROP Name 'COMQueryInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'метод для реализации QueryInterface (Для перекрытия в потомках)' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4748E0192 // Tl3Stream
+ ;
+ MELINK Target WL 'ME_49427DEE015B' '478CF8070260.ms.model.script' // Tl3HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_48F4754F0159 // IID
+ ME_48F4754F0187 // Obj
+ )
+ ; // Parameters
+
+ENDME // ME_48F475350256 COMQueryInterface
+
+ME ME_476F6F6F00EE_ME_48F4748E0192
+ MELINK Original WL 'ME_476F6F6F00EE' '467C0CAA02AB.ms.model.script' // GetObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F6F6F00EE_ME_48F4748E0192 GetObject
+
+ME ME_49BE656C006E_ME_48F4748E0192
+ MELINK Original WL 'ME_49BE656C006E' '478CF30500C1.ms.model.script' // Read
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49BE656C006E_ME_48F4748E0192 Read
+
+ME ME_49BE658C0261_ME_48F4748E0192
+ MELINK Original WL 'ME_49BE658C0261' '478CF30500C1.ms.model.script' // Write
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49BE658C0261_ME_48F4748E0192 Write
+
+%%ImplementedBy ME_467C0CD8004E ME_48F4748E0192
+%%ImplementedBy ME_46A5AFF103CA ME_48F4748E0192
+
+%%InheritedBy ME_47913F970159 ME_48F4748E0192
+%%InheritedBy ME_47E150FF028A ME_48F4748E0192
+
+ME ME_48F4748E0192
+ MEPROP UID '48F4748E0192'
+ MEPROP Name 'Tl3Stream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс потоков, поддерживающих счетчик ссылок и интерфейсы IUnknown и IStream' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48F4745E0023 // l3BaseStream
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913F970159.ms.model.script' // l3Unknown
+ WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467C0CD8004E' '467C0CAA02AB.ms.model.script' // Il3ObjectWrap
+ WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_48F475350256 // COMQueryInterface
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_476F6F6F00EE_ME_48F4748E0192 // GetObject
+ ME_49BE656C006E_ME_48F4748E0192 // Read
+ ME_49BE658C0261_ME_48F4748E0192 // Write
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'Stream'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_48F4748E0192 Tl3Stream
+
+ME ME_48F4745E0023
+ MEPROP UID '48F4745E0023'
+ MEPROP Name 'l3BaseStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс потоков, поддерживающих счетчик ссылок и интерфейсы IUnknown и IStream' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48F4748E0192 // Tl3Stream
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '29.08.2001 10:29'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3BaseStream.pas'
+ UP extprop:rc:SelfName 'BaseStream'
+
+ENDME // ME_48F4745E0023 l3BaseStream

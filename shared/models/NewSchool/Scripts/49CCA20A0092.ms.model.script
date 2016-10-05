@@ -1,0 +1,172 @@
+// afwStatusElement 49CCA20A0092 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49CCA20A0092
+
+ME ME_49CCA30E00E0
+ MEPROP UID '49CCA30E00E0'
+ MEPROP Name 'Status'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'Строка статуса к которой мы подписаны' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49CCA20A0092 // afwStatusElement
+ ;
+ MELINK Target WL 'ME_473D9626039D' '467823B7002C.ms.model.script' // IafwStatus
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_49CCA30E00E0 Status
+
+ME ME_49CCA28A00D5
+ MEPROP Name 'theString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4683C9110178' '467823B7002C.ms.model.script' // IafwCString
+ ;
+
+ENDME // ME_49CCA28A00D5 theString
+
+ME ME_49CCA28A00FC
+ MEPROP Name 'theNeedProgress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49CCA28A00FC theNeedProgress
+
+ME ME_49CCA2480360
+ MEPROP UID '49CCA2480360'
+ MEPROP Name 'DoGetStatusInfo'
+ MEPROP Class class_Operation
+ %SUMMARY 'Собственно процесс получения информации' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49CCA20A0092 // afwStatusElement
+ ;
+ MELIST Parameters
+   Seq: ( ME_49CCA28A00D5 // theString
+ ME_49CCA28A00FC // theNeedProgress
+ )
+ ; // Parameters
+
+ENDME // ME_49CCA2480360 DoGetStatusInfo
+
+ME ME_49CCA29A000E
+ MEPROP UID '49CCA29A000E'
+ MEPROP Name 'DoSubscribe'
+ MEPROP Class class_Operation
+ %SUMMARY 'Подписаться к строке статуса' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49CCA20A0092 // afwStatusElement
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49CCA29A000E DoSubscribe
+
+ME ME_49CCA2C80106
+ MEPROP UID '49CCA2C80106'
+ MEPROP Name 'DoUnsubscribe'
+ MEPROP Class class_Operation
+ %SUMMARY 'Отписаться от строки статуса' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49CCA20A0092 // afwStatusElement
+ ;
+
+ENDME // ME_49CCA2C80106 DoUnsubscribe
+
+ME ME_49CCA4C90343
+ MEPROP UID '49CCA4C90343'
+ MEPROP Name 'NeedUpdateOnUnsubscribe'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49CCA20A0092 // afwStatusElement
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_49CCA4C90343 NeedUpdateOnUnsubscribe
+
+ME ME_49CCA22F01CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49CCA20A0092 // afwStatusElement
+ ;
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_49CCA22F01CD 
+
+ME ME_475E9466022A_ME_49CCA20A0092
+ MELINK Original WL 'ME_475E9466022A' '467823B7002C.ms.model.script' // GetStatusInfo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_475E9466022A_ME_49CCA20A0092 GetStatusInfo
+
+ME ME_479731C50290_ME_49CCA20A0092
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_49CCA20A0092 Cleanup
+
+%%ImplementedBy ME_473D96390341 ME_49CCA20A0092
+%%ImplementedBy ME_4A5CB93700CF ME_49CCA20A0092
+
+ME ME_49CCA20A0092
+ MEPROP UID '49CCA20A0092'
+ MEPROP Name 'afwStatusElement'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация IafwStatusElement' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47EA4BB502F9' '47EA4BB502F9.ms.model.script' // afwMixIns
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_473D96390341' '467823B7002C.ms.model.script' // IafwStatusElement
+ WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49CCA30E00E0 // Status
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49CCA2480360 // DoGetStatusInfo
+ HWL ME_49CCA29A000E // DoSubscribe
+ HWL ME_49CCA2C80106 // DoUnsubscribe
+ HWL ME_49CCA4C90343 // NeedUpdateOnUnsubscribe
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_475E9466022A_ME_49CCA20A0092 // GetStatusInfo
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49CCA20A0092 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_49CCA22F01CD // Tafw
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwStatusElement.imp.pas'
+ UP extprop:pas:TypeName '_afwStatusElement_'
+ UP extprop:pas:UnitName 'afwStatusElement.imp'
+
+ENDME // ME_49CCA20A0092 afwStatusElement

@@ -272,6 +272,7 @@ type
    function pm_GetImages: TCustomImageList; override;
    procedure pm_SetImages(aValue: TCustomImageList); override;
    function pm_GetSelectedCount: Integer; override;
+   function pm_GetTotal: LongInt; override;
    procedure pm_SetTotal(aValue: LongInt); override;
    function IsNeedScrollBars: Boolean; override;
     {* определяет нужены ли в CreateParams стили WS_VSCROLL WS_HSCROLL. }
@@ -2954,6 +2955,15 @@ begin
   Result := 0;
 //#UC END# *514C82280017_4CFFBEEA0109get_impl*
 end;//TvtCustomOutliner.pm_GetSelectedCount
+
+function TvtCustomOutliner.pm_GetTotal: LongInt;
+//#UC START# *514C89A601FE_4CFFBEEA0109get_var*
+//#UC END# *514C89A601FE_4CFFBEEA0109get_var*
+begin
+//#UC START# *514C89A601FE_4CFFBEEA0109get_impl*
+ Result := inherited pm_GetTotal;
+//#UC END# *514C89A601FE_4CFFBEEA0109get_impl*
+end;//TvtCustomOutliner.pm_GetTotal
 
 procedure TvtCustomOutliner.pm_SetTotal(aValue: LongInt);
 //#UC START# *514C89A601FE_4CFFBEEA0109set_var*

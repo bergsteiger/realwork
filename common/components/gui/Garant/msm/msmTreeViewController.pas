@@ -48,6 +48,7 @@ uses
  , Forms
  {$IfEnd} // NOT Defined(NoVCL)
  , msmWaitCursor
+ , msmImages
  , msmMEImages
  //#UC START# *57AB57E20079impl_uses*
  , Graphics

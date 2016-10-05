@@ -506,12 +506,16 @@ initialization
  {* Регистрация Tkw_F1LikeFormWithBS_Component_LoadManager }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TF1LikeFormWithBSForm));
  {* Регистрация типа TF1LikeFormWithBSForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeComboWithHistoryAndOperations));
  {* Регистрация типа TnscTreeComboWithHistoryAndOperations }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeEditorExport));
  {* Регистрация типа TeeEditorExport }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeTextSourceExport));
  {* Регистрация типа TeeTextSourceExport }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevLoadDocumentManager));
  {* Регистрация типа TevLoadDocumentManager }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

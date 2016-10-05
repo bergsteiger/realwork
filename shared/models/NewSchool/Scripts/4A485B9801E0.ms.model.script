@@ -1,0 +1,57 @@
+// evCacheableStyleTableListener 4A485B9801E0 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A485B9801E0
+
+ME ME_4A485C10011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A485B9801E0 // evCacheableStyleTableListener
+ ;
+ MELINK Target WL 'ME_47ECB297037D' '47ECB297037D.ms.model.script' // evStyleTableSpy
+ ;
+
+ENDME // ME_4A485C10011A 
+
+ME ME_479F2AFB0397_ME_4A485B9801E0
+ MELINK Original WL 'ME_479F2AFB0397' '51612ED700B4.ms.model.script' // Release
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479F2AFB0397_ME_4A485B9801E0 Release
+
+%%InheritedBy ME_4A485B0D0223 ME_4A485B9801E0
+
+ME ME_4A485B9801E0
+ MEPROP UID '4A485B9801E0'
+ MEPROP Name 'evCacheableStyleTableListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подписчик на изменение таблицы стилей, который держит какие-то параметры зависящие от с тилей в то время, когда находится в кеше' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A485B0D0223' '4A485B0D0223.ms.model.script' // evStyleTableListenerPrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479F2AFB0397_ME_4A485B9801E0 // Release
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A485C10011A // evStyleTableSpy
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'DesignTimeLibrary'
+ UP "no hands" true
+ UP "started" '29.06.2009 10:14'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCacheableStyleTableListener.imp.pas'
+ UP extprop:pas:TypeName '_evCacheableStyleTableListener_'
+ UP extprop:pas:UnitName 'evCacheableStyleTableListener.imp'
+
+ENDME // ME_4A485B9801E0 evCacheableStyleTableListener

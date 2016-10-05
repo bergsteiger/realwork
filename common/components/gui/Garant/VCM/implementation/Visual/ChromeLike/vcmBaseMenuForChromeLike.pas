@@ -794,7 +794,7 @@ procedure TvcmBaseMenuForChromeLike.DoActionIdle;
 var
  l_Index: Integer;
 begin
- for l_Index := 0 to Pred(Screen.CustomFormCount) do
+ for l_Index := Pred(Screen.CustomFormCount) downto 0 do
   with THackCustomForm(Screen.CustomForms[l_Index]) do
    if HandleAllocated and
       IsWindowVisible(Handle) and

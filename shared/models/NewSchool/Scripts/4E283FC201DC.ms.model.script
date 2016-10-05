@@ -1,0 +1,89 @@
+// bsUtilsConst 4E283FC201DC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E283FC201DC
+
+FORWARD ME_4E283FEC0311
+
+ME ME_4DAC1BF701DA
+ MEPROP UID '4DAC1BF701DA'
+ MEPROP Name 'ReferenceHyperlinkSearchText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E283FEC0311 // Local
+ ;
+ MEPROP Value '''Подробнее см. в справке к документу'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Подробнее см. в справке к документу'''
+
+ENDME // ME_4DAC1BF701DA ReferenceHyperlinkSearchText
+
+ME ME_4E283E940111
+ MEPROP UID '4E283E940111'
+ MEPROP Name 'ReferenceHyperlinkReplaceText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E283FEC0311 // Local
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Подробнее [см. в справке к документу|script:оп::Документ_Справка_к_документу|Ссылка на справку к документу]'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_4E283E940111 ReferenceHyperlinkReplaceText
+
+ME ME_4E283FEC0311
+ MEPROP UID '4E283FEC0311'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Строки для генерации предупреждений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E283FC201DC // bsUtilsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DAC1BF701DA // ReferenceHyperlinkSearchText
+ HWL ME_4E283E940111 // ReferenceHyperlinkReplaceText
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'wg'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'wg'
+
+ENDME // ME_4E283FEC0311 Local
+
+ME ME_4E283FC201DC
+ MEPROP UID '4E283FC201DC'
+ MEPROP Name 'bsUtilsConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A9F83AD0235' '4A9F83AD0235.ms.model.script' // Document
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4E283FEC0311 // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '21.07.2011 19:03'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Document\bsUtilsConst.pas'
+
+ENDME // ME_4E283FC201DC bsUtilsConst

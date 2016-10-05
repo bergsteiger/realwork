@@ -10,32 +10,43 @@ interface
 
 uses
  l3IntfUses
- , msmUseCase
  , msmConcreteUseCases
  , msmControllers
+ , msmUseCase
+ , msmUseCases
+ //#UC START# *57D2DF7E00CEintf_uses*
+ //#UC END# *57D2DF7E00CEintf_uses*
 ;
 
 type
- TmsmDrawingUseCaseView = class(TmsmUseCase, ImsmDrawingUseCaseView)
-  private
-   f_UseCase: ImsmDrawingUseCase;
-   f_DrawingPanel: TmsmView;
+ //#UC START# *57D2DF7E00CEci*
+ //#UC END# *57D2DF7E00CEci*
+ _ConcreteUseCase_ = ImsmDrawingUseCase;
+ {$Define l3Items_IsProto}
+ {$Include w:\common\components\gui\Garant\msm\msmUseCaseView.imp.pas}
+ //#UC START# *57D2DF7E00CEcit*
+ //#UC END# *57D2DF7E00CEcit*
+ TmsmDrawingUseCaseView = class(_msmUseCaseView_, ImsmDrawingUseCaseView)
   protected
    procedure Cleanup; override;
     {* ‘ункци€ очистки полей объекта. }
    procedure DoActivate; override;
-   procedure ClearFields; override;
+   procedure DoActivated; override;
   public
    constructor Create(const aUseCase: ImsmDrawingUseCase;
     const aMainZone: ImsmViewParent;
     const aChildZone: ImsmViewParent;
     const aLeftZone: ImsmViewParent;
-    const aFloatingZone: ImsmViewParent); reintroduce;
+    const aFloatingZone: ImsmViewParent;
+    const aTopZone: ImsmViewParent); reintroduce;
    class function Make(const aUseCase: ImsmDrawingUseCase;
     const aMainZone: ImsmViewParent;
     const aChildZone: ImsmViewParent;
     const aLeftZone: ImsmViewParent;
-    const aFloatingZone: ImsmViewParent): ImsmDrawingUseCaseView; reintroduce;
+    const aFloatingZone: ImsmViewParent;
+    const aTopZone: ImsmViewParent): ImsmDrawingUseCaseView; reintroduce;
+ //#UC START# *57D2DF7E00CEpubl*
+ //#UC END# *57D2DF7E00CEpubl*
  end;//TmsmDrawingUseCaseView
 
 implementation
@@ -50,9 +61,17 @@ uses
  , msmSaveChangedElements
  , msmCopySelection
  , msmPaste
+ , msmWordsManaging
+ , msmLoadedWordsListModel
+ , msmSomeModelElementsListModel
+ , msmSomeModelElementsList
+ , msmMultiPanelViewParentHorz
+ , msmMultiPanelViewParentVert
+ , msmMultiPanelViewParent
+ , msmButtonEditViewController
+ , l3Memory
  //#UC START# *57D2DF7E00CEimpl_uses*
  , SysUtils
- , msmConcreteModels
  , msmOpenInNewWindow
  , msmShowInNavigator
  , msmUpToParent
@@ -66,16 +85,22 @@ uses
  , msmElementViews
  , msmDrawingViewController
  , msmTreeViewController
- , msmMultiPanelViewParent
  , msmParentedViewController
+ , msmModelElement
+ , msmConcreteModels
  //#UC END# *57D2DF7E00CEimpl_uses*
 ;
+
+type _Instance_R_ = TmsmDrawingUseCaseView;
+
+{$Include w:\common\components\gui\Garant\msm\msmUseCaseView.imp.pas}
 
 constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
  const aMainZone: ImsmViewParent;
  const aChildZone: ImsmViewParent;
  const aLeftZone: ImsmViewParent;
- const aFloatingZone: ImsmViewParent);
+ const aFloatingZone: ImsmViewParent;
+ const aTopZone: ImsmViewParent);
 //#UC START# *57D2DFA70064_57D2DF7E00CE_var*
 
  function AddNavigatorOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
@@ -91,12 +116,18 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
   Result := aController;
  end;//AddNavigatorOperations
 
- function AddListLikeOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
- begin//AddListLikeOperations
+ function AddReadonlyListOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
+ begin//
   Assert(aUseCase.FloatingNavigator <> nil);
   AddNavigatorOperations(aController, aModel);
   aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmShowInNavigator.Make('Show in navigator', aModel, aUseCase.FloatingNavigator));
+  Result := aController;
+ end;//AddReadonlyListOperations
+
+ function AddListLikeOperations(const aController: ImsmController; const aModel: ImsmListLikeModel): ImsmController;
+ begin//AddListLikeOperations
+  AddReadonlyListOperations(aController, aModel);
   Result := aController;
  end;//AddListLikeOperations
 
@@ -157,25 +188,21 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
 var
  l_ListContext : TmsmListViewtInitContext;
  l_DrawingZone : ImsmViewParent;
- l_DrawingPanel : TmsmViewParentControl;
+(* l_AllWords : ImsmListModel;*)
+ l_NavigatorZone : ImsmViewParent;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
 begin
 //#UC START# *57D2DFA70064_57D2DF7E00CE_impl*
- inherited Create;
- f_UseCase := aUseCase;
-(* f_UseCase.AddController(
+ inherited Create(aUseCase);
+(* aUseCase.AddController(
   TmsmMainFormController.Make(Self, aUseCase.Caption)
  );*)
 
- l_DrawingPanel := TmsmProportionalPanel.Create(nil);
- //l_DrawingPanel := TmsmPanel.Create(nil);
- f_DrawingPanel := l_DrawingPanel;
- l_DrawingZone := TmsmMultiPanelViewParent.Make(l_DrawingPanel);
-
- AddController(
-  TmsmParentedViewController.Make(f_DrawingPanel, aUseCase.Drawing, aMainZone)
-  //TmsmParentedViewControllerWithOwnership.Make(f_DrawingPanel, aUseCase.Drawing, aMainZone)
-  // - с Ownership - не сложилось, ибо контролы удал€ютс€ не в том пор€дке
+ l_DrawingZone := TmsmMultiPanelViewParentHorz.Make(
+  BindViewParentToModelAndZone(
+   AddViewParentForRelease(TmsmProportionalPanel.Create(nil))
+   , aUseCase.Drawing, aMainZone
+  )
  );
 
  AddController(
@@ -209,6 +236,7 @@ begin
  );
 
  if (aLeftZone <> nil) then
+ begin
   AddController(
    AddListLikeOperations
    (
@@ -216,6 +244,7 @@ begin
     , aUseCase.Navigator
    )
   );
+ end;//aLeftZone <> nil
 
  if (aChildZone <> nil) then
  begin
@@ -234,12 +263,49 @@ begin
  end;//aChildZone <> nil
 
  if (aFloatingZone <> nil) then
+ begin
+  l_NavigatorZone := TmsmMultiPanelViewParentVert.Make(
+   BindViewParentToModelAndZone(
+    AddViewParentForRelease(TmsmProportionalPanel.Create(nil))
+    , aUseCase.FloatingNavigator, aFloatingZone
+   )
+  );
+
   AddController(
-   AddNavigatorOperations(
-    TmsmTreeViewController.Make(aUseCase.FloatingNavigator, aFloatingZone),
+   AddListLikeOperations(
+   //AddNavigatorOperations(
+    TmsmTreeViewController.Make(aUseCase.FloatingNavigator, l_NavigatorZone),
     aUseCase.FloatingNavigator
    )
   );
+  
+(*  l_AllWords := TmsmLoadedWordsListModel.Make;
+  AddController(
+   AddReadonlyListOperations(
+    DisableActionElementEvent
+    (
+     TmsmListViewController.Make(l_AllWords, aFloatingZone)
+    )
+    , l_AllWords
+   )
+  );
+  Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));*)
+
+  AddController(
+   AddReadonlyListOperations(
+    DisableActionElementEvent
+    (
+     TmsmListViewController.Make(aUseCase.FoundElements, l_NavigatorZone)
+    )
+    , aUseCase.FoundElements
+   )
+  );
+ end;//aFloatingZone <> nil
+
+ if (aTopZone <> nil) then
+ begin
+  AddController(TmsmButtonEditViewController.Make(aUseCase.ElementToFind, aTopZone));
+ end;//aTopZone <> nil
 //#UC END# *57D2DFA70064_57D2DF7E00CE_impl*
 end;//TmsmDrawingUseCaseView.Create
 
@@ -247,11 +313,12 @@ class function TmsmDrawingUseCaseView.Make(const aUseCase: ImsmDrawingUseCase;
  const aMainZone: ImsmViewParent;
  const aChildZone: ImsmViewParent;
  const aLeftZone: ImsmViewParent;
- const aFloatingZone: ImsmViewParent): ImsmDrawingUseCaseView;
+ const aFloatingZone: ImsmViewParent;
+ const aTopZone: ImsmViewParent): ImsmDrawingUseCaseView;
 var
  l_Inst : TmsmDrawingUseCaseView;
 begin
- l_Inst := Create(aUseCase, aMainZone, aChildZone, aLeftZone, aFloatingZone);
+ l_Inst := Create(aUseCase, aMainZone, aChildZone, aLeftZone, aFloatingZone, aTopZone);
  try
   Result := l_Inst;
  finally
@@ -266,7 +333,6 @@ procedure TmsmDrawingUseCaseView.Cleanup;
 begin
 //#UC START# *479731C50290_57D2DF7E00CE_impl*
  inherited;
- FreeAndNil(f_DrawingPanel);
 //#UC END# *479731C50290_57D2DF7E00CE_impl*
 end;//TmsmDrawingUseCaseView.Cleanup
 
@@ -276,14 +342,19 @@ procedure TmsmDrawingUseCaseView.DoActivate;
 begin
 //#UC START# *57D2B82102BD_57D2DF7E00CE_impl*
  inherited;
- f_UseCase.Activate;
 //#UC END# *57D2B82102BD_57D2DF7E00CE_impl*
 end;//TmsmDrawingUseCaseView.DoActivate
 
-procedure TmsmDrawingUseCaseView.ClearFields;
+procedure TmsmDrawingUseCaseView.DoActivated;
+//#UC START# *57DAB38900EF_57D2DF7E00CE_var*
+//#UC END# *57DAB38900EF_57D2DF7E00CE_var*
 begin
- f_UseCase := nil;
+//#UC START# *57DAB38900EF_57D2DF7E00CE_impl*
  inherited;
-end;//TmsmDrawingUseCaseView.ClearFields
+//#UC END# *57DAB38900EF_57D2DF7E00CE_impl*
+end;//TmsmDrawingUseCaseView.DoActivated
+
+//#UC START# *57D2DF7E00CEimpl*
+//#UC END# *57D2DF7E00CEimpl*
 
 end.

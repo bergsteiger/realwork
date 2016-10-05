@@ -1,0 +1,152 @@
+// RegisterVcmControls 52B16BA20032 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52B16BA20032
+
+ME ME_52B16BBF00B4
+ MEPROP UID '52B16BBF00B4'
+ MEPROP Name 'new_ini_op'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+
+ENDME // ME_52B16BBF00B4 new_ini_op
+
+ME ME_52B16C7601BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_4B30EC67025A' '4B30EC67025A.ms.model.script' // TvcmMenuManager
+ ;
+
+ENDME // ME_52B16C7601BF 
+
+ME ME_52B16D9E0223
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_5028888A0160' '5028888A0160.ms.model.script' // TB97Tlbr
+ ;
+
+ENDME // ME_52B16D9E0223 
+
+ME ME_52B183290085
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_5028A4C0019B' '5028A4C0019B.ms.model.script' // TvcmToolbar
+ ;
+
+ENDME // ME_52B183290085 
+
+ME ME_52B183300021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_508528D10384' '4F3E3F5F0160.ms.model.script' // TtfwClassRef
+ ;
+
+ENDME // ME_52B183300021 
+
+ME ME_5322EA49022E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_482ACFA703C2' '482ACFA703C2.ms.model.script' // TelCustomButtonEdit
+ ;
+
+ENDME // ME_5322EA49022E 
+
+ME ME_5374B10100E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_5374B0D9013D' '5028888A0160.ms.model.script' // Ttb97MoreButton
+ ;
+
+ENDME // ME_5374B10100E5 
+
+ME ME_5374B1220045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_5028A32E02C2' '5028A4C0019B.ms.model.script' // TvcmSeparatorDef
+ ;
+
+ENDME // ME_5374B1220045 
+
+ME ME_5374B1DB0303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_5374B1D000BC' '4AC62798032A.ms.model.script' // TCustomUpDown
+ ;
+
+ENDME // ME_5374B1DB0303 
+
+ME ME_5374B2410350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_52B9B0AA0105' '4C8A252E01C2.ms.model.script' // TnpSplitter
+ ;
+
+ENDME // ME_5374B2410350 
+
+ME ME_5374BE580388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B16BA20032 // RegisterVcmControls
+ ;
+ MELINK Target WL 'ME_53319C7502F4' '53319C7502F4.ms.model.script' // TvgRemindersLineForm
+ ;
+
+ENDME // ME_5374BE580388 
+
+ME ME_52B16BA20032
+ MEPROP UID '52B16BA20032'
+ MEPROP Name 'RegisterVcmControls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F69B9040391' '4F69B9040391.ms.model.script' // VCMWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52B16BBF00B4 // new_ini_op
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52B16C7601BF // TvcmMenuManager
+ ME_52B16D9E0223 // TB97Tlbr
+ ME_52B183290085 // TvcmToolbar
+ ME_52B183300021 // TtfwClassRef
+ ME_5322EA49022E // TelCustomButtonEdit
+ ME_5374B10100E5 // Ttb97MoreButton
+ ME_5374B1220045 // TvcmSeparatorDef
+ ME_5374B1DB0303 // TCustomUpDown
+ ME_5374B2410350 // TnpSplitter
+ ME_5374BE580388 // TvgRemindersLineForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Scripting\RegisterVcmControls.pas'
+
+ENDME // ME_52B16BA20032 RegisterVcmControls

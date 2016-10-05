@@ -1,0 +1,108 @@
+// PictureEtalonsWorkingPack 552BD71503BD ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552BD71503BD
+
+ME ME_579B0B970142
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_579B0B970142 aValue
+
+ME ME_552BD761009D
+ MEPROP UID '552BD761009D'
+ MEPROP Name 'EnabledSavePictures'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Включить/выключить режим сохранения картинок при импорте из RTF/DOC/DOCX/EVD. Формат: '#13#10'{code}'#13#10'aFlag EnabledSavePictures'#13#10'{code}'#13#10'aFlag = True - картинки сохраняются в каталоге ForPicture с автоматической нумерацией в порядке их следования'#13#10'aFlag = False - картинки остаются в документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_579B0B970142 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552BD761009D EnabledSavePictures
+
+ME ME_552BDFB9027B
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552BDFB9027B aValue
+
+ME ME_552BD7870165
+ MEPROP UID '552BD7870165'
+ MEPROP Name 'GeneratePDFForEtalon'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY '*Формат*:'#13#10'{code}'#13#10'aFlag GeneratePDFForEtalon'#13#10'{code}'#13#10'где aFlag - true или false.'#13#10'Включить/выключить режим генерации текстового PDF, который удобно использовать для сравнения. Нужно выставлять при каждом экспорте, т.к.флаг сбрасывается в False.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_552BDFB9027B // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552BD7870165 GeneratePDFForEtalon
+
+ME ME_552BD73E03A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ MELINK Target WL 'ME_552406830331' '552405FA0066.ms.model.script' // Tl3PicturePathService
+ ;
+
+ENDME // ME_552BD73E03A6 
+
+ME ME_552BD74401A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_552BD71503BD // PictureEtalonsWorkingPack
+ ;
+ MELINK Target WL 'ME_552406830331' '552405FA0066.ms.model.script' // Tl3PicturePathService
+ ;
+
+ENDME // ME_552BD74401A3 
+
+%%InjectedBy ME_552406830331 ME_552BD71503BD
+
+ME ME_552BD71503BD
+ MEPROP UID '552BD71503BD'
+ MEPROP Name 'PictureEtalonsWorkingPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_552CF42C0230' '552CF42C0230.ms.model.script' // PictureEtalonsWorking
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552BD761009D // EnabledSavePictures
+ HWL ME_552BD7870165 // GeneratePDFForEtalon
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_552BD73E03A6 // Tl3PicturePathService
+ ME_552BD74401A3 // Tl3PicturePathService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\PictureEtalonsWorkingPack.pas'
+
+ENDME // ME_552BD71503BD PictureEtalonsWorkingPack

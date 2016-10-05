@@ -1,0 +1,152 @@
+// l3FilerRes 4BA206A400AC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BA206A400AC
+
+FORWARD ME_4BA2071303D0
+
+ME ME_4BA207450388
+ MEPROP UID '4BA207450388'
+ MEPROP Name 'FileOp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BA2071303D0 // Local
+ ;
+ MEPROP Value '''Файловая операция'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Файловая операция'''
+
+ENDME // ME_4BA207450388 FileOp
+
+ME ME_4BA207560312
+ MEPROP UID '4BA207560312'
+ MEPROP Name 'FileOpFmt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BA2071303D0 // Local
+ ;
+ MEPROP Value '''Файловая операция [%s]'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Файловая операция [%s]'''
+
+ENDME // ME_4BA207560312 FileOpFmt
+
+ME ME_4BA2071303D0
+ MEPROP UID '4BA2071303D0'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA206A400AC // l3FilerRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BA207450388 // FileOp
+ HWL ME_4BA207560312 // FileOpFmt
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'l3mm'
+ UP "ifndef" 'Nemesis'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'l3mm'
+
+ENDME // ME_4BA2071303D0 Local
+
+FORWARD ME_4BA2076C01E2
+
+ME ME_4BA2078503BE
+ MEPROP UID '4BA2078503BE'
+ MEPROP Name 'FileOp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BA2076C01E2 // LocalNemesis
+ ;
+ MEPROP Value '''Загрузка документа'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Загрузка документа'''
+
+ENDME // ME_4BA2078503BE FileOp
+
+ME ME_4BA2078F02FD
+ MEPROP UID '4BA2078F02FD'
+ MEPROP Name 'FileOpFmt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BA2076C01E2 // LocalNemesis
+ ;
+ MEPROP Value '''Загрузка документа [%s]'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Загрузка документа [%s]'''
+
+ENDME // ME_4BA2078F02FD FileOpFmt
+
+ME ME_4BA2076C01E2
+ MEPROP UID '4BA2076C01E2'
+ MEPROP Name 'LocalNemesis'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA206A400AC // l3FilerRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BA2078503BE // FileOp
+ HWL ME_4BA2078F02FD // FileOpFmt
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'l3mm'
+ UP "ifdef" 'Nemesis'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'l3mm'
+
+ENDME // ME_4BA2076C01E2 LocalNemesis
+
+ME ME_4BA206A400AC
+ MEPROP UID '4BA206A400AC'
+ MEPROP Name 'l3FilerRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4BA2071303D0 // Local
+ HWL ME_4BA2076C01E2 // LocalNemesis
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.10.2010 13:56'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3FilerRes.pas'
+ UP extprop:rc:SelfName 'FilerRes'
+
+ENDME // ME_4BA206A400AC l3FilerRes

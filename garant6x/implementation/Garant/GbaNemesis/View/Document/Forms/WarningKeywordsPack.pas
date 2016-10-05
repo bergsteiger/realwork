@@ -190,8 +190,10 @@ initialization
  {* Регистрация Tkw_Warning_Control_Viewer_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TWarningForm));
  {* Регистрация типа TWarningForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

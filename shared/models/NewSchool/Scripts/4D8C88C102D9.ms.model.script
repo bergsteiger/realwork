@@ -1,0 +1,71 @@
+// nsBaseTextOperationsConst 4D8C88C102D9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D8C88C102D9
+
+FORWARD ME_49523A2A0320
+
+ME ME_49523A3F0313
+ MEPROP UID '49523A3F0313'
+ MEPROP Name 'CM_NEED_TO_OPEN_CONTENTS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49523A2A0320 // Messages
+ ;
+ MEPROP Value 'WM_USER'
+ MELINK ValueType WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP "suffix expr" '+ 202'
+ UP extprop:pas:Value 'Messages.WM_USER + 202'
+
+ENDME // ME_49523A3F0313 CM_NEED_TO_OPEN_CONTENTS
+
+ME ME_49523A2A0320
+ MEPROP UID '49523A2A0320'
+ MEPROP Name 'Messages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D8C88C102D9 // nsBaseTextOperationsConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49523A3F0313 // CM_NEED_TO_OPEN_CONTENTS
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_49523A2A0320 Messages
+
+ME ME_4D8C88C102D9
+ MEPROP UID '4D8C88C102D9'
+ MEPROP Name 'nsBaseTextOperationsConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A7C0BB70162' '4A7C0BB70162.ms.model.script' // Base Forms
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_49523A2A0320 // Messages
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '25.03.2011 15:21'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\nsBaseTextOperationsConst.pas'
+ UP extprop:rc:SelfName 'BaseTextOperationsConst'
+
+ENDME // ME_4D8C88C102D9 nsBaseTextOperationsConst

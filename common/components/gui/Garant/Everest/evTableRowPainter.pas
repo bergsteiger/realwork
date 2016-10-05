@@ -150,7 +150,7 @@ begin
 //#UC START# *4B3B2F3C01B2_48C7E98600AB_impl*
  l_MaxIndex := FormatInfo.GreatestObjPID;
  l_HeadMax := FormatInfo.GreatestObjPID(False);
- if (l_HeadMax >- 1) and (l_HeadMax <> l_MaxIndex) then
+ if (l_HeadMax >- 1) and (l_HeadMax <> l_MaxIndex) and (FormatInfo.CompareWithMax(l_HeadMax) >= 0) then
   l_MaxIndex := l_HeadMax;
  if l_MaxIndex > -1 then // Может быть только в вырожденном случае (все ячейки - продолжение объединения) и если несформатировалось ничего...
  begin

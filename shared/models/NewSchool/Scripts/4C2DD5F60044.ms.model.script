@@ -1,0 +1,46 @@
+// ddSectionWithSub2Para 4C2DD5F60044 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4C2DD5F60044
+
+FORWARD ME_4C2DD5F60044
+
+ME ME_4C2DD432039C
+ MEPROP UID '4C2DD432039C'
+ MEPROP Name 'TddSectionWithSub2ParaFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C2DD5F60044 // ddSectionWithSub2Para
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'ddSectionWithSub2ParaFilter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4C2DD432039C TddSectionWithSub2ParaFilter
+
+ME ME_4C2DD5F60044
+ MEPROP UID '4C2DD5F60044'
+ MEPROP Name 'ddSectionWithSub2Para'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B324F930103' '4B324F930103.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C2DD432039C // TddSectionWithSub2ParaFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddSectionWithSub2Para.pas'
+
+ENDME // ME_4C2DD5F60044 ddSectionWithSub2Para

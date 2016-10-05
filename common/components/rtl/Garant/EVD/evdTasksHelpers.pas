@@ -248,6 +248,10 @@ type
    class function Make(aValue: Tl3Tag): RejectedIDListHelper; reintroduce;
  end;//TRejectedIDListHelper
 
+ AttributesHelper = DocumentIDListHelper;
+
+ TAttributesHelper = TDocumentIDListHelper;
+
 implementation
 
 uses

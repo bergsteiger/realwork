@@ -1,0 +1,82 @@
+// evFormats 48F4A60000E4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F4A60000E4
+
+ME ME_48F4A62A00F5
+ MEPROP UID '48F4A62A00F5'
+ MEPROP Name 'evPlainTextFormats'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4A60000E4 // evFormats
+ ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F4A62A00F5 evPlainTextFormats
+
+ME ME_48F4A6450308
+ MEPROP UID '48F4A6450308'
+ MEPROP Name 'evAllFormats'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4A60000E4 // evFormats
+ ;
+ MELINK Target WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46A449C50391' '4677FBA70343.ms.model.script' // Tl3ClipboardFormats
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_48F4A6450308 evAllFormats
+
+ME ME_48F4A667010A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4A60000E4 // evFormats
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48F4A667010A 
+
+ME ME_48F4A60000E4
+ MEPROP UID '48F4A60000E4'
+ MEPROP Name 'evFormats'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4802FF41005C' '4802FF41005C.ms.model.script' // DataObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48F4A62A00F5 // evPlainTextFormats
+ HWL ME_48F4A6450308 // evAllFormats
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_48F4A667010A // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '27.12.2006 17:28 '
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evFormats.pas'
+ UP extprop:rc:SelfName 'Formats'
+
+ENDME // ME_48F4A60000E4 evFormats

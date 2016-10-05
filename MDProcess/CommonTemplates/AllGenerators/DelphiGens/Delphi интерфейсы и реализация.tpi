@@ -1920,6 +1920,11 @@ f _NeedFinalize
 	// %SN %SU %SS %SC
 	
 	INCLUDE 'ElementsRTTI.ms.dict'
+	[\n\
+	<{}{%C#f_pas_script_NeedOutToScript()=true&%f_IsConstants(%C)!=true&"%C#f_pas_script_Reference()"!=""}\
+	\%\%Inner %S#f_pas_script_Name()\n\
+	>\
+	]\
 
 	%f_clear_list(INCLUDED_FILES)\
 	%f_clear_list(FORWARDED_ELEMENTS)\
@@ -1943,7 +1948,7 @@ f _NeedFinalize
 	[{%SC=Class}{\
 	true\
 	}\
-	[{%SS=VCMFormsPack|%SS=VCMUseCaseRealization|%S#f_IsVCMForm()=true|%SS=ViewAreaControllerImp|%SS=UseCaseControllerImp|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory|%SS=VCMApplication|%SS=VCMTestApplication}{\
+	[{%SS=VCMFormsPack|%SS=VCMUseCaseRealization|%S#f_IsVCMForm()=true|%SS=ViewAreaControllerImp|%SS=UseCaseControllerImp|%SS=VCMFormSetFactory|%SS=VCMAbstractFormSetFactory|%SS=VCMApplication|%SS=VCMTestApplication|%S#f_IsUtilityPack()=true|%S#f_IsMixIn()=true}{\
 	[{%SS=GuiControl&%PC!=Class}{\
 	false\
 // - наверное классы не надо в отдельные файлы выливать
@@ -1970,6 +1975,24 @@ f _NeedFinalize
 %f _pas_script_GenerateDescription
 //#UC START# *56333E330061for470F151302FD*
 	%f_add_to_list(FORWARDED_ELEMENTS,S)\
+
+	[\n\
+	<{}{%CC=Dependency&%CS=injects&"%C%T#f_pas_script_Reference()"!=""}\
+	\%\%InjectedBy %C%T#f_pas_script_Name() %S#f_pas_script_Name()\n\
+	>\
+	]\
+
+	[\n\
+	<{}{"%R#f_pas_script_Reference()"!=""}\
+	\%\%ImplementedBy %R#f_pas_script_Name() %S#f_pas_script_Name()\n\
+	>\
+	]\
+
+	[\n\
+	<{}{"%G#f_pas_script_Reference()"!=""}\
+	\%\%InheritedBy %G#f_pas_script_Name() %S#f_pas_script_Name()\n\
+	>\
+	]\
 
 	<{}{%aC=Dependency&%aS=injects}{Sg}%a#f_pas_script_GenerateForwardPrim()>\
 
@@ -2153,6 +2176,14 @@ f _NeedFinalize
 	 MELIST Forwarded
 	   Seq: (< %F#f_pas_script_Reference()> )
 	 ; // Forwarded
+	]\
+	]\
+
+	[{%mx=true}\
+	[\
+	 MESTRINGLIST DiagramsNames
+	   Seq: (< '%f_fine_string("%mN")'> )
+	 ; // DiagramsNames
 	]\
 	]\
 

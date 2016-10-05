@@ -4,9 +4,12 @@ unit l3DropTarget;
 { Автор: Люлин А.В. ©     }
 { Модуль: l3DropTarget -  }
 { Начат: 04.04.2001 20:34 }
-{ $Id: l3DropTarget.pas,v 1.19 2013/12/25 15:10:36 lulin Exp $ }
+{ $Id: l3DropTarget.pas,v 1.20 2016/09/27 23:09:54 lulin Exp $ }
 
 // $Log: l3DropTarget.pas,v $
+// Revision 1.20  2016/09/27 23:09:54  lulin
+// - подтачиваем.
+//
 // Revision 1.19  2013/12/25 15:10:36  lulin
 // {RequestLink:509706011}
 // - перетрясаем модель.
@@ -393,21 +396,29 @@ begin
  Result := S_Ok;
  if f_DragEnterAccepted then
  begin
-  if (aDataObj <> nil) then
-  begin
-   Result := E_UNEXPECTED;
-   for l_Index := Low(f_AcceptableFormats) to High(f_AcceptableFormats) do
+  try
+   if (aDataObj <> nil) then
    begin
-    if (dwEffect = DROPEFFECT_NONE) then
-     dwEffect := Keys2Effect(grfKeyState);
-    if DropFormattedData(f_AcceptableFormats[l_Index], aDataObj, dwEffect) then
+    Result := E_UNEXPECTED;
+    for l_Index := Low(f_AcceptableFormats) to High(f_AcceptableFormats) do
     begin
-     Result := S_Ok;
-     break;
-    end;//DropFormattedData
-   end;//for l_Index
-  end;//aDataObj <> nil
-  DropTarget.DoDragLeave;
+     if (dwEffect = DROPEFFECT_NONE) then
+      dwEffect := Keys2Effect(grfKeyState);
+     try
+      if DropFormattedData(f_AcceptableFormats[l_Index], aDataObj, dwEffect) then
+      begin
+       Result := S_Ok;
+       break;
+      end;//DropFormattedData
+     except
+      Result := S_Ok;
+      Exit;
+     end;//try..except
+    end;//for l_Index
+   end;//aDataObj <> nil
+  finally
+   DropTarget.DoDragLeave;
+  end;//try..finally 
  end//f_DragEnterAccepted
  else
   dwEffect := DROPEFFECT_NONE;

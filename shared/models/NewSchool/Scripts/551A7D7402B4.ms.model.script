@@ -1,0 +1,121 @@
+// daDataProvider 551A7D7402B4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_551A7D7402B4
+
+ME ME_551A7DF50234
+ MEPROP UID '551A7DF50234'
+ MEPROP Name 'g_GlobalDataProvider'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_551A7D7402B4 // daDataProvider
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_551A7DF50234 g_GlobalDataProvider
+
+FORWARD ME_551A7D9602DC
+
+ME ME_551A7DA7012B
+ MEPROP UID '551A7DA7012B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551A7D9602DC // GlobalDataProvider
+ ;
+ MELINK Target WL 'ME_54EDC87C00B5' '5432518A0316.ms.model.script' // IdaDataProvider
+ ;
+
+ENDME // ME_551A7DA7012B DoIt
+
+ME ME_551A7D9602DC
+ MEPROP UID '551A7D9602DC'
+ MEPROP Name 'GlobalDataProvider'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551A7D7402B4 // daDataProvider
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551A7DA7012B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_551A7D9602DC GlobalDataProvider
+
+FORWARD ME_551A7DB8018C
+
+ME ME_551A7DD9002F
+ MEPROP Name 'aProvider'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_54EDC87C00B5' '5432518A0316.ms.model.script' // IdaDataProvider
+ ;
+
+ENDME // ME_551A7DD9002F aProvider
+
+ME ME_551A7DCB0110
+ MEPROP UID '551A7DCB0110'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551A7DB8018C // SetGlobalDataProvider
+ ;
+ MELIST Parameters
+   Seq: ( ME_551A7DD9002F // aProvider
+ )
+ ; // Parameters
+
+ENDME // ME_551A7DCB0110 DoIt
+
+ME ME_551A7DB8018C
+ MEPROP UID '551A7DB8018C'
+ MEPROP Name 'SetGlobalDataProvider'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551A7D7402B4 // daDataProvider
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551A7DCB0110 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_551A7DB8018C SetGlobalDataProvider
+
+ME ME_551A7D7402B4
+ MEPROP UID '551A7D7402B4'
+ MEPROP Name 'daDataProvider'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54F85B2500FB' '54F85B2500FB.ms.model.script' // Provider
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_551A7DF50234 // g_GlobalDataProvider
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_551A7D9602DC // GlobalDataProvider
+ HWL ME_551A7DB8018C // SetGlobalDataProvider
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DA\daDataProvider.pas'
+
+ENDME // ME_551A7D7402B4 daDataProvider

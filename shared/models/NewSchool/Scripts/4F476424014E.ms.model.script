@@ -1,0 +1,159 @@
+// IncludesAndUsesPack 4F476424014E ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F476424014E
+%%Inner ME_4F476424014E
+
+FORWARD ME_4F476424014E
+
+FORWARD ME_4DC1949F00E1
+
+ME ME_4DC2DF9D0108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1949F00E1 // Include
+ ;
+ MELINK Target WL 'ME_4DC2DF5D0167' '4F4763EC02CB.ms.model.script' // TkwIncluded
+ ;
+
+ENDME // ME_4DC2DF9D0108 
+
+ME ME_4DC2E6B600CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC1949F00E1 // Include
+ ;
+ MELINK Target WL 'ME_4ACF4D6E03B5' '47878E0E0191.ms.model.script' // l3Str
+ ;
+
+ENDME // ME_4DC2E6B600CB 
+
+ME ME_4DB6C99F026E_ME_4DC1949F00E1
+ MELINK Original WL 'ME_4DB6C99F026E' '54F079B5035C.ms.model.script' // EndBracket
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DB6C99F026E_ME_4DC1949F00E1 EndBracket
+
+ME ME_4DB0614603C8_ME_4DC1949F00E1
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DC1949F00E1 GetWordNameForRegister
+
+ME ME_4DB9B446039A_ME_4DC1949F00E1
+ MELINK Original WL 'ME_4DB9B446039A' '54F079B5035C.ms.model.script' // AfterWordMaxCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB9B446039A_ME_4DC1949F00E1 AfterWordMaxCount
+
+%%InheritedBy ME_4DC3A1A30235 ME_4DC1949F00E1
+
+ME ME_4DC1949F00E1
+ MEPROP UID '4DC1949F00E1'
+ MEPROP Name 'Include'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Зарезервированное слово: INCLUDE'#13#10'Пример:'#13#10'{code}'#13#10' INCLUDE ''Included.script'''#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F476424014E // IncludesAndUsesPack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DC3A1A30235' '4F4763EC02CB.ms.model.script' // TtfwIncludeLike
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_4DB6C99F026E_ME_4DC1949F00E1 // EndBracket
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DC1949F00E1 // GetWordNameForRegister
+ ME_4DB9B446039A_ME_4DC1949F00E1 // AfterWordMaxCount
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DC2DF9D0108 // TkwIncluded
+ ME_4DC2E6B600CB // l3Str
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'INCLUDE'
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '04.05.2011 22:02'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwInclude.pas'
+ UP extprop:pas:TypeName 'TkwInclude'
+ UP extprop:rc:SelfName 'Include'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwInclude'
+
+ENDME // ME_4DC1949F00E1 Include
+
+FORWARD ME_4DC3A27D0253
+
+ME ME_4DB0614603C8_ME_4DC3A27D0253
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DC3A27D0253 GetWordNameForRegister
+
+%%InheritedBy ME_4F37D458015C ME_4DC3A27D0253
+
+ME ME_4DC3A27D0253
+ MEPROP UID '4DC3A27D0253'
+ MEPROP Name 'Uses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Подлючение внешних модулей в скрипт:'#13#10'Пример:'#13#10'{code}'#13#10'USES'#13#10' DocumentNumbers.script'#13#10';'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F476424014E // IncludesAndUsesPack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F37D458015C' '4F4763EC02CB.ms.model.script' // TkwUsesLike
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DC3A27D0253 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "NameForScript" 'USES'
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '06.05.2011 11:26'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwUses.pas'
+ UP extprop:pas:TypeName 'TkwUses'
+ UP extprop:rc:SelfName 'Uses'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'kwUses'
+
+ENDME // ME_4DC3A27D0253 Uses
+
+ME ME_4F476424014E
+ MEPROP UID '4F476424014E'
+ MEPROP Name 'IncludesAndUsesPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F4763EC02CB' '4F4763EC02CB.ms.model.script' // IncludesAndUses
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DC1949F00E1 // Include
+ HWL ME_4DC3A27D0253 // Uses
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\IncludesAndUsesPack.pas'
+
+ENDME // ME_4F476424014E IncludesAndUsesPack

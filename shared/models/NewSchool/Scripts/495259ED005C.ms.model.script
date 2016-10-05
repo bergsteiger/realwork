@@ -1,0 +1,63 @@
+// l3Forms 495259ED005C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_495259ED005C
+
+FORWARD ME_495259ED005C
+
+%%ImplementedBy ME_4A60B2220398 ME_49525A0F034B
+
+%%InheritedBy ME_47913F970159 ME_49525A0F034B
+%%InheritedBy ME_4952591E0263 ME_49525A0F034B
+
+ME ME_49525A0F034B
+ MEPROP UID '49525A0F034B'
+ MEPROP Name 'Tl3Form'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс форм, поддерживающих счетчик ссылок и интерфейс IUnknown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_495259ED005C // l3Forms
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913F970159.ms.model.script' // l3Unknown
+ WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A60B2220398' '4A60B2220398.ms.model.script' // l3COMQueryInterface
+ )
+ ; // Implements
+ UP "finished" false
+ UP extprop:rc:SelfName 'Form'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49525A0F034B Tl3Form
+
+ME ME_495259ED005C
+ MEPROP UID '495259ED005C'
+ MEPROP Name 'l3Forms'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс форм, поддерживающих счетчик ссылок и интерфейс IUnknown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_495259B50283' '495259B50283.ms.model.script' // VCL
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49525A0F034B // Tl3Form
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Forms.pas'
+ UP extprop:rc:SelfName 'Forms'
+
+ENDME // ME_495259ED005C l3Forms

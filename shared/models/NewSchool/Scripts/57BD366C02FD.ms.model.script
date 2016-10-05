@@ -1,0 +1,116 @@
+// nsDownloaderInterfaces 57BD366C02FD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57BD366C02FD
+%%Inner ME_57BD366C02FD
+%%Inner ME_57BD366C02FD
+%%Inner ME_57BD366C02FD
+%%Inner ME_57BD366C02FD
+
+FORWARD ME_57BD366C02FD
+
+ME ME_57BC057C02C1
+ MEPROP UID '57BC057C02C1'
+ MEPROP GUID '31074443-54E2-4739-B155-CFB5EC326ADF'
+ MEPROP Name 'InsDownloader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BD366C02FD // nsDownloaderInterfaces
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'Downloader'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57BC057C02C1 InsDownloader
+
+ME ME_57BC055302B9
+ MEPROP UID '57BC055302B9'
+ MEPROP GUID '15C71366-9DB6-4324-BFF9-9D28A182ADDF'
+ MEPROP Name 'InsDownloadParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BD366C02FD // nsDownloaderInterfaces
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'DownloadParams'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57BC055302B9 InsDownloadParams
+
+ME ME_57BFDE2502C6
+ MEPROP UID '57BFDE2502C6'
+ MEPROP GUID '8F80A480-46CA-45FB-95DC-526DEF2FDC4C'
+ MEPROP Name 'InsDownloaderEventSink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BD366C02FD // nsDownloaderInterfaces
+ ;
+ UP extprop:rc:SelfName 'DownloaderEventSink'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57BFDE2502C6 InsDownloaderEventSink
+
+ME ME_57BFDE3B0114
+ MEPROP UID '57BFDE3B0114'
+ MEPROP Name 'TnsDownloaderState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BD366C02FD // nsDownloaderInterfaces
+ ;
+
+ENDME // ME_57BFDE3B0114 TnsDownloaderState
+
+ME ME_57BFDE48031C
+ MEPROP UID '57BFDE48031C'
+ MEPROP Name 'TnsDownloadFileAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BD366C02FD // nsDownloaderInterfaces
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57BFDE48031C TnsDownloadFileAction
+
+ME ME_57BD366C02FD
+ MEPROP UID '57BD366C02FD'
+ MEPROP Name 'nsDownloaderInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57BC0538037B' '57BC0538037B.ms.model.script' // Downloader
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57BC057C02C1 // InsDownloader
+ HWL ME_57BC055302B9 // InsDownloadParams
+ HWL ME_57BFDE2502C6 // InsDownloaderEventSink
+ HWL ME_57BFDE3B0114 // TnsDownloaderState
+ HWL ME_57BFDE48031C // TnsDownloadFileAction
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nsDownloaderInterfaces.pas'
+ UP extprop:rc:SelfName 'DownloaderInterfaces'
+
+ENDME // ME_57BD366C02FD nsDownloaderInterfaces

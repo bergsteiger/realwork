@@ -1,0 +1,89 @@
+// l3LineArray 480F6F5C0125 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_480F6F5C0125
+%%Inner ME_480F6F5C0125
+%%Inner ME_480F6F5C0125
+
+FORWARD ME_480F6F5C0125
+
+ME ME_480F6F870304
+ MEPROP UID '480F6F870304'
+ MEPROP Name 'TevLineArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480F6F5C0125 // l3LineArray
+ ;
+ UP "author" 'Люлин А.В.'
+ UP "started" '13.12.96'
+ UP extprop:rc:SelfName 'LineArray'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_480F6F870304 TevLineArray
+
+ME ME_529F119D0106
+ MEPROP UID '529F119D0106'
+ MEPROP Name 'TevLineInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480F6F5C0125 // l3LineArray
+ ;
+ UP "packed" true
+
+ENDME // ME_529F119D0106 TevLineInfo
+
+%%InheritedBy ME_529F119D0106 ME_529F11A502D8
+
+ME ME_529F11A502D8
+ MEPROP UID '529F11A502D8'
+ MEPROP Name 'PevLineInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480F6F5C0125 // l3LineArray
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_529F119D0106 // TevLineInfo
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_529F11A502D8 PevLineInfo
+
+ME ME_480F6F5C0125
+ MEPROP UID '480F6F5C0125'
+ MEPROP Name 'l3LineArray'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о нарезке на строки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_480F6F870304 // TevLineArray
+ HWL ME_529F119D0106 // TevLineInfo
+ HWL ME_529F11A502D8 // PevLineInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '13.12.96'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3LineArray.pas'
+ UP extprop:rc:SelfName 'LineArray'
+
+ENDME // ME_480F6F5C0125 l3LineArray

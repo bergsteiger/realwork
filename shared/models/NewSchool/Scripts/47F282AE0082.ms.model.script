@@ -2,133 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_47F282AE0082
-
-FORWARD ME_492D91B7037E
-
-ME ME_492D9200028F
- MEPROP UID '492D9200028F'
- MEPROP Name 'f_CurrentContextFilter'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_492D91B7037E // nsContextFilter
- ;
- MELINK Target WL 'ME_4908393001C5' '490838E10313.ms.model.script' // InscContextFilterState
- ;
-
-ENDME // ME_492D9200028F f_CurrentContextFilter
-
-ME ME_492D92370149
- MEPROP UID '492D92370149'
- MEPROP Name 'Cleanup'
- MEPROP Class class_Operation
- MELINK Stereotype st_override::Operation ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_492D91B7037E // nsContextFilter
- ;
- UP "is static" false
-
-ENDME // ME_492D92370149 Cleanup
-
-ME ME_492D93380239
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_492D91B7037E // nsContextFilter
- ;
- MELINK Target WL 'ME_4908462903E0' '49083E150027.ms.model.script' // TnscContextFilterState
- ;
-
-ENDME // ME_492D93380239 
-
-ME ME_492D9071038D_ME_492D91B7037E
- MELINK Original WL 'ME_492D9071038D' '491DD2830110.ms.model.script' // CurrentContextFilter
- ;
- MEPROP OpKind opkind_Implemented
- UP "pm" true
-ENDME // ME_492D9071038D_ME_492D91B7037E CurrentContextFilter
-
-ME ME_492D90AA0118_ME_492D91B7037E
- MELINK Original WL 'ME_492D90AA0118' '491DD2830110.ms.model.script' // FiltrateByContext
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_492D90AA0118_ME_492D91B7037E FiltrateByContext
-
-ME ME_492D91B7037E
- MEPROP UID '492D91B7037E'
- MEPROP Name 'nsContextFilter'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Контекстный фильтр' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47F282AE0082 // Tree
- ;
- MELIST Implements
-   Seq: ( WL 'ME_492D901E03E1' '491DD2830110.ms.model.script' // InsContextFilter
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_492D9200028F // f_CurrentContextFilter
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_492D92370149 // Cleanup
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_492D9071038D_ME_492D91B7037E // CurrentContextFilter
- ME_492D90AA0118_ME_492D91B7037E // FiltrateByContext
- )
- ; // Implemented
- MELIST Dependencies
-   Seq: ( ME_492D93380239 // TnscContextFilterState
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '26.11.2008 21:13'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\nsContextFilter.imp.pas'
- UP extprop:pas:TypeName '_nsContextFilter_'
- UP extprop:pas:UnitName 'nsContextFilter.imp'
-
-ENDME // ME_492D91B7037E nsContextFilter
-
-FORWARD ME_49243E5C035C
-
-ME ME_49243E6B0354
- MEPROP UID '49243E6B0354'
- MEPROP Name 'GetOperationIterator'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49243E5C035C // nsLogicOperationToFlags
- ;
-
-ENDME // ME_49243E6B0354 GetOperationIterator
-
-ME ME_49243E5C035C
- MEPROP UID '49243E5C035C'
- MEPROP Name 'nsLogicOperationToFlags'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47F282AE0082 // Tree
- ;
- MELIST Operations
-   Seq: ( HWL ME_49243E6B0354 // GetOperationIterator
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Tree\NOT_FINISHED_nsLogicOperationToFlags.pas'
- UP extprop:rc:SelfName 'LogicOperationToFlags'
-
-ENDME // ME_49243E5C035C nsLogicOperationToFlags
+%%Inner ME_47F282AE0082
+%%Inner ME_47F282AE0082
+%%Inner ME_47F282AE0082
 
 ME ME_47F282AE0082
  MEPROP UID '47F282AE0082'
@@ -143,8 +19,8 @@ ME ME_47F282AE0082
  ;
  MELIST Children
    Seq: ( WL 'ME_47F0C1410011' '47F0C1410011.ms.model.script' // dsSimpleTree
- HWL ME_492D91B7037E // nsContextFilter
- HWL ME_49243E5C035C // nsLogicOperationToFlags
+ WL 'ME_492D91B7037E' '492D91B7037E.ms.model.script' // nsContextFilter
+ WL 'ME_49243E5C035C' '49243E5C035C.ms.model.script' // nsLogicOperationToFlags
  )
  ; // Children
  MELIST Depends
@@ -167,5 +43,8 @@ ME ME_47F282AE0082
  WL 'ME_4E1447600037' '4E1447600037.ms.model.script' // Common
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_47F282AE0082 Tree

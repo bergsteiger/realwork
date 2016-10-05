@@ -1273,18 +1273,26 @@ initialization
  {* Регистрация Tkw_List_Control_ExSearchLabel_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TefList));
  {* Регистрация типа TefList }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscRemindersLine));
  {* Регистрация типа TnscRemindersLine }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscReminder));
  {* Регистрация типа TnscReminder }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscDocumentListTreeView));
  {* Регистрация типа TnscDocumentListTreeView }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));
  {* Регистрация типа TnscContextFilter }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtStyledFocusLabel));
  {* Регистрация типа TvtStyledFocusLabel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

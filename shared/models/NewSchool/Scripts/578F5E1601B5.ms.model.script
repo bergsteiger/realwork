@@ -1,0 +1,88 @@
+// vtDragDataTypes 578F5E1601B5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_578F5E1601B5
+
+FORWARD ME_578F5E1601B5
+
+FORWARD ME_578F5E310137
+
+ME ME_552FCD1F01FB
+ MEPROP UID '552FCD1F01FB'
+ MEPROP Name 'dsPassive'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578F5E310137 // TDragDataState
+ ;
+
+ENDME // ME_552FCD1F01FB dsPassive
+
+ME ME_552FCD2B004D
+ MEPROP UID '552FCD2B004D'
+ MEPROP Name 'dsActive'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578F5E310137 // TDragDataState
+ ;
+
+ENDME // ME_552FCD2B004D dsActive
+
+ME ME_552FCD3200F5
+ MEPROP UID '552FCD3200F5'
+ MEPROP Name 'dsPaused'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_578F5E310137 // TDragDataState
+ ;
+
+ENDME // ME_552FCD3200F5 dsPaused
+
+ME ME_578F5E310137
+ MEPROP UID '578F5E310137'
+ MEPROP Name 'TDragDataState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_578F5E1601B5 // vtDragDataTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_552FCD1F01FB // dsPassive
+ HWL ME_552FCD2B004D // dsActive
+ HWL ME_552FCD3200F5 // dsPaused
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_578F5E310137 TDragDataState
+
+ME ME_578F5E1601B5
+ MEPROP UID '578F5E1601B5'
+ MEPROP Name 'vtDragDataTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_578F5E310137 // TDragDataState
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtDragDataTypes.pas'
+ UP extprop:rc:SelfName 'DragDataTypes'
+
+ENDME // ME_578F5E1601B5 vtDragDataTypes

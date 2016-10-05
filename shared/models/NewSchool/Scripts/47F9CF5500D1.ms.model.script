@@ -1,0 +1,38 @@
+// bsConvert 47F9CF5500D1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F9CF5500D1
+
+ME ME_47F9CF8F0357
+ MEPROP UID '47F9CF8F0357'
+ MEPROP Name 'bsBusinessToAdapter'
+ MEPROP Class class_Operation
+ %SUMMARY '-' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F9CF5500D1 // bsConvert
+ ;
+
+ENDME // ME_47F9CF8F0357 bsBusinessToAdapter
+
+ME ME_47F9CF5500D1
+ MEPROP UID '47F9CF5500D1'
+ MEPROP Name 'bsConvert'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '- утилиты конвертации типов бизнес уровня в адаптер и наоборот.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47F9CF8F0357 // bsBusinessToAdapter
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_bsConvert.pas'
+
+ENDME // ME_47F9CF5500D1 bsConvert

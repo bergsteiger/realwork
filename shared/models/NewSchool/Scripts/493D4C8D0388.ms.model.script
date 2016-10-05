@@ -1,0 +1,70 @@
+// bsFrozenNode 493D4C8D0388 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_493D4C8D0388
+%%Inner ME_493D4C8D0388
+
+FORWARD ME_493D4C8D0388
+
+ME ME_4B17E20300AE
+ MEPROP UID '4B17E20300AE'
+ MEPROP Name 'TbsFrozenNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_493D4C8D0388 // bsFrozenNode
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'bsFrozenNode'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B17E20300AE TbsFrozenNode
+
+%%InheritedBy ME_4B17E20300AE ME_493D4C990321
+
+ME ME_493D4C990321
+ MEPROP UID '493D4C990321'
+ MEPROP Name 'TbsCRTypeFrozen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_493D4C8D0388 // bsFrozenNode
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B17E20300AE // TbsFrozenNode
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'bsCRTypeFrozen'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_493D4C990321 TbsCRTypeFrozen
+
+ME ME_493D4C8D0388
+ MEPROP UID '493D4C8D0388'
+ MEPROP Name 'bsFrozenNode'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B17E20300AE // TbsFrozenNode
+ HWL ME_493D4C990321 // TbsCRTypeFrozen
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\NOT_FINISHED_bsFrozenNode.pas'
+
+ENDME // ME_493D4C8D0388 bsFrozenNode

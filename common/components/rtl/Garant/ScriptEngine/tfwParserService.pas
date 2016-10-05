@@ -247,7 +247,8 @@ begin
  begin
   LoadIncludePaths;
   Assert(f_IncludePaths <> nil);
-  f_IncludePaths.Add(aPath);
+  if (f_IncludePaths.IndexOf(aPath) < 0) then
+   f_IncludePaths.Add(aPath);
  end;//f_Alien <> nil
 //#UC END# *F5AAF249F97E_57726B250063_impl*
 end;//TtfwParserService.AddIncludePath

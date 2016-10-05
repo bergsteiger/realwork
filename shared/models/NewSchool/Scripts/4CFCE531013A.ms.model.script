@@ -1,0 +1,346 @@
+// vg_controls 4CFCE531013A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+%%Inner ME_4CFCE531013A
+
+FORWARD ME_4CFCE531013A
+
+ME ME_4CFCE54B01B0
+ MEPROP UID '4CFCE54B01B0'
+ MEPROP Name 'TvgPathButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'PathButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFCE54B01B0 TvgPathButton
+
+ME ME_4CFCE5A10367
+ MEPROP UID '4CFCE5A10367'
+ MEPROP Name 'TvgCloseButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'CloseButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFCE5A10367 TvgCloseButton
+
+ME ME_4CFCF4840379
+ MEPROP UID '4CFCF4840379'
+ MEPROP Name 'TvgRadioButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Injected
+   Seq: ( WL 'ME_54EC66040088' '506AC306014F.ms.model.script' // VGSceneWordsPack
+ )
+ ; // Injected
+ UP "finished" false
+ UP "register in scripts" true
+ UP extprop:rc:SelfName 'RadioButton'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFCF4840379 TvgRadioButton
+
+FORWARD ME_4D4955ED018F
+
+FORWARD ME_4D5E5ACA029B
+
+ME ME_4D5E5ADE0011
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_498849D803A8' '4807744200AA.ms.model.script' // WideString
+ ;
+
+ENDME // ME_4D5E5ADE0011 Value
+
+ME ME_4D5E5AD3030B
+ MEPROP UID '4D5E5AD3030B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5E5ACA029B // SetText
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D5E5ADE0011 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4D5E5AD3030B DoIt
+
+ME ME_4D5E5ACA029B
+ MEPROP UID '4D5E5ACA029B'
+ MEPROP Name 'SetText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D4955ED018F // TvgTextControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5E5AD3030B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D5E5ACA029B SetText
+
+%%InheritedBy ME_4D49560D0013 ME_4D4955ED018F
+
+ME ME_4D4955ED018F
+ MEPROP UID '4D4955ED018F'
+ MEPROP Name 'TvgTextControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D49560D0013' '4CFE3E000371.ms.model.script' // TvgControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D5E5ACA029B // SetText
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TextControl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D4955ED018F TvgTextControl
+
+FORWARD ME_4D4955DB0282
+
+ME ME_4D5E5B530342
+ MEPROP UID '4D5E5B530342'
+ MEPROP Name 'ModalResult'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D4955DB0282 // TvgCustomButton
+ ;
+ MELINK Target WL 'ME_47FE430F0088' '47E11FC3021E.ms.model.script' // TModalResult
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4D5E5B530342 ModalResult
+
+%%InheritedBy ME_4D4955ED018F ME_4D4955DB0282
+
+ME ME_4D4955DB0282
+ MEPROP UID '4D4955DB0282'
+ MEPROP Name 'TvgCustomButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4955ED018F // TvgTextControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5E5B530342 // ModalResult
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D4955DB0282 TvgCustomButton
+
+FORWARD ME_4CFF5690033D
+
+ME ME_4D5E5C0A01E6
+ MEPROP UID '4D5E5C0A01E6'
+ MEPROP Name 'Default'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF5690033D // TvgButton
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4D5E5C0A01E6 Default
+
+ME ME_4D5E5C27000E
+ MEPROP UID '4D5E5C27000E'
+ MEPROP Name 'Cancel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CFF5690033D // TvgButton
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4D5E5C27000E Cancel
+
+%%InheritedBy ME_4D4955DB0282 ME_4CFF5690033D
+
+ME ME_4CFF5690033D
+ MEPROP UID '4CFF5690033D'
+ MEPROP Name 'TvgButton'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D4955DB0282 // TvgCustomButton
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4D5E5C0A01E6 // Default
+ HWL ME_4D5E5C27000E // Cancel
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP extprop:rc:SelfName 'Button'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFF5690033D TvgButton
+
+ME ME_4F91672600DC
+ MEPROP UID '4F91672600DC'
+ MEPROP Name 'TvgCheckBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ UP extprop:rc:SelfName 'CheckBox'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F91672600DC TvgCheckBox
+
+%%InheritedBy ME_4D49560D0013 ME_4FC76491011E
+
+ME ME_4FC76491011E
+ MEPROP UID '4FC76491011E'
+ MEPROP Name 'TvgPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D49560D0013' '4CFE3E000371.ms.model.script' // TvgControl
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'Panel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC76491011E TvgPanel
+
+%%InheritedBy ME_4FC76491011E ME_4FC7649B002C
+
+ME ME_4FC7649B002C
+ MEPROP UID '4FC7649B002C'
+ MEPROP Name 'TvgCalloutPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFCE531013A // vg_controls
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FC76491011E // TvgPanel
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'CalloutPanel'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC7649B002C TvgCalloutPanel
+
+ME ME_4CFCE531013A
+ MEPROP UID '4CFCE531013A'
+ MEPROP Name 'vg_controls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.ms.model.script' // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFCE54B01B0 // TvgPathButton
+ HWL ME_4CFCE5A10367 // TvgCloseButton
+ HWL ME_4CFCF4840379 // TvgRadioButton
+ HWL ME_4D4955ED018F // TvgTextControl
+ HWL ME_4D4955DB0282 // TvgCustomButton
+ HWL ME_4CFF5690033D // TvgButton
+ HWL ME_4F91672600DC // TvgCheckBox
+ HWL ME_4FC76491011E // TvgPanel
+ HWL ME_4FC7649B002C // TvgCalloutPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_controls.pas'
+ UP extprop:rc:SelfName '_controls'
+
+ENDME // ME_4CFCE531013A vg_controls

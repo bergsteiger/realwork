@@ -2,91 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_5279FD600133
+%%Inner ME_5279FD600133
+%%Inner ME_5279FD600133
+
 FORWARD ME_5279FD600133
-
-FORWARD ME_5279FD7E02F7
-
-ME ME_5279FD970204
- MEPROP UID '5279FD970204'
- MEPROP Name 'ZipFiles'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5279FD7E02F7 // ddZipUtils
- ;
-
-ENDME // ME_5279FD970204 ZipFiles
-
-ME ME_5279FD9F01B9
- MEPROP UID '5279FD9F01B9'
- MEPROP Name 'UnZipFiles'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5279FD7E02F7 // ddZipUtils
- ;
-
-ENDME // ME_5279FD9F01B9 UnZipFiles
-
-ME ME_5279FD7E02F7
- MEPROP UID '5279FD7E02F7'
- MEPROP Name 'ddZipUtils'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5279FD600133 // Misc
- ;
- MELIST Operations
-   Seq: ( HWL ME_5279FD970204 // ZipFiles
- HWL ME_5279FD9F01B9 // UnZipFiles
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddZipUtils.pas'
-
-ENDME // ME_5279FD7E02F7 ddZipUtils
-
-FORWARD ME_546C731802D0
-
-ME ME_546C734403DC
- MEPROP UID '546C734403DC'
- MEPROP Name 'TddFileIterator'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_546C731802D0 // ddFileIterator
- ;
- UP extprop:rc:SelfName 'ddFileIterator'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_546C734403DC TddFileIterator
-
-ME ME_546C731802D0
- MEPROP UID '546C731802D0'
- MEPROP Name 'ddFileIterator'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5279FD600133 // Misc
- ;
- MELIST Children
-   Seq: ( HWL ME_546C734403DC // TddFileIterator
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddFileIterator.pas'
-
-ENDME // ME_546C731802D0 ddFileIterator
 
 FORWARD ME_55893A8B0110
 
@@ -105,10 +25,12 @@ ME ME_55893D4A02A4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55893A8B0110 // TddExceptionHandler
  ;
- MELINK Target WL 'ME_4C8A2ADD01B1' '4799D29F033F.ms.model.script' // Application
+ MELINK Target WL 'ME_4C8A2ADD01B1' '47E13C6B0341.ms.model.script' // Application
  ;
 
 ENDME // ME_55893D4A02A4 
+
+%%InheritedBy ME_49E7754802A9 ME_55893A8B0110
 
 ME ME_55893A8B0110
  MEPROP UID '55893A8B0110'
@@ -129,6 +51,9 @@ ME ME_55893A8B0110
  ME_55893D4A02A4 // Application
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExceptionHandler.pas'
  UP extprop:rc:SelfName 'ddExceptionHandler'
  UP extprop:rc:isAcceptableForScripts true
@@ -147,8 +72,8 @@ ME ME_5279FD600133
  MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
  ;
  MELIST Children
-   Seq: ( HWL ME_5279FD7E02F7 // ddZipUtils
- HWL ME_546C731802D0 // ddFileIterator
+   Seq: ( WL 'ME_5279FD7E02F7' '5279FD7E02F7.ms.model.script' // ddZipUtils
+ WL 'ME_546C731802D0' '546C731802D0.ms.model.script' // ddFileIterator
  HWL ME_55893A8B0110 // TddExceptionHandler
  )
  ; // Children
@@ -158,5 +83,8 @@ ME ME_5279FD600133
  WL 'ME_47EA946A0315' '47EA946A0315.ms.model.script' // l3Misc
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_5279FD600133 Misc

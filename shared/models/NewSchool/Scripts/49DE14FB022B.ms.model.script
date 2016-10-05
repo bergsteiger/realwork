@@ -1,0 +1,57 @@
+// nevMostInner 49DE14FB022B Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DE14FB022B
+
+ME ME_49DE19CC0107
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DE14FB022B // nevMostInner
+ ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_49DE19CC0107 
+
+ME ME_49DE123A031F_ME_49DE14FB022B
+ MELINK Original WL 'ME_49DE123A031F' '47C5207602D1.ms.model.script' // MostInner
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49DE123A031F_ME_49DE14FB022B MostInner
+
+%%ImplementedBy ME_49DE11D902FC ME_49DE14FB022B
+
+ME ME_49DE14FB022B
+ MEPROP UID '49DE14FB022B'
+ MEPROP Name 'nevMostInner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Самая внутренняя точка объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49DE11D902FC' '47C5207602D1.ms.model.script' // MnevMostInner
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_49DE123A031F_ME_49DE14FB022B // MostInner
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49DE19CC0107 // InevPoint
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevMostInner.imp.pas'
+ UP extprop:pas:TypeName '_nevMostInner_'
+ UP extprop:pas:UnitName 'nevMostInner.imp'
+
+ENDME // ME_49DE14FB022B nevMostInner

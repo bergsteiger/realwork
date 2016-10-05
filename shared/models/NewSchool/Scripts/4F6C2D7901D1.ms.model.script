@@ -1,0 +1,651 @@
+// evCustomParaListUtils 4F6C2D7901D1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F6C2D7901D1
+%%Inner ME_4F6C2D7901D1
+%%Inner ME_4F6C2D7901D1
+
+FORWARD ME_4F6C2D7901D1
+
+FORWARD ME_4F6C2DB4038D
+
+ME ME_4F6C2E5E033F
+ MEPROP UID '4F6C2E5E033F'
+ MEPROP Name 'f_Location'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6C2DB4038D // TevLocationProcessorTagTool
+ ;
+ MELINK Target WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+
+ENDME // ME_4F6C2E5E033F f_Location
+
+ME ME_4F6C2E8C0049
+ MEPROP UID '4F6C2E8C0049'
+ MEPROP Name 'View'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F6C2DB4038D // TevLocationProcessorTagTool
+ ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4F6C2E8C0049 View
+
+FORWARD ME_4F6C2EBF02EA
+
+ME ME_5342B66A0150
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_5342B66A0150 aView
+
+ME ME_5342B66A019E
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5342B66A019E aTagWrap
+
+ME ME_5342B685026D
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5AF730166' '47C5207602D1.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_5342B685026D aProcessor
+
+ME ME_5342B68502B5
+ MEPROP Name 'aLocation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5342B68502B5 aLocation
+
+ME ME_4F6C2ED100E6
+ MEPROP UID '4F6C2ED100E6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C2EBF02EA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5342B66A0150 // aView
+ ME_5342B66A019E // aTagWrap
+ ME_5342B685026D // aProcessor
+ ME_5342B68502B5 // aLocation
+ )
+ ; // Parameters
+
+ENDME // ME_4F6C2ED100E6 DoIt
+
+ME ME_4F6C2EBF02EA
+ MEPROP UID '4F6C2EBF02EA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C2DB4038D // TevLocationProcessorTagTool
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6C2ED100E6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6C2EBF02EA Create
+
+ME ME_479731C50290_ME_4F6C2DB4038D
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4F6C2DB4038D Cleanup
+
+%%InheritedBy ME_4BBF3D8B00CD ME_4F6C2DB4038D
+
+ME ME_4F6C2DB4038D
+ MEPROP UID '4F6C2DB4038D'
+ MEPROP Name 'TevLocationProcessorTagTool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс для инструментов для тегов, с использованием _TevLocation.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6C2D7901D1 // evCustomParaListUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BBF3D8B00CD' '467C182A01BE.ms.model.script' // Tk2ProcessorTagTool
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4F6C2E5E033F // f_Location
+ HWL ME_4F6C2E8C0049 // View
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F6C2EBF02EA // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4F6C2DB4038D // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'LocationProcessorTagTool'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F6C2DB4038D TevLocationProcessorTagTool
+
+FORWARD ME_4FA4F2AA0302
+
+ME ME_4FA4F3B603D9
+ MEPROP UID '4FA4F3B603D9'
+ MEPROP Name 'f_Table'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FA4F2AA0302 // TevTableChild
+ ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_4FA4F3B603D9 f_Table
+
+FORWARD ME_4FA4F2DB015A
+
+ME ME_5342B701033C
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_5342B701033C aView
+
+ME ME_5342B7010386
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_5342B7010386 aTable
+
+ME ME_5342B70103D0
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5342B70103D0 aTagWrap
+
+ME ME_5342B702003A
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5AF730166' '47C5207602D1.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_5342B702003A aProcessor
+
+ME ME_5342B702007D
+ MEPROP Name 'aLocation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5342B702007D aLocation
+
+ME ME_4FA4F2EC0365
+ MEPROP UID '4FA4F2EC0365'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA4F2DB015A // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5342B701033C // aView
+ ME_5342B7010386 // aTable
+ ME_5342B70103D0 // aTagWrap
+ ME_5342B702003A // aProcessor
+ ME_5342B702007D // aLocation
+ )
+ ; // Parameters
+
+ENDME // ME_4FA4F2EC0365 DoIt
+
+ME ME_4FA4F2DB015A
+ MEPROP UID '4FA4F2DB015A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA4F2AA0302 // TevTableChild
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA4F2EC0365 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA4F2DB015A Create
+
+FORWARD ME_4FA4F36702FC
+
+ME ME_4FA4F3990090
+ MEPROP UID '4FA4F3990090'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA4F36702FC // GetTable
+ ;
+ MELINK Target WL 'ME_4BBC910E0391' '48E3836D00C8.ms.model.script' // IedTable
+ ;
+
+ENDME // ME_4FA4F3990090 DoIt
+
+ME ME_4FA4F36702FC
+ MEPROP UID '4FA4F36702FC'
+ MEPROP Name 'GetTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FA4F2AA0302 // TevTableChild
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FA4F3990090 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FA4F36702FC GetTable
+
+ME ME_479731C50290_ME_4FA4F2AA0302
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4FA4F2AA0302 Cleanup
+
+%%InheritedBy ME_4F6C2DB4038D ME_4FA4F2AA0302
+
+ME ME_4FA4F2AA0302
+ MEPROP UID '4FA4F2AA0302'
+ MEPROP Name 'TevTableChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6C2D7901D1 // evCustomParaListUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F6C2DB4038D // TevLocationProcessorTagTool
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FA4F3B603D9 // f_Table
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FA4F2DB015A // Create
+ HWL ME_4FA4F36702FC // GetTable
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FA4F2AA0302 // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TableChild'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FA4F2AA0302 TevTableChild
+
+FORWARD ME_4FC47ECC03C9
+
+ME ME_4FC47F040094
+ MEPROP UID '4FC47F040094'
+ MEPROP Name 'f_Row'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FC47ECC03C9 // TevRowChild
+ ;
+ MELINK Target WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+
+ENDME // ME_4FC47F040094 f_Row
+
+FORWARD ME_4FC47FAC0128
+
+ME ME_4FC47FC201AC
+ MEPROP UID '4FC47FC201AC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC47FAC0128 // GetRow
+ ;
+ MELINK Target WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+
+ENDME // ME_4FC47FC201AC DoIt
+
+ME ME_4FC47FAC0128
+ MEPROP UID '4FC47FAC0128'
+ MEPROP Name 'GetRow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC47ECC03C9 // TevRowChild
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC47FC201AC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC47FAC0128 GetRow
+
+FORWARD ME_4FC4800103A2
+
+ME ME_5342B6CB0197
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_5342B6CB0197 aView
+
+ME ME_5342B6DE00D5
+ MEPROP Name 'aRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BBC94B70059' '48E3836D00C8.ms.model.script' // IedRow
+ ;
+
+ENDME // ME_5342B6DE00D5 aRow
+
+ME ME_5342B6DE0125
+ MEPROP Name 'aTagWrap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5342B6DE0125 aTagWrap
+
+ME ME_5342B6DE0161
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5AF730166' '47C5207602D1.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_5342B6DE0161 aProcessor
+
+ME ME_5342B6DE01B8
+ MEPROP Name 'aLocation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C5B50E0118' '47C5207602D1.ms.model.script' // InevLocation
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5342B6DE01B8 aLocation
+
+ME ME_4FC4800D02A1
+ MEPROP UID '4FC4800D02A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC4800103A2 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5342B6CB0197 // aView
+ ME_5342B6DE00D5 // aRow
+ ME_5342B6DE0125 // aTagWrap
+ ME_5342B6DE0161 // aProcessor
+ ME_5342B6DE01B8 // aLocation
+ )
+ ; // Parameters
+
+ENDME // ME_4FC4800D02A1 DoIt
+
+ME ME_4FC4800103A2
+ MEPROP UID '4FC4800103A2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC47ECC03C9 // TevRowChild
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC4800D02A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC4800103A2 Create
+
+ME ME_479731C50290_ME_4FC47ECC03C9
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4FC47ECC03C9 Cleanup
+
+%%InheritedBy ME_4F6C2DB4038D ME_4FC47ECC03C9
+
+ME ME_4FC47ECC03C9
+ MEPROP UID '4FC47ECC03C9'
+ MEPROP Name 'TevRowChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6C2D7901D1 // evCustomParaListUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F6C2DB4038D // TevLocationProcessorTagTool
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4FC47F040094 // f_Row
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FC47FAC0128 // GetRow
+ HWL ME_4FC4800103A2 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4FC47ECC03C9 // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'RowChild'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4FC47ECC03C9 TevRowChild
+
+FORWARD ME_502CD0E40149
+
+ME ME_502CD101030E
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_502CD101030E anOpPack
+
+ME ME_502CD101032D
+ MEPROP Name 'aCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_502CD101032D aCell
+
+ME ME_502CD0EC039D
+ MEPROP UID '502CD0EC039D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502CD0E40149 // evCheckCellStatus
+ ;
+ MELIST Parameters
+   Seq: ( ME_502CD101030E // anOpPack
+ ME_502CD101032D // aCell
+ )
+ ; // Parameters
+
+ENDME // ME_502CD0EC039D DoIt
+
+ME ME_502CD3A3033B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502CD0E40149 // evCheckCellStatus
+ ;
+ MELINK Target WL 'ME_4F6B0ECD019E' '48453B7601F9.ms.model.script' // evInsertPara
+ ;
+
+ENDME // ME_502CD3A3033B 
+
+ME ME_502CD4CB0239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502CD0E40149 // evCheckCellStatus
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_502CD4CB0239 
+
+ME ME_502CD6AF0247
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502CD0E40149 // evCheckCellStatus
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_502CD6AF0247 
+
+ME ME_502CD6C3004C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502CD0E40149 // evCheckCellStatus
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_502CD6C3004C 
+
+ME ME_502CD0E40149
+ MEPROP UID '502CD0E40149'
+ MEPROP Name 'evCheckCellStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6C2D7901D1 // evCustomParaListUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502CD0EC039D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_502CD3A3033B // evInsertPara
+ ME_502CD4CB0239 // Tk2Type
+ ME_502CD6AF0247 // Tk2TagID
+ ME_502CD6C3004C // Standard
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'CheckCellStatus'
+
+ENDME // ME_502CD0E40149 evCheckCellStatus
+
+ME ME_4F6C2D7901D1
+ MEPROP UID '4F6C2D7901D1'
+ MEPROP Name 'evCustomParaListUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502CD0E40149 // evCheckCellStatus
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4F6C2DB4038D // TevLocationProcessorTagTool
+ HWL ME_4FA4F2AA0302 // TevTableChild
+ HWL ME_4FC47ECC03C9 // TevRowChild
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'evNeedEditableCursors'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomParaListUtils.pas'
+ UP extprop:rc:SelfName 'ParaListUtils'
+
+ENDME // ME_4F6C2D7901D1 evCustomParaListUtils

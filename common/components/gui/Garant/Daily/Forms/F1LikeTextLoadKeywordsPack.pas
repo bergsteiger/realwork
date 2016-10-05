@@ -386,8 +386,10 @@ initialization
  {* Регистрация типа TF1LikeTextLoadForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeEditorExport));
  {* Регистрация типа TeeEditorExport }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeTextSourceExport));
  {* Регистрация типа TeeTextSourceExport }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TevLoadDocumentManager));
  {* Регистрация типа TevLoadDocumentManager }
 {$IfEnd} // Defined(nsTest) AND NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

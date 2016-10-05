@@ -1,0 +1,46 @@
+// vtComboTreeWordsPack 55B782940096 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B782940096
+
+ME ME_55B783230053
+ MEPROP UID '55B783230053'
+ MEPROP Name 'CurrentNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55B782940096 // vtComboTreeWordsPack
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_55B783230053 CurrentNode
+
+%%InheritedBy ME_55B780E60398 ME_55B782940096
+
+ME ME_55B782940096
+ MEPROP UID '55B782940096'
+ MEPROP Name 'vtComboTreeWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F4CB50403CC' '4F4CB50403CC.ms.model.script' // EditorFromStackKeyWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55B780E60398' '48297E42011A.ms.model.script' // TvtComboTree
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55B783230053 // CurrentNode
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtComboTreeWordsPack.pas'
+ UP extprop:rc:SelfName 'ComboTreeWordsPack'
+
+ENDME // ME_55B782940096 vtComboTreeWordsPack

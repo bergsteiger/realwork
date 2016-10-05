@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57D2A81702E7
+%%Inner ME_57D2A81702E7
+
 FORWARD ME_57D2A81702E7
 
 FORWARD ME_57D2A86F0082
@@ -91,6 +94,40 @@ ME ME_57D2AC4E0319
 
 ENDME // ME_57D2AC4E0319 Caption
 
+ME ME_57EA787D02A2
+ MEPROP UID '57EA787D02A2'
+ MEPROP Name 'FoundElements'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57B178F400EB' '57ADC53E00B6.ms.model.script' // ImsmListModel
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57EA787D02A2 FoundElements
+
+ME ME_57EA81540134
+ MEPROP UID '57EA81540134'
+ MEPROP Name 'ElementToFind'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57EA81540134 ElementToFind
+
 FORWARD ME_57D2A8F301D0
 
 ME ME_57D2A92E002F
@@ -111,6 +148,15 @@ ME ME_57D2A92E0061
 
 ENDME // ME_57D2A92E0061 aViewForList
 
+ME ME_57EBCDC303DC
+ MEPROP Name 'aCaptionModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57B1A4520214' '57AAE8D403E5.ms.model.script' // ImsmCaptionModel
+ ;
+
+ENDME // ME_57EBCDC303DC aCaptionModel
+
 ME ME_57D2A90F02A0
  MEPROP UID '57D2A90F02A0'
  MEPROP Name 'DoIt'
@@ -122,6 +168,7 @@ ME ME_57D2A90F02A0
  MELIST Parameters
    Seq: ( ME_57D2A92E002F // aViewForTree
  ME_57D2A92E0061 // aViewForList
+ ME_57EBCDC303DC // aCaptionModel
  )
  ; // Parameters
 
@@ -143,6 +190,10 @@ ME ME_57D2A8F301D0
  ; // Operations
 
 ENDME // ME_57D2A8F301D0 Create
+
+%%ImplementedBy ME_57D2D2E90182 ME_57D2D3110158
+
+%%InheritedBy ME_57D2A8F301D0 ME_57D2D3110158
 
 ME ME_57D2D3110158
  MEPROP UID '57D2D3110158'
@@ -265,6 +316,56 @@ ME ME_57D2C98B024E
 
 ENDME // ME_57D2C98B024E 
 
+ME ME_57EA78C001EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57E54EB00030' '57AE0D6601AE.ms.model.script' // TmsmSomeModelElementsListModel
+ ;
+
+ENDME // ME_57EA78C001EE 
+
+ME ME_57EA7F84005B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57E457780235' '57B2D67D038F.ms.model.script' // TmsmWordsManaging
+ ;
+
+ENDME // ME_57EA7F84005B 
+
+ME ME_57EA7FB00278
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57E54DCD0141' '57B30E930154.ms.model.script' // TmsmSomeModelElementsList
+ ;
+
+ENDME // ME_57EA7FB00278 
+
+ME ME_57EA899E0273
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57EA877F01EB' '57CD2BB003D3.ms.model.script' // TmsmFindWordBinding
+ ;
+
+ENDME // ME_57EA899E0273 
+
+ME ME_57EA9C0E0071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2A86F0082 // TmsmDrawingUseCase
+ ;
+ MELINK Target WL 'ME_57EA9BC1025E' '57CD2BB003D3.ms.model.script' // TmsmFindWordsBinding
+ ;
+
+ENDME // ME_57EA9C0E0071 
+
 ME ME_57D2D7C0039B_ME_57D2A86F0082
  MELINK Original WL 'ME_57D2D7C0039B' '57D2DB49000A.ms.model.script' // MainList
  ;
@@ -300,8 +401,22 @@ ME ME_57D2D7F40131_ME_57D2A86F0082
  UP "pm" false
 ENDME // ME_57D2D7F40131_ME_57D2A86F0082 Caption
 
+ME ME_57EA784B020D_ME_57D2A86F0082
+ MELINK Original WL 'ME_57EA784B020D' '57D2DB49000A.ms.model.script' // FoundElements
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_57EA784B020D_ME_57D2A86F0082 FoundElements
+
+ME ME_57EA811D026D_ME_57D2A86F0082
+ MELINK Original WL 'ME_57EA811D026D' '57D2DB49000A.ms.model.script' // ElementToFind
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_57EA811D026D_ME_57D2A86F0082 ElementToFind
+
 ME ME_479731C50290_ME_57D2A86F0082
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_57D2A86F0082 Cleanup
@@ -311,6 +426,16 @@ ME ME_57D2B82102BD_ME_57D2A86F0082
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_57D2B82102BD_ME_57D2A86F0082 DoActivate
+
+ME ME_57DAB38900EF_ME_57D2A86F0082
+ MELINK Original WL 'ME_57DAB38900EF' '57B1B6AE0204.ms.model.script' // DoActivated
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57DAB38900EF_ME_57D2A86F0082 DoActivated
+
+%%ImplementedBy ME_57D2D2E90182 ME_57D2A86F0082
+
+%%InheritedBy ME_57AD94F00212 ME_57D2A86F0082
 
 ME ME_57D2A86F0082
  MEPROP UID '57D2A86F0082'
@@ -336,6 +461,8 @@ ME ME_57D2A86F0082
  HWL ME_57D2AA1201BD // Drawing
  HWL ME_57D2AAB50082 // Navigator
  HWL ME_57D2AC4E0319 // Caption
+ HWL ME_57EA787D02A2 // FoundElements
+ HWL ME_57EA81540134 // ElementToFind
  )
  ; // Attributes
  MELIST Operations
@@ -349,11 +476,14 @@ ME ME_57D2A86F0082
  ME_57D2D7DB0283_ME_57D2A86F0082 // Drawing
  ME_57D2D7E900D8_ME_57D2A86F0082 // FloatingNavigator
  ME_57D2D7F40131_ME_57D2A86F0082 // Caption
+ ME_57EA784B020D_ME_57D2A86F0082 // FoundElements
+ ME_57EA811D026D_ME_57D2A86F0082 // ElementToFind
  )
  ; // Implemented
  MELIST Overridden
    Seq: ( ME_479731C50290_ME_57D2A86F0082 // Cleanup
  ME_57D2B82102BD_ME_57D2A86F0082 // DoActivate
+ ME_57DAB38900EF_ME_57D2A86F0082 // DoActivated
  )
  ; // Overridden
  MELIST Dependencies
@@ -367,8 +497,16 @@ ME ME_57D2A86F0082
  ME_57D2BA860146 // TmsmCurrentElementSynchronizeBinding
  ME_57D2C8D30332 // TmsmCurrentElementShowAsListBinding
  ME_57D2C98B024E // TmsmListOwnerToCurrentElementBinding
+ ME_57EA78C001EE // TmsmSomeModelElementsListModel
+ ME_57EA7F84005B // TmsmWordsManaging
+ ME_57EA7FB00278 // TmsmSomeModelElementsList
+ ME_57EA899E0273 // TmsmFindWordBinding
+ ME_57EA9C0E0071 // TmsmFindWordsBinding
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmDrawingUseCase.pas'
  UP extprop:rc:SelfName 'msmDrawingUseCase'
  UP extprop:rc:isAcceptableForScripts true
@@ -380,45 +518,18 @@ FORWARD ME_57D2DF7E00CE
 
 ME ME_57D2E77D0372
  MEPROP UID '57D2E77D0372'
- MEPROP Name 'f_UseCase'
+ MEPROP Name 'ConcreteUseCase'
  MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
  MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
+ MEPROP Abstraction at_abstract
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
  ;
  MELINK Target WL 'ME_57D2D2E90182' '57D2DB49000A.ms.model.script' // ImsmDrawingUseCase
  ;
 
-ENDME // ME_57D2E77D0372 f_UseCase
-
-ME ME_57DA84F80119
- MEPROP UID '57DA84F80119'
- MEPROP Name 'f_DrawingPanel'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
- ;
- MELINK Target WL 'ME_57AAEAEC003A' '57AAE8D403E5.ms.model.script' // TmsmView
- ;
-
-ENDME // ME_57DA84F80119 f_DrawingPanel
-
-ME ME_57E557F2038A
- MEPROP UID '57E557F2038A'
- MEPROP Name 'f_FoundElementsModel'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_ref
- MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
- ;
- MELINK Target WL 'ME_57E54F7303C4' '57ADC53E00B6.ms.model.script' // ImsmSomeModelElementsListModel
- ;
-
-ENDME // ME_57E557F2038A f_FoundElementsModel
+ENDME // ME_57D2E77D0372 ConcreteUseCase
 
 FORWARD ME_57D2DFA70064
 
@@ -467,6 +578,15 @@ ME ME_57D2E75E0178
 
 ENDME // ME_57D2E75E0178 aFloatingZone
 
+ME ME_57EAA33F01CA
+ MEPROP Name 'aTopZone'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57AAF0E701FA' '57AAE8D403E5.ms.model.script' // ImsmViewParent
+ ;
+
+ENDME // ME_57EAA33F01CA aTopZone
+
 ME ME_57D2DFC80165
  MEPROP UID '57D2DFC80165'
  MEPROP Name 'DoIt'
@@ -481,6 +601,7 @@ ME ME_57D2DFC80165
  ME_57D2E75E00E2 // aChildZone
  ME_57D2E75E0128 // aLeftZone
  ME_57D2E75E0178 // aFloatingZone
+ ME_57EAA33F01CA // aTopZone
  )
  ; // Parameters
 
@@ -502,6 +623,10 @@ ME ME_57D2DFA70064
  ; // Operations
 
 ENDME // ME_57D2DFA70064 Create
+
+%%ImplementedBy ME_57D2DBFB0226 ME_57D2DFAE02A7
+
+%%InheritedBy ME_57D2DFA70064 ME_57D2DFAE02A7
 
 ME ME_57D2DFAE02A7
  MEPROP UID '57D2DFAE02A7'
@@ -644,14 +769,48 @@ ME ME_57E55C8B00B3
 
 ENDME // ME_57E55C8B00B3 
 
-ME ME_57E455C800E0_ME_57D2DF7E00CE
- MELINK Original WL 'ME_57E455C800E0' '57D2DB49000A.ms.model.script' // LocateElement
+ME ME_57EA4F3300FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
  ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_57E455C800E0_ME_57D2DF7E00CE LocateElement
+ MELINK Target WL 'ME_57EA4EE80184' '57B41F3C01C4.ms.model.script' // TmsmMultiPanelViewParentHorz
+ ;
+
+ENDME // ME_57EA4F3300FD 
+
+ME ME_57EA4F400266
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57EA4EF3035E' '57B41F3C01C4.ms.model.script' // TmsmMultiPanelViewParentVert
+ ;
+
+ENDME // ME_57EA4F400266 
+
+ME ME_57EA4F4E017F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57B3468D0000' '57B41F3C01C4.ms.model.script' // TmsmMultiPanelViewParent
+ ;
+
+ENDME // ME_57EA4F4E017F 
+
+ME ME_57EAA18B0044
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57D2DF7E00CE // TmsmDrawingUseCaseView
+ ;
+ MELINK Target WL 'ME_57EAA0F20125' '57AE0E4B00C5.ms.model.script' // TmsmButtonEditViewController
+ ;
+
+ENDME // ME_57EAA18B0044 
 
 ME ME_479731C50290_ME_57D2DF7E00CE
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_57D2DF7E00CE Cleanup
@@ -661,6 +820,16 @@ ME ME_57D2B82102BD_ME_57D2DF7E00CE
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_57D2B82102BD_ME_57D2DF7E00CE DoActivate
+
+ME ME_57DAB38900EF_ME_57D2DF7E00CE
+ MELINK Original WL 'ME_57DAB38900EF' '57B1B6AE0204.ms.model.script' // DoActivated
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57DAB38900EF_ME_57D2DF7E00CE DoActivated
+
+%%ImplementedBy ME_57D2DBFB0226 ME_57D2DF7E00CE
+
+%%InheritedBy ME_57EA6BAE038E ME_57D2DF7E00CE
 
 ME ME_57D2DF7E00CE
  MEPROP UID '57D2DF7E00CE'
@@ -673,7 +842,7 @@ ME ME_57D2DF7E00CE
  MELINK Parent HWL ME_57D2A81702E7 // ConcreteUseCases
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_57AD94F00212' '57B1B6AE0204.ms.model.script' // TmsmUseCase
+   Seq: ( WL 'ME_57EA6BAE038E' '57EA6BAE038E.ms.model.script' // msmUseCaseView
  )
  ; // Inherits
  MELIST Implements
@@ -681,9 +850,7 @@ ME ME_57D2DF7E00CE
  )
  ; // Implements
  MELIST Attributes
-   Seq: ( HWL ME_57D2E77D0372 // f_UseCase
- HWL ME_57DA84F80119 // f_DrawingPanel
- HWL ME_57E557F2038A // f_FoundElementsModel
+   Seq: ( HWL ME_57D2E77D0372 // ConcreteUseCase
  )
  ; // Attributes
  MELIST Operations
@@ -691,13 +858,10 @@ ME ME_57D2DF7E00CE
  HWL ME_57D2DFAE02A7 // Make
  )
  ; // Operations
- MELIST Implemented
-   Seq: ( ME_57E455C800E0_ME_57D2DF7E00CE // LocateElement
- )
- ; // Implemented
  MELIST Overridden
    Seq: ( ME_479731C50290_ME_57D2DF7E00CE // Cleanup
  ME_57D2B82102BD_ME_57D2DF7E00CE // DoActivate
+ ME_57DAB38900EF_ME_57D2DF7E00CE // DoActivated
  )
  ; // Overridden
  MELIST Dependencies
@@ -713,8 +877,15 @@ ME ME_57D2DF7E00CE
  ME_57E51C05010E // TmsmLoadedWordsListModel
  ME_57E552110130 // TmsmSomeModelElementsListModel
  ME_57E55C8B00B3 // TmsmSomeModelElementsList
+ ME_57EA4F3300FD // TmsmMultiPanelViewParentHorz
+ ME_57EA4F400266 // TmsmMultiPanelViewParentVert
+ ME_57EA4F4E017F // TmsmMultiPanelViewParent
+ ME_57EAA18B0044 // TmsmButtonEditViewController
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" true
  UP intf.pas:Path 'common\components\gui\Garant\msm\msmDrawingUseCaseView.pas'
  UP extprop:rc:SelfName 'msmDrawingUseCaseView'
@@ -749,6 +920,7 @@ ME ME_57D2A81702E7
  WL 'ME_57B1B6AE0204' '57B1B6AE0204.ms.model.script' // UseCases
  WL 'ME_57B2D67D038F' '57B2D67D038F.ms.model.script' // WordsCache
  WL 'ME_57B30E930154' '57B30E930154.ms.model.script' // StringLists
+ WL 'ME_57B41F3C01C4' '57B41F3C01C4.ms.model.script' // ViewParents
  WL 'ME_57B42D1A0044' '57B42D1A0044.ms.model.script' // DefaultUsedControls
  WL 'ME_57B565F200E5' '57B565F200E5.ms.model.script' // msmElementViews
  WL 'ME_57CD2BB003D3' '57CD2BB003D3.ms.model.script' // ConcreteBindings
@@ -757,5 +929,8 @@ ME ME_57D2A81702E7
  WL 'ME_57D2DB49000A' '57D2DB49000A.ms.model.script' // msmConcreteUseCases
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_57D2A81702E7 ConcreteUseCases

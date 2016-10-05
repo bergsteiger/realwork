@@ -27,7 +27,7 @@ begin
 //#UC START# *57ADE59000CB_57B6A905031E_impl*
  if (f_Subscribers <> nil) then
   for l_Index := 0 to Pred(f_Subscribers.Count) do
-   f_Subscribers.Items[l_Index].Fire(anEvent);
+   f_Subscribers.Items[l_Index].HandleEvent(anEvent);
 //#UC END# *57ADE59000CB_57B6A905031E_impl*
 end;//_msmEventFire_.Fire
 

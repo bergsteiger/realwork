@@ -1,0 +1,167 @@
+// ElPgCtl 499ABF6E01B5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_499ABF6E01B5
+%%Inner ME_499ABF6E01B5
+%%Inner ME_499ABF6E01B5
+
+FORWARD ME_499ABF6E01B5
+
+ME ME_499ABF8400FF
+ MEPROP UID '499ABF8400FF'
+ MEPROP Name 'TElTabPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF6E01B5 // ElPgCtl
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499ABF8400FF TElTabPosition
+
+ME ME_499ABF9802AC
+ MEPROP UID '499ABF9802AC'
+ MEPROP Name 'TElTabSheet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF6E01B5 // ElPgCtl
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'ElTabSheet'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_499ABF9802AC TElTabSheet
+
+FORWARD ME_4E36C0C3014B
+
+FORWARD ME_52B9A7B2027D
+
+ME ME_9B180FFE55CF
+ MEPROP UID '9B180FFE55CF'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода RequestTabPosition' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B9A7B2027D // RequestTabPosition
+ ;
+
+ENDME // ME_9B180FFE55CF DoIt
+
+ME ME_52B9A7B2027D
+ MEPROP UID '52B9A7B2027D'
+ MEPROP Name 'RequestTabPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E36C0C3014B // TElCustomPageControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_9B180FFE55CF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52B9A7B2027D RequestTabPosition
+
+FORWARD ME_52B9A85201C2
+
+ME ME_0618BA809CBA
+ MEPROP UID '0618BA809CBA'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoActivePrevPage' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B9A85201C2 // DoActivePrevPage
+ ;
+
+ENDME // ME_0618BA809CBA DoIt
+
+ME ME_52B9A85201C2
+ MEPROP UID '52B9A85201C2'
+ MEPROP Name 'DoActivePrevPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E36C0C3014B // TElCustomPageControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_0618BA809CBA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52B9A85201C2 DoActivePrevPage
+
+%%ImplementedBy ME_4E36C0310173 ME_4E36C0C3014B
+
+%%InheritedBy ME_52B993FB000A ME_4E36C0C3014B
+
+ME ME_4E36C0C3014B
+ MEPROP UID '4E36C0C3014B'
+ MEPROP Name 'TElCustomPageControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_499ABF6E01B5 // ElPgCtl
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52B993FB000A' '499ABF4F02A1.ms.model.script' // TElXPThemedControl
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4E36C0310173' '4E36C0130013.ms.model.script' // Возможность выполнения действия по нажатию на страницу, а не переключение на неё
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_52B9A7B2027D // RequestTabPosition
+ HWL ME_52B9A85201C2 // DoActivePrevPage
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP "register in scripts" true
+ UP extprop:rc:SelfName 'PageControl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E36C0C3014B TElCustomPageControl
+
+ME ME_499ABF6E01B5
+ MEPROP UID '499ABF6E01B5'
+ MEPROP Name 'ElPgCtl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_499ABF4F02A1' '499ABF4F02A1.ms.model.script' // elClone
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499ABF8400FF // TElTabPosition
+ HWL ME_499ABF9802AC // TElTabSheet
+ HWL ME_4E36C0C3014B // TElCustomPageControl
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElPgCtl.pas'
+
+ENDME // ME_499ABF6E01B5 ElPgCtl

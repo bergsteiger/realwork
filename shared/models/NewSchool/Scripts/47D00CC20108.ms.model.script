@@ -1,0 +1,54 @@
+// nevFacade 47D00CC20108 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47D00CC20108
+
+ME ME_47D00D080314
+ MEPROP Name 'Action'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47D00D080314 Action
+
+ME ME_47D00D00014B
+ MEPROP UID '47D00D00014B'
+ MEPROP Name 'nevL2PIA'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D00CC20108 // nevFacade
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D00D080314 // Action
+ )
+ ; // Parameters
+
+ENDME // ME_47D00D00014B nevL2PIA
+
+ME ME_47D00CC20108
+ MEPROP UID '47D00CC20108'
+ MEPROP Name 'nevFacade'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47D00D00014B // nevL2PIA
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '05.04.2005 20:32'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevFacade.pas'
+ UP extprop:rc:SelfName 'Facade'
+
+ENDME // ME_47D00CC20108 nevFacade

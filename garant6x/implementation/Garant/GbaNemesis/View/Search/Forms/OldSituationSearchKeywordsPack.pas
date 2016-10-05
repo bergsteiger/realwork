@@ -1028,8 +1028,10 @@ initialization
  {* Регистрация типа TcfOldSituationSearch }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));
  {* Регистрация типа TnscContextFilter }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));

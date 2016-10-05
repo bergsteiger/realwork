@@ -9,16 +9,20 @@ ME ME_55113FC40368
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_550C0DA5022E // TdsInpharmMainMenu
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
  ;
 
 ENDME // ME_55113FC40368 
 
 ME ME_55097FF5008E_ME_550C0DA5022E
- MELINK Original WL 'ME_55097FF5008E' '47D0E1500033.ms.model.script' // GetIsDataAvailable
+ MELINK Original WL 'ME_55097FF5008E' '5017EAF4027D.ms.model.script' // GetIsDataAvailable
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_55097FF5008E_ME_550C0DA5022E GetIsDataAvailable
+
+%%ImplementedBy ME_550C0CF90324 ME_550C0DA5022E
+
+%%InheritedBy ME_47ECE94D03D4 ME_550C0DA5022E
 
 ME ME_550C0DA5022E
  MEPROP UID '550C0DA5022E'
@@ -32,7 +36,7 @@ ME ME_550C0DA5022E
  MELINK Parent WL 'ME_550AA7200370' '550AA7200370.ms.model.script' // InpharmMainMenuControllerRealization
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47ECE94D03D4' '47D0E1500033.ms.model.script' // vcmFormDataSourcePrim
+   Seq: ( WL 'ME_47ECE94D03D4' '47ECE94D03D4.ms.model.script' // vcmFormDataSourcePrim
  )
  ; // Inherits
  MELIST Implements
@@ -47,6 +51,9 @@ ME ME_550C0DA5022E
    Seq: ( ME_55113FC40368 // DataAdapter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\InpharmControllers\dsInpharmMainMenu.pas'
  UP extprop:rc:SelfName 'dsInpharmMainMenu'
  UP extprop:rc:isAcceptableForScripts true

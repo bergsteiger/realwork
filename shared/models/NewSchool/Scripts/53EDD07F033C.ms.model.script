@@ -1,0 +1,65 @@
+// ElUxTheme 53EDD07F033C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53EDD07F033C
+
+FORWARD ME_53EDD10102AA
+
+ME ME_53EDD18200D6
+ MEPROP UID '53EDD18200D6'
+ MEPROP Name 'EL_THEMECHANGED'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53EDD10102AA // константы
+ ;
+ MEPROP Value '$B528'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '$B528'
+
+ENDME // ME_53EDD18200D6 EL_THEMECHANGED
+
+ME ME_53EDD10102AA
+ MEPROP UID '53EDD10102AA'
+ MEPROP Name 'константы'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53EDD07F033C // ElUxTheme
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53EDD18200D6 // EL_THEMECHANGED
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_53EDD10102AA константы
+
+ME ME_53EDD07F033C
+ MEPROP UID '53EDD07F033C'
+ MEPROP Name 'ElUxTheme'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_499ABF4F02A1' '499ABF4F02A1.ms.model.script' // elClone
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_53EDD10102AA // константы
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VT\elClone\Source\NOT_FINISHED_ElUxTheme.pas'
+
+ENDME // ME_53EDD07F033C ElUxTheme

@@ -1,0 +1,298 @@
+// SelectTablePart 4CC815A00031 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CC815A00031
+
+FORWARD ME_4CC8163F034F
+
+ME ME_4CC816FA0088
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4CC816FA0088 aText
+
+ME ME_4CC816ED030E
+ MEPROP UID '4CC816ED030E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC8163F034F // MakeSelection
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC816FA0088 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4CC816ED030E DoIt
+
+ME ME_4CC8163F034F
+ MEPROP UID '4CC8163F034F'
+ MEPROP Name 'MakeSelection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделить по заданным параметрам.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC816ED030E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC8163F034F MakeSelection
+
+FORWARD ME_4CC81818005F
+
+ME ME_4CC8185C03D4
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4CC8185C03D4 aView
+
+ME ME_4CC8185D0008
+ MEPROP Name 'aTable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4CC8185D0008 aTable
+
+ME ME_4CC8183E0250
+ MEPROP UID '4CC8183E0250'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC81818005F // GetSelection
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC8185C03D4 // aView
+ ME_4CC8185D0008 // aTable
+ )
+ ; // Parameters
+
+ENDME // ME_4CC8183E0250 DoIt
+
+ME ME_4CC81818005F
+ MEPROP UID '4CC81818005F'
+ MEPROP Name 'GetSelection'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получить выделение по заданным "координатам".' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC8183E0250 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC81818005F GetSelection
+
+ME ME_4CC8189D02DF
+ MEPROP UID '4CC8189D02DF'
+ MEPROP Name 'NeedSelection'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нужно ли чего-нибудь выделять.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CC8189D02DF NeedSelection
+
+ME ME_4CC818FF016D
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_4CC818FF016D aDocument
+
+ME ME_4CC818F4022D
+ MEPROP UID '4CC818F4022D'
+ MEPROP Name 'GetTablePara'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает параграф с таблицей' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC818FF016D // aDocument
+ )
+ ; // Parameters
+
+ENDME // ME_4CC818F4022D GetTablePara
+
+ME ME_4CC81D5D03A9
+ MEPROP Name 'aStartRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CC81D5D03A9 aStartRow
+
+ME ME_4CC81D5D03DE
+ MEPROP Name 'aStartCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CC81D5D03DE aStartCell
+
+ME ME_4CC81D5E002B
+ MEPROP Name 'aFinishRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CC81D5E002B aFinishRow
+
+ME ME_4CC81D5E0072
+ MEPROP Name 'aFinishCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4CC81D5E0072 aFinishCell
+
+ME ME_4CC81D4101AC
+ MEPROP UID '4CC81D4101AC'
+ MEPROP Name 'GetSelectParam'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить "координаты" точек выделения.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC81D5D03A9 // aStartRow
+ ME_4CC81D5D03DE // aStartCell
+ ME_4CC81D5E002B // aFinishRow
+ ME_4CC81D5E0072 // aFinishCell
+ )
+ ; // Parameters
+
+ENDME // ME_4CC81D4101AC GetSelectParam
+
+ME ME_4C987406038C
+ MEPROP Name 'aColID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C987406038C aColID
+
+ME ME_4C9874060367
+ MEPROP UID '4C9874060367'
+ MEPROP Name 'SelectColumn'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выделить колонку aColID' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C987406038C // aColID
+ )
+ ; // Parameters
+
+ENDME // ME_4C9874060367 SelectColumn
+
+ME ME_4C34625E021F
+ MEPROP UID '4C34625E021F'
+ MEPROP Name 'SelectTableWholly'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вылять таблицу целиком' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C34625E021F SelectTableWholly
+
+ME ME_4CC8226B00BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4CC8226B00BE 
+
+ME ME_4CE3ACDF0156
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC815A00031 // SelectTablePart
+ ;
+ MELINK Target WL 'ME_48453B7601F9' '48453B7601F9.ms.model.script' // evCursorTools
+ ;
+
+ENDME // ME_4CE3ACDF0156 
+
+ME ME_4CC815A00031
+ MEPROP UID '4CC815A00031'
+ MEPROP Name 'SelectTablePart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделить часть таблицы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E1C0134031B' '4E1C0134031B.ms.model.script' // MixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC8163F034F // MakeSelection
+ HWL ME_4CC81818005F // GetSelection
+ HWL ME_4CC8189D02DF // NeedSelection
+ HWL ME_4CC818F4022D // GetTablePara
+ HWL ME_4CC81D4101AC // GetSelectParam
+ HWL ME_4C9874060367 // SelectColumn
+ HWL ME_4C34625E021F // SelectTableWholly
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4CC8226B00BE // Operations
+ ME_4CE3ACDF0156 // evCursorTools
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SelectTablePart.imp.pas'
+ UP extprop:pas:TypeName '_SelectTablePart_'
+ UP extprop:pas:UnitName 'SelectTablePart.imp'
+
+ENDME // ME_4CC815A00031 SelectTablePart

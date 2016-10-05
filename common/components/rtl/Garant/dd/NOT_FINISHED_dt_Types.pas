@@ -119,6 +119,9 @@ type
 
  TJLHandle = ;
 
+ TLogActionType = (
+ );//TLogActionType
+
 implementation
 
 uses

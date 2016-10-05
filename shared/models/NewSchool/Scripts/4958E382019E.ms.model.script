@@ -2,217 +2,22 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4958E382019E
-
-FORWARD ME_571A23EE0196
-
-FORWARD ME_4F69AE35012F
-
-FORWARD ME_4F69AE600137
-
-ME ME_4F69AE9B01BC
- MEPROP Name 'aForm'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_497EBA4301CA' '497EBA4301CA.ms.model.script' // PrimQueryCard
- ;
-
-ENDME // ME_4F69AE9B01BC aForm
-
-ME ME_4F69AE9B0218
- MEPROP Name 'aCtx'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
- ;
-
-ENDME // ME_4F69AE9B0218 aCtx
-
-ME ME_4F69AE6A02B4
- MEPROP UID '4F69AE6A02B4'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F69AE600137 // DoQueryCardForm
- ;
- MELIST Parameters
-   Seq: ( ME_4F69AE9B01BC // aForm
- ME_4F69AE9B0218 // aCtx
- )
- ; // Parameters
-
-ENDME // ME_4F69AE6A02B4 DoIt
-
-ME ME_4F69AE600137
- MEPROP UID '4F69AE600137'
- MEPROP Name 'DoQueryCardForm'
- MEPROP Class class_Class
- MELINK Stereotype st_abstractmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4F69AE35012F // TkwQueryCardFormWord
- ;
- MELIST Operations
-   Seq: ( HWL ME_4F69AE6A02B4 // DoIt
- )
- ; // Operations
-
-ENDME // ME_4F69AE600137 DoQueryCardForm
-
-ME ME_4EB25DE00396_ME_4F69AE35012F
- MELINK Original WL 'ME_4EB25DE00396' '54DB92D203C9.ms.model.script' // DoForm
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4EB25DE00396_ME_4F69AE35012F DoForm
-
-ME ME_4F69AE35012F
- MEPROP UID '4F69AE35012F'
- MEPROP Name 'TkwQueryCardFormWord'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_571A23EE0196 // PrimQueryCardWordsPack
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4EB25D530395' '54DB92D203C9.ms.model.script' // TkwFormFromControlWord
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_4F69AE600137 // DoQueryCardForm
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_4EB25DE00396_ME_4F69AE35012F // DoForm
- )
- ; // Implemented
- UP extprop:rc:SelfName 'QueryCardFormWord'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4F69AE35012F TkwQueryCardFormWord
-
-FORWARD ME_4F69AF3E01C0
-
-ME ME_4F69AE600137_ME_4F69AF3E01C0
- MELINK Original HWL ME_4F69AE600137 // DoQueryCardForm
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4F69AE600137_ME_4F69AF3E01C0 DoQueryCardForm
-
-ME ME_4F69AF3E01C0
- MEPROP UID '4F69AF3E01C0'
- MEPROP Name 'QueryCard_SetCanSaveState'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Устанавливает флаг того может ли карточка запроса писать своё состояние' ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_571A23EE0196 // PrimQueryCardWordsPack
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4F69AE35012F // TkwQueryCardFormWord
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_4F69ADC70003' '484FA67302D7.ms.model.script' // Карточки запроса должны уметь не писать своё состояние при вызове из скриптов
- )
- ; // Implements
- MELIST Implemented
-   Seq: ( ME_4F69AE600137_ME_4F69AF3E01C0 // DoQueryCardForm
- )
- ; // Implemented
- UP extprop:pas:TypeName 'TkwQueryCardSetCanSaveState'
- UP extprop:rc:SelfName 'QueryCardSetCanSaveState'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4F69AF3E01C0 QueryCard_SetCanSaveState
-
-FORWARD ME_4DAF1DD9017F
-
-ME ME_550ADA9002BA
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DAF1DD9017F // Ok
- ;
- MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
- ;
-
-ENDME // ME_550ADA9002BA 
-
-ME ME_571E466102C4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DAF1DD9017F // Ok
- ;
- MELINK Target WL 'ME_4A8AD4260126' '4A8AD3DE0008.ms.model.script' // Result
- ;
-
-ENDME // ME_571E466102C4 
-
-ME ME_4DAF1DD9017F
- MEPROP UID '4DAF1DD9017F'
- MEPROP Name 'Ok'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeyword ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_571A23EE0196 // PrimQueryCardWordsPack
- ;
- MELIST Dependencies
-   Seq: ( ME_550ADA9002BA // vcmDispatcher
- ME_571E466102C4 // Result
- )
- ; // Dependencies
- UP "NameForScript" 'Ok'
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '20.04.2011 21:54'
- UP extprop:pas:TypeName 'TkwOk'
- UP extprop:rc:SelfName 'Ok'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4DAF1DD9017F Ok
-
-ME ME_571A240100B0
- MEPROP Class class_Dependency
- MELINK Stereotype st_injects::Dependency ;
- MELINK Parent HWL ME_571A23EE0196 // PrimQueryCardWordsPack
- ;
- MELINK Target WL 'ME_497EBA4301CA' '497EBA4301CA.ms.model.script' // PrimQueryCard
- ;
-
-ENDME // ME_571A240100B0 
-
-ME ME_571A23EE0196
- MEPROP UID '571A23EE0196'
- MEPROP Name 'PrimQueryCardWordsPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4958E382019E // Search$Presentation for F1 and Monitorings
- ;
- MELIST Children
-   Seq: ( HWL ME_4F69AE35012F // TkwQueryCardFormWord
- HWL ME_4F69AF3E01C0 // QueryCard_SetCanSaveState
- HWL ME_4DAF1DD9017F // Ok
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_571A240100B0 // PrimQueryCard
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP "need UC" true
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\PrimQueryCardWordsPack.pas'
-
-ENDME // ME_571A23EE0196 PrimQueryCardWordsPack
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
+%%Inner ME_4958E382019E
 
 ME ME_4958E382019E
  MEPROP UID '4958E382019E'
@@ -241,7 +46,7 @@ ME ME_4958E382019E
  WL 'ME_4AA931390118' '4AA931390118.ms.model.script' // CommonSearch
  WL 'ME_4F5DA09300C5' '4F5DA09300C5.ms.model.script' // PrimSaveLoadOptionsForBaseSearch
  WL 'ME_4AA93171022B' '4AA93171022B.ms.model.script' // CommonSearch$UC
- HWL ME_571A23EE0196 // PrimQueryCardWordsPack
+ WL 'ME_571A23EE0196' '571A23EE0196.ms.model.script' // PrimQueryCardWordsPack
  )
  ; // Children
  MELIST Depends
@@ -370,6 +175,9 @@ ME ME_4958E382019E
  WL 'ME_57A2E803024D' '57A2E803024D.ms.model.script' // Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'Admin'
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\View\Search'
 

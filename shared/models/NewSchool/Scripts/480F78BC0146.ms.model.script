@@ -1,0 +1,281 @@
+// l3Utils 480F78BC0146 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480F78BC0146
+
+FORWARD ME_5437B33601AA
+
+ME ME_5437B34A0309
+ MEPROP UID '5437B34A0309'
+ MEPROP Name 'C1'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5437B33601AA // EncryptConstants
+ ;
+ MEPROP Value 439
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 439
+
+ENDME // ME_5437B34A0309 C1
+
+ME ME_5437B362006E
+ MEPROP UID '5437B362006E'
+ MEPROP Name 'C2'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5437B33601AA // EncryptConstants
+ ;
+ MEPROP Value 163
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 163
+
+ENDME // ME_5437B362006E C2
+
+ME ME_5437B3750052
+ MEPROP UID '5437B3750052'
+ MEPROP Name 'cKey'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5437B33601AA // EncryptConstants
+ ;
+ MEPROP Value 17732
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 17732
+
+ENDME // ME_5437B3750052 cKey
+
+ME ME_5437B33601AA
+ MEPROP UID '5437B33601AA'
+ MEPROP Name 'EncryptConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480F78BC0146 // l3Utils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5437B34A0309 // C1
+ HWL ME_5437B362006E // C2
+ HWL ME_5437B3750052 // cKey
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_5437B33601AA EncryptConstants
+
+ME ME_4C7CE66E0115
+ MEPROP UID '4C7CE66E0115'
+ MEPROP Name 'l3BoolReset'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480F78BC0146 // l3Utils
+ ;
+ UP extprop:rc:SelfName 'BoolReset'
+
+ENDME // ME_4C7CE66E0115 l3BoolReset
+
+ME ME_500D2F6F03D4
+ MEPROP UID '500D2F6F03D4'
+ MEPROP Name 'l3GetClipboardByFormatName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480F78BC0146 // l3Utils
+ ;
+ UP extprop:rc:SelfName 'GetClipboardByFormatName'
+
+ENDME // ME_500D2F6F03D4 l3GetClipboardByFormatName
+
+FORWARD ME_5437B2E60352
+
+ME ME_5437B31702A5
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5437B31702A5 aText
+
+ME ME_5437B2FD01A9
+ MEPROP UID '5437B2FD01A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B2E60352 // l3Decrypt
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5437B31702A5 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_5437B2FD01A9 DoIt
+
+ME ME_5437B2E60352
+ MEPROP UID '5437B2E60352'
+ MEPROP Name 'l3Decrypt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480F78BC0146 // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5437B2FD01A9 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Decrypt'
+
+ENDME // ME_5437B2E60352 l3Decrypt
+
+FORWARD ME_5437B29C03BD
+
+ME ME_5437B2DF0023
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5437B2DF0023 aText
+
+ME ME_5437B2C301C1
+ MEPROP UID '5437B2C301C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5437B29C03BD // l3Encrypt
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5437B2DF0023 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_5437B2C301C1 DoIt
+
+ME ME_5437B29C03BD
+ MEPROP UID '5437B29C03BD'
+ MEPROP Name 'l3Encrypt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480F78BC0146 // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5437B2C301C1 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Encrypt'
+
+ENDME // ME_5437B29C03BD l3Encrypt
+
+FORWARD ME_54509FEC02EB
+
+ME ME_5450A01302B0
+ MEPROP UID '5450A01302B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54509FEC02EB // l3CreateStringGUID
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5450A01302B0 DoIt
+
+ME ME_54509FEC02EB
+ MEPROP UID '54509FEC02EB'
+ MEPROP Name 'l3CreateStringGUID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480F78BC0146 // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5450A01302B0 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CreateStringGUID'
+
+ENDME // ME_54509FEC02EB l3CreateStringGUID
+
+ME ME_480F78DF0287
+ MEPROP UID '480F78DF0287'
+ MEPROP Name 'l3FindNextLine'
+ MEPROP Class class_Operation
+ %SUMMARY 'находит следующую строку в строковом буфере.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480F78BC0146 // l3Utils
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_480F78DF0287 l3FindNextLine
+
+ME ME_480F78BC0146
+ MEPROP UID '480F78BC0146'
+ MEPROP Name 'l3Utils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Сервисные функции библиотеки L3.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C7CE66E0115 // l3BoolReset
+ HWL ME_500D2F6F03D4 // l3GetClipboardByFormatName
+ HWL ME_5437B2E60352 // l3Decrypt
+ HWL ME_5437B29C03BD // l3Encrypt
+ HWL ME_54509FEC02EB // l3CreateStringGUID
+ HWL ME_480F78DF0287 // l3FindNextLine
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_5437B33601AA // EncryptConstants
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '12.12.1996'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Utils.pas'
+ UP extprop:rc:SelfName 'Utils'
+
+ENDME // ME_480F78BC0146 l3Utils

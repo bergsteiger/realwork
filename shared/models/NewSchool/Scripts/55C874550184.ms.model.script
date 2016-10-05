@@ -1,0 +1,91 @@
+// vcmTabbedMenuWordsPack 55C874550184 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C874550184
+
+ME ME_55C8753A0311
+ MEPROP UID '55C8753A0311'
+ MEPROP Name 'Active'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ENDME // ME_55C8753A0311 Active
+
+ME ME_55C8756402D3
+ MEPROP UID '55C8756402D3'
+ MEPROP Name 'Hovered'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_47E7ABCB0296' '47E7ABAE0110.ms.model.script' // TMenuItem
+ ;
+
+ENDME // ME_55C8756402D3 Hovered
+
+ME ME_55C8992400F6
+ MEPROP UID '55C8992400F6'
+ MEPROP Name 'MenuItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_47E7ABCB0296' '47E7ABAE0110.ms.model.script' // TMenuItem
+ ;
+
+ENDME // ME_55C8992400F6 MenuItem
+
+ME ME_55C8B0DF017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_friend::Dependency ;
+ MELINK Parent HWL ME_55C874550184 // vcmTabbedMenuWordsPack
+ ;
+ MELINK Target WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ ;
+
+ENDME // ME_55C8B0DF017A 
+
+%%InheritedBy ME_545C51CB0171 ME_55C874550184
+
+ME ME_55C874550184
+ MEPROP UID '55C874550184'
+ MEPROP Name 'vcmTabbedMenuWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_55AE409701EA' '55AE409701EA.ms.model.script' // TabsWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_545C51CB0171' '545C51CB0171.ms.model.script' // TvcmBaseMenuForChromeLike
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C8753A0311 // Active
+ HWL ME_55C8756402D3 // Hovered
+ HWL ME_55C8992400F6 // MenuItem
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C8B0DF017A // TvcmBaseMenuForChromeLike
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmTabbedMenuWordsPack.pas'
+ UP extprop:rc:SelfName 'TabbedMenuWordsPack'
+
+ENDME // ME_55C874550184 vcmTabbedMenuWordsPack

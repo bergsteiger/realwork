@@ -1,0 +1,86 @@
+// evTableRowHotSpot 53D0FC9901A6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53D0FC9901A6
+
+FORWARD ME_53D0FC9901A6
+
+FORWARD ME_53D0FCB60027
+
+ME ME_53D0FD4100CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D0FCB60027 // TevTableRowHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" true
+
+ENDME // ME_53D0FD4100CA 
+
+ME ME_53D23D3A035B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D0FCB60027 // TevTableRowHotSpotTester
+ ;
+ MELINK Target WL 'ME_4857D32B011E' '53D258F1004F.ms.model.script' // TevTableRow
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D23D3A035B 
+
+%%InjectedBy ME_4857D32B011E ME_53D0FCB60027
+
+%%InheritedBy ME_4A27B7300174 ME_53D0FCB60027
+
+ME ME_53D0FCB60027
+ MEPROP UID '53D0FCB60027'
+ MEPROP Name 'TevTableRowHotSpotTester'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53D0FC9901A6 // evTableRowHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A27B7300174' '4A267EE3017B.ms.model.script' // TevParaListHotSpotTester
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D0FD4100CA // InevHotSpotTester2
+ ME_53D23D3A035B // TevTableRow
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TableRowHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53D0FCB60027 TevTableRowHotSpotTester
+
+ME ME_53D0FC9901A6
+ MEPROP UID '53D0FC9901A6'
+ MEPROP Name 'evTableRowHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A267EE3017B' '4A267EE3017B.ms.model.script' // HotSpots
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53D0FCB60027 // TevTableRowHotSpotTester
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTableRowHotSpot.pas'
+ UP extprop:rc:SelfName 'TableRowHotSpot'
+
+ENDME // ME_53D0FC9901A6 evTableRowHotSpot

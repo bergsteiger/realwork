@@ -2,82 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4B2A4FFC0126
-
-FORWARD ME_4B2A50570311
-
-FORWARD ME_4B2A50640392
-
-ME ME_4B2A507E003B
- MEPROP UID '4B2A507E003B'
- MEPROP Name 'cNSRCFileIn'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B2A50640392 // Constants
- ;
- MEPROP Value '''document.nsr'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''document.nsr'''
-
-ENDME // ME_4B2A507E003B cNSRCFileIn
-
-ME ME_4B337C4801AD
- MEPROP UID '4B337C4801AD'
- MEPROP Name 'cBadTextUnicode'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B2A50640392 // Constants
- ;
- MEPROP Value '''badtext.uni'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''badtext.uni'''
-
-ENDME // ME_4B337C4801AD cBadTextUnicode
-
-ME ME_4B2A50640392
- MEPROP UID '4B2A50640392'
- MEPROP Name 'Constants'
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4B2A50570311 // TestGlobals
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4B2A507E003B // cNSRCFileIn
- HWL ME_4B337C4801AD // cBadTextUnicode
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_4B2A50640392 Constants
-
-ME ME_4B2A50570311
- MEPROP UID '4B2A50570311'
- MEPROP Name 'TestGlobals'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B2A4FFC0126 // Environment
- ;
- MELIST Constants
-   Seq: ( HWL ME_4B2A50640392 // Constants
- )
- ; // Constants
- UP intf.pas:Path 'common\components\rtl\Garant\Daily\TestGlobals.pas'
-
-ENDME // ME_4B2A50570311 TestGlobals
+%%Inner ME_4B2A4FFC0126
 
 ME ME_4B2A4FFC0126
  MEPROP UID '4B2A4FFC0126'
@@ -91,12 +16,15 @@ ME ME_4B2A4FFC0126
  MELINK Parent WL 'ME_4B2A15810261' '4B2A15810261.ms.model.script' // DailyTest
  ;
  MELIST Children
-   Seq: ( HWL ME_4B2A50570311 // TestGlobals
+   Seq: ( WL 'ME_4B2A50570311' '4B2A50570311.ms.model.script' // TestGlobals
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4B2A4FFC0126 Environment

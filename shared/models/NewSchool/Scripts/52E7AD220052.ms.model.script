@@ -1,0 +1,55 @@
+// arTextUtils 52E7AD220052 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52E7AD220052
+
+ME ME_52E7AD3E00C8
+ MEPROP UID '52E7AD3E00C8'
+ MEPROP Name 'arMakeNameStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E7AD220052 // arTextUtils
+ ;
+
+ENDME // ME_52E7AD3E00C8 arMakeNameStr
+
+ME ME_52E7ADA502BB
+ MEPROP UID '52E7ADA502BB'
+ MEPROP Name 'GetNumberFromStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52E7AD220052 // arTextUtils
+ ;
+
+ENDME // ME_52E7ADA502BB GetNumberFromStr
+
+ME ME_52E7AD220052
+ MEPROP UID '52E7AD220052'
+ MEPROP Name 'arTextUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B99A60349' '4E4B99A60349.ms.model.script' // Tools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52E7AD3E00C8 // arMakeNameStr
+ HWL ME_52E7ADA502BB // GetNumberFromStr
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\NOT_FINISHED_arTextUtils.pas'
+
+ENDME // ME_52E7AD220052 arTextUtils

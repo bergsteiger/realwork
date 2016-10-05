@@ -1,0 +1,103 @@
+// l3Dict 47AC79EA0132 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47AC79EA0132
+
+FORWARD ME_47AC79EA0132
+
+FORWARD ME_47AC79B70202
+
+ME ME_4B88DAED0223
+ MEPROP UID '4B88DAED0223'
+ MEPROP Name 'l3Items_NeedsBeforeFreeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47AC79B70202 // Tl3Dictionary
+ ;
+ UP extprop:rc:SelfName 'Items_NeedsBeforeFreeItem'
+
+ENDME // ME_4B88DAED0223 l3Items_NeedsBeforeFreeItem
+
+ME ME_4B88DB0A010F
+ MEPROP UID '4B88DB0A010F'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Undef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47AC79B70202 // Tl3Dictionary
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_4B88DB0A010F l3Items_NoSort
+
+%%ImplementedBy ME_53036F2101D3 ME_47AC79B70202
+
+%%InheritedBy ME_4B88E96A02CC ME_47AC79B70202
+
+ME ME_47AC79B70202
+ MEPROP UID '47AC79B70202'
+ MEPROP Name 'Tl3Dictionary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Словарь. Используется для преобразования строки в идентификатор и наоборот. Имеет два индекса сортировки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC79EA0132 // l3Dict
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B88E96A02CC' '47913B47006E.ms.model.script' // Tl3DictionaryPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53036F2101D3' '53036F2101D3.ms.model.script' // l3Dictionary
+ )
+ ; // Implements
+ MELIST Children
+   Seq: ( HWL ME_4B88DAED0223 // l3Items_NeedsBeforeFreeItem
+ HWL ME_4B88DB0A010F // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '11.10.1999 12:50'
+ UP extprop:rc:SelfName 'Dictionary'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47AC79B70202 Tl3Dictionary
+
+ME ME_47AC79EA0132
+ MEPROP UID '47AC79EA0132'
+ MEPROP Name 'l3Dict'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'описание объекта-"словаря"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47AC79B70202 // Tl3Dictionary
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '11.10.1999 12:50'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Dict.pas'
+ UP extprop:rc:SelfName 'Dict'
+
+ENDME // ME_47AC79EA0132 l3Dict

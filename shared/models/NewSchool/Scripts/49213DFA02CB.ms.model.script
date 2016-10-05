@@ -1,0 +1,67 @@
+// vtStdRes 49213DFA02CB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49213DFA02CB
+
+FORWARD ME_49213DFA02CB
+
+%%InheritedBy ME_4AAA214A0250 ME_4AAE399802A2
+
+ME ME_4AAE399802A2
+ MEPROP UID '4AAE399802A2'
+ MEPROP Name 'TvtStdResources'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49213DFA02CB // vtStdRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '478CF30500C1.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'StdResources'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AAE399802A2 TvtStdResources
+
+ME ME_49213E3A030E
+ MEPROP UID '49213E3A030E'
+ MEPROP Name 'vtStdResources'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49213DFA02CB // vtStdRes
+ ;
+
+ENDME // ME_49213E3A030E vtStdResources
+
+ME ME_49213DFA02CB
+ MEPROP UID '49213DFA02CB'
+ MEPROP Name 'vtStdRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E1447600037' '4E1447600037.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49213E3A030E // vtStdResources
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AAE399802A2 // TvtStdResources
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtStdRes.pas'
+ UP extprop:rc:SelfName 'StdRes'
+
+ENDME // ME_49213DFA02CB vtStdRes

@@ -1,0 +1,46 @@
+// evTextParaOpEx 4A391544029B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A391544029B
+
+FORWARD ME_4A391544029B
+
+ME ME_4A3915510199
+ MEPROP UID '4A3915510199'
+ MEPROP Name 'OevTextConvert'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A391544029B // evTextParaOpEx
+ ;
+ UP "finished" false
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A3915510199 OevTextConvert
+
+ME ME_4A391544029B
+ MEPROP UID '4A391544029B'
+ MEPROP Name 'evTextParaOpEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A3915510199 // OevTextConvert
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTextParaOpEx.pas'
+ UP extprop:rc:SelfName 'TextParaOpEx'
+
+ENDME // ME_4A391544029B evTextParaOpEx

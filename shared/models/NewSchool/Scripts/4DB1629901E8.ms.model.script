@@ -1,0 +1,78 @@
+// tfwScriptDebugger 4DB1629901E8 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DB1629901E8
+
+FORWARD ME_4DB1629901E8
+
+FORWARD ME_4DB14E0A029D
+
+ME ME_4DB14E2D007D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB14E0A029D // TtfwScriptDebugger_Form
+ ;
+ MELINK Target WL 'ME_4DAECE5D0060' '4B30FC850092.ms.model.script' // TvcmInsiderTest
+ ;
+
+ENDME // ME_4DB14E2D007D 
+
+ME ME_4DB1661901AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DB14E0A029D // TtfwScriptDebugger_Form
+ ;
+ MELINK Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.ms.model.script' // TtfwScriptEngine
+ ;
+
+ENDME // ME_4DB1661901AB 
+
+ME ME_4DB14E0A029D
+ MEPROP UID '4DB14E0A029D'
+ MEPROP Name 'TtfwScriptDebugger_Form'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DB1629901E8 // tfwScriptDebugger
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DB14E2D007D // TvcmInsiderTest
+ ME_4DB1661901AB // TtfwScriptEngine
+ )
+ ; // Dependencies
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '22.04.2011 13:45'
+ UP extprop:rc:SelfName 'ScriptDebugger_Form'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DB14E0A029D TtfwScriptDebugger_Form
+
+ME ME_4DB1629901E8
+ MEPROP UID '4DB1629901E8'
+ MEPROP Name 'tfwScriptDebugger'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DB14DDC01A9' '4DB14DDC01A9.ms.model.script' // ScriptDebugger
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DB14E0A029D // TtfwScriptDebugger_Form
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '22.04.2011 15:12'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\NOT_FINISHED_tfwScriptDebugger.pas'
+ UP extprop:rc:SelfName 'ScriptDebugger'
+
+ENDME // ME_4DB1629901E8 tfwScriptDebugger

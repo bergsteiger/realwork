@@ -1,0 +1,289 @@
+// vcmMenuManagerTypes 53E9DB8702DD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53E9DB8702DD
+%%Inner ME_53E9DB8702DD
+%%Inner ME_53E9DB8702DD
+%%Inner ME_53E9DB8702DD
+%%Inner ME_53E9DB8702DD
+%%Inner ME_53E9DB8702DD
+
+FORWARD ME_53E9DB8702DD
+
+FORWARD ME_53E9DB21009C
+
+ME ME_53E9DBDC0173
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53E9E2300053' '4C8E3AB70291.ms.model.script' // TvcmMenuItem
+ ;
+
+ENDME // ME_53E9DBDC0173 anItem
+
+ME ME_53E9DBC901D9
+ MEPROP UID '53E9DBC901D9'
+ MEPROP Name 'NotifyMenuItemClicked'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53E9DB21009C // IvcmMenuItemClickListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_53E9DBDC0173 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53E9DBC901D9 NotifyMenuItemClicked
+
+ME ME_53E9DB21009C
+ MEPROP UID '53E9DB21009C'
+ MEPROP GUID '3174E619-23DB-4925-8BD5-426D327F9D84'
+ MEPROP Name 'IvcmMenuItemClickListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53E9DB8702DD // vcmMenuManagerTypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53E9DBC901D9 // NotifyMenuItemClicked
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'MenuItemClickListener'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53E9DB21009C IvcmMenuItemClickListener
+
+%%InheritedBy ME_53E9DB21009C ME_53E9DDBB02AF
+
+ME ME_53E9DDBB02AF
+ MEPROP UID '53E9DDBB02AF'
+ MEPROP Name 'PvcmMenuItemClickListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53E9DB8702DD // vcmMenuManagerTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53E9DB21009C // IvcmMenuItemClickListener
+ )
+ ; // Inherits
+ UP "isPointer" true
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53E9DDBB02AF PvcmMenuItemClickListener
+
+FORWARD ME_52A08D51029E
+
+ME ME_52A08D5F029D
+ MEPROP UID '52A08D5F029D'
+ MEPROP Name 'vcm_moEntitiesInMainMenu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52A08D51029E // TvcmMenuOption
+ ;
+
+ENDME // ME_52A08D5F029D vcm_moEntitiesInMainMenu
+
+ME ME_52A08D69018E
+ MEPROP UID '52A08D69018E'
+ MEPROP Name 'vcm_moEntitiesInTopMainMenu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52A08D51029E // TvcmMenuOption
+ ;
+
+ENDME // ME_52A08D69018E vcm_moEntitiesInTopMainMenu
+
+ME ME_52A08D6F0320
+ MEPROP UID '52A08D6F0320'
+ MEPROP Name 'vcm_moEntitiesInChildMenu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52A08D51029E // TvcmMenuOption
+ ;
+
+ENDME // ME_52A08D6F0320 vcm_moEntitiesInChildMenu
+
+ME ME_52A08D7601C4
+ MEPROP UID '52A08D7601C4'
+ MEPROP Name 'vcm_moEntitesInContextMenu'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52A08D51029E // TvcmMenuOption
+ ;
+
+ENDME // ME_52A08D7601C4 vcm_moEntitesInContextMenu
+
+ME ME_52A08D51029E
+ MEPROP UID '52A08D51029E'
+ MEPROP Name 'TvcmMenuOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53E9DB8702DD // vcmMenuManagerTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A08D5F029D // vcm_moEntitiesInMainMenu
+ HWL ME_52A08D69018E // vcm_moEntitiesInTopMainMenu
+ HWL ME_52A08D6F0320 // vcm_moEntitiesInChildMenu
+ HWL ME_52A08D7601C4 // vcm_moEntitesInContextMenu
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A08D51029E TvcmMenuOption
+
+%%InheritedBy ME_52A08D51029E ME_52A9A23E0251
+
+ME ME_52A9A23E0251
+ MEPROP UID '52A9A23E0251'
+ MEPROP Name 'TvcmMenuOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53E9DB8702DD // vcmMenuManagerTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A08D51029E // TvcmMenuOption
+ )
+ ; // Inherits
+
+ENDME // ME_52A9A23E0251 TvcmMenuOptions
+
+FORWARD ME_52A08D9D00F2
+
+ME ME_52A08DD102AC
+ MEPROP UID '52A08DD102AC'
+ MEPROP Name 'vcm_toModulesInMainToolbar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08D9D00F2 // TvcmToolbarOption
+ ;
+
+ENDME // ME_52A08DD102AC vcm_toModulesInMainToolbar
+
+ME ME_52A08DD800A8
+ MEPROP UID '52A08DD800A8'
+ MEPROP Name 'vcm_toEntitiesInMainToolbar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08D9D00F2 // TvcmToolbarOption
+ ;
+
+ENDME // ME_52A08DD800A8 vcm_toEntitiesInMainToolbar
+
+ME ME_52A08DDE0139
+ MEPROP UID '52A08DDE0139'
+ MEPROP Name 'vcm_toEntitiesInChildToolbar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52A08D9D00F2 // TvcmToolbarOption
+ ;
+
+ENDME // ME_52A08DDE0139 vcm_toEntitiesInChildToolbar
+
+ME ME_52A08D9D00F2
+ MEPROP UID '52A08D9D00F2'
+ MEPROP Name 'TvcmToolbarOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53E9DB8702DD // vcmMenuManagerTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52A08DD102AC // vcm_toModulesInMainToolbar
+ HWL ME_52A08DD800A8 // vcm_toEntitiesInMainToolbar
+ HWL ME_52A08DDE0139 // vcm_toEntitiesInChildToolbar
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A08D9D00F2 TvcmToolbarOption
+
+%%InheritedBy ME_52A08D9D00F2 ME_52A9A2B3038D
+
+ME ME_52A9A2B3038D
+ MEPROP UID '52A9A2B3038D'
+ MEPROP Name 'TvcmToolbarOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53E9DB8702DD // vcmMenuManagerTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A08D9D00F2 // TvcmToolbarOption
+ )
+ ; // Inherits
+
+ENDME // ME_52A9A2B3038D TvcmToolbarOptions
+
+ME ME_53E9E1F30083
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53E9DB8702DD // vcmMenuManagerTypes
+ ;
+ MELINK Target WL 'ME_4C8E3AB70291' '4C8E3AB70291.ms.model.script' // vcmMenus
+ ;
+
+ENDME // ME_53E9E1F30083 
+
+ME ME_53E9DB8702DD
+ MEPROP UID '53E9DB8702DD'
+ MEPROP Name 'vcmMenuManagerTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53E9DB21009C // IvcmMenuItemClickListener
+ HWL ME_53E9DDBB02AF // PvcmMenuItemClickListener
+ HWL ME_52A08D51029E // TvcmMenuOption
+ HWL ME_52A9A23E0251 // TvcmMenuOptions
+ HWL ME_52A08D9D00F2 // TvcmToolbarOption
+ HWL ME_52A9A2B3038D // TvcmToolbarOptions
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53E9E1F30083 // vcmMenus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManagerTypes.pas'
+ UP extprop:rc:SelfName 'MenuManagerTypes'
+
+ENDME // ME_53E9DB8702DD vcmMenuManagerTypes

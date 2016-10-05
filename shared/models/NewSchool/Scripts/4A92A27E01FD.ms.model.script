@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A92A27E01FD
+%%Inner ME_4A92A27E01FD
+
 FORWARD ME_4A92A27E01FD
 
 FORWARD ME_4A92A8F2022D
@@ -97,6 +100,8 @@ ME ME_4AF42CEF02C9
 
 ENDME // ME_4AF42CEF02C9 
 
+%%ImplementedBy ME_45F585F802AF ME_4A92A8F2022D
+
 ME ME_4A92A8F2022D
  MEPROP UID '4A92A8F2022D'
  MEPROP Name 'JournalTree'
@@ -137,77 +142,6 @@ ME ME_4A92A8F2022D
 
 ENDME // ME_4A92A8F2022D JournalTree
 
-FORWARD ME_4A94342100B3
-
-ME ME_4A9434790292
- MEPROP Name 'adapter_type'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
- ;
-
-ENDME // ME_4A9434790292 adapter_type
-
-ME ME_4A9434510206
- MEPROP UID '4A9434510206'
- MEPROP Name 'translate'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
- ;
- MELIST Parameters
-   Seq: ( ME_4A9434790292 // adapter_type
- )
- ; // Parameters
-
-ENDME // ME_4A9434510206 translate
-
-ME ME_4A9434A30323
- MEPROP Name 'server_type'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
-
-ENDME // ME_4A9434A30323 server_type
-
-ME ME_4A94348F01E6
- MEPROP UID '4A94348F01E6'
- MEPROP Name 'translate'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4A94342100B3 // JournalObjectTypeTranslator
- ;
- MELINK Target WL 'ME_4A7FFAFA023A' '4A7FF5F301B2.ms.model.script' // JournalObjectType
- ;
- MELIST Parameters
-   Seq: ( ME_4A9434A30323 // server_type
- )
- ; // Parameters
-
-ENDME // ME_4A94348F01E6 translate
-
-ME ME_4A94342100B3
- MEPROP UID '4A94342100B3'
- MEPROP Name 'JournalObjectTypeTranslator'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4A92A27E01FD // UserJournal_i
- ;
- MELIST Operations
-   Seq: ( HWL ME_4A9434510206 // translate
- HWL ME_4A94348F01E6 // translate
- )
- ; // Operations
- UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalObjectTypeTranslator.cpp'
- UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i\JournalObjectTypeTranslator.h'
- UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\JournalObjectTypeTranslator.pas'
-
-ENDME // ME_4A94342100B3 JournalObjectTypeTranslator
-
 ME ME_4A92A27E01FD
  MEPROP UID '4A92A27E01FD'
  MEPROP Name 'UserJournal_i'
@@ -220,7 +154,7 @@ ME ME_4A92A27E01FD
  ;
  MELIST Children
    Seq: ( HWL ME_4A92A8F2022D // JournalTree
- HWL ME_4A94342100B3 // JournalObjectTypeTranslator
+ WL 'ME_4A94342100B3' '4A94342100B3.ms.model.script' // JournalObjectTypeTranslator
  )
  ; // Children
  MELIST Depends
@@ -232,6 +166,9 @@ ME ME_4A92A27E01FD
  WL 'ME_4A7FF5F301B2' '4A7FF5F301B2.ms.model.script' // UserJournal
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
  UP cpp:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i'
  UP h:PathOnly '\garant6x\implementation\Garant\GblAdapterLib\impl\UserJournal_i'
 

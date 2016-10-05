@@ -1,0 +1,108 @@
+// vcmMenuManagerRes 4B8E967F00BE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8E967F00BE
+
+FORWARD ME_499441EF01A9
+
+ME ME_499441F601BF
+ MEPROP UID '499441F601BF'
+ MEPROP Name 'CloseHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499441EF01A9 // TvcmUserTypeHints
+ ;
+ MEPROP Value '''Закрыть'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Закрыть'''
+
+ENDME // ME_499441F601BF CloseHint
+
+ME ME_499441FB0098
+ MEPROP UID '499441FB0098'
+ MEPROP Name 'MaximizedHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499441EF01A9 // TvcmUserTypeHints
+ ;
+ MEPROP Value '''Открыть в новом окне'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Открыть в новом окне'''
+
+ENDME // ME_499441FB0098 MaximizedHint
+
+ME ME_499441FF030C
+ MEPROP UID '499441FF030C'
+ MEPROP Name 'OpenHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_499441EF01A9 // TvcmUserTypeHints
+ ;
+ MEPROP Value '''Открыть в текущем окне'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Открыть в текущем окне'''
+
+ENDME // ME_499441FF030C OpenHint
+
+ME ME_499441EF01A9
+ MEPROP UID '499441EF01A9'
+ MEPROP Name 'TvcmUserTypeHints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8E967F00BE // vcmMenuManagerRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_499441F601BF // CloseHint
+ HWL ME_499441FB0098 // MaximizedHint
+ HWL ME_499441FF030C // OpenHint
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'vcm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'vcm'
+
+ENDME // ME_499441EF01A9 TvcmUserTypeHints
+
+ME ME_4B8E967F00BE
+ MEPROP UID '4B8E967F00BE'
+ MEPROP Name 'vcmMenuManagerRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B8E967100D5' '4B8E967100D5.ms.model.script' // vcmL10nImpl
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_499441EF01A9 // TvcmUserTypeHints
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.03.2010 20:04'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmMenuManagerRes.pas'
+ UP extprop:rc:SelfName 'MenuManagerRes'
+
+ENDME // ME_4B8E967F00BE vcmMenuManagerRes

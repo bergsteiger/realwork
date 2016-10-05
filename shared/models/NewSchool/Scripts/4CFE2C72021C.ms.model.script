@@ -1,0 +1,82 @@
+// vg_objects 4CFE2C72021C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CFE2C72021C
+%%Inner ME_4CFE2C72021C
+%%Inner ME_4CFE2C72021C
+
+FORWARD ME_4CFE2C72021C
+
+ME ME_4CFE2C800399
+ MEPROP UID '4CFE2C800399'
+ MEPROP Name 'TvgText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE2C72021C // vg_objects
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'Text'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CFE2C800399 TvgText
+
+ME ME_4D70E5440067
+ MEPROP UID '4D70E5440067'
+ MEPROP Name 'TvgRectangle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE2C72021C // vg_objects
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'Rectangle'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D70E5440067 TvgRectangle
+
+ME ME_5326E7230130
+ MEPROP UID '5326E7230130'
+ MEPROP Name 'TvgImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE2C72021C // vg_objects
+ ;
+ UP extprop:rc:SelfName 'Image'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5326E7230130 TvgImage
+
+ME ME_4CFE2C72021C
+ MEPROP UID '4CFE2C72021C'
+ MEPROP Name 'vg_objects'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.ms.model.script' // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFE2C800399 // TvgText
+ HWL ME_4D70E5440067 // TvgRectangle
+ HWL ME_5326E7230130 // TvgImage
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_objects.pas'
+ UP extprop:rc:SelfName '_objects'
+
+ENDME // ME_4CFE2C72021C vg_objects

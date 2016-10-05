@@ -37,43 +37,18 @@ implementation @ <<UseCaseSetting>>
 //	%f_set_var(THIS_SET,S)\
 
 //	<{}{%LS=VCMUseCaseRealization}\
- INTEGER VAR l_Counter l_Counter := 0
- for %S%L
- begin
-  OBJECT IN %L
-  if ( ( %L |S ) %== 'VCMUseCaseRealization' ) then
-  begin
 //	%L<{}{%GS=VCMFormsPack}\
-   %L
-   bind ( 
-    OBJECT VAR %S
-    INTEGER VAR l_Counter l_Counter := 0
-    for %S%G
-    begin
-     OBJECT IN %G
-     if ( ( %G |S ) %== 'VCMFormsPack' ) then
-     begin
 //	%1%f_SpellToMod(%G,%G%P,%S)\
-      %1 %f SpellToMod %( %G %, %G ->P  %, %S )% 
+//	>\
 //	>\
 
-      ++! l_Counter
-     end // if
-    end // for G
-
-   ) // bind
- //	>\
-
-   ++! l_Counter
-  end // if
- end // for L
-
-//	<{}{%LS=SettingsHolder}\
+//	<{}{%LS=SettingsHolder|%LS=VCMModuleContract}\
  INTEGER VAR l_Counter l_Counter := 0
  for %S%L
  begin
   OBJECT IN %L
-  if ( ( %L |S ) %== 'SettingsHolder' ) then
+  if ( ( %L |S ) %== 'SettingsHolder' OR 
+   ( ( %L |S ) %== 'VCMModuleContract'  ) ) then
   begin
 //	%S%f_SpellToMod(%L,%L%P,%L)\
    %S %f SpellToMod %( %L %, %L ->P  %, %L )% 
@@ -259,9 +234,32 @@ implementation @ <<UseCaseSetting>>
 //	%f_set_var(PAR,2)\
    [%f] set_var %( 'PAR' %, 2 )% 
 
+//	[{%{MOD}S=VCMModuleContract}{\
+   if ( ( ( get_global_var ( 'MOD' ) |S ) ) %== 'VCMModuleContract' ) then
+   begin
+
+//	%{PAR}%f_add_class(%{SELF}U_%{MOD}U_Res,SimpleClass,%f_N(%{MOD})%{SELF}{CodeName}SettingRes,Pack_Inst)\
+//	%f_set_var(Pack_Inst,{MOD})\
+    [%f] set_var %( 'Pack_Inst' %, '{MOD}' )% 
+//	]\
+   end // if
+   else
+   begin
 //	%{PAR}%f_add_class(%{SELF}U_%{MOD}U_Res,UtilityPack,%f_N(%{MOD})%{SELF}{CodeName}SettingRes,Pack_Inst)\
-   ( get_global_var ( 'PAR' ) %f add_class %( ( get_global_var ( 'SELF' ) |U ) '_'
-   ( get_global_var ( 'MOD' ) |U ) '_Res' %, 'UtilityPack' %, [%f] N %( ( get_global_var ( 'MOD' ) ) )% ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'SettingRes' %, 'Pack_Inst' )% ) 
+    ( get_global_var ( 'PAR' ) %f add_class %( ( get_global_var ( 'SELF' ) |U ) '_'
+    ( get_global_var ( 'MOD' ) |U ) '_Res' %, 'UtilityPack' %, [%f] N %( ( get_global_var ( 'MOD' ) ) )% ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'SettingRes' %, 'Pack_Inst' )% ) 
+//	%f_addCDep(%{MOD},%{Pack_Inst})\
+    [%f] addCDep %( ( get_global_var ( 'MOD' ) ) %, ( get_global_var ( 'Pack_Inst' ) ) )% 
+//	%{Pack_Inst}%f_set_documentation(Ресурсы для настройки "%{SELF}N")\
+    ( get_global_var ( 'Pack_Inst' ) %f set_documentation %( 'Ресурсы для настройки "'
+    ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{Pack_Inst}%f_make_accessable(%{SELF}U)\
+    ( get_global_var ( 'Pack_Inst' ) %f make_accessable %( ( get_global_var ( 'SELF' ) |U ) )% ) 
+//	%f_addR(%{Pack_Inst},%{SELF})\
+    [%f] addR %( ( get_global_var ( 'Pack_Inst' ) ) %, ( get_global_var ( 'SELF' ) ) )% 
+//	}\
+   end // else
+
 //	%f_warning(made %{Pack_Inst}N:%{Pack_Inst}S)\
 
 
@@ -313,8 +311,9 @@ implementation @ <<UseCaseSetting>>
    end // else
 
 
-//	[{%{MOD}S=SettingsHolder}{\
-   if ( ( ( get_global_var ( 'MOD' ) |S ) ) %== 'SettingsHolder' ) then
+//	[{%{MOD}S=SettingsHolder|%{MOD}S=VCMModuleContract}{\
+   if ( ( ( get_global_var ( 'MOD' ) |S ) ) %== 'SettingsHolder' OR 
+     ( ( ( get_global_var ( 'MOD' ) |S ) ) %== 'VCMModuleContract'  ) ) then
    begin
 //	%f_set_var(METHOD,"method")\
     [%f] set_var %( 'METHOD' %, 'method' )% 
@@ -363,6 +362,8 @@ implementation @ <<UseCaseSetting>>
        ( get_global_var ( 'FM_Inst' ) %f set_documentation %( 'Метод для получения значения настройки "'
        ( get_global_var ( 'SELF' ) |N ) '."'
        %C |N )% ) 
+//	%{FM_Inst}%f_set_var(Speller,{SELF})\
+       ( get_global_var ( 'FM_Inst' ) %f set_var %( 'Speller' %, '{SELF}' )% ) 
 
 //	%{FM_Inst}%f_make_accessable(%{SELF}U)\
        ( get_global_var ( 'FM_Inst' ) %f make_accessable %( ( get_global_var ( 'SELF' ) |U ) )% ) 
@@ -467,6 +468,8 @@ implementation @ <<UseCaseSetting>>
 //	%{FM_Inst}%f_set_documentation(Метод для получения значения настройки "%{SELF}N")\
     ( get_global_var ( 'FM_Inst' ) %f set_documentation %( 'Метод для получения значения настройки "'
     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{FM_Inst}%f_set_var(Speller,{SELF})\
+    ( get_global_var ( 'FM_Inst' ) %f set_var %( 'Speller' %, '{SELF}' )% ) 
 
 //	%{FM_Inst}%f_make_accessable(%{SELF}U)\
     ( get_global_var ( 'FM_Inst' ) %f make_accessable %( ( get_global_var ( 'SELF' ) |U ) )% ) 
@@ -565,6 +568,8 @@ implementation @ <<UseCaseSetting>>
 //	%{FM_Inst_W}%f_set_documentation(Метод для записи значения настройки "%{SELF}N")\
     ( get_global_var ( 'FM_Inst_W' ) %f set_documentation %( 'Метод для записи значения настройки "'
     ( get_global_var ( 'SELF' ) |N ) )% ) 
+//	%{FM_Inst_W}%f_set_var(Speller,{SELF})\
+    ( get_global_var ( 'FM_Inst_W' ) %f set_var %( 'Speller' %, '{SELF}' )% ) 
 
 //	%{FM_Inst_W}%f_make_accessable(%{SELF}U)\
     ( get_global_var ( 'FM_Inst_W' ) %f make_accessable %( ( get_global_var ( 'SELF' ) |U ) )% ) 
@@ -631,16 +636,6 @@ implementation @ <<UseCaseSetting>>
 )% ) //	}\
    end // else
 
-
-//	%f_addCDep(%{MOD},%{Pack_Inst})\
-   [%f] addCDep %( ( get_global_var ( 'MOD' ) ) %, ( get_global_var ( 'Pack_Inst' ) ) )% 
-//	%{Pack_Inst}%f_set_documentation(Ресурсы для настройки "%{SELF}N")\
-   ( get_global_var ( 'Pack_Inst' ) %f set_documentation %( 'Ресурсы для настройки "'
-   ( get_global_var ( 'SELF' ) |N ) )% ) 
-//	%{Pack_Inst}%f_make_accessable(%{SELF}U)\
-   ( get_global_var ( 'Pack_Inst' ) %f make_accessable %( ( get_global_var ( 'SELF' ) |U ) )% ) 
-//	%f_addR(%{Pack_Inst},%{SELF})\
-   [%f] addR %( ( get_global_var ( 'Pack_Inst' ) ) %, ( get_global_var ( 'SELF' ) ) )% 
 
 //	%{Pack_Inst}%f_add_class(%{Pack_Inst}U_Key,Constants,%{SELF}{CodeName}Key,Const_Inst)\
    ( get_global_var ( 'Pack_Inst' ) %f add_class %( ( get_global_var ( 'Pack_Inst' ) |U ) '_Key' %, 'Constants' %, ( get_global_var ( 'SELF' ) get_up ( 'CodeName' ) ) 'Key' %, 'Const_Inst' )% ) 
@@ -856,6 +851,10 @@ implementation @ <<UseCaseSetting>>
     ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'l3FillChar' ) |U ) )% ) 
 //	%{Class_Inst}%f_make_accessable(%{TddConfigValue}U)\
     ( get_global_var ( 'Class_Inst' ) %f make_accessable %( ( get_global_var ( 'TddConfigValue' ) |U ) )% ) 
+//	%{Class_Inst}%f_set_var(Speller,{SELF})\
+    ( get_global_var ( 'Class_Inst' ) %f set_var %( 'Speller' %, '{SELF}' )% ) 
+//	%{Class_Inst}%f_set_var(SpelledFor,{MOD})\
+    ( get_global_var ( 'Class_Inst' ) %f set_var %( 'SpelledFor' %, '{MOD}' )% ) 
 //	%f_addG(%{Class_Inst},%{TddComboBoxConfigItem})\
     [%f] addG %( ( get_global_var ( 'Class_Inst' ) ) %, ( get_global_var ( 'TddComboBoxConfigItem' ) ) )% 
 //	%f_addCDep(%{Class_Inst},%{l3FillChar})\

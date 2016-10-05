@@ -47,7 +47,7 @@ type
   public
    constructor Create(const anElement: TmsmModelElementView); reintroduce;
    class function Make(const anElement: TmsmModelElementView): ImsmModelElementTree; reintroduce;
-   function IndexOf(const anElement: ImsmModelElement): Integer;
+   function IndexOfElementView(const anElement: ImsmModelElement): Integer;
  //#UC START# *57AC3A8100E5publ*
   protected
    function DoGet_Nodes(anIndex: Integer): Il3SimpleNode; override;
@@ -90,7 +90,7 @@ begin
  f_Nodes := TmsmModelElementNodeList.Create;
  f_Root := TmsmModelElementRootNode.Create(anElement);
  f_Flags := Tl3LongintList.Create;
- f_Nodes.Add(f_Root);
+ //f_Nodes.Add(f_Root);
  l_N := Il3SimpleNode(f_Root).Child;
  while (l_N <> nil) do
  begin
@@ -98,8 +98,9 @@ begin
   l_N := l_N.Next;
  end;//while (l_N <> nil)
  f_Flags.Count := f_Nodes.Count;
- f_Flags[0] := nfExpanded;
- inherited DoSetShowRoot(true);
+ DoChangeExpand(Il3SimpleNode(f_Root).Child, sbSelect, false);
+ //f_Flags[0] := nfExpanded;
+ inherited DoSetShowRoot(false);
  inherited Create(f_Root);
 //#UC END# *57AC62550086_57AC3A8100E5_impl*
 end;//TmsmModelElementTree.Create
@@ -154,7 +155,10 @@ function TmsmModelElementTree.Get_Owner: ImsmModelElement;
 //#UC END# *57AE2E140297_57AC3A8100E5get_var*
 begin
 //#UC START# *57AE2E140297_57AC3A8100E5get_impl*
- Result := f_Root.Element.rElement.Parent;
+ if (f_Root.Element.rElement = nil) then
+  Result := nil
+ else
+  Result := f_Root.Element.rElement.Parent;
 //#UC END# *57AE2E140297_57AC3A8100E5get_impl*
 end;//TmsmModelElementTree.Get_Owner
 
@@ -197,7 +201,7 @@ begin
 //#UC END# *57C9AD1303C2_57AC3A8100E5_impl*
 end;//TmsmModelElementTree.NodeByElement
 
-function TmsmModelElementTree.IndexOf(const anElement: ImsmModelElement): Integer;
+function TmsmModelElementTree.IndexOfElementView(const anElement: ImsmModelElement): Integer;
 //#UC START# *57D1327900BC_57AC3A8100E5_var*
 var
  l_Index : Integer;
@@ -217,9 +221,18 @@ begin
     Exit;
    end;//l_E.IsSameElement(anElement)
   end;//for l_Index
+  for l_Index := 0 to Pred(Get_Count) do
+  begin
+   l_E := Get_Item(l_Index);
+   if l_E.IsSameElementView(anElement) then
+   begin
+    Result := l_Index;
+    Exit;
+   end;//l_E.IsSameElementView(anElement)
+  end;//for l_Index
  end;//anElement <> nil
 //#UC END# *57D1327900BC_57AC3A8100E5_impl*
-end;//TmsmModelElementTree.IndexOf
+end;//TmsmModelElementTree.IndexOfElementView
 
 procedure TmsmModelElementTree.Cleanup;
  {* Функция очистки полей объекта. }
@@ -315,12 +328,10 @@ end;
 
 function TmsmModelElementTree.DoIsExpanded(const aNode: Il3SimpleNode): Boolean;
 begin
- //Result := Il3SimpleNode(f_Root).IsSame(aNode);
- Result := false;
- if not Result then
- begin
+ if Il3SimpleNode(f_Root).IsSame(aNode) then
+  Result := true
+ else
   Result := l3TestMask(f_Flags[f_Nodes.IndexOfNode(aNode)], nfExpanded);
- end;//not Result
 end;
 
 function TmsmModelElementTree.DoCountViewItemsInSubDir(const aNode: Il3SimpleNode): Integer;
@@ -346,6 +357,7 @@ function TmsmModelElementTree.DoMakeNodeVisible(const aNode: Il3SimpleNode): Int
  procedure MakeParentVisible(const aParent: Il3SimpleNode);
  var
   l_I : Integer;
+  l_SR : Il3SimpleNode;
  begin//MakeParentVisible
   if (aParent <> nil) then
   begin
@@ -359,7 +371,28 @@ function TmsmModelElementTree.DoMakeNodeVisible(const aNode: Il3SimpleNode): Int
     MakeParentVisible(aParent.Parent);
     l_I := f_Nodes.IndexOfNode(aParent);
     if (l_I >= 0) then
-     DoChangeExpand(aParent, sbSelect, false);
+     DoChangeExpand(aParent, sbSelect, false)
+    else
+    begin
+     if (aParent.Parent = nil) then
+     begin
+      Changing;
+      try
+       l_SR := f_Root.AddSubRoot(aParent);
+       if (l_SR <> nil) then
+       begin
+        l_I := f_Nodes.AddNode(l_SR);
+        if (l_I >= 0) then
+        begin
+         f_Flags.Insert(l_I, 0);
+         DoChangeExpand(aParent, sbSelect, false);
+        end;//l_I >= 0
+       end;//l_SR <> nil
+      finally
+       Changed;
+      end;//try..finally
+     end;//aParent.Parent = nil
+    end;//l_I >= 0
    end;//l_I >= 0
   end;//l_Parent <> nil
  end;//MakeParentVisible
@@ -370,7 +403,8 @@ begin
  begin
   Changing;
   try
-   MakeParentVisible(aNode.Parent);
+   //MakeParentVisible(aNode.Parent);
+   MakeParentVisible(aNode);
    Result := inherited DoMakeNodeVisible(aNode);
   finally
    Changed;

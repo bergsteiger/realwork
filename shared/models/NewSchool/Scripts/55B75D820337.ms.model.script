@@ -2,118 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_55B75D820337
-
-FORWARD ME_55B75D980276
-
-ME ME_55B75DC003BF
- MEPROP UID '55B75DC003BF'
- MEPROP Name 'logging_StartListening'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55B75D980276 // LoggingWordsPack
- ;
-
-ENDME // ME_55B75DC003BF logging_StartListening
-
-ME ME_55B75DD7013D
- MEPROP UID '55B75DD7013D'
- MEPROP Name 'logging_FinishListening'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55B75D980276 // LoggingWordsPack
- ;
-
-ENDME // ME_55B75DD7013D logging_FinishListening
-
-ME ME_55B75E0E039F
- MEPROP UID '55B75E0E039F'
- MEPROP Name 'logging_GetLogRecords'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55B75D980276 // LoggingWordsPack
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
-
-ENDME // ME_55B75E0E039F logging_GetLogRecords
-
-ME ME_56D4147C0385
- MEPROP UID '56D4147C0385'
- MEPROP Name 'logging_WriteCachedEvents'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55B75D980276 // LoggingWordsPack
- ;
-
-ENDME // ME_56D4147C0385 logging_WriteCachedEvents
-
-ME ME_55BA026201A4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55B75D980276 // LoggingWordsPack
- ;
- MELINK Target WL 'ME_55B9FFCB020F' '55B9FF5B03CB.ms.model.script' // TnsLoggingTestService
- ;
-
-ENDME // ME_55BA026201A4 
-
-ME ME_55BA0271031A
- MEPROP Class class_Dependency
- MELINK Stereotype st_injects::Dependency ;
- MELINK Parent HWL ME_55B75D980276 // LoggingWordsPack
- ;
- MELINK Target WL 'ME_55B9FFCB020F' '55B9FF5B03CB.ms.model.script' // TnsLoggingTestService
- ;
-
-ENDME // ME_55BA0271031A 
-
-ME ME_56D4155A01AF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55B75D980276 // LoggingWordsPack
- ;
- MELINK Target WL 'ME_4B139FB1009B' '4B0A60DF01F2.ms.model.script' // TnsCachedEventsProcessor
- ;
-
-ENDME // ME_56D4155A01AF 
-
-ME ME_55B75D980276
- MEPROP UID '55B75D980276'
- MEPROP Name 'LoggingWordsPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55B75D820337 // LoggingWords
- ;
- MELIST Operations
-   Seq: ( HWL ME_55B75DC003BF // logging_StartListening
- HWL ME_55B75DD7013D // logging_FinishListening
- HWL ME_55B75E0E039F // logging_GetLogRecords
- HWL ME_56D4147C0385 // logging_WriteCachedEvents
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_55BA026201A4 // TnsLoggingTestService
- ME_55BA0271031A // TnsLoggingTestService
- ME_56D4155A01AF // TnsCachedEventsProcessor
- )
- ; // Dependencies
- UP "author" 'Костицын'
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\LoggingWordsPack.pas'
-
-ENDME // ME_55B75D980276 LoggingWordsPack
+%%Inner ME_55B75D820337
 
 ME ME_55B75D820337
  MEPROP UID '55B75D820337'
@@ -126,7 +15,7 @@ ME ME_55B75D820337
  MELINK Parent WL 'ME_55B62380030A' '55B62380030A.ms.model.script' // Logging
  ;
  MELIST Children
-   Seq: ( HWL ME_55B75D980276 // LoggingWordsPack
+   Seq: ( WL 'ME_55B75D980276' '55B75D980276.ms.model.script' // LoggingWordsPack
  )
  ; // Children
  MELIST Depends
@@ -136,6 +25,9 @@ ME ME_55B75D820337
  WL 'ME_55B9FF5B03CB' '55B9FF5B03CB.ms.model.script' // LoggingTestService
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_55B75D820337 LoggingWords

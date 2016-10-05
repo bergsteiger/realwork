@@ -1,0 +1,172 @@
+// TurnOffTimeMachine 4980620401ED Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4980620401ED
+
+ME ME_4980633A00F1
+ MEPROP UID '4980633A00F1'
+ MEPROP Name 'f_DontResetRedactions'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4980620401ED // TurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4980633A00F1 f_DontResetRedactions
+
+ME ME_498063060028
+ MEPROP Name 'aPureOff'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_498063060028 aPureOff
+
+ME ME_4980630101F0
+ MEPROP UID '4980630101F0'
+ MEPROP Name 'TimeMachineOnOff'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4980620401ED // TurnOffTimeMachine
+ ;
+ MELIST Parameters
+   Seq: ( ME_498063060028 // aPureOff
+ )
+ ; // Parameters
+
+ENDME // ME_4980630101F0 TimeMachineOnOff
+
+ME ME_4980639702C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4980620401ED // TurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_490C47C70210' '490C47C70210.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_4980639702C7 
+
+ME ME_498063DD0244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4980620401ED // TurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
+ ;
+
+ENDME // ME_498063DD0244 
+
+ME ME_4AC20A2F01AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4980620401ED // TurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '47F260EC02C7.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4AC20A2F01AA 
+
+ME ME_4B16540203B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4980620401ED // TurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_4B1653D10039' '4951181B02B6.ms.model.script' // TnsTimeMachineOffEvent
+ ;
+
+ENDME // ME_4B16540203B2 
+
+ME ME_57A0843A012C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4980620401ED // TurnOffTimeMachine
+ ;
+ MELINK Target WL 'ME_579F7FDF01C3' '579F7F680321.ms.model.script' // TCommonService
+ ;
+
+ENDME // ME_57A0843A012C 
+
+ME ME_49805EED0054_ME_4980620401ED
+ MELINK Original WL 'ME_49805EED0054' '49804E310263.ms.model.script' // GotoActualRedaction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49805EED0054_ME_4980620401ED GotoActualRedaction
+
+ME ME_49805EFF013C_ME_4980620401ED
+ MELINK Original WL 'ME_49805EFF013C' '49804E310263.ms.model.script' // StayInCurrentRedaction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49805EFF013C_ME_4980620401ED StayInCurrentRedaction
+
+ME ME_49805F0D0221_ME_4980620401ED
+ MELINK Original WL 'ME_49805F0D0221' '49804E310263.ms.model.script' // ChangeDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49805F0D0221_ME_4980620401ED ChangeDate
+
+ME ME_49805F190314_ME_4980620401ED
+ MELINK Original WL 'ME_49805F190314' '49804E310263.ms.model.script' // DisableOps
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_49805F190314_ME_4980620401ED DisableOps
+
+%%ImplementedBy ME_49805ECD020F ME_4980620401ED
+
+ME ME_4980620401ED
+ MEPROP UID '4980620401ED'
+ MEPROP Name 'TurnOffTimeMachine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация InsTurnOffTimeMachine' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4951181B02B6' '4951181B02B6.ms.model.script' // Document
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49805ECD020F' '49804E310263.ms.model.script' // InsTurnOffTimeMachine
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4980633A00F1 // f_DontResetRedactions
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4980630101F0 // TimeMachineOnOff
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49805EED0054_ME_4980620401ED // GotoActualRedaction
+ ME_49805EFF013C_ME_4980620401ED // StayInCurrentRedaction
+ ME_49805F0D0221_ME_4980620401ED // ChangeDate
+ ME_49805F190314_ME_4980620401ED // DisableOps
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4980639702C7 // nsUtils
+ ME_498063DD0244 // DataAdapter
+ ME_4AC20A2F01AA // StdRes
+ ME_4B16540203B2 // TnsTimeMachineOffEvent
+ ME_57A0843A012C // TCommonService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOffTimeMachine.imp.pas'
+ UP extprop:pas:TypeName '_TurnOffTimeMachine_'
+ UP extprop:pas:UnitName 'TurnOffTimeMachine.imp'
+
+ENDME // ME_4980620401ED TurnOffTimeMachine

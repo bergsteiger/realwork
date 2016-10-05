@@ -16,17 +16,15 @@ uses
  , tfwScriptingInterfaces
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Interfaces
+ , msmModelElementMethodCaller
 ;
 
 type
  TmsmModelElement = class(TmsmBaseModelElement, ImsmModelElement)
-  private
-   f_Children: ImsmModelElementList;
   protected
    function Get_Parent: ImsmModelElement;
-   function Get_Children: ImsmModelElementList;
    function IsSameElement(const anOther: ImsmModelElement): Boolean;
-   function Get_List(const aName: AnsiString): ImsmModelElementList;
+   function Get_MEList(const aName: AnsiString): ImsmModelElementList;
    function Get_StringProp(const aName: AnsiString): Il3CString;
    function Get_IntProp(const aName: AnsiString): Integer;
    procedure Set_IntProp(const aName: AnsiString;
@@ -35,20 +33,27 @@ type
    function Get_ElementProp(const aName: AnsiString): ImsmModelElement;
    function Get_MainWord: TtfwWord;
    function IsView: Boolean;
+   function Get_ListProp(const aName: AnsiString): ItfwValueList;
+   function IsSameElementView(const anOther: ImsmModelElement): Boolean;
+   function IsViewLink: Boolean;
+   function Call(const aParameters: array of TtfwStackValue;
+    const aMethodName: AnsiString): TtfwStackValue;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   procedure ClearFields; override;
   public
    constructor Create(aMainWord: TtfwWord); reintroduce;
+   class function MakeFromWord(aWord: TtfwWord): ImsmModelElement;
+   class function MakeFromObj(anObject: TObject): ImsmModelElement;
+   class function MakeFromValue(const aValue: TtfwStackValue): ImsmModelElement;
  end;//TmsmModelElement
 
 implementation
 
 uses
  l3ImplUses
- , msmModelElementMethodCaller
  , msmModelElementList
  , msmModelElementFactory
+ , msmElementViews
  //#UC START# *57A9F5170275impl_uses*
  , SysUtils
  , l3InterfacesMisc
@@ -65,44 +70,50 @@ begin
 //#UC END# *57ACABF800A3_57A9F5170275_impl*
 end;//TmsmModelElement.Create
 
+class function TmsmModelElement.MakeFromWord(aWord: TtfwWord): ImsmModelElement;
+//#UC START# *57E30F7201EF_57A9F5170275_var*
+//#UC END# *57E30F7201EF_57A9F5170275_var*
+begin
+//#UC START# *57E30F7201EF_57A9F5170275_impl*
+ if (aWord = nil) then
+  Result := nil
+ else 
+  Result := TmsmModelElementFactory.Make(aWord);
+//#UC END# *57E30F7201EF_57A9F5170275_impl*
+end;//TmsmModelElement.MakeFromWord
+
+class function TmsmModelElement.MakeFromObj(anObject: TObject): ImsmModelElement;
+//#UC START# *57E30F9F0205_57A9F5170275_var*
+//#UC END# *57E30F9F0205_57A9F5170275_var*
+begin
+//#UC START# *57E30F9F0205_57A9F5170275_impl*
+ if (anObject = nil) then
+  Result := nil
+ else 
+  Result := MakeFromWord(anObject As TtfwWord);
+//#UC END# *57E30F9F0205_57A9F5170275_impl*
+end;//TmsmModelElement.MakeFromObj
+
+class function TmsmModelElement.MakeFromValue(const aValue: TtfwStackValue): ImsmModelElement;
+//#UC START# *57E30FCD03DF_57A9F5170275_var*
+//#UC END# *57E30FCD03DF_57A9F5170275_var*
+begin
+//#UC START# *57E30FCD03DF_57A9F5170275_impl*
+ Result := MakeFromObj(aValue.AsObject);
+//#UC END# *57E30FCD03DF_57A9F5170275_impl*
+end;//TmsmModelElement.MakeFromValue
+
 function TmsmModelElement.Get_Parent: ImsmModelElement;
 //#UC START# *57AA0B890200_57A9F5170275get_var*
-var
- l_P : TObject;
- l_Parent: TtfwWord;
 //#UC END# *57AA0B890200_57A9F5170275get_var*
 begin
 //#UC START# *57AA0B890200_57A9F5170275get_impl*
- l_P := TmsmModelElementMethodCaller.CallAndGetObj(MainWord, 'Parent');
- if (l_P = nil) then
-  l_Parent := nil
- else
-  l_Parent := l_P As TtfwWord;
- if (l_Parent = nil) then
-  Result := nil
- else
-  Result := TmsmModelElementFactory.Make(l_Parent);
+ Result := Get_ElementProp('Parent');
 //#UC END# *57AA0B890200_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_Parent
 
-function TmsmModelElement.Get_Children: ImsmModelElementList;
-//#UC START# *57AAD9CA008A_57A9F5170275get_var*
-const
- cChildren = 'Children';
-//#UC END# *57AAD9CA008A_57A9F5170275get_var*
-begin
-//#UC START# *57AAD9CA008A_57A9F5170275get_impl*
- if (f_Children = nil) then
-  f_Children := TmsmModelElementList.Make(MainWord, TmsmModelElementMethodCaller.CallAndGetList(MainWord, cChildren), cChildren);
- Result := f_Children; 
-//#UC END# *57AAD9CA008A_57A9F5170275get_impl*
-end;//TmsmModelElement.Get_Children
-
 function TmsmModelElement.IsSameElement(const anOther: ImsmModelElement): Boolean;
 //#UC START# *57AC39AE0181_57A9F5170275_var*
-var
- l_W : ITmsmBaseModelElementWrap;
- l_Other : ImsmModelElement;
 //#UC END# *57AC39AE0181_57A9F5170275_var*
 begin
 //#UC START# *57AC39AE0181_57A9F5170275_impl*
@@ -110,37 +121,21 @@ begin
   Result := false
  else
  begin
-  l_Other := anOther;
-{  if l_Other.IsView then
-   l_Other := l_Other.ElementProp['Original'];}
-  Result := l3IEQ(Self, l_Other);
+  Result := l3IEQ(Self, anOther);
   if not Result then
-  begin
-   if Supports(l_Other, ITmsmBaseModelElementWrap, l_W) then
-    try
-     Result := (Self.MainWord.GetRefForCompare = l_W.GetSelf.MainWord.GetRefForCompare);
-    finally
-     l_W := nil;
-    end;//try..finally
-  end;//not Result
-{  if not Result then
-   if Self.IsView then
-    Result := Self.Get_ElementProp('Original').IsSameElement(l_Other);}
+   Result := (Self.MainWord.GetRefForCompare = anOther.MainWord.GetRefForCompare);
  end;//anOther = nil
 //#UC END# *57AC39AE0181_57A9F5170275_impl*
 end;//TmsmModelElement.IsSameElement
 
-function TmsmModelElement.Get_List(const aName: AnsiString): ImsmModelElementList;
+function TmsmModelElement.Get_MEList(const aName: AnsiString): ImsmModelElementList;
 //#UC START# *57B2F55702DE_57A9F5170275get_var*
 //#UC END# *57B2F55702DE_57A9F5170275get_var*
 begin
 //#UC START# *57B2F55702DE_57A9F5170275get_impl*
- if (aName = 'Children') then
-  Result := Get_Children
- else
-  Result := TmsmModelElementList.Make(MainWord, TmsmModelElementMethodCaller.CallAndGetList(MainWord, aName), aName);
+ Result := TmsmModelElementList.Make(TmsmModelElementView_C(Self, aName));
 //#UC END# *57B2F55702DE_57A9F5170275get_impl*
-end;//TmsmModelElement.Get_List
+end;//TmsmModelElement.Get_MEList
 
 function TmsmModelElement.Get_StringProp(const aName: AnsiString): Il3CString;
 //#UC START# *57B301FD025C_57A9F5170275get_var*
@@ -184,21 +179,10 @@ end;//TmsmModelElement.Get_BoolProp
 
 function TmsmModelElement.Get_ElementProp(const aName: AnsiString): ImsmModelElement;
 //#UC START# *57B5E9BE022F_57A9F5170275get_var*
-var
- l_P : TObject;
 //#UC END# *57B5E9BE022F_57A9F5170275get_var*
 begin
 //#UC START# *57B5E9BE022F_57A9F5170275get_impl*
- if (aName = 'Parent') then
-  Result := Get_Parent
- else
- begin
-  l_P := TmsmModelElementMethodCaller.CallAndGetObj(MainWord, aName);
-  if (l_P = nil) then
-   Result := nil
-  else
-   Result := TmsmModelElementFactory.Make(l_P As TtfwWord);
- end;//aName = 'Parent'
+ Result := MakeFromObj(TmsmModelElementMethodCaller.CallAndGetObj(MainWord, aName));
 //#UC END# *57B5E9BE022F_57A9F5170275get_impl*
 end;//TmsmModelElement.Get_ElementProp
 
@@ -220,21 +204,77 @@ begin
 //#UC END# *57D1435E002F_57A9F5170275_impl*
 end;//TmsmModelElement.IsView
 
+function TmsmModelElement.Get_ListProp(const aName: AnsiString): ItfwValueList;
+//#UC START# *57E30E3802C5_57A9F5170275get_var*
+//#UC END# *57E30E3802C5_57A9F5170275get_var*
+begin
+//#UC START# *57E30E3802C5_57A9F5170275get_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetList(MainWord, aName);
+//#UC END# *57E30E3802C5_57A9F5170275get_impl*
+end;//TmsmModelElement.Get_ListProp
+
+function TmsmModelElement.IsSameElementView(const anOther: ImsmModelElement): Boolean;
+//#UC START# *57E3F150013E_57A9F5170275_var*
+//#UC END# *57E3F150013E_57A9F5170275_var*
+begin
+//#UC START# *57E3F150013E_57A9F5170275_impl*
+ if (anOther = nil) then
+  Result := false
+ else
+ begin
+  Result := l3IEQ(Self, anOther);
+  if not Result then
+   Result := (Self.MainWord.GetRefForCompare = anOther.MainWord.GetRefForCompare);
+  if not Result then
+   Result := Self.Get_ElementProp('Viewed').IsSameElement(anOther.ElementProp['Viewed']);
+ end;//anOther = nil
+//#UC END# *57E3F150013E_57A9F5170275_impl*
+end;//TmsmModelElement.IsSameElementView
+
+function TmsmModelElement.IsViewLink: Boolean;
+//#UC START# *57E3F1660281_57A9F5170275_var*
+//#UC END# *57E3F1660281_57A9F5170275_var*
+begin
+//#UC START# *57E3F1660281_57A9F5170275_impl*
+ Result := Get_BoolProp('IsViewLink');
+//#UC END# *57E3F1660281_57A9F5170275_impl*
+end;//TmsmModelElement.IsViewLink
+
+function TmsmModelElement.Call(const aParameters: array of TtfwStackValue;
+ const aMethodName: AnsiString): TtfwStackValue;
+//#UC START# *57E3F2E600D8_57A9F5170275_var*
+
+ function tfwCatValueArray(const A: array of TtfwStackValue;
+                           const B: array of TtfwStackValue): TtfwStackValuesArray;
+ var
+  l_ALen  : Integer;
+  l_BLen  : Integer;
+  l_Index : Integer;
+ begin//tfwCatValueArray
+  l_ALen := Succ(High(A));
+  l_BLen := Succ(High(B));
+  SetLength(Result, l_ALen + l_BLen);
+  for l_Index := 0 to Pred(l_ALen) do
+   Result[l_Index] := A[l_Index];
+  for l_Index := 0 to Pred(l_BLen) do
+   Result[l_ALen + l_Index] := B[l_Index];
+ end;//tfwCatValueArray
+ 
+//#UC END# *57E3F2E600D8_57A9F5170275_var*
+begin
+//#UC START# *57E3F2E600D8_57A9F5170275_impl*
+ Result := TmsmModelElementMethodCaller.Call(tfwCatValueArray([TtfwStackValue_C(MainWord)], aParameters), aMethodName);
+//#UC END# *57E3F2E600D8_57A9F5170275_impl*
+end;//TmsmModelElement.Call
+
 procedure TmsmModelElement.Cleanup;
  {* Функция очистки полей объекта. }
 //#UC START# *479731C50290_57A9F5170275_var*
 //#UC END# *479731C50290_57A9F5170275_var*
 begin
 //#UC START# *479731C50290_57A9F5170275_impl*
- f_Children := nil;
  inherited;
 //#UC END# *479731C50290_57A9F5170275_impl*
 end;//TmsmModelElement.Cleanup
-
-procedure TmsmModelElement.ClearFields;
-begin
- f_Children := nil;
- inherited;
-end;//TmsmModelElement.ClearFields
 
 end.

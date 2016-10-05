@@ -1,0 +1,74 @@
+// VarWorkingPack 5512AB3401E0 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5512AB3401E0
+
+FORWARD ME_5512AB3401E0
+
+FORWARD ME_4DBFC39C0233
+
+ME ME_4DB0614603C8_ME_4DBFC39C0233
+ MELINK Original WL 'ME_4DB0614603C8' '4F3E3F5F0160.ms.model.script' // GetWordNameForRegister
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB0614603C8_ME_4DBFC39C0233 GetWordNameForRegister
+
+%%InheritedBy ME_4DBFC3520093 ME_4DBFC39C0233
+
+ME ME_4DBFC39C0233
+ MEPROP UID '4DBFC39C0233'
+ MEPROP Name 'CONST'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Определяет константу.'#13#10'Пример:'#13#10'{code}'#13#10' CONST cFake1 5'#13#10'{code}' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5512AB3401E0 // VarWorkingPack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DBFC3520093' '54F079B5035C.ms.model.script' // TtfwConst
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4DB0614603C8_ME_4DBFC39C0233 // GetWordNameForRegister
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '03.05.2011 12:58'
+ UP extprop:pas:TypeName 'TkwCONST'
+ UP extprop:rc:SelfName 'CONST'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DBFC39C0233 CONST
+
+%%InheritedBy ME_4DB00A510300 ME_5512AB3401E0
+
+ME ME_5512AB3401E0
+ MEPROP UID '5512AB3401E0'
+ MEPROP Name 'VarWorkingPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F43A0A401E6' '4F43A0A401E6.ms.model.script' // Basics
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_4DBFC39C0233 // CONST
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\VarWorkingPack.pas'
+
+ENDME // ME_5512AB3401E0 VarWorkingPack

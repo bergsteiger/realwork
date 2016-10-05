@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4A785027038D
+%%Inner ME_4A785027038D
+%%Inner ME_4A785027038D
+%%Inner ME_4A785027038D
+%%Inner ME_4A785027038D
+
 FORWARD ME_4A785027038D
 
 FORWARD ME_4A7FF2C901C8
@@ -71,6 +77,10 @@ ME ME_4A7FF1AC035C_ME_4A7FF2C901C8
  UP "pm" false
 ENDME // ME_4A7FF1AC035C_ME_4A7FF2C901C8 RedactionCurrentPara
 
+%%ImplementedBy ME_4A7FF1760065 ME_4A7FF2C901C8
+
+%%InheritedBy ME_49E7754802A9 ME_4A7FF2C901C8
+
 ME ME_4A7FF2C901C8
  MEPROP UID '4A7FF2C901C8'
  MEPROP Name 'TnsRedactionCurrentPara'
@@ -101,6 +111,9 @@ ME ME_4A7FF2C901C8
    Seq: ( ME_4A7FF1AC035C_ME_4A7FF2C901C8 // RedactionCurrentPara
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '10.08.2009 14:25'
@@ -110,139 +123,6 @@ ME ME_4A7FF2C901C8
  UP extprop:pas:UnitName 'nsRedactionCurrentPara'
 
 ENDME // ME_4A7FF2C901C8 TnsRedactionCurrentPara
-
-FORWARD ME_4AE03C7F0002
-
-ME ME_4A803A1603A3
- MEPROP UID '4A803A1603A3'
- MEPROP Name 'f_Doc'
- MEPROP Class class_Attribute
- %SUMMARY 'Документ' ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_ref
- MELINK Parent HWL ME_4AE03C7F0002 // MnsDocument
- ;
- MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
- ;
-
-ENDME // ME_4A803A1603A3 f_Doc
-
-ME ME_4B5853970232
- MEPROP UID '4B5853970232'
- MEPROP Name 'f_DocumentForReturn'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_ref
- MELINK Parent HWL ME_4AE03C7F0002 // MnsDocument
- ;
- MELINK Target WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
- ;
-
-ENDME // ME_4B5853970232 f_DocumentForReturn
-
-FORWARD ME_4AE03D230118
-
-ME ME_4AE03D3D0139
- MEPROP Name 'aDoc'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_45EEB6520191' '4570511E038A.ms.model.script' // Document
- ;
-
-ENDME // ME_4AE03D3D0139 aDoc
-
-ME ME_4B58538400F7
- MEPROP Name 'aDocumentForReturn'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4B60748400F9' '5795D66F0385.ms.model.script' // TnsDocumentForReturnInfo
- ;
-
-ENDME // ME_4B58538400F7 aDocumentForReturn
-
-ME ME_4AE03D3A000E
- MEPROP UID '4AE03D3A000E'
- MEPROP Name 'Init'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AE03D230118 // Init
- ;
- MELIST Parameters
-   Seq: ( ME_4AE03D3D0139 // aDoc
- ME_4B58538400F7 // aDocumentForReturn
- )
- ; // Parameters
-
-ENDME // ME_4AE03D3A000E Init
-
-ME ME_4AE03D230118
- MEPROP UID '4AE03D230118'
- MEPROP Name 'Init'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AE03C7F0002 // MnsDocument
- ;
- MELIST Operations
-   Seq: ( HWL ME_4AE03D3A000E // Init
- )
- ; // Operations
-
-ENDME // ME_4AE03D230118 Init
-
-ME ME_4A8006FC02A1_ME_4AE03C7F0002
- MELINK Original WL 'ME_4A8006FC02A1' '4A6D56B00065.ms.model.script' // Document
- ;
- MEPROP OpKind opkind_Implemented
- UP "pm" false
-ENDME // ME_4A8006FC02A1_ME_4AE03C7F0002 Document
-
-ME ME_4B5852A800F5_ME_4AE03C7F0002
- MELINK Original WL 'ME_4B5852A800F5' '4A6D56B00065.ms.model.script' // DocumentForReturn
- ;
- MEPROP OpKind opkind_Implemented
- UP "pm" false
-ENDME // ME_4B5852A800F5_ME_4AE03C7F0002 DocumentForReturn
-
-ME ME_4AE03C7F0002
- MEPROP UID '4AE03C7F0002'
- MEPROP Name 'MnsDocument'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A785027038D // CommonObjects
- ;
- MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
- WL 'ME_4A8015F803BA' '4A6D56B00065.ms.model.script' // MnsDocument
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_4A803A1603A3 // f_Doc
- HWL ME_4B5853970232 // f_DocumentForReturn
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_4AE03D230118 // Init
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_4A8006FC02A1_ME_4AE03C7F0002 // Document
- ME_4B5852A800F5_ME_4AE03C7F0002 // DocumentForReturn
- )
- ; // Implemented
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Editions\MnsDocument.imp.pas'
- UP extprop:pas:TypeName '_MnsDocument_'
- UP extprop:pas:UnitName 'MnsDocument.imp'
-
-ENDME // ME_4AE03C7F0002 MnsDocument
 
 FORWARD ME_4A8039EF0325
 
@@ -309,6 +189,9 @@ ME ME_4B585365015A
 
 ENDME // ME_4B585365015A Create
 
+%%InheritedBy ME_4A7FF2C901C8 ME_4A8039EF0325
+%%InheritedBy ME_4AE03C7F0002 ME_4A8039EF0325
+
 ME ME_4A8039EF0325
  MEPROP UID '4A8039EF0325'
  MEPROP Name 'TnsCompareEditionsInfoPrim'
@@ -321,13 +204,16 @@ ME ME_4A8039EF0325
  ;
  MELIST Inherits
    Seq: ( HWL ME_4A7FF2C901C8 // TnsRedactionCurrentPara
- HWL ME_4AE03C7F0002 // MnsDocument
+ WL 'ME_4AE03C7F0002' '4AE03C7F0002.ms.model.script' // MnsDocument
  )
  ; // Inherits
  MELIST Operations
    Seq: ( HWL ME_4B585365015A // Create
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '10.08.2009 19:27'
@@ -393,6 +279,8 @@ ME ME_4AE03BD6033A
 
 ENDME // ME_4AE03BD6033A Create
 
+%%InheritedBy ME_4AE03BD6033A ME_4B5855F501BE
+
 ME ME_4B5855F501BE
  MEPROP UID '4B5855F501BE'
  MEPROP Name 'Make'
@@ -410,6 +298,11 @@ ME ME_4B5855F501BE
 
 ENDME // ME_4B5855F501BE Make
 
+%%ImplementedBy ME_4AE03A510168 ME_4AE03B550243
+%%ImplementedBy ME_4AE03C7F0002 ME_4AE03B550243
+
+%%InheritedBy ME_49E7754802A9 ME_4AE03B550243
+
 ME ME_4AE03B550243
  MEPROP UID '4AE03B550243'
  MEPROP Name 'TnsEditionsContainerData'
@@ -426,7 +319,7 @@ ME ME_4AE03B550243
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_4AE03A510168' '4A6D56B00065.ms.model.script' // InsEditionsContainerData
- HWL ME_4AE03C7F0002 // MnsDocument
+ WL 'ME_4AE03C7F0002' '4AE03C7F0002.ms.model.script' // MnsDocument
  )
  ; // Implements
  MELIST Operations
@@ -434,6 +327,9 @@ ME ME_4AE03B550243
  HWL ME_4B5855F501BE // Make
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '22.10.2009 15:00'
@@ -455,7 +351,7 @@ ME ME_4B6BD928020F
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4B6BD928020F f_EditionForCompare
@@ -469,7 +365,7 @@ ME ME_5214A2B10047
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4A78506900E2 // TnsCompareEditionsInfo
  ;
- MELINK Target WL 'ME_491B329F0330' '47F2170002B2.ms.model.script' // TbsDocPos
+ MELINK Target WL 'ME_491B329F0330' '4BA763B0004B.ms.model.script' // TbsDocPos
  ;
 
 ENDME // ME_5214A2B10047 f_Position
@@ -498,7 +394,7 @@ ME ME_4B6BD8A202D8
  MEPROP Name 'aEditionForCompare'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4B6BD8A202D8 aEditionForCompare
@@ -530,6 +426,8 @@ ME ME_4B6BD89101A7
 
 ENDME // ME_4B6BD89101A7 <<>> DoIt
 
+%%InheritedBy ME_4B585365015A ME_4B6BD88A03B2
+
 ME ME_4B6BD88A03B2
  MEPROP UID '4B6BD88A03B2'
  MEPROP Name 'Create'
@@ -550,6 +448,8 @@ ME ME_4B6BD88A03B2
  ; // Operations
 
 ENDME // ME_4B6BD88A03B2 Create
+
+%%InheritedBy ME_4B6BD88A03B2 ME_4B58531A01AF
 
 ME ME_4B58531A01AF
  MEPROP UID '4B58531A01AF'
@@ -583,7 +483,7 @@ ME ME_5214BEE10216
  MEPROP Name 'aPosition'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_491B329F0330' '47F2170002B2.ms.model.script' // TbsDocPos
+ MELINK Target WL 'ME_491B329F0330' '4BA763B0004B.ms.model.script' // TbsDocPos
  ;
 
 ENDME // ME_5214BEE10216 aPosition
@@ -592,7 +492,7 @@ ME ME_5214BEE1022D
  MEPROP Name 'aEditionForCompare'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5214BEE1022D aEditionForCompare
@@ -624,6 +524,8 @@ ME ME_5214BEC60003
 
 ENDME // ME_5214BEC60003 DoIt
 
+%%InheritedBy ME_4B6BD88A03B2 ME_5214BEB10136
+
 ME ME_5214BEB10136
  MEPROP UID '5214BEB10136'
  MEPROP Name 'Create'
@@ -645,6 +547,8 @@ ME ME_5214BEB10136
  ; // Operations
 
 ENDME // ME_5214BEB10136 Create$1
+
+%%InheritedBy ME_5214BEB10136 ME_5214BEE803DD
 
 ME ME_5214BEE803DD
  MEPROP UID '5214BEE803DD'
@@ -685,6 +589,10 @@ ME ME_5214A243027F_ME_4A78506900E2
  UP "pm" false
 ENDME // ME_5214A243027F_ME_4A78506900E2 Position
 
+%%ImplementedBy ME_4A784CC802B0 ME_4A78506900E2
+
+%%InheritedBy ME_4A8039EF0325 ME_4A78506900E2
+
 ME ME_4A78506900E2
  MEPROP UID '4A78506900E2'
  MEPROP Name 'TnsCompareEditionsInfo'
@@ -721,6 +629,9 @@ ME ME_4A78506900E2
  ME_5214A243027F_ME_4A78506900E2 // Position
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '04.08.2009 19:15'
@@ -744,7 +655,7 @@ ME ME_4A785027038D
  ;
  MELIST Children
    Seq: ( HWL ME_4A7FF2C901C8 // TnsRedactionCurrentPara
- HWL ME_4AE03C7F0002 // MnsDocument
+ WL 'ME_4AE03C7F0002' '4AE03C7F0002.ms.model.script' // MnsDocument
  HWL ME_4A8039EF0325 // TnsCompareEditionsInfoPrim
  HWL ME_4AE03B550243 // TnsEditionsContainerData
  HWL ME_4A78506900E2 // TnsCompareEditionsInfo
@@ -762,5 +673,8 @@ ME ME_4A785027038D
  WL 'ME_5795D66F0385' '5795D66F0385.ms.model.script' // F1Services
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4A785027038D CommonObjects

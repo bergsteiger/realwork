@@ -1,0 +1,47 @@
+// DTTypesUser 55FFC24301D0 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55FFC24301D0
+
+ME ME_5617B80503BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55FFC24301D0 // DTTypesUser
+ ;
+ MELINK Target WL 'ME_560A4D4F01AE' '5603ED3D011B.ms.model.script' // TddExportDivideBy
+ ;
+
+ENDME // ME_5617B80503BC 
+
+ME ME_561B5A93027F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55FFC24301D0 // DTTypesUser
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_561B5A93027F 
+
+ME ME_55FFC24301D0
+ MEPROP UID '55FFC24301D0'
+ MEPROP Name 'DTTypesUser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_55FFC20F00A6' '55FFC20F00A6.ms.model.script' // ExportPipeTestsSupport
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5617B80503BC // TddExportDivideBy
+ ME_561B5A93027F // l3CStr
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'archi\source\projects\ImportExportTest\DTTypesUser.imp.pas'
+ UP extprop:pas:TypeName '_DTTypesUser_'
+ UP extprop:pas:UnitName 'DTTypesUser.imp'
+
+ENDME // ME_55FFC24301D0 DTTypesUser

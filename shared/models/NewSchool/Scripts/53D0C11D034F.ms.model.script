@@ -1,0 +1,84 @@
+// evReqCellHotSpot 53D0C11D034F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53D0C11D034F
+
+FORWARD ME_53D0C11D034F
+
+FORWARD ME_53D0C1380262
+
+ME ME_53D0C16103A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D0C1380262 // TevReqCellHotSpotTester
+ ;
+ MELINK Target WL 'ME_4857EA320141' '53D258F1004F.ms.model.script' // TevReqCell
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D0C16103A9 
+
+ME ME_53D0C18202E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D0C1380262 // TevReqCellHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" true
+
+ENDME // ME_53D0C18202E1 
+
+%%InjectedBy ME_4857EA320141 ME_53D0C1380262
+
+%%InheritedBy ME_53D0C0F701B2 ME_53D0C1380262
+
+ME ME_53D0C1380262
+ MEPROP UID '53D0C1380262'
+ MEPROP Name 'TevReqCellHotSpotTester'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53D0C11D034F // evReqCellHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53D0C0F701B2' '53D0C0DD0037.ms.model.script' // TevTableCellHotSpotTester
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D0C16103A9 // TevReqCell
+ ME_53D0C18202E1 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ UP "ifndef" 'evCanEditControlsAsText'
+ UP extprop:rc:SelfName 'ReqCellHotSpotTester'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53D0C1380262 TevReqCellHotSpotTester
+
+ME ME_53D0C11D034F
+ MEPROP UID '53D0C11D034F'
+ MEPROP Name 'evReqCellHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A267EE3017B' '4A267EE3017B.ms.model.script' // HotSpots
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53D0C1380262 // TevReqCellHotSpotTester
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evReqCellHotSpot.pas'
+ UP extprop:rc:SelfName 'ReqCellHotSpot'
+
+ENDME // ME_53D0C11D034F evReqCellHotSpot

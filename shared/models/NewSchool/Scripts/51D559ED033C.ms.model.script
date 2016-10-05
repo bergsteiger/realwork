@@ -1,0 +1,1813 @@
+// ddAppConfigUtils 51D559ED033C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51D559ED033C
+
+FORWARD ME_51D559ED033C
+
+FORWARD ME_522F684203BF
+
+ME ME_52307C830239
+ MEPROP UID '52307C830239'
+ MEPROP Name 'Item'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_522F684203BF // TddItemLink
+ ;
+ MELINK Target WL 'ME_4E302F24003F' '52161F2B00C4.ms.model.script' // TddVisualConfigItem
+ ;
+
+ENDME // ME_52307C830239 Item
+
+ME ME_52307C9A037C
+ MEPROP UID '52307C9A037C'
+ MEPROP Name 'Next'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_522F684203BF // TddItemLink
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+
+ENDME // ME_52307C9A037C Next
+
+FORWARD ME_52307CDE03D5
+
+ME ME_52307CF00001
+ MEPROP Name 'aItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E302F24003F' '52161F2B00C4.ms.model.script' // TddVisualConfigItem
+ ;
+
+ENDME // ME_52307CF00001 aItem
+
+ME ME_52307CF00018
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+
+ENDME // ME_52307CF00018 aNext
+
+ME ME_52307CED026B
+ MEPROP UID '52307CED026B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307CDE03D5 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307CF00001 // aItem
+ ME_52307CF00018 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307CED026B DoIt
+
+ME ME_52307CDE03D5
+ MEPROP UID '52307CDE03D5'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307CED026B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307CDE03D5 Create
+
+%%InheritedBy ME_49E7754802A9 ME_522F684203BF
+
+ME ME_522F684203BF
+ MEPROP UID '522F684203BF'
+ MEPROP Name 'TddItemLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52307C830239 // Item
+ HWL ME_52307C9A037C // Next
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52307CDE03D5 // Create
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddItemLink'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_522F684203BF TddItemLink
+
+FORWARD ME_52307C3D02F6
+
+ME ME_52307C4A037A
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D547F700AB' '52161F2B00C4.ms.model.script' // TddAppConfigNode
+ ;
+
+ENDME // ME_52307C4A037A aNode
+
+ME ME_52307C4A0392
+ MEPROP Name 'aValidate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_52307C4A0392 aValidate
+
+ME ME_52307C4702FC
+ MEPROP UID '52307C4702FC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307C3D02F6 // ExecuteNodeDialog
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307C4A037A // aNode
+ ME_52307C4A0392 // aValidate
+ )
+ ; // Parameters
+
+ENDME // ME_52307C4702FC DoIt
+
+ME ME_52307C3D02F6
+ MEPROP UID '52307C3D02F6'
+ MEPROP Name 'ExecuteNodeDialog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307C4702FC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307C3D02F6 ExecuteNodeDialog
+
+FORWARD ME_52307D2E00B5
+
+ME ME_52307D430146
+ MEPROP Name 'aAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307D430146 aAlias
+
+ME ME_52307D43015F
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307D43015F aCaption
+
+ME ME_52307D430176
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307D430176 aDefault
+
+ME ME_52307D43018D
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307D43018D aNext
+
+ME ME_52307D360396
+ MEPROP UID '52307D360396'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307D2E00B5 // MakeString$1
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307D430146 // aAlias
+ ME_52307D43015F // aCaption
+ ME_52307D430176 // aDefault
+ ME_52307D43018D // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307D360396 DoIt
+
+ME ME_52307D2E00B5
+ MEPROP UID '52307D2E00B5'
+ MEPROP Name 'MakeString'
+ MEPROP OriginalName 'MakeString$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307D360396 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307D2E00B5 MakeString$1
+
+FORWARD ME_52307D6901A1
+
+ME ME_52307D9100A1
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307D9100A1 aCaption
+
+ME ME_52307D9100BA
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307D9100BA aDefault
+
+ME ME_52307D9100D3
+ MEPROP Name 'aPassChar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_52307D9100D3 aPassChar
+
+ME ME_52307D9100EB
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307D9100EB aNext
+
+ME ME_52307D8403D8
+ MEPROP UID '52307D8403D8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307D6901A1 // MakeString$2
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307D9100A1 // aCaption
+ ME_52307D9100BA // aDefault
+ ME_52307D9100D3 // aPassChar
+ ME_52307D9100EB // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307D8403D8 DoIt
+
+ME ME_52307D6901A1
+ MEPROP UID '52307D6901A1'
+ MEPROP Name 'MakeString'
+ MEPROP OriginalName 'MakeString$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307D8403D8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307D6901A1 MakeString$2
+
+FORWARD ME_52307DAE02AF
+
+ME ME_52307DC40281
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307DC40281 aCaption
+
+ME ME_52307DC40298
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307DC40298 aFilter
+
+ME ME_52307DC402B1
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307DC402B1 aDefault
+
+ME ME_52307DC402C9
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307DC402C9 aNext
+
+ME ME_52307DB8021F
+ MEPROP UID '52307DB8021F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307DAE02AF // MakeFileName$1
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307DC40281 // aCaption
+ ME_52307DC40298 // aFilter
+ ME_52307DC402B1 // aDefault
+ ME_52307DC402C9 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307DB8021F DoIt
+
+ME ME_52307DAE02AF
+ MEPROP UID '52307DAE02AF'
+ MEPROP Name 'MakeFileName'
+ MEPROP OriginalName 'MakeFileName$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307DB8021F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307DAE02AF MakeFileName$1
+
+FORWARD ME_52307DDE001A
+
+ME ME_52307DF601E7
+ MEPROP Name 'aAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307DF601E7 aAlias
+
+ME ME_52307DF601FE
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307DF601FE aCaption
+
+ME ME_52307DF60216
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307DF60216 aFilter
+
+ME ME_52307DF6022E
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307DF6022E aDefault
+
+ME ME_52307DF60246
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307DF60246 aNext
+
+ME ME_52307DEA00B7
+ MEPROP UID '52307DEA00B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307DDE001A // MakeFileName$2
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307DF601E7 // aAlias
+ ME_52307DF601FE // aCaption
+ ME_52307DF60216 // aFilter
+ ME_52307DF6022E // aDefault
+ ME_52307DF60246 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307DEA00B7 DoIt
+
+ME ME_52307DDE001A
+ MEPROP UID '52307DDE001A'
+ MEPROP Name 'MakeFileName'
+ MEPROP OriginalName 'MakeFileName$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307DEA00B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307DDE001A MakeFileName$2
+
+FORWARD ME_52307E12007E
+
+ME ME_52307E2203B5
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307E2203B5 aCaption
+
+ME ME_52307E2203CC
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52307E2203CC aDefault
+
+ME ME_52307E2203E5
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307E2203E5 aNext
+
+ME ME_52307E1D00A3
+ MEPROP UID '52307E1D00A3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307E12007E // MakeInteger$1
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307E2203B5 // aCaption
+ ME_52307E2203CC // aDefault
+ ME_52307E2203E5 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307E1D00A3 DoIt
+
+ME ME_52307E12007E
+ MEPROP UID '52307E12007E'
+ MEPROP Name 'MakeInteger'
+ MEPROP OriginalName 'MakeInteger$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307E1D00A3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307E12007E MakeInteger$1
+
+FORWARD ME_52307E30023F
+
+ME ME_52307E4702AA
+ MEPROP Name 'aAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307E4702AA aAlias
+
+ME ME_52307E4702C2
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307E4702C2 aCaption
+
+ME ME_52307E4702D9
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52307E4702D9 aDefault
+
+ME ME_52307E4702F0
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307E4702F0 aNext
+
+ME ME_52307E3A0278
+ MEPROP UID '52307E3A0278'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307E30023F // MakeInteger$2
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307E4702AA // aAlias
+ ME_52307E4702C2 // aCaption
+ ME_52307E4702D9 // aDefault
+ ME_52307E4702F0 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307E3A0278 DoIt
+
+ME ME_52307E30023F
+ MEPROP UID '52307E30023F'
+ MEPROP Name 'MakeInteger'
+ MEPROP OriginalName 'MakeInteger$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307E3A0278 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307E30023F MakeInteger$2
+
+FORWARD ME_52307E6B0051
+
+ME ME_52307E7703B0
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51D547F700AB' '52161F2B00C4.ms.model.script' // TddAppConfigNode
+ ;
+
+ENDME // ME_52307E7703B0 aNode
+
+ME ME_52307E7703C7
+ MEPROP Name 'aItems'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+
+ENDME // ME_52307E7703C7 aItems
+
+ME ME_52307E7403D1
+ MEPROP UID '52307E7403D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307E6B0051 // AppendNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307E7703B0 // aNode
+ ME_52307E7703C7 // aItems
+ )
+ ; // Parameters
+
+ENDME // ME_52307E7403D1 DoIt
+
+ME ME_52307E6B0051
+ MEPROP UID '52307E6B0051'
+ MEPROP Name 'AppendNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307E7403D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307E6B0051 AppendNode
+
+FORWARD ME_52307E89023B
+
+ME ME_52307E930011
+ MEPROP UID '52307E930011'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307E89023B // MakeDefaultStorage
+ ;
+ MELINK Target WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+
+ENDME // ME_52307E930011 DoIt
+
+ME ME_52307E89023B
+ MEPROP UID '52307E89023B'
+ MEPROP Name 'MakeDefaultStorage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307E930011 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'Nemesis'
+
+ENDME // ME_52307E89023B MakeDefaultStorage
+
+FORWARD ME_52307ED502A2
+
+ME ME_52307EE901AE
+ MEPROP Name 'aAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307EE901AE aAlias
+
+ME ME_52307EE901C6
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307EE901C6 aCaption
+
+ME ME_52307EE901DD
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307EE901DD aDefault
+
+ME ME_52307EE901F4
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307EE901F4 aNext
+
+ME ME_52307EDF0138
+ MEPROP UID '52307EDF0138'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307ED502A2 // MakeFolderName$1
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307EE901AE // aAlias
+ ME_52307EE901C6 // aCaption
+ ME_52307EE901DD // aDefault
+ ME_52307EE901F4 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307EDF0138 DoIt
+
+ME ME_52307ED502A2
+ MEPROP UID '52307ED502A2'
+ MEPROP Name 'MakeFolderName'
+ MEPROP OriginalName 'MakeFolderName$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307EDF0138 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307ED502A2 MakeFolderName$1
+
+FORWARD ME_52307EFF0216
+
+ME ME_52307F0F03C9
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307F0F03C9 aCaption
+
+ME ME_52307F0F03E1
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307F0F03E1 aDefault
+
+ME ME_52307F100010
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307F100010 aNext
+
+ME ME_52307F080139
+ MEPROP UID '52307F080139'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307EFF0216 // MakeFolderName$2
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307F0F03C9 // aCaption
+ ME_52307F0F03E1 // aDefault
+ ME_52307F100010 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307F080139 DoIt
+
+ME ME_52307EFF0216
+ MEPROP UID '52307EFF0216'
+ MEPROP Name 'MakeFolderName'
+ MEPROP OriginalName 'MakeFolderName$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307F080139 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307EFF0216 MakeFolderName$2
+
+FORWARD ME_52307F4602C7
+
+ME ME_52307F6B0385
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52307F6B0385 aCaption
+
+ME ME_52307F6B039D
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_52307F6B039D aDefault
+
+ME ME_52307F6B03B5
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52307F6B03B5 aNext
+
+ME ME_52307F630040
+ MEPROP UID '52307F630040'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307F4602C7 // MakeDate
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52307F6B0385 // aCaption
+ ME_52307F6B039D // aDefault
+ ME_52307F6B03B5 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_52307F630040 DoIt
+
+ME ME_52307F4602C7
+ MEPROP UID '52307F4602C7'
+ MEPROP Name 'MakeDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307F630040 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307F4602C7 MakeDate
+
+FORWARD ME_52307F8F0103
+
+ME ME_5230800903BE
+ MEPROP Name 'aAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230800903BE aAlias
+
+ME ME_5230800903D8
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230800903D8 aCaption
+
+ME ME_5230800A000A
+ MEPROP Name 'aLabelTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5230800A000A aLabelTop
+
+ME ME_5230800A0023
+ MEPROP Name 'aItems'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+
+ENDME // ME_5230800A0023 aItems
+
+ME ME_52307FFF011D
+ MEPROP UID '52307FFF011D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52307F8F0103 // MakeNode
+ ;
+ MELINK Target WL 'ME_51D547F700AB' '52161F2B00C4.ms.model.script' // TddAppConfigNode
+ ;
+ MELIST Parameters
+   Seq: ( ME_5230800903BE // aAlias
+ ME_5230800903D8 // aCaption
+ ME_5230800A000A // aLabelTop
+ ME_5230800A0023 // aItems
+ )
+ ; // Parameters
+
+ENDME // ME_52307FFF011D DoIt
+
+ME ME_52307F8F0103
+ MEPROP UID '52307F8F0103'
+ MEPROP Name 'MakeNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307FFF011D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52307F8F0103 MakeNode
+
+FORWARD ME_5230801702A0
+
+ME ME_52308034033F
+ MEPROP Name 'aAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52308034033F aAlias
+
+ME ME_523080340356
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_523080340356 aCaption
+
+ME ME_52308034036D
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52308034036D aDefault
+
+ME ME_523080340385
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_523080340385 aNext
+
+ME ME_5230802C012B
+ MEPROP UID '5230802C012B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5230801702A0 // MakeBoolean$1
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_52308034033F // aAlias
+ ME_523080340356 // aCaption
+ ME_52308034036D // aDefault
+ ME_523080340385 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_5230802C012B DoIt
+
+ME ME_5230801702A0
+ MEPROP UID '5230801702A0'
+ MEPROP Name 'MakeBoolean'
+ MEPROP OriginalName 'MakeBoolean$1'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5230802C012B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5230801702A0 MakeBoolean$1
+
+FORWARD ME_523080530337
+
+ME ME_5230807401A8
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230807401A8 aCaption
+
+ME ME_5230807401BF
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5230807401BF aNext
+
+ME ME_5230806D032F
+ MEPROP UID '5230806D032F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523080530337 // MakeStrings
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_5230807401A8 // aCaption
+ ME_5230807401BF // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_5230806D032F DoIt
+
+ME ME_523080530337
+ MEPROP UID '523080530337'
+ MEPROP Name 'MakeStrings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5230806D032F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523080530337 MakeStrings
+
+FORWARD ME_523080A201D2
+
+ME ME_523080AE0207
+ MEPROP Name 'aItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E302F24003F' '52161F2B00C4.ms.model.script' // TddVisualConfigItem
+ ;
+
+ENDME // ME_523080AE0207 aItem
+
+ME ME_523080AE021F
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_523080AE021F aNext
+
+ME ME_523080AA024C
+ MEPROP UID '523080AA024C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523080A201D2 // MakeCustomItem
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_523080AE0207 // aItem
+ ME_523080AE021F // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_523080AA024C DoIt
+
+ME ME_523080A201D2
+ MEPROP UID '523080A201D2'
+ MEPROP Name 'MakeCustomItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523080AA024C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523080A201D2 MakeCustomItem
+
+FORWARD ME_523081B70301
+
+ME ME_523081C50363
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_523081C50363 aCaption
+
+ME ME_523081C50386
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_523081C50386 aDefault
+
+ME ME_523081C503BE
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_523081C503BE aNext
+
+ME ME_523081C0031A
+ MEPROP UID '523081C0031A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523081B70301 // MakeBoolean$2
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_523081C50363 // aCaption
+ ME_523081C50386 // aDefault
+ ME_523081C503BE // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_523081C0031A DoIt
+
+ME ME_523081B70301
+ MEPROP UID '523081B70301'
+ MEPROP Name 'MakeBoolean'
+ MEPROP OriginalName 'MakeBoolean$2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523081C0031A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523081B70301 MakeBoolean$2
+
+FORWARD ME_5230831903A5
+
+ME ME_5230838E0075
+ MEPROP Name 'aAlias'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230838E0075 aAlias
+
+ME ME_5230838E008E
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230838E008E aCaption
+
+ME ME_5230838E00A7
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230838E00A7 aDefault
+
+ME ME_5230838E00D0
+ MEPROP Name 'aPassChar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_5230838E00D0 aPassChar
+
+ME ME_5230838E011A
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5230838E011A aNext
+
+ME ME_5230838302D1
+ MEPROP UID '5230838302D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5230831903A5 // MakeString$3
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_5230838E0075 // aAlias
+ ME_5230838E008E // aCaption
+ ME_5230838E00A7 // aDefault
+ ME_5230838E00D0 // aPassChar
+ ME_5230838E011A // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_5230838302D1 DoIt
+
+ME ME_5230831903A5
+ MEPROP UID '5230831903A5'
+ MEPROP Name 'MakeString'
+ MEPROP OriginalName 'MakeString$3'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5230838302D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5230831903A5 MakeString$3
+
+FORWARD ME_523083C403D7
+
+ME ME_523083D700A5
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_523083D700A5 aCaption
+
+ME ME_523083D700BD
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_523083D700BD aDefault
+
+ME ME_523083D700D6
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_523083D700D6 aNext
+
+ME ME_523083CF03BD
+ MEPROP UID '523083CF03BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523083C403D7 // MakeString$4
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_523083D700A5 // aCaption
+ ME_523083D700BD // aDefault
+ ME_523083D700D6 // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_523083CF03BD DoIt
+
+ME ME_523083C403D7
+ MEPROP UID '523083C403D7'
+ MEPROP Name 'MakeString'
+ MEPROP OriginalName 'MakeString$4'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_523083CF03BD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_523083C403D7 MakeString$4
+
+FORWARD ME_5230842302DB
+
+ME ME_5230843000F3
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230843000F3 aCaption
+
+ME ME_52308430010A
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52308430010A aNext
+
+ME ME_5230842C00F0
+ MEPROP UID '5230842C00F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5230842302DB // MakeDivider
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_5230843000F3 // aCaption
+ ME_52308430010A // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_5230842C00F0 DoIt
+
+ME ME_5230842302DB
+ MEPROP UID '5230842302DB'
+ MEPROP Name 'MakeDivider'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5230842C00F0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5230842302DB MakeDivider
+
+FORWARD ME_523084490017
+
+ME ME_5230845C03AC
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5230845C03AC aCaption
+
+ME ME_5230845C03C4
+ MEPROP Name 'aDefault'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_5230845C03C4 aDefault
+
+ME ME_5230845C03DC
+ MEPROP Name 'aNext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_522F684203BF // TddItemLink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_5230845C03DC aNext
+
+ME ME_5230845702FF
+ MEPROP UID '5230845702FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_523084490017 // MakeTime
+ ;
+ MELINK Target HWL ME_522F684203BF // TddItemLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_5230845C03AC // aCaption
+ ME_5230845C03C4 // aDefault
+ ME_5230845C03DC // aNext
+ )
+ ; // Parameters
+
+ENDME // ME_5230845702FF DoIt
+
+ME ME_523084490017
+ MEPROP UID '523084490017'
+ MEPROP Name 'MakeTime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5230845702FF // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'Nemesis'
+
+ENDME // ME_523084490017 MakeTime
+
+ME ME_52308545011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_52308545011A 
+
+ME ME_5230854803AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_5230854803AD 
+
+ME ME_5230854C0093
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_4808A20402DC' '4808A20402DC.ms.model.script' // Math
+ ;
+
+ENDME // ME_5230854C0093 
+
+ME ME_5230854F027E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_483C378301CB' '483C378301CB.ms.model.script' // StrUtils
+ ;
+
+ENDME // ME_5230854F027E 
+
+ME ME_52308553007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_52308553007B 
+
+ME ME_52308556030F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_4AB0EE02004E' '4AB0EE02004E.ms.model.script' // Dialogs
+ ;
+
+ENDME // ME_52308556030F 
+
+ME ME_5230855903E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5230855903E4 
+
+ME ME_523087250297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_523085B4007E' '523085B4007E.ms.model.script' // ddAppConfigSimpleBFrame
+ ;
+
+ENDME // ME_523087250297 
+
+ME ME_52308729014D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_4B9E62980158' '4B9E62980158.ms.model.script' // ddAppConfigStrings
+ ;
+
+ENDME // ME_52308729014D 
+
+ME ME_5230872D0002
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_4E304DD10316' '4E304DD10316.ms.model.script' // ddAppConfigConst
+ ;
+
+ENDME // ME_5230872D0002 
+
+ME ME_523087300119
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_5214B1B9029D' '5214B1B9029D.ms.model.script' // ddAppConfigDates
+ ;
+
+ENDME // ME_523087300119 
+
+ME ME_523087340154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_4B9E5DE1008B' '4B9E5DE1008B.ms.model.script' // ddAppConfigLists
+ ;
+
+ENDME // ME_523087340154 
+
+ME ME_5230873703E7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_47E1227902E1' '47E1227902E1.ms.model.script' // afwVCL
+ ;
+
+ENDME // ME_5230873703E7 
+
+ME ME_5230873B0282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_5214AF4C01AF' '51D518E70109.ms.model.script' // TddIniStorage
+ ;
+
+ENDME // ME_5230873B0282 
+
+ME ME_5230987B02C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51D559ED033C // ddAppConfigUtils
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5230987B02C3 
+
+ME ME_51D559ED033C
+ MEPROP UID '51D559ED033C'
+ MEPROP Name 'ddAppConfigUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52307C3D02F6 // ExecuteNodeDialog
+ HWL ME_52307D2E00B5 // MakeString$1
+ HWL ME_52307D6901A1 // MakeString$2
+ HWL ME_52307DAE02AF // MakeFileName$1
+ HWL ME_52307DDE001A // MakeFileName$2
+ HWL ME_52307E12007E // MakeInteger$1
+ HWL ME_52307E30023F // MakeInteger$2
+ HWL ME_52307E6B0051 // AppendNode
+ HWL ME_52307E89023B // MakeDefaultStorage
+ HWL ME_52307ED502A2 // MakeFolderName$1
+ HWL ME_52307EFF0216 // MakeFolderName$2
+ HWL ME_52307F4602C7 // MakeDate
+ HWL ME_52307F8F0103 // MakeNode
+ HWL ME_5230801702A0 // MakeBoolean$1
+ HWL ME_523080530337 // MakeStrings
+ HWL ME_523080A201D2 // MakeCustomItem
+ HWL ME_523081B70301 // MakeBoolean$2
+ HWL ME_5230831903A5 // MakeString$3
+ HWL ME_523083C403D7 // MakeString$4
+ HWL ME_5230842302DB // MakeDivider
+ HWL ME_523084490017 // MakeTime
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_522F684203BF // TddItemLink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52308545011A // SysUtils
+ ME_5230854803AD // Windows
+ ME_5230854C0093 // Math
+ ME_5230854F027E // StrUtils
+ ME_52308553007B // Controls
+ ME_52308556030F // Dialogs
+ ME_5230855903E4 // Forms
+ ME_523087250297 // ddAppConfigSimpleBFrame
+ ME_52308729014D // ddAppConfigStrings
+ ME_5230872D0002 // ddAppConfigConst
+ ME_523087300119 // ddAppConfigDates
+ ME_523087340154 // ddAppConfigLists
+ ME_5230873703E7 // afwVCL
+ ME_5230873B0282 // TddIniStorage
+ ME_5230987B02C3 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAppConfigUtils.pas'
+
+ENDME // ME_51D559ED033C ddAppConfigUtils

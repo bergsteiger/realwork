@@ -44,6 +44,9 @@ type
    {$If NOT Defined(NoVCM)}
    function DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean; override;
    {$IfEnd} // NOT Defined(NoVCM)
+   {$If NOT Defined(NoVCM)}
+   function DoGetCanFormsetBeMain: Boolean; override;
+   {$IfEnd} // NOT Defined(NoVCM)
   public
    function CfFoldersNavigatorUtFoldersNeedMakeForm(const aDataSource: IvcmFormSetDataSource;
     out aNew: IvcmFormDataSource;
@@ -197,6 +200,15 @@ begin
  Result := False;
 //#UC END# *55E020470097_4AA4B2ED00FE_impl*
 end;//Tfs_Folders.DoGetCanSaveFormSetToHistory
+
+function Tfs_Folders.DoGetCanFormsetBeMain: Boolean;
+//#UC START# *57EBA36E0026_4AA4B2ED00FE_var*
+//#UC END# *57EBA36E0026_4AA4B2ED00FE_var*
+begin
+//#UC START# *57EBA36E0026_4AA4B2ED00FE_impl*
+ Result := False;
+//#UC END# *57EBA36E0026_4AA4B2ED00FE_impl*
+end;//Tfs_Folders.DoGetCanFormsetBeMain
 
 initialization
  str_fsFoldersCaption.Init;

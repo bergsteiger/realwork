@@ -1,0 +1,622 @@
+// k2TagGen 47ECAA270135 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47ECAA270135
+%%Inner ME_47ECAA270135
+%%Inner ME_47ECAA270135
+%%Inner ME_47ECAA270135
+
+FORWARD ME_47ECAA270135
+
+ME ME_4A3A35D30362
+ MEPROP UID '4A3A35D30362'
+ MEPROP GUID 'E2449818-8F20-4255-847C-CE853016CF3C'
+ MEPROP Name 'Ik2TagGeneratorWrap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA270135 // k2TagGen
+ ;
+ UP extprop:rc:SelfName 'TagGeneratorWrap'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A3A35D30362 Ik2TagGeneratorWrap
+
+ME ME_538C21C10077
+ MEPROP UID '538C21C10077'
+ MEPROP Name 'Tk2TagGeneratorOwner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA270135 // k2TagGen
+ ;
+ UP extprop:rc:SelfName 'TagGeneratorOwner'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_538C21C10077 Tk2TagGeneratorOwner
+
+ME ME_53C3C92502CE
+ MEPROP UID '53C3C92502CE'
+ MEPROP GUID '8E51C45A-4B99-4B6F-A266-EE9E388FE1C2'
+ MEPROP Name 'Ik2TagGeneratorChainEnd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA270135 // k2TagGen
+ ;
+ UP extprop:rc:SelfName 'TagGeneratorChainEnd'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53C3C92502CE Ik2TagGeneratorChainEnd
+
+FORWARD ME_47ECAA5B0394
+
+ME ME_4836D27F004B
+ MEPROP Name 'AtomIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4836D27F004B AtomIndex
+
+ME ME_530DFF330329
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_530DFF330329 aValue
+
+ME ME_4836D26F0055
+ MEPROP UID '4836D26F0055'
+ MEPROP Name 'AddAtom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D27F004B // AtomIndex
+ ME_530DFF330329 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4836D26F0055 AddAtom
+
+ME ME_4836D46F0370
+ MEPROP Name 'TypeID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5334230E0043' '53317D14019D.ms.model.script' // Tl3Type
+ ;
+
+ENDME // ME_4836D46F0370 TypeID
+
+ME ME_4836D4650177
+ MEPROP UID '4836D4650177'
+ MEPROP Name 'StartChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D46F0370 // TypeID
+ )
+ ; // Parameters
+
+ENDME // ME_4836D4650177 StartChild
+
+ME ME_4836D47D025F
+ MEPROP Name 'TagID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4836D47D025F TagID
+
+ME ME_4836D477022A
+ MEPROP UID '4836D477022A'
+ MEPROP Name 'StartTag'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D47D025F // TagID
+ )
+ ; // Parameters
+
+ENDME // ME_4836D477022A StartTag
+
+ME ME_4836D49800CA
+ MEPROP UID '4836D49800CA'
+ MEPROP Name 'OpenStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'вызывается один раз при начале генерации. Для перекрытия в потомках.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+
+ENDME // ME_4836D49800CA OpenStream
+
+ME ME_4836D4BA025D
+ MEPROP Name 'NeedUndo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4836D4BA025D NeedUndo
+
+ME ME_4836D4B003DC
+ MEPROP UID '4836D4B003DC'
+ MEPROP Name 'CloseStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'вызывается один раз в конце генерации. Для перекрытия в потомках.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D4BA025D // NeedUndo
+ )
+ ; // Parameters
+
+ENDME // ME_4836D4B003DC CloseStream
+
+ME ME_4836D4CF0372
+ MEPROP Name 'NeedUndo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4836D4CF0372 NeedUndo
+
+ME ME_4836D4C20059
+ MEPROP UID '4836D4C20059'
+ MEPROP Name 'CloseStructure'
+ MEPROP Class class_Operation
+ %SUMMARY 'вызывается на закрывающуюся "скобку". Для перекрытия в потомках.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D4CF0372 // NeedUndo
+ )
+ ; // Parameters
+
+ENDME // ME_4836D4C20059 CloseStructure
+
+ME ME_4836D4D503C9
+ MEPROP UID '4836D4D503C9'
+ MEPROP Name 'GeneratorChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'нотификация о смене следующего генератора. Для перекрытия в потомках.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+
+ENDME // ME_4836D4D503C9 GeneratorChanged
+
+ME ME_4836D503006D
+ MEPROP Name 'Name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4836D503006D Name
+
+ME ME_4836D50300B0
+ MEPROP Name 'Child'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4836D50300B0 Child
+
+ME ME_4836D4F5021B
+ MEPROP UID '4836D4F5021B'
+ MEPROP Name 'GetObjectID'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D503006D // Name
+ ME_4836D50300B0 // Child
+ )
+ ; // Parameters
+
+ENDME // ME_4836D4F5021B GetObjectID
+
+ME ME_4836D52B02F2
+ MEPROP Name 'AtomIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_4836D52B02F2 AtomIndex
+
+ME ME_4836D52B0336
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_530F1ADF03E1' '53317D14019D.ms.model.script' // Ik2Variant
+ ;
+
+ENDME // ME_4836D52B0336 Value
+
+ME ME_4836D52400D9
+ MEPROP UID '4836D52400D9'
+ MEPROP Name 'AddAtomEx'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D52B02F2 // AtomIndex
+ ME_4836D52B0336 // Value
+ )
+ ; // Parameters
+
+ENDME // ME_4836D52400D9 AddAtomEx
+
+ME ME_4836D534009A
+ MEPROP UID '4836D534009A'
+ MEPROP Name 'AfterStreamOpened'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+
+ENDME // ME_4836D534009A AfterStreamOpened
+
+ME ME_4836D54C0385
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4836D54C0385 Message
+
+ME ME_4836D54C03D2
+ MEPROP Name 'NeedException'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_4836D54C03D2 NeedException
+
+ME ME_4836D5440159
+ MEPROP UID '4836D5440159'
+ MEPROP Name 'Error'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4836D54C0385 // Message
+ ME_4836D54C03D2 // NeedException
+ )
+ ; // Parameters
+
+ENDME // ME_4836D5440159 Error
+
+ME ME_538C1FC20338
+ MEPROP Name 'anOwner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_538C21C10077 // Tk2TagGeneratorOwner
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType HWL ME_538C21C10077 // Tk2TagGeneratorOwner
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_538C1FC20338 anOwner
+
+ME ME_538C1F9A00C7
+ MEPROP UID '538C1F9A00C7'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELIST Parameters
+   Seq: ( ME_538C1FC20338 // anOwner
+ )
+ ; // Parameters
+
+ENDME // ME_538C1F9A00C7 Create
+
+ME ME_530F1E1103E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ ;
+ MELINK Target WL 'ME_530F1BCA00B2' '467FC43F01F9.ms.model.script' // Tk2VariantImpl
+ ;
+
+ENDME // ME_530F1E1103E5 
+
+ME ME_469F83C300B2_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F83C300B2' '53317D14019D.ms.model.script' // AddStringAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F83C300B2_ME_47ECAA5B0394 AddStringAtom
+
+ME ME_469F84BB0023_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F84BB0023' '53317D14019D.ms.model.script' // AddStringAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F84BB0023_ME_47ECAA5B0394 AddStringAtom
+
+ME ME_469F870C01B6_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F870C01B6' '53317D14019D.ms.model.script' // AddStreamAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F870C01B6_ME_47ECAA5B0394 AddStreamAtom
+
+ME ME_469F872B0124_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F872B0124' '53317D14019D.ms.model.script' // AddTransparentAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F872B0124_ME_47ECAA5B0394 AddTransparentAtom
+
+ME ME_469F87470084_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F87470084' '53317D14019D.ms.model.script' // AddIntegerAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F87470084_ME_47ECAA5B0394 AddIntegerAtom
+
+ME ME_469F87D4002D_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F87D4002D' '53317D14019D.ms.model.script' // AddBoolAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F87D4002D_ME_47ECAA5B0394 AddBoolAtom
+
+ME ME_469F8818037E_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8818037E' '53317D14019D.ms.model.script' // AddAtom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F8818037E_ME_47ECAA5B0394 AddAtom
+
+ME ME_469F8B580244_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8B580244' '53317D14019D.ms.model.script' // AddAtomEx
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F8B580244_ME_47ECAA5B0394 AddAtomEx
+
+ME ME_469F8B9E02C7_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8B9E02C7' '53317D14019D.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F8B9E02C7_ME_47ECAA5B0394 Start
+
+ME ME_469F8BBA01EB_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8BBA01EB' '53317D14019D.ms.model.script' // StartChild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F8BBA01EB_ME_47ECAA5B0394 StartChild
+
+ME ME_469F8BCC02D7_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8BCC02D7' '53317D14019D.ms.model.script' // StartDefaultChild
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F8BCC02D7_ME_47ECAA5B0394 StartDefaultChild
+
+ME ME_469F8BF00166_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8BF00166' '53317D14019D.ms.model.script' // StartTag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F8BF00166_ME_47ECAA5B0394 StartTag
+
+ME ME_469F8C0A031C_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8C0A031C' '53317D14019D.ms.model.script' // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F8C0A031C_ME_47ECAA5B0394 Finish
+
+ME ME_469F8C450231_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8C450231' '53317D14019D.ms.model.script' // CharsInLine
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_469F8C450231_ME_47ECAA5B0394 CharsInLine
+
+ME ME_469F8C6D01B6_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8C6D01B6' '53317D14019D.ms.model.script' // NextGenerator
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_469F8C6D01B6_ME_47ECAA5B0394 NextGenerator
+
+ME ME_469F8C8C02FB_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F8C8C02FB' '53317D14019D.ms.model.script' // CurrentStartLevel
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_469F8C8C02FB_ME_47ECAA5B0394 CurrentStartLevel
+
+ME ME_469F956E01A6_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F956E01A6' '53317D14019D.ms.model.script' // Rollback
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F956E01A6_ME_47ECAA5B0394 Rollback
+
+ME ME_469F9589032C_ME_47ECAA5B0394
+ MELINK Original WL 'ME_469F9589032C' '53317D14019D.ms.model.script' // Pixel2Char
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_469F9589032C_ME_47ECAA5B0394 Pixel2Char
+
+ME ME_4C1B7F810123_ME_47ECAA5B0394
+ MELINK Original WL 'ME_4C1B7F810123' '53317D14019D.ms.model.script' // CurrentVersion
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_4C1B7F810123_ME_47ECAA5B0394 CurrentVersion
+
+ME ME_4E31464A0116_ME_47ECAA5B0394
+ MELINK Original WL 'ME_4E31464A0116' '53317D14019D.ms.model.script' // AddInt64Atom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E31464A0116_ME_47ECAA5B0394 AddInt64Atom
+
+ME ME_532AD07903C5_ME_47ECAA5B0394
+ MELINK Original WL 'ME_532AD07903C5' '53317D14019D.ms.model.script' // Char2Pixel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_532AD07903C5_ME_47ECAA5B0394 Char2Pixel
+
+ME ME_533C0C71011C_ME_47ECAA5B0394
+ MELINK Original WL 'ME_533C0C71011C' '53317D14019D.ms.model.script' // Context
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_533C0C71011C_ME_47ECAA5B0394 Context
+
+%%ImplementedBy ME_4678160E01BE ME_47ECAA5B0394
+%%ImplementedBy ME_4A3A35D30362 ME_47ECAA5B0394
+%%ImplementedBy ME_53C3C92502CE ME_47ECAA5B0394
+
+%%InheritedBy ME_47879856035F ME_47ECAA5B0394
+
+ME ME_47ECAA5B0394
+ MEPROP UID '47ECAA5B0394'
+ MEPROP Name 'Tk2TagGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый абстрактный класс для генераторов тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECAA270135 // k2TagGen
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.ms.model.script' // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ HWL ME_4A3A35D30362 // Ik2TagGeneratorWrap
+ HWL ME_53C3C92502CE // Ik2TagGeneratorChainEnd
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4836D26F0055 // AddAtom
+ HWL ME_4836D4650177 // StartChild
+ HWL ME_4836D477022A // StartTag
+ HWL ME_4836D49800CA // OpenStream
+ HWL ME_4836D4B003DC // CloseStream
+ HWL ME_4836D4C20059 // CloseStructure
+ HWL ME_4836D4D503C9 // GeneratorChanged
+ HWL ME_4836D4F5021B // GetObjectID
+ HWL ME_4836D52400D9 // AddAtomEx
+ HWL ME_4836D534009A // AfterStreamOpened
+ HWL ME_4836D5440159 // Error
+ HWL ME_538C1F9A00C7 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_469F83C300B2_ME_47ECAA5B0394 // AddStringAtom
+ ME_469F84BB0023_ME_47ECAA5B0394 // AddStringAtom
+ ME_469F870C01B6_ME_47ECAA5B0394 // AddStreamAtom
+ ME_469F872B0124_ME_47ECAA5B0394 // AddTransparentAtom
+ ME_469F87470084_ME_47ECAA5B0394 // AddIntegerAtom
+ ME_469F87D4002D_ME_47ECAA5B0394 // AddBoolAtom
+ ME_469F8818037E_ME_47ECAA5B0394 // AddAtom
+ ME_469F8B580244_ME_47ECAA5B0394 // AddAtomEx
+ ME_469F8B9E02C7_ME_47ECAA5B0394 // Start
+ ME_469F8BBA01EB_ME_47ECAA5B0394 // StartChild
+ ME_469F8BCC02D7_ME_47ECAA5B0394 // StartDefaultChild
+ ME_469F8BF00166_ME_47ECAA5B0394 // StartTag
+ ME_469F8C0A031C_ME_47ECAA5B0394 // Finish
+ ME_469F8C450231_ME_47ECAA5B0394 // CharsInLine
+ ME_469F8C6D01B6_ME_47ECAA5B0394 // NextGenerator
+ ME_469F8C8C02FB_ME_47ECAA5B0394 // CurrentStartLevel
+ ME_469F956E01A6_ME_47ECAA5B0394 // Rollback
+ ME_469F9589032C_ME_47ECAA5B0394 // Pixel2Char
+ ME_4C1B7F810123_ME_47ECAA5B0394 // CurrentVersion
+ ME_4E31464A0116_ME_47ECAA5B0394 // AddInt64Atom
+ ME_532AD07903C5_ME_47ECAA5B0394 // Char2Pixel
+ ME_533C0C71011C_ME_47ECAA5B0394 // Context
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_530F1E1103E5 // Tk2VariantImpl
+ )
+ ; // Dependencies
+ MELIST Injected
+   Seq: ( WL 'ME_552BE8F800BE' '505AFAF6026B.ms.model.script' // kwFiltersAndGeneratorsPack
+ )
+ ; // Injected
+ UP "author" 'Люлин А.В.'
+ UP "started" '01.12.1998 18:48'
+ UP extprop:rc:SelfName 'TagGenerator'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47ECAA5B0394 Tk2TagGenerator
+
+ME ME_47ECAA270135
+ MEPROP UID '47ECAA270135'
+ MEPROP Name 'k2TagGen'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый абстрактный класс для генераторов тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECA80B000D' '47ECA80B000D.ms.model.script' // Generators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A3A35D30362 // Ik2TagGeneratorWrap
+ HWL ME_538C21C10077 // Tk2TagGeneratorOwner
+ HWL ME_53C3C92502CE // Ik2TagGeneratorChainEnd
+ HWL ME_47ECAA5B0394 // Tk2TagGenerator
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '01.12.1998 18:48'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2TagGen.pas'
+ UP extprop:rc:SelfName 'TagGen'
+
+ENDME // ME_47ECAA270135 k2TagGen

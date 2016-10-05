@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_51643DEB0153
+
 FORWARD ME_51643DEB0153
 
 FORWARD ME_51643E02018F
@@ -19,6 +21,8 @@ ME ME_51643E2202AA
 
 ENDME // ME_51643E2202AA DoIt
 
+%%InheritedBy ME_4B2A0DDE028B ME_51643E02018F
+
 ME ME_51643E02018F
  MEPROP UID '51643E02018F'
  MEPROP Name 'TReallocMemTest'
@@ -30,13 +34,16 @@ ME ME_51643E02018F
  MELINK Parent HWL ME_51643DEB0153 // Emba
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0D6A0077.ms.model.script' // TTestCase
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
  )
  ; // Inherits
  MELIST Operations
    Seq: ( HWL ME_51643E2202AA // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\SandBox\ReallocMemTest.pas'
  UP extprop:rc:SelfName 'ReallocMemTest'
  UP extprop:rc:isAcceptableForScripts true
@@ -63,6 +70,9 @@ ME ME_51643DEB0153
    Seq: ( WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP Version 0
 
 ENDME // ME_51643DEB0153 Emba

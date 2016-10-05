@@ -1,0 +1,47 @@
+// nsBrowserInfo 53F6EC0200BF UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53F6EC0200BF
+
+ME ME_56C55C0B008B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53F6EC0200BF // nsBrowserInfo
+ ;
+ MELINK Target WL 'ME_56C55BFD0199' '56C55BFD0199.ms.model.script' // nsRegistryHelper
+ ;
+
+ENDME // ME_56C55C0B008B 
+
+ME ME_56D6D48C01F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53F6EC0200BF // nsBrowserInfo
+ ;
+ MELINK Target WL 'ME_56D6C89601F3' '56D6C89601F3.ms.model.script' // l3WinVersionHelper
+ ;
+
+ENDME // ME_56D6D48C01F2 
+
+ME ME_53F6EC0200BF
+ MEPROP UID '53F6EC0200BF'
+ MEPROP Name 'nsBrowserInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F4B8FA60272' '4F4B8FA60272.ms.model.script' // Implementation
+ ;
+ MELIST Dependencies
+   Seq: ( ME_56C55C0B008B // nsRegistryHelper
+ ME_56D6D48C01F2 // l3WinVersionHelper
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\ExternalObjects\NOT_FINISHED_nsBrowserInfo.pas'
+ UP extprop:rc:SelfName 'BrowserInfo'
+
+ENDME // ME_53F6EC0200BF nsBrowserInfo

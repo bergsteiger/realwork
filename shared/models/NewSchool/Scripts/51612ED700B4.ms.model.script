@@ -1,0 +1,177 @@
+// RefCountedPrim 51612ED700B4 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51612ED700B4
+
+ME ME_4791515B0239
+ MEPROP UID '4791515B0239'
+ MEPROP Name 'RefCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51612ED700B4 // RefCountedPrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4791515B0239 RefCount
+
+ME ME_479731C50290
+ MEPROP UID '479731C50290'
+ MEPROP Name 'Cleanup'
+ MEPROP Class class_Operation
+ %SUMMARY 'Функция очистки полей объекта.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51612ED700B4 // RefCountedPrim
+ ;
+
+ENDME // ME_479731C50290 Cleanup
+
+ME ME_479152500168
+ MEPROP UID '479152500168'
+ MEPROP Name 'Use'
+ MEPROP Class class_Operation
+ %SUMMARY 'увеличить счетчик ссылок на 1 и вернуть указатель на себя.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51612ED700B4 // RefCountedPrim
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_479152500168 Use
+
+ME ME_51613280011E
+ MEPROP Name 'F'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_51613280011E F
+
+ME ME_5161325E01CB
+ MEPROP UID '5161325E01CB'
+ MEPROP Name 'SetRefTo'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51612ED700B4 // RefCountedPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_51613280011E // F
+ )
+ ; // Parameters
+
+ENDME // ME_5161325E01CB SetRefTo
+
+ME ME_49BFC98902FF
+ MEPROP UID '49BFC98902FF'
+ MEPROP Name 'BeforeRelease'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51612ED700B4 // RefCountedPrim
+ ;
+
+ENDME // ME_49BFC98902FF BeforeRelease
+
+ME ME_479F2AFB0397
+ MEPROP UID '479F2AFB0397'
+ MEPROP Name 'Release'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51612ED700B4 // RefCountedPrim
+ ;
+
+ENDME // ME_479F2AFB0397 Release
+
+ME ME_51613DAB00FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51612ED700B4 // RefCountedPrim
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_51613DAB00FA 
+
+ME ME_48077504027E_ME_51612ED700B4
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_51612ED700B4 Destroy
+
+ME ME_516131510341_ME_51612ED700B4
+ MELINK Original WL 'ME_516131510341' '4807744200AA.ms.model.script' // NewInstance
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" true
+ENDME // ME_516131510341_ME_51612ED700B4 NewInstance
+
+ME ME_5161317A0219_ME_51612ED700B4
+ MELINK Original WL 'ME_5161317A0219' '4807744200AA.ms.model.script' // FreeInstance
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "is static" false
+ENDME // ME_5161317A0219_ME_51612ED700B4 FreeInstance
+
+ME ME_51DAEFC6017B_ME_51612ED700B4
+ MELINK Original WL 'ME_51DAEFC6017B' '4807744200AA.ms.model.script' // BeforeDestruction
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51DAEFC6017B_ME_51612ED700B4 BeforeDestruction
+
+%%ImplementedBy ME_516130FB0241 ME_51612ED700B4
+
+ME ME_51612ED700B4
+ MEPROP UID '51612ED700B4'
+ MEPROP Name 'RefCountedPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51612EBB02F5' '51612EBB02F5.ms.model.script' // Ref Counting
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_516130FB0241' '4AB0C3C60310.ms.model.script' // MObject
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4791515B0239 // RefCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_479731C50290 // Cleanup
+ HWL ME_479152500168 // Use
+ HWL ME_5161325E01CB // SetRefTo
+ HWL ME_49BFC98902FF // BeforeRelease
+ HWL ME_479F2AFB0397 // Release
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_51612ED700B4 // Destroy
+ ME_516131510341_ME_51612ED700B4 // NewInstance
+ ME_5161317A0219_ME_51612ED700B4 // FreeInstance
+ ME_51DAEFC6017B_ME_51612ED700B4 // BeforeDestruction
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_51613DAB00FA // Windows
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\RefCountedPrim.imp.pas'
+ UP extprop:pas:TypeName '_RefCountedPrim_'
+ UP extprop:pas:UnitName 'RefCountedPrim.imp'
+
+ENDME // ME_51612ED700B4 RefCountedPrim

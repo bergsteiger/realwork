@@ -111,10 +111,6 @@
 //			Description: 
 //			lid: script
 //		}
-//		generator "pas.script.runner" {
-//			Description: 
-//			lid: script
-//		}
 //	}
 
 //	group "Java" {
@@ -499,25 +495,8 @@ implementation @ <<default>>
   end // if
  end // for C
 
-//+ pas.script.runner
-; // pas.script
-
-<<generator>> pas.script.runner OBJECT IN %S
-//P
-//	<%CX>
- INTEGER VAR l_Counter l_Counter := 0
- for %S%C
- begin
-  OBJECT IN %C
-  if true then
-  begin
-   %C |X 
-   ++! l_Counter
-  end // if
- end // for C
-
 //+ fctr.java
-; // pas.script.runner
+; // pas.script
 
 <<generator>> fctr.java OBJECT IN %S
 //P
@@ -1057,8 +1036,6 @@ USES
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'pas' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"pas.script")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'pas.script' )% 
-//	%f_add_to_list(ALL_GENERATORS_ID,"pas.script.runner")
-  [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'pas.script.runner' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"rc")
   [%f] add_to_list %( 'ALL_GENERATORS_ID' %, 'rc' )% 
 //	%f_add_to_list(ALL_GENERATORS_ID,"s.ini")

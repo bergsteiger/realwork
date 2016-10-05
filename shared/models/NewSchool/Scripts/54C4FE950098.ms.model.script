@@ -1,0 +1,72 @@
+// eeNodeUtils 54C4FE950098 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54C4FE950098
+
+FORWARD ME_54C4FED303A5
+
+ME ME_54C4FEDA03D5
+ MEPROP Name 'aDirection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F82F5FE0348' '4912DD020283.ms.model.script' // TeeDirection
+ ;
+
+ENDME // ME_54C4FEDA03D5 aDirection
+
+ME ME_54C4FED90015
+ MEPROP UID '54C4FED90015'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C4FED303A5 // eeDirection2l3Direction
+ ;
+ MELINK Target WL 'ME_46A61B410280' '4677FBA70343.ms.model.script' // Tl3Direction
+ ;
+ MELIST Parameters
+   Seq: ( ME_54C4FEDA03D5 // aDirection
+ )
+ ; // Parameters
+
+ENDME // ME_54C4FED90015 DoIt
+
+ME ME_54C4FED303A5
+ MEPROP UID '54C4FED303A5'
+ MEPROP Name 'eeDirection2l3Direction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54C4FE950098 // eeNodeUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54C4FED90015 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54C4FED303A5 eeDirection2l3Direction
+
+ME ME_54C4FE950098
+ MEPROP UID '54C4FE950098'
+ MEPROP Name 'eeNodeUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4ADDF337033E' '4ADDF337033E.ms.model.script' // Nodes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54C4FED303A5 // eeDirection2l3Direction
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeNodeUtils.pas'
+
+ENDME // ME_54C4FE950098 eeNodeUtils

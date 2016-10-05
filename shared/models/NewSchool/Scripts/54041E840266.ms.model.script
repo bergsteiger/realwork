@@ -2,6 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_54041E840266
+%%Inner ME_54041E840266
+%%Inner ME_54041E840266
+%%Inner ME_54041E840266
+%%Inner ME_54041E840266
+%%Inner ME_54041E840266
+%%Inner ME_54041E840266
+
 FORWARD ME_54041E840266
 
 FORWARD ME_54041EBF03C6
@@ -11,23 +19,28 @@ ME ME_5405C4290013
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54041EBF03C6 // TalcuFTPBrowserParams
  ;
- MELINK Target WL 'ME_5405C40303D9' '538DAE950337.ms.model.script' // IdAssignedNumbers
+ MELINK Target WL 'ME_5405C40303D9' '5405C40303D9.ms.model.script' // IdAssignedNumbers
  ;
 
 ENDME // ME_5405C4290013 
 
 ME ME_53AC03EE01FD_ME_54041EBF03C6
- MELINK Original WL 'ME_53AC03EE01FD' '53B24DFD01FF.ms.model.script' // GetTaggedDataType
+ MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
  ;
  MEPROP OpKind opkind_Implemented
  UP "is static" true
 ENDME // ME_53AC03EE01FD_ME_54041EBF03C6 GetTaggedDataType
 
 ME ME_47A042E100E2_ME_54041EBF03C6
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_54041EBF03C6 InitFields
+
+%%ImplementedBy ME_53AC01CD0335 ME_54041EBF03C6
+%%ImplementedBy ME_54041A92002E ME_54041EBF03C6
+
+%%InheritedBy ME_534572370056 ME_54041EBF03C6
 
 ME ME_54041EBF03C6
  MEPROP UID '54041EBF03C6'
@@ -40,11 +53,11 @@ ME ME_54041EBF03C6
  MELINK Parent HWL ME_54041E840266 // Process
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_534572370056' '47913B47006E.ms.model.script' // Tl3Tag
+   Seq: ( WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_53AC01CD0335' '53B15D5603E3.ms.model.script' // evdTagHolder
+   Seq: ( WL 'ME_53AC01CD0335' '53AC01CD0335.ms.model.script' // evdTagHolder
  WL 'ME_54041A92002E' '484A470100DD.ms.model.script' // FTPBrowser
  )
  ; // Implements
@@ -66,6 +79,8 @@ ME ME_54041EBF03C6
  UP extprop:pas:UnitName 'alcuFTPBrowserParams'
 
 ENDME // ME_54041EBF03C6 TalcuFTPBrowserParams
+
+%%InheritedBy ME_54041EBF03C6 ME_54041EF10040
 
 ME ME_54041EF10040
  MEPROP UID '54041EF10040'
@@ -89,270 +104,6 @@ ME ME_54041EF10040
 
 ENDME // ME_54041EF10040 TalcuFTPBrowser
 
-FORWARD ME_5745A26E03A8
-
-FORWARD ME_55E6FAD502E4
-
-ME ME_55E6FADD02A9
- MEPROP UID '55E6FADD02A9'
- MEPROP Name 'ssoAll'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
- ;
-
-ENDME // ME_55E6FADD02A9 ssoAll
-
-ME ME_55E6FAF30092
- MEPROP UID '55E6FAF30092'
- MEPROP Name 'ssoNew'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
- ;
-
-ENDME // ME_55E6FAF30092 ssoNew
-
-ME ME_55E6FAFD01F9
- MEPROP UID '55E6FAFD01F9'
- MEPROP Name 'ssoDel'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
- ;
-
-ENDME // ME_55E6FAFD01F9 ssoDel
-
-ME ME_55E6FB08039C
- MEPROP UID '55E6FB08039C'
- MEPROP Name 'ssoUpd'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
- ;
-
-ENDME // ME_55E6FB08039C ssoUpd
-
-ME ME_55E6FAD502E4
- MEPROP UID '55E6FAD502E4'
- MEPROP Name 'TmssOperation'
- MEPROP Class class_Class
- MELINK Stereotype st_Enum ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
- ;
- MELIST Attributes
-   Seq: ( HWL ME_55E6FADD02A9 // ssoAll
- HWL ME_55E6FAF30092 // ssoNew
- HWL ME_55E6FAFD01F9 // ssoDel
- HWL ME_55E6FB08039C // ssoUpd
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55E6FAD502E4 TmssOperation
-
-FORWARD ME_55E84EB602E4
-
-ME ME_5745A90D02F1
- MEPROP UID '5745A90D02F1'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_ref
- MELINK Parent HWL ME_55E84EB602E4 // TOperationMap
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
-
-ENDME // ME_5745A90D02F1 
-
-ME ME_55E84EE0012A
- MEPROP UID '55E84EE0012A'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_ref
- MELINK Parent HWL ME_55E84EB602E4 // TOperationMap
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
-
-ENDME // ME_55E84EE0012A 
-
-ME ME_55E84EB602E4
- MEPROP UID '55E84EB602E4'
- MEPROP Name 'TOperationMap'
- MEPROP Class class_Class
- MELINK Stereotype st_Vector ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55E6FAD502E4 // TmssOperation
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_5745A90D02F1 // 
- HWL ME_55E84EE0012A // 
- )
- ; // Attributes
- UP "array type" 'dynamic'
-
-ENDME // ME_55E84EB602E4 TOperationMap
-
-FORWARD ME_55E84AE00169
-
-ME ME_55E84AF70328
- MEPROP UID '55E84AF70328'
- MEPROP Name 'c_mssOperationStr'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E84AE00169 // Names
- ;
- MELINK Target HWL ME_55E84EB602E4 // TOperationMap
- ;
- MEPROP Value '(''all'', ''new'', ''del'', ''upd'')'
- MELINK ValueType HWL ME_55E84EB602E4 // TOperationMap
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(''all'', ''new'', ''del'', ''upd'')'
-
-ENDME // ME_55E84AF70328 c_mssOperationStr
-
-ME ME_55E84AE00169
- MEPROP UID '55E84AE00169'
- MEPROP Name 'Names'
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
- ;
- MELIST Attributes
-   Seq: ( HWL ME_55E84AF70328 // c_mssOperationStr
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_55E84AE00169 Names
-
-FORWARD ME_55E84AB90022
-
-ME ME_55E84AD10384
- MEPROP UID '55E84AD10384'
- MEPROP Name 'cMdpSyncVersion'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55E84AB90022 // MDPVersion
- ;
- MEPROP Value 5
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 5
-
-ENDME // ME_55E84AD10384 cMdpSyncVersion
-
-ME ME_55E84AB90022
- MEPROP UID '55E84AB90022'
- MEPROP Name 'MDPVersion'
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
- ;
- MELIST Attributes
-   Seq: ( HWL ME_55E84AD10384 // cMdpSyncVersion
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_55E84AB90022 MDPVersion
-
-FORWARD ME_574EB49101AB
-
-ME ME_574EB4B60063
- MEPROP UID '574EB4B60063'
- MEPROP Name 'cMDPCfgSection'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_574EB49101AB // IniSettings
- ;
- MEPROP Value '''MDP'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''MDP'''
-
-ENDME // ME_574EB4B60063 cMDPCfgSection
-
-ME ME_574EB49101AB
- MEPROP UID '574EB49101AB'
- MEPROP Name 'IniSettings'
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
- ;
- MELIST Attributes
-   Seq: ( HWL ME_574EB4B60063 // cMDPCfgSection
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_574EB49101AB IniSettings
-
-ME ME_5745A26E03A8
- MEPROP UID '5745A26E03A8'
- MEPROP Name 'alcuMdpSyncIntf'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54041E840266 // Process
- ;
- MELIST Children
-   Seq: ( HWL ME_55E6FAD502E4 // TmssOperation
- HWL ME_55E84EB602E4 // TOperationMap
- )
- ; // Children
- MELIST Constants
-   Seq: ( HWL ME_55E84AE00169 // Names
- HWL ME_55E84AB90022 // MDPVersion
- HWL ME_574EB49101AB // IniSettings
- )
- ; // Constants
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
-
-ENDME // ME_5745A26E03A8 alcuMdpSyncIntf
-
 FORWARD ME_574C0E84031E
 
 ME ME_574C388C00C1
@@ -375,7 +126,7 @@ ME ME_574C36C20305
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E150FF028A' '4AB0997B00A2.ms.model.script' // TStream
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
  ;
 
 ENDME // ME_574C36C20305 aStream
@@ -388,7 +139,7 @@ ME ME_574C35BB0369
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_574C359C0010 // PrepareData
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_574C36C20305 // aStream
@@ -528,7 +279,7 @@ ME ME_574D977C0172
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574C38C2015A // Execute
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_574D977C0172 
@@ -538,7 +289,7 @@ ME ME_574D97E000A5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574C38C2015A // Execute
  ;
- MELINK Target WL 'ME_4CDD241C0184' '47913B47006E.ms.model.script' // l3System
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
  ;
 
 ENDME // ME_574D97E000A5 
@@ -548,7 +299,7 @@ ME ME_574D982E0349
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574C38C2015A // Execute
  ;
- MELINK Target WL 'ME_48F473650362' '47913B47006E.ms.model.script' // Tl3MemoryStream
+ MELINK Target WL 'ME_48F473650362' '47AB1FDE03E4.ms.model.script' // Tl3MemoryStream
  ;
 
 ENDME // ME_574D982E0349 
@@ -578,7 +329,7 @@ ME ME_574C394300E0
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E150FF028A' '4AB0997B00A2.ms.model.script' // TStream
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
  ;
 
 ENDME // ME_574C394300E0 aStream
@@ -603,7 +354,7 @@ ME ME_574ECC47014E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574C39080008 // PostToGardoc
  ;
- MELINK Target WL 'ME_4C74ED51025F' '47913B47006E.ms.model.script' // Tl3FileStream
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
  ;
 
 ENDME // ME_574ECC47014E 
@@ -650,7 +401,7 @@ ME ME_574C3965012A
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_574C395100E9 // GetTitle
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_574C3965012A DoIt
@@ -671,6 +422,8 @@ ME ME_574C395100E9
  ; // Operations
 
 ENDME // ME_574C395100E9 GetTitle
+
+%%InheritedBy ME_49E7754802A9 ME_574C0E84031E
 
 ME ME_574C0E84031E
  MEPROP UID '574C0E84031E'
@@ -700,6 +453,9 @@ ME ME_574C0E84031E
  HWL ME_574C395100E9 // GetTitle
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" true
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpProtoSyncronizer.pas'
  UP extprop:rc:SelfName 'alcuMdpProtoSyncronizer'
@@ -719,7 +475,7 @@ ME ME_574E9EF5028D
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_574E9D3400B0 // TalcuMdpDatedSyncronizer
  ;
- MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
  ;
 
 ENDME // ME_574E9EF5028D f_From
@@ -733,7 +489,7 @@ ME ME_574E9F16039B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_574E9D3400B0 // TalcuMdpDatedSyncronizer
  ;
- MELINK Target WL 'ME_47272C8B0128' '4AB0C3C60310.ms.model.script' // TDateTime
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
  ;
 
 ENDME // ME_574E9F16039B f_To
@@ -748,7 +504,7 @@ ME ME_574E9F3C0242
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_574E9F28031C // GetIniParamName
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_574E9F3C0242 DoIt
@@ -780,7 +536,7 @@ ME ME_574E9F630111
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_574E9F4D0162 // GetBaseIni
  ;
- MELINK Target WL 'ME_574E9DD80366' '47D0290B016D.ms.model.script' // Tl3IniFile
+ MELINK Target WL 'ME_574E9DD80366' '51BAE2BF011A.ms.model.script' // Tl3IniFile
  ;
 
 ENDME // ME_574E9F630111 DoIt
@@ -790,7 +546,7 @@ ME ME_574E9FC900A2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574E9F4D0162 // GetBaseIni
  ;
- MELINK Target WL 'ME_5406A83E013E' '519B797A0048.ms.model.script' // dt_Serv
+ MELINK Target WL 'ME_5406A83E013E' '5406A83E013E.ms.model.script' // dt_Serv
  ;
 
 ENDME // ME_574E9FC900A2 
@@ -800,7 +556,7 @@ ME ME_574EA010037D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574E9F4D0162 // GetBaseIni
  ;
- MELINK Target WL 'ME_4F191FDD0358' '47D0290B016D.ms.model.script' // ConcatDirName
+ MELINK Target WL 'ME_4F191FDD0358' '4B57004201BD.ms.model.script' // ConcatDirName
  ;
 
 ENDME // ME_574EA010037D 
@@ -810,7 +566,7 @@ ME ME_574EA06B0081
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574E9F4D0162 // GetBaseIni
  ;
- MELINK Target WL 'ME_5654635F0268' '552D07D0005E.ms.model.script' // daSchemeConsts
+ MELINK Target WL 'ME_5654635F0268' '5654635F0268.ms.model.script' // daSchemeConsts
  ;
 
 ENDME // ME_574EA06B0081 
@@ -843,7 +599,7 @@ ME ME_574EB4EA00B7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574E9D3400B0 // TalcuMdpDatedSyncronizer
  ;
- MELINK Target HWL ME_5745A26E03A8 // alcuMdpSyncIntf
+ MELINK Target WL 'ME_5745A26E03A8' '5745A26E03A8.ms.model.script' // alcuMdpSyncIntf
  ;
 
 ENDME // ME_574EB4EA00B7 
@@ -853,7 +609,7 @@ ME ME_574EB75C020B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574E9D3400B0 // TalcuMdpDatedSyncronizer
  ;
- MELINK Target WL 'ME_556703800280' '4AB0997B00A2.ms.model.script' // IncDay
+ MELINK Target WL 'ME_556703800280' '48D391C60190.ms.model.script' // IncDay
  ;
 
 ENDME // ME_574EB75C020B 
@@ -863,7 +619,7 @@ ME ME_574EB87100F0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574E9D3400B0 // TalcuMdpDatedSyncronizer
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_574EB87100F0 
@@ -879,6 +635,8 @@ ME ME_574C37130370_ME_574E9D3400B0
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_574C37130370_ME_574E9D3400B0 AfterSuccessfulSync
+
+%%InheritedBy ME_574C0E84031E ME_574E9D3400B0
 
 ME ME_574E9D3400B0
  MEPROP UID '574E9D3400B0'
@@ -915,6 +673,9 @@ ME ME_574E9D3400B0
  ME_574EB87100F0 // SysUtils
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpDatedSyncronizer.pas'
  UP extprop:rc:SelfName 'alcuMdpDatedSyncronizer'
  UP extprop:rc:isAcceptableForScripts true
@@ -952,6 +713,8 @@ ME ME_574E9F28031C_ME_574C0FA701BB
  MEPROP OpKind opkind_Implemented
 ENDME // ME_574E9F28031C_ME_574C0FA701BB GetIniParamName
 
+%%InheritedBy ME_574E9D3400B0 ME_574C0FA701BB
+
 ME ME_574C0FA701BB
  MEPROP UID '574C0FA701BB'
  MEPROP Name 'TalcuMdpImportSyncronizer'
@@ -977,6 +740,9 @@ ME ME_574C0FA701BB
    Seq: ( ME_57614E6A02BA // TdaUserID
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" false
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\NOT_FINISHED_alcuMdpImportSyncronizer.pas'
  UP extprop:rc:SelfName 'alcuMdpImportSyncronizer'
@@ -1006,7 +772,7 @@ ME ME_574EC04B0197
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_574EC035002D // GetGardocStageCode
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_574EC066030E // aStageType
@@ -1057,7 +823,7 @@ ME ME_574EC10E024D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
  ;
- MELINK Target WL 'ME_47D02918035D' '47D0290B016D.ms.model.script' // l3Date
+ MELINK Target WL 'ME_47D02918035D' '47D02918035D.ms.model.script' // l3Date
  ;
 
 ENDME // ME_574EC10E024D 
@@ -1077,7 +843,7 @@ ME ME_574EC1C70336
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_574C0F390376 // TalcuMdpStagesSyncronizer
  ;
- MELINK Target WL 'ME_519B719002F1' '519B70FC02AB.ms.model.script' // dt_Sab
+ MELINK Target WL 'ME_519B719002F1' '519B719002F1.ms.model.script' // dt_Sab
  ;
 
 ENDME // ME_574EC1C70336 
@@ -1109,6 +875,8 @@ ME ME_574E9F28031C_ME_574C0F390376
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_574E9F28031C_ME_574C0F390376 GetIniParamName
+
+%%InheritedBy ME_574E9D3400B0 ME_574C0F390376
 
 ME ME_574C0F390376
  MEPROP UID '574C0F390376'
@@ -1144,6 +912,9 @@ ME ME_574C0F390376
  ME_576149DC0126 // TdaUserID
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" false
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\NOT_FINISHED_alcuMdpStagesSyncronizer.pas'
  UP extprop:rc:SelfName 'alcuMdpStagesSyncronizer'
@@ -1165,7 +936,7 @@ ME ME_54041E840266
  MELIST Children
    Seq: ( HWL ME_54041EBF03C6 // TalcuFTPBrowserParams
  HWL ME_54041EF10040 // TalcuFTPBrowser
- HWL ME_5745A26E03A8 // alcuMdpSyncIntf
+ WL 'ME_5745A26E03A8' '5745A26E03A8.ms.model.script' // alcuMdpSyncIntf
  HWL ME_574C0E84031E // TalcuMdpProtoSyncronizer
  HWL ME_574E9D3400B0 // TalcuMdpDatedSyncronizer
  HWL ME_574C0FA701BB // TalcuMdpImportSyncronizer
@@ -1193,5 +964,8 @@ ME ME_54041E840266
  WL 'ME_55AE44BA0133' '55AE44BA0133.ms.model.script' // XML
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_54041E840266 Process

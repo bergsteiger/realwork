@@ -30,6 +30,7 @@ type
     var theIndex: Integer): Boolean; overload;
    function FindData(const anItem: Il3CString;
     var theIndex: Integer): Boolean; overload;
+   function AsArray: ItfwArray;
    class function Instance: TmsmWordsCache;
     {* Метод получения экземпляра синглетона TmsmWordsCache }
    class function Exists: Boolean;
@@ -43,6 +44,9 @@ uses
  , SysUtils
  , l3Base
  //#UC START# *57B2D8C90390impl_uses*
+ , l3String
+ , tfwWordRefList
+ , tfwWordsIterator
  //#UC END# *57B2D8C90390impl_uses*
 ;
 
@@ -115,6 +119,31 @@ begin
  end;//try..finally
 //#UC END# *57C48BE901A3_57B2D8C90390_impl*
 end;//TmsmWordsCache.FindData
+
+function TmsmWordsCache.AsArray: ItfwArray;
+//#UC START# *57E45AE800E4_57B2D8C90390_var*
+var
+ l_Index : Integer;
+ l_List : TtfwWordRefList;
+//#UC END# *57E45AE800E4_57B2D8C90390_var*
+begin
+//#UC START# *57E45AE800E4_57B2D8C90390_impl*
+ Result := nil;
+ Lock;
+ try
+  l_List := TtfwWordRefList.Create;
+  try
+   for l_Index := 0 to Pred(Self.Count) do
+    l_List.Add(Self.Items[l_Index]);
+   Result := TtfwWordsIterator.Make(l_List); 
+  finally
+   FreeAndNil(l_List);
+  end;//try..finally
+ finally
+  Unlock;
+ end;//try..finally
+//#UC END# *57E45AE800E4_57B2D8C90390_impl*
+end;//TmsmWordsCache.AsArray
 
 class function TmsmWordsCache.Instance: TmsmWordsCache;
  {* Метод получения экземпляра синглетона TmsmWordsCache }

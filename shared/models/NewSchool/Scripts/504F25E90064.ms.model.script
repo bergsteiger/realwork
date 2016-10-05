@@ -1,0 +1,53 @@
+// atStringConverter 504F25E90064 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_504F25E90064
+
+ME ME_504F2FD90389
+ MEPROP UID '504F2FD90389'
+ MEPROP Name 'FirstType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_504F25E90064 // atStringConverter
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_504F2FD90389 FirstType
+
+%%ImplementedBy ME_503E313601ED ME_504F25E90064
+
+%%InheritedBy ME_503E2BCA01E8 ME_504F25E90064
+
+ME ME_504F25E90064
+ MEPROP UID '504F25E90064'
+ MEPROP Name 'atStringConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48076E7F0260' '48076E7F0260.ms.model.script' // CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503E2BCA01E8' '503E2BCA01E8.ms.model.script' // atConverter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_503E313601ED' '503E313601ED.ms.model.script' // atStringConverterImp
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_504F2FD90389 // FirstType
+ )
+ ; // Attributes
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\CoreObjects\atStringConverter.imp.pas'
+ UP extprop:pas:TypeName '_atStringConverter_'
+ UP extprop:pas:UnitName 'atStringConverter.imp'
+
+ENDME // ME_504F25E90064 atStringConverter

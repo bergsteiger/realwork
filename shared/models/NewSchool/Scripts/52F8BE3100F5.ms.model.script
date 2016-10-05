@@ -1,0 +1,501 @@
+// alcuTaskManager 52F8BE3100F5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F8BE3100F5
+
+FORWARD ME_52F8BE3100F5
+
+FORWARD ME_52F8E80D00A5
+
+ME ME_54BE3A4601D4
+ MEPROP UID '54BE3A4601D4'
+ MEPROP Name 'f_DetachedExecutorPool'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_54BE32A30011' '54856B680023.ms.model.script' // TalcuDetachedExecutorPool
+ ;
+
+ENDME // ME_54BE3A4601D4 f_DetachedExecutorPool
+
+ME ME_53A2C97C03C8
+ MEPROP UID '53A2C97C03C8'
+ MEPROP Name 'f_MonitorUsers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_53A2C9290311' '53A038340371.ms.model.script' // Tl3MultiThreadSortedIntegerList
+ ;
+
+ENDME // ME_53A2C97C03C8 f_MonitorUsers
+
+ME ME_53A2C98C0068
+ MEPROP UID '53A2C98C0068'
+ MEPROP Name 'f_PrivateMonitorUsers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_53A2C9290311' '53A038340371.ms.model.script' // Tl3MultiThreadSortedIntegerList
+ ;
+
+ENDME // ME_53A2C98C0068 f_PrivateMonitorUsers
+
+ME ME_53CDFF7502DB
+ MEPROP UID '53CDFF7502DB'
+ MEPROP Name 'f_WorkPool'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_53CDF9FE006B' '53C900150015.ms.model.script' // TalcuSubmitterWorkPool
+ ;
+
+ENDME // ME_53CDFF7502DB f_WorkPool
+
+ME ME_53CE50F701A5
+ MEPROP UID '53CE50F701A5'
+ MEPROP Name 'f_BaseEngineHolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_53CE4F2F008D' '53CCCA40004C.ms.model.script' // TalcuBaseEngineHolder
+ ;
+
+ENDME // ME_53CE50F701A5 f_BaseEngineHolder
+
+FORWARD ME_52F8EDDA037F
+
+ME ME_52F8F4EC03AD
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
+ ;
+
+ENDME // ME_52F8F4EC03AD aTask
+
+ME ME_52F8F4E60074
+ MEPROP UID '52F8F4E60074'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8EDDA037F // SimulateTaskDone
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F8F4EC03AD // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_52F8F4E60074 DoIt
+
+ME ME_52F8EDDA037F
+ MEPROP UID '52F8EDDA037F'
+ MEPROP Name 'SimulateTaskDone'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'имитирует отправку результата пользователю после выполнения задания' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F8F4E60074 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'InsiderTest'
+
+ENDME // ME_52F8EDDA037F SimulateTaskDone
+
+FORWARD ME_52F8EDF703C0
+
+ME ME_9952269F9D97
+ MEPROP UID '9952269F9D97'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода BeforeSaveQuery' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8EDF703C0 // BeforeSaveQuery
+ ;
+
+ENDME // ME_9952269F9D97 DoIt
+
+ME ME_52F8EDF703C0
+ MEPROP UID '52F8EDF703C0'
+ MEPROP Name 'BeforeSaveQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_9952269F9D97 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'InsiderTest'
+
+ENDME // ME_52F8EDF703C0 BeforeSaveQuery
+
+FORWARD ME_52F8F0990208
+
+ME ME_52F8F0B90112
+ MEPROP UID '52F8F0B90112'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8F0990208 // NeedRaiseInProcessQuery
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52F8F0B90112 DoIt
+
+ME ME_52F8F0990208
+ MEPROP UID '52F8F0990208'
+ MEPROP Name 'NeedRaiseInProcessQuery'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52F8F0B90112 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'InsiderTest'
+
+ENDME // ME_52F8F0990208 NeedRaiseInProcessQuery
+
+ME ME_53CE02060260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_53CCC324034B' '53CCC2F702C7.ms.model.script' // TalcuAsyncSubmitterManager
+ ;
+
+ENDME // ME_53CE02060260 
+
+ME ME_5465DA8E014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_5465D93A0165' '5465E6BB0264.ms.model.script' // TalcuGetReadyToDeliveryTasksExecutor
+ ;
+
+ENDME // ME_5465DA8E014B 
+
+ME ME_546B5A4503B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_546B540E02D6' '5465E6BB0264.ms.model.script' // TalcuGetTaskDescriptionExecutor
+ ;
+
+ENDME // ME_546B5A4503B2 
+
+ME ME_5474988E0073
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_54748E8A0085' '5465E6BB0264.ms.model.script' // TalcuTaskProgressExecutor
+ ;
+
+ENDME // ME_5474988E0073 
+
+ME ME_54759C340065
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_54759BE1037A' '5465E6BB0264.ms.model.script' // TalcuDeliveryResultExecutor
+ ;
+
+ENDME // ME_54759C340065 
+
+ME ME_54759C380010
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_54759BFB02B4' '5465E6BB0264.ms.model.script' // TalcuGetFilePartExecutor
+ ;
+
+ENDME // ME_54759C380010 
+
+ME ME_54856F8F01AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_54856BFA003E' '54856B680023.ms.model.script' // TalcuSendTaskExecutor
+ ;
+
+ENDME // ME_54856F8F01AA 
+
+ME ME_549AC04F0178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_549AC018025D' '5465E6BB0264.ms.model.script' // TalcuCorrectFolderExecutor
+ ;
+
+ENDME // ME_549AC04F0178 
+
+ME ME_54BE4F98020B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_54BE24CC00D4' '54856B680023.ms.model.script' // TalcuDetachedExecutor
+ ;
+
+ENDME // ME_54BE4F98020B 
+
+ME ME_561D058601B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_561CF00A0193' '53D656130130.ms.model.script' // TalcuProcessingEnabledService
+ ;
+
+ENDME // ME_561D058601B1 
+
+ME ME_57C0137F029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_57C00B9700F2' '57C00B6201B3.ms.model.script' // TalcuDownloadDocStreamExecutor
+ ;
+
+ENDME // ME_57C0137F029F 
+
+ME ME_57D661AF0014
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_57D6592F0210' '57C00B6201B3.ms.model.script' // TalcuUploadDocStreamExecutor
+ ;
+
+ENDME // ME_57D661AF0014 
+
+ME ME_57E4F3A803B3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_57E4EEC200D1' '57C00B6201B3.ms.model.script' // TalcuMultiModifyDocsExecutor
+ ;
+
+ENDME // ME_57E4F3A803B3 
+
+ME ME_57EBC0E501DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_57EBC0C00362' '57C00B6201B3.ms.model.script' // TalcuMultiClearAttributesExecutor
+ ;
+
+ENDME // ME_57EBC0E501DF 
+
+ME ME_57EE6EB80261
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
+ ;
+ MELINK Target WL 'ME_57EE6E97018D' '57C00B6201B3.ms.model.script' // TalcuMultiOperationExecutor
+ ;
+
+ENDME // ME_57EE6EB80261 
+
+ME ME_5385C616025E_ME_52F8E80D00A5
+ MELINK Original WL 'ME_5385C616025E' '53D656130130.ms.model.script' // DoTaskChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5385C616025E_ME_52F8E80D00A5 DoTaskChanged
+
+ME ME_53D0E2CD0227_ME_52F8E80D00A5
+ MELINK Original WL 'ME_53D0E2CD0227' '53CCB94A02A5.ms.model.script' // TaskFinished
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53D0E2CD0227_ME_52F8E80D00A5 TaskFinished
+
+ME ME_5475AFAA017A_ME_52F8E80D00A5
+ MELINK Original WL 'ME_5475AFAA017A' '5475AF76000C.ms.model.script' // TaskDone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5475AFAA017A_ME_52F8E80D00A5 TaskDone
+
+%%ImplementedBy ME_53D0E2B3036C ME_52F8E80D00A5
+%%ImplementedBy ME_5475AF890358 ME_52F8E80D00A5
+
+%%InheritedBy ME_5385C5B200E6 ME_52F8E80D00A5
+
+ME ME_52F8E80D00A5
+ MEPROP UID '52F8E80D00A5'
+ MEPROP Name 'TddServerTaskManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8BE3100F5 // alcuTaskManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5385C5B200E6' '53D656130130.ms.model.script' // TddServerTaskManagerPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ WL 'ME_5475AF890358' '5475AF76000C.ms.model.script' // IalcuTaskFinisher
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_54BE3A4601D4 // f_DetachedExecutorPool
+ HWL ME_53A2C97C03C8 // f_MonitorUsers
+ HWL ME_53A2C98C0068 // f_PrivateMonitorUsers
+ HWL ME_53CDFF7502DB // f_WorkPool
+ HWL ME_53CE50F701A5 // f_BaseEngineHolder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52F8EDDA037F // SimulateTaskDone
+ HWL ME_52F8EDF703C0 // BeforeSaveQuery
+ HWL ME_52F8F0990208 // NeedRaiseInProcessQuery
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5385C616025E_ME_52F8E80D00A5 // DoTaskChanged
+ ME_53D0E2CD0227_ME_52F8E80D00A5 // TaskFinished
+ ME_5475AFAA017A_ME_52F8E80D00A5 // TaskDone
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53CE02060260 // TalcuAsyncSubmitterManager
+ ME_5465DA8E014B // TalcuGetReadyToDeliveryTasksExecutor
+ ME_546B5A4503B2 // TalcuGetTaskDescriptionExecutor
+ ME_5474988E0073 // TalcuTaskProgressExecutor
+ ME_54759C340065 // TalcuDeliveryResultExecutor
+ ME_54759C380010 // TalcuGetFilePartExecutor
+ ME_54856F8F01AA // TalcuSendTaskExecutor
+ ME_549AC04F0178 // TalcuCorrectFolderExecutor
+ ME_54BE4F98020B // TalcuDetachedExecutor
+ ME_561D058601B1 // TalcuProcessingEnabledService
+ ME_57C0137F029F // TalcuDownloadDocStreamExecutor
+ ME_57D661AF0014 // TalcuUploadDocStreamExecutor
+ ME_57E4F3A803B3 // TalcuMultiModifyDocsExecutor
+ ME_57EBC0E501DF // TalcuMultiClearAttributesExecutor
+ ME_57EE6EB80261 // TalcuMultiOperationExecutor
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddServerTaskManager'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52F8E80D00A5 TddServerTaskManager
+
+ME ME_52FA3E120105
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8BE3100F5 // alcuTaskManager
+ ;
+ MELINK Target WL 'ME_52FA3DB401BE' '53A05123034C.ms.model.script' // TalcuTaskList
+ ;
+
+ENDME // ME_52FA3E120105 
+
+ME ME_53A199990094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8BE3100F5 // alcuTaskManager
+ ;
+ MELINK Target WL 'ME_53A19980030C' '53A05123034C.ms.model.script' // TalcuNotSortedTaskList
+ ;
+
+ENDME // ME_53A199990094 
+
+ME ME_53D0E2CD0227_ME_52F8BE3100F5
+ MELINK Original WL 'ME_53D0E2CD0227' '53CCB94A02A5.ms.model.script' // TaskFinished
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53D0E2CD0227_ME_52F8BE3100F5 TaskFinished
+
+ME ME_5475AFAA017A_ME_52F8BE3100F5
+ MELINK Original WL 'ME_5475AFAA017A' '5475AF76000C.ms.model.script' // TaskDone
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5475AFAA017A_ME_52F8BE3100F5 TaskDone
+
+%%ImplementedBy ME_53D0E2B3036C ME_52F8BE3100F5
+%%ImplementedBy ME_5475AF890358 ME_52F8BE3100F5
+
+ME ME_52F8BE3100F5
+ MEPROP UID '52F8BE3100F5'
+ MEPROP Name 'alcuTaskManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53D656130130' '53D656130130.ms.model.script' // Server
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
+ WL 'ME_5475AF890358' '5475AF76000C.ms.model.script' // IalcuTaskFinisher
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_53D0E2CD0227_ME_52F8BE3100F5 // TaskFinished
+ ME_5475AFAA017A_ME_52F8BE3100F5 // TaskDone
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_52F8E80D00A5 // TddServerTaskManager
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52FA3E120105 // TalcuTaskList
+ ME_53A199990094 // TalcuNotSortedTaskList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuTaskManager.pas'
+
+ENDME // ME_52F8BE3100F5 alcuTaskManager

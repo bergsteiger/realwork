@@ -1,0 +1,76 @@
+UNIT CollectControls.ms.dict
+
+USES
+ string.ms.dict
+;
+
+USES
+ arrays.ms.dict
+;
+
+USES
+ CollectElements.ms.dict
+;
+
+USES
+ SaveVarAndDo.ms.dict
+;
+
+USES
+ ElementsRTTI.ms.dict
+;
+
+USES
+ GarantMetaModel.ms.dict
+;
+
+USES
+ Chars.ms.dict
+;
+
+USES
+ Out.ms.dict
+;
+
+USES
+ Log.ms.dict
+;
+
+PROCEDURE CollectControls
+ 
+ CONST cControls 'none|TeeButton|TeeCheckBox|TeeEditor|TeeEditorWithoutOperations|TeeMemoWithEditOperations|TeeRadioButton|TeeTreeView|TElPopupButton|TevMemo|TevQueryCardEditor|TnscComboBox|TnscComboBoxWithPwdChar|TnscComboBoxWithReadOnly|TnscComboLabel|TnscContextFilter|TnscEdit|TnscEditor|TnscHideField|TnscLister|TnscSimpleEditor|TnscTreeComboWithHistoryAndOperations|TnscTreeView|TnscTreeViewHotTruck|TnscTreeViewWithAdapterDragDrop|TvtButton|TvtCheckBox|TvtColorBox|TvtComboBox|TvtComboBoxQS|TvtDblClickDateEdit|TvtFocusLabel|TvtGradientWaitbar|TvtGroupBox|TvtImageLabel|TvtLabel|TvtLister|TvtPanel|TvtProportionalPanel|TvtRadioButton|TvtScrollBar|TvtSizeablePanel|TvtSplitter|TvtStyledLabel|TvtStyledFocusLabel|TBevel|TBitBtn|TComboBox|TImage|TImageEnView|TPaintBox|TRadioButton|TScrollBox|TProgressBar|TnscNavigator'
+ CONST cComponents 'none|TevTextSource|TImageEnIO|TImageEnProc|TnscTextSource|TTimer'
+ 
+ VAR l_Names
+ [ cControls '|' string:Split:for&gt; NOP ]
+ .join&gt; [ cComponents '|' string:Split:for&gt; NOP ]
+ &gt;&gt;&gt; l_Names
+ 
+ 'Controls.ms.dict' .ProcessTmpOut: (
+  [ 'INCLUDE ' cQuote 'ElementsRTTI.ms.dict' cQuote ] .Out
+  OutLn
+  'AllModelControls' .OutWord: (
+   OutSeq: (
+    ProcessAllDictionaries: (
+      STRING IN aDict
+     if true then 
+     begin
+      Log: ( [ 'Collect Controls: ' aDict ] strings:Cat )
+      aDict .ProcessDictionary: (
+        IN aWord
+        IN aDictFileName
+       if ( aWord .IsStereotype st_SimpleClass ) then
+       begin
+        if ( aWord .Name .InArray: l_Names ) then
+        begin
+         aWord aDictFileName .OutWordLink
+        end // ( aWord .Name .InArray: l_Names )
+       end // ( aWord .IsStereotype st_SimpleClass )
+      ) // aDict .ProcessDictionary:
+     end
+    ) // ProcessAllDictionaries:
+   ) // OutSeq:
+  ) // 'AllModelControls' .OutWord:
+ ) // 'Controls.ms.dict' .ProcessTmpOut:
+ 
+; // CollectControls

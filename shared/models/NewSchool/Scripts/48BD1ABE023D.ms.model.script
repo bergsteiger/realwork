@@ -1,0 +1,98 @@
+// afwToolOwner 48BD1ABE023D Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48BD1ABE023D
+
+ME ME_48BD1B2A0096
+ MEPROP UID '48BD1B2A0096'
+ MEPROP Name 'f_Tools'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48BD1ABE023D // afwToolOwner
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_48BD1B2A0096 f_Tools
+
+ME ME_48BD1B31032C
+ MEPROP UID '48BD1B31032C'
+ MEPROP Name 'Cleanup'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48BD1ABE023D // afwToolOwner
+ ;
+ UP "is static" false
+
+ENDME // ME_48BD1B31032C Cleanup
+
+ME ME_48BD1CC50335
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48BD1ABE023D // afwToolOwner
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_48BD1CC50335 
+
+ME ME_46A5D45903CC_ME_48BD1ABE023D
+ MELINK Original WL 'ME_46A5D45903CC' '4677FBA70343.ms.model.script' // AddTool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5D45903CC_ME_48BD1ABE023D AddTool
+
+ME ME_46A5D47201FC_ME_48BD1ABE023D
+ MELINK Original WL 'ME_46A5D47201FC' '4677FBA70343.ms.model.script' // RemoveTool
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5D47201FC_ME_48BD1ABE023D RemoveTool
+
+%%ImplementedBy ME_467D37E40254 ME_48BD1ABE023D
+
+ME ME_48BD1ABE023D
+ MEPROP UID '48BD1ABE023D'
+ MEPROP Name 'afwToolOwner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_467BA8C8017E' '467BA8C8017E.ms.model.script' // afwControl
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_467D37E40254' '4677FBA70343.ms.model.script' // Il3ToolOwner
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48BD1B2A0096 // f_Tools
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48BD1B31032C // Cleanup
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A5D45903CC_ME_48BD1ABE023D // AddTool
+ ME_46A5D47201FC_ME_48BD1ABE023D // RemoveTool
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_48BD1CC50335 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" true
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas'
+ UP extprop:pas:TypeName '_afwToolOwner_'
+ UP extprop:pas:UnitName 'afwToolOwner.imp'
+
+ENDME // ME_48BD1ABE023D afwToolOwner

@@ -1,0 +1,56 @@
+// evStyleTableListener 480DA68701CE Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480DA68701CE
+
+ME ME_480DA6FC0254
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_480DA68701CE // evStyleTableListener
+ ;
+ MELINK Target WL 'ME_47ECB297037D' '47ECB297037D.ms.model.script' // evStyleTableSpy
+ ;
+
+ENDME // ME_480DA6FC0254 
+
+ME ME_479731C50290_ME_480DA68701CE
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_480DA68701CE Cleanup
+
+%%InheritedBy ME_4A485B0D0223 ME_480DA68701CE
+
+ME ME_480DA68701CE
+ MEPROP UID '480DA68701CE'
+ MEPROP Name 'evStyleTableListener'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект, слушающий изменения таблицы стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A485B0D0223' '4A485B0D0223.ms.model.script' // evStyleTableListenerPrim
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_480DA68701CE // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_480DA6FC0254 // evStyleTableSpy
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'DesignTimeLibrary'
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableListener.imp.pas'
+ UP extprop:pas:TypeName '_evStyleTableListener_'
+ UP extprop:pas:UnitName 'evStyleTableListener.imp'
+
+ENDME // ME_480DA68701CE evStyleTableListener

@@ -1,0 +1,97 @@
+// nscArrangeGridCell 4AC9DB95006B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AC9DB95006B
+%%Inner ME_4AC9DB95006B
+
+FORWARD ME_4AC9DB95006B
+
+ME ME_4AC9D9F9028E
+ MEPROP UID '4AC9D9F9028E'
+ MEPROP Name 'TnscHideFieldCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC9DB95006B // nscArrangeGridCell
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'HideFieldCell'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AC9D9F9028E TnscHideFieldCell
+
+FORWARD ME_4ACA309200D3
+
+ME ME_4ACA318803CB
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_4ACA318803CB aControl
+
+ME ME_4ACA31830369
+ MEPROP UID '4ACA31830369'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ACA309200D3 // TagControlCell
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ACA318803CB // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_4ACA31830369 Create
+
+ME ME_4ACA309200D3
+ MEPROP UID '4ACA309200D3'
+ MEPROP Name 'TagControlCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC9DB95006B // nscArrangeGridCell
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ACA31830369 // Create
+ )
+ ; // Operations
+ UP "finished" false
+ UP extprop:rc:SelfName 'agControlCell'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4ACA309200D3 TagControlCell
+
+ME ME_4AC9DB95006B
+ MEPROP UID '4AC9DB95006B'
+ MEPROP Name 'nscArrangeGridCell'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ячейки сетки контролов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AC9B14A02E3' '4AC9B14A02E3.ms.model.script' // Grid
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AC9D9F9028E // TnscHideFieldCell
+ HWL ME_4ACA309200D3 // TagControlCell
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGridCell.pas'
+ UP extprop:rc:SelfName 'ArrangeGridCell'
+
+ENDME // ME_4AC9DB95006B nscArrangeGridCell

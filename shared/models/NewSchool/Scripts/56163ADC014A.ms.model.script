@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_56163ADC014A
+
 FORWARD ME_56163ADC014A
 
 FORWARD ME_56163B0902D7
@@ -23,6 +25,10 @@ ME ME_56163BF202A4
 
 ENDME // ME_56163BF202A4 ItemType
 
+%%ImplementedBy ME_47B57D630029 ME_56163BDB00E3
+
+%%InheritedBy ME_4A54DD4E036F ME_56163BDB00E3
+
 ME ME_56163BDB00E3
  MEPROP UID '56163BDB00E3'
  MEPROP Name 'TnsSearchWindowList'
@@ -38,7 +44,7 @@ ME ME_56163BDB00E3
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B57D630029' '47913B47006E.ms.model.script' // l3InterfacePtrList
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
  )
  ; // Implements
  MELIST Attributes
@@ -107,6 +113,8 @@ ME ME_56163C39024C
 
 ENDME // ME_56163C39024C Subscribe
 
+%%InheritedBy ME_56163C39024C ME_56163C5903DB
+
 ME ME_56163C5903DB
  MEPROP UID '56163C5903DB'
  MEPROP Name 'Unsubscribe'
@@ -138,10 +146,12 @@ ME ME_56163C8A0267
 ENDME // ME_56163C8A0267 CheckFindEnabled
 
 ME ME_479731C50290_ME_56163B0902D7
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_56163B0902D7 Cleanup
+
+%%InheritedBy ME_4A54DD4E036F ME_56163B0902D7
 
 ME ME_56163B0902D7
  MEPROP UID '56163B0902D7'
@@ -175,6 +185,9 @@ ME ME_56163B0902D7
    Seq: ( HWL ME_56163BDB00E3 // TnsSearchWindowList
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "singleton" true
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsSearchWindowManager.pas'
  UP extprop:rc:SelfName 'SearchWindowManager'
@@ -203,5 +216,8 @@ ME ME_56163ADC014A
  WL 'ME_4A9F98B901A5' '4A9F98B901A5.ms.model.script' // BaseSearchInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
 
 ENDME // ME_56163ADC014A BaseSearchUtils

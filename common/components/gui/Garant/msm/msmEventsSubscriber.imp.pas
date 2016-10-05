@@ -18,7 +18,7 @@
    procedure LinkEventHandlers; virtual;
    procedure LinkEventHandler(anEvent: TmsmEvent;
     aHandler: TmsmEventHandler);
-   procedure Fire(anEvent: TmsmEvent);
+   procedure HandleEvent(anEvent: TmsmEvent);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure InitFields; override;
@@ -63,7 +63,7 @@ begin
 //#UC END# *57CD83DE0170_57B6B5D00202_impl*
 end;//_msmEventsSubscriber_.LinkEventHandler
 
-procedure _msmEventsSubscriber_.Fire(anEvent: TmsmEvent);
+procedure _msmEventsSubscriber_.HandleEvent(anEvent: TmsmEvent);
 //#UC START# *57AD8E570241_57B6B5D00202_var*
 //#UC END# *57AD8E570241_57B6B5D00202_var*
 begin
@@ -83,7 +83,7 @@ begin
   end;//f_EnabledEvents = nil..
  end;//f_DisabledEvents = nil..
 //#UC END# *57AD8E570241_57B6B5D00202_impl*
-end;//_msmEventsSubscriber_.Fire
+end;//_msmEventsSubscriber_.HandleEvent
 
 procedure _msmEventsSubscriber_.DisableEvent(anEvent: TmsmEvent);
 //#UC START# *57B59F2B03A1_57B6B5D00202_var*

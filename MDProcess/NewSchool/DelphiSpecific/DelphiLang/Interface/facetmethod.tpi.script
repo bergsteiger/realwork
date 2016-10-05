@@ -31,6 +31,11 @@ implementation @ <<facetmethod>>
 // - может быть реализован/иметь перекрытую реализацию
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p OriginalStereotype:s ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Функции стереотипа
 
 //%f _st_space_key
@@ -38,12 +43,25 @@ implementation @ <<facetmethod>>
 //	SHD
  'SHD'
 
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{OriginalStereotype}"!="%S{!OriginalStereotype}"}%f_up_prefix(%S) *OriginalStereotype* = *%S{OriginalStereotype}*
+ ?inherited
+ if ( ( %S get_up ( 'OriginalStereotype' ) ) %!= ( %S get_up_def ( 'OriginalStereotype' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *OriginalStereotype* = *'
+  %S get_up ( 'OriginalStereotype' ) '*'
+//	]
+ end // if
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Вложенные стереотипы
 
 //: facetmethod::Class::Operation
-; // st_space_key
+; // wiki_up_print
 
 end. // <<facetmethod>>
 

@@ -1,0 +1,92 @@
+// TestForm4Scripts 51349B6001D3 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51349B6001D3
+
+ME ME_51349CE90123
+ MEPROP UID '51349CE90123'
+ MEPROP Name 'g_TestsForm'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_51349B6001D3 // TestForm4Scripts
+ ;
+ MELINK Target WL 'ME_4DA30F0F02C1' '4B2A0D9401CC.ms.model.script' // TGUITestRunner
+ ;
+
+ENDME // ME_51349CE90123 g_TestsForm
+
+ME ME_51349D2901B5
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DA30F0F02C1' '4B2A0D9401CC.ms.model.script' // TGUITestRunner
+ ;
+
+ENDME // ME_51349D2901B5 aForm
+
+ME ME_51349D1803A7
+ MEPROP UID '51349D1803A7'
+ MEPROP Name 'LinkTestForm'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51349B6001D3 // TestForm4Scripts
+ ;
+ MELIST Parameters
+   Seq: ( ME_51349D2901B5 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_51349D1803A7 LinkTestForm
+
+ME ME_51349D2D0187
+ MEPROP UID '51349D2D0187'
+ MEPROP Name 'UnLinkTestForm'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51349B6001D3 // TestForm4Scripts
+ ;
+
+ENDME // ME_51349D2D0187 UnLinkTestForm
+
+ME ME_51349D4E02CB
+ MEPROP UID '51349D4E02CB'
+ MEPROP Name 'GetTestForm'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51349B6001D3 // TestForm4Scripts
+ ;
+ MELINK Target WL 'ME_4DA30F0F02C1' '4B2A0D9401CC.ms.model.script' // TGUITestRunner
+ ;
+
+ENDME // ME_51349D4E02CB GetTestForm
+
+ME ME_51349B6001D3
+ MEPROP UID '51349B6001D3'
+ MEPROP Name 'TestForm4Scripts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51309A4A02FB' '51309A4A02FB.ms.model.script' // Tests Res Common
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51349CE90123 // g_TestsForm
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51349D1803A7 // LinkTestForm
+ HWL ME_51349D2D0187 // UnLinkTestForm
+ HWL ME_51349D4E02CB // GetTestForm
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\rtl\Garant\Shared_Delphi_Tests_Common\TestForm4Scripts.pas'
+
+ENDME // ME_51349B6001D3 TestForm4Scripts

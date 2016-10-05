@@ -1,0 +1,47 @@
+// nsStyleEditor 4ABA13880316 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4ABA13880316
+
+FORWARD ME_4ABA13880316
+
+ME ME_4ABA139D014D
+ MEPROP UID '4ABA139D014D'
+ MEPROP Name 'TnsStyleTableSettingsInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABA13880316 // nsStyleEditor
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'StyleTableSettingsInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4ABA139D014D TnsStyleTableSettingsInfo
+
+ME ME_4ABA13880316
+ MEPROP UID '4ABA13880316'
+ MEPROP Name 'nsStyleEditor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F7D8B3A03A0' '4F7D8B3A03A0.ms.model.script' // SettingsUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ABA139D014D // TnsStyleTableSettingsInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsStyleEditor.pas'
+ UP extprop:rc:SelfName 'StyleEditor'
+
+ENDME // ME_4ABA13880316 nsStyleEditor

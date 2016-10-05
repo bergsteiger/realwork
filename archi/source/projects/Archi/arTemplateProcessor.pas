@@ -1,6 +1,6 @@
 unit arTemplateProcessor;
 
-{ $Id: arTemplateProcessor.pas,v 1.24 2015/04/07 09:08:05 lukyanets Exp $ }
+{ $Id: arTemplateProcessor.pas,v 1.25 2016/09/21 12:04:36 dinishev Exp $ }
 
 interface
 uses
@@ -85,6 +85,7 @@ type
 implementation
 uses
  SysUtils,
+ l3Base,
  l3String,
  l3RegEx,
  l3DictionaryPrim,
@@ -526,6 +527,7 @@ procedure TarTemplateStorage.ClearStorate;
 begin
  f_Template := '';
  f_SavedTemplates.Clear;
+ l3FillChar(f_TemplateData, SizeOf(f_TemplateData));
  Load;
 end;
 {$ENDIF nsTest}

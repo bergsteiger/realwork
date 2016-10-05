@@ -1,0 +1,44 @@
+// Gauges 53E0F45F02B2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53E0F45F02B2
+
+FORWARD ME_53E0F45F02B2
+
+ME ME_53E491DB0065
+ MEPROP UID '53E491DB0065'
+ MEPROP Name 'TGauge'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53E0F45F02B2 // Gauges
+ ;
+ UP extprop:rc:SelfName 'Gauge'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53E491DB0065 TGauge
+
+ME ME_53E0F45F02B2
+ MEPROP UID '53E0F45F02B2'
+ MEPROP Name 'Gauges'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5226F7CC03C6' '5226F7CC03C6.ms.model.script' // Samples
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53E491DB0065 // TGauge
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Gauges.pas'
+
+ENDME // ME_53E0F45F02B2 Gauges

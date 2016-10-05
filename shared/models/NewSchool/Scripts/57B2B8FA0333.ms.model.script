@@ -1,0 +1,237 @@
+// msmModelToModelBinding 57B2B8FA0333 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57B2B8FA0333
+%%Inner ME_57B2B8FA0333
+
+FORWARD ME_57B2B8FA0333
+
+ME ME_57B2B94F0151
+ MEPROP UID '57B2B94F0151'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ UP extprop:pas:TypeName '_ModelToListen_'
+
+ENDME // ME_57B2B94F0151 ModelToListen
+
+ME ME_57B2B9B503CF
+ MEPROP UID '57B2B9B503CF'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ UP extprop:pas:TypeName '_ModelToFire_'
+
+ENDME // ME_57B2B9B503CF ModelToFire
+
+ME ME_57B2B96D03C2
+ MEPROP UID '57B2B96D03C2'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ MELINK Target HWL ME_57B2B94F0151 // ModelToListen
+ ;
+
+ENDME // ME_57B2B96D03C2 ModelToListen
+
+ME ME_57B2B9790235
+ MEPROP UID '57B2B9790235'
+ MEPROP Name 'ModelToListen'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ MELINK Target HWL ME_57B2B94F0151 // ModelToListen
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57B2B9790235 ModelToListen
+
+ME ME_57B2B9A601BC
+ MEPROP UID '57B2B9A601BC'
+ MEPROP Name 'ConcreteModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ MELINK Target HWL ME_57B2B94F0151 // ModelToListen
+ ;
+
+ENDME // ME_57B2B9A601BC ConcreteModel
+
+ME ME_57B2B9C7021D
+ MEPROP UID '57B2B9C7021D'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ MELINK Target HWL ME_57B2B9B503CF // ModelToFire
+ ;
+
+ENDME // ME_57B2B9C7021D ModelToFire
+
+ME ME_57B2B9D7012D
+ MEPROP UID '57B2B9D7012D'
+ MEPROP Name 'ModelToFire'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ MELINK Target HWL ME_57B2B9B503CF // ModelToFire
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57B2B9D7012D ModelToFire
+
+FORWARD ME_57B2BA1B039B
+
+ME ME_57B2BA420162
+ MEPROP Name 'aModelToListen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57B2B94F0151 // ModelToListen
+ ;
+
+ENDME // ME_57B2BA420162 aModelToListen
+
+ME ME_57B2BA4201A8
+ MEPROP Name 'aModelToFire'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_57B2B9B503CF // ModelToFire
+ ;
+
+ENDME // ME_57B2BA4201A8 aModelToFire
+
+ME ME_57B2BA260029
+ MEPROP UID '57B2BA260029'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2BA1B039B // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_57B2BA420162 // aModelToListen
+ ME_57B2BA4201A8 // aModelToFire
+ )
+ ; // Parameters
+
+ENDME // ME_57B2BA260029 DoIt
+
+ME ME_57B2BA1B039B
+ MEPROP UID '57B2BA1B039B'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57B2BA260029 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57B2BA1B039B Create
+
+%%ImplementedBy ME_57B1E89F02AE ME_57B2BA090040
+
+%%InheritedBy ME_57B2BA1B039B ME_57B2BA090040
+
+ME ME_57B2BA090040
+ MEPROP UID '57B2BA090040'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B2B8FA0333 // msmModelToModelBinding
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57B2BA1B039B // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57B1E89F02AE' '57AAE8D403E5.ms.model.script' // ImsmController
+ )
+ ; // Implements
+
+ENDME // ME_57B2BA090040 Make
+
+%%InheritedBy ME_57B2B7FF03E4 ME_57B2B8FA0333
+
+ME ME_57B2B8FA0333
+ MEPROP UID '57B2B8FA0333'
+ MEPROP Name 'msmModelToModelBinding'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B2B7FF03E4' '57B2B7FF03E4.ms.model.script' // msmConcreteModelController
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57B2B96D03C2 // ModelToListen
+ HWL ME_57B2B9790235 // ModelToListen
+ HWL ME_57B2B9A601BC // ConcreteModel
+ HWL ME_57B2B9C7021D // ModelToFire
+ HWL ME_57B2B9D7012D // ModelToFire
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B2BA1B039B // Create
+ HWL ME_57B2BA090040 // Make
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57B2B94F0151 // ModelToListen
+ HWL ME_57B2B9B503CF // ModelToFire
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmModelToModelBinding.imp.pas'
+ UP extprop:pas:TypeName '_msmModelToModelBinding_'
+ UP extprop:pas:UnitName 'msmModelToModelBinding.imp'
+
+ENDME // ME_57B2B8FA0333 msmModelToModelBinding

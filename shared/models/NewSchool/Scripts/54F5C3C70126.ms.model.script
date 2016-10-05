@@ -1,0 +1,92 @@
+// ScrollInfoProcessingPack 54F5C3C70126 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F5C3C70126
+
+ME ME_54F5C3CF0253
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ MELINK Target WL 'ME_51793AE70134' '54F5C36C00BE.ms.model.script' // pop_control_ScrollInfo
+ ;
+
+ENDME // ME_54F5C3CF0253 
+
+ME ME_54F5C3D603D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ MELINK Target WL 'ME_51793B050115' '54F5C36C00BE.ms.model.script' // pop_control_ScrollInfo_Min
+ ;
+
+ENDME // ME_54F5C3D603D2 
+
+ME ME_54F5C3DD02D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ MELINK Target WL 'ME_51793B0D02BB' '54F5C36C00BE.ms.model.script' // pop_control_ScrollInfo_Max
+ ;
+
+ENDME // ME_54F5C3DD02D5 
+
+ME ME_54F5C3E20052
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ MELINK Target WL 'ME_51793B1402E2' '54F5C36C00BE.ms.model.script' // pop_control_ScrollInfo_PageSize
+ ;
+
+ENDME // ME_54F5C3E20052 
+
+ME ME_54F5C3E502F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ MELINK Target WL 'ME_51793B1F01AA' '54F5C36C00BE.ms.model.script' // pop_control_ScrollInfo_Position
+ ;
+
+ENDME // ME_54F5C3E502F2 
+
+ME ME_54F5C4010063
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_54F5C3C70126 // ScrollInfoProcessingPack
+ ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_54F5C4010063 
+
+%%InjectedBy ME_47E124E90272 ME_54F5C3C70126
+
+ME ME_54F5C3C70126
+ MEPROP UID '54F5C3C70126'
+ MEPROP Name 'ScrollInfoProcessingPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54F5C36C00BE' '54F5C36C00BE.ms.model.script' // ScrollInfoProcessing
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54F5C3CF0253 // pop_control_ScrollInfo
+ ME_54F5C3D603D2 // pop_control_ScrollInfo_Min
+ ME_54F5C3DD02D5 // pop_control_ScrollInfo_Max
+ ME_54F5C3E20052 // pop_control_ScrollInfo_PageSize
+ ME_54F5C3E502F2 // pop_control_ScrollInfo_Position
+ ME_54F5C4010063 // TWinControl
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScrollInfoProcessingPack.pas'
+
+ENDME // ME_54F5C3C70126 ScrollInfoProcessingPack

@@ -18,7 +18,8 @@ uses
 type
  TnsTryingToOpenMissingDocumentFromLinkEvent = class(TnsLogEvent)
   public
-   class procedure Log(const aTopic: TTopic);
+   class procedure Log(const aTopic: TTopic); overload;
+   class procedure Log(aDocID: Integer); overload;
  end;//TnsTryingToOpenMissingDocumentFromLinkEvent
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 
@@ -52,6 +53,19 @@ begin
  end;
  GetLogger.AddEvent(LE_DOCUMENT_NOT_EXIST, l_Data);
 //#UC END# *527CD1EB017C_527CD1B702B4_impl*
+end;//TnsTryingToOpenMissingDocumentFromLinkEvent.Log
+
+class procedure TnsTryingToOpenMissingDocumentFromLinkEvent.Log(aDocID: Integer);
+//#UC START# *57ECF20E0141_527CD1B702B4_var*
+var
+ l_Data: InsLogEventData;
+//#UC END# *57ECF20E0141_527CD1B702B4_var*
+begin
+//#UC START# *57ECF20E0141_527CD1B702B4_impl*
+ l_Data := MakeParamsList;
+ l_Data.AddULong(Longword(aDocID));
+ GetLogger.AddEvent(LE_DOCUMENT_NOT_EXIST, l_Data);
+//#UC END# *57ECF20E0141_527CD1B702B4_impl*
 end;//TnsTryingToOpenMissingDocumentFromLinkEvent.Log
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings)
 

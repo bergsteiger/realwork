@@ -222,8 +222,10 @@ initialization
  {* Регистрация Tkw_ChangesBetweenEditons_Component_TextSource }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TChangesBetweenEditonsForm));
  {* Регистрация типа TChangesBetweenEditonsForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditor));
  {* Регистрация типа TnscEditor }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

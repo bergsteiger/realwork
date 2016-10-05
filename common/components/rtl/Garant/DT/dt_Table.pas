@@ -1,8 +1,11 @@
 Unit dt_Table;
 
-{ $Id: dt_Table.pas,v 1.63 2016/09/05 09:21:41 voba Exp $ }
+{ $Id: dt_Table.pas,v 1.64 2016/09/23 09:34:35 voba Exp $ }
 
 // $Log: dt_Table.pas,v $
+// Revision 1.64  2016/09/23 09:34:35  voba
+// no message
+//
 // Revision 1.63  2016/09/05 09:21:41  voba
 // no message
 //
@@ -812,7 +815,7 @@ begin
   lSab.TransferToPhoto(aKeyFld, Self);
   lSab.RecordsByKey;
   Result := lSab.Count;
-  //lSab.DeleteFromTable;
+  lSab.DeleteFromTable;
  end;
 end;
 

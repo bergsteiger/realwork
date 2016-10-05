@@ -1,0 +1,163 @@
+// kwCheckWithEtalonCommon 50D456F10356 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_50D456F10356
+
+ME ME_50D4576A0222
+ MEPROP UID '50D4576A0222'
+ MEPROP Name 'f_ScriptCaller'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_4DAF1A1700F7' '4DAF19F600C5.ms.model.script' // ItfwScriptCaller
+ ;
+
+ENDME // ME_50D4576A0222 f_ScriptCaller
+
+ME ME_50D4579103CC
+ MEPROP UID '50D4579103CC'
+ MEPROP Name 'f_OutputFileName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50D4579103CC f_OutputFileName
+
+FORWARD ME_50F3D8DF034F
+
+ME ME_50F3DA290042
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_50F3DA290042 aCtx
+
+ME ME_50F3DA290061
+ MEPROP Name 'anEditor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_50F3DA290061 anEditor
+
+ME ME_50F3D9180127
+ MEPROP UID '50F3D9180127'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F3D8DF034F // ExecuteWithEditor
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F3DA290042 // aCtx
+ ME_50F3DA290061 // anEditor
+ )
+ ; // Parameters
+
+ENDME // ME_50F3D9180127 DoIt
+
+ME ME_50F3D8DF034F
+ MEPROP UID '50F3D8DF034F'
+ MEPROP Name 'ExecuteWithEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50F3D9180127 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50F3D8DF034F ExecuteWithEditor
+
+ME ME_50D457C50021
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_50D457C50021 
+
+ME ME_50D457D70255
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50D456F10356 // kwCheckWithEtalonCommon
+ ;
+ MELINK Target WL 'ME_4B853D8301E9' '483C378301CB.ms.model.script' // AnsiStartsStr
+ ;
+
+ENDME // ME_50D457D70255 
+
+ME ME_4E1C0C6C026C_ME_50D456F10356
+ MELINK Original WL 'ME_4E1C0C6C026C' '4E1C016B0011.ms.model.script' // DoOpenLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E1C0C6C026C_ME_50D456F10356 DoOpenLog
+
+ME ME_4E1C0C8C0007_ME_50D456F10356
+ MELINK Original WL 'ME_4E1C0C8C0007' '4E1C016B0011.ms.model.script' // DoCloseLog
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E1C0C8C0007_ME_50D456F10356 DoCloseLog
+
+%%ImplementedBy ME_4E1C016B0011 ME_50D456F10356
+
+ME ME_50D456F10356
+ MEPROP UID '50D456F10356'
+ MEPROP Name 'kwCheckWithEtalonCommon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F4CB50403CC' '4F4CB50403CC.ms.model.script' // EditorFromStackKeyWords
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E1C016B0011' '4E1C016B0011.ms.model.script' // DrawOutputSupport
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_50D4576A0222 // f_ScriptCaller
+ HWL ME_50D4579103CC // f_OutputFileName
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_50F3D8DF034F // ExecuteWithEditor
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4E1C0C6C026C_ME_50D456F10356 // DoOpenLog
+ ME_4E1C0C8C0007_ME_50D456F10356 // DoCloseLog
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_50D457C50021 // FreeAndNil
+ ME_50D457D70255 // AnsiStartsStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCheckWithEtalonCommon.imp.pas'
+ UP extprop:pas:TypeName '_kwCheckWithEtalonCommon_'
+ UP extprop:pas:UnitName 'kwCheckWithEtalonCommon.imp'
+
+ENDME // ME_50D456F10356 kwCheckWithEtalonCommon

@@ -1,0 +1,360 @@
+// l3Diff 5644774902C8 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5644774902C8
+%%Inner ME_5644774902C8
+%%Inner ME_5644774902C8
+%%Inner ME_5644774902C8
+
+FORWARD ME_5644774902C8
+
+FORWARD ME_564477CC036E
+
+ME ME_5644781A0078
+ MEPROP Name 'I'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5644781A0078 I
+
+ME ME_5644781A008E
+ MEPROP Name 'J'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5644781A008E J
+
+ME ME_564477E40358
+ MEPROP UID '564477E40358'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564477CC036E // Tl3DiffCompareFunc
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5644781A0078 // I
+ ME_5644781A008E // J
+ )
+ ; // Parameters
+
+ENDME // ME_564477E40358 DoIt
+
+ME ME_564477CC036E
+ MEPROP UID '564477CC036E'
+ MEPROP Name 'Tl3DiffCompareFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5644774902C8 // l3Diff
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_564477E40358 // DoIt
+ )
+ ; // Operations
+ UP "of object" false
+
+ENDME // ME_564477CC036E Tl3DiffCompareFunc
+
+FORWARD ME_564479C20374
+
+ME ME_564479D50136
+ MEPROP UID '564479D50136'
+ MEPROP Name 'l3diffSame'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ENDME // ME_564479D50136 l3diffSame
+
+ME ME_56459EDB0121
+ MEPROP UID '56459EDB0121'
+ MEPROP Name 'l3diffDeleted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ENDME // ME_56459EDB0121 l3diffDeleted
+
+ME ME_564479EC0382
+ MEPROP UID '564479EC0382'
+ MEPROP Name 'l3diffAdded'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ENDME // ME_564479EC0382 l3diffAdded
+
+ME ME_564479C20374
+ MEPROP UID '564479C20374'
+ MEPROP Name 'Tl3DiffOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5644774902C8 // l3Diff
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_564479D50136 // l3diffSame
+ HWL ME_56459EDB0121 // l3diffDeleted
+ HWL ME_564479EC0382 // l3diffAdded
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_564479C20374 Tl3DiffOperation
+
+FORWARD ME_56691ABF0264
+
+ME ME_56691AE501D7
+ MEPROP UID '56691AE501D7'
+ MEPROP Name 'rOp'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+ MELINK Target HWL ME_564479C20374 // Tl3DiffOperation
+ ;
+
+ENDME // ME_56691AE501D7 rOp
+
+ME ME_56691B010068
+ MEPROP UID '56691B010068'
+ MEPROP Name 'rLeftIdx'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56691B010068 rLeftIdx
+
+ME ME_56691B1D0291
+ MEPROP UID '56691B1D0291'
+ MEPROP Name 'rRightIdx'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56691B1D0291 rRightIdx
+
+ME ME_56691ABF0264
+ MEPROP UID '56691ABF0264'
+ MEPROP Name 'Tl3DiffReportRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5644774902C8 // l3Diff
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56691AE501D7 // rOp
+ HWL ME_56691B010068 // rLeftIdx
+ HWL ME_56691B1D0291 // rRightIdx
+ )
+ ; // Attributes
+
+ENDME // ME_56691ABF0264 Tl3DiffReportRec
+
+FORWARD ME_564478EF0289
+
+ME ME_56691B4A0057
+ MEPROP Name 'aRR'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_56691ABF0264 // Tl3DiffReportRec
+ ;
+
+ENDME // ME_56691B4A0057 aRR
+
+ME ME_5644799302F7
+ MEPROP UID '5644799302F7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_564478EF0289 // Tl3DiffReportProc
+ ;
+ MELIST Parameters
+   Seq: ( ME_56691B4A0057 // aRR
+ )
+ ; // Parameters
+
+ENDME // ME_5644799302F7 DoIt
+
+ME ME_564478EF0289
+ MEPROP UID '564478EF0289'
+ MEPROP Name 'Tl3DiffReportProc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5644774902C8 // l3Diff
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5644799302F7 // DoIt
+ )
+ ; // Operations
+ UP "of object" false
+
+ENDME // ME_564478EF0289 Tl3DiffReportProc
+
+FORWARD ME_56447A0802A9
+
+ME ME_56447A910180
+ MEPROP Name 'aCountLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56447A910180 aCountLeft
+
+ME ME_56447A910193
+ MEPROP Name 'aCountRight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_56447A910193 aCountRight
+
+ME ME_56447A9101A4
+ MEPROP Name 'aCompareFunc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_564477CC036E // Tl3DiffCompareFunc
+ ;
+
+ENDME // ME_56447A9101A4 aCompareFunc
+
+ME ME_56447A9101C6
+ MEPROP Name 'aReportProc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_564478EF0289 // Tl3DiffReportProc
+ ;
+
+ENDME // ME_56447A9101C6 aReportProc
+
+ME ME_56447A240227
+ MEPROP UID '56447A240227'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56447A0802A9 // l3DoDiff
+ ;
+ MELIST Parameters
+   Seq: ( ME_56447A910180 // aCountLeft
+ ME_56447A910193 // aCountRight
+ ME_56447A9101A4 // aCompareFunc
+ ME_56447A9101C6 // aReportProc
+ )
+ ; // Parameters
+
+ENDME // ME_56447A240227 DoIt
+
+ME ME_56459FF301BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56447A0802A9 // l3DoDiff
+ ;
+ MELINK Target WL 'ME_56459FB100FF' '4808A20402DC.ms.model.script' // Max
+ ;
+
+ENDME // ME_56459FF301BA 
+
+ME ME_5645A045018D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56447A0802A9 // l3DoDiff
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5645A045018D 
+
+ME ME_56447A0802A9
+ MEPROP UID '56447A0802A9'
+ MEPROP Name 'l3DoDiff'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5644774902C8 // l3Diff
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56447A240227 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_56459FF301BA // Max
+ ME_5645A045018D // l3Base
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'DoDiff'
+
+ENDME // ME_56447A0802A9 l3DoDiff
+
+ME ME_5644774902C8
+ MEPROP UID '5644774902C8'
+ MEPROP Name 'l3Diff'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_564476FF0335' '564476FF0335.ms.model.script' // Diff
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56447A0802A9 // l3DoDiff
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_564477CC036E // Tl3DiffCompareFunc
+ HWL ME_564479C20374 // Tl3DiffOperation
+ HWL ME_56691ABF0264 // Tl3DiffReportRec
+ HWL ME_564478EF0289 // Tl3DiffReportProc
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Diff.pas'
+ UP extprop:rc:SelfName 'Diff'
+
+ENDME // ME_5644774902C8 l3Diff

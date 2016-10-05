@@ -672,8 +672,10 @@ initialization
  {* Регистрация типа TvtLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TElPopupButton));
  {* Регистрация типа TElPopupButton }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEdit));
  {* Регистрация типа TnscEdit }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

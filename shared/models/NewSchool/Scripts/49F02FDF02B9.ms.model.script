@@ -2,127 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_49F02FDF02B9
-
-FORWARD ME_4B97E1EA011F
-
-FORWARD ME_4B97E2240035
-
-ME ME_4B97E27B01A5
- MEPROP UID '4B97E27B01A5'
- MEPROP Name 'LabelCaption'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
- ;
- MEPROP Value '''Контекстный фильтр'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Контекстный фильтр'''
-
-ENDME // ME_4B97E27B01A5 LabelCaption
-
-ME ME_4B97E2840076
- MEPROP UID '4B97E2840076'
- MEPROP Name 'ContextEmptyMessage'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
- ;
- MEPROP Value '''Введите слова для поиска и фильтрации'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Введите слова для поиска и фильтрации'''
-
-ENDME // ME_4B97E2840076 ContextEmptyMessage
-
-ME ME_4B97E28C0134
- MEPROP UID '4B97E28C0134'
- MEPROP Name 'ButtonActiveHint'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
- ;
- MEPROP Value '''Выключить контекстный фильтр'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Выключить контекстный фильтр'''
-
-ENDME // ME_4B97E28C0134 ButtonActiveHint
-
-ME ME_4B97E2950337
- MEPROP UID '4B97E2950337'
- MEPROP Name 'ButtonInActiveHint'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
- ;
- MEPROP Value '''Включить контекстный фильтр'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Включить контекстный фильтр'''
-
-ENDME // ME_4B97E2950337 ButtonInActiveHint
-
-ME ME_4B97E2240035
- MEPROP UID '4B97E2240035'
- MEPROP Name 'ContextFilterMessages'
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B97E1EA011F // nscContextFilterRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4B97E27B01A5 // LabelCaption
- HWL ME_4B97E2840076 // ContextEmptyMessage
- HWL ME_4B97E28C0134 // ButtonActiveHint
- HWL ME_4B97E2950337 // ButtonInActiveHint
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "children prefix" 'nsc_'
- UP "spell names" false
- UP extprop:pas:ElementPrefix 'nsc_'
-
-ENDME // ME_4B97E2240035 ContextFilterMessages
-
-ME ME_4B97E1EA011F
- MEPROP UID '4B97E1EA011F'
- MEPROP Name 'nscContextFilterRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ресурсы для TnscContextFilter' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49F02FDF02B9 // ContextFilter
- ;
- MELIST Constants
-   Seq: ( HWL ME_4B97E2240035 // ContextFilterMessages
- )
- ; // Constants
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '10.03.2010 21:16'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscContextFilterRes.pas'
- UP extprop:rc:SelfName 'ContextFilterRes'
-
-ENDME // ME_4B97E1EA011F nscContextFilterRes
+%%Inner ME_49F02FDF02B9
+%%Inner ME_49F02FDF02B9
 
 ME ME_49F02FDF02B9
  MEPROP UID '49F02FDF02B9'
@@ -137,7 +18,7 @@ ME ME_49F02FDF02B9
  ;
  MELIST Children
    Seq: ( WL 'ME_49F0314802E7' '49F0314802E7.ms.model.script' // TnscContextFilter
- HWL ME_4B97E1EA011F // nscContextFilterRes
+ WL 'ME_4B97E1EA011F' '4B97E1EA011F.ms.model.script' // nscContextFilterRes
  )
  ; // Children
  MELIST Depends
@@ -145,6 +26,9 @@ ME ME_49F02FDF02B9
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "UseNewGen" true
 
 ENDME // ME_49F02FDF02B9 ContextFilter

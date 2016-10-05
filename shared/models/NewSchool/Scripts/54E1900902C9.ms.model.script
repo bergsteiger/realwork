@@ -1,0 +1,404 @@
+// destFontTable 54E1900902C9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_54E1900902C9
+%%Inner ME_54E1900902C9
+
+FORWARD ME_54E1900902C9
+
+FORWARD ME_54E1908B0336
+
+FORWARD ME_54E194240104
+
+ME ME_54E194420242
+ MEPROP UID '54E194420242'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E194240104 // Fonts
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54E194420242 anIndex
+
+ME ME_54E194240104
+ MEPROP UID '54E194240104'
+ MEPROP Name 'Fonts'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E1908B0336 // TddFontTable
+ ;
+ MELINK Target WL 'ME_54E19074022B' '51E7D2010032.ms.model.script' // TddFontEntry
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54E194420242 // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E194240104 Fonts
+
+FORWARD ME_54E194A303CE
+
+ME ME_54E194CD0053
+ MEPROP UID '54E194CD0053'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E194A303CE // FontNames
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54E194CD0053 anIndex
+
+ME ME_54E194A303CE
+ MEPROP UID '54E194A303CE'
+ MEPROP Name 'FontNames'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E1908B0336 // TddFontTable
+ ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54E194CD0053 // anIndex
+ )
+ ; // Attributes
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E194A303CE FontNames
+
+ME ME_54E1AC0D0304
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E1908B0336 // TddFontTable
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54E1AC0D0304 
+
+%%InheritedBy ME_4773DCE302FF ME_54E1908B0336
+
+ME ME_54E1908B0336
+ MEPROP UID '54E1908B0336'
+ MEPROP Name 'TddFontTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54E1900902C9 // destFontTable
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4773DCE302FF' '47913B47006E.ms.model.script' // Tl3StringList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54E194240104 // Fonts
+ HWL ME_54E194A303CE // FontNames
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_54E1AC0D0304 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddFontTable'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54E1908B0336 TddFontTable
+
+FORWARD ME_54E190B601EC
+
+ME ME_54E1956501C7
+ MEPROP UID '54E1956501C7'
+ MEPROP Name 'f_Fonts'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E190B601EC // TdestFontTable
+ ;
+ MELINK Target HWL ME_54E1908B0336 // TddFontTable
+ ;
+
+ENDME // ME_54E1956501C7 f_Fonts
+
+ME ME_54E195C3012F
+ MEPROP UID '54E195C3012F'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E190B601EC // TdestFontTable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E195C3012F Count
+
+ME ME_54E198280123
+ MEPROP UID '54E198280123'
+ MEPROP Name 'CurFont'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E190B601EC // TdestFontTable
+ ;
+ MELINK Target WL 'ME_54E19074022B' '51E7D2010032.ms.model.script' // TddFontEntry
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E198280123 CurFont
+
+FORWARD ME_54E19857032C
+
+ME ME_54E1987C014A
+ MEPROP UID '54E1987C014A'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19857032C // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54E1987C014A anIndex
+
+ME ME_54E19857032C
+ MEPROP UID '54E19857032C'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E190B601EC // TdestFontTable
+ ;
+ MELINK Target WL 'ME_54E19074022B' '51E7D2010032.ms.model.script' // TddFontEntry
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54E1987C014A // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E19857032C Items
+
+FORWARD ME_54E197950160
+
+ME ME_54E197A80135
+ MEPROP UID '54E197A80135'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E197950160 // AddFont
+ ;
+
+ENDME // ME_54E197A80135 DoIt
+
+ME ME_54E197950160
+ MEPROP UID '54E197950160'
+ MEPROP Name 'AddFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E190B601EC // TdestFontTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E197A80135 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E197950160 AddFont
+
+FORWARD ME_54E197B702C1
+
+ME ME_54E197D3017A
+ MEPROP Name 'aNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54E197D3017A aNumber
+
+ME ME_54E197CD0131
+ MEPROP UID '54E197CD0131'
+ MEPROP Name 'DoItr'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E197B702C1 // FontByNumber
+ ;
+ MELINK Target WL 'ME_54E19074022B' '51E7D2010032.ms.model.script' // TddFontEntry
+ ;
+ MELIST Parameters
+   Seq: ( ME_54E197D3017A // aNumber
+ )
+ ; // Parameters
+
+ENDME // ME_54E197CD0131 DoItr
+
+ME ME_54E197B702C1
+ MEPROP UID '54E197B702C1'
+ MEPROP Name 'FontByNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E190B601EC // TdestFontTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E197CD0131 // DoItr
+ )
+ ; // Operations
+
+ENDME // ME_54E197B702C1 FontByNumber
+
+ME ME_5461BEC2017D_ME_54E190B601EC
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5461BEC2017D_ME_54E190B601EC Close
+
+ME ME_54E1F08400F9_ME_54E190B601EC
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_54E1F08400F9_ME_54E190B601EC WriteText$1
+
+ME ME_479731C50290_ME_54E190B601EC
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_54E190B601EC Cleanup
+
+ME ME_51D27C0402E9_ME_54E190B601EC
+ MELINK Original WL 'ME_51D27C0402E9' '5190A37F0134.ms.model.script' // AddAnsiChar
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51D27C0402E9_ME_54E190B601EC AddAnsiChar
+
+ME ME_51D27C3302EC_ME_54E190B601EC
+ MELINK Original WL 'ME_51D27C3302EC' '5190A37F0134.ms.model.script' // AddString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51D27C3302EC_ME_54E190B601EC AddString
+
+ME ME_51D27EC50388_ME_54E190B601EC
+ MELINK Original WL 'ME_51D27EC50388' '5190A37F0134.ms.model.script' // ApplyProperty
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51D27EC50388_ME_54E190B601EC ApplyProperty
+
+ME ME_51E7C9DB0213_ME_54E190B601EC
+ MELINK Original WL 'ME_51E7C9DB0213' '5190A37F0134.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51E7C9DB0213_ME_54E190B601EC Create
+
+%%InheritedBy ME_51D276C40106 ME_54E190B601EC
+
+ME ME_54E190B601EC
+ MEPROP UID '54E190B601EC'
+ MEPROP Name 'TdestFontTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54E1900902C9 // destFontTable
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54E1956501C7 // f_Fonts
+ HWL ME_54E195C3012F // Count
+ HWL ME_54E198280123 // CurFont
+ HWL ME_54E19857032C // Items
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54E197950160 // AddFont
+ HWL ME_54E197B702C1 // FontByNumber
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_54E190B601EC // Close
+ ME_54E1F08400F9_ME_54E190B601EC // WriteText$1
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54E190B601EC // Cleanup
+ ME_51D27C0402E9_ME_54E190B601EC // AddAnsiChar
+ ME_51D27C3302EC_ME_54E190B601EC // AddString
+ ME_51D27EC50388_ME_54E190B601EC // ApplyProperty
+ ME_51E7C9DB0213_ME_54E190B601EC // Create
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'destFontTable'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54E190B601EC TdestFontTable
+
+ME ME_54E1900902C9
+ MEPROP UID '54E1900902C9'
+ MEPROP Name 'destFontTable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5190A3470397' '5190A3470397.ms.model.script' // RTFSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54E1908B0336 // TddFontTable
+ HWL ME_54E190B601EC // TdestFontTable
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destFontTable.pas'
+
+ENDME // ME_54E1900902C9 destFontTable

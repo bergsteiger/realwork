@@ -1,0 +1,167 @@
+// ObjList 4F0C09DA02DE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F0C09DA02DE
+
+FORWARD ME_4F0C09DA02DE
+
+FORWARD ME_4F0C0A00013A
+
+ME ME_4F0C0A0C02F7
+ MEPROP UID '4F0C0A0C02F7'
+ MEPROP Name 'ddNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A0C02F7 ddNone
+
+ME ME_4F0C0A160036
+ MEPROP UID '4F0C0A160036'
+ MEPROP Name 'ddDragObj'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A160036 ddDragObj
+
+ME ME_4F0C0A1E0126
+ MEPROP UID '4F0C0A1E0126'
+ MEPROP Name 'ddHyperLink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A1E0126 ddHyperLink
+
+ME ME_4F0C0A260315
+ MEPROP UID '4F0C0A260315'
+ MEPROP Name 'ddBackHyperLink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A260315 ddBackHyperLink
+
+ME ME_4F0C0A2E0225
+ MEPROP UID '4F0C0A2E0225'
+ MEPROP Name 'ddDoc'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A2E0225 ddDoc
+
+ME ME_4F0C0A3601AD
+ MEPROP UID '4F0C0A3601AD'
+ MEPROP Name 'ddSrchObj'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A3601AD ddSrchObj
+
+ME ME_4F0C0A3E031A
+ MEPROP UID '4F0C0A3E031A'
+ MEPROP Name 'ddSrchID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A3E031A ddSrchID
+
+ME ME_4F0C0A470185
+ MEPROP UID '4F0C0A470185'
+ MEPROP Name 'ddDictItem'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A470185 ddDictItem
+
+ME ME_4F0C0A4E01EE
+ MEPROP UID '4F0C0A4E01EE'
+ MEPROP Name 'ddMailDocLink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0A00013A // TDragDataType
+ ;
+
+ENDME // ME_4F0C0A4E01EE ddMailDocLink
+
+ME ME_4F0C0A00013A
+ MEPROP UID '4F0C0A00013A'
+ MEPROP Name 'TDragDataType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C09DA02DE // ObjList
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F0C0A0C02F7 // ddNone
+ HWL ME_4F0C0A160036 // ddDragObj
+ HWL ME_4F0C0A1E0126 // ddHyperLink
+ HWL ME_4F0C0A260315 // ddBackHyperLink
+ HWL ME_4F0C0A2E0225 // ddDoc
+ HWL ME_4F0C0A3601AD // ddSrchObj
+ HWL ME_4F0C0A3E031A // ddSrchID
+ HWL ME_4F0C0A470185 // ddDictItem
+ HWL ME_4F0C0A4E01EE // ddMailDocLink
+ )
+ ; // Attributes
+ UP "finished" false
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F0C0A00013A TDragDataType
+
+ME ME_4F0C09DA02DE
+ MEPROP UID '4F0C09DA02DE'
+ MEPROP Name 'ObjList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B607802DB' '4E4B607802DB.ms.model.script' // Utils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F0C0A00013A // TDragDataType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_ObjList.pas'
+
+ENDME // ME_4F0C09DA02DE ObjList

@@ -1,0 +1,96 @@
+// Converters 4869FC3401AE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4869FC3401AE
+
+ME ME_4869FCA503BD
+ MEPROP Name 'in'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+
+ENDME // ME_4869FCA503BD in
+
+ME ME_4869FCA503BC
+ MEPROP UID '4869FCA503BC'
+ MEPROP Name 'cp_to_utf16'
+ MEPROP Class class_Operation
+ %SUMMARY 'переводит строку в UTF-16, использу€ текущую локаль' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4869FC3401AE // Converters
+ ;
+ MELINK Target WL 'ME_4869B190025F' '3DBFDB23006E.ms.model.script' // a-wstring
+ ;
+ MEPROP TargetStereotype 'const'
+ MELIST Parameters
+   Seq: ( ME_4869FCA503BD // in
+ )
+ ; // Parameters
+
+ENDME // ME_4869FCA503BC cp_to_utf16
+
+ME ME_486A17BA0061
+ MEPROP Name 'in'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4869B190025F' '3DBFDB23006E.ms.model.script' // a-wstring
+ ;
+
+ENDME // ME_486A17BA0061 in
+
+ME ME_4869FCAA0279
+ MEPROP UID '4869FCAA0279'
+ MEPROP Name 'utf16_to_cp'
+ MEPROP Class class_Operation
+ %SUMMARY 'переводит строку в однобайтовую кодировку, использу€ текущую локаль' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4869FC3401AE // Converters
+ ;
+ MELINK Target WL 'ME_452257A0036F' '3DBFDB23006E.ms.model.script' // a-string
+ ;
+ MEPROP TargetStereotype 'const'
+ MELIST Parameters
+   Seq: ( ME_486A17BA0061 // in
+ )
+ ; // Parameters
+
+ENDME // ME_4869FCAA0279 utf16_to_cp
+
+ME ME_486B74250252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4869FC3401AE // Converters
+ ;
+
+ENDME // ME_486B74250252 
+
+ME ME_4869FC3401AE
+ MEPROP UID '4869FC3401AE'
+ MEPROP Name 'Converters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'методы конвертации строк' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4869FBFC02A4' '4869FBFC02A4.ms.model.script' // Unicode
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4869FCA503BC // cp_to_utf16
+ HWL ME_4869FCAA0279 // utf16_to_cp
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_486B74250252 // 
+ )
+ ; // Dependencies
+ UP cpp:Path 'shared\GCI\Unicode\Converters.cpp'
+ UP h:Path 'shared\GCI\Unicode\Converters.h'
+ UP intf.pas:Path 'shared\tie\Garant\GCI\Converters.pas'
+
+ENDME // ME_4869FC3401AE Converters

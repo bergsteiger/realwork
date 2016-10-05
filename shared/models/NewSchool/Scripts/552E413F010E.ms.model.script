@@ -1,0 +1,49 @@
+// SpinEditWordsPack 552E413F010E ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552E413F010E
+
+ME ME_552E41740211
+ MEPROP UID '552E41740211'
+ MEPROP Name 'Value'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_552E413F010E // SpinEditWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552E41740211 Value
+
+%%InheritedBy ME_4C52C0600246 ME_552E413F010E
+
+ME ME_552E413F010E
+ MEPROP UID '552E413F010E'
+ MEPROP Name 'SpinEditWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6094D80196' '4F6094D80196.ms.model.script' // vtControlsFromStackWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C52C0600246' '4C52C0600246.ms.model.script' // TvtSpinEdit
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_552E41740211 // Value
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SpinEditWordsPack.pas'
+
+ENDME // ME_552E413F010E SpinEditWordsPack

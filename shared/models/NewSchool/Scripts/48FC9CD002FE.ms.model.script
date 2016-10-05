@@ -1,0 +1,111 @@
+// l3LockedChangePrim 48FC9CD002FE Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48FC9CD002FE
+
+ME ME_48FC9D1101DC
+ MEPROP UID '48FC9D1101DC'
+ MEPROP Name 'ChangeCount'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FC9CD002FE // l3LockedChangePrim
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_48FC9D1101DC ChangeCount
+
+ME ME_48FC9D1F016E
+ MEPROP UID '48FC9D1F016E'
+ MEPROP Name 'FireChanging'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FC9CD002FE // l3LockedChangePrim
+ ;
+
+ENDME // ME_48FC9D1F016E FireChanging
+
+ME ME_48FC9D300237
+ MEPROP UID '48FC9D300237'
+ MEPROP Name 'FireChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FC9CD002FE // l3LockedChangePrim
+ ;
+
+ENDME // ME_48FC9D300237 FireChanged
+
+ME ME_48FC9D5E0310
+ MEPROP UID '48FC9D5E0310'
+ MEPROP Name 'IsChanging'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FC9CD002FE // l3LockedChangePrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48FC9D5E0310 IsChanging
+
+ME ME_54D9E08D0212_ME_48FC9CD002FE
+ MELINK Original WL 'ME_54D9E08D0212' '4A5CBFAB03AF.ms.model.script' // DoChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54D9E08D0212_ME_48FC9CD002FE DoChanged
+
+ME ME_54D9E09D018D_ME_48FC9CD002FE
+ MELINK Original WL 'ME_54D9E09D018D' '4A5CBFAB03AF.ms.model.script' // DoChanging
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54D9E09D018D_ME_48FC9CD002FE DoChanging
+
+%%ImplementedBy ME_4A5CC1A80100 ME_48FC9CD002FE
+
+ME ME_48FC9CD002FE
+ MEPROP UID '48FC9CD002FE'
+ MEPROP Name 'l3LockedChangePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CC1A80100' '47BB24D30205.ms.model.script' // Ml3Changing
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_48FC9D1101DC // ChangeCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48FC9D1F016E // FireChanging
+ HWL ME_48FC9D300237 // FireChanged
+ HWL ME_48FC9D5E0310 // IsChanging
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_54D9E08D0212_ME_48FC9CD002FE // DoChanged
+ ME_54D9E09D018D_ME_48FC9CD002FE // DoChanging
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "started" '20.10.2005 09:49'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3LockedChangePrim.imp.pas'
+ UP extprop:pas:TypeName '_l3LockedChangePrim_'
+ UP extprop:pas:UnitName 'l3LockedChangePrim.imp'
+
+ENDME // ME_48FC9CD002FE l3LockedChangePrim

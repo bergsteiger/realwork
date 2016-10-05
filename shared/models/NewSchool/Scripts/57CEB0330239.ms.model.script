@@ -1,0 +1,107 @@
+// msmOperationsManaging 57CEB0330239 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CEB0330239
+
+ME ME_57CEB1430061
+ MEPROP UID '57CEB1430061'
+ MEPROP Name 'OperationsList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57CEB0330239 // msmOperationsManaging
+ ;
+ MELINK Target WL 'ME_57CEB10702AD' '57CEB008027D.ms.model.script' // TmsmOperationsList
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57CEB1430061 OperationsList
+
+ME ME_57CEBDB602E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57CEB0330239 // msmOperationsManaging
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_57CEBDB602E5 
+
+ME ME_57CEBF820165
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57CEB0330239 // msmOperationsManaging
+ ;
+ MELINK Target WL 'ME_57CEBF6B0343' '57CEB008027D.ms.model.script' // TmsmNullOperationsList
+ ;
+
+ENDME // ME_57CEBF820165 
+
+ME ME_57CEAE470155_ME_57CEB0330239
+ MELINK Original WL 'ME_57CEAE470155' '57CEABF60269.ms.model.script' // Operations
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_57CEAE470155_ME_57CEB0330239 Operations
+
+ME ME_57CEAE6F0148_ME_57CEB0330239
+ MELINK Original WL 'ME_57CEAE6F0148' '57CEABF60269.ms.model.script' // AddOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57CEAE6F0148_ME_57CEB0330239 AddOperation
+
+ME ME_479731C50290_ME_57CEB0330239
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_57CEB0330239 Cleanup
+
+%%ImplementedBy ME_4A5CB93700CF ME_57CEB0330239
+%%ImplementedBy ME_57CEAE1F0206 ME_57CEB0330239
+
+ME ME_57CEB0330239
+ MEPROP UID '57CEB0330239'
+ MEPROP Name 'msmOperationsManaging'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_57CEB008027D' '57CEB008027D.ms.model.script' // Operations
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ WL 'ME_57CEAE1F0206' '57CEABF60269.ms.model.script' // MmsmOperationsManaging
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_57CEB1430061 // OperationsList
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_57CEAE470155_ME_57CEB0330239 // Operations
+ ME_57CEAE6F0148_ME_57CEB0330239 // AddOperation
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_57CEB0330239 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57CEBDB602E5 // FreeAndNil
+ ME_57CEBF820165 // TmsmNullOperationsList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmOperationsManaging.imp.pas'
+ UP extprop:pas:TypeName '_msmOperationsManaging_'
+ UP extprop:pas:UnitName 'msmOperationsManaging.imp'
+
+ENDME // ME_57CEB0330239 msmOperationsManaging

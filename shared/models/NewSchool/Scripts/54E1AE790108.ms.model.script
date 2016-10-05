@@ -1,0 +1,297 @@
+// destStyleSheet 54E1AE790108 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_54E1AE790108
+
+FORWARD ME_54E1AE790108
+
+FORWARD ME_54E1AEEC031A
+
+ME ME_54E1AF98038B
+ MEPROP UID '54E1AF98038B'
+ MEPROP Name 'f_Styles'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E1AEEC031A // TdestStyleSheet
+ ;
+ MELINK Target WL 'ME_4773DCE302FF' '47913B47006E.ms.model.script' // Tl3StringList
+ ;
+
+ENDME // ME_54E1AF98038B f_Styles
+
+ME ME_54E1B00102AB
+ MEPROP UID '54E1B00102AB'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E1AEEC031A // TdestStyleSheet
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E1B00102AB Count
+
+ME ME_54E1B2610261
+ MEPROP UID '54E1B2610261'
+ MEPROP Name 'CurStyle'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E1AEEC031A // TdestStyleSheet
+ ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E1B2610261 CurStyle
+
+FORWARD ME_54E1B2770332
+
+ME ME_54E1B28F0355
+ MEPROP UID '54E1B28F0355'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E1B2770332 // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54E1B28F0355 anIndex
+
+ME ME_54E1B2770332
+ MEPROP UID '54E1B2770332'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E1AEEC031A // TdestStyleSheet
+ ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_54E1B28F0355 // anIndex
+ )
+ ; // Attributes
+ UP "is default" true
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_54E1B2770332 Items
+
+FORWARD ME_54E1BBAD0365
+
+ME ME_54E1BBB800CB
+ MEPROP UID '54E1BBB800CB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E1BBAD0365 // AddStyle
+ ;
+
+ENDME // ME_54E1BBB800CB DoIt
+
+ME ME_54E1BBAD0365
+ MEPROP UID '54E1BBAD0365'
+ MEPROP Name 'AddStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E1AEEC031A // TdestStyleSheet
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E1BBB800CB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E1BBAD0365 AddStyle
+
+FORWARD ME_54E1BBC00005
+
+ME ME_54E1BBED00B8
+ MEPROP Name 'aNumber'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54E1BBED00B8 aNumber
+
+ME ME_54E1BBD30368
+ MEPROP UID '54E1BBD30368'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E1BBC00005 // StyleByNumber
+ ;
+ MELINK Target WL 'ME_51E7D21B0068' '51E7D2010032.ms.model.script' // TddStyleEntry
+ ;
+ MELIST Parameters
+   Seq: ( ME_54E1BBED00B8 // aNumber
+ )
+ ; // Parameters
+
+ENDME // ME_54E1BBD30368 DoIt
+
+ME ME_54E1BBC00005
+ MEPROP UID '54E1BBC00005'
+ MEPROP Name 'StyleByNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E1AEEC031A // TdestStyleSheet
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54E1BBD30368 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54E1BBC00005 StyleByNumber
+
+ME ME_54E1AF400156
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54E1AEEC031A // TdestStyleSheet
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_54E1AF400156 
+
+ME ME_5461BEC2017D_ME_54E1AEEC031A
+ MELINK Original WL 'ME_5461BEC2017D' '5190A37F0134.ms.model.script' // Close
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5461BEC2017D_ME_54E1AEEC031A Close
+
+ME ME_54E1F08400F9_ME_54E1AEEC031A
+ MELINK Original WL 'ME_54E1F08400F9' '5190A37F0134.ms.model.script' // WriteText$1
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_54E1F08400F9_ME_54E1AEEC031A WriteText$1
+
+ME ME_479731C50290_ME_54E1AEEC031A
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_54E1AEEC031A Cleanup
+
+ME ME_51D27C0402E9_ME_54E1AEEC031A
+ MELINK Original WL 'ME_51D27C0402E9' '5190A37F0134.ms.model.script' // AddAnsiChar
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51D27C0402E9_ME_54E1AEEC031A AddAnsiChar
+
+ME ME_51D27C3302EC_ME_54E1AEEC031A
+ MELINK Original WL 'ME_51D27C3302EC' '5190A37F0134.ms.model.script' // AddString
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51D27C3302EC_ME_54E1AEEC031A AddString
+
+ME ME_51D27EC50388_ME_54E1AEEC031A
+ MELINK Original WL 'ME_51D27EC50388' '5190A37F0134.ms.model.script' // ApplyProperty
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51D27EC50388_ME_54E1AEEC031A ApplyProperty
+
+ME ME_51E7C9DB0213_ME_54E1AEEC031A
+ MELINK Original WL 'ME_51E7C9DB0213' '5190A37F0134.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_51E7C9DB0213_ME_54E1AEEC031A Create
+
+%%InheritedBy ME_51D276C40106 ME_54E1AEEC031A
+
+ME ME_54E1AEEC031A
+ MEPROP UID '54E1AEEC031A'
+ MEPROP Name 'TdestStyleSheet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54E1AE790108 // destStyleSheet
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51D276C40106' '5190A37F0134.ms.model.script' // TddRTFDestination
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54E1AF98038B // f_Styles
+ HWL ME_54E1B00102AB // Count
+ HWL ME_54E1B2610261 // CurStyle
+ HWL ME_54E1B2770332 // Items
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54E1BBAD0365 // AddStyle
+ HWL ME_54E1BBC00005 // StyleByNumber
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5461BEC2017D_ME_54E1AEEC031A // Close
+ ME_54E1F08400F9_ME_54E1AEEC031A // WriteText$1
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54E1AEEC031A // Cleanup
+ ME_51D27C0402E9_ME_54E1AEEC031A // AddAnsiChar
+ ME_51D27C3302EC_ME_54E1AEEC031A // AddString
+ ME_51D27EC50388_ME_54E1AEEC031A // ApplyProperty
+ ME_51E7C9DB0213_ME_54E1AEEC031A // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_54E1AF400156 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'destStyleSheet'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54E1AEEC031A TdestStyleSheet
+
+ME ME_54E1AE790108
+ MEPROP UID '54E1AE790108'
+ MEPROP Name 'destStyleSheet'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5190A3470397' '5190A3470397.ms.model.script' // RTFSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54E1AEEC031A // TdestStyleSheet
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\destStyleSheet.pas'
+
+ENDME // ME_54E1AE790108 destStyleSheet

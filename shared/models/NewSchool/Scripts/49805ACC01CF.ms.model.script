@@ -1,0 +1,104 @@
+// TurnOnTimeMachine 49805ACC01CF Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49805ACC01CF
+
+ME ME_49805B03014D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49805ACC01CF // TurnOnTimeMachine
+ ;
+ MELINK Target WL 'ME_490C47C70210' '490C47C70210.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_49805B03014D 
+
+ME ME_49805B0D0199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49805ACC01CF // TurnOnTimeMachine
+ ;
+ MELINK Target WL 'ME_47F9CF5500D1' '47F9CF5500D1.ms.model.script' // bsConvert
+ ;
+
+ENDME // ME_49805B0D0199 
+
+ME ME_4AC20A2600E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49805ACC01CF // TurnOnTimeMachine
+ ;
+ MELINK Target WL 'ME_47F260EC02C7' '47F260EC02C7.ms.model.script' // StdRes
+ ;
+
+ENDME // ME_4AC20A2600E5 
+
+ME ME_57A0842C0163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49805ACC01CF // TurnOnTimeMachine
+ ;
+ MELINK Target WL 'ME_579F7FDF01C3' '579F7F680321.ms.model.script' // TCommonService
+ ;
+
+ENDME // ME_57A0842C0163 
+
+ME ME_49804EB60303_ME_49805ACC01CF
+ MELINK Original WL 'ME_49804EB60303' '49804E310263.ms.model.script' // OnDate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49804EB60303_ME_49805ACC01CF OnDate
+
+ME ME_49804ED003A8_ME_49805ACC01CF
+ MELINK Original WL 'ME_49804ED003A8' '49804E310263.ms.model.script' // OnCurrentRedaction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49804ED003A8_ME_49805ACC01CF OnCurrentRedaction
+
+ME ME_49805F2C0082_ME_49805ACC01CF
+ MELINK Original WL 'ME_49805F2C0082' '49804E310263.ms.model.script' // DisableOps
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_49805F2C0082_ME_49805ACC01CF DisableOps
+
+%%ImplementedBy ME_49804EA70373 ME_49805ACC01CF
+
+ME ME_49805ACC01CF
+ MEPROP UID '49805ACC01CF'
+ MEPROP Name 'TurnOnTimeMachine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация InsTurnOnTimeMachine' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4951181B02B6' '4951181B02B6.ms.model.script' // Document
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49804EA70373' '49804E310263.ms.model.script' // InsTurnOnTimeMachine
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_49804EB60303_ME_49805ACC01CF // OnDate
+ ME_49804ED003A8_ME_49805ACC01CF // OnCurrentRedaction
+ ME_49805F2C0082_ME_49805ACC01CF // DisableOps
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49805B03014D // nsUtils
+ ME_49805B0D0199 // bsConvert
+ ME_4AC20A2600E5 // StdRes
+ ME_57A0842C0163 // TCommonService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Document\TurnOnTimeMachine.imp.pas'
+ UP extprop:pas:TypeName '_TurnOnTimeMachine_'
+ UP extprop:pas:UnitName 'TurnOnTimeMachine.imp'
+
+ENDME // ME_49805ACC01CF TurnOnTimeMachine

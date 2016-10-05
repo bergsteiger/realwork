@@ -1,0 +1,352 @@
+// evStyleTableSpy 47ECB297037D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47ECB297037D
+
+FORWARD ME_47ECB297037D
+
+FORWARD ME_4DD3D2710378
+
+FORWARD ME_4DD3D2A20200
+
+ME ME_4DD3D2B5019D
+ MEPROP UID '4DD3D2B5019D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD3D2A20200 // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DD3D2B5019D DoIt
+
+ME ME_4DD3D2A20200
+ MEPROP UID '4DD3D2A20200'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD3D2710378 // TevSpies
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD3D2B5019D // DoIt
+ )
+ ; // Operations
+ UP "is static" true
+
+ENDME // ME_4DD3D2A20200 Exists
+
+%%InheritedBy ME_47ACA26600BF ME_4DD3D2710378
+
+ME ME_4DD3D2710378
+ MEPROP UID '4DD3D2710378'
+ MEPROP Name 'TevSpies'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47ACA26600BF' '47913B47006E.ms.model.script' // Tl3InterfacePtrList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DD3D2A20200 // Exists
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "singleton" true
+ UP "started" '18.05.2011 18:07'
+ UP extprop:rc:SelfName 'Spies'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DD3D2710378 TevSpies
+
+ME ME_480DB70000B9
+ MEPROP UID '480DB70000B9'
+ MEPROP Name 'f_Changes'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_480DB70000B9 f_Changes
+
+ME ME_47ECB2D40104
+ MEPROP Name 'aSpy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ ;
+
+ENDME // ME_47ECB2D40104 aSpy
+
+ME ME_47ECB2D40120
+ MEPROP Name 'SelfNotify'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_47ECB2D40120 SelfNotify
+
+ME ME_47ECB2D4013B
+ MEPROP Name 'aAtEnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_47ECB2D4013B aAtEnd
+
+ME ME_47ECB2BC01DF
+ MEPROP UID '47ECB2BC01DF'
+ MEPROP Name 'evAddStyleTableSpy'
+ MEPROP Class class_Operation
+ %SUMMARY 'добавить объект принимающий нотификации об изменении таблицы стилей.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELIST Parameters
+   Seq: ( ME_47ECB2D40104 // aSpy
+ ME_47ECB2D40120 // SelfNotify
+ ME_47ECB2D4013B // aAtEnd
+ )
+ ; // Parameters
+
+ENDME // ME_47ECB2BC01DF evAddStyleTableSpy
+
+ME ME_480DA997034C
+ MEPROP Name 'aSpy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ ;
+
+ENDME // ME_480DA997034C aSpy
+
+ME ME_480DA98F0055
+ MEPROP UID '480DA98F0055'
+ MEPROP Name 'evDelStyleTableSpy'
+ MEPROP Class class_Operation
+ %SUMMARY 'удалить объект принимающий нотификации об изменении таблицы стилей.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELIST Parameters
+   Seq: ( ME_480DA997034C // aSpy
+ )
+ ; // Parameters
+
+ENDME // ME_480DA98F0055 evDelStyleTableSpy
+
+ME ME_480DA99E035A
+ MEPROP UID '480DA99E035A'
+ MEPROP Name 'evNotifyStyleTableChanging'
+ MEPROP Class class_Operation
+ %SUMMARY 'рассылает нотификацию об начале изменения таблицы стилей всем заинтересованным.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+
+ENDME // ME_480DA99E035A evNotifyStyleTableChanging
+
+ME ME_480DA9B80022
+ MEPROP Name 'aCancel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_480DA9B80022 aCancel
+
+ME ME_480DA9AC0180
+ MEPROP UID '480DA9AC0180'
+ MEPROP Name 'evNotifyStyleTableChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'рассылает нотификацию об изменении таблицы стилей всем заинтересованным.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELIST Parameters
+   Seq: ( ME_480DA9B80022 // aCancel
+ )
+ ; // Parameters
+
+ENDME // ME_480DA9AC0180 evNotifyStyleTableChanged
+
+ME ME_480DB9000046
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_47ACA26600BF' '47913B47006E.ms.model.script' // Tl3InterfacePtrList
+ ;
+
+ENDME // ME_480DB9000046 
+
+ME ME_480DB94201BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_480DB927035A' '47ECB2870309.ms.model.script' // TevStyleInterface
+ ;
+
+ENDME // ME_480DB94201BE 
+
+ME ME_480DBAF50189
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_480DBAAB02AD' '480DBA760390.ms.model.script' // Tk2
+ ;
+
+ENDME // ME_480DBAF50189 
+
+ME ME_480DBC4A0364
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_480DBC4A0364 
+
+ME ME_480DBCF902E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_476127E40065' '4678193C009C.ms.model.script' // PIUnknown
+ ;
+
+ENDME // ME_480DBCF902E5 
+
+ME ME_480DBD2601DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_480DBD2601DF 
+
+ME ME_480DBE8303CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_480DBEB7009D' '480DBE6E01D0.ms.model.script' // TevFontArray
+ ;
+
+ENDME // ME_480DBE8303CA 
+
+ME ME_480DC0DB0159
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_480DC0DB0159 
+
+ME ME_4DD3D292011D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
+ ;
+ MELINK Target HWL ME_4DD3D2710378 // TevSpies
+ ;
+
+ENDME // ME_4DD3D292011D 
+
+ME ME_47ECB297037D
+ MEPROP UID '47ECB297037D'
+ MEPROP Name 'evStyleTableSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Модуль для поддержки с нотификации об изменении таблицы стилей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_480DB70000B9 // f_Changes
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47ECB2BC01DF // evAddStyleTableSpy
+ HWL ME_480DA98F0055 // evDelStyleTableSpy
+ HWL ME_480DA99E035A // evNotifyStyleTableChanging
+ HWL ME_480DA9AC0180 // evNotifyStyleTableChanged
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4DD3D2710378 // TevSpies
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_480DB9000046 // Tl3InterfacePtrList
+ ME_480DB94201BE // TevStyleInterface
+ ME_480DBAF50189 // Tk2
+ ME_480DBC4A0364 // l3Base
+ ME_480DBCF902E5 // PIUnknown
+ ME_480DBD2601DF // SysUtils
+ ME_480DBE8303CA // TevFontArray
+ ME_480DC0DB0159 // Tk2TagID
+ ME_4DD3D292011D // TevSpies
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'DesignTimeLibrary'
+ UP "no hands" true
+ UP "started" '23.09.2002 09:32'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableSpy.pas'
+ UP extprop:rc:SelfName 'StyleTableSpy'
+
+ENDME // ME_47ECB297037D evStyleTableSpy

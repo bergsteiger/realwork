@@ -1,0 +1,95 @@
+// evDocumentMarkers 4A4C8FC00259 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A4C8FC00259
+
+FORWARD ME_4A4C8FC00259
+
+FORWARD ME_4A4C8FD901F5
+
+ME ME_4ED329AA02D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4C8FD901F5 // TevDocumentRightMarginMarker
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4ED329AA02D6 
+
+ME ME_4ED329E50036
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4C8FD901F5 // TevDocumentRightMarginMarker
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4ED329E50036 
+
+ME ME_4ECF8E2C007D_ME_4A4C8FD901F5
+ MELINK Original WL 'ME_4ECF8E2C007D' '47E3DF460095.ms.model.script' // DoGetValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4ECF8E2C007D_ME_4A4C8FD901F5 DoGetValue
+
+ME ME_4ED31DEA0077_ME_4A4C8FD901F5
+ MELINK Original WL 'ME_4ED31DEA0077' '47E3DF460095.ms.model.script' // DoSetValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4ED31DEA0077_ME_4A4C8FD901F5 DoSetValue
+
+%%InheritedBy ME_4A38AB2A00E2 ME_4A4C8FD901F5
+
+ME ME_4A4C8FD901F5
+ MEPROP UID '4A4C8FD901F5'
+ MEPROP Name 'TevDocumentRightMarginMarker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A4C8FC00259 // evDocumentMarkers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A38AB2A00E2' '47E3DF460095.ms.model.script' // TevMarker
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4ECF8E2C007D_ME_4A4C8FD901F5 // DoGetValue
+ ME_4ED31DEA0077_ME_4A4C8FD901F5 // DoSetValue
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ED329AA02D6 // Tk2TagID
+ ME_4ED329E50036 // evL3CoreConsts
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'DocumentRightMarginMarker'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A4C8FD901F5 TevDocumentRightMarginMarker
+
+ME ME_4A4C8FC00259
+ MEPROP UID '4A4C8FC00259'
+ MEPROP Name 'evDocumentMarkers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A3A233900C9' '4A3A233900C9.ms.model.script' // ParaList Cursors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A4C8FD901F5 // TevDocumentRightMarginMarker
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentMarkers.pas'
+ UP extprop:rc:SelfName 'DocumentMarkers'
+
+ENDME // ME_4A4C8FC00259 evDocumentMarkers

@@ -1,0 +1,127 @@
+// l3ListOperations 47BB26AF027F Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BB26AF027F
+
+ME ME_47BB26DA0248
+ MEPROP UID '47BB26DA0248'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47BB26AF027F // l3ListOperations
+ ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_47BB26DA0248 
+
+ME ME_47BB279402B5
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_47BB279402B5 aList
+
+ME ME_47BB2786011C
+ MEPROP UID '47BB2786011C'
+ MEPROP Name 'DeleteList'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удаляет из списка элементы содержащиеся в другом списке (aList)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BB26AF027F // l3ListOperations
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BB279402B5 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_47BB2786011C DeleteList
+
+ME ME_47BB27B50288
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_47BB27B50288 aList
+
+ME ME_47BB27A101FF
+ MEPROP UID '47BB27A101FF'
+ MEPROP Name 'InsertList'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавляет в список элементы другого списка (aList)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BB26AF027F // l3ListOperations
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BB27B50288 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_47BB27A101FF InsertList
+
+ME ME_47BB27FA020E
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_47BB27FA020E aList
+
+ME ME_47BB27E802DF
+ MEPROP UID '47BB27E802DF'
+ MEPROP Name 'IntersectList'
+ MEPROP Class class_Operation
+ %SUMMARY 'Удаляет из списка Элементы НЕ содержащиеся в другом списке (aList)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BB26AF027F // l3ListOperations
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BB27FA020E // aList
+ )
+ ; // Parameters
+
+ENDME // ME_47BB27E802DF IntersectList
+
+ME ME_47BB26AF027F
+ MEPROP UID '47BB26AF027F'
+ MEPROP Name 'l3ListOperations'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47BB26DA0248 // 
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47BB2786011C // DeleteList
+ HWL ME_47BB27A101FF // InsertList
+ HWL ME_47BB27E802DF // IntersectList
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ListOperations.imp.pas'
+ UP extprop:pas:TypeName '_l3ListOperations_'
+ UP extprop:pas:UnitName 'l3ListOperations.imp'
+
+ENDME // ME_47BB26AF027F l3ListOperations

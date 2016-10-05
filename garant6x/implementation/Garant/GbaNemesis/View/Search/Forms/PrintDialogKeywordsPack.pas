@@ -1505,8 +1505,10 @@ initialization
  {* Регистрация типа Ten_PrintDialog }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtRadioButton));
  {* Регистрация типа TvtRadioButton }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEditWithoutPlusMinusShortcut));
  {* Регистрация типа TnscEditWithoutPlusMinusShortcut }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSpinEdit));
  {* Регистрация типа TvtSpinEdit }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCheckBox));

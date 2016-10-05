@@ -18,6 +18,7 @@ type
  TmsmOperationsSeparator = class(TmsmOperation)
   protected
    procedure DoDoIt; override;
+   function GetEnabled: Boolean; override;
   public
    constructor Create; reintroduce;
    class function Make: ImsmOperation; reintroduce;
@@ -60,5 +61,14 @@ begin
  // - ничего не делаем
 //#UC END# *57CEB1F602D1_57D25DA703D8_impl*
 end;//TmsmOperationsSeparator.DoDoIt
+
+function TmsmOperationsSeparator.GetEnabled: Boolean;
+//#UC START# *57EB6D020381_57D25DA703D8_var*
+//#UC END# *57EB6D020381_57D25DA703D8_var*
+begin
+//#UC START# *57EB6D020381_57D25DA703D8_impl*
+ Result := true;
+//#UC END# *57EB6D020381_57D25DA703D8_impl*
+end;//TmsmOperationsSeparator.GetEnabled
 
 end.

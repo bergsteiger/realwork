@@ -1,0 +1,154 @@
+// vcmIterator 5582BCBE00C3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5582BCBE00C3
+
+ME ME_5582C2CE0346
+ MEPROP UID '5582C2CE0346'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582BCBE00C3 // vcmIterator
+ ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_5582C2CE0346 f_List
+
+ME ME_5582C2EC0018
+ MEPROP UID '5582C2EC0018'
+ MEPROP Name 'f_Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5582BCBE00C3 // vcmIterator
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5582C2EC0018 f_Index
+
+FORWARD ME_5582BF2101BD
+
+ME ME_5582BF2801C1
+ MEPROP UID '5582BF2801C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5582BF2101BD // GetNext
+ ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_5582BF2801C1 DoIt
+
+ME ME_5582BF2101BD
+ MEPROP UID '5582BF2101BD'
+ MEPROP Name 'GetNext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5582BCBE00C3 // vcmIterator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5582BF2801C1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5582BF2101BD GetNext
+
+FORWARD ME_5582C3550082
+
+ME ME_5582C35B0397
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_5582C35B0397 aList
+
+ME ME_5582C3590262
+ MEPROP UID '5582C3590262'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5582C3550082 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_5582C35B0397 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_5582C3590262 DoIt
+
+ME ME_5582C3550082
+ MEPROP UID '5582C3550082'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5582BCBE00C3 // vcmIterator
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5582C3590262 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5582C3550082 Create
+
+ME ME_479731C50290_ME_5582BCBE00C3
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5582BCBE00C3 Cleanup
+
+%%InheritedBy ME_519A130C00B6 ME_5582BCBE00C3
+
+ME ME_5582BCBE00C3
+ MEPROP UID '5582BCBE00C3'
+ MEPROP Name 'vcmIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_519A130C00B6' '47F25BC801DB.ms.model.script' // TvcmCacheableBase
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5582C2CE0346 // f_List
+ HWL ME_5582C2EC0018 // f_Index
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5582BF2101BD // GetNext
+ HWL ME_5582C3550082 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5582BCBE00C3 // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmIterator.imp.pas'
+ UP extprop:pas:TypeName '_vcmIterator_'
+ UP extprop:pas:UnitName 'vcmIterator.imp'
+
+ENDME // ME_5582BCBE00C3 vcmIterator

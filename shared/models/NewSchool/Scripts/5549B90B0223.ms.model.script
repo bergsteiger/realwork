@@ -1,0 +1,69 @@
+// SynZip 5549B90B0223 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5549B90B0223
+
+ME ME_5549C72B02C0
+ MEPROP UID '5549C72B02C0'
+ MEPROP Name 'CompressStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5549B90B0223 // SynZip
+ ;
+
+ENDME // ME_5549C72B02C0 CompressStream
+
+ME ME_5549C7A701CF
+ MEPROP UID '5549C7A701CF'
+ MEPROP Name 'crc32'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5549B90B0223 // SynZip
+ ;
+
+ENDME // ME_5549C7A701CF crc32
+
+ME ME_5549C7B800D9
+ MEPROP UID '5549C7B800D9'
+ MEPROP Name 'adler32'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5549B90B0223 // SynZip
+ ;
+
+ENDME // ME_5549C7B800D9 adler32
+
+ME ME_5549B90B0223
+ MEPROP UID '5549B90B0223'
+ MEPROP Name 'SynZip'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_545CBCF1008C' '545CBCF1008C.ms.model.script' // SynPDF
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5549C72B02C0 // CompressStream
+ HWL ME_5549C7A701CF // crc32
+ HWL ME_5549C7B800D9 // adler32
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\SynPDF\NOT_FINISHED_SynZip.pas'
+
+ENDME // ME_5549B90B0223 SynZip

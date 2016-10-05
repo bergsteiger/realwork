@@ -1,0 +1,72 @@
+// ddDocAtomWithAssign 528C931C0068 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_528C931C0068
+
+FORWARD ME_528C8C2F02D9
+
+ME ME_528C952601A6
+ MEPROP Name 'aDocAtomObj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ ;
+
+ENDME // ME_528C952601A6 aDocAtomObj
+
+ME ME_528C8C450029
+ MEPROP UID '528C8C450029'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528C8C2F02D9 // Assign
+ ;
+ MELIST Parameters
+   Seq: ( ME_528C952601A6 // aDocAtomObj
+ )
+ ; // Parameters
+
+ENDME // ME_528C8C450029 DoIt
+
+ME ME_528C8C2F02D9
+ MEPROP UID '528C8C2F02D9'
+ MEPROP Name 'Assign'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528C931C0068 // ddDocAtomWithAssign
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528C8C450029 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_528C8C2F02D9 Assign
+
+ME ME_528C931C0068
+ MEPROP UID '528C931C0068'
+ MEPROP Name 'ddDocAtomWithAssign'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F6843C101D1' '4F6843C101D1.ms.model.script' // ddCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528C8C2F02D9 // Assign
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddDocAtomWithAssign.imp.pas'
+ UP extprop:pas:TypeName '_ddDocAtomWithAssign_'
+ UP extprop:pas:UnitName 'ddDocAtomWithAssign.imp'
+
+ENDME // ME_528C931C0068 ddDocAtomWithAssign

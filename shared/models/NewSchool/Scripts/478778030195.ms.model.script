@@ -1,0 +1,134 @@
+// l3LocaleInfo 478778030195 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_478778030195
+%%Inner ME_478778030195
+
+FORWARD ME_478778030195
+
+FORWARD ME_478778770380
+
+ME ME_46A44E1C003B_ME_478778770380
+ MELINK Original WL 'ME_46A44E1C003B' '4677FBA70343.ms.model.script' // Id
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_46A44E1C003B_ME_478778770380 Id
+
+ME ME_46A44E3A0002_ME_478778770380
+ MELINK Original WL 'ME_46A44E3A0002' '4677FBA70343.ms.model.script' // Language
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_46A44E3A0002_ME_478778770380 Language
+
+ME ME_46A44E5C0340_ME_478778770380
+ MELINK Original WL 'ME_46A44E5C0340' '4677FBA70343.ms.model.script' // SubLanguage
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_46A44E5C0340_ME_478778770380 SubLanguage
+
+ME ME_46A44E770154_ME_478778770380
+ MELINK Original WL 'ME_46A44E770154' '4677FBA70343.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_46A44E770154_ME_478778770380 Name
+
+%%ImplementedBy ME_46A44ACC0230 ME_478778770380
+
+%%InheritedBy ME_49E7754802A9 ME_478778770380
+
+ME ME_478778770380
+ MEPROP UID '478778770380'
+ MEPROP Name 'Tl3BaseLocaleInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478778030195 // l3LocaleInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46A44ACC0230' '4677FBA70343.ms.model.script' // Il3LocaleInfo
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_46A44E1C003B_ME_478778770380 // Id
+ ME_46A44E3A0002_ME_478778770380 // Language
+ ME_46A44E5C0340_ME_478778770380 // SubLanguage
+ ME_46A44E770154_ME_478778770380 // Name
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'BaseLocaleInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_478778770380 Tl3BaseLocaleInfo
+
+%%InheritedBy ME_478778770380 ME_47877893008F
+
+ME ME_47877893008F
+ MEPROP UID '47877893008F'
+ MEPROP Name 'Tl3UnixLocaleInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478778030195 // l3LocaleInfo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_478778770380 // Tl3BaseLocaleInfo
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'UnixLocaleInfo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47877893008F Tl3UnixLocaleInfo
+
+ME ME_4787783E0362
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478778030195 // l3LocaleInfo
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4787783E0362 
+
+ME ME_478778030195
+ MEPROP UID '478778030195'
+ MEPROP Name 'l3LocaleInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_478778770380 // Tl3BaseLocaleInfo
+ HWL ME_47877893008F // Tl3UnixLocaleInfo
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4787783E0362 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "finished" false
+ UP "started" '27.06.2005 14.30'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3LocaleInfo.pas'
+ UP extprop:rc:SelfName 'LocaleInfo'
+
+ENDME // ME_478778030195 l3LocaleInfo

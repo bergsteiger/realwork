@@ -1,0 +1,252 @@
+// l3Storable 47B17CBC0356 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47B17CBC0356
+
+ME ME_47B17CF20382
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_47B17CF20382 aFileName
+
+ME ME_47B17CE4033C
+ MEPROP UID '47B17CE4033C'
+ MEPROP Name 'SaveToFile'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить в файл.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B17CF20382 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_47B17CE4033C SaveToFile
+
+ME ME_47B17D330306
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_47B17D330306 aStream
+
+ME ME_47B17D240289
+ MEPROP UID '47B17D240289'
+ MEPROP Name 'SaveToStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохранить в поток.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B17D330306 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_47B17D240289 SaveToStream
+
+ME ME_47B17EFB02FB
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_47B17EFB02FB aStream
+
+ME ME_47B17EEC020C
+ MEPROP UID '47B17EEC020C'
+ MEPROP Name 'SaveToStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сохраняет в поток.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_4787B0FD0379' '4787B0A8007B.ms.model.script' // El3Exception
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_47B17EFB02FB // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_47B17EEC020C SaveToStream
+
+ME ME_47B19B2F01A9
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_47B19B2F01A9 aFileName
+
+ME ME_47B19B2F01DF
+ MEPROP Name 'aNeedSort'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_47B19B2F01DF aNeedSort
+
+ME ME_47B19B0D0201
+ MEPROP UID '47B19B0D0201'
+ MEPROP Name 'LoadFromFile'
+ MEPROP Class class_Operation
+ %SUMMARY 'Загружает из файла.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B19B2F01A9 // aFileName
+ ME_47B19B2F01DF // aNeedSort
+ )
+ ; // Parameters
+
+ENDME // ME_47B19B0D0201 LoadFromFile
+
+ME ME_47B19B71003F
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+
+ENDME // ME_47B19B71003F aStream
+
+ME ME_47B19B710078
+ MEPROP Name 'aNeedSort'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47B19B710078 aNeedSort
+
+ME ME_47B19B58033C
+ MEPROP UID '47B19B58033C'
+ MEPROP Name 'LoadFromStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'Загружает из потока.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B19B71003F // aStream
+ ME_47B19B710078 // aNeedSort
+ )
+ ; // Parameters
+
+ENDME // ME_47B19B58033C LoadFromStream
+
+ME ME_47B19BCF01DC
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_47B19BCF01DC aStream
+
+ME ME_47B19BCF0219
+ MEPROP Name 'aNeedSort'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47B19BCF0219 aNeedSort
+
+ME ME_47B19BBB00BA
+ MEPROP UID '47B19BBB00BA'
+ MEPROP Name 'LoadFromStream'
+ MEPROP Class class_Operation
+ %SUMMARY 'Загружает из потока.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_4787B0FD0379' '4787B0A8007B.ms.model.script' // El3Exception
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_47B19BCF01DC // aStream
+ ME_47B19BCF0219 // aNeedSort
+ )
+ ; // Parameters
+
+ENDME // ME_47B19BBB00BA LoadFromStream
+
+ME ME_47B17EC30225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELINK Target WL 'ME_47B17EA203B8' '47A080670100.ms.model.script' // Tl3TextStream
+ ;
+
+ENDME // ME_47B17EC30225 
+
+ME ME_47B19F9B0100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47B17CBC0356 // l3Storable
+ ;
+ MELINK Target WL 'ME_47B19F69027A' '47877EB202FB.ms.model.script' // EOSError
+ ;
+
+ENDME // ME_47B19F9B0100 
+
+ME ME_47B17CBC0356
+ MEPROP UID '47B17CBC0356'
+ MEPROP Name 'l3Storable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект умеющий писать/читать себя.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47B17CE4033C // SaveToFile
+ HWL ME_47B17D240289 // SaveToStream
+ HWL ME_47B17EEC020C // SaveToStream
+ HWL ME_47B19B0D0201 // LoadFromFile
+ HWL ME_47B19B58033C // LoadFromStream
+ HWL ME_47B19BBB00BA // LoadFromStream
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_47B17EC30225 // Tl3TextStream
+ ME_47B19F9B0100 // EOSError
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Storable.imp.pas'
+ UP extprop:pas:TypeName '_l3Storable_'
+ UP extprop:pas:UnitName 'l3Storable.imp'
+
+ENDME // ME_47B17CBC0356 l3Storable

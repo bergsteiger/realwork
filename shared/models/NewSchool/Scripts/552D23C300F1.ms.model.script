@@ -1,0 +1,113 @@
+// CheckListBoxWordsPack 552D23C300F1 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552D23C300F1
+
+ME ME_552D245001D2
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552D245001D2 anIndex
+
+ME ME_552D24400252
+ MEPROP UID '552D24400252'
+ MEPROP Name 'GetChecked'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'anIndex aCheckBoxList pop:CheckListBox:GetChecked'#13#10'anIndex - индекс CheckBox''а'#13#10'aCheckBoxList  - контрол'#13#10'Возвращает True, если элемент помечен и False - если нет.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552D23C300F1 // CheckListBoxWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_552D245001D2 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_552D24400252 GetChecked
+
+ME ME_552D2482001C
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552D2482001C anIndex
+
+ME ME_552D24820061
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552D24820061 aValue
+
+ME ME_552D24650138
+ MEPROP UID '552D24650138'
+ MEPROP Name 'SetChecked'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'aValue anIndex aCheckBoxList pop:CheckListBox:SetChecked'#13#10'anIndex - индекс CheckBox''а'#13#10'aCheckBoxList  - контрол'#13#10'Помечает элемент, если aValue = True и сбрасывает пометку, если aValue = False' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552D23C300F1 // CheckListBoxWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_552D2482001C // anIndex
+ ME_552D24820061 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552D24650138 SetChecked
+
+ME ME_552D24A702F3
+ MEPROP UID '552D24A702F3'
+ MEPROP Name 'UncheckAll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'aCheckBoxList pop:CheckListBox:UncheckAll'#13#10'Сбрасыват пометки у всех пунктов контрола.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552D23C300F1 // CheckListBoxWordsPack
+ ;
+
+ENDME // ME_552D24A702F3 UncheckAll
+
+%%InheritedBy ME_51F24E890269 ME_552D23C300F1
+
+ME ME_552D23C300F1
+ MEPROP UID '552D23C300F1'
+ MEPROP Name 'CheckListBoxWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54F58741022C' '54F58741022C.ms.model.script' // ExtControlsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51F24E890269' '51F24E760273.ms.model.script' // TCheckListBox
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552D24400252 // GetChecked
+ HWL ME_552D24650138 // SetChecked
+ HWL ME_552D24A702F3 // UncheckAll
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CheckListBoxWordsPack.pas'
+
+ENDME // ME_552D23C300F1 CheckListBoxWordsPack

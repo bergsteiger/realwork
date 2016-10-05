@@ -1,0 +1,184 @@
+// m3FileRegion 543F867602DA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_543F867602DA
+
+FORWARD ME_543F867602DA
+
+FORWARD ME_543F8693032B
+
+ME ME_543F86AA01FE
+ MEPROP UID '543F86AA01FE'
+ MEPROP Name 'rPosition'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_543F8693032B // Tm3FileRegion
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_543F86AA01FE rPosition
+
+ME ME_543F86B6035F
+ MEPROP UID '543F86B6035F'
+ MEPROP Name 'rSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_543F8693032B // Tm3FileRegion
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_543F86B6035F rSize
+
+FORWARD ME_543F86C70321
+
+ME ME_543F86E4027E
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_543F8693032B // Tm3FileRegion
+ ;
+
+ENDME // ME_543F86E4027E anOther
+
+ME ME_543F86D003C7
+ MEPROP UID '543F86D003C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_543F86C70321 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_543F86E4027E // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_543F86D003C7 DoIt
+
+ME ME_543F86C70321
+ MEPROP UID '543F86C70321'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_543F8693032B // Tm3FileRegion
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_543F86D003C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_543F86C70321 EQ
+
+FORWARD ME_543F86F900D9
+
+ME ME_543F87180345
+ MEPROP Name 'aPosition'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_543F87180345 aPosition
+
+ME ME_543F8718036B
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_543F8718036B aSize
+
+ME ME_543F870A03A2
+ MEPROP UID '543F870A03A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_543F86F900D9 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_543F87180345 // aPosition
+ ME_543F8718036B // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_543F870A03A2 DoIt
+
+ME ME_543F86F900D9
+ MEPROP UID '543F86F900D9'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_543F8693032B // Tm3FileRegion
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_543F870A03A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_543F86F900D9 C
+
+ME ME_543F8693032B
+ MEPROP UID '543F8693032B'
+ MEPROP Name 'Tm3FileRegion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_543F867602DA // m3FileRegion
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_543F86AA01FE // rPosition
+ HWL ME_543F86B6035F // rSize
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_543F86C70321 // EQ
+ HWL ME_543F86F900D9 // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'm3FileRegion'
+
+ENDME // ME_543F8693032B Tm3FileRegion
+
+ME ME_543F867602DA
+ MEPROP UID '543F867602DA'
+ MEPROP Name 'm3FileRegion'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48294AA903A6' '48294AA903A6.ms.model.script' // m3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_543F8693032B // Tm3FileRegion
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3FileRegion.pas'
+
+ENDME // ME_543F867602DA m3FileRegion

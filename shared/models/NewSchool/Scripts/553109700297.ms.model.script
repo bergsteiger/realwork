@@ -1,0 +1,87 @@
+// AttributeExplorerWordsPack 553109700297 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_553109700297
+
+ME ME_55310A110189
+ MEPROP Name 'anAttrID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_50598AA402C9' '4C9CD0E8038A.ms.model.script' // TdtAttribute
+ ;
+
+ENDME // ME_55310A110189 anAttrID
+
+ME ME_553109D90010
+ MEPROP UID '553109D90010'
+ MEPROP Name 'GotoOnAttrNode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY 'Формат: aNumberAttribute aControl AttributeExplorer:GotoOnAttrNode'#13#10'где aNumberAttribute - номер атрибута, а aControl - форма TAttrExplorer.'#13#10'Пример:'#13#10'{code}'#13#10'TdtAttribute::atKeyWords "Контрол по имени {(''otlAttributes'')}- в стек" pop:Component:Owner AttributeExplorer:GotoOnAttrNode'#13#10'{code}' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553109700297 // AttributeExplorerWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55310A110189 // anAttrID
+ )
+ ; // Parameters
+
+ENDME // ME_553109D90010 GotoOnAttrNode
+
+ME ME_55310A5801F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_553109700297 // AttributeExplorerWordsPack
+ ;
+ MELINK Target WL 'ME_50598AA402C9' '4C9CD0E8038A.ms.model.script' // TdtAttribute
+ ;
+
+ENDME // ME_55310A5801F5 
+
+ME ME_55310A5C03D0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_553109700297 // AttributeExplorerWordsPack
+ ;
+ MELINK Target WL 'ME_528A0B9E02C7' '528A0B83039C.ms.model.script' // TAttrExplorer
+ ;
+
+ENDME // ME_55310A5C03D0 
+
+%%InheritedBy ME_528A0B9E02C7 ME_553109700297
+
+ME ME_553109700297
+ MEPROP UID '553109700297'
+ MEPROP Name 'AttributeExplorerWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6195640184' '4F6195640184.ms.model.script' // CommonArchiWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_528A0B9E02C7' '528A0B83039C.ms.model.script' // TAttrExplorer
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_553109D90010 // GotoOnAttrNode
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55310A5801F5 // TdtAttribute
+ ME_55310A5C03D0 // TAttrExplorer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "no class name" false
+ UP "no_pop" true
+ UP intf.pas:Path 'archi\source\projects\Archi\Archi_Insider_Test_Support\AttributeExplorerWordsPack.pas'
+
+ENDME // ME_553109700297 AttributeExplorerWordsPack

@@ -1,0 +1,42 @@
+// l3AtomicList 47A1B04702C2 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47A1B04702C2
+
+ME ME_47B99D4503A2_ME_47A1B04702C2
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_47A1B04702C2 CompareExistingItems
+
+%%InheritedBy ME_4B71611400B3 ME_47A1B04702C2
+
+ME ME_47A1B04702C2
+ MEPROP UID '47A1B04702C2'
+ MEPROP Name 'l3AtomicList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список АТОМАРНЫХ элементов, без всякого подсчёта ссылок и управления временем жизни' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B71611400B3' '4B71611400B3.ms.model.script' // l3AtomicListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_47A1B04702C2 // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3AtomicList.imp.pas'
+ UP extprop:pas:TypeName '_l3AtomicList_'
+ UP extprop:pas:UnitName 'l3AtomicList.imp'
+
+ENDME // ME_47A1B04702C2 l3AtomicList

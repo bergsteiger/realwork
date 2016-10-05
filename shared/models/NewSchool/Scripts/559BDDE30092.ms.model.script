@@ -1,0 +1,224 @@
+// ItfwCompilerWordsPack 559BDDE30092 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559BDDE30092
+
+ME ME_559BDEF4039F
+ MEPROP UID '559BDEF4039F'
+ MEPROP Name 'KeywordFinder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELINK Target WL 'ME_559D5D4400D3' '4DAF19F600C5.ms.model.script' // TtfwKeywordFinder
+ ;
+ UP "mapped" false
+
+ENDME // ME_559BDEF4039F KeywordFinder
+
+ME ME_55A9055200C5
+ MEPROP UID '55A9055200C5'
+ MEPROP Name 'NewWordDefinitor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELINK Target WL 'ME_4DC95E96023B' '4DAF19F600C5.ms.model.script' // TtfwNewWordDefinitor
+ ;
+
+ENDME // ME_55A9055200C5 NewWordDefinitor
+
+ME ME_559BDE27005B
+ MEPROP Name 'aParameterToPop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_559BDE27005B aParameterToPop
+
+ME ME_559BDE1700B0
+ MEPROP UID '559BDE1700B0'
+ MEPROP Name 'CompileInParameterPopCode'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BDE27005B // aParameterToPop
+ )
+ ; // Parameters
+
+ENDME // ME_559BDE1700B0 CompileInParameterPopCode
+
+ME ME_559BDF1000D6
+ MEPROP UID '559BDF1000D6'
+ MEPROP Name 'GetWordCompilingNow'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_559BDF1000D6 GetWordCompilingNow
+
+ME ME_559BDF620018
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_559BDF620018 aWord
+
+ME ME_559BDF500382
+ MEPROP UID '559BDF500382'
+ MEPROP Name 'AddCodePart'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BDF620018 // aWord
+ )
+ ; // Parameters
+ UP "mapped" false
+
+ENDME // ME_559BDF500382 AddCodePart
+
+ME ME_56E13F8002A1
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB00A510300' '55BF153300A4.ms.model.script' // TtfwStackValue
+ ;
+
+ENDME // ME_56E13F8002A1 aValue
+
+ME ME_56E13F740281
+ MEPROP UID '56E13F740281'
+ MEPROP Name 'AddCodePartValue'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_56E13F8002A1 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_56E13F740281 AddCodePartValue
+
+ME ME_579B573400EE
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_579B573400EE aWord
+
+ME ME_579B57270341
+ MEPROP UID '579B57270341'
+ MEPROP Name 'AddCodePartRef'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_579B573400EE // aWord
+ )
+ ; // Parameters
+
+ENDME // ME_579B57270341 AddCodePartRef
+
+ME ME_56E13F54001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELINK Target WL 'ME_52B46DD80194' '4F3E3F5F0160.ms.model.script' // TkwValue
+ ;
+
+ENDME // ME_56E13F54001A 
+
+ME ME_579B56F201E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BDDE30092 // ItfwCompilerWordsPack
+ ;
+ MELINK Target WL 'ME_55A50F960186' '4F43A128007E.ms.model.script' // TkwCompiledPushWord
+ ;
+
+ENDME // ME_579B56F201E5 
+
+ME ME_4DAEEDE10285_ME_559BDDE30092
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_559BDDE30092 DoDoIt
+
+%%InheritedBy ME_4DB6E2EE0259 ME_559BDDE30092
+
+ME ME_559BDDE30092
+ MEPROP UID '559BDDE30092'
+ MEPROP Name 'ItfwCompilerWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F37B7E60283' '4F37B7E60283.ms.model.script' // Words RTTI
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DB6E2EE0259' '4DAF19F600C5.ms.model.script' // TtfwCompiler
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_559BDEF4039F // KeywordFinder
+ HWL ME_55A9055200C5 // NewWordDefinitor
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_559BDE1700B0 // CompileInParameterPopCode
+ HWL ME_559BDF1000D6 // GetWordCompilingNow
+ HWL ME_559BDF500382 // AddCodePart
+ HWL ME_56E13F740281 // AddCodePartValue
+ HWL ME_579B57270341 // AddCodePartRef
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_559BDDE30092 // DoDoIt
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_56E13F54001A // TkwValue
+ ME_579B56F201E5 // TkwCompiledPushWord
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ItfwCompilerWordsPack.pas'
+
+ENDME // ME_559BDDE30092 ItfwCompilerWordsPack

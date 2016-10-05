@@ -1,0 +1,166 @@
+// DataAdapter 48FF556602BA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48FF556602BA
+
+FORWARD ME_48FF556602BA
+
+FORWARD ME_48FF55B500CC
+
+ME ME_4AC21B930363
+ MEPROP UID '4AC21B930363'
+ MEPROP Name 'TimeMachine'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF55B500CC // TDataAdapter
+ ;
+ MELINK Target WL 'ME_4991C3E402FD' '4991C38F0019.ms.model.script' // InsTimeMachine
+ ;
+ UP "ifndef" 'Admin,Monitorings'
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_4AC21B930363 TimeMachine
+
+ME ME_4AC21F4503DE
+ MEPROP UID '4AC21F4503DE'
+ MEPROP Name 'AdminInfo'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF55B500CC // TDataAdapter
+ ;
+ MELINK Target WL 'ME_49903D1702E2' '49903C95009E.ms.model.script' // InsAdminInfo
+ ;
+ UP "pm" true
+
+ENDME // ME_4AC21F4503DE AdminInfo
+
+ME ME_48FF55B500CC
+ MEPROP UID '48FF55B500CC'
+ MEPROP Name 'TDataAdapter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект для связи всех главных форм с адаптером сервера приложений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48FF556602BA // DataAdapter
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AC21B930363 // TimeMachine
+ HWL ME_4AC21F4503DE // AdminInfo
+ )
+ ; // Attributes
+ UP "finished" false
+ UP extprop:rc:SelfName 'DataAdapter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_48FF55B500CC TDataAdapter
+
+ME ME_48FF5596034B
+ MEPROP UID '48FF5596034B'
+ MEPROP Name 'DefDataAdapter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF556602BA // DataAdapter
+ ;
+ MELINK Target HWL ME_48FF55B500CC // TDataAdapter
+ ;
+
+ENDME // ME_48FF5596034B DefDataAdapter
+
+ME ME_4F7956D00103
+ MEPROP UID '4F7956D00103'
+ MEPROP Name 'g_ShowFinalSplash'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF556602BA // DataAdapter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F7956D00103 g_ShowFinalSplash
+
+ME ME_4B1E8FAE0380
+ MEPROP UID '4B1E8FAE0380'
+ MEPROP Name 'DefDataAdapter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FF556602BA // DataAdapter
+ ;
+
+ENDME // ME_4B1E8FAE0380 DefDataAdapter
+
+ME ME_4F9BB16B00D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48FF556602BA // DataAdapter
+ ;
+ MELINK Target WL 'ME_4F9BB14900E7' '4F9BB14900E7.ms.model.script' // nsQuestionsWithChoices
+ ;
+
+ENDME // ME_4F9BB16B00D8 
+
+ME ME_5265044F00E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48FF556602BA // DataAdapter
+ ;
+ MELINK Target WL 'ME_525AF32D0106' '525AF32D0106.ms.model.script' // nsLoginUtils
+ ;
+
+ENDME // ME_5265044F00E4 
+
+ME ME_48FF556602BA
+ MEPROP UID '48FF556602BA'
+ MEPROP Name 'DataAdapter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Фасад для работы с адаптером' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48FF5596034B // DefDataAdapter
+ HWL ME_4F7956D00103 // g_ShowFinalSplash
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B1E8FAE0380 // DefDataAdapter
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_48FF55B500CC // TDataAdapter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4F9BB16B00D8 // nsQuestionsWithChoices
+ ME_5265044F00E4 // nsLoginUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Тучнин Д.А.'
+ UP "finished" false
+ UP "started" '2003/05/23 14:19:14'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_DataAdapter.pas'
+
+ENDME // ME_48FF556602BA DataAdapter

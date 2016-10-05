@@ -1,0 +1,38 @@
+// l3CheckStamp 4BE42D490361 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BE42D490361
+
+ME ME_467813E40207_ME_4BE42D490361
+ MELINK Original WL 'ME_467813E40207' '47D810610398.ms.model.script' // CheckStamp
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_467813E40207_ME_4BE42D490361 CheckStamp
+
+%%ImplementedBy ME_54D8A952031C ME_4BE42D490361
+
+ME ME_4BE42D490361
+ MEPROP UID '4BE42D490361'
+ MEPROP Name 'l3CheckStamp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_54D8A952031C' '47D810610398.ms.model.script' // Ml3CheckStamp
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_467813E40207_ME_4BE42D490361 // CheckStamp
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CheckStamp.imp.pas'
+ UP extprop:pas:TypeName '_l3CheckStamp_'
+ UP extprop:pas:UnitName 'l3CheckStamp.imp'
+
+ENDME // ME_4BE42D490361 l3CheckStamp

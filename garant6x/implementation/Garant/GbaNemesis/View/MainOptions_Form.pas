@@ -99,6 +99,7 @@ type
    procedure Help_HelpShortCuts_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Help_HelpNewFeatures_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Help_ContactInformation_Execute(const aParams: IvcmExecuteParamsPrim);
+   procedure Help_ReplyBook_Test(const aParams: IvcmTestParamsPrim);
    procedure Help_ReplyBook_Execute(const aParams: IvcmExecuteParamsPrim);
    procedure Help_GarantInternet_Test(const aParams: IvcmTestParamsPrim);
    procedure Help_GarantInternet_Execute(const aParams: IvcmExecuteParamsPrim);
@@ -157,7 +158,6 @@ uses
  , Common_Rubricator_Controls
  , nsUtils
  , DocumentUnit
- , l3Base
  , afwFacade
  , l3Interfaces
  {$If NOT Defined(NoVCL)}
@@ -179,6 +179,7 @@ uses
  , Base_Operations_F1Services_Contracts
  , Common_F1CommonServices_Contracts
  , vcmDispatcher
+ , afwInterfaces
  //#UC END# *4C8A29700261impl_uses*
 ;
 
@@ -435,6 +436,16 @@ begin
 //#UC END# *4C8A43FE01BD_4C8A29700261exec_impl*
 end;//TMainOptionsForm.Help_ContactInformation_Execute
 
+procedure TMainOptionsForm.Help_ReplyBook_Test(const aParams: IvcmTestParamsPrim);
+//#UC START# *4C8A440F025D_4C8A29700261test_var*
+//#UC END# *4C8A440F025D_4C8A29700261test_var*
+begin
+//#UC START# *4C8A440F025D_4C8A29700261test_impl*
+ aParams.Op.Flag[vcm_ofEnabled] := (afw.Application.LocaleInfo.Language = afw_lngRussian);
+ aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
+//#UC END# *4C8A440F025D_4C8A29700261test_impl*
+end;//TMainOptionsForm.Help_ReplyBook_Test
+
 procedure TMainOptionsForm.Help_ReplyBook_Execute(const aParams: IvcmExecuteParamsPrim);
 //#UC START# *4C8A440F025D_4C8A29700261exec_var*
 //#UC END# *4C8A440F025D_4C8A29700261exec_var*
@@ -649,7 +660,7 @@ begin
   PublishOp(en_Help, op_ContactInformation, Help_ContactInformation_Execute, nil, nil);
   ShowInContextMenu(en_Help, op_ContactInformation, False);
   ShowInToolbar(en_Help, op_ContactInformation, False);
-  PublishOp(en_Help, op_ReplyBook, Help_ReplyBook_Execute, nil, nil);
+  PublishOp(en_Help, op_ReplyBook, Help_ReplyBook_Execute, Help_ReplyBook_Test, nil);
   ShowInContextMenu(en_Help, op_ReplyBook, False);
   ShowInToolbar(en_Help, op_ReplyBook, False);
   PublishOp(en_Help, op_GarantInternet, Help_GarantInternet_Execute, Help_GarantInternet_Test, nil);

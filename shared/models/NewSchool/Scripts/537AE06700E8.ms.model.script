@@ -1,0 +1,345 @@
+// vcmTabbedContainerRes 537AE06700E8 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_537AE06700E8
+
+FORWARD ME_537AE07D00EA
+
+FORWARD ME_53AAA1D200A7
+
+FORWARD ME_53ABDA2B02DC
+
+ME ME_53ABE38503BD
+ MEPROP UID '53ABE38503BD'
+ MEPROP Name 'First'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Продолжить работу в текущей вкладке''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53ABDA2B02DC // Choices
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53ABE38503BD First
+
+ME ME_53ABDA2B02DC
+ MEPROP UID '53ABDA2B02DC'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AAA1D200A7 // TooManyTabsOpened
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53ABE38503BD // First
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_53ABDA2B02DC Choices
+
+ME ME_53BF72CC0277
+ MEPROP UID '53BF72CC0277'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_53AAA1D200A7 // TooManyTabsOpened
+ ;
+ MELINK Target HWL ME_53ABE38503BD // First
+ ;
+
+ENDME // ME_53BF72CC0277 
+
+ME ME_53AAA1D200A7
+ MEPROP UID '53AAA1D200A7'
+ MEPROP Name 'TooManyTabsOpened'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Открыто максимальное количество вкладок, закройте ненужные или продолжайте работать в текущей вкладке.''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53BF72CC0277 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_53ABDA2B02DC // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" false
+ UP "DlgType" 'Confirmation'
+ UP "NeedCheck" false
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53AAA1D200A7 TooManyTabsOpened
+
+ME ME_537AE08C038F
+ MEPROP UID '537AE08C038F'
+ MEPROP Name 'pui_MainWindowTabs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Вкладки Основного окна'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_537AE08C038F pui_MainWindowTabs
+
+ME ME_537AE0AE033E
+ MEPROP UID '537AE0AE033E'
+ MEPROP Name 'pi_UseTabs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Использовать вкладки'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_537AE0AE033E pi_UseTabs
+
+ME ME_53A265E40389
+ MEPROP UID '53A265E40389'
+ MEPROP Name 'pi_OpenDocumentsFromList'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Открывать документы из списков'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53A265E40389 pi_OpenDocumentsFromList
+
+ME ME_53A2662D016A
+ MEPROP UID '53A2662D016A'
+ MEPROP Name 'pi_OpenLinksFromDocument'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Открывать ссылки из документов'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53A2662D016A pi_OpenLinksFromDocument
+
+ME ME_53A266E30125
+ MEPROP UID '53A266E30125'
+ MEPROP Name 'pi_InCurrentTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ UP "AutoInc" false
+ UP "Value" '''В текущей вкладке'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53A266E30125 pi_InCurrentTab
+
+ME ME_53A266FB0155
+ MEPROP UID '53A266FB0155'
+ MEPROP Name 'pi_InNewTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ UP "AutoInc" false
+ UP "Value" '''В новой вкладке'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53A266FB0155 pi_InNewTab
+
+ME ME_53A2670B03CC
+ MEPROP UID '53A2670B03CC'
+ MEPROP Name 'pi_InNewWindow'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ ;
+ UP "AutoInc" false
+ UP "Value" '''В новом окне'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_53A2670B03CC pi_InNewWindow
+
+ME ME_537AE07D00EA
+ MEPROP UID '537AE07D00EA'
+ MEPROP Name 'vcmTabbedContainerConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537AE06700E8 // vcmTabbedContainerRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_537AE08C038F // pui_MainWindowTabs
+ HWL ME_537AE0AE033E // pi_UseTabs
+ HWL ME_53A265E40389 // pi_OpenDocumentsFromList
+ HWL ME_53A2662D016A // pi_OpenLinksFromDocument
+ HWL ME_53A266E30125 // pi_InCurrentTab
+ HWL ME_53A266FB0155 // pi_InNewTab
+ HWL ME_53A2670B03CC // pi_InNewWindow
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_53AAA1D200A7 // TooManyTabsOpened
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+ UP extprop:rc:SelfName 'TabbedContainerConsts'
+
+ENDME // ME_537AE07D00EA vcmTabbedContainerConsts
+
+FORWARD ME_1626E0AABC8A
+
+ME ME_7F8C90D94EDB
+ MEPROP UID '7F8C90D94EDB'
+ MEPROP Name 'TooManyTabsOpened_Choice_First'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Продолжить работу в текущей вкладке''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_1626E0AABC8A // LCImpl_TooManyTabsOpened_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''TooManyTabsOpened_Choice_First''; rValue : ''Продолжить работу в текущей вкладке'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TooManyTabsOpened_Choice_First''; rValue : ''Продолжить работу в текущей вкладке'')'
+ UPLINK Speller HWL ME_53ABE38503BD // First
+ ;
+
+ENDME // ME_7F8C90D94EDB TooManyTabsOpened_Choice_First
+
+ME ME_1626E0AABC8A
+ MEPROP UID '1626E0AABC8A'
+ MEPROP Name 'LCImpl_TooManyTabsOpened_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога TooManyTabsOpened' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537AE06700E8 // vcmTabbedContainerRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_7F8C90D94EDB // TooManyTabsOpened_Choice_First
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefixBase 'str'
+ UP extprop:pas:ElementPrefix 'str_'
+ UPLINK Speller HWL ME_53ABDA2B02DC // Choices
+ ;
+
+ENDME // ME_1626E0AABC8A LCImpl_TooManyTabsOpened_Choices
+
+ME ME_668F3BE997A8
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537AE06700E8 // vcmTabbedContainerRes
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_668F3BE997A8 
+
+ME ME_FA287EE43749
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537AE06700E8 // vcmTabbedContainerRes
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_FA287EE43749 
+
+ME ME_537AE06700E8
+ MEPROP UID '537AE06700E8'
+ MEPROP Name 'vcmTabbedContainerRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_537AE07D00EA // vcmTabbedContainerConsts
+ HWL ME_1626E0AABC8A // LCImpl_TooManyTabsOpened_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_668F3BE997A8 // Tl3StringIDEx
+ ME_FA287EE43749 // Tl3MessageID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerRes.pas'
+ UP extprop:rc:SelfName 'TabbedContainerRes'
+
+ENDME // ME_537AE06700E8 vcmTabbedContainerRes

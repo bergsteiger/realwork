@@ -1,0 +1,334 @@
+// evdTagHolder 53AC01CD0335 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53AC01CD0335
+
+FORWARD ME_53AC1EA102D7
+
+ME ME_53AC1EBA0214
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_53AC1EBA0214 aStream
+
+ME ME_53C3AFDB01FC
+ MEPROP Name 'aFilter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4678160E01BE' '53317D14019D.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_53C3AFDB01FC aFilter
+
+ME ME_53AC1EAE0018
+ MEPROP UID '53AC1EAE0018'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC1EA102D7 // SaveToEVD
+ ;
+ MELIST Parameters
+   Seq: ( ME_53AC1EBA0214 // aStream
+ ME_53C3AFDB01FC // aFilter
+ )
+ ; // Parameters
+
+ENDME // ME_53AC1EAE0018 DoIt
+
+ME ME_53AC1ED30164
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC1EA102D7 // SaveToEVD
+ ;
+ MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
+ ;
+
+ENDME // ME_53AC1ED30164 
+
+ME ME_53AC1F00039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC1EA102D7 // SaveToEVD
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_53AC1F00039C 
+
+ME ME_53AC1F43002C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC1EA102D7 // SaveToEVD
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_53AC1F43002C 
+
+ME ME_53C3B3400363
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC1EA102D7 // SaveToEVD
+ ;
+ MELINK Target WL 'ME_47ECAA270135' '47ECAA270135.ms.model.script' // k2TagGen
+ ;
+
+ENDME // ME_53C3B3400363 
+
+ME ME_53AC1EA102D7
+ MEPROP UID '53AC1EA102D7'
+ MEPROP Name 'SaveToEVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC01CD0335 // evdTagHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53AC1EAE0018 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53AC1ED30164 // TevdNativeWriter
+ ME_53AC1F00039C // Tl3CustomFiler
+ ME_53AC1F43002C // Tl3FileMode
+ ME_53C3B3400363 // k2TagGen
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TevdSaveToEVD'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_53AC1EA102D7 SaveToEVD
+
+FORWARD ME_53BFEC6401A9
+
+ME ME_53BFEC8C03BB
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_53BFEC8C03BB aStream
+
+ME ME_53BFEC8B0038
+ MEPROP UID '53BFEC8B0038'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ MELIST Parameters
+   Seq: ( ME_53BFEC8C03BB // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_53BFEC8B0038 DoIt
+
+ME ME_53BFECC70314
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
+ ;
+ MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ ;
+
+ENDME // ME_53BFECC70314 
+
+ME ME_53BFECD9015C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_53BFECD9015C 
+
+ME ME_53BFECDE0043
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_53BFECDE0043 
+
+ME ME_53BFED030173
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
+ ;
+ MELINK Target WL 'ME_47ECA82403AC' '47ECA80B000D.ms.model.script' // Tk2DocumentBuffer
+ ;
+
+ENDME // ME_53BFED030173 
+
+ME ME_53BFEC6401A9
+ MEPROP UID '53BFEC6401A9'
+ MEPROP Name 'CreateTaggedDataFromEVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC01CD0335 // evdTagHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53BFEC8B0038 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53BFECC70314 // TevdNativeReader
+ ME_53BFECD9015C // Tl3FileMode
+ ME_53BFECDE0043 // Tl3CustomFiler
+ ME_53BFED030173 // Tk2DocumentBuffer
+ )
+ ; // Dependencies
+ UP "is static" true
+ UP extprop:pas:TypeName 'TevdCreateTaggedDataFromEVD'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_53BFEC6401A9 CreateTaggedDataFromEVD
+
+FORWARD ME_53BFF34F0025
+
+ME ME_53BFF3600250
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E150FF028A' '478CF30500C1.ms.model.script' // TStream
+ ;
+
+ENDME // ME_53BFF3600250 aStream
+
+ME ME_53BFF35D03BF
+ MEPROP UID '53BFF35D03BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BFF34F0025 // LoadFromEVD
+ ;
+ MELIST Parameters
+   Seq: ( ME_53BFF3600250 // aStream
+ )
+ ; // Parameters
+
+ENDME // ME_53BFF35D03BF DoIt
+
+ME ME_53BFF34F0025
+ MEPROP UID '53BFF34F0025'
+ MEPROP Name 'LoadFromEVD'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC01CD0335 // evdTagHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53BFF35D03BF // DoIt
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'TevdLoadFromEVD'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_53BFF34F0025 LoadFromEVD
+
+FORWARD ME_549413590379
+
+ME ME_5494137601C6
+ MEPROP UID '5494137601C6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_549413590379 // NeedSendRawDataAsBinary
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5494137601C6 DoIt
+
+ME ME_549413590379
+ MEPROP UID '549413590379'
+ MEPROP Name 'NeedSendRawDataAsBinary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53AC01CD0335 // evdTagHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5494137601C6 // DoIt
+ )
+ ; // Operations
+ UP extprop:pas:TypeName 'TevdNeedSendRawDataAsBinary'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_549413590379 NeedSendRawDataAsBinary
+
+ME ME_53AC036A02AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53AC01CD0335 // evdTagHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53AC036A02AE 
+
+%%InheritedBy ME_53B24E23037A ME_53AC01CD0335
+
+ME ME_53AC01CD0335
+ MEPROP UID '53AC01CD0335'
+ MEPROP Name 'evdTagHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_53B15D5603E3' '53B15D5603E3.ms.model.script' // TagHolder
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B24E23037A' '53B24E23037A.ms.model.script' // k2TaggedDataHolder
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_53AC1EA102D7 // SaveToEVD
+ HWL ME_53BFEC6401A9 // CreateTaggedDataFromEVD
+ HWL ME_53BFF34F0025 // LoadFromEVD
+ HWL ME_549413590379 // NeedSendRawDataAsBinary
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53AC036A02AE // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdTagHolder.imp.pas'
+ UP extprop:pas:TypeName '_evdTagHolder_'
+ UP extprop:pas:UnitName 'evdTagHolder.imp'
+ UP extprop:pas:ElementPrefixBase 'evd'
+ UP extprop:pas:ElementPrefix 'evd_'
+
+ENDME // ME_53AC01CD0335 evdTagHolder

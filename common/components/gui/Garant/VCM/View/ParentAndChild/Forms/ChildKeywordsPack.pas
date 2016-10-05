@@ -310,8 +310,10 @@ initialization
  {* Регистрация Tkw_Child_Control_MainPageTab_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TChildForm));
  {* Регистрация типа TChildForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscFormsPageControl));
  {* Регистрация типа TnscFormsPageControl }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TElTabSheet));
  {* Регистрация типа TElTabSheet }
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)

@@ -1,0 +1,101 @@
+// IntegrationWordsPack 5135EFD80062 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5135EFD80062
+
+FORWARD ME_5135EFD80062
+
+FORWARD ME_5135F0090070
+
+ME ME_5135F029035E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5135F0090070 // integration_OpenLink
+ ;
+ MELINK Target WL 'ME_5135ECC0016B' '4F86C0140332.ms.model.script' // TIntegrationData
+ ;
+
+ENDME // ME_5135F029035E 
+
+ME ME_51371E4800F0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5135F0090070 // integration_OpenLink
+ ;
+ MELINK Target WL 'ME_51371A9402FA' '51371A9402FA.ms.model.script' // nsIntegrationModelPart
+ ;
+
+ENDME // ME_51371E4800F0 
+
+ME ME_5135F0090070
+ MEPROP UID '5135F0090070'
+ MEPROP Name 'integration_OpenLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5135EFD80062 // IntegrationWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5135F029035E // TIntegrationData
+ ME_51371E4800F0 // nsIntegrationModelPart
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName 'TkwIntegrationOpenLink'
+ UP extprop:rc:SelfName 'IntegrationOpenLink'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5135F0090070 integration_OpenLink
+
+ME ME_5135F02401D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5135EFD80062 // IntegrationWordsPack
+ ;
+ MELINK Target HWL ME_5135F0090070 // integration_OpenLink
+ ;
+
+ENDME // ME_5135F02401D6 
+
+ME ME_571A2F2601FA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_5135EFD80062 // IntegrationWordsPack
+ ;
+ MELINK Target WL 'ME_4F86C0140332' '4F86C0140332.ms.model.script' // nsIntegrationSupport
+ ;
+
+ENDME // ME_571A2F2601FA 
+
+%%InjectedBy ME_4F86C0140332 ME_5135EFD80062
+
+ME ME_5135EFD80062
+ MEPROP UID '5135EFD80062'
+ MEPROP Name 'IntegrationWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51360760006C' '51360760006C.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5135F0090070 // integration_OpenLink
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5135F02401D6 // integration_OpenLink
+ ME_571A2F2601FA // nsIntegrationSupport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "need UC" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Integration\Implementation\IntegrationWordsPack.pas'
+
+ENDME // ME_5135EFD80062 IntegrationWordsPack

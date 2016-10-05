@@ -1,0 +1,203 @@
+// atOpenFoldersObjectAddon 4FD0D1E00242 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4FD0D1E00242
+
+FORWARD ME_4FD237CB0142
+
+ME ME_4FD237D603A1
+ MEPROP UID '4FD237D603A1'
+ MEPROP Name 'PN_IS_EMULATE_OPENING'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD237CB0142 // ParametersNames
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MEPROP Value '''is_emulate_opening'''
+ MELINK ValueType WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''is_emulate_opening'''
+
+ENDME // ME_4FD237D603A1 PN_IS_EMULATE_OPENING
+
+ME ME_4FD237CB0142
+ MEPROP UID '4FD237CB0142'
+ MEPROP Name 'ParametersNames'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FD0D1E00242 // atOpenFoldersObjectAddon
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FD237D603A1 // PN_IS_EMULATE_OPENING
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4FD237CB0142 ParametersNames
+
+ME ME_4FD2371E037F
+ MEPROP UID '4FD2371E037F'
+ MEPROP Name 'f_IsEmulateOpening'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD0D1E00242 // atOpenFoldersObjectAddon
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FD2371E037F f_IsEmulateOpening
+
+ME ME_4FD0D23C0384
+ MEPROP UID '4FD0D23C0384'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4FD0D1E00242 // atOpenFoldersObjectAddon
+ ;
+ MELINK Target WL 'ME_4FD0D21A0035' '4808ADB9014E.ms.model.script' // ObjectType
+ ;
+
+ENDME // ME_4FD0D23C0384 
+
+ME ME_50070AD001A4
+ MEPROP Name 'aFoldersObject'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4FD0D21A0035' '4808ADB9014E.ms.model.script' // ObjectType
+ ;
+
+ENDME // ME_50070AD001A4 aFoldersObject
+
+ME ME_4FD0D2530143
+ MEPROP UID '4FD0D2530143'
+ MEPROP Name 'OnFoldersObject'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4FD0D1E00242 // atOpenFoldersObjectAddon
+ ;
+ MELIST Parameters
+   Seq: ( ME_50070AD001A4 // aFoldersObject
+ )
+ ; // Parameters
+
+ENDME // ME_4FD0D2530143 OnFoldersObject
+
+ME ME_4FD0D60D029C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD0D1E00242 // atOpenFoldersObjectAddon
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4FD0D60D029C 
+
+ME ME_4FDB88170387
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD0D1E00242 // atOpenFoldersObjectAddon
+ ;
+ MELINK Target WL 'ME_456EB454018E' '456EA56002BF.ms.model.script' // CanNotFindData
+ ;
+
+ENDME // ME_4FDB88170387 
+
+ME ME_4FDB88880282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FD0D1E00242 // atOpenFoldersObjectAddon
+ ;
+ MELINK Target WL 'ME_48078D230277' '48078CC202EC.ms.model.script' // TatNodeHelper
+ ;
+
+ENDME // ME_4FDB88880282 
+
+ME ME_48089F460352_ME_4FD0D1E00242
+ MELINK Original WL 'ME_48089F460352' '48089D120398.ms.model.script' // ExecuteSelf
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48089F460352_ME_4FD0D1E00242 ExecuteSelf
+
+ME ME_4FCF8EE001D4_ME_4FD0D1E00242
+ MELINK Original WL 'ME_4FCF8EE001D4' '48078CC202EC.ms.model.script' // OnFoldersNode
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FCF8EE001D4_ME_4FD0D1E00242 OnFoldersNode
+
+ME ME_48089F3701B4_ME_4FD0D1E00242
+ MELINK Original WL 'ME_48089F3701B4' '48089D120398.ms.model.script' // InitParamList
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48089F3701B4_ME_4FD0D1E00242 InitParamList
+
+%%ImplementedBy ME_4FCF8EBF0006 ME_4FD0D1E00242
+%%ImplementedBy ME_4FD0D8A60276 ME_4FD0D1E00242
+
+ME ME_4FD0D1E00242
+ MEPROP UID '4FD0D1E00242'
+ MEPROP Name 'atOpenFoldersObjectAddon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4808ADB9014E' '4808ADB9014E.ms.model.script' // Operations
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4FCF8EBF0006' '48078CC202EC.ms.model.script' // IatFoldersNodeCallback
+ WL 'ME_4FD0D8A60276' '4808ADB9014E.ms.model.script' // MatOperationBase
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4FD2371E037F // f_IsEmulateOpening
+ HWL ME_4FD0D23C0384 // 
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FD0D2530143 // OnFoldersObject
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48089F460352_ME_4FD0D1E00242 // ExecuteSelf
+ ME_4FCF8EE001D4_ME_4FD0D1E00242 // OnFoldersNode
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_48089F3701B4_ME_4FD0D1E00242 // InitParamList
+ )
+ ; // Overridden
+ MELIST Constants
+   Seq: ( HWL ME_4FD237CB0142 // ParametersNames
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4FD0D60D029C // SysUtils
+ ME_4FDB88170387 // CanNotFindData
+ ME_4FDB88880282 // TatNodeHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\Operations\atOpenFoldersObjectAddon.imp.pas'
+ UP extprop:pas:TypeName '_atOpenFoldersObjectAddon_'
+ UP extprop:pas:UnitName 'atOpenFoldersObjectAddon.imp'
+
+ENDME // ME_4FD0D1E00242 atOpenFoldersObjectAddon

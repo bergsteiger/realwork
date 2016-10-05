@@ -2,22 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4E96E0A803E1
-
-ME ME_4E96DEF500AA
- MEPROP UID '4E96DEF500AA'
- MEPROP Name 'ddBaseAutoLinkDataSource'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E96E0A803E1 // AutolinkTypes
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddBaseAutoLinkDataSource.pas'
-
-ENDME // ME_4E96DEF500AA ddBaseAutoLinkDataSource
+%%Inner ME_4E96E0A803E1
 
 ME ME_4E96E0A803E1
  MEPROP UID '4E96E0A803E1'
@@ -30,8 +15,11 @@ ME ME_4E96E0A803E1
  MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
  ;
  MELIST Children
-   Seq: ( HWL ME_4E96DEF500AA // ddBaseAutoLinkDataSource
+   Seq: ( WL 'ME_4E96DEF500AA' '4E96DEF500AA.ms.model.script' // ddBaseAutoLinkDataSource
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E96E0A803E1 AutolinkTypes

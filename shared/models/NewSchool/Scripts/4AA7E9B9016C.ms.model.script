@@ -2,62 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4AA7E9B9016C
-
-FORWARD ME_4AA7E9CB034A
-
-ME ME_4AC2307802F3
- MEPROP UID '4AC2307802F3'
- MEPROP Name 'TdmMedicMainMenuRes'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AA7E9CB034A // MedicMainMenuRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
- )
- ; // Inherits
- UP extprop:rc:SelfName 'dmMedicMainMenuRes'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4AC2307802F3 TdmMedicMainMenuRes
-
-ME ME_4AA7E9DB02FF
- MEPROP UID '4AA7E9DB02FF'
- MEPROP Name 'fake'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AA7E9CB034A // MedicMainMenuRes
- ;
-
-ENDME // ME_4AA7E9DB02FF fake
-
-ME ME_4AA7E9CB034A
- MEPROP UID '4AA7E9CB034A'
- MEPROP Name 'MedicMainMenuRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AA7E9B9016C // Main
- ;
- MELIST Operations
-   Seq: ( HWL ME_4AA7E9DB02FF // fake
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4AC2307802F3 // TdmMedicMainMenuRes
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_MedicMainMenuRes.pas'
-
-ENDME // ME_4AA7E9CB034A MedicMainMenuRes
+%%Inner ME_4AA7E9B9016C
+%%Inner ME_4AA7E9B9016C
+%%Inner ME_4AA7E9B9016C
 
 ME ME_4AA7E9B9016C
  MEPROP UID '4AA7E9B9016C'
@@ -70,7 +17,7 @@ ME ME_4AA7E9B9016C
  MELINK Parent WL 'ME_4F7D7B980383' '4F7D7B980383.ms.model.script' // View
  ;
  MELIST Children
-   Seq: ( HWL ME_4AA7E9CB034A // MedicMainMenuRes
+   Seq: ( WL 'ME_4AA7E9CB034A' '4AA7E9CB034A.ms.model.script' // MedicMainMenuRes
  WL 'ME_5391A476038A' '5391A476038A.ms.model.script' // MemoryUsagePrim
  WL 'ME_4F882096008A' '4F882096008A.ms.model.script' // MemoryUsage
  )
@@ -105,5 +52,8 @@ ME ME_4AA7E9B9016C
  WL 'ME_5391D16303CD' '5391D16303CD.ms.model.script' // DocumentsCacheOperations
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4AA7E9B9016C Main

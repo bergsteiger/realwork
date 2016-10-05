@@ -1,6 +1,6 @@
 unit ddGeneralLawsLinkFinder;
 
-{ $Id: ddGeneralLawsLinkFinder.pas,v 1.5 2016/08/24 09:11:13 fireton Exp $ }
+{ $Id: ddGeneralLawsLinkFinder.pas,v 1.8 2016/09/27 11:53:30 fireton Exp $ }
 
 interface
 
@@ -54,7 +54,7 @@ uses
  ddAutolinkArbitraryDocList,
  ddAutolinkDocHistory,
  ddBaseAutolinkDataSource,
- ddEntryCollector;
+ ddEntryCollector, ddAutolinkTSMatchList, l3LongintListPrim;
 
 const
  cMaxLinkInChain = 200;
@@ -95,6 +95,7 @@ type
   f_SPRusFed: Tl3RegularSearch;
   f_DataSource: TddBaseAutolinkDataSource;
   f_DocHistory: TddAutolinkDocHistory;
+  f_NoStructList: TddAutolinkTSMatchList;
   procedure LoadSkippies;
   function pm_GetFoundSources: Tl3LongintList;
   function pm_GetSPChainConnector: Tl3RegularSearch;
@@ -159,9 +160,10 @@ begin
  f_LoneTypes := Tl3LongintList.MakeSorted;
  f_CodexData := Tl3InterfaceList.Make;
  f_ArbitraryDocs := TddAutolinkArbitraryDocList.Make;
+ f_NoStructList := TddAutolinkTSMatchList.Make;
  if FileExists(aDataFileName) then
  begin
-  l_DataLoader := TddAutolinkDataLoader.Create(aDataFileName, f_CodexData, f_LoneTypes, f_ArbitraryDocs);
+  l_DataLoader := TddAutolinkDataLoader.Create(aDataFileName, f_CodexData, f_LoneTypes, f_ArbitraryDocs, f_NoStructList);
   try
    l_DataLoader.Process;
    f_ConstitutionDocID.rExtDocID := l_DataLoader.Misc.rConstitutionDocID;
@@ -246,6 +248,7 @@ begin
  FreeAndNil(f_DataSource);
  FreeAndNil(f_DocHistory);
  FreeAndNil(f_ArbitraryDocs);
+ FreeAndNil(f_NoStructList);
  inherited;
 end;
 
@@ -555,6 +558,7 @@ var
   l_RP: Tl3MatchPosition;
   l_ContemporalDoc: TddALDocRec;
   l_DocForLink: TddALDocRec;
+  l_NoStructLinksNeeded: Boolean;
  begin
   l3FillChar(l_DocID, SizeOf(TddALDocRec));
   l_TheDocLinkPos := l_TypePos;
@@ -674,7 +678,17 @@ var
   begin
    l3FillChar(l_ContemporalDoc, SizeOf(l_ContemporalDoc));
    l_LinkIsSet := False;
-   if l_DocStartPos > 0 then
+   l_NoStructLinksNeeded := False;
+   if (l_FoundType > 0) and (f_FoundSources.Count > 0) then
+   begin
+    for I := 0 to f_FoundSources.Hi do
+     if f_NoStructList.IsMatch(l_FoundType, f_FoundSources.Items[I]) then
+     begin
+      l_NoStructLinksNeeded := True;
+      Break;
+     end;
+   end;
+   if (l_DocStartPos > 0) and (not l_NoStructLinksNeeded) then
    begin
     f_EntryCollector.CollectEntries(PAnsiChar(aText), l_LeftMostPos, l_DocStartPos - 1, f_PossibleLinks);
     if f_PossibleLinks.Count > 0 then

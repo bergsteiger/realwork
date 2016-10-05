@@ -1,7 +1,22 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.164 2016/09/13 07:04:37 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.169 2016/09/30 14:45:01 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.169  2016/09/30 14:45:01  lukyanets
+// Отправляем сообщение
+//
+// Revision 1.168  2016/09/28 13:57:52  lukyanets
+// Готовимся принимать сообщение очистки атрибутов
+//
+// Revision 1.167  2016/09/28 12:28:33  lukyanets
+// Отправляем сообщение очистки атрибутов
+//
+// Revision 1.166  2016/09/28 10:01:16  lukyanets
+// Не отключаем таски при ошибочном завершении
+//
+// Revision 1.165  2016/09/26 09:06:18  lukyanets
+// Принимаем сообщение
+//
 // Revision 1.164  2016/09/13 07:04:37  lukyanets
 // Принимаем и сохраняем
 //
@@ -1476,7 +1491,8 @@ const
    cs_ttHavanskyExport, cs_ttMdpSyncDicts, cs_ttMdpImportDocs, cs_ttContainer,
    cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport];
  alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand,
-   cs_ttUserDefinedExport, cs_ttDownloadDoc, cs_ttUploadDoc];
+   cs_ttUserDefinedExport, cs_ttDownloadDoc, cs_ttUploadDoc, cs_ttMultiModifyDocs,
+   cs_ttMultiClearAttributes];
 
 implementation
 Uses
@@ -1531,6 +1547,12 @@ Uses
  alcuDownloadDocStreamExecutor,
  csUploadDocStream,
  alcuUploadDocStreamExecutor,
+ csMultiModifyDocs,
+ alcuMultiModifyDocsExecutor,
+ csMultiClearAttributes,
+ alcuMultiClearAttributesExecutor,
+ csMultiOperation,
+ alcuMultiOperationExecutor,
  ncsDocStorageTransferReg,
  ncsTaskSendReg,
  ncsSendTask,
@@ -2425,10 +2447,12 @@ begin
   BeforeSaveQuery;
   {$ENDIF}
   SaveQuery;
- end//not (aTask.Status in cs_tsErrorStatuses)
+ end;//not (aTask.Status in cs_tsErrorStatuses)
+(*  Вроде бы уже не надо..
  else
   if aTask.Status = cs_tsError then
     ExcludeTaskType(aTask.TaskType);
+*)
 end;
 
 procedure TddServerTaskManager.cs_GetExecuteStatus(aPipe: TcsDataPipe);
@@ -2758,7 +2782,9 @@ procedure TddServerTaskManager.WorkupRequests;
    cs_ttUserDefinedExport:
     DoSaveUserDefinedExport(anItem);
    cs_ttDownloadDoc,
-   cs_ttUploadDoc:
+   cs_ttUploadDoc,
+   cs_ttMultiModifyDocs,
+   cs_ttMultiClearAttributes:
     DoRunRequest(anItem);
    else
     Assert(false, 'WorkupRequests. Неизвестный тип задачи: ' + GetEnumName(TypeInfo(TcsTaskType), Ord(anItem.TaskType)));
@@ -3220,6 +3246,12 @@ begin
   Result := TalcuDownloadDocStreamExecutor.Make(f_IncomingTasks, SpeedupRequest)
  else if aMessage is TcsUploadDocStream then
   Result := TalcuUploadDocStreamExecutor.Make(f_IncomingTasks, SpeedupRequest, evntOnEraseAttrRecords)
+ else if aMessage is TcsMultiModifyDocs then
+  Result := TalcuMultiModifyDocsExecutor.Make(f_IncomingTasks, SpeedupRequest)
+ else if aMessage is TcsMultiClearAttributes then
+  Result := TalcuMultiClearAttributesExecutor.Make(f_IncomingTasks, SpeedupRequest)
+ else if aMessage is TcsMultiOperation then
+  Result := TalcuMultiOperationExecutor.Make(f_IncomingTasks, SpeedupRequest)
  else
   Result := nil;
 end;

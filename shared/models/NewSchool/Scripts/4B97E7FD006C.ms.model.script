@@ -2,187 +2,16 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4B97E7FD006C
+%%Inner ME_4B97E7FD006C
+%%Inner ME_4B97E7FD006C
+%%Inner ME_4B97E7FD006C
+%%Inner ME_4B97E7FD006C
+%%Inner ME_4B97E7FD006C
+%%Inner ME_4B97E7FD006C
+%%Inner ME_4B97E7FD006C
+
 FORWARD ME_4B97E7FD006C
-
-FORWARD ME_514B3C57001F
-
-ME ME_514B3E420328
- MEPROP UID '514B3E420328'
- MEPROP Name 'TvtCustomHeader'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_514B3C57001F // vtHeader
- ;
- UP extprop:rc:SelfName 'Header'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_514B3E420328 TvtCustomHeader
-
-ME ME_514B3E4D016E
- MEPROP UID '514B3E4D016E'
- MEPROP Name 'TvtHeader'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_514B3C57001F // vtHeader
- ;
- MELIST Inherits
-   Seq: ( HWL ME_514B3E420328 // TvtCustomHeader
- )
- ; // Inherits
- UP extprop:rc:SelfName 'Header'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_514B3E4D016E TvtHeader
-
-FORWARD ME_51506507008E
-
-ME ME_515065300264
- MEPROP Name 'Sender'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
- ;
-
-ENDME // ME_515065300264 Sender
-
-ME ME_51506530027C
- MEPROP Name 'Index'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4DE60F5E00A6' '4AB0C3C60310.ms.model.script' // LongInt
- ;
-
-ENDME // ME_51506530027C Index
-
-ME ME_515065260173
- MEPROP UID '515065260173'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_51506507008E // TGetItemImageIndex
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- MELIST Parameters
-   Seq: ( ME_515065300264 // Sender
- ME_51506530027C // Index
- )
- ; // Parameters
-
-ENDME // ME_515065260173 DoIt
-
-ME ME_51506507008E
- MEPROP UID '51506507008E'
- MEPROP Name 'TGetItemImageIndex'
- MEPROP Class class_Class
- MELINK Stereotype st_Function ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_514B3C57001F // vtHeader
- ;
- MELIST Operations
-   Seq: ( HWL ME_515065260173 // DoIt
- )
- ; // Operations
- UP "of object" true
-
-ENDME // ME_51506507008E TGetItemImageIndex
-
-ME ME_514B3C57001F
- MEPROP UID '514B3C57001F'
- MEPROP Name 'vtHeader'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B97E7FD006C // Outliner
- ;
- MELIST Children
-   Seq: ( HWL ME_514B3E420328 // TvtCustomHeader
- HWL ME_514B3E4D016E // TvtHeader
- HWL ME_51506507008E // TGetItemImageIndex
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtHeader.pas'
- UP extprop:rc:SelfName 'Header'
-
-ENDME // ME_514B3C57001F vtHeader
-
-FORWARD ME_4B97E82200D4
-
-FORWARD ME_4B97E8570381
-
-ME ME_4B97E86702AE
- MEPROP UID '4B97E86702AE'
- MEPROP Name 'MultiSelectDraggingText'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4B97E8570381 // TreeViewMessages
- ;
- MEPROP Value '''Всего: %d'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Всего: %d'''
-
-ENDME // ME_4B97E86702AE MultiSelectDraggingText
-
-ME ME_4B97E8570381
- MEPROP UID '4B97E8570381'
- MEPROP Name 'TreeViewMessages'
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B97E82200D4 // vtOutlinerWithDragDropRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4B97E86702AE // MultiSelectDraggingText
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "children prefix" 'nsc_'
- UP "spell names" false
- UP extprop:pas:ElementPrefix 'nsc_'
-
-ENDME // ME_4B97E8570381 TreeViewMessages
-
-ME ME_4B97E82200D4
- MEPROP UID '4B97E82200D4'
- MEPROP Name 'vtOutlinerWithDragDropRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ресурсы для TvtOutlinerWithDragDrop' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4B97E7FD006C // Outliner
- ;
- MELIST Constants
-   Seq: ( HWL ME_4B97E8570381 // TreeViewMessages
- )
- ; // Constants
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '10.03.2010 21:43'
- UP intf.pas:Path 'common\components\gui\Garant\VT\vtOutlinerWithDragDropRes.pas'
- UP extprop:rc:SelfName 'OutlinerWithDragDropRes'
-
-ENDME // ME_4B97E82200D4 vtOutlinerWithDragDropRes
 
 FORWARD ME_515DC39E020D
 
@@ -215,6 +44,9 @@ ME ME_515DC39E020D
    Seq: ( HWL ME_515DC3C003CA // TvtCustomTreeSource
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" false
  UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtTreeSource.pas'
  UP extprop:rc:SelfName 'TreeSource'
@@ -234,8 +66,8 @@ ME ME_4B97E7FD006C
  MELINK Parent WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
  ;
  MELIST Children
-   Seq: ( HWL ME_514B3C57001F // vtHeader
- HWL ME_4B97E82200D4 // vtOutlinerWithDragDropRes
+   Seq: ( WL 'ME_514B3C57001F' '514B3C57001F.ms.model.script' // vtHeader
+ WL 'ME_4B97E82200D4' '4B97E82200D4.ms.model.script' // vtOutlinerWithDragDropRes
  WL 'ME_4CFFE3470249' '4CFFE3470249.ms.model.script' // TvtLister
  WL 'ME_4B97EA0802EB' '4B97EA0802EB.ms.model.script' // TvtOutlinerWithQuickSearch
  WL 'ME_4B97E8130272' '4B97E8130272.ms.model.script' // TvtOutlinerWithDragDrop
@@ -287,5 +119,8 @@ ME ME_4B97E7FD006C
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4B97E7FD006C Outliner

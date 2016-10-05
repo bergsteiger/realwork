@@ -1,0 +1,72 @@
+// nsLogEvent 55B8907D0158 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55B8907D0158
+
+ME ME_55B890A502E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B8907D0158 // nsLogEvent
+ ;
+ MELINK Target WL 'ME_55B760CE036A' '55B760A803D5.ms.model.script' // TnsLogEventData
+ ;
+
+ENDME // ME_55B890A502E5 
+
+ME ME_55B890B201C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B8907D0158 // nsLogEvent
+ ;
+ MELINK Target WL 'ME_55B761180244' '55B760A803D5.ms.model.script' // TnsLogManager
+ ;
+
+ENDME // ME_55B890B201C2 
+
+ME ME_55B890B5025F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B8907D0158 // nsLogEvent
+ ;
+ MELINK Target WL 'ME_45ED58FF0201' '45ED58CF03E6.ms.model.script' // LogEvent
+ ;
+
+ENDME // ME_55B890B5025F 
+
+ME ME_55B8C7830190
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55B8907D0158 // nsLogEvent
+ ;
+ MELINK Target WL 'ME_55B75F160131' '55B75E6E034C.ms.model.script' // InsLogEventData
+ ;
+
+ENDME // ME_55B8C7830190 
+
+ME ME_55B8907D0158
+ MEPROP UID '55B8907D0158'
+ MEPROP Name 'nsLogEvent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4B0A60DF01F2' '4B0A60DF01F2.ms.model.script' // Logging
+ ;
+ MELIST Dependencies
+   Seq: ( ME_55B890A502E5 // TnsLogEventData
+ ME_55B890B201C2 // TnsLogManager
+ ME_55B890B5025F // LogEvent
+ ME_55B8C7830190 // InsLogEventData
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Logging\nsLogEvent.imp.pas'
+ UP extprop:pas:TypeName '_nsLogEvent_'
+ UP extprop:pas:UnitName 'nsLogEvent.imp'
+
+ENDME // ME_55B8907D0158 nsLogEvent

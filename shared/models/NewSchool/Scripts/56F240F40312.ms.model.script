@@ -1,0 +1,176 @@
+// nsBaseSearchView 56F240F40312 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56F240F40312
+
+ME ME_56F2416F0138
+ MEPROP UID '56F2416F0138'
+ MEPROP Name 'f_BaseSearchController'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56F240F40312 // nsBaseSearchView
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_56F2416F0138 f_BaseSearchController
+
+FORWARD ME_56F24196035F
+
+ME ME_56F241AF015D
+ MEPROP Name 'aModel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56D42F09009E' '4A9F98B901A5.ms.model.script' // InsBaseSearchModel
+ ;
+
+ENDME // ME_56F241AF015D aModel
+
+ME ME_56F241A7038C
+ MEPROP UID '56F241A7038C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56F24196035F // DoOnBaseSearchModelChanged
+ ;
+ MELIST Parameters
+   Seq: ( ME_56F241AF015D // aModel
+ )
+ ; // Parameters
+
+ENDME // ME_56F241A7038C DoIt
+
+ME ME_56F24196035F
+ MEPROP UID '56F24196035F'
+ MEPROP Name 'DoOnBaseSearchModelChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вызывается при изменении данных модели' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56F240F40312 // nsBaseSearchView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56F241A7038C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56F24196035F DoOnBaseSearchModelChanged
+
+FORWARD ME_56F241BB031B
+
+ME ME_56F24AD9000A
+ MEPROP Name 'aController'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_56D696CD007B' '4A9F98B901A5.ms.model.script' // InsBaseSearchController
+ ;
+
+ENDME // ME_56F24AD9000A aController
+
+ME ME_56F241D302FB
+ MEPROP UID '56F241D302FB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56F241BB031B // DoOnControllerSet
+ ;
+ MELIST Parameters
+   Seq: ( ME_56F24AD9000A // aController
+ )
+ ; // Parameters
+
+ENDME // ME_56F241D302FB DoIt
+
+ME ME_56F241BB031B
+ MEPROP UID '56F241BB031B'
+ MEPROP Name 'DoOnControllerSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вызывается при присвоении контроллера базового поиска' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56F240F40312 // nsBaseSearchView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56F241D302FB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56F241BB031B DoOnControllerSet
+
+ME ME_56D4305A00EA_ME_56F240F40312
+ MELINK Original WL 'ME_56D4305A00EA' '4A9F98B901A5.ms.model.script' // NotifyBaseSearchModelChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_56D4305A00EA_ME_56F240F40312 NotifyBaseSearchModelChanged
+
+ME ME_56EBA1AA03CC_ME_56F240F40312
+ MELINK Original WL 'ME_56EBA1AA03CC' '4A9F98B901A5.ms.model.script' // BaseSearchController
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_56EBA1AA03CC_ME_56F240F40312 BaseSearchController
+
+ME ME_479731C50290_ME_56F240F40312
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_56F240F40312 Cleanup
+
+%%ImplementedBy ME_56D42F1903CF ME_56F240F40312
+
+%%InheritedBy ME_4A5CB93700CF ME_56F240F40312
+
+ME ME_56F240F40312
+ MEPROP UID '56F240F40312'
+ MEPROP Name 'nsBaseSearchView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4AC225E70273' '4AC225E70273.ms.model.script' // BaseSearch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_56D42F1903CF' '4A9F98B901A5.ms.model.script' // InsBaseSearchView
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_56F2416F0138 // f_BaseSearchController
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56F24196035F // DoOnBaseSearchModelChanged
+ HWL ME_56F241BB031B // DoOnControllerSet
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_56D4305A00EA_ME_56F240F40312 // NotifyBaseSearchModelChanged
+ ME_56EBA1AA03CC_ME_56F240F40312 // BaseSearchController
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_56F240F40312 // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\nsBaseSearchView.imp.pas'
+ UP extprop:pas:TypeName '_nsBaseSearchView_'
+ UP extprop:pas:UnitName 'nsBaseSearchView.imp'
+
+ENDME // ME_56F240F40312 nsBaseSearchView

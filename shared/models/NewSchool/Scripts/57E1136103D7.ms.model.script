@@ -1,0 +1,271 @@
+// arLockUtils 57E1136103D7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57E1136103D7
+
+FORWARD ME_57E11A9200C7
+
+ME ME_57E11AAA0016
+ MEPROP UID '57E11AAA0016'
+ MEPROP Name 'cUsersMsg'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E11A9200C7 // cMessages
+ ;
+ MEPROP Value '''Пользователи : %s'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Пользователи : %s'''
+
+ENDME // ME_57E11AAA0016 cUsersMsg
+
+ME ME_57E11B0602C1
+ MEPROP UID '57E11B0602C1'
+ MEPROP Name 'cAccessHoldByUser'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E11A9200C7 // cMessages
+ ;
+ MEPROP Value '''Доступ захвачен пользователем ('''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Доступ захвачен пользователем ('''
+
+ENDME // ME_57E11B0602C1 cAccessHoldByUser
+
+ME ME_57E11E1B012E
+ MEPROP UID '57E11E1B012E'
+ MEPROP Name 'cDocAccessDeny'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E11A9200C7 // cMessages
+ ;
+ MEPROP Value '''Невозможно получить доступ к документу [GarantID = %d].'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Невозможно получить доступ к документу [GarantID = %d].'''
+
+ENDME // ME_57E11E1B012E cDocAccessDeny
+
+ME ME_57E11E2E018D
+ MEPROP UID '57E11E2E018D'
+ MEPROP Name 'cUserMsg'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57E11A9200C7 // cMessages
+ ;
+ MEPROP Value '''Пользователь : %s'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Пользователь : %s'''
+
+ENDME // ME_57E11E2E018D cUserMsg
+
+ME ME_57E11A9200C7
+ MEPROP UID '57E11A9200C7'
+ MEPROP Name 'cMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57E1136103D7 // arLockUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57E11AAA0016 // cUsersMsg
+ HWL ME_57E11B0602C1 // cAccessHoldByUser
+ HWL ME_57E11E1B012E // cDocAccessDeny
+ HWL ME_57E11E2E018D // cUserMsg
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_57E11A9200C7 cMessages
+
+FORWARD ME_57E1137D00AE
+
+ME ME_57E113B200B8
+ MEPROP Name 'aFamily'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_551E7DD302E0' '5432448401BC.ms.model.script' // TdaFamilyID
+ ;
+
+ENDME // ME_57E113B200B8 aFamily
+
+ME ME_57E113B200C8
+ MEPROP Name 'aDocID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60AE303AD' '47BC51FE018B.ms.model.script' // TDocID
+ ;
+
+ENDME // ME_57E113B200C8 aDocID
+
+ME ME_57E113B200D8
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_515413200198' '515412C70072.ms.model.script' // Tl3StringDataList
+ ;
+
+ENDME // ME_57E113B200D8 aList
+
+ME ME_57E113B200E7
+ MEPROP Name 'aReqUserNames'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value false
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_57E113B200E7 aReqUserNames
+
+ME ME_57E113B20116
+ MEPROP Name 'aIgnoredLockHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57E1162A03CF' '47BC51FE018B.ms.model.script' // TJLHandle
+ ;
+ MEPROP Value '-1'
+ MELINK ValueType WL 'ME_57E1162A03CF' '47BC51FE018B.ms.model.script' // TJLHandle
+ ;
+ UP extprop:pas:Value '-1'
+
+ENDME // ME_57E113B20116 aIgnoredLockHandle
+
+ME ME_57E11391010B
+ MEPROP UID '57E11391010B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E1137D00AE // AddToDenyList
+ ;
+ MELIST Parameters
+   Seq: ( ME_57E113B200B8 // aFamily
+ ME_57E113B200C8 // aDocID
+ ME_57E113B200D8 // aList
+ ME_57E113B200E7 // aReqUserNames
+ ME_57E113B20116 // aIgnoredLockHandle
+ )
+ ; // Parameters
+
+ENDME // ME_57E11391010B DoIt
+
+ME ME_57E119720280
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E1137D00AE // AddToDenyList
+ ;
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
+ ;
+
+ENDME // ME_57E119720280 
+
+ME ME_57E1198301C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E1137D00AE // AddToDenyList
+ ;
+ MELINK Target WL 'ME_51B1B8BD018E' '51B1B8BD018E.ms.model.script' // dt_Lock
+ ;
+
+ENDME // ME_57E1198301C9 
+
+ME ME_57E11A890152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E1137D00AE // AddToDenyList
+ ;
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
+ ;
+
+ENDME // ME_57E11A890152 
+
+ME ME_57E11AA2013B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E1137D00AE // AddToDenyList
+ ;
+ MELINK Target HWL ME_57E11A9200C7 // cMessages
+ ;
+
+ENDME // ME_57E11AA2013B 
+
+ME ME_57E11B26004E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57E1137D00AE // AddToDenyList
+ ;
+ MELINK Target WL 'ME_52E8BA5101A7' '519B79940228.ms.model.script' // LinkServer
+ ;
+
+ENDME // ME_57E11B26004E 
+
+ME ME_57E1137D00AE
+ MEPROP UID '57E1137D00AE'
+ MEPROP Name 'AddToDenyList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57E1136103D7 // arLockUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E11391010B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_57E119720280 // GlobalDataProvider
+ ME_57E1198301C9 // dt_Lock
+ ME_57E11A890152 // Format
+ ME_57E11AA2013B // cMessages
+ ME_57E11B26004E // LinkServer
+ )
+ ; // Dependencies
+
+ENDME // ME_57E1137D00AE AddToDenyList
+
+ME ME_57E1136103D7
+ MEPROP UID '57E1136103D7'
+ MEPROP Name 'arLockUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' // DocTransfer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57E1137D00AE // AddToDenyList
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_57E11A9200C7 // cMessages
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Common\Utils\arLockUtils.pas'
+
+ENDME // ME_57E1136103D7 arLockUtils

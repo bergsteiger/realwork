@@ -2,39 +2,21 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+%%Inner ME_491D9414002B
+
 FORWARD ME_491D9414002B
-
-FORWARD ME_49246C1F015D
-
-ME ME_49246C310363
- MEPROP UID '49246C310363'
- MEPROP Name 'dmAdmin'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49246C1F015D // AdminRes
- ;
-
-ENDME // ME_49246C310363 dmAdmin
-
-ME ME_49246C1F015D
- MEPROP UID '49246C1F015D'
- MEPROP Name 'AdminRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_491D9414002B // Admin
- ;
- MELIST Operations
-   Seq: ( HWL ME_49246C310363 // dmAdmin
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\NOT_FINISHED_AdminRes.pas'
-
-ENDME // ME_49246C1F015D AdminRes
 
 FORWARD ME_49EEFBA6010A
 
@@ -110,10 +92,14 @@ ME ME_49EEFAAB0318_ME_49EEFBA6010A
 ENDME // ME_49EEFAAB0318_ME_49EEFBA6010A Name
 
 ME ME_479731C50290_ME_49EEFBA6010A
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_49EEFBA6010A Cleanup
+
+%%ImplementedBy ME_49EEFA5701BB ME_49EEFBA6010A
+
+%%InheritedBy ME_49E7754802A9 ME_49EEFBA6010A
 
 ME ME_49EEFBA6010A
  MEPROP UID '49EEFBA6010A'
@@ -272,10 +258,14 @@ ME ME_4AA510C90109_ME_4AA50FB0007E
 ENDME // ME_4AA510C90109_ME_4AA50FB0007E Users
 
 ME ME_479731C50290_ME_4AA50FB0007E
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AA50FB0007E Cleanup
+
+%%ImplementedBy ME_49EEBFE5027B ME_4AA50FB0007E
+
+%%InheritedBy ME_49E7754802A9 ME_4AA50FB0007E
 
 ME ME_4AA50FB0007E
  MEPROP UID '4AA50FB0007E'
@@ -315,6 +305,9 @@ ME ME_4AA50FB0007E
    Seq: ( ME_479731C50290_ME_4AA50FB0007E // Cleanup
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" true
  UP "started" '07.09.2009 17:51'
@@ -399,10 +392,14 @@ ME ME_4AA523050019_ME_492472AC0033
 ENDME // ME_4AA523050019_ME_492472AC0033 Node
 
 ME ME_479731C50290_ME_492472AC0033
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_492472AC0033 Cleanup
+
+%%ImplementedBy ME_49245E750210 ME_492472AC0033
+
+%%InheritedBy ME_49E7754802A9 ME_492472AC0033
 
 ME ME_492472AC0033
  MEPROP UID '492472AC0033'
@@ -439,6 +436,9 @@ ME ME_492472AC0033
    Seq: ( ME_479731C50290_ME_492472AC0033 // Cleanup
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" true
  UP "started" '07.09.2009 19:23'
@@ -474,7 +474,7 @@ ME ME_4AA527890269
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AA5275401A5 // TdeProfile
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AA527890269 f_IsNew
@@ -492,7 +492,7 @@ ME ME_4AA527A50159
  MEPROP Name 'aNew'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AA527A50159 aNew
@@ -527,10 +527,10 @@ ME ME_4AA527C802E6
  MEPROP Name 'aNew'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
@@ -568,10 +568,14 @@ ME ME_4AA527110040_ME_4AA5275401A5
 ENDME // ME_4AA527110040_ME_4AA5275401A5 IsNewProfile
 
 ME ME_479731C50290_ME_4AA5275401A5
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AA5275401A5 Cleanup
+
+%%ImplementedBy ME_491DA3810273 ME_4AA5275401A5
+
+%%InheritedBy ME_49E7754802A9 ME_4AA5275401A5
 
 ME ME_4AA5275401A5
  MEPROP UID '4AA5275401A5'
@@ -611,6 +615,9 @@ ME ME_4AA5275401A5
    Seq: ( ME_479731C50290_ME_4AA5275401A5 // Cleanup
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Admin\deProfile.pas'
  UP extprop:rc:SelfName 'deProfile'
  UP extprop:rc:isAcceptableForScripts true
@@ -626,6 +633,10 @@ ME ME_4BB08B8902F2_ME_559E9F2B02D6
  MEPROP OpKind opkind_Implemented
  UP "pm" true
 ENDME // ME_4BB08B8902F2_ME_559E9F2B02D6 Count
+
+%%ImplementedBy ME_559E9E3D0263 ME_559E9F2B02D6
+
+%%InheritedBy ME_47E7B92D013D ME_559E9F2B02D6
 
 ME ME_559E9F2B02D6
  MEPROP UID '559E9F2B02D6'
@@ -672,7 +683,7 @@ ME ME_491D9414002B
  WL 'ME_491D9D81001D' '491D9D81001D.ms.model.script' // TdsForbidAutoregistration
  WL 'ME_491DA7AB0298' '491DA7AB0298.ms.model.script' // TdsUserProperty
  WL 'ME_49246742002B' '49246742002B.ms.model.script' // TdsUserList
- HWL ME_49246C1F015D // AdminRes
+ WL 'ME_49246C1F015D' '49246C1F015D.ms.model.script' // AdminRes
  WL 'ME_493126130280' '493126130280.ms.model.script' // TsdsAdmin
  WL 'ME_49EC547C001B' '49EC547C001B.ms.model.script' // TdsGroupsList
  HWL ME_49EEFBA6010A // TbsEditGroupName
@@ -713,5 +724,8 @@ ME ME_491D9414002B
  WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_491D9414002B Admin

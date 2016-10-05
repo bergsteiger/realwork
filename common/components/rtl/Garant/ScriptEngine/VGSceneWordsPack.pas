@@ -1073,8 +1073,10 @@ initialization
  {* Регистрация типа Integer }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);
  {* Регистрация типа AnsiString }
+{$If NOT Defined(NoVCL)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TControl));
  {* Регистрация типа TControl }
+{$IfEnd} // NOT Defined(NoVCL)
 {$IfEnd} // NOT Defined(NoVGScene) AND NOT Defined(NoScripts)
 
 end.

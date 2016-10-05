@@ -19,14 +19,11 @@ implementation @ <<VCMFormsPack>>
 //? Пачка форм
 //? Аналог TvcmModule. По историческим причинам VCMModule стал папкой. Может содержать только финальные формы
 //> VCMFinalForm::Class
-//> FormSetFactory::Class
-//> FormFactory::Class
-//> FactoryMethod::Class
 //> VCMFormSetFactory::Class
-//> ModuleMethod::Class
 //> VCMFinalContainer::Class
 //> ScriptKeyword::Class
 //> ScriptKeywordsPack::Class
+//> ModuleMethod::Class
 
 //= SimpleClass::Class
 
@@ -76,110 +73,8 @@ implementation @ <<VCMFormsPack>>
 ; // IsFinalVCMFormsPack
 
 
-// Имя финального модуля
-//%f _FinalName
-: FinalName OBJECT IN %S
-// возвращаемый результат: a-string
-//#UC START# *4AAA1A7601C9for498AFF8101F5*
-//@ %SU
-//	[{%S%f_IsFinalVCMFormsPack()=true}{<%Z#f_FinalName()>}%f_N(%S)]
- if ( ( %S %f IsFinalVCMFormsPack %( )% ) %==  true ) then
- begin
-  [%f] N %( %S )% 
- end // if
- else
- begin
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%Z
-  begin
-   OBJECT IN %Z
-   if true then
-   begin
-    %Z %?f FinalName %( )% 
-    ++! l_Counter
-   end // if
-  end // for Z
- end // else
-
-//%f _FinalDoc
-; // FinalName
-
-: FinalDoc OBJECT IN %S
-//@ %SU
-//	[{%S%f_IsFinalVCMFormsPack()=true}{<%Z#f_FinalDoc()>}%SD]
- if ( ( %S %f IsFinalVCMFormsPack %( )% ) %==  true ) then
- begin
-  %S |D 
- end // if
- else
- begin
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%Z
-  begin
-   OBJECT IN %Z
-   if true then
-   begin
-    %Z %?f FinalDoc %( )% 
-    ++! l_Counter
-   end // if
-  end // for Z
- end // else
-//#UC END# *4AAA1A7601C9for498AFF8101F5*
-; // FinalDoc
-
-
-// Имя ТИПА финального модуля
-//%f _FinalTypeName
-: FinalTypeName OBJECT IN %S
-// возвращаемый результат: a-string
-//#UC START# *4AAA1ACC022Ffor498AFF8101F5*
-//@ %SU
-//	[{%S%f_IsFinalVCMFormsPack()=true}{<%Z#f_FinalTypeName()>}%f_pas_TypeName(%S)]
- if ( ( %S %f IsFinalVCMFormsPack %( )% ) %==  true ) then
- begin
-  [%f] pas_TypeName %( %S )% 
- end // if
- else
- begin
-  INTEGER VAR l_Counter l_Counter := 0
-  for %S%Z
-  begin
-   OBJECT IN %Z
-   if true then
-   begin
-    %Z %?f FinalTypeName %( )% 
-    ++! l_Counter
-   end // if
-  end // for Z
- end // else
-//#UC END# *4AAA1ACC022Ffor498AFF8101F5*
-; // FinalTypeName
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// нет документации
-//%f _pas_DefaultAncestor
-: pas_DefaultAncestor OBJECT IN %S
-//#UC START# *4948E5B60391for498AFF8101F5*
-//	TvcmModule
- 'TvcmModule'
-//#UC END# *4948E5B60391for498AFF8101F5*
-; // pas_DefaultAncestor
-
-
-// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
-// Выводит спец-метку класса
-//%f _pas_OutClassMark
-: pas_OutClassMark OBJECT IN %S
-//#UC START# *494B74D7016Bfor498AFF8101F5*
-//	formspack
- 'formspack'
-//#UC END# *494B74D7016Bfor498AFF8101F5*
-; // pas_OutClassMark
-
 
 // перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
 // Имя типа
@@ -263,39 +158,37 @@ implementation @ <<VCMFormsPack>>
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Вложенные стереотипы
 
-//: VCMFormsPack::Class::ModuleOperation::Operation
+//: VCMFormsPack::Class::implements::ClassDependency
 end. // <<VCMFormsPack>>
 
-implementation @ :: <<VCMFormsPack>> <<ModuleOperation>> ;
-//? Операция модуля
-//= ClassBase::Class::Operation
-//= ModuleOperationPrim::Class
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Основная ветка наследования
-//! ModuleOperationPrim::Class
-
-// Параметры стереотипа
-//v #
-// - типы видимости
-//a f
-// - тип абстракции
+implementation @ :: <<VCMFormsPack>> <<implements>> ;
+//= Delphi интерфейсы и реализация::MDAGenerator
 
 // Генераторы
 // Генерация модели в MDKnow
 //+ wiki
 <<generator>> wiki OBJECT IN %S
-//#UC START# *46E6D4BB0339for49F6F6E60362*
-//#UC END# *46E6D4BB0339for49F6F6E60362*
+//#UC START# *46E6D4BB0339for5791EDE701F0*
+//#UC END# *46E6D4BB0339for5791EDE701F0*
 ; // wiki
 
 
-// генератор реализации фабрик интерфейсов на java (.java)
-//+ fctr.java
-<<generator>> fctr.java OBJECT IN %S
-//#UC START# *470321C1038Afor49F6F6E60362*
-//#UC END# *470321C1038Afor49F6F6E60362*
-; // fctr.java
+// Родные Delphi интерфейсы (.pas)
+//+ intf.pas
+<<generator>> intf.pas OBJECT IN %S
+//R  
+//#UC START# *470F1571031Cfor5791EDE701F0*
+//#UC END# *470F1571031Cfor5791EDE701F0*
+; // intf.pas
+
+
+// Реализация на Delphi(.pas)
+//+ impl.pas
+<<generator>> impl.pas OBJECT IN %S
+//R  
+//#UC START# *470F15B800CBfor5791EDE701F0*
+//#UC END# *470F15B800CBfor5791EDE701F0*
+; // impl.pas
 
 
 // Функции стереотипа
@@ -304,54 +197,43 @@ implementation @ :: <<VCMFormsPack>> <<ModuleOperation>> ;
 //	SHD
  'SHD'
 
-//%f _wiki_up_print
-; // st_space_key
-
-: wiki_up_print OBJECT IN %S
-//	%S%[ClassBase::Class::Operation]f_wiki_up_print()[{"%S{no test}"!="%S{!no test}"}%f_up_prefix(%S) *no test* = *%S{no test}* - Отключает OnTest
- call-inherited:: 'ClassBase::Operation' wiki_up_print %( )%
- if ( ( %S get_up ( 'no test' ) ) %!= ( %S get_up_def ( 'no test' ) ) ) then
- begin
-  [%f] up_prefix %( %S )% ' *no test* = *'
-  %S get_up ( 'no test' ) '* - Отключает OnTest'
-//	][{"%S{no prefix}"!="%S{!no prefix}"}%f_up_prefix(%S) *no prefix* = *%S{no prefix}* - Нет префикса у имени. Костыль для \[$133891300\]
- end // if
- if ( ( %S get_up ( 'no prefix' ) ) %!= ( %S get_up_def ( 'no prefix' ) ) ) then
- begin
-  [%f] up_prefix %( %S )% ' *no prefix* = *'
-  %S get_up ( 'no prefix' ) '* - Нет префикса у имени. Костыль для [$133891300]'
-//	][{"%S{ShowInToolbar}"!="%S{!ShowInToolbar}"}%f_up_prefix(%S) *ShowInToolbar* = *%S{ShowInToolbar}*
- end // if
- if ( ( %S get_up ( 'ShowInToolbar' ) ) %!= ( %S get_up_def ( 'ShowInToolbar' ) ) ) then
- begin
-  [%f] up_prefix %( %S )% ' *ShowInToolbar* = *'
-  %S get_up ( 'ShowInToolbar' ) '*'
-//	][{"%S{ShortCut}"!="%S{!ShortCut}"}%f_up_prefix(%S) *ShortCut* = *%S{ShortCut}*
- end // if
- if ( ( %S get_up ( 'ShortCut' ) ) %!= ( %S get_up_def ( 'ShortCut' ) ) ) then
- begin
-  [%f] up_prefix %( %S )% ' *ShortCut* = *'
-  %S get_up ( 'ShortCut' ) '*'
-//	]
- end // if
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Унаследованная реализация
 
 // реализация абстрактного стереотипа Документация::MDAGenerator
+// проверка ограничений накладываемых на элемент
+//%t _constraint
+; // st_space_key
+
+<<transformator>> constraint OBJECT IN %S
+//#UC START# *4704C0E30186for5791EDE701F0*
+//c          {}
+//r {""=""}: {}
+//#UC END# *4704C0E30186for5791EDE701F0*
+; // constraint
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
+// выводит описание элемента (операция, атрибут) в wiki
+//%f _wiki_child_kind
+: wiki_child_kind OBJECT IN %S
+//#UC START# *4705CBD6003Efor5791EDE701F0*
+//#UC END# *4705CBD6003Efor5791EDE701F0*
+; // wiki_child_kind
+
+
+// реализация абстрактного стереотипа Документация::MDAGenerator
 // вывод описание авто-генерируемых методов в wiki
 //%f _wiki_up_add_gen
-; // wiki_up_print
-
 : wiki_up_add_gen OBJECT IN %S
-//#UC START# *470484D50138for49F6F6E60362*
-//#UC END# *470484D50138for49F6F6E60362*
+//#UC START# *470484D50138for5791EDE701F0*
+//#UC END# *470484D50138for5791EDE701F0*
 ; // wiki_up_add_gen
 
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-end. // :: <<VCMFormsPack>> <<ModuleOperation>> ;
+end. // :: <<VCMFormsPack>> <<implements>> ;
 

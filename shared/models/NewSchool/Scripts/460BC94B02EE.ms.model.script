@@ -1,0 +1,92 @@
+// DateTimeTranslator 460BC94B02EE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_460BC94B02EE
+
+ME ME_460BC9A000CB
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_460BC9A000CB value
+
+ME ME_460CED060177
+ MEPROP Name 'ret'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_456EA7D402DE' '456EA56002BF.ms.model.script' // DateTime
+ ;
+
+ENDME // ME_460CED060177 ret
+
+ME ME_460BC98400AB
+ MEPROP UID '460BC98400AB'
+ MEPROP Name 'translate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460BC94B02EE // DateTimeTranslator
+ ;
+ MELIST Parameters
+   Seq: ( ME_460BC9A000CB // value
+ ME_460CED060177 // ret
+ )
+ ; // Parameters
+
+ENDME // ME_460BC98400AB translate
+
+ME ME_4E0A06610011
+ MEPROP Name 'value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4E0A06610011 value
+
+ME ME_4E0A06610031
+ MEPROP Name 'ret'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_456EA7D402DE' '456EA56002BF.ms.model.script' // DateTime
+ ;
+
+ENDME // ME_4E0A06610031 ret
+
+ME ME_4E0A0654030F
+ MEPROP UID '4E0A0654030F'
+ MEPROP Name 'translate'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460BC94B02EE // DateTimeTranslator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0A06610011 // value
+ ME_4E0A06610031 // ret
+ )
+ ; // Parameters
+
+ENDME // ME_4E0A0654030F translate
+
+ME ME_460BC94B02EE
+ MEPROP UID '460BC94B02EE'
+ MEPROP Name 'DateTimeTranslator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_460B8FB00186' '460B8FB00186.ms.model.script' // Convertors
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_460BC98400AB // translate
+ HWL ME_4E0A0654030F // translate
+ )
+ ; // Operations
+ UP "is namespace" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\DateTimeTranslator.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\DateTimeTranslator.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\DateTimeTranslator.pas'
+
+ENDME // ME_460BC94B02EE DateTimeTranslator

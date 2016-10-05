@@ -1,0 +1,92 @@
+// ContentChecker 461CD65E0280 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_461CD65E0280
+
+ME ME_461CD6D30280
+ MEPROP Name 'content'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_461CD6D30280 content
+
+ME ME_45F8045C03D2
+ MEPROP UID '45F8045C03D2'
+ MEPROP Name 'check_content'
+ MEPROP Class class_Operation
+ %SUMMARY 'ѕроверка контента на существование' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_461CD65E0280 // ContentChecker
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_461CD6D30280 // content
+ )
+ ; // Parameters
+
+ENDME // ME_45F8045C03D2 check_content
+
+ME ME_461CD6D70196
+ MEPROP Name 'content'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_461CD6D70196 content
+
+ME ME_45F804B50161
+ MEPROP UID '45F804B50161'
+ MEPROP Name 'check_server_content'
+ MEPROP Class class_Operation
+ %SUMMARY 'ѕроверка существует ли контент (лезем на сервер)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_461CD65E0280 // ContentChecker
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_461CD6D70196 // content
+ )
+ ; // Parameters
+
+ENDME // ME_45F804B50161 check_server_content
+
+ME ME_461CD8A80119
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_461CD65E0280 // ContentChecker
+ ;
+ MELINK Target WL 'ME_460A6EF8024B' '460BAAA30119.ms.model.script' // ApplicationHelper
+ ;
+
+ENDME // ME_461CD8A80119 
+
+ME ME_461CD65E0280
+ MEPROP UID '461CD65E0280'
+ MEPROP Name 'ContentChecker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_461CD5BA030D' '461CD5BA030D.ms.model.script' // FoldersHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_45F8045C03D2 // check_content
+ HWL ME_45F804B50161 // check_server_content
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_461CD8A80119 // ApplicationHelper
+ )
+ ; // Dependencies
+ UP "is namespace" true
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\FoldersHelper\ContentChecker.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\FoldersHelper\ContentChecker.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ContentChecker.pas'
+
+ENDME // ME_461CD65E0280 ContentChecker

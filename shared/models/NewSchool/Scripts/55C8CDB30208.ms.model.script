@@ -1,0 +1,43 @@
+// TSpellCheckDlgWordsPack 55C8CDB30208 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55C8CDB30208
+
+ME ME_55C8CE2102C9
+ MEPROP UID '55C8CE2102C9'
+ MEPROP Name 'Fake'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55C8CDB30208 // TSpellCheckDlgWordsPack
+ ;
+
+ENDME // ME_55C8CE2102C9 Fake
+
+%%InheritedBy ME_4F22A92D007F ME_55C8CDB30208
+
+ME ME_55C8CDB30208
+ MEPROP UID '55C8CDB30208'
+ MEPROP Name 'TSpellCheckDlgWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_55C8CD14003A' '55C8CD14003A.ms.model.script' // Dialogs
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F22A92D007F' '55C8D80A0304.ms.model.script' // TSpellCheckDlg
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C8CE2102C9 // Fake
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'archi\source\projects\Common\Dialogs\TSpellCheckDlgWordsPack.pas'
+
+ENDME // ME_55C8CDB30208 TSpellCheckDlgWordsPack

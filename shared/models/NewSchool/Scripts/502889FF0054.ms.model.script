@@ -1,0 +1,317 @@
+// TB97 502889FF0054 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_502889FF0054
+%%Inner ME_502889FF0054
+
+FORWARD ME_502889FF0054
+
+FORWARD ME_50288A3D023C
+
+FORWARD ME_5028A1220383
+
+ME ME_5028A13A02FB
+ MEPROP Name 'aUpdateVisibility'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_5028A13A02FB aUpdateVisibility
+
+ME ME_5028A1370341
+ MEPROP UID '5028A1370341'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028A1220383 // UpdateEmpty
+ ;
+ MELIST Parameters
+   Seq: ( ME_5028A13A02FB // aUpdateVisibility
+ )
+ ; // Parameters
+
+ENDME // ME_5028A1370341 DoIt
+
+ME ME_5028A1220383
+ MEPROP UID '5028A1220383'
+ MEPROP Name 'UpdateEmpty'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50288A3D023C // TCustomToolWindow97
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028A1370341 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028A1220383 UpdateEmpty
+
+FORWARD ME_5028A78000B6
+
+ME ME_233919BBCD7A
+ MEPROP UID '233919BBCD7A'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода BeginUpdate' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028A78000B6 // BeginUpdate
+ ;
+
+ENDME // ME_233919BBCD7A DoIt
+
+ME ME_5028A78000B6
+ MEPROP UID '5028A78000B6'
+ MEPROP Name 'BeginUpdate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50288A3D023C // TCustomToolWindow97
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_233919BBCD7A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028A78000B6 BeginUpdate
+
+FORWARD ME_5028A78B015A
+
+ME ME_295D21D61A97
+ MEPROP UID '295D21D61A97'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода EndUpdate' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028A78B015A // EndUpdate
+ ;
+
+ENDME // ME_295D21D61A97 DoIt
+
+ME ME_5028A78B015A
+ MEPROP UID '5028A78B015A'
+ MEPROP Name 'EndUpdate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50288A3D023C // TCustomToolWindow97
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_295D21D61A97 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028A78B015A EndUpdate
+
+FORWARD ME_552E0FD5016D
+
+ME ME_552E0FEF020E
+ MEPROP UID '552E0FEF020E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E0FD5016D // NeedActivateMainForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552E0FEF020E DoIt
+
+ME ME_552E0FD5016D
+ MEPROP UID '552E0FD5016D'
+ MEPROP Name 'NeedActivateMainForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50288A3D023C // TCustomToolWindow97
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552E0FEF020E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552E0FD5016D NeedActivateMainForm
+
+FORWARD ME_552E10010067
+
+ME ME_EE072599FA78
+ MEPROP UID 'EE072599FA78'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода ActivateMainForm' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E10010067 // ActivateMainForm
+ ;
+
+ENDME // ME_EE072599FA78 DoIt
+
+ME ME_552E10010067
+ MEPROP UID '552E10010067'
+ MEPROP Name 'ActivateMainForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50288A3D023C // TCustomToolWindow97
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_EE072599FA78 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552E10010067 ActivateMainForm
+
+ME ME_552E106A02E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_50288A3D023C // TCustomToolWindow97
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_552E106A02E8 
+
+%%InheritedBy ME_50288ABF02F4 ME_50288A3D023C
+
+ME ME_50288A3D023C
+ MEPROP UID '50288A3D023C'
+ MEPROP Name 'TCustomToolWindow97'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502889FF0054 // TB97
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50288ABF02F4' '5028898902A2.ms.model.script' // Ttb97Control
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5028A1220383 // UpdateEmpty
+ HWL ME_5028A78000B6 // BeginUpdate
+ HWL ME_5028A78B015A // EndUpdate
+ HWL ME_552E0FD5016D // NeedActivateMainForm
+ HWL ME_552E10010067 // ActivateMainForm
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_552E106A02E8 // Forms
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ToolWindow97'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_50288A3D023C TCustomToolWindow97
+
+FORWARD ME_5028DD12007F
+
+FORWARD ME_5028DD25024B
+
+ME ME_5028DD4800CC
+ MEPROP UID '5028DD4800CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5028DD25024B // SizeGripWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5028DD4800CC DoIt
+
+ME ME_5028DD25024B
+ MEPROP UID '5028DD25024B'
+ MEPROP Name 'SizeGripWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5028DD12007F // TDock97
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5028DD4800CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5028DD25024B SizeGripWidth
+
+%%InheritedBy ME_50288ABF02F4 ME_5028DD12007F
+
+ME ME_5028DD12007F
+ MEPROP UID '5028DD12007F'
+ MEPROP Name 'TDock97'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502889FF0054 // TB97
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50288ABF02F4' '5028898902A2.ms.model.script' // Ttb97Control
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5028DD25024B // SizeGripWidth
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Dock97'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5028DD12007F TDock97
+
+ME ME_502889FF0054
+ MEPROP UID '502889FF0054'
+ MEPROP Name 'TB97'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5028898902A2' '5028898902A2.ms.model.script' // tb97utils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_50288A3D023C // TCustomToolWindow97
+ HWL ME_5028DD12007F // TDock97
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\tb97\NOT_FINISHED_TB97.pas'
+
+ENDME // ME_502889FF0054 TB97

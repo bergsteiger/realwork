@@ -10,16 +10,13 @@ interface
 
 uses
  l3IntfUses
+ , msmListModelPrim
  , msmConcreteModels
  , msmElementViews
- , msmModelElements
- , msmModel
- , l3Interfaces
 ;
 
 type
- {$Include w:\common\components\gui\Garant\msm\msmListModel.imp.pas}
- TmsmListModel = class(_msmListModel_)
+ TmsmListModel = class(TmsmListModelPrim)
   public
    constructor CreateDir(const anElementView: TmsmModelElementView); reintroduce;
    constructor Create(const anElementView: TmsmModelElementView;
@@ -36,28 +33,9 @@ implementation
 
 uses
  l3ImplUses
- , msmModelElementDir
- , msmModelElementRelationList
- , msmListAndTreeInterfaces
- {$If NOT Defined(NoScripts)}
- , tfwWordRefList
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwWordsIterator
- {$IfEnd} // NOT Defined(NoScripts)
- {$If NOT Defined(NoScripts)}
- , tfwScriptingInterfaces
- {$IfEnd} // NOT Defined(NoScripts)
- , msmBaseModelElement
- , SysUtils
- , msmElementSelection
- , tfwCStringFactory
- , msmModelElementMethodCaller
  //#UC START# *57B317B00274impl_uses*
  //#UC END# *57B317B00274impl_uses*
 ;
-
-{$Include w:\common\components\gui\Garant\msm\msmListModel.imp.pas}
 
 constructor TmsmListModel.CreateDir(const anElementView: TmsmModelElementView);
 //#UC START# *57CFF8AB0339_57B317B00274_var*
@@ -78,7 +56,7 @@ begin
  f_ElementView := anElementView;
  f_IsDir := aIsDir;
  f_SubElementName := aSubElementName;
- inherited Create;
+ inherited Create(anElementView);
  ShowElementAsList(anElementView.rElement);
 //#UC END# *57B326FD0285_57B317B00274_impl*
 end;//TmsmListModel.Create

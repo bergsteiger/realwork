@@ -518,6 +518,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3TextSearch in 'w:\common\components\rtl\Garant\L3\l3TextSearch.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -712,6 +713,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , tfwParser in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParser.pas'
  , tfwCachedTokens in 'w:\common\components\rtl\Garant\ScriptEngine\tfwCachedTokens.pas'
+ , tfwParserProgressService in 'w:\common\components\rtl\Garant\ScriptEngine\tfwParserProgressService.pas'
  {$If NOT Defined(NoScripts)}
  , ItfwParserWordsPack in 'w:\common\components\rtl\Garant\ScriptEngine\ItfwParserWordsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -1054,22 +1056,6 @@ uses
  , msmModelElementMethodValueCache in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueCache.pas'
  , msmModelElementMethodValueList in 'w:\common\components\gui\Garant\msm\msmModelElementMethodValueList.pas'
  , msmWordsByName in 'w:\common\components\gui\Garant\msm\msmWordsByName.pas'
- , msmChangedElements in 'w:\common\components\gui\Garant\msm\msmChangedElements.pas'
- , l3PointerUtils in 'w:\common\components\rtl\Garant\L3\l3PointerUtils.pas'
- , msmModelElementMethodCaller in 'w:\common\components\gui\Garant\msm\msmModelElementMethodCaller.pas'
- , msmScriptCaller in 'w:\common\components\gui\Garant\msm\msmScriptCaller.pas'
- {$If Defined(seThreadSafe)}
- , msmModelLoadingThread in 'w:\common\components\gui\Garant\msm\msmModelLoadingThread.pas'
- {$IfEnd} // Defined(seThreadSafe)
- {$If Defined(seThreadSafe)}
- , msmModelLoadingThreadPrim in 'w:\common\components\gui\Garant\msm\msmModelLoadingThreadPrim.pas'
- {$IfEnd} // Defined(seThreadSafe)
- {$If Defined(seThreadSafe)}
- , msmModelLoadingThreads in 'w:\common\components\gui\Garant\msm\msmModelLoadingThreads.pas'
- {$IfEnd} // Defined(seThreadSafe)
- {$If Defined(seThreadSafe)}
- , msmModelLoadingThreadPrimList in 'w:\common\components\gui\Garant\msm\msmModelLoadingThreadPrimList.pas'
- {$IfEnd} // Defined(seThreadSafe)
  //#UC START# *57B6E36B01C8manualuses*
  //#UC END# *57B6E36B01C8manualuses*
 ;

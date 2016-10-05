@@ -1,0 +1,418 @@
+// vcmGlassForm 5339219B0225 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5339219B0225
+
+ME ME_533926AB0375
+ MEPROP UID '533926AB0375'
+ MEPROP Name 'GlassFrame'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_533921E6004B' '533D53FF00C2.ms.model.script' // TvcmGlassFrame
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_533926AB0375 GlassFrame
+
+ME ME_533926EE014E
+ MEPROP UID '533926EE014E'
+ MEPROP Name 'GlassFramePainting'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" false
+ UP "reads field" true
+
+ENDME // ME_533926EE014E GlassFramePainting
+
+ME ME_54211AC901C1
+ MEPROP UID '54211AC901C1'
+ MEPROP Name 'f_RefreshGlassFrame'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54211AC901C1 f_RefreshGlassFrame
+
+ME ME_5424F478017D
+ MEPROP UID '5424F478017D'
+ MEPROP Name 'NCRenderingDisabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5424F478017D NCRenderingDisabled
+
+ME ME_5424F4F601BD
+ MEPROP UID '5424F4F601BD'
+ MEPROP Name 'Active'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_5424F4F601BD Active
+
+FORWARD ME_53392725015D
+
+ME ME_533927DC0125
+ MEPROP Name 'aSender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_533927DC0125 aSender
+
+ME ME_533927D000B4
+ MEPROP UID '533927D000B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53392725015D // UpdateGlassFrame
+ ;
+ MELIST Parameters
+   Seq: ( ME_533927DC0125 // aSender
+ )
+ ; // Parameters
+
+ENDME // ME_533927D000B4 DoIt
+
+ME ME_53392725015D
+ MEPROP UID '53392725015D'
+ MEPROP Name 'UpdateGlassFrame'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533927D000B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53392725015D UpdateGlassFrame
+
+FORWARD ME_5339273903A5
+
+ME ME_533927F602B6
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_533927F602B6 aRect
+
+ME ME_533927EA0233
+ MEPROP UID '533927EA0233'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5339273903A5 // UpdateGlassFrameControls
+ ;
+ MELIST Parameters
+   Seq: ( ME_533927F602B6 // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_533927EA0233 DoIt
+
+ME ME_5339273903A5
+ MEPROP UID '5339273903A5'
+ MEPROP Name 'UpdateGlassFrameControls'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_533927EA0233 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5339273903A5 UpdateGlassFrameControls
+
+FORWARD ME_53EAF3250169
+
+ME ME_53EAF3460177
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_53EAF3460177 aPoint
+
+ME ME_53EAF33E00E1
+ MEPROP UID '53EAF33E00E1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53EAF3250169 // NeedShowSystemContextMenuOnPoint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53EAF3460177 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_53EAF33E00E1 DoIt
+
+ME ME_53EAF3250169
+ MEPROP UID '53EAF3250169'
+ MEPROP Name 'NeedShowSystemContextMenuOnPoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53EAF33E00E1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53EAF3250169 NeedShowSystemContextMenuOnPoint
+
+ME ME_53392846000D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_53392846000D 
+
+ME ME_53393AB00225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_533921E6004B' '533D53FF00C2.ms.model.script' // TvcmGlassFrame
+ ;
+
+ENDME // ME_53393AB00225 
+
+ME ME_53394E7B0066
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_53394C4B030D' '53394C4B030D.ms.model.script' // l3DwmApi
+ ;
+
+ENDME // ME_53394E7B0066 
+
+ME ME_533E7C7801A1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_533E7C7801A1 
+
+ME ME_533E7C7C00F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_533E7C7C00F9 
+
+ME ME_533E7CC700F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_533E7CC700F1 
+
+ME ME_533E7F4901D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_533E7F4901D1 
+
+ME ME_53EAF36E0197
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ ;
+
+ENDME // ME_53EAF36E0197 
+
+ME ME_5424F5FB024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5339219B0225 // vcmGlassForm
+ ;
+ MELINK Target WL 'ME_4B34C15303B5' '476F78840219.ms.model.script' // TWMActivate
+ ;
+
+ENDME // ME_5424F5FB024E 
+
+ME ME_479731C50290_ME_5339219B0225
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_5339219B0225 Cleanup
+
+ME ME_47D1602000C6_ME_5339219B0225
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47D1602000C6_ME_5339219B0225 Create
+
+ME ME_47E136A80191_ME_5339219B0225
+ MELINK Original WL 'ME_47E136A80191' '47E11FC3021E.ms.model.script' // WndProc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47E136A80191_ME_5339219B0225 WndProc
+
+ME ME_484516C00214_ME_5339219B0225
+ MELINK Original WL 'ME_484516C00214' '478CF30500C1.ms.model.script' // Loaded
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_484516C00214_ME_5339219B0225 Loaded
+
+ME ME_48C6BFF80313_ME_5339219B0225
+ MELINK Original WL 'ME_48C6BFF80313' '47E11FC3021E.ms.model.script' // PaintWindow
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C6BFF80313_ME_5339219B0225 PaintWindow
+
+ME ME_4A8E8F2E0195_ME_5339219B0225
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A8E8F2E0195_ME_5339219B0225 InitControls
+
+ME ME_5028E66702B0_ME_5339219B0225
+ MELINK Original WL 'ME_5028E66702B0' '47E11FC3021E.ms.model.script' // AlignControls
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5028E66702B0_ME_5339219B0225 AlignControls
+
+%%ImplementedBy ME_4A82BCFA02EF ME_5339219B0225
+
+ME ME_5339219B0225
+ MEPROP UID '5339219B0225'
+ MEPROP Name 'vcmGlassForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форма с расширяемой неклиентской областью' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_533926AB0375 // GlassFrame
+ HWL ME_533926EE014E // GlassFramePainting
+ HWL ME_54211AC901C1 // f_RefreshGlassFrame
+ HWL ME_5424F478017D // NCRenderingDisabled
+ HWL ME_5424F4F601BD // Active
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53392725015D // UpdateGlassFrame
+ HWL ME_5339273903A5 // UpdateGlassFrameControls
+ HWL ME_53EAF3250169 // NeedShowSystemContextMenuOnPoint
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_5339219B0225 // Cleanup
+ ME_47D1602000C6_ME_5339219B0225 // Create
+ ME_47E136A80191_ME_5339219B0225 // WndProc
+ ME_484516C00214_ME_5339219B0225 // Loaded
+ ME_48C6BFF80313_ME_5339219B0225 // PaintWindow
+ ME_4A8E8F2E0195_ME_5339219B0225 // InitControls
+ ME_5028E66702B0_ME_5339219B0225 // AlignControls
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53392846000D // TRect
+ ME_53393AB00225 // TvcmGlassFrame
+ ME_53394E7B0066 // l3DwmApi
+ ME_533E7C7801A1 // Windows
+ ME_533E7C7C00F9 // l3Base
+ ME_533E7CC700F1 // Controls
+ ME_533E7F4901D1 // SysUtils
+ ME_53EAF36E0197 // TPoint
+ ME_5424F5FB024E // TWMActivate
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmGlassForm.imp.pas'
+ UP extprop:pas:TypeName '_vcmGlassForm_'
+ UP extprop:pas:UnitName 'vcmGlassForm.imp'
+
+ENDME // ME_5339219B0225 vcmGlassForm

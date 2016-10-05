@@ -1,0 +1,89 @@
+// ddAppConfigStringsRes 4B9E62C2001A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B9E62C2001A
+
+FORWARD ME_4B9E62E50068
+
+ME ME_4B9E62FE018C
+ MEPROP UID '4B9E62FE018C'
+ MEPROP Name 'CheckButton'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9E62E50068 // Local
+ ;
+ MEPROP Value '''Проверка'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Проверка'''
+
+ENDME // ME_4B9E62FE018C CheckButton
+
+ME ME_4B9E6303033F
+ MEPROP UID '4B9E6303033F'
+ MEPROP Name 'SoundFiles'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9E62E50068 // Local
+ ;
+ MEPROP Value '''Звуковые файлы (*.wav)|*.wav'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Звуковые файлы (*.wav)|*.wav'''
+
+ENDME // ME_4B9E6303033F SoundFiles
+
+ME ME_4B9E62E50068
+ MEPROP UID '4B9E62E50068'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B9E62C2001A // ddAppConfigStringsRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B9E62FE018C // CheckButton
+ HWL ME_4B9E6303033F // SoundFiles
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'ddcm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'ddcm'
+
+ENDME // ME_4B9E62E50068 Local
+
+ME ME_4B9E62C2001A
+ MEPROP UID '4B9E62C2001A'
+ MEPROP Name 'ddAppConfigStringsRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B9E62E50068 // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '15.03.2010 19:39'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddAppConfigStringsRes.pas'
+
+ENDME // ME_4B9E62C2001A ddAppConfigStringsRes

@@ -113,8 +113,10 @@ initialization
  {* Регистрация DocEditorWindow_IsNeedSaveDocument }
  TarchiDocEditorWindowWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
+{$If Defined(AppClientSide)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TDocEditorWindow));
  {* Регистрация типа TDocEditorWindow }
+{$IfEnd} // Defined(AppClientSide)
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
 {$IfEnd} // Defined(nsTest) AND Defined(InsiderTest) AND NOT Defined(NoScripts)

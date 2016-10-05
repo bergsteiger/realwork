@@ -251,10 +251,14 @@ initialization
  {* Регистрация pop_MenuForChromeLike_MenuItem }
  TvcmTabbedMenuWordsPackResNameGetter.Register;
  {* Регистрация скриптованой аксиоматики }
+{$If NOT Defined(NoVGScene)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvcmBaseMenuForChromeLike));
  {* Регистрация типа TvcmBaseMenuForChromeLike }
+{$IfEnd} // NOT Defined(NoVGScene)
+{$If NOT Defined(NoVCL)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TMenuItem));
  {* Регистрация типа TMenuItem }
+{$IfEnd} // NOT Defined(NoVCL)
 {$IfEnd} // NOT Defined(NoVCM) AND NOT Defined(NoScripts) AND NOT Defined(NoTabs)
 
 end.

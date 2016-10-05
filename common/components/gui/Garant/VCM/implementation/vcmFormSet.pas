@@ -39,6 +39,7 @@ type
    function DoGetFormSetTabHint: IvcmCString; virtual;
    function DoGetCanBeCloned: Boolean; virtual;
    function DoGetCanBeSavedToHistory: Boolean; virtual;
+   function DoGetCanBeMain: Boolean; virtual;
    procedure Refresh(const aParams: IvcmFormSetRefreshDataParams);
     {* обновляет представление сборки }
    procedure SaveHistory;
@@ -77,6 +78,7 @@ type
    function MakeClone(const aContainer: IvcmContainer): IvcmFormSet;
    function pm_GetCanBeCloned: Boolean;
    function pm_GetCanBeSavedToHistory: Boolean;
+   function pm_GetCanBeMain: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -216,6 +218,15 @@ begin
  Result := f_Factory.CanSaveFormSetToHistory(Self);
 //#UC END# *55E019130227_5087BD37023E_impl*
 end;//TvcmFormSet.DoGetCanBeSavedToHistory
+
+function TvcmFormSet.DoGetCanBeMain: Boolean;
+//#UC START# *57EB9D32008D_5087BD37023E_var*
+//#UC END# *57EB9D32008D_5087BD37023E_var*
+begin
+//#UC START# *57EB9D32008D_5087BD37023E_impl*
+ Result := pm_GetFactory.CanFormsetBeMain;
+//#UC END# *57EB9D32008D_5087BD37023E_impl*
+end;//TvcmFormSet.DoGetCanBeMain
 
 procedure TvcmFormSet.Refresh(const aParams: IvcmFormSetRefreshDataParams);
  {* обновляет представление сборки }
@@ -497,6 +508,15 @@ begin
  Result := DoGetCanBeSavedToHistory;
 //#UC END# *55E012ED0134_5087BD37023Eget_impl*
 end;//TvcmFormSet.pm_GetCanBeSavedToHistory
+
+function TvcmFormSet.pm_GetCanBeMain: Boolean;
+//#UC START# *57EB9AFB026D_5087BD37023Eget_var*
+//#UC END# *57EB9AFB026D_5087BD37023Eget_var*
+begin
+//#UC START# *57EB9AFB026D_5087BD37023Eget_impl*
+ Result := DoGetCanBeMain;
+//#UC END# *57EB9AFB026D_5087BD37023Eget_impl*
+end;//TvcmFormSet.pm_GetCanBeMain
 
 procedure TvcmFormSet.Cleanup;
  {* Функция очистки полей объекта. }

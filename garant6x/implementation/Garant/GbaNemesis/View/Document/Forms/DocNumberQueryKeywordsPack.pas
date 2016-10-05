@@ -432,8 +432,10 @@ initialization
  {* Регистрация типа TDocNumberQueryForm }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));
  {* Регистрация типа TvtLabel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscComboBox));
  {* Регистрация типа TnscComboBox }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCheckBox));
  {* Регистрация типа TvtCheckBox }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

@@ -36,6 +36,8 @@ procedure TmsmListOwnerShowAsListBinding.DoListChangedEvent(anEvent: TmsmEvent);
 begin
 //#UC START# *57D28441029B_57ADBA39026E_57D28441029B_impl*
  inherited;
+ if (Self.ModelToListen.List = nil) then
+  Exit;
  if (Self.ModelToFire.List = nil)
     OR not Self.ModelToFire.List.Owner.IsSameElement(Self.ModelToListen.List.Owner)
   then

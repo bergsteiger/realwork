@@ -1,0 +1,109 @@
+// nsIntegrationSupport 4F86C0140332 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F86C0140332
+%%Inner ME_4F86C0140332
+%%Inner ME_4F86C0140332
+%%Inner ME_4F86C0140332
+
+FORWARD ME_4F86C0140332
+
+ME ME_4F86C02F0097
+ MEPROP UID '4F86C02F0097'
+ MEPROP Name 'TnsLinkDataArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
+ ;
+ UP "array type" 'dynamic'
+
+ENDME // ME_4F86C02F0097 TnsLinkDataArray
+
+%%InheritedBy ME_4F86C02F0097 ME_4F86C03C0179
+
+ME ME_4F86C03C0179
+ MEPROP UID '4F86C03C0179'
+ MEPROP Name 'PnsLinkDataArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F86C02F0097 // TnsLinkDataArray
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_4F86C03C0179 PnsLinkDataArray
+
+ME ME_5135ECC0016B
+ MEPROP UID '5135ECC0016B'
+ MEPROP Name 'TIntegrationData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
+ ;
+ UP "packed" true
+
+ENDME // ME_5135ECC0016B TIntegrationData
+
+%%InheritedBy ME_5135ECC0016B ME_5135ECD7013D
+
+ME ME_5135ECD7013D
+ MEPROP UID '5135ECD7013D'
+ MEPROP Name 'PIntegrationData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F86C0140332 // nsIntegrationSupport
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5135ECC0016B // TIntegrationData
+ )
+ ; // Inherits
+ UP "isPointer" true
+
+ENDME // ME_5135ECD7013D PIntegrationData
+
+ME ME_4F86C0140332
+ MEPROP UID '4F86C0140332'
+ MEPROP Name 'nsIntegrationSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F86C008009E' '4F86C008009E.ms.model.script' // Integration
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F86C02F0097 // TnsLinkDataArray
+ HWL ME_4F86C03C0179 // PnsLinkDataArray
+ HWL ME_5135ECC0016B // TIntegrationData
+ HWL ME_5135ECD7013D // PIntegrationData
+ )
+ ; // Children
+ MELIST Injected
+   Seq: ( WL 'ME_571A2F2601FA' '5135EFD80062.ms.model.script' // IntegrationWordsPack
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\NOT_FINISHED_nsIntegrationSupport.pas'
+ UP extprop:rc:SelfName 'IntegrationSupport'
+
+ENDME // ME_4F86C0140332 nsIntegrationSupport

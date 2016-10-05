@@ -2,44 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4F697D3801F2
-
-FORWARD ME_4F6989B90283
-
-ME ME_4F697D540398
- MEPROP UID '4F697D540398'
- MEPROP Name 'TBaseDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F6989B90283 // D_Base
- ;
- UP "finished" false
- UP extprop:rc:SelfName 'BaseDlg'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4F697D540398 TBaseDlg
-
-ME ME_4F6989B90283
- MEPROP UID '4F6989B90283'
- MEPROP Name 'D_Base'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F697D3801F2 // Meta
- ;
- MELIST Children
-   Seq: ( HWL ME_4F697D540398 // TBaseDlg
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\Common\Meta\NOT_FINISHED_D_Base.pas'
-
-ENDME // ME_4F6989B90283 D_Base
+%%Inner ME_4F697D3801F2
 
 ME ME_4F697D3801F2
  MEPROP UID '4F697D3801F2'
@@ -52,8 +15,11 @@ ME ME_4F697D3801F2
  MELINK Parent WL 'ME_4DECDC0100E9' '4DECDC0100E9.ms.model.script' // Meta
  ;
  MELIST Children
-   Seq: ( HWL ME_4F6989B90283 // D_Base
+   Seq: ( WL 'ME_4F6989B90283' '4F6989B90283.ms.model.script' // D_Base
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4F697D3801F2 Meta

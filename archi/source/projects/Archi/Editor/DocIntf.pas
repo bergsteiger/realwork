@@ -1,6 +1,6 @@
 unit DocIntf;
 
-{ $Id: DocIntf.pas,v 1.115 2016/09/14 10:52:16 lukyanets Exp $ }
+{ $Id: DocIntf.pas,v 1.117 2016/09/22 09:42:20 lukyanets Exp $ }
 
 {$I l3Define.inc}
 
@@ -243,7 +243,7 @@ type
 
    procedure SaveLocal(const aLocalDBName : TPathStr; aDocInfoRecord : Tm3DBDocumentInfo);
    procedure Commit;
-   procedure Commit_SetAddFilter(var aGenerator: Tk2TagGenerator); virtual;
+//   procedure Commit_SetAddFilter(var aGenerator: Tk2TagGenerator); virtual;
    function  Commit_IsNeedSaveText : boolean; virtual;
 
    procedure ClearTextIndent;
@@ -342,7 +342,7 @@ type
 
   TarSpravkaTextOfDocument = class(TarTextOfDocument)
   protected
-   procedure Commit_SetAddFilter(var aGenerator: Tk2TagGenerator); override;
+//   procedure Commit_SetAddFilter(var aGenerator: Tk2TagGenerator); override;
    function  Commit_IsNeedSaveText : boolean;                      override;
 
    function DoMakeDocumentContainer: InevDocumentContainer;        override;
@@ -837,7 +837,9 @@ uses
   arFoundSelectionFilter,
   arSpravkaDocumentContainer,
   arDocumentContainerWithContentsTree,
-  arUploadDocumentHelper,
+  arCustomSaveDocumentHelper,
+  arDirectSaveDocumentHelper,
+  arRemoteSaveDocumentHelper,
   arFiltersUtils,
 
   ArchiUserRequestManager,
@@ -2582,11 +2584,11 @@ function TarSpravkaTextOfDocument.DoMakeDocumentContainer: InevDocumentContainer
 begin
  Result := TarSpravkaDocumentContainer.Make;
 end;
-
+(*
 procedure TarSpravkaTextOfDocument.Commit_SetAddFilter(var aGenerator: Tk2TagGenerator);
 begin
 end;
-
+*)
 function  TarSpravkaTextOfDocument.Commit_IsNeedSaveText : boolean;
 begin
  Result := True;
@@ -3221,7 +3223,7 @@ begin
   SaveLocal(anAdditionalData);
 end;
 *)
-
+{
 procedure TarTextOfDocument.Commit_SetAddFilter(var aGenerator: Tk2TagGenerator);
 // фильтры для основного потока с атрибутами
 begin
@@ -3257,7 +3259,7 @@ begin
   // TddChildBiteOffFilter.SetTo(G, k2_idTextPara); // текстовые параграфы объектам не полагаются
 *)
 end;
-
+}
 function TarTextOfDocument.Commit_IsNeedSaveText : Boolean;
 begin
  Result := (DocPart <> m3_dsMain) or IsPartWasModified(epText);
@@ -3266,14 +3268,7 @@ end;
 procedure TarTextOfDocument.Commit; // save to DB
 var
  l_NeedSaveText : Boolean;
-
- l_NeedOpen : Boolean;
- l_Filer    : Tm3DBFiler;
- G          : Tk2TagGenerator;
-
- l_UploadDocHelper: TarUploadDocumentHelper;
-
-var
+ l_SaveHelper: TarCustomSaveDocumentHelper;
  lDocClassWasChanged : Boolean;
 begin
  if not HasDocument or InIO then Exit;
@@ -3293,65 +3288,26 @@ begin
  //DocPart = m3_dsAnno
 
 
- l_UploadDocHelper := TarUploadDocumentHelper.Create(IniRec.DirectDocStorageAccess,
-  DocInfo.DocFamily, DocInfo.DocID, DocInfo.DocClass, DocPart, not IsSpravka, l_NeedSaveText,
-  lDocClassWasChanged, evntOnEraseAttrRecords, IsObjTopic);
+ if IniRec.DirectDocStorageAccess then
+  l_SaveHelper := TarDirectSaveDocumentHelper.Create(DocInfo.DocFamily, DocInfo.DocID,
+   DocInfo.DocClass, DocPart, not IsSpravka, l_NeedSaveText,
+   lDocClassWasChanged, evntOnEraseAttrRecords, IsObjTopic)
+ else
+  l_SaveHelper := TarRemoteSaveDocumentHelper.Create(DocInfo.DocFamily, DocInfo.DocID,
+   DocInfo.DocClass, DocPart, not IsSpravka, l_NeedSaveText,
+   lDocClassWasChanged, IsObjTopic);
 
-
-// G := nil;
  try
-(*
-  l_Filer := MakeFilerForDB(DocInfo.DocFamily, DocInfo.DocID, DocPart);
   try
-   l_Filer.Mode := l3_fmReadWrite;
-   l_NeedOpen := (DocInfo.DocClass <> dtNone) and l_NeedSaveText;
-   if l_NeedOpen then
-    l_Filer.Open;
-   try
-    try
-     if lDocClassWasChanged and (l_Filer.Part <> nil) then
-      l_Filer.Part.Info := Tm3DBDocumentInfo_C(ord(DocInfo.DocClass));
-     if l_NeedSaveText then
-     begin
-      TevdNativeWriter.SetTo(G);
-      with TevdNativeWriter(G) do
-      begin
-       Filer := l_Filer;
-       Binary := true;
-      end;
-     end;
-     Commit_SetAddFilter(G);
-*)
-
-     try
-      Save(l_UploadDocHelper.Generator);
-
-//     Save(G);
-
-      if not l_UploadDocHelper.UploadDoc then
-       raise Exception.Create(sidRemoteStorageDisabled);
-     except
-      l_UploadDocHelper.HanldeException;
-      raise;
-     end;
-(*
-    except
-     l_Filer.Rollback;
-     raise;
-    end;//try..except
-   finally
-    if l_NeedOpen then
-     l_Filer.Close;
-   end;//try..finally
-  finally
-   l3Free(l_Filer)
-  end;//try..finally
-*)
+   Save(l_SaveHelper.Generator);
+   if not l_SaveHelper.SaveDoc then
+    raise Exception.Create(sidRemoteStorageDisabled);
+  except
+   l_SaveHelper.HandleException;
+   raise;
+  end;
  finally
-//  l3Free(G);
-
-  l3Free(l_UploadDocHelper);
-
+  l3Free(l_SaveHelper);
  end;//try..finally
 
  Document.AttrW[k2_tiEditableParts, nil] := nil; // записали - обнуляем
@@ -3689,41 +3645,6 @@ procedure TarTextOfDocument.BuildRemoteLoadPipe(var aGen: Tk2TagGenerator;
 begin
  BuildDocLoadPipe(DocInfo.DocFamily, DocInfo.DocID, IsObjTopic, GetDocumentType,
   DocPart, aLevel, WithAttr, DocPartSel, aFoundSelector, aGen, theFiler);
-(*
- if WithAttr then
- begin
-  TExportFilter.SetTo(aGen, DocInfo.DocFamily, DocInfo.DocID, true, false, emLoad, DocPartSel);
- end;
-
- if WithAttr then
-  TddWrongTagFixFilter.SetTo(aGen, false);
-
- if DocPart = m3_dsMain then
- begin
-  if not IsObjTopic then
-  begin
-   //TRecalcHLinksFilter.SetTo(G, DocInfo.DocFamily, DocInfo.DocID);
-    TddExtObjInserter.SetTo(aGen);
-    evLinkTableFilters(aGen, False);
-    TevOutTextParaEliminator.SetTo(aGen);
-  end
-  else
-  begin
-   TarDocObjectMixer.SetTo(aGen);
-  end;
- end;
-
- //TddKTExtractorFilter.SetTo(aGen);
- if aFoundSelector <> nil then
-  TarFoundSelectionFilter.SetTo(aGen, aFoundSelector);
-
- TFixInternalNumberHandleFilter.SetTo(aGen, DocInfo.DocID); // гарантированно кладет DocInfo.DocID в InternalHandle
- TevTagsListFilter.SetTo(aGen, TevTagsListFilter.MakeAttrList(k2_typDocument, [k2_tiEditableParts, k2_tiExternalHandle]));
- TevdBadEVDToEmptyDocumentTranslator.SetTo(aGen, GetDocumentType, GlobalDataProvider.BaseLanguage[DocInfo.DocFamily].LanguageID);
-
-
- theFiler := MakeFilerForDB(DocInfo.DocFamily, DocInfo.DocID, DocPart, aLevel);
-*)
 end;
 
 procedure TarTextOfDocument.BuildLoadPipeParams(out WithAttr: Boolean;

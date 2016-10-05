@@ -1,0 +1,36 @@
+// m3StorageTools 49B951B40141 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49B951B40141
+
+ME ME_49B951D7024A
+ MEPROP UID '49B951D7024A'
+ MEPROP Name 'm3COMOpenStream'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49B951B40141 // m3StorageTools
+ ;
+
+ENDME // ME_49B951D7024A m3COMOpenStream
+
+ME ME_49B951B40141
+ MEPROP UID '49B951B40141'
+ MEPROP Name 'm3StorageTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48294AA903A6' '48294AA903A6.ms.model.script' // m3CoreObjects
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49B951D7024A // m3COMOpenStream
+ )
+ ; // Operations
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3StorageTools.pas'
+
+ENDME // ME_49B951B40141 m3StorageTools

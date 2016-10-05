@@ -124,86 +124,8 @@ implementation @ <<ServiceImplementation>>
 ; // BeforeClassSpell
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Вложенные стереотипы
 
-//: ServiceImplementation::Class::implements::ClassDependency
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 end. // <<ServiceImplementation>>
-
-implementation @ :: <<ServiceImplementation>> <<implements>> ;
-//? Указание, что реализуется
-//= Delphi интерфейсы и реализация::MDAGenerator
-
-// Генераторы
-// Генерация модели в MDKnow
-//+ wiki
-<<generator>> wiki OBJECT IN %S
-//#UC START# *46E6D4BB0339for5502BC8E029A*
-//#UC END# *46E6D4BB0339for5502BC8E029A*
-; // wiki
-
-
-// Родные Delphi интерфейсы (.pas)
-//+ intf.pas
-<<generator>> intf.pas OBJECT IN %S
-//R  
-//#UC START# *470F1571031Cfor5502BC8E029A*
-//#UC END# *470F1571031Cfor5502BC8E029A*
-; // intf.pas
-
-
-// Реализация на Delphi(.pas)
-//+ impl.pas
-<<generator>> impl.pas OBJECT IN %S
-//R  
-//#UC START# *470F15B800CBfor5502BC8E029A*
-//#UC END# *470F15B800CBfor5502BC8E029A*
-; // impl.pas
-
-
-// Функции стереотипа
-//%f _st_space_key
-: st_space_key OBJECT IN %S
-//	SHD
- 'SHD'
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Унаследованная реализация
-
-// реализация абстрактного стереотипа Документация::MDAGenerator
-// проверка ограничений накладываемых на элемент
-//%t _constraint
-; // st_space_key
-
-<<transformator>> constraint OBJECT IN %S
-//#UC START# *4704C0E30186for5502BC8E029A*
-//c          {}
-//r {""=""}: {}
-//#UC END# *4704C0E30186for5502BC8E029A*
-; // constraint
-
-
-// реализация абстрактного стереотипа Документация::MDAGenerator
-// выводит описание элемента (операция, атрибут) в wiki
-//%f _wiki_child_kind
-: wiki_child_kind OBJECT IN %S
-//#UC START# *4705CBD6003Efor5502BC8E029A*
-//#UC END# *4705CBD6003Efor5502BC8E029A*
-; // wiki_child_kind
-
-
-// реализация абстрактного стереотипа Документация::MDAGenerator
-// вывод описание авто-генерируемых методов в wiki
-//%f _wiki_up_add_gen
-: wiki_up_add_gen OBJECT IN %S
-//#UC START# *470484D50138for5502BC8E029A*
-//#UC END# *470484D50138for5502BC8E029A*
-; // wiki_up_add_gen
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-end. // :: <<ServiceImplementation>> <<implements>> ;
 

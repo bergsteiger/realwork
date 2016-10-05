@@ -84,6 +84,7 @@ type
    function DoMakeFormSetTabHint(const aDataSource: IvcmFormSetDataSource): IvcmCString; virtual;
    function DoGetCanCloneFormSet(const aFormSet: IvcmFormSet): Boolean; virtual;
    function DoGetCanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean; virtual;
+   function DoGetCanFormsetBeMain: Boolean; virtual;
    function pm_GetFormSetId: PvcmFormSetID;
    procedure Refresh(const aParams: IvcmFormSetRefreshParams);
     {* обновляет данные сборки.
@@ -105,6 +106,7 @@ type
    function GetSimpleFactory: IvcmFormSetSimpleFactory;
    function CanCloneFormSet(const aFormSet: IvcmFormSet): Boolean;
    function CanSaveFormSetToHistory(const aFormSet: IvcmFormSet): Boolean;
+   function CanFormsetBeMain: Boolean;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -514,6 +516,15 @@ begin
  Result := True;
 //#UC END# *55E020470097_47B97312006D_impl*
 end;//TvcmFormSetFactory.DoGetCanSaveFormSetToHistory
+
+function TvcmFormSetFactory.DoGetCanFormsetBeMain: Boolean;
+//#UC START# *57EBA36E0026_47B97312006D_var*
+//#UC END# *57EBA36E0026_47B97312006D_var*
+begin
+//#UC START# *57EBA36E0026_47B97312006D_impl*
+ Result := True;
+//#UC END# *57EBA36E0026_47B97312006D_impl*
+end;//TvcmFormSetFactory.DoGetCanFormsetBeMain
 
 function TvcmFormSetFactory.pm_GetFormSetId: PvcmFormSetID;
 //#UC START# *499570D3028C_47B97312006Dget_var*
@@ -1227,6 +1238,15 @@ begin
  Result := DoGetCanSaveFormSetToHistory(aFormSet);
 //#UC END# *55E0134003AC_47B97312006D_impl*
 end;//TvcmFormSetFactory.CanSaveFormSetToHistory
+
+function TvcmFormSetFactory.CanFormsetBeMain: Boolean;
+//#UC START# *57EB9FC900D4_47B97312006D_var*
+//#UC END# *57EB9FC900D4_47B97312006D_var*
+begin
+//#UC START# *57EB9FC900D4_47B97312006D_impl*
+ Result := DoGetCanFormsetBeMain;
+//#UC END# *57EB9FC900D4_47B97312006D_impl*
+end;//TvcmFormSetFactory.CanFormsetBeMain
 
 procedure TvcmFormSetFactory.Cleanup;
  {* Функция очистки полей объекта. }

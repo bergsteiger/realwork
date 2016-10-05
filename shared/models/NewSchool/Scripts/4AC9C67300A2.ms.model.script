@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AC9C67300A2
+%%Inner ME_4AC9C67300A2
+%%Inner ME_4AC9C67300A2
+
 FORWARD ME_4AC9C67300A2
 
 FORWARD ME_4E732E0B0308
@@ -54,7 +58,7 @@ ME ME_51125768008D
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4E732E0B0308 // TnscCustomHideField
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "needs stored directive" true
  UP "pm" true
@@ -68,7 +72,7 @@ ME ME_511258E7004C
  MEPROP Name 'aSettingId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_511258E7004C aSettingId
@@ -81,7 +85,7 @@ ME ME_511258E202FD
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_511258C60285 // MakeSettingId
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  MELIST Parameters
    Seq: ( ME_511258E7004C // aSettingId
@@ -112,7 +116,7 @@ ME ME_511259BA02EB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E732E0B0308 // TnscCustomHideField
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_511259BA02EB 
@@ -122,34 +126,38 @@ ME ME_511259D80003
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E732E0B0308 // TnscCustomHideField
  ;
- MELINK Target WL 'ME_47EA0D5F0038' '47EA0C8D0351.ms.model.script' // afwConsts
+ MELINK Target WL 'ME_47EA0D5F0038' '47EA0D5F0038.ms.model.script' // afwConsts
  ;
 
 ENDME // ME_511259D80003 
 
 ME ME_4F9A5C410274_ME_4E732E0B0308
- MELINK Original WL 'ME_4F9A5C410274' '53288DFA03A7.ms.model.script' // LoadSettings
+ MELINK Original WL 'ME_4F9A5C410274' '4F9A57620120.ms.model.script' // LoadSettings
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F9A5C410274_ME_4E732E0B0308 LoadSettings
 
 ME ME_4F9A5C530398_ME_4E732E0B0308
- MELINK Original WL 'ME_4F9A5C530398' '53288DFA03A7.ms.model.script' // SaveSettings
+ MELINK Original WL 'ME_4F9A5C530398' '4F9A57620120.ms.model.script' // SaveSettings
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F9A5C530398_ME_4E732E0B0308 SaveSettings
 
 ME ME_4F9AB1780087_ME_4E732E0B0308
- MELINK Original WL 'ME_4F9AB1780087' '53288DFA03A7.ms.model.script' // DoLoadState
+ MELINK Original WL 'ME_4F9AB1780087' '4F9A6F66035C.ms.model.script' // DoLoadState
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F9AB1780087_ME_4E732E0B0308 DoLoadState
 
 ME ME_4F9AB19F020B_ME_4E732E0B0308
- MELINK Original WL 'ME_4F9AB19F020B' '53288DFA03A7.ms.model.script' // DoSaveState
+ MELINK Original WL 'ME_4F9AB19F020B' '4F9A6F66035C.ms.model.script' // DoSaveState
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F9AB19F020B_ME_4E732E0B0308 DoSaveState
+
+%%ImplementedBy ME_4F9A6F66035C ME_4E732E0B0308
+
+%%InheritedBy ME_4E732D7F0082 ME_4E732E0B0308
 
 ME ME_4E732E0B0308
  MEPROP UID '4E732E0B0308'
@@ -166,7 +174,7 @@ ME ME_4E732E0B0308
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4F9A6F66035C' '53288DFA03A7.ms.model.script' // nsUnknownComponentWithIvcmState
+   Seq: ( WL 'ME_4F9A6F66035C' '4F9A6F66035C.ms.model.script' // nsUnknownComponentWithIvcmState
  )
  ; // Implements
  MELIST Attributes
@@ -193,6 +201,9 @@ ME ME_4E732E0B0308
  ME_511259D80003 // afwConsts
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP extprop:rc:SelfName 'HideField'
  UP extprop:rc:isAcceptableForScripts true
 
@@ -231,6 +242,9 @@ ME ME_51124ED90007
    Seq: ( HWL ME_51124F310001 // State
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:SelfName 'HideFieldState'
  UP extprop:rc:isAcceptableForScripts true
 
@@ -297,10 +311,14 @@ ME ME_51124F310001_ME_51124F6C00F0
 ENDME // ME_51124F310001_ME_51124F6C00F0 State
 
 ME ME_479731C50290_ME_51124F6C00F0
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_51124F6C00F0 Cleanup
+
+%%ImplementedBy ME_51124ED90007 ME_51124F6C00F0
+
+%%InheritedBy ME_49E7754802A9 ME_51124F6C00F0
 
 ME ME_51124F6C00F0
  MEPROP UID '51124F6C00F0'
@@ -336,10 +354,15 @@ ME ME_51124F6C00F0
    Seq: ( ME_479731C50290_ME_51124F6C00F0 // Cleanup
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:SelfName 'HideFieldState'
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_51124F6C00F0 TnscHideFieldState
+
+%%InheritedBy ME_4E732E0B0308 ME_4AC9C67300A2
 
 ME ME_4AC9C67300A2
  MEPROP UID '4AC9C67300A2'
@@ -362,6 +385,9 @@ ME ME_4AC9C67300A2
  HWL ME_51124F6C00F0 // TnscHideFieldState
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" true
  UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscHideField.pas'
  UP extprop:rc:SelfName 'HideField'

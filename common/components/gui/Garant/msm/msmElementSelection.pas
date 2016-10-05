@@ -14,6 +14,9 @@ uses
  , msmConcreteModels
  , msmModelElements
  , msmModel
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
  , l3Memory
  , l3Types
  , l3Interfaces
@@ -43,6 +46,7 @@ type
    function Empty: Boolean;
    function IsElementSelectedOrCurrent(const anElement: ImsmModelElement): Boolean;
    function Clone: ImsmElementSelection;
+   function AsArray: ItfwArray;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -60,10 +64,16 @@ uses
  l3ImplUses
  , msmListAndTreeInterfaces
  , msmControllers
+ {$If NOT Defined(NoScripts)}
+ , tfwWordsIterator
+ {$IfEnd} // NOT Defined(NoScripts)
+ {$If NOT Defined(NoScripts)}
+ , tfwWordRefList
+ {$IfEnd} // NOT Defined(NoScripts)
+ , SysUtils
  , l3Base
  , l3MinMax
  , RTLConsts
- , SysUtils
  //#UC START# *57D8F2850376impl_uses*
  //#UC END# *57D8F2850376impl_uses*
 ;
@@ -293,6 +303,30 @@ begin
  end;//try..finally
 //#UC END# *57E2562D00BD_57D8F2850376_impl*
 end;//TmsmElementSelection.Clone
+
+function TmsmElementSelection.AsArray: ItfwArray;
+//#UC START# *57E3F8490205_57D8F2850376_var*
+var
+ l_List : TtfwWordRefList;
+
+ function DoElement(const anElement: ImsmModelElement): Boolean;
+ begin//DoElement
+  Result := true;
+  l_List.Add(anElement.MainWord);
+ end;//DoElement
+
+//#UC END# *57E3F8490205_57D8F2850376_var*
+begin
+//#UC START# *57E3F8490205_57D8F2850376_impl*
+ l_List := TtfwWordRefList.Create;
+ try
+  Self.ProcessSelectedF(L2ImsmElementSelectionProcessSelectedFAction(@DoElement));
+  Result := TtfwWordsIterator.Make(l_List);
+ finally
+  FreeAndNil(l_List);
+ end;//try..finally
+//#UC END# *57E3F8490205_57D8F2850376_impl*
+end;//TmsmElementSelection.AsArray
 
 procedure TmsmElementSelection.Cleanup;
  {* Функция очистки полей объекта. }

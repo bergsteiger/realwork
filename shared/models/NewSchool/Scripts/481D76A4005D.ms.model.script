@@ -1,0 +1,158 @@
+// evParaDrawTools 481D76A4005D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481D76A4005D
+
+FORWARD ME_49CCC052009F
+
+ME ME_49CCC1020080
+ MEPROP UID '49CCC1020080'
+ MEPROP Name 'Painter'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49CCC052009F // EvDrawPara
+ ;
+ MELINK Target WL 'ME_47C697030322' '49D2080D020C.ms.model.script' // InevDrawingShape
+ ;
+ UP "IsResult" false
+
+ENDME // ME_49CCC1020080 Painter
+
+ME ME_49CCC12301D2
+ MEPROP UID '49CCC12301D2'
+ MEPROP Name 'Points'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49CCC052009F // EvDrawPara
+ ;
+ MELINK Target WL 'ME_47FA29CC0055' '49D2080D020C.ms.model.script' // TnevShapePoints
+ ;
+ UP "IsResult" false
+
+ENDME // ME_49CCC12301D2 Points
+
+ME ME_4A81158300B9
+ MEPROP Name 'anArea'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47FA2B4E0022' '49D2080D020C.ms.model.script' // TnevShapeArea
+ ;
+
+ENDME // ME_4A81158300B9 anArea
+
+ME ME_4A81158300F0
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_4A81158300F0 aPara
+
+ME ME_4A8115830128
+ MEPROP Name 'aTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4A8115830128 aTop
+
+ME ME_4A8115830161
+ MEPROP Name 'aBlock'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_4A8115830161 aBlock
+
+ME ME_4A81158301DE
+ MEPROP Name 'aPrevHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A81158301DE aPrevHeight
+
+ME ME_49CCC0720088
+ MEPROP UID '49CCC0720088'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49CCC052009F // EvDrawPara
+ ;
+ MELINK Target WL 'ME_47FA3B72006E' '49D2080D020C.ms.model.script' // TnevShapeInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A81158300B9 // anArea
+ ME_4A81158300F0 // aPara
+ ME_4A8115830128 // aTop
+ ME_4A8115830161 // aBlock
+ ME_4A81158301DE // aPrevHeight
+ )
+ ; // Parameters
+
+ENDME // ME_49CCC0720088 DoIt
+
+ME ME_49CCC052009F
+ MEPROP UID '49CCC052009F'
+ MEPROP Name 'EvDrawPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод рисования параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481D76A4005D // evParaDrawTools
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49CCC1020080 // Painter
+ HWL ME_49CCC12301D2 // Points
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49CCC0720088 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_49CCC052009F EvDrawPara
+
+ME ME_481D76A4005D
+ MEPROP UID '481D76A4005D'
+ MEPROP Name 'evParaDrawTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выделенные когда-то из evTextSource методы рисования/печати' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47EA968D0155' '47EA968D0155.ms.model.script' // Printing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49CCC052009F // EvDrawPara
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '13.01.2004 18:57'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaDrawTools.pas'
+ UP extprop:rc:SelfName 'ParaDrawTools'
+
+ENDME // ME_481D76A4005D evParaDrawTools

@@ -518,6 +518,7 @@ uses
  {$If NOT Defined(NoScripts)}
  , FileProcessingPack in 'w:\common\components\rtl\Garant\ScriptEngine\FileProcessingPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
+ , l3TextSearch in 'w:\common\components\rtl\Garant\L3\l3TextSearch.pas'
  {$If NOT Defined(NoScripts)}
  , SysUtilsPack in 'w:\common\components\rtl\Garant\ScriptEngine\SysUtilsPack.pas'
  {$IfEnd} // NOT Defined(NoScripts)
@@ -733,7 +734,6 @@ uses
  , ServerAdapterConverters
  , DateTimeTranslator
  , TreeNameTranslator
- , gardefs
  , ContentChecker
  , RedactionInfoListHelper
  , DocumentFactoryKeyHelper

@@ -658,10 +658,10 @@ begin
 end;//Tafw.ControlDestroying
 
 initialization
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TafwCustomForm));
  {* Регистрация типа TafwCustomForm }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
  Tl3MessagesService.Instance.Alien := TafwMessagesService.Instance;
  {* Регистрация TafwMessagesService }
 {$If NOT Defined(NoVCL)}

@@ -1,0 +1,265 @@
+// RegionableControl 4CC81FB7008B GUIControlMixIn Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CC81FB7008B
+
+ME ME_4CC82BBE0358
+ MEPROP UID '4CC82BBE0358'
+ MEPROP Name 'f_Reg'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELINK Target WL 'ME_4CC82A7D0162' '473C3BEE0334.ms.model.script' // Tl3Region
+ ;
+
+ENDME // ME_4CC82BBE0358 f_Reg
+
+FORWARD ME_4CC8471A035A
+
+ME ME_4CC8473A0287
+ MEPROP UID '4CC8473A0287'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC8471A035A // UpdateRegion
+ ;
+
+ENDME // ME_4CC8473A0287 DoIt
+
+ME ME_4CC8471A035A
+ MEPROP UID '4CC8471A035A'
+ MEPROP Name 'UpdateRegion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC8473A0287 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC8471A035A UpdateRegion
+
+FORWARD ME_4CC84762022A
+
+ME ME_4CC847740314
+ MEPROP UID '4CC847740314'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC84762022A // ClearRegion
+ ;
+
+ENDME // ME_4CC847740314 DoIt
+
+ME ME_4CC84762022A
+ MEPROP UID '4CC84762022A'
+ MEPROP Name 'ClearRegion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC847740314 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC84762022A ClearRegion
+
+FORWARD ME_4CC847800383
+
+ME ME_4CC847B70104
+ MEPROP Name 'aRegion'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4CC82A7D0162' '473C3BEE0334.ms.model.script' // Tl3Region
+ ;
+
+ENDME // ME_4CC847B70104 aRegion
+
+ME ME_4CC8479C01A2
+ MEPROP UID '4CC8479C01A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC847800383 // TuneRegion
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC847B70104 // aRegion
+ )
+ ; // Parameters
+
+ENDME // ME_4CC8479C01A2 DoIt
+
+ME ME_4CC847800383
+ MEPROP UID '4CC847800383'
+ MEPROP Name 'TuneRegion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CC8479C01A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CC847800383 TuneRegion
+
+ME ME_4CC8680702D5
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476F78A602B2' '476F78840219.ms.model.script' // TMessage
+ ;
+
+ENDME // ME_4CC8680702D5 Message
+
+ME ME_4CC867FC01B3
+ MEPROP UID '4CC867FC01B3'
+ MEPROP Name 'CMVisibleChanged'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CC8680702D5 // Message
+ )
+ ; // Parameters
+ UP "Message ID" 'CM_VISIBLECHANGED'
+
+ENDME // ME_4CC867FC01B3 CMVisibleChanged
+
+ME ME_4CC833D5027F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4CC833D5027F 
+
+ME ME_4CC842480257
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELINK Target WL 'ME_4CC842370110' '4CC842140217.ms.model.script' // ThemeServices
+ ;
+
+ENDME // ME_4CC842480257 
+
+ME ME_4CC84EF601E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4CC81FB7008B // RegionableControl
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_4CC84EF601E2 
+
+ME ME_479731C50290_ME_4CC81FB7008B
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4CC81FB7008B Cleanup
+
+ME ME_4CC8414403B8_ME_4CC81FB7008B
+ MELINK Original WL 'ME_4CC8414403B8' '47E11FC3021E.ms.model.script' // CreateWnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8414403B8_ME_4CC81FB7008B CreateWnd
+
+ME ME_4CC841540158_ME_4CC81FB7008B
+ MELINK Original WL 'ME_4CC841540158' '47E11FC3021E.ms.model.script' // DestroyWnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC841540158_ME_4CC81FB7008B DestroyWnd
+
+ME ME_4CC8417A0288_ME_4CC81FB7008B
+ MELINK Original WL 'ME_4CC8417A0288' '47E11FC3021E.ms.model.script' // Resize
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8417A0288_ME_4CC81FB7008B Resize
+
+ME ME_4CC8658C017B_ME_4CC81FB7008B
+ MELINK Original WL 'ME_4CC8658C017B' '47E11FC3021E.ms.model.script' // VisibleChanging
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8658C017B_ME_4CC81FB7008B VisibleChanging
+
+%%ImplementedBy ME_4A5CB93700CF ME_4CC81FB7008B
+%%ImplementedBy ME_4CC81DE8030F ME_4CC81FB7008B
+
+ME ME_4CC81FB7008B
+ MEPROP UID '4CC81FB7008B'
+ MEPROP Name 'RegionableControl'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GUIControlMixIn ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Контрол с поддержкой регионов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4CC81FAC02D6' '4CC81FAC02D6.ms.model.script' // Core
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ WL 'ME_4CC81DE8030F' '4799D29F033F.ms.model.script' // MWinControl
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4CC82BBE0358 // f_Reg
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4CC8471A035A // UpdateRegion
+ HWL ME_4CC84762022A // ClearRegion
+ HWL ME_4CC847800383 // TuneRegion
+ HWL ME_4CC867FC01B3 // CMVisibleChanged
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4CC81FB7008B // Cleanup
+ ME_4CC8414403B8_ME_4CC81FB7008B // CreateWnd
+ ME_4CC841540158_ME_4CC81FB7008B // DestroyWnd
+ ME_4CC8417A0288_ME_4CC81FB7008B // Resize
+ ME_4CC8658C017B_ME_4CC81FB7008B // VisibleChanging
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4CC833D5027F // FreeAndNil
+ ME_4CC842480257 // ThemeServices
+ ME_4CC84EF601E2 // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '27.10.2010 16:49'
+ UP intf.pas:Path 'common\components\gui\Garant\SkinnedControls\RegionableControl.imp.pas'
+ UP extprop:pas:TypeName '_RegionableControl_'
+ UP extprop:pas:UnitName 'RegionableControl.imp'
+
+ENDME // ME_4CC81FB7008B RegionableControl

@@ -1,0 +1,351 @@
+// vtCombo 51B5C8CB00A0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51B5C8CB00A0
+%%Inner ME_51B5C8CB00A0
+
+FORWARD ME_51B5C8CB00A0
+
+FORWARD ME_52A9AD5F0269
+
+FORWARD ME_52A9AF500143
+
+ME ME_52A9AF600102
+ MEPROP Name 'Accept'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52A9AF600102 Accept
+
+ME ME_52A9AF5E00FF
+ MEPROP UID '52A9AF5E00FF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A9AF500143 // DoCloseUp
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A9AF600102 // Accept
+ )
+ ; // Parameters
+
+ENDME // ME_52A9AF5E00FF DoIt
+
+ME ME_52A9AF500143
+ MEPROP UID '52A9AF500143'
+ MEPROP Name 'DoCloseUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A9AF5E00FF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A9AF500143 DoCloseUp
+
+FORWARD ME_554CA18500FB
+
+ME ME_554CA1C001F8
+ MEPROP Name 'Cmd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476A8035027F' '4677FBA70343.ms.model.script' // Tl3OperationCode
+ ;
+
+ENDME // ME_554CA1C001F8 Cmd
+
+ME ME_554CA1C00216
+ MEPROP Name 'aForce'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_554CA1C00216 aForce
+
+ME ME_554CA1C0022A
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_554CA1C0022A aCount
+
+ME ME_554CA1B7001B
+ MEPROP UID '554CA1B7001B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_554CA18500FB // ProcessCommand
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_554CA1C001F8 // Cmd
+ ME_554CA1C00216 // aForce
+ ME_554CA1C0022A // aCount
+ )
+ ; // Parameters
+
+ENDME // ME_554CA1B7001B DoIt
+
+ME ME_554CA18500FB
+ MEPROP UID '554CA18500FB'
+ MEPROP Name 'ProcessCommand'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_554CA1B7001B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_554CA18500FB ProcessCommand
+
+FORWARD ME_554CBBA3004E
+
+ME ME_7F65AA4508D1
+ MEPROP UID '7F65AA4508D1'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода UpdateButtonPosition' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_554CBBA3004E // UpdateButtonPosition
+ ;
+
+ENDME // ME_7F65AA4508D1 DoIt
+
+ME ME_554CBBA3004E
+ MEPROP UID '554CBBA3004E'
+ MEPROP Name 'UpdateButtonPosition'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_7F65AA4508D1 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'Delphi7'
+
+ENDME // ME_554CBBA3004E UpdateButtonPosition
+
+FORWARD ME_554CBC32006E
+
+ME ME_058065FC3623
+ MEPROP UID '058065FC3623'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DropDown' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_554CBC32006E // DropDown
+ ;
+
+ENDME // ME_058065FC3623 DoIt
+
+ME ME_554CBC32006E
+ MEPROP UID '554CBC32006E'
+ MEPROP Name 'DropDown'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_058065FC3623 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_554CBC32006E DropDown
+
+FORWARD ME_554CBC4500ED
+
+ME ME_554CBC5103E2
+ MEPROP Name 'Accept'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_554CBC5103E2 Accept
+
+ME ME_554CBC4F01B5
+ MEPROP UID '554CBC4F01B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_554CBC4500ED // CloseUp
+ ;
+ MELIST Parameters
+   Seq: ( ME_554CBC5103E2 // Accept
+ )
+ ; // Parameters
+
+ENDME // ME_554CBC4F01B5 DoIt
+
+ME ME_554CBC4500ED
+ MEPROP UID '554CBC4500ED'
+ MEPROP Name 'CloseUp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_554CBC4F01B5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_554CBC4500ED CloseUp
+
+%%ImplementedBy ME_47913F970159 ME_52A9AD5F0269
+
+%%InheritedBy ME_52A9ADCB0092 ME_52A9AD5F0269
+
+ME ME_52A9AD5F0269
+ MEPROP UID '52A9AD5F0269'
+ MEPROP Name 'TvtSimpleCustomCombo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51B5C8CB00A0 // vtCombo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_52A9ADCB0092' '52A9ADB60286.ms.model.script' // TCustomMaskEdit
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47913F970159' '47913F970159.ms.model.script' // l3Unknown
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_52A9AF500143 // DoCloseUp
+ HWL ME_554CA18500FB // ProcessCommand
+ HWL ME_554CBBA3004E // UpdateButtonPosition
+ HWL ME_554CBC32006E // DropDown
+ HWL ME_554CBC4500ED // CloseUp
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'SimpleCustomCombo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A9AD5F0269 TvtSimpleCustomCombo
+
+FORWARD ME_52A9AD500267
+
+FORWARD ME_554CA8F903AE
+
+ME ME_554CA908032A
+ MEPROP UID '554CA908032A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_554CA8F903AE // GetDropDownContainer
+ ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+
+ENDME // ME_554CA908032A DoIt
+
+ME ME_554CA8F903AE
+ MEPROP UID '554CA8F903AE'
+ MEPROP Name 'GetDropDownContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52A9AD500267 // TvtCustomCombo
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_554CA908032A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_554CA8F903AE GetDropDownContainer
+
+%%InheritedBy ME_52A9AD5F0269 ME_52A9AD500267
+
+ME ME_52A9AD500267
+ MEPROP UID '52A9AD500267'
+ MEPROP Name 'TvtCustomCombo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51B5C8CB00A0 // vtCombo
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_554CA8F903AE // GetDropDownContainer
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Combo'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52A9AD500267 TvtCustomCombo
+
+ME ME_51B5C8CB00A0
+ MEPROP UID '51B5C8CB00A0'
+ MEPROP Name 'vtCombo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A83EE0E0002' '4A83EE0E0002.ms.model.script' // Combos
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52A9AD5F0269 // TvtSimpleCustomCombo
+ HWL ME_52A9AD500267 // TvtCustomCombo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCombo.pas'
+ UP extprop:rc:SelfName 'Combo'
+
+ENDME // ME_51B5C8CB00A0 vtCombo

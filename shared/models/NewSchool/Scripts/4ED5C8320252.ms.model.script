@@ -1,0 +1,69 @@
+// SBSColumnMarker 4ED5C8320252 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4ED5C8320252
+
+ME ME_4ED5CBD403E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4ED5C8320252 // SBSColumnMarker
+ ;
+ MELINK Target WL 'ME_47AC818702E5' '47AC80BD020B.ms.model.script' // Ek2ConversionError
+ ;
+
+ENDME // ME_4ED5CBD403E3 
+
+ME ME_4E3A3F0D0388_ME_4ED5C8320252
+ MELINK Original WL 'ME_4E3A3F0D0388' '47E3DF460095.ms.model.script' // SetClientValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E3A3F0D0388_ME_4ED5C8320252 SetClientValue
+
+ME ME_4E3A4C4B03A0_ME_4ED5C8320252
+ MELINK Original WL 'ME_4E3A4C4B03A0' '47E3DF460095.ms.model.script' // DoGetClientValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E3A4C4B03A0_ME_4ED5C8320252 DoGetClientValue
+
+ME ME_4ECF8E2C007D_ME_4ED5C8320252
+ MELINK Original WL 'ME_4ECF8E2C007D' '47E3DF460095.ms.model.script' // DoGetValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4ECF8E2C007D_ME_4ED5C8320252 DoGetValue
+
+%%ImplementedBy ME_4ED5CE800342 ME_4ED5C8320252
+
+ME ME_4ED5C8320252
+ MEPROP UID '4ED5C8320252'
+ MEPROP Name 'SBSColumnMarker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4ED5CE800342' '47E3DF460095.ms.model.script' // SBSColumnMarkerMixIn
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4E3A3F0D0388_ME_4ED5C8320252 // SetClientValue
+ ME_4E3A4C4B03A0_ME_4ED5C8320252 // DoGetClientValue
+ ME_4ECF8E2C007D_ME_4ED5C8320252 // DoGetValue
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4ED5CBD403E3 // Ek2ConversionError
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\SBSColumnMarker.imp.pas'
+ UP extprop:pas:TypeName '_SBSColumnMarker_'
+ UP extprop:pas:UnitName 'SBSColumnMarker.imp'
+
+ENDME // ME_4ED5C8320252 SBSColumnMarker

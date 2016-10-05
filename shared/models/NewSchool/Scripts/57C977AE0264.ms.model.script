@@ -1,0 +1,70 @@
+// msmMEListLikeViewController 57C977AE0264 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C977AE0264
+
+ME ME_57D90A0C01EF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C977AE0264 // msmMEListLikeViewController
+ ;
+ MELINK Target WL 'ME_57D909F3037B' '57CEB008027D.ms.model.script' // TmsmImages
+ ;
+
+ENDME // ME_57D90A0C01EF 
+
+ME ME_57EB9684007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C977AE0264 // msmMEListLikeViewController
+ ;
+ MELINK Target WL 'ME_57EB966601BF' '57AE0E4B00C5.ms.model.script' // TmsmMEImages
+ ;
+
+ENDME // ME_57EB9684007B 
+
+ME ME_57B47A2102DE_ME_57C977AE0264
+ MELINK Original WL 'ME_57B47A2102DE' '57B6BF8A0210.ms.model.script' // DoGetItemFont
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57B47A2102DE_ME_57C977AE0264 DoGetItemFont
+
+ME ME_57D9022D0322_ME_57C977AE0264
+ MELINK Original WL 'ME_57D9022D0322' '57B6BF8A0210.ms.model.script' // DoGetItemImage
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57D9022D0322_ME_57C977AE0264 DoGetItemImage
+
+%%ImplementedBy ME_57C9822F0273 ME_57C977AE0264
+
+ME ME_57C977AE0264
+ MEPROP UID '57C977AE0264'
+ MEPROP Name 'msmMEListLikeViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_57C9822F0273' '57CD261B0318.ms.model.script' // MmsmListLikeViewController
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_57B47A2102DE_ME_57C977AE0264 // DoGetItemFont
+ ME_57D9022D0322_ME_57C977AE0264 // DoGetItemImage
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57D90A0C01EF // TmsmImages
+ ME_57EB9684007B // TmsmMEImages
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMEListLikeViewController.imp.pas'
+ UP extprop:pas:TypeName '_msmMEListLikeViewController_'
+ UP extprop:pas:UnitName 'msmMEListLikeViewController.imp'
+
+ENDME // ME_57C977AE0264 msmMEListLikeViewController

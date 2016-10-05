@@ -1,0 +1,46 @@
+// evBitmapReader 4BBD91980212 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4BBD91980212
+
+FORWARD ME_4BBD91980212
+
+ME ME_4BBD91A600F9
+ MEPROP UID '4BBD91A600F9'
+ MEPROP Name 'TevBitmapHandleReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BBD91980212 // evBitmapReader
+ ;
+ UP extprop:rc:SelfName 'BitmapHandleReader'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4BBD91A600F9 TevBitmapHandleReader
+
+ME ME_4BBD91980212
+ MEPROP UID '4BBD91980212'
+ MEPROP Name 'evBitmapReader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4829D7D50156' '4829D7D50156.ms.model.script' // Editors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BBD91A600F9 // TevBitmapHandleReader
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evBitmapReader.pas'
+ UP extprop:rc:SelfName 'BitmapReader'
+
+ENDME // ME_4BBD91980212 evBitmapReader

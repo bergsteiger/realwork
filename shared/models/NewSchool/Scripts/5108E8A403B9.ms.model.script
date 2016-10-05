@@ -1,0 +1,118 @@
+// DeletingRowCorrector 5108E8A403B9 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5108E8A403B9
+
+FORWARD ME_5108E8D80063
+
+ME ME_510A539D02ED
+ MEPROP Name 'aCheckingRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_510A539D02ED aCheckingRow
+
+ME ME_510A539D02FD
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_510A539D02FD anOpPack
+
+ME ME_5108EA1201EA
+ MEPROP UID '5108EA1201EA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5108E8D80063 // CheckRow
+ ;
+ MELIST Parameters
+   Seq: ( ME_510A539D02ED // aCheckingRow
+ ME_510A539D02FD // anOpPack
+ )
+ ; // Parameters
+
+ENDME // ME_5108EA1201EA DoIt
+
+ME ME_5108E8D80063
+ MEPROP UID '5108E8D80063'
+ MEPROP Name 'CheckRow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5108E8A403B9 // DeletingRowCorrector
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5108EA1201EA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5108E8D80063 CheckRow
+
+ME ME_5108EF990163
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5108E8A403B9 // DeletingRowCorrector
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_5108EF990163 
+
+ME ME_5108F031012F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5108E8A403B9 // DeletingRowCorrector
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_5108F031012F 
+
+ME ME_5346A4040034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5108E8A403B9 // DeletingRowCorrector
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5346A4040034 
+
+ME ME_5108E8A403B9
+ MEPROP UID '5108E8A403B9'
+ MEPROP Name 'DeletingRowCorrector'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5108E8D80063 // CheckRow
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5108EF990163 // Tk2Type
+ ME_5108F031012F // MergeStatus
+ ME_5346A4040034 // Tl3Variant
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\DeletingRowCorrector.imp.pas'
+ UP extprop:pas:TypeName '_DeletingRowCorrector_'
+ UP extprop:pas:UnitName 'DeletingRowCorrector.imp'
+
+ENDME // ME_5108E8A403B9 DeletingRowCorrector

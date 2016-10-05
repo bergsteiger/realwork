@@ -1,0 +1,283 @@
+// csMessageRecepientList 53A2D88202E3 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53A2D88202E3
+%%Inner ME_53A2D88202E3
+
+FORWARD ME_53A2D88202E3
+
+FORWARD ME_53A2DD8C001E
+
+FORWARD ME_53A2DDAB0054
+
+ME ME_53A2DDB603AB
+ MEPROP UID '53A2DDB603AB'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_element_type::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53A2DDAB0054 // ForEachF
+ ;
+ MELINK Target WL 'ME_52FB9F4F029B' '52F8C298005C.ms.model.script' // TcsMessageRecepient
+ ;
+
+ENDME // ME_53A2DDB603AB 
+
+ME ME_53A2DDAB0054
+ MEPROP UID '53A2DDAB0054'
+ MEPROP Name 'ForEachF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetiterator ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53A2DD8C001E // csMessageRecepientIterator
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53A2DDB603AB // 
+ )
+ ; // Attributes
+ UP "needs index" false
+ UP "needs result" false
+
+ENDME // ME_53A2DDAB0054 ForEachF
+
+ME ME_53A2DD8C001E
+ MEPROP UID '53A2DD8C001E'
+ MEPROP Name 'csMessageRecepientIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_PureMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2D88202E3 // csMessageRecepientList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2DDAB0054 // ForEachF
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_53A2DD8C001E csMessageRecepientIterator
+
+FORWARD ME_53A2D3BC030A
+
+ME ME_53A2DCED02A4
+ MEPROP UID '53A2DCED02A4'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A2D3BC030A // TcsMessageRecepientList
+ ;
+ MELINK Target WL 'ME_52FB9F5A0077' '52F8C298005C.ms.model.script' // TcsMessageRecepientListPrim
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53A2DCED02A4 Items
+
+ME ME_53A2DE24004A
+ MEPROP UID '53A2DE24004A'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A2D3BC030A // TcsMessageRecepientList
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" true
+
+ENDME // ME_53A2DE24004A Count
+
+FORWARD ME_53A2DD470028
+
+ME ME_53A2DD590224
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_52FB9F4F029B' '52F8C298005C.ms.model.script' // TcsMessageRecepient
+ ;
+
+ENDME // ME_53A2DD590224 anItem
+
+ME ME_53A2DD500199
+ MEPROP UID '53A2DD500199'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2DD470028 // Add
+ ;
+ MELINK Target WL 'ME_52FB9F4F029B' '52F8C298005C.ms.model.script' // TcsMessageRecepient
+ ;
+ MELIST Parameters
+   Seq: ( ME_53A2DD590224 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_53A2DD500199 DoIt
+
+ME ME_53A2DD470028
+ MEPROP UID '53A2DD470028'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2D3BC030A // TcsMessageRecepientList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2DD500199 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2DD470028 Add
+
+FORWARD ME_53A2DDCF036D
+
+ME ME_53A2DDF701B2
+ MEPROP UID '53A2DDF701B2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2DDCF036D // Clear
+ ;
+
+ENDME // ME_53A2DDF701B2 DoIt
+
+ME ME_53A2DDCF036D
+ MEPROP UID '53A2DDCF036D'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2D3BC030A // TcsMessageRecepientList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2DDF701B2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2DDCF036D Clear
+
+ME ME_56E7B1F7010C
+ MEPROP UID '56E7B1F7010C'
+ MEPROP Name 'PackEmptyRecepients'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2D3BC030A // TcsMessageRecepientList
+ ;
+
+ENDME // ME_56E7B1F7010C PackEmptyRecepients
+
+ME ME_53A2DDAB0054_ME_53A2D3BC030A
+ MELINK Original HWL ME_53A2DDAB0054 // ForEachF
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs index" false
+ UP "needs result" false
+ENDME // ME_53A2DDAB0054_ME_53A2D3BC030A ForEachF
+
+ME ME_479731C50290_ME_53A2D3BC030A
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_53A2D3BC030A Cleanup
+
+ME ME_47A042E100E2_ME_53A2D3BC030A
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_53A2D3BC030A InitFields
+
+%%ImplementedBy ME_53A03846011C ME_53A2D3BC030A
+%%ImplementedBy ME_53A2DD8C001E ME_53A2D3BC030A
+
+%%InheritedBy ME_49E7754802A9 ME_53A2D3BC030A
+
+ME ME_53A2D3BC030A
+ MEPROP UID '53A2D3BC030A'
+ MEPROP Name 'TcsMessageRecepientList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2D88202E3 // csMessageRecepientList
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53A03846011C' '53A03846011C.ms.model.script' // l3CriticalSectionHolder
+ HWL ME_53A2DD8C001E // csMessageRecepientIterator
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53A2DCED02A4 // Items
+ HWL ME_53A2DE24004A // Count
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53A2DD470028 // Add
+ HWL ME_53A2DDCF036D // Clear
+ HWL ME_56E7B1F7010C // PackEmptyRecepients
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53A2DDAB0054_ME_53A2D3BC030A // ForEachF
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_53A2D3BC030A // Cleanup
+ ME_47A042E100E2_ME_53A2D3BC030A // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'csMessageRecepientList'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53A2D3BC030A TcsMessageRecepientList
+
+ME ME_53A2D88202E3
+ MEPROP UID '53A2D88202E3'
+ MEPROP Name 'csMessageRecepientList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53A2DD8C001E // csMessageRecepientIterator
+ HWL ME_53A2D3BC030A // TcsMessageRecepientList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csMessageRecepientList.pas'
+
+ENDME // ME_53A2D88202E3 csMessageRecepientList

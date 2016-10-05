@@ -2,71 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_51F0E61101F9
+%%Inner ME_51F0E61101F9
+%%Inner ME_51F0E61101F9
+%%Inner ME_51F0E61101F9
+
 FORWARD ME_51F0E61101F9
-
-FORWARD ME_51F0E62100E0
-
-ME ME_524179E002BB
- MEPROP UID '524179E002BB'
- MEPROP Name 'TddHTMLParamID'
- MEPROP Class class_Class
- MELINK Stereotype st_Enum ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51F0E62100E0 // ddHTMLTags
- ;
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_524179E002BB TddHTMLParamID
-
-ME ME_5242B0EE02ED
- MEPROP UID '5242B0EE02ED'
- MEPROP Name 'TddHTMLParam'
- MEPROP Class class_Class
- MELINK Stereotype st_Struct ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51F0E62100E0 // ddHTMLTags
- ;
-
-ENDME // ME_5242B0EE02ED TddHTMLParam
-
-ME ME_5242C157001F
- MEPROP UID '5242C157001F'
- MEPROP Name 'TddHTMLParamType'
- MEPROP Class class_Class
- MELINK Stereotype st_Enum ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51F0E62100E0 // ddHTMLTags
- ;
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_5242C157001F TddHTMLParamType
-
-ME ME_51F0E62100E0
- MEPROP UID '51F0E62100E0'
- MEPROP Name 'ddHTMLTags'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_51F0E61101F9 // HTMLSupport
- ;
- MELIST Children
-   Seq: ( HWL ME_524179E002BB // TddHTMLParamID
- HWL ME_5242B0EE02ED // TddHTMLParam
- HWL ME_5242C157001F // TddHTMLParamType
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLTags.pas'
-
-ENDME // ME_51F0E62100E0 ddHTMLTags
 
 FORWARD ME_5245698300DC
 
@@ -80,7 +21,7 @@ ME ME_52456E6703B3
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5245698300DC // TddRegSeacherOwner
  ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
  UP "needs field" true
  UP "pm" true
@@ -122,16 +63,18 @@ ME ME_525BA8A50085
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5245698300DC // TddRegSeacherOwner
  ;
- MELINK Target WL 'ME_4DFF098B00CC' '47913B47006E.ms.model.script' // l3Free
+ MELINK Target WL 'ME_4DFF098B00CC' '4773D64E036C.ms.model.script' // l3Free
  ;
 
 ENDME // ME_525BA8A50085 
 
 ME ME_479731C50290_ME_5245698300DC
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_5245698300DC Cleanup
+
+%%InheritedBy ME_483E81520007 ME_5245698300DC
 
 ME ME_5245698300DC
  MEPROP UID '5245698300DC'
@@ -163,6 +106,9 @@ ME ME_5245698300DC
    Seq: ( ME_525BA8A50085 // l3Free
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\dd\ddRegSeacherOwner.pas'
  UP extprop:rc:SelfName 'ddRegSeacherOwner'
  UP extprop:rc:isAcceptableForScripts true
@@ -184,20 +130,20 @@ ME ME_5242B1EE003C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5242B1A4025D // TddParamsList
  ;
- MELINK Target HWL ME_5242B0EE02ED // TddHTMLParam
+ MELINK Target WL 'ME_5242B0EE02ED' '51F0E62100E0.ms.model.script' // TddHTMLParam
  ;
 
 ENDME // ME_5242B1EE003C ItemType
 
 ME ME_47B07CF403D0_ME_5242B1A4025D
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_5242B1A4025D IsSameItems
 
 ME ME_47B2C42A0163_ME_5242B1A4025D
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -205,10 +151,13 @@ ME ME_47B2C42A0163_ME_5242B1A4025D
 ENDME // ME_47B2C42A0163_ME_5242B1A4025D AssignItem
 
 ME ME_47B99D4503A2_ME_5242B1A4025D
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_5242B1A4025D CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_5242B1A4025D
+%%InheritedBy ME_4B223ADC02BF ME_5242B1A4025D
 
 ME ME_5242B1A4025D
  MEPROP UID '5242B1A4025D'
@@ -222,7 +171,7 @@ ME ME_5242B1A4025D
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -295,7 +244,7 @@ ME ME_52415A3602DA
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" true
  UP "pm" true
@@ -312,7 +261,7 @@ ME ME_52415A87021F
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "needs field" false
  UP "pm" true
@@ -328,7 +277,7 @@ ME ME_52415C8600C9
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_4773DF5703C9' '47913B47006E.ms.model.script' // Tl3String
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
  ;
 
 ENDME // ME_52415C8600C9 f_ParamsString
@@ -356,7 +305,7 @@ ME ME_5242B51802A3
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5242B51802A3 f_ParamCount
@@ -370,7 +319,7 @@ ME ME_5242B525033E
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5242B525033E f_Start
@@ -398,7 +347,7 @@ ME ME_569DEBDF031D
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_569DEBDF031D f_WasQuoter
@@ -409,7 +358,7 @@ ME ME_555EDF9D0367
  MEPROP Name 'aChar'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_482C48430205' '4AB0C3C60310.ms.model.script' // Char
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
  ;
 
 ENDME // ME_555EDF9D0367 aChar
@@ -418,7 +367,7 @@ ME ME_555EDF9D0386
  MEPROP Name 'aHRefSeacher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_555EDF9D0386 aHRefSeacher
@@ -462,7 +411,7 @@ ME ME_555EE70002A2
  MEPROP Name 'aTagID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_555EE70002A2 aTagID
@@ -505,7 +454,7 @@ ME ME_555EEE180014
  MEPROP Name 'aString'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_4773DF5703C9' '47913B47006E.ms.model.script' // Tl3String
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
  ;
 
 ENDME // ME_555EEE180014 aString
@@ -514,7 +463,7 @@ ME ME_555EEE180023
  MEPROP Name 'aHRefSeacher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_555EEE180023 aHRefSeacher
@@ -562,7 +511,7 @@ ME ME_5241782D014A
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5241781E030B // IsNil
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5241782D014A DoIt
@@ -591,7 +540,7 @@ ME ME_52440EDC03D4
  MEPROP Name 'anKeyID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target HWL ME_524179E002BB // TddHTMLParamID
+ MELINK Target WL 'ME_524179E002BB' '51F0E62100E0.ms.model.script' // TddHTMLParamID
  ;
 
 ENDME // ME_52440EDC03D4 anKeyID
@@ -600,7 +549,7 @@ ME ME_52440EDC03E3
  MEPROP Name 'aParam'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target HWL ME_5242B0EE02ED // TddHTMLParam
+ MELINK Target WL 'ME_5242B0EE02ED' '51F0E62100E0.ms.model.script' // TddHTMLParam
  ;
 
 ENDME // ME_52440EDC03E3 aParam
@@ -613,7 +562,7 @@ ME ME_524178FE0170
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52417862037A // HasKey
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_52440EDC03D4 // anKeyID
@@ -650,7 +599,7 @@ ME ME_524183860297
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5241837B0215 // GetKeyID
  ;
- MELINK Target HWL ME_524179E002BB // TddHTMLParamID
+ MELINK Target WL 'ME_524179E002BB' '51F0E62100E0.ms.model.script' // TddHTMLParamID
  ;
 
 ENDME // ME_524183860297 DoIt
@@ -678,7 +627,7 @@ ME ME_525BD01200D9
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target HWL ME_524179E002BB // TddHTMLParamID
+ MELINK Target WL 'ME_524179E002BB' '51F0E62100E0.ms.model.script' // TddHTMLParamID
  ;
 
 ENDME // ME_525BD01200D9 aValue
@@ -721,7 +670,7 @@ ME ME_555EE0050309
  MEPROP Name 'aHRefSeacher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_555EE0050309 aHRefSeacher
@@ -764,7 +713,7 @@ ME ME_555EE74B0190
  MEPROP Name 'aHRefSeacher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_555EE74B0190 aHRefSeacher
@@ -811,7 +760,7 @@ ME ME_5242C6510396
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5242C6280096 // GetPrevParamType
  ;
- MELINK Target HWL ME_524179E002BB // TddHTMLParamID
+ MELINK Target WL 'ME_524179E002BB' '51F0E62100E0.ms.model.script' // TddHTMLParamID
  ;
 
 ENDME // ME_5242C6510396 DoIt
@@ -839,7 +788,7 @@ ME ME_555EE27C02C2
  MEPROP Name 'aKeyValue'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_555EE27C02C2 aKeyValue
@@ -848,7 +797,7 @@ ME ME_555EE27C02D2
  MEPROP Name 'aHRefSeacher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_555EE27C02D2 aHRefSeacher
@@ -896,7 +845,7 @@ ME ME_5243BCF00209
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5243BCE0031D // CanAddNewValue
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5243BCF00209 DoIt
@@ -924,7 +873,7 @@ ME ME_56BC68F50306
  MEPROP Name 'aHRefSeacher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_56BC68F50306 aHRefSeacher
@@ -933,7 +882,7 @@ ME ME_56BC68F50316
  MEPROP Name 'aClosed'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_56BC68F50316 aClosed
@@ -1067,7 +1016,7 @@ ME ME_555EDFD1001B
  MEPROP Name 'aHRefSeacher'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_555EDFD1001B aHRefSeacher
@@ -1140,7 +1089,7 @@ ME ME_525CD1550233
  MEPROP Name 'aParam'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target HWL ME_5242B0EE02ED // TddHTMLParam
+ MELINK Target WL 'ME_5242B0EE02ED' '51F0E62100E0.ms.model.script' // TddHTMLParam
  ;
 
 ENDME // ME_525CD1550233 aParam
@@ -1185,10 +1134,10 @@ ME ME_525CE71A0150
  MEPROP Name 'aStr'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_4773DF5703C9' '47913B47006E.ms.model.script' // Tl3String
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
  ;
  MEPROP Value 'nil'
- MELINK ValueType WL 'ME_4773DF5703C9' '47913B47006E.ms.model.script' // Tl3String
+ MELINK ValueType WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
  ;
  UP extprop:pas:Value 'nil'
 
@@ -1232,7 +1181,7 @@ ME ME_534FC24C020C
  MEPROP Name 'aDocID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_534FC24C020C aDocID
@@ -1245,7 +1194,7 @@ ME ME_534FC2210205
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_534FC1FC01C3 // CheckServiceDocID
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_534FC24C020C // aDocID
@@ -1290,7 +1239,7 @@ ME ME_53984993018F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53984619001D // AddWidthValue
  ;
- MELINK Target WL 'ME_4F2A348600F9' '47913B47006E.ms.model.script' // l3Cm2Inch
+ MELINK Target WL 'ME_4F2A348600F9' '4A3918BB0114.ms.model.script' // l3Cm2Inch
  ;
 
 ENDME // ME_53984993018F 
@@ -1313,6 +1262,9 @@ ME ME_53984619001D
    Seq: ( ME_53984993018F // l3Cm2Inch
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_53984619001D AddWidthValue
 
@@ -1429,7 +1381,7 @@ ME ME_5799D8FA010C
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5799D8E50104 // InStyle
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5799D8FA010C DoIt
@@ -1457,7 +1409,7 @@ ME ME_5799D9300042
  MEPROP Name 'aParam'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target HWL ME_524179E002BB // TddHTMLParamID
+ MELINK Target WL 'ME_524179E002BB' '51F0E62100E0.ms.model.script' // TddHTMLParamID
  ;
 
 ENDME // ME_5799D9300042 aParam
@@ -1470,7 +1422,7 @@ ME ME_5799D91B01DD
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5799D90F00D5 // ValueWithoutSpace
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_5799D9300042 // aParam
@@ -1511,7 +1463,7 @@ ME ME_524188D20021
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_4B88E9270044' '54B90AC6014B.ms.model.script' // l3Compare
+ MELINK Target WL 'ME_4B88E9270044' '47878E0E0191.ms.model.script' // l3Compare
  ;
 
 ENDME // ME_524188D20021 
@@ -1531,16 +1483,18 @@ ME ME_525B8EBC0236
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_524159C700FE // TddHTMLTag
  ;
- MELINK Target WL 'ME_483D7DF50251' '47EA946A0315.ms.model.script' // Tl3RegularSearch
+ MELINK Target WL 'ME_483D7DF50251' '483D7D8C001A.ms.model.script' // Tl3RegularSearch
  ;
 
 ENDME // ME_525B8EBC0236 
 
 ME ME_479731C50290_ME_524159C700FE
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_524159C700FE Cleanup
+
+%%InheritedBy ME_47BC391D0259 ME_524159C700FE
 
 ME ME_524159C700FE
  MEPROP UID '524159C700FE'
@@ -1613,6 +1567,9 @@ ME ME_524159C700FE
  ME_525B8EBC0236 // Tl3RegularSearch
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\dd\ddHTMLTag.pas'
  UP extprop:rc:SelfName 'ddHTMLTag'
  UP extprop:rc:isAcceptableForScripts true
@@ -1629,10 +1586,12 @@ ME ME_47914F960008_ME_51F0E640000D
 ENDME // ME_47914F960008_ME_51F0E640000D Create
 
 ME ME_479731C50290_ME_51F0E640000D
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_51F0E640000D Cleanup
+
+%%InheritedBy ME_5245698300DC ME_51F0E640000D
 
 ME ME_51F0E640000D
  MEPROP UID '51F0E640000D'
@@ -1672,7 +1631,7 @@ ME ME_51F0E61101F9
  MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
  ;
  MELIST Children
-   Seq: ( HWL ME_51F0E62100E0 // ddHTMLTags
+   Seq: ( WL 'ME_51F0E62100E0' '51F0E62100E0.ms.model.script' // ddHTMLTags
  HWL ME_5245698300DC // TddRegSeacherOwner
  HWL ME_524159C700FE // TddHTMLTag
  HWL ME_51F0E640000D // TddSimpleHTMLReader
@@ -1692,5 +1651,8 @@ ME ME_51F0E61101F9
  WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_51F0E61101F9 HTMLSupport

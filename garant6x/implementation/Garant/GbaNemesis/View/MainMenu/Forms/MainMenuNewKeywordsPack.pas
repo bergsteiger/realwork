@@ -3398,16 +3398,26 @@ initialization
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPaintBox));
  {* Регистрация типа TPaintBox }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscFocusLabel));
  {* Регистрация типа TnscFocusLabel }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscHideField));
  {* Регистрация типа TnscHideField }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewHotTruck));
  {* Регистрация типа TnscTreeViewHotTruck }
+{$IfEnd} // Defined(Nemesis)
+{$If NOT Defined(NoImageEn)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnView));
  {* Регистрация типа TImageEnView }
+{$IfEnd} // NOT Defined(NoImageEn)
+{$If NOT Defined(NoImageEn)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnIO));
  {* Регистрация типа TImageEnIO }
+{$IfEnd} // NOT Defined(NoImageEn)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

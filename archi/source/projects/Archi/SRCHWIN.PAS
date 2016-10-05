@@ -1,6 +1,6 @@
 unit SrchWin;
 
-{ $Id: SRCHWIN.PAS,v 1.309 2016/09/21 07:59:47 lukyanets Exp $ }
+{ $Id: SRCHWIN.PAS,v 1.317 2016/09/30 12:27:10 lukyanets Exp $ }
 
 {$I ProjectDefine.inc}
 interface
@@ -296,6 +296,7 @@ uses
  l3IDList,
  l3FieldSortRecList,
  l3FileUtils,
+ l3MarshalledTypes,
 
  evCommonRes,
  evPrintEngine,
@@ -320,10 +321,19 @@ uses
  DtSupport,
  Dt_TblCache, dt_TblCacheDef,
 
- arMultiModifyDocsHelper,
+ arCustomMultiModifyDocsHelper,
+ arDirectMultiModifyDocsHelper,
+ arRemoteMultiModifyDocsHelper,
+
+ arCustomMultiClearAttributesHelper,
+ arDirectMultiClearAttributesHelper,
+ arRemoteMultiClearAttributesHelper,
+
+ arCustomMultiOperationHelper,
+ arDirectMultiOperationHelper,
+ arRemoteMultiOperationHelper,
 
  arIZM,
- arLockUtils,
  SewerPipe,
 
  ddDocNameUpdateFilter,
@@ -712,12 +722,23 @@ end;
 
 procedure TSearchWin.TouchGroup;
 var
- lIDSab : ISAB;
- // настоящее
+// lIDSab : ISAB;
+ l_Helper: TarCustomMultiOperationHelper;
 begin
  if DocList.SrchResultLister.Total <= 0 then Exit;
- lIDSab := DocList.QueryProvider.MakeDocIDList;
- LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAttrWork);
+
+ if IniRec.DirectDocStorageAccess then
+  l_Helper := TarDirectMultiOperationHelper.Create(Family, ar_moGroupTouch, DocList.QueryProvider.MakeDocIDList)
+ else
+  l_Helper := TarRemoteMultiOperationHelper.Create(Family, ar_moGroupTouch, DocList.QueryProvider.MakeDocIDList);
+ try
+  l_Helper.ModifyDocs;
+ finally
+  FreeAndNil(l_Helper);
+ end;
+
+// lIDSab := DocList.QueryProvider.MakeDocIDList;
+// LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAttrWork);
 end;
 
 procedure TSearchWin.ExecGroupOperation(ADMode : TOperActionType);
@@ -734,8 +755,8 @@ var
  l_ErrWin      : TAccessErrorWin;
  l_Attribute   : IDocAttribute;
 
- l_Helper: TarMultiModifyDocsHelper;
-
+ l_Helper: TarCustomMultiModifyDocsHelper;
+(*
  procedure l_AddToDenyList(const aIDList : Il3IDList);
  var
   I : Cardinal;
@@ -828,17 +849,11 @@ var
   GetIZMChecker.CheckoutForIZM(lSab);
  end;
 
-var
- lDocIDList_forAnonced : Il3IDList;
- lDocIDList_forIZM : Il3IDList;
-
+*)
 {gr op}
 begin
- lDocIDList_forAnonced := nil;
- lDocIDList_forIZM := nil;
-
- l_SavedDocID := 0;
- l_LogActionSet := [];
+// l_SavedDocID := 0;
+// l_LogActionSet := [];
  l_ParamSetted := False;
  if DocList.SrchResultLister.Total = 0 then Exit;
  l_ErrWin := nil;
@@ -865,10 +880,16 @@ begin
 
     l_EdWin.Document.PrepareEditablePartsInfo;
 
-//    l_Helper := TarMultiModifyDocsHelper.Create(IniRec.DirectDocStorageAccess, ADMode,
-//     l_EdWin.Document.DocFamily, IniRec.AnouncedDate, DocList.Query.GetDocIdList);
+
+    if IniRec.DirectDocStorageAccess then
+     l_Helper := TarDirectMultiModifyDocsHelper.Create(ADMode,
+      l_EdWin.Document.DocFamily, IniRec.AnouncedDate, dtMakeSortedIDListBySab(DocList.Query.GetDocIdList))
+    else
+     l_Helper := TarRemoteMultiModifyDocsHelper.Create(ADMode,
+      l_EdWin.Document.DocFamily, IniRec.AnouncedDate, DocList.Query.GetDocIdList);
+
     try
-(*
+
      try
       try
        l_EdWin.Document.TextSource.Save(l_Helper.Generator);
@@ -885,8 +906,9 @@ begin
       l_ErrWin.ItemList.Items.DataSize := SizeOf(TdaDocID);
       l_Helper.FillLockedList(l_ErrWin.ItemList.Items);
      end;
-*)
 
+
+(*
      lDBFilter := lMakeDBFilter;
      try
       lDBFilter.StartCachingData;
@@ -903,6 +925,8 @@ begin
      finally
       l3Free(lDBFilter);
      end;
+*)
+
     finally
      l3Free(l_Helper);
     end;
@@ -1529,102 +1553,128 @@ procedure TSearchWin.acBatchDeleteAttributesExecute(Sender: TObject);
 var
  l_Dlg      : TBatchAttrDelDlg;
  l_Selected : TBADDResult;
+ I : Integer;
+ l_RightsNeeded: Longint;
+(*
  l_LockHandles : Il3IDList;
  l_RejectedDocs : Il3IDList;
  l_AcceptedDocs : Il3IDList;
- I : Integer;
- l_AttrSet: set of TdtAttribute;
- l_RightsNeeded: Longint;
  l_DLType : TdaDictionaryType;
  l_AttrLogged: Boolean;
- l_ErrWin: TAccessErrorWin;
- l_RejIterator: TdtRecAccessProc;
  lIDSab : ISab;
- //function RejIterator(aRec : Pointer) : Boolean;
- //begin
- // Result := True;
- // AddToDenyList(Family, TDocID(aRec^), {l_RightsNeeded,} l_ErrWin.ItemList.Items, True);
- //end;
-
+*)
+ l_AttrSet: set of TdtAttribute;
+ l_ErrWin: TAccessErrorWin;
+ l_Helper: TarCustomMultiClearAttributesHelper;
+ l_SelectedArray: TdaDictionaryTypeArray;
 begin
  if DocList.QueryProvider.IsEmpty then Exit;
  l_Dlg := TBatchAttrDelDlg.Create(Self);
  try
   if l_Dlg.Execute then
   begin
-   try
-    l_Dlg.GetSelectedAttrTypes(l_Selected);
-    // формируем маску требуемых прав
-    l_AttrSet := [];
-    for I := Low(l_Selected) to High(l_Selected) do
-     Include(l_AttrSet, l_Selected[I]);
-    l_RightsNeeded := 0;
-    if (atClasses in l_AttrSet) or (atPrefixes in l_AttrSet) then
-    begin
-     l_RightsNeeded := l_RightsNeeded or acgClass;
-     Exclude(l_AttrSet, atClasses);
-     Exclude(l_AttrSet, atPrefixes);
-    end;
-    if (atKeyWords in l_AttrSet) then
-    begin
-     l_RightsNeeded := l_RightsNeeded or acgKeyWord;
-     Exclude(l_AttrSet, atKeyWords);
-    end;
-    if l_AttrSet <> [] then
-     l_RightsNeeded := l_RightsNeeded or acgNameAttr;
-    Assert(l_RightsNeeded <> 0);
-
-    l_LockHandles  := l3MakeIDList;
-    l_AcceptedDocs := l3MakeIDList;
-    l_RejectedDocs := l3MakeIDList;
-     LockServer.BatchLockDoc(Family, DocList.QueryProvider.MakeDocIDList, l_RightsNeeded,
-         l_LockHandles, l_AcceptedDocs, l_RejectedDocs);
-     try
-      if (l_AcceptedDocs <> nil) and (l_AcceptedDocs.Count > 0) then
-      begin
-       lIDSab := MakeValueSet(DocumentServer(Family).FileTbl, fId_Fld, l_AcceptedDocs);
-       try
-        l_AttrLogged := False;
-        for I := Low(l_Selected) to High(l_Selected) do
-        begin
-         l_DLType := AttrID2DLType(l_Selected[I]);
-         LinkServer(Family).Links[l_DLType].DelAllLinkItems(lIDSab);
-         case l_DLType of
-          da_dlPrefixes,
-          da_dlClasses  : LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acClassWork);
-          da_dlKeyWords : LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acKWWork);
-         else
-          if not l_AttrLogged then
-          begin
-           LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAttrWork);
-           l_AttrLogged := True;
-          end;
-         end;{case}
-        end;{for}
-       finally
-        lIDSab := nil;
-       end;
-      end;
-      // отображаем список документов, которые не удалось поменять
-      if (l_RejectedDocs <> nil) and (l_RejectedDocs.Count > 0) then
-      begin
-       l_ErrWin := TAccessErrorWin.Create(Self);
-       try
-        for I := 0 to pred(l_RejectedDocs.Count) do
-         AddToDenyList(Family, l_RejectedDocs[I], l_ErrWin.ItemList.Items, True);
-
-        l_ErrWin.ShowModal;
-       finally
-        l3Free(l_ErrWin);
-       end;
-      end
-      else
-       vtMessageDlg(l3CStr('Очистка атрибутов успешно завершена'), mtInformation);
-     finally
-      LockServer.BatchUnlockDoc(CurrentFamily, l_LockHandles);
-     end;
-   finally
+   l_Dlg.GetSelectedAttrTypes(l_Selected);
+   // формируем маску требуемых прав
+   l_AttrSet := [];
+   for I := Low(l_Selected) to High(l_Selected) do
+    Include(l_AttrSet, l_Selected[I]);
+   l_RightsNeeded := 0;
+   if (atClasses in l_AttrSet) or (atPrefixes in l_AttrSet) then
+   begin
+    l_RightsNeeded := l_RightsNeeded or acgClass;
+    Exclude(l_AttrSet, atClasses);
+    Exclude(l_AttrSet, atPrefixes);
    end;
+   if (atKeyWords in l_AttrSet) then
+   begin
+    l_RightsNeeded := l_RightsNeeded or acgKeyWord;
+    Exclude(l_AttrSet, atKeyWords);
+   end;
+   if l_AttrSet <> [] then
+    l_RightsNeeded := l_RightsNeeded or acgNameAttr;
+   Assert(l_RightsNeeded <> 0);
+
+
+
+   SetLength(l_SelectedArray, Length(l_Selected));
+   for I := Low(l_Selected) to High(l_Selected) do
+    l_SelectedArray[I] := AttrID2DLType(l_Selected[I]);
+
+
+   if IniRec.DirectDocStorageAccess then
+    l_Helper := TarDirectMultiClearAttributesHelper.Create(Family, dtMakeSortedIDListBySab(DocList.Query.GetDocIdList), l_RightsNeeded, l_SelectedArray)
+   else
+    l_Helper := TarRemoteMultiClearAttributesHelper.Create(Family, DocList.Query.GetDocIdList, l_RightsNeeded, l_SelectedArray);
+
+   try
+    l_Helper.ClearAttributes;
+    if l_Helper.HasRejectedDocs then
+    begin
+     l_ErrWin := TAccessErrorWin.Create(Self);
+     try
+      l_Helper.FillRejectedList(l_ErrWin.ItemList.Items);
+      l_ErrWin.ShowModal;
+     finally
+      l3Free(l_ErrWin);
+     end;
+    end
+    else
+     vtMessageDlg(l3CStr('Очистка атрибутов успешно завершена'), mtInformation);
+   finally
+    FreeAndNil(l_Helper);
+   end;
+
+(*
+   l_LockHandles  := l3MakeIDList;
+   l_AcceptedDocs := l3MakeIDList;
+   l_RejectedDocs := l3MakeIDList;
+   LockServer.BatchLockDoc(Family, DocList.QueryProvider.MakeDocIDList, l_RightsNeeded,
+       l_LockHandles, l_AcceptedDocs, l_RejectedDocs);
+   try
+    if (l_AcceptedDocs <> nil) and (l_AcceptedDocs.Count > 0) then
+    begin
+     lIDSab := MakeValueSet(DocumentServer(Family).FileTbl, fId_Fld, l_AcceptedDocs);
+     try
+      l_AttrLogged := False;
+      for I := Low(l_Selected) to High(l_Selected) do
+      begin
+       l_DLType := AttrID2DLType(l_Selected[I]);
+       LinkServer(Family).Links[l_DLType].DelAllLinkItems(lIDSab);
+       case l_DLType of
+        da_dlPrefixes,
+        da_dlClasses  : LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acClassWork);
+        da_dlKeyWords : LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acKWWork);
+       else
+        if not l_AttrLogged then
+        begin
+         LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAttrWork);
+         l_AttrLogged := True;
+        end;
+       end;{case}
+      end;{for}
+     finally
+      lIDSab := nil;
+     end;
+    end;
+   finally
+    LockServer.BatchUnlockDoc(Family, l_LockHandles);
+   end;
+   // отображаем список документов, которые не удалось поменять
+   if (l_RejectedDocs <> nil) and (l_RejectedDocs.Count > 0) then
+   begin
+    l_ErrWin := TAccessErrorWin.Create(Self);
+    try
+     for I := 0 to pred(l_RejectedDocs.Count) do
+      AddToDenyList(Family, l_RejectedDocs[I], l_ErrWin.ItemList.Items, True);
+
+     l_ErrWin.ShowModal;
+    finally
+     l3Free(l_ErrWin);
+    end;
+   end
+   else
+    vtMessageDlg(l3CStr('Очистка атрибутов успешно завершена'), mtInformation);
+*)
   end;
  finally
   l3Free(l_Dlg);
@@ -1986,1358 +2036,3 @@ begin
 end;
 
 end.
-
-(*
-for l_It := 0 to Pred(DocList.SrchResultLister.Total) do
-      begin
-       l_Doc := DocList.QueryProvider.GetItem(l_It);
-      {$IfNDef FastAttrSet}
-       l_LockHandle := LockServer.LockDoc(Family, l_Doc^.rID, l_MaxMask, l_LockMask);
-      {$else}
-       l_LockMask :=$ffffffff;
-      {$EndIf FastAttrSet}
-       try
-        l_EdWin.Document.TextSource.Save(lDBFilter);
-
-        with l_GData do
-        begin
-         if ((l_LockMask and romNameAttr) = 0) then
-         begin
-          if l_ParamSetted then l_AddToDenyList(romNameAttr);
-         end//if ((l_LockMask and romNameAttr) = 0) then
-         else
-         begin
-          if l_ParamSetted then
-          begin
-           DocumentServer(Family).GroupUpdateDoc(l_Doc^.rID, FullName, ''{ShortName},
-                                        Status, StatusSetted,
-                                        UserType, UserTypeSetted,
-                                        rPriority);
-           lAddToLog(acAttrWork);
-          end;//
-
-          //GetIZMChecker.CheckoutForIZM(l_Doc^.rID);
-
-         end;//else if ((l_LockMask and romNameAttr) = 0) then
-        end;//with l_GData do
-       finally
-       {$IfNDef FastAttrSet}
-        if l_LockHandle >= 0 then
-         LockServer.UnLockDoc(Family,l_LockHandle);
-       {$EndIf FastAttrSet}
-       end;
-       DocList.PercentMeter.ProgressProc(piCurrent, 0, Succ(l_It), '');
-      end;//for l_It := 0 to Pred(DocList.SrchResultLister.Total) do
-*)
-
-(*
-Сносил Stage stDocFormat
-procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lValue : Integer;
-begin
- lSab := MakeSab(LinkServer(Family).Attribute[atStages]);
- lValue := ord(stDocFormat);
- lSab.Select(stType_Key, lValue);
- lSab.DeleteFromTable;
-end;
-*)
-
-(*procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lStatusOffs : Word;
- function lModifyRec(gRecNo : LongInt;fpRecord : Pointer) : MFUNC_RET;
- begin
-  PWord(PChar(fpRecord)+lStatusOffs)^ := PWord(PChar(fpRecord)+lStatusOffs)^ or dstatNotTM;
-  Result := MFUNC_SUCCESS;
- end;
-
-var
- lHTStub    : Pointer;
-begin
- lStatusOffs := DocumentServer.FileTbl.FldOffset[fStatus_Fld];
- lSab := MakeAllRecords(DocumentServer.FileTbl);
-
- lHTStub := HTStub3(@lModifyRec);
- try
-  DocumentServer.FileTbl.ModifyRecs(lSab.HTSab, lHTStub, false {aDupIgnore});
- finally
-  HTStubFree(lHTStub);
- end;
-end;
-*)
-
-(*procedure TSearchWin.TouchGroup;
-var
- lAction : TLogActionType;
- lSab : ISab;
- lSabIncl : ISab;
-begin
- DocumentServer.Family := Family;
- lSab := MakeAllRecords(DocumentServer.FileTbl);
- lSab.ValuesOfKey(fId_Fld);
-
- {Стирает VIncluded у пачки}
- lSabIncl := MakeSab(LinkServer(Family).LogBook);
- lAction := acIncluded;
- lSabIncl.Select(lgAction_Key, lAction);
- lSabIncl.ValuesOfKey(lgDocID_Key);
- lSabIncl.TransferToPhoto(fId_Fld, lSab);
-
- lSab.SubtractSab(lSabIncl);
-
- {Добавляет VIncluded пачку}
- LinkServer(Family).LogBook.PutLogRecToDocs(lSab, lAction, 0, CurrentDate +9);
-end;
-*)
-(*
-procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lSabD : ISAB;
- lValue : Integer;
-
-begin
- DocumentServer.Family := Family;
- lSab := MakeAllRecords(DocumentServer.FileTbl);
-
- lSab.ValuesOfKeyByCount(fRelated_fld);
-
- lSabD := MakeSabCopy(lSab);
- lSab.TransferToPhoto(fId_Fld, DocumentServer.FileTbl);
- DocumentServer.DelDocs(lSab);
-
- lSabD.RecordsByKey;
- lValue := 0;
-  // уберем нулевое значение
- lSabD.SubSelect(fRelated_fld, lValue, Not_Equal);
-
- lSabD.ModifyRecs(fRelated_fld, lValue, True);
- lSabD.ValuesOfKey(fId_Fld);
- OutSab2File(lSabD, 'd:\docWdblspr.lst');
-
-
- {
- OutSab2File(lSab, 'd:\dblspr.lst');
-
- //lSab := MakeSab(LinkServer(Family).Attribute[atDateNums]);
- lSab := MakeSab(DictServer(Family).Tbl[da_dlDateNums]);
- lValue := dnLawCaseNum;
- lSab.Select(dnTypFld, lValue);
-
- lSab.ValuesOfKeyByCount(dnNumFld);
- }
- //LinkServer(Family).LogBook.PutLogRecToDocs(lIDSab, acAnnoWork, 64 {Соловьев});
-end;
-*)
-
-{begin
-}
-
-(*
- var
-  lOldID : Integer;
-  lNewID : Integer;
-  lFilteredIDList : Sab;
-begin
- // менять ID атрибута в выборке
- {lOldID := 0;
- lNewID := 0;
- if not RequestAttrCopyData(lOldID, lNewID, Self, 'Замена префиксов') then Exit;
- LinkServer.Family := CurrentFamily;
- lFilteredIDList := DocList.SrchServ.FilteredIDList;
- LinkServer[da_dlPrefixes].ModifyDictID(lOldID, lNewID, @lFilteredIDList);
- }
-
-
- // выставление атрибутов в file.tbl для выборки
- //lBoolValue := True;
- //DocumentServer.FileTbl.ModifyRecs(DocList.SrchServ.GetFilteredSrchList, fPriorFlag_fld, @lBoolValue);
-
- //lWordValue := 399;
- //DocumentServer.FileTbl.ModifyRecs(DocList.SrchServ.GetFilteredSrchList, fPriority_fld, @lWordValue);
-
- //lValue := Byte(utIzm);
- //DocumentServer.FileTbl.ModifyRecs(DocList.SrchServ.GetFilteredSrchList, fUserType_Fld, @lValue);
-
- //Удаляет записи из LOG
- //LinkServer(Family).LogBook.DeleteRecords(2, DateTimeToStDate(StrToDate('09.08.2004')),DateTimeToStDate(StrToDate('09.08.2004')));
-
- (*
- // удаляет !CODE для выборки
- if DocList.SrchServ.SrchCount = 0 then Exit;
- //список ID
- lIDSab := DocList.QueryProvider.MakeDocIDList;
-
- // Список Dict_ID
- LinkServ[da_dlDateNums].SrchOnIDs(lIDSab, lDictIDSab);
-
- DictServer.Family := Family;
- with DictServer.GroupTbl[da_dlDateNums] do
- begin
-  RefreshSrchList;
-  //перевели список в таблицу словаря
-  htTransferToPhoto(lDictIDSab, fSrchList, dtIDFld);
-  // получили записи
-  htSortResults(lSorted, lDictIDSab, 0, 0);
-  htRecordsByKey(lDictRecords,lSorted);
-
-
-  //отобрали записи с непустым номером
-   htSubSearch(lDictRecords, lDictRecordsNotEmptyNum, TblH, 3 {Num}, not_EQUAL, @cEmptyNum, nil);
-
-  //нашли записи с пустой датой
-  htSubSearch(lDictRecordsNotEmptyNum, lDictRecordsEmptyDate, TblH, 2 {Date}, EQUAL, @DT_Const.BlankDate, nil);
-
-  //вычли из списка, остальным надо занулить номер
-  htXorResults(lDictRecordsReplNum, lDictRecordsNotEmptyNum, lDictRecordsEmptyDate);
-
-  if lDictRecordsReplNum.gFoundCnt > 0 then
-   ModifyRecs(lDictRecordsReplNum, 3 {Num}, @cEmptyNum);
- end;
-
- //записи с пустой датой надо удалить
- htValuesOfKey(lDictRecordsEmptyDateValues, 1, lDictRecordsEmptyDate);
- // из dict
- htDeleteRecords(lDictRecordsEmptyDate);
- //из link
- with LinkServ[da_dlDateNums] do
- begin
-  htTransferToPhoto(lDictRecordsEmptyDateValues, fSrchList, lnkBodyFld);
-  htRecordsByKey(lLinkRecordsEmptyDate, lDictRecordsEmptyDateValues);
-  htDeleteRecords(lLinkRecordsEmptyDate);
- end;
-
- htClearResults(lIDSab);
- htClearResults(lDictIDSab);
- htClearResults(lSorted);
- htClearResults(lDictRecords);
- htClearResults(lDictRecordsNotEmptyNum);
- htClearResults(lDictRecordsEmptyDate);
- htClearResults(lDictRecordsReplNum);
- htClearResults(lLinkRecordsEmptyDate);
- htClearResults(lDictRecordsEmptyDateValues);
-
-end;
- *)
-
- (*
-замена номеров топиков для соловьева
-в клипборде два столбика внешних номеров - "откуда" и "куда"
-
-function  TSearchWin.Paste : Boolean;
-var
- l_Stream    : Tl3ClipboardStream;
- l_TmpStream : Tl3MemoryStream;
- l_Parser    : Tl3Parser;
- l_HasAdded  : Boolean;
- l_CurNum    : Integer;
- l_NewNum    : Integer;
- lSab : ISab;
-begin
- Result := True;
- l_HasAdded := False;
- l_Stream := Tl3ClipboardStream.Create(l3_fmRead);
- try
-  l_TmpStream := Tl3MemoryStream.Create;
-  l_TmpStream.Size := 0;
-  try
-   l_Parser := Tl3Parser.Create(nil);
-   try
-    l_Parser.CheckFloat := False;
-    l_Parser.CheckFiler.Stream := l_Stream;
-    l_Parser.NextTokenSp;
-
-    DocumentServer.Family := Family;
-    while l_Parser.TokenType <> l3_ttEOF do
-    begin
-     if l_Parser.TokenType = l3_ttInteger then
-     begin
-      try
-       l_CurNum := l_Parser.TokenInt;
-       l_Parser.NextTokenSp;
-       l_NewNum := l_Parser.TokenInt;
-
-       l_CurNum := DocumentServer.RenumTbl.ConvertToRealNumber(l_CurNum);
-
-       l_NewNum := DocumentServer.RenumTbl.ConvertToRealNumber(l_NewNum);
-
-       if (l_CurNum = 0) or (l_NewNum = 0) then
-        Assert(false, 'Не бывает');
-
-       lSab := MakeSab(DocumentServer.FileTbl);
-       lSab.Select(fRelated_fld, l_CurNum);
-       lSab.ModifyRecs(fRelated_fld, l_NewNum);
-       //DocumentServer.FileTbl.SetRelated(l_CurNum, l_NewNum);
-      except
-      end;
-     end;
-     l_Parser.Filer.ReadLn;
-     l_Parser.NextTokenSp;
-    end;
-    if l_HasAdded then
-    begin
-    end;
-   finally
-    l3Free(l_Parser);
-   end;
-  finally
-   l3Free(l_TmpStream);
-  end;
- finally
-  l3Free(l_Stream);
- end;
-end;
-*)
-
-(*
-восстанавливаем покоцанные адреса гиперссылок
-копированием из левой таблицы "hlink_"
-в aStream внешние номера доков
-* )
-procedure ReplaceHLink(aStream : Tl3MemoryStream);
-var
- lSabOld   : ISab;
- lSabNew   : ISab;
- lOldHLinkTbl : TdtTable;
-
- lStub : TdtBlockAccessProc;
- lDocIDFld : ThtField;
- lTable    : TdtTable;
- lDonorTblName : AnsiString;
-
- function lBlockAccessProc(aBuffer: Pointer; aBufSize: Longint) : Boolean; register;
- begin
-  Result := True;
-  with lTable do
-   AddRecs(aBuffer, aBufSize div RecSize);
- end;
-
-begin
- HLServer.Family := 1;
- DocumentServer.Family := 1;
- LinkServer.Family := 1;
-
-
- lDocIDFld := hlSourD_fld;
- lTable := HLServer.HLinkTbl;
- lDonorTblName := 'hlink__';
-
-
- {lDocIDFld := 1;
- lTable := DocumentServer.ActiveIntervalTbl;
- lDonorTblName := 'activ_';
- }
-
- {
- lDocIDFld := 1;
- lTable := LinkServer.Links[da_dlAccGroups];
- lDonorTblName := 'LNK#F_';
- }
-
- lSabNew := MakeValueSet(DocumentServer.RenumTbl, rnImportID_fld, aStream);
- lSabNew.RecordsByKey;
- lSabNew.ValuesOfKey(rnRealID_fld);
-
- lOldHLinkTbl := TdtTable.CreateWithOpen('d:\oldHL\', '', lDonorTblName, 1);
- lSabOld := MakeSabCopy(lSabNew);
- lSabOld.TransferToPhoto(lDocIDFld, lOldHLinkTbl);
- lSabOld.RecordsByKey;
-
- lSabNew.TransferToPhoto(lDocIDFld, lTable);
- lSabNew.RecordsByKey;
- lSabNew.DeleteFromTable;
-
- lStub := L2BlockAccessProc(@lBlockAccessProc);
- try
-  lSabOld.IterateBlockOfRecords(lStub, []);
- finally
-  FreeBlockAccessProc(lStub);
- end;
-
- l3Free(lOldHLinkTbl);
-end;
-//*)
-
-(*
-копирование адресов ссылок
-procedure TSearchWin.DeleteAllHyperLinks;
-var
- //l_Cnt : Integer;
- lDonorTbl : TAbsHtTbl;
- lDonorSab : ISab;
- lHLSab    : ISab;
-begin
- HLServer.Family := CurrentFamily;
- //if vtMessageDlg(l3CStr(@sidQstDeleteAllHyperLinks), mtConfirmation, [mbYes, mbNo]) <> mrYes then Exit;
- //l_Cnt := HLServer.HLinkTbl.DelDocsHLink(DocList.QueryProvider.MakeDocIDList(True));
- //vtMessageDlg(l3Fmt(sidDeleteAllHyperLinksResult, [l_Cnt]));
-
- // откроем доп таблицу HLINk
-
- //inherited Create(aFamily,TablePassword(ftHLink), FamTblName(ftHLink, aFamily), aSharing);
- lDonorTbl := TAbsHtTbl.CreateWithOpen(GlobalHtServer.FamilyTbl.FamilyPath(1{aFamily}),
-                                       '' {aPass},
-		                       'HLINKOLD' {aName},
-                                       GlobalHtServer.HyTechTableOpenMode);
- try
-  lDonorSab := MakeSabCopy(DocList.QueryProvider.MakeDocIDList);
-  lDonorSab.TransferToPhoto(hlSourD_fld, MakePhoto(lDonorTbl));
-  lDonorSab.RecordsByKey;
-
-  HLServer.Family := CurrentFamily;
-  HLServer.HLinkTbl.DelDocsHLink(DocList.QueryProvider.MakeDocIDList);
-  //lHLSab := MakeSab(lDonorTbl, DocList.QueryProvider.MakeDocIDList));
-
-  HLServer.HLinkTbl.CopyRecs(lDonorSab.HTSab, nil);
-
- finally
-  l3Free(lDonorTbl);
- end;
-
-end;
-*)
-
-(*
-procedure TSearchWin.SetDictLinks(aDictType : TdaDictionaryType; aReplace : Boolean = False);
-var
- lRec : packed record
-  rDictID : TDictID;
-  rSubID    : TSubID;
- end;
-
- lSab      : ISab;
-begin
- if not RequestIntegerValue(Integer(lRec.rDictID), Self, Format(cNeedInputNumber, [GetAttrName(ord(aDictType))]), cDictID) then Exit;
-
- lSab := DocList.QueryProvider.MakeDocIDList;
-
- lSab.TransferToPhoto(lnkDocIDFld, LinkServ[aDictType]);
-
- lSab.RecordsByKey;
- lSab.SubSelect(lnkDictIDFld, lRec.rDictID);
-
- lRec.rSubID := 0;
- lSab.ModifyRecs(lnkSubIDFld, lRec.rSubID, true);
-end;
-*)
- (*
- //спецсредства
- procedure DelIncludedLogOnDocsID(aIDs : ISab);
- var
-  lAction : TLogActionType;
-  lSab : ISab;
- begin
-  lSab := MakeSabCopy(aIDs);
-  {Стирает VIncluded у пачки}
-  lSab.TransferToPhoto(lgDocID_Key, LinkServer(Family).LogBook);
-  lSab.RecordsByKey;
-  lAction := acIncluded;
-  lSab.SubSelect(lgAction_Key, lAction);
-  lSab.DeleteFromTable;
-
-  {Добавляет VIncluded пачку}
-  LinkServer(Family).LogBook.PutLogRecToDocs(aIDs, lAction, 0, CurrentDate - 3);
- end;
- *)
-
-(*
-procedure TSearchWin.ExecGroupOperation(ADMode : TOperActionType);
-var
- l_It          : Longint;
- I             : Longint;
- l_LockHandle  : TJLHandle;
- l_MaxMask     : Longint;
- l_LockMask    : Longint;
- l_EdWin       : TDocEditorWindow;
- l_GData       : TGroupData;
- l_ParamSetted : Boolean;
- l_Doc         : PDocListAccessRec;
- l_ErrWin      : TAccessErrorWin;
- l_Attribute   : IDocAttribute;
-
- procedure l_AddToDenyList(aAssessItem : Longint);
- begin
-  if l_ErrWin = nil then
-  begin
-   l_ErrWin := TAccessErrorWin.Create(Self);
-   l_ErrWin.ItemList.Items.DataSize := SizeOf(Longint);
-  end;
-  AddToDenyList(Family, l_Doc^.rID, aAssessItem, l_ErrWin.ItemList.Items,
-    l_MaxMask and not l_LockMask <> 0, l_LockHandle);
- end;
-
- function SetDictListToDoc(aDict : TdtAttribute; aAccessItem : Longint) : Boolean;
- var
-  l_Attribute : IDocAttribute;
- begin
-  Result := False;
-  if not IsLegalAttr(TDocType(l_Doc^.rTyp), aDict) then Exit;
-
-  l_Attribute := l_EdWin.Document.Attribute[aDict];
-  if l_Attribute.IsEmpty then Exit;
-  with (l_Attribute as IListDocAttribute) do
-   if l3TestMask(l_LockMask, aAccessItem) then
-   begin
-    Result := True;
-    if (aDict = atDateNums) and (ADMode = atAdd) then
-     LinkServer(Family).SetGroupDateNumList(l_Doc^.rID, List)
-    else
-    if (aDict in GlSingleItemLinkAttrSet) and (ADMode = atAdd) then
-     LinkServer(Family).SetGroupAttributeList(aDict, l_Doc^.rID, List, atMove)
-    else
-     LinkServer(Family).SetGroupAttributeList(aDict, l_Doc^.rID, List, ADMode)
-   end
-   else
-    begin
-     l_AddToDenyList(aAccessItem);
-     Result := False;
-    end;
- end;
-{.$Define SilentAttrSet}
-{.$Define FastAttrSet} // без захвата документа
-var
- l_SavedDocID   : TDocID;
- l_LogActionSet : TLogActionSet;
-
- procedure lAddToLog(aAction : TLogActionType);
- begin
-  {$IfNDef SilentAttrSet}
-   if l_Doc^.rID <> l_SavedDocID then
-   begin
-    l_SavedDocID := l_Doc^.rID;
-    l_LogActionSet := [];
-   end;
-   if not (aAction in l_LogActionSet) then
-   begin
-    LinkServer(Family).LogBook.PutLogRec(l_Doc^.rID, aAction);
-    l_LogActionSet := l_LogActionSet + [aAction];
-   end;
-  {$EndIf SilentAttrSet}
- end;
-
-Procedure DelIncludedLogOnDocsID(aIDs : ISab);
-var
- lAction : TLogActionType;
- lSab : ISab;
-begin
- lSab := MakeSabCopy(aIDs);
- {Стирает VIncluded у пачки}
- lSab.TransferToPhoto(lgDocID_Key, LinkServer(Family).LogBook);
- lSab.RecordsByKey;
- lAction := acIncluded;
- lSab.SubSelect(lgAction_Key, lAction);
- lSab.DeleteFromTable;
-
- {Добавляет VIncluded пачку}
- LinkServer(Family).LogBook.PutLogRecToDocs(aIDs, lAction, 0, CurrentDate - 3);
-end;
-
-begin
- l_SavedDocID := 0;
- l_LogActionSet := [];
- l_ParamSetted := False;
- if DocList.SrchResultLister.Total = 0 then Exit;
- l_ErrWin := nil;
- l_EdWin := TDocEditorWindow.Create(Self);
- try
-  l_EdWin.Caption:='Редактoр группы - ';
-  case ADMode of
-   atAdd    : l_EdWin.Caption := l_EdWin.Caption + 'ДОБАВИТЬ';
-   atDelete : l_EdWin.Caption := l_EdWin.Caption + 'УДАЛИТЬ';
-  end;
-
-  l_EdWin.DocFamily := Family;
-  if l_EdWin.ExecuteGroupMode(ADMode) then
-  begin
-   Application.ProcessMessages;
-   Screen.Cursor:=crHourGlass;
-   try
-    l_EdWin.GetGroupData(l_GData);
-
-    DocList.PercentMeter.ProgressProc(piStart, 0, DocList.SrchResultLister.Total, 'Групповая операция');
-    // стирал vincluded у пачки          
-
-    //DelIncludedLogOnDocsID(DocList.QueryProvider.MakeDocIDList);
-    //Exit;
-    with l_GData do
-     l_ParamSetted := (FullName <> '') 
-                       or ExpDateSetted or ActDateSetted or (StatusSetted <> 0) or (rPriority > 0);
-
-    for l_It := 0 to Pred(DocList.SrchResultLister.Total) do
-    begin
-     l_Doc := DocList.QueryProvider.GetItem(l_It);
-     {$IfNDef FastAttrSet}
-      l_LockHandle := LockServer.LockDoc(Family, l_Doc^.rID, l_MaxMask, l_LockMask);
-     {$else}
-      l_LockMask :=$ffffffff;
-     {$EndIf FastAttrSet}
-     try
-      {!!!}
-      //Убираем/проставляем HasAnno
-      {!!
-      DocumentServer.FileTbl.SetHasAnno(l_Doc^.rID, True);
-      Continue;}
-      with l_GData do
-      begin
-       if ((l_LockMask and romNameAttr) = 0) then
-       begin
-        if l_ParamSetted then l_AddToDenyList(romNameAttr);
-       end//if ((l_LockMask and romNameAttr) = 0) then
-       else
-       begin
-        if l_ParamSetted then
-        begin
-          DocumentServer(Family).GroupUpdateDoc(l_Doc^.rID, FullName, ''{ShortName},
-                                       Status, StatusSetted,
-                                       UserType, UserTypeSetted,
-                                       rPriority);
-         lAddToLog(acAttrWork);
-        end;//
-       end;//else if ((l_LockMask and romNameAttr) = 0) then
-
-       {$B+}
-       if SetDictListToDoc(atDateNums, romNameAttr) or
-          SetDictListToDoc(atTypes, romNameAttr) or
-          SetDictListToDoc(atSources, romNameAttr) or
-          SetDictListToDoc(atTerritories, romNameAttr) or
-          SetDictListToDoc(atWarnings, romNameAttr) or
-          SetDictListToDoc(atBases, romNameAttr) or
-          SetDictListToDoc(atPublisheds, romNameAttr) or
-          SetDictListToDoc(atServiceInfo, romNameAttr)
-        then
-         lAddToLog(acAttrWork);
-       {$B-}
-
-       if SetDictListToDoc(atAccGroups, romDocGroup) then
-        lAddToLog(acAttrWork); // acDocGroupWork
-
-       if SetDictListToDoc(atAnnoClasses, romAnno) then
-        lAddToLog(acAnnoWork);
-
-       {$B+}
-       if SetDictListToDoc(atClasses, romClass) or
-          SetDictListToDoc(atPrefixes, romClass) or
-          SetDictListToDoc(atNorms, romClass)
-        then
-         lAddToLog(acClassWork);
-       {$B-}
-       if SetDictListToDoc(atKeyWords, romKeyWord) then
-        lAddToLog(acKWWork);
-
-       l_Attribute := l_EdWin.Document.Attribute[atStages];
-       if not l_Attribute.IsEmpty then
-        with (l_Attribute as IListDocAttribute) do
-        begin
-         //LinkServer(Family).Stages.SetDocStagesRecList(l_Doc^.rID, List);
-         for I := 0 to Pred(List.Count) do
-          with PStageFullRec(List.Data[I])^ do
-          begin
-           if LinkServer(Family).Stages.PutStageRec(l_Doc^.rID, TStageType(StType), BDate, EDate, Author) then
-           begin
-            if (TStageType(StType) = stUrObr) and (EDate > 0 {closed}) then
-             GetIZMChecker.CheckoutForIZM(l_Doc^.rID);
-
-            if (TStageType(StType) = stEdit) and (EDate > 0 {closed}) and
-               (TUserType(l_Doc^.rFlag) in utFullFeatureDocTypes) and
-               (not IsDocAccGroupInAnouncedBlackList(l_Doc^.rID)) then
-              LinkServer(Family).LogBook.PutDateLogRec(l_Doc^.rID, acAnonced, DateTimeToStDate(IniRec.AnouncedDate), 0);
-           end;
-          end;
-        end;//with (l_Attribute as IListDocAttribute) do
-
-       l_Attribute := l_EdWin.Document.Attribute[atJurLogRecords];
-       if not l_Attribute.IsEmpty then
-       with (l_Attribute as IListDocAttribute) do
-       begin
-        for I := 0 to Pred(Count) do
-         with PDisplayLogRec(Data[I])^ do
-         begin
-          if (TLogActionType(Action) <> acAnnoDate) and
-             not l3TestMask(l_LockMask, romJurOp) then
-          begin
-           l_AddToDenyList(romJurOp);
-           Continue;
-          end;//if (TLogActionType(Action) <> acAnnoDate) and
-          if (TLogActionType(Action) = acAnnoDate) and
-             not l3TestMask(l_LockMask, romAnno) then
-          begin
-           l_AddToDenyList(romAnno);
-           Continue;
-          end;//if (TLogActionType(Action) = acAnnoDate) and
-          LinkServer(Family).LogBook.PutDateLogRec(l_Doc^.rID, TLogActionType(Action), Date, 0);
-         end;//with PDisplayLogRec(Data[I])^ do
-       end;//with (l_Attribute as IListDocAttribute) do
-       //lAddToLog(??acAttrWork);
-      end;//with l_GData do
-     finally
-     {$IfNDef FastAttrSet}
-      if l_LockHandle >= 0 then
-       LockServer.UnLockDoc(Family,l_LockHandle);
-     {$EndIf FastAttrSet}
-     end;
-     DocList.PercentMeter.ProgressProc(piCurrent, 0, Succ(l_It), '');
-    end;//for l_It := 0 to Pred(DocList.SrchResultLister.Total) do
-    DocList.PercentMeter.ProgressProc(piEnd, 0, 0,'');
-   finally
-    Screen.Cursor := crDefault;
-    if l_ErrWin <> nil then
-     l_ErrWin.ShowModal;
-   end;
-   if l_ParamSetted then
-   begin
-    DocList.RefreshQueryResults;
-   end;//if l_ParamSetted then
-  end;//if l_EdWin.ExecuteGroupMode(ADMode) then
- finally
-  l_EdWin.Free;
- end;
-end;
-*)
-{procedure TSearchWin.TouchGroup;
-var
- lAction : TLogActionType;
- lSab : ISab;
- lSabIncl : ISab;
- lDate : TStDate;
-begin
- //Стирает VIncluded у пачки
- lSabIncl := MakeSab(LinkServer(Family).LogBook);
- lAction := acIncluded;
- lSabIncl.Select(lgAction_Key, lAction);
-
- lDate := DateTimeToStDate(StrToDate('10.05.2008'));
- lSabIncl.SubSelect(lgDate_Key, lDate);
-
- lSabIncl.DeleteFromTable;
-end;}
-
-
-(*procedure TSearchWin.TouchGroup;
-var
- lAction : TLogActionType;
- lSab : ISab;
- lSabIncl : ISab;
- lValue : byte;
- l_TextStream: Tl3TextStream;
-
- function lRecAccessProc(aItemPtr : Pointer) : Boolean;
- var
-  s : string;
- begin
-  Result := True;
-  s := inttostr(PInteger(aItemPtr)^)+ #13#10;
-  l_TextStream.Write(S[1], length(s));
- end;
-
- var
-  lRAProcStub : TdtRecAccessProc;
-
-begin
- DocumentServer.Family := Family;
- lSab := MakeSab(DocumentServer.FileTbl);
- lValue := 1;
- lSab.Select(fHasAnno_fld, lValue);
-
- lSabIncl := MakeSab(LinkServer(Family).LogBook);
- lAction := acAnnoWasImported;  //acAnnoWork,        // 15  //acAnnoWasImported, // 16
-
- lSabIncl.Select(lgAction_Key, lAction);
- lSabIncl.ValuesOfKey(lgDocID_Key);
- lSabIncl.TransferToPhoto(fId_Fld, lSab);
- lSabIncl.RecordsByKey;
-
- lSab.SubtractSab(lSabIncl);
-
- lSabIncl := MakeSab(LinkServer(Family).LogBook);
- lAction := acAnnoWork;
-
- lSabIncl.Select(lgAction_Key, lAction);
- lSabIncl.ValuesOfKey(lgDocID_Key);
- lSabIncl.TransferToPhoto(fId_Fld, lSab);
- lSabIncl.RecordsByKey;
-
- lSab.SubtractSab(lSabIncl);
-
-
- l_TextStream := Tl3TextStream.Create('c:\list.out', l3_fmWrite);
- try
-  lRAProcStub := L2RecAccessProc(@lRecAccessProc);
-  try
-   lSab.IterateRecords(lRAProcStub, [fId_Fld]);
-  finally
-   FreeRecAccessProc(lRAProcStub);
-  end;
- finally
-  l3Free(l_TextStream);
- end;
-
- lValue := 0;
- lSab.ModifyRecs(fHasAnno_fld, lValue);
-
-end;
-
-procedure TSearchWin.TouchGroup;
-var
- lSab : ISab;
- lSabIncl : ISab;
-begin
- //Стирает двойные VIncluded
- lSabIncl := MakeSab(LinkServer(Family).LogBook);
- lAction := acIncluded;
- lSabIncl.Select(lgAction_Key, lAction);
-
- lSab := MakeSabCopy(lSabIncl);
- lSab.Distinct([lgDocID_Key{, lgAction_Keyate_Key}]);
- lSabIncl.SubtractSab(lSab);
-
- lSabIncl.DeleteFromTable;
-end;
-*)
-
-(*
- дату менял
-procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lDateOffs : Word;
- lValue :  TStDate;
-type
- PStDate = ^TStDate;
-
- function lModifyRec(gRecNo : LongInt;fpRecord : Pointer) : MFUNC_RET;
- begin
-  PStDate(PChar(fpRecord)+lDateOffs)^ := lValue;
-  Result := MFUNC_SUCCESS;
- end;
-
-var
- lHTStub : Pointer;
- lZeroValue :  TStDate;
-begin
- lValue := DMYtoStDate(01, 10, 2014);
-
- lSab := DocList.QueryProvider.MakeDocIDList;
-
- lSab.TransferToPhoto(lnkDocIDFld, LinkServer(Family).Attribute[atDateNums]);
- lSab.RecordsByKey;
- lSab.ValuesOfKey(lnkDictIDFld);
- lSab.TransferToPhoto(dnIDFld, DictServer(Family).Tbl[da_dlDateNums]);
- lSab.RecordsByKey;
-
- lZeroValue := 0;
- lSab.SubSelect(dnDateFld, lZeroValue, GREAT);
-
- lDateOffs := DictServer(Family).Tbl[da_dlDateNums].FldOffset[dnDateFld];
-
- lHTStub := HTStub3(@lModifyRec);
- try
-  DictServer(Family).Tbl[da_dlDateNums].ModifyRecs(lSab.HTSab, lHTStub, false {aDupIgnore});
- finally
-  HTStubFree(lHTStub);
- end;
-
- //lSab := DocList.QueryProvider.FoundList;
-
- lSab.ValuesOfKey(dnIDFld);
- lSab.TransferToPhoto(lnkDictIDFld, LinkServer(Family).Attribute[atDateNums]);
- lSab.RecordsByKey;
- lSab.ValuesOfKey(lnkDocIDFld);
- lSab.TransferToPhoto(fId_Fld, DocumentServer.FileTbl);
- lSab.RecordsByKey;
-
- lDateOffs := DocumentServer.FileTbl.FldOffset[fSDate_Fld];
-
- lHTStub := HTStub3(@lModifyRec);
- try
-  DocumentServer.FileTbl.ModifyRecs(lSab.HTSab, lHTStub, false {aDupIgnore});
- finally
-  HTStubFree(lHTStub);
- end;
-
-end;
-*)
-
-
-(*
-
-//поиск непустых аннотаций с не высталенным флагом HasAnno
-
-{uses
-m3DBInterfaces,
- m3StorageInterfaces,
- m2COMLib,
- ComObj,
- evStatisticsFilter,
- evTextFormatter,
- evEvdRd,
- m3DB,
- }
-procedure TSearchWin.TouchGroup;
-var
- lAction : TLogActionType;
- lSab : ISab;
- lSabIncl : ISab;
- lValue : integer;
- l_TextStream: Tl3TextStream;
- l_DB : Im3DB;
- lCnt : Integer;
- lFoundCnt : Integer;
-
- function AnnoExists(aDocID : TDocID) : Boolean;
-
-  function HasChar : boolean;
-  var
-   lTextReader : TevEVDReader;
-   lBaseFiler  : Tl3CustomFiler;
-   lCntFilter  : TevStatisticsFilter;
-  begin
-   lTextReader := TevEVDReader.Create;
-   try
-    lBaseFiler := Tm3DBFiler.Create(l_DB, aDocID, m3_dsAnno);
-    try
-     lTextReader.Filer := lBaseFiler;
-    finally
-     l3Free(lBaseFiler);
-    end;
-    lCntFilter := TevStatisticsFilter.Create;
-    try
-     lTextReader.Generator := lCntFilter;
-     lTextReader.Execute;
-     Result := lCntFilter.CharCount > 0;
-     //aCharCount := lCntFilter.CharCount;
-     //aTableCharCount := lCntFilter.TableCharCount;
-     //aCellCount := lCntFilter.CellCount;
-    finally
-     l3Free(lCntFilter);
-    end;{try..finally}
-   finally
-    l3Free(lTextReader);
-   end;
-  end;
-
- var
-  lSize : Int64;
- begin
-  Result := False;
-
-  try
-   lSize := m2ComGetSize(l_DB.GetDocument(aDocID).Open(m3_saRead, m3_dsAnno));
-   Result := (lSize > 0) and HasChar;
-  except
-   on E: EOleSysError do
-    if (E.ErrorCode = E_NOTIMPL) OR
-       (E.ErrorCode = STG_E_INVALIDFUNCTION) OR
-       (E.ErrorCode = STG_E_INVALIDPOINTER) OR
-       (E.ErrorCode = E_UNEXPECTED) then
-    begin
-     Result := true;
-    end//E.ErrorCode = E_NOTIMPL..
-    else
-     raise;
-  end;//try..except
- end;
-
- function lRecAccessProc(aItemPtr : Pointer) : Boolean;
- var
-  s : string;
-  lID : Integer;
- begin
-  inc(lCnt);
-  if (lCnt mod 10000) = 0 then
-   l3System.Msg2Log(Format('%d', [lCnt]));
-
-  Result := True;
-  lID := PInteger(aItemPtr)^;
-  {Result := AnnoExists(lID);
-  if Result then}
-  if AnnoExists(lID) then
-  begin
-   s := inttostr(lID)+ #13#10;
-   l_TextStream.Write(S[1], length(s));
-   l3System.Msg2Log(Format('found %d', [lID]));
-   Inc(lFoundCnt);
-  end;
- end;
-
- var
-  lRAProcStub : TdtRecAccessProc;
-
-begin
- lcnt := 0;
- lFoundCnt := 0;
- DocumentServer.Family := Family;
- lSab := MakeSab(DocumentServer.FileTbl);
- //lSab := DocList.QueryProvider.Query.FoundList;
- // берем все доки у которых fHasAnno_fld = 0
- lValue := 0;
- lSab.Select(fHasAnno_fld, lValue);
-
- //lValue := 10000;
- //lSab.SubSelect(fId_Fld, lValue, LESS_EQUAL);
-
- lSab.Sort([fId_Fld]);
-
- l3System.Msg2Log(Format('Обрабатываем %d', [lSab.Count]));
- // и сканируем на реальное отсутствие текста
- l_DB := dtGetDB(Family);
- try
-
- l_TextStream := Tl3TextStream.Create('c:\list.out', l3_fmWrite);
- try
-  lRAProcStub := L2RecAccessProc(@lRecAccessProc);
-  try
-   lSab.IterateRecords(lRAProcStub, [fId_Fld]);
-  finally
-   FreeRecAccessProc(lRAProcStub);
-  end;
-
-  {lRAProcStub := L2RecAccessProc(@lRecAccessProc);
-  try
-   lSab.SubSelectUserDefined(fId_Fld, lRAProcStub);
-  finally
-   FreeRecAccessProc(lRAProcStub);
-  end;}
- finally
-  l3Free(l_TextStream);
- end;
-
- finally
-  l_DB := nil;
- end;//try..finally
-
- l3System.Msg2Log(Format('Найдено %d', [lFoundCnt]));
- lValue := 1;
- //lSab.ModifyRecs(fHasAnno_fld, lValue);
-
-end;
-*)
-
-{procedure TSearchWin.TouchGroup;
-var
- lSab : ISab;
- lValue : byte;
-begin
- DocumentServer.Family := Family;
- lSab := MakeSabCopy(DocList.QueryProvider.Query.FoundList);
-
- lValue := 1;
- lSab.ModifyRecs(fHasAnno_fld, lValue);
-end; }
-
-
-{procedure TSearchWin.TouchGroup;
- var
-  lAction : TLogActionType;
-  lSab : ISab;
-  lIDSab : ISAB;
- begin
-  lSab := MakeSabCopy(DocList.QueryProvider.MakeDocIDList);
-  //Стирает VIncluded у пачки
-  lSab.TransferToPhoto(lgDocID_Key, LinkServer(Family).LogBook);
-  lSab.RecordsByKey;
-  lAction := acIncluded;
-  lSab.SubSelect(lgAction_Key, lAction);
-  lSab.DeleteFromTable;
- end;
-}
-
-{
-сносил этапы
-procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lValue : Integer;
-begin
- lSab := MakeSab(LinkServer(Family).Attribute[atStages]);
- lValue := 2; // Бабанин
- //stBDate_Key       = 3;
- //stEDate_Key       = 4;
- //stAuthor_Key      = 5;
-
- lSab.Select(stAuthor_Key, lValue);
-
- lValue := DMYtoStDate(9, 6, 2015);
- lSab.subSelect(stBDate_Key, lValue);
- lValue := ord(stAnno);
- lSab.SubSelect(stType_Key, lValue, NOT_EQUAL);
- lValue := ord(stAnnoClass);
- lSab.SubSelect(stType_Key, lValue, NOT_EQUAL);
- lSab.DeleteFromTable;
-end;}
-
-(*procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lValue : Integer;
-begin
- lSab := MakeSab(LinkServer(Family).Attribute[atStages]);
- lValue := 179339;
- //stBDate_Key       = 3;
- //stEDate_Key       = 4;
- //stAuthor_Key      = 5;
-
- lSab.Select(stDocID_Key, lValue);
- lValue := 6;
- lSab.SubSelect(stType_Key, lValue);
- lSab.DeleteFromTable;
-
- TStageTbl(LinkServer(Family).Attribute[atStages]).
-  PutStageRec(179339, TStageType(6), 146759, 146759, 75);
-end;
-*)
-
-(*
-//исправляет номера -k:447388418
-procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lNumOffs : Word;
- lNumLen  : word;
- //lDateOffs : Word;
- //lValue :  TStDate;   l3String
- lValue : TDNType;
- lCount,
- lTotal : integer;
-
- lStr : Tl3PCharLen;
-type
- PStDate = ^TStDate;
-
- function lModifyRec(gRecNo : LongInt;fpRecord : Pointer) : MFUNC_RET;
- var
-  I : Integer;
-  lS : String;
- begin
-  inc(lCount);
-  //if (lCount mod 100000) = 0 then l3System.Msg2Log(Format('%d/%d', [lCount, lTotal]));
-
-  lStr := l3PCharLen(PChar(fpRecord) + lNumOffs, lNumLen);
-  lS := l3Str(lStr);
-  if not (lStr.s[0] in ['А','A']) then
-  begin
-   l3System.Msg2Log(Format('Начинается не с А: "%s"', [lS]));
-   Exit;
-  end;
-
-  lStr := l3FindChar('/', lStr);
-  if lStr.sLen < 4 then exit;  // удлинение номера не влезет
-  for I := 0 to 1 do
-   if not (lStr.s[I] in cc_Digits) then exit;  // не формат
-
-  if lStr.s[2] in cc_Digits then
-   Exit // уже все хорошо
-  else
-  begin
-   lStr.s[2] := lStr.s[0];
-   lStr.s[3] := lStr.s[1];
-   lStr.s[0] := '2';
-   lStr.s[1] := '0';
-   for I := 4 to pred(lStr.sLen) do
-    lStr.s[I] := ' ';
-  end;
-
-  //lStr := l3PCharLen(PChar(fpRecord) + lNumOffs, lNumLen);
-  //l3System.Msg2Log(Format('"%s" -> "%s"', [lS,  l3Str(lStr)]));
-
-  Result := MFUNC_SUCCESS;
- end;
-
-var
- lHTStub : Pointer;
- //lZeroValue :  TStDate;
-begin
- //lValue := DMYtoStDate(01, 10, 2014);
-
- lSab := MakeSab(DictServer(Family).Tbl[da_dlDateNums]);
- lValue := dnLawCaseNum;
- lSab.Select(dnTypFld, lValue);
-
- {lSab := DocList.QueryProvider.MakeDocIDList;
-
- lSab.TransferToPhoto(lnkDocIDFld, LinkServer(Family).Attribute[atDateNums]);
- lSab.RecordsByKey;
- lSab.ValuesOfKey(lnkDictIDFld);
- lSab.TransferToPhoto(dnIDFld, DictServer(Family).Tbl[da_dlDateNums]);
- lSab.RecordsByKey;
- }
-
- lValue := dnLawCaseNum;
- lSab.SubSelect(dnTypFld, lValue);
-
-
-
- lNumOffs := DictServer(Family).Tbl[da_dlDateNums].FldOffset[dnNumFld];
- lNumLen  := DictServer(Family).Tbl[da_dlDateNums].FldLength[dnNumFld];
-
- lCount := 0;
- lTotal := lSab.Count;
-
- lHTStub := HTStub3(@lModifyRec);
- try
-  DictServer(Family).Tbl[da_dlDateNums].ModifyRecs(lSab.HTSab, lHTStub, false {aDupIgnore});
- finally
-  HTStubFree(lHTStub);
- end;
- l3System.Msg2Log('All done!');
-end;
-*)
-
-(*
-// Добавление номера судебного дела в первой инстанции  -k:494533603
-procedure TSearchWin.TouchGroup;
-var
- lSab : ISAB;
- lSab_ForDelDict : ISAB;
- lSab_ForDelLink : ISAB;
- lNumOffs : Word;
- lNumLen  : word;
- //lDateOffs : Word;
- //lValue :  TStDate;   l3String
- lValue : TDNType;
- lEmptyStr : string;
- lCount,
- lTotal : integer;
- lSab_DocIDs : ISAB;
- lJoinSabDN_DocID : IJoinSAB;
-
- lStr : Tl3PCharLen;
- lAttrCache : TCacheDirectAddAttrData;
-
-type
- PStDate = ^TStDate;
-
-function lNormNumStr(lStr : Tl3PCharLen) : boolean;
- var
-  I : Integer;
-  lS : String;
- begin
-  Result := false;
-  lStr := l3FindChar('/', lStr);
-  if lStr.sLen < 4 then exit;  // удлинение номера не влезет
-  for I := 0 to 1 do
-   if not (lStr.s[I] in cc_Digits) then exit;  // не формат
-
-  if lStr.s[2] in cc_Digits then
-   //Result := True // уже все хорошо
-  else
-  begin
-   lStr.s[2] := lStr.s[0];
-   lStr.s[3] := lStr.s[1];
-   lStr.s[0] := '2';
-   lStr.s[1] := '0';
-   for I := 4 to pred(lStr.sLen) do
-    lStr.s[I] := ' ';
-  end;
-  Result := True;
- end;
-
-function lRecAccessProc(fpRecord : Pointer) : Boolean;
- begin
-  Result := True;
-  inc(lCount);
-  if (lCount mod 100000) = 0 then l3System.Msg2Log(Format('%d/%d', [lCount, lTotal]));
-
-   lStr := l3PCharLen(PChar(fpRecord) + lNumOffs, lNumLen);
-
-  if not (lStr.s[0] in ['А','A']) then
-  begin
-   l3System.Msg2Log(Format('#%d Начинается не с А: "%s"', [PInteger(fpRecord)^, l3Str(lStr)]));
-   Exit;
-  end;
-
-  if lNormNumStr(lStr) then
-  begin
-   lAttrCache.AddRecord([PInteger(fpRecord)^, 0, Tl3ConstString.MakeI(lStr), ord(dnLawCaseNum), PChar(nil), 0]);
-   //l3System.Msg2Log(Format('%d "%s"', [PInteger(fpRecord)^,  l3Str(lStr)]));
-  end;
- end;
-
-var
- //lHTStub : Pointer;
- lRAProcStub : TdtRecAccessProc;
- //lZeroValue :  TStDate;
-begin
- //lValue := DMYtoStDate(01, 10, 2014);
-
- //lSab := MakeSab(DictServer(Family).Tbl[da_dlDateNums]);
- //lValue := dnLawCaseNum;
- //lSab.Select(dnTypFld, lValue);
-
- // тут типа мы вручную нашли все доки с (группа документов = "Практика арбитражных судов первой инстанции")
- lSab := DocList.QueryProvider.MakeDocIDList;
-
- lSab.TransferToPhoto(lnkDocIDFld, LinkServer(Family).Attribute[atDateNums]);
- lSab_DocIDs := MakeSabCopy(lSab);
- lSab.RecordsByKey;
- lSab.ValuesOfKey(lnkDictIDFld);
- lSab.TransferToPhoto(dnIDFld, DictServer(Family).Tbl[da_dlDateNums]);
- lSab.RecordsByKey;
-
- lValue := dnLawCaseNum;
- lSab.SubSelect(dnTypFld, lValue);
-
- lSab_ForDelDict := MakeSabCopy(lSab);
-
- lEmptyStr := ' ';
- lSab_ForDelDict.SubSelect(dnNumFld, lEmptyStr[1]);
-
- lSab.SubtractSab(lSab_ForDelDict);
-
- lSab_ForDelLink := MakeSabCopy(lSab_ForDelDict);
- lSab_ForDelLink.ValuesOfKey(dnIDFld);
- lSab_ForDelLink.TransferToPhoto(lnkDictIDFld, LinkServer(Family).Attribute[atDateNums]);
- lSab_ForDelLink.RecordsByKey;
-
- lSab.ValuesOfKey(dnIDFld);
- lSab.TransferToPhoto(lnkDictIDFld, LinkServer(Family).Attribute[atDateNums]);
- lSab.RecordsByKey;
- lSab.ValuesOfKey(lnkDocIDFld);
-
- lSab_DocIDs.SubtractSab(lSab);
- lSab_DocIDs.RecordsByKey;
-
- lSab := MakeSabCopy(lSab_DocIDs);
- lSab.ValuesOfKey(lnkDictIDFld);
- lSab.TransferToPhoto(dnIDFld, DictServer(Family).Tbl[da_dlDateNums]);
- lSab.RecordsByKey;
- lValue := dnPublish;
- lSab.SubSelect(dnTypFld, lValue);
- lEmptyStr := ' ';
- lSab.SubSelect(dnNumFld, lEmptyStr[1], NOT_EQUAL);
-
-
- //объединение DN-DocID
- lJoinSabDN_DocID := MakeJoinSab(lSab, dnIDFld,
-                                 lSab_DocIDs, lnkDictIDFld);
-
- lJoinSabDN_DocID.Distinct(lJoinSabDN_DocID.TranslateFieldNumber([JFRec(lSab_DocIDs.Table, lnkDocIDFld)]));
-
- lNumOffs := 4;
- lNumLen  := DictServer(Family).Tbl[da_dlDateNums].FldLength[dnNumFld];
-
-
- lAttrCache := TCacheDirectAddAttrData.Create(CurrentFamily, ctDateNum);
- DictServer(Family).Tbl[da_dlDateNums].FreeNumsCacheSize := 10000;
- lCount := 0;
- lTotal := lJoinSabDN_DocID.Count;
- try
-
-  lRAProcStub := L2RecAccessProc(@lRecAccessProc);
-  try
-   lJoinSabDN_DocID.IterateJoinRecords(lRAProcStub, [JFRec(lSab_DocIDs.Table, lnkDocIDFld), JFRec(lSab.Table, dnNumFld)]);
-  finally
-   FreeRecAccessProc(lRAProcStub);
-  end;
- finally
-  l3Free(lAttrCache);
-  DictServer(Family).Tbl[da_dlDateNums].FreeNumsCacheSize := 0;
- end;
- lSab_ForDelLink.DeleteFromTable;
- lSab_ForDelDict.DeleteFromTable;
-
- l3System.Msg2Log('All done!');
-end;
-*)

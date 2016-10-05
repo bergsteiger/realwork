@@ -190,8 +190,10 @@ initialization
  {* Регистрация Tkw_TasksPanel_Control_tpvMain_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_TasksPanel));
  {* Регистрация типа Ten_TasksPanel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTasksPanelView));
  {* Регистрация типа TnscTasksPanelView }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

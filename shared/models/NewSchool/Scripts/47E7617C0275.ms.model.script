@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_47E7617C0275
+%%Inner ME_47E7617C0275
+%%Inner ME_47E7617C0275
+%%Inner ME_47E7617C0275
+%%Inner ME_47E7617C0275
+
 FORWARD ME_47E7617C0275
 
 FORWARD ME_47E761BB02FE
@@ -17,6 +23,9 @@ ME ME_47E766E10053
 
 ENDME // ME_47E766E10053 DoUpdate
 
+%%InheritedBy ME_47913F970159 ME_47E761BB02FE
+%%InheritedBy ME_47E7626B0083 ME_47E761BB02FE
+
 ME ME_47E761BB02FE
  MEPROP UID '47E761BB02FE'
  MEPROP Name 'TvcmAction'
@@ -29,8 +38,8 @@ ME ME_47E761BB02FE
  MELINK Parent HWL ME_47E7617C0275 // Actions
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47913F970159' '47913B47006E.ms.model.script' // l3Unknown
- WL 'ME_47E7626B0083' '4799D29F033F.ms.model.script' // TCustomAction
+   Seq: ( WL 'ME_47913F970159' '47913F970159.ms.model.script' // l3Unknown
+ WL 'ME_47E7626B0083' '47E76250004C.ms.model.script' // TCustomAction
  )
  ; // Inherits
  MELIST Operations
@@ -72,7 +81,7 @@ ME ME_47E7672D030D
  MEPROP Name 'anOwner'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
  ;
 
 ENDME // ME_47E7672D030D anOwner
@@ -107,7 +116,7 @@ ME ME_47E7AC3602AE
  MEPROP Name 'anItem'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E7ABCB0296' '4799D29F033F.ms.model.script' // TMenuItem
+ MELINK Target WL 'ME_47E7ABCB0296' '47E7ABAE0110.ms.model.script' // TMenuItem
  ;
 
 ENDME // ME_47E7AC3602AE anItem
@@ -145,7 +154,7 @@ ME ME_47E7B1910352
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47E7652402FF // TvcmMainMenuAction
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_47E7B1910352 
@@ -155,6 +164,8 @@ ME ME_47E766E10053_ME_47E7652402FF
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47E766E10053_ME_47E7652402FF DoUpdate
+
+%%InheritedBy ME_47E761BB02FE ME_47E7652402FF
 
 ME ME_47E7652402FF
  MEPROP UID '47E7652402FF'
@@ -277,6 +288,9 @@ ME ME_47E7617C0275
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "path prefix" '/implementation/Visual'
  UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Visual'
 

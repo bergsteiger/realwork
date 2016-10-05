@@ -2,66 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4FF3483B0041
-
-FORWARD ME_4FF34A48018C
-
-FORWARD ME_4FEDA2F10124
-
-ME ME_4FEDA30C0141
- MEPROP UID '4FEDA30C0141'
- MEPROP Name 'IsDocumentUsefulCaption'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4FEDA2F10124 // Local
- ;
- MEPROP Value '''Полезен ли документ?'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Полезен ли документ?'''
-
-ENDME // ME_4FEDA30C0141 IsDocumentUsefulCaption
-
-ME ME_4FEDA2F10124
- MEPROP UID '4FEDA2F10124'
- MEPROP Name 'Local'
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4FF34A48018C // DocumentUtil
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4FEDA30C0141 // IsDocumentUsefulCaption
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "spell names" false
-
-ENDME // ME_4FEDA2F10124 Local
-
-ME ME_4FF34A48018C
- MEPROP UID '4FF34A48018C'
- MEPROP Name 'DocumentUtil'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4FF3483B0041 // DocumentUtils
- ;
- MELIST Constants
-   Seq: ( HWL ME_4FEDA2F10124 // Local
- )
- ; // Constants
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\DocumentUtil.pas'
-
-ENDME // ME_4FF34A48018C DocumentUtil
+%%Inner ME_4FF3483B0041
 
 ME ME_4FF3483B0041
  MEPROP UID '4FF3483B0041'
@@ -74,12 +15,15 @@ ME ME_4FF3483B0041
  MELINK Parent WL 'ME_4A9F76D70283' '4A9F76D70283.ms.model.script' // View
  ;
  MELIST Children
-   Seq: ( HWL ME_4FF34A48018C // DocumentUtil
+   Seq: ( WL 'ME_4FF34A48018C' '4FF34A48018C.ms.model.script' // DocumentUtil
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4FF3483B0041 DocumentUtils

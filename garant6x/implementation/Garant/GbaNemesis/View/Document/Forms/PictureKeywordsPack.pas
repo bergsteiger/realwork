@@ -388,12 +388,18 @@ initialization
  {* Регистрация Tkw_Picture_Component_ieProc }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TPictureForm));
  {* Регистрация типа TPictureForm }
+{$If NOT Defined(NoImageEn)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnIO));
  {* Регистрация типа TImageEnIO }
+{$IfEnd} // NOT Defined(NoImageEn)
+{$If NOT Defined(NoImageEn)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnView));
  {* Регистрация типа TImageEnView }
+{$IfEnd} // NOT Defined(NoImageEn)
+{$If NOT Defined(NoImageEn)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TImageEnProc));
  {* Регистрация типа TImageEnProc }
+{$IfEnd} // NOT Defined(NoImageEn)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

@@ -1,0 +1,154 @@
+// VCMBaseTest 4B3235370235 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B3235370235
+
+FORWARD ME_4B3235370235
+
+FORWARD ME_4B30EEEB01EF
+
+ME ME_4B3235790113
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4B3235790113 
+
+FORWARD ME_4B323587024D
+
+ME ME_4B32359B0123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ MELINK Target HWL ME_4B323587024D // FreeMM
+ ;
+
+ENDME // ME_4B32359B0123 
+
+ME ME_4B3235B1023A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4B3235B1023A 
+
+ME ME_55019A3D01DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B30EEEB01EF // TVCMBaseTest
+ ;
+ MELINK Target WL 'ME_550199070251' '550198F60382.ms.model.script' // Tl3MenuManagerHelper
+ ;
+
+ENDME // ME_55019A3D01DF 
+
+ME ME_4B30EEA10210_ME_4B30EEEB01EF
+ MELINK Original WL 'ME_4B30EEA10210' '4B2A0DCE03A9.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B30EEA10210_ME_4B30EEEB01EF InitFields
+
+%%InheritedBy ME_4B2A11BC0255 ME_4B30EEEB01EF
+
+ME ME_4B30EEEB01EF
+ MEPROP UID '4B30EEEB01EF'
+ MEPROP Name 'TVCMBaseTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый тест для тестирования объектов VCM' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B3235370235 // VCMBaseTest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4B30EEA10210_ME_4B30EEEB01EF // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B3235790113 // l3Base
+ ME_4B32359B0123 // FreeMM
+ ME_4B3235B1023A // FreeAndNil
+ ME_55019A3D01DF // Tl3MenuManagerHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '22.12.2009 20:07'
+ UP extprop:rc:SelfName 'VCMBaseTest'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B30EEEB01EF TVCMBaseTest
+
+ME ME_4B3235920286
+ MEPROP UID '4B3235920286'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B323587024D // FreeMM
+ ;
+
+ENDME // ME_4B3235920286 DoIt
+
+ME ME_4B323587024D
+ MEPROP UID '4B323587024D'
+ MEPROP Name 'FreeMM'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B3235370235 // VCMBaseTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B3235920286 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B323587024D FreeMM
+
+ME ME_4B3235370235
+ MEPROP UID '4B3235370235'
+ MEPROP Name 'VCMBaseTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B30FC850092' '4B30FC850092.ms.model.script' // VCM_TFW
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B323587024D // FreeMM
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B30EEEB01EF // TVCMBaseTest
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'NoVCM'
+ UP "no hands" true
+ UP "started" '23.12.209 18:30'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\VCMBaseTest.pas'
+
+ENDME // ME_4B3235370235 VCMBaseTest

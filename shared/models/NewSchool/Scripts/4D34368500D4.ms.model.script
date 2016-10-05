@@ -2,49 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4D34368500D4
-
-FORWARD ME_4D343693030A
-
-ME ME_4D3436B2011A
- MEPROP UID '4D3436B2011A'
- MEPROP Name 'TvcmCustOpsNotifier'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4D343693030A // vcmTasksPanel
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47F07B3E02E4' '47913B47006E.ms.model.script' // l3Notifier
- WL 'ME_47F25BEE0389' '47D0E1500033.ms.model.script' // TvcmBase
- )
- ; // Inherits
- UP extprop:rc:SelfName 'CustOpsNotifier'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4D3436B2011A TvcmCustOpsNotifier
-
-ME ME_4D343693030A
- MEPROP UID '4D343693030A'
- MEPROP Name 'vcmTasksPanel'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4D34368500D4 // TasksPanel
- ;
- MELIST Children
-   Seq: ( HWL ME_4D3436B2011A // TvcmCustOpsNotifier
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmTasksPanel.pas'
- UP extprop:rc:SelfName 'TasksPanel'
-
-ENDME // ME_4D343693030A vcmTasksPanel
+%%Inner ME_4D34368500D4
 
 ME ME_4D34368500D4
  MEPROP UID '4D34368500D4'
@@ -57,7 +15,7 @@ ME ME_4D34368500D4
  MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
  ;
  MELIST Children
-   Seq: ( HWL ME_4D343693030A // vcmTasksPanel
+   Seq: ( WL 'ME_4D343693030A' '4D343693030A.ms.model.script' // vcmTasksPanel
  )
  ; // Children
  MELIST Depends
@@ -65,6 +23,9 @@ ME ME_4D34368500D4
  WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "path prefix" '/implementation'
  UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation'
 

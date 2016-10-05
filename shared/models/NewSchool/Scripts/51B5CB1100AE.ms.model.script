@@ -1,0 +1,96 @@
+// DefineSearchDateUtils 51B5CB1100AE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51B5CB1100AE
+
+FORWARD ME_51B5CA81031F
+
+ME ME_51B5CAA003B3
+ MEPROP Name 'Item1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_51B5CAA003B3 Item1
+
+ME ME_51B5CAA1000C
+ MEPROP Name 'Item2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_51B5CAA1000C Item2
+
+ME ME_51B5CA9700A9
+ MEPROP UID '51B5CA9700A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B5CA81031F // CompareButtons
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_51B5CAA003B3 // Item1
+ ME_51B5CAA1000C // Item2
+ )
+ ; // Parameters
+
+ENDME // ME_51B5CA9700A9 DoIt
+
+ME ME_51B5CA81031F
+ MEPROP UID '51B5CA81031F'
+ MEPROP Name 'CompareButtons'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51B5CB1100AE // DefineSearchDateUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B5CA9700A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51B5CA81031F CompareButtons
+
+ME ME_51B5CBBB014F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51B5CB1100AE // DefineSearchDateUtils
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_51B5CBBB014F 
+
+ME ME_51B5CB1100AE
+ MEPROP UID '51B5CB1100AE'
+ MEPROP Name 'DefineSearchDateUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AA6418F02AD' '4AA6418F02AD.ms.model.script' // Search
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51B5CA81031F // CompareButtons
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_51B5CBBB014F // Controls
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Search\DefineSearchDateUtils.pas'
+
+ENDME // ME_51B5CB1100AE DefineSearchDateUtils

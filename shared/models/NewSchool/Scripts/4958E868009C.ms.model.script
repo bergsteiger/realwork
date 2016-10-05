@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4958E868009C
+%%Inner ME_4958E868009C
+
 FORWARD ME_4958E868009C
 
 ME ME_4BD6DC630189
@@ -68,6 +71,10 @@ ME ME_4BDAF7B803CF_ME_523C85BD022C
  UP "is query" false
  UP "no prefix" false
 ENDME // ME_4BDAF7B803CF_ME_523C85BD022C Wrap
+
+%%ImplementedBy ME_4BDAF7790158 ME_523C85BD022C
+
+%%InheritedBy ME_4BD6DC630189 ME_523C85BD022C
 
 ME ME_523C85BD022C
  MEPROP UID '523C85BD022C'
@@ -139,6 +146,8 @@ FORWARD ME_523C07150156
 
 FORWARD ME_523C086601D4
 
+%%InheritedBy ME_4AC9C6C301EC ME_523C08A002BF
+
 ME ME_523C08A002BF
  MEPROP UID '523C08A002BF'
  MEPROP Name 'tvLastOpenDocs'
@@ -160,6 +169,8 @@ ME ME_523C08A002BF
 
 ENDME // ME_523C08A002BF tvLastOpenDocs
 
+%%InheritedBy ME_4AC9C69B016C ME_523C086601D4
+
 ME ME_523C086601D4
  MEPROP UID '523C086601D4'
  MEPROP Name 'hfLastOpenDocs'
@@ -179,6 +190,9 @@ ME ME_523C086601D4
    Seq: ( HWL ME_523C08A002BF // tvLastOpenDocs
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'TnscHideField'
  UP "need Caption" false
  UP "pm" true
@@ -219,6 +233,9 @@ ME ME_523C091503C7
    Seq: ( HWL ME_523C093D03B7 // tvReferencesAndDictionaries
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'TnscHideField'
  UP "pm" true
  UP "put to dfm" true
@@ -258,6 +275,9 @@ ME ME_523C0954020B
    Seq: ( HWL ME_523C099B01B1 // tvReferencePharmaceuticalInformation
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'TnscHideField'
  UP "pm" true
  UP "put to dfm" true
@@ -297,6 +317,9 @@ ME ME_523C09B30326
    Seq: ( HWL ME_523C09D90031 // tvMainFeatures
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'TnscHideField'
  UP "pm" true
  UP "put to dfm" true
@@ -336,11 +359,16 @@ ME ME_523C0A000002
    Seq: ( HWL ME_523C0A140035 // tvRegulatoryInformation
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'TnscHideField'
  UP "pm" true
  UP "put to dfm" true
 
 ENDME // ME_523C0A000002 hfRegulatoryInformation
+
+%%InheritedBy ME_4AC9B24403CD ME_523C07150156
 
 ME ME_523C07150156
  MEPROP UID '523C07150156'
@@ -364,6 +392,9 @@ ME ME_523C07150156
  HWL ME_523C0A000002 // hfRegulatoryInformation
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
  UP "need Caption" false
  UP "pm" true
@@ -376,7 +407,7 @@ ME ME_523C74BD030A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_4AC9B15903E7' '4AC9B14A02E3.ms.model.script' // nscArrangeGrid
+ MELINK Target WL 'ME_4AC9B15903E7' '4AC9B15903E7.ms.model.script' // nscArrangeGrid
  ;
 
 ENDME // ME_523C74BD030A 
@@ -386,7 +417,7 @@ ME ME_523C74C102EE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
  ;
 
 ENDME // ME_523C74C102EE 
@@ -396,7 +427,7 @@ ME ME_523C74C40061
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
  ;
 
 ENDME // ME_523C74C40061 
@@ -406,7 +437,7 @@ ME ME_523C74C60369
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47F260EC02C7' '521C9DA50125.ms.model.script' // StdRes
+ MELINK Target WL 'ME_47F260EC02C7' '47F260EC02C7.ms.model.script' // StdRes
  ;
 
 ENDME // ME_523C74C60369 
@@ -416,7 +447,7 @@ ME ME_523C74C90180
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
  ;
 
 ENDME // ME_523C74C90180 
@@ -426,7 +457,7 @@ ME ME_523C74CC015E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_4AC9DB95006B' '4AC9B14A02E3.ms.model.script' // nscArrangeGridCell
+ MELINK Target WL 'ME_4AC9DB95006B' '4AC9DB95006B.ms.model.script' // nscArrangeGridCell
  ;
 
 ENDME // ME_523C74CC015E 
@@ -436,7 +467,7 @@ ME ME_523C74CE02BB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL 'ME_47FB50E4008E' '47FB50E4008E.ms.model.script' // nsConst
  ;
 
 ENDME // ME_523C74CE02BB 
@@ -446,7 +477,7 @@ ME ME_523C74D10096
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ MELINK Target WL 'ME_47D15712022D' '47D15712022D.ms.model.script' // Graphics
  ;
 
 ENDME // ME_523C74D10096 
@@ -456,7 +487,7 @@ ME ME_523C74D302E2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_4AD59B96038C' '4AC9B14A02E3.ms.model.script' // nscTabTableCell
+ MELINK Target WL 'ME_4AD59B96038C' '4AD59B96038C.ms.model.script' // nscTabTableCell
  ;
 
 ENDME // ME_523C74D302E2 
@@ -476,7 +507,7 @@ ME ME_523C74D9022D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_523C74D9022D 
@@ -486,7 +517,7 @@ ME ME_523C74DF03B0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_4AA7E9CB034A' '4AA7E9B9016C.ms.model.script' // MedicMainMenuRes
+ MELINK Target WL 'ME_4AA7E9CB034A' '4AA7E9CB034A.ms.model.script' // MedicMainMenuRes
  ;
 
 ENDME // ME_523C74DF03B0 
@@ -496,7 +527,7 @@ ME ME_523C74E30001
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_49258B61023C' '4C6ABB3201AC.ms.model.script' // bsDataContainer
+ MELINK Target WL 'ME_49258B61023C' '49258B61023C.ms.model.script' // bsDataContainer
  ;
 
 ENDME // ME_523C74E30001 
@@ -506,7 +537,7 @@ ME ME_523C74E501D6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_4AA7E9E60251' '4AAA216F032C.ms.model.script' // MainMenuNewRes
+ MELINK Target WL 'ME_4AA7E9E60251' '4AA7E9E60251.ms.model.script' // MainMenuNewRes
  ;
 
 ENDME // ME_523C74E501D6 
@@ -526,7 +557,7 @@ ME ME_523C74EB001C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ MELINK Target WL 'ME_4A6854C70390' '4A6854C70390.ms.model.script' // nsTypes
  ;
 
 ENDME // ME_523C74EB001C 
@@ -576,7 +607,7 @@ ME ME_523C74F90272
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_49895C3C02D6' '48F747EC0073.ms.model.script' // nsOpenUtils
+ MELINK Target WL 'ME_49895C3C02D6' '49895C3C02D6.ms.model.script' // nsOpenUtils
  ;
 
 ENDME // ME_523C74F90272 
@@ -606,7 +637,7 @@ ME ME_543E5E700297
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ MELINK Target WL 'ME_53BA488F00D8' '53BA488F00D8.ms.model.script' // nsTabbedInterfaceTypes
  ;
 
 ENDME // ME_543E5E700297 
@@ -616,7 +647,7 @@ ME ME_54E34598032D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ MELINK Target WL 'ME_47F25BC801DB' '47F25BC801DB.ms.model.script' // vcmBase
  ;
 
 ENDME // ME_54E34598032D 
@@ -626,7 +657,7 @@ ME ME_54E345C001C1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4958E868009C // InpharmMainMenu
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
  ;
 
 ENDME // ME_54E345C001C1 
@@ -648,7 +679,7 @@ ME ME_4AC9B6D00250_ME_4958E868009C
 ENDME // ME_4AC9B6D00250_ME_4958E868009C DoBuildGrid
 
 ME ME_47EA4E9002C6_ME_4958E868009C
- MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47EA4E9002C6_ME_4958E868009C FinishDataUpdate
@@ -660,7 +691,7 @@ ME ME_49803F5503AA_ME_4958E868009C
 ENDME // ME_49803F5503AA_ME_4958E868009C DoInit
 
 ME ME_4A8E8F2E0195_ME_4958E868009C
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4958E868009C InitControls
@@ -696,10 +727,14 @@ ME ME_53F1C6EF02C9_ME_4958E868009C
 ENDME // ME_53F1C6EF02C9_ME_4958E868009C DoGetTabCaption
 
 ME ME_543E3AA801D0_ME_4958E868009C
- MELINK Original WL 'ME_543E3AA801D0' '533D53FF00C2.ms.model.script' // DoGetTabImageIndex
+ MELINK Original WL 'ME_543E3AA801D0' '543E3A600253.ms.model.script' // DoGetTabImageIndex
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_543E3AA801D0_ME_4958E868009C DoGetTabImageIndex
+
+%%ImplementedBy ME_543E3A600253 ME_4958E868009C
+
+%%InheritedBy ME_4958DD7002B6 ME_4958E868009C
 
 ME ME_4958E868009C
  MEPROP UID '4958E868009C'
@@ -718,7 +753,7 @@ ME ME_4958E868009C
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_543E3A600253' '533D53FF00C2.ms.model.script' // vcmChromeLikeTabIconUpdater
+   Seq: ( WL 'ME_543E3A600253' '543E3A600253.ms.model.script' // vcmChromeLikeTabIconUpdater
  )
  ; // Implements
  MELIST Attributes
@@ -780,6 +815,9 @@ ME ME_4958E868009C
  ME_54E34619016F // MedicMainMenu
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "NeedsHackRef" true
  UP "ZoneType" 'Any'
  UP "author" 'Ëþëèí À.Â.'

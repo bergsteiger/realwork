@@ -1,0 +1,81 @@
+// bsDataContainer 49258B61023C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49258B61023C
+%%Inner ME_49258B61023C
+%%Inner ME_49258B61023C
+
+FORWARD ME_49258B61023C
+
+ME ME_49258B760225
+ MEPROP UID '49258B760225'
+ MEPROP Name 'TbsMedicFirmNodeContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49258B61023C // bsDataContainer
+ ;
+ UP extprop:rc:SelfName 'bsMedicFirmNodeContainer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_49258B760225 TbsMedicFirmNodeContainer
+
+ME ME_493D4D8501D8
+ MEPROP UID '493D4D8501D8'
+ MEPROP Name 'TbsNestedDocumentContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49258B61023C // bsDataContainer
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'bsNestedDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_493D4D8501D8 TbsNestedDocumentContainer
+
+ME ME_4B1E84EF03CC
+ MEPROP UID '4B1E84EF03CC'
+ MEPROP Name 'TbsDocumentContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49258B61023C // bsDataContainer
+ ;
+ UP extprop:rc:SelfName 'bsDocumentContainer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4B1E84EF03CC TbsDocumentContainer
+
+ME ME_49258B61023C
+ MEPROP UID '49258B61023C'
+ MEPROP Name 'bsDataContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Модуль содержит реализации контейнеров данных. Получение данных с адаптера'#13#10'   может занимать длительное время, поэтому вводятся контейнеры данных, которые'#13#10'   возвращают данные по первому требованию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4C6ABB3201AC' '4C6ABB3201AC.ms.model.script' // DocInfo
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49258B760225 // TbsMedicFirmNodeContainer
+ HWL ME_493D4D8501D8 // TbsNestedDocumentContainer
+ HWL ME_4B1E84EF03CC // TbsDocumentContainer
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1DocumentProcessing\NOT_FINISHED_bsDataContainer.pas'
+
+ENDME // ME_49258B61023C bsDataContainer

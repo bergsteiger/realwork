@@ -36,6 +36,7 @@ constructor _msmConcreteModelOperation_.Create(const aCaption: AnsiString;
 //#UC END# *57CEB5F50141_57CEB54C02B6_var*
 begin
 //#UC START# *57CEB5F50141_57CEB54C02B6_impl*
+ Assert(aModel <> nil);
  f_Model := aModel;
  inherited Create(aCaption, aModel);
 //#UC END# *57CEB5F50141_57CEB54C02B6_impl*

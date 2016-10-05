@@ -1,0 +1,54 @@
+// evSectionPara 480CA9AD0198 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_480CA9AD0198
+
+ME ME_480CA9ED0097
+ MEPROP Name 'aParas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_480CA9ED0097 aParas
+
+ME ME_480CA9E3003D
+ MEPROP UID '480CA9E3003D'
+ MEPROP Name 'evGetPaperSizeName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_480CA9AD0198 // evSectionPara
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_480CA9ED0097 // aParas
+ )
+ ; // Parameters
+
+ENDME // ME_480CA9E3003D evGetPaperSizeName
+
+ME ME_480CA9AD0198
+ MEPROP UID '480CA9AD0198'
+ MEPROP Name 'evSectionPara'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_480CA9E3003D // evGetPaperSizeName
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" false
+ UP "started" '16.04.2001 15:24'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evSectionPara.pas'
+ UP extprop:rc:SelfName 'SectionPara'
+
+ENDME // ME_480CA9AD0198 evSectionPara

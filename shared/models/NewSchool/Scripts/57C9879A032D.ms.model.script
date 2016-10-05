@@ -1,0 +1,105 @@
+// msmMEListViewController 57C9879A032D Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57C9879A032D
+
+ME ME_57C99B850393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57C9879A032D // msmMEListViewController
+ ;
+ MELINK Target WL 'ME_57ADBA39026E' '57C99A680247.ms.model.script' // ListChangedEvent
+ ;
+
+ENDME // ME_57C99B850393 
+
+ME ME_57C99C870332
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57C9879A032D // msmMEListViewController
+ ;
+ MELINK Target WL 'ME_57B2B0C602DF' '57C99A680247.ms.model.script' // ActionElementEvent
+ ;
+
+ENDME // ME_57C99C870332 
+
+ME ME_57D1323701AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_consume::Dependency ;
+ MELINK Parent HWL ME_57C9879A032D // msmMEListViewController
+ ;
+ MELINK Target WL 'ME_57B31D1000FA' '57C99A680247.ms.model.script' // CurrentElementChangedEvent
+ ;
+
+ENDME // ME_57D1323701AB 
+
+ME ME_57D13C590375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C9879A032D // msmMEListViewController
+ ;
+ MELINK Target WL 'ME_57A9F4D30086' '57A9F4A003C8.ms.model.script' // ImsmModelElement
+ ;
+
+ENDME // ME_57D13C590375 
+
+ME ME_57D94E90032D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57C9879A032D // msmMEListViewController
+ ;
+ MELINK Target WL 'ME_49213DFA02CB' '49213DFA02CB.ms.model.script' // vtStdRes
+ ;
+
+ENDME // ME_57D94E90032D 
+
+ME ME_57ADFB33027D_ME_57C9879A032D
+ MELINK Original WL 'ME_57ADFB33027D' '57AB5C9A00F3.ms.model.script' // InitOwnView
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57ADFB33027D_ME_57C9879A032D InitOwnView
+
+%%ImplementedBy ME_57C977AE0264 ME_57C9879A032D
+
+%%InheritedBy ME_57B6C958008A ME_57C9879A032D
+
+ME ME_57C9879A032D
+ MEPROP UID '57C9879A032D'
+ MEPROP Name 'msmMEListViewController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57B6C958008A' '57B6C958008A.ms.model.script' // msmListViewController
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57C977AE0264' '57C977AE0264.ms.model.script' // msmMEListLikeViewController
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_57ADFB33027D_ME_57C9879A032D // InitOwnView
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57C99B850393 // ListChangedEvent
+ ME_57C99C870332 // ActionElementEvent
+ ME_57D1323701AB // CurrentElementChangedEvent
+ ME_57D13C590375 // ImsmModelElement
+ ME_57D94E90032D // vtStdRes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmMEListViewController.imp.pas'
+ UP extprop:pas:TypeName '_msmMEListViewController_'
+ UP extprop:pas:UnitName 'msmMEListViewController.imp'
+
+ENDME // ME_57C9879A032D msmMEListViewController

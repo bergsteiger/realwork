@@ -1,0 +1,71 @@
+// ddHTMLWriterRes 4B9E548D0157 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B9E548D0157
+
+FORWARD ME_4B9E54E5031B
+
+ME ME_4B9E552502AC
+ MEPROP UID '4B9E552502AC'
+ MEPROP Name 'MultiLinkTitle'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9E54E5031B // Local
+ ;
+ MEPROP Value '''%s - Список множественных ссылок'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''%s - Список множественных ссылок'''
+
+ENDME // ME_4B9E552502AC MultiLinkTitle
+
+ME ME_4B9E54E5031B
+ MEPROP UID '4B9E54E5031B'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B9E548D0157 // ddHTMLWriterRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B9E552502AC // MultiLinkTitle
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'ddmm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'ddmm'
+
+ENDME // ME_4B9E54E5031B Local
+
+ME ME_4B9E548D0157
+ MEPROP UID '4B9E548D0157'
+ MEPROP Name 'ddHTMLWriterRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F4BA770180' '48F4BA770180.ms.model.script' // Writers
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B9E54E5031B // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '15.03.2010 18:39'
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddHTMLWriterRes.pas'
+
+ENDME // ME_4B9E548D0157 ddHTMLWriterRes

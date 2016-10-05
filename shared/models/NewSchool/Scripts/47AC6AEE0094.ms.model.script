@@ -1,0 +1,109 @@
+// k2OwnedTagObject 47AC6AEE0094 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47AC6AEE0094
+
+ME ME_4D0A3D330197
+ MEPROP UID '4D0A3D330197'
+ MEPROP Name 'f_Owner'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4D0A3D330197 f_Owner
+
+ME ME_4A4E24EF02AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ MELINK Target WL 'ME_4A4E24A103BD' '47AC6F0B025E.ms.model.script' // Tk2TypeTable
+ ;
+
+ENDME // ME_4A4E24EF02AF 
+
+ME ME_4A6433A502FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A6433A502FE 
+
+ME ME_53281279015E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
+ ;
+ MELINK Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.ms.model.script' // Tk2NullTagImpl
+ ;
+
+ENDME // ME_53281279015E 
+
+ME ME_479F2B3302C1_ME_47AC6AEE0094
+ MELINK Original WL 'ME_479F2B3302C1' '47913F4E02E0.ms.model.script' // BeforeAddToCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479F2B3302C1_ME_47AC6AEE0094 BeforeAddToCache
+
+ME ME_53343980014A_ME_47AC6AEE0094
+ MELINK Original WL 'ME_53343980014A' '53317D14019D.ms.model.script' // TagOwner
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" true
+ENDME // ME_53343980014A_ME_47AC6AEE0094 TagOwner
+
+%%ImplementedBy ME_4A5CB93700CF ME_47AC6AEE0094
+%%ImplementedBy ME_532878C00034 ME_47AC6AEE0094
+
+ME ME_47AC6AEE0094
+ MEPROP UID '47AC6AEE0094'
+ MEPROP Name 'k2OwnedTagObject'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тег имеющий ссылку на владельца' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49A5895D00AF' '49A5895D00AF.ms.model.script' // k2CoreMixins
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ WL 'ME_532878C00034' '47913B47006E.ms.model.script' // Ml3VariantMirror
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4D0A3D330197 // f_Owner
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479F2B3302C1_ME_47AC6AEE0094 // BeforeAddToCache
+ ME_53343980014A_ME_47AC6AEE0094 // TagOwner
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A4E24EF02AF // Tk2TypeTable
+ ME_4A6433A502FE // SysUtils
+ ME_53281279015E // Tk2NullTagImpl
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '02.12.2005 17:16'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas'
+ UP extprop:pas:TypeName '_k2OwnedTagObject_'
+ UP extprop:pas:UnitName 'k2OwnedTagObject.imp'
+
+ENDME // ME_47AC6AEE0094 k2OwnedTagObject

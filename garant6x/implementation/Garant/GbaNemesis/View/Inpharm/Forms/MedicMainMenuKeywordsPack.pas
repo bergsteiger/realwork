@@ -1385,12 +1385,16 @@ initialization
  {* Регистрация Tkw_MedicMainMenu_Control_tvLastOpenDocs_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Ten_MedicMainMenu));
  {* Регистрация типа Ten_MedicMainMenu }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscHideField));
  {* Регистрация типа TnscHideField }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewWithAdapterDragDrop));
  {* Регистрация типа TnscTreeViewWithAdapterDragDrop }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewHotTruck));
  {* Регистрация типа TnscTreeViewHotTruck }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)

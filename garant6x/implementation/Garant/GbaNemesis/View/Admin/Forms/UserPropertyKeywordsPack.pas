@@ -2697,10 +2697,14 @@ initialization
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtLabel));
  {* Регистрация типа TvtLabel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscComboBoxWithPwdChar));
  {* Регистрация типа TnscComboBoxWithPwdChar }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEdit));
  {* Регистрация типа TnscEdit }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtComboBoxQS));
  {* Регистрация типа TvtComboBoxQS }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtCheckBox));

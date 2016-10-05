@@ -2,118 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_502BC6B600F3
-
-FORWARD ME_502BC6DC00F4
-
-FORWARD ME_502CEFC803B2
-
-ME ME_502BC739002B
- MEPROP UID '502BC739002B'
- MEPROP Name 'DockList'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_502CEFC803B2 // TvcmToolbarDockListManager
- ;
- MELINK Target WL 'ME_502BC72401EC' '47D0E1500033.ms.model.script' // TvcmObjectList
- ;
- UP "needs field" true
- UP "pm" true
-
-ENDME // ME_502BC739002B DockList
-
-FORWARD ME_502CF050026B
-
-ME ME_502CF06A02CD
- MEPROP UID '502CF06A02CD'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_502CF050026B // Exists
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_502CF06A02CD DoIt
-
-ME ME_502CF050026B
- MEPROP UID '502CF050026B'
- MEPROP Name 'Exists'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_502CEFC803B2 // TvcmToolbarDockListManager
- ;
- MELIST Operations
-   Seq: ( HWL ME_502CF06A02CD // DoIt
- )
- ; // Operations
- UP "is static" true
-
-ENDME // ME_502CF050026B Exists
-
-ME ME_479731C50290_ME_502CEFC803B2
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_502CEFC803B2 Cleanup
-
-ME ME_502CEFC803B2
- MEPROP UID '502CEFC803B2'
- MEPROP Name 'TvcmToolbarDockListManager'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_502BC6DC00F4 // vcmToolbarUtils
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_502BC739002B // DockList
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_502CF050026B // Exists
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_502CEFC803B2 // Cleanup
- )
- ; // Overridden
- UP "singleton" true
- UP extprop:rc:SelfName 'ToolbarDockListManager'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_502CEFC803B2 TvcmToolbarDockListManager
-
-ME ME_502BC6DC00F4
- MEPROP UID '502BC6DC00F4'
- MEPROP Name 'vcmToolbarUtils'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_502BC6B600F3 // vcmToolbarUnit
- ;
- MELIST Children
-   Seq: ( HWL ME_502CEFC803B2 // TvcmToolbarDockListManager
- )
- ; // Children
- UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmToolbarUtils.pas'
- UP extprop:rc:SelfName 'ToolbarUtils'
-
-ENDME // ME_502BC6DC00F4 vcmToolbarUtils
+%%Inner ME_502BC6B600F3
 
 ME ME_502BC6B600F3
  MEPROP UID '502BC6B600F3'
@@ -126,7 +15,7 @@ ME ME_502BC6B600F3
  MELINK Parent WL 'ME_4790C3B8021E' '4790C3B8021E.ms.model.script' // VCM
  ;
  MELIST Children
-   Seq: ( HWL ME_502BC6DC00F4 // vcmToolbarUtils
+   Seq: ( WL 'ME_502BC6DC00F4' '502BC6DC00F4.ms.model.script' // vcmToolbarUtils
  )
  ; // Children
  MELIST Depends
@@ -135,5 +24,8 @@ ME ME_502BC6B600F3
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_502BC6B600F3 vcmToolbarUnit

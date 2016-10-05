@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4E25969000FF
+
 FORWARD ME_4E25969000FF
 
 FORWARD ME_4DC3FE5D03B4
@@ -33,16 +35,18 @@ ME ME_4EA807C40295
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DC3FE5D03B4 // TF1AutoTestSuite
  ;
- MELINK Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.ms.model.script' // TestFrameWork
+ MELINK Target WL 'ME_4B2A0DCE03A9' '4B2A0DCE03A9.ms.model.script' // TestFrameWork
  ;
 
 ENDME // ME_4EA807C40295 
 
 ME ME_5040A3CE0118_ME_4DC3FE5D03B4
- MELINK Original WL 'ME_5040A3CE0118' '4B2A0D6A0077.ms.model.script' // DoReReadAbstractTests
+ MELINK Original WL 'ME_5040A3CE0118' '4B2A0DCE03A9.ms.model.script' // DoReReadAbstractTests
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_5040A3CE0118_ME_4DC3FE5D03B4 DoReReadAbstractTests
+
+%%InheritedBy ME_51307830007E ME_4DC3FE5D03B4
 
 ME ME_4DC3FE5D03B4
  MEPROP UID '4DC3FE5D03B4'
@@ -71,6 +75,9 @@ ME ME_4DC3FE5D03B4
  ME_4EA807C40295 // TestFrameWork
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifdef" 'nsTest'
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\F1AutoTestSuite.pas'
  UP extprop:rc:SelfName 'F1AutoTestSuite'
@@ -100,5 +107,8 @@ ME ME_4E25969000FF
  WL 'ME_5130776E01BE' '5130776E01BE.ms.model.script' // DUnitKeyWordsSupport
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4E25969000FF AutoTests

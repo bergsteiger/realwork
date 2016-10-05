@@ -266,8 +266,10 @@ initialization
  {* Регистрация скриптованой аксиоматики }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBar));
  {* Регистрация типа TnscStatusBar }
+{$If NOT Defined(NoVCL)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TControl));
  {* Регистрация типа TControl }
+{$IfEnd} // NOT Defined(NoVCL)
  TtfwTypeRegistrator.RegisterType(TypeInfo(Integer));
  {* Регистрация типа Integer }
 {$IfEnd} // Defined(Nemesis) AND NOT Defined(NoScripts)

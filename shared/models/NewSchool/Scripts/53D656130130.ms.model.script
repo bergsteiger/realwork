@@ -2,6 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+%%Inner ME_53D656130130
+
 FORWARD ME_53D656130130
 
 FORWARD ME_5385C5B200E6
@@ -12,7 +23,7 @@ ME ME_5385C6380308
  MEPROP Name 'aTask'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_52FA49DF00EF' '52FA49B901D3.ms.model.script' // TddTaskItem
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
  ;
 
 ENDME // ME_5385C6380308 aTask
@@ -21,7 +32,7 @@ ME ME_5385C6380321
  MEPROP Name 'aStatus'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532047060349' '52FA49B901D3.ms.model.script' // TcsTaskStatus
+ MELINK Target WL 'ME_532047060349' '532046D302C2.ms.model.script' // TcsTaskStatus
  ;
 
 ENDME // ME_5385C6380321 aStatus
@@ -60,22 +71,26 @@ ME ME_5385C616025E
 ENDME // ME_5385C616025E DoTaskChanged
 
 ME ME_5385C23A0106_ME_5385C5B200E6
- MELINK Original WL 'ME_5385C23A0106' '53C51B390355.ms.model.script' // TaskChanged
+ MELINK Original WL 'ME_5385C23A0106' '5385C1C902F5.ms.model.script' // TaskChanged
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_5385C23A0106_ME_5385C5B200E6 TaskChanged
 
 ME ME_479731C50290_ME_5385C5B200E6
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_5385C5B200E6 Cleanup
 
 ME ME_47A042E100E2_ME_5385C5B200E6
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_5385C5B200E6 InitFields
+
+%%ImplementedBy ME_5385C20A0347 ME_5385C5B200E6
+
+%%InheritedBy ME_49E7754802A9 ME_5385C5B200E6
 
 ME ME_5385C5B200E6
  MEPROP UID '5385C5B200E6'
@@ -92,7 +107,7 @@ ME ME_5385C5B200E6
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_5385C20A0347' '53C51B390355.ms.model.script' // IcsTaskListener
+   Seq: ( WL 'ME_5385C20A0347' '5385C1C902F5.ms.model.script' // IcsTaskListener
  )
  ; // Implements
  MELIST Operations
@@ -108,6 +123,9 @@ ME ME_5385C5B200E6
  ME_47A042E100E2_ME_5385C5B200E6 // InitFields
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\ddServerTaskManagerPrim.pas'
  UP extprop:rc:SelfName 'ddServerTaskManagerPrim'
  UP extprop:rc:isAcceptableForScripts true
@@ -146,7 +164,7 @@ ME ME_55E952E90084
  MELINK Parent HWL ME_55E9529F02DA // TShortNameIndex
  ;
  MEPROP Value 'cSourceShortNameLen'
- MELINK ValueType WL 'ME_55E94F580288' '47BC50280350.ms.model.script' // cLengths
+ MELINK ValueType WL 'ME_55E94F580288' '55E7042003D3.ms.model.script' // cLengths
  ;
  UP "AutoInc" false
  UP "forced type" 'none'
@@ -154,6 +172,8 @@ ME ME_55E952E90084
  UP extprop:pas:Value 'dt_DictConst.cSourceShortNameLen'
 
 ENDME // ME_55E952E90084 Last
+
+%%InheritedBy ME_46A606AC03B2 ME_55E9529F02DA
 
 ME ME_55E9529F02DA
  MEPROP UID '55E9529F02DA'
@@ -166,7 +186,7 @@ ME ME_55E9529F02DA
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+   Seq: ( WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  )
  ; // Inherits
  MELIST Attributes
@@ -207,7 +227,7 @@ ME ME_55E96026031F
  MELINK Parent HWL ME_55E95FFD0022 // TSynonimsIndex
  ;
  MEPROP Value 'cSourceSynonimsLen'
- MELINK ValueType WL 'ME_55E94F580288' '47BC50280350.ms.model.script' // cLengths
+ MELINK ValueType WL 'ME_55E94F580288' '55E7042003D3.ms.model.script' // cLengths
  ;
  UP "AutoInc" false
  UP "forced type" 'none'
@@ -215,6 +235,8 @@ ME ME_55E96026031F
  UP extprop:pas:Value 'dt_DictConst.cSourceSynonimsLen'
 
 ENDME // ME_55E96026031F Last
+
+%%InheritedBy ME_46A606AC03B2 ME_55E95FFD0022
 
 ME ME_55E95FFD0022
  MEPROP UID '55E95FFD0022'
@@ -227,7 +249,7 @@ ME ME_55E95FFD0022
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+   Seq: ( WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  )
  ; // Inherits
  MELIST Attributes
@@ -249,10 +271,12 @@ ME ME_560E6081032F
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_55E96055023B // TShortNameArray
  ;
- MELINK Target WL 'ME_482C48430205' '4AB0C3C60310.ms.model.script' // Char
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
  ;
 
 ENDME // ME_560E6081032F 
+
+%%InheritedBy ME_55E9529F02DA ME_55E96055023B
 
 ME ME_55E96055023B
  MEPROP UID '55E96055023B'
@@ -286,10 +310,12 @@ ME ME_560E608600E6
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_55E96073020D // TSynonimsArray
  ;
- MELINK Target WL 'ME_482C48430205' '4AB0C3C60310.ms.model.script' // Char
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
  ;
 
 ENDME // ME_560E608600E6 
+
+%%InheritedBy ME_55E95FFD0022 ME_55E96073020D
 
 ME ME_55E96073020D
  MEPROP UID '55E96073020D'
@@ -376,6 +402,8 @@ ME ME_55E93CCC0077
 
 ENDME // ME_55E93CCC0077 TSourceSyncRec
 
+%%InheritedBy ME_55E93CCC0077 ME_55E93CDD01C3
+
 ME ME_55E93CDD01C3
  MEPROP UID '55E93CDD01C3'
  MEPROP Name 'PSourceSyncRec'
@@ -454,12 +482,10 @@ ME ME_55E80E360267
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_55E80E360267 f_SyncFolder
-
-FORWARD ME_52F8E80D00A5
 
 ME ME_55ED4AAF02A1
  MEPROP UID '55ED4AAF02A1'
@@ -470,7 +496,7 @@ ME ME_55ED4AAF02A1
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target HWL ME_52F8E80D00A5 // TddServerTaskManager
+ MELINK Target WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
  ;
 
 ENDME // ME_55ED4AAF02A1 f_TaskManager
@@ -495,7 +521,7 @@ ME ME_55E6DC860185
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6B56F008D // Start
  ;
- MELINK Target WL 'ME_55E6DC0802A7' '47BC50280350.ms.model.script' // DictServer
+ MELINK Target WL 'ME_55E6DC0802A7' '55E6DBED01B3.ms.model.script' // DictServer
  ;
 
 ENDME // ME_55E6DC860185 
@@ -524,7 +550,7 @@ ME ME_55E6DC8D016A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6BC370138 // Stop
  ;
- MELINK Target WL 'ME_55E6DC0802A7' '47BC50280350.ms.model.script' // DictServer
+ MELINK Target WL 'ME_55E6DC0802A7' '55E6DBED01B3.ms.model.script' // DictServer
  ;
 
 ENDME // ME_55E6DC8D016A 
@@ -561,7 +587,7 @@ ME ME_55E6FB5500D3
  MEPROP Name 'anOp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_55E6FB5500D3 anOp
@@ -628,7 +654,7 @@ ME ME_55E8093000B9
  MEPROP Name 'anOp'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_55E8093000B9 anOp
@@ -686,7 +712,7 @@ ME ME_55E833E4028B
  MEPROP Name 'aFolder'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_55E833E4028B aFolder
@@ -704,7 +730,7 @@ ME ME_55E833E402AB
  MEPROP Name 'PurgeFolder'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_55E833E402AB PurgeFolder
@@ -717,7 +743,7 @@ ME ME_55E80D400340
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55E80D38038B // CreateXMLStream
  ;
- MELINK Target WL 'ME_48F4748E0192' '47913B47006E.ms.model.script' // Tl3Stream
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
  ;
  MELIST Parameters
    Seq: ( ME_55E833E4028B // aFolder
@@ -733,7 +759,7 @@ ME ME_55E838ED0010
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E80D38038B // CreateXMLStream
  ;
- MELINK Target WL 'ME_4E4A3C5903E1' '47D0290B016D.ms.model.script' // PureDir
+ MELINK Target WL 'ME_4E4A3C5903E1' '4B57004201BD.ms.model.script' // PureDir
  ;
 
 ENDME // ME_55E838ED0010 
@@ -743,7 +769,7 @@ ME ME_55E839160218
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E80D38038B // CreateXMLStream
  ;
- MELINK Target WL 'ME_4C74ED51025F' '47913B47006E.ms.model.script' // Tl3FileStream
+ MELINK Target WL 'ME_4C74ED51025F' '47A080670100.ms.model.script' // Tl3FileStream
  ;
 
 ENDME // ME_55E839160218 
@@ -800,7 +826,7 @@ ME ME_55E848190126
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F4748E0192' '47913B47006E.ms.model.script' // Tl3Stream
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
  ;
 
 ENDME // ME_55E848190126 aStream
@@ -809,7 +835,7 @@ ME ME_55E848190135
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_55E848190135 aOperation
@@ -845,7 +871,7 @@ ME ME_55E84B38012B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E847E400CD // ExportSourcesToXML
  ;
- MELINK Target WL 'ME_551A7D9602DC' '54F85B2500FB.ms.model.script' // GlobalDataProvider
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
  ;
 
 ENDME // ME_55E84B38012B 
@@ -895,7 +921,7 @@ ME ME_55E9454D02B3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E847E400CD // ExportSourcesToXML
  ;
- MELINK Target WL 'ME_55E9452B0209' '54B90AC6014B.ms.model.script' // l3Trim
+ MELINK Target WL 'ME_55E9452B0209' '47878E0E0191.ms.model.script' // l3Trim
  ;
 
 ENDME // ME_55E9454D02B3 
@@ -947,7 +973,7 @@ ME ME_55ED485201EE
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55ED484B0321 // HasDataToSend
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_55ED485201EE DoIt
@@ -979,7 +1005,7 @@ ME ME_55ED508201B5
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55ED50730160 // GuardName
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_55ED508201B5 DoIt
@@ -1011,7 +1037,7 @@ ME ME_55ED50A6014D
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55ED509D01AA // SyncFolderMask
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_55ED50A6014D DoIt
@@ -1048,7 +1074,7 @@ ME ME_560507A601D5
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F4748E0192' '47913B47006E.ms.model.script' // Tl3Stream
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
  ;
 
 ENDME // ME_560507A601D5 aStream
@@ -1057,7 +1083,7 @@ ME ME_560507A601F4
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_560507A601F4 aOperation
@@ -1130,7 +1156,7 @@ ME ME_5605086801DD
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_5605086801DD aOperation
@@ -1184,7 +1210,7 @@ ME ME_56050988000B
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F4748E0192' '47913B47006E.ms.model.script' // Tl3Stream
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
  ;
 
 ENDME // ME_56050988000B aStream
@@ -1238,7 +1264,7 @@ ME ME_5605195B0023
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F4748E0192' '47913B47006E.ms.model.script' // Tl3Stream
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
  ;
 
 ENDME // ME_5605195B0023 aStream
@@ -1247,7 +1273,7 @@ ME ME_5605195B0042
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_5605195B0042 aOperation
@@ -1310,7 +1336,7 @@ ME ME_560520520389
  MEPROP Name 'aName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_560520520389 aName
@@ -1319,7 +1345,7 @@ ME ME_5605205203A9
  MEPROP Name 'aData'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_5605205203A9 aData
@@ -1377,7 +1403,7 @@ ME ME_561E344100E9
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F4748E0192' '47913B47006E.ms.model.script' // Tl3Stream
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
  ;
 
 ENDME // ME_561E344100E9 aStream
@@ -1386,7 +1412,7 @@ ME ME_561E34410108
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_561E34410108 aOperation
@@ -1449,7 +1475,7 @@ ME ME_561E38F501E1
  MEPROP Name 'aStream'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48F4748E0192' '47913B47006E.ms.model.script' // Tl3Stream
+ MELINK Target WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
  ;
 
 ENDME // ME_561E38F501E1 aStream
@@ -1458,7 +1484,7 @@ ME ME_561E38F50200
  MEPROP Name 'aOperation'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_55E6FAD502E4' '54041E840266.ms.model.script' // TmssOperation
+ MELINK Target WL 'ME_55E6FAD502E4' '5745A26E03A8.ms.model.script' // TmssOperation
  ;
 
 ENDME // ME_561E38F50200 aOperation
@@ -1517,7 +1543,7 @@ ME ME_57061F880071
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57061F78007B // MakeTask
  ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
  ;
 
 ENDME // ME_57061F880071 DoIt
@@ -1569,7 +1595,7 @@ ME ME_55E6E6C202F6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_55E6E03B01A7' '519A10AF03DE.ms.model.script' // cFamily
+ MELINK Target WL 'ME_55E6E03B01A7' '519A10DD036F.ms.model.script' // cFamily
  ;
 
 ENDME // ME_55E6E6C202F6 
@@ -1599,7 +1625,7 @@ ME ME_55E7044202B5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_55E7042003D3' '47BC50280350.ms.model.script' // dt_DictConst
+ MELINK Target WL 'ME_55E7042003D3' '55E7042003D3.ms.model.script' // dt_DictConst
  ;
 
 ENDME // ME_55E7044202B5 
@@ -1609,7 +1635,7 @@ ME ME_55E704610351
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_519B719002F1' '519B70FC02AB.ms.model.script' // dt_Sab
+ MELINK Target WL 'ME_519B719002F1' '519B719002F1.ms.model.script' // dt_Sab
  ;
 
 ENDME // ME_55E704610351 
@@ -1619,7 +1645,7 @@ ME ME_55E8019C0121
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_55E8019C0121 
@@ -1629,7 +1655,7 @@ ME ME_55E8282E00E0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_4B990EF000AA' '4B990EDE031A.ms.model.script' // ddAppConfig
+ MELINK Target WL 'ME_4B990EF000AA' '4B990EF000AA.ms.model.script' // ddAppConfig
  ;
 
 ENDME // ME_55E8282E00E0 
@@ -1639,7 +1665,7 @@ ME ME_5656B57B023D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_565593D90132' '552D07D0005E.ms.model.script' // cFamilies
+ MELINK Target WL 'ME_565593D90132' '5654635F0268.ms.model.script' // cFamilies
  ;
 
 ENDME // ME_5656B57B023D 
@@ -1649,22 +1675,26 @@ ME ME_5745A29803BB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  ;
- MELINK Target WL 'ME_5745A26E03A8' '54041E840266.ms.model.script' // alcuMdpSyncIntf
+ MELINK Target WL 'ME_5745A26E03A8' '5745A26E03A8.ms.model.script' // alcuMdpSyncIntf
  ;
 
 ENDME // ME_5745A29803BB 
 
 ME ME_55E6B66A036E_ME_55E6A67A02ED
- MELINK Original WL 'ME_55E6B66A036E' '47BC50280350.ms.model.script' // dcn__DictionaryChange
+ MELINK Original WL 'ME_55E6B66A036E' '55E6B6330367.ms.model.script' // dcn__DictionaryChange
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_55E6B66A036E_ME_55E6A67A02ED dcn__DictionaryChange
 
 ME ME_479731C50290_ME_55E6A67A02ED
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_55E6A67A02ED Cleanup
+
+%%ImplementedBy ME_55E6B64E030E ME_55E6A67A02ED
+
+%%InheritedBy ME_49E7754802A9 ME_55E6A67A02ED
 
 ME ME_55E6A67A02ED
  MEPROP UID '55E6A67A02ED'
@@ -1681,7 +1711,7 @@ ME ME_55E6A67A02ED
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_55E6B64E030E' '47BC50280350.ms.model.script' // IDictChangeNotifyRecipient
+   Seq: ( WL 'ME_55E6B64E030E' '55E6B6330367.ms.model.script' // IDictChangeNotifyRecipient
  )
  ; // Implements
  MELIST Attributes
@@ -1746,6 +1776,9 @@ ME ME_55E6A67A02ED
  ME_5745A29803BB // alcuMdpSyncIntf
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifdef" 'MDPSyncIntegrated'
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuDictChangeMDPSynchronizator.pas'
  UP extprop:rc:SelfName 'alcuDictChangeMDPSynchronizator'
@@ -1755,6 +1788,8 @@ ME ME_55E6A67A02ED
 ENDME // ME_55E6A67A02ED TalcuDictChangeMDPSynchronizator
 
 FORWARD ME_52FA29AE02C2
+
+%%InheritedBy ME_52FA29AE02C2 ME_52FA2A150346
 
 ME ME_52FA2A150346
  MEPROP UID '52FA2A150346'
@@ -1797,7 +1832,7 @@ ME ME_53CF4ADB0112
  MEPROP Name 'aRootPath'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_53CF4ADB0112 aRootPath
@@ -1819,7 +1854,7 @@ ME ME_52FA29F900AE
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52FA29DE0384 // Make
  ;
- MELINK Target HWL ME_52F8E80D00A5 // TddServerTaskManager
+ MELINK Target WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
  ;
  MELIST Parameters
    Seq: ( ME_53CF4ADB0112 // aRootPath
@@ -1854,7 +1889,7 @@ ME ME_D482B79F3EF6
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_D482B79F3EF6 aRootPath
@@ -1878,7 +1913,7 @@ ME ME_C701C9DB1EF7
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52FA2C99010A // DoMake
  ;
- MELINK Target HWL ME_52F8E80D00A5 // TddServerTaskManager
+ MELINK Target WL 'ME_52F8E80D00A5' '52F8BE3100F5.ms.model.script' // TddServerTaskManager
  ;
  MELIST Parameters
    Seq: ( ME_D482B79F3EF6 // aRootPath
@@ -1887,6 +1922,8 @@ ME ME_C701C9DB1EF7
  ; // Parameters
 
 ENDME // ME_C701C9DB1EF7 DoIt
+
+%%InheritedBy ME_52FA29DE0384 ME_52FA2C99010A
 
 ME ME_52FA2C99010A
  MEPROP UID '52FA2C99010A'
@@ -1934,460 +1971,15 @@ ME ME_52FA29AE02C2
    Seq: ( HWL ME_52FA2A150346 // RalcuServerTaskManagerFactory
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuServerTaskManagerFactory.pas'
  UP extprop:rc:SelfName 'alcuServerTaskManagerFactory'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'alcuServerTaskManagerFactory'
 
 ENDME // ME_52FA29AE02C2 TalcuServerTaskManagerFactory
-
-FORWARD ME_52F8BE3100F5
-
-ME ME_54BE3A4601D4
- MEPROP UID '54BE3A4601D4'
- MEPROP Name 'f_DetachedExecutorPool'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_54BE32A30011' '54856B680023.ms.model.script' // TalcuDetachedExecutorPool
- ;
-
-ENDME // ME_54BE3A4601D4 f_DetachedExecutorPool
-
-ME ME_53A2C97C03C8
- MEPROP UID '53A2C97C03C8'
- MEPROP Name 'f_MonitorUsers'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_53A2C9290311' '53A038340371.ms.model.script' // Tl3MultiThreadSortedIntegerList
- ;
-
-ENDME // ME_53A2C97C03C8 f_MonitorUsers
-
-ME ME_53A2C98C0068
- MEPROP UID '53A2C98C0068'
- MEPROP Name 'f_PrivateMonitorUsers'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_53A2C9290311' '53A038340371.ms.model.script' // Tl3MultiThreadSortedIntegerList
- ;
-
-ENDME // ME_53A2C98C0068 f_PrivateMonitorUsers
-
-ME ME_53CDFF7502DB
- MEPROP UID '53CDFF7502DB'
- MEPROP Name 'f_WorkPool'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_53CDF9FE006B' '53C900150015.ms.model.script' // TalcuSubmitterWorkPool
- ;
-
-ENDME // ME_53CDFF7502DB f_WorkPool
-
-ME ME_53CE50F701A5
- MEPROP UID '53CE50F701A5'
- MEPROP Name 'f_BaseEngineHolder'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_53CE4F2F008D' '53CCCA40004C.ms.model.script' // TalcuBaseEngineHolder
- ;
-
-ENDME // ME_53CE50F701A5 f_BaseEngineHolder
-
-FORWARD ME_52F8EDDA037F
-
-ME ME_52F8F4EC03AD
- MEPROP Name 'aTask'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
- ;
-
-ENDME // ME_52F8F4EC03AD aTask
-
-ME ME_52F8F4E60074
- MEPROP UID '52F8F4E60074'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52F8EDDA037F // SimulateTaskDone
- ;
- MELIST Parameters
-   Seq: ( ME_52F8F4EC03AD // aTask
- )
- ; // Parameters
-
-ENDME // ME_52F8F4E60074 DoIt
-
-ME ME_52F8EDDA037F
- MEPROP UID '52F8EDDA037F'
- MEPROP Name 'SimulateTaskDone'
- MEPROP Class class_Class
- MELINK Stereotype st_virtualmethod ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'имитирует отправку результата пользователю после выполнения задания' ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELIST Operations
-   Seq: ( HWL ME_52F8F4E60074 // DoIt
- )
- ; // Operations
- UP "ifdef" 'InsiderTest'
-
-ENDME // ME_52F8EDDA037F SimulateTaskDone
-
-FORWARD ME_52F8EDF703C0
-
-ME ME_9952269F9D97
- MEPROP UID '9952269F9D97'
- MEPROP Name 'DoIt'
- UP IsSummoned true
- MEPROP Class class_Operation
- %SUMMARY 'Сигнатура метода BeforeSaveQuery' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52F8EDF703C0 // BeforeSaveQuery
- ;
-
-ENDME // ME_9952269F9D97 DoIt
-
-ME ME_52F8EDF703C0
- MEPROP UID '52F8EDF703C0'
- MEPROP Name 'BeforeSaveQuery'
- MEPROP Class class_Class
- MELINK Stereotype st_virtualmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELIST Operations
-   Seq: ( HWL ME_9952269F9D97 // DoIt
- )
- ; // Operations
- UP "ifdef" 'InsiderTest'
-
-ENDME // ME_52F8EDF703C0 BeforeSaveQuery
-
-FORWARD ME_52F8F0990208
-
-ME ME_52F8F0B90112
- MEPROP UID '52F8F0B90112'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_52F8F0990208 // NeedRaiseInProcessQuery
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_52F8F0B90112 DoIt
-
-ME ME_52F8F0990208
- MEPROP UID '52F8F0990208'
- MEPROP Name 'NeedRaiseInProcessQuery'
- MEPROP Class class_Class
- MELINK Stereotype st_virtualmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELIST Operations
-   Seq: ( HWL ME_52F8F0B90112 // DoIt
- )
- ; // Operations
- UP "ifdef" 'InsiderTest'
-
-ENDME // ME_52F8F0990208 NeedRaiseInProcessQuery
-
-ME ME_53CE02060260
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_53CCC324034B' '53CCC2F702C7.ms.model.script' // TalcuAsyncSubmitterManager
- ;
-
-ENDME // ME_53CE02060260 
-
-ME ME_5465DA8E014B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_5465D93A0165' '5465E6BB0264.ms.model.script' // TalcuGetReadyToDeliveryTasksExecutor
- ;
-
-ENDME // ME_5465DA8E014B 
-
-ME ME_546B5A4503B2
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_546B540E02D6' '5465E6BB0264.ms.model.script' // TalcuGetTaskDescriptionExecutor
- ;
-
-ENDME // ME_546B5A4503B2 
-
-ME ME_5474988E0073
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_54748E8A0085' '5465E6BB0264.ms.model.script' // TalcuTaskProgressExecutor
- ;
-
-ENDME // ME_5474988E0073 
-
-ME ME_54759C340065
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_54759BE1037A' '5465E6BB0264.ms.model.script' // TalcuDeliveryResultExecutor
- ;
-
-ENDME // ME_54759C340065 
-
-ME ME_54759C380010
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_54759BFB02B4' '5465E6BB0264.ms.model.script' // TalcuGetFilePartExecutor
- ;
-
-ENDME // ME_54759C380010 
-
-ME ME_54856F8F01AA
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_54856BFA003E' '54856B680023.ms.model.script' // TalcuSendTaskExecutor
- ;
-
-ENDME // ME_54856F8F01AA 
-
-ME ME_549AC04F0178
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_549AC018025D' '5465E6BB0264.ms.model.script' // TalcuCorrectFolderExecutor
- ;
-
-ENDME // ME_549AC04F0178 
-
-ME ME_54BE4F98020B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_54BE24CC00D4' '54856B680023.ms.model.script' // TalcuDetachedExecutor
- ;
-
-ENDME // ME_54BE4F98020B 
-
-FORWARD ME_561CF00A0193
-
-ME ME_561D058601B1
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target HWL ME_561CF00A0193 // TalcuProcessingEnabledService
- ;
-
-ENDME // ME_561D058601B1 
-
-ME ME_57C0137F029F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_57C00B9700F2' '57C00B6201B3.ms.model.script' // TalcuDownloadDocStreamExecutor
- ;
-
-ENDME // ME_57C0137F029F 
-
-ME ME_57D661AF0014
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8E80D00A5 // TddServerTaskManager
- ;
- MELINK Target WL 'ME_57D6592F0210' '57C00B6201B3.ms.model.script' // TalcuUploadDocStreamExecutor
- ;
-
-ENDME // ME_57D661AF0014 
-
-ME ME_5385C616025E_ME_52F8E80D00A5
- MELINK Original HWL ME_5385C616025E // DoTaskChanged
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_5385C616025E_ME_52F8E80D00A5 DoTaskChanged
-
-ME ME_53D0E2CD0227_ME_52F8E80D00A5
- MELINK Original WL 'ME_53D0E2CD0227' '53CCB94A02A5.ms.model.script' // TaskFinished
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_53D0E2CD0227_ME_52F8E80D00A5 TaskFinished
-
-ME ME_5475AFAA017A_ME_52F8E80D00A5
- MELINK Original WL 'ME_5475AFAA017A' '5475AF76000C.ms.model.script' // TaskDone
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_5475AFAA017A_ME_52F8E80D00A5 TaskDone
-
-ME ME_52F8E80D00A5
- MEPROP UID '52F8E80D00A5'
- MEPROP Name 'TddServerTaskManager'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52F8BE3100F5 // alcuTaskManager
- ;
- MELIST Inherits
-   Seq: ( HWL ME_5385C5B200E6 // TddServerTaskManagerPrim
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
- WL 'ME_5475AF890358' '5475AF76000C.ms.model.script' // IalcuTaskFinisher
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_54BE3A4601D4 // f_DetachedExecutorPool
- HWL ME_53A2C97C03C8 // f_MonitorUsers
- HWL ME_53A2C98C0068 // f_PrivateMonitorUsers
- HWL ME_53CDFF7502DB // f_WorkPool
- HWL ME_53CE50F701A5 // f_BaseEngineHolder
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_52F8EDDA037F // SimulateTaskDone
- HWL ME_52F8EDF703C0 // BeforeSaveQuery
- HWL ME_52F8F0990208 // NeedRaiseInProcessQuery
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_5385C616025E_ME_52F8E80D00A5 // DoTaskChanged
- ME_53D0E2CD0227_ME_52F8E80D00A5 // TaskFinished
- ME_5475AFAA017A_ME_52F8E80D00A5 // TaskDone
- )
- ; // Implemented
- MELIST Dependencies
-   Seq: ( ME_53CE02060260 // TalcuAsyncSubmitterManager
- ME_5465DA8E014B // TalcuGetReadyToDeliveryTasksExecutor
- ME_546B5A4503B2 // TalcuGetTaskDescriptionExecutor
- ME_5474988E0073 // TalcuTaskProgressExecutor
- ME_54759C340065 // TalcuDeliveryResultExecutor
- ME_54759C380010 // TalcuGetFilePartExecutor
- ME_54856F8F01AA // TalcuSendTaskExecutor
- ME_549AC04F0178 // TalcuCorrectFolderExecutor
- ME_54BE4F98020B // TalcuDetachedExecutor
- ME_561D058601B1 // TalcuProcessingEnabledService
- ME_57C0137F029F // TalcuDownloadDocStreamExecutor
- ME_57D661AF0014 // TalcuUploadDocStreamExecutor
- )
- ; // Dependencies
- UP extprop:rc:SelfName 'ddServerTaskManager'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_52F8E80D00A5 TddServerTaskManager
-
-ME ME_52FA3E120105
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8BE3100F5 // alcuTaskManager
- ;
- MELINK Target WL 'ME_52FA3DB401BE' '53A05123034C.ms.model.script' // TalcuTaskList
- ;
-
-ENDME // ME_52FA3E120105 
-
-ME ME_53A199990094
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8BE3100F5 // alcuTaskManager
- ;
- MELINK Target WL 'ME_53A19980030C' '53A05123034C.ms.model.script' // TalcuNotSortedTaskList
- ;
-
-ENDME // ME_53A199990094 
-
-ME ME_53D0E2CD0227_ME_52F8BE3100F5
- MELINK Original WL 'ME_53D0E2CD0227' '53CCB94A02A5.ms.model.script' // TaskFinished
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_53D0E2CD0227_ME_52F8BE3100F5 TaskFinished
-
-ME ME_5475AFAA017A_ME_52F8BE3100F5
- MELINK Original WL 'ME_5475AFAA017A' '5475AF76000C.ms.model.script' // TaskDone
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_5475AFAA017A_ME_52F8BE3100F5 TaskDone
-
-ME ME_52F8BE3100F5
- MEPROP UID '52F8BE3100F5'
- MEPROP Name 'alcuTaskManager'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53D656130130 // Server
- ;
- MELIST Implements
-   Seq: ( WL 'ME_53D0E2B3036C' '53CCB94A02A5.ms.model.script' // IalcuAsyncTaskFinishedNotifier
- WL 'ME_5475AF890358' '5475AF76000C.ms.model.script' // IalcuTaskFinisher
- )
- ; // Implements
- MELIST Implemented
-   Seq: ( ME_53D0E2CD0227_ME_52F8BE3100F5 // TaskFinished
- ME_5475AFAA017A_ME_52F8BE3100F5 // TaskDone
- )
- ; // Implemented
- MELIST Children
-   Seq: ( HWL ME_52F8E80D00A5 // TddServerTaskManager
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_52FA3E120105 // TalcuTaskList
- ME_53A199990094 // TalcuNotSortedTaskList
- )
- ; // Dependencies
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuTaskManager.pas'
-
-ENDME // ME_52F8BE3100F5 alcuTaskManager
 
 FORWARD ME_55EED3CD0299
 
@@ -2401,7 +1993,7 @@ ME ME_55EEDEEB01DE
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55EEDEC7035D // HasToImport
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_55EEDEEB01DE DoIt
@@ -2433,7 +2025,7 @@ ME ME_57061FB20369
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57061FA6032E // MakeTask
  ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
  ;
 
 ENDME // ME_57061FB20369 DoIt
@@ -2485,7 +2077,7 @@ ME ME_5617AD58028C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55EED3CD0299 // TalcuMdpDocImporter
  ;
- MELINK Target WL 'ME_4B990EF000AA' '4B990EDE031A.ms.model.script' // ddAppConfig
+ MELINK Target WL 'ME_4B990EF000AA' '4B990EF000AA.ms.model.script' // ddAppConfig
  ;
 
 ENDME // ME_5617AD58028C 
@@ -2499,6 +2091,8 @@ ME ME_561B63FE0192
  ;
 
 ENDME // ME_561B63FE0192 
+
+%%InheritedBy ME_49E7754802A9 ME_55EED3CD0299
 
 ME ME_55EED3CD0299
  MEPROP UID '55EED3CD0299'
@@ -2524,6 +2118,9 @@ ME ME_55EED3CD0299
  ME_561B63FE0192 // TdaUserID
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
  UP "ifdef" 'MDPSyncIntegrated'
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuMdpDocImporter.pas'
  UP extprop:rc:SelfName 'alcuMdpDocImporter'
@@ -2544,14 +2141,12 @@ ME ME_5583CD580330
 
 ENDME // ME_5583CD580330 
 
-FORWARD ME_5583CD7A0364
-
 ME ME_5583CD8D0105
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5583CD3601BD // TalcuTaskChangeHelper
  ;
- MELINK Target HWL ME_5583CD7A0364 // alcuMailServer
+ MELINK Target WL 'ME_5583CD7A0364' '5583CD7A0364.ms.model.script' // alcuMailServer
  ;
 
 ENDME // ME_5583CD8D0105 
@@ -2561,10 +2156,12 @@ ME ME_5583D6AA0104
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5583CD3601BD // TalcuTaskChangeHelper
  ;
- MELINK Target WL 'ME_5583D680016C' '53D64A86016A.ms.model.script' // TalcuStatus
+ MELINK Target WL 'ME_5583D680016C' '5583D62701B8.ms.model.script' // TalcuStatus
  ;
 
 ENDME // ME_5583D6AA0104 
+
+%%InheritedBy ME_49E7754802A9 ME_5583CD3601BD
 
 ME ME_5583CD3601BD
  MEPROP UID '5583CD3601BD'
@@ -2586,29 +2183,15 @@ ME ME_5583CD3601BD
  ME_5583D6AA0104 // TalcuStatus
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuTaskChangeHelper.pas'
  UP extprop:rc:SelfName 'alcuTaskChangeHelper'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'alcuTaskChangeHelper'
 
 ENDME // ME_5583CD3601BD TalcuTaskChangeHelper
-
-ME ME_5583CD7A0364
- MEPROP UID '5583CD7A0364'
- MEPROP Name 'alcuMailServer'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53D656130130 // Server
- ;
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuMailServer.pas'
-
-ENDME // ME_5583CD7A0364 alcuMailServer
-
-FORWARD ME_52F8C97B02D6
 
 FORWARD ME_52F8C9E00037
 
@@ -2627,7 +2210,7 @@ ME ME_52F8D93D016A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52F8C9E00037 // TalcuServer
  ;
- MELINK Target WL 'ME_4CDD241C0184' '47913B47006E.ms.model.script' // l3System
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
  ;
 
 ENDME // ME_52F8D93D016A 
@@ -2637,7 +2220,7 @@ ME ME_52F8DC1D037C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_52F8C9E00037 // TalcuServer
  ;
- MELINK Target WL 'ME_52F8DC08020F' '4AB0C3C60310.ms.model.script' // FormatDateTime
+ MELINK Target WL 'ME_52F8DC08020F' '47877EB202FB.ms.model.script' // FormatDateTime
  ;
 
 ENDME // ME_52F8DC1D037C 
@@ -2653,10 +2236,12 @@ ME ME_5583CD9E01F4
 ENDME // ME_5583CD9E01F4 
 
 ME ME_52BC2B9401F3_ME_52F8C9E00037
- MELINK Original WL 'ME_52BC2B9401F3' '47913B47006E.ms.model.script' // AfterDestroyCalled
+ MELINK Original WL 'ME_52BC2B9401F3' '47913F4E02E0.ms.model.script' // AfterDestroyCalled
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_52BC2B9401F3_ME_52F8C9E00037 AfterDestroyCalled
+
+%%InheritedBy ME_52F8C97B02D6 ME_52F8C9E00037
 
 ME ME_52F8C9E00037
  MEPROP UID '52F8C9E00037'
@@ -2669,7 +2254,7 @@ ME ME_52F8C9E00037
  MELINK Parent HWL ME_53D656130130 // Server
  ;
  MELIST Inherits
-   Seq: ( HWL ME_52F8C97B02D6 // TalcuServerPrim
+   Seq: ( WL 'ME_52F8C97B02D6' '52F8C95A006E.ms.model.script' // TalcuServerPrim
  )
  ; // Inherits
  MELIST Overridden
@@ -2683,6 +2268,9 @@ ME ME_52F8C9E00037
  ME_5583CD9E01F4 // TalcuTaskChangeHelper
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "singleton" true
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuServer.pas'
  UP extprop:rc:SelfName 'alcuServer'
@@ -2691,129 +2279,7 @@ ME ME_52F8C9E00037
 
 ENDME // ME_52F8C9E00037 TalcuServer
 
-FORWARD ME_52F8C95A006E
-
-ME ME_55E6A78300FE
- MEPROP UID '55E6A78300FE'
- MEPROP Name 'f_DictWatcher'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
- ;
- MELINK Target HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
- ;
-
-ENDME // ME_55E6A78300FE f_DictWatcher
-
-ME ME_55E6AB5F0318
- MEPROP UID '55E6AB5F0318'
- MEPROP Name 'f_BaseEngineHolder'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
- ;
- MELINK Target WL 'ME_53CE4F2F008D' '53CCCA40004C.ms.model.script' // TalcuBaseEngineHolder
- ;
-
-ENDME // ME_55E6AB5F0318 f_BaseEngineHolder
-
-ME ME_55EED401013F
- MEPROP UID '55EED401013F'
- MEPROP Name 'f_MdpDocImporter'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
- ;
- MELINK Target HWL ME_55EED3CD0299 // TalcuMdpDocImporter
- ;
-
-ENDME // ME_55EED401013F f_MdpDocImporter
-
-ME ME_52FA29CA0141
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
- ;
- MELINK Target HWL ME_52FA29AE02C2 // TalcuServerTaskManagerFactory
- ;
-
-ENDME // ME_52FA29CA0141 
-
-ME ME_574D797902A9
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
- ;
- MELINK Target WL 'ME_573D9F0A01BB' '52FA3DD30094.ms.model.script' // TalcuMdpSyncStages
- ;
-
-ENDME // ME_574D797902A9 
-
-ME ME_574D797E008B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
- ;
- MELINK Target WL 'ME_574C213703E2' '52FA3DD30094.ms.model.script' // TalcuMdpSyncImport
- ;
-
-ENDME // ME_574D797E008B 
-
-ME ME_52F8C97B02D6
- MEPROP UID '52F8C97B02D6'
- MEPROP Name 'TalcuServerPrim'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_52F8C95A006E // alcuAutoPipeServer
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55E6A78300FE // f_DictWatcher
- HWL ME_55E6AB5F0318 // f_BaseEngineHolder
- HWL ME_55EED401013F // f_MdpDocImporter
- )
- ; // Attributes
- MELIST Dependencies
-   Seq: ( ME_52FA29CA0141 // TalcuServerTaskManagerFactory
- ME_574D797902A9 // TalcuMdpSyncStages
- ME_574D797E008B // TalcuMdpSyncImport
- )
- ; // Dependencies
- UP extprop:rc:SelfName 'alcuServerPrim'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_52F8C97B02D6 TalcuServerPrim
-
-ME ME_52F8C95A006E
- MEPROP UID '52F8C95A006E'
- MEPROP Name 'alcuAutoPipeServer'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53D656130130 // Server
- ;
- MELIST Children
-   Seq: ( HWL ME_52F8C97B02D6 // TalcuServerPrim
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuAutoPipeServer.pas'
-
-ENDME // ME_52F8C95A006E alcuAutoPipeServer
+FORWARD ME_561CF00A0193
 
 ME ME_561CFA9E038C
  MEPROP Class class_Dependency
@@ -2834,6 +2300,8 @@ ME ME_561D091E0238
  ;
 
 ENDME // ME_561D091E0238 
+
+%%InheritedBy ME_49E7754802A9 ME_561CF00A0193
 
 ME ME_561CF00A0193
  MEPROP UID '561CF00A0193'
@@ -2875,12 +2343,12 @@ ME ME_53D656130130
    Seq: ( HWL ME_5385C5B200E6 // TddServerTaskManagerPrim
  HWL ME_55E6A67A02ED // TalcuDictChangeMDPSynchronizator
  HWL ME_52FA29AE02C2 // TalcuServerTaskManagerFactory
- HWL ME_52F8BE3100F5 // alcuTaskManager
+ WL 'ME_52F8BE3100F5' '52F8BE3100F5.ms.model.script' // alcuTaskManager
  HWL ME_55EED3CD0299 // TalcuMdpDocImporter
  HWL ME_5583CD3601BD // TalcuTaskChangeHelper
- HWL ME_5583CD7A0364 // alcuMailServer
+ WL 'ME_5583CD7A0364' '5583CD7A0364.ms.model.script' // alcuMailServer
  HWL ME_52F8C9E00037 // TalcuServer
- HWL ME_52F8C95A006E // alcuAutoPipeServer
+ WL 'ME_52F8C95A006E' '52F8C95A006E.ms.model.script' // alcuAutoPipeServer
  HWL ME_561CF00A0193 // TalcuProcessingEnabledService
  )
  ; // Children
@@ -2922,5 +2390,8 @@ ME ME_53D656130130
  WL 'ME_57C00B6201B3' '57C00B6201B3.ms.model.script' // DocStreamTransfer
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_53D656130130 Server

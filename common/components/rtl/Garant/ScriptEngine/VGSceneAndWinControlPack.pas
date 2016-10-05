@@ -160,8 +160,10 @@ end;//TkwPopControlFindVGControlByName.DoDoIt
 initialization
  TkwPopControlFindVGControlByName.RegisterInEngine;
  {* Регистрация pop_Control_FindVGControlByName }
+{$If NOT Defined(NoVCL)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TWinControl));
  {* Регистрация типа TWinControl }
+{$IfEnd} // NOT Defined(NoVCL)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvgObject));
  {* Регистрация типа TvgObject }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

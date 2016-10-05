@@ -1,0 +1,86 @@
+// nevParentPointFactory 49D251E600DA Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49D251E600DA
+
+ME ME_49D2533700F5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49D251E600DA // nevParentPointFactory
+ ;
+ MELINK Target WL 'ME_47C520EE007C' '47C5207602D1.ms.model.script' // InevObject
+ ;
+
+ENDME // ME_49D2533700F5 
+
+ME ME_49D2534803AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49D251E600DA // nevParentPointFactory
+ ;
+ MELINK Target WL 'ME_47C5B56900DA' '47C5207602D1.ms.model.script' // InevPoint
+ ;
+
+ENDME // ME_49D2534803AC 
+
+ME ME_49D2535902EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49D251E600DA // nevParentPointFactory
+ ;
+ MELINK Target WL 'ME_49D0E657022F' '4678209200A6.ms.model.script' // InevObjectPrim
+ ;
+
+ENDME // ME_49D2535902EE 
+
+ME ME_49D218B9032C_ME_49D251E600DA
+ MELINK Original WL 'ME_49D218B9032C' '47C5207602D1.ms.model.script' // PointToParent
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49D218B9032C_ME_49D251E600DA PointToParent
+
+ME ME_49D24386014E_ME_49D251E600DA
+ MELINK Original WL 'ME_49D24386014E' '47C5207602D1.ms.model.script' // TopParentPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_49D24386014E_ME_49D251E600DA TopParentPoint
+
+%%ImplementedBy ME_49D21861031A ME_49D251E600DA
+
+ME ME_49D251E600DA
+ MEPROP UID '49D251E600DA'
+ MEPROP Name 'nevParentPointFactory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49D21861031A' '47C5207602D1.ms.model.script' // MnevParentPointFactory
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_49D218B9032C_ME_49D251E600DA // PointToParent
+ ME_49D24386014E_ME_49D251E600DA // TopParentPoint
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49D2533700F5 // InevObject
+ ME_49D2534803AC // InevPoint
+ ME_49D2535902EE // InevObjectPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" true
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevParentPointFactory.imp.pas'
+ UP extprop:pas:TypeName '_nevParentPointFactory_'
+ UP extprop:pas:UnitName 'nevParentPointFactory.imp'
+
+ENDME // ME_49D251E600DA nevParentPointFactory

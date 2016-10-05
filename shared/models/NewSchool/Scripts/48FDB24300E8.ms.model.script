@@ -1,0 +1,58 @@
+// nsNodeNotifier 48FDB24300E8 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48FDB24300E8
+
+ME ME_48FDB28502C3
+ MEPROP UID '48FDB28502C3'
+ MEPROP Name 'Changing'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDB24300E8 // nsNodeNotifier
+ ;
+
+ENDME // ME_48FDB28502C3 Changing
+
+ME ME_48FDB29002D2
+ MEPROP UID '48FDB29002D2'
+ MEPROP Name 'Changed'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48FDB24300E8 // nsNodeNotifier
+ ;
+
+ENDME // ME_48FDB29002D2 Changed
+
+%%InheritedBy ME_48FDA9D500E4 ME_48FDB24300E8
+
+ME ME_48FDB24300E8
+ MEPROP UID '48FDB24300E8'
+ MEPROP Name 'nsNodeNotifier'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48FD8B2702F6' '48FD8B2702F6.ms.model.script' // Tree
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48FDA9D500E4' '48FDA9D500E4.ms.model.script' // nsNodeNotifierImplementation
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_48FDB28502C3 // Changing
+ HWL ME_48FDB29002D2 // Changed
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '2005/11/22 16:19:33'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Tree\nsNodeNotifier.imp.pas'
+ UP extprop:pas:TypeName '_nsNodeNotifier_'
+ UP extprop:pas:UnitName 'nsNodeNotifier.imp'
+
+ENDME // ME_48FDB24300E8 nsNodeNotifier

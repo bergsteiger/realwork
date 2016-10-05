@@ -2,85 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AA005310028
+%%Inner ME_4AA005310028
+%%Inner ME_4AA005310028
+%%Inner ME_4AA005310028
+%%Inner ME_4AA005310028
+%%Inner ME_4AA005310028
+
 FORWARD ME_4AA005310028
-
-FORWARD ME_492428D203A1
-
-ME ME_49242A530248
- MEPROP Name 'aNode'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
- ;
-
-ENDME // ME_49242A530248 aNode
-
-ME ME_49242A4E0252
- MEPROP UID '49242A4E0252'
- MEPROP Name 'CurrentChangedNotification'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_492428D203A1 // CurrentChangedListener
- ;
- MELIST Parameters
-   Seq: ( ME_49242A530248 // aNode
- )
- ; // Parameters
-
-ENDME // ME_49242A4E0252 CurrentChangedNotification
-
-ME ME_49302FF8014A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_492428D203A1 // CurrentChangedListener
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_49302FF8014A 
-
-ME ME_49590D4802EE_ME_492428D203A1
- MELINK Original WL 'ME_49590D4802EE' '491DAF4202EE.ms.model.script' // Process
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_49590D4802EE_ME_492428D203A1 Process
-
-ME ME_492428D203A1
- MEPROP UID '492428D203A1'
- MEPROP Name 'CurrentChangedListener'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Шаблон необходим для реализация поведения получения слушателем'#13#10'уведомления об изменении текущего в дереве и рассылки такого же'#13#10'уведомления своим слушателям.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AA005310028 // Search
- ;
- MELIST Implements
-   Seq: ( WL 'ME_49590CE80397' '491DAF4202EE.ms.model.script' // CurrentChangedListener
- )
- ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_49242A4E0252 // CurrentChangedNotification
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_49590D4802EE_ME_492428D203A1 // Process
- )
- ; // Implemented
- MELIST Dependencies
-   Seq: ( ME_49302FF8014A // SysUtils
- )
- ; // Dependencies
- UP "author" 'Морозов М.А.'
- UP "no hands" true
- UP "started" '2008/01/30 08:25:26'
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Search\CurrentChangedListener.imp.pas'
- UP extprop:pas:TypeName '_CurrentChangedListener_'
- UP extprop:pas:UnitName 'CurrentChangedListener.imp'
-
-ENDME // ME_492428D203A1 CurrentChangedListener
 
 FORWARD ME_4AE58E7C00A4
 
@@ -238,10 +167,14 @@ ME ME_4AE58A1203BE_ME_4AE58E7C00A4
 ENDME // ME_4AE58A1203BE_ME_4AE58E7C00A4 NotIterator
 
 ME ME_479731C50290_ME_4AE58E7C00A4
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AE58E7C00A4 Cleanup
+
+%%ImplementedBy ME_4AE589BA0016 ME_4AE58E7C00A4
+
+%%InheritedBy ME_47BC391D0259 ME_4AE58E7C00A4
 
 ME ME_4AE58E7C00A4
  MEPROP UID '4AE58E7C00A4'
@@ -431,10 +364,14 @@ ME ME_4AE58ABC034A_ME_4AE593970016
 ENDME // ME_4AE58ABC034A_ME_4AE593970016 Query
 
 ME ME_479731C50290_ME_4AE593970016
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AE593970016 Cleanup
+
+%%ImplementedBy ME_4922CE700041 ME_4AE593970016
+
+%%InheritedBy ME_47BC391D0259 ME_4AE593970016
 
 ME ME_4AE593970016
  MEPROP UID '4AE593970016'
@@ -493,7 +430,7 @@ ME ME_4AA005310028
  ;
  MELIST Children
    Seq: ( WL 'ME_4924015202CD' '4924015202CD.ms.model.script' // dsTagSimpleTree
- HWL ME_492428D203A1 // CurrentChangedListener
+ WL 'ME_492428D203A1' '492428D203A1.ms.model.script' // CurrentChangedListener
  WL 'ME_49242CB201D0' '49242CB201D0.ms.model.script' // dsSituation
  WL 'ME_492437620004' '492437620004.ms.model.script' // TdsTreeAttributeSelect
  HWL ME_4AE58E7C00A4 // TnsSelectedAttributesIterators
@@ -520,5 +457,8 @@ ME ME_4AA005310028
  WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4AA005310028 Search

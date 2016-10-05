@@ -1,0 +1,182 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/ModuleOperationPrim.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDAClass::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::ModuleOperationPrim
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: ModuleOperationPrim::Class
+implementation @ <<ModuleOperationPrim>>
+//= Delphi интерфейсы и реализация::MDAGenerator
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Параметры стереотипа
+//v #
+// - типы видимости
+//a f
+// - тип абстракции
+// Параметры визуализации
+//$ C 152,251,152
+//$ l 0,64,64
+//$ f 0,64,64
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Пользовательские свойства
+
+//p no test:b=false ? Отключает OnTest
+//p no prefix:b=false ? Нет префикса у имени. Костыль для [$133891300]
+//p ShowInToolbar:tribool=undefined ? 
+//p ShortCut:s ? 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+//%f _wiki_up_print
+; // st_space_key
+
+: wiki_up_print OBJECT IN %S
+//	%S#[inherited][{"%S{no test}"!="%S{!no test}"}%f_up_prefix(%S) *no test* = *%S{no test}* - Отключает OnTest
+ ?inherited
+ if ( ( %S get_up ( 'no test' ) ) %!= ( %S get_up_def ( 'no test' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *no test* = *'
+  %S get_up ( 'no test' ) '* - Отключает OnTest'
+//	][{"%S{no prefix}"!="%S{!no prefix}"}%f_up_prefix(%S) *no prefix* = *%S{no prefix}* - Нет префикса у имени. Костыль для \[$133891300\]
+ end // if
+ if ( ( %S get_up ( 'no prefix' ) ) %!= ( %S get_up_def ( 'no prefix' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *no prefix* = *'
+  %S get_up ( 'no prefix' ) '* - Нет префикса у имени. Костыль для [$133891300]'
+//	][{"%S{ShowInToolbar}"!="%S{!ShowInToolbar}"}%f_up_prefix(%S) *ShowInToolbar* = *%S{ShowInToolbar}*
+ end // if
+ if ( ( %S get_up ( 'ShowInToolbar' ) ) %!= ( %S get_up_def ( 'ShowInToolbar' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ShowInToolbar* = *'
+  %S get_up ( 'ShowInToolbar' ) '*'
+//	][{"%S{ShortCut}"!="%S{!ShortCut}"}%f_up_prefix(%S) *ShortCut* = *%S{ShortCut}*
+ end // if
+ if ( ( %S get_up ( 'ShortCut' ) ) %!= ( %S get_up_def ( 'ShortCut' ) ) ) then
+ begin
+  [%f] up_prefix %( %S )% ' *ShortCut* = *'
+  %S get_up ( 'ShortCut' ) '*'
+//	]
+ end // if
+
+//%f _IsModuleOperation
+; // wiki_up_print
+
+: IsModuleOperation OBJECT IN %S
+// возвращаемый результат: boolean
+//#UC START# *4A9D35E401D5for4A9D2DEA0027*
+//	true
+ true
+//#UC END# *4A9D35E401D5for4A9D2DEA0027*
+; // IsModuleOperation
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Элемент попадает в секцию Published
+//%f _IsPublishedAccess
+: IsPublishedAccess OBJECT IN %S
+//#UC START# *49F703730268for4A9D2DEA0027*
+//	false
+ false
+//#UC END# *49F703730268for4A9D2DEA0027*
+; // IsPublishedAccess
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит реализацию метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodImplementation
+: pas_MethodImplementation OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC7C03E5for4A9D2DEA0027*
+//	[{%S{no test}!=true}%S%f_pas_DoMethodImplementation(%1,%2,"test")]\
+ if ( ( %S get_up ( 'no test' ) ) %!=  true ) then
+ begin
+  %S %f pas_DoMethodImplementation %( %1 %, %2 %, 'test' )% 
+ end // if
+//	%S%f_pas_DoMethodImplementation(%1,%2,"exec")
+ %S %f pas_DoMethodImplementation %( %1 %, %2 %, 'exec' )% 
+//#UC END# *494BEC7C03E5for4A9D2DEA0027*
+; // pas_MethodImplementation
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// выводит интерфейс метода
+// 
+// RealizeType = o|r|f
+//%f _pas_MethodInterface
+: pas_MethodInterface OBJECT IN %S
+// параметры: Implementator: void = %1, RealizeType: void = %2, Modification: void = %3, aOverrider: MDAClass = %4
+//#UC START# *494BEC6A038Afor4A9D2DEA0027*
+//	[{%S{no test}!=true}%S%f_pas_DoMethodInterface(%1,%2,"test")\n]\
+ if ( ( %S get_up ( 'no test' ) ) %!=  true ) then
+ begin
+  %S %f pas_DoMethodInterface %( %1 %, %2 %, 'test' )% #13#10 
+ end // if
+//	%S%f_pas_DoMethodInterface(%1,%2,"exec")
+ %S %f pas_DoMethodInterface %( %1 %, %2 %, 'exec' )% 
+//#UC END# *494BEC6A038Afor4A9D2DEA0027*
+; // pas_MethodInterface
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Выводит имя метода
+//%f _pas_MethodName
+: pas_MethodName OBJECT IN %S
+// параметры: Modification: a-string = %1
+//#UC START# *494BD6C80075for4A9D2DEA0027*
+//	[{%1N=exec}{op%f_N(%S)Test}op%f_N(%S)]
+ if ( ( %1 |N ) %== 'exec' ) then
+ begin
+  'op'
+  [%f] N %( %S )% 
+ end // if
+ else
+ begin
+  'op'
+  [%f] N %( %S )% 'Test' 
+ end // else
+//#UC END# *494BD6C80075for4A9D2DEA0027*
+; // pas_MethodName
+
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Параметры операции
+//%f _pas_Params
+: pas_Params OBJECT IN %S
+// параметры: Modification: void = %1
+//#UC START# *494BDCF3030Efor4A9D2DEA0027*
+//	[{%1N=exec}{const aParams: IvcmTestParamsPrim}const aParams: IvcmExecuteParamsPrim]
+ if ( ( %1 |N ) %== 'exec' ) then
+ begin
+  'const aParams: IvcmExecuteParamsPrim' 
+ end // if
+ else
+ begin
+  'const aParams: IvcmTestParamsPrim' 
+ end // else
+//#UC END# *494BDCF3030Efor4A9D2DEA0027*
+; // pas_Params
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<ModuleOperationPrim>>
+

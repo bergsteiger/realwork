@@ -54,6 +54,13 @@ IMMEDIATE VOID operator MELIST
  aName |N Ctx:Parser:PushSymbol
 ; // MELIST
 
+IMMEDIATE VOID operator MESTRINGLIST
+ ^L IN aName
+ @SELF Ctx:SetWordProducerForCompiledClass
+ 'axiom:operator' Ctx:Parser:PushSymbol
+ aName |N Ctx:Parser:PushSymbol
+; // MESTRINGLIST
+
 IMMEDIATE VOID operator MEPROP
  ^L IN aName
  @SELF Ctx:SetWordProducerForCompiledClass

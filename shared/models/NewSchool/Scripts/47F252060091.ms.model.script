@@ -1,0 +1,176 @@
+// evUndoB 47F252060091 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F252060091
+%%Inner ME_47F252060091
+
+FORWARD ME_47F252060091
+
+FORWARD ME_4F5C4EB20139
+
+ME ME_47C5B14F00F1_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B14F00F1' '53317D14019D.ms.model.script' // GetActiveObject
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C5B14F00F1_ME_4F5C4EB20139 GetActiveObject
+
+ME ME_47C5B15D0015_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B15D0015' '53317D14019D.ms.model.script' // ExecutedOperation
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C5B15D0015_ME_4F5C4EB20139 ExecutedOperation
+
+ME ME_47C5B16C010D_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B16C010D' '53317D14019D.ms.model.script' // Undo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C5B16C010D_ME_4F5C4EB20139 Undo
+
+ME ME_47C5B17B0053_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B17B0053' '53317D14019D.ms.model.script' // Redo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C5B17B0053_ME_4F5C4EB20139 Redo
+
+ME ME_47C5B18A0183_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B18A0183' '53317D14019D.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C5B18A0183_ME_4F5C4EB20139 Clear
+
+ME ME_47C5B1A20200_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B1A20200' '53317D14019D.ms.model.script' // CanUndo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47C5B1A20200_ME_4F5C4EB20139 CanUndo
+
+ME ME_47C5B1B30355_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B1B30355' '53317D14019D.ms.model.script' // CanRedo
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47C5B1B30355_ME_4F5C4EB20139 CanRedo
+
+ME ME_47C5B1C500AC_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B1C500AC' '53317D14019D.ms.model.script' // Last
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_47C5B1C500AC_ME_4F5C4EB20139 Last
+
+ME ME_47C5B1D302B9_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B1D302B9' '53317D14019D.ms.model.script' // Empty
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_47C5B1D302B9_ME_4F5C4EB20139 Empty
+
+ME ME_47C5B1E90326_ME_4F5C4EB20139
+ MELINK Original WL 'ME_47C5B1E90326' '53317D14019D.ms.model.script' // Disabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" false
+ENDME // ME_47C5B1E90326_ME_4F5C4EB20139 Disabled
+
+%%ImplementedBy ME_47C5B145018F ME_4F5C4EB20139
+
+ME ME_4F5C4EB20139
+ MEPROP UID '4F5C4EB20139'
+ MEPROP Name 'TevCustomUndoBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс для реализации Undo-буфера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F252060091 // evUndoB
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47C5B145018F' '53317D14019D.ms.model.script' // Ik2UndoBuffer
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_47C5B14F00F1_ME_4F5C4EB20139 // GetActiveObject
+ ME_47C5B15D0015_ME_4F5C4EB20139 // ExecutedOperation
+ ME_47C5B16C010D_ME_4F5C4EB20139 // Undo
+ ME_47C5B17B0053_ME_4F5C4EB20139 // Redo
+ ME_47C5B18A0183_ME_4F5C4EB20139 // Clear
+ ME_47C5B1A20200_ME_4F5C4EB20139 // CanUndo
+ ME_47C5B1B30355_ME_4F5C4EB20139 // CanRedo
+ ME_47C5B1C500AC_ME_4F5C4EB20139 // Last
+ ME_47C5B1D302B9_ME_4F5C4EB20139 // Empty
+ ME_47C5B1E90326_ME_4F5C4EB20139 // Disabled
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'UndoBuffer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4F5C4EB20139 TevCustomUndoBuffer
+
+%%InheritedBy ME_4F5C4EB20139 ME_47F2522D0368
+
+ME ME_47F2522D0368
+ MEPROP UID '47F2522D0368'
+ MEPROP Name 'TevUndoBuffer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс для реализации Undo-буфера.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F252060091 // evUndoB
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F5C4EB20139 // TevCustomUndoBuffer
+ )
+ ; // Inherits
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '05.06.1997 12:07'
+ UP extprop:rc:SelfName 'UndoBuffer'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_47F2522D0368 TevUndoBuffer
+
+ME ME_552BAA3102AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F252060091 // evUndoB
+ ;
+ MELINK Target WL 'ME_552BAA150205' '552BAA150205.ms.model.script' // evStandardActions
+ ;
+
+ENDME // ME_552BAA3102AE 
+
+ME ME_47F252060091
+ MEPROP UID '47F252060091'
+ MEPROP Name 'evUndoB'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECB04A01F8' '47ECB04A01F8.ms.model.script' // Processors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F5C4EB20139 // TevCustomUndoBuffer
+ HWL ME_47F2522D0368 // TevUndoBuffer
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_552BAA3102AE // evStandardActions
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" false
+ UP "started" '05.06.1997 12:07'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evUndoB.pas'
+ UP extprop:rc:SelfName 'UndoB'
+
+ENDME // ME_47F252060091 evUndoB

@@ -1,0 +1,98 @@
+// kwEditorGetTableFromCursor 4F549BD300D3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F549BD300D3
+
+FORWARD ME_4F549C0101F6
+
+ME ME_4F54A2CA010F
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4F54A2CA010F aCtx
+
+ME ME_4F54A2CA012F
+ MEPROP Name 'aCursorPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4F54A2CA012F aCursorPoint
+
+ME ME_4F549C23000B
+ MEPROP UID '4F549C23000B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F549C0101F6 // GetTablePoint
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F54A2CA010F // aCtx
+ ME_4F54A2CA012F // aCursorPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4F549C23000B DoIt
+
+ME ME_4F549C7B032A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F549C0101F6 // GetTablePoint
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4F549C7B032A 
+
+ME ME_4F549C0101F6
+ MEPROP UID '4F549C0101F6'
+ MEPROP Name 'GetTablePoint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F549BD300D3 // kwEditorGetTableFromCursor
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F549C23000B // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F549C7B032A // Table
+ )
+ ; // Dependencies
+
+ENDME // ME_4F549C0101F6 GetTablePoint
+
+ME ME_4F549BD300D3
+ MEPROP UID '4F549BD300D3'
+ MEPROP Name 'kwEditorGetTableFromCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F4CB50403CC' '4F4CB50403CC.ms.model.script' // EditorFromStackKeyWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F549C0101F6 // GetTablePoint
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwEditorGetTableFromCursor.imp.pas'
+ UP extprop:pas:TypeName '_kwEditorGetTableFromCursor_'
+ UP extprop:pas:UnitName 'kwEditorGetTableFromCursor.imp'
+
+ENDME // ME_4F549BD300D3 kwEditorGetTableFromCursor

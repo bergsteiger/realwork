@@ -1,0 +1,35 @@
+// DT_AskList 52FCB4700035 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FCB4700035
+
+ME ME_52FCB4770122
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52FCB4700035 // DT_AskList
+ ;
+ MELINK Target WL 'ME_52FCAC0E0384' '52FCABBD02EE.ms.model.script' // TQueryListPrim
+ ;
+
+ENDME // ME_52FCB4770122 
+
+ME ME_52FCB4700035
+ MEPROP UID '52FCB4700035'
+ MEPROP Name 'DT_AskList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FCABBD02EE' '52FCABBD02EE.ms.model.script' // Query
+ ;
+ MELIST Dependencies
+   Seq: ( ME_52FCB4770122 // TQueryListPrim
+ )
+ ; // Dependencies
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_DT_AskList.pas'
+
+ENDME // ME_52FCB4700035 DT_AskList

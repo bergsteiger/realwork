@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4B60346A022E
+
 FORWARD ME_4B60346A022E
 
 FORWARD ME_559BCDD6010D
@@ -10,7 +12,7 @@ ME ME_559BCDED03AB
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_559BCDED03AB Sender
@@ -19,7 +21,7 @@ ME ME_559BCDED03BF
  MEPROP Name 'anIndex'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_559BCDED03BF anIndex
@@ -28,7 +30,7 @@ ME ME_559BCDED03DD
  MEPROP Name 'Allow'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_559BCDED03DD Allow
@@ -96,7 +98,7 @@ ME ME_559BCE3F0233
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" true
  UP "reads field" true
@@ -113,7 +115,7 @@ ME ME_559BCE60027E
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "pm" true
  UP "reads field" true
@@ -126,7 +128,7 @@ ME ME_559BCE930009
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_559BCE930009 aValue
@@ -207,13 +209,13 @@ ME ME_559BCF6801DE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4B60346A022E // TnscTreeViewHotTruck
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
  ;
 
 ENDME // ME_559BCF6801DE 
 
 ME ME_47D1602000C6_ME_4B60346A022E
- MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47D1602000C6_ME_4B60346A022E Create
@@ -229,6 +231,8 @@ ME ME_5152C10E027B_ME_4B60346A022E
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_5152C10E027B_ME_4B60346A022E SetCursorForItem
+
+%%InheritedBy ME_499C26240034 ME_4B60346A022E
 
 ME ME_4B60346A022E
  MEPROP UID '4B60346A022E'
@@ -271,6 +275,9 @@ ME ME_4B60346A022E
    Seq: ( ME_559BCF6801DE // Windows
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifdef" 'Nemesis'
  UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscTreeViewHotTruck.pas'
  UP extprop:rc:SelfName 'TreeViewHotTruck'

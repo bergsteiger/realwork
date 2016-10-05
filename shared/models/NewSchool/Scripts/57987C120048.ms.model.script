@@ -1,0 +1,74 @@
+// ddExtObjectSupport 57987C120048 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57987C120048
+%%Inner ME_57987C120048
+
+FORWARD ME_57987C120048
+
+%%InheritedBy ME_57987CF90375 ME_5799FB6B019E
+
+ME ME_5799FB6B019E
+ MEPROP UID '5799FB6B019E'
+ MEPROP Name 'TddExtObjInserter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57987C120048 // ddExtObjectSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57987CF90375' '57989E5700D4.ms.model.script' // TddExtObjInserter
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ddExtObjInserter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5799FB6B019E TddExtObjInserter
+
+%%InheritedBy ME_57987D2802C9 ME_579A05E70394
+
+ME ME_579A05E70394
+ MEPROP UID '579A05E70394'
+ MEPROP Name 'TddExtObjExtractor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57987C120048 // ddExtObjectSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57987D2802C9' '57989E5700D4.ms.model.script' // TddExtObjExtractor
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ddExtObjExtractor'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_579A05E70394 TddExtObjExtractor
+
+ME ME_57987C120048
+ MEPROP UID '57987C120048'
+ MEPROP Name 'ddExtObjectSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Читает/пишет содержимое объектов из/в хранилища' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57989E5700D4' '57989E5700D4.ms.model.script' // ExternalObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5799FB6B019E // TddExtObjInserter
+ HWL ME_579A05E70394 // TddExtObjExtractor
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddExtObjectSupport.pas'
+
+ENDME // ME_57987C120048 ddExtObjectSupport

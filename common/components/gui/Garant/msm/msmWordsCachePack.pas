@@ -25,7 +25,6 @@ uses
  , TypInfo
  , msmWordsCache
  , msmModelElementMethodValueCache
- , msmChangedElements
  , SysUtils
  , TtfwTypeRegistrator_Proxy
  , tfwScriptingTypes
@@ -85,21 +84,6 @@ type
    function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwMsmDoCache
-
- TkwMsmAddChangedElement = {final} class(TtfwGlobalKeyWord)
-  {* Слово скрипта msm:AddChangedElement }
-  private
-   procedure msm_AddChangedElement(const aCtx: TtfwContext;
-    aWord: TtfwWord);
-    {* Реализация слова скрипта msm:AddChangedElement }
-  protected
-   class function GetWordNameForRegister: AnsiString; override;
-   procedure DoDoIt(const aCtx: TtfwContext); override;
-  public
-   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
-   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
-   function ParamsTypes: PTypeInfoArray; override;
- end;//TkwMsmAddChangedElement
 
 function TkwMsmWordFromCache.msm_WordFromCache(const aCtx: TtfwContext;
  const aName: Il3CString): Boolean;
@@ -344,52 +328,6 @@ begin
  msm_DoCache(aCtx, l_aLambda, l_aDefault, l_aKey, l_aCacheWhere);
 end;//TkwMsmDoCache.DoDoIt
 
-procedure TkwMsmAddChangedElement.msm_AddChangedElement(const aCtx: TtfwContext;
- aWord: TtfwWord);
- {* Реализация слова скрипта msm:AddChangedElement }
-//#UC START# *57E2AB6700A6_57E2AB6700A6_Word_var*
-//#UC END# *57E2AB6700A6_57E2AB6700A6_Word_var*
-begin
-//#UC START# *57E2AB6700A6_57E2AB6700A6_Word_impl*
- TmsmChangedElements.Instance.Add(aWord);
-//#UC END# *57E2AB6700A6_57E2AB6700A6_Word_impl*
-end;//TkwMsmAddChangedElement.msm_AddChangedElement
-
-class function TkwMsmAddChangedElement.GetWordNameForRegister: AnsiString;
-begin
- Result := 'msm:AddChangedElement';
-end;//TkwMsmAddChangedElement.GetWordNameForRegister
-
-function TkwMsmAddChangedElement.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
-begin
- Result := @tfw_tiVoid;
-end;//TkwMsmAddChangedElement.GetResultTypeInfo
-
-function TkwMsmAddChangedElement.GetAllParamsCount(const aCtx: TtfwContext): Integer;
-begin
- Result := 1;
-end;//TkwMsmAddChangedElement.GetAllParamsCount
-
-function TkwMsmAddChangedElement.ParamsTypes: PTypeInfoArray;
-begin
- Result := OpenTypesToTypes([TypeInfo(TtfwWord)]);
-end;//TkwMsmAddChangedElement.ParamsTypes
-
-procedure TkwMsmAddChangedElement.DoDoIt(const aCtx: TtfwContext);
-var l_aWord: TtfwWord;
-begin
- try
-  l_aWord := TtfwWord(aCtx.rEngine.PopObjAs(TtfwWord));
- except
-  on E: Exception do
-  begin
-   RunnerError('Ошибка при получении параметра aWord: TtfwWord : ' + E.Message, aCtx);
-   Exit;
-  end;//on E: Exception
- end;//try..except
- msm_AddChangedElement(aCtx, l_aWord);
-end;//TkwMsmAddChangedElement.DoDoIt
-
 initialization
  TkwMsmWordFromCache.RegisterInEngine;
  {* Регистрация msm_WordFromCache }
@@ -397,8 +335,6 @@ initialization
  {* Регистрация msm_WordToCache }
  TkwMsmDoCache.RegisterInEngine;
  {* Регистрация msm_DoCache }
- TkwMsmAddChangedElement.RegisterInEngine;
- {* Регистрация msm_AddChangedElement }
  TtfwTypeRegistrator.RegisterType(TypeInfo(Boolean));
  {* Регистрация типа Boolean }
  TtfwTypeRegistrator.RegisterType(@tfw_tiString);

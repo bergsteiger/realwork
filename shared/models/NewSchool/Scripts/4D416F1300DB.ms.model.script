@@ -1,0 +1,69 @@
+// dsBaseContentsRes 4D416F1300DB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D416F1300DB
+
+FORWARD ME_4D416C3B0283
+
+ME ME_4D305DAA02F0
+ MEPROP UID '4D305DAA02F0'
+ MEPROP Name 'CommentStub'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D416C3B0283 // Local
+ ;
+ MEPROP Value '''Комментарий №%d к параграфу %d'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Комментарий №%d к параграфу %d'''
+
+ENDME // ME_4D305DAA02F0 CommentStub
+
+ME ME_4D416C3B0283
+ MEPROP UID '4D416C3B0283'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D416F1300DB // dsBaseContentsRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D305DAA02F0 // CommentStub
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_4D416C3B0283 Local
+
+ME ME_4D416F1300DB
+ MEPROP UID '4D416F1300DB'
+ MEPROP Name 'dsBaseContentsRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47EA50050263' '47EA50050263.ms.model.script' // BaseDocument
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4D416C3B0283 // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '27.01.2011 16:12'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\Document\dsBaseContentsRes.pas'
+
+ENDME // ME_4D416F1300DB dsBaseContentsRes

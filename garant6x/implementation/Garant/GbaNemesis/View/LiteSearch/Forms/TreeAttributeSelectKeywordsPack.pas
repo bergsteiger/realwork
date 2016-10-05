@@ -434,10 +434,14 @@ initialization
  {* Регистрация типа TefTreeAttributeSelect }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscContextFilter));
  {* Регистрация типа TnscContextFilter }
+{$IfEnd} // Defined(Nemesis)
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTreeViewHotTruck));
  {* Регистрация типа TnscTreeViewHotTruck }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

@@ -2,106 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F4B48E5029E
+%%Inner ME_4F4B48E5029E
+%%Inner ME_4F4B48E5029E
+%%Inner ME_4F4B48E5029E
+
 FORWARD ME_4F4B48E5029E
 
-FORWARD ME_4F33E5FD009E
-
-FORWARD ME_4F33E3A20056
-
-ME ME_6D4CC94022BF
- MEPROP Name 'aFI'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
- ;
-
-ENDME // ME_6D4CC94022BF aFI
-
-ME ME_3FB2C3BE585B
- MEPROP Name 'aType'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4E1C67860321' '4678209200A6.ms.model.script' // TnevDecorType
- ;
-
-ENDME // ME_3FB2C3BE585B aType
-
-ME ME_7637D6AAAE38
- MEPROP UID '7637D6AAAE38'
- MEPROP Name 'DoIt'
- UP IsSummoned true
- MEPROP Class class_Operation
- %SUMMARY 'Разрешает ли контейтер документа применять указанное декорирование' ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F33E3A20056 // GetAllowsThisDecor
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_6D4CC94022BF // aFI
- ME_3FB2C3BE585B // aType
- )
- ; // Parameters
-
-ENDME // ME_7637D6AAAE38 DoIt
-
-ME ME_4F33E3A20056
- MEPROP UID '4F33E3A20056'
- MEPROP Name 'GetAllowsThisDecor'
- MEPROP Class class_Class
- MELINK Stereotype st_virtualmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F33E5FD009E // nevDocumentContainerDecorationRules
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4F33E2A30116' '4678209200A6.ms.model.script' // AllowsThisDecor
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_7637D6AAAE38 // DoIt
- )
- ; // Operations
-
-ENDME // ME_4F33E3A20056 GetAllowsThisDecor
-
-ME ME_4F33E2A30116_ME_4F33E5FD009E
- MELINK Original WL 'ME_4F33E2A30116' '4678209200A6.ms.model.script' // AllowsThisDecor
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4F33E2A30116_ME_4F33E5FD009E AllowsThisDecor
-
-ME ME_4F33E5FD009E
- MEPROP UID '4F33E5FD009E'
- MEPROP Name 'nevDocumentContainerDecorationRules'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F4B48E5029E // Aspects
- ;
- MELIST Implements
-   Seq: ( WL 'ME_4F33E5480364' '4678209200A6.ms.model.script' // MnevDocumentContainerDecorationRules
- )
- ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_4F33E3A20056 // GetAllowsThisDecor
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_4F33E2A30116_ME_4F33E5FD009E // AllowsThisDecor
- )
- ; // Implemented
- UP intf.pas:Path 'common\components\gui\Garant\Everest\nevDocumentContainerDecorationRules.imp.pas'
- UP extprop:pas:TypeName '_nevDocumentContainerDecorationRules_'
- UP extprop:pas:UnitName 'nevDocumentContainerDecorationRules.imp'
-
-ENDME // ME_4F33E5FD009E nevDocumentContainerDecorationRules
+%%InheritedBy ME_4F33E5FD009E ME_4F33E6C302BD
 
 ME ME_4F33E6C302BD
  MEPROP UID '4F33E6C302BD'
@@ -114,142 +22,11 @@ ME ME_4F33E6C302BD
  MELINK Parent HWL ME_4F4B48E5029E // Aspects
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F33E5FD009E // nevDocumentContainerDecorationRules
+   Seq: ( WL 'ME_4F33E5FD009E' '4F33E5FD009E.ms.model.script' // nevDocumentContainerDecorationRules
  )
  ; // Inherits
 
 ENDME // ME_4F33E6C302BD MnevDocumentContainerDecorationRules
-
-FORWARD ME_4F33E7CF0393
-
-ME ME_4F33F0130375
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F33E7CF0393 // nsEditionsDecorationRules
- ;
- MELINK Target WL 'ME_4E677FA10009' '48492FC0029D.ms.model.script' // FooterForChangesInfo
- ;
-
-ENDME // ME_4F33F0130375 
-
-ME ME_4F33F57C00BE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F33E7CF0393 // nsEditionsDecorationRules
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_4F33F57C00BE 
-
-ME ME_4F33E3A20056_ME_4F33E7CF0393
- MELINK Original HWL ME_4F33E3A20056 // GetAllowsThisDecor
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4F33E3A20056_ME_4F33E7CF0393 GetAllowsThisDecor
-
-ME ME_4F33E7CF0393
- MEPROP UID '4F33E7CF0393'
- MEPROP Name 'nsEditionsDecorationRules'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Правила оформления декораций для СР и ОИД' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F4B48E5029E // Aspects
- ;
- MELIST Implements
-   Seq: ( HWL ME_4F33E6C302BD // MnevDocumentContainerDecorationRules
- )
- ; // Implements
- MELIST Overridden
-   Seq: ( ME_4F33E3A20056_ME_4F33E7CF0393 // GetAllowsThisDecor
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4F33F0130375 // FooterForChangesInfo
- ME_4F33F57C00BE // Tk2TagID
- )
- ; // Dependencies
- UP intf.pas:Path 'common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas'
- UP extprop:pas:TypeName '_nsEditionsDecorationRules_'
- UP extprop:pas:UnitName 'nsEditionsDecorationRules.imp'
-
-ENDME // ME_4F33E7CF0393 nsEditionsDecorationRules
-
-FORWARD ME_4F4B4B10001B
-
-ME ME_4F4B4D6E03C5
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F4B4B10001B // PrintViewDecorationRules
- ;
- MELINK Target WL 'ME_4E677FA10009' '48492FC0029D.ms.model.script' // FooterForChangesInfo
- ;
-
-ENDME // ME_4F4B4D6E03C5 
-
-ME ME_4F4B4D7303C2
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F4B4B10001B // PrintViewDecorationRules
- ;
- MELINK Target WL 'ME_4E1C5F2700BE' '48492FC0029D.ms.model.script' // HeaderForChangesInfo
- ;
-
-ENDME // ME_4F4B4D7303C2 
-
-ME ME_4F4B680A01CD
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F4B4B10001B // PrintViewDecorationRules
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_4F4B680A01CD 
-
-ME ME_4F33E3A20056_ME_4F4B4B10001B
- MELINK Original HWL ME_4F33E3A20056 // GetAllowsThisDecor
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4F33E3A20056_ME_4F4B4B10001B GetAllowsThisDecor
-
-ME ME_4F4B4B10001B
- MEPROP UID '4F4B4B10001B'
- MEPROP Name 'PrintViewDecorationRules'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Правила вывода декораций на печать' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F4B48E5029E // Aspects
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4F33E7CF0393 // nsEditionsDecorationRules
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_4F4B4800034D' '4E3160C802DA.ms.model.script' // Не должны печататься декоративные элементы баллонов про изменения документа
- )
- ; // Implements
- MELIST Overridden
-   Seq: ( ME_4F33E3A20056_ME_4F4B4B10001B // GetAllowsThisDecor
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4F4B4D6E03C5 // FooterForChangesInfo
- ME_4F4B4D7303C2 // HeaderForChangesInfo
- ME_4F4B680A01CD // Tk2TagID
- )
- ; // Dependencies
- UP intf.pas:Path 'common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas'
- UP extprop:pas:TypeName '_PrintViewDecorationRules_'
- UP extprop:pas:UnitName 'PrintViewDecorationRules.imp'
-
-ENDME // ME_4F4B4B10001B PrintViewDecorationRules
 
 ME ME_4F4B48E5029E
  MEPROP UID '4F4B48E5029E'
@@ -262,10 +39,10 @@ ME ME_4F4B48E5029E
  MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
  ;
  MELIST Children
-   Seq: ( HWL ME_4F33E5FD009E // nevDocumentContainerDecorationRules
+   Seq: ( WL 'ME_4F33E5FD009E' '4F33E5FD009E.ms.model.script' // nevDocumentContainerDecorationRules
  HWL ME_4F33E6C302BD // MnevDocumentContainerDecorationRules
- HWL ME_4F33E7CF0393 // nsEditionsDecorationRules
- HWL ME_4F4B4B10001B // PrintViewDecorationRules
+ WL 'ME_4F33E7CF0393' '4F33E7CF0393.ms.model.script' // nsEditionsDecorationRules
+ WL 'ME_4F4B4B10001B' '4F4B4B10001B.ms.model.script' // PrintViewDecorationRules
  )
  ; // Children
  MELIST Depends
@@ -277,5 +54,8 @@ ME ME_4F4B48E5029E
  WL 'ME_4E3160C802DA' '4E3160C802DA.ms.model.script' // Печать документа
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4F4B48E5029E Aspects

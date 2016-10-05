@@ -2,43 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F37ACB3033A
+%%Inner ME_4F37ACB3033A
+
 FORWARD ME_4F37ACB3033A
 
-FORWARD ME_4F37ACE80010
-
 FORWARD ME_4F4BB5B50178
-
-ME ME_4F4BB5D6025B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F37ACE80010 // CompilationPack
- ;
- MELINK Target HWL ME_4F4BB5B50178 // FORWARD
- ;
-
-ENDME // ME_4F4BB5D6025B 
-
-ME ME_4F37ACE80010
- MEPROP UID '4F37ACE80010'
- MEPROP Name 'CompilationPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F37ACB3033A // Compilation
- ;
- MELIST Dependencies
-   Seq: ( ME_4F4BB5D6025B // FORWARD
- )
- ; // Dependencies
- UP "author" 'Ëþëèí À.Â.'
- UP "ifndef" 'NoScripts'
- UP "no hands" true
- UP "started" '12.02.2012 16:13'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CompilationPack.pas'
-
-ENDME // ME_4F37ACE80010 CompilationPack
 
 ME ME_4F4BBA390353
  MEPROP Class class_Dependency
@@ -55,7 +24,7 @@ ME ME_4F4BBA700078
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F4BB5B50178 // FORWARD
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4F4BBA700078 
@@ -83,6 +52,8 @@ ME ME_4F219629036A_ME_4F4BB5B50178
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F219629036A_ME_4F4BB5B50178 FinishDefinitionOfNewWord
+
+%%InheritedBy ME_4DB9B6D20168 ME_4F4BB5B50178
 
 ME ME_4F4BB5B50178
  MEPROP UID '4F4BB5B50178'
@@ -114,6 +85,9 @@ ME ME_4F4BB5B50178
  ME_4F4BBA700078 // FreeAndNil
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwFORWARD.pas'
  UP extprop:pas:TypeName 'TkwFORWARD'
  UP extprop:rc:SelfName 'FORWARD'
@@ -134,7 +108,7 @@ ME ME_4F37ACB3033A
  MELINK Parent WL 'ME_4E1F0EB100C4' '4E1F0EB100C4.ms.model.script' // ScriptEngine
  ;
  MELIST Children
-   Seq: ( HWL ME_4F37ACE80010 // CompilationPack
+   Seq: ( WL 'ME_4F37ACE80010' '4F37ACE80010.ms.model.script' // CompilationPack
  HWL ME_4F4BB5B50178 // FORWARD
  )
  ; // Children
@@ -148,6 +122,9 @@ ME ME_4F37ACB3033A
  WL 'ME_54F079B5035C' '54F079B5035C.ms.model.script' // CompiledWords
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" true
  UP "ifndef" 'NoScripts'
 

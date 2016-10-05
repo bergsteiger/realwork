@@ -1,0 +1,106 @@
+// StatusBarWords 505C855C024A ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_505C855C024A
+
+ME ME_552FC9080065
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552FC9080065 anIndex
+
+ME ME_552FC8E1023A
+ MEPROP UID '552FC8E1023A'
+ MEPROP Name 'OrderedControl'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505C855C024A // StatusBarWords
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FC9080065 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_552FC8E1023A OrderedControl
+
+ME ME_552FC91301BD
+ MEPROP UID '552FC91301BD'
+ MEPROP Name 'OrderedControlsCount'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505C855C024A // StatusBarWords
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552FC91301BD OrderedControlsCount
+
+ME ME_552FC96B007C
+ MEPROP Name 'aControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_552FC96B007C aControl
+
+ME ME_552FC94F0188
+ MEPROP UID '552FC94F0188'
+ MEPROP Name 'OrderIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_505C855C024A // StatusBarWords
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FC96B007C // aControl
+ )
+ ; // Parameters
+
+ENDME // ME_552FC94F0188 OrderIndex
+
+%%InheritedBy ME_4E15A08E030D ME_505C855C024A
+
+ME ME_505C855C024A
+ MEPROP UID '505C855C024A'
+ MEPROP Name 'StatusBarWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_505C848E02D6' '505C848E02D6.ms.model.script' // StatusBarWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E15A08E030D' '4E15A08E030D.ms.model.script' // TnscStatusBar
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552FC8E1023A // OrderedControl
+ HWL ME_552FC91301BD // OrderedControlsCount
+ HWL ME_552FC94F0188 // OrderIndex
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "no class name" false
+ UP "no_pop" true
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWords.pas'
+
+ENDME // ME_505C855C024A StatusBarWords

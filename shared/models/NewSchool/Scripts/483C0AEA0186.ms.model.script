@@ -1,0 +1,1117 @@
+// atGblAdapterWorker 483C0AEA0186 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_483C0AEA0186
+%%Inner ME_483C0AEA0186
+%%Inner ME_483C0AEA0186
+%%Inner ME_483C0AEA0186
+
+FORWARD ME_483C0AEA0186
+
+FORWARD ME_4AC2000A021C
+
+FORWARD ME_4AC200650301
+
+ME ME_4AC200E40284
+ MEPROP UID '4AC200E40284'
+ MEPROP Name 'f_NotifyType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC200650301 // TatFromShellNotifier
+ ;
+ MELINK Target WL 'ME_45EEDEA3028F' '45EEA85502B4.ms.model.script' // NotifyType
+ ;
+
+ENDME // ME_4AC200E40284 f_NotifyType
+
+ME ME_4AC201990307
+ MEPROP Name 'aNotifyType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDEA3028F' '45EEA85502B4.ms.model.script' // NotifyType
+ ;
+
+ENDME // ME_4AC201990307 aNotifyType
+
+ME ME_4AC2018D006C
+ MEPROP UID '4AC2018D006C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC200650301 // TatFromShellNotifier
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC201990307 // aNotifyType
+ )
+ ; // Parameters
+
+ENDME // ME_4AC2018D006C Create
+
+ME ME_45EEDE9D01C5_ME_4AC200650301
+ MELINK Original WL 'ME_45EEDE9D01C5' '45EEA85502B4.ms.model.script' // fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45EEDE9D01C5_ME_4AC200650301 fire
+
+%%ImplementedBy ME_45EEDE9D01C4 ME_4AC200650301
+
+%%InheritedBy ME_4807877801B7 ME_4AC200650301
+
+ME ME_4AC200650301
+ MEPROP UID '4AC200650301'
+ MEPROP Name 'TatFromShellNotifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807877801B7' '48076E7F0260.ms.model.script' // TatNotifier
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_45EEDE9D01C4' '45EEA85502B4.ms.model.script' // Listener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AC200E40284 // f_NotifyType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC2018D006C // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45EEDE9D01C5_ME_4AC200650301 // fire
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'atFromShellNotifier'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AC200650301 TatFromShellNotifier
+
+ME ME_4AC2067A0229
+ MEPROP UID '4AC2067A0229'
+ MEPROP Name 'F_LongOperationStart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC2067A0229 F_LongOperationStart
+
+ME ME_4AC206930397
+ MEPROP UID '4AC206930397'
+ MEPROP Name 'F_LongOperationEnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206930397 F_LongOperationEnd
+
+ME ME_4AC206A80182
+ MEPROP UID '4AC206A80182'
+ MEPROP Name 'F_PredefinedDataLogout'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206A80182 F_PredefinedDataLogout
+
+ME ME_4AC206AE01F6
+ MEPROP UID '4AC206AE01F6'
+ MEPROP Name 'F_Shutdown'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206AE01F6 F_Shutdown
+
+ME ME_4AC206B70264
+ MEPROP UID '4AC206B70264'
+ MEPROP Name 'F_BaseUpdateStart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206B70264 F_BaseUpdateStart
+
+ME ME_4AC206C30222
+ MEPROP UID '4AC206C30222'
+ MEPROP Name 'F_BasesUpdateEnd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206C30222 F_BasesUpdateEnd
+
+ME ME_4AC206D10344
+ MEPROP UID '4AC206D10344'
+ MEPROP Name 'F_BaseUpdateFailed'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206D10344 F_BaseUpdateFailed
+
+ME ME_4AC206E0035A
+ MEPROP UID '4AC206E0035A'
+ MEPROP Name 'F_ConsultationReceived'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206E0035A F_ConsultationReceived
+
+ME ME_4AC206F4032B
+ MEPROP UID '4AC206F4032B'
+ MEPROP Name 'F_ConsultationNotSent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC206F4032B F_ConsultationNotSent
+
+ME ME_4AC2070501F7
+ MEPROP UID '4AC2070501F7'
+ MEPROP Name 'F_NoSubscription'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC2070501F7 F_NoSubscription
+
+ME ME_4AC222AB03CF
+ MEPROP UID '4AC222AB03CF'
+ MEPROP Name 'F_Logout'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELINK Target WL 'ME_48077F750303' '48077E620315.ms.model.script' // IatNotifier
+ ;
+
+ENDME // ME_4AC222AB03CF F_Logout
+
+ME ME_4AC2003500AF
+ MEPROP Name 'aNotifyManager'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEDE9A0260' '45EEA85502B4.ms.model.script' // NotifyManager
+ ;
+
+ENDME // ME_4AC2003500AF aNotifyManager
+
+ME ME_4AC20023031C
+ MEPROP UID '4AC20023031C'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC2003500AF // aNotifyManager
+ )
+ ; // Parameters
+
+ENDME // ME_4AC20023031C Create
+
+ME ME_4AC2000A021C
+ MEPROP UID '4AC2000A021C'
+ MEPROP Name 'TatNotifierFacade'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AC2067A0229 // F_LongOperationStart
+ HWL ME_4AC206930397 // F_LongOperationEnd
+ HWL ME_4AC206A80182 // F_PredefinedDataLogout
+ HWL ME_4AC206AE01F6 // F_Shutdown
+ HWL ME_4AC206B70264 // F_BaseUpdateStart
+ HWL ME_4AC206C30222 // F_BasesUpdateEnd
+ HWL ME_4AC206D10344 // F_BaseUpdateFailed
+ HWL ME_4AC206E0035A // F_ConsultationReceived
+ HWL ME_4AC206F4032B // F_ConsultationNotSent
+ HWL ME_4AC2070501F7 // F_NoSubscription
+ HWL ME_4AC222AB03CF // F_Logout
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC20023031C // Create
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AC200650301 // TatFromShellNotifier
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'atNotifierFacade'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AC2000A021C TatNotifierFacade
+
+FORWARD ME_4AC21B6701C8
+
+ME ME_4AC21B760068
+ MEPROP UID '4AC21B760068'
+ MEPROP Name 'tlasGuest'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC21B6701C8 // TatLoggedAs
+ ;
+
+ENDME // ME_4AC21B760068 tlasGuest
+
+ME ME_4AC21B7F0385
+ MEPROP UID '4AC21B7F0385'
+ MEPROP Name 'tlasCommonUser'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AC21B6701C8 // TatLoggedAs
+ ;
+
+ENDME // ME_4AC21B7F0385 tlasCommonUser
+
+ME ME_4AC21B6701C8
+ MEPROP UID '4AC21B6701C8'
+ MEPROP Name 'TatLoggedAs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AC21B760068 // tlasGuest
+ HWL ME_4AC21B7F0385 // tlasCommonUser
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4AC21B6701C8 TatLoggedAs
+
+FORWARD ME_483C0B6B0167
+
+ME ME_4AC21ADA024C
+ MEPROP UID '4AC21ADA024C'
+ MEPROP Name 'IsLoggedIn'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4AC21ADA024C IsLoggedIn
+
+ME ME_4AC2181A00BF
+ MEPROP UID '4AC2181A00BF'
+ MEPROP Name 'GblAdapterDll'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_4AC217A5034F' '4AC2178C0370.ms.model.script' // IGblAdapterDll
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4AC2181A00BF GblAdapterDll
+
+ME ME_4AC218B50241
+ MEPROP UID '4AC218B50241'
+ MEPROP Name 'NotifierFacade'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target HWL ME_4AC2000A021C // TatNotifierFacade
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4AC218B50241 NotifierFacade
+
+ME ME_4AC218CC00F4
+ MEPROP UID '4AC218CC00F4'
+ MEPROP Name 'Authorization'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EEE3D303C8' '456FF1DD031C.ms.model.script' // Authorization
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4AC218CC00F4 Authorization
+
+ME ME_4AC218D80016
+ MEPROP UID '4AC218D80016'
+ MEPROP Name 'Common'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EEE473005D' '456FF1DD031C.ms.model.script' // Common
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_4AC218D80016 Common
+
+ME ME_4AC218FB005A
+ MEPROP UID '4AC218FB005A'
+ MEPROP Name 'Folders'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EED7A20292' '4570501E037A.ms.model.script' // Folders
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4AC218FB005A Folders
+
+ME ME_4AC21946039A
+ MEPROP UID '4AC21946039A'
+ MEPROP Name 'MyDocuments'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EED5F0008E' '4570501E037A.ms.model.script' // FoldersNode
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_4AC21946039A MyDocuments
+
+ME ME_4AC2196C0042
+ MEPROP UID '4AC2196C0042'
+ MEPROP Name 'CRTreeRoot'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_4AC2196C0042 CRTreeRoot
+
+ME ME_4AC219A300B4
+ MEPROP UID '4AC219A300B4'
+ MEPROP Name 'f_Configuration'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EEDBE3014C' '45EEAA69036E.ms.model.script' // Configuration
+ ;
+
+ENDME // ME_4AC219A300B4 f_Configuration
+
+ME ME_4AC219AA02FA
+ MEPROP UID '4AC219AA02FA'
+ MEPROP Name 'f_ConfigurationManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EEDBE30144' '45EEAA69036E.ms.model.script' // ConfigurationManager
+ ;
+
+ENDME // ME_4AC219AA02FA f_ConfigurationManager
+
+ME ME_4AC219B40386
+ MEPROP UID '4AC219B40386'
+ MEPROP Name 'SettingsManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EEDBE30119' '45EEAA69036E.ms.model.script' // SettingsManager
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4AC219B40386 SettingsManager
+
+ME ME_4AC21B9102CC
+ MEPROP UID '4AC21B9102CC'
+ MEPROP Name 'LoggedAs'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target HWL ME_4AC21B6701C8 // TatLoggedAs
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4AC21B9102CC LoggedAs
+
+ME ME_4B693C680284
+ MEPROP UID '4B693C680284'
+ MEPROP Name 'ChatWorker'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_4B683B57028D' '48078CC202EC.ms.model.script' // TatChatWorker
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_4B693C680284 ChatWorker
+
+ME ME_4B97915302A2
+ MEPROP UID '4B97915302A2'
+ MEPROP Name 'MainMenuRoot'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+ UP "needs field" true
+ UP "pm" true
+
+ENDME // ME_4B97915302A2 MainMenuRoot
+
+ME ME_504FAAE80222
+ MEPROP UID '504FAAE80222'
+ MEPROP Name 'ControlManager'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45F118B90277' '45EEAA800226.ms.model.script' // ControlManager
+ ;
+ UP "needs field" true
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_504FAAE80222 ControlManager
+
+ME ME_4AC21A0B028E
+ MEPROP UID '4AC21A0B028E'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21A0B028E Create
+
+ME ME_4AC21A1E02DC
+ MEPROP UID '4AC21A1E02DC'
+ MEPROP Name 'InitFieldsAfterLogin'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21A1E02DC InitFieldsAfterLogin
+
+ME ME_4AC21A3200BA
+ MEPROP UID '4AC21A3200BA'
+ MEPROP Name 'InitAdapter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21A3200BA InitAdapter
+
+ME ME_4AC21A3A02B0
+ MEPROP UID '4AC21A3A02B0'
+ MEPROP Name 'CloseAdapter'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21A3A02B0 CloseAdapter
+
+ME ME_4AC21A4903B0
+ MEPROP UID '4AC21A4903B0'
+ MEPROP Name 'Instance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21A4903B0 Instance
+
+ME ME_4AC21A5D00D2
+ MEPROP UID '4AC21A5D00D2'
+ MEPROP Name 'InstanceFree'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21A5D00D2 InstanceFree
+
+ME ME_4AC21A700102
+ MEPROP UID '4AC21A700102'
+ MEPROP Name 'Logout'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21A700102 Logout
+
+ME ME_4AC21AC10032
+ MEPROP Name 'anUserName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4AC21AC10032 anUserName
+
+ME ME_4AC21AC10061
+ MEPROP Name 'aPassword'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4AC21AC10061 aPassword
+
+ME ME_4AC21A7F01E4
+ MEPROP UID '4AC21A7F01E4'
+ MEPROP Name 'ForceLogin'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AC21AC10032 // anUserName
+ ME_4AC21AC10061 // aPassword
+ )
+ ; // Parameters
+
+ENDME // ME_4AC21A7F01E4 ForceLogin
+
+ME ME_4AC21AC9018C
+ MEPROP UID '4AC21AC9018C'
+ MEPROP Name 'GuestLogin'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_chg::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4AC21AC9018C GuestLogin
+
+ME ME_4AC21F39010F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_4AC21F39010F 
+
+ME ME_4AC21FCA02C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_480864400141' '48078CC202EC.ms.model.script' // TatFoldersHelper
+ ;
+
+ENDME // ME_4AC21FCA02C4 
+
+ME ME_4AC2205C0178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EED4A10232' '45EEAA96039C.ms.model.script' // XMLImportRunning
+ ;
+
+ENDME // ME_4AC2205C0178 
+
+ME ME_4AC221580288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_45EED4A10222' '45EEAA96039C.ms.model.script' // WrongAuthentication
+ ;
+
+ENDME // ME_4AC221580288 
+
+ME ME_4AC2215D029F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_46092B23000F' '456FF1DD031C.ms.model.script' // AlreadyLogged
+ ;
+
+ENDME // ME_4AC2215D029F 
+
+ME ME_4AC222570259
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_480781120349' '48076E7F0260.ms.model.script' // TatNotification
+ ;
+
+ENDME // ME_4AC222570259 
+
+FORWARD ME_4B716BED024C
+
+ME ME_4B716C1802B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target HWL ME_4B716BED024C // UserName
+ ;
+
+ENDME // ME_4B716C1802B5 
+
+ME ME_4D0A32E3012A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_4D0A033202D2' '48078CC202EC.ms.model.script' // TatUserJournalHelper
+ ;
+
+ENDME // ME_4D0A32E3012A 
+
+ME ME_48077504027E_ME_483C0B6B0167
+ MELINK Original WL 'ME_48077504027E' '4807744200AA.ms.model.script' // Destroy
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48077504027E_ME_483C0B6B0167 Destroy
+
+%%InheritedBy ME_4807745602C8 ME_483C0B6B0167
+
+ME ME_483C0B6B0167
+ MEPROP UID '483C0B6B0167'
+ MEPROP Name 'TatGblAdapterWorker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4AC21ADA024C // IsLoggedIn
+ HWL ME_4AC2181A00BF // GblAdapterDll
+ HWL ME_4AC218B50241 // NotifierFacade
+ HWL ME_4AC218CC00F4 // Authorization
+ HWL ME_4AC218D80016 // Common
+ HWL ME_4AC218FB005A // Folders
+ HWL ME_4AC21946039A // MyDocuments
+ HWL ME_4AC2196C0042 // CRTreeRoot
+ HWL ME_4AC219A300B4 // f_Configuration
+ HWL ME_4AC219AA02FA // f_ConfigurationManager
+ HWL ME_4AC219B40386 // SettingsManager
+ HWL ME_4AC21B9102CC // LoggedAs
+ HWL ME_4B693C680284 // ChatWorker
+ HWL ME_4B97915302A2 // MainMenuRoot
+ HWL ME_504FAAE80222 // ControlManager
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC21A0B028E // Create
+ HWL ME_4AC21A1E02DC // InitFieldsAfterLogin
+ HWL ME_4AC21A3200BA // InitAdapter
+ HWL ME_4AC21A3A02B0 // CloseAdapter
+ HWL ME_4AC21A4903B0 // Instance
+ HWL ME_4AC21A5D00D2 // InstanceFree
+ HWL ME_4AC21A700102 // Logout
+ HWL ME_4AC21A7F01E4 // ForceLogin
+ HWL ME_4AC21AC9018C // GuestLogin
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_48077504027E_ME_483C0B6B0167 // Destroy
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4AC21F39010F // Exception
+ ME_4AC21FCA02C4 // TatFoldersHelper
+ ME_4AC2205C0178 // XMLImportRunning
+ ME_4AC221580288 // WrongAuthentication
+ ME_4AC2215D029F // AlreadyLogged
+ ME_4AC222570259 // TatNotification
+ ME_4B716C1802B5 // UserName
+ ME_4D0A32E3012A // TatUserJournalHelper
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'atGblAdapterWorker'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_483C0B6B0167 TatGblAdapterWorker
+
+ME ME_4B716BFA0036
+ MEPROP UID '4B716BFA0036'
+ MEPROP Name 'TAT_USER_NAME'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B716BED024C // UserName
+ ;
+ MEPROP Value '''Console Adapter Test'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Console Adapter Test'''
+
+ENDME // ME_4B716BFA0036 TAT_USER_NAME
+
+ME ME_4B716BED024C
+ MEPROP UID '4B716BED024C'
+ MEPROP Name 'UserName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B716BFA0036 // TAT_USER_NAME
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4B716BED024C UserName
+
+FORWARD ME_504FB0DC0131
+
+ME ME_504FB80302CD
+ MEPROP UID '504FB80302CD'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_504FB0DC0131 // TatControlledChangeNotifier
+ ;
+ MELINK Target WL 'ME_45F118D40053' '45EEAA800226.ms.model.script' // ControlledChangeNotifier
+ ;
+
+ENDME // ME_504FB80302CD Make
+
+ME ME_45F118D40054_ME_504FB0DC0131
+ MELINK Original WL 'ME_45F118D40054' '45EEAA800226.ms.model.script' // fire
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_45F118D40054_ME_504FB0DC0131 fire
+
+%%ImplementedBy ME_45F118D40053 ME_504FB0DC0131
+
+%%InheritedBy ME_47879856035F ME_504FB0DC0131
+
+ME ME_504FB0DC0131
+ MEPROP UID '504FB0DC0131'
+ MEPROP Name 'TatControlledChangeNotifier'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.ms.model.script' // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_45F118D40053' '45EEAA800226.ms.model.script' // ControlledChangeNotifier
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_504FB80302CD // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_45F118D40054_ME_504FB0DC0131 // fire
+ )
+ ; // Implemented
+ UP extprop:rc:SelfName 'atControlledChangeNotifier'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_504FB0DC0131 TatControlledChangeNotifier
+
+ME ME_4AC21F5B030D
+ MEPROP UID '4AC21F5B030D'
+ MEPROP Name 'gbl_AdapterWorkerInstance'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELINK Target HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ ;
+
+ENDME // ME_4AC21F5B030D gbl_AdapterWorkerInstance
+
+ME ME_4AC1FEB6028B
+ MEPROP UID '4AC1FEB6028B'
+ MEPROP Name 'Fini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_fini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+
+ENDME // ME_4AC1FEB6028B Fini
+
+ME ME_4AC224FF02C0
+ MEPROP UID '4AC224FF02C0'
+ MEPROP Name 'Ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+
+ENDME // ME_4AC224FF02C0 Ini
+
+ME ME_4AC217FA016F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_4AC2178C0370' '4AC2178C0370.ms.model.script' // GblAdapter
+ ;
+
+ENDME // ME_4AC217FA016F 
+
+ME ME_4AC21DD1002C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_4808B6A20344' '4808B6A20344.ms.model.script' // atLogger
+ ;
+
+ENDME // ME_4AC21DD1002C 
+
+ME ME_4C03D5550262
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_483C0AEA0186 // atGblAdapterWorker
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4C03D5550262 
+
+ME ME_483C0AEA0186
+ MEPROP UID '483C0AEA0186'
+ MEPROP Name 'atGblAdapterWorker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48078CC202EC' '48078CC202EC.ms.model.script' // AdapterHelpers
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AC21F5B030D // gbl_AdapterWorkerInstance
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AC1FEB6028B // Fini
+ HWL ME_4AC224FF02C0 // Ini
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AC2000A021C // TatNotifierFacade
+ HWL ME_4AC21B6701C8 // TatLoggedAs
+ HWL ME_483C0B6B0167 // TatGblAdapterWorker
+ HWL ME_504FB0DC0131 // TatControlledChangeNotifier
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4B716BED024C // UserName
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4AC217FA016F // GblAdapter
+ ME_4AC21DD1002C // atLogger
+ ME_4C03D5550262 // String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'quality\test\garant6x\AdapterTest\AdapterHelpers\atGblAdapterWorker.pas'
+
+ENDME // ME_483C0AEA0186 atGblAdapterWorker

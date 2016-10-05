@@ -1,0 +1,52 @@
+// D_WizChangeDoc 4E4B61CC0291 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E4B61CC0291
+
+FORWARD ME_4E4B61CC0291
+
+%%InheritedBy ME_4E4B62A40251 ME_4E4B61E40216
+
+ME ME_4E4B61E40216
+ MEPROP UID '4E4B61E40216'
+ MEPROP Name 'TChangeDocWizardDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E4B61CC0291 // D_WizChangeDoc
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
+ )
+ ; // Inherits
+ UP "finished" false
+ UP extprop:rc:SelfName 'ChangeDocWizardDlg'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4E4B61E40216 TChangeDocWizardDlg
+
+ME ME_4E4B61CC0291
+ MEPROP UID '4E4B61CC0291'
+ MEPROP Name 'D_WizChangeDoc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B61B000D4' '4E4B61B000D4.ms.model.script' // Wizards
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E4B61E40216 // TChangeDocWizardDlg
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_WizChangeDoc.pas'
+
+ENDME // ME_4E4B61CC0291 D_WizChangeDoc

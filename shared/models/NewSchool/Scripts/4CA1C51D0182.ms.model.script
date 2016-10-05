@@ -1,0 +1,45 @@
+// CosNaming 4CA1C51D0182 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CA1C51D0182
+
+FORWARD ME_4CA1C51D0182
+
+ME ME_4CA1C5300391
+ MEPROP UID '4CA1C5300391'
+ MEPROP Name 'TNamingContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1C51D0182 // CosNaming
+ ;
+ UP extprop:rc:SelfName 'NamingContext'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CA1C5300391 TNamingContext
+
+ME ME_4CA1C51D0182
+ MEPROP UID '4CA1C51D0182'
+ MEPROP Name 'CosNaming'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CA0D13D017F' '4CA0D13D017F.ms.model.script' // idl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1C5300391 // TNamingContext
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_CosNaming.pas'
+
+ENDME // ME_4CA1C51D0182 CosNaming

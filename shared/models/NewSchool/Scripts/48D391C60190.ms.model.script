@@ -1,0 +1,124 @@
+// DateUtils 48D391C60190 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48D391C60190
+
+FORWARD ME_4F575B9B000E
+
+ME ME_4F575BCE028E
+ MEPROP UID '4F575BCE028E'
+ MEPROP Name 'MonthsPerYear'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F575B9B000E // DateTimeConsts
+ ;
+ MEPROP Value 12
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 12
+
+ENDME // ME_4F575BCE028E MonthsPerYear
+
+ME ME_4F575B9B000E
+ MEPROP UID '4F575B9B000E'
+ MEPROP Name 'DateTimeConsts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48D391C60190 // DateUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F575BCE028E // MonthsPerYear
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_4F575B9B000E DateTimeConsts
+
+ME ME_54EC25F3023A
+ MEPROP UID '54EC25F3023A'
+ MEPROP Name 'MillisecondsBetween'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D391C60190 // DateUtils
+ ;
+ UP "finished" false
+
+ENDME // ME_54EC25F3023A MillisecondsBetween
+
+ME ME_556703800280
+ MEPROP UID '556703800280'
+ MEPROP Name 'IncDay'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D391C60190 // DateUtils
+ ;
+ UP "finished" false
+
+ENDME // ME_556703800280 IncDay
+
+ME ME_48D391E5028D
+ MEPROP Name 'AValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47272C8B0128' '4807744200AA.ms.model.script' // TDateTime
+ ;
+
+ENDME // ME_48D391E5028D AValue
+
+ME ME_48D391E20282
+ MEPROP UID '48D391E20282'
+ MEPROP Name 'YearOf'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48D391C60190 // DateUtils
+ ;
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
+ ;
+ MELIST Parameters
+   Seq: ( ME_48D391E5028D // AValue
+ )
+ ; // Parameters
+
+ENDME // ME_48D391E20282 YearOf
+
+ME ME_48D391C60190
+ MEPROP UID '48D391C60190'
+ MEPROP Name 'DateUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54EC25F3023A // MillisecondsBetween
+ HWL ME_556703800280 // IncDay
+ HWL ME_48D391E20282 // YearOf
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4F575B9B000E // DateTimeConsts
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\DateUtils.pas'
+
+ENDME // ME_48D391C60190 DateUtils

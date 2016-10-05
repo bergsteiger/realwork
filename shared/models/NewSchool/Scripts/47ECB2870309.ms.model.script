@@ -2,453 +2,27 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+%%Inner ME_47ECB2870309
+
 FORWARD ME_47ECB2870309
-
-FORWARD ME_47ECB297037D
-
-FORWARD ME_4DD3D2710378
-
-FORWARD ME_4DD3D2A20200
-
-ME ME_4DD3D2B5019D
- MEPROP UID '4DD3D2B5019D'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DD3D2A20200 // Exists
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_4DD3D2B5019D DoIt
-
-ME ME_4DD3D2A20200
- MEPROP UID '4DD3D2A20200'
- MEPROP Name 'Exists'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DD3D2710378 // TevSpies
- ;
- MELIST Operations
-   Seq: ( HWL ME_4DD3D2B5019D // DoIt
- )
- ; // Operations
- UP "is static" true
-
-ENDME // ME_4DD3D2A20200 Exists
-
-ME ME_4DD3D2710378
- MEPROP UID '4DD3D2710378'
- MEPROP Name 'TevSpies'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47ACA26600BF' '47913B47006E.ms.model.script' // Tl3InterfacePtrList
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_4DD3D2A20200 // Exists
- )
- ; // Operations
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "singleton" true
- UP "started" '18.05.2011 18:07'
- UP extprop:rc:SelfName 'Spies'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_4DD3D2710378 TevSpies
-
-ME ME_480DB70000B9
- MEPROP UID '480DB70000B9'
- MEPROP Name 'f_Changes'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- MEPROP Value 0
- MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP extprop:pas:Value 0
-
-ENDME // ME_480DB70000B9 f_Changes
-
-ME ME_47ECB2D40104
- MEPROP Name 'aSpy'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
- ;
-
-ENDME // ME_47ECB2D40104 aSpy
-
-ME ME_47ECB2D40120
- MEPROP Name 'SelfNotify'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP extprop:pas:Value false
-
-ENDME // ME_47ECB2D40120 SelfNotify
-
-ME ME_47ECB2D4013B
- MEPROP Name 'aAtEnd'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MEPROP Value true
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP extprop:pas:Value true
-
-ENDME // ME_47ECB2D4013B aAtEnd
-
-ME ME_47ECB2BC01DF
- MEPROP UID '47ECB2BC01DF'
- MEPROP Name 'evAddStyleTableSpy'
- MEPROP Class class_Operation
- %SUMMARY 'добавить объект принимающий нотификации об изменении таблицы стилей.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELIST Parameters
-   Seq: ( ME_47ECB2D40104 // aSpy
- ME_47ECB2D40120 // SelfNotify
- ME_47ECB2D4013B // aAtEnd
- )
- ; // Parameters
-
-ENDME // ME_47ECB2BC01DF evAddStyleTableSpy
-
-ME ME_480DA997034C
- MEPROP Name 'aSpy'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
- ;
-
-ENDME // ME_480DA997034C aSpy
-
-ME ME_480DA98F0055
- MEPROP UID '480DA98F0055'
- MEPROP Name 'evDelStyleTableSpy'
- MEPROP Class class_Operation
- %SUMMARY 'удалить объект принимающий нотификации об изменении таблицы стилей.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELIST Parameters
-   Seq: ( ME_480DA997034C // aSpy
- )
- ; // Parameters
-
-ENDME // ME_480DA98F0055 evDelStyleTableSpy
-
-ME ME_480DA99E035A
- MEPROP UID '480DA99E035A'
- MEPROP Name 'evNotifyStyleTableChanging'
- MEPROP Class class_Operation
- %SUMMARY 'рассылает нотификацию об начале изменения таблицы стилей всем заинтересованным.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
-
-ENDME // ME_480DA99E035A evNotifyStyleTableChanging
-
-ME ME_480DA9B80022
- MEPROP Name 'aCancel'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP extprop:pas:Value false
-
-ENDME // ME_480DA9B80022 aCancel
-
-ME ME_480DA9AC0180
- MEPROP UID '480DA9AC0180'
- MEPROP Name 'evNotifyStyleTableChanged'
- MEPROP Class class_Operation
- %SUMMARY 'рассылает нотификацию об изменении таблицы стилей всем заинтересованным.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELIST Parameters
-   Seq: ( ME_480DA9B80022 // aCancel
- )
- ; // Parameters
-
-ENDME // ME_480DA9AC0180 evNotifyStyleTableChanged
-
-ME ME_480DB9000046
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_47ACA26600BF' '47913B47006E.ms.model.script' // Tl3InterfacePtrList
- ;
-
-ENDME // ME_480DB9000046 
-
-FORWARD ME_480DB927035A
-
-ME ME_480DB94201BE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target HWL ME_480DB927035A // TevStyleInterface
- ;
-
-ENDME // ME_480DB94201BE 
-
-ME ME_480DBAF50189
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_480DBAAB02AD' '480DBA6900E6.ms.model.script' // Tk2
- ;
-
-ENDME // ME_480DBAF50189 
-
-ME ME_480DBC4A0364
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
- ;
-
-ENDME // ME_480DBC4A0364 
-
-ME ME_480DBCF902E5
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_476127E40065' '4678193C009C.ms.model.script' // PIUnknown
- ;
-
-ENDME // ME_480DBCF902E5 
-
-ME ME_480DBD2601DF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_480DBD2601DF 
-
-ME ME_480DBE8303CA
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_480DBEB7009D' '4E56909E0240.ms.model.script' // TevFontArray
- ;
-
-ENDME // ME_480DBE8303CA 
-
-ME ME_480DC0DB0159
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_480DC0DB0159 
-
-ME ME_4DD3D292011D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47ECB297037D // evStyleTableSpy
- ;
- MELINK Target HWL ME_4DD3D2710378 // TevSpies
- ;
-
-ENDME // ME_4DD3D292011D 
-
-ME ME_47ECB297037D
- MEPROP UID '47ECB297037D'
- MEPROP Name 'evStyleTableSpy'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Модуль для поддержки с нотификации об изменении таблицы стилей' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Attributes
-   Seq: ( HWL ME_480DB70000B9 // f_Changes
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_47ECB2BC01DF // evAddStyleTableSpy
- HWL ME_480DA98F0055 // evDelStyleTableSpy
- HWL ME_480DA99E035A // evNotifyStyleTableChanging
- HWL ME_480DA9AC0180 // evNotifyStyleTableChanged
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4DD3D2710378 // TevSpies
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_480DB9000046 // Tl3InterfacePtrList
- ME_480DB94201BE // TevStyleInterface
- ME_480DBAF50189 // Tk2
- ME_480DBC4A0364 // l3Base
- ME_480DBCF902E5 // PIUnknown
- ME_480DBD2601DF // SysUtils
- ME_480DBE8303CA // TevFontArray
- ME_480DC0DB0159 // Tk2TagID
- ME_4DD3D292011D // TevSpies
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "ifndef" 'DesignTimeLibrary'
- UP "no hands" true
- UP "started" '23.09.2002 09:32'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableSpy.pas'
- UP extprop:rc:SelfName 'StyleTableSpy'
-
-ENDME // ME_47ECB297037D evStyleTableSpy
-
-FORWARD ME_4A485B0D0223
-
-ME ME_4A485B710126
- MEPROP UID '4A485B710126'
- MEPROP Name 'DoStyleTableChanged'
- MEPROP Class class_Operation
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
- ;
-
-ENDME // ME_4A485B710126 DoStyleTableChanged
-
-ME ME_4A485DBE0293
- MEPROP UID '4A485DBE0293'
- MEPROP Name 'NeedListen'
- MEPROP Class class_Operation
- %SUMMARY 'Нужно ли подписываться к таблице стилей (может мы уже подписались)' ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_4A485DBE0293 NeedListen
-
-ME ME_4A4867A20049
- MEPROP UID '4A4867A20049'
- MEPROP Name 'AtEnd'
- MEPROP Class class_Operation
- %SUMMARY 'Подписываться в конец списка подписчиков' ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_4A4867A20049 AtEnd
-
-ME ME_4A485BF60279
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
- ;
- MELINK Target HWL ME_47ECB297037D // evStyleTableSpy
- ;
-
-ENDME // ME_4A485BF60279 
-
-ME ME_467D2CB10135_ME_4A485B0D0223
- MELINK Original WL 'ME_467D2CB10135' '467823B7002C.ms.model.script' // StyleTableChanged
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_467D2CB10135_ME_4A485B0D0223 StyleTableChanged
-
-ME ME_47A042E100E2_ME_4A485B0D0223
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_4A485B0D0223 InitFields
-
-ME ME_4A485B0D0223
- MEPROP UID '4A485B0D0223'
- MEPROP Name 'evStyleTableListenerPrim'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Implements
-   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
- WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
- )
- ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_4A485B710126 // DoStyleTableChanged
- HWL ME_4A485DBE0293 // NeedListen
- HWL ME_4A4867A20049 // AtEnd
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_467D2CB10135_ME_4A485B0D0223 // StyleTableChanged
- )
- ; // Implemented
- MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_4A485B0D0223 // InitFields
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4A485BF60279 // evStyleTableSpy
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "ifndef" 'DesignTimeLibrary'
- UP "no hands" true
- UP "started" '29.06.2009 10:11'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas'
- UP extprop:pas:TypeName '_evStyleTableListenerPrim_'
- UP extprop:pas:UnitName 'evStyleTableListenerPrim.imp'
-
-ENDME // ME_4A485B0D0223 evStyleTableListenerPrim
 
 FORWARD ME_522ED98F0223
 
@@ -462,7 +36,7 @@ ME ME_554CE8390106
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_522ED98F0223 // TevInterface
  ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
  UP "pm" true
 
@@ -496,7 +70,7 @@ ME ME_554CEA3900F2
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_554CEA2D01A9 // IsOwn
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_554CEA3900F2 anIndex
@@ -511,7 +85,7 @@ ME ME_554CEA2D01A9
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_522ED98F0223 // TevInterface
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Attributes
    Seq: ( HWL ME_554CEA3900F2 // anIndex
@@ -559,7 +133,7 @@ ME ME_554CE78C00D6
  MEPROP Name 'aCancel'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_554CE78C00D6 aCancel
@@ -606,7 +180,7 @@ ME ME_554CE7D402CE
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_554CE7CC01DE // IsDefault
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_554CE7D402CE DoIt
@@ -627,6 +201,8 @@ ME ME_554CE7CC01DE
  ; // Operations
 
 ENDME // ME_554CE7CC01DE IsDefault
+
+%%InheritedBy ME_46780E690001 ME_522ED98F0223
 
 ME ME_522ED98F0223
  MEPROP UID '522ED98F0223'
@@ -655,6 +231,9 @@ ME ME_522ED98F0223
  HWL ME_554CE7CC01DE // IsDefault
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" false
  UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evInterface.pas'
  UP extprop:rc:SelfName 'Interface'
@@ -662,142 +241,6 @@ ME ME_522ED98F0223
  UP extprop:pas:UnitName 'evInterface'
 
 ENDME // ME_522ED98F0223 TevInterface
-
-FORWARD ME_49F048510365
-
-ME ME_4A263C1900C1
- MEPROP UID '4A263C1900C1'
- MEPROP Name 'evGetDefaultZoom'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49F048510365 // evStyleTableTools
- ;
- MELINK Target WL 'ME_475EA27A0131' '4AB0C3C60310.ms.model.script' // Double
- ;
-
-ENDME // ME_4A263C1900C1 evGetDefaultZoom
-
-ME ME_49F048510365
- MEPROP UID '49F048510365'
- MEPROP Name 'evStyleTableTools'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Operations
-   Seq: ( HWL ME_4A263C1900C1 // evGetDefaultZoom
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evStyleTableTools.pas'
- UP extprop:rc:SelfName 'StyleTableTools'
-
-ENDME // ME_49F048510365 evStyleTableTools
-
-FORWARD ME_480DA68701CE
-
-ME ME_480DA6FC0254
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_480DA68701CE // evStyleTableListener
- ;
- MELINK Target HWL ME_47ECB297037D // evStyleTableSpy
- ;
-
-ENDME // ME_480DA6FC0254 
-
-ME ME_479731C50290_ME_480DA68701CE
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_480DA68701CE Cleanup
-
-ME ME_480DA68701CE
- MEPROP UID '480DA68701CE'
- MEPROP Name 'evStyleTableListener'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Объект, слушающий изменения таблицы стилей' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4A485B0D0223 // evStyleTableListenerPrim
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_480DA68701CE // Cleanup
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_480DA6FC0254 // evStyleTableSpy
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "ifndef" 'DesignTimeLibrary'
- UP "no hands" true
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableListener.imp.pas'
- UP extprop:pas:TypeName '_evStyleTableListener_'
- UP extprop:pas:UnitName 'evStyleTableListener.imp'
-
-ENDME // ME_480DA68701CE evStyleTableListener
-
-FORWARD ME_4A485B9801E0
-
-ME ME_4A485C10011A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4A485B9801E0 // evCacheableStyleTableListener
- ;
- MELINK Target HWL ME_47ECB297037D // evStyleTableSpy
- ;
-
-ENDME // ME_4A485C10011A 
-
-ME ME_479F2AFB0397_ME_4A485B9801E0
- MELINK Original WL 'ME_479F2AFB0397' '51612EBB02F5.ms.model.script' // Release
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479F2AFB0397_ME_4A485B9801E0 Release
-
-ME ME_4A485B9801E0
- MEPROP UID '4A485B9801E0'
- MEPROP Name 'evCacheableStyleTableListener'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Подписчик на изменение таблицы стилей, который держит какие-то параметры зависящие от с тилей в то время, когда находится в кеше' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4A485B0D0223 // evStyleTableListenerPrim
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_479F2AFB0397_ME_4A485B9801E0 // Release
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4A485C10011A // evStyleTableSpy
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "ifndef" 'DesignTimeLibrary'
- UP "no hands" true
- UP "started" '29.06.2009 10:14'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evCacheableStyleTableListener.imp.pas'
- UP extprop:pas:TypeName '_evCacheableStyleTableListener_'
- UP extprop:pas:UnitName 'evCacheableStyleTableListener.imp'
-
-ENDME // ME_4A485B9801E0 evCacheableStyleTableListener
 
 FORWARD ME_4E55123003CD
 
@@ -811,10 +254,12 @@ ME ME_4E54E160011A
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4E54E14900FA // TevStandardStylesCacheByFixedFont
  ;
- MELINK Target WL 'ME_4E68E516025B' '4E56909E0240.ms.model.script' // IevResultFont
+ MELINK Target WL 'ME_4E68E516025B' '4E68E4D40035.ms.model.script' // IevResultFont
  ;
 
 ENDME // ME_4E54E160011A 
+
+%%InheritedBy ME_46A603BB0391 ME_4E54E14900FA
 
 ME ME_4E54E14900FA
  MEPROP UID '4E54E14900FA'
@@ -827,7 +272,7 @@ ME ME_4E54E14900FA
  MELINK Parent HWL ME_4E55123003CD // TevStandardStylesListPrim
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+   Seq: ( WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  )
  ; // Inherits
  MELIST Attributes
@@ -853,6 +298,8 @@ ME ME_4E54D2000072
 
 ENDME // ME_4E54D2000072 
 
+%%InheritedBy ME_46A603BB0391 ME_4E54D1D103D6
+
 ME ME_4E54D1D103D6
  MEPROP UID '4E54D1D103D6'
  MEPROP Name 'TevStandardStylesCacheByVisibility'
@@ -864,7 +311,7 @@ ME ME_4E54D1D103D6
  MELINK Parent HWL ME_4E55123003CD // TevStandardStylesListPrim
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+   Seq: ( WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  )
  ; // Inherits
  MELIST Attributes
@@ -890,6 +337,8 @@ ME ME_4E54D23D030F
 
 ENDME // ME_4E54D23D030F 
 
+%%InheritedBy ME_46A603BB0391 ME_4E54D21B039E
+
 ME ME_4E54D21B039E
  MEPROP UID '4E54D21B039E'
  MEPROP Name 'TevStandardStylesCacheByJustification'
@@ -901,7 +350,7 @@ ME ME_4E54D21B039E
  MELINK Parent HWL ME_4E55123003CD // TevStandardStylesListPrim
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+   Seq: ( WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  )
  ; // Inherits
  MELIST Attributes
@@ -937,7 +386,7 @@ ME ME_4E551B5D02D6
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4E551AEB012B // TevStandardStylesCacheItem
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E551B5D02D6 rID
@@ -1022,14 +471,14 @@ ME ME_4E55156E009C
 ENDME // ME_4E55156E009C evFreeStandardStylesCache
 
 ME ME_47B07CF403D0_ME_4E55123003CD
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_4E55123003CD IsSameItems
 
 ME ME_47B2C42A0163_ME_4E55123003CD
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -1037,22 +486,25 @@ ME ME_47B2C42A0163_ME_4E55123003CD
 ENDME // ME_47B2C42A0163_ME_4E55123003CD AssignItem
 
 ME ME_47B94A5C006E_ME_4E55123003CD
- MELINK Original WL 'ME_47B94A5C006E' '47BB24D30205.ms.model.script' // FreeItem
+ MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B94A5C006E_ME_4E55123003CD FreeItem
 
 ME ME_47B99D4503A2_ME_4E55123003CD
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_4E55123003CD CompareExistingItems
 
 ME ME_47A042E100E2_ME_4E55123003CD
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4E55123003CD InitFields
+
+%%InheritedBy ME_4A54DD4E036F ME_4E55123003CD
+%%InheritedBy ME_4E5506F6007E ME_4E55123003CD
 
 ME ME_4E55123003CD
  MEPROP UID '4E55123003CD'
@@ -1066,7 +518,7 @@ ME ME_4E55123003CD
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4E5506F6007E' '47913B47006E.ms.model.script' // l3RecordListPrimPrim
+ WL 'ME_4E5506F6007E' '4E5506F6007E.ms.model.script' // l3RecordListPrimPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -1095,6 +547,9 @@ ME ME_4E55123003CD
  HWL ME_4E551AEB012B // TevStandardStylesCacheItem
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '24.08.2011 19:02'
@@ -1118,7 +573,7 @@ ME ME_4E3175520059
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4E3175000369 // TevDefaultStyleFontSize
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E3175520059 rStyleID
@@ -1132,7 +587,7 @@ ME ME_4E31758703CE
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4E3175000369 // TevDefaultStyleFontSize
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E31758703CE rFontSize
@@ -1143,7 +598,7 @@ ME ME_4E3175B0000C
  MEPROP Name 'aStyleID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E3175B0000C aStyleID
@@ -1152,7 +607,7 @@ ME ME_4E3175B0003F
  MEPROP Name 'aFontSize'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E3175B0003F aFontSize
@@ -1209,7 +664,7 @@ ME ME_4E3175D402C9
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E3175CA0048 // EQ
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4E3175E40031 // anOther
@@ -1255,6 +710,9 @@ ME ME_4E3175000369
  HWL ME_4E3175CA0048 // EQ
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:SelfName 'DefaultStyleFontSize'
 
 ENDME // ME_4E3175000369 TevDefaultStyleFontSize
@@ -1275,7 +733,7 @@ ME ME_4E3175210334
 ENDME // ME_4E3175210334 ItemType
 
 ME ME_47B2C42A0163_ME_4E3173F50217
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -1283,16 +741,19 @@ ME ME_47B2C42A0163_ME_4E3173F50217
 ENDME // ME_47B2C42A0163_ME_4E3173F50217 AssignItem
 
 ME ME_47B99D4503A2_ME_4E3173F50217
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_4E3173F50217 CompareExistingItems
 
 ME ME_47A042E100E2_ME_4E3173F50217
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4E3173F50217 InitFields
+
+%%InheritedBy ME_4A54DD4E036F ME_4E3173F50217
+%%InheritedBy ME_4B223DB5024B ME_4E3173F50217
 
 ME ME_4E3173F50217
  MEPROP UID '4E3173F50217'
@@ -1307,7 +768,7 @@ ME ME_4E3173F50217
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223DB5024B' '47913B47006E.ms.model.script' // l3RecordWithEQList
+ WL 'ME_4B223DB5024B' '4B223DB5024B.ms.model.script' // l3RecordWithEQList
  )
  ; // Inherits
  MELIST Attributes
@@ -1327,6 +788,9 @@ ME ME_4E3173F50217
    Seq: ( HWL ME_4E3175000369 // TevDefaultStyleFontSize
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '28.07.2011 18:48'
@@ -1349,16 +813,19 @@ ME ME_4E317B210219
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4E317AC802F4 // TevDefaultStylesFontSizesPrim1
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E317B210219 FindDataType
 
 ME ME_47B9BAFD01F4_ME_4E317AC802F4
- MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47B9BAFD01F4_ME_4E317AC802F4 CompareItemWithData
+
+%%InheritedBy ME_47B47E230134 ME_4E317AC802F4
+%%InheritedBy ME_4E3173F50217 ME_4E317AC802F4
 
 ME ME_4E317AC802F4
  MEPROP UID '4E317AC802F4'
@@ -1371,7 +838,7 @@ ME ME_4E317AC802F4
  MELINK Parent HWL ME_47ECB2870309 // StyleTable
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47B47E230134.ms.model.script' // l3Searcher
  HWL ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
  )
  ; // Inherits
@@ -1383,6 +850,9 @@ ME ME_4E317AC802F4
    Seq: ( ME_47B9BAFD01F4_ME_4E317AC802F4 // CompareItemWithData
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '28.07.2011 19:05'
@@ -1404,7 +874,7 @@ ME ME_4E31799A01C3
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4E31743D01F8 // TevDefaultStylesFontSizes
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E31799A01C3 f_Saved
@@ -1415,7 +885,7 @@ ME ME_4E31764C01C9
  MEPROP Name 'aTag'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_4E31764C01C9 aTag
@@ -1428,7 +898,7 @@ ME ME_4E31763E003E
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E317625032D // FontSizeForTag
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_4E31764C01C9 // aTag
@@ -1476,6 +946,9 @@ ME ME_4E317625032D
  ME_4E3176710273 // Defaults
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E317625032D FontSizeForTag
 
@@ -1491,6 +964,8 @@ ME ME_4E31795B0349
  ;
 
 ENDME // ME_4E31795B0349 DoIt
+
+FORWARD ME_480DB927035A
 
 ME ME_4E31796E03AF
  MEPROP Class class_Dependency
@@ -1527,7 +1002,7 @@ ME ME_4E317E4C028F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E317944036F // SaveStylesFontSizes
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4E317E4C028F 
@@ -1553,6 +1028,9 @@ ME ME_4E317944036F
  ME_4E317E4C028F // FreeAndNil
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E317944036F SaveStylesFontSizes
 
@@ -1562,7 +1040,7 @@ ME ME_4E32AE5703C0
  MEPROP Name 'aStyle'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E32AE5703C0 aStyle
@@ -1575,7 +1053,7 @@ ME ME_4E32AE4C020B
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E32AE440052 // FontSizeForStyle
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_4E32AE5703C0 // aStyle
@@ -1606,7 +1084,7 @@ ME ME_5239A0C500F2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E31743D01F8 // TevDefaultStylesFontSizes
  ;
- MELINK Target WL 'ME_47E0C36201C7' '537B83AD01F0.ms.model.script' // l3Math
+ MELINK Target WL 'ME_47E0C36201C7' '47E0C36201C7.ms.model.script' // l3Math
  ;
 
 ENDME // ME_5239A0C500F2 
@@ -1626,10 +1104,12 @@ ME ME_5239A347013E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E31743D01F8 // TevDefaultStylesFontSizes
  ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
  ;
 
 ENDME // ME_5239A347013E 
+
+%%InheritedBy ME_4E317AC802F4 ME_4E31743D01F8
 
 ME ME_4E31743D01F8
  MEPROP UID '4E31743D01F8'
@@ -1662,6 +1142,9 @@ ME ME_4E31743D01F8
  ME_5239A347013E // l3MinMax
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "singleton" true
@@ -1717,6 +1200,8 @@ ME ME_49E4883E0176_ME_4E32AB1401C0
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49E4883E0176_ME_4E32AB1401C0 DoWritePara
 
+%%InheritedBy ME_49E487650342 ME_4E32AB1401C0
+
 ME ME_4E32AB1401C0
  MEPROP UID '4E32AB1401C0'
  MEPROP Name 'TevStyleTableFontSizeCorrector'
@@ -1743,6 +1228,9 @@ ME ME_4E32AB1401C0
  ME_4E32AB9D0269 // Tk2TagID
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '29.07.2011 16:45'
@@ -1765,7 +1253,7 @@ ME ME_4E5515EE002B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4E55134F0348 // TevStandardStylesList
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E5515EE002B FindDataType
@@ -1776,7 +1264,7 @@ ME ME_4E551BC20028
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E551BC20028 anID
@@ -1785,7 +1273,7 @@ ME ME_4E551E56028E
  MEPROP Name 'aJust'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E551E56028E aJust
@@ -1794,7 +1282,7 @@ ME ME_4E551E5602AC
  MEPROP Name 'aVis'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E551E5602AC aVis
@@ -1803,7 +1291,7 @@ ME ME_4E551E5602FC
  MEPROP Name 'aFixed'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E551E5602FC aFixed
@@ -1816,7 +1304,7 @@ ME ME_4E551BB202CD
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E551B9F0203 // StyleByID
  ;
- MELINK Target WL 'ME_4E68E516025B' '4E56909E0240.ms.model.script' // IevResultFont
+ MELINK Target WL 'ME_4E68E516025B' '4E68E4D40035.ms.model.script' // IevResultFont
  ;
  MELIST Parameters
    Seq: ( ME_4E551BC20028 // anID
@@ -1851,7 +1339,7 @@ ME ME_4E551BFA023D
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E551BFA023D anID
@@ -1860,7 +1348,7 @@ ME ME_4E551E5E0380
  MEPROP Name 'aJust'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E551E5E0380 aJust
@@ -1869,7 +1357,7 @@ ME ME_4E551E5E03AF
  MEPROP Name 'aVis'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E551E5E03AF aVis
@@ -1878,7 +1366,7 @@ ME ME_4E551E5E03E4
  MEPROP Name 'aFixed'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E551E5E03E4 aFixed
@@ -1887,7 +1375,7 @@ ME ME_4E551BFB0045
  MEPROP Name 'aStyle'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4E68E516025B' '4E56909E0240.ms.model.script' // IevResultFont
+ MELINK Target WL 'ME_4E68E516025B' '4E68E4D40035.ms.model.script' // IevResultFont
  ;
 
 ENDME // ME_4E551BFB0045 aStyle
@@ -1933,7 +1421,7 @@ ME ME_4E5524630309
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E55134F0348 // TevStandardStylesList
  ;
- MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
  ;
 
 ENDME // ME_4E5524630309 
@@ -1949,10 +1437,13 @@ ME ME_4E68E96C03A3
 ENDME // ME_4E68E96C03A3 
 
 ME ME_47B9BAFD01F4_ME_4E55134F0348
- MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47B9BAFD01F4_ME_4E55134F0348 CompareItemWithData
+
+%%InheritedBy ME_47B47E230134 ME_4E55134F0348
+%%InheritedBy ME_4E55123003CD ME_4E55134F0348
 
 ME ME_4E55134F0348
  MEPROP UID '4E55134F0348'
@@ -1965,7 +1456,7 @@ ME ME_4E55134F0348
  MELINK Parent HWL ME_47ECB2870309 // StyleTable
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47B47E230134.ms.model.script' // l3Searcher
  HWL ME_4E55123003CD // TevStandardStylesListPrim
  )
  ; // Inherits
@@ -1987,6 +1478,9 @@ ME ME_4E55134F0348
  ME_4E68E96C03A3 // TevResultFontHolder
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "started" '24.08.2011 19:06'
@@ -2013,6 +1507,8 @@ ME ME_4E54D257025E
  ;
 
 ENDME // ME_4E54D257025E 
+
+%%InheritedBy ME_4E54C76802DB ME_4E54D246013E
 
 ME ME_4E54D246013E
  MEPROP UID '4E54D246013E'
@@ -2070,7 +1566,7 @@ ME ME_4E54D0AB0187
  MEPROP Name 'aPara'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_4E54D0AB0187 aPara
@@ -2079,7 +1575,7 @@ ME ME_4E5F9A460188
  MEPROP Name 'aFixedFont'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E5F9A460188 aFixedFont
@@ -2088,7 +1584,7 @@ ME ME_4E54D0AB01C5
  MEPROP Name 'theFont'
  MEPROP Class class_Parameter
  MELINK Stereotype st_out ;
- MELINK Target WL 'ME_4E68E516025B' '4E56909E0240.ms.model.script' // IevResultFont
+ MELINK Target WL 'ME_4E68E516025B' '4E68E4D40035.ms.model.script' // IevResultFont
  ;
 
 ENDME // ME_4E54D0AB01C5 theFont
@@ -2101,7 +1597,7 @@ ME ME_4E54D0910211
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E54D081006C // GetStandardStyleFont
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4E54D0AB0187 // aPara
@@ -2165,7 +1661,7 @@ ME ME_4E5F9AA2036E
  MEPROP Name 'aStyle'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_4E5F9AA2036E aStyle
@@ -2174,7 +1670,7 @@ ME ME_4E5F9AA203AC
  MEPROP Name 'aPrinting'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E5F9AA203AC aPrinting
@@ -2187,7 +1683,7 @@ ME ME_4E5F9A9E029F
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E5F9A5E02A3 // GetStyleFont
  ;
- MELINK Target WL 'ME_4E68E516025B' '4E56909E0240.ms.model.script' // IevResultFont
+ MELINK Target WL 'ME_4E68E516025B' '4E68E4D40035.ms.model.script' // IevResultFont
  ;
  MELIST Parameters
    Seq: ( ME_4E5F9AA2036E // aStyle
@@ -2220,7 +1716,7 @@ ME ME_4E5F9B6402BF
  MEPROP Name 'anObj'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_4E5F9B6402BF anObj
@@ -2229,7 +1725,7 @@ ME ME_4E5F9B6402F5
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E5F9B6402F5 anID
@@ -2238,7 +1734,7 @@ ME ME_4E5F9B640335
  MEPROP Name 'aJust'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E5F9B640335 aJust
@@ -2247,7 +1743,7 @@ ME ME_4E5F9B640362
  MEPROP Name 'aVis'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E5F9B640362 aVis
@@ -2256,7 +1752,7 @@ ME ME_4E5F9B640399
  MEPROP Name 'aFixedFont'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4E5F9B640399 aFixedFont
@@ -2265,7 +1761,7 @@ ME ME_4E5F9B650013
  MEPROP Name 'theFont'
  MEPROP Class class_Parameter
  MELINK Stereotype st_out ;
- MELINK Target WL 'ME_4E68E516025B' '4E56909E0240.ms.model.script' // IevResultFont
+ MELINK Target WL 'ME_4E68E516025B' '4E68E4D40035.ms.model.script' // IevResultFont
  ;
 
 ENDME // ME_4E5F9B650013 theFont
@@ -2332,7 +1828,7 @@ ME ME_4E54D2B001AE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E54CF7E0143 // TevStandardStyles
  ;
- MELINK Target WL 'ME_4CDD241C0184' '47913B47006E.ms.model.script' // l3System
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
  ;
 
 ENDME // ME_4E54D2B001AE 
@@ -2352,7 +1848,7 @@ ME ME_4E55153E00AA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E54CF7E0143 // TevStandardStyles
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4E55153E00AA 
@@ -2388,22 +1884,28 @@ ME ME_4E68E9B402EF
 ENDME // ME_4E68E9B402EF 
 
 ME ME_4A485B710126_ME_4E54CF7E0143
- MELINK Original HWL ME_4A485B710126 // DoStyleTableChanged
+ MELINK Original WL 'ME_4A485B710126' '4A485B0D0223.ms.model.script' // DoStyleTableChanged
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4A485B710126_ME_4E54CF7E0143 DoStyleTableChanged
 
 ME ME_479731C50290_ME_4E54CF7E0143
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4E54CF7E0143 Cleanup
 
 ME ME_4A4867A20049_ME_4E54CF7E0143
- MELINK Original HWL ME_4A4867A20049 // AtEnd
+ MELINK Original WL 'ME_4A4867A20049' '4A485B0D0223.ms.model.script' // AtEnd
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A4867A20049_ME_4E54CF7E0143 AtEnd
+
+%%ImplementedBy ME_467D2A5403B6 ME_4E54CF7E0143
+%%ImplementedBy ME_4E314D470350 ME_4E54CF7E0143
+
+%%InheritedBy ME_480DA68701CE ME_4E54CF7E0143
+%%InheritedBy ME_49E7754802A9 ME_4E54CF7E0143
 
 ME ME_4E54CF7E0143
  MEPROP UID '4E54CF7E0143'
@@ -2417,7 +1919,7 @@ ME ME_4E54CF7E0143
  MELINK Parent HWL ME_47ECB2870309 // StyleTable
  ;
  MELIST Inherits
-   Seq: ( HWL ME_480DA68701CE // evStyleTableListener
+   Seq: ( WL 'ME_480DA68701CE' '480DA68701CE.ms.model.script' // evStyleTableListener
  WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
  )
  ; // Inherits
@@ -2462,6 +1964,9 @@ ME ME_4E54CF7E0143
  ME_4E68E9B402EF // TevResultFontHolder
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" true
  UP "singleton" true
@@ -2552,7 +2057,7 @@ ME ME_E299FD04EA19
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5EDF2B8ACE76 // TevStylesSettingsListener
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
@@ -2564,16 +2069,20 @@ ME ME_D2016F86B06E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5EDF2B8ACE76 // TevStylesSettingsListener
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_D2016F86B06E 
 
 ME ME_47EA863A035C_ME_5EDF2B8ACE76
- MELINK Original WL 'ME_47EA863A035C' '47EA4BB502F9.ms.model.script' // DoSettingChanged
+ MELINK Original WL 'ME_47EA863A035C' '47EA85E7005B.ms.model.script' // DoSettingChanged
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47EA863A035C_ME_5EDF2B8ACE76 DoSettingChanged
+
+%%ImplementedBy ME_47EA85E7005B ME_5EDF2B8ACE76
+
+%%InheritedBy ME_49E7754802A9 ME_5EDF2B8ACE76
 
 ME ME_5EDF2B8ACE76
  MEPROP UID '5EDF2B8ACE76'
@@ -2592,7 +2101,7 @@ ME ME_5EDF2B8ACE76
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47EA85E7005B' '47EA4BB502F9.ms.model.script' // afwSettingChanged
+   Seq: ( WL 'ME_47EA85E7005B' '47EA85E7005B.ms.model.script' // afwSettingChanged
  )
  ; // Implements
  MELIST Operations
@@ -2625,7 +2134,7 @@ ME ME_5238718D0226
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52387143039D // PrintAndExportFontSize
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5238718D0226 DoIt
@@ -2661,7 +2170,7 @@ ME ME_5676E7C9C5EE
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_B4F9EAF1647A // PrintAndExportDefaultSetting
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5676E7C9C5EE DoIt
@@ -2672,10 +2181,12 @@ ME ME_99E882CA5521
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_B4F9EAF1647A // PrintAndExportDefaultSetting
  ;
- MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
  ;
 
 ENDME // ME_99E882CA5521 
+
+%%ImplementedBy ME_5214960C034B ME_B4F9EAF1647A
 
 ME ME_B4F9EAF1647A
  MEPROP UID 'B4F9EAF1647A'
@@ -2719,7 +2230,7 @@ ME ME_AC3A30595778
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_C4840679B5EF // PrintAndExportCustomSetting
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_AC3A30595778 DoIt
@@ -2730,10 +2241,12 @@ ME ME_AB0031608A65
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_C4840679B5EF // PrintAndExportCustomSetting
  ;
- MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
  ;
 
 ENDME // ME_AB0031608A65 
+
+%%ImplementedBy ME_5214960C034B ME_C4840679B5EF
 
 ME ME_C4840679B5EF
  MEPROP UID 'C4840679B5EF'
@@ -2777,7 +2290,7 @@ ME ME_BCA72ACC3073
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_71C286195AC6 // PrintAndExportFontSizeSetting
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_BCA72ACC3073 DoIt
@@ -2788,10 +2301,12 @@ ME ME_4E01AB100733
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_71C286195AC6 // PrintAndExportFontSizeSetting
  ;
- MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
  ;
 
 ENDME // ME_4E01AB100733 
+
+%%ImplementedBy ME_4E314EC80391 ME_71C286195AC6
 
 ME ME_71C286195AC6
  MEPROP UID '71C286195AC6'
@@ -2830,7 +2345,7 @@ ME ME_E6E2C45BFECF
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_E6E2C45BFECF aValue
@@ -2858,10 +2373,12 @@ ME ME_EEFF1B74B298
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_FF5063A3A440 // WritePrintAndExportFontSizeSetting
  ;
- MELINK Target WL 'ME_477515240332' '47750CE700D0.ms.model.script' // Tafw
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
  ;
 
 ENDME // ME_EEFF1B74B298 
+
+%%ImplementedBy ME_4E314EC80391 ME_FF5063A3A440
 
 ME ME_FF5063A3A440
  MEPROP UID 'FF5063A3A440'
@@ -2898,12 +2415,10 @@ ME ME_523970E60269
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_522ED9B4018B // evStyles
  ;
- MELINK Target HWL ME_47ECB297037D // evStyleTableSpy
+ MELINK Target WL 'ME_47ECB297037D' '47ECB297037D.ms.model.script' // evStyleTableSpy
  ;
 
 ENDME // ME_523970E60269 
-
-FORWARD ME_870F97A58415
 
 ME ME_62D236A986D4
  UP IsSummoned true
@@ -2911,12 +2426,10 @@ ME ME_62D236A986D4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_522ED9B4018B // evStyles
  ;
- MELINK Target HWL ME_870F97A58415 // evStylesPrintAndExportSettingRes
+ MELINK Target WL 'ME_870F97A58415' '870F97A58415.ms.model.script' // evStylesPrintAndExportSettingRes
  ;
 
 ENDME // ME_62D236A986D4 
-
-FORWARD ME_C9ADD4944F97
 
 ME ME_2A81B3BA96E9
  UP IsSummoned true
@@ -2924,10 +2437,14 @@ ME ME_2A81B3BA96E9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_522ED9B4018B // evStyles
  ;
- MELINK Target HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
+ MELINK Target WL 'ME_C9ADD4944F97' 'C9ADD4944F97.ms.model.script' // evStylesPrintAndExportFontSizeSettingRes
  ;
 
 ENDME // ME_2A81B3BA96E9 
+
+%%ImplementedBy ME_5214960C034B ME_522ED9B4018B
+
+%%InheritedBy ME_522ED98F0223 ME_522ED9B4018B
 
 ME ME_522ED9B4018B
  MEPROP UID '522ED9B4018B'
@@ -2966,12 +2483,17 @@ ME ME_522ED9B4018B
  ME_2A81B3BA96E9 // evStylesPrintAndExportFontSizeSettingRes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyles_SH.pas'
  UP extprop:pas:TypeName 'SHevStyles'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'evStyles_SH'
 
 ENDME // ME_522ED9B4018B evStyles
+
+%%InheritedBy ME_522ED98F0223 ME_522EDD1F0044
 
 ME ME_522EDD1F0044
  MEPROP UID '522EDD1F0044'
@@ -2996,6 +2518,8 @@ ME ME_522EDD1F0044
 
 ENDME // ME_522EDD1F0044 TevFontInterface
 
+%%InheritedBy ME_480DB927035A ME_554CE65703B1
+
 ME ME_554CE65703B1
  MEPROP UID '554CE65703B1'
  MEPROP Name 'RevStyleInterface'
@@ -3014,6 +2538,8 @@ ME ME_554CE65703B1
  UP extprop:rc:isAcceptableForScripts true
 
 ENDME // ME_554CE65703B1 RevStyleInterface
+
+%%InheritedBy ME_47C69EBC00A8 ME_5551C0F6034E
 
 ME ME_5551C0F6034E
  MEPROP UID '5551C0F6034E'
@@ -3062,7 +2588,7 @@ ME ME_554CE4780115
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" true
 
@@ -3079,7 +2605,7 @@ ME ME_554CE4A00368
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" true
 
@@ -3096,7 +2622,7 @@ ME ME_554CE4F2005A
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
  UP "pm" true
 
@@ -3113,7 +2639,7 @@ ME ME_554CE52402AA
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_47E21A8A0324' '4AB0997B00A2.ms.model.script' // TStrings
+ MELINK Target WL 'ME_47E21A8A0324' '478CF30500C1.ms.model.script' // TStrings
  ;
  UP "inherits getter from some ancestor" true
  UP "pm" false
@@ -3129,7 +2655,7 @@ ME ME_554CE5CD0244
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_47E21A8A0324' '4AB0997B00A2.ms.model.script' // TStrings
+ MELINK Target WL 'ME_47E21A8A0324' '478CF30500C1.ms.model.script' // TStrings
  ;
 
 ENDME // ME_554CE5CD0244 f_Styles
@@ -3143,7 +2669,7 @@ ME ME_554CE5E60361
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_554CE5E60361 f_ForBlock
@@ -3172,7 +2698,7 @@ ME ME_554CEC3901CE
  MEPROP Name 'aType'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47AC723D02DC' '49A58A1A03C4.ms.model.script' // Tk2Type
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
  ;
 
 ENDME // ME_554CEC3901CE aType
@@ -3218,10 +2744,10 @@ ME ME_554CEC0C006A
  MEPROP Name 'aType'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47AC723D02DC' '49A58A1A03C4.ms.model.script' // Tk2Type
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
  ;
  MEPROP Value 'nil'
- MELINK ValueType WL 'ME_47AC723D02DC' '49A58A1A03C4.ms.model.script' // Tk2Type
+ MELINK ValueType WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
  ;
  UP extprop:pas:Value 'nil'
 
@@ -3231,7 +2757,7 @@ ME ME_554CEC0C0088
  MEPROP Name 'aStyle'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MEPROP Value 'TxtNormalANSI'
  MELINK ValueType WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
@@ -3272,6 +2798,8 @@ ME ME_554CEC000039
  ; // Operations
 
 ENDME // ME_554CEC000039 Make
+
+%%InheritedBy ME_554CEC2A0191 ME_554CEC4F02F8
 
 ME ME_554CEC4F02F8
  MEPROP UID '554CEC4F02F8'
@@ -3330,7 +2858,7 @@ ME ME_554CECD70005
  MEPROP Name 'S'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_554CECD70005 S
@@ -3339,10 +2867,10 @@ ME ME_554CECD7001D
  MEPROP Name 'ID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MEPROP Value 0
- MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP extprop:pas:Value 0
 
@@ -3402,7 +2930,7 @@ ME ME_554CED2B038B
  MEPROP Name 'aType'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47AC723D02DC' '49A58A1A03C4.ms.model.script' // Tk2Type
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
  ;
 
 ENDME // ME_554CED2B038B aType
@@ -3446,7 +2974,7 @@ ME ME_554CED570043
  MEPROP Name 'anObject'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_554CED570043 anObject
@@ -3490,7 +3018,7 @@ ME ME_554CED8401F3
  MEPROP Name 'S'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_554CED8401F3 S
@@ -3503,7 +3031,7 @@ ME ME_554CED8001C5
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_554CED730123 // SelectStyle$1
  ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
  MELIST Parameters
    Seq: ( ME_554CED8401F3 // S
@@ -3537,7 +3065,7 @@ ME ME_554CED990333
  MEPROP Name 'ID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_554CED990333 ID
@@ -3550,7 +3078,7 @@ ME ME_554CED97003E
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_554CED8F018A // SelectStyle$2
  ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
  MELIST Parameters
    Seq: ( ME_554CED990333 // ID
@@ -3649,7 +3177,7 @@ ME ME_554CEE0C0242
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_554CEE0500C0 // Iterate
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_554CEE0E0270 // Action
@@ -3695,7 +3223,7 @@ ME ME_554CEE2900AF
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_554CEE2302D6 // IterateF
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_554CEE2D036C // Action
@@ -3728,7 +3256,7 @@ ME ME_554CEE79034F
  MEPROP Name 'aIncludeIdArray'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_478D039C0394' '4AB0C3C60310.ms.model.script' // array of Integer
+ MELINK Target WL 'ME_478D039C0394' '4807744200AA.ms.model.script' // array of Integer
  ;
 
 ENDME // ME_554CEE79034F aIncludeIdArray
@@ -3773,7 +3301,7 @@ ME ME_5551BBAE01CE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_5551BBAE01CE 
@@ -3803,7 +3331,7 @@ ME ME_5551BE6900BA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target WL 'ME_47F25741021C' '47E246C90144.ms.model.script' // l3Nodes
+ MELINK Target WL 'ME_47F25741021C' '47F25741021C.ms.model.script' // l3Nodes
  ;
 
 ENDME // ME_5551BE6900BA 
@@ -3843,7 +3371,7 @@ ME ME_5551BFEA0174
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_480DB927035A // TevStyleInterface
  ;
- MELINK Target HWL ME_47ECB297037D // evStyleTableSpy
+ MELINK Target WL 'ME_47ECB297037D' '47ECB297037D.ms.model.script' // evStyleTableSpy
  ;
 
 ENDME // ME_5551BFEA0174 
@@ -3856,7 +3384,7 @@ ME ME_46A4746A03AF_ME_480DB927035A
 ENDME // ME_46A4746A03AF_ME_480DB927035A Items
 
 ME ME_479731C50290_ME_480DB927035A
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_480DB927035A Cleanup
@@ -3906,6 +3434,11 @@ ME ME_554CEA2D01A9_ME_480DB927035A
  MEPROP OpKind opkind_Overridden
  UP "pm" true
 ENDME // ME_554CEA2D01A9_ME_480DB927035A IsOwn
+
+%%ImplementedBy ME_46A4745301A3 ME_480DB927035A
+%%ImplementedBy ME_4E365B7F023B ME_480DB927035A
+
+%%InheritedBy ME_522ED9B4018B ME_480DB927035A
 
 ME ME_480DB927035A
  MEPROP UID '480DB927035A'
@@ -3989,6 +3522,9 @@ ME ME_480DB927035A
  ME_5551BFEA0174 // evStyleTableSpy
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "need UC" true
  UP "started" '20.05.2005 18:34'
@@ -3998,1972 +3534,6 @@ ME ME_480DB927035A
  UP extprop:pas:UnitName 'evStyleInterface'
 
 ENDME // ME_480DB927035A TevStyleInterface
-
-FORWARD ME_4857EFDA01E5
-
-FORWARD ME_55522B5101D3
-
-ME ME_55522BCE00BC
- MEPROP UID '55522BCE00BC'
- MEPROP Name 'ForExport'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" true
- UP "reads field" true
- UP "writes field" true
-
-ENDME // ME_55522BCE00BC ForExport
-
-FORWARD ME_55522C52008B
-
-ME ME_55522C6101FF
- MEPROP Name 'G'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47F226C7001F' '47ECA80B000D.ms.model.script' // Tk2DocumentGenerator
- ;
-
-ENDME // ME_55522C6101FF G
-
-ME ME_55522C61021D
- MEPROP Name 'Atom'
- MEPROP Class class_Parameter
- MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_47F2272B0394' '47ECA80B000D.ms.model.script' // Tk2StackAtom
- ;
-
-ENDME // ME_55522C61021D Atom
-
-ME ME_55522C5C00A1
- MEPROP UID '55522C5C00A1'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522C52008B // DoFinishAtom
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_55522C6101FF // G
- ME_55522C61021D // Atom
- )
- ; // Parameters
-
-ENDME // ME_55522C5C00A1 DoIt
-
-ME ME_55522C52008B
- MEPROP UID '55522C52008B'
- MEPROP Name 'DoFinishAtom'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELIST Operations
-   Seq: ( HWL ME_55522C5C00A1 // DoIt
- )
- ; // Operations
-
-ENDME // ME_55522C52008B DoFinishAtom
-
-FORWARD ME_55522CA900D2
-
-ME ME_55522CBB01AA
- MEPROP Name 'Reader'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47F09669027A' '47F0893F0220.ms.model.script' // Tk2CustomReader
- ;
-
-ENDME // ME_55522CBB01AA Reader
-
-ME ME_55522CB802B8
- MEPROP UID '55522CB802B8'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522CA900D2 // Load$1
- ;
- MELIST Parameters
-   Seq: ( ME_55522CBB01AA // Reader
- )
- ; // Parameters
-
-ENDME // ME_55522CB802B8 DoIt
-
-ME ME_55522CA900D2
- MEPROP UID '55522CA900D2'
- MEPROP Name 'Load'
- MEPROP OriginalName 'Load$1'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELIST Operations
-   Seq: ( HWL ME_55522CB802B8 // DoIt
- )
- ; // Operations
-
-ENDME // ME_55522CA900D2 Load$1
-
-FORWARD ME_55522CC50260
-
-ME ME_55522CD400C0
- MEPROP Name 'S'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E150FF028A' '4AB0997B00A2.ms.model.script' // TStream
- ;
-
-ENDME // ME_55522CD400C0 S
-
-ME ME_55522CCE0154
- MEPROP UID '55522CCE0154'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522CC50260 // Load$2
- ;
- MELIST Parameters
-   Seq: ( ME_55522CD400C0 // S
- )
- ; // Parameters
-
-ENDME // ME_55522CCE0154 DoIt
-
-ME ME_55522CC50260
- MEPROP UID '55522CC50260'
- MEPROP Name 'Load'
- MEPROP OriginalName 'Load$2'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELIST Operations
-   Seq: ( HWL ME_55522CCE0154 // DoIt
- )
- ; // Operations
-
-ENDME // ME_55522CC50260 Load$2
-
-FORWARD ME_55522CDE0277
-
-ME ME_55522CE900DB
- MEPROP Name 'G'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47ECAA5B0394' '47ECA80B000D.ms.model.script' // Tk2TagGenerator
- ;
-
-ENDME // ME_55522CE900DB G
-
-ME ME_55522CE6023E
- MEPROP UID '55522CE6023E'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522CDE0277 // Save$1
- ;
- MELIST Parameters
-   Seq: ( ME_55522CE900DB // G
- )
- ; // Parameters
-
-ENDME // ME_55522CE6023E DoIt
-
-ME ME_55522CDE0277
- MEPROP UID '55522CDE0277'
- MEPROP Name 'Save'
- MEPROP OriginalName 'Save$1'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELIST Operations
-   Seq: ( HWL ME_55522CE6023E // DoIt
- )
- ; // Operations
-
-ENDME // ME_55522CDE0277 Save$1
-
-FORWARD ME_55522D1803AB
-
-ME ME_55522D270001
- MEPROP Name 'S'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E150FF028A' '4AB0997B00A2.ms.model.script' // TStream
- ;
-
-ENDME // ME_55522D270001 S
-
-ME ME_55522D270015
- MEPROP Name 'aBinary'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MEPROP Value false
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP extprop:pas:Value false
-
-ENDME // ME_55522D270015 aBinary
-
-ME ME_55522D2201DB
- MEPROP UID '55522D2201DB'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522D1803AB // Save$2
- ;
- MELIST Parameters
-   Seq: ( ME_55522D270001 // S
- ME_55522D270015 // aBinary
- )
- ; // Parameters
-
-ENDME // ME_55522D2201DB DoIt
-
-ME ME_55522D1803AB
- MEPROP UID '55522D1803AB'
- MEPROP Name 'Save'
- MEPROP OriginalName 'Save$2'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELIST Operations
-   Seq: ( HWL ME_55522D2201DB // DoIt
- )
- ; // Operations
-
-ENDME // ME_55522D1803AB Save$2
-
-FORWARD ME_55522D4500AB
-
-ME ME_55522D4E000C
- MEPROP Name 'G'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47ECAA5B0394' '47ECA80B000D.ms.model.script' // Tk2TagGenerator
- ;
-
-ENDME // ME_55522D4E000C G
-
-ME ME_55522D4B0385
- MEPROP UID '55522D4B0385'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522D4500AB // SaveCurrent
- ;
- MELIST Parameters
-   Seq: ( ME_55522D4E000C // G
- )
- ; // Parameters
-
-ENDME // ME_55522D4B0385 DoIt
-
-ME ME_55522D4500AB
- MEPROP UID '55522D4500AB'
- MEPROP Name 'SaveCurrent'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELIST Operations
-   Seq: ( HWL ME_55522D4B0385 // DoIt
- )
- ; // Operations
-
-ENDME // ME_55522D4500AB SaveCurrent
-
-ME ME_55522E5B0139
- MEPROP Class class_Dependency
- MELINK Stereotype st_friend::Dependency ;
- MELINK Parent HWL ME_55522B5101D3 // TevStyleInterfaceEx
- ;
- MELINK Target WL 'ME_4860AF86034F' '467FC43F01F9.ms.model.script' // Tk2Dictionary
- ;
-
-ENDME // ME_55522E5B0139 
-
-ME ME_47A042E100E2_ME_55522B5101D3
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_47A042E100E2_ME_55522B5101D3 InitFields
-
-ME ME_55522B5101D3
- MEPROP UID '55522B5101D3'
- MEPROP Name 'TevStyleInterfaceEx'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELIST Inherits
-   Seq: ( HWL ME_480DB927035A // TevStyleInterface
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55522BCE00BC // ForExport
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_55522C52008B // DoFinishAtom
- HWL ME_55522CA900D2 // Load$1
- HWL ME_55522CC50260 // Load$2
- HWL ME_55522CDE0277 // Save$1
- HWL ME_55522D1803AB // Save$2
- HWL ME_55522D4500AB // SaveCurrent
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_47A042E100E2_ME_55522B5101D3 // InitFields
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_55522E5B0139 // Tk2Dictionary
- )
- ; // Dependencies
- UP extprop:rc:SelfName 'StyleInterfaceEx'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55522B5101D3 TevStyleInterfaceEx
-
-FORWARD ME_55522D920268
-
-ME ME_55522DCC00B5
- MEPROP UID '55522DCC00B5'
- MEPROP Name 'f_StyleTable'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55522D920268 // TevStyleTableGenerator
- ;
- MELINK Target WL 'ME_4860AF86034F' '467FC43F01F9.ms.model.script' // Tk2Dictionary
- ;
-
-ENDME // ME_55522DCC00B5 f_StyleTable
-
-ME ME_55522D920268
- MEPROP UID '55522D920268'
- MEPROP Name 'TevStyleTableGenerator'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47F226C7001F' '47ECA80B000D.ms.model.script' // Tk2DocumentGenerator
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55522DCC00B5 // f_StyleTable
- )
- ; // Attributes
- UP extprop:rc:SelfName 'StyleTableGenerator'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_55522D920268 TevStyleTableGenerator
-
-ME ME_55522B3B0275
- MEPROP UID '55522B3B0275'
- MEPROP Name 'g_InCreateDocumentSchema'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_55522B3B0275 g_InCreateDocumentSchema
-
-ME ME_555329720039
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_555329720039 
-
-ME ME_5553298E0026
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_5553298E0026 
-
-ME ME_555329AB024F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_484D11240282' '484A470100DD.ms.model.script' // Style
- ;
-
-ENDME // ME_555329AB024F 
-
-ME ME_555329DC002A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_469F6D170322' '49A6646B0044.ms.model.script' // Tk2AssignMode
- ;
-
-ENDME // ME_555329DC002A 
-
-ME ME_55532A0E0137
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
- ;
-
-ENDME // ME_55532A0E0137 
-
-ME ME_55532A310157
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
- ;
-
-ENDME // ME_55532A310157 
-
-ME ME_55532A46033F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_47F351BC0145' '47ECB04A01F8.ms.model.script' // evOpProc
- ;
-
-ENDME // ME_55532A46033F 
-
-ME ME_55532A5D026D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_4BE404E701DB' '47E3C64F037E.ms.model.script' // Tk2Context
- ;
-
-ENDME // ME_55532A5D026D 
-
-ME ME_55532ACD004B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_476BED360201' '4678209200A6.ms.model.script' // TevLoadFlag
- ;
-
-ENDME // ME_55532ACD004B 
-
-ME ME_55532AE50398
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
- ;
-
-ENDME // ME_55532AE50398 
-
-ME ME_55532AFB028B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_47A0686803A5' '47913B47006E.ms.model.script' // l3Filer
- ;
-
-ENDME // ME_55532AFB028B 
-
-ME ME_55532B1F0083
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
- ;
-
-ENDME // ME_55532B1F0083 
-
-ME ME_55532B31031E
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_483C378301CB' '4AB0997B00A2.ms.model.script' // StrUtils
- ;
-
-ENDME // ME_55532B31031E 
-
-ME ME_55532B440168
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.ms.model.script' // k2Base
- ;
-
-ENDME // ME_55532B440168 
-
-ME ME_55532B5E0391
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_5319CECC039A' '5319CE3F02E2.ms.model.script' // Tk2SimpleTagList
- ;
-
-ENDME // ME_55532B5E0391 
-
-ME ME_55532BBF02A6
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target HWL ME_4E32AB1401C0 // TevStyleTableFontSizeCorrector
- ;
-
-ENDME // ME_55532BBF02A6 
-
-ME ME_55532BE4001F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
- ;
-
-ENDME // ME_55532BE4001F 
-
-ME ME_55532C1D0107
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_531075C102DD' '47E3C64F037E.ms.model.script' // Tk2NonOptimizeContext
- ;
-
-ENDME // ME_55532C1D0107 
-
-ME ME_555330EC02B9
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- ;
- MELINK Target WL 'ME_483D7C55027A' '47ECB8BD00A8.ms.model.script' // TevdNativeWriter
- ;
-
-ENDME // ME_555330EC02B9 
-
-ME ME_4857EFDA01E5
- MEPROP UID '4857EFDA01E5'
- MEPROP Name 'evStyleInterfaceEx'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Attributes
-   Seq: ( HWL ME_55522B3B0275 // g_InCreateDocumentSchema
- )
- ; // Attributes
- MELIST Children
-   Seq: ( HWL ME_55522B5101D3 // TevStyleInterfaceEx
- HWL ME_55522D920268 // TevStyleTableGenerator
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_555329720039 // Tk2TagID
- ME_5553298E0026 // Tl3Variant
- ME_555329AB024F // Style
- ME_555329DC002A // Tk2AssignMode
- ME_55532A0E0137 // Standard
- ME_55532A310157 // Graphics
- ME_55532A46033F // evOpProc
- ME_55532A5D026D // Tk2Context
- ME_55532ACD004B // TevLoadFlag
- ME_55532AE50398 // l3Base
- ME_55532AFB028B // l3Filer
- ME_55532B1F0083 // TevdNativeReader
- ME_55532B31031E // StrUtils
- ME_55532B440168 // k2Base
- ME_55532B5E0391 // Tk2SimpleTagList
- ME_55532BBF02A6 // TevStyleTableFontSizeCorrector
- ME_55532BE4001F // Tl3FileMode
- ME_55532C1D0107 // Tk2NonOptimizeContext
- ME_555330EC02B9 // TevdNativeWriter
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "started" '20.05.2005 17:28'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleInterfaceEx.pas'
- UP extprop:rc:SelfName 'StyleInterfaceEx'
-
-ENDME // ME_4857EFDA01E5 evStyleInterfaceEx
-
-FORWARD ME_6DDBA3F7BE38
-
-ME ME_1EF07FB5B603
- MEPROP UID '1EF07FB5B603'
- MEPROP Name 'pi_evStyles_PrintAndExport'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Идентификатор настройки "Печать и экспорт"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_6DDBA3F7BE38 // PrintAndExportKey
- ;
- MEPROP Value '''Стили/Печать и экспорт'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Стили/Печать и экспорт'''
-
-ENDME // ME_1EF07FB5B603 pi_evStyles_PrintAndExport
-
-ME ME_2100B3DB752B
- MEPROP UID '2100B3DB752B'
- MEPROP Name 'pi_evStyles_PrintAndExport_Default'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати размер шрифта, отображаемого на экране"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_6DDBA3F7BE38 // PrintAndExportKey
- ;
- MEPROP Value '''Стили/Печать и экспорт/Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Стили/Печать и экспорт/Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
-
-ENDME // ME_2100B3DB752B pi_evStyles_PrintAndExport_Default
-
-ME ME_49910FBBC7EB
- MEPROP UID '49910FBBC7EB'
- MEPROP Name 'pi_evStyles_PrintAndExport_Custom'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Идентификатор настройки "Печать и экспорт"."Использовать для экспорта и печати следующий размер шрифта"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_6DDBA3F7BE38 // PrintAndExportKey
- ;
- MEPROP Value '''Стили/Печать и экспорт/Использовать для экспорта и печати следующий размер шрифта'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Стили/Печать и экспорт/Использовать для экспорта и печати следующий размер шрифта'''
-
-ENDME // ME_49910FBBC7EB pi_evStyles_PrintAndExport_Custom
-
-ME ME_6DDBA3F7BE38
- MEPROP UID '6DDBA3F7BE38'
- MEPROP Name 'PrintAndExportKey'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_870F97A58415 // evStylesPrintAndExportSettingRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_1EF07FB5B603 // pi_evStyles_PrintAndExport
- HWL ME_2100B3DB752B // pi_evStyles_PrintAndExport_Default
- HWL ME_49910FBBC7EB // pi_evStyles_PrintAndExport_Custom
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_6DDBA3F7BE38 PrintAndExportKey
-
-FORWARD ME_75642F3D4A02
-
-ME ME_569A9025A6CA
- MEPROP UID '569A9025A6CA'
- MEPROP Name 'PrintAndExport'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Печать и экспорт' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_75642F3D4A02 // PrintAndExportName
- ;
- MEPROP Value '''Печать и экспорт'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Печать и экспорт'''
-
-ENDME // ME_569A9025A6CA PrintAndExport
-
-ME ME_75642F3D4A02
- MEPROP UID '75642F3D4A02'
- MEPROP Name 'PrintAndExportName'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Имя настройки "Печать и экспорт"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_870F97A58415 // evStylesPrintAndExportSettingRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_569A9025A6CA // PrintAndExport
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "spell names" false
-
-ENDME // ME_75642F3D4A02 PrintAndExportName
-
-FORWARD ME_B5C917CE7651
-
-ME ME_B70FE04D7DCC
- MEPROP UID 'B70FE04D7DCC'
- MEPROP Name 'Default'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Использовать для экспорта и печати размер шрифта, отображаемого на экране' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B5C917CE7651 // PrintAndExportValues
- ;
- MEPROP Value '''Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Использовать для экспорта и печати размер шрифта, отображаемого на экране'''
-
-ENDME // ME_B70FE04D7DCC Default
-
-ME ME_1967C485CDFA
- MEPROP UID '1967C485CDFA'
- MEPROP Name 'Custom'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B5C917CE7651 // PrintAndExportValues
- ;
- MEPROP Value '''Использовать для экспорта и печати следующий размер шрифта'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Использовать для экспорта и печати следующий размер шрифта'''
-
-ENDME // ME_1967C485CDFA Custom
-
-ME ME_B5C917CE7651
- MEPROP UID 'B5C917CE7651'
- MEPROP Name 'PrintAndExportValues'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Значения для настройки "Печать и экспорт"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_870F97A58415 // evStylesPrintAndExportSettingRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_B70FE04D7DCC // Default
- HWL ME_1967C485CDFA // Custom
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "elements prefix" 'PrintAndExport'
- UP "spell names" false
- UP extprop:pas:ElementPrefixBase 'PrintAndExport'
- UP extprop:pas:ElementPrefix 'PrintAndExport_'
-
-ENDME // ME_B5C917CE7651 PrintAndExportValues
-
-ME ME_870F97A58415
- MEPROP UID '870F97A58415'
- MEPROP Name 'evStylesPrintAndExportSettingRes'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ресурсы для настройки "Печать и экспорт"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Implements
-   Seq: ( WL 'ME_5214960C034B' '4E3160C802DA.ms.model.script' // Печать и экспорт
- )
- ; // Implements
- MELIST Constants
-   Seq: ( HWL ME_6DDBA3F7BE38 // PrintAndExportKey
- HWL ME_75642F3D4A02 // PrintAndExportName
- HWL ME_B5C917CE7651 // PrintAndExportValues
- )
- ; // Constants
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evStylesPrintAndExportSettingRes.pas'
- UP extprop:rc:SelfName 'StylesPrintAndExportSettingRes'
-
-ENDME // ME_870F97A58415 evStylesPrintAndExportSettingRes
-
-FORWARD ME_86E0B8C46D3A
-
-ME ME_C71B2FC1ECE9
- MEPROP UID 'C71B2FC1ECE9'
- MEPROP Name 'KEY_PrintAndExportFontSize_pef8'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '8' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
-
-ENDME // ME_C71B2FC1ECE9 KEY_PrintAndExportFontSize_pef8
-
-ME ME_3876AAB74D59
- MEPROP UID '3876AAB74D59'
- MEPROP Name 'KEY_PrintAndExportFontSize_pef9'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '9' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
-
-ENDME // ME_3876AAB74D59 KEY_PrintAndExportFontSize_pef9
-
-ME ME_9CA0E0D7887C
- MEPROP UID '9CA0E0D7887C'
- MEPROP Name 'KEY_PrintAndExportFontSize_pef10'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '10' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
-
-ENDME // ME_9CA0E0D7887C KEY_PrintAndExportFontSize_pef10
-
-ME ME_B6CE4E265167
- MEPROP UID 'B6CE4E265167'
- MEPROP Name 'KEY_PrintAndExportFontSize_pef11'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '11' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
-
-ENDME // ME_B6CE4E265167 KEY_PrintAndExportFontSize_pef11
-
-ME ME_5477CF0BF037
- MEPROP UID '5477CF0BF037'
- MEPROP Name 'KEY_PrintAndExportFontSize_pef12'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '12' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
-
-ENDME // ME_5477CF0BF037 KEY_PrintAndExportFontSize_pef12
-
-ME ME_D799DD1DC9F3
- MEPROP UID 'D799DD1DC9F3'
- MEPROP Name 'KEY_PrintAndExportFontSize_pef14'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '14' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
-
-ENDME // ME_D799DD1DC9F3 KEY_PrintAndExportFontSize_pef14
-
-ME ME_0AA08BEA186F
- MEPROP UID '0AA08BEA186F'
- MEPROP Name 'KEY_PrintAndExportFontSize_pef16'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '16' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
-
-ENDME // ME_0AA08BEA186F KEY_PrintAndExportFontSize_pef16
-
-ME ME_86E0B8C46D3A
- MEPROP UID '86E0B8C46D3A'
- MEPROP Name 'PrintAndExportFontSizeEnum'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_Enum ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ключи для настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_C71B2FC1ECE9 // KEY_PrintAndExportFontSize_pef8
- HWL ME_3876AAB74D59 // KEY_PrintAndExportFontSize_pef9
- HWL ME_9CA0E0D7887C // KEY_PrintAndExportFontSize_pef10
- HWL ME_B6CE4E265167 // KEY_PrintAndExportFontSize_pef11
- HWL ME_5477CF0BF037 // KEY_PrintAndExportFontSize_pef12
- HWL ME_D799DD1DC9F3 // KEY_PrintAndExportFontSize_pef14
- HWL ME_0AA08BEA186F // KEY_PrintAndExportFontSize_pef16
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_86E0B8C46D3A PrintAndExportFontSizeEnum
-
-FORWARD ME_1782647A5439
-
-ME ME_77DC0A07D1F7
- MEPROP UID '77DC0A07D1F7'
- MEPROP Name 'pi_evStyles_PrintAndExportFontSize'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Идентификатор настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_1782647A5439 // PrintAndExportFontSizeKey
- ;
- MEPROP Value '''Стили/Использовать для экспорта и печати следующий размер шрифта'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Стили/Использовать для экспорта и печати следующий размер шрифта'''
-
-ENDME // ME_77DC0A07D1F7 pi_evStyles_PrintAndExportFontSize
-
-ME ME_B15096317BFF
- MEPROP UID 'B15096317BFF'
- MEPROP Name 'dv_evStyles_PrintAndExportFontSize'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Значение по-умолчанию настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_1782647A5439 // PrintAndExportFontSizeKey
- ;
- MEPROP Value 0
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value 0
-
-ENDME // ME_B15096317BFF dv_evStyles_PrintAndExportFontSize
-
-ME ME_1782647A5439
- MEPROP UID '1782647A5439'
- MEPROP Name 'PrintAndExportFontSizeKey'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_77DC0A07D1F7 // pi_evStyles_PrintAndExportFontSize
- HWL ME_B15096317BFF // dv_evStyles_PrintAndExportFontSize
- )
- ; // Attributes
- UP "spell names" false
-
-ENDME // ME_1782647A5439 PrintAndExportFontSizeKey
-
-FORWARD ME_300F056A3E29
-
-ME ME_B24E06693035
- MEPROP UID 'B24E06693035'
- MEPROP Name 'PrintAndExportFontSize'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY 'Использовать для экспорта и печати следующий размер шрифта' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_300F056A3E29 // PrintAndExportFontSizeName
- ;
- MEPROP Value '''Использовать для экспорта и печати следующий размер шрифта'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''Использовать для экспорта и печати следующий размер шрифта'''
-
-ENDME // ME_B24E06693035 PrintAndExportFontSize
-
-ME ME_300F056A3E29
- MEPROP UID '300F056A3E29'
- MEPROP Name 'PrintAndExportFontSizeName'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Имя настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_B24E06693035 // PrintAndExportFontSize
- )
- ; // Attributes
- UP "Need map interface" false
- UP "Need mapping support" false
- UP "spell names" false
-
-ENDME // ME_300F056A3E29 PrintAndExportFontSizeName
-
-FORWARD ME_0F54723B9097
-
-ME ME_96A5C7144E3D
- MEPROP UID '96A5C7144E3D'
- MEPROP Name 'pef8'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '8' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
- MEPROP Value '''8'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''8'''
-
-ENDME // ME_96A5C7144E3D pef8
-
-ME ME_4FD853DD65A8
- MEPROP UID '4FD853DD65A8'
- MEPROP Name 'pef9'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '9' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
- MEPROP Value '''9'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''9'''
-
-ENDME // ME_4FD853DD65A8 pef9
-
-ME ME_97ECF91D50DB
- MEPROP UID '97ECF91D50DB'
- MEPROP Name 'pef10'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '10' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
- MEPROP Value '''10'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''10'''
-
-ENDME // ME_97ECF91D50DB pef10
-
-ME ME_4024903E186B
- MEPROP UID '4024903E186B'
- MEPROP Name 'pef11'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '11' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
- MEPROP Value '''11'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''11'''
-
-ENDME // ME_4024903E186B pef11
-
-ME ME_0B5C090928C4
- MEPROP UID '0B5C090928C4'
- MEPROP Name 'pef12'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '12' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
- MEPROP Value '''12'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''12'''
-
-ENDME // ME_0B5C090928C4 pef12
-
-ME ME_086F24F76C26
- MEPROP UID '086F24F76C26'
- MEPROP Name 'pef14'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '14' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
- MEPROP Value '''14'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''14'''
-
-ENDME // ME_086F24F76C26 pef14
-
-ME ME_965460DF7185
- MEPROP UID '965460DF7185'
- MEPROP Name 'pef16'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '16' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
- MEPROP Value '''16'''
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '''16'''
-
-ENDME // ME_965460DF7185 pef16
-
-ME ME_0F54723B9097
- MEPROP UID '0F54723B9097'
- MEPROP Name 'PrintAndExportFontSizeValues'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_LocalConst ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Значения для настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Inherits
-   Seq: ( HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_96A5C7144E3D // pef8
- HWL ME_4FD853DD65A8 // pef9
- HWL ME_97ECF91D50DB // pef10
- HWL ME_4024903E186B // pef11
- HWL ME_0B5C090928C4 // pef12
- HWL ME_086F24F76C26 // pef14
- HWL ME_965460DF7185 // pef16
- )
- ; // Attributes
- UP "Need map interface" true
- UP "Need mapping support" true
- UP "elements prefix" 'PrintAndExportFontSize'
- UP "spell names" false
- UP extprop:pas:ElementPrefixBase 'PrintAndExportFontSize'
- UP extprop:pas:ElementPrefix 'PrintAndExportFontSize_'
-
-ENDME // ME_0F54723B9097 PrintAndExportFontSizeValues
-
-FORWARD ME_BE1983D4EE58
-
-ME ME_D105A1C05DEA
- MEPROP UID 'D105A1C05DEA'
- MEPROP Name 'pef8'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '8' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef8''; rValue : ''8'')'
- MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef8''; rValue : ''8'')'
- UPLINK Speller HWL ME_96A5C7144E3D // pef8
- ;
-
-ENDME // ME_D105A1C05DEA pef8
-
-ME ME_A387B5DB4FAC
- MEPROP UID 'A387B5DB4FAC'
- MEPROP Name 'pef9'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '9' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef9''; rValue : ''9'')'
- MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef9''; rValue : ''9'')'
- UPLINK Speller HWL ME_4FD853DD65A8 // pef9
- ;
-
-ENDME // ME_A387B5DB4FAC pef9
-
-ME ME_BBC2ED4B38BC
- MEPROP UID 'BBC2ED4B38BC'
- MEPROP Name 'pef10'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '10' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef10''; rValue : ''10'')'
- MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef10''; rValue : ''10'')'
- UPLINK Speller HWL ME_97ECF91D50DB // pef10
- ;
-
-ENDME // ME_BBC2ED4B38BC pef10
-
-ME ME_6B97D05C8650
- MEPROP UID '6B97D05C8650'
- MEPROP Name 'pef11'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '11' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef11''; rValue : ''11'')'
- MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef11''; rValue : ''11'')'
- UPLINK Speller HWL ME_4024903E186B // pef11
- ;
-
-ENDME // ME_6B97D05C8650 pef11
-
-ME ME_691591BE9CC4
- MEPROP UID '691591BE9CC4'
- MEPROP Name 'pef12'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '12' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef12''; rValue : ''12'')'
- MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef12''; rValue : ''12'')'
- UPLINK Speller HWL ME_0B5C090928C4 // pef12
- ;
-
-ENDME // ME_691591BE9CC4 pef12
-
-ME ME_8E8680B425B2
- MEPROP UID '8E8680B425B2'
- MEPROP Name 'pef14'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '14' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef14''; rValue : ''14'')'
- MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef14''; rValue : ''14'')'
- UPLINK Speller HWL ME_086F24F76C26 // pef14
- ;
-
-ENDME // ME_8E8680B425B2 pef14
-
-ME ME_76A3781CCD06
- MEPROP UID '76A3781CCD06'
- MEPROP Name 'pef16'
- UP IsSummoned true
- MEPROP Class class_Attribute
- %SUMMARY '16' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- MEPROP Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef16''; rValue : ''16'')'
- MELINK ValueType WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
- UP "AutoInc" false
- UP "forced type" 'none'
- UP "is define" false
- UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''PrintAndExportFontSize_pef16''; rValue : ''16'')'
- UPLINK Speller HWL ME_965460DF7185 // pef16
- ;
-
-ENDME // ME_76A3781CCD06 pef16
-
-ME ME_BE1983D4EE58
- MEPROP UID 'BE1983D4EE58'
- MEPROP Name 'LCImplPrintAndExportFontSizeValues'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Локализуемые строки PrintAndExportFontSizeValues' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_D105A1C05DEA // pef8
- HWL ME_A387B5DB4FAC // pef9
- HWL ME_BBC2ED4B38BC // pef10
- HWL ME_6B97D05C8650 // pef11
- HWL ME_691591BE9CC4 // pef12
- HWL ME_8E8680B425B2 // pef14
- HWL ME_76A3781CCD06 // pef16
- )
- ; // Attributes
- UP "elements prefix" 'str_PrintAndExportFontSize'
- UP "spell names" false
- UP extprop:pas:ElementPrefixBase 'str_PrintAndExportFontSize'
- UP extprop:pas:ElementPrefix 'str_PrintAndExportFontSize_'
- UPLINK Speller HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- ;
-
-ENDME // ME_BE1983D4EE58 LCImplPrintAndExportFontSizeValues
-
-FORWARD ME_B23AC4E8CF02
-
-ME ME_AECDBEE72B72
- MEPROP UID 'AECDBEE72B72'
- MEPROP Name 'pef8'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
- MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- ;
- MEPROP Value 'pef8'
- MELINK ValueType HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- UP extprop:pas:Value 'str_PrintAndExportFontSize_pef8'
-
-ENDME // ME_AECDBEE72B72 pef8
-
-ME ME_BA23E2F17A53
- MEPROP UID 'BA23E2F17A53'
- MEPROP Name 'pef9'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
- MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- ;
- MEPROP Value 'pef9'
- MELINK ValueType HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- UP extprop:pas:Value 'str_PrintAndExportFontSize_pef9'
-
-ENDME // ME_BA23E2F17A53 pef9
-
-ME ME_BBC252C642DC
- MEPROP UID 'BBC252C642DC'
- MEPROP Name 'pef10'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
- MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- ;
- MEPROP Value 'pef10'
- MELINK ValueType HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- UP extprop:pas:Value 'str_PrintAndExportFontSize_pef10'
-
-ENDME // ME_BBC252C642DC pef10
-
-ME ME_ABD420FB6EE9
- MEPROP UID 'ABD420FB6EE9'
- MEPROP Name 'pef11'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
- MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- ;
- MEPROP Value 'pef11'
- MELINK ValueType HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- UP extprop:pas:Value 'str_PrintAndExportFontSize_pef11'
-
-ENDME // ME_ABD420FB6EE9 pef11
-
-ME ME_92B160E34332
- MEPROP UID '92B160E34332'
- MEPROP Name 'pef12'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
- MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- ;
- MEPROP Value 'pef12'
- MELINK ValueType HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- UP extprop:pas:Value 'str_PrintAndExportFontSize_pef12'
-
-ENDME // ME_92B160E34332 pef12
-
-ME ME_76CE7A95FF36
- MEPROP UID '76CE7A95FF36'
- MEPROP Name 'pef14'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
- MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- ;
- MEPROP Value 'pef14'
- MELINK ValueType HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- UP extprop:pas:Value 'str_PrintAndExportFontSize_pef14'
-
-ENDME // ME_76CE7A95FF36 pef14
-
-ME ME_D97D50B050B7
- MEPROP UID 'D97D50B050B7'
- MEPROP Name 'pef16'
- UP IsSummoned true
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
- MELINK Target WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- ;
- MEPROP Value 'pef16'
- MELINK ValueType HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- ;
- UP extprop:pas:Value 'str_PrintAndExportFontSize_pef16'
-
-ENDME // ME_D97D50B050B7 pef16
-
-ME ME_B23AC4E8CF02
- MEPROP UID 'B23AC4E8CF02'
- MEPROP Name 'PrintAndExportFontSizeValuesMap'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_ConstantArray ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Карта преобразования локализованных строк PrintAndExportFontSizeValues' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4B3B49B40262' '4F9BDEEE01BC.ms.model.script' // Pl3StringIDEx
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_AECDBEE72B72 // pef8
- HWL ME_BA23E2F17A53 // pef9
- HWL ME_BBC252C642DC // pef10
- HWL ME_ABD420FB6EE9 // pef11
- HWL ME_92B160E34332 // pef12
- HWL ME_76CE7A95FF36 // pef14
- HWL ME_D97D50B050B7 // pef16
- )
- ; // Attributes
- UP "Need map interface" true
- UP "Need mapping support" true
-
-ENDME // ME_B23AC4E8CF02 PrintAndExportFontSizeValuesMap
-
-FORWARD ME_2F2551498AA7
-
-ME ME_B9D22C2482B9
- MEPROP Name 'aStrings'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
- ;
-
-ENDME // ME_B9D22C2482B9 aStrings
-
-ME ME_1884DBA9EBBD
- MEPROP UID '1884DBA9EBBD'
- MEPROP Name 'FillStrings'
- UP IsSummoned true
- MEPROP Class class_Operation
- MELINK Stereotype st_static::Operation ;
- %SUMMARY 'Заполнение списка строк значениями' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_2F2551498AA7 // PrintAndExportFontSizeValuesMapHelper
- ;
- MELIST Parameters
-   Seq: ( ME_B9D22C2482B9 // aStrings
- )
- ; // Parameters
-
-ENDME // ME_1884DBA9EBBD FillStrings
-
-ME ME_63E9FE4A21B5
- MEPROP Name 'aDisplayName'
- UP IsSummoned true
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
- ;
-
-ENDME // ME_63E9FE4A21B5 aDisplayName
-
-ME ME_401032D7711F
- MEPROP UID '401032D7711F'
- MEPROP Name 'DisplayNameToValue'
- UP IsSummoned true
- MEPROP Class class_Operation
- MELINK Stereotype st_static::Operation ;
- %SUMMARY 'Преобразование строкового значения к порядковому' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_2F2551498AA7 // PrintAndExportFontSizeValuesMapHelper
- ;
- MELINK Target HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- ;
- MELIST Parameters
-   Seq: ( ME_63E9FE4A21B5 // aDisplayName
- )
- ; // Parameters
-
-ENDME // ME_401032D7711F DisplayNameToValue
-
-ME ME_2F2551498AA7
- MEPROP UID '2F2551498AA7'
- MEPROP Name 'PrintAndExportFontSizeValuesMapHelper'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Утилитный класс для преобразования значений PrintAndExportFontSizeValuesMap' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Operations
-   Seq: ( HWL ME_1884DBA9EBBD // FillStrings
- HWL ME_401032D7711F // DisplayNameToValue
- )
- ; // Operations
- UP extprop:rc:isAcceptableForScripts true
- UPLINK SpelledFor HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
-
-ENDME // ME_2F2551498AA7 PrintAndExportFontSizeValuesMapHelper
-
-FORWARD ME_E7E820B69587
-
-ME ME_893287292E3C
- MEPROP UID '893287292E3C'
- MEPROP Name 'Make'
- UP IsSummoned true
- MEPROP Class class_Operation
- MELINK Stereotype st_factory::Operation ;
- %SUMMARY 'Фабричный метод для TPrintAndExportFontSizeValuesMapImplPrim' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
- ;
- MELINK Target WL 'ME_46A5FCD303C1' '4677FBA70343.ms.model.script' // Il3IntegerValueMap
- ;
-
-ENDME // ME_893287292E3C Make
-
-ME ME_46A5EFE602DE_ME_E7E820B69587
- MELINK Original WL 'ME_46A5EFE602DE' '4677FBA70343.ms.model.script' // MapID
- ;
- MEPROP OpKind opkind_Implemented
- UP "pm" true
-ENDME // ME_46A5EFE602DE_ME_E7E820B69587 MapID
-
-ME ME_46A5F0130365_ME_E7E820B69587
- MELINK Original WL 'ME_46A5F0130365' '4677FBA70343.ms.model.script' // GetDisplayNames
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5F0130365_ME_E7E820B69587 GetDisplayNames
-
-ME ME_46A5F03800A2_ME_E7E820B69587
- MELINK Original WL 'ME_46A5F03800A2' '4677FBA70343.ms.model.script' // MapSize
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5F03800A2_ME_E7E820B69587 MapSize
-
-ME ME_46A5FCF900E0_ME_E7E820B69587
- MELINK Original WL 'ME_46A5FCF900E0' '4677FBA70343.ms.model.script' // DisplayNameToValue
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5FCF900E0_ME_E7E820B69587 DisplayNameToValue
-
-ME ME_46A5FD1B000D_ME_E7E820B69587
- MELINK Original WL 'ME_46A5FD1B000D' '4677FBA70343.ms.model.script' // ValueToDisplayName
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5FD1B000D_ME_E7E820B69587 ValueToDisplayName
-
-ME ME_E7E820B69587
- MEPROP UID 'E7E820B69587'
- MEPROP Name 'TPrintAndExportFontSizeValuesMapImplPrim'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Класс для реализации мапы для PrintAndExportFontSizeValuesMap' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AE5CA2D0034' '47913B47006E.ms.model.script' // Tl3CProtoObject
- )
- ; // Inherits
- MELIST Implements
-   Seq: ( WL 'ME_46A5FCD303C1' '4677FBA70343.ms.model.script' // Il3IntegerValueMap
- )
- ; // Implements
- MELIST Operations
-   Seq: ( HWL ME_893287292E3C // Make
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_46A5EFE602DE_ME_E7E820B69587 // MapID
- ME_46A5F0130365_ME_E7E820B69587 // GetDisplayNames
- ME_46A5F03800A2_ME_E7E820B69587 // MapSize
- ME_46A5FCF900E0_ME_E7E820B69587 // DisplayNameToValue
- ME_46A5FD1B000D_ME_E7E820B69587 // ValueToDisplayName
- )
- ; // Implemented
- UP extprop:rc:SelfName 'PrintAndExportFontSizeValuesMapImplPrim'
- UP extprop:rc:isAcceptableForScripts true
- UPLINK SpelledFor HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
-
-ENDME // ME_E7E820B69587 TPrintAndExportFontSizeValuesMapImplPrim
-
-FORWARD ME_1F17EF4CC358
-
-ME ME_369351B72390
- MEPROP UID '369351B72390'
- MEPROP Name 'Make'
- UP IsSummoned true
- MEPROP Class class_Operation
- MELINK Stereotype st_factory::Operation ;
- %SUMMARY 'Фабричный метод для TPrintAndExportFontSizeValuesMapImpl' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_1F17EF4CC358 // TPrintAndExportFontSizeValuesMapImpl
- ;
- MELINK Target WL 'ME_46A5FCD303C1' '4677FBA70343.ms.model.script' // Il3IntegerValueMap
- ;
-
-ENDME // ME_369351B72390 Make
-
-ME ME_1F17EF4CC358
- MEPROP UID '1F17EF4CC358'
- MEPROP Name 'TPrintAndExportFontSizeValuesMapImpl'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Класс для реализации мапы для PrintAndExportFontSizeValuesMap' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELIST Inherits
-   Seq: ( HWL ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_369351B72390 // Make
- )
- ; // Operations
- UP "singleton" true
- UP extprop:rc:SelfName 'PrintAndExportFontSizeValuesMapImpl'
- UP extprop:rc:isAcceptableForScripts true
- UPLINK SpelledFor HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- ;
-
-ENDME // ME_1F17EF4CC358 TPrintAndExportFontSizeValuesMapImpl
-
-ME ME_E786DF941FB7
- UP IsSummoned true
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELINK Target WL 'ME_4B3B3728004C' '4F9BDEEE01BC.ms.model.script' // Tl3StringIDEx
- ;
-
-ENDME // ME_E786DF941FB7 
-
-ME ME_29DA0043F9A6
- UP IsSummoned true
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELINK Target WL 'ME_4E01D1E002AE' '4F9BDEEE01BC.ms.model.script' // Tl3MessageID
- ;
-
-ENDME // ME_29DA0043F9A6 
-
-ME ME_5227F8E24CB1
- UP IsSummoned true
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
- ;
-
-ENDME // ME_5227F8E24CB1 
-
-ME ME_0C886C14C09A
- UP IsSummoned true
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELINK Target WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
- ;
-
-ENDME // ME_0C886C14C09A 
-
-ME ME_BBC352822A79
- UP IsSummoned true
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
- ;
- MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
- ;
-
-ENDME // ME_BBC352822A79 
-
-ME ME_C9ADD4944F97
- MEPROP UID 'C9ADD4944F97'
- MEPROP Name 'evStylesPrintAndExportFontSizeSettingRes'
- UP IsSummoned true
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ресурсы для настройки "Использовать для экспорта и печати следующий размер шрифта"' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47ECB2870309 // StyleTable
- ;
- MELIST Implements
-   Seq: ( WL 'ME_4E314EC80391' '4E3160C802DA.ms.model.script' // Использовать для экспорта и печати следующий размер шрифта
- )
- ; // Implements
- MELIST Children
-   Seq: ( HWL ME_86E0B8C46D3A // PrintAndExportFontSizeEnum
- HWL ME_2F2551498AA7 // PrintAndExportFontSizeValuesMapHelper
- HWL ME_E7E820B69587 // TPrintAndExportFontSizeValuesMapImplPrim
- HWL ME_1F17EF4CC358 // TPrintAndExportFontSizeValuesMapImpl
- )
- ; // Children
- MELIST Constants
-   Seq: ( HWL ME_1782647A5439 // PrintAndExportFontSizeKey
- HWL ME_300F056A3E29 // PrintAndExportFontSizeName
- HWL ME_0F54723B9097 // PrintAndExportFontSizeValues
- HWL ME_BE1983D4EE58 // LCImplPrintAndExportFontSizeValues
- HWL ME_B23AC4E8CF02 // PrintAndExportFontSizeValuesMap
- )
- ; // Constants
- MELIST Dependencies
-   Seq: ( ME_E786DF941FB7 // Tl3StringIDEx
- ME_29DA0043F9A6 // Tl3MessageID
- ME_5227F8E24CB1 // l3String
- ME_0C886C14C09A // Exception
- ME_BBC352822A79 // l3FillChar
- )
- ; // Dependencies
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evStylesPrintAndExportFontSizeSettingRes.pas'
- UP extprop:rc:SelfName 'StylesPrintAndExportFontSizeSettingRes'
-
-ENDME // ME_C9ADD4944F97 evStylesPrintAndExportFontSizeSettingRes
 
 ME ME_47ECB2870309
  MEPROP UID '47ECB2870309'
@@ -5976,12 +3546,12 @@ ME ME_47ECB2870309
  MELINK Parent WL 'ME_4797632D0273' '4797632D0273.ms.model.script' // Everest
  ;
  MELIST Children
-   Seq: ( HWL ME_47ECB297037D // evStyleTableSpy
- HWL ME_4A485B0D0223 // evStyleTableListenerPrim
+   Seq: ( WL 'ME_47ECB297037D' '47ECB297037D.ms.model.script' // evStyleTableSpy
+ WL 'ME_4A485B0D0223' '4A485B0D0223.ms.model.script' // evStyleTableListenerPrim
  HWL ME_522ED98F0223 // TevInterface
- HWL ME_49F048510365 // evStyleTableTools
- HWL ME_480DA68701CE // evStyleTableListener
- HWL ME_4A485B9801E0 // evCacheableStyleTableListener
+ WL 'ME_49F048510365' '49F048510365.ms.model.script' // evStyleTableTools
+ WL 'ME_480DA68701CE' '480DA68701CE.ms.model.script' // evStyleTableListener
+ WL 'ME_4A485B9801E0' '4A485B9801E0.ms.model.script' // evCacheableStyleTableListener
  HWL ME_4E55123003CD // TevStandardStylesListPrim
  HWL ME_4E3173F50217 // TevDefaultStylesFontSizesPrim
  HWL ME_4E317AC802F4 // TevDefaultStylesFontSizesPrim1
@@ -5992,9 +3562,9 @@ ME ME_47ECB2870309
  HWL ME_522ED9B4018B // evStyles
  HWL ME_522EDD1F0044 // TevFontInterface
  HWL ME_480DB927035A // TevStyleInterface
- HWL ME_4857EFDA01E5 // evStyleInterfaceEx
- HWL ME_870F97A58415 // evStylesPrintAndExportSettingRes
- HWL ME_C9ADD4944F97 // evStylesPrintAndExportFontSizeSettingRes
+ WL 'ME_4857EFDA01E5' '4857EFDA01E5.ms.model.script' // evStyleInterfaceEx
+ WL 'ME_870F97A58415' '870F97A58415.ms.model.script' // evStylesPrintAndExportSettingRes
+ WL 'ME_C9ADD4944F97' 'C9ADD4944F97.ms.model.script' // evStylesPrintAndExportFontSizeSettingRes
  )
  ; // Children
  MELIST Depends
@@ -6040,5 +3610,8 @@ ME ME_47ECB2870309
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_47ECB2870309 StyleTable

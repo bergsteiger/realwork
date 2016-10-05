@@ -30,6 +30,7 @@ type
    f_Parents: TmsmViewParentControlList;
    f_Views: TmsmViewList;
   protected
+   function IsVert: Boolean; virtual;
    procedure InsertView(aView: TmsmView;
     const aContext: TmsmViewContext);
    procedure RemoveView(aView: TmsmView);
@@ -77,12 +78,21 @@ begin
  end;//try..finally
 end;//TmsmMultiPanelViewParent.Make
 
+function TmsmMultiPanelViewParent.IsVert: Boolean;
+//#UC START# *57EA4F0302FD_57B3468D0000_var*
+//#UC END# *57EA4F0302FD_57B3468D0000_var*
+begin
+//#UC START# *57EA4F0302FD_57B3468D0000_impl*
+ Result := false;
+//#UC END# *57EA4F0302FD_57B3468D0000_impl*
+end;//TmsmMultiPanelViewParent.IsVert
+
 procedure TmsmMultiPanelViewParent.InsertView(aView: TmsmView;
  const aContext: TmsmViewContext);
 //#UC START# *57B345EC0195_57B3468D0000_var*
 var
  l_Panel : TvtSizeablePanel;
- l_Width : Integer;
+ l_Extent : Integer;
  l_ViewCount : Integer;
  l_Index : Integer;
  l_View : TmsmView;
@@ -90,40 +100,67 @@ var
 begin
 //#UC START# *57B345EC0195_57B3468D0000_impl*
  Assert(f_Views.IndexOf(aView) < 0);
- if f_Views.Empty then
-  l_View := nil
- else
-  l_View := f_Views.Last;
- f_Views.Add(aView);
- l_ViewCount := f_Views.Count;
- if (l_View = nil) then
- begin
-  aView.Parent := f_Parent;
-  aView.Align := alClient;
- end//l_View = nil
- else
- begin
-  l_Width := f_Parent.Width div l_ViewCount;
-  for l_Index := 0 to Pred(f_Parents.Count) do
-   f_Parents[l_Index].Width := l_Width;
-  l_View.Align := alNone;
-  l_View.Parent := nil;
-  l_Panel := TvtSizeablePanel.Create(f_Parent);
-  l_Panel.Parent := f_Parent;
-  l_Panel.Width := l_Width;
-  if f_Parents.Empty then
-   l_Panel.Left := 0
+ //f_Parent.DisableAlign;
+ try
+  if f_Views.Empty then
+   l_View := nil
   else
-   l_Panel.Left := f_Parents.Last.Left + f_Parents.Last.Width;
-  l_Panel.Align := alLeft;
-  l_Panel.SizeableSides := [szRight];
-  l_Panel.SplitterBevel := bvRaised;
-  f_Parents.Add(l_Panel);
-  l_View.Parent := l_Panel;
-  l_View.Align := alClient;
-  aView.Parent := f_Parent;
-  aView.Align := alClient;
- end;//l_View = nil
+   l_View := f_Views.Last;
+  f_Views.Add(aView);
+  l_ViewCount := f_Views.Count;
+  if (l_View = nil) then
+  begin
+   aView.Parent := f_Parent;
+   aView.Align := alClient;
+  end//l_View = nil
+  else
+  begin
+   if IsVert then
+   begin
+    l_Extent := f_Parent.Height div l_ViewCount;
+    for l_Index := 0 to Pred(f_Parents.Count) do
+     f_Parents[l_Index].Height := l_Extent
+   end//IsVert
+   else
+   begin
+    l_Extent := f_Parent.Width div l_ViewCount;
+    for l_Index := 0 to Pred(f_Parents.Count) do
+     f_Parents[l_Index].Width := l_Extent;
+   end;//IsVert
+   l_View.Align := alNone;
+   l_View.Parent := nil;
+   l_Panel := TvtSizeablePanel.Create(f_Parent);
+   l_Panel.Parent := f_Parent;
+   if IsVert then
+   begin
+    l_Panel.Height := l_Extent;
+    if f_Parents.Empty then
+     l_Panel.Top := 0
+    else
+     l_Panel.Top := f_Parents.Last.Left + f_Parents.Last.Height;
+    l_Panel.Align := alTop;
+    l_Panel.SizeableSides := [szBottom];
+   end//IsVert
+   else
+   begin
+    l_Panel.Width := l_Extent;
+    if f_Parents.Empty then
+     l_Panel.Left := 0
+    else
+     l_Panel.Left := f_Parents.Last.Left + f_Parents.Last.Width;
+    l_Panel.Align := alLeft;
+    l_Panel.SizeableSides := [szRight];
+   end;//IsVert
+   l_Panel.SplitterBevel := bvRaised;
+   f_Parents.Add(l_Panel);
+   l_View.Parent := l_Panel;
+   l_View.Align := alClient;
+   aView.Parent := f_Parent;
+   aView.Align := alClient;
+  end;//l_View = nil
+ finally
+  //f_Parent.EnableAlign;
+ end;//try..finally
 //#UC END# *57B345EC0195_57B3468D0000_impl*
 end;//TmsmMultiPanelViewParent.InsertView
 

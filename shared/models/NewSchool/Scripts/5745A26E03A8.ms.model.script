@@ -1,0 +1,276 @@
+// alcuMdpSyncIntf 5745A26E03A8 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5745A26E03A8
+%%Inner ME_5745A26E03A8
+
+FORWARD ME_5745A26E03A8
+
+FORWARD ME_55E6FAD502E4
+
+ME ME_55E6FADD02A9
+ MEPROP UID '55E6FADD02A9'
+ MEPROP Name 'ssoAll'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ENDME // ME_55E6FADD02A9 ssoAll
+
+ME ME_55E6FAF30092
+ MEPROP UID '55E6FAF30092'
+ MEPROP Name 'ssoNew'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ENDME // ME_55E6FAF30092 ssoNew
+
+ME ME_55E6FAFD01F9
+ MEPROP UID '55E6FAFD01F9'
+ MEPROP Name 'ssoDel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ENDME // ME_55E6FAFD01F9 ssoDel
+
+ME ME_55E6FB08039C
+ MEPROP UID '55E6FB08039C'
+ MEPROP Name 'ssoUpd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E6FAD502E4 // TmssOperation
+ ;
+
+ENDME // ME_55E6FB08039C ssoUpd
+
+ME ME_55E6FAD502E4
+ MEPROP UID '55E6FAD502E4'
+ MEPROP Name 'TmssOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55E6FADD02A9 // ssoAll
+ HWL ME_55E6FAF30092 // ssoNew
+ HWL ME_55E6FAFD01F9 // ssoDel
+ HWL ME_55E6FB08039C // ssoUpd
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_55E6FAD502E4 TmssOperation
+
+FORWARD ME_55E84EB602E4
+
+ME ME_5745A90D02F1
+ MEPROP UID '5745A90D02F1'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55E84EB602E4 // TOperationMap
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5745A90D02F1 
+
+ME ME_55E84EE0012A
+ MEPROP UID '55E84EE0012A'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55E84EB602E4 // TOperationMap
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55E84EE0012A 
+
+%%InheritedBy ME_55E6FAD502E4 ME_55E84EB602E4
+
+ME ME_55E84EB602E4
+ MEPROP UID '55E84EB602E4'
+ MEPROP Name 'TOperationMap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_55E6FAD502E4 // TmssOperation
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5745A90D02F1 // 
+ HWL ME_55E84EE0012A // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_55E84EB602E4 TOperationMap
+
+FORWARD ME_55E84AE00169
+
+ME ME_55E84AF70328
+ MEPROP UID '55E84AF70328'
+ MEPROP Name 'c_mssOperationStr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E84AE00169 // Names
+ ;
+ MELINK Target HWL ME_55E84EB602E4 // TOperationMap
+ ;
+ MEPROP Value '(''all'', ''new'', ''del'', ''upd'')'
+ MELINK ValueType HWL ME_55E84EB602E4 // TOperationMap
+ ;
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '(''all'', ''new'', ''del'', ''upd'')'
+
+ENDME // ME_55E84AF70328 c_mssOperationStr
+
+ME ME_55E84AE00169
+ MEPROP UID '55E84AE00169'
+ MEPROP Name 'Names'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55E84AF70328 // c_mssOperationStr
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_55E84AE00169 Names
+
+FORWARD ME_55E84AB90022
+
+ME ME_55E84AD10384
+ MEPROP UID '55E84AD10384'
+ MEPROP Name 'cMdpSyncVersion'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E84AB90022 // MDPVersion
+ ;
+ MEPROP Value 5
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 5
+
+ENDME // ME_55E84AD10384 cMdpSyncVersion
+
+ME ME_55E84AB90022
+ MEPROP UID '55E84AB90022'
+ MEPROP Name 'MDPVersion'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55E84AD10384 // cMdpSyncVersion
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_55E84AB90022 MDPVersion
+
+FORWARD ME_574EB49101AB
+
+ME ME_574EB4B60063
+ MEPROP UID '574EB4B60063'
+ MEPROP Name 'cMDPCfgSection'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_574EB49101AB // IniSettings
+ ;
+ MEPROP Value '''MDP'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''MDP'''
+
+ENDME // ME_574EB4B60063 cMDPCfgSection
+
+ME ME_574EB49101AB
+ MEPROP UID '574EB49101AB'
+ MEPROP Name 'IniSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5745A26E03A8 // alcuMdpSyncIntf
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_574EB4B60063 // cMDPCfgSection
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_574EB49101AB IniSettings
+
+ME ME_5745A26E03A8
+ MEPROP UID '5745A26E03A8'
+ MEPROP Name 'alcuMdpSyncIntf'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54041E840266' '54041E840266.ms.model.script' // Process
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55E6FAD502E4 // TmssOperation
+ HWL ME_55E84EB602E4 // TOperationMap
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_55E84AE00169 // Names
+ HWL ME_55E84AB90022 // MDPVersion
+ HWL ME_574EB49101AB // IniSettings
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Process\alcuMdpSyncIntf.pas'
+
+ENDME // ME_5745A26E03A8 alcuMdpSyncIntf

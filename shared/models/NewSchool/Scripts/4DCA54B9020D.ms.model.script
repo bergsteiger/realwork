@@ -1,0 +1,288 @@
+// F1ShellWordsPack 4DCA54B9020D ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DCA54B9020D
+
+FORWARD ME_4DCA54B9020D
+
+FORWARD ME_57A8712A01C9
+
+ME ME_57A8719303D9
+ MEPROP UID '57A8719303D9'
+ MEPROP Name 'HookShellExecute'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A8712A01C9 // TnsShellServiceImpl
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57A8719303D9 HookShellExecute
+
+ME ME_57A871E3015D
+ MEPROP UID '57A871E3015D'
+ MEPROP Name 'LastShellExecuteFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57A8712A01C9 // TnsShellServiceImpl
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57A871E3015D LastShellExecuteFile
+
+ME ME_57A87134005F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_57A8712A01C9 // TnsShellServiceImpl
+ ;
+ MELINK Target WL 'ME_57A86F7400E4' '4F4B8FA60272.ms.model.script' // TnsShellService
+ ;
+
+ENDME // ME_57A87134005F 
+
+%%InheritedBy ME_49E7754802A9 ME_57A8712A01C9
+
+ME ME_57A8712A01C9
+ MEPROP UID '57A8712A01C9'
+ MEPROP Name 'TnsShellServiceImpl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57A8719303D9 // HookShellExecute
+ HWL ME_57A871E3015D // LastShellExecuteFile
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_57A87134005F // TnsShellService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ShellServiceImpl'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57A8712A01C9 TnsShellServiceImpl
+
+ME ME_556C08B702C3
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_556C08B702C3 aStr
+
+ME ME_556C08A80212
+ MEPROP UID '556C08A80212'
+ MEPROP Name 'browse'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_556C08B702C3 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_556C08A80212 browse
+
+ME ME_556C08EF0058
+ MEPROP UID '556C08EF0058'
+ MEPROP Name 'f1__WasBeep'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_556C08EF0058 f1__WasBeep
+
+ME ME_57A871CD0332
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57A871CD0332 aValue
+
+ME ME_57A871C2016D
+ MEPROP UID '57A871C2016D'
+ MEPROP Name 'SetHookShellExecute'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57A871CD0332 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_57A871C2016D SetHookShellExecute
+
+ME ME_57A8768002CE
+ MEPROP UID '57A8768002CE'
+ MEPROP Name 'GetLastShellExecuteFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57A8768002CE GetLastShellExecuteFile
+
+ME ME_57BAFE1F0049
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_57BAFE1F0049 aNode
+
+ME ME_57BAFE1F007B
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57BAFE1F007B aFileName
+
+ME ME_57BAFDD80224
+ MEPROP UID '57BAFDD80224'
+ MEPROP Name 'f1__ImportXML'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57BAFE1F0049 // aNode
+ ME_57BAFE1F007B // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_57BAFDD80224 f1__ImportXML
+
+ME ME_556C087E00A3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELINK Target WL 'ME_4ABC7EA00088' '47F9C7C9010E.ms.model.script' // nsDoShellExecute
+ ;
+
+ENDME // ME_556C087E00A3 
+
+ME ME_556C090500DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELINK Target WL 'ME_490C47C70210' '490C47C70210.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_556C090500DA 
+
+ME ME_571A262F0290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELINK Target WL 'ME_4ABC7EA00088' '47F9C7C9010E.ms.model.script' // nsDoShellExecute
+ ;
+
+ENDME // ME_571A262F0290 
+
+ME ME_571A263900BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELINK Target WL 'ME_490C47C70210' '490C47C70210.ms.model.script' // nsUtils
+ ;
+
+ENDME // ME_571A263900BE 
+
+ME ME_57BAFDB90188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DCA54B9020D // F1ShellWordsPack
+ ;
+ MELINK Target WL 'ME_47F21FE90379' '47F21FE90379.ms.model.script' // bsUtils
+ ;
+
+ENDME // ME_57BAFDB90188 
+
+%%InjectedBy ME_4ABC7EA00088 ME_4DCA54B9020D
+%%InjectedBy ME_490C47C70210 ME_4DCA54B9020D
+
+ME ME_4DCA54B9020D
+ MEPROP UID '4DCA54B9020D'
+ MEPROP Name 'F1ShellWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_556C08A80212 // browse
+ HWL ME_556C08EF0058 // f1__WasBeep
+ HWL ME_57A871C2016D // SetHookShellExecute
+ HWL ME_57A8768002CE // GetLastShellExecuteFile
+ HWL ME_57BAFDD80224 // f1__ImportXML
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57A8712A01C9 // TnsShellServiceImpl
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_556C087E00A3 // nsDoShellExecute
+ ME_556C090500DA // nsUtils
+ ME_571A262F0290 // nsDoShellExecute
+ ME_571A263900BE // nsUtils
+ ME_57BAFDB90188 // bsUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "ifndef" 'NoScripts'
+ UP "no hands" true
+ UP "started" '11.05.2011 13:20'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\F1ShellWordsPack.pas'
+
+ENDME // ME_4DCA54B9020D F1ShellWordsPack

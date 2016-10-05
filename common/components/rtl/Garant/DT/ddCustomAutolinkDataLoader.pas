@@ -1,6 +1,6 @@
 unit ddCustomAutolinkDataLoader;
 
-{ $Id: ddCustomAutolinkDataLoader.pas,v 1.3 2016/07/18 10:49:49 fireton Exp $ }
+{ $Id: ddCustomAutolinkDataLoader.pas,v 1.4 2016/09/22 12:30:35 fireton Exp $ }
 
 interface
 
@@ -20,6 +20,7 @@ type
   procedure LoadFedLaws; virtual; abstract;
   procedure LoadLoneTypes; virtual; abstract;
   procedure LoadTypeSyns; virtual; abstract;
+  procedure LoadSkippies; virtual; abstract;
  public
   constructor Create(const aFileName: string; aCodexData: Tl3InterfaceList; aLoneTypeList: Tl3LongintList);
  end;
@@ -59,6 +60,9 @@ begin
  else
  if l3Same(SectName, 'typesynonyms', True) then
   LoadTypeSyns
+ else
+ if l3Same(SectName, 'skip', True) then
+  LoadSkippies
  else
   SkipSection;
 end;

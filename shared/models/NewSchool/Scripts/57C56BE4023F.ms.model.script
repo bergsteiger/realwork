@@ -1,0 +1,46 @@
+// ddFixFilter 57C56BE4023F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57C56BE4023F
+
+FORWARD ME_57C56BE4023F
+
+ME ME_57C56BFC00D9
+ MEPROP UID '57C56BFC00D9'
+ MEPROP Name 'TddWrongTagFixFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C56BE4023F // ddFixFilter
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'ddWrongTagFixFilter'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_57C56BFC00D9 TddWrongTagFixFilter
+
+ME ME_57C56BE4023F
+ MEPROP UID '57C56BE4023F'
+ MEPROP Name 'ddFixFilter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_50598FD9019C' '50598FD9019C.ms.model.script' // PipeOut
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57C56BFC00D9 // TddWrongTagFixFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\NOT_FINISHED_ddFixFilter.pas'
+
+ENDME // ME_57C56BE4023F ddFixFilter

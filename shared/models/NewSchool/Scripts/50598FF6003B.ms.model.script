@@ -1,0 +1,46 @@
+// SewerPipe 50598FF6003B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_50598FF6003B
+
+FORWARD ME_50598FF6003B
+
+ME ME_5059903E037D
+ MEPROP UID '5059903E037D'
+ MEPROP Name 'TSewerPipe'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_50598FF6003B // SewerPipe
+ ;
+ UP "finished" false
+ UP extprop:rc:SelfName 'SewerPipe'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5059903E037D TSewerPipe
+
+ME ME_50598FF6003B
+ MEPROP UID '50598FF6003B'
+ MEPROP Name 'SewerPipe'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_50598FD9019C' '50598FD9019C.ms.model.script' // PipeOut
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5059903E037D // TSewerPipe
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\PipeOut\NOT_FINISHED_SewerPipe.pas'
+
+ENDME // ME_50598FF6003B SewerPipe

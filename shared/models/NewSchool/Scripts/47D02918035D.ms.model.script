@@ -1,0 +1,194 @@
+// l3Date 47D02918035D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47D02918035D
+%%Inner ME_47D02918035D
+%%Inner ME_47D02918035D
+%%Inner ME_47D02918035D
+
+FORWARD ME_47D02918035D
+
+ME ME_4E8EDFCA01C0
+ MEPROP UID '4E8EDFCA01C0'
+ MEPROP Name 'TStDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+ UP "finished" false
+
+ENDME // ME_4E8EDFCA01C0 TStDate
+
+ME ME_554C8DC4028F
+ MEPROP UID '554C8DC4028F'
+ MEPROP Name 'TStDayType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_554C8DC4028F TStDayType
+
+%%InheritedBy ME_554C8DC4028F ME_554C8E0102AB
+
+ME ME_554C8E0102AB
+ MEPROP UID '554C8E0102AB'
+ MEPROP Name 'TDaysOfWeek'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_554C8DC4028F // TStDayType
+ )
+ ; // Inherits
+
+ENDME // ME_554C8E0102AB TDaysOfWeek
+
+ME ME_5593952A0301
+ MEPROP UID '5593952A0301'
+ MEPROP Name 'TStTime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+ UP "finished" false
+
+ENDME // ME_5593952A0301 TStTime
+
+ME ME_4F575D8E0256
+ MEPROP UID '4F575D8E0256'
+ MEPROP Name 'ExpandYear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+
+ENDME // ME_4F575D8E0256 ExpandYear
+
+ME ME_57E0EAE100E9
+ MEPROP UID '57E0EAE100E9'
+ MEPROP Name 'DateTimeToStDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+ UP "finished" false
+
+ENDME // ME_57E0EAE100E9 DateTimeToStDate
+
+ME ME_47D029360065
+ MEPROP Name 'FourDigitYear'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47D029360065 FourDigitYear
+
+ME ME_47D029310101
+ MEPROP UID '47D029310101'
+ MEPROP Name 'DefDateFormat'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D029360065 // FourDigitYear
+ )
+ ; // Parameters
+
+ENDME // ME_47D029310101 DefDateFormat
+
+ME ME_47D0298E0086
+ MEPROP Name 'BlanksChar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE6F0305' '3DBFDB23006E.ms.model.script' // char
+ ;
+
+ENDME // ME_47D0298E0086 BlanksChar
+
+ME ME_47D0298E00B6
+ MEPROP Name 'FourDigitYear'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47D0298E00B6 FourDigitYear
+
+ME ME_47D029840351
+ MEPROP UID '47D029840351'
+ MEPROP Name 'DefDateMask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47D02918035D // l3Date
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_47D0298E0086 // BlanksChar
+ ME_47D0298E00B6 // FourDigitYear
+ )
+ ; // Parameters
+
+ENDME // ME_47D029840351 DefDateMask
+
+ME ME_47D02918035D
+ MEPROP UID '47D02918035D'
+ MEPROP Name 'l3Date'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F575D8E0256 // ExpandYear
+ HWL ME_57E0EAE100E9 // DateTimeToStDate
+ HWL ME_47D029310101 // DefDateFormat
+ HWL ME_47D029840351 // DefDateMask
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4E8EDFCA01C0 // TStDate
+ HWL ME_554C8DC4028F // TStDayType
+ HWL ME_554C8E0102AB // TDaysOfWeek
+ HWL ME_5593952A0301 // TStTime
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Date.pas'
+ UP extprop:rc:SelfName 'Date'
+
+ENDME // ME_47D02918035D l3Date

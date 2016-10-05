@@ -14,6 +14,7 @@ uses
  , evEditorWithOperations
  , l3Interfaces
  , l3Memory
+ , Classes
  {$If NOT Defined(NoVCL)}
  , Controls
  {$IfEnd} // NOT Defined(NoVCL)
@@ -21,7 +22,6 @@ uses
  , Messages
  , nevBase
  , evCustomEditorModelPart
- , Classes
  , evCustomTextSource
  , l3InternalInterfaces
  , evDef
@@ -49,6 +49,7 @@ type
    f_NeedDefaultPopupMenu: Boolean;
    f_KeepAllFormatting: Boolean;
    f_NeedReplaceQuotes: Boolean;
+   f_OnReturn: TNotifyEvent;
   private
    procedure WMGetText(var Msg: TMessage); message WM_GetText;
    procedure WMGetTextLength(var Msg: TMessage); message WM_GetTextLength;
@@ -89,6 +90,10 @@ type
    constructor Create(AOwner: TComponent); override;
    function MakeExportFilters(aSelection: Boolean;
     aForExport: Boolean): InevTagGenerator; override;
+  protected
+   property OnReturn: TNotifyEvent
+    read f_OnReturn
+    write f_OnReturn;
   public
    property NeedDefaultPopupMenu: Boolean
     read f_NeedDefaultPopupMenu
@@ -385,6 +390,12 @@ procedure TevCustomMemo.WMKeyDown(var Msg: TWMKeyDown);
 
  procedure TranslateReturn;
  begin//TranslateReturn
+  if Assigned(f_OnReturn) then
+  begin
+   Msg.Result := 0;
+   f_OnReturn(Self);
+   Exit;
+  end;//Assigned(f_OnReturn)
   Msg.Result := -1;
   if not DoKeyDown(Msg) then
    Broadcast(Msg);

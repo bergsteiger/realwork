@@ -1,0 +1,150 @@
+// ChromeLikeTabSetControlRes 553E255C00B2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_553E255C00B2
+
+FORWARD ME_553E25740324
+
+ME ME_553E25A80115
+ MEPROP UID '553E25A80115'
+ MEPROP Name 'NewTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553E25740324 // ChromeLikeTabSetControllConst
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Новая вкладка'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_553E25A80115 NewTab
+
+ME ME_553E262001A6
+ MEPROP UID '553E262001A6'
+ MEPROP Name 'MakeClone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553E25740324 // ChromeLikeTabSetControllConst
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Дублировать'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_553E262001A6 MakeClone
+
+ME ME_553E265300E8
+ MEPROP UID '553E265300E8'
+ MEPROP Name 'CloseTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553E25740324 // ChromeLikeTabSetControllConst
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Закрыть вкладку'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_553E265300E8 CloseTab
+
+ME ME_553E2664010B
+ MEPROP UID '553E2664010B'
+ MEPROP Name 'CloseOtherTabs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553E25740324 // ChromeLikeTabSetControllConst
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Закрыть другие вкладки'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_553E2664010B CloseOtherTabs
+
+ME ME_553E267F011E
+ MEPROP UID '553E267F011E'
+ MEPROP Name 'CloseRightTabs'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553E25740324 // ChromeLikeTabSetControllConst
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Закрыть вкладки справа'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_553E267F011E CloseRightTabs
+
+ME ME_553E26B30241
+ MEPROP UID '553E26B30241'
+ MEPROP Name 'ReopenClosedTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_553E25740324 // ChromeLikeTabSetControllConst
+ ;
+ UP "AutoInc" false
+ UP "Value" '''Открыть закрытую вкладку'''
+ UP "forced type" 'none'
+ UP "is define" false
+
+ENDME // ME_553E26B30241 ReopenClosedTab
+
+ME ME_553E25740324
+ MEPROP UID '553E25740324'
+ MEPROP Name 'ChromeLikeTabSetControllConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553E255C00B2 // ChromeLikeTabSetControlRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_553E25A80115 // NewTab
+ HWL ME_553E262001A6 // MakeClone
+ HWL ME_553E265300E8 // CloseTab
+ HWL ME_553E2664010B // CloseOtherTabs
+ HWL ME_553E267F011E // CloseRightTabs
+ HWL ME_553E26B30241 // ReopenClosedTab
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "spell names" false
+
+ENDME // ME_553E25740324 ChromeLikeTabSetControllConst
+
+ME ME_553E255C00B2
+ MEPROP UID '553E255C00B2'
+ MEPROP Name 'ChromeLikeTabSetControlRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533E6F73014E' '533E6F73014E.ms.model.script' // ChromeLikeTabSet
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_553E25740324 // ChromeLikeTabSetControllConst
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetControlRes.pas'
+
+ENDME // ME_553E255C00B2 ChromeLikeTabSetControlRes

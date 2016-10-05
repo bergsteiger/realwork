@@ -1,0 +1,45 @@
+// SecuritySrv 4CA1D0DD027A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CA1D0DD027A
+
+FORWARD ME_4CA1D0DD027A
+
+ME ME_4CA1D0ED000F
+ MEPROP UID '4CA1D0ED000F'
+ MEPROP Name 'TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1D0DD027A // SecuritySrv
+ ;
+ UP extprop:rc:SelfName 'CoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4CA1D0ED000F TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
+
+ME ME_4CA1D0DD027A
+ MEPROP UID '4CA1D0DD027A'
+ MEPROP Name 'SecuritySrv'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CA0DCFB017A' '4CA0DCFB017A.ms.model.script' // build
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1D0ED000F // TCoreSrv_SecuritySrv_SessionManagerFactoryManagerSrv
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\build\NOT_FINISHED_SecuritySrv.pas'
+
+ENDME // ME_4CA1D0DD027A SecuritySrv

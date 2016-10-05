@@ -1,0 +1,83 @@
+// afwValueMaps 478E36460273 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_478E36460273
+
+ME ME_478E366E03B2
+ MEPROP UID '478E366E03B2'
+ MEPROP Name 'afwIntegerMapManager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E36460273 // afwValueMaps
+ ;
+ MELINK Target WL 'ME_475E7F100044' '467823B7002C.ms.model.script' // IafwIntegerValueMapManager
+ ;
+
+ENDME // ME_478E366E03B2 afwIntegerMapManager
+
+ME ME_478E36800176
+ MEPROP UID '478E36800176'
+ MEPROP Name 'afwStringMapManager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E36460273 // afwValueMaps
+ ;
+ MELINK Target WL 'ME_475E7E670242' '467823B7002C.ms.model.script' // IafwStringValueMapManager
+ ;
+
+ENDME // ME_478E36800176 afwStringMapManager
+
+ME ME_478E36B3001B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478E36460273 // afwValueMaps
+ ;
+ MELINK Target WL 'ME_478E35650120' '478E35650120.ms.model.script' // l3IntegerValueMapManager
+ ;
+
+ENDME // ME_478E36B3001B 
+
+ME ME_478E36BC0311
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_478E36460273 // afwValueMaps
+ ;
+ MELINK Target WL 'ME_478E359802F6' '478E359802F6.ms.model.script' // l3StringValueMapManager
+ ;
+
+ENDME // ME_478E36BC0311 
+
+ME ME_478E36460273
+ MEPROP UID '478E36460273'
+ MEPROP Name 'afwValueMaps'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Мапы для UI-строка <=> что-то' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47764CED0308' '47764CED0308.ms.model.script' // Standard
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_478E366E03B2 // afwIntegerMapManager
+ HWL ME_478E36800176 // afwStringMapManager
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_478E36B3001B // l3IntegerValueMapManager
+ ME_478E36BC0311 // l3StringValueMapManager
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р. В.'
+ UP "no hands" true
+ UP "started" '12.04.2006 13:00'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwValueMaps.pas'
+
+ENDME // ME_478E36460273 afwValueMaps

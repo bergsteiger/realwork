@@ -4,7 +4,7 @@ unit msmImageNames;
 // Стереотип: "SimpleClass"
 // Элемент модели: "TmsmImageNames" MUID: (57D968320359)
 
-{$Include w:\common\components\gui\Garant\msm\msm.inc}
+{$Include w:\common\components\msm.inc}
 
 interface
 

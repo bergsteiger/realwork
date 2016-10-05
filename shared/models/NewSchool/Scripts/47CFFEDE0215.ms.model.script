@@ -1,0 +1,412 @@
+// evControlParaTools 47CFFEDE0215 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CFFEDE0215
+
+ME ME_47CFFF7500CB
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_47CFFF7500CB aPara
+
+ME ME_47CFFF5D028A
+ MEPROP UID '47CFFF5D028A'
+ MEPROP Name 'evGetEditorControl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает указатель на контрол для параграфа.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47CD601B0048' '47CD5C7602CD.ms.model.script' // IevEditorControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CFFF7500CB // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_47CFFF5D028A evGetEditorControl
+
+ME ME_48DCFE4500F0
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48DCFE4500F0 aPara
+
+ME ME_48DCFE370302
+ MEPROP UID '48DCFE370302'
+ MEPROP Name 'evGetCustomControl'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает указатель на контрол для параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47CD5E5300D5' '47CD5C7602CD.ms.model.script' // IevCustomEditorControl
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFE4500F0 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFE370302 evGetCustomControl
+
+ME ME_48DCFE5800C4
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48DCFE5800C4 aPara
+
+ME ME_48DCFE4D00E0
+ MEPROP UID '48DCFE4D00E0'
+ MEPROP Name 'evGetQueryGroup'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает указатель на группу для параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47CD6F2902DC' '47CD5C7602CD.ms.model.script' // IevQueryGroup
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFE5800C4 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFE4D00E0 evGetQueryGroup
+
+ME ME_48DCFE6F029F
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48DCFE6F029F aPara
+
+ME ME_48DCFE6000C3
+ MEPROP UID '48DCFE6000C3'
+ MEPROP Name 'evGetField'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает указатель на поле для параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47CD608201FA' '47CD5C7602CD.ms.model.script' // IevEditorControlField
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFE6F029F // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFE6000C3 evGetField
+
+ME ME_48DCFE8D000D
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E25BB410189' '4678209200A6.ms.model.script' // TnevControlInfo
+ ;
+
+ENDME // ME_48DCFE8D000D aPara
+
+ME ME_4E144CAB02DE
+ MEPROP Name 'theImageInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4D5936FC01A0' '4678209200A6.ms.model.script' // TnevControlImageInfo
+ ;
+
+ENDME // ME_4E144CAB02DE theImageInfo
+
+ME ME_48DCFE8D00A9
+ MEPROP Name 'AType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469245FB0354' '469D0AC7005E.ms.model.script' // ControlType
+ ;
+
+ENDME // ME_48DCFE8D00A9 AType
+
+ME ME_48DCFE79022C
+ MEPROP UID '48DCFE79022C'
+ MEPROP Name 'evGetCustomImageList'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает AImgIndex и ImageList, для контрола, если такие существуют' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFE8D000D // aPara
+ ME_4E144CAB02DE // theImageInfo
+ ME_48DCFE8D00A9 // AType
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFE79022C evGetCustomImageList
+
+ME ME_48DCFEAC01B2
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_48DCFEAC01B2 aPara
+
+ME ME_48DCFE9C0079
+ MEPROP UID '48DCFE9C0079'
+ MEPROP Name 'evChecked2State'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает состояние кнопки, в зависимости от тега' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_46A5ED0F0301' '4677FBA70343.ms.model.script' // Tl3ButtonState
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFEAC01B2 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFE9C0079 evChecked2State
+
+ME ME_48DCFEB301AB
+ MEPROP UID '48DCFEB301AB'
+ MEPROP Name 'evMakeDateMaskText'
+ MEPROP Class class_Operation
+ %SUMMARY 'Возвращает шаблон для поля даты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_48DCFEB301AB evMakeDateMaskText
+
+ME ME_48DCFEDB0311
+ MEPROP Name 'aTree'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1DD0075' '4678209200A6.ms.model.script' // InevSimpleTree
+ ;
+
+ENDME // ME_48DCFEDB0311 aTree
+
+ME ME_48DCFEDB0367
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BF1FA032A' '4678209200A6.ms.model.script' // InevSimpleNode
+ ;
+
+ENDME // ME_48DCFEDB0367 aNode
+
+ME ME_48DCFEC302C1
+ MEPROP UID '48DCFEC302C1'
+ MEPROP Name 'evGetFullPathStr'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFEDB0311 // aTree
+ ME_48DCFEDB0367 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFEC302C1 evGetFullPathStr
+
+ME ME_48DCFEF1002A
+ MEPROP Name 'aField'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CD608201FA' '47CD5C7602CD.ms.model.script' // IevEditorControlField
+ ;
+
+ENDME // ME_48DCFEF1002A aField
+
+ME ME_48DCFEF10084
+ MEPROP Name 'IgnoreDefaultValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48DCFEF10084 IgnoreDefaultValue
+
+ME ME_48DCFEE70217
+ MEPROP UID '48DCFEE70217'
+ MEPROP Name 'evIsFieldSet'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFEF1002A // aField
+ ME_48DCFEF10084 // IgnoreDefaultValue
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFEE70217 evIsFieldSet
+
+ME ME_48DCFF0201BC
+ MEPROP Name 'aReq'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47CD6644026F' '47CD5C7602CD.ms.model.script' // IevReq
+ ;
+
+ENDME // ME_48DCFF0201BC aReq
+
+ME ME_48DCFF02021B
+ MEPROP Name 'IgnoreDefaultValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_48DCFF02021B IgnoreDefaultValue
+
+ME ME_48DCFEF8007D
+ MEPROP UID '48DCFEF8007D'
+ MEPROP Name 'evIsSomeFieldFilled'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_48DCFF0201BC // aReq
+ ME_48DCFF02021B // IgnoreDefaultValue
+ )
+ ; // Parameters
+
+ENDME // ME_48DCFEF8007D evIsSomeFieldFilled
+
+ME ME_48DD010F0376
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_48DD010F0376 
+
+ME ME_48DD0159032C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_48DD0159032C 
+
+ME ME_48DD01610058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_48DD01610058 
+
+ME ME_48DD01AE0110
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_48DD01AE0110 
+
+ME ME_48DD01E2006D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_47D02918035D' '47D02918035D.ms.model.script' // l3Date
+ ;
+
+ENDME // ME_48DD01E2006D 
+
+ME ME_4A96825F0282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47CFFEDE0215 // evControlParaTools
+ ;
+ MELINK Target WL 'ME_468259900322' '4682595B0268.ms.model.script' // Il3SimpleNode
+ ;
+
+ENDME // ME_4A96825F0282 
+
+ME ME_47CFFEDE0215
+ MEPROP UID '47CFFEDE0215'
+ MEPROP Name 'evControlParaTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилиты для работы с параграфами, представляющие контролы ввода.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47CEBC900123' '47CEBC900123.ms.model.script' // qf
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47CFFF5D028A // evGetEditorControl
+ HWL ME_48DCFE370302 // evGetCustomControl
+ HWL ME_48DCFE4D00E0 // evGetQueryGroup
+ HWL ME_48DCFE6000C3 // evGetField
+ HWL ME_48DCFE79022C // evGetCustomImageList
+ HWL ME_48DCFE9C0079 // evChecked2State
+ HWL ME_48DCFEB301AB // evMakeDateMaskText
+ HWL ME_48DCFEC302C1 // evGetFullPathStr
+ HWL ME_48DCFEE70217 // evIsFieldSet
+ HWL ME_48DCFEF8007D // evIsSomeFieldFilled
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48DD010F0376 // Tk2TagID
+ ME_48DD0159032C // l3Base
+ ME_48DD01610058 // l3String
+ ME_48DD01AE0110 // SysUtils
+ ME_48DD01E2006D // l3Date
+ ME_4A96825F0282 // Il3SimpleNode
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '15.11.2004 18:07'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\qf\evControlParaTools.pas'
+ UP extprop:rc:SelfName 'ControlParaTools'
+
+ENDME // ME_47CFFEDE0215 evControlParaTools

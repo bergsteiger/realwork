@@ -1,0 +1,110 @@
+// tfwScriptsRunningAndDebugging 56F556230193 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_56F556230193
+
+ME ME_56F556670021
+ MEPROP Name 'aFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_56F556670021 aFile
+
+ME ME_56F556670049
+ MEPROP Name 'anOutputFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_56F556670049 anOutputFile
+
+ME ME_56F5564A035F
+ MEPROP UID '56F5564A035F'
+ MEPROP Name 'script_RunFromFile'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ MELIST Parameters
+   Seq: ( ME_56F556670021 // aFile
+ ME_56F556670049 // anOutputFile
+ )
+ ; // Parameters
+
+ENDME // ME_56F5564A035F script_RunFromFile
+
+ME ME_56F5563502FC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ MELINK Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.ms.model.script' // TtfwScriptEngine
+ ;
+
+ENDME // ME_56F5563502FC 
+
+ME ME_56F5563D0109
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ MELINK Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.ms.model.script' // TtfwScriptEngine
+ ;
+
+ENDME // ME_56F5563D0109 
+
+ME ME_56F556A502FE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ MELINK Target WL 'ME_56456E3E01E4' '55C481E00003.ms.model.script' // TtfwOutToFileScriptCaller
+ ;
+
+ENDME // ME_56F556A502FE 
+
+ME ME_56F556E401D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56F556230193 // tfwScriptsRunningAndDebugging
+ ;
+ MELINK Target WL 'ME_56F556CF0371' '4DAEEA14018A.ms.model.script' // TtfwDebugScriptCaller
+ ;
+
+ENDME // ME_56F556E401D7 
+
+%%InjectedBy ME_4DAEEA9E0049 ME_56F556230193
+
+ME ME_56F556230193
+ MEPROP UID '56F556230193'
+ MEPROP Name 'tfwScriptsRunningAndDebugging'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56F5564A035F // script_RunFromFile
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_56F5563502FC // TtfwScriptEngine
+ ME_56F5563D0109 // TtfwScriptEngine
+ ME_56F556A502FE // TtfwOutToFileScriptCaller
+ ME_56F556E401D7 // TtfwDebugScriptCaller
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptsRunningAndDebugging.pas'
+ UP extprop:rc:SelfName 'ScriptsRunningAndDebugging'
+
+ENDME // ME_56F556230193 tfwScriptsRunningAndDebugging

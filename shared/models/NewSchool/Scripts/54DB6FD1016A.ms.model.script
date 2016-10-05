@@ -1,0 +1,48 @@
+// StatusBarButtonWords 54DB6FD1016A ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54DB6FD1016A
+
+ME ME_552FC9C10154
+ MEPROP UID '552FC9C10154'
+ MEPROP Name 'IsDown'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54DB6FD1016A // StatusBarButtonWords
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FC9C10154 IsDown
+
+%%InheritedBy ME_503DE6F30027 ME_54DB6FD1016A
+
+ME ME_54DB6FD1016A
+ MEPROP UID '54DB6FD1016A'
+ MEPROP Name 'StatusBarButtonWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_505C848E02D6' '505C848E02D6.ms.model.script' // StatusBarWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_503DE6F30027' '503DE6F30027.ms.model.script' // TnscStatusBarButton
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552FC9C10154 // IsDown
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas'
+
+ENDME // ME_54DB6FD1016A StatusBarButtonWords

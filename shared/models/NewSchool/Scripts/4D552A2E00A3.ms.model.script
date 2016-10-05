@@ -1,0 +1,89 @@
+// vgTypesPrim 4D552A2E00A3 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D552A2E00A3
+
+FORWARD ME_4D552A2E00A3
+
+FORWARD ME_4D5529D60358
+
+ME ME_4D552A1F00D2
+ MEPROP Name 'item1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D552A1F00D2 item1
+
+ME ME_4D552A1F00F1
+ MEPROP Name 'item2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D542078016E' '4D542052038D.ms.model.script' // TvgCustomObject
+ ;
+
+ENDME // ME_4D552A1F00F1 item2
+
+ME ME_4D5529F4029A
+ MEPROP UID '4D5529F4029A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D5529D60358 // TvgObjectSortCompare
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D552A1F00D2 // item1
+ ME_4D552A1F00F1 // item2
+ )
+ ; // Parameters
+
+ENDME // ME_4D5529F4029A DoIt
+
+ME ME_4D5529D60358
+ MEPROP UID '4D5529D60358'
+ MEPROP Name 'TvgObjectSortCompare'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D552A2E00A3 // vgTypesPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D5529F4029A // DoIt
+ )
+ ; // Operations
+ UP "of object" false
+
+ENDME // ME_4D5529D60358 TvgObjectSortCompare
+
+ME ME_4D552A2E00A3
+ MEPROP UID '4D552A2E00A3'
+ MEPROP Name 'vgTypesPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4D542052038D' '4D542052038D.ms.model.script' // Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D5529D60358 // TvgObjectSortCompare
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '11.02.2011 15:23'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\vgTypesPrim.pas'
+ UP extprop:rc:SelfName 'TypesPrim'
+
+ENDME // ME_4D552A2E00A3 vgTypesPrim

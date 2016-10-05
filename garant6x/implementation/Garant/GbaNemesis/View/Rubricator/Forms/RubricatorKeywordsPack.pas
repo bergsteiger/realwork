@@ -774,8 +774,10 @@ initialization
  {* Регистрация типа TPaintBox }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscSimpleEditor));
  {* Регистрация типа TnscSimpleEditor }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTextSource));
  {* Регистрация типа TnscTextSource }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // NOT Defined(Admin) AND NOT Defined(Monitorings) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

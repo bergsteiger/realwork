@@ -1,0 +1,232 @@
+// idComponent 545B3EC403B9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_545B3EC403B9
+%%Inner ME_545B3EC403B9
+
+FORWARD ME_545B3EC403B9
+
+FORWARD ME_545B3EE3029E
+
+ME ME_545B3EF1024A
+ MEPROP UID '545B3EF1024A'
+ MEPROP Name 'hsResolving'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3EF1024A hsResolving
+
+ME ME_545B3F030105
+ MEPROP UID '545B3F030105'
+ MEPROP Name 'hsConnecting'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F030105 hsConnecting
+
+ME ME_545B3F0C005B
+ MEPROP UID '545B3F0C005B'
+ MEPROP Name 'hsConnected'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F0C005B hsConnected
+
+ME ME_545B3F170394
+ MEPROP UID '545B3F170394'
+ MEPROP Name 'hsDisconnecting'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F170394 hsDisconnecting
+
+ME ME_545B3F2703B9
+ MEPROP UID '545B3F2703B9'
+ MEPROP Name 'hsDisconnected'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F2703B9 hsDisconnected
+
+ME ME_545B3F3302CB
+ MEPROP UID '545B3F3302CB'
+ MEPROP Name 'hsStatusText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F3302CB hsStatusText
+
+ME ME_545B3F3A0253
+ MEPROP UID '545B3F3A0253'
+ MEPROP Name 'ftpTransfer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F3A0253 ftpTransfer
+
+ME ME_545B3F4D033E
+ MEPROP UID '545B3F4D033E'
+ MEPROP Name 'ftpReady'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F4D033E ftpReady
+
+ME ME_545B3F58032D
+ MEPROP UID '545B3F58032D'
+ MEPROP Name 'ftpAborted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B3F58032D ftpAborted
+
+ME ME_545B3EE3029E
+ MEPROP UID '545B3EE3029E'
+ MEPROP Name 'TIdStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545B3EC403B9 // idComponent
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_545B3EF1024A // hsResolving
+ HWL ME_545B3F030105 // hsConnecting
+ HWL ME_545B3F0C005B // hsConnected
+ HWL ME_545B3F170394 // hsDisconnecting
+ HWL ME_545B3F2703B9 // hsDisconnected
+ HWL ME_545B3F3302CB // hsStatusText
+ HWL ME_545B3F3A0253 // ftpTransfer
+ HWL ME_545B3F4D033E // ftpReady
+ HWL ME_545B3F58032D // ftpAborted
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_545B3EE3029E TIdStatus
+
+FORWARD ME_545B3F72015E
+
+ME ME_545B5FC000FF
+ MEPROP Name 'ASender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_545B5FC000FF ASender
+
+ME ME_545B5FC0011F
+ MEPROP Name 'AStatus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_545B3EE3029E // TIdStatus
+ ;
+
+ENDME // ME_545B5FC0011F AStatus
+
+ME ME_545B5FC0012E
+ MEPROP Name 'AStatusText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_545B5FC0012E AStatusText
+
+ME ME_545B3FAD00F2
+ MEPROP UID '545B3FAD00F2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545B3F72015E // TIdStatusEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_545B5FC000FF // ASender
+ ME_545B5FC0011F // AStatus
+ ME_545B5FC0012E // AStatusText
+ )
+ ; // Parameters
+
+ENDME // ME_545B3FAD00F2 DoIt
+
+ME ME_545B3F72015E
+ MEPROP UID '545B3F72015E'
+ MEPROP Name 'TIdStatusEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545B3EC403B9 // idComponent
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_545B3FAD00F2 // DoIt
+ )
+ ; // Operations
+ UP "of object" true
+
+ENDME // ME_545B3F72015E TIdStatusEvent
+
+ME ME_545B3EC403B9
+ MEPROP UID '545B3EC403B9'
+ MEPROP Name 'idComponent'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_537F464A0198' '537F464A0198.ms.model.script' // System
+ ;
+ MELIST Children
+   Seq: ( HWL ME_545B3EE3029E // TIdStatus
+ HWL ME_545B3F72015E // TIdStatusEvent
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\Indy\Source\System\NOT_FINISHED_idComponent.pas'
+
+ENDME // ME_545B3EC403B9 idComponent

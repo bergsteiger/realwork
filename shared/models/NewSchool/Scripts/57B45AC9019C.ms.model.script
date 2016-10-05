@@ -1,0 +1,139 @@
+// msmListAndTreeViewUtils 57B45AC9019C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57B45AC9019C
+%%Inner ME_57B45AC9019C
+
+FORWARD ME_57B45AC9019C
+
+FORWARD ME_57B45B2201A5
+
+ME ME_57B45C5801A6
+ MEPROP UID '57B45C5801A6'
+ MEPROP Name 'rMultiStrokeItem'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B45B2201A5 // TmsmTreeViewInitContext
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57B45C5801A6 rMultiStrokeItem
+
+ME ME_57B45C9100C2
+ MEPROP UID '57B45C9100C2'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B45B2201A5 // TmsmTreeViewInitContext
+ ;
+
+ENDME // ME_57B45C9100C2 C
+
+ME ME_57B45B2201A5
+ MEPROP UID '57B45B2201A5'
+ MEPROP Name 'TmsmTreeViewInitContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B45AC9019C // msmListAndTreeViewUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57B45C5801A6 // rMultiStrokeItem
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B45C9100C2 // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'msmTreeViewInitContext'
+
+ENDME // ME_57B45B2201A5 TmsmTreeViewInitContext
+
+FORWARD ME_57B45B380244
+
+ME ME_57B45C720003
+ MEPROP UID '57B45C720003'
+ MEPROP Name 'rMultiStrokeItem'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_57B45B380244 // TmsmListViewtInitContext
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57B45C720003 rMultiStrokeItem
+
+ME ME_57B45CA701A8
+ MEPROP UID '57B45CA701A8'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57B45B380244 // TmsmListViewtInitContext
+ ;
+
+ENDME // ME_57B45CA701A8 C
+
+ME ME_57B45B380244
+ MEPROP UID '57B45B380244'
+ MEPROP Name 'TmsmListViewtInitContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B45AC9019C // msmListAndTreeViewUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57B45C720003 // rMultiStrokeItem
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57B45CA701A8 // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'msmListViewtInitContext'
+
+ENDME // ME_57B45B380244 TmsmListViewtInitContext
+
+ME ME_57B45AC9019C
+ MEPROP UID '57B45AC9019C'
+ MEPROP Name 'msmListAndTreeViewUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57AE0E4B00C5' '57AE0E4B00C5.ms.model.script' // ConcreteViewControllers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57B45B2201A5 // TmsmTreeViewInitContext
+ HWL ME_57B45B380244 // TmsmListViewtInitContext
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmListAndTreeViewUtils.pas'
+
+ENDME // ME_57B45AC9019C msmListAndTreeViewUtils

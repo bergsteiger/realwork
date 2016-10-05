@@ -1,0 +1,119 @@
+// dt_DictConst 55E7042003D3 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55E7042003D3
+
+FORWARD ME_55E94F580288
+
+ME ME_55E94F65037D
+ MEPROP UID '55E94F65037D'
+ MEPROP Name 'cPublInNumLen'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E94F580288 // cLengths
+ ;
+ MEPROP Value 30
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 30
+
+ENDME // ME_55E94F65037D cPublInNumLen
+
+ME ME_55E94F8E02C6
+ MEPROP UID '55E94F8E02C6'
+ MEPROP Name 'cSourceNameLen'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E94F580288 // cLengths
+ ;
+ MEPROP Value 200
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 200
+
+ENDME // ME_55E94F8E02C6 cSourceNameLen
+
+ME ME_55E94FA40006
+ MEPROP UID '55E94FA40006'
+ MEPROP Name 'cSourceShortNameLen'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E94F580288 // cLengths
+ ;
+ MEPROP Value 70
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 70
+
+ENDME // ME_55E94FA40006 cSourceShortNameLen
+
+ME ME_55E94FB2010A
+ MEPROP UID '55E94FB2010A'
+ MEPROP Name 'cSourceSynonimsLen'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55E94F580288 // cLengths
+ ;
+ MEPROP Value 800
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 800
+
+ENDME // ME_55E94FB2010A cSourceSynonimsLen
+
+ME ME_55E94F580288
+ MEPROP UID '55E94F580288'
+ MEPROP Name 'cLengths'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55E7042003D3 // dt_DictConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55E94F65037D // cPublInNumLen
+ HWL ME_55E94F8E02C6 // cSourceNameLen
+ HWL ME_55E94FA40006 // cSourceShortNameLen
+ HWL ME_55E94FB2010A // cSourceSynonimsLen
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_55E94F580288 cLengths
+
+ME ME_55E7042003D3
+ MEPROP UID '55E7042003D3'
+ MEPROP Name 'dt_DictConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47BC50280350' '47BC50280350.ms.model.script' // Dictionary
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_55E94F580288 // cLengths
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_DictConst.pas'
+
+ENDME // ME_55E7042003D3 dt_DictConst

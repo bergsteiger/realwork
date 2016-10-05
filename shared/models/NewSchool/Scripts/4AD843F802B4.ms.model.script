@@ -1,0 +1,262 @@
+// nsContextHistoryPrim 4AD843F802B4 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD843F802B4
+
+ME ME_4AD8446801B3
+ MEPROP UID '4AD8446801B3'
+ MEPROP Name 'f_Subscribers'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_4AD83627037B' '54F9EC5B0269.ms.model.script' // TInsContextSearchHistoryNotifierList
+ ;
+
+ENDME // ME_4AD8446801B3 f_Subscribers
+
+ME ME_4AD8447B002D
+ MEPROP UID '4AD8447B002D'
+ MEPROP Name 'f_Kind'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_4AD825C703D8' '54F9F6FB0143.ms.model.script' // TnsContextHistoryKind
+ ;
+
+ENDME // ME_4AD8447B002D f_Kind
+
+ME ME_4AD8449A0327
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AD825C703D8' '54F9F6FB0143.ms.model.script' // TnsContextHistoryKind
+ ;
+
+ENDME // ME_4AD8449A0327 aKind
+
+ME ME_4AD8449003C3
+ MEPROP UID '4AD8449003C3'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD8449A0327 // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_4AD8449003C3 Create
+
+ME ME_4AD84519029A
+ MEPROP Name 'aNewHistory'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4683CF0601DB' '467BAB7F021E.ms.model.script' // IvcmStrings
+ ;
+
+ENDME // ME_4AD84519029A aNewHistory
+
+ME ME_4AD844B6000D
+ MEPROP UID '4AD844B6000D'
+ MEPROP Name 'NotifySubscribers'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD84519029A // aNewHistory
+ )
+ ; // Parameters
+
+ENDME // ME_4AD844B6000D NotifySubscribers
+
+ME ME_4AD845ED01C4
+ MEPROP UID '4AD845ED01C4'
+ MEPROP Name 'SettingsName'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_4AD845ED01C4 SettingsName
+
+ME ME_4AD857760029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_4AD83627037B' '54F9EC5B0269.ms.model.script' // TInsContextSearchHistoryNotifierList
+ ;
+
+ENDME // ME_4AD857760029 
+
+ME ME_4AD857A303E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_4AD857A303E6 
+
+ME ME_4AD85EC20280
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_47FB50E4008E' '47FB50E4008E.ms.model.script' // nsConst
+ ;
+
+ENDME // ME_4AD85EC20280 
+
+ME ME_4AD85EE0008C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_4AB8CB630173' '47D0E1500033.ms.model.script' // TvcmStringList
+ ;
+
+ENDME // ME_4AD85EE0008C 
+
+ME ME_4AD85F070137
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4AD85F070137 
+
+ME ME_4AD86320015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_4AD86320015D 
+
+ME ME_4AD864BF0154
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD843F802B4 // nsContextHistoryPrim
+ ;
+ MELINK Target WL 'ME_4ACF4D6E03B5' '47878E0E0191.ms.model.script' // l3Str
+ ;
+
+ENDME // ME_4AD864BF0154 
+
+ME ME_4AD849C4011B_ME_4AD843F802B4
+ MELINK Original WL 'ME_4AD849C4011B' '54F9F6FB0143.ms.model.script' // AddNotifier
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AD849C4011B_ME_4AD843F802B4 AddNotifier
+
+ME ME_4AD849CA03CF_ME_4AD843F802B4
+ MELINK Original WL 'ME_4AD849CA03CF' '54F9F6FB0143.ms.model.script' // History
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AD849CA03CF_ME_4AD843F802B4 History
+
+ME ME_4AD849CF0148_ME_4AD843F802B4
+ MELINK Original WL 'ME_4AD849CF0148' '54F9F6FB0143.ms.model.script' // RemoveNotifier
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AD849CF0148_ME_4AD843F802B4 RemoveNotifier
+
+ME ME_4AD849D20384_ME_4AD843F802B4
+ MELINK Original WL 'ME_4AD849D20384' '54F9F6FB0143.ms.model.script' // Searched
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4AD849D20384_ME_4AD843F802B4 Searched
+
+ME ME_53B12CA900B8_ME_4AD843F802B4
+ MELINK Original WL 'ME_53B12CA900B8' '54F9F6FB0143.ms.model.script' // Clear
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53B12CA900B8_ME_4AD843F802B4 Clear
+
+ME ME_479731C50290_ME_4AD843F802B4
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4AD843F802B4 Cleanup
+
+%%ImplementedBy ME_4A5CB93700CF ME_4AD843F802B4
+%%ImplementedBy ME_4AD849940213 ME_4AD843F802B4
+
+ME ME_4AD843F802B4
+ MEPROP UID '4AD843F802B4'
+ MEPROP Name 'nsContextHistoryPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_54F9EC5B0269' '54F9EC5B0269.ms.model.script' // ContextHistory
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ WL 'ME_4AD849940213' '54F9F6FB0143.ms.model.script' // MnsContextSearchHistory
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4AD8446801B3 // f_Subscribers
+ HWL ME_4AD8447B002D // f_Kind
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AD8449003C3 // Create
+ HWL ME_4AD844B6000D // NotifySubscribers
+ HWL ME_4AD845ED01C4 // SettingsName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4AD849C4011B_ME_4AD843F802B4 // AddNotifier
+ ME_4AD849CA03CF_ME_4AD843F802B4 // History
+ ME_4AD849CF0148_ME_4AD843F802B4 // RemoveNotifier
+ ME_4AD849D20384_ME_4AD843F802B4 // Searched
+ ME_53B12CA900B8_ME_4AD843F802B4 // Clear
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4AD843F802B4 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4AD857760029 // TInsContextSearchHistoryNotifierList
+ ME_4AD857A303E6 // afwFacade
+ ME_4AD85EC20280 // nsConst
+ ME_4AD85EE0008C // TvcmStringList
+ ME_4AD85F070137 // SysUtils
+ ME_4AD86320015D // Tl3SortIndex
+ ME_4AD864BF0154 // l3Str
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistoryPrim.imp.pas'
+ UP extprop:pas:TypeName '_nsContextHistoryPrim_'
+ UP extprop:pas:UnitName 'nsContextHistoryPrim.imp'
+
+ENDME // ME_4AD843F802B4 nsContextHistoryPrim

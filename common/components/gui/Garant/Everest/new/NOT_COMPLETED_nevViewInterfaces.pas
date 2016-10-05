@@ -259,6 +259,8 @@ type
    procedure EndDrawAAC(const R: Tl3Rect);
    procedure BeginDarkColor;
    procedure EndDarkColor;
+   function Get_etoFlags: Cardinal;
+   procedure Set_etoFlags(aValue: Cardinal);
   public
    function TextExtent(const S: Tl3WString;
     aNoTabs: Boolean = False): Tl3Point;
@@ -1813,6 +1815,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *55CC51CE0059_4A4479E503D5_impl*
 end;//Hl3Canvas.EndDarkColor
+
+function Hl3Canvas.Get_etoFlags: Cardinal;
+//#UC START# *57D6D54102F4_4A4479E503D5get_var*
+//#UC END# *57D6D54102F4_4A4479E503D5get_var*
+begin
+//#UC START# *57D6D54102F4_4A4479E503D5get_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57D6D54102F4_4A4479E503D5get_impl*
+end;//Hl3Canvas.Get_etoFlags
+
+procedure Hl3Canvas.Set_etoFlags(aValue: Cardinal);
+//#UC START# *57D6D54102F4_4A4479E503D5set_var*
+//#UC END# *57D6D54102F4_4A4479E503D5set_var*
+begin
+//#UC START# *57D6D54102F4_4A4479E503D5set_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57D6D54102F4_4A4479E503D5set_impl*
+end;//Hl3Canvas.Set_etoFlags
 
 {$If NOT Defined(XE4)}
 procedure Hl3Canvas.Fake;

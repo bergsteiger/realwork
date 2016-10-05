@@ -20,6 +20,8 @@ uses
 ;
 
 type
+ TtfwStackValuesArray = array of TtfwStackValue;
+
  TmsmModelElementMethodCaller = class
   protected
    class function ScriptName(const aMethodName: AnsiString): Il3CString;
@@ -63,6 +65,9 @@ uses
  {$IfEnd} // Defined(seThreadSafe)
  , msmWordsByName
  , msmChangedElements
+ {$If NOT Defined(NoScripts)}
+ , msmModelElementMethodCallerPack
+ {$IfEnd} // NOT Defined(NoScripts)
  {$If NOT Defined(NoScripts)}
  , tfwScriptEngine
  {$IfEnd} // NOT Defined(NoScripts)

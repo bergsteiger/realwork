@@ -5,9 +5,12 @@ unit l3FileUtils;
 { Автор: Бабанин В.Б. ©               }
 { Модуль: l3FileUtils -               }
 { Начат: 12.04.98 16:27               }
-{ $Id: l3FileUtils.pas,v 1.93 2016/06/17 12:47:05 fireton Exp $ }
+{ $Id: l3FileUtils.pas,v 1.94 2016/09/30 15:23:18 lulin Exp $ }
 
 // $Log: l3FileUtils.pas,v $
+// Revision 1.94  2016/09/30 15:23:18  lulin
+// - подтачиваем.
+//
 // Revision 1.93  2016/06/17 12:47:05  fireton
 // - возможность копировать файлы без проверки директории назначения (дорогая операция)
 //
@@ -1016,6 +1019,7 @@ function IsFullPath(aFileName : TFileName) : Boolean;
 
 procedure MakeDir(aDirName : TFileName);
 begin
+ Assert(aDirName <> '');
  ForceDirectories(aDirName);
 end;
 (*

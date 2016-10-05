@@ -208,13 +208,6 @@ begin
    begin
     l_WD.Area := ns_saText; // 555398664
    end;
- end else
- begin
-  l_T.rPid.rObjectId := f_Doc - c_InternalDocShift;
-  l_T.rPid.rClassId := CI_TOPIC;
-  l_T.rPosition.rPoint := f_Sub;
-  l_T.rPosition.rType := PT_SUB;
-  TnsTryingToOpenMissingDocumentFromLinkEvent.Log(l_T);
  end;
 //#UC END# *52B9761F024B_52B1DD5901CE_impl*
 end;//TnsBaseSearchPromptRoot.OpenDocument

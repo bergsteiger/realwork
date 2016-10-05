@@ -1,0 +1,76 @@
+// nsContextHistory 4AD8570C01CC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AD8570C01CC
+
+ME ME_4AD8574203B7
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4AD825C703D8' '54F9F6FB0143.ms.model.script' // TnsContextHistoryKind
+ ;
+
+ENDME // ME_4AD8574203B7 aKind
+
+ME ME_4AD85724035A
+ MEPROP UID '4AD85724035A'
+ MEPROP Name 'nsGetContextHistory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD8570C01CC // nsContextHistory
+ ;
+ MELINK Target WL 'ME_496B53D10104' '54F9F6FB0143.ms.model.script' // InsContextSearchHistory
+ ;
+ MELIST Parameters
+   Seq: ( ME_4AD8574203B7 // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_4AD85724035A nsGetContextHistory
+
+ME ME_54F9F5C7017A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD8570C01CC // nsContextHistory
+ ;
+ MELINK Target WL 'ME_4AD8469402FA' '54F9EC5B0269.ms.model.script' // TnsInpharmContextHistory
+ ;
+
+ENDME // ME_54F9F5C7017A 
+
+ME ME_54F9F5CB02CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD8570C01CC // nsContextHistory
+ ;
+ MELINK Target WL 'ME_4AD8466301A3' '54F9EC5B0269.ms.model.script' // TnsDocumentContextHistory
+ ;
+
+ENDME // ME_54F9F5CB02CF 
+
+ME ME_4AD8570C01CC
+ MEPROP UID '4AD8570C01CC'
+ MEPROP Name 'nsContextHistory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54F9EC5B0269' '54F9EC5B0269.ms.model.script' // ContextHistory
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AD85724035A // nsGetContextHistory
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54F9F5C7017A // TnsInpharmContextHistory
+ ME_54F9F5CB02CF // TnsDocumentContextHistory
+ )
+ ; // Dependencies
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\rtl\Garant\ContextHistory\nsContextHistory.pas'
+ UP extprop:rc:SelfName 'ContextHistory'
+
+ENDME // ME_4AD8570C01CC nsContextHistory

@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F463D910318
+%%Inner ME_4F463D910318
+%%Inner ME_4F463D910318
+
 FORWARD ME_4F463D910318
 
 FORWARD ME_4F4DF07602DD
@@ -48,6 +52,9 @@ ME ME_4F4DF0D00212
 
 ENDME // ME_4F4DF0D00212 l3Items_CaseUnsensitive
 
+%%InheritedBy ME_4A54DD4E036F ME_4F4DF07602DD
+%%InheritedBy ME_4B88F8D6025A ME_4F4DF07602DD
+
 ME ME_4F4DF07602DD
  MEPROP UID '4F4DF07602DD'
  MEPROP Name 'TtfwDictionaryPrimPrimPrim'
@@ -60,7 +67,7 @@ ME ME_4F4DF07602DD
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B88F8D6025A' '47913B47006E.ms.model.script' // l3StringList
+ WL 'ME_4B88F8D6025A' '4B88F8D6025A.ms.model.script' // l3StringList
  )
  ; // Inherits
  MELIST Children
@@ -69,12 +76,18 @@ ME ME_4F4DF07602DD
  HWL ME_4F4DF0D00212 // l3Items_CaseUnsensitive
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrimPrim.pas'
  UP extprop:rc:SelfName 'DictionaryPrimPrimPrim'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'tfwDictionaryPrimPrimPrim'
 
 ENDME // ME_4F4DF07602DD TtfwDictionaryPrimPrimPrim
+
+%%InheritedBy ME_4F4DF07602DD ME_4F463DDB0108
+%%InheritedBy ME_5304D68D03B2 ME_4F463DDB0108
 
 ME ME_4F463DDB0108
  MEPROP UID '4F463DDB0108'
@@ -88,7 +101,7 @@ ME ME_4F463DDB0108
  ;
  MELIST Inherits
    Seq: ( HWL ME_4F4DF07602DD // TtfwDictionaryPrimPrimPrim
- WL 'ME_5304D68D03B2' '47913B47006E.ms.model.script' // l3DelphiStringSearcher
+ WL 'ME_5304D68D03B2' '5304D68D03B2.ms.model.script' // l3DelphiStringSearcher
  )
  ; // Inherits
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrimPrim.pas'
@@ -125,7 +138,7 @@ ME ME_4F465F900266
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
  ;
- MELINK Target WL 'ME_47A8693601A1' '47913B47006E.ms.model.script' // Tl3PrimString
+ MELINK Target WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
  ;
 
 ENDME // ME_4F465F900266 ItemType
@@ -135,16 +148,19 @@ ME ME_4F465F5E02CD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4F4659980048 // TtfwDictionaryPrim
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_4F465F5E02CD 
 
 ME ME_47B9BAFD01F4_ME_4F4659980048
- MELINK Original WL 'ME_47B9BAFD01F4' '47BB24D30205.ms.model.script' // CompareItemWithData
+ MELINK Original WL 'ME_47B9BAFD01F4' '47B47E230134.ms.model.script' // CompareItemWithData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47B9BAFD01F4_ME_4F4659980048 CompareItemWithData
+
+%%InheritedBy ME_47B47E230134 ME_4F4659980048
+%%InheritedBy ME_4F463DDB0108 ME_4F4659980048
 
 ME ME_4F4659980048
  MEPROP UID '4F4659980048'
@@ -157,7 +173,7 @@ ME ME_4F4659980048
  MELINK Parent HWL ME_4F463D910318 // Dictionary
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B47E230134' '47BB24D30205.ms.model.script' // l3Searcher
+   Seq: ( WL 'ME_47B47E230134' '47B47E230134.ms.model.script' // l3Searcher
  HWL ME_4F463DDB0108 // TtfwDictionaryPrimPrim
  )
  ; // Inherits
@@ -174,6 +190,9 @@ ME ME_4F4659980048
    Seq: ( ME_4F465F5E02CD // l3String
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryPrim.pas'
  UP extprop:rc:SelfName 'DictionaryPrim'
  UP extprop:rc:isAcceptableForScripts true
@@ -204,6 +223,9 @@ ME ME_4F463D910318
  WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" true
 
 ENDME // ME_4F463D910318 Dictionary

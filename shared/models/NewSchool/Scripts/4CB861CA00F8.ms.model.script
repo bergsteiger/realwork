@@ -1,0 +1,184 @@
+// l3ImageUtils 4CB861CA00F8 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CB861CA00F8
+
+FORWARD ME_4CB861CA00F8
+
+FORWARD ME_536A38810175
+
+ME ME_536A388B002D
+ MEPROP UID '536A388B002D'
+ MEPROP Name 'l3_rImagesEqual'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_536A38810175 // Tl3CompareImageResult
+ ;
+
+ENDME // ME_536A388B002D l3_rImagesEqual
+
+ME ME_536A3892037C
+ MEPROP UID '536A3892037C'
+ MEPROP Name 'l3_rImagesDissimilar'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_536A38810175 // Tl3CompareImageResult
+ ;
+
+ENDME // ME_536A3892037C l3_rImagesDissimilar
+
+ME ME_536A389B034F
+ MEPROP UID '536A389B034F'
+ MEPROP Name 'l3_rError'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_536A38810175 // Tl3CompareImageResult
+ ;
+
+ENDME // ME_536A389B034F l3_rError
+
+ME ME_536A38810175
+ MEPROP UID '536A38810175'
+ MEPROP Name 'Tl3CompareImageResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CB861CA00F8 // l3ImageUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_536A388B002D // l3_rImagesEqual
+ HWL ME_536A3892037C // l3_rImagesDissimilar
+ HWL ME_536A389B034F // l3_rError
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_536A38810175 Tl3CompareImageResult
+
+ME ME_4CB861EF016D
+ MEPROP UID '4CB861EF016D'
+ MEPROP Name 'l3BuildComparisonImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB861CA00F8 // l3ImageUtils
+ ;
+ UP extprop:rc:SelfName 'BuildComparisonImage'
+
+ENDME // ME_4CB861EF016D l3BuildComparisonImage
+
+ME ME_536A38590020
+ MEPROP UID '536A38590020'
+ MEPROP Name 'l3IsImageEqual'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB861CA00F8 // l3ImageUtils
+ ;
+ UP extprop:rc:SelfName 'IsImageEqual'
+
+ENDME // ME_536A38590020 l3IsImageEqual
+
+ME ME_536A386A0217
+ MEPROP UID '536A386A0217'
+ MEPROP Name 'l3ShowDiffImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB861CA00F8 // l3ImageUtils
+ ;
+ UP extprop:rc:SelfName 'ShowDiffImage'
+
+ENDME // ME_536A386A0217 l3ShowDiffImage
+
+ME ME_536A38A7037C
+ MEPROP UID '536A38A7037C'
+ MEPROP Name 'l3MakeScreenShot'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB861CA00F8 // l3ImageUtils
+ ;
+ UP extprop:rc:SelfName 'MakeScreenShot'
+
+ENDME // ME_536A38A7037C l3MakeScreenShot
+
+ME ME_5375BF35034C
+ MEPROP UID '5375BF35034C'
+ MEPROP Name 'l3SetFuzzValueInPercent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB861CA00F8 // l3ImageUtils
+ ;
+ UP extprop:rc:SelfName 'SetFuzzValueInPercent'
+
+ENDME // ME_5375BF35034C l3SetFuzzValueInPercent
+
+ME ME_54BCCA3F0137
+ MEPROP UID '54BCCA3F0137'
+ MEPROP Name 'l3IsValidMetafileHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CB861CA00F8 // l3ImageUtils
+ ;
+ UP extprop:rc:SelfName 'IsValidMetafileHeader'
+
+ENDME // ME_54BCCA3F0137 l3IsValidMetafileHeader
+
+ME ME_4CB861CA00F8
+ MEPROP UID '4CB861CA00F8'
+ MEPROP Name 'l3ImageUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CB861EF016D // l3BuildComparisonImage
+ HWL ME_536A38590020 // l3IsImageEqual
+ HWL ME_536A386A0217 // l3ShowDiffImage
+ HWL ME_536A38A7037C // l3MakeScreenShot
+ HWL ME_5375BF35034C // l3SetFuzzValueInPercent
+ HWL ME_54BCCA3F0137 // l3IsValidMetafileHeader
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_536A38810175 // Tl3CompareImageResult
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Жучков А.Ю.'
+ UP "finished" false
+ UP "started" '15.10.2010 18:14'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3ImageUtils.pas'
+ UP extprop:rc:SelfName 'ImageUtils'
+
+ENDME // ME_4CB861CA00F8 l3ImageUtils

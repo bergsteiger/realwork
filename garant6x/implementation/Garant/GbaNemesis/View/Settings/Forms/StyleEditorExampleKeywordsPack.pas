@@ -407,8 +407,10 @@ initialization
  {* Регистрация Tkw_StyleEditorExample_Control_Editor_Push }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TStyleEditorExampleForm));
  {* Регистрация типа TStyleEditorExampleForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscTextSource));
  {* Регистрация типа TnscTextSource }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TeeEditorWithoutOperations));

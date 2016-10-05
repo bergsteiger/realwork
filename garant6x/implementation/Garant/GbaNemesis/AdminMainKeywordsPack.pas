@@ -1047,16 +1047,20 @@ initialization
 {$IfEnd} // Defined(HasRightNavigator)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TAdminMainForm));
  {* Регистрация типа TAdminMainForm }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscStatusBar));
  {* Регистрация типа TnscStatusBar }
+{$IfEnd} // Defined(Nemesis)
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtPanel));
  {* Регистрация типа TvtPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtProportionalPanel));
  {* Регистрация типа TvtProportionalPanel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtSizeablePanel));
  {* Регистрация типа TvtSizeablePanel }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscNavigator));
  {* Регистрация типа TnscNavigator }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

@@ -217,7 +217,7 @@ const
 //#UC END# *57D66CDF00D6_57B2E6B90102_var*
 begin
 //#UC START# *57D66CDF00D6_57B2E6B90102_impl*
- Result := TtfwCStringFactory.C(ConcatDirName(cPath, AnsiReplaceStr(l3Str(aMethodName), ':', '_')) + '.stub.script');
+ Result := TtfwCStringFactory.C(ConcatDirName(cPath, AnsiReplaceStr(AnsiReplaceStr(l3Str(aMethodName), ':', '_'), #32, '_')) + '.stub.script');
 //#UC END# *57D66CDF00D6_57B2E6B90102_impl*
 end;//TmsmModelElementMethodValueCache.ScriptName
 

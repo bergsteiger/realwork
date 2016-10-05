@@ -1,0 +1,411 @@
+// csProcessTask 52F8C2AE0042 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F8C2AE0042
+%%Inner ME_52F8C2AE0042
+%%Inner ME_52F8C2AE0042
+%%Inner ME_52F8C2AE0042
+
+FORWARD ME_52F8C2AE0042
+
+FORWARD ME_52F8C2BF0110
+
+ME ME_53E0D9150023
+ MEPROP UID '53E0D9150023'
+ MEPROP Name 'TaskResult'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+ MELINK Target WL 'ME_53E0D4F50178' '53C51B390355.ms.model.script' // TcsTaskResult
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_53E0D9150023 TaskResult
+
+FORWARD ME_53A2EEE90097
+
+ME ME_53CCC66602D6
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53CCC56502C7' '52F8C298005C.ms.model.script' // TddRunContext
+ ;
+
+ENDME // ME_53CCC66602D6 aContext
+
+ME ME_53A2EEFA00F8
+ MEPROP UID '53A2EEFA00F8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53A2EEE90097 // DoRun
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CCC66602D6 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_53A2EEFA00F8 DoIt
+
+ME ME_53A2EEE90097
+ MEPROP UID '53A2EEE90097'
+ MEPROP Name 'DoRun'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53A2EEFA00F8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53A2EEE90097 DoRun
+
+ME ME_53CF5FC303D9
+ MEPROP UID '53CF5FC303D9'
+ MEPROP Name 'RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ENDME // ME_53CF5FC303D9 RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+
+ME ME_53CF5FE40219
+ MEPROP UID '53CF5FE40219'
+ MEPROP Name 'UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ENDME // ME_53CF5FE40219 UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+
+FORWARD ME_53E1CB0C03C9
+
+ME ME_5FE36F963C36
+ MEPROP UID '5FE36F963C36'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода GetTaskResultClass : TcsClassResultClass' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53E1CB0C03C9 // GetTaskResultClass : TcsClassResultClass
+ ;
+
+ENDME // ME_5FE36F963C36 DoIt
+
+ME ME_53E1CB0C03C9
+ MEPROP UID '53E1CB0C03C9'
+ MEPROP Name 'GetTaskResultClass : TcsClassResultClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5FE36F963C36 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53E1CB0C03C9 GetTaskResultClass : TcsClassResultClass
+
+ME ME_57C4135700F7
+ MEPROP UID '57C4135700F7'
+ MEPROP Name 'DoAbort'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ENDME // ME_57C4135700F7 DoAbort
+
+ME ME_479731C50290_ME_52F8C2BF0110
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_52F8C2BF0110 Cleanup
+
+%%InheritedBy ME_53AC09FE03C7 ME_52F8C2BF0110
+
+ME ME_52F8C2BF0110
+ MEPROP UID '52F8C2BF0110'
+ MEPROP Name 'TddProcessTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C2AE0042 // csProcessTask
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53AC09FE03C7' '52F8C298005C.ms.model.script' // TddProcessTaskPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_53E0D9150023 // TaskResult
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53A2EEE90097 // DoRun
+ HWL ME_53CF5FC303D9 // RegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+ HWL ME_53CF5FE40219 // UnRegisterAbortProcessor (const aProcessor : IcsExternalTaskAbortProcessor)
+ HWL ME_53E1CB0C03C9 // GetTaskResultClass : TcsClassResultClass
+ HWL ME_57C4135700F7 // DoAbort
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_52F8C2BF0110 // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ddProcessTask'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_52F8C2BF0110 TddProcessTask
+
+FORWARD ME_53CF5DC300E7
+
+ME ME_53CF5EA101CF
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ENDME // ME_53CF5EA101CF aTask
+
+ME ME_53CF5E600196
+ MEPROP UID '53CF5E600196'
+ MEPROP Name 'ProcessAbort'
+ MEPROP Class class_Operation
+ %SUMMARY 'Если успешно абортировала задачу вернет True. Тогда штатная обработка обключается' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53CF5DC300E7 // IcsExternalTaskAbortProcessor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CF5EA101CF // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_53CF5E600196 ProcessAbort
+
+ME ME_53CF5DC300E7
+ MEPROP UID '53CF5DC300E7'
+ MEPROP GUID '40349F73-8FCB-46B2-B835-902D4DAB3F3E'
+ MEPROP Name 'IcsExternalTaskAbortProcessor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C2AE0042 // csProcessTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CF5E600196 // ProcessAbort
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'csExternalTaskAbortProcessor'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53CF5DC300E7 IcsExternalTaskAbortProcessor
+
+FORWARD ME_53F7178501D3
+
+ME ME_53F71A52008D
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_52F8C2BF0110 // TddProcessTask
+ ;
+
+ENDME // ME_53F71A52008D aTask
+
+ME ME_53F717A10327
+ MEPROP UID '53F717A10327'
+ MEPROP Name 'AddActiveTask'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53F7178501D3 // IcsRunTaskServices
+ ;
+ MELIST Parameters
+   Seq: ( ME_53F71A52008D // aTask
+ )
+ ; // Parameters
+
+ENDME // ME_53F717A10327 AddActiveTask
+
+ME ME_53F717DA01CC
+ MEPROP Name 'anUserID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_543244A30197' '5432448401BC.ms.model.script' // TdaUserID
+ ;
+
+ENDME // ME_53F717DA01CC anUserID
+
+ME ME_53F717DA01E3
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53F717DA01E3 aMessage
+
+ME ME_53F717BA01FE
+ MEPROP UID '53F717BA01FE'
+ MEPROP Name 'SendTextMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53F7178501D3 // IcsRunTaskServices
+ ;
+ MELIST Parameters
+   Seq: ( ME_53F717DA01CC // anUserID
+ ME_53F717DA01E3 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_53F717BA01FE SendTextMessage
+
+ME ME_53F7178501D3
+ MEPROP UID '53F7178501D3'
+ MEPROP GUID '38851828-B75C-4B6B-8017-90CA9E1ADC3E'
+ MEPROP Name 'IcsRunTaskServices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C2AE0042 // csProcessTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53F717A10327 // AddActiveTask
+ HWL ME_53F717BA01FE // SendTextMessage
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'csRunTaskServices'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_53F7178501D3 IcsRunTaskServices
+
+FORWARD ME_54B6221D02E2
+
+ME ME_54B6514F0222
+ MEPROP Name 'aTargetFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B6514F0222 aTargetFolder
+
+ME ME_54B6514F0250
+ MEPROP Name 'aSourceFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B6514F0250 aSourceFileName
+
+ME ME_54B6514F027F
+ MEPROP Name 'aTargetFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_54B6514F027F aTargetFileName
+
+ME ME_54B62A0501D7
+ MEPROP UID '54B62A0501D7'
+ MEPROP Name 'TransferFile'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_54B6221D02E2 // IcsFileTransferServices
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B6514F0222 // aTargetFolder
+ ME_54B6514F0250 // aSourceFileName
+ ME_54B6514F027F // aTargetFileName
+ )
+ ; // Parameters
+
+ENDME // ME_54B62A0501D7 TransferFile
+
+ME ME_54B6221D02E2
+ MEPROP UID '54B6221D02E2'
+ MEPROP GUID 'FB5B417E-E4BB-4834-A0BD-940697670FB9'
+ MEPROP Name 'IcsFileTransferServices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C2AE0042 // csProcessTask
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B62A0501D7 // TransferFile
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'csFileTransferServices'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54B6221D02E2 IcsFileTransferServices
+
+ME ME_52F8C2AE0042
+ MEPROP UID '52F8C2AE0042'
+ MEPROP Name 'csProcessTask'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52F8C2BF0110 // TddProcessTask
+ HWL ME_53CF5DC300E7 // IcsExternalTaskAbortProcessor
+ HWL ME_53F7178501D3 // IcsRunTaskServices
+ HWL ME_54B6221D02E2 // IcsFileTransferServices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csProcessTask.pas'
+
+ENDME // ME_52F8C2AE0042 csProcessTask

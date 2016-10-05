@@ -2,49 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_47F475660140
+%%Inner ME_47F475660140
+%%Inner ME_47F475660140
+%%Inner ME_47F475660140
+
 FORWARD ME_47F475660140
-
-FORWARD ME_47F4760F0395
-
-ME ME_47F4764602B5
- MEPROP UID '47F4764602B5'
- MEPROP Name 'TnsListRes'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ресурсы списка.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47F4760F0395 // ListRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
- )
- ; // Inherits
- UP extprop:rc:SelfName 'ListRes'
- UP extprop:rc:isAcceptableForScripts true
-
-ENDME // ME_47F4764602B5 TnsListRes
-
-ME ME_47F4760F0395
- MEPROP UID '47F4760F0395'
- MEPROP Name 'ListRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ресурсы списка.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47F475660140 // List
- ;
- MELIST Children
-   Seq: ( HWL ME_47F4764602B5 // TnsListRes
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\NOT_FINISHED_ListRes.pas'
-
-ENDME // ME_47F4760F0395 ListRes
 
 FORWARD ME_47F4D386036C
 
@@ -96,7 +59,7 @@ ME ME_491DDA8900F0
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
  ;
- MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
  ;
 
 ENDME // ME_491DDA8900F0 f_dsList
@@ -106,7 +69,7 @@ ME ME_49003C8C02FB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_49003C8C02FB 
@@ -166,7 +129,7 @@ ME ME_49005095026A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47F4D386036C // TbsListTreeStruct
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL 'ME_47FB50E4008E' '47FB50E4008E.ms.model.script' // nsConst
  ;
 
 ENDME // ME_49005095026A 
@@ -205,7 +168,7 @@ ME ME_4B1547A80016_ME_47F4D386036C
 ENDME // ME_4B1547A80016_ME_47F4D386036C dsList
 
 ME ME_479731C50290_ME_47F4D386036C
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_47F4D386036C Cleanup
@@ -247,7 +210,7 @@ ME ME_48FF5A9002CC_ME_47F4D386036C
 ENDME // ME_48FF5A9002CC_ME_47F4D386036C DoMakeFiltered
 
 ME ME_4A60B23E00C3_ME_47F4D386036C
- MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A60B23E00C3_ME_47F4D386036C COMQueryInterface
@@ -257,6 +220,10 @@ ME ME_4F1D334C0371_ME_47F4D386036C
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F1D334C0371_ME_47F4D386036C ReAqurieUnfilteredRootForMakeResettedSimpleRoot
+
+%%ImplementedBy ME_4900379701A1 ME_47F4D386036C
+
+%%InheritedBy ME_468361010204 ME_47F4D386036C
 
 ME ME_47F4D386036C
  MEPROP UID '47F4D386036C'
@@ -314,6 +281,9 @@ ME ME_47F4D386036C
  ME_490052690085 // TbsListTreeData
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" true
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\bsListTreeStruct.pas'
@@ -352,7 +322,7 @@ ME ME_4DF216F70363
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
  ;
- MELINK Target WL 'ME_46A451250363' '4AB0C3C60310.ms.model.script' // IUnknown
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
  ;
 
 ENDME // ME_4DF216F70363 f_Data
@@ -368,7 +338,7 @@ ME ME_4DF2171B00F8
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
  ;
- MELINK Target WL 'ME_46A451250363' '4AB0C3C60310.ms.model.script' // IUnknown
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
  ;
  UP "needs field" false
  UP "pm" true
@@ -485,7 +455,7 @@ ME ME_4DF218120197
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
  ;
 
 ENDME // ME_4DF218120197 
@@ -495,7 +465,7 @@ ME ME_4DF21842030D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL 'ME_47FB50E4008E' '47FB50E4008E.ms.model.script' // nsConst
  ;
 
 ENDME // ME_4DF21842030D 
@@ -505,7 +475,7 @@ ME ME_4DF218770219
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA4D8A6012B // TbsOpenListInfo
  ;
- MELINK Target WL 'ME_47F21FE90379' '48F747EC0073.ms.model.script' // bsUtils
+ MELINK Target WL 'ME_47F21FE90379' '47F21FE90379.ms.model.script' // bsUtils
  ;
 
 ENDME // ME_4DF218770219 
@@ -529,6 +499,8 @@ ME ME_4DF21B64025A
  ;
 
 ENDME // ME_4DF21B64025A 
+
+%%InheritedBy ME_4B17D7FA023F ME_4AA4D8A6012B
 
 ME ME_4AA4D8A6012B
  MEPROP UID '4AA4D8A6012B'
@@ -563,6 +535,9 @@ ME ME_4AA4D8A6012B
  ME_4DF21B64025A // TbsWhatDoingIfOneDoc
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Морозов М.А.'
  UP "no hands" true
  UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Business\List\bsOpenListInfo.pas'
@@ -584,7 +559,7 @@ ME ME_47F475660140
  MELINK Parent WL 'ME_4680C57D01E9' '4680C57D01E9.ms.model.script' // Business
  ;
  MELIST Children
-   Seq: ( HWL ME_47F4760F0395 // ListRes
+   Seq: ( WL 'ME_47F4760F0395' '47F4760F0395.ms.model.script' // ListRes
  HWL ME_47F4D386036C // TbsListTreeStruct
  HWL ME_4954CA1102DB // TnsListHAFMacroReplacer
  HWL ME_4AA4D8A6012B // TbsOpenListInfo
@@ -609,6 +584,9 @@ ME ME_47F475660140
  WL 'ME_4C6AB8BB02D3' '4C6AB8BB02D3.ms.model.script' // BaseDataObject
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "path prefix" '/List'
  UP intf.pas:PathOnly '\garant6x\implementation\Garant\GbaNemesis\Business\List'
 

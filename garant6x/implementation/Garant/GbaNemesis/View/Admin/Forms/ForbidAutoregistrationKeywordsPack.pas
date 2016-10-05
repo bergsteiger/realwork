@@ -910,8 +910,10 @@ initialization
  {* Регистрация типа TvtLabel }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TvtGroupBox));
  {* Регистрация типа TvtGroupBox }
+{$If Defined(Nemesis)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TnscEdit));
  {* Регистрация типа TnscEdit }
+{$IfEnd} // Defined(Nemesis)
 {$IfEnd} // Defined(Admin) AND NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

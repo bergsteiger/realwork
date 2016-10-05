@@ -1,0 +1,100 @@
+// l3TreeConst 48F4B5300085 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48F4B5300085
+
+ME ME_48F4B5600372
+ MEPROP UID '48F4B5600372'
+ MEPROP Name 'CF_TreeNode'
+ MEPROP Class class_Attribute
+ %SUMMARY 'формат для на одного узла в буфере' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4B5300085 // l3TreeConst
+ ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_48F4B5600372 CF_TreeNode
+
+ME ME_48F4B57002CD
+ MEPROP UID '48F4B57002CD'
+ MEPROP Name 'CF_TreeNodes'
+ MEPROP Class class_Attribute
+ %SUMMARY 'формат для нескольких узлов в буфере' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48F4B5300085 // l3TreeConst
+ ;
+ MELINK Target WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A449A301E3' '4677FBA70343.ms.model.script' // Tl3ClipboardFormat
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_48F4B57002CD CF_TreeNodes
+
+ME ME_48F4B57C010F
+ MEPROP UID '48F4B57C010F'
+ MEPROP Name 'ini'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48F4B5300085 // l3TreeConst
+ ;
+
+ENDME // ME_48F4B57C010F ini
+
+ME ME_48F4B5A0031E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48F4B5300085 // l3TreeConst
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_48F4B5A0031E 
+
+ME ME_48F4B5300085
+ MEPROP UID '48F4B5300085'
+ MEPROP Name 'l3TreeConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4680F5600033' '4680F5600033.ms.model.script' // l3DataObject
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48F4B5600372 // CF_TreeNode
+ HWL ME_48F4B57002CD // CF_TreeNodes
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_48F4B57C010F // ini
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48F4B5A0031E // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.12.2007 16:18'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3TreeConst.pas'
+ UP extprop:rc:SelfName 'TreeConst'
+
+ENDME // ME_48F4B5300085 l3TreeConst

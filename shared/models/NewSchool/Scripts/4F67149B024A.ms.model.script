@@ -1,0 +1,475 @@
+// l3ListenersHooks 4F67149B024A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F67149B024A
+
+FORWARD ME_4F6714B90103
+
+ME ME_4F67156D01FF
+ MEPROP Name 'Code'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F67156D01FF Code
+
+ME ME_4F67156D0225
+ MEPROP Name 'WParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5BA120102' '48A41FF10094.ms.model.script' // WPARAM
+ ;
+
+ENDME // ME_4F67156D0225 WParam
+
+ME ME_4F67156D024C
+ MEPROP Name 'LParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5BA230233' '48A41FF10094.ms.model.script' // LPARAM
+ ;
+
+ENDME // ME_4F67156D024C LParam
+
+ME ME_4F6714CC0379
+ MEPROP UID '4F6714CC0379'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6714B90103 // CBTHookFunc
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F67156D01FF // Code
+ ME_4F67156D0225 // WParam
+ ME_4F67156D024C // LParam
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_4F6714CC0379 DoIt
+
+ME ME_4F6714B90103
+ MEPROP UID '4F6714B90103'
+ MEPROP Name 'CBTHookFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6714CC0379 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6714B90103 CBTHookFunc
+
+FORWARD ME_4F67157402EF
+
+ME ME_4F6715BC01F5
+ MEPROP Name 'Code'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F6715BC01F5 Code
+
+ME ME_4F6715BC021F
+ MEPROP Name 'WParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5BA120102' '48A41FF10094.ms.model.script' // WPARAM
+ ;
+
+ENDME // ME_4F6715BC021F WParam
+
+ME ME_4F6715BC0249
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F66EEB202F0' '48A41FF10094.ms.model.script' // PCWPStruct
+ ;
+
+ENDME // ME_4F6715BC0249 Msg
+
+ME ME_4F6715A3035C
+ MEPROP UID '4F6715A3035C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F67157402EF // CallWndProcHookFunc
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6715BC01F5 // Code
+ ME_4F6715BC021F // WParam
+ ME_4F6715BC0249 // Msg
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_4F6715A3035C DoIt
+
+ME ME_4F67157402EF
+ MEPROP UID '4F67157402EF'
+ MEPROP Name 'CallWndProcHookFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6715A3035C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F67157402EF CallWndProcHookFunc
+
+FORWARD ME_4F6715D20141
+
+ME ME_4F6716160307
+ MEPROP Name 'Code'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F6716160307 Code
+
+ME ME_4F6716160332
+ MEPROP Name 'WParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5BA120102' '48A41FF10094.ms.model.script' // WPARAM
+ ;
+
+ENDME // ME_4F6716160332 WParam
+
+ME ME_4F671616035C
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5B3E502CB' '48A41FF10094.ms.model.script' // PMsg
+ ;
+
+ENDME // ME_4F671616035C Msg
+
+ME ME_4F6715F20163
+ MEPROP UID '4F6715F20163'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6715D20141 // GetMessageHookFunc
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F6716160307 // Code
+ ME_4F6716160332 // WParam
+ ME_4F671616035C // Msg
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_4F6715F20163 DoIt
+
+ME ME_4F6715D20141
+ MEPROP UID '4F6715D20141'
+ MEPROP Name 'GetMessageHookFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6715F20163 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F6715D20141 GetMessageHookFunc
+
+FORWARD ME_4F73208D0297
+
+ME ME_4F7320E80361
+ MEPROP Name 'Code'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F7320E80361 Code
+
+ME ME_4F7320FC01A4
+ MEPROP Name 'WParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5BA120102' '48A41FF10094.ms.model.script' // WPARAM
+ ;
+
+ENDME // ME_4F7320FC01A4 WParam
+
+ME ME_4F7320E803B7
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F73203802DA' '48A41FF10094.ms.model.script' // PCWPRetStruct
+ ;
+
+ENDME // ME_4F7320E803B7 Msg
+
+ME ME_4F7320A3001F
+ MEPROP UID '4F7320A3001F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F73208D0297 // CallWndProcRetHookFunc
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7320E80361 // Code
+ ME_4F7320FC01A4 // WParam
+ ME_4F7320E803B7 // Msg
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_4F7320A3001F DoIt
+
+ME ME_4F73208D0297
+ MEPROP UID '4F73208D0297'
+ MEPROP Name 'CallWndProcRetHookFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7320A3001F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F73208D0297 CallWndProcRetHookFunc
+
+FORWARD ME_4F74214D035A
+
+ME ME_4F74219D027E
+ MEPROP Name 'Code'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F74219D027E Code
+
+ME ME_4F74219D02A8
+ MEPROP Name 'WParam'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5BA120102' '48A41FF10094.ms.model.script' // WPARAM
+ ;
+
+ENDME // ME_4F74219D02A8 WParam
+
+ME ME_4F74219D02D3
+ MEPROP Name 'HookStruct'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4F741C240350' '48A41FF10094.ms.model.script' // PMouseHookStruct
+ ;
+
+ENDME // ME_4F74219D02D3 HookStruct
+
+ME ME_4F742163012A
+ MEPROP UID '4F742163012A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F74214D035A // MouseHookFunc
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F74219D027E // Code
+ ME_4F74219D02A8 // WParam
+ ME_4F74219D02D3 // HookStruct
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_4F742163012A DoIt
+
+ME ME_4F74214D035A
+ MEPROP UID '4F74214D035A'
+ MEPROP Name 'MouseHookFunc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F742163012A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F74214D035A MouseHookFunc
+
+ME ME_4F6718D60270
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_4F66EEB202F0' '48A41FF10094.ms.model.script' // PCWPStruct
+ ;
+
+ENDME // ME_4F6718D60270 
+
+ME ME_4F6718EF011B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_46A5BA120102' '48A41FF10094.ms.model.script' // WPARAM
+ ;
+
+ENDME // ME_4F6718EF011B 
+
+ME ME_4F6718F401BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_46A5BA230233' '48A41FF10094.ms.model.script' // LPARAM
+ ;
+
+ENDME // ME_4F6718F401BD 
+
+ME ME_4F67194C0271
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F67194C0271 
+
+ME ME_4F671B320210
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_4F636139008F' '4F635E1901E5.ms.model.script' // Tl3ListenersManager
+ ;
+
+ENDME // ME_4F671B320210 
+
+ME ME_4F67224902E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4F67224902E1 
+
+ME ME_4F732073005D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_4F73203802DA' '48A41FF10094.ms.model.script' // PCWPRetStruct
+ ;
+
+ENDME // ME_4F732073005D 
+
+ME ME_4F7421330168
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_4F741C240350' '48A41FF10094.ms.model.script' // PMouseHookStruct
+ ;
+
+ENDME // ME_4F7421330168 
+
+ME ME_4F7468E80353
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_4F74550503B5' '4677FBA70343.ms.model.script' // Tl3HookProcResult
+ ;
+
+ENDME // ME_4F7468E80353 
+
+ME ME_4F7AF2F400E2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F67149B024A // l3ListenersHooks
+ ;
+ MELINK Target WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4F7AF2F400E2 
+
+ME ME_4F67149B024A
+ MEPROP UID '4F67149B024A'
+ MEPROP Name 'l3ListenersHooks'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F635E1901E5' '4F635E1901E5.ms.model.script' // l3Listeners
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F6714B90103 // CBTHookFunc
+ HWL ME_4F67157402EF // CallWndProcHookFunc
+ HWL ME_4F6715D20141 // GetMessageHookFunc
+ HWL ME_4F73208D0297 // CallWndProcRetHookFunc
+ HWL ME_4F74214D035A // MouseHookFunc
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F6718D60270 // PCWPStruct
+ ME_4F6718EF011B // WPARAM
+ ME_4F6718F401BD // LPARAM
+ ME_4F67194C0271 // LongInt
+ ME_4F671B320210 // Tl3ListenersManager
+ ME_4F67224902E1 // l3FillChar
+ ME_4F732073005D // PCWPRetStruct
+ ME_4F7421330168 // PMouseHookStruct
+ ME_4F7468E80353 // Tl3HookProcResult
+ ME_4F7AF2F400E2 // Msg Codes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ListenersHooks.pas'
+ UP extprop:rc:SelfName 'ListenersHooks'
+
+ENDME // ME_4F67149B024A l3ListenersHooks

@@ -1,0 +1,88 @@
+// gtCstPDFEng 5444D9540164 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5444D9540164
+
+FORWARD ME_5444D9540164
+
+FORWARD ME_5444D962024C
+
+ME ME_5444D97101F6
+ MEPROP UID '5444D97101F6'
+ MEPROP Name 'etfNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5444D962024C // TgtTTFontEmbedding
+ ;
+
+ENDME // ME_5444D97101F6 etfNone
+
+ME ME_5444D988018D
+ MEPROP UID '5444D988018D'
+ MEPROP Name 'etfFull'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5444D962024C // TgtTTFontEmbedding
+ ;
+
+ENDME // ME_5444D988018D etfFull
+
+ME ME_5444D9910278
+ MEPROP UID '5444D9910278'
+ MEPROP Name 'etfSubset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5444D962024C // TgtTTFontEmbedding
+ ;
+
+ENDME // ME_5444D9910278 etfSubset
+
+ME ME_5444D962024C
+ MEPROP UID '5444D962024C'
+ MEPROP Name 'TgtTTFontEmbedding'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5444D9540164 // gtCstPDFEng
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5444D97101F6 // etfNone
+ HWL ME_5444D988018D // etfFull
+ HWL ME_5444D9910278 // etfSubset
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5444D962024C TgtTTFontEmbedding
+
+ME ME_5444D9540164
+ MEPROP UID '5444D9540164'
+ MEPROP Name 'gtCstPDFEng'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_540013B002E1' '540013B002E1.ms.model.script' // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5444D962024C // TgtTTFontEmbedding
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\external\eDocEngine\Source\NOT_FINISHED_gtCstPDFEng.pas'
+
+ENDME // ME_5444D9540164 gtCstPDFEng

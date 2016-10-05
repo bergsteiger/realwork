@@ -1,0 +1,169 @@
+// kwKeyWordsPack 51304A1F02AD ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51304A1F02AD
+
+ME ME_55C9F42D0261
+ MEPROP UID '55C9F42D0261'
+ MEPROP Name 'push_DUnitForm'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_creator::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51304A1F02AD // kwKeyWordsPack
+ ;
+
+ENDME // ME_55C9F42D0261 push_DUnitForm
+
+ME ME_55C9F470017F
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_512F3FCB02F3' '4AC62798032A.ms.model.script' // TTreeNode
+ ;
+
+ENDME // ME_55C9F470017F aNode
+
+ME ME_55C9F44A003C
+ MEPROP UID '55C9F44A003C'
+ MEPROP Name 'NodeToTest'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51304A1F02AD // kwKeyWordsPack
+ ;
+ MELINK Target WL 'ME_4B2F420202F4' '4B2A0DCE03A9.ms.model.script' // ITest
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C9F470017F // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_55C9F44A003C NodeToTest
+
+ME ME_55C9F4FB0043
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55C9F4FB0043 aName
+
+ME ME_55C9F4FB007F
+ MEPROP Name 'aSubFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55C9F4FB007F aSubFolder
+
+ME ME_55C9F4FB00B1
+ MEPROP Name 'anIsScript'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55C9F4FB00B1 anIsScript
+
+ME ME_55C9F4AC003F
+ MEPROP UID '55C9F4AC003F'
+ MEPROP Name 'DeleteEtalons'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51304A1F02AD // kwKeyWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_55C9F4FB0043 // aName
+ ME_55C9F4FB007F // aSubFolder
+ ME_55C9F4FB00B1 // anIsScript
+ )
+ ; // Parameters
+
+ENDME // ME_55C9F4AC003F DeleteEtalons
+
+ME ME_55C9F20E0220
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51304A1F02AD // kwKeyWordsPack
+ ;
+ MELINK Target WL 'ME_55C9F202036D' '55C9F202036D.ms.model.script' // ITestWordsPack
+ ;
+
+ENDME // ME_55C9F20E0220 
+
+ME ME_55C9F3970123
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51304A1F02AD // kwKeyWordsPack
+ ;
+ MELINK Target WL 'ME_55C9F3800372' '55C9F3800372.ms.model.script' // TTreeNodeForTestsWordsPack
+ ;
+
+ENDME // ME_55C9F3970123 
+
+ME ME_55C9F3E702CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51304A1F02AD // kwKeyWordsPack
+ ;
+ MELINK Target WL 'ME_51349B6001D3' '51349B6001D3.ms.model.script' // TestForm4Scripts
+ ;
+
+ENDME // ME_55C9F3E702CD 
+
+ME ME_55C9F5070034
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51304A1F02AD // kwKeyWordsPack
+ ;
+ MELINK Target WL 'ME_4D189B760354' '4B2A6D4303A9.ms.model.script' // DeleteEtalons
+ ;
+
+ENDME // ME_55C9F5070034 
+
+%%InheritedBy ME_4DA30F0F02C1 ME_51304A1F02AD
+
+ME ME_51304A1F02AD
+ MEPROP UID '51304A1F02AD'
+ MEPROP Name 'kwKeyWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51304A0E0192' '51304A0E0192.ms.model.script' // DUnit Keywords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DA30F0F02C1' '4B2A0D9401CC.ms.model.script' // TGUITestRunner
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_55C9F42D0261 // push_DUnitForm
+ HWL ME_55C9F44A003C // NodeToTest
+ HWL ME_55C9F4AC003F // DeleteEtalons
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_55C9F20E0220 // ITestWordsPack
+ ME_55C9F3970123 // TTreeNodeForTestsWordsPack
+ ME_55C9F3E702CD // TestForm4Scripts
+ ME_55C9F5070034 // DeleteEtalons
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "needs script" true
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnit_Script_Support\kwKeyWordsPack.pas'
+ UP extprop:rc:SelfName 'KeyWordsPack'
+
+ENDME // ME_51304A1F02AD kwKeyWordsPack

@@ -1,0 +1,61 @@
+// dt_Err 555F034A01B6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_555F034A01B6
+
+FORWARD ME_555F034A01B6
+
+ME ME_55D47A1500CB
+ MEPROP UID '55D47A1500CB'
+ MEPROP Name 'EHtErrors'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_555F034A01B6 // dt_Err
+ ;
+ UP "finished" false
+
+ENDME // ME_55D47A1500CB EHtErrors
+
+ME ME_555F035A031E
+ MEPROP UID '555F035A031E'
+ MEPROP Name 'HT'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555F034A01B6 // dt_Err
+ ;
+
+ENDME // ME_555F035A031E HT
+
+ME ME_555F034A01B6
+ MEPROP UID '555F034A01B6'
+ MEPROP Name 'dt_Err'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_555331D10378' '555331D10378.ms.model.script' // Core
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555F035A031E // HT
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_55D47A1500CB // EHtErrors
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Err.pas'
+
+ENDME // ME_555F034A01B6 dt_Err

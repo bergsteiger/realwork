@@ -67,9 +67,9 @@ uses
  {$If NOT Defined(Nemesis)}
  , dt_Doc
  {$IfEnd} // NOT Defined(Nemesis)
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ {$If NOT Defined(Nemesis)}
  , dt_LinkServ
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
  , ddPipeOutInterfaces
  , l3Base

@@ -1,0 +1,50 @@
+// ncsTCPClient 545229E7037D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_545229E7037D
+
+FORWARD ME_545229E7037D
+
+%%InheritedBy ME_544A218703D0 ME_54522A0E031D
+
+ME ME_54522A0E031D
+ MEPROP UID '54522A0E031D'
+ MEPROP Name 'TncsTCPClient'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545229E7037D // ncsTCPClient
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_544A218703D0' '538DAE950337.ms.model.script' // TidTCPClient
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ncsTCPClient'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_54522A0E031D TncsTCPClient
+
+ME ME_545229E7037D
+ MEPROP UID '545229E7037D'
+ MEPROP Name 'ncsTCPClient'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FBB2FC0386' '52FBB2FC0386.ms.model.script' // Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_54522A0E031D // TncsTCPClient
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsTCPClient.pas'
+
+ENDME // ME_545229E7037D ncsTCPClient

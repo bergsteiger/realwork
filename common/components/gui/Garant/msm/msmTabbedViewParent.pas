@@ -86,30 +86,35 @@ var
 begin
 //#UC START# *57B345EC0195_57B4802B0112_impl*
  Assert(aView.Parent = nil);
- if (f_Pages = nil) then
- begin
-  f_Pages := TmsmPageControl.Create(f_Parent);
-  //f_Pages.Style := etsButtons;
-  //f_Pages.Style := etsFlatButtons;
-  f_Pages.Style := etsFlatTabs;
-  //f_Pages.Style := etsTabs;
-  f_Pages.TabPosition := etpBottom;
-  f_Pages.ParentColor := false;
-  f_Pages.TabHeight := 28;
-  //f_Pages.Color := clWhite;
-  f_Pages.Color := cGarant2011BackColor;
-  f_Pages.TabBkColor := cGarant2011BackColor;
-  f_Pages.Parent := f_Parent;
-  f_Pages.Align := alClient;
-  f_Pages.UseXPThemes := False;
- end;//f_Pages = nil
- l_Page := f_Pages.NewPage;
- if (aContext.rCaptionModel <> nil) then
-  Add(TmsmTabCaptionController.Make(l_Page, aContext.rCaptionModel))
- else
-  l_Page.Caption := aContext.Caption;
- aView.Parent := l_Page;
- aView.Align := alClient;
+ //f_Parent.DisableAlign;
+ try
+  if (f_Pages = nil) then
+  begin
+   f_Pages := TmsmPageControl.Create(f_Parent);
+   //f_Pages.Style := etsButtons;
+   //f_Pages.Style := etsFlatButtons;
+   f_Pages.Style := etsFlatTabs;
+   //f_Pages.Style := etsTabs;
+   f_Pages.TabPosition := etpBottom;
+   f_Pages.ParentColor := false;
+   f_Pages.TabHeight := 28;
+   //f_Pages.Color := clWhite;
+   f_Pages.Color := cGarant2011BackColor;
+   f_Pages.TabBkColor := cGarant2011BackColor;
+   f_Pages.Parent := f_Parent;
+   f_Pages.Align := alClient;
+   f_Pages.UseXPThemes := False;
+  end;//f_Pages = nil
+  l_Page := f_Pages.NewPage;
+  if (aContext.rCaptionModel <> nil) then
+   Add(TmsmTabCaptionController.Make(l_Page, aContext.rCaptionModel))
+  else
+   l_Page.Caption := aContext.Caption;
+  aView.Parent := l_Page;
+  aView.Align := alClient;
+ finally
+  //f_Parent.EnableAlign;
+ end;//try..finally
 //#UC END# *57B345EC0195_57B4802B0112_impl*
 end;//TmsmTabbedViewParent.InsertView
 

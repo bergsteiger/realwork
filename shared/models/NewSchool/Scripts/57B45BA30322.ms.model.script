@@ -1,0 +1,43 @@
+// msmViewControllersUtils 57B45BA30322 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57B45BA30322
+
+FORWARD ME_57B45BA30322
+
+ME ME_57B45BCC011C
+ MEPROP UID '57B45BCC011C'
+ MEPROP Name 'TmsmDefaultInitContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57B45BA30322 // msmViewControllersUtils
+ ;
+ UP extprop:rc:SelfName 'msmDefaultInitContext'
+
+ENDME // ME_57B45BCC011C TmsmDefaultInitContext
+
+ME ME_57B45BA30322
+ MEPROP UID '57B45BA30322'
+ MEPROP Name 'msmViewControllersUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57AAE90E02B6' '57AAE90E02B6.ms.model.script' // Controllers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57B45BCC011C // TmsmDefaultInitContext
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmViewControllersUtils.pas'
+
+ENDME // ME_57B45BA30322 msmViewControllersUtils

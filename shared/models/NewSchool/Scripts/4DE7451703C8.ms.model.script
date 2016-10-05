@@ -1,0 +1,68 @@
+// ClickOnCommentHeader 4DE7451703C8 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DE7451703C8
+
+ME ME_5232D5D100DB
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_5232D5D100DB aText
+
+ME ME_4DE7456800BE
+ MEPROP UID '4DE7456800BE'
+ MEPROP Name 'CheckCollapsed'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DE7451703C8 // ClickOnCommentHeader
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5232D5D100DB // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4DE7456800BE CheckCollapsed
+
+ME ME_4C3C927B027E_ME_4DE7451703C8
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C3C927B027E_ME_4DE7451703C8 GetPoint
+
+%%InheritedBy ME_4DDF61B503D1 ME_4DE7451703C8
+
+ME ME_4DE7451703C8
+ MEPROP UID '4DE7451703C8'
+ MEPROP Name 'ClickOnCommentHeader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DDF61B503D1' '4DDF61B503D1.ms.model.script' // MouseClickOnPoint
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4DE7456800BE // CheckCollapsed
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C3C927B027E_ME_4DE7451703C8 // GetPoint
+ )
+ ; // Overridden
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\ClickOnCommentHeader.imp.pas'
+ UP extprop:pas:TypeName '_ClickOnCommentHeader_'
+ UP extprop:pas:UnitName 'ClickOnCommentHeader.imp'
+
+ENDME // ME_4DE7451703C8 ClickOnCommentHeader

@@ -1,0 +1,78 @@
+// alcuImport 5305AFD5014D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5305AFD5014D
+
+FORWARD ME_5305AFD5014D
+
+FORWARD ME_5305AFFB01F5
+
+ME ME_53E1CB0C03C9_ME_5305AFFB01F5
+ MELINK Original WL 'ME_53E1CB0C03C9' '52F8C2AE0042.ms.model.script' // GetTaskResultClass : TcsClassResultClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53E1CB0C03C9_ME_5305AFFB01F5 GetTaskResultClass : TcsClassResultClass
+
+%%InheritedBy ME_530356B20280 ME_5305AFFB01F5
+
+ME ME_5305AFFB01F5
+ MEPROP UID '5305AFFB01F5'
+ MEPROP Name 'TalcuImport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5305AFD5014D // alcuImport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_530356B20280' '530356A1014F.ms.model.script' // TcsImportTaskItem
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53E1CB0C03C9_ME_5305AFFB01F5 // GetTaskResultClass : TcsClassResultClass
+ )
+ ; // Overridden
+ UP "finished" false
+ UP extprop:rc:SelfName 'alcuImport'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_5305AFFB01F5 TalcuImport
+
+ME ME_53E1D0F10033
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5305AFD5014D // alcuImport
+ ;
+ MELINK Target WL 'ME_53E1D0D00252' '52FA3DD30094.ms.model.script' // TalcuImportTaskResult
+ ;
+
+ENDME // ME_53E1D0F10033 
+
+ME ME_5305AFD5014D
+ MEPROP UID '5305AFD5014D'
+ MEPROP Name 'alcuImport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FA3DD30094' '52FA3DD30094.ms.model.script' // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5305AFFB01F5 // TalcuImport
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53E1D0F10033 // TalcuImportTaskResult
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuImport.pas'
+
+ENDME // ME_5305AFD5014D alcuImport

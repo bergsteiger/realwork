@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AA68CA10101
+%%Inner ME_4AA68CA10101
+%%Inner ME_4AA68CA10101
+
 FORWARD ME_4AA68CA10101
 
 FORWARD ME_4AA78CFE01EF
@@ -16,7 +20,7 @@ ME ME_4AA78D1501FF
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_4AA78CFE01EF // InsRubricatorState
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" false
 
@@ -37,6 +41,8 @@ ME ME_4AA78D2C012A
  UP "pm" false
 
 ENDME // ME_4AA78D2C012A LinkType
+
+%%ImplementedBy ME_4683CEAD00CF ME_4AA78CFE01EF
 
 ME ME_4AA78CFE01EF
  MEPROP UID '4AA78CFE01EF'
@@ -74,7 +80,7 @@ ME ME_4AA78EB60143
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AA78D4B020B // TnsRubricatorState
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AA78EB60143 f_NewDocLabelVisible
@@ -97,7 +103,7 @@ ME ME_4AA78D8B0149
  MEPROP Name 'aNewDocLabelVisible'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AA78D8B0149 aNewDocLabelVisible
@@ -132,7 +138,7 @@ ME ME_4AA78D9F02B6
  MEPROP Name 'aNewDocLabelVisible'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4AA78D9F02B6 aNewDocLabelVisible
@@ -176,6 +182,10 @@ ME ME_4AA78D2C012A_ME_4AA78D4B020B
  MEPROP OpKind opkind_Implemented
  UP "pm" false
 ENDME // ME_4AA78D2C012A_ME_4AA78D4B020B LinkType
+
+%%ImplementedBy ME_4AA78CFE01EF ME_4AA78D4B020B
+
+%%InheritedBy ME_49E7754802A9 ME_4AA78D4B020B
 
 ME ME_4AA78D4B020B
  MEPROP UID '4AA78D4B020B'
@@ -311,6 +321,9 @@ ME ME_4C7D0CC90052_ME_4AA782860041
  UP "no prefix" false
 ENDME // ME_4C7D0CC90052_ME_4AA782860041 Delete
 
+%%ImplementedBy ME_494F89AA0017 ME_4AA782860041
+%%ImplementedBy ME_4BDAF7790158 ME_4AA782860041
+
 ME ME_4AA782860041
  MEPROP UID '4AA782860041'
  MEPROP Name 'RubricatorList'
@@ -389,6 +402,9 @@ ME ME_525D4AF401FF
  HWL ME_525D4B260004 // NewDocLabel
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ControlClass" 'TvtPanel'
  UP "pm" true
  UP "put to dfm" false
@@ -437,7 +453,7 @@ ME ME_4AA7836F03AB
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4AA7836F03AB f_SetCurrentLock
@@ -533,7 +549,7 @@ ME ME_4AA788AE0128
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA781EA039B // InternalInitRoot
  ;
- MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
  ;
 
 ENDME // ME_4AA788AE0128 
@@ -561,6 +577,9 @@ ME ME_4AA781EA039B
  ME_4AA788AE0128 // l3CStr
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4AA781EA039B InternalInitRoot
 
@@ -627,6 +646,8 @@ ME ME_4AA7824B03DF
 
 ENDME // ME_4AA7824B03DF InternalSetRoot
 
+%%InheritedBy ME_51432026033F ME_525D4BD701CF
+
 ME ME_525D4BD701CF
  MEPROP UID '525D4BD701CF'
  MEPROP Name 'RubricatorListActionElement'
@@ -643,6 +664,8 @@ ME ME_525D4BD701CF
  ; // Inherits
 
 ENDME // ME_525D4BD701CF RubricatorListActionElement
+
+%%InheritedBy ME_47D63B6D0157 ME_525D4BE202AC
 
 ME ME_525D4BE202AC
  MEPROP UID '525D4BE202AC'
@@ -661,6 +684,8 @@ ME ME_525D4BE202AC
 
 ENDME // ME_525D4BE202AC RubricatorListGetItemImage
 
+%%InheritedBy ME_5146EBE00019 ME_525D4CF902DC
+
 ME ME_525D4CF902DC
  MEPROP UID '525D4CF902DC'
  MEPROP Name 'RubricatorListTreeChanged'
@@ -677,6 +702,8 @@ ME ME_525D4CF902DC
  ; // Inherits
 
 ENDME // ME_525D4CF902DC RubricatorListTreeChanged
+
+%%InheritedBy ME_50041C7C0270 ME_525D4D05018C
 
 ME ME_525D4D05018C
  MEPROP UID '525D4D05018C'
@@ -695,6 +722,8 @@ ME ME_525D4D05018C
 
 ENDME // ME_525D4D05018C NewDocLabelJumpTo
 
+%%InheritedBy ME_51C1A49003E5 ME_525D4D190205
+
 ME ME_525D4D190205
  MEPROP UID '525D4D190205'
  MEPROP Name 'ExampleTextSourceMakeDocumentContainer'
@@ -711,6 +740,8 @@ ME ME_525D4D190205
  ; // Inherits
 
 ENDME // ME_525D4D190205 ExampleTextSourceMakeDocumentContainer
+
+%%InheritedBy ME_5018F93C01CC ME_525D4D28010E
 
 ME ME_525D4D28010E
  MEPROP UID '525D4D28010E'
@@ -729,6 +760,8 @@ ME ME_525D4D28010E
 
 ENDME // ME_525D4D28010E NewDocLabelBreakingPara
 
+%%InheritedBy ME_47881B22005A ME_525D4D3402A7
+
 ME ME_525D4D3402A7
  MEPROP UID '525D4D3402A7'
  MEPROP Name 'PaintBoxPaint'
@@ -740,11 +773,13 @@ ME ME_525D4D3402A7
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47881B22005A' '4AB0997B00A2.ms.model.script' // TNotifyEvent
+   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
  )
  ; // Inherits
 
 ENDME // ME_525D4D3402A7 PaintBoxPaint
+
+%%InheritedBy ME_5049C6650272 ME_525D4D3F0361
 
 ME ME_525D4D3F0361
  MEPROP UID '525D4D3F0361'
@@ -856,7 +891,7 @@ ME ME_525E7A4002CC
  MEPROP Name 'Saved'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_525E7A4002CC Saved
@@ -920,7 +955,7 @@ ME ME_525E7A6A02B2
  MEPROP Name 'Loaded'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_525E7A6A02B2 Loaded
@@ -965,7 +1000,7 @@ ME ME_4AA784E70191
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_4AA784E70191 
@@ -975,7 +1010,7 @@ ME ME_4AA7859E0020
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_4A93BA1802CE' '47D0E1500033.ms.model.script' // vcmParams
+ MELINK Target WL 'ME_4A93BA1802CE' '47F25BC801DB.ms.model.script' // vcmParams
  ;
 
 ENDME // ME_4AA7859E0020 
@@ -985,7 +1020,7 @@ ME ME_4AA790EF02C7
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_4AA790E300D4' '4AA66B460175.ms.model.script' // RubricatorRes
+ MELINK Target WL 'ME_4AA790E300D4' '4AA790E300D4.ms.model.script' // RubricatorRes
  ;
 
 ENDME // ME_4AA790EF02C7 
@@ -1025,7 +1060,7 @@ ME ME_525D525D0297
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ MELINK Target WL 'ME_47D15712022D' '47D15712022D.ms.model.script' // Graphics
  ;
 
 ENDME // ME_525D525D0297 
@@ -1035,7 +1070,7 @@ ME ME_525D526F0299
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
  ;
 
 ENDME // ME_525D526F0299 
@@ -1045,7 +1080,7 @@ ME ME_525D52720303
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
  ;
 
 ENDME // ME_525D52720303 
@@ -1055,7 +1090,7 @@ ME ME_525D529200E9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_48C78D5402A6' '4799D29F033F.ms.model.script' // StdCtrls
+ MELINK Target WL 'ME_48C78D5402A6' '48C78D5402A6.ms.model.script' // StdCtrls
  ;
 
 ENDME // ME_525D529200E9 
@@ -1065,7 +1100,7 @@ ME ME_525E535F00B1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47AB1FDE03E4' '47913B47006E.ms.model.script' // l3Memory
+ MELINK Target WL 'ME_47AB1FDE03E4' '47AB1FDE03E4.ms.model.script' // l3Memory
  ;
 
 ENDME // ME_525E535F00B1 
@@ -1085,7 +1120,7 @@ ME ME_525E5378005F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
  ;
 
 ENDME // ME_525E5378005F 
@@ -1095,7 +1130,7 @@ ME ME_525E539B011A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_525E539B011A 
@@ -1105,7 +1140,7 @@ ME ME_525E53C3005D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47F9C7C9010E' '4F4B8FA60272.ms.model.script' // nsExternalObjectPrim
+ MELINK Target WL 'ME_47F9C7C9010E' '47F9C7C9010E.ms.model.script' // nsExternalObjectPrim
  ;
 
 ENDME // ME_525E53C3005D 
@@ -1115,7 +1150,7 @@ ME ME_525E53DF0130
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_4A6854C70390' '47F2170002B2.ms.model.script' // nsTypes
+ MELINK Target WL 'ME_4A6854C70390' '4A6854C70390.ms.model.script' // nsTypes
  ;
 
 ENDME // ME_525E53DF0130 
@@ -1125,7 +1160,7 @@ ME ME_525E53F80293
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_47FB50E4008E' '48F747EC0073.ms.model.script' // nsConst
+ MELINK Target WL 'ME_47FB50E4008E' '47FB50E4008E.ms.model.script' // nsConst
  ;
 
 ENDME // ME_525E53F80293 
@@ -1135,7 +1170,7 @@ ME ME_525E53FB03E2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_48FF556602BA' '48F747EC0073.ms.model.script' // DataAdapter
+ MELINK Target WL 'ME_48FF556602BA' '48FF556602BA.ms.model.script' // DataAdapter
  ;
 
 ENDME // ME_525E53FB03E2 
@@ -1165,7 +1200,7 @@ ME ME_525E544202B5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_490C47C70210' '48F747EC0073.ms.model.script' // nsUtils
+ MELINK Target WL 'ME_490C47C70210' '490C47C70210.ms.model.script' // nsUtils
  ;
 
 ENDME // ME_525E544202B5 
@@ -1216,7 +1251,7 @@ ME ME_543E528302D3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AA68CA10101 // PrimRubricator
  ;
- MELINK Target WL 'ME_53BA488F00D8' '53A402C7010D.ms.model.script' // nsTabbedInterfaceTypes
+ MELINK Target WL 'ME_53BA488F00D8' '53BA488F00D8.ms.model.script' // nsTabbedInterfaceTypes
  ;
 
 ENDME // ME_543E528302D3 
@@ -1293,28 +1328,36 @@ ME ME_4C4433150077_ME_4AA68CA10101
 ENDME // ME_4C4433150077_ME_4AA68CA10101 Execute
 
 ME ME_479731C50290_ME_4AA68CA10101
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4AA68CA10101 Cleanup
 
 ME ME_47A042E100E2_ME_4AA68CA10101
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4AA68CA10101 InitFields
 
 ME ME_4A8E8F2E0195_ME_4AA68CA10101
- MELINK Original WL 'ME_4A8E8F2E0195' '5000041101C8.ms.model.script' // InitControls
+ MELINK Original WL 'ME_4A8E8F2E0195' '500004240202.ms.model.script' // InitControls
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A8E8F2E0195_ME_4AA68CA10101 InitControls
 
 ME ME_543E3AA801D0_ME_4AA68CA10101
- MELINK Original WL 'ME_543E3AA801D0' '533D53FF00C2.ms.model.script' // DoGetTabImageIndex
+ MELINK Original WL 'ME_543E3AA801D0' '543E3A600253.ms.model.script' // DoGetTabImageIndex
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_543E3AA801D0_ME_4AA68CA10101 DoGetTabImageIndex
+
+%%ImplementedBy ME_494F89AA0017 ME_4AA68CA10101
+%%ImplementedBy ME_4A82BCFA02EF ME_4AA68CA10101
+%%ImplementedBy ME_4AA7803101E2 ME_4AA68CA10101
+%%ImplementedBy ME_4BDAF7790158 ME_4AA68CA10101
+%%ImplementedBy ME_4C44330A0062 ME_4AA68CA10101
+%%ImplementedBy ME_4F54B0740014 ME_4AA68CA10101
+%%ImplementedBy ME_543E3A600253 ME_4AA68CA10101
 
 ME ME_4AA68CA10101
  MEPROP UID '4AA68CA10101'
@@ -1335,7 +1378,7 @@ ME ME_4AA68CA10101
  WL 'ME_4BDAF7790158' '4BDAF7510113.ms.model.script' // Tree
  WL 'ME_4C44330A0062' '4C4432FA016A.ms.model.script' // Rubric
  WL 'ME_4F54B0740014' '4E365B6002CA.ms.model.script' // Рубрикатор должен показываться стилем Текст
- WL 'ME_543E3A600253' '533D53FF00C2.ms.model.script' // vcmChromeLikeTabIconUpdater
+ WL 'ME_543E3A600253' '543E3A600253.ms.model.script' // vcmChromeLikeTabIconUpdater
  )
  ; // Implements
  MELIST Attributes
@@ -1415,6 +1458,9 @@ ME ME_4AA68CA10101
  ME_543E528302D3 // nsTabbedInterfaceTypes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "NeedsHackRef" true
  UP "ZoneType" 'Parent'
  UP "author" 'Люлин А.В.'

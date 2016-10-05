@@ -1,0 +1,419 @@
+// evNSRCWriterTypes 4BAC9A2A03A8 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4BAC9A2A03A8
+%%Inner ME_4BAC9A2A03A8
+
+FORWARD ME_4BAC9A2A03A8
+
+FORWARD ME_4BAC9A7301E3
+
+ME ME_4BAC9A9E0117
+ MEPROP UID '4BAC9A9E0117'
+ MEPROP Name 'Letter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_4BAC9A9E0117 Letter
+
+ME ME_4BAC9AA601B3
+ MEPROP UID '4BAC9AA601B3'
+ MEPROP Name 'ParaLI'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BAC9AA601B3 ParaLI
+
+ME ME_4BAC9AAD032C
+ MEPROP UID '4BAC9AAD032C'
+ MEPROP Name 'ParaWC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BAC9AAD032C ParaWC
+
+ME ME_4BAC9AB60173
+ MEPROP UID '4BAC9AB60173'
+ MEPROP Name 'ParaFI'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BAC9AB60173 ParaFI
+
+ME ME_4BAC9F92039D
+ MEPROP UID '4BAC9F92039D'
+ MEPROP Name 'IsDecorPara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BAC9F92039D IsDecorPara
+
+ME ME_4BACA9E9025E
+ MEPROP UID '4BACA9E9025E'
+ MEPROP Name 'PrintFontSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BACA9E9025E PrintFontSize
+
+ME ME_52B0533403CB
+ MEPROP UID '52B0533403CB'
+ MEPROP Name 'StyleID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52B0533403CB StyleID
+
+FORWARD ME_4BACA14E0110
+
+ME ME_4BACA1680174
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+
+ENDME // ME_4BACA1680174 anOther
+
+ME ME_4BACA15C0031
+ MEPROP UID '4BACA15C0031'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACA14E0110 // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BACA1680174 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_4BACA15C0031 DoIt
+
+ME ME_4BACA14E0110
+ MEPROP UID '4BACA14E0110'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функция проверки эквивалентности' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BACA15C0031 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4BACA14E0110 EQ
+
+FORWARD ME_4BACA4BF01A5
+
+ME ME_4BACA4CA01CE
+ MEPROP UID '4BACA4CA01CE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACA4BF01A5 // Clear
+ ;
+
+ENDME // ME_4BACA4CA01CE DoIt
+
+ME ME_4BACA5010306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BACA4BF01A5 // Clear
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4BACA5010306 
+
+ME ME_4BACA4BF01A5
+ MEPROP UID '4BACA4BF01A5'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BACA4CA01CE // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BACA5010306 // l3FillChar
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BACA4BF01A5 Clear
+
+ME ME_4BAC9A7301E3
+ MEPROP UID '4BAC9A7301E3'
+ MEPROP Name 'TevNSRCParaStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BAC9A2A03A8 // evNSRCWriterTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BAC9A9E0117 // Letter
+ HWL ME_4BAC9AA601B3 // ParaLI
+ HWL ME_4BAC9AAD032C // ParaWC
+ HWL ME_4BAC9AB60173 // ParaFI
+ HWL ME_4BAC9F92039D // IsDecorPara
+ HWL ME_4BACA9E9025E // PrintFontSize
+ HWL ME_52B0533403CB // StyleID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BACA14E0110 // EQ
+ HWL ME_4BACA4BF01A5 // Clear
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'NSRCParaStyle'
+
+ENDME // ME_4BAC9A7301E3 TevNSRCParaStyle
+
+FORWARD ME_4BAC9ADB0162
+
+ME ME_4BAC9AF4020D
+ MEPROP UID '4BAC9AF4020D'
+ MEPROP Name 'Justification'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9ADB0162 // TevNSRCParaParas
+ ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_4BAC9AF4020D Justification
+
+ME ME_4BAC9B10003F
+ MEPROP UID '4BAC9B10003F'
+ MEPROP Name 'Width'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9ADB0162 // TevNSRCParaParas
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BAC9B10003F Width
+
+ME ME_4BAC9B18004E
+ MEPROP UID '4BAC9B18004E'
+ MEPROP Name 'FirstIndent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9ADB0162 // TevNSRCParaParas
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BAC9B18004E FirstIndent
+
+ME ME_4BAC9B340032
+ MEPROP UID '4BAC9B340032'
+ MEPROP Name 'LeftIndent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9ADB0162 // TevNSRCParaParas
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4BAC9B340032 LeftIndent
+
+ME ME_4BAC9B3F0206
+ MEPROP UID '4BAC9B3F0206'
+ MEPROP Name 'Style'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4BAC9ADB0162 // TevNSRCParaParas
+ ;
+ MELINK Target HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ ;
+
+ENDME // ME_4BAC9B3F0206 Style
+
+FORWARD ME_4BACA4D403D4
+
+ME ME_4BACA4DA0187
+ MEPROP UID '4BACA4DA0187'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BACA4D403D4 // Clear
+ ;
+
+ENDME // ME_4BACA4DA0187 DoIt
+
+ME ME_4BACA525031F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BACA4D403D4 // Clear
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4BACA525031F 
+
+ME ME_4BACA64A0309
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BACA4D403D4 // Clear
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_4BACA64A0309 
+
+ME ME_4BACA4D403D4
+ MEPROP UID '4BACA4D403D4'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BAC9ADB0162 // TevNSRCParaParas
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BACA4DA0187 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4BACA525031F // l3FillChar
+ ME_4BACA64A0309 // L3 Core Consts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BACA4D403D4 Clear
+
+ME ME_4BAC9ADB0162
+ MEPROP UID '4BAC9ADB0162'
+ MEPROP Name 'TevNSRCParaParas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BAC9A2A03A8 // evNSRCWriterTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BAC9AF4020D // Justification
+ HWL ME_4BAC9B10003F // Width
+ HWL ME_4BAC9B18004E // FirstIndent
+ HWL ME_4BAC9B340032 // LeftIndent
+ HWL ME_4BAC9B3F0206 // Style
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BACA4D403D4 // Clear
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'NSRCParaParas'
+
+ENDME // ME_4BAC9ADB0162 TevNSRCParaParas
+
+ME ME_4BAC9A2A03A8
+ MEPROP UID '4BAC9A2A03A8'
+ MEPROP Name 'evNSRCWriterTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BAC9A7301E3 // TevNSRCParaStyle
+ HWL ME_4BAC9ADB0162 // TevNSRCParaParas
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '26.03.2010 14:28'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evNSRCWriterTypes.pas'
+ UP extprop:rc:SelfName 'NSRCWriterTypes'
+
+ENDME // ME_4BAC9A2A03A8 evNSRCWriterTypes

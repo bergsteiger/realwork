@@ -1,0 +1,53 @@
+// vtVGSceneRes 4D494D090395 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D494D090395
+
+FORWARD ME_4D494D090395
+
+%%InheritedBy ME_4AAA214A0250 ME_4D557516038D
+
+ME ME_4D557516038D
+ MEPROP UID '4D557516038D'
+ MEPROP Name 'TvtVGSceneResources'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D494D090395 // vtVGSceneRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4AAA214A0250' '478CF30500C1.ms.model.script' // TDataModule
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'VGSceneResources'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4D557516038D TvtVGSceneResources
+
+ME ME_4D494D090395
+ MEPROP UID '4D494D090395'
+ MEPROP Name 'vtVGSceneRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B8E675402AB' '4B8E675402AB.ms.model.script' // Dialogs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D557516038D // TvtVGSceneResources
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP "ifndef" 'NoVGScene'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtVGSceneRes.pas'
+ UP extprop:rc:SelfName 'VGSceneRes'
+
+ENDME // ME_4D494D090395 vtVGSceneRes

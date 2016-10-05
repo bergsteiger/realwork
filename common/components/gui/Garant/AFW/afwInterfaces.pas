@@ -998,13 +998,13 @@ begin
 end;//TafwPagesInfo.Add
 
 initialization
-{$If NOT Defined(NoScripts)}
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TafwCustomImageList));
  {* Регистрация типа TafwCustomImageList }
-{$IfEnd} // NOT Defined(NoScripts)
-{$If NOT Defined(NoScripts)}
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
+{$If NOT Defined(NoScripts) AND NOT Defined(NoVCL)}
  TtfwTypeRegistrator.RegisterType(TypeInfo(TafwCustomForm));
  {* Регистрация типа TafwCustomForm }
-{$IfEnd} // NOT Defined(NoScripts)
+{$IfEnd} // NOT Defined(NoScripts) AND NOT Defined(NoVCL)
 
 end.

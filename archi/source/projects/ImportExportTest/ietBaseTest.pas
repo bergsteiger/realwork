@@ -55,9 +55,9 @@ uses
  {$IfEnd} // NOT Defined(NotTunedDUnit)
  , l3IniFile
  , dt_AttrSchema
- {$If Defined(Archi) AND NOT Defined(Nemesis)}
+ {$If NOT Defined(Nemesis)}
  , dt_LinkServ
- {$IfEnd} // Defined(Archi) AND NOT Defined(Nemesis)
+ {$IfEnd} // NOT Defined(Nemesis)
  , SysUtils
  , dt_Const
  {$If NOT Defined(Nemesis)}

@@ -132,7 +132,7 @@ begin
     finally
      FreeAndNil(l_WriteFiler);
     end;
-    l_ReadFiler := nil;
+
     if f_Message.FoundSelector.Count = 0 then
      l_FoundSelector := nil
     else
@@ -143,6 +143,8 @@ begin
       f_Message.FoundSelector.GetValue(l_IDX, l_Address.rPara, l_Address.rWord, l_Address.rDocument);
       l_FoundSelector.Add(l_Address);
      end;
+
+     l_ReadFiler := nil;
      BuildDocLoadPipe(f_Message.DocFamily, f_Message.DocID, f_Message.IsObjTopic, Tk2TypeTable.GetInstance.TypeByName[f_Message.DocumentType],
       f_Message.DocPart, f_Message.Level, f_Message.WithAttr, f_Message.DocPartSel, l_FoundSelector, l_Gen, l_ReadFiler);
     finally
@@ -165,6 +167,7 @@ begin
    begin
     f_Reply.ErrorMessage := E.Message;
     f_Reply.IsSuccess := False;
+    l3System.Exception2Log(E);
    end;
   end;
  finally

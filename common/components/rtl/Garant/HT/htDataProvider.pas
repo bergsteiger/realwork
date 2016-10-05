@@ -543,7 +543,8 @@ procedure ThtDataProvider.EndImpersonate;
 //#UC END# *5617961F0105_5519351D01BE_var*
 begin
 //#UC START# *5617961F0105_5519351D01BE_impl*
- f_ImpersonatedUserList.Delete(f_ImpersonatedUserList.Count - 1);
+ if f_ImpersonatedUserList.Count > 0 then
+  f_ImpersonatedUserList.Delete(f_ImpersonatedUserList.Count - 1);
 //#UC END# *5617961F0105_5519351D01BE_impl*
 end;//ThtDataProvider.EndImpersonate
 

@@ -1,0 +1,79 @@
+// nevViewBounds 4A5CCD5F00C1 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A5CCD5F00C1
+
+ME ME_4A5CCD9D02B6
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4A5CCD9D02B6 aView
+
+ME ME_4A5CCD9D02DF
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4A5CCD9D02DF aMap
+
+ME ME_4A5CCD9D028D
+ MEPROP UID '4A5CCD9D028D'
+ MEPROP Name 'GetViewBounds'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A5CCD5F00C1 // nevViewBounds
+ ;
+ MELINK Target WL 'ME_47C5AAC50076' '4678209200A6.ms.model.script' // TnevRect
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A5CCD9D02B6 // aView
+ ME_4A5CCD9D02DF // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_4A5CCD9D028D GetViewBounds
+
+ME ME_4A5CCBFC00B3_ME_4A5CCD5F00C1
+ MELINK Original WL 'ME_4A5CCBFC00B3' '47C5207602D1.ms.model.script' // ViewBounds
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4A5CCBFC00B3_ME_4A5CCD5F00C1 ViewBounds
+
+%%ImplementedBy ME_4A5CCBAE03C6 ME_4A5CCD5F00C1
+
+ME ME_4A5CCD5F00C1
+ MEPROP UID '4A5CCD5F00C1'
+ MEPROP Name 'nevViewBounds'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Границы отображаемого объекта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CCBAE03C6' '47C5207602D1.ms.model.script' // MnevViewBounds
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4A5CCD9D028D // GetViewBounds
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4A5CCBFC00B3_ME_4A5CCD5F00C1 // ViewBounds
+ )
+ ; // Implemented
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevViewBounds.imp.pas'
+ UP extprop:pas:TypeName '_nevViewBounds_'
+ UP extprop:pas:UnitName 'nevViewBounds.imp'
+
+ENDME // ME_4A5CCD5F00C1 nevViewBounds

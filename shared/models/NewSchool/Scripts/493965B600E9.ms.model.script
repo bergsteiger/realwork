@@ -1,0 +1,87 @@
+// dMedicFirmDocument 493965B600E9 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_493965B600E9
+
+ME ME_4B1929CA01BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493965B600E9 // dMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_4982B6510327' '4982B6510327.ms.model.script' // vcmFormDataSourceRef
+ ;
+
+ENDME // ME_4B1929CA01BE 
+
+ME ME_4B1929D8016C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_493965B600E9 // dMedicFirmDocument
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4B1929D8016C 
+
+ME ME_9FEBA868EC20_ME_493965B600E9
+ MELINK Original WL 'ME_9FEBA868EC20' '491D7C9603B2.ms.model.script' // dsDrugListRef
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "needs field" true
+ UP "pm" true
+ENDME // ME_9FEBA868EC20_ME_493965B600E9 dsDrugListRef
+
+ME ME_4B16B8CF0307_ME_493965B600E9
+ MELINK Original WL 'ME_4B16B8CF0307' '4B16B85D03A1.ms.model.script' // AssignData
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B16B8CF0307_ME_493965B600E9 AssignData
+
+%%ImplementedBy ME_4939260B019C ME_493965B600E9
+
+%%InheritedBy ME_47F085A9004C ME_493965B600E9
+
+ME ME_493965B600E9
+ MEPROP UID '493965B600E9'
+ MEPROP Name 'dMedicFirmDocument'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_491D7CDC0221' '491D7CDC0221.ms.model.script' // Medic
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F085A9004C' '47F085A9004C.ms.model.script' // dBaseDocumentWithAttributes
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4939260B019C' '491D7C9603B2.ms.model.script' // IdMedicFirmDocument
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_9FEBA868EC20_ME_493965B600E9 // dsDrugListRef
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_4B16B8CF0307_ME_493965B600E9 // AssignData
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4B1929CA01BE // vcmFormDataSourceRef
+ ME_4B1929D8016C // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" true
+ UP "started" '12.07.2006'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Medic\dMedicFirmDocument.imp.pas'
+ UP extprop:pas:TypeName '_dMedicFirmDocument_'
+ UP extprop:pas:UnitName 'dMedicFirmDocument.imp'
+
+ENDME // ME_493965B600E9 dMedicFirmDocument

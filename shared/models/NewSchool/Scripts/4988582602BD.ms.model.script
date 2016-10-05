@@ -1,0 +1,49 @@
+// ShellAPI 4988582602BD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4988582602BD
+
+ME ME_498858350156
+ MEPROP UID '498858350156'
+ MEPROP Name 'ShellExecute'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4988582602BD // ShellAPI
+ ;
+
+ENDME // ME_498858350156 ShellExecute
+
+ME ME_4D50F7FB037C
+ MEPROP UID '4D50F7FB037C'
+ MEPROP Name 'DragQueryFile'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4988582602BD // ShellAPI
+ ;
+
+ENDME // ME_4D50F7FB037C DragQueryFile
+
+ME ME_4988582602BD
+ MEPROP UID '4988582602BD'
+ MEPROP Name 'ShellAPI'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_498858350156 // ShellExecute
+ HWL ME_4D50F7FB037C // DragQueryFile
+ )
+ ; // Operations
+ UP "finished" false
+ UP "no hands" true
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\NOT_FINISHED_ShellAPI.pas'
+
+ENDME // ME_4988582602BD ShellAPI

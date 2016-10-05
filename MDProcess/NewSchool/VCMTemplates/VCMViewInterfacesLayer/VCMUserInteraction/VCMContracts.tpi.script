@@ -1,0 +1,79 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// Модуль: "w:/MDProcess/VCMTemplates/VCMViewInterfacesLayer/VCMUserInteraction/VCMContracts.tpi"
+// Генерация мета-шаблонов
+// Generated from UML model, root element: <<MDACategory::Class>> MDProcess$ForDelphi::VCMTemplates::VCMViewInterfacesLayer::VCMUserInteraction::VCMContracts
+//
+//
+// Все права принадлежат ООО НПП "Гарант-Сервис".
+//
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//: VCMContracts::Category
+implementation @ <<VCMContracts>>
+//> VCMModuleContract::Class
+
+//= VCMControls::Category
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Функции стереотипа
+
+//%f _st_space_key
+: st_space_key OBJECT IN %S
+//	SHD
+ 'SHD'
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Унаследованная реализация
+
+// перекрытие базового стереотипа Delphi интерфейсы и реализация::MDAGenerator
+// Имя модуля в котором содержится элемент
+//%f _pas_UnitName
+; // st_space_key
+
+: pas_UnitName OBJECT IN %S
+//#UC START# *4948065C01DFfor5791D6D50045*
+//	%f_set_var(PARENT_NAME,"%f_str_replace(%f_N(%P%P), ,_)")\
+ [%f] set_var %( 'PARENT_NAME' %, [%f] str_replace %( [%f] N %( %P ->P  )% %, ' ' %, '_' )% )% 
+//	[{"%{PARENT_NAME}N"!="%f_N(%S)"}%{PARENT_NAME}N_]\
+ if ( ( ( get_global_var ( 'PARENT_NAME' ) |N ) ) %!= ( [%f] N %( %S )% ) ) then
+ begin
+  ( get_global_var ( 'PARENT_NAME' ) |N ) '_' 
+ end // if
+//	%f_N(%S)[{%f_N(%S)!=Contracts&%f_N(%S)!=Services}_Contracts]
+ [%f] N %( %S )% if ( ( [%f] N %( %S )% ) %!= 'Contracts' AND 
+   ( ( [%f] N %( %S )% ) %!= 'Services'  ) ) then
+ begin
+  '_Contracts' 
+ end // if
+//#UC END# *4948065C01DFfor5791D6D50045*
+; // pas_UnitName
+
+
+// перекрытие базового стереотипа ModelBuilding::MDAGenerator
+// генератор построения виртуальных элементов модели - запускается до генерации конкретных
+// артефактов
+//+ spell
+<<generator>> spell OBJECT IN %S
+//#UC START# *4A41A13D03D5for5791D6D50045*
+//	<%CX>
+ INTEGER VAR l_Counter l_Counter := 0
+ for %S%C
+ begin
+  OBJECT IN %C
+  if true then
+  begin
+   %C |X 
+   ++! l_Counter
+  end // if
+ end // for C
+//#UC END# *4A41A13D03D5for5791D6D50045*
+; // spell
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+end. // <<VCMContracts>>
+

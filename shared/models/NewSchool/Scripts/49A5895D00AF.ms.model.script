@@ -2,194 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_49A5895D00AF
-
-FORWARD ME_47AC58810008
-
-ME ME_47AC6DDC0383
- MEPROP UID '47AC6DDC0383'
- MEPROP Name 'f_Parent'
- MEPROP Class class_Attribute
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_47AC58810008 // k2ParentedTagObject
- ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_47AC6DDC0383 f_Parent
-
-ME ME_49A522310209
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47AC58810008 // k2ParentedTagObject
- ;
- MELINK Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.ms.model.script' // k2Base
- ;
-
-ENDME // ME_49A522310209 
-
-ME ME_532812640195
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47AC58810008 // k2ParentedTagObject
- ;
- MELINK Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.ms.model.script' // Tk2NullTagImpl
- ;
-
-ENDME // ME_532812640195 
-
-ME ME_479731C50290_ME_47AC58810008
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_47AC58810008 Cleanup
-
-ME ME_53343980014A_ME_47AC58810008
- MELINK Original WL 'ME_53343980014A' '47913B47006E.ms.model.script' // TagOwner
- ;
- MEPROP OpKind opkind_Overridden
- UP "pm" true
-ENDME // ME_53343980014A_ME_47AC58810008 TagOwner
-
-ME ME_47AC58810008
- MEPROP UID '47AC58810008'
- MEPROP Name 'k2ParentedTagObject'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Тег, имещий ссылку на родителя.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49A5895D00AF // k2CoreMixins
- ;
- MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
- WL 'ME_532878C00034' '47913B47006E.ms.model.script' // Ml3VariantMirror
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_47AC6DDC0383 // f_Parent
- )
- ; // Attributes
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_47AC58810008 // Cleanup
- ME_53343980014A_ME_47AC58810008 // TagOwner
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_49A522310209 // k2Base
- ME_532812640195 // Tk2NullTagImpl
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '08.02.2008 16:27'
- UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ParentedTagObject.imp.pas'
- UP extprop:pas:TypeName '_k2ParentedTagObject_'
- UP extprop:pas:UnitName 'k2ParentedTagObject.imp'
-
-ENDME // ME_47AC58810008 k2ParentedTagObject
-
-FORWARD ME_47AC6AEE0094
-
-ME ME_4D0A3D330197
- MEPROP UID '4D0A3D330197'
- MEPROP Name 'f_Owner'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
- ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_4D0A3D330197 f_Owner
-
-ME ME_4A4E24EF02AF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
- ;
- MELINK Target WL 'ME_4A4E24A103BD' '49A58A1A03C4.ms.model.script' // Tk2TypeTable
- ;
-
-ENDME // ME_4A4E24EF02AF 
-
-ME ME_4A6433A502FE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_4A6433A502FE 
-
-ME ME_53281279015E
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47AC6AEE0094 // k2OwnedTagObject
- ;
- MELINK Target WL 'ME_49A6ABFB02BA' '49A58A1A03C4.ms.model.script' // Tk2NullTagImpl
- ;
-
-ENDME // ME_53281279015E 
-
-ME ME_479F2B3302C1_ME_47AC6AEE0094
- MELINK Original WL 'ME_479F2B3302C1' '47913B47006E.ms.model.script' // BeforeAddToCache
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479F2B3302C1_ME_47AC6AEE0094 BeforeAddToCache
-
-ME ME_53343980014A_ME_47AC6AEE0094
- MELINK Original WL 'ME_53343980014A' '47913B47006E.ms.model.script' // TagOwner
- ;
- MEPROP OpKind opkind_Overridden
- UP "pm" true
-ENDME // ME_53343980014A_ME_47AC6AEE0094 TagOwner
-
-ME ME_47AC6AEE0094
- MEPROP UID '47AC6AEE0094'
- MEPROP Name 'k2OwnedTagObject'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Тег имеющий ссылку на владельца' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49A5895D00AF // k2CoreMixins
- ;
- MELIST Implements
-   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
- WL 'ME_532878C00034' '47913B47006E.ms.model.script' // Ml3VariantMirror
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_4D0A3D330197 // f_Owner
- )
- ; // Attributes
- MELIST Overridden
-   Seq: ( ME_479F2B3302C1_ME_47AC6AEE0094 // BeforeAddToCache
- ME_53343980014A_ME_47AC6AEE0094 // TagOwner
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4A4E24EF02AF // Tk2TypeTable
- ME_4A6433A502FE // SysUtils
- ME_53281279015E // Tk2NullTagImpl
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" true
- UP "started" '02.12.2005 17:16'
- UP intf.pas:Path 'common\components\rtl\Garant\K2\k2OwnedTagObject.imp.pas'
- UP extprop:pas:TypeName '_k2OwnedTagObject_'
- UP extprop:pas:UnitName 'k2OwnedTagObject.imp'
-
-ENDME // ME_47AC6AEE0094 k2OwnedTagObject
+%%Inner ME_49A5895D00AF
+%%Inner ME_49A5895D00AF
 
 ME ME_49A5895D00AF
  MEPROP UID '49A5895D00AF'
@@ -203,8 +17,8 @@ ME ME_49A5895D00AF
  MELINK Parent WL 'ME_4677E16A022A' '4677E16A022A.ms.model.script' // K2
  ;
  MELIST Children
-   Seq: ( HWL ME_47AC58810008 // k2ParentedTagObject
- HWL ME_47AC6AEE0094 // k2OwnedTagObject
+   Seq: ( WL 'ME_47AC58810008' '47AC58810008.ms.model.script' // k2ParentedTagObject
+ WL 'ME_47AC6AEE0094' '47AC6AEE0094.ms.model.script' // k2OwnedTagObject
  )
  ; // Children
  MELIST Depends
@@ -219,6 +33,9 @@ ME ME_49A5895D00AF
  WL 'ME_5326D70401F3' '5326D70401F3.ms.model.script' // l3Variants
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Main' )
+ ; // DiagramsNames
  UP "UseNewGen" true
 
 ENDME // ME_49A5895D00AF k2CoreMixins

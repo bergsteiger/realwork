@@ -11,6 +11,9 @@ interface
 uses
  l3IntfUses
  , l3Interfaces
+ {$If NOT Defined(NoScripts)}
+ , tfwScriptingInterfaces
+ {$IfEnd} // NOT Defined(NoScripts)
  , msmModelElements
  , msmControllers
  , msmElementViews
@@ -38,6 +41,7 @@ type
   function Empty: Boolean;
   function IsElementSelectedOrCurrent(const anElement: ImsmModelElement): Boolean;
   function Clone: ImsmElementSelection;
+  function AsArray: ItfwArray;
   property CurrentElement: ImsmModelElement
    read Get_CurrentElement
    write Set_CurrentElement;
@@ -50,7 +54,17 @@ type
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
-  procedure Paste(const aSelection: ImsmElementSelection);
+  procedure Paste(const aSelection: ImsmElementSelection); overload;
+  procedure Paste(const aDataObject: IDataObject); overload;
+  procedure Paste; overload;
+  procedure Paste(const anArray: ItfwArray); overload;
+  function Drop(aFormat: Tl3ClipboardFormat;
+   const aMedium: Tl3StoragePlace;
+   var dwEffect: Integer;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function Drop(const anElement: ImsmModelElement;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function CanPaste(const aSelection: ImsmElementSelection): Boolean;
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -73,7 +87,17 @@ type
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
   procedure ShowElementAsList(const anElement: ImsmModelElement);
-  procedure Paste(const aSelection: ImsmElementSelection);
+  procedure Paste(const aSelection: ImsmElementSelection); overload;
+  procedure Paste(const aDataObject: IDataObject); overload;
+  procedure Paste; overload;
+  procedure Paste(const anArray: ItfwArray); overload;
+  function Drop(aFormat: Tl3ClipboardFormat;
+   const aMedium: Tl3StoragePlace;
+   var dwEffect: Integer;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function Drop(const anElement: ImsmModelElement;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function CanPaste(const aSelection: ImsmElementSelection): Boolean;
   property List: ImsmModelElementStringList
    read Get_List;
   property ElementToAction: ImsmModelElement
@@ -93,7 +117,18 @@ type
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
-  procedure Paste(const aSelection: ImsmElementSelection);
+  procedure SetList(const aList: ImsmModelElementStringList);
+  procedure Paste(const aSelection: ImsmElementSelection); overload;
+  procedure Paste(const aDataObject: IDataObject); overload;
+  procedure Paste; overload;
+  procedure Paste(const anArray: ItfwArray); overload;
+  function Drop(aFormat: Tl3ClipboardFormat;
+   const aMedium: Tl3StoragePlace;
+   var dwEffect: Integer;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function Drop(const anElement: ImsmModelElement;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function CanPaste(const aSelection: ImsmElementSelection): Boolean;
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -112,7 +147,17 @@ type
   function Get_CurrentElement: ImsmModelElement;
   procedure Set_CurrentElement(const aValue: ImsmModelElement);
   function Get_Selection: ImsmElementSelection;
-  procedure Paste(const aSelection: ImsmElementSelection);
+  procedure Paste(const aSelection: ImsmElementSelection); overload;
+  procedure Paste(const aDataObject: IDataObject); overload;
+  procedure Paste; overload;
+  procedure Paste(const anArray: ItfwArray); overload;
+  function Drop(aFormat: Tl3ClipboardFormat;
+   const aMedium: Tl3StoragePlace;
+   var dwEffect: Integer;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function Drop(const anElement: ImsmModelElement;
+   const aPoint: Tl3SPoint): Boolean; overload;
+  function CanPaste(const aSelection: ImsmElementSelection): Boolean;
   property Tree: ImsmModelElementTree
    read Get_Tree;
   property ElementToAction: ImsmModelElement

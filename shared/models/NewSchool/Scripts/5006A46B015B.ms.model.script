@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_5006A46B015B
+%%Inner ME_5006A46B015B
+%%Inner ME_5006A46B015B
+
 FORWARD ME_5006A46B015B
 
 FORWARD ME_5006A4A6003D
@@ -16,7 +20,7 @@ ME ME_5006A52C0211
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_5006A4A6003D // TvcmUserTypesCollectionItemPrim
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "pm" true
  UP "reads field" true
@@ -25,10 +29,12 @@ ME ME_5006A52C0211
 ENDME // ME_5006A52C0211 CanHaveToolbars
 
 ME ME_47A042E100E2_ME_5006A4A6003D
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_5006A4A6003D InitFields
+
+%%InheritedBy ME_4FFC3347011F ME_5006A4A6003D
 
 ME ME_5006A4A6003D
  MEPROP UID '5006A4A6003D'
@@ -52,12 +58,17 @@ ME ME_5006A4A6003D
    Seq: ( ME_47A042E100E2_ME_5006A4A6003D // InitFields
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Components\vcmUserTypesCollectionItemPrim.pas'
  UP extprop:rc:SelfName 'UserTypesCollectionItemPrim'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'vcmUserTypesCollectionItemPrim'
 
 ENDME // ME_5006A4A6003D TvcmUserTypesCollectionItemPrim
+
+%%InheritedBy ME_5006A4A6003D ME_5006A4C80386
 
 ME ME_5006A4C80386
  MEPROP UID '5006A4C80386'
@@ -80,6 +91,8 @@ ME ME_5006A4C80386
  UP extprop:pas:UnitName 'vcmBaseUserTypesCollectionItem'
 
 ENDME // ME_5006A4C80386 TvcmBaseUserTypesCollectionItem
+
+%%InheritedBy ME_5006A4C80386 ME_5006A4E003AB
 
 ME ME_5006A4E003AB
  MEPROP UID '5006A4E003AB'
@@ -124,6 +137,9 @@ ME ME_5006A46B015B
  WL 'ME_4FFC33380166' '4FFC33380166.ms.model.script' // Collections
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "path prefix" '/implementation/Components'
  UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Components'
 

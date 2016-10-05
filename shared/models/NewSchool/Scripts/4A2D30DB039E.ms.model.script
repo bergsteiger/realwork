@@ -1,0 +1,1786 @@
+// evSelection 4A2D30DB039E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A2D30DB039E
+
+FORWARD ME_4A2D30DB039E
+
+FORWARD ME_4A2D2D4300BE
+
+ME ME_50B730F30193
+ MEPROP UID '50B730F30193'
+ MEPROP Name 'Sharp'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" true
+ UP "reads field" true
+ UP "writes field" true
+
+ENDME // ME_50B730F30193 Sharp
+
+ME ME_52D79D590074
+ MEPROP UID '52D79D590074'
+ MEPROP Name 'Borders'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_47C68B3B022A' '47C5207602D1.ms.model.script' // TevPair
+ ;
+ UP "inherits getter from some ancestor" true
+ UP "pm" true
+
+ENDME // ME_52D79D590074 Borders
+
+ME ME_57D112CB0392
+ MEPROP UID '57D112CB0392'
+ MEPROP Name 'SearchContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_57D1052B0133' '47C5207602D1.ms.model.script' // TevSearchContext
+ ;
+ UP "inherits getter from some ancestor" false
+ UP "needs field" false
+ UP "pm" true
+
+ENDME // ME_57D112CB0392 SearchContext
+
+FORWARD ME_5108D53B0312
+
+ME ME_52D7A37E0130
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_52D7A37E0130 aStart
+
+ME ME_52D7A37E0147
+ MEPROP Name 'aFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_52D7A37E0147 aFinish
+
+ME ME_5108D58602A7
+ MEPROP Name 'aSharp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5108D58602A7 aSharp
+
+ME ME_5108D56D0067
+ MEPROP UID '5108D56D0067'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5108D53B0312 // DoInit
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7A37E0130 // aStart
+ ME_52D7A37E0147 // aFinish
+ ME_5108D58602A7 // aSharp
+ )
+ ; // Parameters
+
+ENDME // ME_5108D56D0067 DoIt
+
+ME ME_5108D53B0312
+ MEPROP UID '5108D53B0312'
+ MEPROP Name 'DoInit'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5108D56D0067 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5108D53B0312 DoInit
+
+FORWARD ME_5108D5CB0048
+
+ME ME_52D79F740132
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D79F740132 aView
+
+ME ME_52D79F74014A
+ MEPROP Name 'G'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+
+ENDME // ME_52D79F74014A G
+
+ME ME_5108D5F70385
+ MEPROP Name 'aFlags'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48F5B6D600BD' '4678209200A6.ms.model.script' // TevStoreFlags
+ ;
+
+ENDME // ME_5108D5F70385 aFlags
+
+ME ME_5108D5D800C1
+ MEPROP UID '5108D5D800C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5108D5CB0048 // DoStore
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D79F740132 // aView
+ ME_52D79F74014A // G
+ ME_5108D5F70385 // aFlags
+ )
+ ; // Parameters
+
+ENDME // ME_5108D5D800C1 DoIt
+
+ME ME_5108D5CB0048
+ MEPROP UID '5108D5CB0048'
+ MEPROP Name 'DoStore'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5108D5D800C1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5108D5CB0048 DoStore
+
+FORWARD ME_5108D66900C9
+
+ME ME_52D7A3860339
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D7A3860339 aView
+
+ME ME_52D7A3860353
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7A3860353 anOpPack
+
+ME ME_5108D6AC0363
+ MEPROP Name 'aMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6926702A2' '47C5207602D1.ms.model.script' // TevClearMode
+ ;
+ MEPROP Value 'ev_cmAll'
+ MELINK ValueType WL 'ME_47C6926702A2' '47C5207602D1.ms.model.script' // TevClearMode
+ ;
+ UP extprop:pas:Value 'nevTools.ev_cmAll'
+
+ENDME // ME_5108D6AC0363 aMode
+
+ME ME_52D7A3860371
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7A3860371 aPara
+
+ME ME_5108D68D00A0
+ MEPROP UID '5108D68D00A0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5108D66900C9 // DoDelete
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7A3860339 // aView
+ ME_52D7A3860353 // anOpPack
+ ME_5108D6AC0363 // aMode
+ ME_52D7A3860371 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_5108D68D00A0 DoIt
+
+ME ME_5108D66900C9
+ MEPROP UID '5108D66900C9'
+ MEPROP Name 'DoDelete'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5108D68D00A0 // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'evNeedEditableCursors'
+
+ENDME // ME_5108D66900C9 DoDelete
+
+FORWARD ME_52D79DFC0347
+
+ME ME_52D79E0D035F
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D79E0D035F aView
+
+ME ME_52D79E0D0377
+ MEPROP Name 'aChildIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_52D79E0D0377 aChildIndex
+
+ME ME_52D79E0D038F
+ MEPROP Name 'aForDrawing'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52D79E0D038F aForDrawing
+
+ME ME_52D79E080313
+ MEPROP UID '52D79E080313'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79DFC0347 // DoGetChildSel
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D79E0D035F // aView
+ ME_52D79E0D0377 // aChildIndex
+ ME_52D79E0D038F // aForDrawing
+ )
+ ; // Parameters
+
+ENDME // ME_52D79E080313 DoIt
+
+ME ME_52D79DFC0347
+ MEPROP UID '52D79DFC0347'
+ MEPROP Name 'DoGetChildSel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D79E080313 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79DFC0347 DoGetChildSel
+
+FORWARD ME_52D79E610203
+
+ME ME_56CFDF5FCF08
+ MEPROP UID '56CFDF5FCF08'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода DoRefreshBorders' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79E610203 // DoRefreshBorders
+ ;
+
+ENDME // ME_56CFDF5FCF08 DoIt
+
+ME ME_52D79E610203
+ MEPROP UID '52D79E610203'
+ MEPROP Name 'DoRefreshBorders'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56CFDF5FCF08 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79E610203 DoRefreshBorders
+
+FORWARD ME_52D79E97007C
+
+ME ME_52D79EAB017A
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D79EAB017A aView
+
+ME ME_52D79EAB0194
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_52D79EAB0194 anOp
+
+ME ME_52D79EA80357
+ MEPROP UID '52D79EA80357'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79E97007C // DeleteBeforeInsert
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D79EAB017A // aView
+ ME_52D79EAB0194 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_52D79EA80357 DoIt
+
+ME ME_52D79E97007C
+ MEPROP UID '52D79E97007C'
+ MEPROP Name 'DeleteBeforeInsert'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D79EA80357 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79E97007C DeleteBeforeInsert
+
+FORWARD ME_52D79F3B0081
+
+ME ME_57D10DA300AB
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_57D10DA300AB aView
+
+ME ME_57D10DA300BA
+ MEPROP Name 'aSearcher'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
+ ;
+
+ENDME // ME_57D10DA300BA aSearcher
+
+ME ME_57D10DA300DA
+ MEPROP Name 'Progress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+
+ENDME // ME_57D10DA300DA Progress
+
+ME ME_57D10DA300E9
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_57D10DA300E9 aStart
+
+ME ME_57D10DA30108
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_57D1052B0133' '47C5207602D1.ms.model.script' // TevSearchContext
+ ;
+
+ENDME // ME_57D10DA30108 aContext
+
+ME ME_57D10DA30118
+ MEPROP Name 'cFStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_57D10DA30118 cFStart
+
+ME ME_57D10DA30137
+ MEPROP Name 'cFFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_57D10DA30137 cFFinish
+
+ME ME_52D79F5803E2
+ MEPROP UID '52D79F5803E2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79F3B0081 // SearchPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D10DA300AB // aView
+ ME_57D10DA300BA // aSearcher
+ ME_57D10DA300DA // Progress
+ ME_57D10DA300E9 // aStart
+ ME_57D10DA30108 // aContext
+ ME_57D10DA30118 // cFStart
+ ME_57D10DA30137 // cFFinish
+ )
+ ; // Parameters
+
+ENDME // ME_52D79F5803E2 DoIt
+
+ME ME_52D79F3B0081
+ MEPROP UID '52D79F3B0081'
+ MEPROP Name 'SearchPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ищет подстроку и возвращает найденную позицию в (cFStart, cFFinish)' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D79F5803E2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79F3B0081 SearchPrim
+
+FORWARD ME_52D79F9400EB
+
+ME ME_52D79FA50357
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D79FA50357 aView
+
+ME ME_52D79FA100A8
+ MEPROP UID '52D79FA100A8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79F9400EB // IsSolid
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D79FA50357 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_52D79FA100A8 DoIt
+
+ME ME_52D79F9400EB
+ MEPROP UID '52D79F9400EB'
+ MEPROP Name 'IsSolid'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D79FA100A8 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79F9400EB IsSolid
+
+FORWARD ME_52D79FB703C9
+
+ME ME_52D79FC4035F
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D79FC4035F aView
+
+ME ME_52D79FC10030
+ MEPROP UID '52D79FC10030'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79FB703C9 // IsCollapsed
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D79FC4035F // aView
+ )
+ ; // Parameters
+
+ENDME // ME_52D79FC10030 DoIt
+
+ME ME_52D79FB703C9
+ MEPROP UID '52D79FB703C9'
+ MEPROP Name 'IsCollapsed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D79FC10030 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79FB703C9 IsCollapsed
+
+FORWARD ME_52D79FDF010B
+
+ME ME_52D79FEC0336
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D79FEC0336 aView
+
+ME ME_52D79FEA0281
+ MEPROP UID '52D79FEA0281'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79FDF010B // GetContainsEnd
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D79FEC0336 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_52D79FEA0281 DoIt
+
+ME ME_52D79FDF010B
+ MEPROP UID '52D79FDF010B'
+ MEPROP Name 'GetContainsEnd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D79FEA0281 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79FDF010B GetContainsEnd
+
+FORWARD ME_52D79FFA012A
+
+ME ME_52D7A0F90384
+ MEPROP UID '52D7A0F90384'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D79FFA012A // TagReader
+ ;
+ MELINK Target WL 'ME_47C6AE9001D5' '47C5207602D1.ms.model.script' // InevTagReader
+ ;
+
+ENDME // ME_52D7A0F90384 DoIt
+
+ME ME_52D79FFA012A
+ MEPROP UID '52D79FFA012A'
+ MEPROP Name 'TagReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7A0F90384 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D79FFA012A TagReader
+
+FORWARD ME_52D7A3F100E0
+
+ME ME_52D7A3FF0330
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52D7A3FF0330 aView
+
+ME ME_52D7A3FD0210
+ MEPROP UID '52D7A3FD0210'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7A3F100E0 // DoBottomChildBlock
+ ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7A3FF0330 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_52D7A3FD0210 DoIt
+
+ME ME_52D7A3F100E0
+ MEPROP UID '52D7A3F100E0'
+ MEPROP Name 'DoBottomChildBlock'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7A3FD0210 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7A3F100E0 DoBottomChildBlock
+
+FORWARD ME_52D7A46B016F
+
+ME ME_52D7A47800A3
+ MEPROP UID '52D7A47800A3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7A46B016F // DoGetBorders
+ ;
+ MELINK Target WL 'ME_47C68B3B022A' '47C5207602D1.ms.model.script' // TevPair
+ ;
+
+ENDME // ME_52D7A47800A3 DoIt
+
+ME ME_52D7A46B016F
+ MEPROP UID '52D7A46B016F'
+ MEPROP Name 'DoGetBorders'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7A47800A3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7A46B016F DoGetBorders
+
+FORWARD ME_52D7A56B029E
+
+ME ME_52D7A5910172
+ MEPROP Name 'theStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_52D7A5910172 theStart
+
+ME ME_52D7A591018F
+ MEPROP Name 'theFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_52D7A591018F theFinish
+
+ME ME_52D7A5860100
+ MEPROP UID '52D7A5860100'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7A56B029E // DoGetBorderPoints
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7A5910172 // theStart
+ ME_52D7A591018F // theFinish
+ )
+ ; // Parameters
+
+ENDME // ME_52D7A5860100 DoIt
+
+ME ME_52D7A56B029E
+ MEPROP UID '52D7A56B029E'
+ MEPROP Name 'DoGetBorderPoints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7A5860100 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7A56B029E DoGetBorderPoints
+
+FORWARD ME_52D7C54903BD
+
+ME ME_52D7C59A0210
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BA8DE8C03D8' '47C5207602D1.ms.model.script' // Iterate
+ ;
+
+ENDME // ME_52D7C59A0210 anAction
+
+ME ME_52D7C59A0229
+ MEPROP Name 'Progress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7C59A0229 Progress
+
+ME ME_52D7C59A0241
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7C59A0241 aMessage
+
+ME ME_52D7C59A0259
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MEPROP Value 'l3MinIndex'
+ MELINK ValueType WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+ UP extprop:pas:Value 'l3MinIndex'
+
+ENDME // ME_52D7C59A0259 aStart
+
+ME ME_52D7C57D037E
+ MEPROP UID '52D7C57D037E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7C54903BD // DoIterate
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7C59A0210 // anAction
+ ME_52D7C59A0229 // Progress
+ ME_52D7C59A0241 // aMessage
+ ME_52D7C59A0259 // aStart
+ )
+ ; // Parameters
+
+ENDME // ME_52D7C57D037E DoIt
+
+ME ME_52D7C54903BD
+ MEPROP UID '52D7C54903BD'
+ MEPROP Name 'DoIterate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перебирает подтеги, входящие в выделение и вызывает anAction для каждого' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7C57D037E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7C54903BD DoIterate
+
+FORWARD ME_52D7CB7B01EE
+
+ME ME_52D7CBAC0321
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BA8DE8C03D8' '47C5207602D1.ms.model.script' // Iterate
+ ;
+
+ENDME // ME_52D7CBAC0321 anAction
+
+ME ME_52D7CBAC033A
+ MEPROP Name 'Progress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CBAC033A Progress
+
+ME ME_52D7CBAC0351
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CBAC0351 aMessage
+
+ME ME_52D7CBA90133
+ MEPROP UID '52D7CBA90133'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7CB7B01EE // DoIterateBack
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7CBAC0321 // anAction
+ ME_52D7CBAC033A // Progress
+ ME_52D7CBAC0351 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_52D7CBA90133 DoIt
+
+ME ME_52D7CB7B01EE
+ MEPROP UID '52D7CB7B01EE'
+ MEPROP Name 'DoIterateBack'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перебирает подтеги, входящие в выделение и вызывает anAction для каждого' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7CBA90133 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7CB7B01EE DoIterateBack
+
+FORWARD ME_52D7CBD0020F
+
+ME ME_52D7CBF30182
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BA8DE8C03D8' '47C5207602D1.ms.model.script' // Iterate
+ ;
+
+ENDME // ME_52D7CBF30182 anAction
+
+ME ME_52D7CBF30198
+ MEPROP Name 'Progress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CBF30198 Progress
+
+ME ME_52D7CBF301AE
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CBF301AE aMessage
+
+ME ME_52D7CBF301C3
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MEPROP Value 'l3MinIndex'
+ MELINK ValueType WL 'ME_476F9605006B' '4678193C009C.ms.model.script' // Indexes
+ ;
+ UP extprop:pas:Value 'l3MinIndex'
+
+ENDME // ME_52D7CBF301C3 aStart
+
+ME ME_52D7CBF10340
+ MEPROP UID '52D7CBF10340'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7CBD0020F // DoIterateF
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7CBF30182 // anAction
+ ME_52D7CBF30198 // Progress
+ ME_52D7CBF301AE // aMessage
+ ME_52D7CBF301C3 // aStart
+ )
+ ; // Parameters
+
+ENDME // ME_52D7CBF10340 DoIt
+
+ME ME_52D7CBD0020F
+ MEPROP UID '52D7CBD0020F'
+ MEPROP Name 'DoIterateF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перебирает подтеги, входящие в выделение и вызывает anAction для каждого' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7CBF10340 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7CBD0020F DoIterateF
+
+FORWARD ME_52D7CC2F036B
+
+ME ME_52D7CC4C01BC
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4BA8DE8C03D8' '47C5207602D1.ms.model.script' // Iterate
+ ;
+
+ENDME // ME_52D7CC4C01BC anAction
+
+ME ME_52D7CC4C01E1
+ MEPROP Name 'Progress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CC4C01E1 Progress
+
+ME ME_52D7CC4C0220
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CC4C0220 aMessage
+
+ME ME_52D7CC4B00AE
+ MEPROP UID '52D7CC4B00AE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7CC2F036B // DoIterateBackF
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7CC4C01BC // anAction
+ ME_52D7CC4C01E1 // Progress
+ ME_52D7CC4C0220 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_52D7CC4B00AE DoIt
+
+ME ME_52D7CC2F036B
+ MEPROP UID '52D7CC2F036B'
+ MEPROP Name 'DoIterateBackF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'перебирает подтеги, входящие в выделение и вызывает anAction для каждого' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7CC4B00AE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7CC2F036B DoIterateBackF
+
+FORWARD ME_52D7CCD70340
+
+ME ME_52D7CCEE004F
+ MEPROP Name 'aSearcher'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C693AA003A' '47C5207602D1.ms.model.script' // IevSearcher
+ ;
+
+ENDME // ME_52D7CCEE004F aSearcher
+
+ME ME_52D7CCEE0079
+ MEPROP Name 'aReplacer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C693BF0118' '47C5207602D1.ms.model.script' // IevReplacer
+ ;
+
+ENDME // ME_52D7CCEE0079 aReplacer
+
+ME ME_52D7CCEE00B9
+ MEPROP Name 'aConfirm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C69AE001F4' '47C5207602D1.ms.model.script' // InevConfirm
+ ;
+
+ENDME // ME_52D7CCEE00B9 aConfirm
+
+ME ME_52D7CCEE00F4
+ MEPROP Name 'Cursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CCEE00F4 Cursor
+
+ME ME_52D7CCEE0135
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52D7CCEE0135 anOpPack
+
+ME ME_52D7CCEE017C
+ MEPROP Name 'aNeedProgress'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_52D7CCEE017C aNeedProgress
+
+ME ME_52D7CCEA00AC
+ MEPROP UID '52D7CCEA00AC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D7CCD70340 // DoSearchReplace
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D7CCEE004F // aSearcher
+ ME_52D7CCEE0079 // aReplacer
+ ME_52D7CCEE00B9 // aConfirm
+ ME_52D7CCEE00F4 // Cursor
+ ME_52D7CCEE0135 // anOpPack
+ ME_52D7CCEE017C // aNeedProgress
+ )
+ ; // Parameters
+
+ENDME // ME_52D7CCEA00AC DoIt
+
+ME ME_52D7CCD70340
+ MEPROP UID '52D7CCD70340'
+ MEPROP Name 'DoSearchReplace'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D7CCEA00AC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D7CCD70340 DoSearchReplace
+
+FORWARD ME_57D113100258
+
+ME ME_57D1135A0224
+ MEPROP Name 'aSearch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_57D1052B0133' '47C5207602D1.ms.model.script' // TevSearchContext
+ ;
+
+ENDME // ME_57D1135A0224 aSearch
+
+ME ME_57D1133601AD
+ MEPROP UID '57D1133601AD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57D113100258 // IniSearchContext
+ ;
+ MELIST Parameters
+   Seq: ( ME_57D1135A0224 // aSearch
+ )
+ ; // Parameters
+
+ENDME // ME_57D1133601AD DoIt
+
+ME ME_57D113100258
+ MEPROP UID '57D113100258'
+ MEPROP Name 'IniSearchContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57D1133601AD // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57D113100258 IniSearchContext
+
+ME ME_52D7E6DC01B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '478CF30500C1.ms.model.script' // Classes
+ ;
+
+ENDME // ME_52D7E6DC01B1 
+
+ME ME_52D7E6F10224
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_48579E4A003C' '48492FC0029D.ms.model.script' // ParaList
+ ;
+
+ENDME // ME_52D7E6F10224 
+
+ME ME_52D7E703021C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_47A080670100' '47A080670100.ms.model.script' // l3Stream
+ ;
+
+ENDME // ME_52D7E703021C 
+
+ME ME_52D7E71A0111
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_52D7E71A0111 
+
+ME ME_52D7E73A0024
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_52D7E73A0024 
+
+ME ME_52D7E73C02AE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_52D7E73C02AE 
+
+ME ME_52D7E75E0098
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_4B8BA52200D8' '4B8BA52200D8.ms.model.script' // nevInterfaces
+ ;
+
+ENDME // ME_52D7E75E0098 
+
+ME ME_52D7E76F0178
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_47D00CC20108' '47D00CC20108.ms.model.script' // nevFacade
+ ;
+
+ENDME // ME_52D7E76F0178 
+
+ME ME_52D7E78900A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_484FC278000E' '484A470100DD.ms.model.script' // Para
+ ;
+
+ENDME // ME_52D7E78900A6 
+
+ME ME_52D7E7A401EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_48E3A9D401E7' '48E3A9B902F6.ms.model.script' // SelectConsts
+ ;
+
+ENDME // ME_52D7E7A401EA 
+
+ME ME_52D7E7F90072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52D7E7F90072 
+
+ME ME_531EF4770386
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
+ ;
+
+ENDME // ME_531EF4770386 
+
+ME ME_53D8DFF80119
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4A2D2D4300BE // TevRange
+ ;
+ MELINK Target WL 'ME_53D8DFA400E2' '48492FC0029D.ms.model.script' // TevParaInterfaceFactoryPrim
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D8DFF80119 
+
+ME ME_47C68BFD011C_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C68BFD011C' '47C5207602D1.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" true
+ENDME // ME_47C68BFD011C_ME_4A2D2D4300BE Store
+
+ME ME_47C68C6701AF_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C68C6701AF' '48F4E61C0060.ms.model.script' // Store
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "force overload" true
+ENDME // ME_47C68C6701AF_ME_4A2D2D4300BE Store
+
+ME ME_47C690AB02EE_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C690AB02EE' '47C5207602D1.ms.model.script' // SolidBottomChildBlock
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C690AB02EE_ME_4A2D2D4300BE SolidBottomChildBlock
+
+ME ME_47C691F0012A_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C691F0012A' '47C5207602D1.ms.model.script' // GetChildSel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C691F0012A_ME_4A2D2D4300BE GetChildSel
+
+ME ME_47C691FB0055_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C691FB0055' '47C5207602D1.ms.model.script' // GetBorderPoints
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C691FB0055_ME_4A2D2D4300BE GetBorderPoints
+
+ME ME_47C6920B01B2_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C6920B01B2' '47C5207602D1.ms.model.script' // BottomChildBlock
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C6920B01B2_ME_4A2D2D4300BE BottomChildBlock
+
+ME ME_47C6924201FA_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C6924201FA' '47C5207602D1.ms.model.script' // CloneSel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C6924201FA_ME_4A2D2D4300BE CloneSel
+
+ME ME_47C6928C0243_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C6928C0243' '47C5207602D1.ms.model.script' // Delete
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C6928C0243_ME_4A2D2D4300BE Delete
+
+ME ME_47C692B301BF_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C692B301BF' '47C5207602D1.ms.model.script' // Modify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C692B301BF_ME_4A2D2D4300BE Modify
+
+ME ME_47C692C10136_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C692C10136' '47C5207602D1.ms.model.script' // ParentRange
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C692C10136_ME_4A2D2D4300BE ParentRange
+
+ME ME_47C692CC024C_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C692CC024C' '47C5207602D1.ms.model.script' // Contains
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C692CC024C_ME_4A2D2D4300BE Contains
+
+ME ME_47C6960502ED_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C6960502ED' '47C5207602D1.ms.model.script' // Select
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C6960502ED_ME_4A2D2D4300BE Select
+
+ME ME_47C696160251_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C696160251' '47C5207602D1.ms.model.script' // Select
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C696160251_ME_4A2D2D4300BE Select
+
+ME ME_47C6962E028E_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C6962E028E' '47C5207602D1.ms.model.script' // Borders
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47C6962E028E_ME_4A2D2D4300BE Borders
+
+ME ME_47C696B603E7_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C696B603E7' '47C5207602D1.ms.model.script' // Data
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" true
+ENDME // ME_47C696B603E7_ME_4A2D2D4300BE Data
+
+ME ME_47C696E302FE_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47C696E302FE' '47C5207602D1.ms.model.script' // Init
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C696E302FE_ME_4A2D2D4300BE Init
+
+ME ME_47FF53790028_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47FF53790028' '47C5207602D1.ms.model.script' // Solid
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FF53790028_ME_4A2D2D4300BE Solid
+
+ME ME_47FF5C3D017E_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47FF5C3D017E' '47C5207602D1.ms.model.script' // ContainsEnd
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FF5C3D017E_ME_4A2D2D4300BE ContainsEnd
+
+ME ME_47FF5F3702F6_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_47FF5F3702F6' '47C5207602D1.ms.model.script' // Collapsed
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47FF5F3702F6_ME_4A2D2D4300BE Collapsed
+
+ME ME_48E25C7E0366_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_48E25C7E0366' '47C5207602D1.ms.model.script' // AssignSel
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E25C7E0366_ME_4A2D2D4300BE AssignSel
+
+ME ME_48E25C980073_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_48E25C980073' '47C5207602D1.ms.model.script' // GetBlock
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E25C980073_ME_4A2D2D4300BE GetBlock
+
+ME ME_48E25CA5027C_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_48E25CA5027C' '47C5207602D1.ms.model.script' // SetToStart
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E25CA5027C_ME_4A2D2D4300BE SetToStart
+
+ME ME_48E25CB3032B_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_48E25CB3032B' '47C5207602D1.ms.model.script' // Unselect
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E25CB3032B_ME_4A2D2D4300BE Unselect
+
+ME ME_48EC8339027A_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_48EC8339027A' '47C5207602D1.ms.model.script' // AsStorable
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48EC8339027A_ME_4A2D2D4300BE AsStorable
+
+ME ME_49E83F480351_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_49E83F480351' '47C5207602D1.ms.model.script' // SearchReplace
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49E83F480351_ME_4A2D2D4300BE SearchReplace
+
+ME ME_49E843B10236_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_49E843B10236' '47C5207602D1.ms.model.script' // Search
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49E843B10236_ME_4A2D2D4300BE Search
+
+ME ME_50AF18AD03DD_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_50AF18AD03DD' '47C5207602D1.ms.model.script' // SetToFinish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50AF18AD03DD_ME_4A2D2D4300BE SetToFinish
+
+ME ME_50B727F00221_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_50B727F00221' '47C5207602D1.ms.model.script' // RefreshBorders
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_50B727F00221_ME_4A2D2D4300BE RefreshBorders
+
+ME ME_49DF62920242_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_49DF62920242' '47E3DF460095.ms.model.script' // GetRange
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49DF62920242_ME_4A2D2D4300BE GetRange
+
+ME ME_49DF62A201EB_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_49DF62A201EB' '47E3DF460095.ms.model.script' // GetAsPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49DF62A201EB_ME_4A2D2D4300BE GetAsPoint
+
+ME ME_4A2945060101_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_4A2945060101' '47E3DF460095.ms.model.script' // DoGetStyle
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A2945060101_ME_4A2D2D4300BE DoGetStyle
+
+ME ME_4A29477801BF_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_4A29477801BF' '47E3DF460095.ms.model.script' // DoGetFont
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A29477801BF_ME_4A2D2D4300BE DoGetFont
+
+ME ME_4A3A8BEE029F_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_4A3A8BEE029F' '47E3DF460095.ms.model.script' // DoInsertStream
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A3A8BEE029F_ME_4A2D2D4300BE DoInsertStream
+
+ME ME_52BC1DD60298_ME_4A2D2D4300BE
+ MELINK Original WL 'ME_52BC1DD60298' '49A58A1A03C4.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52BC1DD60298_ME_4A2D2D4300BE Assign
+
+%%InjectedBy ME_53D8DFA400E2 ME_4A2D2D4300BE
+
+%%ImplementedBy ME_47C5B54401B2 ME_4A2D2D4300BE
+%%ImplementedBy ME_47C68BEF02B9 ME_4A2D2D4300BE
+%%ImplementedBy ME_47C68C4500D2 ME_4A2D2D4300BE
+%%ImplementedBy ME_47C68C9E00F9 ME_4A2D2D4300BE
+%%ImplementedBy ME_47C6925A0045 ME_4A2D2D4300BE
+%%ImplementedBy ME_47C696D10122 ME_4A2D2D4300BE
+%%ImplementedBy ME_48E25C5B00AB ME_4A2D2D4300BE
+
+%%InheritedBy ME_4BAA279500E6 ME_4A2D2D4300BE
+
+ME ME_4A2D2D4300BE
+ MEPROP UID '4A2D2D4300BE'
+ MEPROP Name 'TevRange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A2D30DB039E // evSelection
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4BAA279500E6' '47E3DF460095.ms.model.script' // TnevRangePrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ WL 'ME_47C68BEF02B9' '47C5207602D1.ms.model.script' // InevStorable
+ WL 'ME_47C68C4500D2' '48F4E61C0060.ms.model.script' // DataObject
+ WL 'ME_47C68C9E00F9' '47C5207602D1.ms.model.script' // InevDataObjectPrim2
+ WL 'ME_47C6925A0045' '47C5207602D1.ms.model.script' // InevRangeModify
+ WL 'ME_47C696D10122' '47C5207602D1.ms.model.script' // InevRangeFactory
+ WL 'ME_48E25C5B00AB' '47C5207602D1.ms.model.script' // IevRange
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_50B730F30193 // Sharp
+ HWL ME_52D79D590074 // Borders
+ HWL ME_57D112CB0392 // SearchContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5108D53B0312 // DoInit
+ HWL ME_5108D5CB0048 // DoStore
+ HWL ME_5108D66900C9 // DoDelete
+ HWL ME_52D79DFC0347 // DoGetChildSel
+ HWL ME_52D79E610203 // DoRefreshBorders
+ HWL ME_52D79E97007C // DeleteBeforeInsert
+ HWL ME_52D79F3B0081 // SearchPrim
+ HWL ME_52D79F9400EB // IsSolid
+ HWL ME_52D79FB703C9 // IsCollapsed
+ HWL ME_52D79FDF010B // GetContainsEnd
+ HWL ME_52D79FFA012A // TagReader
+ HWL ME_52D7A3F100E0 // DoBottomChildBlock
+ HWL ME_52D7A46B016F // DoGetBorders
+ HWL ME_52D7A56B029E // DoGetBorderPoints
+ HWL ME_52D7C54903BD // DoIterate
+ HWL ME_52D7CB7B01EE // DoIterateBack
+ HWL ME_52D7CBD0020F // DoIterateF
+ HWL ME_52D7CC2F036B // DoIterateBackF
+ HWL ME_52D7CCD70340 // DoSearchReplace
+ HWL ME_57D113100258 // IniSearchContext
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C68BFD011C_ME_4A2D2D4300BE // Store
+ ME_47C68C6701AF_ME_4A2D2D4300BE // Store
+ ME_47C690AB02EE_ME_4A2D2D4300BE // SolidBottomChildBlock
+ ME_47C691F0012A_ME_4A2D2D4300BE // GetChildSel
+ ME_47C691FB0055_ME_4A2D2D4300BE // GetBorderPoints
+ ME_47C6920B01B2_ME_4A2D2D4300BE // BottomChildBlock
+ ME_47C6924201FA_ME_4A2D2D4300BE // CloneSel
+ ME_47C6928C0243_ME_4A2D2D4300BE // Delete
+ ME_47C692B301BF_ME_4A2D2D4300BE // Modify
+ ME_47C692C10136_ME_4A2D2D4300BE // ParentRange
+ ME_47C692CC024C_ME_4A2D2D4300BE // Contains
+ ME_47C6960502ED_ME_4A2D2D4300BE // Select
+ ME_47C696160251_ME_4A2D2D4300BE // Select
+ ME_47C6962E028E_ME_4A2D2D4300BE // Borders
+ ME_47C696B603E7_ME_4A2D2D4300BE // Data
+ ME_47C696E302FE_ME_4A2D2D4300BE // Init
+ ME_47FF53790028_ME_4A2D2D4300BE // Solid
+ ME_47FF5C3D017E_ME_4A2D2D4300BE // ContainsEnd
+ ME_47FF5F3702F6_ME_4A2D2D4300BE // Collapsed
+ ME_48E25C7E0366_ME_4A2D2D4300BE // AssignSel
+ ME_48E25C980073_ME_4A2D2D4300BE // GetBlock
+ ME_48E25CA5027C_ME_4A2D2D4300BE // SetToStart
+ ME_48E25CB3032B_ME_4A2D2D4300BE // Unselect
+ ME_48EC8339027A_ME_4A2D2D4300BE // AsStorable
+ ME_49E83F480351_ME_4A2D2D4300BE // SearchReplace
+ ME_49E843B10236_ME_4A2D2D4300BE // Search
+ ME_50AF18AD03DD_ME_4A2D2D4300BE // SetToFinish
+ ME_50B727F00221_ME_4A2D2D4300BE // RefreshBorders
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_49DF62920242_ME_4A2D2D4300BE // GetRange
+ ME_49DF62A201EB_ME_4A2D2D4300BE // GetAsPoint
+ ME_4A2945060101_ME_4A2D2D4300BE // DoGetStyle
+ ME_4A29477801BF_ME_4A2D2D4300BE // DoGetFont
+ ME_4A3A8BEE029F_ME_4A2D2D4300BE // DoInsertStream
+ ME_52BC1DD60298_ME_4A2D2D4300BE // Assign
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52D7E6DC01B1 // Classes
+ ME_52D7E6F10224 // ParaList
+ ME_52D7E703021C // l3Stream
+ ME_52D7E71A0111 // SysUtils
+ ME_52D7E73A0024 // l3String
+ ME_52D7E73C02AE // l3Base
+ ME_52D7E75E0098 // nevInterfaces
+ ME_52D7E76F0178 // nevFacade
+ ME_52D7E78900A6 // Para
+ ME_52D7E7A401EA // SelectConsts
+ ME_52D7E7F90072 // Tk2TagID
+ ME_531EF4770386 // k2Base
+ ME_53D8DFF80119 // TevParaInterfaceFactoryPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Range'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4A2D2D4300BE TevRange
+
+ME ME_4A2D30DB039E
+ MEPROP UID '4A2D30DB039E'
+ MEPROP Name 'evSelection'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A2D2D4300BE // TevRange
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSelection.pas'
+ UP extprop:rc:SelfName 'Selection'
+
+ENDME // ME_4A2D30DB039E evSelection

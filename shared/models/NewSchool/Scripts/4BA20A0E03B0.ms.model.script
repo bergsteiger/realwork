@@ -1,0 +1,72 @@
+// l3AsincMessageWindowRes 4BA20A0E03B0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4BA20A0E03B0
+
+FORWARD ME_4BA20A380097
+
+ME ME_4BA20A4F018E
+ MEPROP UID '4BA20A4F018E'
+ MEPROP Name 'LongOperation'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4BA20A380097 // Local
+ ;
+ MEPROP Value '''Выполняется длительная операция...'''
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value '''Выполняется длительная операция...'''
+
+ENDME // ME_4BA20A4F018E LongOperation
+
+ME ME_4BA20A380097
+ MEPROP UID '4BA20A380097'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA20A0E03B0 // l3AsincMessageWindowRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BA20A4F018E // LongOperation
+ )
+ ; // Attributes
+ UP "Need map interface" false
+ UP "Need mapping support" false
+ UP "children prefix" 'l3mm'
+ UP "spell names" false
+ UP extprop:pas:ElementPrefix 'l3mm'
+
+ENDME // ME_4BA20A380097 Local
+
+ME ME_4BA20A0E03B0
+ MEPROP UID '4BA20A0E03B0'
+ MEPROP Name 'l3AsincMessageWindowRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4BA20A380097 // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" true
+ UP "started" '18.10.2010'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3AsincMessageWindowRes.pas'
+ UP extprop:rc:SelfName 'AsincMessageWindowRes'
+
+ENDME // ME_4BA20A0E03B0 l3AsincMessageWindowRes

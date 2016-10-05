@@ -1,0 +1,77 @@
+// tfwStackChecking 528F7DDA02BF Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_528F7DDA02BF
+
+FORWARD ME_528F7301033E
+
+ME ME_528F73120209
+ MEPROP UID '528F73120209'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_528F7301033E // StackCheckingMessage
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_528F73120209 DoIt
+
+ME ME_528F7301033E
+ MEPROP UID '528F7301033E'
+ MEPROP Name 'StackCheckingMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528F7DDA02BF // tfwStackChecking
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_528F73120209 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_528F7301033E StackCheckingMessage
+
+ME ME_4DAEEDE10285_ME_528F7DDA02BF
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_528F7DDA02BF DoDoIt
+
+%%ImplementedBy ME_528F7E620313 ME_528F7DDA02BF
+
+ME ME_528F7DDA02BF
+ MEPROP UID '528F7DDA02BF'
+ MEPROP Name 'tfwStackChecking'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_528F7E620313' '54F079B5035C.ms.model.script' // MtfwWord
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_528F7301033E // StackCheckingMessage
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_528F7DDA02BF // DoDoIt
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwStackChecking.imp.pas'
+ UP extprop:pas:TypeName '_tfwStackChecking_'
+ UP extprop:pas:UnitName 'tfwStackChecking.imp'
+
+ENDME // ME_528F7DDA02BF tfwStackChecking

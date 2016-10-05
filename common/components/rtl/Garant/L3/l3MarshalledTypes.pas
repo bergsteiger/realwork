@@ -51,6 +51,13 @@ type
   , atJurEdit
  );//TOperActionType
 
+ TarMultiOperation = (
+  ar_moGroupTouch
+  , ar_moTouchIZM
+  , ar_moChangeKeywords
+  , ar_moSetClonePublishedin
+ );//TarMultiOperation
+
 implementation
 
 uses

@@ -1,0 +1,125 @@
+// evContentsUtils 532BFF3F00CA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_532BFF3F00CA
+
+FORWARD ME_532C045C0252
+
+ME ME_532C046801C5
+ MEPROP UID '532C046801C5'
+ MEPROP Name 'cnUndefLevel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_532C045C0252 // Common
+ ;
+ MEPROP Value 'High(LongInt) - 1'
+ UP "AutoInc" false
+ UP "forced type" 'none'
+ UP "is define" false
+ UP extprop:pas:Value 'High(LongInt) - 1'
+
+ENDME // ME_532C046801C5 cnUndefLevel
+
+ME ME_532C045C0252
+ MEPROP UID '532C045C0252'
+ MEPROP Name 'Common'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_532BFF3F00CA // evContentsUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_532C046801C5 // cnUndefLevel
+ )
+ ; // Attributes
+ UP "spell names" false
+
+ENDME // ME_532C045C0252 Common
+
+FORWARD ME_532BFF6403D5
+
+ME ME_532C0450007D
+ MEPROP Name 'aLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_532C0450007D aLevel
+
+ME ME_532C0450009C
+ MEPROP Name 'anIsDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_532C0450009C anIsDocument
+
+ME ME_532BFF7B020E
+ MEPROP UID '532BFF7B020E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532BFF6403D5 // evGetContentLevel
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_532C0450007D // aLevel
+ ME_532C0450009C // anIsDocument
+ )
+ ; // Parameters
+
+ENDME // ME_532BFF7B020E DoIt
+
+ME ME_532BFF6403D5
+ MEPROP UID '532BFF6403D5'
+ MEPROP Name 'evGetContentLevel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_532BFF3F00CA // evContentsUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_532BFF7B020E // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'GetContentLevel'
+
+ENDME // ME_532BFF6403D5 evGetContentLevel
+
+ME ME_532BFF3F00CA
+ MEPROP UID '532BFF3F00CA'
+ MEPROP Name 'evContentsUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DFEEE4A017D' '4DFEEE4A017D.ms.model.script' // ContentsTree
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_532BFF6403D5 // evGetContentLevel
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_532C045C0252 // Common
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evContentsUtils.pas'
+ UP extprop:rc:SelfName 'ContentsUtils'
+
+ENDME // ME_532BFF3F00CA evContentsUtils

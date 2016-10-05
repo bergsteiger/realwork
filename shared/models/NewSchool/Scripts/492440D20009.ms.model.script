@@ -1,0 +1,173 @@
+// nsValueMaps 492440D20009 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_492440D20009
+
+ME ME_4AD5BBEF0365
+ MEPROP UID '4AD5BBEF0365'
+ MEPROP Name 'g_IntegerFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492440D20009 // nsValueMaps
+ ;
+ MELINK Target WL 'ME_499195060208' '499192F203B4.ms.model.script' // InsIntegerValueMapFactory
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_499195060208' '499192F203B4.ms.model.script' // InsIntegerValueMapFactory
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4AD5BBEF0365 g_IntegerFactory
+
+ME ME_4AD5BC10013F
+ MEPROP UID '4AD5BC10013F'
+ MEPROP Name 'g_StringFactory'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_492440D20009 // nsValueMaps
+ ;
+ MELINK Target WL 'ME_499194C3028F' '499192F203B4.ms.model.script' // InsStringValueMapFactory
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_499194C3028F' '499192F203B4.ms.model.script' // InsStringValueMapFactory
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4AD5BC10013F g_StringFactory
+
+FORWARD ME_4AD5BB3D0079
+
+ME ME_4AD5BB4702C9
+ MEPROP UID '4AD5BB4702C9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB3D0079 // nsStringMapManager
+ ;
+ MELINK Target WL 'ME_499194D801B1' '499192F203B4.ms.model.script' // InsStringValueMapManager
+ ;
+
+ENDME // ME_4AD5BB4702C9 DoIt
+
+ME ME_4AD5BB3D0079
+ MEPROP UID '4AD5BB3D0079'
+ MEPROP Name 'nsStringMapManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_492440D20009 // nsValueMaps
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AD5BB4702C9 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'StringMapManager'
+
+ENDME // ME_4AD5BB3D0079 nsStringMapManager
+
+FORWARD ME_4AD5BB5503B3
+
+ME ME_4AD5BB5E02C5
+ MEPROP UID '4AD5BB5E02C5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AD5BB5503B3 // nsIntegerMapManager
+ ;
+ MELINK Target WL 'ME_49919596034A' '499192F203B4.ms.model.script' // InsIntegerValueMapManager
+ ;
+
+ENDME // ME_4AD5BB5E02C5 DoIt
+
+ME ME_4AD5BB5503B3
+ MEPROP UID '4AD5BB5503B3'
+ MEPROP Name 'nsIntegerMapManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_492440D20009 // nsValueMaps
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AD5BB5E02C5 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'IntegerMapManager'
+
+ENDME // ME_4AD5BB5503B3 nsIntegerMapManager
+
+ME ME_4AD5BA1A02DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492440D20009 // nsValueMaps
+ ;
+ MELINK Target WL 'ME_4AD5BA0F0231' '4AD5BA0F0231.ms.model.script' // nsIntegerValueMapFactory
+ ;
+
+ENDME // ME_4AD5BA1A02DB 
+
+ME ME_4AD5BA5D03DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492440D20009 // nsValueMaps
+ ;
+ MELINK Target WL 'ME_4AD5BA56015E' '4AD5BA56015E.ms.model.script' // nsStringValueMapFactory
+ ;
+
+ENDME // ME_4AD5BA5D03DB 
+
+ME ME_4AD5BB1F0198
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_492440D20009 // nsValueMaps
+ ;
+ MELINK Target WL 'ME_499194C3028F' '499192F203B4.ms.model.script' // InsStringValueMapFactory
+ ;
+
+ENDME // ME_4AD5BB1F0198 
+
+ME ME_492440D20009
+ MEPROP UID '492440D20009'
+ MEPROP Name 'nsValueMaps'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48F747EC0073' '48F747EC0073.ms.model.script' // Common
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4AD5BBEF0365 // g_IntegerFactory
+ HWL ME_4AD5BC10013F // g_StringFactory
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4AD5BB3D0079 // nsStringMapManager
+ HWL ME_4AD5BB5503B3 // nsIntegerMapManager
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AD5BA1A02DB // nsIntegerValueMapFactory
+ ME_4AD5BA5D03DB // nsStringValueMapFactory
+ ME_4AD5BB1F0198 // InsStringValueMapFactory
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" false
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Data\Common\NOT_FINISHED_nsValueMaps.pas'
+ UP extprop:rc:SelfName 'ValueMaps'
+
+ENDME // ME_492440D20009 nsValueMaps

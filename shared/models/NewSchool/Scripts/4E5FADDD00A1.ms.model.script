@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4E5FADDD00A1
+%%Inner ME_4E5FADDD00A1
+
 FORWARD ME_4E5FADDD00A1
 
 FORWARD ME_4E5FAE1700D5
@@ -12,7 +15,7 @@ ME ME_4E5FB4AC0160
  MEPROP Name 'aTag'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_4E5FB4AC0160 aTag
@@ -49,6 +52,10 @@ ME ME_4E5FB49D0253
 
 ENDME // ME_4E5FB49D0253 Create
 
+%%ImplementedBy ME_49D0E657022F ME_4E5FB4B90229
+
+%%InheritedBy ME_4E5FB49D0253 ME_4E5FB4B90229
+
 ME ME_4E5FB4B90229
  MEPROP UID '4E5FB4B90229'
  MEPROP Name 'Make'
@@ -75,7 +82,7 @@ ME ME_4E708D6D0221
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E5FAE1700D5 // TnevSegmentObject
  ;
- MELINK Target WL 'ME_4E7087BE0311' '54B90AC6014B.ms.model.script' // l3AssignNil
+ MELINK Target WL 'ME_4E7087BE0311' '47878E0E0191.ms.model.script' // l3AssignNil
  ;
 
 ENDME // ME_4E708D6D0221 
@@ -183,7 +190,7 @@ ME ME_4E6F7B7902C4_ME_4E5FAE1700D5
 ENDME // ME_4E6F7B7902C4_ME_4E5FAE1700D5 TreatCollapsedAsHidden
 
 ME ME_47A6FEE600FC_ME_4E5FAE1700D5
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
@@ -194,6 +201,10 @@ ME ME_4A48AFBD001D_ME_4E5FAE1700D5
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A48AFBD001D_ME_4E5FAE1700D5 NeedEvents
+
+%%ImplementedBy ME_49D0E657022F ME_4E5FAE1700D5
+
+%%InheritedBy ME_467C18A303CB ME_4E5FAE1700D5
 
 ME ME_4E5FAE1700D5
  MEPROP UID '4E5FAE1700D5'
@@ -245,28 +256,15 @@ ME ME_4E5FAE1700D5
  ME_53439D980196 // TextSegment
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP intf.pas:Path 'common\components\gui\Garant\Everest\nevSegmentObject.pas'
  UP extprop:rc:SelfName 'SegmentObject'
  UP extprop:rc:isAcceptableForScripts true
  UP extprop:pas:UnitName 'nevSegmentObject'
 
 ENDME // ME_4E5FAE1700D5 TnevSegmentObject
-
-ME ME_529EFC6301CE
- MEPROP UID '529EFC6301CE'
- MEPROP Name 'evSegOp'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E5FADDD00A1 // Segments
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSegOp.pas'
- UP extprop:rc:SelfName 'SegOp'
-
-ENDME // ME_529EFC6301CE evSegOp
 
 ME ME_4E5FADDD00A1
  MEPROP UID '4E5FADDD00A1'
@@ -280,7 +278,7 @@ ME ME_4E5FADDD00A1
  ;
  MELIST Children
    Seq: ( HWL ME_4E5FAE1700D5 // TnevSegmentObject
- HWL ME_529EFC6301CE // evSegOp
+ WL 'ME_529EFC6301CE' '529EFC6301CE.ms.model.script' // evSegOp
  )
  ; // Children
  MELIST Depends
@@ -292,5 +290,8 @@ ME ME_4E5FADDD00A1
  WL 'ME_54B90AC6014B' '54B90AC6014B.ms.model.script' // StringUtils
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4E5FADDD00A1 Segments

@@ -1,0 +1,96 @@
+// ConsultationWordsPack 571A296801DD ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_571A296801DD
+
+FORWARD ME_571A296801DD
+
+FORWARD ME_4DECF7F4001F
+
+ME ME_4DECF85901A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DECF7F4001F // TkwF1ImportConsultation
+ ;
+ MELINK Target WL 'ME_4B1E8FAE0380' '48FF556602BA.ms.model.script' // DefDataAdapter
+ ;
+
+ENDME // ME_4DECF85901A2 
+
+ME ME_4DECF87F00BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DECF7F4001F // TkwF1ImportConsultation
+ ;
+ MELINK Target WL 'ME_4AAF9718001D' '4A6854C70390.ms.model.script' // nsAStr
+ ;
+
+ENDME // ME_4DECF87F00BF 
+
+ME ME_4DECF7F4001F
+ MEPROP UID '4DECF7F4001F'
+ MEPROP Name 'TkwF1ImportConsultation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeyword ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_571A296801DD // ConsultationWordsPack
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4DECF85901A2 // DefDataAdapter
+ ME_4DECF87F00BF // nsAStr
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "NameForScript" 'f1::ImportConsultation'
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" true
+ UP "started" '06.06.2011 19:53'
+ UP extprop:rc:SelfName 'F1ImportConsultation'
+ UP extprop:rc:isAcceptableForScripts true
+
+ENDME // ME_4DECF7F4001F TkwF1ImportConsultation
+
+ME ME_571A297B0071
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_571A296801DD // ConsultationWordsPack
+ ;
+ MELINK Target WL 'ME_497EDC5003D1' '497EDC5003D1.ms.model.script' // PrimConsultationMark
+ ;
+
+ENDME // ME_571A297B0071 
+
+%%InjectedBy ME_497EDC5003D1 ME_571A296801DD
+
+ME ME_571A296801DD
+ MEPROP UID '571A296801DD'
+ MEPROP Name 'ConsultationWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4ABCFB650008' '4ABCFB650008.ms.model.script' // Consultation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DECF7F4001F // TkwF1ImportConsultation
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_571A297B0071 // PrimConsultationMark
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "need UC" true
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\View\Consultation\ConsultationWordsPack.pas'
+
+ENDME // ME_571A296801DD ConsultationWordsPack

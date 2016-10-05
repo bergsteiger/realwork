@@ -2,178 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_555331D10378
-
-FORWARD ME_5553320F016B
-
-ME ME_5553322F03C9
- MEPROP UID '5553322F03C9'
- MEPROP Name 'SAB'
- MEPROP Class class_Class
- MELINK Stereotype st_Struct ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5553320F016B // HT_Const
- ;
- UP "finished" false
-
-ENDME // ME_5553322F03C9 SAB
-
-ME ME_555C84FC0026
- MEPROP UID '555C84FC0026'
- MEPROP Name 'ThtTblHandle'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5553320F016B // HT_Const
- ;
- UP "finished" false
-
-ENDME // ME_555C84FC0026 ThtTblHandle
-
-ME ME_559FA10A0133
- MEPROP UID '559FA10A0133'
- MEPROP Name 'OPEL'
- MEPROP Class class_Class
- MELINK Stereotype st_Struct ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5553320F016B // HT_Const
- ;
- UP "finished" false
-
-ENDME // ME_559FA10A0133 OPEL
-
-ME ME_559FA11803DC
- MEPROP UID '559FA11803DC'
- MEPROP Name 'LPOPEL'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5553320F016B // HT_Const
- ;
- MELIST Inherits
-   Seq: ( HWL ME_559FA10A0133 // OPEL
- )
- ; // Inherits
- UP "isPointer" true
-
-ENDME // ME_559FA11803DC LPOPEL
-
-ME ME_5553320F016B
- MEPROP UID '5553320F016B'
- MEPROP Name 'HT_Const'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_555331D10378 // Core
- ;
- MELIST Children
-   Seq: ( HWL ME_5553322F03C9 // SAB
- HWL ME_555C84FC0026 // ThtTblHandle
- HWL ME_559FA10A0133 // OPEL
- HWL ME_559FA11803DC // LPOPEL
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_HT_Const.pas'
-
-ENDME // ME_5553320F016B HT_Const
-
-FORWARD ME_55533C7600A0
-
-ME ME_55533C9001BE
- MEPROP UID '55533C9001BE'
- MEPROP Name 'htClearResults'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55533C7600A0 // HT_DLL
- ;
- UP "finished" false
-
-ENDME // ME_55533C9001BE htClearResults
-
-ME ME_55533C7600A0
- MEPROP UID '55533C7600A0'
- MEPROP Name 'HT_DLL'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_555331D10378 // Core
- ;
- MELIST Operations
-   Seq: ( HWL ME_55533C9001BE // htClearResults
- )
- ; // Operations
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_HT_DLL.pas'
-
-ENDME // ME_55533C7600A0 HT_DLL
-
-FORWARD ME_555F034A01B6
-
-ME ME_55D47A1500CB
- MEPROP UID '55D47A1500CB'
- MEPROP Name 'EHtErrors'
- MEPROP Class class_Class
- MELINK Stereotype st_Exception ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_555F034A01B6 // dt_Err
- ;
- UP "finished" false
-
-ENDME // ME_55D47A1500CB EHtErrors
-
-ME ME_555F035A031E
- MEPROP UID '555F035A031E'
- MEPROP Name 'HT'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_555F034A01B6 // dt_Err
- ;
-
-ENDME // ME_555F035A031E HT
-
-ME ME_555F034A01B6
- MEPROP UID '555F034A01B6'
- MEPROP Name 'dt_Err'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_555331D10378 // Core
- ;
- MELIST Operations
-   Seq: ( HWL ME_555F035A031E // HT
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_55D47A1500CB // EHtErrors
- )
- ; // Children
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Err.pas'
-
-ENDME // ME_555F034A01B6 dt_Err
+%%Inner ME_555331D10378
+%%Inner ME_555331D10378
+%%Inner ME_555331D10378
 
 ME ME_555331D10378
  MEPROP UID '555331D10378'
@@ -186,10 +17,13 @@ ME ME_555331D10378
  MELINK Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.ms.model.script' // DT
  ;
  MELIST Children
-   Seq: ( HWL ME_5553320F016B // HT_Const
- HWL ME_55533C7600A0 // HT_DLL
- HWL ME_555F034A01B6 // dt_Err
+   Seq: ( WL 'ME_5553320F016B' '5553320F016B.ms.model.script' // HT_Const
+ WL 'ME_55533C7600A0' '55533C7600A0.ms.model.script' // HT_DLL
+ WL 'ME_555F034A01B6' '555F034A01B6.ms.model.script' // dt_Err
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_555331D10378 Core

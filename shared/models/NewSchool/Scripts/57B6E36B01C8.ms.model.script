@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_57B6E36B01C8
+
 FORWARD ME_57B6E36B01C8
 
 FORWARD ME_57B6E3BA005F
@@ -16,7 +18,7 @@ ME ME_57BB1439021C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
@@ -32,7 +34,7 @@ ME ME_57BF48CB03B2
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
@@ -48,18 +50,34 @@ ME ME_57BFE5C1028C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value false
 
 ENDME // ME_57BFE5C1028C g_SpellOnly
+
+ME ME_57EB56980387
+ MEPROP UID '57EB56980387'
+ MEPROP Name 'g_NoModel'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value false
+
+ENDME // ME_57EB56980387 g_NoModel
 
 ME ME_57B6EB2C01F6
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_57B6E3BA005F // TmsGenRunner
  ;
- MELINK Target WL 'ME_57B2D68E035D' '57B2D67D038F.ms.model.script' // msmWordsCachePack
+ MELINK Target WL 'ME_57B2D68E035D' '57B2D68E035D.ms.model.script' // msmWordsCachePack
  ;
 
 ENDME // ME_57B6EB2C01F6 
@@ -85,6 +103,8 @@ ME ME_57B6F81500E3_ME_57B6E3BA005F
  UP "is static" true
 ENDME // ME_57B6F81500E3_ME_57B6E3BA005F CheckFileExists
 
+%%InheritedBy ME_55C482EC023E ME_57B6E3BA005F
+
 ME ME_57B6E3BA005F
  MEPROP UID '57B6E3BA005F'
  MEPROP Name 'TmsGenRunner'
@@ -103,6 +123,7 @@ ME ME_57B6E3BA005F
    Seq: ( HWL ME_57BB1439021C // g_ModelOnly
  HWL ME_57BF48CB03B2 // g_NullOnly
  HWL ME_57BFE5C1028C // g_SpellOnly
+ HWL ME_57EB56980387 // g_NoModel
  )
  ; // Attributes
  MELIST Overridden
@@ -144,12 +165,15 @@ ME ME_57B6E36B01C8
  WL 'ME_57B2D67D038F' '57B2D67D038F.ms.model.script' // WordsCache
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "console" true
  UP "defines" 'msgen.inc'
  UP "need UC in project" true
  UP "path suffix" '/msgen'
  UP intf.pas:Path 'common\components\msgen\msgen.dpr'
  UP intf.pas:PathOnly '\common\components\msgen'
- UP Version 87
+ UP Version 96
 
 ENDME // ME_57B6E36B01C8 msgen

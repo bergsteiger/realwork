@@ -2,22 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_519C98B002F7
-
-ME ME_519C98F80363
- MEPROP UID '519C98F80363'
- MEPROP Name 'ZipForge'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_519C98B002F7 // ZipForge
- ;
- UP "finished" false
- UP intf.pas:Path 'common\components\rtl\external\ZipForge\Source\NOT_FINISHED_ZipForge.pas'
-
-ENDME // ME_519C98F80363 ZipForge
+%%Inner ME_519C98B002F7
 
 ME ME_519C98B002F7
  MEPROP UID '519C98B002F7'
@@ -30,9 +15,12 @@ ME ME_519C98B002F7
  MELINK Parent WL 'ME_519C9851011D' '519C9851011D.ms.model.script' // ZipForge
  ;
  MELIST Children
-   Seq: ( HWL ME_519C98F80363 // ZipForge
+   Seq: ( WL 'ME_519C98F80363' '519C98F80363.ms.model.script' // ZipForge
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "path prefix" '/Source'
  UP intf.pas:PathOnly '\common\components\rtl\external\ZipForge\Source'
 

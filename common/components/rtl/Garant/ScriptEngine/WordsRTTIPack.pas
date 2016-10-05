@@ -2129,7 +2129,10 @@ function TkwPopWordProducer.Producer(const aCtx: TtfwContext;
 //#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_var*
 begin
 //#UC START# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
- Result := aWord.WordProducer;
+ if (aWord = nil) then
+  Result := nil
+ else
+  Result := aWord.WordProducer;
 //#UC END# *550C286D0202_550C286D0202_4DAEED140007_Word_impl*
 end;//TkwPopWordProducer.Producer
 

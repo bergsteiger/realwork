@@ -1,0 +1,96 @@
+// RefCounted 51614065019A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51614065019A
+
+ME ME_5161409E01B6
+ MEPROP UID '5161409E01B6'
+ MEPROP Name 'destroy'
+ MEPROP Class class_Operation
+ %SUMMARY 'Это чтобы не было соблазна перекрывать destroy.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51614065019A // RefCounted
+ ;
+
+ENDME // ME_5161409E01B6 destroy
+
+ME ME_516D4E5A000A
+ MEPROP UID '516D4E5A000A'
+ MEPROP Name 'NewInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51614065019A // RefCounted
+ ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_516D4E5A000A NewInstance
+
+ME ME_516D4E780193
+ MEPROP UID '516D4E780193'
+ MEPROP Name 'FreeInstance'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51614065019A // RefCounted
+ ;
+
+ENDME // ME_516D4E780193 FreeInstance
+
+ME ME_516D4E9403A0
+ MEPROP UID '516D4E9403A0'
+ MEPROP Name 'AfterConstruction'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51614065019A // RefCounted
+ ;
+
+ENDME // ME_516D4E9403A0 AfterConstruction
+
+ME ME_516D4EAD0095
+ MEPROP UID '516D4EAD0095'
+ MEPROP Name 'BeforeDestruction'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51614065019A // RefCounted
+ ;
+
+ENDME // ME_516D4EAD0095 BeforeDestruction
+
+%%InheritedBy ME_51612ED700B4 ME_51614065019A
+
+ME ME_51614065019A
+ MEPROP UID '51614065019A'
+ MEPROP Name 'RefCounted'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51612EBB02F5' '51612EBB02F5.ms.model.script' // Ref Counting
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51612ED700B4' '51612ED700B4.ms.model.script' // RefCountedPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5161409E01B6 // destroy
+ HWL ME_516D4E5A000A // NewInstance
+ HWL ME_516D4E780193 // FreeInstance
+ HWL ME_516D4E9403A0 // AfterConstruction
+ HWL ME_516D4EAD0095 // BeforeDestruction
+ )
+ ; // Operations
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\RefCounted.imp.pas'
+ UP extprop:pas:TypeName '_RefCounted_'
+ UP extprop:pas:UnitName 'RefCounted.imp'
+
+ENDME // ME_51614065019A RefCounted
