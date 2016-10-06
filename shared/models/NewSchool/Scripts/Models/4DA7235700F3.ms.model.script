@@ -1,0 +1,58 @@
+// afwVGSceneUpdater 4DA7235700F3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DA7235700F3
+
+ME ME_4DA7238600B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA7235700F3 // afwVGSceneUpdater
+ ;
+ MELINK Target WL 'ME_4DA722D70277' '47752AF90375.ms.model.script' // TafwControlMessageHook
+ ;
+
+ENDME // ME_4DA7238600B1 
+
+ME ME_47E136A80191_ME_4DA7235700F3
+ MELINK Original WL 'ME_47E136A80191' '47E11FC3021E.ms.model.script' // WndProc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47E136A80191_ME_4DA7235700F3 WndProc
+
+%%ImplementedBy ME_4CC81DE8030F ME_4DA7235700F3
+
+ME ME_4DA7235700F3
+ MEPROP UID '4DA7235700F3'
+ MEPROP Name 'afwVGSceneUpdater'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47EA4BB502F9' '47EA4BB502F9.ms.model.script' // afwMixIns
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4CC81DE8030F' '4799D29F033F.ms.model.script' // MWinControl
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_47E136A80191_ME_4DA7235700F3 // WndProc
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DA7238600B1 // TafwControlMessageHook
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '14.04.2011 20:40'
+ UP extprop:pas:TypeName '_afwVGSceneUpdater_'
+ UP extprop:pas:UnitName 'afwVGSceneUpdater.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwVGSceneUpdater.imp.pas'
+
+ENDME // ME_4DA7235700F3 afwVGSceneUpdater

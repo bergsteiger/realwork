@@ -2,48 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_47E0C1C2014B
-
-FORWARD ME_47E0C20A0236
-
-ME ME_47E0C1E80191
- MEPROP UID '47E0C1E80191'
- MEPROP Name 'TevDataCache'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47E0C20A0236 // l3DataCache
- ;
- UP "author" 'Ëþëèí À.Â.'
- UP "started" '25.10.2004 16:13'
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'DataCache'
-
-ENDME // ME_47E0C1E80191 TevDataCache
-
-ME ME_47E0C20A0236
- MEPROP UID '47E0C20A0236'
- MEPROP Name 'l3DataCache'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47E0C1C2014B // l3Persistent
- ;
- MELIST Children
-   Seq: ( HWL ME_47E0C1E80191 // TevDataCache
- )
- ; // Children
- UP "author" 'Ëþëèí À.Â.'
- UP "finished" False
- UP "started" '25.10.2004 16:13'
- UP extprop:rc:SelfName 'DataCache'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3DataCache.pas'
-
-ENDME // ME_47E0C20A0236 l3DataCache
+%%Inner ME_47E0C20A0236
 
 ME ME_47E0C1C2014B
  MEPROP UID '47E0C1C2014B'
@@ -56,8 +15,11 @@ ME ME_47E0C1C2014B
  MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
  ;
  MELIST Children
-   Seq: ( HWL ME_47E0C20A0236 // l3DataCache
+   Seq: ( WL 'ME_47E0C20A0236' '47E0C20A0236.ms.model.script' // l3DataCache
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_47E0C1C2014B l3Persistent

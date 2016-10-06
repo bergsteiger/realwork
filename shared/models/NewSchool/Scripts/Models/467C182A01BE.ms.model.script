@@ -2,7 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_467C18A303CB
+%%Inner ME_4BBF3D8B00CD
+%%Inner ME_508ADEB001A2
+%%Inner ME_467C18BF0367
+
 FORWARD ME_467C182A01BE
+
+%%InheritedBy ME_467C185C03E7 ME_467C18A303CB
 
 ME ME_467C18A303CB
  MEPROP UID '467C18A303CB'
@@ -54,7 +61,7 @@ ME ME_4BBF40EA0117
  MEPROP Name 'aTag'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_4BBF40EA0117 aTag
@@ -141,10 +148,10 @@ ME ME_54BD16D7039A
  MEPROP Name 'OpCode'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MEPROP Value 0
- MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP extprop:pas:Value 0
 
@@ -154,10 +161,10 @@ ME ME_54BD16D703CC
  MEPROP Name 'DoLock'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value True
 
@@ -198,6 +205,10 @@ ME ME_54BD16B6032F
 
 ENDME // ME_54BD16B6032F StartOp
 
+%%ImplementedBy ME_467818430333 ME_54BD284F0204
+
+%%InheritedBy ME_4BBF40C603BD ME_54BD284F0204
+
 ME ME_54BD284F0204
  MEPROP UID '54BD284F0204'
  MEPROP Name 'Make'
@@ -227,7 +238,7 @@ ME ME_4BBF42BF004D_ME_4BBF3D8B00CD
 ENDME // ME_4BBF42BF004D_ME_4BBF3D8B00CD Processor
 
 ME ME_479731C50290_ME_4BBF3D8B00CD
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4BBF3D8B00CD Cleanup
@@ -239,10 +250,14 @@ ME ME_48CF73CE00B5_ME_4BBF3D8B00CD
 ENDME // ME_48CF73CE00B5_ME_4BBF3D8B00CD DoFire
 
 ME ME_4A60B23E00C3_ME_4BBF3D8B00CD
- MELINK Original WL 'ME_4A60B23E00C3' '47BB24D30205.ms.model.script' // COMQueryInterface
+ MELINK Original WL 'ME_4A60B23E00C3' '4A60B2220398.ms.model.script' // COMQueryInterface
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A60B23E00C3_ME_4BBF3D8B00CD COMQueryInterface
+
+%%ImplementedBy ME_4BBF4290001A ME_4BBF3D8B00CD
+
+%%InheritedBy ME_467C18A303CB ME_4BBF3D8B00CD
 
 ME ME_4BBF3D8B00CD
  MEPROP UID '4BBF3D8B00CD'
@@ -283,12 +298,17 @@ ME ME_4BBF3D8B00CD
  ME_4A60B23E00C3_ME_4BBF3D8B00CD // COMQueryInterface
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'k2ProcessorTagTool'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ProcessorTagTool'
  UP intf.pas:Path 'common\components\rtl\Garant\K2\k2ProcessorTagTool.pas'
 
 ENDME // ME_4BBF3D8B00CD Tk2ProcessorTagTool
+
+%%InheritedBy ME_467C185C03E7 ME_508ADEB001A2
 
 ME ME_508ADEB001A2
  MEPROP UID '508ADEB001A2'
@@ -306,6 +326,8 @@ ME ME_508ADEB001A2
  ; // Inherits
 
 ENDME // ME_508ADEB001A2 Mk2TagPointer
+
+%%InheritedBy ME_4BBF3D8B00CD ME_467C18BF0367
 
 ME ME_467C18BF0367
  MEPROP UID '467C18BF0367'
@@ -358,6 +380,9 @@ ME ME_467C182A01BE
  WL 'ME_4BC83B8301E5' '4BC83B8301E5.ms.model.script' // k2PureMixIns
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" True
 
 ENDME // ME_467C182A01BE k2TagTool

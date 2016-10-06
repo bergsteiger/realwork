@@ -1,0 +1,73 @@
+// D_Srch 4F8D26D303CB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8D26E9004F
+
+FORWARD ME_4F8D26D303CB
+
+FORWARD ME_4F8D26E9004F
+
+ME ME_4F8D273401A2
+ MEPROP UID '4F8D273401A2'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F8D26E9004F // TDocSearchDlg
+ ;
+
+ENDME // ME_4F8D273401A2 Execute
+
+%%InheritedBy ME_4E4B62A40251 ME_4F8D26E9004F
+
+ME ME_4F8D26E9004F
+ MEPROP UID '4F8D26E9004F'
+ MEPROP Name 'TDocSearchDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D26D303CB // D_Srch
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F8D273401A2 // Execute
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocSearchDlg'
+
+ENDME // ME_4F8D26E9004F TDocSearchDlg
+
+ME ME_4F8D26D303CB
+ MEPROP UID '4F8D26D303CB'
+ MEPROP Name 'D_Srch'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4ECB871B0028' '4ECB871B0028.ms.model.script' // Dialogs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D26E9004F // TDocSearchDlg
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_Srch.pas'
+
+ENDME // ME_4F8D26D303CB D_Srch

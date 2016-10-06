@@ -1,0 +1,222 @@
+// CheckWidthInDeletingColumn 52B3FBE60105 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52B3FBE60105
+
+ME ME_52B3FE4600E9
+ MEPROP UID '52B3FE4600E9'
+ MEPROP Name 'f_Width'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52B3FBE60105 // CheckWidthInDeletingColumn
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52B3FE4600E9 f_Width
+
+ME ME_52B3FED4014E
+ MEPROP UID '52B3FED4014E'
+ MEPROP Name 'f_CheckWidth'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52B3FBE60105 // CheckWidthInDeletingColumn
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52B3FED4014E f_CheckWidth
+
+FORWARD ME_52B3FF0601C9
+
+FORWARD ME_52B3FF1001A9
+
+ME ME_52B3FFCC00C5
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_52B3FFCC00C5 anOpPack
+
+ME ME_52B3FFCC00D5
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_52B3FFCC00D5 aStart
+
+ME ME_52B3FFCC00E5
+ MEPROP Name 'aFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_52B3FFCC00E5 aFinish
+
+ME ME_52B3FF1001A9
+ MEPROP UID '52B3FF1001A9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B3FF0601C9 // Try2CorrectWidth
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52B3FFCC00C5 // anOpPack
+ ME_52B3FFCC00D5 // aStart
+ ME_52B3FFCC00E5 // aFinish
+ )
+ ; // Parameters
+
+ENDME // ME_52B3FF1001A9 DoIt
+
+ME ME_52B3FF0601C9
+ MEPROP UID '52B3FF0601C9'
+ MEPROP Name 'Try2CorrectWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B3FBE60105 // CheckWidthInDeletingColumn
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52B3FF1001A9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52B3FF0601C9 Try2CorrectWidth
+
+FORWARD ME_52B404B300DC
+
+FORWARD ME_52D50F280214
+
+ME ME_52D50F2D03C1
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52D50F2D03C1 aValue
+
+ME ME_52D50F280214
+ MEPROP UID '52D50F280214'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B404B300DC // SetWidth
+ ;
+ MELIST Parameters
+   Seq: ( ME_52D50F2D03C1 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_52D50F280214 DoIt
+
+ME ME_52B404B300DC
+ MEPROP UID '52B404B300DC'
+ MEPROP Name 'SetWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52B3FBE60105 // CheckWidthInDeletingColumn
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D50F280214 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52B404B300DC SetWidth
+
+FORWARD ME_52D50EFA0317
+
+ME ME_52D50F0E03B5
+ MEPROP UID '52D50F0E03B5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52D50EFA0317 // GetStartOffset
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52D50F0E03B5 DoIt
+
+ME ME_52D50EFA0317
+ MEPROP UID '52D50EFA0317'
+ MEPROP Name 'GetStartOffset'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52B3FBE60105 // CheckWidthInDeletingColumn
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52D50F0E03B5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52D50EFA0317 GetStartOffset
+
+ME ME_52B4005700D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52B3FBE60105 // CheckWidthInDeletingColumn
+ ;
+ MELINK Target WL 'ME_50F5119003E5' '4C3849220132.ms.model.script' // evMoreOrEqualOffset
+ ;
+
+ENDME // ME_52B4005700D6 
+
+ME ME_52B3FBE60105
+ MEPROP UID '52B3FBE60105'
+ MEPROP Name 'CheckWidthInDeletingColumn'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52B3FE4600E9 // f_Width
+ HWL ME_52B3FED4014E // f_CheckWidth
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_52B3FF0601C9 // Try2CorrectWidth
+ HWL ME_52B404B300DC // SetWidth
+ HWL ME_52D50EFA0317 // GetStartOffset
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52B4005700D6 // evMoreOrEqualOffset
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_CheckWidthInDeletingColumn_'
+ UP extprop:pas:UnitName 'CheckWidthInDeletingColumn.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\CheckWidthInDeletingColumn.imp.pas'
+
+ENDME // ME_52B3FBE60105 CheckWidthInDeletingColumn

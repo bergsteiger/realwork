@@ -1,0 +1,161 @@
+// vgReminderConsts 53344F290121 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53344F290121
+
+FORWARD ME_53297FB601B2
+
+ME ME_53297FEA0251
+ MEPROP UID '53297FEA0251'
+ MEPROP Name 'c_ReminderDistance'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Расстояние между медалями в линии' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53297FB601B2 // New Reminder Consts
+ ;
+ MEPROP Value 0
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 0
+
+ENDME // ME_53297FEA0251 c_ReminderDistance
+
+ME ME_5329FB5C01C0
+ MEPROP UID '5329FB5C01C0'
+ MEPROP Name 'c_FlashInterval'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Полпериода мигания медали' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53297FB601B2 // New Reminder Consts
+ ;
+ MEPROP Value 400
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 400
+
+ENDME // ME_5329FB5C01C0 c_FlashInterval
+
+ME ME_532AEC1D000F
+ MEPROP UID '532AEC1D000F'
+ MEPROP Name 'c_DefaultReminderOpacity'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Прозрачность медали по умолчанию' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53297FB601B2 // New Reminder Consts
+ ;
+ MEPROP Value '0.7'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '0.7'
+
+ENDME // ME_532AEC1D000F c_DefaultReminderOpacity
+
+ME ME_532AEC370122
+ MEPROP UID '532AEC370122'
+ MEPROP Name 'c_FlashingReminderOpacity'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Прозрачность медали при мигании' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53297FB601B2 // New Reminder Consts
+ ;
+ MEPROP Value '0.4'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '0.4'
+
+ENDME // ME_532AEC370122 c_FlashingReminderOpacity
+
+ME ME_5330148202DB
+ MEPROP UID '5330148202DB'
+ MEPROP Name 'c_ReminderTextHIndent'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Отступ текста по горизонтали в плашке с текстом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53297FB601B2 // New Reminder Consts
+ ;
+ MEPROP Value 7
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 7
+
+ENDME // ME_5330148202DB c_ReminderTextHIndent
+
+ME ME_5330149C023E
+ MEPROP UID '5330149C023E'
+ MEPROP Name 'c_ReminderTextVIndent'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Отступ текста по вертикали в плашке с текстом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53297FB601B2 // New Reminder Consts
+ ;
+ MEPROP Value 5
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 5
+
+ENDME // ME_5330149C023E c_ReminderTextVIndent
+
+ME ME_53297FB601B2
+ MEPROP UID '53297FB601B2'
+ MEPROP Name 'New Reminder Consts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53344F290121 // vgReminderConsts
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53297FEA0251 // c_ReminderDistance
+ HWL ME_5329FB5C01C0 // c_FlashInterval
+ HWL ME_532AEC1D000F // c_DefaultReminderOpacity
+ HWL ME_532AEC370122 // c_FlashingReminderOpacity
+ HWL ME_5330148202DB // c_ReminderTextHIndent
+ HWL ME_5330149C023E // c_ReminderTextVIndent
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_53297FB601B2 New Reminder Consts
+
+ME ME_53344F290121
+ MEPROP UID '53344F290121'
+ MEPROP Name 'vgReminderConsts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53288DFA03A7' '53288DFA03A7.ms.model.script' // NewReminders
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_53297FB601B2 // New Reminder Consts
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ReminderConsts'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vgReminderConsts.pas'
+
+ENDME // ME_53344F290121 vgReminderConsts

@@ -1,0 +1,405 @@
+// evSegment 4A3919200142 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3919200142
+
+FORWARD ME_502205210291
+
+FORWARD ME_502205310325
+
+ME ME_53300DD60039
+ MEPROP Name 'aSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53300DD60039 aSegment
+
+ME ME_502205310325
+ MEPROP UID '502205310325'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502205210291 // evSegmentHasSomeFormat
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53300DD60039 // aSegment
+ )
+ ; // Parameters
+
+ENDME // ME_502205310325 DoIt
+
+ME ME_502205210291
+ MEPROP UID '502205210291'
+ MEPROP Name 'evSegmentHasSomeFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'определяет - имеет ли сегмент хоть какое-то оформление, отличное от стандартного.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3919200142 // evSegment
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502205310325 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'SegmentHasSomeFormat'
+
+ENDME // ME_502205210291 evSegmentHasSomeFormat
+
+FORWARD ME_502205480080
+
+FORWARD ME_50220551015C
+
+ME ME_53300DDB02F9
+ MEPROP Name 'aSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53300DDB02F9 aSegment
+
+ME ME_5022059000F4
+ MEPROP Name 'anAtom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_5022059000F4 anAtom
+
+ME ME_53300DE5004A
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53300DE5004A aValue
+
+ME ME_53300DE5008C
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_53300DE5008C aContext
+
+ME ME_50220551015C
+ MEPROP UID '50220551015C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502205480080 // evSegment_SetFontParam
+ ;
+ MELIST Parameters
+   Seq: ( ME_53300DDB02F9 // aSegment
+ ME_5022059000F4 // anAtom
+ ME_53300DE5004A // aValue
+ ME_53300DE5008C // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_50220551015C DoIt
+
+ME ME_502214B201CC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502205480080 // evSegment_SetFontParam
+ ;
+ MELINK Target WL 'ME_484FC45E0063' '484A470100DD.ms.model.script' // Segment
+ ;
+
+ENDME // ME_502214B201CC 
+
+ME ME_502205480080
+ MEPROP UID '502205480080'
+ MEPROP Name 'evSegment_SetFontParam'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3919200142 // evSegment
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50220551015C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_502214B201CC // Segment
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Segment_SetFontParam'
+
+ENDME // ME_502205480080 evSegment_SetFontParam
+
+FORWARD ME_502206170304
+
+FORWARD ME_50220622014E
+
+ME ME_53300DBA02E3
+ MEPROP Name 'anAtom'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53300DBA02E3 anAtom
+
+ME ME_50220622014E
+ MEPROP UID '50220622014E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502206170304 // CheckApply2Para
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53300DBA02E3 // anAtom
+ )
+ ; // Parameters
+
+ENDME // ME_50220622014E DoIt
+
+ME ME_50220F0D0105
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502206170304 // CheckApply2Para
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_50220F0D0105 
+
+ME ME_502206170304
+ MEPROP UID '502206170304'
+ MEPROP Name 'CheckApply2Para'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3919200142 // evSegment
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50220622014E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_50220F0D0105 // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'Nemesis'
+
+ENDME // ME_502206170304 CheckApply2Para
+
+FORWARD ME_502206D80305
+
+FORWARD ME_502206EB0129
+
+ME ME_53300DC90159
+ MEPROP Name 'aDestSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53300DC90159 aDestSegment
+
+ME ME_53300DC9018A
+ MEPROP Name 'aSegment'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_53300DC9018A aSegment
+
+ME ME_53300DC901D8
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_53300DC901D8 anOpPack
+
+ME ME_502206EB0129
+ MEPROP UID '502206EB0129'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502206D80305 // evSegment_AssignSegment
+ ;
+ MELIST Parameters
+   Seq: ( ME_53300DC90159 // aDestSegment
+ ME_53300DC9018A // aSegment
+ ME_53300DC901D8 // anOpPack
+ )
+ ; // Parameters
+
+ENDME // ME_502206EB0129 DoIt
+
+ME ME_50220FFB03D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502206D80305 // evSegment_AssignSegment
+ ;
+ MELINK Target WL 'ME_50220F9C02E7' '480DBE6E01D0.ms.model.script' // TevResultFont
+ ;
+
+ENDME // ME_50220FFB03D5 
+
+ME ME_5022103D016B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502206D80305 // evSegment_AssignSegment
+ ;
+ MELINK Target WL 'ME_4A4DE5850182' '4A4DE48C0344.ms.model.script' // Tk2CustomPropertyPrim
+ ;
+
+ENDME // ME_5022103D016B 
+
+ME ME_5022106500A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502206D80305 // evSegment_AssignSegment
+ ;
+ MELINK Target WL 'ME_47AC81B403B5' '47AC80BD020B.ms.model.script' // Ek2CannotAddChild
+ ;
+
+ENDME // ME_5022106500A4 
+
+ME ME_5022122D0162
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502206D80305 // evSegment_AssignSegment
+ ;
+ MELINK Target WL 'ME_469F6D170322' '49A6646B0044.ms.model.script' // Tk2AssignMode
+ ;
+
+ENDME // ME_5022122D0162 
+
+ME ME_5022124C0237
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502206D80305 // evSegment_AssignSegment
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_5022124C0237 
+
+ME ME_502212B3026B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_502206D80305 // evSegment_AssignSegment
+ ;
+ MELINK Target WL 'ME_4727223D039C' '4678193C009C.ms.model.script' // TLongArray
+ ;
+
+ENDME // ME_502212B3026B 
+
+ME ME_502206D80305
+ MEPROP UID '502206D80305'
+ MEPROP Name 'evSegment_AssignSegment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3919200142 // evSegment
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502206EB0129 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_50220FFB03D5 // TevResultFont
+ ME_5022103D016B // Tk2CustomPropertyPrim
+ ME_5022106500A4 // Ek2CannotAddChild
+ ME_5022122D0162 // Tk2AssignMode
+ ME_5022124C0237 // Tk2Type
+ ME_502212B3026B // TLongArray
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Segment_AssignSegment'
+
+ENDME // ME_502206D80305 evSegment_AssignSegment
+
+ME ME_533009DD009E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A3919200142 // evSegment
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_533009DD009E 
+
+ME ME_533009EB03BB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A3919200142 // evSegment
+ ;
+ MELINK Target WL 'ME_467817DD0200' '53317D14019D.ms.model.script' // Ik2Tag
+ ;
+
+ENDME // ME_533009EB03BB 
+
+ME ME_4A3919200142
+ MEPROP UID '4A3919200142'
+ MEPROP Name 'evSegment'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_502205210291 // evSegmentHasSomeFormat
+ HWL ME_502205480080 // evSegment_SetFontParam
+ HWL ME_502206170304 // CheckApply2Para
+ HWL ME_502206D80305 // evSegment_AssignSegment
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_533009DD009E // Tl3Variant
+ ME_533009EB03BB // Ik2Tag
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'Segment'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSegment.pas'
+
+ENDME // ME_4A3919200142 evSegment

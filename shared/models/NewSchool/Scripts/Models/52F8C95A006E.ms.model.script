@@ -1,0 +1,140 @@
+// alcuAutoPipeServer 52F8C95A006E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F8C97B02D6
+
+FORWARD ME_52F8C95A006E
+
+FORWARD ME_52F8C97B02D6
+
+ME ME_55E6A78300FE
+ MEPROP UID '55E6A78300FE'
+ MEPROP Name 'f_DictWatcher'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ MELINK Target WL 'ME_55E6A67A02ED' '53D656130130.ms.model.script' // TalcuDictChangeMDPSynchronizator
+ ;
+
+ENDME // ME_55E6A78300FE f_DictWatcher
+
+ME ME_55E6AB5F0318
+ MEPROP UID '55E6AB5F0318'
+ MEPROP Name 'f_BaseEngineHolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ MELINK Target WL 'ME_53CE4F2F008D' '53CCCA40004C.ms.model.script' // TalcuBaseEngineHolder
+ ;
+
+ENDME // ME_55E6AB5F0318 f_BaseEngineHolder
+
+ME ME_55EED401013F
+ MEPROP UID '55EED401013F'
+ MEPROP Name 'f_MdpDocImporter'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ MELINK Target WL 'ME_55EED3CD0299' '53D656130130.ms.model.script' // TalcuMdpDocImporter
+ ;
+
+ENDME // ME_55EED401013F f_MdpDocImporter
+
+ME ME_52FA29CA0141
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ MELINK Target WL 'ME_52FA29AE02C2' '53D656130130.ms.model.script' // TalcuServerTaskManagerFactory
+ ;
+
+ENDME // ME_52FA29CA0141 
+
+ME ME_574D797902A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ MELINK Target WL 'ME_573D9F0A01BB' '52FA3DD30094.ms.model.script' // TalcuMdpSyncStages
+ ;
+
+ENDME // ME_574D797902A9 
+
+ME ME_574D797E008B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F8C97B02D6 // TalcuServerPrim
+ ;
+ MELINK Target WL 'ME_574C213703E2' '52FA3DD30094.ms.model.script' // TalcuMdpSyncImport
+ ;
+
+ENDME // ME_574D797E008B 
+
+%%InheritedBy ME_49E7754802A9 ME_52F8C97B02D6
+
+ME ME_52F8C97B02D6
+ MEPROP UID '52F8C97B02D6'
+ MEPROP Name 'TalcuServerPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52F8C95A006E // alcuAutoPipeServer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55E6A78300FE // f_DictWatcher
+ HWL ME_55E6AB5F0318 // f_BaseEngineHolder
+ HWL ME_55EED401013F // f_MdpDocImporter
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_52FA29CA0141 // TalcuServerTaskManagerFactory
+ ME_574D797902A9 // TalcuMdpSyncStages
+ ME_574D797E008B // TalcuMdpSyncImport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuServerPrim'
+
+ENDME // ME_52F8C97B02D6 TalcuServerPrim
+
+ME ME_52F8C95A006E
+ MEPROP UID '52F8C95A006E'
+ MEPROP Name 'alcuAutoPipeServer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53D656130130' '53D656130130.ms.model.script' // Server
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52F8C97B02D6 // TalcuServerPrim
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\NOT_FINISHED_alcuAutoPipeServer.pas'
+
+ENDME // ME_52F8C95A006E alcuAutoPipeServer

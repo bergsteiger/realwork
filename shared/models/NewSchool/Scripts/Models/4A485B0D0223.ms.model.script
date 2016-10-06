@@ -1,0 +1,113 @@
+// evStyleTableListenerPrim 4A485B0D0223 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A485B0D0223
+
+ME ME_4A485B710126
+ MEPROP UID '4A485B710126'
+ MEPROP Name 'DoStyleTableChanged'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
+ ;
+
+ENDME // ME_4A485B710126 DoStyleTableChanged
+
+ME ME_4A485DBE0293
+ MEPROP UID '4A485DBE0293'
+ MEPROP Name 'NeedListen'
+ MEPROP Class class_Operation
+ %SUMMARY 'Нужно ли подписываться к таблице стилей (может мы уже подписались)' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A485DBE0293 NeedListen
+
+ME ME_4A4867A20049
+ MEPROP UID '4A4867A20049'
+ MEPROP Name 'AtEnd'
+ MEPROP Class class_Operation
+ %SUMMARY 'Подписываться в конец списка подписчиков' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A4867A20049 AtEnd
+
+ME ME_4A485BF60279
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A485B0D0223 // evStyleTableListenerPrim
+ ;
+ MELINK Target WL 'ME_47ECB297037D' '47ECB297037D.ms.model.script' // evStyleTableSpy
+ ;
+
+ENDME // ME_4A485BF60279 
+
+ME ME_467D2CB10135_ME_4A485B0D0223
+ MELINK Original WL 'ME_467D2CB10135' '467823B7002C.ms.model.script' // StyleTableChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_467D2CB10135_ME_4A485B0D0223 StyleTableChanged
+
+ME ME_47A042E100E2_ME_4A485B0D0223
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_4A485B0D0223 InitFields
+
+%%ImplementedBy ME_467D2C8F0172 ME_4A485B0D0223
+%%ImplementedBy ME_4A5CB93700CF ME_4A485B0D0223
+
+ME ME_4A485B0D0223
+ MEPROP UID '4A485B0D0223'
+ MEPROP Name 'evStyleTableListenerPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_467D2C8F0172' '467823B7002C.ms.model.script' // IafwStyleTableSpy
+ WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4A485B710126 // DoStyleTableChanged
+ HWL ME_4A485DBE0293 // NeedListen
+ HWL ME_4A4867A20049 // AtEnd
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_467D2CB10135_ME_4A485B0D0223 // StyleTableChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_4A485B0D0223 // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A485BF60279 // evStyleTableSpy
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В.'
+ UP "ifndef" 'DesignTimeLibrary'
+ UP "no hands" True
+ UP "started" '29.06.2009 10:11'
+ UP extprop:pas:TypeName '_evStyleTableListenerPrim_'
+ UP extprop:pas:UnitName 'evStyleTableListenerPrim.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evStyleTableListenerPrim.imp.pas'
+
+ENDME // ME_4A485B0D0223 evStyleTableListenerPrim

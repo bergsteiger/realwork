@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_53CCC324034B
+%%Inner ME_53D0ABFF01D1
+
 FORWARD ME_53CCC2F702C7
 
 FORWARD ME_53CCC324034B
@@ -20,8 +23,6 @@ ME ME_53CE59D60301
 
 ENDME // ME_53CE59D60301 f_BaseEngineHolder
 
-FORWARD ME_53D0AC2C0288
-
 ME ME_53D0AE49004F
  MEPROP UID '53D0AE49004F'
  MEPROP Name 'f_ExecutingList'
@@ -31,7 +32,7 @@ ME ME_53D0AE49004F
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
  ;
- MELINK Target HWL ME_53D0AC2C0288 // TalcuTaskExecutingList
+ MELINK Target WL 'ME_53D0AC2C0288' '53D0ABFF01D1.ms.model.script' // TalcuTaskExecutingList
  ;
 
 ENDME // ME_53D0AE49004F f_ExecutingList
@@ -81,6 +82,10 @@ ME ME_53CCF63B0139
 
 ENDME // ME_53CCF63B0139 Create
 
+%%ImplementedBy ME_53CCB9880360 ME_53CCF6A902D8
+
+%%InheritedBy ME_53CCF63B0139 ME_53CCF6A902D8
+
 ME ME_53CCF6A902D8
  MEPROP UID '53CCF6A902D8'
  MEPROP Name 'Make'
@@ -107,7 +112,7 @@ ME ME_53CD21C3003D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_53CD21C3003D 
@@ -117,7 +122,7 @@ ME ME_53CF9518031E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_52FB98DE00E8' '52F8C298005C.ms.model.script' // TCsNotificationType
+ MELINK Target WL 'ME_52FB98DE00E8' '52FB98CB008D.ms.model.script' // TCsNotificationType
  ;
 
 ENDME // ME_53CF9518031E 
@@ -137,7 +142,7 @@ ME ME_53D0BBF001E8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_4CED3B270143' '47913B47006E.ms.model.script' // l3L2IA
+ MELINK Target WL 'ME_4CED3B270143' '4773D64E036C.ms.model.script' // l3L2IA
  ;
 
 ENDME // ME_53D0BBF001E8 
@@ -147,7 +152,7 @@ ME ME_5406A86C037B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_55228D9D03B2' '54F85B2500FB.ms.model.script' // UserIsService
+ MELINK Target WL 'ME_55228D9D03B2' '5437B276039C.ms.model.script' // UserIsService
  ;
 
 ENDME // ME_5406A86C037B 
@@ -167,7 +172,7 @@ ME ME_573598B50212
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_551A7D9602DC' '54F85B2500FB.ms.model.script' // GlobalDataProvider
+ MELINK Target WL 'ME_551A7D9602DC' '551A7D7402B4.ms.model.script' // GlobalDataProvider
  ;
 
 ENDME // ME_573598B50212 
@@ -217,10 +222,14 @@ ME ME_53D0AB7A03A7_ME_53CCC324034B
 ENDME // ME_53D0AB7A03A7_ME_53CCC324034B LeaveTaskExecution
 
 ME ME_479731C50290_ME_53CCC324034B
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_53CCC324034B Cleanup
+
+%%ImplementedBy ME_53CCB9880360 ME_53CCC324034B
+
+%%InheritedBy ME_49E7754802A9 ME_53CCC324034B
 
 ME ME_53CCC324034B
  MEPROP UID '53CCC324034B'
@@ -274,227 +283,15 @@ ME ME_53CCC324034B
  ME_573598B50212 // GlobalDataProvider
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'alcuAsyncSubmitterManager'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'alcuAsyncSubmitterManager'
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuAsyncSubmitterManager.pas'
 
 ENDME // ME_53CCC324034B TalcuAsyncSubmitterManager
-
-FORWARD ME_53D0ABFF01D1
-
-FORWARD ME_53D0ACC8010F
-
-ME ME_53D0AD5500D2
- MEPROP UID '53D0AD5500D2'
- MEPROP Name 'Task'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
- ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
- ;
- UP "pm" True
- UP "reads field" True
-
-ENDME // ME_53D0AD5500D2 Task
-
-ME ME_53D0AD7A03E4
- MEPROP UID '53D0AD7A03E4'
- MEPROP Name 'Counter'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_53D0AD7A03E4 Counter
-
-FORWARD ME_53D0ADC001F2
-
-ME ME_53D0ADD40119
- MEPROP Name 'aTask'
- MEPROP Class class_Parameter
- MELINK Stereotype st_const ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
- ;
-
-ENDME // ME_53D0ADD40119 aTask
-
-ME ME_53D0ADC001F2
- MEPROP UID '53D0ADC001F2'
- MEPROP Name 'Create'
- MEPROP Class class_Operation
- MELINK Stereotype st_ctor::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
- ;
- MELIST Parameters
-   Seq: ( ME_53D0ADD40119 // aTask
- )
- ; // Parameters
-
-ENDME // ME_53D0ADC001F2 Create
-
-ME ME_53D0B5890219
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_53D0B5890219 
-
-ME ME_479731C50290_ME_53D0ACC8010F
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_53D0ACC8010F Cleanup
-
-ME ME_53D0ACC8010F
- MEPROP UID '53D0ACC8010F'
- MEPROP Name 'TalcuTaskExecutionCounter'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53D0ABFF01D1 // alcuTaskExecutingList
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_53D0AD5500D2 // Task
- HWL ME_53D0AD7A03E4 // Counter
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_53D0ADC001F2 // Create
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_53D0ACC8010F // Cleanup
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_53D0B5890219 // FreeAndNil
- )
- ; // Dependencies
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'alcuTaskExecutionCounter'
-
-ENDME // ME_53D0ACC8010F TalcuTaskExecutionCounter
-
-ME ME_53D0ACDE017D
- MEPROP UID '53D0ACDE017D'
- MEPROP Name 'ItemType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_53D0AC2C0288 // TalcuTaskExecutingList
- ;
- MELINK Target HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
- ;
-
-ENDME // ME_53D0ACDE017D ItemType
-
-ME ME_47B2C42A0163_ME_53D0AC2C0288
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifdef" 'l3Items_NeedsAssignItem'
- UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_53D0AC2C0288 AssignItem
-
-ME ME_47B99D4503A2_ME_53D0AC2C0288
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_53D0AC2C0288 CompareExistingItems
-
-ME ME_53D0AC2C0288
- MEPROP UID '53D0AC2C0288'
- MEPROP Name 'TalcuTaskExecutingList'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53D0ABFF01D1 // alcuTaskExecutingList
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
- WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_53D0ACDE017D // ItemType
- )
- ; // Attributes
- MELIST Implemented
-   Seq: ( ME_47B2C42A0163_ME_53D0AC2C0288 // AssignItem
- ME_47B99D4503A2_ME_53D0AC2C0288 // CompareExistingItems
- )
- ; // Implemented
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'alcuTaskExecutingList'
-
-ENDME // ME_53D0AC2C0288 TalcuTaskExecutingList
-
-ME ME_53D0B85603AE
- MEPROP UID '53D0B85603AE'
- MEPROP Name 'PalcuTaskExecutionCounter'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53D0ABFF01D1 // alcuTaskExecutingList
- ;
- MELIST Inherits
-   Seq: ( HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
- )
- ; // Inherits
- UP "isPointer" True
- UP extprop:rc:isAcceptableForScripts True
-
-ENDME // ME_53D0B85603AE PalcuTaskExecutionCounter
-
-ME ME_53D0ABFF01D1
- MEPROP UID '53D0ABFF01D1'
- MEPROP Name 'alcuTaskExecutingList'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53CCC2F702C7 // Managers
- ;
- MELIST Children
-   Seq: ( HWL ME_53D0ACC8010F // TalcuTaskExecutionCounter
- HWL ME_53D0AC2C0288 // TalcuTaskExecutingList
- HWL ME_53D0B85603AE // PalcuTaskExecutionCounter
- )
- ; // Children
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Server\alcuTaskExecutingList.pas'
-
-ENDME // ME_53D0ABFF01D1 alcuTaskExecutingList
 
 ME ME_53CCC2F702C7
  MEPROP UID '53CCC2F702C7'
@@ -508,7 +305,7 @@ ME ME_53CCC2F702C7
  ;
  MELIST Children
    Seq: ( HWL ME_53CCC324034B // TalcuAsyncSubmitterManager
- HWL ME_53D0ABFF01D1 // alcuTaskExecutingList
+ WL 'ME_53D0ABFF01D1' '53D0ABFF01D1.ms.model.script' // alcuTaskExecutingList
  )
  ; // Children
  MELIST Depends
@@ -526,5 +323,8 @@ ME ME_53CCC2F702C7
  WL 'ME_54F85B2500FB' '54F85B2500FB.ms.model.script' // Provider
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_53CCC2F702C7 Managers

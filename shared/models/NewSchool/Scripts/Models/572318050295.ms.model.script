@@ -1,0 +1,96 @@
+// vtHideFieldTypes 572318050295 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E733DD801B0
+%%Inner ME_5110D73500ED
+
+FORWARD ME_572318050295
+
+FORWARD ME_4E733DD801B0
+
+ME ME_5110D711023B
+ MEPROP UID '5110D711023B'
+ MEPROP Name 'hfoCanHide'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E733DD801B0 // ThfOption
+ ;
+
+ENDME // ME_5110D711023B hfoCanHide
+
+ME ME_5110D719014A
+ MEPROP UID '5110D719014A'
+ MEPROP Name 'hfoHyperlink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E733DD801B0 // ThfOption
+ ;
+
+ENDME // ME_5110D719014A hfoHyperlink
+
+ME ME_4E733DD801B0
+ MEPROP UID '4E733DD801B0'
+ MEPROP Name 'ThfOption'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_572318050295 // vtHideFieldTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5110D711023B // hfoCanHide
+ HWL ME_5110D719014A // hfoHyperlink
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4E733DD801B0 ThfOption
+
+%%InheritedBy ME_4E733DD801B0 ME_5110D73500ED
+
+ME ME_5110D73500ED
+ MEPROP UID '5110D73500ED'
+ MEPROP Name 'ThfOptions'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_572318050295 // vtHideFieldTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E733DD801B0 // ThfOption
+ )
+ ; // Inherits
+
+ENDME // ME_5110D73500ED ThfOptions
+
+ME ME_572318050295
+ MEPROP UID '572318050295'
+ MEPROP Name 'vtHideFieldTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E732D5D02FE' '4E732D5D02FE.ms.model.script' // HideFields
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E733DD801B0 // ThfOption
+ HWL ME_5110D73500ED // ThfOptions
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'HideFieldTypes'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldTypes.pas'
+
+ENDME // ME_572318050295 vtHideFieldTypes

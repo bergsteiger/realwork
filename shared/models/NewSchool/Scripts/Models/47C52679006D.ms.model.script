@@ -2,6 +2,33 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_47C5271101E3
+%%Inner ME_47CC15130269
+%%Inner ME_47D00CC20108
+%%Inner ME_47E261D8019F
+%%Inner ME_47E26A16008E
+%%Inner ME_47E271DA01B1
+%%Inner ME_47E2750502E9
+%%Inner ME_47E7CDD60349
+%%Inner ME_47E8FF3701E4
+%%Inner ME_47E903D2007F
+%%Inner ME_47ED10AF024F
+%%Inner ME_47ED17150259
+%%Inner ME_47F4CE1200E9
+%%Inner ME_480F48F301B9
+%%Inner ME_47FE40A503CD
+%%Inner ME_480CA9AD0198
+%%Inner ME_47F5D32F0059
+%%Inner ME_480F4E9301DE
+%%Inner ME_480F66CA00DC
+%%Inner ME_49E7612601CC
+%%Inner ME_4A23947103C0
+%%Inner ME_4A23BAEF006A
+%%Inner ME_4A23BF6402DA
+%%Inner ME_4A2548350036
+%%Inner ME_4DD25B17012A
+%%Inner ME_4DF1C6E90221
+
 FORWARD ME_47C52679006D
 
 FORWARD ME_47C5271101E3
@@ -28,6 +55,11 @@ ME ME_4BB08B8902F2_ME_47C5271101E3
  UP "pm" True
 ENDME // ME_4BB08B8902F2_ME_47C5271101E3 Count
 
+%%ImplementedBy ME_47C5224F02E3 ME_47C5271101E3
+
+%%InheritedBy ME_47B57D830369 ME_47C5271101E3
+%%InheritedBy ME_4A54DD4E036F ME_47C5271101E3
+
 ME ME_47C5271101E3
  MEPROP UID '47C5271101E3'
  MEPROP Name 'TnevParas'
@@ -40,7 +72,7 @@ ME ME_47C5271101E3
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -90,6 +122,11 @@ ME ME_4BB08B8902F2_ME_47CC15130269
  UP "pm" True
 ENDME // ME_4BB08B8902F2_ME_47CC15130269 Count
 
+%%ImplementedBy ME_47CC136B033A ME_47CC15130269
+
+%%InheritedBy ME_47B57D830369 ME_47CC15130269
+%%InheritedBy ME_4A54DD4E036F ME_47CC15130269
+
 ME ME_47CC15130269
  MEPROP UID '47CC15130269'
  MEPROP Name 'TevMarkersList'
@@ -101,7 +138,7 @@ ME ME_47CC15130269
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -127,58 +164,6 @@ ME ME_47CC15130269
 
 ENDME // ME_47CC15130269 TevMarkersList
 
-FORWARD ME_47D00CC20108
-
-FORWARD ME_47D00D00014B
-
-ME ME_47D00D080314
- MEPROP Name 'Action'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
- ;
-
-ENDME // ME_47D00D080314 Action
-
-ME ME_47D00D00014B
- MEPROP UID '47D00D00014B'
- MEPROP Name 'nevL2PIA'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47D00CC20108 // nevFacade
- ;
- MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
- ;
- MELIST Parameters
-   Seq: ( ME_47D00D080314 // Action
- )
- ; // Parameters
-
-ENDME // ME_47D00D00014B nevL2PIA
-
-ME ME_47D00CC20108
- MEPROP UID '47D00CC20108'
- MEPROP Name 'nevFacade'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Operations
-   Seq: ( HWL ME_47D00D00014B // nevL2PIA
- )
- ; // Operations
- UP "author" 'Люлин А.В.'
- UP "finished" False
- UP "started" '05.04.2005 20:32'
- UP extprop:rc:SelfName 'Facade'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_nevFacade.pas'
-
-ENDME // ME_47D00CC20108 nevFacade
-
 FORWARD ME_47E261D8019F
 
 ME ME_480F8DDE027F
@@ -196,6 +181,9 @@ ME ME_480F8DDE027F
 
 ENDME // ME_480F8DDE027F ItemType
 
+%%InheritedBy ME_47B57D830369 ME_47E261D8019F
+%%InheritedBy ME_4A54DD4E036F ME_47E261D8019F
+
 ME ME_47E261D8019F
  MEPROP UID '47E261D8019F'
  MEPROP Name 'TnevDocumentContainerListPrim'
@@ -208,7 +196,7 @@ ME ME_47E261D8019F
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -276,11 +264,14 @@ ME ME_4DD2681E03BF
 ENDME // ME_4DD2681E03BF Clone
 
 ME ME_47A6FEE600FC_ME_47E26A16008E
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
 ENDME // ME_47A6FEE600FC_ME_47E26A16008E IsCacheable
+
+%%InheritedBy ME_47B57D830369 ME_47E26A16008E
+%%InheritedBy ME_4A54DD4E036F ME_47E26A16008E
 
 ME ME_47E26A16008E
  MEPROP UID '47E26A16008E'
@@ -294,7 +285,7 @@ ME ME_47E26A16008E
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -310,6 +301,9 @@ ME ME_47E26A16008E
    Seq: ( ME_47A6FEE600FC_ME_47E26A16008E // IsCacheable
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '20.03.2008 16:44'
@@ -338,11 +332,14 @@ ME ME_47E271FC0183
 ENDME // ME_47E271FC0183 ItemType
 
 ME ME_47A6FEE600FC_ME_47E271DA01B1
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
 ENDME // ME_47A6FEE600FC_ME_47E271DA01B1 IsCacheable
+
+%%InheritedBy ME_47B57D830369 ME_47E271DA01B1
+%%InheritedBy ME_4A54DD4E036F ME_47E271DA01B1
 
 ME ME_47E271DA01B1
  MEPROP UID '47E271DA01B1'
@@ -355,7 +352,7 @@ ME ME_47E271DA01B1
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -395,11 +392,14 @@ ME ME_47E2752E03CD
 ENDME // ME_47E2752E03CD ItemType
 
 ME ME_47A6FEE600FC_ME_47E2750502E9
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
 ENDME // ME_47A6FEE600FC_ME_47E2750502E9 IsCacheable
+
+%%InheritedBy ME_47B57D830369 ME_47E2750502E9
+%%InheritedBy ME_4A54DD4E036F ME_47E2750502E9
 
 ME ME_47E2750502E9
  MEPROP UID '47E2750502E9'
@@ -412,7 +412,7 @@ ME ME_47E2750502E9
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -451,6 +451,9 @@ ME ME_47E7CDFD0040
 
 ENDME // ME_47E7CDFD0040 ItemType
 
+%%InheritedBy ME_47B57D830369 ME_47E7CDD60349
+%%InheritedBy ME_4A54DD4E036F ME_47E7CDD60349
+
 ME ME_47E7CDD60349
  MEPROP UID '47E7CDD60349'
  MEPROP Name 'TevSearcherList'
@@ -462,7 +465,7 @@ ME ME_47E7CDD60349
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -497,6 +500,9 @@ ME ME_47E8FF710106
 
 ENDME // ME_47E8FF710106 ItemType
 
+%%InheritedBy ME_47B57D830369 ME_47E8FF3701E4
+%%InheritedBy ME_4A54DD4E036F ME_47E8FF3701E4
+
 ME ME_47E8FF3701E4
  MEPROP UID '47E8FF3701E4'
  MEPROP Name 'TnevViewList'
@@ -509,7 +515,7 @@ ME ME_47E8FF3701E4
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -544,6 +550,9 @@ ME ME_47E903FE033F
 
 ENDME // ME_47E903FE033F ItemType
 
+%%InheritedBy ME_47B57D830369 ME_47E903D2007F
+%%InheritedBy ME_4A54DD4E036F ME_47E903D2007F
+
 ME ME_47E903D2007F
  MEPROP UID '47E903D2007F'
  MEPROP Name 'TnevTableCellList'
@@ -556,7 +565,7 @@ ME ME_47E903D2007F
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -603,6 +612,9 @@ ME ME_48046D0803DA
 
 ENDME // ME_48046D0803DA StopAllPreviews
 
+%%InheritedBy ME_47B57D830369 ME_47ED10AF024F
+%%InheritedBy ME_4A54DD4E036F ME_47ED10AF024F
+
 ME ME_47ED10AF024F
  MEPROP UID '47ED10AF024F'
  MEPROP Name 'TevDocumentPreviewInfoList'
@@ -614,7 +626,7 @@ ME ME_47ED10AF024F
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -653,6 +665,9 @@ ME ME_47ED173E0371
 
 ENDME // ME_47ED173E0371 ItemType
 
+%%InheritedBy ME_47B57D830369 ME_47ED17150259
+%%InheritedBy ME_4A54DD4E036F ME_47ED17150259
+
 ME ME_47ED17150259
  MEPROP UID '47ED17150259'
  MEPROP Name 'TnevWaiterList'
@@ -664,7 +679,7 @@ ME ME_47ED17150259
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -699,6 +714,9 @@ ME ME_47F4CE6D01C6
 
 ENDME // ME_47F4CE6D01C6 ItemType
 
+%%InheritedBy ME_47B57D830369 ME_47F4CE1200E9
+%%InheritedBy ME_4A54DD4E036F ME_47F4CE1200E9
+
 ME ME_47F4CE1200E9
  MEPROP UID '47F4CE1200E9'
  MEPROP Name 'TnevAnchorList'
@@ -710,7 +728,7 @@ ME ME_47F4CE1200E9
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -727,116 +745,6 @@ ME ME_47F4CE1200E9
  UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevAnchorList.pas'
 
 ENDME // ME_47F4CE1200E9 TnevAnchorList
-
-FORWARD ME_480F48F301B9
-
-ME ME_49D6242D0075
- MEPROP UID '49D6242D0075'
- MEPROP Name 'X'
- MEPROP Class class_Class
- MELINK Stereotype st_ImpurityParamType ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Тип параграфа' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_480F48F301B9 // nevParaXTool
- ;
- UP extprop:pas:TypeName '_X_'
-
-ENDME // ME_49D6242D0075 X
-
-ME ME_49D6243C0357
- MEPROP UID '49D6243C0357'
- MEPROP Name 'ParaX'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_480F48F301B9 // nevParaXTool
- ;
- MELINK Target HWL ME_49D6242D0075 // X
- ;
- UP "needs field" True
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_49D6243C0357 ParaX
-
-ME ME_49D627EF0077
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_480F48F301B9 // nevParaXTool
- ;
- MELINK Target WL 'ME_47C6A603009D' '47C5207602D1.ms.model.script' // InevDocumentContainer
- ;
-
-ENDME // ME_49D627EF0077 
-
-ME ME_49D6281300DB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_480F48F301B9 // nevParaXTool
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_49D6281300DB 
-
-ME ME_48CE74A10014_ME_480F48F301B9
- MELINK Original WL 'ME_48CE74A10014' '49A58A1A03C4.ms.model.script' // ClearTagCache
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_48CE74A10014_ME_480F48F301B9 ClearTagCache
-
-ME ME_49E75FA4010C_ME_480F48F301B9
- MELINK Original WL 'ME_49E75FA4010C' '49A58A1A03C4.ms.model.script' // SetTagQT
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_49E75FA4010C_ME_480F48F301B9 SetTagQT
-
-ME ME_480F48F301B9
- MEPROP UID '480F48F301B9'
- MEPROP Name 'nevParaXTool'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Инструмент для параграфа' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Implements
-   Seq: ( WL 'ME_508ADEB001A2' '467C182A01BE.ms.model.script' // Mk2TagPointer
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_49D6243C0357 // ParaX
- )
- ; // Attributes
- MELIST Overridden
-   Seq: ( ME_48CE74A10014_ME_480F48F301B9 // ClearTagCache
- ME_49E75FA4010C_ME_480F48F301B9 // SetTagQT
- )
- ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_49D6242D0075 // X
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_49D627EF0077 // InevDocumentContainer
- ME_49D6281300DB // SysUtils
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '04.04.2005 15:22'
- UP extprop:pas:TypeName '_nevParaXTool_'
- UP extprop:pas:UnitName 'nevParaXTool.imp'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaXTool.imp.pas'
-
-ENDME // ME_480F48F301B9 nevParaXTool
 
 FORWARD ME_47FE40A503CD
 
@@ -859,7 +767,7 @@ ME ME_47FE43650180
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_47FE40A503CD // TnevConfirm
  ;
- MELINK Target WL 'ME_47FE430F0088' '4799D29F033F.ms.model.script' // TModalResult
+ MELINK Target WL 'ME_47FE430F0088' '47E11FC3021E.ms.model.script' // TModalResult
  ;
 
 ENDME // ME_47FE43650180 
@@ -896,6 +804,10 @@ ME ME_47FE414200D2_ME_47FE40A503CD
  UP "pm" False
 ENDME // ME_47FE414200D2_ME_47FE40A503CD View
 
+%%ImplementedBy ME_47C69AE001F4 ME_47FE40A503CD
+
+%%InheritedBy ME_49E7754802A9 ME_47FE40A503CD
+
 ME ME_47FE40A503CD
  MEPROP UID '47FE40A503CD'
  MEPROP Name 'TnevConfirm'
@@ -930,6 +842,9 @@ ME ME_47FE40A503CD
    Seq: ( ME_47FE43650180 // TModalResult
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '10.04.2008 20:30'
@@ -939,364 +854,6 @@ ME ME_47FE40A503CD
  UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevConfirm.pas'
 
 ENDME // ME_47FE40A503CD TnevConfirm
-
-FORWARD ME_480CA9AD0198
-
-FORWARD ME_480CA9E3003D
-
-ME ME_480CA9ED0097
- MEPROP Name 'aParas'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_480CA9ED0097 aParas
-
-ME ME_480CA9E3003D
- MEPROP UID '480CA9E3003D'
- MEPROP Name 'evGetPaperSizeName'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_480CA9AD0198 // evSectionPara
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_480CA9ED0097 // aParas
- )
- ; // Parameters
-
-ENDME // ME_480CA9E3003D evGetPaperSizeName
-
-ME ME_480CA9AD0198
- MEPROP UID '480CA9AD0198'
- MEPROP Name 'evSectionPara'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Operations
-   Seq: ( HWL ME_480CA9E3003D // evGetPaperSizeName
- )
- ; // Operations
- UP "author" 'Люлин А.В.'
- UP "finished" False
- UP "started" '16.04.2001 15:24'
- UP extprop:rc:SelfName 'SectionPara'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evSectionPara.pas'
-
-ENDME // ME_480CA9AD0198 evSectionPara
-
-FORWARD ME_47F5D32F0059
-
-ME ME_49D249D300FA
- MEPROP UID '49D249D300FA'
- MEPROP Name 'X'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_47F5D32F0059 // nevParaTool
- ;
- MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
- ;
-
-ENDME // ME_49D249D300FA X
-
-ME ME_47F5D970036A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_47F5D32F0059 // nevParaTool
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_47F5D970036A 
-
-ME ME_47F5D32F0059
- MEPROP UID '47F5D32F0059'
- MEPROP Name 'nevParaTool'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Инструмент для InevPara' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Inherits
-   Seq: ( HWL ME_480F48F301B9 // nevParaXTool
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_49D249D300FA // X
- )
- ; // Attributes
- MELIST Dependencies
-   Seq: ( ME_47F5D970036A // SysUtils
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '04.04.2008 11:05'
- UP extprop:pas:TypeName '_nevParaTool_'
- UP extprop:pas:UnitName 'nevParaTool.imp'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaTool.imp.pas'
-
-ENDME // ME_47F5D32F0059 nevParaTool
-
-FORWARD ME_480F4E9301DE
-
-ME ME_480F4EDD0024
- MEPROP UID '480F4EDD0024'
- MEPROP Name 'X'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_480F4E9301DE // nevParaListTool
- ;
- MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
- ;
-
-ENDME // ME_480F4EDD0024 X
-
-ME ME_480F4EB000F0
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_480F4E9301DE // nevParaListTool
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_480F4EB000F0 
-
-ME ME_480F4E9301DE
- MEPROP UID '480F4E9301DE'
- MEPROP Name 'nevParaListTool'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Инструмент для InevParaList' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Inherits
-   Seq: ( HWL ME_480F48F301B9 // nevParaXTool
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_480F4EDD0024 // X
- )
- ; // Attributes
- MELIST Dependencies
-   Seq: ( ME_480F4EB000F0 // SysUtils
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '04.04.2005 15:22'
- UP extprop:pas:TypeName '_nevParaListTool_'
- UP extprop:pas:UnitName 'nevParaListTool.imp'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevParaListTool.imp.pas'
-
-ENDME // ME_480F4E9301DE nevParaListTool
-
-FORWARD ME_480F66CA00DC
-
-ME ME_480F66F601E9
- MEPROP UID '480F66F601E9'
- MEPROP Name 'X'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_480F66CA00DC // nevTextParaTool
- ;
- MELINK Target WL 'ME_47C6AAEF0157' '47C5207602D1.ms.model.script' // InevTextPara
- ;
-
-ENDME // ME_480F66F601E9 X
-
-ME ME_480F68B200B4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_480F66CA00DC // nevTextParaTool
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_480F68B200B4 
-
-ME ME_480F66CA00DC
- MEPROP UID '480F66CA00DC'
- MEPROP Name 'nevTextParaTool'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Инструмент для InevTextPara' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Inherits
-   Seq: ( HWL ME_480F48F301B9 // nevParaXTool
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_480F66F601E9 // X
- )
- ; // Attributes
- MELIST Dependencies
-   Seq: ( ME_480F68B200B4 // SysUtils
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '04.04.2005 15:22'
- UP extprop:pas:TypeName '_nevTextParaTool_'
- UP extprop:pas:UnitName 'nevTextParaTool.imp'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTextParaTool.imp.pas'
-
-ENDME // ME_480F66CA00DC nevTextParaTool
-
-FORWARD ME_49E7612601CC
-
-ME ME_49E762F90213
- MEPROP UID '49E762F90213'
- MEPROP Name 'X'
- MEPROP Class class_Class
- MELINK Stereotype st_ImpurityParamType ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Тип параграфа' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
- ;
- UP extprop:pas:TypeName '_X_'
-
-ENDME // ME_49E762F90213 X
-
-ME ME_49E763090291
- MEPROP UID '49E763090291'
- MEPROP Name 'ParaX'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
- ;
- MELINK Target HWL ME_49E762F90213 // X
- ;
- UP "needs field" True
- UP "pm" True
- UP "reads field" True
-
-ENDME // ME_49E763090291 ParaX
-
-FORWARD ME_49E7692B0058
-
-ME ME_49E769300380
- MEPROP Name 'aTag'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
- ;
-
-ENDME // ME_49E769300380 aTag
-
-ME ME_49E7692B0058
- MEPROP UID '49E7692B0058'
- MEPROP Name 'Create'
- MEPROP Class class_Operation
- MELINK Stereotype st_ctor::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
- ;
- MELIST Parameters
-   Seq: ( ME_49E769300380 // aTag
- )
- ; // Parameters
-
-ENDME // ME_49E7692B0058 Create
-
-ME ME_49E765150393
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_49E765150393 
-
-ME ME_479731C50290_ME_49E7612601CC
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_49E7612601CC Cleanup
-
-ME ME_47A6FEE600FC_ME_49E7612601CC
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
- ;
- MEPROP OpKind opkind_Overridden
- UP "ifndef" 'DesignTimeLibrary'
-ENDME // ME_47A6FEE600FC_ME_49E7612601CC IsCacheable
-
-ME ME_49E7612601CC
- MEPROP UID '49E7612601CC'
- MEPROP Name 'nevTinyParaXTool'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_49E763090291 // ParaX
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_49E7692B0058 // Create
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_49E7612601CC // Cleanup
- ME_47A6FEE600FC_ME_49E7612601CC // IsCacheable
- )
- ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_49E762F90213 // X
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_49E765150393 // SysUtils
- )
- ; // Dependencies
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '16.04.2009 20:48'
- UP extprop:pas:TypeName '_nevTinyParaXTool_'
- UP extprop:pas:UnitName 'nevTinyParaXTool.imp'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas'
-
-ENDME // ME_49E7612601CC nevTinyParaXTool
 
 FORWARD ME_4A23947103C0
 
@@ -1322,6 +879,11 @@ ME ME_4BB08B8902F2_ME_4A23947103C0
  UP "pm" True
 ENDME // ME_4BB08B8902F2_ME_4A23947103C0 Count
 
+%%ImplementedBy ME_4A2393970155 ME_4A23947103C0
+
+%%InheritedBy ME_47B57D830369 ME_4A23947103C0
+%%InheritedBy ME_4A54DD4E036F ME_4A23947103C0
+
 ME ME_4A23947103C0
  MEPROP UID '4A23947103C0'
  MEPROP Name 'TnevFlatSubsList'
@@ -1334,7 +896,7 @@ ME ME_4A23947103C0
  MELINK Parent HWL ME_47C52679006D // nevUtils
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -1357,269 +919,6 @@ ME ME_4A23947103C0
 
 ENDME // ME_4A23947103C0 TnevFlatSubsList
 
-FORWARD ME_4A23BAEF006A
-
-FORWARD ME_4A23BB1700A7
-
-ME ME_4A23BBC4006C
- MEPROP Name 'aList'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_47E26A16008E // TnevRangeList
- ;
-
-ENDME // ME_4A23BBC4006C aList
-
-ME ME_4A23BBC4009B
- MEPROP Name 'aRange'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
- ;
-
-ENDME // ME_4A23BBC4009B aRange
-
-ME ME_4A23BB1700A7
- MEPROP UID '4A23BB1700A7'
- MEPROP Name 'nevAddRangeToList'
- MEPROP Class class_Operation
- %SUMMARY 'Проверяет и добавляет Range к списку.'#13#10'Контролирует пересечение и вложенность.'#13#10'Возвращает признак того, что Range был реально добавлен к списку' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_4A23BBC4006C // aList
- ME_4A23BBC4009B // aRange
- )
- ; // Parameters
-
-ENDME // ME_4A23BB1700A7 nevAddRangeToList
-
-ME ME_4A23BF0D0394
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
- ;
- MELINK Target WL 'ME_476127E40065' '4678193C009C.ms.model.script' // PIUnknown
- ;
-
-ENDME // ME_4A23BF0D0394 
-
-FORWARD ME_4A23BF6402DA
-
-ME ME_4A23BF8801B6
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
- ;
- MELINK Target HWL ME_4A23BF6402DA // evRangeTools
- ;
-
-ENDME // ME_4A23BF8801B6 
-
-ME ME_4A23C1E000D3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
- ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
- ;
-
-ENDME // ME_4A23C1E000D3 
-
-ME ME_4A23C2DC0133
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4A23BAEF006A // nevRangeListTools
- ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
- ;
-
-ENDME // ME_4A23C2DC0133 
-
-ME ME_4A23BAEF006A
- MEPROP UID '4A23BAEF006A'
- MEPROP Name 'nevRangeListTools'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Operations
-   Seq: ( HWL ME_4A23BB1700A7 // nevAddRangeToList
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_4A23BF0D0394 // PIUnknown
- ME_4A23BF8801B6 // evRangeTools
- ME_4A23C1E000D3 // l3MinMax
- ME_4A23C2DC0133 // l3Base
- )
- ; // Dependencies
- UP extprop:rc:SelfName 'RangeListTools'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevRangeListTools.pas'
-
-ENDME // ME_4A23BAEF006A nevRangeListTools
-
-ME ME_4A263CAD0337
- MEPROP UID '4A263CAD0337'
- MEPROP Name 'evCompareBlocks'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4A23BF6402DA // evRangeTools
- ;
-
-ENDME // ME_4A263CAD0337 evCompareBlocks
-
-ME ME_4A23BF6402DA
- MEPROP UID '4A23BF6402DA'
- MEPROP Name 'evRangeTools'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Operations
-   Seq: ( HWL ME_4A263CAD0337 // evCompareBlocks
- )
- ; // Operations
- UP "finished" False
- UP extprop:rc:SelfName 'RangeTools'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evRangeTools.pas'
-
-ENDME // ME_4A23BF6402DA evRangeTools
-
-FORWARD ME_4A2548350036
-
-FORWARD ME_4A2548A402F0
-
-FORWARD ME_4A2548BA01A3
-
-ME ME_4A2548C20041
- MEPROP Name 'Text'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4773DEF0021B' '47913B47006E.ms.model.script' // Tl3CustomString
- ;
-
-ENDME // ME_4A2548C20041 Text
-
-ME ME_4A2548C20061
- MEPROP Name 'Op'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48E4CCF4018C' '4678193C009C.ms.model.script' // Tl3Operation
- ;
-
-ENDME // ME_4A2548C20061 Op
-
-ME ME_4A2548BA01A3
- MEPROP UID '4A2548BA01A3'
- MEPROP Name 'CheckTextOp'
- MEPROP Class class_Operation
- %SUMMARY 'Проверить операцию с текстом' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4A2548A402F0 // IevTextOpProcessor
- ;
- MELIST Parameters
-   Seq: ( ME_4A2548C20041 // Text
- ME_4A2548C20061 // Op
- )
- ; // Parameters
-
-ENDME // ME_4A2548BA01A3 CheckTextOp
-
-FORWARD ME_4A2548CD0213
-
-ME ME_4A2548D5025E
- MEPROP Name 'Text'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4773DEF0021B' '47913B47006E.ms.model.script' // Tl3CustomString
- ;
-
-ENDME // ME_4A2548D5025E Text
-
-ME ME_4A2548D50280
- MEPROP Name 'Op'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_48E4CCF4018C' '4678193C009C.ms.model.script' // Tl3Operation
- ;
-
-ENDME // ME_4A2548D50280 Op
-
-ME ME_4A2548CD0213
- MEPROP UID '4A2548CD0213'
- MEPROP Name 'TextOp'
- MEPROP Class class_Operation
- %SUMMARY 'Завершить операцию с текстом' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4A2548A402F0 // IevTextOpProcessor
- ;
- MELIST Parameters
-   Seq: ( ME_4A2548D5025E // Text
- ME_4A2548D50280 // Op
- )
- ; // Parameters
-
-ENDME // ME_4A2548CD0213 TextOp
-
-ME ME_4A2548A402F0
- MEPROP UID '4A2548A402F0'
- MEPROP GUID '27DFA0BA-9D4F-45EE-A9DF-C99CE1840716'
- MEPROP Name 'IevTextOpProcessor'
- MEPROP Class class_Class
- MELINK Stereotype st_Facet ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Процессор текстовых операций' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4A2548350036 // evTextManipulationInterfaces
- ;
- MELIST Operations
-   Seq: ( HWL ME_4A2548BA01A3 // CheckTextOp
- HWL ME_4A2548CD0213 // TextOp
- )
- ; // Operations
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'TextOpProcessor'
-
-ENDME // ME_4A2548A402F0 IevTextOpProcessor
-
-ME ME_4A2548350036
- MEPROP UID '4A2548350036'
- MEPROP Name 'evTextManipulationInterfaces'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Интерфейсы для поддержки работы с текстом документа' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Children
-   Seq: ( HWL ME_4A2548A402F0 // IevTextOpProcessor
- )
- ; // Children
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '02.06.2009 19:43'
- UP extprop:rc:SelfName 'TextManipulationInterfaces'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\evTextManipulationInterfaces.pas'
-
-ENDME // ME_4A2548350036 evTextManipulationInterfaces
-
 FORWARD ME_4DD25B17012A
 
 FORWARD ME_4DD26253028D
@@ -1632,7 +931,7 @@ ME ME_4DD2625D029C
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4DD26253028D // Exists
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4DD2625D029C DoIt
@@ -1660,7 +959,7 @@ ME ME_4DD264060082
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DD25B17012A // TnevDocumentContainerList
  ;
- MELINK Target WL 'ME_480DBA760390' '480DBA6900E6.ms.model.script' // k2Facade
+ MELINK Target WL 'ME_480DBA760390' '480DBA760390.ms.model.script' // k2Facade
  ;
 
 ENDME // ME_4DD264060082 
@@ -1672,22 +971,27 @@ ME ME_476144F90102_ME_4DD25B17012A
 ENDME // ME_476144F90102_ME_4DD25B17012A Fire
 
 ME ME_479731C50290_ME_4DD25B17012A
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4DD25B17012A Cleanup
 
 ME ME_47A042E100E2_ME_4DD25B17012A
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4DD25B17012A InitFields
 
 ME ME_47EA4E9002C6_ME_4DD25B17012A
- MELINK Original WL 'ME_47EA4E9002C6' '47EA4BB502F9.ms.model.script' // FinishDataUpdate
+ MELINK Original WL 'ME_47EA4E9002C6' '47EA4BEF0140.ms.model.script' // FinishDataUpdate
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47EA4E9002C6_ME_4DD25B17012A FinishDataUpdate
+
+%%ImplementedBy ME_4678180D0371 ME_4DD25B17012A
+%%ImplementedBy ME_47EA4BEF0140 ME_4DD25B17012A
+
+%%InheritedBy ME_47E261D8019F ME_4DD25B17012A
 
 ME ME_4DD25B17012A
  MEPROP UID '4DD25B17012A'
@@ -1705,7 +1009,7 @@ ME ME_4DD25B17012A
  ; // Inherits
  MELIST Implements
    Seq: ( WL 'ME_4678180D0371' '4678137501EA.ms.model.script' // Ik2Listener
- WL 'ME_47EA4BEF0140' '47EA4BB502F9.ms.model.script' // afwApplicationDataUpdate
+ WL 'ME_47EA4BEF0140' '47EA4BEF0140.ms.model.script' // afwApplicationDataUpdate
  )
  ; // Implements
  MELIST Operations
@@ -1726,6 +1030,9 @@ ME ME_4DD25B17012A
    Seq: ( ME_4DD264060082 // k2Facade
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "singleton" True
@@ -1736,377 +1043,6 @@ ME ME_4DD25B17012A
  UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevDocumentContainerList.pas'
 
 ENDME // ME_4DD25B17012A TnevDocumentContainerList
-
-FORWARD ME_4DF1C6E90221
-
-FORWARD ME_4DF1C87202AB
-
-ME ME_4DF1C8AA0274
- MEPROP UID '4DF1C8AA0274'
- MEPROP Name 'rTableID'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4DF1C8AA0274 rTableID
-
-ME ME_4DF1C8BF0182
- MEPROP UID '4DF1C8BF0182'
- MEPROP Name 'rRowID'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4DF1C8BF0182 rRowID
-
-ME ME_4DF1C8CC029E
- MEPROP UID '4DF1C8CC029E'
- MEPROP Name 'rHeight'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4DF1C8CC029E rHeight
-
-ME ME_4DF20A1C0308
- MEPROP UID '4DF20A1C0308'
- MEPROP Name 'rPage'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4DF20A1C0308 rPage
-
-ME ME_4DF86EDA02C6
- MEPROP UID '4DF86EDA02C6'
- MEPROP Name 'rTopAnchorID'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4DF86EDA02C6 rTopAnchorID
-
-ME ME_4DF1C87202AB
- MEPROP UID '4DF1C87202AB'
- MEPROP Name 'TRowHeight'
- MEPROP Class class_Class
- MELINK Stereotype st_Struct ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4DF1C6E90221 // PrintRowHeightsSpy
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4DF1C8AA0274 // rTableID
- HWL ME_4DF1C8BF0182 // rRowID
- HWL ME_4DF1C8CC029E // rHeight
- HWL ME_4DF20A1C0308 // rPage
- HWL ME_4DF86EDA02C6 // rTopAnchorID
- )
- ; // Attributes
-
-ENDME // ME_4DF1C87202AB TRowHeight
-
-FORWARD ME_4DF1C7F20336
-
-ME ME_4DF1C9450332
- MEPROP UID '4DF1C9450332'
- MEPROP Name 'ItemType'
- MEPROP Class class_Attribute
- MELINK Stereotype st_impurity_value::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_abstract
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C7F20336 // TRowHeightsList
- ;
- MELINK Target HWL ME_4DF1C87202AB // TRowHeight
- ;
-
-ENDME // ME_4DF1C9450332 ItemType
-
-ME ME_47B07CF403D0_ME_4DF1C7F20336
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifndef" 'l3Items_IsAtomic'
-ENDME // ME_47B07CF403D0_ME_4DF1C7F20336 IsSameItems
-
-ME ME_47B2C42A0163_ME_4DF1C7F20336
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
- ;
- MEPROP OpKind opkind_Implemented
- UP "ifdef" 'l3Items_NeedsAssignItem'
- UP "ifndef" 'l3Items_NoSort'
-ENDME // ME_47B2C42A0163_ME_4DF1C7F20336 AssignItem
-
-ME ME_47B99D4503A2_ME_4DF1C7F20336
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_47B99D4503A2_ME_4DF1C7F20336 CompareExistingItems
-
-ME ME_4DF1C7F20336
- MEPROP UID '4DF1C7F20336'
- MEPROP Name 'TRowHeightsList'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4DF1C6E90221 // PrintRowHeightsSpy
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_4DF1C9450332 // ItemType
- )
- ; // Attributes
- MELIST Implemented
-   Seq: ( ME_47B07CF403D0_ME_4DF1C7F20336 // IsSameItems
- ME_47B2C42A0163_ME_4DF1C7F20336 // AssignItem
- ME_47B99D4503A2_ME_4DF1C7F20336 // CompareExistingItems
- )
- ; // Implemented
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'RowHeightsList'
-
-ENDME // ME_4DF1C7F20336 TRowHeightsList
-
-FORWARD ME_4DF1C7300012
-
-ME ME_4DF869DB00B6
- MEPROP UID '4DF869DB00B6'
- MEPROP Name 'f_Filer'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
- MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
- ;
-
-ENDME // ME_4DF869DB00B6 f_Filer
-
-ME ME_4DF1C96601D8
- MEPROP UID '4DF1C96601D8'
- MEPROP Name 'f_RowHeights'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
- MELINK Target HWL ME_4DF1C7F20336 // TRowHeightsList
- ;
-
-ENDME // ME_4DF1C96601D8 f_RowHeights
-
-FORWARD ME_4DF1C9B1012D
-
-ME ME_4DF1D0B50160
- MEPROP Name 'aData'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_4DF1C87202AB // TRowHeight
- ;
-
-ENDME // ME_4DF1D0B50160 aData
-
-ME ME_4DF1C9B1012D
- MEPROP UID '4DF1C9B1012D'
- MEPROP Name 'AddRowData'
- MEPROP Class class_Operation
- %SUMMARY 'Добавить данные о высоте строки.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
- MELIST Parameters
-   Seq: ( ME_4DF1D0B50160 // aData
- )
- ; // Parameters
-
-ENDME // ME_4DF1C9B1012D AddRowData
-
-ME ME_4DF1CA0803E2
- MEPROP UID '4DF1CA0803E2'
- MEPROP Name 'ClearData'
- MEPROP Class class_Operation
- %SUMMARY 'Очистить данные о строках.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
-
-ENDME // ME_4DF1CA0803E2 ClearData
-
-ME ME_4DF1DB350207
- MEPROP UID '4DF1DB350207'
- MEPROP Name 'ExistsAndValid'
- MEPROP Class class_Operation
- MELINK Stereotype st_static::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP extprop:pas:Value False
-
-ENDME // ME_4DF1DB350207 ExistsAndValid
-
-FORWARD ME_4DF8692C0010
-
-ME ME_4DF86BDB006C
- MEPROP Name 'aLogName'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
-
-ENDME // ME_4DF86BDB006C aLogName
-
-ME ME_4DF8692C0010
- MEPROP UID '4DF8692C0010'
- MEPROP Name 'StartLogging'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
- MELIST Parameters
-   Seq: ( ME_4DF86BDB006C // aLogName
- )
- ; // Parameters
-
-ENDME // ME_4DF8692C0010 StartLogging
-
-ME ME_4DF869520107
- MEPROP UID '4DF869520107'
- MEPROP Name 'StopLogging'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
-
-ENDME // ME_4DF869520107 StopLogging
-
-ME ME_4DF207B1028A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- ;
- MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
- ;
-
-ENDME // ME_4DF207B1028A 
-
-ME ME_479F2AFB0397_ME_4DF1C7300012
- MELINK Original WL 'ME_479F2AFB0397' '51612EBB02F5.ms.model.script' // Release
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479F2AFB0397_ME_4DF1C7300012 Release
-
-ME ME_479F2B3302C1_ME_4DF1C7300012
- MELINK Original WL 'ME_479F2B3302C1' '47913B47006E.ms.model.script' // BeforeAddToCache
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479F2B3302C1_ME_4DF1C7300012 BeforeAddToCache
-
-ME ME_4DF1C7300012
- MEPROP UID '4DF1C7300012'
- MEPROP Name 'TPrintRowHeightsSpy'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Следилка за высотами строк на разных страницах' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4DF1C6E90221 // PrintRowHeightsSpy
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_4DF869DB00B6 // f_Filer
- HWL ME_4DF1C96601D8 // f_RowHeights
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_4DF1C9B1012D // AddRowData
- HWL ME_4DF1CA0803E2 // ClearData
- HWL ME_4DF1DB350207 // ExistsAndValid
- HWL ME_4DF8692C0010 // StartLogging
- HWL ME_4DF869520107 // StopLogging
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479F2AFB0397_ME_4DF1C7300012 // Release
- ME_479F2B3302C1_ME_4DF1C7300012 // BeforeAddToCache
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_4DF207B1028A // evL3CoreConsts
- )
- ; // Dependencies
- UP "singleton" True
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'PrintRowHeightsSpy'
-
-ENDME // ME_4DF1C7300012 TPrintRowHeightsSpy
-
-ME ME_4DF1C6E90221
- MEPROP UID '4DF1C6E90221'
- MEPROP Name 'PrintRowHeightsSpy'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Проверяльщик высот строк на разных страницах' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_47C52679006D // nevUtils
- ;
- MELIST Children
-   Seq: ( HWL ME_4DF1C87202AB // TRowHeight
- HWL ME_4DF1C7F20336 // TRowHeightsList
- HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
- )
- ; // Children
- UP "ifdef" 'nsTest'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\new\PrintRowHeightsSpy.pas'
-
-ENDME // ME_4DF1C6E90221 PrintRowHeightsSpy
 
 ME ME_47C52679006D
  MEPROP UID '47C52679006D'
@@ -2122,7 +1058,7 @@ ME ME_47C52679006D
  MELIST Children
    Seq: ( HWL ME_47C5271101E3 // TnevParas
  HWL ME_47CC15130269 // TevMarkersList
- HWL ME_47D00CC20108 // nevFacade
+ WL 'ME_47D00CC20108' '47D00CC20108.ms.model.script' // nevFacade
  HWL ME_47E261D8019F // TnevDocumentContainerListPrim
  HWL ME_47E26A16008E // TnevRangeList
  HWL ME_47E271DA01B1 // TnevBasePointList
@@ -2133,19 +1069,19 @@ ME ME_47C52679006D
  HWL ME_47ED10AF024F // TevDocumentPreviewInfoList
  HWL ME_47ED17150259 // TnevWaiterList
  HWL ME_47F4CE1200E9 // TnevAnchorList
- HWL ME_480F48F301B9 // nevParaXTool
+ WL 'ME_480F48F301B9' '480F48F301B9.ms.model.script' // nevParaXTool
  HWL ME_47FE40A503CD // TnevConfirm
- HWL ME_480CA9AD0198 // evSectionPara
- HWL ME_47F5D32F0059 // nevParaTool
- HWL ME_480F4E9301DE // nevParaListTool
- HWL ME_480F66CA00DC // nevTextParaTool
- HWL ME_49E7612601CC // nevTinyParaXTool
+ WL 'ME_480CA9AD0198' '480CA9AD0198.ms.model.script' // evSectionPara
+ WL 'ME_47F5D32F0059' '47F5D32F0059.ms.model.script' // nevParaTool
+ WL 'ME_480F4E9301DE' '480F4E9301DE.ms.model.script' // nevParaListTool
+ WL 'ME_480F66CA00DC' '480F66CA00DC.ms.model.script' // nevTextParaTool
+ WL 'ME_49E7612601CC' '49E7612601CC.ms.model.script' // nevTinyParaXTool
  HWL ME_4A23947103C0 // TnevFlatSubsList
- HWL ME_4A23BAEF006A // nevRangeListTools
- HWL ME_4A23BF6402DA // evRangeTools
- HWL ME_4A2548350036 // evTextManipulationInterfaces
+ WL 'ME_4A23BAEF006A' '4A23BAEF006A.ms.model.script' // nevRangeListTools
+ WL 'ME_4A23BF6402DA' '4A23BF6402DA.ms.model.script' // evRangeTools
+ WL 'ME_4A2548350036' '4A2548350036.ms.model.script' // evTextManipulationInterfaces
  HWL ME_4DD25B17012A // TnevDocumentContainerList
- HWL ME_4DF1C6E90221 // PrintRowHeightsSpy
+ WL 'ME_4DF1C6E90221' '4DF1C6E90221.ms.model.script' // PrintRowHeightsSpy
  )
  ; // Children
  MELIST Depends
@@ -2171,6 +1107,9 @@ ME ME_47C52679006D
  WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "path prefix" '/new'
  UP intf.pas:PathOnly '\common\components\gui\Garant\Everest\new'
 

@@ -1,0 +1,36 @@
+// kwSendInputSupportUses 54D4C520030A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54D4C520030A
+
+ME ME_54D4C52D0365
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54D4C520030A // kwSendInputSupportUses
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_54D4C52D0365 
+
+ME ME_54D4C520030A
+ MEPROP UID '54D4C520030A'
+ MEPROP Name 'kwSendInputSupportUses'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F8EC875027E' '4F8EC875027E.ms.model.script' // MouseInput
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54D4C52D0365 // Windows
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName '_kwSendInputSupportUses_'
+ UP extprop:pas:UnitName 'kwSendInputSupportUses.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwSendInputSupportUses.imp.pas'
+
+ENDME // ME_54D4C520030A kwSendInputSupportUses

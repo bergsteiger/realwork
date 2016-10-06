@@ -1,0 +1,101 @@
+// l3Unknown 47913F970159 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47913F970159
+
+ME ME_47913FE900A2
+ MEPROP UID '47913FE900A2'
+ MEPROP Name 'NewInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47913F970159 // l3Unknown
+ ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_47913FE900A2 NewInstance
+
+ME ME_4791403F035A
+ MEPROP UID '4791403F035A'
+ MEPROP Name 'FreeInstance'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47913F970159 // l3Unknown
+ ;
+
+ENDME // ME_4791403F035A FreeInstance
+
+ME ME_479140660154
+ MEPROP UID '479140660154'
+ MEPROP Name 'AfterConstruction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47913F970159 // l3Unknown
+ ;
+
+ENDME // ME_479140660154 AfterConstruction
+
+ME ME_4791407A034E
+ MEPROP UID '4791407A034E'
+ MEPROP Name 'BeforeDestruction'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47913F970159 // l3Unknown
+ ;
+
+ENDME // ME_4791407A034E BeforeDestruction
+
+ME ME_4791409000A0
+ MEPROP UID '4791409000A0'
+ MEPROP Name 'Destroy'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47913F970159 // l3Unknown
+ ;
+
+ENDME // ME_4791409000A0 Destroy
+
+%%InheritedBy ME_47913F4E02E0 ME_47913F970159
+
+ME ME_47913F970159
+ MEPROP UID '47913F970159'
+ MEPROP Name 'l3Unknown'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'В этом классе собираем методы, которые запрещено перекрывать и вызывать напрямую.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F4E02E0' '47913F4E02E0.ms.model.script' // l3UnknownPrim
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47913FE900A2 // NewInstance
+ HWL ME_4791403F035A // FreeInstance
+ HWL ME_479140660154 // AfterConstruction
+ HWL ME_4791407A034E // BeforeDestruction
+ HWL ME_4791409000A0 // Destroy
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '2004/09/15 10:01:44'
+ UP extprop:pas:TypeName '_l3Unknown_'
+ UP extprop:pas:UnitName 'l3Unknown.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Unknown.imp.pas'
+
+ENDME // ME_47913F970159 l3Unknown

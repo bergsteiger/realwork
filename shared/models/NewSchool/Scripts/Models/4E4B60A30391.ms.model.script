@@ -1,0 +1,71 @@
+// UsersMacro 4E4B60A30391 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E4B60A30391
+
+ME ME_4E4B60FC0037
+ MEPROP UID '4E4B60FC0037'
+ MEPROP Name 'Macros_MakeChangeDoc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'полнотекстовая редакция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B60A30391 // UsersMacro
+ ;
+
+ENDME // ME_4E4B60FC0037 Macros_MakeChangeDoc
+
+ME ME_4E4B61100328
+ MEPROP UID '4E4B61100328'
+ MEPROP Name 'Macros_InsertDocChanges'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B60A30391 // UsersMacro
+ ;
+
+ENDME // ME_4E4B61100328 Macros_InsertDocChanges
+
+ME ME_4E4B612A0321
+ MEPROP UID '4E4B612A0321'
+ MEPROP Name 'Macros_ReplaceFutureEditionToCurrent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'замена текущей редакции на будущую' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E4B60A30391 // UsersMacro
+ ;
+
+ENDME // ME_4E4B612A0321 Macros_ReplaceFutureEditionToCurrent
+
+ME ME_4E4B60A30391
+ MEPROP UID '4E4B60A30391'
+ MEPROP Name 'UsersMacro'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B607802DB' '4E4B607802DB.ms.model.script' // Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E4B60FC0037 // Macros_MakeChangeDoc
+ HWL ME_4E4B61100328 // Macros_InsertDocChanges
+ HWL ME_4E4B612A0321 // Macros_ReplaceFutureEditionToCurrent
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_UsersMacro.pas'
+
+ENDME // ME_4E4B60A30391 UsersMacro

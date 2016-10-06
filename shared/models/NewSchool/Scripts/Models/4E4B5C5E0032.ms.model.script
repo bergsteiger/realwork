@@ -2,41 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4E4B5C5E0032
-
-FORWARD ME_4E4B5C770387
-
-ME ME_4E4B5C8E01C8
- MEPROP UID '4E4B5C8E01C8'
- MEPROP Name 'InitBaseEngine'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E4B5C770387 // ddHTinit
- ;
-
-ENDME // ME_4E4B5C8E01C8 InitBaseEngine
-
-ME ME_4E4B5C770387
- MEPROP UID '4E4B5C770387'
- MEPROP Name 'ddHTinit'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E4B5C5E0032 // DataBase
- ;
- MELIST Operations
-   Seq: ( HWL ME_4E4B5C8E01C8 // InitBaseEngine
- )
- ; // Operations
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddHTinit.pas'
-
-ENDME // ME_4E4B5C770387 ddHTinit
+%%Inner ME_4E4B5C770387
 
 ME ME_4E4B5C5E0032
  MEPROP UID '4E4B5C5E0032'
@@ -49,9 +15,12 @@ ME ME_4E4B5C5E0032
  MELINK Parent WL 'ME_4677E18600C2' '4677E18600C2.ms.model.script' // dd
  ;
  MELIST Children
-   Seq: ( HWL ME_4E4B5C770387 // ddHTinit
+   Seq: ( WL 'ME_4E4B5C770387' '4E4B5C770387.ms.model.script' // ddHTinit
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" False
 
 ENDME // ME_4E4B5C5E0032 DataBase

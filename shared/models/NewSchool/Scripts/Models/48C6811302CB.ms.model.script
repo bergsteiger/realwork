@@ -1,0 +1,57 @@
+// l3SysUtils 48C6811302CB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48C6811302CB
+
+ME ME_4C99C0CC0015
+ MEPROP UID '4C99C0CC0015'
+ MEPROP Name 'l3IsRemoteSession'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48C6811302CB // l3SysUtils
+ ;
+ UP extprop:rc:SelfName 'IsRemoteSession'
+
+ENDME // ME_4C99C0CC0015 l3IsRemoteSession
+
+ME ME_48C6813502DF
+ MEPROP UID '48C6813502DF'
+ MEPROP Name 'l3RevokeDragDrop'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48C6811302CB // l3SysUtils
+ ;
+
+ENDME // ME_48C6813502DF l3RevokeDragDrop
+
+ME ME_48C6811302CB
+ MEPROP UID '48C6811302CB'
+ MEPROP Name 'l3SysUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C99C0CC0015 // l3IsRemoteSession
+ HWL ME_48C6813502DF // l3RevokeDragDrop
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" False
+ UP "started" '27.05.2005 14:22'
+ UP extprop:rc:SelfName 'SysUtils'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3SysUtils.pas'
+
+ENDME // ME_48C6811302CB l3SysUtils

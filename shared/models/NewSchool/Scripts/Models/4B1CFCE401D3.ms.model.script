@@ -1,0 +1,106 @@
+// nevSolidParaAnchorModify 4B1CFCE401D3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B1CFCE401D3
+
+ME ME_4B1D0E1A0256
+ MEPROP UID '4B1D0E1A0256'
+ MEPROP Name 'GetY'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1CFCE401D3 // nevSolidParaAnchorModify
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1D0E1A0256 GetY
+
+FORWARD ME_4B1D0E3A00F7
+
+ME ME_4B1D0E4A03D6
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1D0E4A03D6 aValue
+
+ME ME_4B1D0E3A00F7
+ MEPROP UID '4B1D0E3A00F7'
+ MEPROP Name 'SetY'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1CFCE401D3 // nevSolidParaAnchorModify
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1D0E4A03D6 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4B1D0E3A00F7 SetY
+
+ME ME_4B1D112F01F2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1CFCE401D3 // nevSolidParaAnchorModify
+ ;
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4B1D112F01F2 
+
+ME ME_4B1CFD7B0332_ME_4B1CFCE401D3
+ MELINK Original WL 'ME_4B1CFD7B0332' '4B1CFB8E0090.ms.model.script' // DoBottom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1CFD7B0332_ME_4B1CFCE401D3 DoBottom
+
+ME ME_4B1CFD9401A2_ME_4B1CFCE401D3
+ MELINK Original WL 'ME_4B1CFD9401A2' '4B1CFB8E0090.ms.model.script' // DoIncLinePrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1CFD9401A2_ME_4B1CFCE401D3 DoIncLinePrim
+
+%%ImplementedBy ME_4B1CFC5502D8 ME_4B1CFCE401D3
+
+ME ME_4B1CFCE401D3
+ MEPROP UID '4B1CFCE401D3'
+ MEPROP Name 'nevSolidParaAnchorModify'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4B1CFC5502D8' '47E3DF460095.ms.model.script' // MnevAnchorModifyPrim
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B1D0E1A0256 // GetY
+ HWL ME_4B1D0E3A00F7 // SetY
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B1CFD7B0332_ME_4B1CFCE401D3 // DoBottom
+ ME_4B1CFD9401A2_ME_4B1CFCE401D3 // DoIncLinePrim
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4B1D112F01F2 // l3MinMax
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nevSolidParaAnchorModify_'
+ UP extprop:pas:UnitName 'nevSolidParaAnchorModify.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevSolidParaAnchorModify.imp.pas'
+
+ENDME // ME_4B1CFCE401D3 nevSolidParaAnchorModify

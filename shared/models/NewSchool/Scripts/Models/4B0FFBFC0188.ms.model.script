@@ -1,0 +1,61 @@
+// hyieutils 4B0FFBFC0188 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B0FFC0A03CA
+%%Inner ME_4FD0890501F9
+
+FORWARD ME_4B0FFBFC0188
+
+ME ME_4B0FFC0A03CA
+ MEPROP UID '4B0FFC0A03CA'
+ MEPROP Name 'TIEMouseWheelParamsAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0FFBFC0188 // hyieutils
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4B0FFC0A03CA TIEMouseWheelParamsAction
+
+ME ME_4FD0890501F9
+ MEPROP UID '4FD0890501F9'
+ MEPROP Name 'TIEBitmap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B0FFBFC0188 // hyieutils
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IEBitmap'
+
+ENDME // ME_4FD0890501F9 TIEBitmap
+
+ME ME_4B0FFBFC0188
+ MEPROP UID '4B0FFBFC0188'
+ MEPROP Name 'hyieutils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4ACDBC26003C' '4ACDBC26003C.ms.model.script' // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B0FFC0A03CA // TIEMouseWheelParamsAction
+ HWL ME_4FD0890501F9 // TIEBitmap
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyieutils.pas'
+
+ENDME // ME_4B0FFBFC0188 hyieutils

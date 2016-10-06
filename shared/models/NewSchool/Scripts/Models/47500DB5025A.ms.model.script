@@ -1,0 +1,70 @@
+// TreeNameTranslator 47500DB5025A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47500DB5025A
+
+FORWARD ME_475012FB000C
+
+ME ME_4750148E0259
+ MEPROP Name 'shell_name'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4750148E0259 shell_name
+
+ME ME_475012FB000C
+ MEPROP UID '475012FB000C'
+ MEPROP Name 'shell_to_adapter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47500DB5025A // TreeNameTranslator
+ ;
+ MELINK Target WL 'ME_45EEE30C0130' '45F66C67007D.ms.model.script' // AttributeTag
+ ;
+ MEPROP TargetStereotype 'const'
+ MELIST Parameters
+   Seq: ( ME_4750148E0259 // shell_name
+ )
+ ; // Parameters
+
+ENDME // ME_475012FB000C shell_to_adapter
+
+ME ME_4AF2A1640076
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47500DB5025A // TreeNameTranslator
+ ;
+ MELINK Target WL 'ME_4AF29DED02A5' '45EEAA8E034E.ms.model.script' // QueryFields
+ ;
+
+ENDME // ME_4AF2A1640076 
+
+ME ME_47500DB5025A
+ MEPROP UID '47500DB5025A'
+ MEPROP Name 'TreeNameTranslator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Конвертертер имен деревьев' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_460B8FB00186' '460B8FB00186.ms.model.script' // Convertors
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_475012FB000C // shell_to_adapter
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AF2A1640076 // QueryFields
+ )
+ ; // Dependencies
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\TreeNameTranslator.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\TreeNameTranslator.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\TreeNameTranslator.pas'
+
+ENDME // ME_47500DB5025A TreeNameTranslator

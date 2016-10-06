@@ -22,6 +22,7 @@ type
   {* TMenuItem describes the properties of an item in a menu. }
   protected
    procedure Click; virtual;
+   procedure InitiateAction; virtual;
  end;//TMenuItem
 
  TMenu = class(TComponent)
@@ -67,6 +68,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *57CECDB70264_47E7ABCB0296_impl*
 end;//TMenuItem.Click
+
+procedure TMenuItem.InitiateAction;
+//#UC START# *57EB857E015E_47E7ABCB0296_var*
+//#UC END# *57EB857E015E_47E7ABCB0296_var*
+begin
+//#UC START# *57EB857E015E_47E7ABCB0296_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57EB857E015E_47E7ABCB0296_impl*
+end;//TMenuItem.InitiateAction
 
 function TMenu.IsShortCut(var Message: TWMKey): Boolean;
 //#UC START# *52A0905E002D_49A3EC9F01DC_var*

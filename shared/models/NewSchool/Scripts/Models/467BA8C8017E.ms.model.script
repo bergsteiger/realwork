@@ -2,96 +2,20 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_48BC1AC0027C
+%%Inner ME_48BD1ABE023D
+%%Inner ME_48BD1975029B
+%%Inner ME_467BA96E003C
+%%Inner ME_48BBD30803C5
+%%Inner ME_48BBF1470238
+%%Inner ME_48BBD3480266
+%%Inner ME_48BBE35E039F
+%%Inner ME_47E1382301A5
+%%Inner ME_48BBE37E00A2
+%%Inner ME_48BBD6550261
+%%Inner ME_48C7C8A9035E
+
 FORWARD ME_467BA8C8017E
-
-FORWARD ME_48BD1ABE023D
-
-ME ME_48BD1B2A0096
- MEPROP UID '48BD1B2A0096'
- MEPROP Name 'f_Tools'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_48BD1ABE023D // afwToolOwner
- ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
- ;
-
-ENDME // ME_48BD1B2A0096 f_Tools
-
-ME ME_48BD1B31032C
- MEPROP UID '48BD1B31032C'
- MEPROP Name 'Cleanup'
- MEPROP Class class_Operation
- MELINK Stereotype st_override::Operation ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48BD1ABE023D // afwToolOwner
- ;
- UP "is static" False
-
-ENDME // ME_48BD1B31032C Cleanup
-
-ME ME_48BD1CC50335
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48BD1ABE023D // afwToolOwner
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_48BD1CC50335 
-
-ME ME_46A5D45903CC_ME_48BD1ABE023D
- MELINK Original WL 'ME_46A5D45903CC' '4677FBA70343.ms.model.script' // AddTool
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5D45903CC_ME_48BD1ABE023D AddTool
-
-ME ME_46A5D47201FC_ME_48BD1ABE023D
- MELINK Original WL 'ME_46A5D47201FC' '4677FBA70343.ms.model.script' // RemoveTool
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_46A5D47201FC_ME_48BD1ABE023D RemoveTool
-
-ME ME_48BD1ABE023D
- MEPROP UID '48BD1ABE023D'
- MEPROP Name 'afwToolOwner'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_467BA8C8017E // afwControl
- ;
- MELIST Implements
-   Seq: ( WL 'ME_467D37E40254' '4677FBA70343.ms.model.script' // Il3ToolOwner
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_48BD1B2A0096 // f_Tools
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_48BD1B31032C // Cleanup
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_46A5D45903CC_ME_48BD1ABE023D // AddTool
- ME_46A5D47201FC_ME_48BD1ABE023D // RemoveTool
- )
- ; // Implemented
- MELIST Dependencies
-   Seq: ( ME_48BD1CC50335 // SysUtils
- )
- ; // Dependencies
- UP "need UC" True
- UP extprop:pas:TypeName '_afwToolOwner_'
- UP extprop:pas:UnitName 'afwToolOwner.imp'
- UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwToolOwner.imp.pas'
-
-ENDME // ME_48BD1ABE023D afwToolOwner
 
 FORWARD ME_48C7C8A9035E
 
@@ -120,7 +44,7 @@ ME ME_48C7CB17025B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_47E12513030E' '4AB0997B00A2.ms.model.script' // TBiDiMode
+ MELINK Target WL 'ME_47E12513030E' '478CF30500C1.ms.model.script' // TBiDiMode
  ;
 
 ENDME // ME_48C7CB17025B FBiDiMode
@@ -134,7 +58,7 @@ ME ME_48C7CB200056
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_48C7CB200056 FBiDiKeyboard
@@ -148,7 +72,7 @@ ME ME_48C7CB2902D0
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_48C7CB2902D0 FNonBiDiKeyboard
@@ -162,7 +86,7 @@ ME ME_48C7CB3D0269
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
  ;
 
 ENDME // ME_48C7CB3D0269 FObjectInstance
@@ -176,7 +100,7 @@ ME ME_48C7CB4601C4
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_47880CB7004F' '4799D29F033F.ms.model.script' // TForm$Stub
+ MELINK Target WL 'ME_47880CB7004F' '47E13C6B0341.ms.model.script' // TForm$Stub
  ;
 
 ENDME // ME_48C7CB4601C4 FMainForm
@@ -190,7 +114,7 @@ ME ME_48C7CB500093
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
  ;
 
 ENDME // ME_48C7CB500093 FMouseControl
@@ -204,7 +128,7 @@ ME ME_48C7CB58026B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_46A451250363' '4AB0C3C60310.ms.model.script' // IUnknown
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
  ;
 
 ENDME // ME_48C7CB58026B FHelpSystem
@@ -218,7 +142,7 @@ ME ME_48C7CB61017B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_48C7CB61017B FHelpFile
@@ -232,7 +156,7 @@ ME ME_48C7CB6F0229
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_48C7CB6F0229 FHint
@@ -246,7 +170,7 @@ ME ME_48C7CB7A02E6
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_48C7CB7A02E6 FHintActive
@@ -260,7 +184,7 @@ ME ME_48C7CB840202
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_48C7CB840202 FUpdateFormatSettings
@@ -274,7 +198,7 @@ ME ME_48C7CB8D0083
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_48C7CB8D0083 FUpdateMetricSettings
@@ -288,7 +212,7 @@ ME ME_48C7CB9A02C1
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_48C7CB9A02C1 FShowMainForm
@@ -302,7 +226,7 @@ ME ME_48C7CBA303DF
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_46A44A2F01C7' '55C4AEC801CA.ms.model.script' // TColor
+ MELINK Target WL 'ME_46A44A2F01C7' '47D15712022D.ms.model.script' // TColor
  ;
 
 ENDME // ME_48C7CBA303DF FHintColor
@@ -316,10 +240,12 @@ ME ME_48C7CBAD0139
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C9B6013C // THackApplication
  ;
- MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
  ;
 
 ENDME // ME_48C7CBAD0139 FHintControl
+
+%%InheritedBy ME_479878FA0103 ME_48C7C9B6013C
 
 ME ME_48C7C9B6013C
  MEPROP UID '48C7C9B6013C'
@@ -332,7 +258,7 @@ ME ME_48C7C9B6013C
  MELINK Parent HWL ME_48C7C8A9035E // TafwHintManager
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+   Seq: ( WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
  )
  ; // Inherits
  MELIST Attributes
@@ -382,7 +308,7 @@ ME ME_48C7C992028B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7C8A9035E // TafwHintManager
  ;
- MELINK Target WL 'ME_48C7C96E0135' '4799D29F033F.ms.model.script' // TTimer
+ MELINK Target WL 'ME_48C7C96E0135' '48C7C95C0221.ms.model.script' // TTimer
  ;
 
 ENDME // ME_48C7C992028B f_Timer
@@ -430,7 +356,7 @@ ME ME_48C7C925011C
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_48C7C925011C Sender
@@ -455,22 +381,24 @@ ME ME_48C7CCA801ED
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7C8A9035E // TafwHintManager
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_48C7CCA801ED 
 
 ME ME_479731C50290_ME_48C7C8A9035E
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_48C7C8A9035E Cleanup
 
 ME ME_47A042E100E2_ME_48C7C8A9035E
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_48C7C8A9035E InitFields
+
+%%InheritedBy ME_49E7754802A9 ME_48C7C8A9035E
 
 ME ME_48C7C8A9035E
  MEPROP UID '48C7C8A9035E'
@@ -510,6 +438,9 @@ ME ME_48C7C8A9035E
    Seq: ( ME_48C7CCA801ED // l3Base
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "singleton" True
  UP extprop:pas:UnitName 'afwHintManager'
  UP extprop:rc:isAcceptableForScripts True
@@ -531,7 +462,7 @@ ME ME_467BA8C8017E
  ;
  MELIST Children
    Seq: ( WL 'ME_48BC1AC0027C' '48BC1AC0027C.ms.model.script' // TafwControlPrim
- HWL ME_48BD1ABE023D // afwToolOwner
+ WL 'ME_48BD1ABE023D' '48BD1ABE023D.ms.model.script' // afwToolOwner
  WL 'ME_48BD1975029B' '48BD1975029B.ms.model.script' // TafwBaseControl
  WL 'ME_467BA96E003C' '467BA96E003C.ms.model.script' // TafwControl
  WL 'ME_48BBD30803C5' '48BBD30803C5.ms.model.script' // TafwTextControlPrim
@@ -573,6 +504,9 @@ ME ME_467BA8C8017E
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "path prefix" '/implementation/Visual'
  UP intf.pas:PathOnly '\common\components\gui\Garant\AFW\implementation\Visual'
 

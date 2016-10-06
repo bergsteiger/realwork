@@ -1,0 +1,87 @@
+// vcmUtils 4AA9377803B5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4AA9377803B5
+
+ME ME_4AA9378C03B4
+ MEPROP UID '4AA9378C03B4'
+ MEPROP Name 'vcmToAggregate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA9377803B5 // vcmUtils
+ ;
+ UP extprop:rc:SelfName 'ToAggregate'
+
+ENDME // ME_4AA9378C03B4 vcmToAggregate
+
+ME ME_4C3B044D01EB
+ MEPROP UID '4C3B044D01EB'
+ MEPROP Name 'vcmSelectDate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA9377803B5 // vcmUtils
+ ;
+ UP extprop:rc:SelfName 'SelectDate'
+
+ENDME // ME_4C3B044D01EB vcmSelectDate
+
+ME ME_5624CA8601DE
+ MEPROP UID '5624CA8601DE'
+ MEPROP Name 'vcmByteShift'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AA9377803B5 // vcmUtils
+ ;
+ UP extprop:rc:SelfName 'ByteShift'
+
+ENDME // ME_5624CA8601DE vcmByteShift
+
+ME ME_4AAA3CE20258
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AA9377803B5 // vcmUtils
+ ;
+ MELINK Target WL 'ME_4A8D789702FA' '4A8D789702FA.ms.model.script' // vcmOVCCommands
+ ;
+
+ENDME // ME_4AAA3CE20258 
+
+ME ME_4AA9377803B5
+ MEPROP UID '4AA9377803B5'
+ MEPROP Name 'vcmUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AA9378C03B4 // vcmToAggregate
+ HWL ME_4C3B044D01EB // vcmSelectDate
+ HWL ME_5624CA8601DE // vcmByteShift
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4AAA3CE20258 // vcmOVCCommands
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Utils'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmUtils.pas'
+
+ENDME // ME_4AA9377803B5 vcmUtils

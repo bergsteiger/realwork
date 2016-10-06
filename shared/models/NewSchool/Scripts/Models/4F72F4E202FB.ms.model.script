@@ -1,0 +1,222 @@
+// evCustomPrintDataSaver 4F72F4E202FB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F72F0A30036
+
+FORWARD ME_4F72F4E202FB
+
+FORWARD ME_4F72F0A30036
+
+FORWARD ME_4F72F9CD022D
+
+ME ME_4F72F9E6011E
+ MEPROP UID '4F72F9E6011E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72F9CD022D // GetPanel
+ ;
+ MELINK Target WL 'ME_473D869A0282' '467823B7002C.ms.model.script' // IafwPreviewPanel
+ ;
+
+ENDME // ME_4F72F9E6011E DoIt
+
+ME ME_4F72F9CD022D
+ MEPROP UID '4F72F9CD022D'
+ MEPROP Name 'GetPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F72F0A30036 // TevCustomPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F72F9E6011E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F72F9CD022D GetPanel
+
+FORWARD ME_4F746CEA001D
+
+ME ME_4F746D00025C
+ MEPROP UID '4F746D00025C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F746CEA001D // CheckResult
+ ;
+
+ENDME // ME_4F746D00025C DoIt
+
+ME ME_4F746CEA001D
+ MEPROP UID '4F746CEA001D'
+ MEPROP Name 'CheckResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F72F0A30036 // TevCustomPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F746D00025C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F746CEA001D CheckResult
+
+FORWARD ME_4F7967A8006B
+
+ME ME_4F7967DC0061
+ MEPROP UID '4F7967DC0061'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7967A8006B // IsWaitingPrint
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F7967DC0061 DoIt
+
+ME ME_4F7967A8006B
+ MEPROP UID '4F7967A8006B'
+ MEPROP Name 'IsWaitingPrint'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4F72F0A30036 // TevCustomPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7967DC0061 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7967A8006B IsWaitingPrint
+
+FORWARD ME_4F7972A6004D
+
+FORWARD ME_4F7973590188
+
+ME ME_4F7974EE00DE
+ MEPROP Name 'aSaver'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4F72F0A30036 // TevCustomPrintDataSaver
+ ;
+
+ENDME // ME_4F7974EE00DE aSaver
+
+ME ME_4F7973590188
+ MEPROP UID '4F7973590188'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7972A6004D // SetPrintDataSaver
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7974EE00DE // aSaver
+ )
+ ; // Parameters
+
+ENDME // ME_4F7973590188 DoIt
+
+ME ME_4F7972A6004D
+ MEPROP UID '4F7972A6004D'
+ MEPROP Name 'SetPrintDataSaver'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F72F0A30036 // TevCustomPrintDataSaver
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7973590188 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4F7972A6004D SetPrintDataSaver
+
+%%InheritedBy ME_49E7754802A9 ME_4F72F0A30036
+
+ME ME_4F72F0A30036
+ MEPROP UID '4F72F0A30036'
+ MEPROP Name 'TevCustomPrintDataSaver'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F72F4E202FB // evCustomPrintDataSaver
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F72F9CD022D // GetPanel
+ HWL ME_4F746CEA001D // CheckResult
+ HWL ME_4F7967A8006B // IsWaitingPrint
+ HWL ME_4F7972A6004D // SetPrintDataSaver
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrintDataSaver'
+
+ENDME // ME_4F72F0A30036 TevCustomPrintDataSaver
+
+ME ME_4F72F51A0206
+ MEPROP UID '4F72F51A0206'
+ MEPROP Name 'g_PrintDataSaver'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F72F4E202FB // evCustomPrintDataSaver
+ ;
+ MELINK Target HWL ME_4F72F0A30036 // TevCustomPrintDataSaver
+ ;
+
+ENDME // ME_4F72F51A0206 g_PrintDataSaver
+
+ME ME_4F72F4E202FB
+ MEPROP UID '4F72F4E202FB'
+ MEPROP Name 'evCustomPrintDataSaver'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47EA968D0155' '47EA968D0155.ms.model.script' // Printing
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F72F51A0206 // g_PrintDataSaver
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4F72F0A30036 // TevCustomPrintDataSaver
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'InsiderTest'
+ UP extprop:rc:SelfName 'PrintDataSaver'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomPrintDataSaver.pas'
+
+ENDME // ME_4F72F4E202FB evCustomPrintDataSaver

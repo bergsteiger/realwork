@@ -1,0 +1,44 @@
+// CsQueryTypes 537F63590169 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_537F63760334
+
+FORWARD ME_537F63590169
+
+ME ME_537F63760334
+ MEPROP UID '537F63760334'
+ MEPROP Name 'TCsQueryId'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537F63590169 // CsQueryTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_537F63760334 TCsQueryId
+
+ME ME_537F63590169
+ MEPROP UID '537F63590169'
+ MEPROP Name 'CsQueryTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FBB2FC0386' '52FBB2FC0386.ms.model.script' // Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_537F63760334 // TCsQueryId
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsQueryTypes.pas'
+
+ENDME // ME_537F63590169 CsQueryTypes

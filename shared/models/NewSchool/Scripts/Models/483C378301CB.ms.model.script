@@ -1,0 +1,165 @@
+// StrUtils 483C378301CB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_483C378301CB
+
+ME ME_4B570AFF0023
+ MEPROP UID '4B570AFF0023'
+ MEPROP Name 'AnsiReplaceStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+
+ENDME // ME_4B570AFF0023 AnsiReplaceStr
+
+ME ME_4B853D8301E9
+ MEPROP UID '4B853D8301E9'
+ MEPROP Name 'AnsiStartsStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+
+ENDME // ME_4B853D8301E9 AnsiStartsStr
+
+ME ME_4BB3609E0331
+ MEPROP UID '4BB3609E0331'
+ MEPROP Name 'AnsiStartsText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+
+ENDME // ME_4BB3609E0331 AnsiStartsText
+
+ME ME_4F26C8EA0067
+ MEPROP UID '4F26C8EA0067'
+ MEPROP Name 'AnsiEndsStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+
+ENDME // ME_4F26C8EA0067 AnsiEndsStr
+
+ME ME_519C72F902E4
+ MEPROP UID '519C72F902E4'
+ MEPROP Name 'PosEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+
+ENDME // ME_519C72F902E4 PosEx
+
+ME ME_51D299B4032E
+ MEPROP UID '51D299B4032E'
+ MEPROP Name 'AnsiContainsText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+
+ENDME // ME_51D299B4032E AnsiContainsText
+
+ME ME_55097F16032A
+ MEPROP UID '55097F16032A'
+ MEPROP Name 'IfThen'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+ UP "finished" False
+
+ENDME // ME_55097F16032A IfThen
+
+FORWARD ME_483C379A00C1
+
+ME ME_483C37AE0257
+ MEPROP Name 'AText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+
+ENDME // ME_483C37AE0257 AText
+
+ME ME_483C37AE02A5
+ MEPROP Name 'ACount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_483C37AE02A5 ACount
+
+ME ME_483C379A00C1
+ MEPROP UID '483C379A00C1'
+ MEPROP Name 'LeftStr'
+ MEPROP Class class_Operation
+ %SUMMARY 'Returns the substring of a specified length that appears at the start of a string.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_483C378301CB // StrUtils
+ ;
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
+ ;
+ MELIST Parameters
+   Seq: ( ME_483C37AE0257 // AText
+ ME_483C37AE02A5 // ACount
+ )
+ ; // Parameters
+
+ENDME // ME_483C379A00C1 LeftStr
+
+ME ME_483C378301CB
+ MEPROP UID '483C378301CB'
+ MEPROP Name 'StrUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B570AFF0023 // AnsiReplaceStr
+ HWL ME_4B853D8301E9 // AnsiStartsStr
+ HWL ME_4BB3609E0331 // AnsiStartsText
+ HWL ME_4F26C8EA0067 // AnsiEndsStr
+ HWL ME_519C72F902E4 // PosEx
+ HWL ME_51D299B4032E // AnsiContainsText
+ HWL ME_55097F16032A // IfThen
+ HWL ME_483C379A00C1 // LeftStr
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\StrUtils.pas'
+
+ENDME // ME_483C378301CB StrUtils

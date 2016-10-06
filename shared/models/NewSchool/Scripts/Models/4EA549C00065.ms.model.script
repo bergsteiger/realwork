@@ -1,0 +1,52 @@
+// dd_lcSourceConverter 4EA549C00065 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EA53643017A
+
+FORWARD ME_4EA549C00065
+
+%%InheritedBy ME_49E487A70144 ME_4EA53643017A
+
+ME ME_4EA53643017A
+ MEPROP UID '4EA53643017A'
+ MEPROP Name 'Tdd_lcSourceConverterFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA549C00065 // dd_lcSourceConverter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.ms.model.script' // Tk2TagFilter
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dd_lcSourceConverterFilter'
+
+ENDME // ME_4EA53643017A Tdd_lcSourceConverterFilter
+
+ME ME_4EA549C00065
+ MEPROP UID '4EA549C00065'
+ MEPROP Name 'dd_lcSourceConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B324F930103' '4B324F930103.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA53643017A // Tdd_lcSourceConverterFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcSourceConverter.pas'
+
+ENDME // ME_4EA549C00065 dd_lcSourceConverter

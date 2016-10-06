@@ -2,6 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_482D6E3B02A3
+%%Inner ME_482D6FA7020E
+%%Inner ME_482D6FC7023B
+%%Inner ME_4C1B2A94015D
+%%Inner ME_4D6BB1E0012D
+%%Inner ME_4D6BE6AF0322
+%%Inner ME_4EA536A500EB
+
 FORWARD ME_482D6E13011F
 
 FORWARD ME_482D6E3B02A3
@@ -14,7 +22,7 @@ ME ME_4D6BB6460233
  MEPROP Name 'aText'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4773DF5703C9' '47913B47006E.ms.model.script' // Tl3String
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
  ;
 
 ENDME // ME_4D6BB6460233 aText
@@ -59,7 +67,7 @@ ME ME_4E0B654200D6
  MEPROP Name 'aText'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4773DF5703C9' '47913B47006E.ms.model.script' // Tl3String
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
  ;
 
 ENDME // ME_4E0B654200D6 aText
@@ -72,7 +80,7 @@ ME ME_4E0B653A00D6
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4E0B6520020B // NeedOpenDefaultChild
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_4E0B654200D6 // aText
@@ -98,6 +106,8 @@ ME ME_4E0B6520020B
 
 ENDME // ME_4E0B6520020B NeedOpenDefaultChild
 
+%%InheritedBy ME_482D6EB4003A ME_482D6E3B02A3
+
 ME ME_482D6E3B02A3
  MEPROP UID '482D6E3B02A3'
  MEPROP Name 'TevCustomTxtReader'
@@ -117,6 +127,9 @@ ME ME_482D6E3B02A3
  HWL ME_4E0B6520020B // NeedOpenDefaultChild
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "finished" False
  UP "started" '05.10.1999 17:44'
@@ -126,6 +139,8 @@ ME ME_482D6E3B02A3
  UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evCustomTxtReader.pas'
 
 ENDME // ME_482D6E3B02A3 TevCustomTxtReader
+
+%%InheritedBy ME_482D6E3B02A3 ME_482D6FA7020E
 
 ME ME_482D6FA7020E
  MEPROP UID '482D6FA7020E'
@@ -151,6 +166,8 @@ ME ME_482D6FA7020E
 
 ENDME // ME_482D6FA7020E TevTextParser
 
+%%InheritedBy ME_482D6FA7020E ME_482D6FC7023B
+
 ME ME_482D6FC7023B
  MEPROP UID '482D6FC7023B'
  MEPROP Name 'TevTxtReader'
@@ -175,48 +192,6 @@ ME ME_482D6FC7023B
 
 ENDME // ME_482D6FC7023B TevTxtReader
 
-FORWARD ME_4C1B2A94015D
-
-ME ME_4C1B2AB301B1
- MEPROP UID '4C1B2AB301B1'
- MEPROP Name 'TevCustomEvdReader'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4C1B2A94015D // evEvdRd
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'EvdReader'
-
-ENDME // ME_4C1B2AB301B1 TevCustomEvdReader
-
-ME ME_4C1B2A94015D
- MEPROP UID '4C1B2A94015D'
- MEPROP Name 'evEvdRd'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_482D6E13011F // Readers
- ;
- MELIST Children
-   Seq: ( HWL ME_4C1B2AB301B1 // TevCustomEvdReader
- )
- ; // Children
- UP "finished" False
- UP extprop:rc:SelfName 'EvdRd'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEvdRd.pas'
-
-ENDME // ME_4C1B2A94015D evEvdRd
-
 FORWARD ME_4D6BB1E0012D
 
 FORWARD ME_4D6BD8090316
@@ -230,7 +205,7 @@ ME ME_4D6BD8440390
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4D6BD8090316 // TevFormatInfo
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4D6BD8440390 rStart
@@ -244,7 +219,7 @@ ME ME_4D6BD84D009D
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4D6BD8090316 // TevFormatInfo
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4D6BD84D009D rName
@@ -258,7 +233,7 @@ ME ME_4D6BD8550325
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4D6BD8090316 // TevFormatInfo
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4D6BD8550325 rValue
@@ -279,6 +254,9 @@ ME ME_4D6BD8090316
  HWL ME_4D6BD8550325 // rValue
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:SelfName 'FormatInfo'
 
 ENDME // ME_4D6BD8090316 TevFormatInfo
@@ -301,14 +279,14 @@ ME ME_4D6BD8F701EE
 ENDME // ME_4D6BD8F701EE ItemType
 
 ME ME_47B07CF403D0_ME_4D6BD8CF022A
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_4D6BD8CF022A IsSameItems
 
 ME ME_47B2C42A0163_ME_4D6BD8CF022A
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -316,10 +294,13 @@ ME ME_47B2C42A0163_ME_4D6BD8CF022A
 ENDME // ME_47B2C42A0163_ME_4D6BD8CF022A AssignItem
 
 ME ME_47B99D4503A2_ME_4D6BD8CF022A
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_4D6BD8CF022A CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_4D6BD8CF022A
+%%InheritedBy ME_4B223ADC02BF ME_4D6BD8CF022A
 
 ME ME_4D6BD8CF022A
  MEPROP UID '4D6BD8CF022A'
@@ -333,7 +314,7 @@ ME ME_4D6BD8CF022A
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -363,7 +344,7 @@ ME ME_4E0B671B0135
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E0B671B0135 f_ListLevel
@@ -377,7 +358,7 @@ ME ME_4E0C8A920109
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E0C8A920109 f_SmallLevel
@@ -405,7 +386,7 @@ ME ME_4E0C930F03DD
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E0C930F03DD f_CloakLevel
@@ -419,7 +400,7 @@ ME ME_4E0C9603024C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4E0C9603024C f_IndentLevel
@@ -435,7 +416,7 @@ ME ME_4E858CA00248
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" True
  UP "pm" True
@@ -463,7 +444,7 @@ ME ME_4D6BB898022E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_4D6BB898022E 
@@ -503,7 +484,7 @@ ME ME_4D6BBB070382
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4D6BBB070382 
@@ -553,7 +534,7 @@ ME ME_4D6BDCFF0078
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_4BCED67800F1' '4AB0C3C60310.ms.model.script' // ANSISameText
+ MELINK Target WL 'ME_4BCED67800F1' '47877EB202FB.ms.model.script' // ANSISameText
  ;
 
 ENDME // ME_4D6BDCFF0078 
@@ -563,7 +544,7 @@ ME ME_4D6BE0CF02B9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_47F2499F0049' '47F1F38601A3.ms.model.script' // evSegLst
+ MELINK Target WL 'ME_47F2499F0049' '47F2499F0049.ms.model.script' // evSegLst
  ;
 
 ENDME // ME_4D6BE0CF02B9 
@@ -583,7 +564,7 @@ ME ME_4E0C8ABB003C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_49F048510365' '47ECB2870309.ms.model.script' // evStyleTableTools
+ MELINK Target WL 'ME_49F048510365' '49F048510365.ms.model.script' // evStyleTableTools
  ;
 
 ENDME // ME_4E0C8ABB003C 
@@ -593,7 +574,7 @@ ME ME_4E0C8AE40075
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_47E1233D01CD' '47877A6F000A.ms.model.script' // TafwFont
+ MELINK Target WL 'ME_47E1233D01CD' '47E122F001A4.ms.model.script' // TafwFont
  ;
 
 ENDME // ME_4E0C8AE40075 
@@ -603,7 +584,7 @@ ME ME_4E0C8EAE0246
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_483C378301CB' '4AB0997B00A2.ms.model.script' // StrUtils
+ MELINK Target WL 'ME_483C378301CB' '483C378301CB.ms.model.script' // StrUtils
  ;
 
 ENDME // ME_4E0C8EAE0246 
@@ -623,7 +604,7 @@ ME ME_4E170BCD0168
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
  ;
 
 ENDME // ME_4E170BCD0168 
@@ -653,7 +634,7 @@ ME ME_4F2AA78600B5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6BB1E0012D // TevCustomWikiReader
  ;
- MELINK Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.ms.model.script' // k2Base
+ MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
  ;
 
 ENDME // ME_4F2AA78600B5 
@@ -679,13 +660,13 @@ ME ME_53A967BF0170
 ENDME // ME_53A967BF0170 
 
 ME ME_479731C50290_ME_4D6BB1E0012D
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4D6BB1E0012D Cleanup
 
 ME ME_47A042E100E2_ME_4D6BB1E0012D
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4D6BB1E0012D InitFields
@@ -701,6 +682,8 @@ ME ME_4E0B6520020B_ME_4D6BB1E0012D
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4E0B6520020B_ME_4D6BB1E0012D NeedOpenDefaultChild
+
+%%InheritedBy ME_482D6E3B02A3 ME_4D6BB1E0012D
 
 ME ME_4D6BB1E0012D
  MEPROP UID '4D6BB1E0012D'
@@ -763,6 +746,9 @@ ME ME_4D6BB1E0012D
  ME_53A967BF0170 // Tk2Attributes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '28.02.2011 17:32'
@@ -772,6 +758,8 @@ ME ME_4D6BB1E0012D
  UP intf.pas:Path 'common\components\gui\Garant\Everest\evCustomWikiReader.pas'
 
 ENDME // ME_4D6BB1E0012D TevCustomWikiReader
+
+%%InheritedBy ME_4D6BB1E0012D ME_4D6BE6AF0322
 
 ME ME_4D6BE6AF0322
  MEPROP UID '4D6BE6AF0322'
@@ -797,71 +785,6 @@ ME ME_4D6BE6AF0322
 
 ENDME // ME_4D6BE6AF0322 TevWikiReader
 
-FORWARD ME_4EA536A500EB
-
-ME ME_4EA536C0031B
- MEPROP UID '4EA536C0031B'
- MEPROP Name 'TevCustomEvdStorageReader'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Читатель тегов в формате evd из структурированного хранилища (IStorage)' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4EA536A500EB // evEvdReader
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4C1B2AB301B1 // TevCustomEvdReader
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'EvdStorageReader'
-
-ENDME // ME_4EA536C0031B TevCustomEvdStorageReader
-
-ME ME_4EA536EC013F
- MEPROP UID '4EA536EC013F'
- MEPROP Name 'TevEvdStorageReader'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Читатель тегов в формате evd (с published свойствами).' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4EA536A500EB // evEvdReader
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4EA536C0031B // TevCustomEvdStorageReader
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'EvdStorageReader'
-
-ENDME // ME_4EA536EC013F TevEvdStorageReader
-
-ME ME_4EA536A500EB
- MEPROP UID '4EA536A500EB'
- MEPROP Name 'evEvdReader'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_482D6E13011F // Readers
- ;
- MELIST Children
-   Seq: ( HWL ME_4EA536C0031B // TevCustomEvdStorageReader
- HWL ME_4EA536EC013F // TevEvdStorageReader
- )
- ; // Children
- UP "finished" False
- UP extprop:rc:SelfName 'EvdReader'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEvdReader.pas'
-
-ENDME // ME_4EA536A500EB evEvdReader
-
 ME ME_482D6E13011F
  MEPROP UID '482D6E13011F'
  MEPROP Name 'Readers'
@@ -876,10 +799,10 @@ ME ME_482D6E13011F
    Seq: ( HWL ME_482D6E3B02A3 // TevCustomTxtReader
  HWL ME_482D6FA7020E // TevTextParser
  HWL ME_482D6FC7023B // TevTxtReader
- HWL ME_4C1B2A94015D // evEvdRd
+ WL 'ME_4C1B2A94015D' '4C1B2A94015D.ms.model.script' // evEvdRd
  HWL ME_4D6BB1E0012D // TevCustomWikiReader
  HWL ME_4D6BE6AF0322 // TevWikiReader
- HWL ME_4EA536A500EB // evEvdReader
+ WL 'ME_4EA536A500EB' '4EA536A500EB.ms.model.script' // evEvdReader
  )
  ; // Children
  MELIST Depends
@@ -907,5 +830,8 @@ ME ME_482D6E13011F
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_482D6E13011F Readers

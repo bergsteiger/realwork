@@ -2,9 +2,16 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_55B7A33101AF
+%%Inner ME_55B7A37F010E
+%%Inner ME_55B7A39F0035
+%%Inner ME_55BA0CA0035A
+
 FORWARD ME_55B7A3160128
 
 FORWARD ME_55B7A33101AF
+
+%%InheritedBy ME_55B7A33101AF ME_55B7B2D2039D
 
 ME ME_55B7B2D2039D
  MEPROP UID '55B7B2D2039D'
@@ -35,7 +42,7 @@ ME ME_55B7A3C7002A
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55B7A3AF0359 // ResName
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_55B7A3C7002A DoIt
@@ -124,6 +131,9 @@ ME ME_55B7A33101AF
    Seq: ( ME_55B8C673004C // TtfwAxiomaticsResNameGetters
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwAxiomaticsResNameGetter'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'AxiomaticsResNameGetter'
@@ -149,10 +159,13 @@ ME ME_55B7A38E028C
 ENDME // ME_55B7A38E028C ItemType
 
 ME ME_47B99D4503A2_ME_55B7A37F010E
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_55B7A37F010E CompareExistingItems
+
+%%InheritedBy ME_47B992F60244 ME_55B7A37F010E
+%%InheritedBy ME_4A54DD4E036F ME_55B7A37F010E
 
 ME ME_55B7A37F010E
  MEPROP UID '55B7A37F010E'
@@ -165,7 +178,7 @@ ME ME_55B7A37F010E
  MELINK Parent HWL ME_55B7A3160128 // ScriptedAxiomatics
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B992F60244' '47913B47006E.ms.model.script' // l3UnrefcountedList
+   Seq: ( WL 'ME_47B992F60244' '47B992F60244.ms.model.script' // l3UnrefcountedList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -183,6 +196,8 @@ ME ME_55B7A37F010E
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetterList.pas'
 
 ENDME // ME_55B7A37F010E TtfwAxiomaticsResNameGetterList
+
+%%InheritedBy ME_55B7A37F010E ME_55B7A39F0035
 
 ME ME_55B7A39F0035
  MEPROP UID '55B7A39F0035'
@@ -205,6 +220,8 @@ ME ME_55B7A39F0035
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwAxiomaticsResNameGetters.pas'
 
 ENDME // ME_55B7A39F0035 TtfwAxiomaticsResNameGetters
+
+%%InheritedBy ME_4773DCE302FF ME_55BA0CA0035A
 
 ME ME_55BA0CA0035A
  MEPROP UID '55BA0CA0035A'
@@ -250,6 +267,9 @@ ME ME_55B7A3160128
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" True
 
 ENDME // ME_55B7A3160128 ScriptedAxiomatics

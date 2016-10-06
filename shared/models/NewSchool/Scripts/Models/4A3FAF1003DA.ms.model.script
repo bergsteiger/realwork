@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_515181D600DD
+
 FORWARD ME_4A3FAF1003DA
 
 FORWARD ME_515181D600DD
@@ -12,7 +14,7 @@ ME ME_515182080271
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_515182080271 Sender
@@ -21,7 +23,7 @@ ME ME_515182080287
  MEPROP Name 'Command'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
  ;
 
 ENDME // ME_515182080287 Command
@@ -34,7 +36,7 @@ ME ME_515182020122
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_515181D600DD // TUserCommandEvent
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_515182080271 // Sender
@@ -98,6 +100,9 @@ ME ME_4A3FAF1003DA
    Seq: ( WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" False
  UP "is namespace" True
  UP intf.pas:Path 'common\components\rtl\external\Orpheus\NOT_FINISHED_OvcCmd.pas'

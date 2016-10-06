@@ -2,253 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4ECB871B0028
-
-FORWARD ME_4ECB874E0247
-
-ME ME_4ECB8780011A
- MEPROP UID '4ECB8780011A'
- MEPROP Name 'TContentsEditDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4ECB874E0247 // d_GetContents
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ContentsEditDlg'
-
-ENDME // ME_4ECB8780011A TContentsEditDlg
-
-ME ME_4ECB87E20367
- MEPROP UID '4ECB87E20367'
- MEPROP Name 'RequestContents'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ECB874E0247 // d_GetContents
- ;
- UP "finished" False
-
-ENDME // ME_4ECB87E20367 RequestContents
-
-ME ME_4ECB874E0247
- MEPROP UID '4ECB874E0247'
- MEPROP Name 'd_GetContents'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ECB871B0028 // Dialogs
- ;
- MELIST Operations
-   Seq: ( HWL ME_4ECB87E20367 // RequestContents
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4ECB8780011A // TContentsEditDlg
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_d_GetContents.pas'
-
-ENDME // ME_4ECB874E0247 d_GetContents
-
-FORWARD ME_4F8D26D303CB
-
-FORWARD ME_4F8D26E9004F
-
-ME ME_4F8D273401A2
- MEPROP UID '4F8D273401A2'
- MEPROP Name 'Execute'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F8D26E9004F // TDocSearchDlg
- ;
-
-ENDME // ME_4F8D273401A2 Execute
-
-ME ME_4F8D26E9004F
- MEPROP UID '4F8D26E9004F'
- MEPROP Name 'TDocSearchDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F8D26D303CB // D_Srch
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_4F8D273401A2 // Execute
- )
- ; // Operations
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'DocSearchDlg'
-
-ENDME // ME_4F8D26E9004F TDocSearchDlg
-
-ME ME_4F8D26D303CB
- MEPROP UID '4F8D26D303CB'
- MEPROP Name 'D_Srch'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ECB871B0028 // Dialogs
- ;
- MELIST Children
-   Seq: ( HWL ME_4F8D26E9004F // TDocSearchDlg
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_Srch.pas'
-
-ENDME // ME_4F8D26D303CB D_Srch
-
-FORWARD ME_4F8D5C7802F6
-
-ME ME_4F8D5C85024B
- MEPROP UID '4F8D5C85024B'
- MEPROP Name 'TSearchResultDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F8D5C7802F6 // D_SchRes
- ;
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'SearchResultDlg'
-
-ENDME // ME_4F8D5C85024B TSearchResultDlg
-
-ME ME_4F8D5C7802F6
- MEPROP UID '4F8D5C7802F6'
- MEPROP Name 'D_SchRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ECB871B0028 // Dialogs
- ;
- MELIST Children
-   Seq: ( HWL ME_4F8D5C85024B // TSearchResultDlg
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_SchRes.pas'
-
-ENDME // ME_4F8D5C7802F6 D_SchRes
-
-FORWARD ME_4F910CF600C9
-
-ME ME_4F910D0303E7
- MEPROP UID '4F910D0303E7'
- MEPROP Name 'TGetNumberDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4F910CF600C9 // D_GetNum
- ;
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'GetNumberDlg'
-
-ENDME // ME_4F910D0303E7 TGetNumberDlg
-
-ME ME_4F910CF600C9
- MEPROP UID '4F910CF600C9'
- MEPROP Name 'D_GetNum'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ECB871B0028 // Dialogs
- ;
- MELIST Children
-   Seq: ( HWL ME_4F910D0303E7 // TGetNumberDlg
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_GetNum.pas'
-
-ENDME // ME_4F910CF600C9 D_GetNum
-
-FORWARD ME_50163EBB0377
-
-ME ME_50163ED103BF
- MEPROP UID '50163ED103BF'
- MEPROP Name 'TNameEditDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_50163EBB0377 // D_NameEd
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'NameEditDlg'
-
-ENDME // ME_50163ED103BF TNameEditDlg
-
-ME ME_50163EBB0377
- MEPROP UID '50163EBB0377'
- MEPROP Name 'D_NameEd'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ECB871B0028 // Dialogs
- ;
- MELIST Children
-   Seq: ( HWL ME_50163ED103BF // TNameEditDlg
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_NameEd.pas'
-
-ENDME // ME_50163EBB0377 D_NameEd
-
-ME ME_53EC88D6039A
- MEPROP UID '53EC88D6039A'
- MEPROP Name 'D_ShowInfo'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4ECB871B0028 // Dialogs
- ;
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_ShowInfo.pas'
-
-ENDME // ME_53EC88D6039A D_ShowInfo
+%%Inner ME_4ECB874E0247
+%%Inner ME_4F8D26D303CB
+%%Inner ME_4F8D5C7802F6
+%%Inner ME_4F910CF600C9
+%%Inner ME_50163EBB0377
+%%Inner ME_53EC88D6039A
 
 ME ME_4ECB871B0028
  MEPROP UID '4ECB871B0028'
@@ -261,17 +20,20 @@ ME ME_4ECB871B0028
  MELINK Parent WL 'ME_4DE803840174' '4DE803840174.ms.model.script' // Dlg
  ;
  MELIST Children
-   Seq: ( HWL ME_4ECB874E0247 // d_GetContents
- HWL ME_4F8D26D303CB // D_Srch
- HWL ME_4F8D5C7802F6 // D_SchRes
- HWL ME_4F910CF600C9 // D_GetNum
- HWL ME_50163EBB0377 // D_NameEd
- HWL ME_53EC88D6039A // D_ShowInfo
+   Seq: ( WL 'ME_4ECB874E0247' '4ECB874E0247.ms.model.script' // d_GetContents
+ WL 'ME_4F8D26D303CB' '4F8D26D303CB.ms.model.script' // D_Srch
+ WL 'ME_4F8D5C7802F6' '4F8D5C7802F6.ms.model.script' // D_SchRes
+ WL 'ME_4F910CF600C9' '4F910CF600C9.ms.model.script' // D_GetNum
+ WL 'ME_50163EBB0377' '50163EBB0377.ms.model.script' // D_NameEd
+ WL 'ME_53EC88D6039A' '53EC88D6039A.ms.model.script' // D_ShowInfo
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_4E202BD501B7' '4E202BD501B7.ms.model.script' // BaseForms
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4ECB871B0028 Dialogs

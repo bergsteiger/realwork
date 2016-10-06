@@ -1,0 +1,650 @@
+// eeEVDtoRTF 4B72B41502F5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B72B41502F5
+
+FORWARD ME_4B72B44A0392
+
+ME ME_4B72BA810390
+ MEPROP UID '4B72BA810390'
+ MEPROP Name 'Reader'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B72BA810390 Reader
+
+ME ME_4B72BAC0031D
+ MEPROP UID '4B72BAC0031D'
+ MEPROP Name 'G'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B72BAC0031D G
+
+ME ME_4B72BB600341
+ MEPROP UID '4B72BB600341'
+ MEPROP Name 'Writer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4B72BB480373' '48F4BA89000D.ms.model.script' // TevRTFObjectGenerator
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B72BB600341 Writer
+
+ME ME_4B72BC0E02DE
+ MEPROP UID '4B72BC0E02DE'
+ MEPROP Name 'Styles'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B72BC0E02DE Styles
+
+FORWARD ME_4B72B47601D9
+
+ME ME_530C9AE302ED
+ MEPROP Name 'aEVD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_530C9AE302ED aEVD
+
+ME ME_530C9AE30305
+ MEPROP Name 'aRTF'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_530C9AE30305 aRTF
+
+ME ME_530C9AE3034F
+ MEPROP Name 'Hidden'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47289B590038' '4678193C009C.ms.model.script' // PLong
+ ;
+
+ENDME // ME_530C9AE3034F Hidden
+
+ME ME_530C9AE30368
+ MEPROP Name 'HiddenCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_530C9AE30368 HiddenCount
+
+ME ME_530C9AE30381
+ MEPROP Name 'aHost'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_530C9AE30381 aHost
+
+ME ME_530C9AE3039B
+ MEPROP Name 'aNeedEliminateCommentDecor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_530C9AE3039B aNeedEliminateCommentDecor
+
+ME ME_4B72B47601D9
+ MEPROP UID '4B72B47601D9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_530C9AE302ED // aEVD
+ ME_530C9AE30305 // aRTF
+ ME_530C9AE3034F // Hidden
+ ME_530C9AE30368 // HiddenCount
+ ME_530C9AE30381 // aHost
+ ME_530C9AE3039B // aNeedEliminateCommentDecor
+ )
+ ; // Parameters
+
+ENDME // ME_4B72B47601D9 DoIt
+
+ME ME_4B72BC7D0350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4B72BC7D0350 
+
+ME ME_4B72BE4F0388
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4B324FA20278' '4B32594C008B.ms.model.script' // TddSectionRepairFilter
+ ;
+
+ENDME // ME_4B72BE4F0388 
+
+ME ME_4B72BF150276
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4B72BED1017B' '4B72BED1017B.ms.model.script' // jclDebug
+ ;
+
+ENDME // ME_4B72BF150276 
+
+ME ME_4B72BF5100FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_47ECBAA30322' '47ECACA70141.ms.model.script' // TevHiddenFilter
+ ;
+
+ENDME // ME_4B72BF5100FD 
+
+ME ME_4B72BFCB0188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4B72BF9003D0' '47ECACA70141.ms.model.script' // TevNestedDocumentEliminator
+ ;
+
+ENDME // ME_4B72BFCB0188 
+
+ME ME_4B72C2CE00AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4B72C2CE00AA 
+
+ME ME_4B72C40801D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_47ECB8E402B4' '47ECB8BD00A8.ms.model.script' // TevdPageParamsFilter
+ ;
+
+ENDME // ME_4B72C40801D6 
+
+ME ME_4B72E7350333
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4857EFDA01E5' '4857EFDA01E5.ms.model.script' // evStyleInterfaceEx
+ ;
+
+ENDME // ME_4B72E7350333 
+
+ME ME_4D88C00D02B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4D88BFEA013A' '47ECACA70141.ms.model.script' // TevCommentDecorator
+ ;
+
+ENDME // ME_4D88C00D02B5 
+
+ME ME_4D8B75BD0043
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4A2CFFA30282' '47ECACA70141.ms.model.script' // TevdBlockNameAdder
+ ;
+
+ENDME // ME_4D8B75BD0043 
+
+ME ME_4EFC4E7B0049
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4E85A869034E' '47ECACA70141.ms.model.script' // TevStyleHeaderAdder
+ ;
+
+ENDME // ME_4EFC4E7B0049 
+
+ME ME_4F796D7B00A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4F352A840264' '47ECACA70141.ms.model.script' // TevdScriptHyperlinkEliminator
+ ;
+
+ENDME // ME_4F796D7B00A2 
+
+%%ImplementedBy ME_4E85A4EB02BD ME_4B72B44A0392
+
+ME ME_4B72B44A0392
+ MEPROP UID '4B72B44A0392'
+ MEPROP Name 'DoEVDtoRTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72B41502F5 // eeEVDtoRTF
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E85A4EB02BD' '4E5CF70B01E2.ms.model.script' // Информация из баллона об изменениях документа должна копироваться вместе со вступительной фразой
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4B72BA810390 // Reader
+ HWL ME_4B72BAC0031D // G
+ HWL ME_4B72BB600341 // Writer
+ HWL ME_4B72BC0E02DE // Styles
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B72B47601D9 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B72BC7D0350 // l3Base
+ ME_4B72BE4F0388 // TddSectionRepairFilter
+ ME_4B72BF150276 // jclDebug
+ ME_4B72BF5100FD // TevHiddenFilter
+ ME_4B72BFCB0188 // TevNestedDocumentEliminator
+ ME_4B72C2CE00AA // SysUtils
+ ME_4B72C40801D6 // TevdPageParamsFilter
+ ME_4B72E7350333 // evStyleInterfaceEx
+ ME_4D88C00D02B5 // TevCommentDecorator
+ ME_4D8B75BD0043 // TevdBlockNameAdder
+ ME_4EFC4E7B0049 // TevStyleHeaderAdder
+ ME_4F796D7B00A2 // TevdScriptHyperlinkEliminator
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" False
+
+ENDME // ME_4B72B44A0392 DoEVDtoRTF
+
+FORWARD ME_530C8AA4024F
+
+FORWARD ME_530C8ABF029E
+
+ME ME_530C9A3600F2
+ MEPROP Name 'aEVD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_530C9A3600F2 aEVD
+
+ME ME_530C9A360108
+ MEPROP Name 'aRTF'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_530C9A360108 aRTF
+
+ME ME_530C9A36014E
+ MEPROP Name 'Hidden'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47289B590038' '4678193C009C.ms.model.script' // PLong
+ ;
+
+ENDME // ME_530C9A36014E Hidden
+
+ME ME_530C9A360166
+ MEPROP Name 'HiddenCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_530C9A360166 HiddenCount
+
+ME ME_530C9A36019A
+ MEPROP Name 'aHost'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_530C9A36019A aHost
+
+ME ME_530C8ABF029E
+ MEPROP UID '530C8ABF029E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_530C8AA4024F // EVDtoRTFWithoutCommentDecor
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_530C9A3600F2 // aEVD
+ ME_530C9A360108 // aRTF
+ ME_530C9A36014E // Hidden
+ ME_530C9A360166 // HiddenCount
+ ME_530C9A36019A // aHost
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_530C8ABF029E DoIt
+
+ME ME_530C9B530138
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_530C8AA4024F // EVDtoRTFWithoutCommentDecor
+ ;
+ MELINK Target HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+
+ENDME // ME_530C9B530138 
+
+ME ME_530C8AA4024F
+ MEPROP UID '530C8AA4024F'
+ MEPROP Name 'EVDtoRTFWithoutCommentDecor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72B41502F5 // eeEVDtoRTF
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_530C8ABF029E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_530C9B530138 // DoEVDtoRTF
+ )
+ ; // Dependencies
+
+ENDME // ME_530C8AA4024F EVDtoRTFWithoutCommentDecor
+
+FORWARD ME_530C9AB60327
+
+FORWARD ME_530C9AC302AF
+
+ME ME_530C9AC8017C
+ MEPROP Name 'aEVD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_530C9AC8017C aEVD
+
+ME ME_530C9AC80191
+ MEPROP Name 'aRTF'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_530C9AC80191 aRTF
+
+ME ME_530C9AC801CF
+ MEPROP Name 'Hidden'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47289B590038' '4678193C009C.ms.model.script' // PLong
+ ;
+
+ENDME // ME_530C9AC801CF Hidden
+
+ME ME_530C9AC801E5
+ MEPROP Name 'HiddenCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_530C9AC801E5 HiddenCount
+
+ME ME_530C9AC801FA
+ MEPROP Name 'aHost'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_530C9AC801FA aHost
+
+ME ME_530C9AC302AF
+ MEPROP UID '530C9AC302AF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_530C9AB60327 // EVDtoRTF
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_530C9AC8017C // aEVD
+ ME_530C9AC80191 // aRTF
+ ME_530C9AC801CF // Hidden
+ ME_530C9AC801E5 // HiddenCount
+ ME_530C9AC801FA // aHost
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_530C9AC302AF DoIt
+
+ME ME_530C9B5C02E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_530C9AB60327 // EVDtoRTF
+ ;
+ MELINK Target HWL ME_4B72B44A0392 // DoEVDtoRTF
+ ;
+
+ENDME // ME_530C9B5C02E8 
+
+ME ME_530C9AB60327
+ MEPROP UID '530C9AB60327'
+ MEPROP Name 'EVDtoRTF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72B41502F5 // eeEVDtoRTF
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_530C9AC302AF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_530C9B5C02E8 // DoEVDtoRTF
+ )
+ ; // Dependencies
+
+ENDME // ME_530C9AB60327 EVDtoRTF
+
+FORWARD ME_53CD1F8A0194
+
+FORWARD ME_53CD1FA60396
+
+ME ME_53CD1FB002C3
+ MEPROP Name 'aStyleBuf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+
+ENDME // ME_53CD1FB002C3 aStyleBuf
+
+ME ME_53CD1FB002FC
+ MEPROP Name 'aStyleBufSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53CD1FB002FC aStyleBufSize
+
+ME ME_53CD1FA60396
+ MEPROP UID '53CD1FA60396'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53CD1F8A0194 // SetStyleTable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53CD1FB002C3 // aStyleBuf
+ ME_53CD1FB002FC // aStyleBufSize
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_53CD1FA60396 DoIt
+
+ME ME_53CD24DE01C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53CD1F8A0194 // SetStyleTable
+ ;
+ MELINK Target WL 'ME_499D47A502DE' '47AB1FDE03E4.ms.model.script' // Tl3ConstMemoryStream
+ ;
+
+ENDME // ME_53CD24DE01C9 
+
+ME ME_53CD1F8A0194
+ MEPROP UID '53CD1F8A0194'
+ MEPROP Name 'SetStyleTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72B41502F5 // eeEVDtoRTF
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53CD1FA60396 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53CD24DE01C9 // Tl3ConstMemoryStream
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_53CD1F8A0194 SetStyleTable
+
+ME ME_4B72DF180226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B41502F5 // eeEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4860F3C103E4' '4AB112DF005B.ms.model.script' // F1
+ ;
+
+ENDME // ME_4B72DF180226 
+
+ME ME_4B72E30D02B5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B72B41502F5 // eeEVDtoRTF
+ ;
+ MELINK Target WL 'ME_4B322E2E0270' '4B322E2E0270.ms.model.script' // evdSchema
+ ;
+
+ENDME // ME_4B72E30D02B5 
+
+ME ME_4B72B41502F5
+ MEPROP UID '4B72B41502F5'
+ MEPROP Name 'eeEVDtoRTF'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B72B3FD02AE' '4B72B3FD02AE.ms.model.script' // Implementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B72B44A0392 // DoEVDtoRTF
+ HWL ME_530C8AA4024F // EVDtoRTFWithoutCommentDecor
+ HWL ME_530C9AB60327 // EVDtoRTF
+ HWL ME_53CD1F8A0194 // SetStyleTable
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B72DF180226 // F1
+ ME_4B72E30D02B5 // evdSchema
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '19.01.2009 12:11'
+ UP intf.pas:Path 'common\components\rtl\Garant\RenderEVD\eeEVDtoRTF.pas'
+
+ENDME // ME_4B72B41502F5 eeEVDtoRTF

@@ -1,0 +1,35 @@
+// ChromeLikeTabSetUtils 5507DFA9031E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5507DFA9031E
+
+ME ME_5507DFBD02BF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5507DFA9031E // ChromeLikeTabSetUtils
+ ;
+ MELINK Target WL 'ME_5506A5EE013A' '5506A5EE013A.ms.model.script' // ChromeLikeTabSetTypes
+ ;
+
+ENDME // ME_5507DFBD02BF 
+
+ME ME_5507DFA9031E
+ MEPROP UID '5507DFA9031E'
+ MEPROP Name 'ChromeLikeTabSetUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533E6F73014E' '533E6F73014E.ms.model.script' // ChromeLikeTabSet
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5507DFBD02BF // ChromeLikeTabSetTypes
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\NOT_FINISHED_ChromeLikeTabSetUtils.pas'
+
+ENDME // ME_5507DFA9031E ChromeLikeTabSetUtils

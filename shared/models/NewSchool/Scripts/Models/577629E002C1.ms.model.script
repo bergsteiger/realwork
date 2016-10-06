@@ -1,0 +1,46 @@
+// vtClipSpy 577629E002C1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5776326B0167
+
+FORWARD ME_577629E002C1
+
+ME ME_5776326B0167
+ MEPROP UID '5776326B0167'
+ MEPROP Name 'TClipSpyWnd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_577629E002C1 // vtClipSpy
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClipSpyWnd'
+
+ENDME // ME_5776326B0167 TClipSpyWnd
+
+ME ME_577629E002C1
+ MEPROP UID '577629E002C1'
+ MEPROP Name 'vtClipSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5776326B0167 // TClipSpyWnd
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'ClipSpy'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtClipSpy.pas'
+
+ENDME // ME_577629E002C1 vtClipSpy

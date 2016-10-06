@@ -1,0 +1,430 @@
+// l3Sortable 47B3245E0148 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47B9A14B0217
+
+FORWARD ME_47B3245E0148
+
+%%InheritedBy ME_47A1B1500302 ME_47B9A14B0217
+
+ME ME_47B9A14B0217
+ MEPROP UID '47B9A14B0217'
+ MEPROP Name 'PItemType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_47B9A14B0217 PItemType
+
+ME ME_47B5AF7F03DC
+ MEPROP UID '47B5AF7F03DC'
+ MEPROP Name 'SortIndex'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'индекс сортировки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+ MEPROP Value 'l3_siUnsorted'
+ MELINK ValueType WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+ UP "needs field" False
+ UP "pm" True
+ UP extprop:pas:Value 'l3_siUnsorted'
+
+ENDME // ME_47B5AF7F03DC SortIndex
+
+ME ME_47B5AFCB0366
+ MEPROP UID '47B5AFCB0366'
+ MEPROP Name 'Sorted'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'хранилище сортировано?' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "ifndef" 'l3Items_NoSort'
+ UP "needs field" False
+ UP "pm" True
+ UP extprop:pas:Value False
+
+ENDME // ME_47B5AFCB0366 Sorted
+
+ME ME_47B9796900DA
+ MEPROP UID '47B9796900DA'
+ MEPROP Name 'Duplicates'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'Как поступать с дубликатами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+ MEPROP Value 'l3_dupIgnore'
+ MELINK ValueType WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+ UP "ifndef" 'l3Items_NoSort'
+ UP "needs field" False
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+ UP extprop:pas:Value 'l3Types.l3_dupIgnore'
+
+ENDME // ME_47B9796900DA Duplicates
+
+ME ME_47B9802D02E7
+ MEPROP UID '47B9802D02E7'
+ MEPROP Name 'Hi'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_47B9802D02E7 Hi
+
+ME ME_47A1B1A702A5
+ MEPROP UID '47A1B1A702A5'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_47A1B1A702A5 ItemType
+
+ME ME_4A6599C1023B
+ MEPROP UID '4A6599C1023B'
+ MEPROP Name 'Duplicates'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+ UP "ifdef" 'l3Items_NoSort'
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4A6599C1023B Duplicates
+
+ME ME_47B5AE6B0294
+ MEPROP UID '47B5AE6B0294'
+ MEPROP Name 'Sort'
+ MEPROP Class class_Operation
+ %SUMMARY 'сортирует хранилище.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+
+ENDME // ME_47B5AE6B0294 Sort
+
+FORWARD ME_47B5B0D4000D
+
+ME ME_47B5B0F903D4
+ MEPROP Name 'aLo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47B5B0F903D4 aLo
+
+ME ME_47B5B0FA0023
+ MEPROP Name 'aHi'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47B5B0FA0023 aHi
+
+ME ME_47B5B0D4000D
+ MEPROP UID '47B5B0D4000D'
+ MEPROP Name 'SortInterval'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сортирует диапазон элементов. Признак сортированности хранилища - не трогает.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B5B0F903D4 // aLo
+ ME_47B5B0FA0023 // aHi
+ )
+ ; // Parameters
+
+ENDME // ME_47B5B0D4000D SortInterval
+
+FORWARD ME_47B5B5F1038E
+
+ME ME_47BEB5440163
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_47BEB5440163 A
+
+ME ME_47BEB54401C8
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_47BEB54401C8 B
+
+ME ME_47BEB544022F
+ MEPROP Name 'aSortIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_47BEB544022F aSortIndex
+
+ME ME_47BEB5440296
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_47B3245E0148 // l3Sortable
+ ;
+ UP "ifdef" 'l3Items_CompareItemsRec_NeedsRList'
+
+ENDME // ME_47BEB5440296 aList
+
+ME ME_47B5B5F1038E
+ MEPROP UID '47B5B5F1038E'
+ MEPROP Name 'DoCompareItems'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_inline::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BEB5440163 // A
+ ME_47BEB54401C8 // B
+ ME_47BEB544022F // aSortIndex
+ ME_47BEB5440296 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_47B5B5F1038E DoCompareItems
+
+FORWARD ME_47B5B88203A7
+
+ME ME_47BEC68103A0
+ MEPROP Name 'I1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_47BEC68103A0 I1
+
+ME ME_47BEC68103E7
+ MEPROP Name 'I2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_47BEC68103E7 I2
+
+ME ME_47B5B88203A7
+ MEPROP UID '47B5B88203A7'
+ MEPROP Name 'Swap'
+ MEPROP Class class_Operation
+ %SUMMARY 'Меняет элементы хранилища местами. Не проверяет валидность индексов.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BEC68103A0 // I1
+ ME_47BEC68103E7 // I2
+ )
+ ; // Parameters
+
+ENDME // ME_47B5B88203A7 Swap
+
+ME ME_47B9841B03AD
+ MEPROP UID '47B9841B03AD'
+ MEPROP Name 'DoGetSortIndex'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_47B9841B03AD DoGetSortIndex
+
+FORWARD ME_47B9843903DB
+
+ME ME_47B9843D02AF
+ MEPROP Name 'Value'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+
+ENDME // ME_47B9843D02AF Value
+
+ME ME_47B9843903DB
+ MEPROP UID '47B9843903DB'
+ MEPROP Name 'DoSetSortIndex'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B9843D02AF // Value
+ )
+ ; // Parameters
+
+ENDME // ME_47B9843903DB DoSetSortIndex
+
+FORWARD ME_47B98F7E03A7
+
+ME ME_47B98FAE01C6
+ MEPROP Name 'aFindData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_47B98FAE01C6 aFindData
+
+ME ME_47B98FAE020F
+ MEPROP Name 'theIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47B98FAE020F theIndex
+
+ME ME_47B98F7E03A7
+ MEPROP UID '47B98F7E03A7'
+ MEPROP Name 'DoFindInsertionPlace'
+ MEPROP Class class_Operation
+ %SUMMARY 'Ищет ПОСЛЕДНЕЕ вхождение элемента в список. Если не находит - возвращает место предполагаемой вставки.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B98FAE01C6 // aFindData
+ ME_47B98FAE020F // theIndex
+ )
+ ; // Parameters
+ UP "ifndef" 'l3Items_NoSort'
+
+ENDME // ME_47B98F7E03A7 DoFindInsertionPlace
+
+ME ME_47C51B8E00FA
+ MEPROP UID '47C51B8E00FA'
+ MEPROP Name 'Cleanup'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_override::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47B3245E0148 // l3Sortable
+ ;
+ UP "is static" False
+
+ENDME // ME_47C51B8E00FA Cleanup
+
+ME ME_47B3245E0148
+ MEPROP UID '47B3245E0148'
+ MEPROP Name 'l3Sortable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47B5AF7F03DC // SortIndex
+ HWL ME_47B5AFCB0366 // Sorted
+ HWL ME_47B9796900DA // Duplicates
+ HWL ME_47B9802D02E7 // Hi
+ HWL ME_47A1B1A702A5 // ItemType
+ HWL ME_4A6599C1023B // Duplicates
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47B5AE6B0294 // Sort
+ HWL ME_47B5B0D4000D // SortInterval
+ HWL ME_47B5B5F1038E // DoCompareItems
+ HWL ME_47B5B88203A7 // Swap
+ HWL ME_47B9841B03AD // DoGetSortIndex
+ HWL ME_47B9843903DB // DoSetSortIndex
+ HWL ME_47B98F7E03A7 // DoFindInsertionPlace
+ HWL ME_47C51B8E00FA // Cleanup
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_47B9A14B0217 // PItemType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" True
+ UP extprop:pas:TypeName '_l3Sortable_'
+ UP extprop:pas:UnitName 'l3Sortable.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Sortable.imp.pas'
+
+ENDME // ME_47B3245E0148 l3Sortable

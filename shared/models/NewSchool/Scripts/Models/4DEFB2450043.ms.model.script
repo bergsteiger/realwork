@@ -1,0 +1,358 @@
+// l3OtherListView 4DEFB2450043 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DEFB2900225
+%%Inner ME_4DEFC19A0263
+
+FORWARD ME_4DEFB2450043
+
+ME ME_4DEFB2900225
+ MEPROP UID '4DEFB2900225'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ UP extprop:pas:TypeName '_ListType_'
+
+ENDME // ME_4DEFB2900225 ListType
+
+%%InheritedBy ME_47A1B1500302 ME_4DEFC19A0263
+
+ME ME_4DEFC19A0263
+ MEPROP UID '4DEFC19A0263'
+ MEPROP Name 'PItemType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_4DEFC19A0263 PItemType
+
+ME ME_4DEFB29A0277
+ MEPROP UID '4DEFB29A0277'
+ MEPROP Name 'f_List'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELINK Target HWL ME_4DEFB2900225 // ListType
+ ;
+
+ENDME // ME_4DEFB29A0277 f_List
+
+ME ME_4DEFBD670196
+ MEPROP UID '4DEFBD670196'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4DEFBD670196 Count
+
+FORWARD ME_4DEFC1D101A9
+
+ME ME_4DEFC1F0034F
+ MEPROP UID '4DEFC1F0034F'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFC1D101A9 // ItemSlot
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFC1F0034F anIndex
+
+ME ME_4DEFC1D101A9
+ MEPROP UID '4DEFC1D101A9'
+ MEPROP Name 'ItemSlot'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELINK Target HWL ME_4DEFC19A0263 // PItemType
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFC1F0034F // anIndex
+ )
+ ; // Attributes
+ UP "ifndef" 'l3ViewListIsTag'
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4DEFC1D101A9 ItemSlot
+
+FORWARD ME_4DEFB2B600B5
+
+FORWARD ME_4DEFB2BD032E
+
+ME ME_4DEFB2C903CC
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4DEFB2900225 // ListType
+ ;
+
+ENDME // ME_4DEFB2C903CC aList
+
+ME ME_4DEFB2BD032E
+ MEPROP UID '4DEFB2BD032E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFB2B600B5 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DEFB2C903CC // aList
+ )
+ ; // Parameters
+
+ENDME // ME_4DEFB2BD032E DoIt
+
+ME ME_4DEFB2B600B5
+ MEPROP UID '4DEFB2B600B5'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB2BD032E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFB2B600B5 Create
+
+FORWARD ME_4DEFB2D90167
+
+FORWARD ME_4DEFB2E90109
+
+ME ME_4DEFB3010291
+ MEPROP Name 'anItem1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D823030380' '47D810610398.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_4DEFB3010291 anItem1
+
+ME ME_4DEFB30102BB
+ MEPROP Name 'anItem2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47D823030380' '47D810610398.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_4DEFB30102BB anItem2
+
+ME ME_4DEFB2E90109
+ MEPROP UID '4DEFB2E90109'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFB2D90167 // CompareData
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DEFB3010291 // anItem1
+ ME_4DEFB30102BB // anItem2
+ )
+ ; // Parameters
+
+ENDME // ME_4DEFB2E90109 DoIt
+
+ME ME_4DEFB2D90167
+ MEPROP UID '4DEFB2D90167'
+ MEPROP Name 'CompareData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB2E90109 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFB2D90167 CompareData
+
+FORWARD ME_4DEFD51502B7
+
+FORWARD ME_4DEFD51E007E
+
+ME ME_4DEFD52B0380
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_4DEFD52B0380 anItem
+
+ME ME_4DEFD51E007E
+ MEPROP UID '4DEFD51E007E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFD51502B7 // Add
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DEFD52B0380 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_4DEFD51E007E DoIt
+
+ME ME_4DEFD51502B7
+ MEPROP UID '4DEFD51502B7'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DEFD51E007E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DEFD51502B7 Add
+
+ME ME_4DEFB863014A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELINK Target WL 'ME_4ADF092A0066' '4773D64E036C.ms.model.script' // l3Set
+ ;
+
+ENDME // ME_4DEFB863014A 
+
+ME ME_4DEFB87E0160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DEFB2450043 // l3OtherListView
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4DEFB87E0160 
+
+ME ME_4DEFAFF80100_ME_4DEFB2450043
+ MELINK Original WL 'ME_4DEFAFF80100' '4A6D65B9022A.ms.model.script' // CompareItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DEFAFF80100_ME_4DEFB2450043 CompareItems
+
+ME ME_4DEFB991020F_ME_4DEFB2450043
+ MELINK Original WL 'ME_4DEFB991020F' '4A6D65B9022A.ms.model.script' // OtherListCount
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DEFB991020F_ME_4DEFB2450043 OtherListCount
+
+ME ME_479731C50290_ME_4DEFB2450043
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4DEFB2450043 Cleanup
+
+%%InheritedBy ME_4DEFAF740194 ME_4DEFB2450043
+
+ME ME_4DEFB2450043
+ MEPROP UID '4DEFB2450043'
+ MEPROP Name 'l3OtherListView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DEFAF740194' '4A6D65B9022A.ms.model.script' // Tl3CustomOtherListView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFB29A0277 // f_List
+ HWL ME_4DEFBD670196 // Count
+ HWL ME_4DEFC1D101A9 // ItemSlot
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DEFB2B600B5 // Create
+ HWL ME_4DEFB2D90167 // CompareData
+ HWL ME_4DEFD51502B7 // Add
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DEFAFF80100_ME_4DEFB2450043 // CompareItems
+ ME_4DEFB991020F_ME_4DEFB2450043 // OtherListCount
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4DEFB2450043 // Cleanup
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4DEFB2900225 // ListType
+ HWL ME_4DEFC19A0263 // PItemType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4DEFB863014A // l3Set
+ ME_4DEFB87E0160 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '08.06.2011 21:33'
+ UP extprop:pas:TypeName '_l3OtherListView_'
+ UP extprop:pas:UnitName 'l3OtherListView.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3OtherListView.imp.pas'
+
+ENDME // ME_4DEFB2450043 l3OtherListView

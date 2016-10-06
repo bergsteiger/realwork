@@ -1,0 +1,91 @@
+// l3Nodes 47F25741021C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F25741021C
+
+ME ME_4ADEEDB1033B
+ MEPROP UID '4ADEEDB1033B'
+ MEPROP Name 'l3L2NA'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25741021C // l3Nodes
+ ;
+ UP extprop:rc:SelfName 'L2NA'
+
+ENDME // ME_4ADEEDB1033B l3L2NA
+
+ME ME_4AE826DB0089
+ MEPROP UID '4AE826DB0089'
+ MEPROP Name 'l3SearchByName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25741021C // l3Nodes
+ ;
+ UP extprop:rc:SelfName 'SearchByName'
+
+ENDME // ME_4AE826DB0089 l3SearchByName
+
+ME ME_4B1CD77B0238
+ MEPROP UID '4B1CD77B0238'
+ MEPROP Name 'l3L2SNA'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25741021C // l3Nodes
+ ;
+ UP extprop:rc:SelfName 'L2SNA'
+
+ENDME // ME_4B1CD77B0238 l3L2SNA
+
+ME ME_558BED600296
+ MEPROP UID '558BED600296'
+ MEPROP Name 'MakeNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25741021C // l3Nodes
+ ;
+ UP "finished" False
+
+ENDME // ME_558BED600296 MakeNode
+
+ME ME_47F25741021C
+ MEPROP UID '47F25741021C'
+ MEPROP Name 'l3Nodes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Рализации различных узлов дерева.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47E246C90144' '47E246C90144.ms.model.script' // l3Trees
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4ADEEDB1033B // l3L2NA
+ HWL ME_4AE826DB0089 // l3SearchByName
+ HWL ME_4B1CD77B0238 // l3L2SNA
+ HWL ME_558BED600296 // MakeNode
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Бабанин В.Б.'
+ UP "finished" False
+ UP "started" '24.06.1999'
+ UP extprop:rc:SelfName 'Nodes'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Nodes.pas'
+
+ENDME // ME_47F25741021C l3Nodes

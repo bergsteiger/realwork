@@ -1,0 +1,116 @@
+// ChromeLikeWindowCaptionButtonsRes 545B531C026F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_545B531C026F
+
+FORWARD ME_545B532F004D
+
+ME ME_545B538C015A
+ MEPROP UID '545B538C015A'
+ MEPROP Name 'Close'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Закрыть'''
+
+ENDME // ME_545B538C015A Close
+
+ME ME_545B53980065
+ MEPROP UID '545B53980065'
+ MEPROP Name 'Minimize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Свернуть'''
+
+ENDME // ME_545B53980065 Minimize
+
+ME ME_545B53BE02C8
+ MEPROP UID '545B53BE02C8'
+ MEPROP Name 'Restore'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Свернуть в окно'''
+
+ENDME // ME_545B53BE02C8 Restore
+
+ME ME_545B53CE00AC
+ MEPROP UID '545B53CE00AC'
+ MEPROP Name 'Maximize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545B532F004D // WindowCaptionButtonsHints
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "Value" '''Развернуть'''
+
+ENDME // ME_545B53CE00AC Maximize
+
+ME ME_545B532F004D
+ MEPROP UID '545B532F004D'
+ MEPROP Name 'WindowCaptionButtonsHints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545B531C026F // ChromeLikeWindowCaptionButtonsRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_545B538C015A // Close
+ HWL ME_545B53980065 // Minimize
+ HWL ME_545B53BE02C8 // Restore
+ HWL ME_545B53CE00AC // Maximize
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_545B532F004D WindowCaptionButtonsHints
+
+ME ME_545B531C026F
+ MEPROP UID '545B531C026F'
+ MEPROP Name 'ChromeLikeWindowCaptionButtonsRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D01A201A9' '533D01A201A9.ms.model.script' // ChromeLikeWindowCaptionButtons
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_545B532F004D // WindowCaptionButtonsHints
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeWindowCaptionButtonsRes.pas'
+
+ENDME // ME_545B531C026F ChromeLikeWindowCaptionButtonsRes

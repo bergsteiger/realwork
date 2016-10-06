@@ -1,0 +1,38 @@
+// nevAnchor 49DE38EE03AC Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%ImplementedBy ME_49D25A310104 ME_49DE38EE03AC
+%%ImplementedBy ME_49DF54E500B3 ME_49DE38EE03AC
+
+%%InheritedBy ME_49DE374402D1 ME_49DE38EE03AC
+
+ME ME_49DE38EE03AC
+ MEPROP UID '49DE38EE03AC'
+ MEPROP Name 'nevAnchor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая реализация якорей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A3B771101D5' '4A3B771101D5.ms.model.script' // Anchors
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49DE374402D1' '49DE374402D1.ms.model.script' // nevBasePoint
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_49D25A310104' '49D25A310104.ms.model.script' // nevParentPointFactoryEx
+ WL 'ME_49DF54E500B3' '49DF54E500B3.ms.model.script' // nevDiff
+ )
+ ; // Implements
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '09.04.2009 21:44'
+ UP extprop:pas:TypeName '_nevAnchor_'
+ UP extprop:pas:UnitName 'nevAnchor.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevAnchor.imp.pas'
+
+ENDME // ME_49DE38EE03AC nevAnchor

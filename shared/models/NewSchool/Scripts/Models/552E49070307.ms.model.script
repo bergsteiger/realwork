@@ -1,0 +1,152 @@
+// PageControlWordsPack 552E49070307 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552E49070307
+
+FORWARD ME_552E497A03E2
+
+ME ME_552E499F012A
+ MEPROP Name 'aCaption'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_552E499F012A aCaption
+
+ME ME_552E497A03E2
+ MEPROP UID '552E497A03E2'
+ MEPROP Name 'FindPageByCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E49070307 // PageControlWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_552E499F012A // aCaption
+ )
+ ; // Parameters
+
+ENDME // ME_552E497A03E2 FindPageByCaption
+
+FORWARD ME_552E49BC0078
+
+ME ME_552E49C6034B
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552E49C6034B anIndex
+
+ME ME_552E49BC0078
+ MEPROP UID '552E49BC0078'
+ MEPROP Name 'PageCaptionByIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E49070307 // PageControlWordsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_552E49C6034B // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_552E49BC0078 PageCaptionByIndex
+
+FORWARD ME_552E49E00306
+
+ME ME_552E4A1C0261
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552E4A1C0261 anIndex
+
+ME ME_552E49E00306
+ MEPROP UID '552E49E00306'
+ MEPROP Name 'PageByIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E49070307 // PageControlWordsPack
+ ;
+ MELINK Target WL 'ME_499ABF9802AC' '499ABF6E01B5.ms.model.script' // TElTabSheet
+ ;
+ MELIST Parameters
+   Seq: ( ME_552E4A1C0261 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_552E49E00306 PageByIndex
+
+ME ME_552E4A5E02C9
+ MEPROP UID '552E4A5E02C9'
+ MEPROP Name 'GetAllPageCaptions'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E49070307 // PageControlWordsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_552E4A5E02C9 GetAllPageCaptions
+
+ME ME_552E496C017C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552E49070307 // PageControlWordsPack
+ ;
+ MELINK Target WL 'ME_4C8A3B45005E' '47878E0E0191.ms.model.script' // l3Same
+ ;
+
+ENDME // ME_552E496C017C 
+
+%%InheritedBy ME_4E36C0C3014B ME_552E49070307
+
+ME ME_552E49070307
+ MEPROP UID '552E49070307'
+ MEPROP Name 'PageControlWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6094D80196' '4F6094D80196.ms.model.script' // vtControlsFromStackWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E36C0C3014B' '499ABF6E01B5.ms.model.script' // TElCustomPageControl
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552E497A03E2 // FindPageByCaption
+ HWL ME_552E49BC0078 // PageCaptionByIndex
+ HWL ME_552E49E00306 // PageByIndex
+ HWL ME_552E4A5E02C9 // GetAllPageCaptions
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_552E496C017C // l3Same
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\PageControlWordsPack.pas'
+
+ENDME // ME_552E49070307 PageControlWordsPack

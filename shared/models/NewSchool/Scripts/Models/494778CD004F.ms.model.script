@@ -1,0 +1,79 @@
+// vcmTinyUseCaseController 494778CD004F Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_494778CD004F
+
+ME ME_49479BB70179
+ MEPROP UID '49479BB70179'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_494778CD004F // vcmTinyUseCaseController
+ ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_49479BB70179 InitDataType
+
+ME ME_4947799403BE
+ MEPROP UID '4947799403BE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_494778CD004F // vcmTinyUseCaseController
+ ;
+
+ENDME // ME_4947799403BE Create
+
+ME ME_494779A9008F
+ MEPROP UID '494779A9008F'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_494778CD004F // vcmTinyUseCaseController
+ ;
+ MELINK Target WL 'ME_49469A350027' '47F37723017A.ms.model.script' // SetType
+ ;
+
+ENDME // ME_494779A9008F Make
+
+%%InheritedBy ME_49415C640079 ME_494778CD004F
+
+ME ME_494778CD004F
+ MEPROP UID '494778CD004F'
+ MEPROP Name 'vcmTinyUseCaseController'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY ' онтролер прецедента без вс€ких данных' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49415C640079' '49415C640079.ms.model.script' // vcmFormSetDataSourceWithoutData
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49479BB70179 // InitDataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4947799403BE // Create
+ HWL ME_494779A9008F // Make
+ )
+ ; // Operations
+ UP extprop:pas:TypeName '_vcmTinyUseCaseController_'
+ UP extprop:pas:UnitName 'vcmTinyUseCaseController.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmTinyUseCaseController.imp.pas'
+
+ENDME // ME_494778CD004F vcmTinyUseCaseController

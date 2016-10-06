@@ -1,0 +1,35 @@
+// dt_Serv 5406A83E013E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5406A83E013E
+
+ME ME_57EB62C802A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5406A83E013E // dt_Serv
+ ;
+ MELINK Target WL 'ME_57EB6297000B' '519B797A0048.ms.model.script' // Tdt_LinkServerService
+ ;
+
+ENDME // ME_57EB62C802A9 
+
+ME ME_5406A83E013E
+ MEPROP UID '5406A83E013E'
+ MEPROP Name 'dt_Serv'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
+ ;
+ MELIST Dependencies
+   Seq: ( ME_57EB62C802A9 // Tdt_LinkServerService
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Serv.pas'
+
+ENDME // ME_5406A83E013E dt_Serv

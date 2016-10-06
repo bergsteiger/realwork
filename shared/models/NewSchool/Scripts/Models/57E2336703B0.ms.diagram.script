@@ -9,31 +9,31 @@ MEDIAGRAMS ME_57E2336703B0_diagrams
   MELINK Original WL 'ME_57E2336703B0' '57E2336703B0.ms.model.script' ; // DocTransfer
 
   MEVIEW ME_57C52AA20128_view
-   MELINK Original WL 'ME_57C52AA20128' '57E2336703B0.ms.model.script' ; // arDocAttributesMixer
+   MELINK Original WL 'ME_57C52AA20128' '57C52AA20128.ms.model.script' ; // arDocAttributesMixer
    MEPROP X 40
    MEPROP Y 40
   ENDMEVIEW // ME_57C52AA20128_view
 
   MEVIEW ME_57D9125001E9_view
-   MELINK Original WL 'ME_57D9125001E9' '57E2336703B0.ms.model.script' ; // arFiltersUtils
+   MELINK Original WL 'ME_57D9125001E9' '57D9125001E9.ms.model.script' ; // arFiltersUtils
    MEPROP X 200
    MEPROP Y 40
   ENDMEVIEW // ME_57D9125001E9_view
 
   MEVIEW ME_57E1136103D7_view
-   MELINK Original WL 'ME_57E1136103D7' '57E2336703B0.ms.model.script' ; // arLockUtils
+   MELINK Original WL 'ME_57E1136103D7' '57E1136103D7.ms.model.script' ; // arLockUtils
    MEPROP X 360
    MEPROP Y 40
   ENDMEVIEW // ME_57E1136103D7_view
 
   MEVIEW ME_57E102E10281_view
-   MELINK Original WL 'ME_57E102E10281' '57E2336703B0.ms.model.script' ; // arIZM
+   MELINK Original WL 'ME_57E102E10281' '57E102E10281.ms.model.script' ; // arIZM
    MEPROP X 520
    MEPROP Y 40
   ENDMEVIEW // ME_57E102E10281_view
 
   MEVIEW ME_57DFD0290323_view
-   MELINK Original WL 'ME_57DFD0290323' '57E2336703B0.ms.model.script' ; // arVAnouncedBlackList
+   MELINK Original WL 'ME_57DFD0290323' '57DFD0290323.ms.model.script' ; // arVAnouncedBlackList
    MEPROP X 680
    MEPROP Y 40
   ENDMEVIEW // ME_57DFD0290323_view
@@ -62,6 +62,30 @@ MEDIAGRAMS ME_57E2336703B0_diagrams
    MEPROP Y 180
   ENDMEVIEW // ME_57E2715500C8_view
 
+  MEVIEW ME_57EA22400306_view
+   MELINK Original WL 'ME_57EA22400306' '57E2336703B0.ms.model.script' ; // TarCustomMultiClearAttributesHelper
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_57EA22400306_view
+
+  MEVIEW ME_57EA225C02AA_view
+   MELINK Original WL 'ME_57EA225C02AA' '57E2336703B0.ms.model.script' ; // TarDirectMultiClearAttributesHelper
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_57EA225C02AA_view
+
+  MEVIEW ME_57ED151F00AA_view
+   MELINK Original WL 'ME_57ED151F00AA' '57E2336703B0.ms.model.script' ; // TarCustomMultiOperationHelper
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_57ED151F00AA_view
+
+  MEVIEW ME_57ED158F01BB_view
+   MELINK Original WL 'ME_57ED158F01BB' '57E2336703B0.ms.model.script' ; // TarDirectMultiOperationHelper
+   MEPROP X 840
+   MEPROP Y 180
+  ENDMEVIEW // ME_57ED158F01BB_view
+
   MEVIEWLINK ME_57DBBB3500CE_ME_57E2548A0223_Inherits
    MELINK From ME_57DBBB3500CE_view ;
    MELINK To ME_57E2548A0223_view ;
@@ -86,6 +110,18 @@ MEDIAGRAMS ME_57E2336703B0_diagrams
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_57E2715500C8_ME_57E27091018D_Inherits
 
+  MEVIEWLINK ME_57EA225C02AA_ME_57EA22400306_Inherits
+   MELINK From ME_57EA225C02AA_view ;
+   MELINK To ME_57EA22400306_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57EA225C02AA_ME_57EA22400306_Inherits
+
+  MEVIEWLINK ME_57ED158F01BB_ME_57ED151F00AA_Inherits
+   MELINK From ME_57ED158F01BB_view ;
+   MELINK To ME_57ED151F00AA_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57ED158F01BB_ME_57ED151F00AA_Inherits
+
   MELIST Views
    Seq: ( ME_57C52AA20128_view // arDocAttributesMixer
    ME_57D9125001E9_view // arFiltersUtils
@@ -96,10 +132,16 @@ MEDIAGRAMS ME_57E2336703B0_diagrams
    ME_57DBBB3500CE_view // TarDirectMultiModifyDocsHelper
    ME_57E27091018D_view // TarCustomSaveDocumentHelper
    ME_57E2715500C8_view // TarDirectSaveDocumentHelper
+   ME_57EA22400306_view // TarCustomMultiClearAttributesHelper
+   ME_57EA225C02AA_view // TarDirectMultiClearAttributesHelper
+   ME_57ED151F00AA_view // TarCustomMultiOperationHelper
+   ME_57ED158F01BB_view // TarDirectMultiOperationHelper
    ME_57DBBB3500CE_ME_57E2548A0223_Inherits // TarDirectMultiModifyDocsHelper -> TarCustomMultiModifyDocsHelper
    ME_57DFD044028C_viewlink // TarDirectMultiModifyDocsHelper -> arVAnouncedBlackList
    ME_57E102F902E7_viewlink // TarDirectMultiModifyDocsHelper -> arIZM
    ME_57E2715500C8_ME_57E27091018D_Inherits // TarDirectSaveDocumentHelper -> TarCustomSaveDocumentHelper
+   ME_57EA225C02AA_ME_57EA22400306_Inherits // TarDirectMultiClearAttributesHelper -> TarCustomMultiClearAttributesHelper
+   ME_57ED158F01BB_ME_57ED151F00AA_Inherits // TarDirectMultiOperationHelper -> TarCustomMultiOperationHelper
    )
   ; // Views
  ENDMEDIAGRAM // ME_57E2336703B0_main

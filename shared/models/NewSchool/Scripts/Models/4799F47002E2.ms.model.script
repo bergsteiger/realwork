@@ -1,0 +1,153 @@
+// l3PrinterIC 4799F47002E2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4799F47002E2
+
+ME ME_4799F4F40276
+ MEPROP UID '4799F4F40276'
+ MEPROP Name 'f_PrnIC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4799F4F40276 f_PrnIC
+
+ME ME_4799F50900BF
+ MEPROP UID '4799F50900BF'
+ MEPROP Name 'f_InCreatePrnIC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4799F50900BF f_InCreatePrnIC
+
+ME ME_4799F4970301
+ MEPROP UID '4799F4970301'
+ MEPROP Name 'l3PrnIC'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_4799F4970301 l3PrnIC
+
+ME ME_4799F5200358
+ MEPROP UID '4799F5200358'
+ MEPROP Name 'FreeInfoCanvas'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+
+ENDME // ME_4799F5200358 FreeInfoCanvas
+
+ME ME_4799F76C01B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_4799D345027F' '4799D2E6027B.ms.model.script' // TPrinter
+ ;
+
+ENDME // ME_4799F76C01B2 
+
+ME ME_4799F8D60049
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_4799F84900DD' '4799F84900DD.ms.model.script' // l3ScreenIC
+ ;
+
+ENDME // ME_4799F8D60049 
+
+ME ME_4799FD970184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_4799D83F0260' '4799D83F0260.ms.model.script' // l3Printer
+ ;
+
+ENDME // ME_4799FD970184 
+
+ME ME_4799FE6001E8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4799FE6001E8 
+
+ME ME_56B9D8EB008E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4799F47002E2 // l3PrinterIC
+ ;
+ MELINK Target WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ ;
+
+ENDME // ME_56B9D8EB008E 
+
+ME ME_4799F47002E2
+ MEPROP UID '4799F47002E2'
+ MEPROP Name 'l3PrinterIC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Принтерная канва.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D37F0203' '4799D37F0203.ms.model.script' // Print
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4799F4F40276 // f_PrnIC
+ HWL ME_4799F50900BF // f_InCreatePrnIC
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4799F4970301 // l3PrnIC
+ HWL ME_4799F5200358 // FreeInfoCanvas
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4799F76C01B2 // TPrinter
+ ME_4799F8D60049 // l3ScreenIC
+ ME_4799FD970184 // l3Printer
+ ME_4799FE6001E8 // l3Base
+ ME_56B9D8EB008E // Tl3Canvas
+ )
+ ; // Dependencies
+ UP "author" 'Люлин А.В. ©'
+ UP "no hands" True
+ UP "started" '26.05.2005 15:31'
+ UP extprop:rc:SelfName 'PrinterIC'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PrinterIC.pas'
+
+ENDME // ME_4799F47002E2 l3PrinterIC

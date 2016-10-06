@@ -1,0 +1,45 @@
+// ExprEditForm 4F5763F4012E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F57640C0241
+
+FORWARD ME_4F5763F4012E
+
+ME ME_4F57640C0241
+ MEPROP UID '4F57640C0241'
+ MEPROP Name 'TExprEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F5763F4012E // ExprEditForm
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ExprEditor'
+
+ENDME // ME_4F57640C0241 TExprEditor
+
+ME ME_4F5763F4012E
+ MEPROP UID '4F5763F4012E'
+ MEPROP Name 'ExprEditForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F57640C0241 // TExprEditor
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Common\Dialogs\NOT_FINISHED_ExprEditForm.pas'
+
+ENDME // ME_4F5763F4012E ExprEditForm

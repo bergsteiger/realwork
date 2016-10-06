@@ -2,22 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4C8E4D21001F
+%%Inner ME_4C8DD8C602D3
+%%Inner ME_4C8DE85601C4
+%%Inner ME_5396F51300D8
+%%Inner ME_559F8C7A0213
+
 FORWARD ME_4C8DD8B8006C
-
-ME ME_5396F51300D8
- MEPROP UID '5396F51300D8'
- MEPROP Name 'CustomizeTasksPanelRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4C8DD8B8006C // TasksPanel
- ;
- UP "finished" False
- UP intf.pas:Path 'common\components\gui\Garant\VCM\View\TasksPanel\NOT_FINISHED_CustomizeTasksPanelRes.pas'
-
-ENDME // ME_5396F51300D8 CustomizeTasksPanelRes
 
 FORWARD ME_559F8C7A0213
 
@@ -36,6 +27,10 @@ ME ME_559F8C960133
 
 ENDME // ME_559F8C960133 ItemType
 
+%%ImplementedBy ME_47B57D830369 ME_559F8C7A0213
+
+%%InheritedBy ME_4A54DD4E036F ME_559F8C7A0213
+
 ME ME_559F8C7A0213
  MEPROP UID '559F8C7A0213'
  MEPROP Name 'TvcmCustOpsRepGroupList'
@@ -51,7 +46,7 @@ ME ME_559F8C7A0213
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  )
  ; // Implements
  MELIST Attributes
@@ -79,7 +74,7 @@ ME ME_4C8DD8B8006C
    Seq: ( WL 'ME_4C8E4D21001F' '4C8E4D21001F.ms.model.script' // PrimCustomizeTasksPanel
  WL 'ME_4C8DD8C602D3' '4C8DD8C602D3.ms.model.script' // PrimTasksPanelMenu
  WL 'ME_4C8DE85601C4' '4C8DE85601C4.ms.model.script' // TasksPanelMenu
- HWL ME_5396F51300D8 // CustomizeTasksPanelRes
+ WL 'ME_5396F51300D8' '5396F51300D8.ms.model.script' // CustomizeTasksPanelRes
  HWL ME_559F8C7A0213 // TvcmCustOpsRepGroupList
  )
  ; // Children
@@ -102,6 +97,9 @@ ME ME_4C8DD8B8006C
  WL 'ME_578E02C50241' '578E02C50241.ms.model.script' // Customization
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\View\TasksPanel'
 
 ENDME // ME_4C8DD8B8006C TasksPanel

@@ -1,0 +1,99 @@
+// nevChildSpy 48171088022D Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48171088022D
+
+FORWARD ME_481710BB0076
+
+ME ME_48171DF00100
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_48171DF00100 aList
+
+ME ME_48171DF0012A
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_48171DF0012A aChild
+
+ME ME_481710BB0076
+ MEPROP UID '481710BB0076'
+ MEPROP Name 'ChildAdded'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48171088022D // nevChildSpy
+ ;
+ MELIST Parameters
+   Seq: ( ME_48171DF00100 // aList
+ ME_48171DF0012A // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_481710BB0076 ChildAdded
+
+FORWARD ME_481710C100FB
+
+ME ME_4817219701DF
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6A6570369' '47C5207602D1.ms.model.script' // InevParaList
+ ;
+
+ENDME // ME_4817219701DF aList
+
+ME ME_48172197020A
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_48172197020A aChild
+
+ME ME_481710C100FB
+ MEPROP UID '481710C100FB'
+ MEPROP Name 'ChildDeleted'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_48171088022D // nevChildSpy
+ ;
+ MELIST Parameters
+   Seq: ( ME_4817219701DF // aList
+ ME_48172197020A // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_481710C100FB ChildDeleted
+
+ME ME_48171088022D
+ MEPROP UID '48171088022D'
+ MEPROP Name 'nevChildSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48185390010A' '48185390010A.ms.model.script' // Rendering
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_481710BB0076 // ChildAdded
+ HWL ME_481710C100FB // ChildDeleted
+ )
+ ; // Operations
+ UP extprop:pas:TypeName '_nevChildSpy_'
+ UP extprop:pas:UnitName 'nevChildSpy.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevChildSpy.imp.pas'
+
+ENDME // ME_48171088022D nevChildSpy

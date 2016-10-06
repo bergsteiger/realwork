@@ -2,6 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_494F818000E6
+%%Inner ME_4C751E7E0064
+%%Inner ME_494F808C01DB
+%%Inner ME_4A96A6C3006A
+%%Inner ME_4C75214E0366
+%%Inner ME_4C7657C500E9
+
 FORWARD ME_4B5DE69600AD
 
 FORWARD ME_494F818000E6
@@ -236,6 +243,9 @@ ME ME_4A41A13D03D5_ME_494F818000E6
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A41A13D03D5_ME_494F818000E6 spell
 
+%%ImplementedBy ME_46E6D49602DB ME_494F818000E6
+%%ImplementedBy ME_470F151302FD ME_494F818000E6
+
 ME ME_494F818000E6
  MEPROP UID '494F818000E6'
  MEPROP Name 'VCMOperationPrim'
@@ -355,6 +365,8 @@ ME ME_51D1324E00C8
 
 ENDME // ME_51D1324E00C8 ContextMenuWeight
 
+%%InheritedBy ME_494F818000E6 ME_4C751E7E0064
+
 ME ME_4C751E7E0064
  MEPROP UID '4C751E7E0064'
  MEPROP Name 'VCMOperationBase'
@@ -383,6 +395,8 @@ ME ME_4C751E7E0064
 ENDME // ME_4C751E7E0064 VCMOperationBase
 
 FORWARD ME_494F808C01DB
+
+%%InheritedBy ME_4C751E7E0064 ME_4C3F21D003DD
 
 ME ME_4C3F21D003DD
  MEPROP UID '4C3F21D003DD'
@@ -464,6 +478,10 @@ ME ME_4A41A13D03D5_ME_494F808C01DB
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A41A13D03D5_ME_494F808C01DB spell
 
+%%ImplementedBy ME_470F151302FD ME_494F808C01DB
+
+%%InheritedBy ME_471723E1037A ME_494F808C01DB
+
 ME ME_494F808C01DB
  MEPROP UID '494F808C01DB'
  MEPROP Name 'VCMOperations'
@@ -506,6 +524,9 @@ ME ME_494F808C01DB
    Seq: ( ME_4C7521720194 // VCMOperation
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "personal label" 'code_vcm_operations'
  UP "visualization bg color" 16777152
  UP "visualization f-font color" 16744448
@@ -519,6 +540,10 @@ ENDME // ME_494F808C01DB VCMOperations
 FORWARD ME_4A96A6C3006A
 
 FORWARD ME_4A9801640116
+
+%%ImplementedBy ME_470F151302FD ME_56E2D094019F
+
+%%InheritedBy ME_4976EB82018C ME_56E2D094019F
 
 ME ME_56E2D094019F
  MEPROP UID '56E2D094019F'
@@ -637,6 +662,8 @@ ME ME_4C80E64501B5_ME_4A9801640116
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C80E64501B5_ME_4A9801640116 NeedsOpCode
 
+%%InheritedBy ME_494F818000E6 ME_4A9801640116
+
 ME ME_4A9801640116
  MEPROP UID '4A9801640116'
  MEPROP Name 'InternalOperation'
@@ -674,11 +701,16 @@ ME ME_4A9801640116
    Seq: ( HWL ME_56E2D094019F // Param
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "empty target" True
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations\VCMFacet\InternalOperation'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes\Stereotypes'
 
 ENDME // ME_4A9801640116 InternalOperation
+
+%%InheritedBy ME_494F808C01DB ME_4A96A6C3006A
 
 ME ME_4A96A6C3006A
  MEPROP UID '4A96A6C3006A'
@@ -699,6 +731,9 @@ ME ME_4A96A6C3006A
    Seq: ( HWL ME_4A9801640116 // InternalOperation
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "visualization bg color" 15510336
  UP "visualization f-font color" 12584240
  UP "visualization f-line color" 12584240
@@ -752,6 +787,9 @@ ME ME_49CB3EE70382_ME_4C75214E0366
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49CB3EE70382_ME_4C75214E0366 IsClassInner
+
+%%InheritedBy ME_471723E1037A ME_4C75214E0366
+%%InheritedBy ME_4C751E7E0064 ME_4C75214E0366
 
 ME ME_4C75214E0366
  MEPROP UID '4C75214E0366'
@@ -891,6 +929,10 @@ ME ME_4C766D140383_ME_4C7657C500E9
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C766D140383_ME_4C7657C500E9 IsNotParam
 
+%%ImplementedBy ME_470F151302FD ME_4C7657C500E9
+
+%%InheritedBy ME_471723E1037A ME_4C7657C500E9
+
 ME ME_4C7657C500E9
  MEPROP UID '4C7657C500E9'
  MEPROP Name 'VCMOperationState'
@@ -967,6 +1009,9 @@ ME ME_4B5DE69600AD
  WL 'ME_4A95156202EB' '4A95156202EB.ms.model.script' // MixIns
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP mda.inc:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations'
  UP mda:PathOnly '\MDProcess\VCMTemplates\VCMViewInterfacesLayer\FormOperations'
  UP tpi.script:PathOnly '\shared\models\NewSchool\Scripts\Stereotypes\Stereotypes\Stereotypes\Stereotypes'

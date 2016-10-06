@@ -1,0 +1,114 @@
+// l3BitArr 47AC5ABE00B6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47AC5BBC025C
+%%Inner ME_4A532A17021C
+%%Inner ME_4A605C540221
+
+FORWARD ME_47AC5ABE00B6
+
+FORWARD ME_47AC5BBC025C
+
+ME ME_47AC5BC5033A
+ MEPROP UID '47AC5BC5033A'
+ MEPROP Name 'f_MaskSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47AC5BBC025C // Tl3PtrHash
+ ;
+ MELINK Target WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+
+ENDME // ME_47AC5BC5033A f_MaskSize
+
+ME ME_47AC5BBC025C
+ MEPROP UID '47AC5BBC025C'
+ MEPROP Name 'Tl3PtrHash'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC5ABE00B6 // l3BitArr
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47AC5BC5033A // f_MaskSize
+ )
+ ; // Attributes
+ UP extprop:rc:SelfName 'PtrHash'
+
+ENDME // ME_47AC5BBC025C Tl3PtrHash
+
+ME ME_4A532A17021C
+ MEPROP UID '4A532A17021C'
+ MEPROP Name 'Tl3PtrArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC5ABE00B6 // l3BitArr
+ ;
+ UP extprop:rc:SelfName 'PtrArray'
+
+ENDME // ME_4A532A17021C Tl3PtrArray
+
+ME ME_4A605C540221
+ MEPROP UID '4A605C540221'
+ MEPROP Name 'Tl3OneBytePtrHash'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AC5ABE00B6 // l3BitArr
+ ;
+ UP "finished" False
+ UP extprop:rc:SelfName 'OneBytePtrHash'
+
+ENDME // ME_4A605C540221 Tl3OneBytePtrHash
+
+ME ME_54B9113C004D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47AC5ABE00B6 // l3BitArr
+ ;
+ MELINK Target WL 'ME_54B69FAC0256' '545CDF1002C9.ms.model.script' // Tl3BoxMemoryManagerPrim
+ ;
+
+ENDME // ME_54B9113C004D 
+
+ME ME_47AC5ABE00B6
+ MEPROP UID '47AC5ABE00B6'
+ MEPROP Name 'l3BitArr'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47AC5BBC025C // Tl3PtrHash
+ HWL ME_4A532A17021C // Tl3PtrArray
+ HWL ME_4A605C540221 // Tl3OneBytePtrHash
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_54B9113C004D // Tl3BoxMemoryManagerPrim
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" False
+ UP "started" '26.03.1998 15:57'
+ UP extprop:rc:SelfName 'BitArr'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3BitArr.pas'
+
+ENDME // ME_47AC5ABE00B6 l3BitArr

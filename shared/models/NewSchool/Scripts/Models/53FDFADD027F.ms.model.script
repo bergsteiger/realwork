@@ -1,0 +1,62 @@
+// m3HeaderIDSupplier 53FDFADD027F Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53FDFADD027F
+
+FORWARD ME_53FDFAF900ED
+
+ME ME_53FDFB070246
+ MEPROP UID '53FDFB070246'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53FDFAF900ED // HeaderID
+ ;
+ MELINK Target WL 'ME_53FDFAAE0115' '46A0E6C5023A.ms.model.script' // TCLSID
+ ;
+
+ENDME // ME_53FDFB070246 DoIt
+
+ME ME_53FDFAF900ED
+ MEPROP UID '53FDFAF900ED'
+ MEPROP Name 'HeaderID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53FDFADD027F // m3HeaderIDSupplier
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FDFB070246 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_53FDFAF900ED HeaderID
+
+ME ME_53FDFADD027F
+ MEPROP UID '53FDFADD027F'
+ MEPROP Name 'm3HeaderIDSupplier'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_5485C15F0072' '5485C15F0072.ms.model.script' // HeaderStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53FDFAF900ED // HeaderID
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_m3HeaderIDSupplier_'
+ UP extprop:pas:UnitName 'm3HeaderIDSupplier.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3HeaderIDSupplier.imp.pas'
+
+ENDME // ME_53FDFADD027F m3HeaderIDSupplier

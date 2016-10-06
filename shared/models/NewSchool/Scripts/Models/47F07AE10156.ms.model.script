@@ -1,0 +1,118 @@
+// l3NotifierBase 47F07AE10156 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F07AE10156
+
+ME ME_47F07CCE0379
+ MEPROP UID '47F07CCE0379'
+ MEPROP Name 'HasNotified'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ %SUMMARY 'наличие уведомляемых объектов.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F07AE10156 // l3NotifierBase
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_47F07CCE0379 HasNotified
+
+ME ME_47F07C5D007E
+ MEPROP UID '47F07C5D007E'
+ MEPROP Name 'NotifiedObjList'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F07AE10156 // l3NotifierBase
+ ;
+ MELINK Target WL 'ME_47F07C1B03E4' '47913B47006E.ms.model.script' // Tl3NotifyPtrList
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_47F07C5D007E NotifiedObjList
+
+ME ME_47F07EA600A2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F07AE10156 // l3NotifierBase
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47F07EA600A2 
+
+ME ME_46A44F6B035E_ME_47F07AE10156
+ MELINK Original WL 'ME_46A44F6B035E' '4677FBA70343.ms.model.script' // Subscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44F6B035E_ME_47F07AE10156 Subscribe
+
+ME ME_46A44FFE0143_ME_47F07AE10156
+ MELINK Original WL 'ME_46A44FFE0143' '4677FBA70343.ms.model.script' // Unsubscribe
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A44FFE0143_ME_47F07AE10156 Unsubscribe
+
+ME ME_479731C50290_ME_47F07AE10156
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47F07AE10156 Cleanup
+
+%%ImplementedBy ME_46782E7F0307 ME_47F07AE10156
+%%ImplementedBy ME_4A5CB93700CF ME_47F07AE10156
+
+ME ME_47F07AE10156
+ MEPROP UID '47F07AE10156'
+ MEPROP Name 'l3NotifierBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_46782E7F0307' '4677FBA70343.ms.model.script' // Il3ChangeNotifier
+ WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47F07CCE0379 // HasNotified
+ HWL ME_47F07C5D007E // NotifiedObjList
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_46A44F6B035E_ME_47F07AE10156 // Subscribe
+ ME_46A44FFE0143_ME_47F07AE10156 // Unsubscribe
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47F07AE10156 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47F07EA600A2 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '31.03.2008 09:48'
+ UP extprop:pas:TypeName '_l3NotifierBase_'
+ UP extprop:pas:UnitName 'l3NotifierBase.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3NotifierBase.imp.pas'
+
+ENDME // ME_47F07AE10156 l3NotifierBase

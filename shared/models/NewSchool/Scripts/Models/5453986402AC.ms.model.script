@@ -1,0 +1,266 @@
+// ncsMessage 5453986402AC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_544E079E0253
+%%Inner ME_5453989A0161
+%%Inner ME_54649C7C00E7
+%%Inner ME_547831BD02E5
+%%Inner ME_547C1F31030C
+%%Inner ME_547C1F3F025A
+
+FORWARD ME_5453986402AC
+
+FORWARD ME_544E079E0253
+
+ME ME_5450A0370225
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_544E079E0253 // TncsMessage
+ ;
+ MELINK Target WL 'ME_54509FEC02EB' '480F78BC0146.ms.model.script' // l3CreateStringGUID
+ ;
+
+ENDME // ME_5450A0370225 
+
+ME ME_53AC03EE01FD_ME_544E079E0253
+ MELINK Original WL 'ME_53AC03EE01FD' '53B24E23037A.ms.model.script' // GetTaggedDataType
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is static" True
+ENDME // ME_53AC03EE01FD_ME_544E079E0253 GetTaggedDataType
+
+ME ME_47A042E100E2_ME_544E079E0253
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_544E079E0253 InitFields
+
+ME ME_549413590379_ME_544E079E0253
+ MELINK Original WL 'ME_549413590379' '53AC01CD0335.ms.model.script' // NeedSendRawDataAsBinary
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_549413590379_ME_544E079E0253 NeedSendRawDataAsBinary
+
+%%ImplementedBy ME_53AC01CD0335 ME_544E079E0253
+%%ImplementedBy ME_544E01AA03BA ME_544E079E0253
+
+%%InheritedBy ME_534572370056 ME_544E079E0253
+
+ME ME_544E079E0253
+ MEPROP UID '544E079E0253'
+ MEPROP Name 'TncsMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453986402AC // ncsMessage
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53AC01CD0335' '53AC01CD0335.ms.model.script' // evdTagHolder
+ WL 'ME_544E01AA03BA' '484A470100DD.ms.model.script' // csMessage
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_53AC03EE01FD_ME_544E079E0253 // GetTaggedDataType
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_544E079E0253 // InitFields
+ ME_549413590379_ME_544E079E0253 // NeedSendRawDataAsBinary
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_5450A0370225 // l3CreateStringGUID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsMessage'
+
+ENDME // ME_544E079E0253 TncsMessage
+
+%%InheritedBy ME_544E079E0253 ME_5453989A0161
+
+ME ME_5453989A0161
+ MEPROP UID '5453989A0161'
+ MEPROP Name 'TncsMessageClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453986402AC // ncsMessage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsMessageClass'
+
+ENDME // ME_5453989A0161 TncsMessageClass
+
+%%InheritedBy ME_544E079E0253 ME_54649C7C00E7
+
+ME ME_54649C7C00E7
+ MEPROP UID '54649C7C00E7'
+ MEPROP Name 'TncsInvalidMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453986402AC // ncsMessage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsInvalidMessage'
+
+ENDME // ME_54649C7C00E7 TncsInvalidMessage
+
+FORWARD ME_547831BD02E5
+
+FORWARD ME_547831D300BE
+
+ME ME_547831E30313
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_544E079E0253 // TncsMessage
+ ;
+
+ENDME // ME_547831E30313 aMessage
+
+ME ME_547831D300BE
+ MEPROP UID '547831D300BE'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547831BD02E5 // TncsReply
+ ;
+ MELIST Parameters
+   Seq: ( ME_547831E30313 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_547831D300BE Create
+
+%%InheritedBy ME_544E079E0253 ME_547831BD02E5
+
+ME ME_547831BD02E5
+ MEPROP UID '547831BD02E5'
+ MEPROP Name 'TncsReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453986402AC // ncsMessage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_547831D300BE // Create
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsReply'
+
+ENDME // ME_547831BD02E5 TncsReply
+
+%%ImplementedBy ME_547C1CD001E3 ME_547C1F31030C
+
+%%InheritedBy ME_544E079E0253 ME_547C1F31030C
+
+ME ME_547C1F31030C
+ MEPROP UID '547C1F31030C'
+ MEPROP Name 'TncsDisconnect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453986402AC // ncsMessage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_547C1CD001E3' '484A470100DD.ms.model.script' // csDisconnect
+ )
+ ; // Implements
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsDisconnect'
+
+ENDME // ME_547C1F31030C TncsDisconnect
+
+%%ImplementedBy ME_547C1CE20205 ME_547C1F3F025A
+
+%%InheritedBy ME_547831BD02E5 ME_547C1F3F025A
+
+ME ME_547C1F3F025A
+ MEPROP UID '547C1F3F025A'
+ MEPROP Name 'TncsDisconnectReply'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5453986402AC // ncsMessage
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_547831BD02E5 // TncsReply
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_547C1CE20205' '484A470100DD.ms.model.script' // csDisconnectReply
+ )
+ ; // Implements
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ncsDisconnectReply'
+
+ENDME // ME_547C1F3F025A TncsDisconnectReply
+
+ME ME_5453986402AC
+ MEPROP UID '5453986402AC'
+ MEPROP Name 'ncsMessage'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_544E0148010D' '544E0148010D.ms.model.script' // Messages
+ ;
+ MELIST Children
+   Seq: ( HWL ME_544E079E0253 // TncsMessage
+ HWL ME_5453989A0161 // TncsMessageClass
+ HWL ME_54649C7C00E7 // TncsInvalidMessage
+ HWL ME_547831BD02E5 // TncsReply
+ HWL ME_547C1F31030C // TncsDisconnect
+ HWL ME_547C1F3F025A // TncsDisconnectReply
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsMessage.pas'
+
+ENDME // ME_5453986402AC ncsMessage

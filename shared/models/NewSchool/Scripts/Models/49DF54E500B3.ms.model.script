@@ -1,0 +1,166 @@
+// nevDiff 49DF54E500B3 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49DF54E500B3
+
+FORWARD ME_4AA785540310
+
+ME ME_4B9667BA0166
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4B9667BA0166 aView
+
+ME ME_4B9667BA019D
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4B9667BA019D aPoint
+
+ME ME_4B9667BA01D9
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4B9667BA01D9 aMap
+
+ME ME_4AA785540310
+ MEPROP UID '4AA785540310'
+ MEPROP Name 'DoDiff'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49DF54E500B3 // nevDiff
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B9667BA0166 // aView
+ ME_4B9667BA019D // aPoint
+ ME_4B9667BA01D9 // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_4AA785540310 DoDiff
+
+FORWARD ME_4BBB10FB015B
+
+ME ME_4E72E3B30323
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4E72E3B30323 aView
+
+ME ME_4E72E3B3036D
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E72E3B3036D aPoint
+
+ME ME_4E72E3B303BF
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4E72E3B303BF aMap
+
+ME ME_4BBB10FB015B
+ MEPROP UID '4BBB10FB015B'
+ MEPROP Name 'DoPartiallyVisible'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49DF54E500B3 // nevDiff
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E72E3B30323 // aView
+ ME_4E72E3B3036D // aPoint
+ ME_4E72E3B303BF // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_4BBB10FB015B DoPartiallyVisible
+
+ME ME_49DF555E00DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49DF54E500B3 // nevDiff
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_49DF555E00DB 
+
+ME ME_49DF51870234_ME_49DF54E500B3
+ MELINK Original WL 'ME_49DF51870234' '47C5207602D1.ms.model.script' // Diff
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49DF51870234_ME_49DF54E500B3 Diff
+
+ME ME_4BBB0DDD026D_ME_49DF54E500B3
+ MELINK Original WL 'ME_4BBB0DDD026D' '47C5207602D1.ms.model.script' // PartiallyVisible
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4BBB0DDD026D_ME_49DF54E500B3 PartiallyVisible
+
+%%ImplementedBy ME_49DF515E018E ME_49DF54E500B3
+
+ME ME_49DF54E500B3
+ MEPROP UID '49DF54E500B3'
+ MEPROP Name 'nevDiff'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49DF515E018E' '47C5207602D1.ms.model.script' // MnevDiff
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4AA785540310 // DoDiff
+ HWL ME_4BBB10FB015B // DoPartiallyVisible
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49DF51870234_ME_49DF54E500B3 // Diff
+ ME_4BBB0DDD026D_ME_49DF54E500B3 // PartiallyVisible
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_49DF555E00DB // InevBasePoint
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '10.04.2009 18:17'
+ UP extprop:pas:TypeName '_nevDiff_'
+ UP extprop:pas:UnitName 'nevDiff.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevDiff.imp.pas'
+
+ENDME // ME_49DF54E500B3 nevDiff

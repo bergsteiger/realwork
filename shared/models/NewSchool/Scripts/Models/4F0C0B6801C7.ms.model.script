@@ -1,0 +1,813 @@
+// DragData 4F0C0B6801C7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_552E443E0209
+%%Inner ME_552FCE6F0138
+%%Inner ME_552FCE4601AC
+%%Inner ME_4F0C0B870141
+
+FORWARD ME_4F0C0B6801C7
+
+%%InheritedBy ME_578F5E310137 ME_552E443E0209
+
+ME ME_552E443E0209
+ MEPROP UID '552E443E0209'
+ MEPROP Name 'TDragDataState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_578F5E310137' '578F5E1601B5.ms.model.script' // TDragDataState
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_552E443E0209 TDragDataState
+
+FORWARD ME_552FCE6F0138
+
+FORWARD ME_552FCE7903A4
+
+ME ME_552FCE7D01CE
+ MEPROP Name 'DDType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552FCE7D01CE DDType
+
+ME ME_552FCE7903A4
+ MEPROP UID '552FCE7903A4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552FCE6F0138 // TGetCursorByType
+ ;
+ MELINK Target WL 'ME_552FCED800E0' '48A41FF10094.ms.model.script' // HCURSOR
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FCE7D01CE // DDType
+ )
+ ; // Parameters
+
+ENDME // ME_552FCE7903A4 DoIt
+
+ME ME_552FCE6F0138
+ MEPROP UID '552FCE6F0138'
+ MEPROP Name 'TGetCursorByType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552FCE7903A4 // DoIt
+ )
+ ; // Operations
+ UP "of object" False
+
+ENDME // ME_552FCE6F0138 TGetCursorByType
+
+FORWARD ME_552FCE4601AC
+
+ME ME_5530C7180149
+ MEPROP UID '5530C7180149'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552FCE4601AC // EDragInProcess
+ ;
+
+ENDME // ME_5530C7180149 Create
+
+%%InheritedBy ME_4787B1960023 ME_552FCE4601AC
+
+ME ME_552FCE4601AC
+ MEPROP UID '552FCE4601AC'
+ MEPROP Name 'EDragInProcess'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787B1960023' '4787B0A8007B.ms.model.script' // El3NoLoggedException
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5530C7180149 // Create
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_552FCE4601AC EDragInProcess
+
+FORWARD ME_4F0C0B870141
+
+ME ME_552FD1E902A7
+ MEPROP UID '552FD1E902A7'
+ MEPROP Name 'DCursor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_552FCED800E0' '48A41FF10094.ms.model.script' // HCURSOR
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_552FD1E902A7 DCursor
+
+ME ME_552FD2B903C5
+ MEPROP UID '552FD2B903C5'
+ MEPROP Name 'DragDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_552FD2B903C5 DragDataType
+
+ME ME_552FD48A0290
+ MEPROP UID '552FD48A0290'
+ MEPROP Name 'DragData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_552FD48A0290 DragData
+
+ME ME_552FD6240291
+ MEPROP UID '552FD6240291'
+ MEPROP Name 'AnswerData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_552FD6240291 AnswerData
+
+ME ME_552FD76100A8
+ MEPROP UID '552FD76100A8'
+ MEPROP Name 'SourceControl'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_552FD76100A8 SourceControl
+
+ME ME_552FD8A000D7
+ MEPROP UID '552FD8A000D7'
+ MEPROP Name 'DragState'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target HWL ME_552E443E0209 // TDragDataState
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_552FD8A000D7 DragState
+
+ME ME_552FDA2A03AA
+ MEPROP UID '552FDA2A03AA'
+ MEPROP Name 'DragSuccess'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_552FDA2A03AA DragSuccess
+
+ME ME_552FDACE0076
+ MEPROP UID '552FDACE0076'
+ MEPROP Name 'OnDragStop'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_552FDACE0076 OnDragStop
+
+ME ME_552FDB340036
+ MEPROP UID '552FDB340036'
+ MEPROP Name 'OnGetCursorByType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target HWL ME_552FCE6F0138 // TGetCursorByType
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_552FDB340036 OnGetCursorByType
+
+ME ME_552FDE8303A5
+ MEPROP UID '552FDE8303A5'
+ MEPROP Name 'f_PrevMRecurse'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FDE8303A5 f_PrevMRecurse
+
+ME ME_552FDE9100C1
+ MEPROP UID '552FDE9100C1'
+ MEPROP Name 'f_PrevWRecurse'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FDE9100C1 f_PrevWRecurse
+
+ME ME_552FDEBE02A5
+ MEPROP UID '552FDEBE02A5'
+ MEPROP Name 'f_NeedStop'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FDEBE02A5 f_NeedStop
+
+ME ME_552FDEE30376
+ MEPROP UID '552FDEE30376'
+ MEPROP Name 'InitListeners'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+
+ENDME // ME_552FDEE30376 InitListeners
+
+ME ME_552FDEFB010E
+ MEPROP UID '552FDEFB010E'
+ MEPROP Name 'RemoveListeners'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+
+ENDME // ME_552FDEFB010E RemoveListeners
+
+FORWARD ME_552FDF3003B5
+
+FORWARD ME_552FDF3B03DB
+
+ME ME_552FDF400383
+ MEPROP Name 'aDestControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_552FDF400383 aDestControl
+
+ME ME_552FDF3B03DB
+ MEPROP UID '552FDF3B03DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552FDF3003B5 // DoDrop
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FDF400383 // aDestControl
+ )
+ ; // Parameters
+
+ENDME // ME_552FDF3B03DB DoIt
+
+ME ME_552FDF3003B5
+ MEPROP UID '552FDF3003B5'
+ MEPROP Name 'DoDrop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552FDF3B03DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552FDF3003B5 DoDrop
+
+FORWARD ME_552FDF5D03B3
+
+FORWARD ME_552FDF6B03BA
+
+ME ME_552FDF6E009C
+ MEPROP Name 'SrcControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_552FDF6E009C SrcControl
+
+ME ME_552FDF6B03BA
+ MEPROP UID '552FDF6B03BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552FDF5D03B3 // Execute
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FDF6E009C // SrcControl
+ )
+ ; // Parameters
+
+ENDME // ME_552FDF6B03BA DoIt
+
+ME ME_552FDF5D03B3
+ MEPROP UID '552FDF5D03B3'
+ MEPROP Name 'Execute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552FDF6B03BA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552FDF5D03B3 Execute
+
+FORWARD ME_552FDF8E01C9
+
+FORWARD ME_552FDF950216
+
+ME ME_552FDF98028E
+ MEPROP Name 'SrcControl'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
+ ;
+
+ENDME // ME_552FDF98028E SrcControl
+
+ME ME_552FDF950216
+ MEPROP UID '552FDF950216'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552FDF8E01C9 // RunDragData
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FDF98028E // SrcControl
+ )
+ ; // Parameters
+
+ENDME // ME_552FDF950216 DoIt
+
+ME ME_552FDF8E01C9
+ MEPROP UID '552FDF8E01C9'
+ MEPROP Name 'RunDragData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552FDF950216 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552FDF8E01C9 RunDragData
+
+FORWARD ME_552FDFF10077
+
+FORWARD ME_552FDFFB018A
+
+ME ME_552FDFFD0306
+ MEPROP Name 'aSuccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FDFFD0306 aSuccess
+
+ME ME_552FDFFB018A
+ MEPROP UID '552FDFFB018A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552FDFF10077 // Stop
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FDFFD0306 // aSuccess
+ )
+ ; // Parameters
+
+ENDME // ME_552FDFFB018A DoIt
+
+ME ME_552FDFF10077
+ MEPROP UID '552FDFF10077'
+ MEPROP Name 'Stop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552FDFFB018A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_552FDFF10077 Stop
+
+ME ME_552FE00B02AA
+ MEPROP UID '552FE00B02AA'
+ MEPROP Name 'Pause'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+
+ENDME // ME_552FE00B02AA Pause
+
+ME ME_552FE0130188
+ MEPROP UID '552FE0130188'
+ MEPROP Name 'Restore'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+
+ENDME // ME_552FE0130188 Restore
+
+ME ME_552FE01A0138
+ MEPROP UID '552FE01A0138'
+ MEPROP Name 'CheckInProgress'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F0C0B870141 // TDragDataSupport
+ ;
+
+ENDME // ME_552FE01A0138 CheckInProgress
+
+ME ME_4F79CEDF005A_ME_4F0C0B870141
+ MELINK Original WL 'ME_4F79CEDF005A' '4677FBA70343.ms.model.script' // MouseListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CEDF005A_ME_4F0C0B870141 MouseListenerNotify
+
+ME ME_4F79CF3400BB_ME_4F0C0B870141
+ MELINK Original WL 'ME_4F79CF3400BB' '4677FBA70343.ms.model.script' // WndProcListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CF3400BB_ME_4F0C0B870141 WndProcListenerNotify
+
+ME ME_4F79CF9200A0_ME_4F0C0B870141
+ MELINK Original WL 'ME_4F79CF9200A0' '4677FBA70343.ms.model.script' // WndProcRetListenerNotify
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4F79CF9200A0_ME_4F0C0B870141 WndProcRetListenerNotify
+
+%%ImplementedBy ME_46A5B4170363 ME_4F0C0B870141
+%%ImplementedBy ME_4F7321C602DF ME_4F0C0B870141
+%%ImplementedBy ME_4F741B37029A ME_4F0C0B870141
+
+%%InheritedBy ME_46780CCE037B ME_4F0C0B870141
+
+ME ME_4F0C0B870141
+ MEPROP UID '4F0C0B870141'
+ MEPROP Name 'TDragDataSupport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46780CCE037B' '4773D64E036C.ms.model.script' // Tl3Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46A5B4170363' '4677FBA70343.ms.model.script' // Il3WndProcListener
+ WL 'ME_4F7321C602DF' '4677FBA70343.ms.model.script' // Il3WndProcRetListener
+ WL 'ME_4F741B37029A' '4677FBA70343.ms.model.script' // Il3MouseListener
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_552FD1E902A7 // DCursor
+ HWL ME_552FD2B903C5 // DragDataType
+ HWL ME_552FD48A0290 // DragData
+ HWL ME_552FD6240291 // AnswerData
+ HWL ME_552FD76100A8 // SourceControl
+ HWL ME_552FD8A000D7 // DragState
+ HWL ME_552FDA2A03AA // DragSuccess
+ HWL ME_552FDACE0076 // OnDragStop
+ HWL ME_552FDB340036 // OnGetCursorByType
+ HWL ME_552FDE8303A5 // f_PrevMRecurse
+ HWL ME_552FDE9100C1 // f_PrevWRecurse
+ HWL ME_552FDEBE02A5 // f_NeedStop
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_552FDEE30376 // InitListeners
+ HWL ME_552FDEFB010E // RemoveListeners
+ HWL ME_552FDF3003B5 // DoDrop
+ HWL ME_552FDF5D03B3 // Execute
+ HWL ME_552FDF8E01C9 // RunDragData
+ HWL ME_552FDFF10077 // Stop
+ HWL ME_552FE00B02AA // Pause
+ HWL ME_552FE0130188 // Restore
+ HWL ME_552FE01A0138 // CheckInProgress
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4F79CEDF005A_ME_4F0C0B870141 // MouseListenerNotify
+ ME_4F79CF3400BB_ME_4F0C0B870141 // WndProcListenerNotify
+ ME_4F79CF9200A0_ME_4F0C0B870141 // WndProcRetListenerNotify
+ )
+ ; // Implemented
+ MELIST Injected
+   Seq: ( WL 'ME_552E4473008D' '4F6096D500C3.ms.model.script' // kwVTControlsPack
+ )
+ ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DragDataSupport'
+
+ENDME // ME_4F0C0B870141 TDragDataSupport
+
+FORWARD ME_552FCD410189
+
+ME ME_552FCD4C036B
+ MEPROP UID '552FCD4C036B'
+ MEPROP Name 'wm_DropAccept'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_552FCD410189 // NewNestedConstants
+ ;
+ MEPROP Value 'WM_USER + $100'
+ MELINK ValueType WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'Messages.WM_USER + $100'
+
+ENDME // ME_552FCD4C036B wm_DropAccept
+
+ME ME_552FCD5700EC
+ MEPROP UID '552FCD5700EC'
+ MEPROP Name 'wm_DropAccepted'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_552FCD410189 // NewNestedConstants
+ ;
+ MEPROP Value 'WM_USER + $101'
+ MELINK ValueType WL 'ME_47ECBD5D03BB' '476F78840219.ms.model.script' // Msg Codes
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'Messages.WM_USER + $101'
+
+ENDME // ME_552FCD5700EC wm_DropAccepted
+
+ME ME_552FCD5F0286
+ MEPROP UID '552FCD5F0286'
+ MEPROP Name 'cnActiveState'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_552FCD410189 // NewNestedConstants
+ ;
+ MEPROP Value '[dsActive, dsPaused]'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '[dsActive, dsPaused]'
+
+ENDME // ME_552FCD5F0286 cnActiveState
+
+ME ME_552FCD410189
+ MEPROP UID '552FCD410189'
+ MEPROP Name 'NewNestedConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_552FCD4C036B // wm_DropAccept
+ HWL ME_552FCD5700EC // wm_DropAccepted
+ HWL ME_552FCD5F0286 // cnActiveState
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_552FCD410189 NewNestedConstants
+
+ME ME_552FE0BB0088
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
+ ;
+
+ENDME // ME_552FE0BB0088 
+
+ME ME_5530D14D03C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELINK Target WL 'ME_4F636139008F' '4F635E1901E5.ms.model.script' // Tl3ListenersManager
+ ;
+
+ENDME // ME_5530D14D03C9 
+
+ME ME_5530D15B012E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5530D15B012E 
+
+ME ME_578F5E1F0381
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F0C0B6801C7 // DragData
+ ;
+ MELINK Target WL 'ME_578F5E1601B5' '578F5E1601B5.ms.model.script' // vtDragDataTypes
+ ;
+
+ENDME // ME_578F5E1F0381 
+
+ME ME_4F0C0B6801C7
+ MEPROP UID '4F0C0B6801C7'
+ MEPROP Name 'DragData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_552E443E0209 // TDragDataState
+ HWL ME_552FCE6F0138 // TGetCursorByType
+ HWL ME_552FCE4601AC // EDragInProcess
+ HWL ME_4F0C0B870141 // TDragDataSupport
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_552FCD410189 // NewNestedConstants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_552FE0BB0088 // afwFacade
+ ME_5530D14D03C9 // Tl3ListenersManager
+ ME_5530D15B012E // Forms
+ ME_578F5E1F0381 // vtDragDataTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VT\DragData.pas'
+
+ENDME // ME_4F0C0B6801C7 DragData

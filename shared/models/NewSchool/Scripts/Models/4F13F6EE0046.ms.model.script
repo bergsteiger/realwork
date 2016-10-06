@@ -1,0 +1,65 @@
+// evPrevVersion 4F13F6EE0046 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F13F70A03B1
+
+FORWARD ME_4F13F6EE0046
+
+ME ME_4F13F70A03B1
+ MEPROP UID '4F13F70A03B1'
+ MEPROP Name 'TddDocumentVersionForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F13F6EE0046 // evPrevVersion
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddDocumentVersionForm'
+
+ENDME // ME_4F13F70A03B1 TddDocumentVersionForm
+
+ME ME_4F13F73300B2
+ MEPROP UID '4F13F73300B2'
+ MEPROP Name 'ReplaceVersionInEditor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F13F6EE0046 // evPrevVersion
+ ;
+
+ENDME // ME_4F13F73300B2 ReplaceVersionInEditor
+
+ME ME_4F13F6EE0046
+ MEPROP UID '4F13F6EE0046'
+ MEPROP Name 'evPrevVersion'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возврат к предыдущей версии документа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B322B67038B' '4B322B67038B.ms.model.script' // ext
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F13F73300B2 // ReplaceVersionInEditor
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4F13F70A03B1 // TddDocumentVersionForm
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'PrevVersion'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\ext\NOT_FINISHED_evPrevVersion.pas'
+
+ENDME // ME_4F13F6EE0046 evPrevVersion

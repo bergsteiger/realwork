@@ -1,0 +1,287 @@
+// afwAnswer 4E03119F00B2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5507EB89020D
+%%Inner ME_5507FE0A0095
+%%Inner ME_553E013F0125
+%%Inner ME_4EF20BF702EE
+
+FORWARD ME_4E03119F00B2
+
+%%InheritedBy ME_4FC77244014D ME_5507EB89020D
+
+ME ME_5507EB89020D
+ MEPROP UID '5507EB89020D'
+ MEPROP Name 'EafwTryEnterModalState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FC77244014D' '5507EB5803E7.ms.model.script' // El3TryEnterModalState
+ )
+ ; // Inherits
+
+ENDME // ME_5507EB89020D EafwTryEnterModalState
+
+FORWARD ME_5507FE0A0095
+
+ME ME_55099BAF026D
+ MEPROP UID '55099BAF026D'
+ MEPROP Name 'f_BatchMode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5507FE0A0095 // TafwBatchService
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55099BAF026D f_BatchMode
+
+ME ME_553F4303012B
+ MEPROP UID '553F4303012B'
+ MEPROP Name 'f_WasDialog'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5507FE0A0095 // TafwBatchService
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_553F4303012B f_WasDialog
+
+ME ME_5507FE1D0222
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_5507FE0A0095 // TafwBatchService
+ ;
+ MELINK Target WL 'ME_5507FDD203E1' '4E030FC801EB.ms.model.script' // Tl3BatchService
+ ;
+
+ENDME // ME_5507FE1D0222 
+
+%%InheritedBy ME_49E7754802A9 ME_5507FE0A0095
+
+ME ME_5507FE0A0095
+ MEPROP UID '5507FE0A0095'
+ MEPROP Name 'TafwBatchService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55099BAF026D // f_BatchMode
+ HWL ME_553F4303012B // f_WasDialog
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_5507FE1D0222 // Tl3BatchService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwBatchService'
+
+ENDME // ME_5507FE0A0095 TafwBatchService
+
+FORWARD ME_553E013F0125
+
+FORWARD ME_4E0321910152
+
+ME ME_4E0321D50088
+ MEPROP UID '4E0321D50088'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0321910152 // GetAnswer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E0321D50088 DoIt
+
+ME ME_4E0324980239
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E0321910152 // GetAnswer
+ ;
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
+ ;
+
+ENDME // ME_4E0324980239 
+
+ME ME_4E0321910152
+ MEPROP UID '4E0321910152'
+ MEPROP Name 'GetAnswer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553E013F0125 // TafwAnswers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0321D50088 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E0324980239 // ModalResults
+ )
+ ; // Dependencies
+ UP "is static" True
+
+ENDME // ME_4E0321910152 GetAnswer
+
+FORWARD ME_4E0312C70245
+
+FORWARD ME_4E0312E70097
+
+ME ME_4E0312FF03D0
+ MEPROP Name 'anAnswer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E0312FF03D0 anAnswer
+
+ME ME_4E0312E70097
+ MEPROP UID '4E0312E70097'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0312C70245 // SetAnswer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0312FF03D0 // anAnswer
+ )
+ ; // Parameters
+
+ENDME // ME_4E0312E70097 DoIt
+
+ME ME_4E0312C70245
+ MEPROP UID '4E0312C70245'
+ MEPROP Name 'SetAnswer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553E013F0125 // TafwAnswers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0312E70097 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4E0312C70245 SetAnswer
+
+%%InheritedBy ME_4CA9A2EB01E4 ME_553E013F0125
+
+ME ME_553E013F0125
+ MEPROP UID '553E013F0125'
+ MEPROP Name 'TafwAnswers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CA9A2EB01E4' '47913B47006E.ms.model.script' // Tl3ProtoIntegerList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E0321910152 // GetAnswer
+ HWL ME_4E0312C70245 // SetAnswer
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwAnswers'
+
+ENDME // ME_553E013F0125 TafwAnswers
+
+%%InheritedBy ME_4787A405013D ME_4EF20BF702EE
+
+ME ME_4EF20BF702EE
+ MEPROP UID '4EF20BF702EE'
+ MEPROP Name 'EkwWaitBracketsBalance'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4EF20BF702EE EkwWaitBracketsBalance
+
+ME ME_4E0316E60288
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4E0316E60288 
+
+ME ME_4E03119F00B2
+ MEPROP UID '4E03119F00B2'
+ MEPROP Name 'afwAnswer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Хак для диалогов для скриптов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E030FC801EB' '4E030FC801EB.ms.model.script' // BatchServices
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5507EB89020D // EafwTryEnterModalState
+ HWL ME_5507FE0A0095 // TafwBatchService
+ HWL ME_553E013F0125 // TafwAnswers
+ HWL ME_4EF20BF702EE // EkwWaitBracketsBalance
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E0316E60288 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\afwAnswer.pas'
+
+ENDME // ME_4E03119F00B2 afwAnswer

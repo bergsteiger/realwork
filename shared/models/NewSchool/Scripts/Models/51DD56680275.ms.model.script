@@ -1,0 +1,396 @@
+// l3PtrLoc 51DD56680275 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51DD567A01B5
+
+FORWARD ME_51DD56680275
+
+FORWARD ME_51DD567A01B5
+
+ME ME_51DD5D93005B
+ MEPROP UID '51DD5D93005B'
+ MEPROP Name 'AsPointer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELINK Target WL 'ME_51DAD88F0359' '51DAD8180236.ms.model.script' // PMem
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_51DD5D93005B AsPointer
+
+ME ME_51DD5FDA027A
+ MEPROP UID '51DD5FDA027A'
+ MEPROP Name 'f_AsPointer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELINK Target WL 'ME_51DAD88F0359' '51DAD8180236.ms.model.script' // PMem
+ ;
+
+ENDME // ME_51DD5FDA027A f_AsPointer
+
+FORWARD ME_51DD5D1903C3
+
+FORWARD ME_51DD5D240340
+
+ME ME_51DD5D320370
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5D320370 aSize
+
+ME ME_51DD5D240340
+ MEPROP UID '51DD5D240340'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD5D1903C3 // Init
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_51DD5D320370 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_51DD5D240340 DoIt
+
+ME ME_51DD5D1903C3
+ MEPROP UID '51DD5D1903C3'
+ MEPROP Name 'Init'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DD5D240340 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51DD5D1903C3 Init
+
+FORWARD ME_51DD5D3800F3
+
+ME ME_51DD5D410380
+ MEPROP UID '51DD5D410380'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD5D3800F3 // GetSize
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5D410380 DoIt
+
+ME ME_51DD5D3800F3
+ MEPROP UID '51DD5D3800F3'
+ MEPROP Name 'GetSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DD5D410380 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51DD5D3800F3 GetSize
+
+FORWARD ME_51DD5D4F004A
+
+FORWARD ME_51DD5D5600A1
+
+ME ME_51DD5D6202D7
+ MEPROP Name 'aSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5D6202D7 aSize
+
+ME ME_51DD5D5600A1
+ MEPROP UID '51DD5D5600A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD5D4F004A // SetSize
+ ;
+ MELIST Parameters
+   Seq: ( ME_51DD5D6202D7 // aSize
+ )
+ ; // Parameters
+
+ENDME // ME_51DD5D5600A1 DoIt
+
+ME ME_51DD5D4F004A
+ MEPROP UID '51DD5D4F004A'
+ MEPROP Name 'SetSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DD5D5600A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51DD5D4F004A SetSize
+
+FORWARD ME_51DD5D6F0304
+
+ME ME_51DD5D7A0213
+ MEPROP UID '51DD5D7A0213'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD5D6F0304 // Clear
+ ;
+
+ENDME // ME_51DD5D7A0213 DoIt
+
+ME ME_51DD5D6F0304
+ MEPROP UID '51DD5D6F0304'
+ MEPROP Name 'Clear'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DD5D7A0213 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51DD5D6F0304 Clear
+
+FORWARD ME_51DD5E2203B0
+
+FORWARD ME_51DD5E310231
+
+ME ME_51DD5E5A025D
+ MEPROP Name 'anOfs'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5E5A025D anOfs
+
+ME ME_51DD5E5A027B
+ MEPROP Name 'aBuf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51DAD88F0359' '51DAD8180236.ms.model.script' // PMem
+ ;
+
+ENDME // ME_51DD5E5A027B aBuf
+
+ME ME_51DD5E5A0299
+ MEPROP Name 'aBufSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5E5A0299 aBufSize
+
+ME ME_51DD5E310231
+ MEPROP UID '51DD5E310231'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD5E2203B0 // Read
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_51DD5E5A025D // anOfs
+ ME_51DD5E5A027B // aBuf
+ ME_51DD5E5A0299 // aBufSize
+ )
+ ; // Parameters
+
+ENDME // ME_51DD5E310231 DoIt
+
+ME ME_51DD5E2203B0
+ MEPROP UID '51DD5E2203B0'
+ MEPROP Name 'Read'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DD5E310231 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51DD5E2203B0 Read
+
+FORWARD ME_51DD5E5F02E1
+
+FORWARD ME_51DD5E6702F6
+
+ME ME_51DD5E6C0225
+ MEPROP Name 'anOfs'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5E6C0225 anOfs
+
+ME ME_51DD5E6C0242
+ MEPROP Name 'aBuf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_51DAD88F0359' '51DAD8180236.ms.model.script' // PMem
+ ;
+
+ENDME // ME_51DD5E6C0242 aBuf
+
+ME ME_51DD5E6C0261
+ MEPROP Name 'aBufSize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51DD5E6C0261 aBufSize
+
+ME ME_51DD5E6702F6
+ MEPROP UID '51DD5E6702F6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD5E5F02E1 // Write
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_51DD5E6C0225 // anOfs
+ ME_51DD5E6C0242 // aBuf
+ ME_51DD5E6C0261 // aBufSize
+ )
+ ; // Parameters
+
+ENDME // ME_51DD5E6702F6 DoIt
+
+ME ME_51DD5E5F02E1
+ MEPROP UID '51DD5E5F02E1'
+ MEPROP Name 'Write'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51DD5E6702F6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51DD5E5F02E1 Write
+
+ME ME_51DD568601FD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51DD567A01B5 // Tl3PtrLoc
+ ;
+ MELINK Target WL 'ME_51DD554C0205' '51DAD7EA02D0.ms.model.script' // Tl3MemUtils
+ ;
+
+ENDME // ME_51DD568601FD 
+
+ME ME_51DD567A01B5
+ MEPROP UID '51DD567A01B5'
+ MEPROP Name 'Tl3PtrLoc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DD56680275 // l3PtrLoc
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51DD5D93005B // AsPointer
+ HWL ME_51DD5FDA027A // f_AsPointer
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51DD5D1903C3 // Init
+ HWL ME_51DD5D3800F3 // GetSize
+ HWL ME_51DD5D4F004A // SetSize
+ HWL ME_51DD5D6F0304 // Clear
+ HWL ME_51DD5E2203B0 // Read
+ HWL ME_51DD5E5F02E1 // Write
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_51DD568601FD // Tl3MemUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'PtrLoc'
+
+ENDME // ME_51DD567A01B5 Tl3PtrLoc
+
+ME ME_51DD56680275
+ MEPROP UID '51DD56680275'
+ MEPROP Name 'l3PtrLoc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51DAD7EA02D0' '51DAD7EA02D0.ms.model.script' // MemoryUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51DD567A01B5 // Tl3PtrLoc
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'PtrLoc'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PtrLoc.pas'
+
+ENDME // ME_51DD56680275 l3PtrLoc

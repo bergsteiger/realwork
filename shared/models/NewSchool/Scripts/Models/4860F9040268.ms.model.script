@@ -1,0 +1,51 @@
+// evConvertTextTools 4860F9040268 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4860F92B0102
+
+FORWARD ME_4860F9040268
+
+ME ME_4860F92B0102
+ MEPROP UID '4860F92B0102'
+ MEPROP Name 'TevInPlaceTextConverter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4860F9040268 // evConvertTextTools
+ ;
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" False
+ UP "started" '19.07.2005 11:06'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InPlaceTextConverter'
+
+ENDME // ME_4860F92B0102 TevInPlaceTextConverter
+
+ME ME_4860F9040268
+ MEPROP UID '4860F9040268'
+ MEPROP Name 'evConvertTextTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F90A0391' '47F1F90A0391.ms.model.script' // Searchers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4860F92B0102 // TevInPlaceTextConverter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" False
+ UP "started" '19.07.2005 11:06'
+ UP extprop:rc:SelfName 'ConvertTextTools'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evConvertTextTools.pas'
+
+ENDME // ME_4860F9040268 evConvertTextTools

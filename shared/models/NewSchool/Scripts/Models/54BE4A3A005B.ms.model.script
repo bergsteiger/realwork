@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_54BE4A4902B9
+%%Inner ME_54BE4C0B0137
+%%Inner ME_54BE505F0038
+%%Inner ME_54BE50B902CB
+%%Inner ME_54BE50DC0032
+
 FORWARD ME_54BE4A3A005B
 
 FORWARD ME_54BE4A4902B9
@@ -59,7 +65,7 @@ ME ME_54BE4B940071
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_54BE4B830300 // IsReadOnly
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_54BE4B98039C // aView
@@ -106,7 +112,7 @@ ME ME_54BE4BF10109
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_54BE4BE30128 // ShowComments
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_54BE4BF9035B // aView
@@ -132,14 +138,12 @@ ME ME_54BE4BE30128
 
 ENDME // ME_54BE4BE30128 ShowComments
 
-FORWARD ME_54BE4C0B0137
-
 ME ME_54BE4C450032
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE4A4902B9 // TeeTextParaCursor
  ;
- MELINK Target HWL ME_54BE4C0B0137 // eeCursorTools
+ MELINK Target WL 'ME_54BE4C0B0137' '54BE4C0B0137.ms.model.script' // eeCursorTools
  ;
 
 ENDME // ME_54BE4C450032 
@@ -160,7 +164,7 @@ ME ME_54BE5C1D02E5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE4A4902B9 // TeeTextParaCursor
  ;
- MELINK Target WL 'ME_54BE4D400054' '4912E16B01B4.ms.model.script' // TeeStyledLeafPara
+ MELINK Target WL 'ME_54BE4D400054' '54BE4D0B0117.ms.model.script' // TeeStyledLeafPara
  ;
 
 ENDME // ME_54BE5C1D02E5 
@@ -200,7 +204,7 @@ ME ME_54BE5CBB03A4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE4A4902B9 // TeeTextParaCursor
  ;
- MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F3BC0330.ms.model.script' // evParaTools
  ;
 
 ENDME // ME_54BE5CBB03A4 
@@ -210,7 +214,7 @@ ME ME_54BE5D9C03DB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE4A4902B9 // TeeTextParaCursor
  ;
- MELINK Target WL 'ME_48CF8F160109' '49A58A1A03C4.ms.model.script' // k2OpMisc
+ MELINK Target WL 'ME_48CF8F160109' '48CF8F160109.ms.model.script' // k2OpMisc
  ;
 
 ENDME // ME_54BE5D9C03DB 
@@ -230,7 +234,7 @@ ME ME_54BE5E2B0212
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE4A4902B9 // TeeTextParaCursor
  ;
- MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
  ;
 
 ENDME // ME_54BE5E2B0212 
@@ -275,6 +279,10 @@ ME ME_4A3A61DC00AB_ME_54BE4A4902B9
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A3A61DC00AB_ME_54BE4A4902B9 GetInevDataFormattingModify
 
+%%InjectedBy ME_54BE514101E5 ME_54BE4A4902B9
+
+%%InheritedBy ME_49DF7D98029A ME_54BE4A4902B9
+
 ME ME_54BE4A4902B9
  MEPROP UID '54BE4A4902B9'
  MEPROP Name 'TeeTextParaCursor'
@@ -317,182 +325,15 @@ ME ME_54BE4A4902B9
  ME_54BE5EEF03B8 // Operations
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'eeTextParaCursor'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'eeTextParaCursor'
  UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeTextParaCursor.pas'
 
 ENDME // ME_54BE4A4902B9 TeeTextParaCursor
-
-FORWARD ME_54BE4C5B0165
-
-FORWARD ME_54BE4C6B0360
-
-ME ME_54BE4C7100DB
- MEPROP Name 'aPara'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
- ;
-
-ENDME // ME_54BE4C7100DB aPara
-
-ME ME_54BE4C6B0360
- MEPROP UID '54BE4C6B0360'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54BE4C5B0165 // eeEditorByPara
- ;
- MELINK Target WL 'ME_4A8C09B70219' '4912DD020283.ms.model.script' // IeeEditor
- ;
- MELIST Parameters
-   Seq: ( ME_54BE4C7100DB // aPara
- )
- ; // Parameters
-
-ENDME // ME_54BE4C6B0360 DoIt
-
-ME ME_54BE4C5B0165
- MEPROP UID '54BE4C5B0165'
- MEPROP Name 'eeEditorByPara'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54BE4C0B0137 // eeCursorTools
- ;
- MELIST Operations
-   Seq: ( HWL ME_54BE4C6B0360 // DoIt
- )
- ; // Operations
-
-ENDME // ME_54BE4C5B0165 eeEditorByPara
-
-FORWARD ME_54BE4CA1027C
-
-FORWARD ME_54BE4CBB014A
-
-ME ME_54BE4CCC0223
- MEPROP Name 'aView'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
- ;
-
-ENDME // ME_54BE4CCC0223 aView
-
-ME ME_54BE4CCC0257
- MEPROP Name 'aPara'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
- ;
-
-ENDME // ME_54BE4CCC0257 aPara
-
-ME ME_54BE4CBB014A
- MEPROP UID '54BE4CBB014A'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54BE4CA1027C // eeIsReadOnlyPara
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_54BE4CCC0223 // aView
- ME_54BE4CCC0257 // aPara
- )
- ; // Parameters
-
-ENDME // ME_54BE4CBB014A DoIt
-
-ME ME_54BE4D860188
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54BE4CA1027C // eeIsReadOnlyPara
- ;
- MELINK Target WL 'ME_54BE4D400054' '4912E16B01B4.ms.model.script' // TeeStyledLeafPara
- ;
-
-ENDME // ME_54BE4D860188 
-
-ME ME_54BE4E8B03D6
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54BE4CA1027C // eeIsReadOnlyPara
- ;
- MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
- ;
-
-ENDME // ME_54BE4E8B03D6 
-
-ME ME_54BE4EC003BE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54BE4CA1027C // eeIsReadOnlyPara
- ;
- MELINK Target WL 'ME_49523C96004A' '49523C640160.ms.model.script' // IeeDocumentEx
- ;
-
-ENDME // ME_54BE4EC003BE 
-
-ME ME_54BE4F040005
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54BE4CA1027C // eeIsReadOnlyPara
- ;
- MELINK Target WL 'ME_54819C14032B' '4912DD020283.ms.model.script' // IeeStyledLeafPara
- ;
-
-ENDME // ME_54BE4F040005 
-
-ME ME_54BE4CA1027C
- MEPROP UID '54BE4CA1027C'
- MEPROP Name 'eeIsReadOnlyPara'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54BE4C0B0137 // eeCursorTools
- ;
- MELIST Operations
-   Seq: ( HWL ME_54BE4CBB014A // DoIt
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_54BE4D860188 // TeeStyledLeafPara
- ME_54BE4E8B03D6 // Standard
- ME_54BE4EC003BE // IeeDocumentEx
- ME_54BE4F040005 // IeeStyledLeafPara
- )
- ; // Dependencies
-
-ENDME // ME_54BE4CA1027C eeIsReadOnlyPara
-
-ME ME_54BE4C0B0137
- MEPROP UID '54BE4C0B0137'
- MEPROP Name 'eeCursorTools'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54BE4A3A005B // Cursors
- ;
- MELIST Operations
-   Seq: ( HWL ME_54BE4C5B0165 // eeEditorByPara
- HWL ME_54BE4CA1027C // eeIsReadOnlyPara
- )
- ; // Operations
- UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCursorTools.pas'
-
-ENDME // ME_54BE4C0B0137 eeCursorTools
 
 FORWARD ME_54BE505F0038
 
@@ -512,7 +353,7 @@ ME ME_54BE5F4E00B0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE505F0038 // TeeTextCursorPair
  ;
- MELINK Target HWL ME_54BE4C0B0137 // eeCursorTools
+ MELINK Target WL 'ME_54BE4C0B0137' '54BE4C0B0137.ms.model.script' // eeCursorTools
  ;
 
 ENDME // ME_54BE5F4E00B0 
@@ -522,7 +363,7 @@ ME ME_54BE5F98016F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE505F0038 // TeeTextCursorPair
  ;
- MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F3BC0330.ms.model.script' // evParaTools
  ;
 
 ENDME // ME_54BE5F98016F 
@@ -538,6 +379,10 @@ ME ME_4A3A61DC00AB_ME_54BE505F0038
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A3A61DC00AB_ME_54BE505F0038 GetInevDataFormattingModify
+
+%%InjectedBy ME_54BE514101E5 ME_54BE505F0038
+
+%%InheritedBy ME_53D64B570304 ME_54BE505F0038
 
 ME ME_54BE505F0038
  MEPROP UID '54BE505F0038'
@@ -564,6 +409,9 @@ ME ME_54BE505F0038
  ME_54BE5F98016F // evParaTools
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'eeTextCursorPair'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'eeTextCursorPair'
@@ -583,6 +431,10 @@ ME ME_54BE5277018F
  UP "injects as" 'cursor'
 
 ENDME // ME_54BE5277018F 
+
+%%InjectedBy ME_54BE51580257 ME_54BE50B902CB
+
+%%InheritedBy ME_4A4C8EC4019F ME_54BE50B902CB
 
 ME ME_54BE50B902CB
  MEPROP UID '54BE50B902CB'
@@ -637,7 +489,7 @@ ME ME_54BE608E03A5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE50DC0032 // TeeDocumentCursorPair
  ;
- MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F3BC0330.ms.model.script' // evParaTools
  ;
 
 ENDME // ME_54BE608E03A5 
@@ -647,7 +499,7 @@ ME ME_54BE62930373
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE50DC0032 // TeeDocumentCursorPair
  ;
- MELINK Target HWL ME_54BE4C0B0137 // eeCursorTools
+ MELINK Target WL 'ME_54BE4C0B0137' '54BE4C0B0137.ms.model.script' // eeCursorTools
  ;
 
 ENDME // ME_54BE62930373 
@@ -667,7 +519,7 @@ ME ME_54BE63610318
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_54BE50DC0032 // TeeDocumentCursorPair
  ;
- MELINK Target WL 'ME_48453B7601F9' '47F1F38601A3.ms.model.script' // evCursorTools
+ MELINK Target WL 'ME_48453B7601F9' '48453B7601F9.ms.model.script' // evCursorTools
  ;
 
 ENDME // ME_54BE63610318 
@@ -677,6 +529,10 @@ ME ME_4A3A8BEE029F_ME_54BE50DC0032
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4A3A8BEE029F_ME_54BE50DC0032 DoInsertStream
+
+%%InjectedBy ME_54BE51580257 ME_54BE50DC0032
+
+%%InheritedBy ME_4A2D2DA90232 ME_54BE50DC0032
 
 ME ME_54BE50DC0032
  MEPROP UID '54BE50DC0032'
@@ -705,6 +561,9 @@ ME ME_54BE50DC0032
  ME_54BE63610318 // evCursorTools
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'eeDocumentCursorPair'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'eeDocumentCursorPair'
@@ -724,7 +583,7 @@ ME ME_54BE4A3A005B
  ;
  MELIST Children
    Seq: ( HWL ME_54BE4A4902B9 // TeeTextParaCursor
- HWL ME_54BE4C0B0137 // eeCursorTools
+ WL 'ME_54BE4C0B0137' '54BE4C0B0137.ms.model.script' // eeCursorTools
  HWL ME_54BE505F0038 // TeeTextCursorPair
  HWL ME_54BE50B902CB // TeeDocumentCursor
  HWL ME_54BE50DC0032 // TeeDocumentCursorPair
@@ -747,6 +606,9 @@ ME ME_54BE4A3A005B
  WL 'ME_4AB112DF005B' '4AB112DF005B.ms.model.script' // EVD
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" True
 
 ENDME // ME_54BE4A3A005B Cursors

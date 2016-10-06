@@ -1,0 +1,123 @@
+// l3ChangingWithLock 54CB3F0F01C0 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54CB3F0F01C0
+
+ME ME_54CB435B016E
+ MEPROP UID '54CB435B016E'
+ MEPROP Name 'f_NotificationLockCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54CB3F0F01C0 // l3ChangingWithLock
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_54CB435B016E f_NotificationLockCount
+
+ME ME_54CB436C0163
+ MEPROP UID '54CB436C0163'
+ MEPROP Name 'f_NeedFireChanged'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54CB3F0F01C0 // l3ChangingWithLock
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54CB436C0163 f_NeedFireChanged
+
+ME ME_54CB43810028
+ MEPROP UID '54CB43810028'
+ MEPROP Name 'f_CanFireChanging'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54CB3F0F01C0 // l3ChangingWithLock
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54CB43810028 f_CanFireChanging
+
+ME ME_54CB3F2A02B0
+ MEPROP UID '54CB3F2A02B0'
+ MEPROP Name 'LockNotification'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54CB3F0F01C0 // l3ChangingWithLock
+ ;
+
+ENDME // ME_54CB3F2A02B0 LockNotification
+
+ME ME_54CB3F3F000F
+ MEPROP UID '54CB3F3F000F'
+ MEPROP Name 'UnLockNotification'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54CB3F0F01C0 // l3ChangingWithLock
+ ;
+
+ENDME // ME_54CB3F3F000F UnLockNotification
+
+ME ME_54D9E08D0212_ME_54CB3F0F01C0
+ MELINK Original WL 'ME_54D9E08D0212' '4A5CBFAB03AF.ms.model.script' // DoChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54D9E08D0212_ME_54CB3F0F01C0 DoChanged
+
+ME ME_54D9E09D018D_ME_54CB3F0F01C0
+ MELINK Original WL 'ME_54D9E09D018D' '4A5CBFAB03AF.ms.model.script' // DoChanging
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_54D9E09D018D_ME_54CB3F0F01C0 DoChanging
+
+%%InheritedBy ME_48FCA1F20259 ME_54CB3F0F01C0
+
+ME ME_54CB3F0F01C0
+ MEPROP UID '54CB3F0F01C0'
+ MEPROP Name 'l3ChangingWithLock'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48FCA1F20259' '48FCA1F20259.ms.model.script' // l3ChangingChangedNotifier
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54CB435B016E // f_NotificationLockCount
+ HWL ME_54CB436C0163 // f_NeedFireChanged
+ HWL ME_54CB43810028 // f_CanFireChanging
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_54CB3F2A02B0 // LockNotification
+ HWL ME_54CB3F3F000F // UnLockNotification
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_54D9E08D0212_ME_54CB3F0F01C0 // DoChanged
+ ME_54D9E09D018D_ME_54CB3F0F01C0 // DoChanging
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_l3ChangingWithLock_'
+ UP extprop:pas:UnitName 'l3ChangingWithLock.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ChangingWithLock.imp.pas'
+
+ENDME // ME_54CB3F0F01C0 l3ChangingWithLock

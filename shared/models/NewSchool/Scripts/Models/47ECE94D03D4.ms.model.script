@@ -1,0 +1,79 @@
+// vcmFormDataSourcePrim 47ECE94D03D4 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47ECE94D03D4
+
+ME ME_5017ECB10259
+ MEPROP UID '5017ECB10259'
+ MEPROP Name 'UseCaseControllerType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ ;
+ MELINK Target WL 'ME_47F252870299' '4683F37902CF.ms.model.script' // IvcmFormSetDataSource
+ ;
+
+ENDME // ME_5017ECB10259 UseCaseControllerType
+
+ME ME_492AA2C101B7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ ;
+ MELINK Target WL 'ME_47CFE7F00221' '47CFE7F00221.ms.model.script' // l3InterfacesMisc
+ ;
+
+ENDME // ME_492AA2C101B7 
+
+ME ME_4992BEF403B8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47ECE94D03D4 // vcmFormDataSourcePrim
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4992BEF403B8 
+
+%%InheritedBy ME_5017EAF4027D ME_47ECE94D03D4
+
+ME ME_47ECE94D03D4
+ MEPROP UID '47ECE94D03D4'
+ MEPROP Name 'vcmFormDataSourcePrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес объект формы' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5017EAF4027D' '5017EAF4027D.ms.model.script' // vcmFormDataSourcePrimWithFlexUseCaseControllerType
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_5017ECB10259 // UseCaseControllerType
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_492AA2C101B7 // l3InterfacesMisc
+ ME_4992BEF403B8 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Children' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '2005/07/29 10:44:39'
+ UP extprop:pas:TypeName '_vcmFormDataSourcePrim_'
+ UP extprop:pas:UnitName 'vcmFormDataSourcePrim.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormDataSourcePrim.imp.pas'
+
+ENDME // ME_47ECE94D03D4 vcmFormDataSourcePrim

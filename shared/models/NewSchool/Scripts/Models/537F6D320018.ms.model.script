@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_537F6DA00036
+%%Inner ME_537F6EED0090
+%%Inner ME_537F6D3F0319
+
 FORWARD ME_537F6D320018
 
 FORWARD ME_537F6DA00036
@@ -15,7 +19,7 @@ ME ME_537F6DE8030B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_537F6DA00036 // TdtNumRange
  ;
- MELINK Target WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
  ;
 
 ENDME // ME_537F6DE8030B LowNum
@@ -29,7 +33,7 @@ ME ME_537F6DF302D4
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_537F6DA00036 // TdtNumRange
  ;
- MELINK Target WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
  ;
 
 ENDME // ME_537F6DF302D4 HiNum
@@ -42,7 +46,7 @@ ME ME_537F6E1A00CB
  MEPROP Name 'aLowNum'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
  ;
 
 ENDME // ME_537F6E1A00CB aLowNum
@@ -51,7 +55,7 @@ ME ME_537F6E1A00F4
  MEPROP Name 'aHiNum'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47BC524C0245' '4AB0C3C60310.ms.model.script' // LongWord
+ MELINK Target WL 'ME_47BC524C0245' '4807744200AA.ms.model.script' // LongWord
  ;
 
 ENDME // ME_537F6E1A00F4 aHiNum
@@ -110,7 +114,7 @@ ME ME_537F6E380119
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_537F6E2A0377 // HasIntersectionWith
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_537F6E40029C // aRange
@@ -191,7 +195,7 @@ ME ME_537F6EDE002E
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_537F6ED601AE // Amount
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_537F6EDE002E DoIt
@@ -218,7 +222,7 @@ ME ME_537F72D60064
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_537F6DA00036 // TdtNumRange
  ;
- MELINK Target WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
  ;
 
 ENDME // ME_537F72D60064 
@@ -228,10 +232,12 @@ ME ME_537F72EF00A3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_537F6DA00036 // TdtNumRange
  ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
  ;
 
 ENDME // ME_537F72EF00A3 
+
+%%InheritedBy ME_49E7754802A9 ME_537F6DA00036
 
 ME ME_537F6DA00036
  MEPROP UID '537F6DA00036'
@@ -265,6 +271,9 @@ ME ME_537F6DA00036
  ME_537F72EF00A3 // l3MinMax
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'dtNumRange'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'dtNumRange'
@@ -290,7 +299,7 @@ ME ME_537F6F040072
 ENDME // ME_537F6F040072 ItemType
 
 ME ME_47B2C42A0163_ME_537F6EED0090
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -298,10 +307,13 @@ ME ME_47B2C42A0163_ME_537F6EED0090
 ENDME // ME_47B2C42A0163_ME_537F6EED0090 AssignItem
 
 ME ME_47B99D4503A2_ME_537F6EED0090
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_537F6EED0090 CompareExistingItems
+
+%%InheritedBy ME_47B99E920196 ME_537F6EED0090
+%%InheritedBy ME_4A54DD4E036F ME_537F6EED0090
 
 ME ME_537F6EED0090
  MEPROP UID '537F6EED0090'
@@ -314,7 +326,7 @@ ME ME_537F6EED0090
  MELINK Parent HWL ME_537F6D320018 // Containers
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47B99E920196.ms.model.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -334,66 +346,6 @@ ME ME_537F6EED0090
 
 ENDME // ME_537F6EED0090 TdtNumRangeList
 
-FORWARD ME_537F6D3F0319
-
-FORWARD ME_537F6D5E0136
-
-ME ME_537F6F740241
- MEPROP UID '537F6F740241'
- MEPROP Name 'f_Ranges'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_537F6D5E0136 // TNumSet
- ;
- MELINK Target HWL ME_537F6EED0090 // TdtNumRangeList
- ;
-
-ENDME // ME_537F6F740241 f_Ranges
-
-ME ME_537F6D5E0136
- MEPROP UID '537F6D5E0136'
- MEPROP Name 'TNumSet'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_537F6D3F0319 // Dt_containers
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_537F6F740241 // f_Ranges
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'NumSet'
-
-ENDME // ME_537F6D5E0136 TNumSet
-
-ME ME_537F6D3F0319
- MEPROP UID '537F6D3F0319'
- MEPROP Name 'Dt_containers'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_537F6D320018 // Containers
- ;
- MELIST Children
-   Seq: ( HWL ME_537F6D5E0136 // TNumSet
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_Dt_containers.pas'
-
-ENDME // ME_537F6D3F0319 Dt_containers
-
 ME ME_537F6D320018
  MEPROP UID '537F6D320018'
  MEPROP Name 'Containers'
@@ -407,7 +359,7 @@ ME ME_537F6D320018
  MELIST Children
    Seq: ( HWL ME_537F6DA00036 // TdtNumRange
  HWL ME_537F6EED0090 // TdtNumRangeList
- HWL ME_537F6D3F0319 // Dt_containers
+ WL 'ME_537F6D3F0319' '537F6D3F0319.ms.model.script' // Dt_containers
  )
  ; // Children
  MELIST Depends
@@ -417,5 +369,8 @@ ME ME_537F6D320018
  WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_537F6D320018 Containers

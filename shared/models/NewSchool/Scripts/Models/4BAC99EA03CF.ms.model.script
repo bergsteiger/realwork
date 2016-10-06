@@ -1,0 +1,61 @@
+// evNSRWrt 4BAC99EA03CF UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4BAC9A100159
+
+FORWARD ME_4BAC99EA03CF
+
+ME ME_4BAC9A100159
+ MEPROP UID '4BAC9A100159'
+ MEPROP Name 'TevCustomNSRCWriter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BAC99EA03CF // evNSRWrt
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NSRCWriter'
+
+ENDME // ME_4BAC9A100159 TevCustomNSRCWriter
+
+ME ME_4BAC9A5C00E1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BAC99EA03CF // evNSRWrt
+ ;
+ MELINK Target WL 'ME_4BAC9A2A03A8' '4BAC9A2A03A8.ms.model.script' // evNSRCWriterTypes
+ ;
+
+ENDME // ME_4BAC9A5C00E1 
+
+ME ME_4BAC99EA03CF
+ MEPROP UID '4BAC99EA03CF'
+ MEPROP Name 'evNSRWrt'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4BAC9A100159 // TevCustomNSRCWriter
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4BAC9A5C00E1 // evNSRCWriterTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'NSRWrt'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evNSRWrt.pas'
+
+ENDME // ME_4BAC99EA03CF evNSRWrt

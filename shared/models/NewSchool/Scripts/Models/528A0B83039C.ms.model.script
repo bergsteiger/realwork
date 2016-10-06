@@ -1,0 +1,45 @@
+// F_AttrExplorer 528A0B83039C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_528A0B9E02C7
+
+FORWARD ME_528A0B83039C
+
+ME ME_528A0B9E02C7
+ MEPROP UID '528A0B9E02C7'
+ MEPROP Name 'TAttrExplorer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_528A0B83039C // F_AttrExplorer
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AttrExplorer'
+
+ENDME // ME_528A0B9E02C7 TAttrExplorer
+
+ME ME_528A0B83039C
+ MEPROP UID '528A0B83039C'
+ MEPROP Name 'F_AttrExplorer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F8D7381019D' '4F8D7381019D.ms.model.script' // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_528A0B9E02C7 // TAttrExplorer
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_AttrExplorer.pas'
+
+ENDME // ME_528A0B83039C F_AttrExplorer

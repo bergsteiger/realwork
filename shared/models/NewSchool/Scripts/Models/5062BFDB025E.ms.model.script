@@ -1,0 +1,587 @@
+// AACSpaceDrawing 5062BFDB025E Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5062BFDB025E
+
+ME ME_5062C01D0207
+ MEPROP UID '5062C01D0207'
+ MEPROP Name 'f_TopSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5062C01D0207 f_TopSpace
+
+ME ME_5062C2BB0009
+ MEPROP UID '5062C2BB0009'
+ MEPROP Name 'f_NeedCalcSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5062C2BB0009 f_NeedCalcSpace
+
+ME ME_5745471200FE
+ MEPROP UID '5745471200FE'
+ MEPROP Name 'f_DontFill'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5745471200FE f_DontFill
+
+FORWARD ME_5062C0650076
+
+ME ME_5062C0830120
+ MEPROP UID '5062C0830120'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062C0650076 // NeedCalcSpace
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5062C0830120 DoIt
+
+ME ME_5062C0650076
+ MEPROP UID '5062C0650076'
+ MEPROP Name 'NeedCalcSpace'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверка для срабатывания примеси.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5062C0830120 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5062C0650076 NeedCalcSpace
+
+FORWARD ME_5062C0F603BF
+
+FORWARD ME_5062C123002C
+
+ME ME_5062CF980125
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+
+ENDME // ME_5062CF980125 aRect
+
+ME ME_5062CF980144
+ MEPROP Name 'aNeedCorrectRight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5062CF980144 aNeedCorrectRight
+
+ME ME_5062C123002C
+ MEPROP UID '5062C123002C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062C0F603BF // SpecialFill
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5062CF980125 // aRect
+ ME_5062CF980144 // aNeedCorrectRight
+ )
+ ; // Parameters
+
+ENDME // ME_5062C123002C DoIt
+
+ME ME_5062C0F603BF
+ MEPROP UID '5062C0F603BF'
+ MEPROP Name 'SpecialFill'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Специальная заливка для хитрых фонов' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5062C123002C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5062C0F603BF SpecialFill
+
+FORWARD ME_5062C21A02C0
+
+ME ME_5062C2760374
+ MEPROP UID '5062C2760374'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062C21A02C0 // StartDrawingInitFields
+ ;
+
+ENDME // ME_5062C2760374 DoIt
+
+ME ME_5062C21A02C0
+ MEPROP UID '5062C21A02C0'
+ MEPROP Name 'StartDrawingInitFields'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Функция инициализации полей при каждой отрисовке объекта.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5062C2760374 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5062C21A02C0 StartDrawingInitFields
+
+FORWARD ME_5062C3470289
+
+FORWARD ME_5062C35B0325
+
+ME ME_5062C36A00FA
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5062C36A00FA aHeight
+
+ME ME_5062C35B0325
+ MEPROP UID '5062C35B0325'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062C3470289 // CorrectByTextHeight
+ ;
+ MELIST Parameters
+   Seq: ( ME_5062C36A00FA // aHeight
+ )
+ ; // Parameters
+
+ENDME // ME_5062C35B0325 DoIt
+
+ME ME_5062C3470289
+ MEPROP UID '5062C3470289'
+ MEPROP Name 'CorrectByTextHeight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Корректирует отступ отрисованной высотой текста.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5062C35B0325 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5062C3470289 CorrectByTextHeight
+
+FORWARD ME_5062C38800CA
+
+FORWARD ME_5062C3E1023F
+
+ME ME_5062C9AB03C2
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5062C9AB03C2 aHeight
+
+ME ME_5062C9AB03E1
+ MEPROP Name 'aY'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5062C9AB03E1 aY
+
+ME ME_5062C3E1023F
+ MEPROP UID '5062C3E1023F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062C38800CA // CorrectByImageHeight
+ ;
+ MELIST Parameters
+   Seq: ( ME_5062C9AB03C2 // aHeight
+ ME_5062C9AB03E1 // aY
+ )
+ ; // Parameters
+
+ENDME // ME_5062C3E1023F DoIt
+
+ME ME_5062C38800CA
+ MEPROP UID '5062C38800CA'
+ MEPROP Name 'CorrectByImageHeight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Корректирует высотой иконки (в пикселях).' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5062C3E1023F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5062C38800CA CorrectByImageHeight
+
+FORWARD ME_51FF64D702CE
+
+FORWARD ME_51FF64FE03D9
+
+ME ME_51FF9A700182
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_51FF9A700182 aText
+
+ME ME_51FF9A700191
+ MEPROP Name 'aTop'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51FF9A700191 aTop
+
+ME ME_51FF9A7001B1
+ MEPROP Name 'aSpace'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51FF9A7001B1 aSpace
+
+ME ME_51FF9A7001C0
+ MEPROP Name 'aDecorType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E1C67860321' '4678209200A6.ms.model.script' // TnevDecorType
+ ;
+
+ENDME // ME_51FF9A7001C0 aDecorType
+
+ME ME_51FF9A7001D0
+ MEPROP Name 'aDecorObj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_51FF9A7001D0 aDecorObj
+
+ME ME_51FF9A7001EF
+ MEPROP Name 'aFirstIndent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_51FF9A7001EF aFirstIndent
+
+ME ME_51FF64FE03D9
+ MEPROP UID '51FF64FE03D9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51FF64D702CE // InternalDrawFrameText
+ ;
+ MELIST Parameters
+   Seq: ( ME_51FF9A700182 // aText
+ ME_51FF9A700191 // aTop
+ ME_51FF9A7001B1 // aSpace
+ ME_51FF9A7001C0 // aDecorType
+ ME_51FF9A7001D0 // aDecorObj
+ ME_51FF9A7001EF // aFirstIndent
+ )
+ ; // Parameters
+
+ENDME // ME_51FF64FE03D9 DoIt
+
+ME ME_51FF64D702CE
+ MEPROP UID '51FF64D702CE'
+ MEPROP Name 'InternalDrawFrameText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51FF64FE03D9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51FF64D702CE InternalDrawFrameText
+
+FORWARD ME_51FF6BC10266
+
+ME ME_51FF6BE10103
+ MEPROP UID '51FF6BE10103'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51FF6BC10266 // HeaderOwnSpace
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51FF6BE10103 DoIt
+
+ME ME_51FF6BC10266
+ MEPROP UID '51FF6BC10266'
+ MEPROP Name 'HeaderOwnSpace'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51FF6BE10103 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51FF6BC10266 HeaderOwnSpace
+
+FORWARD ME_5208B63400C1
+
+FORWARD ME_5208B64F03C1
+
+ME ME_5208CF3B0044
+ MEPROP Name 'anInc'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5208CF3B0044 anInc
+
+ME ME_5208B64F03C1
+ MEPROP UID '5208B64F03C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5208B63400C1 // GetSpaceTop
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5208CF3B0044 // anInc
+ )
+ ; // Parameters
+
+ENDME // ME_5208B64F03C1 DoIt
+
+ME ME_5208B63400C1
+ MEPROP UID '5208B63400C1'
+ MEPROP Name 'GetSpaceTop'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5208B64F03C1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5208B63400C1 GetSpaceTop
+
+FORWARD ME_54B4E7E3005D
+
+FORWARD ME_54B4E7F2001D
+
+ME ME_54B4E7FE020C
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+
+ENDME // ME_54B4E7FE020C aRect
+
+ME ME_54B4E7F2001D
+ MEPROP UID '54B4E7F2001D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54B4E7E3005D // DoFillEmptyRect
+ ;
+ MELIST Parameters
+   Seq: ( ME_54B4E7FE020C // aRect
+ )
+ ; // Parameters
+
+ENDME // ME_54B4E7F2001D DoIt
+
+ME ME_54B4E7E3005D
+ MEPROP UID '54B4E7E3005D'
+ MEPROP Name 'DoFillEmptyRect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B4E7F2001D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_54B4E7E3005D DoFillEmptyRect
+
+ME ME_5062CD2503AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_5062CD2503AF 
+
+ME ME_51FF832701DA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
+ ;
+
+ENDME // ME_51FF832701DA 
+
+ME ME_51FF83550009
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_49082AE80393' '476BE98C01B8.ms.model.script' // Code Pages
+ ;
+
+ENDME // ME_51FF83550009 
+
+ME ME_51FF8C5F01ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_51FF8C5F01ED 
+
+ME ME_51FF8C7A028C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5062BFDB025E // AACSpaceDrawing
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_51FF8C7A028C 
+
+ME ME_5062BFDB025E
+ MEPROP UID '5062BFDB025E'
+ MEPROP Name 'AACSpaceDrawing'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Для отрисовки хитрых отступов для AAK' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49DCBC09029B' '49DCBC09029B.ms.model.script' // Drawing Framework
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5062C01D0207 // f_TopSpace
+ HWL ME_5062C2BB0009 // f_NeedCalcSpace
+ HWL ME_5745471200FE // f_DontFill
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5062C0650076 // NeedCalcSpace
+ HWL ME_5062C0F603BF // SpecialFill
+ HWL ME_5062C21A02C0 // StartDrawingInitFields
+ HWL ME_5062C3470289 // CorrectByTextHeight
+ HWL ME_5062C38800CA // CorrectByImageHeight
+ HWL ME_51FF64D702CE // InternalDrawFrameText
+ HWL ME_51FF6BC10266 // HeaderOwnSpace
+ HWL ME_5208B63400C1 // GetSpaceTop
+ HWL ME_54B4E7E3005D // DoFillEmptyRect
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5062CD2503AF // l3MinMax
+ ME_51FF832701DA // l3IsNil
+ ME_51FF83550009 // Code Pages
+ ME_51FF8C5F01ED // L3 Core Consts
+ ME_51FF8C7A028C // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_AACSpaceDrawing_'
+ UP extprop:pas:UnitName 'AACSpaceDrawing.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\AACSpaceDrawing.imp.pas'
+
+ENDME // ME_5062BFDB025E AACSpaceDrawing

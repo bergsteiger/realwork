@@ -1,0 +1,98 @@
+// evSubPanelTools 5480995800BA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5480995800BA
+
+FORWARD ME_4B87BB100265
+
+FORWARD ME_548070550233
+
+ME ME_548070570346
+ MEPROP Name 'H'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A465F9028C' '48A41FF10094.ms.model.script' // THandle
+ ;
+
+ENDME // ME_548070570346 H
+
+ME ME_548070570361
+ MEPROP Name 'R'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728974E009E' '472745450206.ms.model.script' // Tl3Rect
+ ;
+
+ENDME // ME_548070570361 R
+
+ME ME_548070550233
+ MEPROP UID '548070550233'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B87BB100265 // evInvalidateRect
+ ;
+ MELIST Parameters
+   Seq: ( ME_548070570346 // H
+ ME_548070570361 // R
+ )
+ ; // Parameters
+
+ENDME // ME_548070550233 DoIt
+
+ME ME_5480709301AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B87BB100265 // evInvalidateRect
+ ;
+ MELINK Target WL 'ME_47D00CC20108' '47D00CC20108.ms.model.script' // nevFacade
+ ;
+
+ENDME // ME_5480709301AC 
+
+ME ME_4B87BB100265
+ MEPROP UID '4B87BB100265'
+ MEPROP Name 'evInvalidateRect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5480995800BA // evSubPanelTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_548070550233 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5480709301AC // nevFacade
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'InvalidateRect'
+
+ENDME // ME_4B87BB100265 evInvalidateRect
+
+ME ME_5480995800BA
+ MEPROP UID '5480995800BA'
+ MEPROP Name 'evSubPanelTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B87B5720153' '4B87B5720153.ms.model.script' // SubPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B87BB100265 // evInvalidateRect
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'SubPanelTools'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSubPanelTools.pas'
+
+ENDME // ME_5480995800BA evSubPanelTools

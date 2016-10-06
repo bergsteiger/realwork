@@ -1,0 +1,61 @@
+// tfwDictionaryList 55A63D8C00F0 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_559E75F100CC
+
+FORWARD ME_55A63D8C00F0
+
+ME ME_559E75F100CC
+ MEPROP UID '559E75F100CC'
+ MEPROP Name 'l3Items_NoSort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Define ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A63D8C00F0 // tfwDictionaryList
+ ;
+ UP extprop:rc:SelfName 'Items_NoSort'
+
+ENDME // ME_559E75F100CC l3Items_NoSort
+
+ME ME_47B99D4503A2_ME_55A63D8C00F0
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_55A63D8C00F0 CompareExistingItems
+
+%%InheritedBy ME_55B0E6F2013C ME_55A63D8C00F0
+
+ME ME_55A63D8C00F0
+ MEPROP UID '55A63D8C00F0'
+ MEPROP Name 'tfwDictionaryList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F2275C00012' '4F2275C00012.ms.model.script' // ScriptingKeywordsCore
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_55B0E6F2013C' '55B0E6F2013C.ms.model.script' // tfwDictionaryListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B99D4503A2_ME_55A63D8C00F0 // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_559E75F100CC // l3Items_NoSort
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_tfwDictionaryList_'
+ UP extprop:pas:UnitName 'tfwDictionaryList.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryList.imp.pas'
+
+ENDME // ME_55A63D8C00F0 tfwDictionaryList

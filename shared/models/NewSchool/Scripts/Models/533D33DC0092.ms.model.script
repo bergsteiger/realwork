@@ -1,0 +1,451 @@
+// ChromeLikeWinUtils 533D33DC0092 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_533D33DC0092
+
+FORWARD ME_53C4BE5F0029
+
+FORWARD ME_53C4BFE30197
+
+ME ME_53C4BFF7030A
+ MEPROP Name 'aHWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E95755B0162' '48A41FF10094.ms.model.script' // HWND
+ ;
+
+ENDME // ME_53C4BFF7030A aHWnd
+
+ME ME_53C4BFE30197
+ MEPROP UID '53C4BFE30197'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C4BE5F0029 // UpdateWindowFrame
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C4BFF7030A // aHWnd
+ )
+ ; // Parameters
+
+ENDME // ME_53C4BFE30197 DoIt
+
+ME ME_53C4BE5F0029
+ MEPROP UID '53C4BE5F0029'
+ MEPROP Name 'UpdateWindowFrame'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Заставляет перерисовать неклиентскую область окна' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4BFE30197 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C4BE5F0029 UpdateWindowFrame
+
+FORWARD ME_53C4BE7000A3
+
+FORWARD ME_53C4BFFA0361
+
+ME ME_53C4CEB801ED
+ MEPROP Name 'aDC'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A46A35004F' '48A41FF10094.ms.model.script' // hDC
+ ;
+
+ENDME // ME_53C4CEB801ED aDC
+
+ME ME_53C4CEB80214
+ MEPROP Name 'aRect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
+ ;
+
+ENDME // ME_53C4CEB80214 aRect
+
+ME ME_53C4CEB8023C
+ MEPROP Name 'aColorCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_53C4CEB8023C aColorCount
+
+ME ME_53C4CEB80264
+ MEPROP Name 'aStartColor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A44A2F01C7' '47D15712022D.ms.model.script' // TColor
+ ;
+
+ENDME // ME_53C4CEB80264 aStartColor
+
+ME ME_53C4CEB80297
+ MEPROP Name 'aEndColor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A44A2F01C7' '47D15712022D.ms.model.script' // TColor
+ ;
+
+ENDME // ME_53C4CEB80297 aEndColor
+
+ME ME_53C4CEB802DD
+ MEPROP Name 'aDirection'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53C4BC0F0094' '53C4BB200287.ms.model.script' // TGradientDirection
+ ;
+
+ENDME // ME_53C4CEB802DD aDirection
+
+ME ME_53C4BFFA0361
+ MEPROP UID '53C4BFFA0361'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C4BE7000A3 // FillGradient
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C4CEB801ED // aDC
+ ME_53C4CEB80214 // aRect
+ ME_53C4CEB8023C // aColorCount
+ ME_53C4CEB80264 // aStartColor
+ ME_53C4CEB80297 // aEndColor
+ ME_53C4CEB802DD // aDirection
+ )
+ ; // Parameters
+
+ENDME // ME_53C4BFFA0361 DoIt
+
+ME ME_53C4BE7000A3
+ MEPROP UID '53C4BE7000A3'
+ MEPROP Name 'FillGradient'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4BFFA0361 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C4BE7000A3 FillGradient
+
+FORWARD ME_53C4BE7C00E6
+
+ME ME_53C4C03401F9
+ MEPROP UID '53C4C03401F9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C4BE7C00E6 // IsWindowsVistaOrLater
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53C4C03401F9 DoIt
+
+ME ME_53C4BE7C00E6
+ MEPROP UID '53C4BE7C00E6'
+ MEPROP Name 'IsWindowsVistaOrLater'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4C03401F9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C4BE7C00E6 IsWindowsVistaOrLater
+
+FORWARD ME_53C4BE8E00A8
+
+ME ME_53C4C03D0383
+ MEPROP UID '53C4C03D0383'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C4BE8E00A8 // IsWindowsXP
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_53C4C03D0383 DoIt
+
+ME ME_53C4BE8E00A8
+ MEPROP UID '53C4BE8E00A8'
+ MEPROP Name 'IsWindowsXP'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4C03D0383 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C4BE8E00A8 IsWindowsXP
+
+FORWARD ME_53C4BE9B03E2
+
+FORWARD ME_53C4C04C0300
+
+ME ME_53C4C059033D
+ MEPROP Name 'aParentHWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E95755B0162' '48A41FF10094.ms.model.script' // HWND
+ ;
+
+ENDME // ME_53C4C059033D aParentHWnd
+
+ME ME_53C4C04C0300
+ MEPROP UID '53C4C04C0300'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C4BE9B03E2 // GetVistaWindowCaptionMetrics
+ ;
+ MELINK Target WL 'ME_53C4BBCA026C' '53C4BB200287.ms.model.script' // TVistaWindowCaptionMetrics
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C4C059033D // aParentHWnd
+ )
+ ; // Parameters
+
+ENDME // ME_53C4C04C0300 DoIt
+
+ME ME_53C4BE9B03E2
+ MEPROP UID '53C4BE9B03E2'
+ MEPROP Name 'GetVistaWindowCaptionMetrics'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает размеры элементов заголовка окна для текущего оформления Windows Vista и новее' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4C04C0300 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C4BE9B03E2 GetVistaWindowCaptionMetrics
+
+FORWARD ME_53C4BEB2027A
+
+FORWARD ME_53C4C0620356
+
+ME ME_53C4C06E0234
+ MEPROP Name 'aHWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E95755B0162' '48A41FF10094.ms.model.script' // HWND
+ ;
+
+ENDME // ME_53C4C06E0234 aHWnd
+
+ME ME_53C4C0620356
+ MEPROP UID '53C4C0620356'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C4BEB2027A // GetWindowZOrderInfo
+ ;
+ MELINK Target WL 'ME_53C4BC31003C' '53C4BB200287.ms.model.script' // TWindowZOrderInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C4C06E0234 // aHWnd
+ )
+ ; // Parameters
+
+ENDME // ME_53C4C0620356 DoIt
+
+ME ME_53C4BEB2027A
+ MEPROP UID '53C4BEB2027A'
+ MEPROP Name 'GetWindowZOrderInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает Z-Order окна' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4C0620356 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C4BEB2027A GetWindowZOrderInfo
+
+FORWARD ME_53C4BEBD012C
+
+FORWARD ME_53C4C076027D
+
+ME ME_53C4C08E01EA
+ MEPROP Name 'aHWnd'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4E95755B0162' '48A41FF10094.ms.model.script' // HWND
+ ;
+
+ENDME // ME_53C4C08E01EA aHWnd
+
+ME ME_53C4C08E0212
+ MEPROP Name 'aZOrderInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53C4BC31003C' '53C4BB200287.ms.model.script' // TWindowZOrderInfo
+ ;
+
+ENDME // ME_53C4C08E0212 aZOrderInfo
+
+ME ME_53C4C076027D
+ MEPROP UID '53C4C076027D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53C4BEBD012C // SetWindowZOrderInfo
+ ;
+ MELIST Parameters
+   Seq: ( ME_53C4C08E01EA // aHWnd
+ ME_53C4C08E0212 // aZOrderInfo
+ )
+ ; // Parameters
+
+ENDME // ME_53C4C076027D DoIt
+
+ME ME_53C4BEBD012C
+ MEPROP UID '53C4BEBD012C'
+ MEPROP Name 'SetWindowZOrderInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Устанавливает Z-Order окну' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4C076027D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53C4BEBD012C SetWindowZOrderInfo
+
+ME ME_53C4BE370303
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELINK Target WL 'ME_53C4BB200287' '53C4BB200287.ms.model.script' // ChromeLikeTypes
+ ;
+
+ENDME // ME_53C4BE370303 
+
+ME ME_53C4BFCF0072
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELINK Target WL 'ME_47D15712022D' '47D15712022D.ms.model.script' // Graphics
+ ;
+
+ENDME // ME_53C4BFCF0072 
+
+ME ME_53C4BFD200CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_53C4BFD200CA 
+
+ME ME_53C4BFD5035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_53C4BFD5035A 
+
+ME ME_53C4BFD903C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_533D33DC0092 // ChromeLikeWinUtils
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_53C4BFD903C3 
+
+ME ME_533D33DC0092
+ MEPROP UID '533D33DC0092'
+ MEPROP Name 'ChromeLikeWinUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D01A201A9' '533D01A201A9.ms.model.script' // ChromeLikeWindowCaptionButtons
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53C4BE5F0029 // UpdateWindowFrame
+ HWL ME_53C4BE7000A3 // FillGradient
+ HWL ME_53C4BE7C00E6 // IsWindowsVistaOrLater
+ HWL ME_53C4BE8E00A8 // IsWindowsXP
+ HWL ME_53C4BE9B03E2 // GetVistaWindowCaptionMetrics
+ HWL ME_53C4BEB2027A // GetWindowZOrderInfo
+ HWL ME_53C4BEBD012C // SetWindowZOrderInfo
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_53C4BE370303 // ChromeLikeTypes
+ ME_53C4BFCF0072 // Graphics
+ ME_53C4BFD200CA // Windows
+ ME_53C4BFD5035A // SysUtils
+ ME_53C4BFD903C3 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoVGScene, NoVCM'
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeWinUtils.pas'
+
+ENDME // ME_533D33DC0092 ChromeLikeWinUtils

@@ -1,0 +1,76 @@
+// csTaskRequest 5317087100E3 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53170890025B
+%%Inner ME_531708AA010B
+
+FORWARD ME_5317087100E3
+
+%%InheritedBy ME_53B6859A023A ME_53170890025B
+
+ME ME_53170890025B
+ MEPROP UID '53170890025B'
+ MEPROP Name 'TddGetTaskRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5317087100E3 // csTaskRequest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B6859A023A' '52F8C298005C.ms.model.script' // TddGetTaskRequestPrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddGetTaskRequest'
+
+ENDME // ME_53170890025B TddGetTaskRequest
+
+%%InheritedBy ME_53B6855302D9 ME_531708AA010B
+
+ME ME_531708AA010B
+ MEPROP UID '531708AA010B'
+ MEPROP Name 'TddTaskResultRequest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5317087100E3 // csTaskRequest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B6855302D9' '52F8C298005C.ms.model.script' // TddTaskResultRequestPrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddTaskResultRequest'
+
+ENDME // ME_531708AA010B TddTaskResultRequest
+
+ME ME_5317087100E3
+ MEPROP UID '5317087100E3'
+ MEPROP Name 'csTaskRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53170890025B // TddGetTaskRequest
+ HWL ME_531708AA010B // TddTaskResultRequest
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csTaskRequest.pas'
+
+ENDME // ME_5317087100E3 csTaskRequest

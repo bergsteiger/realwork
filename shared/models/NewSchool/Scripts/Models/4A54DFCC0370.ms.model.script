@@ -1,0 +1,63 @@
+// l3DataContainer 4A54DFCC0370 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A54DFCC0370
+
+ME ME_4A54E02500D2
+ MEPROP UID '4A54E02500D2'
+ MEPROP Name 'Empty'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A54DFCC0370 // l3DataContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4A54E02500D2 Empty
+
+ME ME_4A54E03B009A
+ MEPROP UID '4A54E03B009A'
+ MEPROP Name 'GetEmpty'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A54DFCC0370 // l3DataContainer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A54E03B009A GetEmpty
+
+ME ME_4A54DFCC0370
+ MEPROP UID '4A54DFCC0370'
+ MEPROP Name 'l3DataContainer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A54E02500D2 // Empty
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A54E03B009A // GetEmpty
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '08.07.2009 22:05'
+ UP extprop:pas:TypeName '_l3DataContainer_'
+ UP extprop:pas:UnitName 'l3DataContainer.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3DataContainer.imp.pas'
+
+ENDME // ME_4A54DFCC0370 l3DataContainer

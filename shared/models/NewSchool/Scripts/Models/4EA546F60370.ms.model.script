@@ -1,0 +1,52 @@
+// ddSpaceTrimmer 4EA546F60370 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EA534390310
+
+FORWARD ME_4EA546F60370
+
+%%InheritedBy ME_49E487A70144 ME_4EA534390310
+
+ME ME_4EA534390310
+ MEPROP UID '4EA534390310'
+ MEPROP Name 'TddSpaceTrimmerFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA546F60370 // ddSpaceTrimmer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E487A70144' '47ECA80B000D.ms.model.script' // Tk2TagFilter
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddSpaceTrimmerFilter'
+
+ENDME // ME_4EA534390310 TddSpaceTrimmerFilter
+
+ME ME_4EA546F60370
+ MEPROP UID '4EA546F60370'
+ MEPROP Name 'ddSpaceTrimmer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B324F930103' '4B324F930103.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA534390310 // TddSpaceTrimmerFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddSpaceTrimmer.pas'
+
+ENDME // ME_4EA546F60370 ddSpaceTrimmer

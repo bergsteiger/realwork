@@ -1,0 +1,103 @@
+// ddProgressObj 53A2EF8B0204 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53A2EFA901C0
+%%Inner ME_547450770024
+
+FORWARD ME_53A2EF8B0204
+
+ME ME_53A2EFA901C0
+ MEPROP UID '53A2EFA901C0'
+ MEPROP Name 'TddProgressObject'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2EF8B0204 // ddProgressObj
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddProgressObject'
+
+ENDME // ME_53A2EFA901C0 TddProgressObject
+
+FORWARD ME_547450770024
+
+FORWARD ME_5474508D00CD
+
+ME ME_5474509F02C3
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_5474509F02C3 Sender
+
+ME ME_5474509F02D3
+ MEPROP Name 'aTotalPercent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5474509F02D3 aTotalPercent
+
+ME ME_5474508D00CD
+ MEPROP UID '5474508D00CD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547450770024 // TddProgressEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_5474509F02C3 // Sender
+ ME_5474509F02D3 // aTotalPercent
+ )
+ ; // Parameters
+
+ENDME // ME_5474508D00CD DoIt
+
+ME ME_547450770024
+ MEPROP UID '547450770024'
+ MEPROP Name 'TddProgressEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53A2EF8B0204 // ddProgressObj
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5474508D00CD // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_547450770024 TddProgressEvent
+
+ME ME_53A2EF8B0204
+ MEPROP UID '53A2EF8B0204'
+ MEPROP Name 'ddProgressObj'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53A2EF7E0117' '53A2EF7E0117.ms.model.script' // Progress
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53A2EFA901C0 // TddProgressObject
+ HWL ME_547450770024 // TddProgressEvent
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddProgressObj.pas'
+
+ENDME // ME_53A2EF8B0204 ddProgressObj

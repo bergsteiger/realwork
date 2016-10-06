@@ -1,0 +1,196 @@
+// nevAnchorModify 4B1CFB8E0090 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B1CFB8E0090
+
+FORWARD ME_4B1CFD7B0332
+
+ME ME_4B9668FD030B
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4B9668FD030B aView
+
+ME ME_4B1CFD7B0332
+ MEPROP UID '4B1CFD7B0332'
+ MEPROP Name 'DoBottom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B9668FD030B // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4B1CFD7B0332 DoBottom
+
+FORWARD ME_4B1CFD9401A2
+
+ME ME_4B96679A0359
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4B96679A0359 aView
+
+ME ME_4B1CFDA901E7
+ MEPROP Name 'theLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1CFDA901E7 theLine
+
+ME ME_4B1CFDA9020A
+ MEPROP Name 'aSmall'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B1CFDA9020A aSmall
+
+ME ME_4B1CFD9401A2
+ MEPROP UID '4B1CFD9401A2'
+ MEPROP Name 'DoIncLinePrim'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B96679A0359 // aView
+ ME_4B1CFDA901E7 // theLine
+ ME_4B1CFDA9020A // aSmall
+ )
+ ; // Parameters
+
+ENDME // ME_4B1CFD9401A2 DoIncLinePrim
+
+ME ME_4B1D08300007
+ MEPROP UID '4B1D08300007'
+ MEPROP Name 'LockScroll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+
+ENDME // ME_4B1D08300007 LockScroll
+
+ME ME_4B1D084A0125
+ MEPROP UID '4B1D084A0125'
+ MEPROP Name 'UnlockScroll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+
+ENDME // ME_4B1D084A0125 UnlockScroll
+
+ME ME_4B1D08680377
+ MEPROP UID '4B1D08680377'
+ MEPROP Name 'SignalScroll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+
+ENDME // ME_4B1D08680377 SignalScroll
+
+ME ME_4B1D08980098
+ MEPROP UID '4B1D08980098'
+ MEPROP Name 'DoSignalScroll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+
+ENDME // ME_4B1D08980098 DoSignalScroll
+
+ME ME_4B1D08AA027C
+ MEPROP UID '4B1D08AA027C'
+ MEPROP Name 'DoLockScroll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+
+ENDME // ME_4B1D08AA027C DoLockScroll
+
+ME ME_4B1D08E001CF
+ MEPROP UID '4B1D08E001CF'
+ MEPROP Name 'DoUnlockScroll'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B1CFB8E0090 // nevAnchorModify
+ ;
+
+ENDME // ME_4B1D08E001CF DoUnlockScroll
+
+ME ME_47C5C2970095_ME_4B1CFB8E0090
+ MELINK Original WL 'ME_47C5C2970095' '47C5207602D1.ms.model.script' // Bottom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C5C2970095_ME_4B1CFB8E0090 Bottom
+
+ME ME_47C5C2A40309_ME_4B1CFB8E0090
+ MELINK Original WL 'ME_47C5C2A40309' '47C5207602D1.ms.model.script' // IncLine
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47C5C2A40309_ME_4B1CFB8E0090 IncLine
+
+%%ImplementedBy ME_47C5C23201F7 ME_4B1CFB8E0090
+
+ME ME_4B1CFB8E0090
+ MEPROP UID '4B1CFB8E0090'
+ MEPROP Name 'nevAnchorModify'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47C5C23201F7' '47C5207602D1.ms.model.script' // MnevAnchorModify
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B1CFD7B0332 // DoBottom
+ HWL ME_4B1CFD9401A2 // DoIncLinePrim
+ HWL ME_4B1D08300007 // LockScroll
+ HWL ME_4B1D084A0125 // UnlockScroll
+ HWL ME_4B1D08680377 // SignalScroll
+ HWL ME_4B1D08980098 // DoSignalScroll
+ HWL ME_4B1D08AA027C // DoLockScroll
+ HWL ME_4B1D08E001CF // DoUnlockScroll
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47C5C2970095_ME_4B1CFB8E0090 // Bottom
+ ME_47C5C2A40309_ME_4B1CFB8E0090 // IncLine
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName '_nevAnchorModify_'
+ UP extprop:pas:UnitName 'nevAnchorModify.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevAnchorModify.imp.pas'
+
+ENDME // ME_4B1CFB8E0090 nevAnchorModify

@@ -1,0 +1,99 @@
+// nevParaListAnchorModifyTypes 4D6E722D0214 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D6E716F014B
+
+FORWARD ME_4D6E722D0214
+
+FORWARD ME_4D6E716F014B
+
+ME ME_4D6E71A202C1
+ MEPROP UID '4D6E71A202C1'
+ MEPROP Name 'rLinear'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D6E716F014B // TnevChildrenInfo
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D6E71A202C1 rLinear
+
+ME ME_4D6E71BA00F5
+ MEPROP UID '4D6E71BA00F5'
+ MEPROP Name 'rLeafCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D6E716F014B // TnevChildrenInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D6E71BA00F5 rLeafCount
+
+ME ME_4D6E71CD021A
+ MEPROP UID '4D6E71CD021A'
+ MEPROP Name 'rCountMinus1'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D6E716F014B // TnevChildrenInfo
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4D6E71CD021A rCountMinus1
+
+ME ME_4D6E716F014B
+ MEPROP UID '4D6E716F014B'
+ MEPROP Name 'TnevChildrenInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D6E722D0214 // nevParaListAnchorModifyTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D6E71A202C1 // rLinear
+ HWL ME_4D6E71BA00F5 // rLeafCount
+ HWL ME_4D6E71CD021A // rCountMinus1
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4D6E716F014B TnevChildrenInfo
+
+ME ME_4D6E722D0214
+ MEPROP UID '4D6E722D0214'
+ MEPROP Name 'nevParaListAnchorModifyTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D6E716F014B // TnevChildrenInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '02.03.2011 19:37'
+ UP extprop:rc:SelfName 'ParaListAnchorModifyTypes'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevParaListAnchorModifyTypes.pas'
+
+ENDME // ME_4D6E722D0214 nevParaListAnchorModifyTypes

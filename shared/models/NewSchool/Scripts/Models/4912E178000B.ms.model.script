@@ -1,0 +1,53 @@
+// eeTreeMisc 4912E178000B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4912E178000B
+
+ME ME_4AF819AB01B0
+ MEPROP UID '4AF819AB01B0'
+ MEPROP Name 'eeL2NA'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4912E178000B // eeTreeMisc
+ ;
+
+ENDME // ME_4AF819AB01B0 eeL2NA
+
+ME ME_4912E18F0204
+ MEPROP UID '4912E18F0204'
+ MEPROP Name 'eeL2NA'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4912E178000B // eeTreeMisc
+ ;
+
+ENDME // ME_4912E18F0204 eeL2NA
+
+ME ME_4912E178000B
+ MEPROP UID '4912E178000B'
+ MEPROP Name 'eeTreeMisc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4912E16B01B4' '4912E16B01B4.ms.model.script' // Engine Core
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AF819AB01B0 // eeL2NA
+ HWL ME_4912E18F0204 // eeL2NA
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTreeMisc.pas'
+
+ENDME // ME_4912E178000B eeTreeMisc

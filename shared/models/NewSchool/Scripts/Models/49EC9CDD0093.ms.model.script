@@ -2,48 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_49EC9CDD0093
-
-FORWARD ME_49EC9CF0030B
-
-ME ME_49EC9D0E00F0
- MEPROP UID '49EC9D0E00F0'
- MEPROP Name 'TWebBrowser'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49EC9CF0030B // shdocvw
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49EEFABF023A' '4799D29F033F.ms.model.script' // TOleControl
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'WebBrowser'
-
-ENDME // ME_49EC9D0E00F0 TWebBrowser
-
-ME ME_49EC9CF0030B
- MEPROP UID '49EC9CF0030B'
- MEPROP Name 'shdocvw'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49EC9CDD0093 // Web
- ;
- MELIST Children
-   Seq: ( HWL ME_49EC9D0E00F0 // TWebBrowser
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Internet\NOT_FINISHED_shdocvw.pas'
-
-ENDME // ME_49EC9CF0030B shdocvw
+%%Inner ME_49EC9CF0030B
 
 ME ME_49EC9CDD0093
  MEPROP UID '49EC9CDD0093'
@@ -56,12 +15,15 @@ ME ME_49EC9CDD0093
  MELINK Parent WL 'ME_483E96C10305' '483E96C10305.ms.model.script' // Internet
  ;
  MELIST Children
-   Seq: ( HWL ME_49EC9CF0030B // shdocvw
+   Seq: ( WL 'ME_49EC9CF0030B' '49EC9CF0030B.ms.model.script' // shdocvw
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_49EC9CDD0093 Web

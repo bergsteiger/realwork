@@ -1,0 +1,609 @@
+// vcmForm 47F4EED50062 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49525AB4009E
+%%Inner ME_49525AC30370
+%%Inner ME_49525AED007D
+%%Inner ME_526A563601F5
+
+FORWARD ME_47F4EED50062
+
+FORWARD ME_49525AB4009E
+
+FORWARD ME_51BECFAD02B5
+
+FORWARD ME_51BECFC30072
+
+ME ME_51BECFC50228
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_51BECFC50228 Sender
+
+ME ME_51BECFC50240
+ MEPROP Name 'CanClose'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51BECFC50240 CanClose
+
+ME ME_51BECFC5026E
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_51BECFC5026E aCaller
+
+ME ME_51BECFC30072
+ MEPROP UID '51BECFC30072'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51BECFAD02B5 // TvcmCloseQueryEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_51BECFC50228 // Sender
+ ME_51BECFC50240 // CanClose
+ ME_51BECFC5026E // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_51BECFC30072 DoIt
+
+ME ME_51BECFAD02B5
+ MEPROP UID '51BECFAD02B5'
+ MEPROP Name 'TvcmCloseQueryEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AB4009E // TvcmInterfacedForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51BECFC30072 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_51BECFAD02B5 TvcmCloseQueryEvent
+
+FORWARD ME_4F7B072201AA
+
+ME ME_4F7B072F00C3
+ MEPROP UID '4F7B072F00C3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7B072201AA // DoSaveInSettings
+ ;
+
+ENDME // ME_4F7B072F00C3 DoIt
+
+ME ME_4F7B072201AA
+ MEPROP UID '4F7B072201AA'
+ MEPROP Name 'DoSaveInSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AB4009E // TvcmInterfacedForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7B072F00C3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F7B072201AA DoSaveInSettings
+
+FORWARD ME_4FC38C4C0119
+
+ME ME_4FC39AC40027
+ MEPROP UID '4FC39AC40027'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC38C4C0119 // NeedSaveInSettings
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC39AC40027 DoIt
+
+ME ME_4FC38C4C0119
+ MEPROP UID '4FC38C4C0119'
+ MEPROP Name 'NeedSaveInSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AB4009E // TvcmInterfacedForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC39AC40027 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC38C4C0119 NeedSaveInSettings
+
+FORWARD ME_501FEC7203A5
+
+ME ME_87575D08EFA6
+ MEPROP UID '87575D08EFA6'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода ClearModal' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_501FEC7203A5 // ClearModal
+ ;
+
+ENDME // ME_87575D08EFA6 DoIt
+
+ME ME_501FEC7203A5
+ MEPROP UID '501FEC7203A5'
+ MEPROP Name 'ClearModal'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AB4009E // TvcmInterfacedForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_87575D08EFA6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_501FEC7203A5 ClearModal
+
+FORWARD ME_537B402502DD
+
+ME ME_537B41130001
+ MEPROP UID '537B41130001'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_537B402502DD // SafeClose
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_537B41130001 DoIt
+
+ME ME_537B402502DD
+ MEPROP UID '537B402502DD'
+ MEPROP Name 'SafeClose'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49525AB4009E // TvcmInterfacedForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_537B41130001 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_537B402502DD SafeClose
+
+FORWARD ME_4980407F0076
+
+ME ME_49804083027C
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_49804083027C aCaller
+
+ME ME_4980407F0076
+ MEPROP UID '4980407F0076'
+ MEPROP Name 'CallCloseQuery'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AB4009E // TvcmInterfacedForm
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49804083027C // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_4980407F0076 CallCloseQuery
+
+%%InheritedBy ME_4E01D585033A ME_49525AB4009E
+
+ME ME_49525AB4009E
+ MEPROP UID '49525AB4009E'
+ MEPROP Name 'TvcmInterfacedForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F4EED50062 // vcmForm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E01D585033A' '4AADF9450143.ms.model.script' // TvcmUserInteractiveForm
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4F7B072201AA // DoSaveInSettings
+ HWL ME_4FC38C4C0119 // NeedSaveInSettings
+ HWL ME_501FEC7203A5 // ClearModal
+ HWL ME_537B402502DD // SafeClose
+ HWL ME_4980407F0076 // CallCloseQuery
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_51BECFAD02B5 // TvcmCloseQueryEvent
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InterfacedForm'
+
+ENDME // ME_49525AB4009E TvcmInterfacedForm
+
+ME ME_473DAC05025F_ME_49525AC30370
+ MELINK Original WL 'ME_473DAC05025F' '467823B7002C.ms.model.script' // CCaption
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_473DAC05025F_ME_49525AC30370 CCaption
+
+ME ME_537B402502DD_ME_49525AC30370
+ MELINK Original HWL ME_537B402502DD // SafeClose
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_537B402502DD_ME_49525AC30370 SafeClose
+
+%%ImplementedBy ME_473DABFA029F ME_49525AC30370
+
+%%InheritedBy ME_49525AB4009E ME_49525AC30370
+
+ME ME_49525AC30370
+ MEPROP UID '49525AC30370'
+ MEPROP Name 'TvcmTextForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F4EED50062 // vcmForm
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49525AB4009E // TvcmInterfacedForm
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_473DABFA029F' '467823B7002C.ms.model.script' // IafwTextControl
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_473DAC05025F_ME_49525AC30370 // CCaption
+ ME_537B402502DD_ME_49525AC30370 // SafeClose
+ )
+ ; // Implemented
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextForm'
+
+ENDME // ME_49525AC30370 TvcmTextForm
+
+FORWARD ME_49525AED007D
+
+ME ME_55127C030325_ME_4F22CFBC016D
+ MELINK Original WL 'ME_55127C030325' '4AADF9450143.ms.model.script' // GetIsAcceptable
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_55127C030325_ME_4F22CFBC016D GetIsAcceptable
+
+%%InheritedBy ME_4F82714B0271 ME_4F22CFBC016D
+
+ME ME_4F22CFBC016D
+ MEPROP UID '4F22CFBC016D'
+ MEPROP Name 'TvcmFormImplementation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AED007D // TvcmForm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F82714B0271' '4AADF9450143.ms.model.script' // TvcmLayoutImplementation
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_55127C030325_ME_4F22CFBC016D // GetIsAcceptable
+ )
+ ; // Overridden
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FormImplementation'
+
+ENDME // ME_4F22CFBC016D TvcmFormImplementation
+
+FORWARD ME_4E7C2AA3037E
+
+ME ME_4E7C2AB20024
+ MEPROP UID '4E7C2AB20024'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E7C2AA3037E // DoLoadFromSettings
+ ;
+
+ENDME // ME_4E7C2AB20024 DoIt
+
+ME ME_4E7C2AA3037E
+ MEPROP UID '4E7C2AA3037E'
+ MEPROP Name 'DoLoadFromSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AED007D // TvcmForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E7C2AB20024 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E7C2AA3037E DoLoadFromSettings
+
+FORWARD ME_546304500231
+
+ME ME_5463045B0174
+ MEPROP UID '5463045B0174'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546304500231 // NeedNotifyContainerOnCaptionChanged
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5463045B0174 DoIt
+
+ME ME_546304500231
+ MEPROP UID '546304500231'
+ MEPROP Name 'NeedNotifyContainerOnCaptionChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AED007D // TvcmForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5463045B0174 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_546304500231 NeedNotifyContainerOnCaptionChanged
+
+FORWARD ME_55127A5401DE
+
+FORWARD ME_55127A720298
+
+ME ME_55F031C20321
+ MEPROP Name 'aDataUpdate'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_55F031C20321 aDataUpdate
+
+ME ME_55127A720298
+ MEPROP UID '55127A720298'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55127A5401DE // IsAcceptable
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55F031C20321 // aDataUpdate
+ )
+ ; // Parameters
+
+ENDME // ME_55127A720298 DoIt
+
+ME ME_55127A5401DE
+ MEPROP UID '55127A5401DE'
+ MEPROP Name 'IsAcceptable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Можно ли открывать форму в текущих условиях (например, на текущей базе)' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49525AED007D // TvcmForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55127A720298 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55127A5401DE IsAcceptable
+
+ME ME_4D49286002F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49525AED007D // TvcmForm
+ ;
+ MELINK Target WL 'ME_4B8E676500AD' '4B8E676500AD.ms.model.script' // vcmDialogs
+ ;
+
+ENDME // ME_4D49286002F9 
+
+ME ME_4D99E244027C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49525AED007D // TvcmForm
+ ;
+ MELINK Target WL 'ME_4D99E2050245' '4D99E1B401B5.ms.model.script' // vtGetDlgBtnResult
+ ;
+
+ENDME // ME_4D99E244027C 
+
+%%InheritedBy ME_49525AC30370 ME_49525AED007D
+
+ME ME_49525AED007D
+ MEPROP UID '49525AED007D'
+ MEPROP Name 'TvcmForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F4EED50062 // vcmForm
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49525AC30370 // TvcmTextForm
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E7C2AA3037E // DoLoadFromSettings
+ HWL ME_546304500231 // NeedNotifyContainerOnCaptionChanged
+ HWL ME_55127A5401DE // IsAcceptable
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4F22CFBC016D // TvcmFormImplementation
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4D49286002F9 // vcmDialogs
+ ME_4D99E244027C // vtGetDlgBtnResult
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Form'
+
+ENDME // ME_49525AED007D TvcmForm
+
+FORWARD ME_526A563601F5
+
+FORWARD ME_526A568C02CE
+
+ME ME_526A568F01BF
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_526A568F01BF Sender
+
+ME ME_526A568F01FA
+ MEPROP Name 'CanClose'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_526A568F01FA CanClose
+
+ME ME_526A568F0247
+ MEPROP Name 'aCaller'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ ;
+
+ENDME // ME_526A568F0247 aCaller
+
+ME ME_526A568C02CE
+ MEPROP UID '526A568C02CE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_526A563601F5 // TvcmCloseQueryEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_526A568F01BF // Sender
+ ME_526A568F01FA // CanClose
+ ME_526A568F0247 // aCaller
+ )
+ ; // Parameters
+
+ENDME // ME_526A568C02CE DoIt
+
+ME ME_526A563601F5
+ MEPROP UID '526A563601F5'
+ MEPROP Name 'TvcmCloseQueryEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F4EED50062 // vcmForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_526A568C02CE // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_526A563601F5 TvcmCloseQueryEvent
+
+ME ME_47F4EED50062
+ MEPROP UID '47F4EED50062'
+ MEPROP Name 'vcmForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовая реализация формы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49525AB4009E // TvcmInterfacedForm
+ HWL ME_49525AC30370 // TvcmTextForm
+ HWL ME_49525AED007D // TvcmForm
+ HWL ME_526A563601F5 // TvcmCloseQueryEvent
+ )
+ ; // Children
+ UP "finished" False
+ UP extprop:rc:SelfName 'Form'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\NOT_FINISHED_vcmForm.pas'
+
+ENDME // ME_47F4EED50062 vcmForm

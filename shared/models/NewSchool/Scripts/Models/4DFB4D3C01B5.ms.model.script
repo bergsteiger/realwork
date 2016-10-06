@@ -1,0 +1,275 @@
+// Main 4DFB4D3C01B5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DFB4D5E0084
+
+FORWARD ME_4DFB4D3C01B5
+
+FORWARD ME_4DFB4D5E0084
+
+FORWARD ME_4E0ACCB4021C
+
+ME ME_4E0ACCC00242
+ MEPROP UID '4E0ACCC00242'
+ MEPROP Name 'rDocType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACCB4021C // TNewDocParams
+ ;
+ MELINK Target WL 'ME_4E0ACD7D020D' '47BC51FE018B.ms.model.script' // TDocType
+ ;
+
+ENDME // ME_4E0ACCC00242 rDocType
+
+ME ME_4E0ACCD30292
+ MEPROP UID '4E0ACCD30292'
+ MEPROP Name 'rDocKind'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACCB4021C // TNewDocParams
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E0ACCD30292 rDocKind
+
+ME ME_4E0ACCDD019A
+ MEPROP UID '4E0ACCDD019A'
+ MEPROP Name 'rDocName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACCB4021C // TNewDocParams
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4E0ACCDD019A rDocName
+
+ME ME_4E0ACCFD01C0
+ MEPROP UID '4E0ACCFD01C0'
+ MEPROP Name 'rAnalyseFile'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACCB4021C // TNewDocParams
+ ;
+ MELINK Target WL 'ME_477113FB020B' '47877EB202FB.ms.model.script' // TFileName
+ ;
+
+ENDME // ME_4E0ACCFD01C0 rAnalyseFile
+
+ME ME_4E0ACD0B00D6
+ MEPROP UID '4E0ACD0B00D6'
+ MEPROP Name 'rDocAddr'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACCB4021C // TNewDocParams
+ ;
+ MELINK Target WL 'ME_4E0ACE9A02C2' '4E0072C40154.ms.model.script' // TDocAddr
+ ;
+
+ENDME // ME_4E0ACD0B00D6 rDocAddr
+
+ME ME_4E0ACD1A000E
+ MEPROP UID '4E0ACD1A000E'
+ MEPROP Name 'rAnalyseLog'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E0ACCB4021C // TNewDocParams
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E0ACD1A000E rAnalyseLog
+
+ME ME_4E0ACCB4021C
+ MEPROP UID '4E0ACCB4021C'
+ MEPROP Name 'TNewDocParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E0ACCC00242 // rDocType
+ HWL ME_4E0ACCD30292 // rDocKind
+ HWL ME_4E0ACCDD019A // rDocName
+ HWL ME_4E0ACCFD01C0 // rAnalyseFile
+ HWL ME_4E0ACD0B00D6 // rDocAddr
+ HWL ME_4E0ACD1A000E // rAnalyseLog
+ )
+ ; // Attributes
+
+ENDME // ME_4E0ACCB4021C TNewDocParams
+
+FORWARD ME_4E0AD05102F2
+
+FORWARD ME_4E0AD05C020C
+
+ME ME_4E0AD069008B
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target HWL ME_4E0ACCB4021C // TNewDocParams
+ ;
+
+ENDME // ME_4E0AD069008B aParams
+
+ME ME_4E0AD05C020C
+ MEPROP UID '4E0AD05C020C'
+ MEPROP Name 'Doit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E0AD05102F2 // CreateNewDocumentFromFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E0AD069008B // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_4E0AD05C020C Doit
+
+ME ME_4E0AD05102F2
+ MEPROP UID '4E0AD05102F2'
+ MEPROP Name 'CreateNewDocumentFromFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E0AD05C020C // Doit
+ )
+ ; // Operations
+
+ENDME // ME_4E0AD05102F2 CreateNewDocumentFromFile
+
+ME ME_4E203EF603CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
+ ;
+ MELINK Target WL 'ME_4E202ABC005B' '4E202A8502E6.ms.model.script' // TInsertTextDictForm
+ ;
+
+ENDME // ME_4E203EF603CB 
+
+ME ME_5549CAB8038C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
+ ;
+ MELINK Target WL 'ME_4F0C222F0080' '4F0C221F03C1.ms.model.script' // TViewMailWin
+ ;
+
+ENDME // ME_5549CAB8038C 
+
+ME ME_577649CA03C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
+ ;
+ MELINK Target WL 'ME_57762BA20039' '57762B5A0168.ms.model.script' // Tl3ClipSpyService
+ ;
+
+ENDME // ME_577649CA03C0 
+
+ME ME_57764B440318
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFB4D5E0084 // TMainForm
+ ;
+ MELINK Target WL 'ME_5776300D0270' '47F485150151.ms.model.script' // TvtClipSpyService
+ ;
+
+ENDME // ME_57764B440318 
+
+ME ME_57762C1A029F_ME_4DFB4D5E0084
+ MELINK Original WL 'ME_57762C1A029F' '57762BD601E1.ms.model.script' // Change
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57762C1A029F_ME_4DFB4D5E0084 Change
+
+%%ImplementedBy ME_57762C030193 ME_4DFB4D5E0084
+
+ME ME_4DFB4D5E0084
+ MEPROP UID '4DFB4D5E0084'
+ MEPROP Name 'TMainForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DFB4D3C01B5 // Main
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_57762C030193' '57762BD601E1.ms.model.script' // Il3ClipListner
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4E0AD05102F2 // CreateNewDocumentFromFile
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_57762C1A029F_ME_4DFB4D5E0084 // Change
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_4E0ACCB4021C // TNewDocParams
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E203EF603CB // TInsertTextDictForm
+ ME_5549CAB8038C // TViewMailWin
+ ME_577649CA03C0 // Tl3ClipSpyService
+ ME_57764B440318 // TvtClipSpyService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainForm'
+
+ENDME // ME_4DFB4D5E0084 TMainForm
+
+ME ME_4DFB4D3C01B5
+ MEPROP UID '4DFB4D3C01B5'
+ MEPROP Name 'Main'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DFB49C40350' '4DFB49C40350.ms.model.script' // MainWindows
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DFB4D5E0084 // TMainForm
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_Main.pas'
+
+ENDME // ME_4DFB4D3C01B5 Main

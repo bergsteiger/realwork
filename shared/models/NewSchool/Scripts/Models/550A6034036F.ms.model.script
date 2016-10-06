@@ -1,0 +1,745 @@
+// ChromeLikeTabSetAnimationManager 550A6034036F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_550A606F030D
+%%Inner ME_550A606001EE
+%%Inner ME_550A638900A0
+
+FORWARD ME_550A6034036F
+
+FORWARD ME_550A606F030D
+
+ME ME_550A62630261
+ MEPROP UID '550A62630261'
+ MEPROP Name 'Interval'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_550A62630261 Interval
+
+ME ME_550A6280025B
+ MEPROP UID '550A6280025B'
+ MEPROP Name 'f_Continue'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_550A6280025B f_Continue
+
+ME ME_550A628B0119
+ MEPROP UID '550A628B0119'
+ MEPROP Name 'f_Running'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_550A628B0119 f_Running
+
+ME ME_550A62970061
+ MEPROP UID '550A62970061'
+ MEPROP Name 'Enabled'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_550A62970061 Enabled
+
+ME ME_550A62A70099
+ MEPROP UID '550A62A70099'
+ MEPROP Name 'f_TimerThread'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELINK Target WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+ ;
+
+ENDME // ME_550A62A70099 f_TimerThread
+
+ME ME_550A62B002C0
+ MEPROP UID '550A62B002C0'
+ MEPROP Name 'OnTimer'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELINK Target WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_550A62B002C0 OnTimer
+
+ME ME_551BA5850151
+ MEPROP UID '551BA5850151'
+ MEPROP Name 'f_NeedAnimateEvent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELINK Target WL 'ME_491D9DB8010F' '48078324039E.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_551BA5850151 f_NeedAnimateEvent
+
+ME ME_550A630D0016
+ MEPROP UID '550A630D0016'
+ MEPROP Name 'StartTimer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+
+ENDME // ME_550A630D0016 StartTimer
+
+ME ME_550A631A0106
+ MEPROP UID '550A631A0106'
+ MEPROP Name 'StopTimer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+
+ENDME // ME_550A631A0106 StopTimer
+
+FORWARD ME_551B9C3F038F
+
+FORWARD ME_551B9C4901BE
+
+ME ME_551BAF700386
+ MEPROP Name 'aNeedAnimateEvent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491D9DB8010F' '48078324039E.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_551BAF700386 aNeedAnimateEvent
+
+ME ME_551B9C4901BE
+ MEPROP UID '551B9C4901BE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551B9C3F038F // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_551BAF700386 // aNeedAnimateEvent
+ )
+ ; // Parameters
+
+ENDME // ME_551B9C4901BE DoIt
+
+ME ME_551B9C3F038F
+ MEPROP UID '551B9C3F038F'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_551B9C4901BE // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_551B9C3F038F Create
+
+ME ME_479731C50290_ME_550A606F030D
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_550A606F030D Cleanup
+
+%%InheritedBy ME_49E7754802A9 ME_550A606F030D
+
+ME ME_550A606F030D
+ MEPROP UID '550A606F030D'
+ MEPROP Name 'TChromeLikeThreadTimer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_550A62630261 // Interval
+ HWL ME_550A6280025B // f_Continue
+ HWL ME_550A628B0119 // f_Running
+ HWL ME_550A62970061 // Enabled
+ HWL ME_550A62A70099 // f_TimerThread
+ HWL ME_550A62B002C0 // OnTimer
+ HWL ME_551BA5850151 // f_NeedAnimateEvent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_550A630D0016 // StartTimer
+ HWL ME_550A631A0106 // StopTimer
+ HWL ME_551B9C3F038F // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_550A606F030D // Cleanup
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeThreadTimer'
+
+ENDME // ME_550A606F030D TChromeLikeThreadTimer
+
+FORWARD ME_550A606001EE
+
+ME ME_550A60E90019
+ MEPROP UID '550A60E90019'
+ MEPROP Name 'f_Timer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606001EE // TChromeLikeTimerThread
+ ;
+ MELINK Target HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+
+ENDME // ME_550A60E90019 f_Timer
+
+ME ME_551BA5B40291
+ MEPROP UID '551BA5B40291'
+ MEPROP Name 'f_NeedAnimateEvent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A606001EE // TChromeLikeTimerThread
+ ;
+ MELINK Target WL 'ME_491D9DB8010F' '48078324039E.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_551BA5B40291 f_NeedAnimateEvent
+
+ME ME_550A6158014E
+ MEPROP UID '550A6158014E'
+ MEPROP Name 'DoExecute'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A606001EE // TChromeLikeTimerThread
+ ;
+
+ENDME // ME_550A6158014E DoExecute
+
+FORWARD ME_550A616A02E0
+
+FORWARD ME_550A617700CC
+
+ME ME_551B9C950187
+ MEPROP Name 'aTimer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+
+ENDME // ME_551B9C950187 aTimer
+
+ME ME_551B9C95019A
+ MEPROP Name 'aNeedAnimateEvent'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_491D9DB8010F' '48078324039E.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_551B9C95019A aNeedAnimateEvent
+
+ME ME_550A617700CC
+ MEPROP UID '550A617700CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A616A02E0 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_551B9C950187 // aTimer
+ ME_551B9C95019A // aNeedAnimateEvent
+ )
+ ; // Parameters
+
+ENDME // ME_550A617700CC DoIt
+
+ME ME_550A616A02E0
+ MEPROP UID '550A616A02E0'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A606001EE // TChromeLikeTimerThread
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550A617700CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550A616A02E0 Create
+
+ME ME_4FFFDF740099_ME_550A606001EE
+ MELINK Original WL 'ME_4FFFDF740099' '478CF30500C1.ms.model.script' // Execute
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4FFFDF740099_ME_550A606001EE Execute
+
+%%InheritedBy ME_4FFFDF4601F9 ME_550A606001EE
+
+ME ME_550A606001EE
+ MEPROP UID '550A606001EE'
+ MEPROP Name 'TChromeLikeTimerThread'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4FFFDF4601F9' '478CF30500C1.ms.model.script' // TThread
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_550A60E90019 // f_Timer
+ HWL ME_551BA5B40291 // f_NeedAnimateEvent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_550A6158014E // DoExecute
+ HWL ME_550A616A02E0 // Create
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4FFFDF740099_ME_550A606001EE // Execute
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeTimerThread'
+
+ENDME // ME_550A606001EE TChromeLikeTimerThread
+
+FORWARD ME_550A638900A0
+
+ME ME_550A64130181
+ MEPROP UID '550A64130181'
+ MEPROP Name 'f_Animables'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_550A64130181 f_Animables
+
+ME ME_550A641D0379
+ MEPROP UID '550A641D0379'
+ MEPROP Name 'f_Timer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+
+ENDME // ME_550A641D0379 f_Timer
+
+ME ME_551B9C1D0058
+ MEPROP UID '551B9C1D0058'
+ MEPROP Name 'f_NeedAnimateEvent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_491D9DB8010F' '48078324039E.ms.model.script' // TEvent
+ ;
+
+ENDME // ME_551B9C1D0058 f_NeedAnimateEvent
+
+%%InheritedBy ME_47881B22005A ME_550A64410080
+
+ME ME_550A64410080
+ MEPROP UID '550A64410080'
+ MEPROP Name 'DoOnAnimationTimer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47881B22005A' '478CF30500C1.ms.model.script' // TNotifyEvent
+ )
+ ; // Inherits
+
+ENDME // ME_550A64410080 DoOnAnimationTimer
+
+FORWARD ME_550A645801E2
+
+FORWARD ME_550A659F0002
+
+ME ME_550A65A60162
+ MEPROP Name 'aAnimable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_550A656302CB' '5506A5EE013A.ms.model.script' // IChromeLikeTabSetAnimable
+ ;
+
+ENDME // ME_550A65A60162 aAnimable
+
+ME ME_550A659F0002
+ MEPROP UID '550A659F0002'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A645801E2 // AddAnimable
+ ;
+ MELIST Parameters
+   Seq: ( ME_550A65A60162 // aAnimable
+ )
+ ; // Parameters
+
+ENDME // ME_550A659F0002 DoIt
+
+ME ME_550A645801E2
+ MEPROP UID '550A645801E2'
+ MEPROP Name 'AddAnimable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550A659F0002 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550A645801E2 AddAnimable
+
+FORWARD ME_550A64790157
+
+FORWARD ME_550A65AC011B
+
+ME ME_550A65B501E4
+ MEPROP Name 'aAnimable'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_550A656302CB' '5506A5EE013A.ms.model.script' // IChromeLikeTabSetAnimable
+ ;
+
+ENDME // ME_550A65B501E4 aAnimable
+
+ME ME_550A65AC011B
+ MEPROP UID '550A65AC011B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A64790157 // RemoveAnimable
+ ;
+ MELIST Parameters
+   Seq: ( ME_550A65B501E4 // aAnimable
+ )
+ ; // Parameters
+
+ENDME // ME_550A65AC011B DoIt
+
+ME ME_550A64790157
+ MEPROP UID '550A64790157'
+ MEPROP Name 'RemoveAnimable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_550A65AC011B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_550A64790157 RemoveAnimable
+
+ME ME_55111F0A00F9
+ MEPROP UID '55111F0A00F9'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+
+ENDME // ME_55111F0A00F9 Create
+
+ME ME_551BA1000265
+ MEPROP UID '551BA1000265'
+ MEPROP Name 'CheckNeedAnimate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+
+ENDME // ME_551BA1000265 CheckNeedAnimate
+
+ME ME_55ACE28F00B0
+ MEPROP UID '55ACE28F00B0'
+ MEPROP Name 'FinishAllImmediately'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+
+ENDME // ME_55ACE28F00B0 FinishAllImmediately
+
+ME ME_550A63A301E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target HWL ME_550A606F030D // TChromeLikeThreadTimer
+ ;
+
+ENDME // ME_550A63A301E9 
+
+ME ME_479731C50290_ME_550A638900A0
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_550A638900A0 Cleanup
+
+%%InheritedBy ME_49E7754802A9 ME_550A638900A0
+
+ME ME_550A638900A0
+ MEPROP UID '550A638900A0'
+ MEPROP Name 'TChromeLikeTabSetAnimationManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_550A64130181 // f_Animables
+ HWL ME_550A641D0379 // f_Timer
+ HWL ME_551B9C1D0058 // f_NeedAnimateEvent
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_550A64410080 // DoOnAnimationTimer
+ HWL ME_550A645801E2 // AddAnimable
+ HWL ME_550A64790157 // RemoveAnimable
+ HWL ME_55111F0A00F9 // Create
+ HWL ME_551BA1000265 // CheckNeedAnimate
+ HWL ME_55ACE28F00B0 // FinishAllImmediately
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_550A638900A0 // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_550A63A301E9 // TChromeLikeThreadTimer
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChromeLikeTabSetAnimationManager'
+
+ENDME // ME_550A638900A0 TChromeLikeTabSetAnimationManager
+
+ME ME_550A65290200
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_5506A5EE013A' '5506A5EE013A.ms.model.script' // ChromeLikeTabSetTypes
+ ;
+
+ENDME // ME_550A65290200 
+
+ME ME_550A66C103D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_478CF30500C1' '478CF30500C1.ms.model.script' // Classes
+ ;
+
+ENDME // ME_550A66C103D1 
+
+ME ME_550A66C600F1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_550A66C600F1 
+
+ME ME_550A66C90329
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_52304C810155' '52304C810155.ms.model.script' // MMSystem
+ ;
+
+ENDME // ME_550A66C90329 
+
+ME ME_550A66CD02B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_550A66CD02B2 
+
+ME ME_551B9CC40078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_48078324039E' '48078324039E.ms.model.script' // SyncObjs
+ ;
+
+ENDME // ME_551B9CC40078 
+
+ME ME_551BA0E700D8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_550A6034036F // ChromeLikeTabSetAnimationManager
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_551BA0E700D8 
+
+ME ME_550A6034036F
+ MEPROP UID '550A6034036F'
+ MEPROP Name 'ChromeLikeTabSetAnimationManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533E6F73014E' '533E6F73014E.ms.model.script' // ChromeLikeTabSet
+ ;
+ MELIST Children
+   Seq: ( HWL ME_550A606F030D // TChromeLikeThreadTimer
+ HWL ME_550A606001EE // TChromeLikeTimerThread
+ HWL ME_550A638900A0 // TChromeLikeTabSetAnimationManager
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_550A65290200 // ChromeLikeTabSetTypes
+ ME_550A66C103D1 // Classes
+ ME_550A66C600F1 // SysUtils
+ ME_550A66C90329 // MMSystem
+ ME_550A66CD02B2 // Tl3LongintList
+ ME_551B9CC40078 // SyncObjs
+ ME_551BA0E700D8 // Windows
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\ChromeLikeControls\ChromeLikeTabSetAnimationManager.pas'
+
+ENDME // ME_550A6034036F ChromeLikeTabSetAnimationManager

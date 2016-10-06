@@ -1,0 +1,99 @@
+// nsFormUtils 4F71E93E00EA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F71E93E00EA
+
+FORWARD ME_4F71E957012F
+
+FORWARD ME_4F71E9640011
+
+ME ME_4F71E968009B
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4914746C019E' '4683F37902CF.ms.model.script' // IvcmEntityForm
+ ;
+
+ENDME // ME_4F71E968009B aForm
+
+ME ME_4F71E9640011
+ MEPROP UID '4F71E9640011'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F71E957012F // nsSetPageIcon
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F71E968009B // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_4F71E9640011 DoIt
+
+ME ME_4F71E98F00F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F71E957012F // nsSetPageIcon
+ ;
+ MELINK Target WL 'ME_499ABF9802AC' '499ABF6E01B5.ms.model.script' // TElTabSheet
+ ;
+
+ENDME // ME_4F71E98F00F9 
+
+ME ME_4F71F9B00040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F71E957012F // nsSetPageIcon
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_4F71F9B00040 
+
+ME ME_4F71E957012F
+ MEPROP UID '4F71E957012F'
+ MEPROP Name 'nsSetPageIcon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F71E93E00EA // nsFormUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F71E9640011 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F71E98F00F9 // TElTabSheet
+ ME_4F71F9B00040 // TvcmEntityForm
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'SetPageIcon'
+
+ENDME // ME_4F71E957012F nsSetPageIcon
+
+ME ME_4F71E93E00EA
+ MEPROP UID '4F71E93E00EA'
+ MEPROP Name 'nsFormUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6B66140294' '4F6B66140294.ms.model.script' // ParentAndChild
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F71E957012F // nsSetPageIcon
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'FormUtils'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\View\ParentAndChild\nsFormUtils.pas'
+
+ENDME // ME_4F71E93E00EA nsFormUtils

@@ -1,0 +1,127 @@
+// nscContextFilterRes 4B97E1EA011F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97E1EA011F
+
+FORWARD ME_4B97E2240035
+
+ME ME_4B97E27B01A5
+ MEPROP UID '4B97E27B01A5'
+ MEPROP Name 'LabelCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
+ ;
+ MEPROP Value '''Контекстный фильтр'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Контекстный фильтр'''
+
+ENDME // ME_4B97E27B01A5 LabelCaption
+
+ME ME_4B97E2840076
+ MEPROP UID '4B97E2840076'
+ MEPROP Name 'ContextEmptyMessage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
+ ;
+ MEPROP Value '''Введите слова для поиска и фильтрации'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Введите слова для поиска и фильтрации'''
+
+ENDME // ME_4B97E2840076 ContextEmptyMessage
+
+ME ME_4B97E28C0134
+ MEPROP UID '4B97E28C0134'
+ MEPROP Name 'ButtonActiveHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
+ ;
+ MEPROP Value '''Выключить контекстный фильтр'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Выключить контекстный фильтр'''
+
+ENDME // ME_4B97E28C0134 ButtonActiveHint
+
+ME ME_4B97E2950337
+ MEPROP UID '4B97E2950337'
+ MEPROP Name 'ButtonInActiveHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97E2240035 // ContextFilterMessages
+ ;
+ MEPROP Value '''Включить контекстный фильтр'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Включить контекстный фильтр'''
+
+ENDME // ME_4B97E2950337 ButtonInActiveHint
+
+ME ME_4B97E2240035
+ MEPROP UID '4B97E2240035'
+ MEPROP Name 'ContextFilterMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97E1EA011F // nscContextFilterRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B97E27B01A5 // LabelCaption
+ HWL ME_4B97E2840076 // ContextEmptyMessage
+ HWL ME_4B97E28C0134 // ButtonActiveHint
+ HWL ME_4B97E2950337 // ButtonInActiveHint
+ )
+ ; // Attributes
+ UP "children prefix" 'nsc_'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'nsc_'
+
+ENDME // ME_4B97E2240035 ContextFilterMessages
+
+ME ME_4B97E1EA011F
+ MEPROP UID '4B97E1EA011F'
+ MEPROP Name 'nscContextFilterRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы для TnscContextFilter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_49F02FDF02B9' '49F02FDF02B9.ms.model.script' // ContextFilter
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B97E2240035 // ContextFilterMessages
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.03.2010 21:16'
+ UP extprop:rc:SelfName 'ContextFilterRes'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscContextFilterRes.pas'
+
+ENDME // ME_4B97E1EA011F nscContextFilterRes

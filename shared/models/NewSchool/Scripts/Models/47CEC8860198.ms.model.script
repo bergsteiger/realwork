@@ -1,0 +1,70 @@
+// l3ListAssign 47CEC8860198 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CEC8860198
+
+ME ME_47CEC8A603C9
+ MEPROP UID '47CEC8A603C9'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47CEC8860198 // l3ListAssign
+ ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_47CEC8A603C9 
+
+FORWARD ME_47CEC8BA02E2
+
+ME ME_47CEC8C701A5
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ ;
+
+ENDME // ME_47CEC8C701A5 aList
+
+ME ME_47CEC8BA02E2
+ MEPROP UID '47CEC8BA02E2'
+ MEPROP Name 'AssignList'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CEC8860198 // l3ListAssign
+ ;
+ MELIST Parameters
+   Seq: ( ME_47CEC8C701A5 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_47CEC8BA02E2 AssignList
+
+ME ME_47CEC8860198
+ MEPROP UID '47CEC8860198'
+ MEPROP Name 'l3ListAssign'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47CEC8A603C9 // 
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47CEC8BA02E2 // AssignList
+ )
+ ; // Operations
+ UP extprop:pas:TypeName '_l3ListAssign_'
+ UP extprop:pas:UnitName 'l3ListAssign.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ListAssign.imp.pas'
+
+ENDME // ME_47CEC8860198 l3ListAssign

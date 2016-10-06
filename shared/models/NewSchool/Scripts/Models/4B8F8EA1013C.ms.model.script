@@ -1,0 +1,90 @@
+// vcmBaseMenuManagerRes 4B8F8EA1013C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8F8EA1013C
+
+FORWARD ME_4B8F8EBA0081
+
+ME ME_4B8F8EE703B8
+ MEPROP UID '4B8F8EE703B8'
+ MEPROP Name 'ShowTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8F8EBA0081 // Local
+ ;
+ MEPROP Value '''Показать вкладку "%s"'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Показать вкладку "%s"'''
+
+ENDME // ME_4B8F8EE703B8 ShowTab
+
+ME ME_4B8F8F1302D8
+ MEPROP UID '4B8F8F1302D8'
+ MEPROP Name 'HideTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8F8EBA0081 // Local
+ ;
+ MEPROP Value '''Скрыть вкладку "%s"'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Скрыть вкладку "%s"'''
+
+ENDME // ME_4B8F8F1302D8 HideTab
+
+ME ME_4B8F8EBA0081
+ MEPROP UID '4B8F8EBA0081'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8F8EA1013C // vcmBaseMenuManagerRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B8F8EE703B8 // ShowTab
+ HWL ME_4B8F8F1302D8 // HideTab
+ )
+ ; // Attributes
+ UP "children prefix" 'vcm'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'vcm'
+
+ENDME // ME_4B8F8EBA0081 Local
+
+ME ME_4B8F8EA1013C
+ MEPROP UID '4B8F8EA1013C'
+ MEPROP Name 'vcmBaseMenuManagerRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B8E967100D5' '4B8E967100D5.ms.model.script' // vcmL10nImpl
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B8F8EBA0081 // Local
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '04.03.2010 13:42'
+ UP extprop:rc:SelfName 'MenuManagerRes'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmBaseMenuManagerRes.pas'
+
+ENDME // ME_4B8F8EA1013C vcmBaseMenuManagerRes

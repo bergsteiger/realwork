@@ -2,6 +2,21 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_55DC6C1902EB
+%%Inner ME_55DC7B6601E9
+%%Inner ME_55DC6B2E0347
+%%Inner ME_4BE2D013018C
+%%Inner ME_54B3D1340244
+%%Inner ME_55DC85CA02E3
+%%Inner ME_55DC8B5A02CD
+%%Inner ME_55DC908902FC
+%%Inner ME_55DC91920313
+%%Inner ME_55DEE5100096
+%%Inner ME_55DEE52F00AC
+%%Inner ME_55DEEAFF0079
+%%Inner ME_55DEF41D03C4
+%%Inner ME_55DF01D8011D
+
 FORWARD ME_55DC6B0D020D
 
 FORWARD ME_55DC6C1902EB
@@ -16,7 +31,7 @@ ME ME_55DC7AD30146
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DC6C1902EB // TsegTarget
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "pm" True
  UP "reads field" True
@@ -34,7 +49,7 @@ ME ME_55DC7AE5027E
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DC6C1902EB // TsegTarget
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "pm" True
  UP "reads field" True
@@ -50,7 +65,7 @@ ME ME_55DC951E0195
  MEPROP Name 'aDocID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_55DC951E0195 aDocID
@@ -59,7 +74,7 @@ ME ME_55DC951E01B3
  MEPROP Name 'aSubID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_55DC951E01B3 aSubID
@@ -97,6 +112,8 @@ ME ME_55DC94FC0021
 
 ENDME // ME_55DC94FC0021 Create
 
+%%InheritedBy ME_49E7754802A9 ME_55DC6C1902EB
+
 ME ME_55DC6C1902EB
  MEPROP UID '55DC6C1902EB'
  MEPROP Name 'TsegTarget'
@@ -120,6 +137,9 @@ ME ME_55DC6C1902EB
    Seq: ( HWL ME_55DC94FC0021 // Create
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'segTarget'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'segTarget'
@@ -144,6 +164,9 @@ ME ME_55DC7B720283
 
 ENDME // ME_55DC7B720283 ItemType
 
+%%InheritedBy ME_4A54DD4E036F ME_55DC7B6601E9
+%%InheritedBy ME_55DEEA210182 ME_55DC7B6601E9
+
 ME ME_55DC7B6601E9
  MEPROP UID '55DC7B6601E9'
  MEPROP Name 'TsegTargetList'
@@ -156,7 +179,7 @@ ME ME_55DC7B6601E9
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_55DEEA210182' '47913B47006E.ms.model.script' // l3NotSortedObjectRefList
+ WL 'ME_55DEEA210182' '55DEEA210182.ms.model.script' // l3NotSortedObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -170,1362 +193,7 @@ ME ME_55DC7B6601E9
 
 ENDME // ME_55DC7B6601E9 TsegTargetList
 
-FORWARD ME_55DC6B2E0347
-
-FORWARD ME_55DC6BAE0320
-
-ME ME_55DC6E88014D
- MEPROP UID '55DC6E88014D'
- MEPROP Name 'Start'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BAE0320 // TsegSegment
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6E88014D Start
-
-ME ME_55DC6BAE0320
- MEPROP UID '55DC6BAE0320'
- MEPROP Name 'TsegSegment'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC6E88014D // Start
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segSegment'
-
-ENDME // ME_55DC6BAE0320 TsegSegment
-
-FORWARD ME_55DC6BC0025D
-
-ME ME_55DC6ED5033E
- MEPROP UID '55DC6ED5033E'
- MEPROP Name 'Finish'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BC0025D // TsegTextSegment
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6ED5033E Finish
-
-ME ME_55DC6BC0025D
- MEPROP UID '55DC6BC0025D'
- MEPROP Name 'TsegTextSegment'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55DC6BAE0320 // TsegSegment
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC6ED5033E // Finish
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segTextSegment'
-
-ENDME // ME_55DC6BC0025D TsegTextSegment
-
-FORWARD ME_55DC6BD20302
-
-ME ME_55DC6F330176
- MEPROP UID '55DC6F330176'
- MEPROP Name 'Decor'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BD20302 // TsegDecorSegment
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6F330176 Decor
-
-ME ME_55DC6BD20302
- MEPROP UID '55DC6BD20302'
- MEPROP Name 'TsegDecorSegment'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55DC6BC0025D // TsegTextSegment
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC6F330176 // Decor
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segDecorSegment'
-
-ENDME // ME_55DC6BD20302 TsegDecorSegment
-
-FORWARD ME_55DC6B9F01BA
-
-ME ME_55DC6CDC00E3
- MEPROP UID '55DC6CDC00E3'
- MEPROP Name 'ColorSelection'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6CDC00E3 ColorSelection
-
-ME ME_55DC6D0402CA
- MEPROP UID '55DC6D0402CA'
- MEPROP Name 'HLContinue'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6D0402CA HLContinue
-
-ME ME_55DC6D260116
- MEPROP UID '55DC6D260116'
- MEPROP Name 'Comment'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6D260116 Comment
-
-ME ME_55DC6D410295
- MEPROP UID '55DC6D410295'
- MEPROP Name 'Hidden'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6D410295 Hidden
-
-ME ME_55DC6D5B01F0
- MEPROP UID '55DC6D5B01F0'
- MEPROP Name 'OutOfDate'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6D5B01F0 OutOfDate
-
-ME ME_55DC6D790271
- MEPROP UID '55DC6D790271'
- MEPROP Name 'NotApplied'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6D790271 NotApplied
-
-ME ME_55DC6D950168
- MEPROP UID '55DC6D950168'
- MEPROP Name 'WithText'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6D950168 WithText
-
-ME ME_55DC6DB401A2
- MEPROP UID '55DC6DB401A2'
- MEPROP Name 'Start'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6DB401A2 Start
-
-ME ME_55DC6DD30143
- MEPROP UID '55DC6DD30143'
- MEPROP Name 'Decor'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC6DD30143 Decor
-
-FORWARD ME_55DC6DFD00C0
-
-FORWARD ME_55DC6E0B020D
-
-ME ME_55DC6E100047
- MEPROP Name 'aDecor'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_55DC6BD20302 // TsegDecorSegment
- ;
-
-ENDME // ME_55DC6E100047 aDecor
-
-ME ME_55DC6E0B020D
- MEPROP UID '55DC6E0B020D'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6DFD00C0 // Create
- ;
- MELIST Parameters
-   Seq: ( ME_55DC6E100047 // aDecor
- )
- ; // Parameters
-
-ENDME // ME_55DC6E0B020D DoIt
-
-ME ME_55DC6DFD00C0
- MEPROP UID '55DC6DFD00C0'
- MEPROP Name 'Create'
- MEPROP Class class_Class
- MELINK Stereotype st_Constructor ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELIST Operations
-   Seq: ( HWL ME_55DC6E0B020D // DoIt
- )
- ; // Operations
-
-ENDME // ME_55DC6DFD00C0 Create
-
-FORWARD ME_55DC6E1E0111
-
-FORWARD ME_55DC6E2F0350
-
-ME ME_55DC6E3702B0
- MEPROP Name 'Ch'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_482C48430205' '4AB0C3C60310.ms.model.script' // Char
- ;
-
-ENDME // ME_55DC6E3702B0 Ch
-
-ME ME_55DC6E2F0350
- MEPROP UID '55DC6E2F0350'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6E1E0111 // IsOn
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- MELIST Parameters
-   Seq: ( ME_55DC6E3702B0 // Ch
- )
- ; // Parameters
-
-ENDME // ME_55DC6E2F0350 DoIt
-
-ME ME_55DC6E1E0111
- MEPROP UID '55DC6E1E0111'
- MEPROP Name 'IsOn'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELIST Operations
-   Seq: ( HWL ME_55DC6E2F0350 // DoIt
- )
- ; // Operations
-
-ENDME // ME_55DC6E1E0111 IsOn
-
-FORWARD ME_4BE2D013018C
-
-ME ME_55DC80A001F3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
- MELINK Target HWL ME_4BE2D013018C // evNSRCConst
- ;
-
-ENDME // ME_55DC80A001F3 
-
-ME ME_55DC6B9F01BA
- MEPROP UID '55DC6B9F01BA'
- MEPROP Name 'TddNSRCStackItem'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC6CDC00E3 // ColorSelection
- HWL ME_55DC6D0402CA // HLContinue
- HWL ME_55DC6D260116 // Comment
- HWL ME_55DC6D410295 // Hidden
- HWL ME_55DC6D5B01F0 // OutOfDate
- HWL ME_55DC6D790271 // NotApplied
- HWL ME_55DC6D950168 // WithText
- HWL ME_55DC6DB401A2 // Start
- HWL ME_55DC6DD30143 // Decor
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_55DC6DFD00C0 // Create
- HWL ME_55DC6E1E0111 // IsOn
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_55DC80A001F3 // evNSRCConst
- )
- ; // Dependencies
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ddNSRCStackItem'
-
-ENDME // ME_55DC6B9F01BA TddNSRCStackItem
-
-FORWARD ME_55DC6BEF02A6
-
-ME ME_55DC70CB0091
- MEPROP UID '55DC70CB0091'
- MEPROP Name 'ColorSelection'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC70CB0091 ColorSelection
-
-ME ME_55DC70DC00CA
- MEPROP UID '55DC70DC00CA'
- MEPROP Name 'HLContinue'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC70DC00CA HLContinue
-
-ME ME_55DC70F7005C
- MEPROP UID '55DC70F7005C'
- MEPROP Name 'Comment'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC70F7005C Comment
-
-ME ME_55DC712500B8
- MEPROP UID '55DC712500B8'
- MEPROP Name 'Hidden'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC712500B8 Hidden
-
-ME ME_55DC714503B7
- MEPROP UID '55DC714503B7'
- MEPROP Name 'OutOfDate'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC714503B7 OutOfDate
-
-ME ME_55DC715A01D8
- MEPROP UID '55DC715A01D8'
- MEPROP Name 'NotApplied'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC715A01D8 NotApplied
-
-FORWARD ME_55DC717E0248
-
-FORWARD ME_55DC718E025A
-
-ME ME_55DC7192023A
- MEPROP Name 'aDecor'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_55DC6BD20302 // TsegDecorSegment
- ;
-
-ENDME // ME_55DC7192023A aDecor
-
-ME ME_55DC9B030349
- MEPROP Name 'anItem'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
-
-ENDME // ME_55DC9B030349 anItem
-
-ME ME_55DC9B120392
- MEPROP Name 'aFinish'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_55DC9B120392 aFinish
-
-ME ME_55DC718E025A
- MEPROP UID '55DC718E025A'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC717E0248 // Create
- ;
- MELIST Parameters
-   Seq: ( ME_55DC7192023A // aDecor
- ME_55DC9B030349 // anItem
- ME_55DC9B120392 // aFinish
- )
- ; // Parameters
-
-ENDME // ME_55DC718E025A DoIt
-
-ME ME_55DC717E0248
- MEPROP UID '55DC717E0248'
- MEPROP Name 'Create'
- MEPROP Class class_Class
- MELINK Stereotype st_Constructor ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELIST Operations
-   Seq: ( HWL ME_55DC718E025A // DoIt
- )
- ; // Operations
-
-ENDME // ME_55DC717E0248 Create
-
-FORWARD ME_55DC71A50112
-
-FORWARD ME_55DC71B201BA
-
-ME ME_55DC71B90296
- MEPROP Name 'StackItem'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_55DC6B9F01BA // TddNSRCStackItem
- ;
-
-ENDME // ME_55DC71B90296 StackItem
-
-ME ME_55DC71B201BA
- MEPROP UID '55DC71B201BA'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC71A50112 // GetFromStackItem
- ;
- MELIST Parameters
-   Seq: ( ME_55DC71B90296 // StackItem
- )
- ; // Parameters
-
-ENDME // ME_55DC71B201BA DoIt
-
-ME ME_55DC71A50112
- MEPROP UID '55DC71A50112'
- MEPROP Name 'GetFromStackItem'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELIST Operations
-   Seq: ( HWL ME_55DC71B201BA // DoIt
- )
- ; // Operations
-
-ENDME // ME_55DC71A50112 GetFromStackItem
-
-FORWARD ME_55DC71F002A2
-
-FORWARD ME_55DC7217023D
-
-ME ME_55DC7221005F
- MEPROP Name 'aText'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4773DEF0021B' '47913B47006E.ms.model.script' // Tl3CustomString
- ;
-
-ENDME // ME_55DC7221005F aText
-
-ME ME_55DC7221009B
- MEPROP Name 'aGenerator'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
- ;
-
-ENDME // ME_55DC7221009B aGenerator
-
-ME ME_55DC7217023D
- MEPROP UID '55DC7217023D'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC71F002A2 // SaveToGenerator
- ;
- MELIST Parameters
-   Seq: ( ME_55DC7221005F // aText
- ME_55DC7221009B // aGenerator
- )
- ; // Parameters
-
-ENDME // ME_55DC7217023D DoIt
-
-ME ME_55DC71F002A2
- MEPROP UID '55DC71F002A2'
- MEPROP Name 'SaveToGenerator'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELIST Operations
-   Seq: ( HWL ME_55DC7217023D // DoIt
- )
- ; // Operations
-
-ENDME // ME_55DC71F002A2 SaveToGenerator
-
-FORWARD ME_54B3D1340244
-
-ME ME_55DC8518027F
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target HWL ME_54B3D1340244 // ddSegmentScanner
- ;
-
-ENDME // ME_55DC8518027F 
-
-ME ME_55DC853200FE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
- ;
-
-ENDME // ME_55DC853200FE 
-
-ME ME_55DC856400FF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_484FDC4F013F' '484A470100DD.ms.model.script' // TextSegment
- ;
-
-ENDME // ME_55DC856400FF 
-
-ME ME_55DC857300E4
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
- ;
-
-ENDME // ME_55DC857300E4 
-
-ME ME_55DC859E038A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6BEF02A6 // TsegSeg
- ;
- MELINK Target WL 'ME_4808A20402DC' '4AB0997B00A2.ms.model.script' // Math
- ;
-
-ENDME // ME_55DC859E038A 
-
-ME ME_55DC6BEF02A6
- MEPROP UID '55DC6BEF02A6'
- MEPROP Name 'TsegSeg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55DC6BD20302 // TsegDecorSegment
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC70CB0091 // ColorSelection
- HWL ME_55DC70DC00CA // HLContinue
- HWL ME_55DC70F7005C // Comment
- HWL ME_55DC712500B8 // Hidden
- HWL ME_55DC714503B7 // OutOfDate
- HWL ME_55DC715A01D8 // NotApplied
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_55DC717E0248 // Create
- HWL ME_55DC71A50112 // GetFromStackItem
- HWL ME_55DC71F002A2 // SaveToGenerator
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_55DC8518027F // ddSegmentScanner
- ME_55DC853200FE // Tk2TagID
- ME_55DC856400FF // TextSegment
- ME_55DC857300E4 // Standard
- ME_55DC859E038A // Math
- )
- ; // Dependencies
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segSeg'
-
-ENDME // ME_55DC6BEF02A6 TsegSeg
-
-FORWARD ME_55DC6C030388
-
-ME ME_55DC7B9E0316
- MEPROP UID '55DC7B9E0316'
- MEPROP Name 'Targets'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C030388 // TsegHyperLink
- ;
- MELINK Target HWL ME_55DC7B6601E9 // TsegTargetList
- ;
- UP "pm" True
- UP "reads field" True
-
-ENDME // ME_55DC7B9E0316 Targets
-
-ME ME_55DC7BED0112
- MEPROP UID '55DC7BED0112'
- MEPROP Name 'Create'
- MEPROP Class class_Class
- MELINK Stereotype st_Constructor ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6C030388 // TsegHyperLink
- ;
-
-ENDME // ME_55DC7BED0112 Create
-
-FORWARD ME_55DC7C020089
-
-FORWARD ME_55DC7C080376
-
-ME ME_55DC7C1A0155
- MEPROP Name 'aDocID'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_55DC7C1A0155 aDocID
-
-ME ME_55DC7C1A0173
- MEPROP Name 'aSubID'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_55DC7C1A0173 aSubID
-
-ME ME_55DC7C080376
- MEPROP UID '55DC7C080376'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC7C020089 // Add
- ;
- MELIST Parameters
-   Seq: ( ME_55DC7C1A0155 // aDocID
- ME_55DC7C1A0173 // aSubID
- )
- ; // Parameters
-
-ENDME // ME_55DC7C080376 DoIt
-
-ME ME_55DC7C020089
- MEPROP UID '55DC7C020089'
- MEPROP Name 'Add'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6C030388 // TsegHyperLink
- ;
- MELIST Operations
-   Seq: ( HWL ME_55DC7C080376 // DoIt
- )
- ; // Operations
-
-ENDME // ME_55DC7C020089 Add
-
-ME ME_55DC7BD8020D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6C030388 // TsegHyperLink
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_55DC7BD8020D 
-
-ME ME_55DC8980019D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6C030388 // TsegHyperLink
- ;
- MELINK Target HWL ME_55DC6C1902EB // TsegTarget
- ;
-
-ENDME // ME_55DC8980019D 
-
-ME ME_479731C50290_ME_55DC6C030388
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_55DC6C030388 Cleanup
-
-ME ME_55DC6C030388
- MEPROP UID '55DC6C030388'
- MEPROP Name 'TsegHyperLink'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55DC6BC0025D // TsegTextSegment
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC7B9E0316 // Targets
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_55DC7BED0112 // Create
- HWL ME_55DC7C020089 // Add
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_55DC6C030388 // Cleanup
- )
- ; // Overridden
- MELIST Dependencies
-   Seq: ( ME_55DC7BD8020D // FreeAndNil
- ME_55DC8980019D // TsegTarget
- )
- ; // Dependencies
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segHyperLink'
-
-ENDME // ME_55DC6C030388 TsegHyperLink
-
-ME ME_55DC7A770012
- MEPROP UID '55DC7A770012'
- MEPROP Name 'TsegObject'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55DC6BAE0320 // TsegSegment
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segObject'
-
-ENDME // ME_55DC7A770012 TsegObject
-
-FORWARD ME_55DC6C4E001B
-
-ME ME_55DC8AAC0093
- MEPROP UID '55DC8AAC0093'
- MEPROP Name 'BaseLineOffset'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C4E001B // TsegPicture
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC8AAC0093 BaseLineOffset
-
-ME ME_55DC8AC100F2
- MEPROP UID '55DC8AC100F2'
- MEPROP Name 'DocID'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C4E001B // TsegPicture
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC8AC100F2 DocID
-
-ME ME_55DC8AD70180
- MEPROP UID '55DC8AD70180'
- MEPROP Name 'DPI'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C4E001B // TsegPicture
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC8AD70180 DPI
-
-ME ME_55DC8B04009A
- MEPROP UID '55DC8B04009A'
- MEPROP Name 'Height'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C4E001B // TsegPicture
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC8B04009A Height
-
-ME ME_55DC8B180361
- MEPROP UID '55DC8B180361'
- MEPROP Name 'Width'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C4E001B // TsegPicture
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC8B180361 Width
-
-ME ME_55DC8B2C0341
- MEPROP UID '55DC8B2C0341'
- MEPROP Name 'FileName'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C4E001B // TsegPicture
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC8B2C0341 FileName
-
-ME ME_55DC6C4E001B
- MEPROP UID '55DC6C4E001B'
- MEPROP Name 'TsegPicture'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55DC7A770012 // TsegObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC8AAC0093 // BaseLineOffset
- HWL ME_55DC8AC100F2 // DocID
- HWL ME_55DC8AD70180 // DPI
- HWL ME_55DC8B04009A // Height
- HWL ME_55DC8B180361 // Width
- HWL ME_55DC8B2C0341 // FileName
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segPicture'
-
-ENDME // ME_55DC6C4E001B TsegPicture
-
-FORWARD ME_55DC6C30016E
-
-ME ME_55DC7C670236
- MEPROP UID '55DC7C670236'
- MEPROP Name 'Text'
- MEPROP Class class_Attribute
- MELINK Stereotype st_property::Attribute ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_55DC6C30016E // TsegFormula
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- UP "pm" True
- UP "reads field" True
- UP "writes field" True
-
-ENDME // ME_55DC7C670236 Text
-
-ME ME_55DC6C30016E
- MEPROP UID '55DC6C30016E'
- MEPROP Name 'TsegFormula'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELIST Inherits
-   Seq: ( HWL ME_55DC7A770012 // TsegObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DC7C670236 // Text
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'segFormula'
-
-ENDME // ME_55DC6C30016E TsegFormula
-
-ME ME_55DC85000001
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
- MELINK Target HWL ME_54B3D1340244 // ddSegmentScanner
- ;
-
-ENDME // ME_55DC85000001 
-
-ME ME_55DC6B2E0347
- MEPROP UID '55DC6B2E0347'
- MEPROP Name 'ddNSRCSegments'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6B0D020D // NSRCReaderCore
- ;
- MELIST Children
-   Seq: ( HWL ME_55DC6BAE0320 // TsegSegment
- HWL ME_55DC6BC0025D // TsegTextSegment
- HWL ME_55DC6BD20302 // TsegDecorSegment
- HWL ME_55DC6B9F01BA // TddNSRCStackItem
- HWL ME_55DC6BEF02A6 // TsegSeg
- HWL ME_55DC6C030388 // TsegHyperLink
- HWL ME_55DC7A770012 // TsegObject
- HWL ME_55DC6C4E001B // TsegPicture
- HWL ME_55DC6C30016E // TsegFormula
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_55DC85000001 // ddSegmentScanner
- )
- ; // Dependencies
- UP intf.pas:Path 'common\components\rtl\Garant\dd\ddNSRCSegments.pas'
-
-ENDME // ME_55DC6B2E0347 ddNSRCSegments
-
-FORWARD ME_4BE2D03D0012
-
-ME ME_4BE2D04C02F0
- MEPROP UID '4BE2D04C02F0'
- MEPROP Name 'ev_NSRCSoftEnter'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4BE2D03D0012 // NSRCConstants
- ;
- MEPROP Value '#29'
- UP "AutoInc" False
- UP "forced type" 'none'
- UP "is define" False
- UP extprop:pas:Value '#29'
-
-ENDME // ME_4BE2D04C02F0 ev_NSRCSoftEnter
-
-ME ME_4BE2D03D0012
- MEPROP UID '4BE2D03D0012'
- MEPROP Name 'NSRCConstants'
- MEPROP Class class_Class
- MELINK Stereotype st_Constants ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4BE2D013018C // evNSRCConst
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4BE2D04C02F0 // ev_NSRCSoftEnter
- )
- ; // Attributes
- UP "spell names" False
-
-ENDME // ME_4BE2D03D0012 NSRCConstants
-
-ME ME_4BE2D013018C
- MEPROP UID '4BE2D013018C'
- MEPROP Name 'evNSRCConst'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Константы для формата NSRC' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6B0D020D // NSRCReaderCore
- ;
- MELIST Constants
-   Seq: ( HWL ME_4BE2D03D0012 // NSRCConstants
- )
- ; // Constants
- UP "finished" False
- UP extprop:rc:SelfName 'NSRCConst'
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_evNSRCConst.pas'
-
-ENDME // ME_4BE2D013018C evNSRCConst
-
-ME ME_54B3D153007F
- MEPROP UID '54B3D153007F'
- MEPROP Name 'TddSegmentScanner'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_54B3D1340244 // ddSegmentScanner
- ;
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ddSegmentScanner'
-
-ENDME // ME_54B3D153007F TddSegmentScanner
-
-ME ME_55DC84F700A1
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54B3D1340244 // ddSegmentScanner
- ;
- MELINK Target HWL ME_55DC6B2E0347 // ddNSRCSegments
- ;
-
-ENDME // ME_55DC84F700A1 
-
 FORWARD ME_55DC85CA02E3
-
-ME ME_55DC85E60204
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54B3D1340244 // ddSegmentScanner
- ;
- MELINK Target HWL ME_55DC85CA02E3 // TddNSRCStackItemList
- ;
-
-ENDME // ME_55DC85E60204 
-
-FORWARD ME_55DC8B5A02CD
-
-ME ME_55DC8B61017B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54B3D1340244 // ddSegmentScanner
- ;
- MELINK Target HWL ME_55DC8B5A02CD // TsegObjectList
- ;
-
-ENDME // ME_55DC8B61017B 
-
-FORWARD ME_55DC908902FC
-
-ME ME_55DC909B029D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54B3D1340244 // ddSegmentScanner
- ;
- MELINK Target HWL ME_55DC908902FC // TsegHyperLinkList
- ;
-
-ENDME // ME_55DC909B029D 
-
-FORWARD ME_55DC91920313
-
-ME ME_55DC919B03D8
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54B3D1340244 // ddSegmentScanner
- ;
- MELINK Target HWL ME_55DC91920313 // TsegSegList
- ;
-
-ENDME // ME_55DC919B03D8 
-
-ME ME_54B3D1340244
- MEPROP UID '54B3D1340244'
- MEPROP Name 'ddSegmentScanner'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6B0D020D // NSRCReaderCore
- ;
- MELIST Children
-   Seq: ( HWL ME_54B3D153007F // TddSegmentScanner
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_55DC84F700A1 // ddNSRCSegments
- ME_55DC85E60204 // TddNSRCStackItemList
- ME_55DC8B61017B // TsegObjectList
- ME_55DC909B029D // TsegHyperLinkList
- ME_55DC919B03D8 // TsegSegList
- )
- ; // Dependencies
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddSegmentScanner.pas'
-
-ENDME // ME_54B3D1340244 ddSegmentScanner
 
 ME ME_55DC85D90134
  MEPROP UID '55DC85D90134'
@@ -1537,10 +205,13 @@ ME ME_55DC85D90134
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DC85CA02E3 // TddNSRCStackItemList
  ;
- MELINK Target HWL ME_55DC6B9F01BA // TddNSRCStackItem
+ MELINK Target WL 'ME_55DC6B9F01BA' '55DC6B2E0347.ms.model.script' // TddNSRCStackItem
  ;
 
 ENDME // ME_55DC85D90134 ItemType
+
+%%InheritedBy ME_4A54DD4E036F ME_55DC85CA02E3
+%%InheritedBy ME_55DEEA210182 ME_55DC85CA02E3
 
 ME ME_55DC85CA02E3
  MEPROP UID '55DC85CA02E3'
@@ -1554,7 +225,7 @@ ME ME_55DC85CA02E3
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_55DEEA210182' '47913B47006E.ms.model.script' // l3NotSortedObjectRefList
+ WL 'ME_55DEEA210182' '55DEEA210182.ms.model.script' // l3NotSortedObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -1568,6 +239,8 @@ ME ME_55DC85CA02E3
 
 ENDME // ME_55DC85CA02E3 TddNSRCStackItemList
 
+FORWARD ME_55DC8B5A02CD
+
 ME ME_55DC8B700047
  MEPROP UID '55DC8B700047'
  MEPROP Name 'ItemType'
@@ -1578,10 +251,13 @@ ME ME_55DC8B700047
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DC8B5A02CD // TsegObjectList
  ;
- MELINK Target HWL ME_55DC7A770012 // TsegObject
+ MELINK Target WL 'ME_55DC7A770012' '55DC6B2E0347.ms.model.script' // TsegObject
  ;
 
 ENDME // ME_55DC8B700047 ItemType
+
+%%InheritedBy ME_4A54DD4E036F ME_55DC8B5A02CD
+%%InheritedBy ME_55DEEA210182 ME_55DC8B5A02CD
 
 ME ME_55DC8B5A02CD
  MEPROP UID '55DC8B5A02CD'
@@ -1595,7 +271,7 @@ ME ME_55DC8B5A02CD
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_55DEEA210182' '47913B47006E.ms.model.script' // l3NotSortedObjectRefList
+ WL 'ME_55DEEA210182' '55DEEA210182.ms.model.script' // l3NotSortedObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -1609,6 +285,8 @@ ME ME_55DC8B5A02CD
 
 ENDME // ME_55DC8B5A02CD TsegObjectList
 
+FORWARD ME_55DC908902FC
+
 ME ME_55DC90930037
  MEPROP UID '55DC90930037'
  MEPROP Name 'ItemType'
@@ -1619,10 +297,13 @@ ME ME_55DC90930037
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DC908902FC // TsegHyperLinkList
  ;
- MELINK Target HWL ME_55DC6C030388 // TsegHyperLink
+ MELINK Target WL 'ME_55DC6C030388' '55DC6B2E0347.ms.model.script' // TsegHyperLink
  ;
 
 ENDME // ME_55DC90930037 ItemType
+
+%%InheritedBy ME_4A54DD4E036F ME_55DC908902FC
+%%InheritedBy ME_55DEEA210182 ME_55DC908902FC
 
 ME ME_55DC908902FC
  MEPROP UID '55DC908902FC'
@@ -1636,7 +317,7 @@ ME ME_55DC908902FC
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_55DEEA210182' '47913B47006E.ms.model.script' // l3NotSortedObjectRefList
+ WL 'ME_55DEEA210182' '55DEEA210182.ms.model.script' // l3NotSortedObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -1650,6 +331,8 @@ ME ME_55DC908902FC
 
 ENDME // ME_55DC908902FC TsegHyperLinkList
 
+FORWARD ME_55DC91920313
+
 ME ME_55DC919F01A1
  MEPROP UID '55DC919F01A1'
  MEPROP Name 'ItemType'
@@ -1660,10 +343,13 @@ ME ME_55DC919F01A1
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DC91920313 // TsegSegList
  ;
- MELINK Target HWL ME_55DC6BEF02A6 // TsegSeg
+ MELINK Target WL 'ME_55DC6BEF02A6' '55DC6B2E0347.ms.model.script' // TsegSeg
  ;
 
 ENDME // ME_55DC919F01A1 ItemType
+
+%%InheritedBy ME_4A54DD4E036F ME_55DC91920313
+%%InheritedBy ME_55DEEA210182 ME_55DC91920313
 
 ME ME_55DC91920313
  MEPROP UID '55DC91920313'
@@ -1677,7 +363,7 @@ ME ME_55DC91920313
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_55DEEA210182' '47913B47006E.ms.model.script' // l3NotSortedObjectRefList
+ WL 'ME_55DEEA210182' '55DEEA210182.ms.model.script' // l3NotSortedObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -1690,6 +376,8 @@ ME ME_55DC91920313
  UP intf.pas:Path 'common\components\rtl\Garant\dd\segSegList.pas'
 
 ENDME // ME_55DC91920313 TsegSegList
+
+%%InheritedBy ME_49E7754802A9 ME_55DEE5100096
 
 ME ME_55DEE5100096
  MEPROP UID '55DEE5100096'
@@ -1730,6 +418,9 @@ ME ME_55DEE56B01D9
 
 ENDME // ME_55DEE56B01D9 ItemType
 
+%%InheritedBy ME_4A54DD4E036F ME_55DEE52F00AC
+%%InheritedBy ME_55DEEA210182 ME_55DEE52F00AC
+
 ME ME_55DEE52F00AC
  MEPROP UID '55DEE52F00AC'
  MEPROP Name 'TddNSRCSubList'
@@ -1742,7 +433,7 @@ ME ME_55DEE52F00AC
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_55DEEA210182' '47913B47006E.ms.model.script' // l3NotSortedObjectRefList
+ WL 'ME_55DEEA210182' '55DEEA210182.ms.model.script' // l3NotSortedObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -1768,10 +459,13 @@ ME ME_55DEEB0C031C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DEEAFF0079 // TddTk2TypeList
  ;
- MELINK Target WL 'ME_47AC723D02DC' '49A58A1A03C4.ms.model.script' // Tk2Type
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
  ;
 
 ENDME // ME_55DEEB0C031C ItemType
+
+%%InheritedBy ME_4A54DD4E036F ME_55DEEAFF0079
+%%InheritedBy ME_55DEEA210182 ME_55DEEAFF0079
 
 ME ME_55DEEAFF0079
  MEPROP UID '55DEEAFF0079'
@@ -1785,7 +479,7 @@ ME ME_55DEEAFF0079
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_55DEEA210182' '47913B47006E.ms.model.script' // l3NotSortedObjectRefList
+ WL 'ME_55DEEA210182' '55DEEA210182.ms.model.script' // l3NotSortedObjectRefList
  )
  ; // Inherits
  MELIST Attributes
@@ -1799,21 +493,6 @@ ME ME_55DEEAFF0079
 
 ENDME // ME_55DEEAFF0079 TddTk2TypeList
 
-ME ME_55DEF41D03C4
- MEPROP UID '55DEF41D03C4'
- MEPROP Name 'ddNSRCConst'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DC6B0D020D // NSRCReaderCore
- ;
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddNSRCConst.pas'
-
-ENDME // ME_55DEF41D03C4 ddNSRCConst
-
 FORWARD ME_55DF01D8011D
 
 ME ME_55DF01EC01A9
@@ -1826,20 +505,20 @@ ME ME_55DF01EC01A9
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_55DF01D8011D // TddDoc2DocLinkRecList
  ;
- MELINK Target WL 'ME_55DF0180035F' '4C9CD07701E6.ms.model.script' // TDoc2DocLinkRec
+ MELINK Target WL 'ME_55DF0180035F' '4C9CD0E8038A.ms.model.script' // TDoc2DocLinkRec
  ;
 
 ENDME // ME_55DF01EC01A9 ItemType
 
 ME ME_47B07CF403D0_ME_55DF01D8011D
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_55DF01D8011D IsSameItems
 
 ME ME_47B2C42A0163_ME_55DF01D8011D
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -1847,10 +526,13 @@ ME ME_47B2C42A0163_ME_55DF01D8011D
 ENDME // ME_47B2C42A0163_ME_55DF01D8011D AssignItem
 
 ME ME_47B99D4503A2_ME_55DF01D8011D
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_55DF01D8011D CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_55DF01D8011D
+%%InheritedBy ME_4B223ADC02BF ME_55DF01D8011D
 
 ME ME_55DF01D8011D
  MEPROP UID '55DF01D8011D'
@@ -1864,7 +546,7 @@ ME ME_55DF01D8011D
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -1897,9 +579,9 @@ ME ME_55DC6B0D020D
  MELIST Children
    Seq: ( HWL ME_55DC6C1902EB // TsegTarget
  HWL ME_55DC7B6601E9 // TsegTargetList
- HWL ME_55DC6B2E0347 // ddNSRCSegments
- HWL ME_4BE2D013018C // evNSRCConst
- HWL ME_54B3D1340244 // ddSegmentScanner
+ WL 'ME_55DC6B2E0347' '55DC6B2E0347.ms.model.script' // ddNSRCSegments
+ WL 'ME_4BE2D013018C' '4BE2D013018C.ms.model.script' // evNSRCConst
+ WL 'ME_54B3D1340244' '54B3D1340244.ms.model.script' // ddSegmentScanner
  HWL ME_55DC85CA02E3 // TddNSRCStackItemList
  HWL ME_55DC8B5A02CD // TsegObjectList
  HWL ME_55DC908902FC // TsegHyperLinkList
@@ -1907,7 +589,7 @@ ME ME_55DC6B0D020D
  HWL ME_55DEE5100096 // TddNSRCSub
  HWL ME_55DEE52F00AC // TddNSRCSubList
  HWL ME_55DEEAFF0079 // TddTk2TypeList
- HWL ME_55DEF41D03C4 // ddNSRCConst
+ WL 'ME_55DEF41D03C4' '55DEF41D03C4.ms.model.script' // ddNSRCConst
  HWL ME_55DF01D8011D // TddDoc2DocLinkRecList
  )
  ; // Children
@@ -1924,5 +606,8 @@ ME ME_55DC6B0D020D
  WL 'ME_4C9CD07701E6' '4C9CD07701E6.ms.model.script' // AttrSchema
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_55DC6B0D020D NSRCReaderCore

@@ -1,0 +1,86 @@
+// vtCtrls 4AC0B2A102BE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5397086603C4
+%%Inner ME_5523F3C403E6
+
+FORWARD ME_4AC0B2A102BE
+
+ME ME_5397086603C4
+ MEPROP UID '5397086603C4'
+ MEPROP Name 'TvtSplitter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC0B2A102BE // vtCtrls
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Splitter'
+
+ENDME // ME_5397086603C4 TvtSplitter
+
+%%InheritedBy ME_5049CD720050 ME_5523F3C403E6
+
+ME ME_5523F3C403E6
+ MEPROP UID '5523F3C403E6'
+ MEPROP Name 'TvtComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC0B2A102BE // vtCtrls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5049CD720050' '48C78D5402A6.ms.model.script' // TComboBox
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComboBox'
+
+ENDME // ME_5523F3C403E6 TvtComboBox
+
+ME ME_4AC0B2B302FE
+ MEPROP UID '4AC0B2B302FE'
+ MEPROP Name 'AdjustCtrl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC0B2A102BE // vtCtrls
+ ;
+
+ENDME // ME_4AC0B2B302FE AdjustCtrl
+
+ME ME_4AC0B2A102BE
+ MEPROP UID '4AC0B2A102BE'
+ MEPROP Name 'vtCtrls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AC0B2B302FE // AdjustCtrl
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_5397086603C4 // TvtSplitter
+ HWL ME_5523F3C403E6 // TvtComboBox
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Ctrls'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtCtrls.pas'
+
+ENDME // ME_4AC0B2A102BE vtCtrls

@@ -1,0 +1,46 @@
+// evTextParaOp 4A39065A0236 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A39068301B3
+
+FORWARD ME_4A39065A0236
+
+ME ME_4A39068301B3
+ MEPROP UID '4A39068301B3'
+ MEPROP Name 'OevJoinParas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A39065A0236 // evTextParaOp
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4A39068301B3 OevJoinParas
+
+ME ME_4A39065A0236
+ MEPROP UID '4A39065A0236'
+ MEPROP Name 'evTextParaOp'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A39068301B3 // OevJoinParas
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'TextParaOp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evTextParaOp.pas'
+
+ENDME // ME_4A39065A0236 evTextParaOp

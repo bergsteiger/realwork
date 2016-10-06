@@ -2,39 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_54F06F760196
+%%Inner ME_4F955027033B
+%%Inner ME_4F95434701ED
+%%Inner ME_4F954F670262
+%%Inner ME_4EEB66D703A9
+%%Inner ME_4FABE1110175
+%%Inner ME_4F265392010B
+
 FORWARD ME_4F954EC9038E
-
-FORWARD ME_54F06F760196
-
-ME ME_54F06F820231
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54F06F760196 // kwParaCoordsToScreenUses
- ;
- MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
- ;
-
-ENDME // ME_54F06F820231 
-
-ME ME_54F06F760196
- MEPROP UID '54F06F760196'
- MEPROP Name 'kwParaCoordsToScreenUses'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4F954EC9038E // MoveMouseByPara
- ;
- MELIST Dependencies
-   Seq: ( ME_54F06F820231 // TPoint
- )
- ; // Dependencies
- UP extprop:pas:TypeName '_kwParaCoordsToScreenUses_'
- UP extprop:pas:UnitName 'kwParaCoordsToScreenUses.imp'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwParaCoordsToScreenUses.imp.pas'
-
-ENDME // ME_54F06F760196 kwParaCoordsToScreenUses
 
 FORWARD ME_4F955027033B
 
@@ -79,10 +55,15 @@ ME ME_4F4CB81200CA_ME_4F955027033B
 ENDME // ME_4F4CB81200CA_ME_4F955027033B DoWithEditor
 
 ME ME_4BF4E6A00093_ME_4F955027033B
- MELINK Original WL 'ME_4BF4E6A00093' '4C500D470030.ms.model.script' // GetInnerPara
+ MELINK Original WL 'ME_4BF4E6A00093' '4CED0194038A.ms.model.script' // GetInnerPara
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4BF4E6A00093_ME_4F955027033B GetInnerPara
+
+%%ImplementedBy ME_4CED0194038A ME_4F955027033B
+%%ImplementedBy ME_54F06F760196 ME_4F955027033B
+
+%%InheritedBy ME_4F4CB625027A ME_4F955027033B
 
 ME ME_4F955027033B
  MEPROP UID '4F955027033B'
@@ -99,8 +80,8 @@ ME ME_4F955027033B
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_4CED0194038A' '4C500D470030.ms.model.script' // Para2Point
- HWL ME_54F06F760196 // kwParaCoordsToScreenUses
+   Seq: ( WL 'ME_4CED0194038A' '4CED0194038A.ms.model.script' // Para2Point
+ WL 'ME_54F06F760196' '54F06F760196.ms.model.script' // kwParaCoordsToScreenUses
  )
  ; // Implements
  MELIST Attributes
@@ -120,6 +101,9 @@ ME ME_4F955027033B
  ME_54F084E3031F // TnevControl
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'kwParaCoordsToScreen'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ParaCoordsToScreen'
@@ -128,10 +112,12 @@ ME ME_4F955027033B
 ENDME // ME_4F955027033B TkwParaCoordsToScreen
 
 ME ME_4C3C927B027E_ME_4F95434701ED
- MELINK Original WL 'ME_4C3C927B027E' '4C500D470030.ms.model.script' // GetPoint
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C3C927B027E_ME_4F95434701ED GetPoint
+
+%%InheritedBy ME_4F955027033B ME_4F95434701ED
 
 ME ME_4F95434701ED
  MEPROP UID '4F95434701ED'
@@ -159,92 +145,13 @@ ME ME_4F95434701ED
 
 ENDME // ME_4F95434701ED pop_editor_ParaMiddleCoordsToScreen
 
-FORWARD ME_4F954F670262
-
-FORWARD ME_4EEB66D703A9
-
-ME ME_4F954F7D0178
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
- ;
- MELINK Target HWL ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
- ;
-
-ENDME // ME_4F954F7D0178 
-
-FORWARD ME_4F265392010B
-
-ME ME_4F954F8103BF
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
- ;
- MELINK Target HWL ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
- ;
-
-ENDME // ME_4F954F8103BF 
-
-ME ME_4F954F8403DC
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
- ;
- MELINK Target HWL ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
- ;
-
-ENDME // ME_4F954F8403DC 
-
-FORWARD ME_4FABE1110175
-
-ME ME_4FABE14F0392
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
- ;
- MELINK Target HWL ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
- ;
-
-ENDME // ME_4FABE14F0392 
-
-ME ME_54F06F45006B
- MEPROP Class class_Dependency
- MELINK Stereotype st_injects::Dependency ;
- MELINK Parent HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
- ;
- MELINK Target WL 'ME_4B28D63A00EC' '4B28D63A00EC.ms.model.script' // TevCustomEditorWindowPrim
- ;
-
-ENDME // ME_54F06F45006B 
-
-ME ME_4F954F670262
- MEPROP UID '4F954F670262'
- MEPROP Name 'EditorParaCoordsToScreenPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F954EC9038E // MoveMouseByPara
- ;
- MELIST Dependencies
-   Seq: ( ME_4F954F7D0178 // pop_editor_ParaCoordsToScreen
- ME_4F954F8103BF // pop_editor_ParaEndCoordsToScreen
- ME_4F954F8403DC // pop_editor_ParaMiddleCoordsToScreen
- ME_4FABE14F0392 // pop_editor_CursorCoordsToScreen
- ME_54F06F45006B // TevCustomEditorWindowPrim
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\EditorParaCoordsToScreenPack.pas'
-
-ENDME // ME_4F954F670262 EditorParaCoordsToScreenPack
-
 ME ME_4C3C927B027E_ME_4EEB66D703A9
- MELINK Original WL 'ME_4C3C927B027E' '4C500D470030.ms.model.script' // GetPoint
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C3C927B027E_ME_4EEB66D703A9 GetPoint
+
+%%InheritedBy ME_4F955027033B ME_4EEB66D703A9
 
 ME ME_4EEB66D703A9
  MEPROP UID '4EEB66D703A9'
@@ -274,6 +181,8 @@ ME ME_4EEB66D703A9
 
 ENDME // ME_4EEB66D703A9 pop_editor_ParaCoordsToScreen
 
+FORWARD ME_4FABE1110175
+
 ME ME_4FABEA040112
  MEPROP UID '4FABEA040112'
  MEPROP Name 'f_Editor'
@@ -299,13 +208,13 @@ ME ME_54F06F0E03B0
 ENDME // ME_54F06F0E03B0 
 
 ME ME_479731C50290_ME_4FABE1110175
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4FABE1110175 Cleanup
 
 ME ME_4C3C927B027E_ME_4FABE1110175
- MELINK Original WL 'ME_4C3C927B027E' '4C500D470030.ms.model.script' // GetPoint
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C3C927B027E_ME_4FABE1110175 GetPoint
@@ -315,6 +224,8 @@ ME ME_4F4CB81200CA_ME_4FABE1110175
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F4CB81200CA_ME_4FABE1110175 DoWithEditor
+
+%%InheritedBy ME_4F955027033B ME_4FABE1110175
 
 ME ME_4FABE1110175
  MEPROP UID '4FABE1110175'
@@ -344,6 +255,9 @@ ME ME_4FABE1110175
    Seq: ( ME_54F06F0E03B0 // TnevControl
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TkwPopEditorCursorCoordsToScreen'
  UP extprop:pas:UnitName 'kwPopEditorCursorCoordsToScreen'
  UP extprop:rc:isAcceptableForScripts True
@@ -351,6 +265,8 @@ ME ME_4FABE1110175
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwPopEditorCursorCoordsToScreen.pas'
 
 ENDME // ME_4FABE1110175 pop_editor_CursorCoordsToScreen
+
+FORWARD ME_4F265392010B
 
 ME ME_4F265AF301A4
  MEPROP UID '4F265AF301A4'
@@ -397,13 +313,13 @@ ME ME_54F06F250171
 ENDME // ME_54F06F250171 
 
 ME ME_479731C50290_ME_4F265392010B
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4F265392010B Cleanup
 
 ME ME_4C3C927B027E_ME_4F265392010B
- MELINK Original WL 'ME_4C3C927B027E' '4C500D470030.ms.model.script' // GetPoint
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C3C927B027E_ME_4F265392010B GetPoint
@@ -413,6 +329,8 @@ ME ME_4F4CB81200CA_ME_4F265392010B
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4F4CB81200CA_ME_4F265392010B DoWithEditor
+
+%%InheritedBy ME_4F955027033B ME_4F265392010B
 
 ME ME_4F265392010B
  MEPROP UID '4F265392010B'
@@ -444,6 +362,9 @@ ME ME_4F265392010B
  ME_54F06F250171 // TnevControl
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TkwPopEditorParaEndCoordsToScreen'
  UP extprop:pas:UnitName 'kwPopEditorParaEndCoordsToScreen'
  UP extprop:rc:isAcceptableForScripts True
@@ -463,10 +384,10 @@ ME ME_4F954EC9038E
  MELINK Parent WL 'ME_54ECA252008F' '54ECA252008F.ms.model.script' // ScriptEngine$Everest
  ;
  MELIST Children
-   Seq: ( HWL ME_54F06F760196 // kwParaCoordsToScreenUses
+   Seq: ( WL 'ME_54F06F760196' '54F06F760196.ms.model.script' // kwParaCoordsToScreenUses
  HWL ME_4F955027033B // TkwParaCoordsToScreen
  HWL ME_4F95434701ED // pop_editor_ParaMiddleCoordsToScreen
- HWL ME_4F954F670262 // EditorParaCoordsToScreenPack
+ WL 'ME_4F954F670262' '4F954F670262.ms.model.script' // EditorParaCoordsToScreenPack
  HWL ME_4EEB66D703A9 // pop_editor_ParaCoordsToScreen
  HWL ME_4FABE1110175 // pop_editor_CursorCoordsToScreen
  HWL ME_4F265392010B // pop_editor_ParaEndCoordsToScreen
@@ -483,6 +404,9 @@ ME ME_4F954EC9038E
  WL 'ME_4F4CB50403CC' '4F4CB50403CC.ms.model.script' // EditorFromStackKeyWords
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_4F954EC9038E MoveMouseByPara

@@ -1,0 +1,123 @@
+// vg_listbox 4CFE0E330363 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CFE0E4401D1
+%%Inner ME_4D3D71CE0254
+%%Inner ME_4D49985C0087
+%%Inner ME_4E65E22D010C
+
+FORWARD ME_4CFE0E330363
+
+%%InheritedBy ME_4D4955ED018F ME_4CFE0E4401D1
+
+ME ME_4CFE0E4401D1
+ MEPROP UID '4CFE0E4401D1'
+ MEPROP Name 'TvgStringComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D4955ED018F' '4CFCE531013A.ms.model.script' // TvgTextControl
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringComboBox'
+
+ENDME // ME_4CFE0E4401D1 TvgStringComboBox
+
+%%InheritedBy ME_4D49560D0013 ME_4D3D71CE0254
+
+ME ME_4D3D71CE0254
+ MEPROP UID '4D3D71CE0254'
+ MEPROP Name 'TvgComboBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D49560D0013' '4CFE3E000371.ms.model.script' // TvgControl
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ComboBox'
+
+ENDME // ME_4D3D71CE0254 TvgComboBox
+
+%%InheritedBy ME_4D4955ED018F ME_4D49985C0087
+
+ME ME_4D49985C0087
+ MEPROP UID '4D49985C0087'
+ MEPROP Name 'TvgListBoxItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D4955ED018F' '4CFCE531013A.ms.model.script' // TvgTextControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListBoxItem'
+
+ENDME // ME_4D49985C0087 TvgListBoxItem
+
+%%ImplementedBy ME_4E650495010D ME_4E65E22D010C
+
+ME ME_4E65E22D010C
+ MEPROP UID '4E65E22D010C'
+ MEPROP Name 'TvgListBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFE0E330363 // vg_listbox
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E650495010D' '4E650454009C.ms.model.script' // Выпадающие списки должны уметь перемещать подсветку вслед за мышиным курсором
+ )
+ ; // Implements
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ListBox'
+
+ENDME // ME_4E65E22D010C TvgListBox
+
+ME ME_4CFE0E330363
+ MEPROP UID '4CFE0E330363'
+ MEPROP Name 'vg_listbox'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.ms.model.script' // Impl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CFE0E4401D1 // TvgStringComboBox
+ HWL ME_4D3D71CE0254 // TvgComboBox
+ HWL ME_4D49985C0087 // TvgListBoxItem
+ HWL ME_4E65E22D010C // TvgListBox
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName '_listbox'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_listbox.pas'
+
+ENDME // ME_4CFE0E330363 vg_listbox

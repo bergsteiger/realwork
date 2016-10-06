@@ -2,6 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_476BED00024F
+%%Inner ME_476BED2603D7
+%%Inner ME_48F5CC20002B
+%%Inner ME_48F5CCDD0242
+%%Inner ME_47C68C4500D2
+%%Inner ME_4C1B99400116
+%%Inner ME_48F4941A0249
+%%Inner ME_4CDD38560217
+
 FORWARD ME_48F4E61C0060
 
 FORWARD ME_476BED00024F
@@ -79,6 +88,8 @@ ME ME_476BED00024F
 
 ENDME // ME_476BED00024F StoreFlag
 
+%%InheritedBy ME_476BED00024F ME_476BED2603D7
+
 ME ME_476BED2603D7
  MEPROP UID '476BED2603D7'
  MEPROP Name 'StoreFlags'
@@ -97,6 +108,8 @@ ME ME_476BED2603D7
  UP extprop:pas:TypeName 'TevdStoreFlags'
 
 ENDME // ME_476BED2603D7 StoreFlags
+
+%%InheritedBy ME_46A449A301E3 ME_48F5CC20002B
 
 ME ME_48F5CC20002B
  MEPROP UID '48F5CC20002B'
@@ -118,6 +131,8 @@ ME ME_48F5CC20002B
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_48F5CC20002B ClipboardFormat
+
+%%InheritedBy ME_4A5359BD03BE ME_48F5CCDD0242
 
 ME ME_48F5CCDD0242
  MEPROP UID '48F5CCDD0242'
@@ -193,7 +208,7 @@ ME ME_47C68C6701AF
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_47C68C4500D2 // DataObject
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_48F5D10C02F6 // aFormat
@@ -237,7 +252,7 @@ ME ME_4C1B997E0050
  MEPROP Name 'aDocID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4C1B997E0050 aDocID
@@ -250,7 +265,7 @@ ME ME_4C1B9957028A
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4C1B99400116 // ExternalDocNumberToInternal
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_4C1B997E0050 // aDocID
@@ -294,7 +309,7 @@ ME ME_49E6003C0110
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_48F4941A0249 // Address
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_49E6003C0110 DocID
@@ -309,7 +324,7 @@ ME ME_49E6004F02BA
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_48F4941A0249 // Address
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_49E6004F02BA SubID
@@ -323,7 +338,7 @@ ME ME_49E6006200D6
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_48F4941A0249 // Address
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_49E6006200D6 TypeID
@@ -337,7 +352,7 @@ ME ME_49E6006A025F
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_48F4941A0249 // Address
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_49E6006A025F RevisionID
@@ -390,6 +405,9 @@ ME ME_48F4941A0249
    Seq: ( ME_4CDD3BEC025D // Address Defaults
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:ElementPrefix 'evd_'
  UP extprop:pas:ElementPrefixBase 'evd'
  UP extprop:pas:TypeName 'TevdAddress'
@@ -468,6 +486,9 @@ ME ME_4CDD38560217
  HWL ME_4CDD6BCA034C // AppInfo
  )
  ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:ElementPrefix 'evd_'
  UP extprop:pas:ElementPrefixBase 'evd'
  UP extprop:pas:TypeName 'IevdHyperlinkInfo'
@@ -494,6 +515,8 @@ ME ME_476BEF0F0117
  UP extprop:pas:Value 'evd_sfStoreParaEnd'
 
 ENDME // ME_476BEF0F0117 DefaultStoreFlags
+
+%%InheritedBy ME_476BED2603D7 ME_476BEEFC018E
 
 ME ME_476BEEFC018E
  MEPROP UID '476BEEFC018E'
@@ -554,6 +577,9 @@ ME ME_48F4E61C0060
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "is namespace" True
  UP "no hands" True

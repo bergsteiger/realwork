@@ -1,0 +1,76 @@
+// k2Int64Holder 4E2EA99702A7 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E2EA99702A7
+
+ME ME_4E2EB65900E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2EA99702A7 // k2Int64Holder
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E2EB65900E0 
+
+ME ME_535FD3C500CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E2EA99702A7 // k2Int64Holder
+ ;
+ MELINK Target WL 'ME_4E2EB63802EC' '53317D14019D.ms.model.script' // Tk2In64Converter
+ ;
+
+ENDME // ME_535FD3C500CA 
+
+ME ME_5360CE4B026A_ME_4E2EA99702A7
+ MELINK Original WL 'ME_5360CE4B026A' '53317D14019D.ms.model.script' // GetInt64A
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5360CE4B026A_ME_4E2EA99702A7 GetInt64A
+
+ME ME_5360CE910025_ME_4E2EA99702A7
+ MELINK Original WL 'ME_5360CE910025' '53317D14019D.ms.model.script' // SetInt64A
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5360CE910025_ME_4E2EA99702A7 SetInt64A
+
+%%ImplementedBy ME_4E2EA88A01ED ME_4E2EA99702A7
+%%ImplementedBy ME_532878C00034 ME_4E2EA99702A7
+
+ME ME_4E2EA99702A7
+ MEPROP UID '4E2EA99702A7'
+ MEPROP Name 'k2Int64Holder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4E2EA88A01ED' '53317D14019D.ms.model.script' // Mk2Int64Holder
+ WL 'ME_532878C00034' '47913B47006E.ms.model.script' // Ml3VariantMirror
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_5360CE4B026A_ME_4E2EA99702A7 // GetInt64A
+ ME_5360CE910025_ME_4E2EA99702A7 // SetInt64A
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E2EB65900E0 // Tk2TagID
+ ME_535FD3C500CA // Tk2In64Converter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" True
+ UP extprop:pas:TypeName '_k2Int64Holder_'
+ UP extprop:pas:UnitName 'k2Int64Holder.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2Int64Holder.imp.pas'
+
+ENDME // ME_4E2EA99702A7 k2Int64Holder

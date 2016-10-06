@@ -1,0 +1,68 @@
+// l3Castable 47A0ACE90008 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47A0ACE90008
+
+FORWARD ME_47A0AD3A01F7
+
+ME ME_47A0AD7F0179
+ MEPROP Name 'IID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4678150B0111' '4677FBA70343.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_47A0AD7F0179 IID
+
+ME ME_47A0AD7F0198
+ MEPROP Name 'Obj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_47A0AD7F0198 Obj
+
+ME ME_47A0AD3A01F7
+ MEPROP UID '47A0AD3A01F7'
+ MEPROP Name 'QueryInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'Приводит базовый интерфейс к запрашиваемуму, если это возможно.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47A0ACE90008 // l3Castable
+ ;
+ MELINK Target WL 'ME_469F9A0001B0' '4677FBA70343.ms.model.script' // HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A0AD7F0179 // IID
+ ME_47A0AD7F0198 // Obj
+ )
+ ; // Parameters
+ UP "calling conventions" 'stdcall'
+
+ENDME // ME_47A0AD3A01F7 QueryInterface
+
+ME ME_47A0ACE90008
+ MEPROP UID '47A0ACE90008'
+ MEPROP Name 'l3Castable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Класс-примесь с методом QueryInterface' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47A0AD3A01F7 // QueryInterface
+ )
+ ; // Operations
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '30.01.2006 21:27'
+ UP extprop:pas:TypeName '_l3Castable_'
+ UP extprop:pas:UnitName 'l3Castable.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Castable.imp.pas'
+
+ENDME // ME_47A0ACE90008 l3Castable

@@ -2,85 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4952683C007B
-
-FORWARD ME_4AC5D35601BB
-
-ME ME_54C2765801AA
- MEPROP UID '54C2765801AA'
- MEPROP Name 'TeeCustomMemo'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC5D35601BB // eeCustomMemo
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_54C26D790097' '4AC5D3DB0371.ms.model.script' // TeeCustomMemo
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'eeCustomMemo'
-
-ENDME // ME_54C2765801AA TeeCustomMemo
-
-ME ME_4AC5D35601BB
- MEPROP UID '4AC5D35601BB'
- MEPROP Name 'eeCustomMemo'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4952683C007B // Editor
- ;
- MELIST Children
-   Seq: ( HWL ME_54C2765801AA // TeeCustomMemo
- )
- ; // Children
- UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCustomMemo.pas'
-
-ENDME // ME_4AC5D35601BB eeCustomMemo
-
-FORWARD ME_54C24DE1010C
-
-ME ME_54C27689016C
- MEPROP UID '54C27689016C'
- MEPROP Name 'TeeCustomEditor'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_54C24DE1010C // eeCustomEditor
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4952687202A0' '495268900201.ms.model.script' // TeeCustomEditor
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'eeCustomEditor'
-
-ENDME // ME_54C27689016C TeeCustomEditor
-
-ME ME_54C24DE1010C
- MEPROP UID '54C24DE1010C'
- MEPROP Name 'eeCustomEditor'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4952683C007B // Editor
- ;
- MELIST Children
-   Seq: ( HWL ME_54C27689016C // TeeCustomEditor
- )
- ; // Children
- UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCustomEditor.pas'
-
-ENDME // ME_54C24DE1010C eeCustomEditor
+%%Inner ME_4B877FE00340
+%%Inner ME_4952693000EA
+%%Inner ME_4AC5D3DB0371
+%%Inner ME_4AC5D35601BB
+%%Inner ME_4AC5D3380185
+%%Inner ME_495268900201
+%%Inner ME_4CFFD97801C0
+%%Inner ME_54C24DE1010C
+%%Inner ME_4CFFD8F603A0
 
 ME ME_4952683C007B
  MEPROP UID '4952683C007B'
@@ -96,11 +26,11 @@ ME ME_4952683C007B
    Seq: ( WL 'ME_4B877FE00340' '4B877FE00340.ms.model.script' // TeeEditorExportModelPart
  WL 'ME_4952693000EA' '4952693000EA.ms.model.script' // TeeEditorExport
  WL 'ME_4AC5D3DB0371' '4AC5D3DB0371.ms.model.script' // TeeMemo
- HWL ME_4AC5D35601BB // eeCustomMemo
+ WL 'ME_4AC5D35601BB' '4AC5D35601BB.ms.model.script' // eeCustomMemo
  WL 'ME_4AC5D3380185' '4AC5D3380185.ms.model.script' // TeeMemoWithEditOperations
  WL 'ME_495268900201' '495268900201.ms.model.script' // TeeEditor
  WL 'ME_4CFFD97801C0' '4CFFD97801C0.ms.model.script' // TeePreviewPanel
- HWL ME_54C24DE1010C // eeCustomEditor
+ WL 'ME_54C24DE1010C' '54C24DE1010C.ms.model.script' // eeCustomEditor
  WL 'ME_4CFFD8F603A0' '4CFFD8F603A0.ms.model.script' // TeeEditorWithoutOperations
  )
  ; // Children
@@ -143,6 +73,9 @@ ME ME_4952683C007B
  WL 'ME_54C13B1601FD' '54C13B1601FD.ms.model.script' // eeExceptions
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" True
 
 ENDME // ME_4952683C007B Editor

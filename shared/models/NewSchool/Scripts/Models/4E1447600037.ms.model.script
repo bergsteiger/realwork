@@ -2,63 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4E1447600037
-
-FORWARD ME_49213DFA02CB
-
-ME ME_4AAE399802A2
- MEPROP UID '4AAE399802A2'
- MEPROP Name 'TvtStdResources'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49213DFA02CB // vtStdRes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4AAA214A0250' '4AB0997B00A2.ms.model.script' // TDataModule
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'StdResources'
-
-ENDME // ME_4AAE399802A2 TvtStdResources
-
-ME ME_49213E3A030E
- MEPROP UID '49213E3A030E'
- MEPROP Name 'vtStdResources'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_49213DFA02CB // vtStdRes
- ;
-
-ENDME // ME_49213E3A030E vtStdResources
-
-ME ME_49213DFA02CB
- MEPROP UID '49213DFA02CB'
- MEPROP Name 'vtStdRes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E1447600037 // Common
- ;
- MELIST Operations
-   Seq: ( HWL ME_49213E3A030E // vtStdResources
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4AAE399802A2 // TvtStdResources
- )
- ; // Children
- UP "finished" False
- UP extprop:rc:SelfName 'StdRes'
- UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtStdRes.pas'
-
-ENDME // ME_49213DFA02CB vtStdRes
+%%Inner ME_49213DFA02CB
 
 ME ME_4E1447600037
  MEPROP UID '4E1447600037'
@@ -71,7 +15,7 @@ ME ME_4E1447600037
  MELINK Parent WL 'ME_4D4927B5008B' '4D4927B5008B.ms.model.script' // VT$Core
  ;
  MELIST Children
-   Seq: ( HWL ME_49213DFA02CB // vtStdRes
+   Seq: ( WL 'ME_49213DFA02CB' '49213DFA02CB.ms.model.script' // vtStdRes
  )
  ; // Children
  MELIST Depends
@@ -79,5 +23,8 @@ ME ME_4E1447600037
  WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4E1447600037 Common

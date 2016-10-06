@@ -1,0 +1,45 @@
+// D_TxSrch 4F8D618800E7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8D61A100A6
+
+FORWARD ME_4F8D618800E7
+
+ME ME_4F8D61A100A6
+ MEPROP UID '4F8D61A100A6'
+ MEPROP Name 'TTextSearchDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D618800E7 // D_TxSrch
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextSearchDlg'
+
+ENDME // ME_4F8D61A100A6 TTextSearchDlg
+
+ME ME_4F8D618800E7
+ MEPROP UID '4F8D618800E7'
+ MEPROP Name 'D_TxSrch'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D61A100A6 // TTextSearchDlg
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Common\Dialogs\NOT_FINISHED_D_TxSrch.pas'
+
+ENDME // ME_4F8D618800E7 D_TxSrch

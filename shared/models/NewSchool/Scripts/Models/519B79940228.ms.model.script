@@ -1,0 +1,41 @@
+// dt_LinkServ 519B79940228 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_519B79940228
+
+ME ME_52E8BA5101A7
+ MEPROP UID '52E8BA5101A7'
+ MEPROP Name 'LinkServer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_519B79940228 // dt_LinkServ
+ ;
+
+ENDME // ME_52E8BA5101A7 LinkServer
+
+ME ME_519B79940228
+ MEPROP UID '519B79940228'
+ MEPROP Name 'dt_LinkServ'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_519B797A0048' '519B797A0048.ms.model.script' // Servers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52E8BA5101A7 // LinkServer
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_LinkServ.pas'
+
+ENDME // ME_519B79940228 dt_LinkServ

@@ -1,0 +1,47 @@
+// nscTabTableCell 4AD59B96038C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AD59BA401C1
+
+FORWARD ME_4AD59B96038C
+
+ME ME_4AD59BA401C1
+ MEPROP UID '4AD59BA401C1'
+ MEPROP Name 'TnscTreeViewTabCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AD59B96038C // nscTabTableCell
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TreeViewTabCell'
+
+ENDME // ME_4AD59BA401C1 TnscTreeViewTabCell
+
+ME ME_4AD59B96038C
+ MEPROP UID '4AD59B96038C'
+ MEPROP Name 'nscTabTableCell'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AC9B14A02E3' '4AC9B14A02E3.ms.model.script' // Grid
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD59BA401C1 // TnscTreeViewTabCell
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'TabTableCell'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscTabTableCell.pas'
+
+ENDME // ME_4AD59B96038C nscTabTableCell

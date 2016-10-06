@@ -1,0 +1,64 @@
+// nsEditionsDecorationRules 4F33E7CF0393 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F33E7CF0393
+
+ME ME_4F33F0130375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F33E7CF0393 // nsEditionsDecorationRules
+ ;
+ MELINK Target WL 'ME_4E677FA10009' '48492FC0029D.ms.model.script' // FooterForChangesInfo
+ ;
+
+ENDME // ME_4F33F0130375 
+
+ME ME_4F33F57C00BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F33E7CF0393 // nsEditionsDecorationRules
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4F33F57C00BE 
+
+ME ME_4F33E3A20056_ME_4F33E7CF0393
+ MELINK Original WL 'ME_4F33E3A20056' '4F33E5FD009E.ms.model.script' // GetAllowsThisDecor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F33E3A20056_ME_4F33E7CF0393 GetAllowsThisDecor
+
+%%ImplementedBy ME_4F33E6C302BD ME_4F33E7CF0393
+
+ME ME_4F33E7CF0393
+ MEPROP UID '4F33E7CF0393'
+ MEPROP Name 'nsEditionsDecorationRules'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Правила оформления декораций для СР и ОИД' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F4B48E5029E' '4F4B48E5029E.ms.model.script' // Aspects
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4F33E6C302BD' '4F4B48E5029E.ms.model.script' // MnevDocumentContainerDecorationRules
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4F33E3A20056_ME_4F33E7CF0393 // GetAllowsThisDecor
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F33F0130375 // FooterForChangesInfo
+ ME_4F33F57C00BE // Tk2TagID
+ )
+ ; // Dependencies
+ UP extprop:pas:TypeName '_nsEditionsDecorationRules_'
+ UP extprop:pas:UnitName 'nsEditionsDecorationRules.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nsEditionsDecorationRules.imp.pas'
+
+ENDME // ME_4F33E7CF0393 nsEditionsDecorationRules

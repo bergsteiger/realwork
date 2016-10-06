@@ -1,0 +1,175 @@
+// evLeafParaPainterPrim 4804C7B60375 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4804C7B60375
+
+FORWARD ME_4E53B9A500B4
+
+ME ME_4E53B9BD02D3
+ MEPROP UID '4E53B9BD02D3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E53B9A500B4 // GetBitmapForPara
+ ;
+ MELINK Target WL 'ME_476F70910097' '467C0CAA02AB.ms.model.script' // Il3Bitmap
+ ;
+
+ENDME // ME_4E53B9BD02D3 DoIt
+
+ME ME_4E53B9A500B4
+ MEPROP UID '4E53B9A500B4'
+ MEPROP Name 'GetBitmapForPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E53B9BD02D3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E53B9A500B4 GetBitmapForPara
+
+ME ME_4804C7FC02BB
+ MEPROP UID '4804C7FC02BB'
+ MEPROP Name 'DrawPicture'
+ MEPROP Class class_Operation
+ %SUMMARY 'рисует параграф с картинкой - Para на канве CN со смещения aTop.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4804C7FC02BB DrawPicture
+
+ME ME_4804C81000B9
+ MEPROP UID '4804C81000B9'
+ MEPROP Name 'DrawLeaf'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4804C81000B9 DrawLeaf
+
+ME ME_4804C8BE00A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4804C8BE00A8 
+
+ME ME_4804C8D30078
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4804C8D30078 
+
+ME ME_4804C91301DE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_4804C91301DE 
+
+ME ME_4804C95C039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELINK Target WL 'ME_47F6036500E3' '47E3DF460095.ms.model.script' // TnevAfterEndPoint
+ ;
+
+ENDME // ME_4804C95C039A 
+
+ME ME_4804C9D4012F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4804C7B60375 // evLeafParaPainterPrim
+ ;
+ MELINK Target WL 'ME_476F70910097' '467C0CAA02AB.ms.model.script' // Il3Bitmap
+ ;
+
+ENDME // ME_4804C9D4012F 
+
+ME ME_4804BC2401C2_ME_4804C7B60375
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4804BC2401C2_ME_4804C7B60375 DoDraw
+
+ME ME_4804BC800172_ME_4804C7B60375
+ MELINK Original WL 'ME_4804BC800172' '4804A2C101A5.ms.model.script' // InitBottom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4804BC800172_ME_4804C7B60375 InitBottom
+
+%%InheritedBy ME_4804A2C101A5 ME_4804C7B60375
+
+ME ME_4804C7B60375
+ MEPROP UID '4804C7B60375'
+ MEPROP Name 'evLeafParaPainterPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый рисователь листьевых параграфов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49DCBC09029B' '49DCBC09029B.ms.model.script' // Drawing Framework
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4804A2C101A5' '4804A2C101A5.ms.model.script' // evParaPainter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E53B9A500B4 // GetBitmapForPara
+ HWL ME_4804C7FC02BB // DrawPicture
+ HWL ME_4804C81000B9 // DrawLeaf
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4804BC2401C2_ME_4804C7B60375 // DoDraw
+ ME_4804BC800172_ME_4804C7B60375 // InitBottom
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4804C8BE00A8 // Tl3Point
+ ME_4804C8D30078 // Tk2TagID
+ ME_4804C91301DE // IndentType
+ ME_4804C95C039A // TnevAfterEndPoint
+ ME_4804C9D4012F // Il3Bitmap
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '15.04.2008 19:13'
+ UP extprop:pas:TypeName '_evLeafParaPainterPrim_'
+ UP extprop:pas:UnitName 'evLeafParaPainterPrim.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evLeafParaPainterPrim.imp.pas'
+
+ENDME // ME_4804C7B60375 evLeafParaPainterPrim

@@ -1,0 +1,50 @@
+// vtFlashWordsPack 54EC8F930357 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54EC8F930357
+
+ME ME_552FAF500391
+ MEPROP UID '552FAF500391'
+ MEPROP Name 'GetFrame'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54EC8F930357 // vtFlashWordsPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "NameForScript" 'pop:flash:GetFrame'
+
+ENDME // ME_552FAF500391 GetFrame
+
+%%InheritedBy ME_4981A4AE0282 ME_54EC8F930357
+
+ME ME_54EC8F930357
+ MEPROP UID '54EC8F930357'
+ MEPROP Name 'vtFlashWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54EC8EE003AB' '54EC8EE003AB.ms.model.script' // vtFlashWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4981A4AE0282' '4981A49103DD.ms.model.script' // TvtShockwaveFlashEx
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552FAF500391 // GetFrame
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP extprop:rc:SelfName 'FlashWordsPack'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtFlashWordsPack.pas'
+
+ENDME // ME_54EC8F930357 vtFlashWordsPack

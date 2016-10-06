@@ -1,0 +1,83 @@
+// evSectionBreakHotSpot 53D0B0A10259 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53D0B0B7034E
+
+FORWARD ME_53D0B0A10259
+
+FORWARD ME_53D0B0B7034E
+
+ME ME_53D0B0F1024F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_53D0B0B7034E // TevSectionBreakHotSpotTester
+ ;
+ MELINK Target WL 'ME_48567BD10027' '53D258F1004F.ms.model.script' // TevSectionBreak
+ ;
+ UP "injects as" 'interface'
+
+ENDME // ME_53D0B0F1024F 
+
+ME ME_53D0B1290397
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects_this::Dependency ;
+ MELINK Parent HWL ME_53D0B0B7034E // TevSectionBreakHotSpotTester
+ ;
+ MELINK Target WL 'ME_4A250DB2035E' '4A1FCBA0014C.ms.model.script' // InevHotSpotTester2
+ ;
+ UP "needs processor" True
+
+ENDME // ME_53D0B1290397 
+
+%%InjectedBy ME_48567BD10027 ME_53D0B0B7034E
+
+%%InheritedBy ME_4A267FA903BA ME_53D0B0B7034E
+
+ME ME_53D0B0B7034E
+ MEPROP UID '53D0B0B7034E'
+ MEPROP Name 'TevSectionBreakHotSpotTester'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53D0B0A10259 // evSectionBreakHotSpot
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A267FA903BA' '4A267EE3017B.ms.model.script' // TevHotSpot
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_53D0B0F1024F // TevSectionBreak
+ ME_53D0B1290397 // InevHotSpotTester2
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SectionBreakHotSpotTester'
+
+ENDME // ME_53D0B0B7034E TevSectionBreakHotSpotTester
+
+ME ME_53D0B0A10259
+ MEPROP UID '53D0B0A10259'
+ MEPROP Name 'evSectionBreakHotSpot'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A267EE3017B' '4A267EE3017B.ms.model.script' // HotSpots
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53D0B0B7034E // TevSectionBreakHotSpotTester
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'SectionBreakHotSpot'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSectionBreakHotSpot.pas'
+
+ENDME // ME_53D0B0A10259 evSectionBreakHotSpot

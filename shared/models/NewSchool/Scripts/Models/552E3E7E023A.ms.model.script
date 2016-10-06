@@ -1,0 +1,65 @@
+// StatusBarWordsPack 552E3E7E023A ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552E3E7E023A
+
+FORWARD ME_552E3EE00284
+
+ME ME_552E3F9C03AA
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552E3F9C03AA anIndex
+
+ME ME_552E3EE00284
+ MEPROP UID '552E3EE00284'
+ MEPROP Name 'GetPanel'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY '*Описание:* Помещает в стек панель статусбара по номеру.'#13#10'Формат:'#13#10'{code}'#13#10'anIndex aStatusControl pop:vtStatusBar:GetPanel'#13#10'{code}'#13#10'anIndex - номер панели.'#13#10'aStatusControl - контрол статус-бар.'#13#10'В стек помещается объект класса TvtStatusPanel' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E3E7E023A // StatusBarWordsPack
+ ;
+ MELINK Target WL 'ME_53F7021D0257' '4E15A00502A3.ms.model.script' // TvtStatusPanel
+ ;
+ MELIST Parameters
+   Seq: ( ME_552E3F9C03AA // anIndex
+ )
+ ; // Parameters
+ UP "NameForScript" 'pop:vtStatusBar:GetPanel'
+
+ENDME // ME_552E3EE00284 GetPanel
+
+%%InheritedBy ME_4E15A00502A3 ME_552E3E7E023A
+
+ME ME_552E3E7E023A
+ MEPROP UID '552E3E7E023A'
+ MEPROP Name 'StatusBarWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6094D80196' '4F6094D80196.ms.model.script' // vtControlsFromStackWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E15A00502A3' '4E15A00502A3.ms.model.script' // TvtStatusBar
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552E3EE00284 // GetPanel
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWordsPack.pas'
+
+ENDME // ME_552E3E7E023A StatusBarWordsPack

@@ -1,0 +1,63 @@
+// m3Const 54217680017C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54217680017C
+
+FORWARD ME_53FF08370075
+
+ME ME_53FF084500F3
+ MEPROP UID '53FF084500F3'
+ MEPROP Name 'Cm3BasClaDefHeaderSize'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF08370075 // BasClaDefaults
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_53FF084500F3 Cm3BasClaDefHeaderSize
+
+ME ME_53FF08370075
+ MEPROP UID '53FF08370075'
+ MEPROP Name 'BasClaDefaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_54217680017C // m3Const
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53FF084500F3 // Cm3BasClaDefHeaderSize
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_53FF08370075 BasClaDefaults
+
+ME ME_54217680017C
+ MEPROP UID '54217680017C'
+ MEPROP Name 'm3Const'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5485C15F0072' '5485C15F0072.ms.model.script' // HeaderStream
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_53FF08370075 // BasClaDefaults
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3Const.pas'
+
+ENDME // ME_54217680017C m3Const

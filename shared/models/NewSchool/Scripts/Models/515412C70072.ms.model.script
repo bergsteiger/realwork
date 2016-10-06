@@ -1,0 +1,97 @@
+// l3DatLst 515412C70072 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_515413060215
+%%Inner ME_51541315013D
+%%Inner ME_515413200198
+%%Inner ME_5154132C03AC
+
+FORWARD ME_515412C70072
+
+ME ME_515413060215
+ MEPROP UID '515413060215'
+ MEPROP Name 'Tl3CustomDataList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515412C70072 // l3DatLst
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataList'
+
+ENDME // ME_515413060215 Tl3CustomDataList
+
+ME ME_51541315013D
+ MEPROP UID '51541315013D'
+ MEPROP Name 'Tl3DataList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515412C70072 // l3DatLst
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DataList'
+
+ENDME // ME_51541315013D Tl3DataList
+
+ME ME_515413200198
+ MEPROP UID '515413200198'
+ MEPROP Name 'Tl3StringDataList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515412C70072 // l3DatLst
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringDataList'
+
+ENDME // ME_515413200198 Tl3StringDataList
+
+ME ME_5154132C03AC
+ MEPROP UID '5154132C03AC'
+ MEPROP Name 'Tl3ItemsStorage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_515412C70072 // l3DatLst
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ItemsStorage'
+
+ENDME // ME_5154132C03AC Tl3ItemsStorage
+
+ME ME_515412C70072
+ MEPROP UID '515412C70072'
+ MEPROP Name 'l3DatLst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_515413060215 // Tl3CustomDataList
+ HWL ME_51541315013D // Tl3DataList
+ HWL ME_515413200198 // Tl3StringDataList
+ HWL ME_5154132C03AC // Tl3ItemsStorage
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'DatLst'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3DatLst.pas'
+
+ENDME // ME_515412C70072 l3DatLst

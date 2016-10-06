@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_55C482EC023E
+
 FORWARD ME_55C482960214
 
 FORWARD ME_55C482EC023E
@@ -46,7 +48,7 @@ ME ME_55C483FC02E8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C483850136 // Run
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_55C483FC02E8 
@@ -86,7 +88,7 @@ ME ME_55C4BD780384
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C483850136 // Run
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_55C4BD780384 
@@ -96,7 +98,7 @@ ME ME_56373E06004E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C483850136 // Run
  ;
- MELINK Target WL 'ME_4B57004201BD' '47D0290B016D.ms.model.script' // l3FileUtils
+ MELINK Target WL 'ME_4B57004201BD' '4B57004201BD.ms.model.script' // l3FileUtils
  ;
 
 ENDME // ME_56373E06004E 
@@ -106,7 +108,7 @@ ME ME_563743080237
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C483850136 // Run
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_563743080237 
@@ -116,7 +118,7 @@ ME ME_5637464A010A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C483850136 // Run
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
  ;
 
 ENDME // ME_5637464A010A 
@@ -126,7 +128,7 @@ ME ME_563CB35E0235
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C483850136 // Run
  ;
- MELINK Target WL 'ME_483C378301CB' '4AB0997B00A2.ms.model.script' // StrUtils
+ MELINK Target WL 'ME_483C378301CB' '483C378301CB.ms.model.script' // StrUtils
  ;
 
 ENDME // ME_563CB35E0235 
@@ -193,7 +195,7 @@ ME ME_57B6E4510380
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_483C2FA400B1' '4AB0C3C60310.ms.model.script' // AnsiString
+ MELINK Target WL 'ME_483C2FA400B1' '4807744200AA.ms.model.script' // AnsiString
  ;
 
 ENDME // ME_57B6E4510380 aFileName
@@ -249,7 +251,7 @@ ME ME_57B6F87B0050
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_57B6F87B0050 aFileName
@@ -262,7 +264,7 @@ ME ME_57B6F8240001
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57B6F81500E3 // CheckFileExists
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_57B6F87B0050 // aFileName
@@ -305,6 +307,9 @@ ME ME_55C482EC023E
  HWL ME_57B6F81500E3 // CheckFileExists
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "UseNewGen" True
  UP extprop:pas:UnitName 'callMSSRunner'
  UP extprop:rc:isAcceptableForScripts True
@@ -346,12 +351,15 @@ ME ME_55C482960214
  WL 'ME_55C481E00003' '55C481E00003.ms.model.script' // ScriptCallers
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "console" True
  UP "defines" 'callMSS.inc'
  UP "need UC in project" True
  UP "path suffix" '/callMSS'
  UP intf.pas:Path 'common\components\callMSS\callMSS.dpr'
  UP intf.pas:PathOnly '\common\components\callMSS'
- UP Version 9
+ UP Version 12
 
 ENDME // ME_55C482960214 callMSS

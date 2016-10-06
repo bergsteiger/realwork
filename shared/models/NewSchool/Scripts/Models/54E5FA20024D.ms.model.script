@@ -1,0 +1,92 @@
+// vtHideFieldWords 54E5FA20024D ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54E5FA20024D
+
+ME ME_552FB05F003F
+ MEPROP UID '552FB05F003F'
+ MEPROP Name 'IsExpanded'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E5FA20024D // vtHideFieldWords
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FB05F003F IsExpanded
+
+FORWARD ME_552FB071025A
+
+ME ME_552FB08101AA
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_552FB08101AA aValue
+
+ME ME_552FB071025A
+ MEPROP UID '552FB071025A'
+ MEPROP Name 'SetExpanded'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E5FA20024D // vtHideFieldWords
+ ;
+ MELIST Parameters
+   Seq: ( ME_552FB08101AA // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_552FB071025A SetExpanded
+
+ME ME_552FB09D0396
+ MEPROP UID '552FB09D0396'
+ MEPROP Name 'GetCaption'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54E5FA20024D // vtHideFieldWords
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_552FB09D0396 GetCaption
+
+%%InheritedBy ME_4E732D8B0291 ME_54E5FA20024D
+
+ME ME_54E5FA20024D
+ MEPROP UID '54E5FA20024D'
+ MEPROP Name 'vtHideFieldWords'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54EC6430005C' '54EC6430005C.ms.model.script' // vtHideFieldWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E732D8B0291' '4E732D7F0082.ms.model.script' // TvtCustomHideField
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552FB05F003F // IsExpanded
+ HWL ME_552FB071025A // SetExpanded
+ HWL ME_552FB09D0396 // GetCaption
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP extprop:rc:SelfName 'HideFieldWords'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtHideFieldWords.pas'
+
+ENDME // ME_54E5FA20024D vtHideFieldWords

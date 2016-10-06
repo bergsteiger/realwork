@@ -1,0 +1,55 @@
+// ddZipUtils 5279FD7E02F7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5279FD7E02F7
+
+ME ME_5279FD970204
+ MEPROP UID '5279FD970204'
+ MEPROP Name 'ZipFiles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279FD7E02F7 // ddZipUtils
+ ;
+
+ENDME // ME_5279FD970204 ZipFiles
+
+ME ME_5279FD9F01B9
+ MEPROP UID '5279FD9F01B9'
+ MEPROP Name 'UnZipFiles'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279FD7E02F7 // ddZipUtils
+ ;
+
+ENDME // ME_5279FD9F01B9 UnZipFiles
+
+ME ME_5279FD7E02F7
+ MEPROP UID '5279FD7E02F7'
+ MEPROP Name 'ddZipUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5279FD600133' '5279FD600133.ms.model.script' // Misc
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5279FD970204 // ZipFiles
+ HWL ME_5279FD9F01B9 // UnZipFiles
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddZipUtils.pas'
+
+ENDME // ME_5279FD7E02F7 ddZipUtils

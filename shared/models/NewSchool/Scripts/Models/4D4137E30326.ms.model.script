@@ -1,0 +1,99 @@
+// SelectOperation 4D4137E30326 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D4137E30326
+
+FORWARD ME_4D41388401C4
+
+ME ME_4D413E0F028E
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4D413E0F028E aText
+
+ME ME_4D41388401C4
+ MEPROP UID '4D41388401C4'
+ MEPROP Name 'SelectPara'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выделить параграф целиком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4137E30326 // SelectOperation
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D413E0F028E // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4D41388401C4 SelectPara
+
+FORWARD ME_4D4138A60088
+
+ME ME_4D413E090375
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4D413E090375 aText
+
+ME ME_4D4138A60088
+ MEPROP UID '4D4138A60088'
+ MEPROP Name 'SelectDocument'
+ MEPROP Class class_Operation
+ %SUMMARY 'Выделить документ целиком' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D4137E30326 // SelectOperation
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D413E090375 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4D4138A60088 SelectDocument
+
+ME ME_4D41387A03C1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D4137E30326 // SelectOperation
+ ;
+ MELINK Target WL 'ME_47C695D90332' '47C695A10172.ms.model.script' // TevSelectTarget
+ ;
+
+ENDME // ME_4D41387A03C1 
+
+ME ME_4D4137E30326
+ MEPROP UID '4D4137E30326'
+ MEPROP Name 'SelectOperation'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Поддержка выделения параграфа, документа и т.п.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D41388401C4 // SelectPara
+ HWL ME_4D4138A60088 // SelectDocument
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D41387A03C1 // TevSelectTarget
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_SelectOperation_'
+ UP extprop:pas:UnitName 'SelectOperation.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\SelectOperation.imp.pas'
+
+ENDME // ME_4D4137E30326 SelectOperation

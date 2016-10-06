@@ -1,0 +1,41 @@
+// gtUtils3 540014C10254 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_540014C10254
+
+ME ME_540018DD025D
+ MEPROP UID '540018DD025D'
+ MEPROP Name 'gtRect'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540014C10254 // gtUtils3
+ ;
+
+ENDME // ME_540018DD025D gtRect
+
+ME ME_540014C10254
+ MEPROP UID '540014C10254'
+ MEPROP Name 'gtUtils3'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5400147B03C6' '5400147B03C6.ms.model.script' // RTL
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_540018DD025D // gtRect
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\gnotice_Shared\Source\Rtl\NOT_FINISHED_gtUtils3.pas'
+
+ENDME // ME_540014C10254 gtUtils3

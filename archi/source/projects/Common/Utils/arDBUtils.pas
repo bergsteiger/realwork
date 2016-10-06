@@ -13,7 +13,7 @@ uses
 ;
 
 const
- csBaseFileName = 'w:\archi\source\projects\Tools\CreateTestBase\TestBase\EtalonBase.zip';
+ csBaseFileName = 'EtalonBase.zip';
  csTestBaseDir = 'C:\Base\testbase';
  csTestDocsDir = 'w:\archi\source\projects\Archi\TestSet\ForBase\';
  csTestPictureDir = 'w:\archi\source\projects\Archi\TestSet\ForBase\Picutre';

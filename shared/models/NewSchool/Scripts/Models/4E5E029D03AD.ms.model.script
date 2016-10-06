@@ -1,0 +1,403 @@
+// DigitalSeparatorSupport 4E5E029D03AD Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E3922C20208
+
+FORWARD ME_4E5E029D03AD
+
+FORWARD ME_4E3922C20208
+
+ME ME_4E3922DB00BD
+ MEPROP UID '4E3922DB00BD'
+ MEPROP Name 'ev_cpsNone'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ничего не делать (не ждать разделител€, не выливать)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3922C20208 // TevCheckPointSeparator
+ ;
+
+ENDME // ME_4E3922DB00BD ev_cpsNone
+
+ME ME_4E3922E600F5
+ MEPROP UID '4E3922E600F5'
+ MEPROP Name 'ev_cpsWait'
+ MEPROP Class class_Attribute
+ %SUMMARY 'ждать разделител€.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3922C20208 // TevCheckPointSeparator
+ ;
+
+ENDME // ME_4E3922E600F5 ev_cpsWait
+
+ME ME_4E39230400CF
+ MEPROP UID '4E39230400CF'
+ MEPROP Name 'ev_cpsReady'
+ MEPROP Class class_Attribute
+ %SUMMARY 'готовность к выливке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3922C20208 // TevCheckPointSeparator
+ ;
+
+ENDME // ME_4E39230400CF ev_cpsReady
+
+ME ME_4E3922C20208
+ MEPROP UID '4E3922C20208'
+ MEPROP Name 'TevCheckPointSeparator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E3922DB00BD // ev_cpsNone
+ HWL ME_4E3922E600F5 // ev_cpsWait
+ HWL ME_4E39230400CF // ev_cpsReady
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4E3922C20208 TevCheckPointSeparator
+
+ME ME_4E5E030700D0
+ MEPROP UID '4E5E030700D0'
+ MEPROP Name 'f_WaitStyleD'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELINK Target HWL ME_4E3922C20208 // TevCheckPointSeparator
+ ;
+
+ENDME // ME_4E5E030700D0 f_WaitStyleD
+
+ME ME_4E5E150B0180
+ MEPROP UID '4E5E150B0180'
+ MEPROP Name 'f_DecimalOffset'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E5E150B0180 f_DecimalOffset
+
+FORWARD ME_4E39244B0106
+
+ME ME_4E39245F0359
+ MEPROP UID '4E39245F0359'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E39244B0106 // HasDigitalSeparatorAlignment
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E39245F0359 DoIt
+
+ME ME_4E39244B0106
+ MEPROP UID '4E39244B0106'
+ MEPROP Name 'HasDigitalSeparatorAlignment'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E39245F0359 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E39244B0106 HasDigitalSeparatorAlignment
+
+FORWARD ME_4E392479028C
+
+ME ME_4E39248C0092
+ MEPROP UID '4E39248C0092'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E392479028C // ContinueCell
+ ;
+
+ENDME // ME_4E39248C0092 DoIt
+
+ME ME_4E392479028C
+ MEPROP UID '4E392479028C'
+ MEPROP Name 'ContinueCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E39248C0092 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E392479028C ContinueCell
+
+FORWARD ME_4E5E1C8D0090
+
+ME ME_4E5E1CD8005B
+ MEPROP UID '4E5E1CD8005B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E1C8D0090 // CellStarted
+ ;
+
+ENDME // ME_4E5E1CD8005B DoIt
+
+ME ME_4E5E1C8D0090
+ MEPROP UID '4E5E1C8D0090'
+ MEPROP Name 'CellStarted'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '»нформируем о начале €чейки.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5E1CD8005B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E5E1C8D0090 CellStarted
+
+FORWARD ME_4E5E1CE40229
+
+ME ME_4E5E1CFC0274
+ MEPROP UID '4E5E1CFC0274'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E1CE40229 // CellFinished
+ ;
+
+ENDME // ME_4E5E1CFC0274 DoIt
+
+ME ME_4E5E1CE40229
+ MEPROP UID '4E5E1CE40229'
+ MEPROP Name 'CellFinished'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ячейка закончена.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5E1CFC0274 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E5E1CE40229 CellFinished
+
+FORWARD ME_4E5E22FB0348
+
+FORWARD ME_4E5E23190020
+
+ME ME_4E5E234E02C5
+ MEPROP Name 'anAtomIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E5E234E02C5 anAtomIndex
+
+ME ME_4E5E234E02E5
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_469F893F01AB' '4678137501EA.ms.model.script' // Tk2Variant
+ ;
+
+ENDME // ME_4E5E234E02E5 aValue
+
+ME ME_4E5E23190020
+ MEPROP UID '4E5E23190020'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E22FB0348 // SetDigitalSeparatorParams
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E5E234E02C5 // anAtomIndex
+ ME_4E5E234E02E5 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4E5E23190020 DoIt
+
+ME ME_4E5E22FB0348
+ MEPROP UID '4E5E22FB0348'
+ MEPROP Name 'SetDigitalSeparatorParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5E23190020 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E5E22FB0348 SetDigitalSeparatorParams
+
+FORWARD ME_4E5E26150131
+
+ME ME_4E5E263D03BF
+ MEPROP UID '4E5E263D03BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E26150131 // GetDigitalSeparatorOffset
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E5E263D03BF DoIt
+
+ME ME_4E5E26150131
+ MEPROP UID '4E5E26150131'
+ MEPROP Name 'GetDigitalSeparatorOffset'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E5E263D03BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E5E26150131 GetDigitalSeparatorOffset
+
+ME ME_4E5E296801DD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4E5E296801DD 
+
+ME ME_4E5E2A120335
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELINK Target WL 'ME_468A69990133' '4677FBA70343.ms.model.script' // Tl3TabStopStyle
+ ;
+
+ENDME // ME_4E5E2A120335 
+
+ME ME_4E5E2A4F0350
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4E5E2A4F0350 
+
+ME ME_4E5E2A6602F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4E5E2A6602F4 
+
+ME ME_5314390B0040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E5E029D03AD // DigitalSeparatorSupport
+ ;
+ MELINK Target WL 'ME_4C8A3B45005E' '47878E0E0191.ms.model.script' // l3Same
+ ;
+
+ENDME // ME_5314390B0040 
+
+ME ME_4E5E029D03AD
+ MEPROP UID '4E5E029D03AD'
+ MEPROP Name 'DigitalSeparatorSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E5E030700D0 // f_WaitStyleD
+ HWL ME_4E5E150B0180 // f_DecimalOffset
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E39244B0106 // HasDigitalSeparatorAlignment
+ HWL ME_4E392479028C // ContinueCell
+ HWL ME_4E5E1C8D0090 // CellStarted
+ HWL ME_4E5E1CE40229 // CellFinished
+ HWL ME_4E5E22FB0348 // SetDigitalSeparatorParams
+ HWL ME_4E5E26150131 // GetDigitalSeparatorOffset
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4E3922C20208 // TevCheckPointSeparator
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E5E296801DD // Tk2TagID
+ ME_4E5E2A120335 // Tl3TabStopStyle
+ ME_4E5E2A4F0350 // TableCell
+ ME_4E5E2A6602F4 // Table
+ ME_5314390B0040 // l3Same
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_DigitalSeparatorSupport_'
+ UP extprop:pas:UnitName 'DigitalSeparatorSupport.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\DigitalSeparatorSupport.imp.pas'
+
+ENDME // ME_4E5E029D03AD DigitalSeparatorSupport

@@ -1,0 +1,174 @@
+// nsUnknownComponentWithIvcmState 4F9A6F66035C Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F9A6F66035C
+
+FORWARD ME_4F9AB1780087
+
+FORWARD ME_4F9AB1860120
+
+ME ME_4F9AB1C0002A
+ MEPROP Name 'theState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_4F9AB1C0002A theState
+
+ME ME_4F9AB18F0213
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_4F9AB18F0213 aStateType
+
+ME ME_4F9AB1860120
+ MEPROP UID '4F9AB1860120'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9AB1780087 // DoLoadState
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F9AB1C0002A // theState
+ ME_4F9AB18F0213 // aStateType
+ )
+ ; // Parameters
+
+ENDME // ME_4F9AB1860120 DoIt
+
+ME ME_4F9AB1780087
+ MEPROP UID '4F9AB1780087'
+ MEPROP Name 'DoLoadState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A6F66035C // nsUnknownComponentWithIvcmState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F9AB1860120 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F9AB1780087 DoLoadState
+
+FORWARD ME_4F9AB19F020B
+
+FORWARD ME_4F9AB1AA0369
+
+ME ME_4F9AB1AD00BD
+ MEPROP Name 'theState'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_4242EBBB03B9' '3DBFDB23006E.ms.model.script' // object
+ ;
+
+ENDME // ME_4F9AB1AD00BD theState
+
+ME ME_4F9AB1AD00E3
+ MEPROP Name 'aStateType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CBFD032D' '467BAB7F021E.ms.model.script' // TvcmStateType
+ ;
+
+ENDME // ME_4F9AB1AD00E3 aStateType
+
+ME ME_4F9AB1AA0369
+ MEPROP UID '4F9AB1AA0369'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F9AB19F020B // DoSaveState
+ ;
+ MELINK Target WL 'ME_3DBFFE100240' '3DBFDB23006E.ms.model.script' // boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F9AB1AD00BD // theState
+ ME_4F9AB1AD00E3 // aStateType
+ )
+ ; // Parameters
+
+ENDME // ME_4F9AB1AA0369 DoIt
+
+ME ME_4F9AB19F020B
+ MEPROP UID '4F9AB19F020B'
+ MEPROP Name 'DoSaveState'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F9A6F66035C // nsUnknownComponentWithIvcmState
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F9AB1AA0369 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F9AB19F020B DoSaveState
+
+ME ME_4683E75B01D8_ME_4F9A6F66035C
+ MELINK Original WL 'ME_4683E75B01D8' '467BAB7F021E.ms.model.script' // SaveState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4683E75B01D8_ME_4F9A6F66035C SaveState
+
+ME ME_4683E79D0331_ME_4F9A6F66035C
+ MELINK Original WL 'ME_4683E79D0331' '467BAB7F021E.ms.model.script' // LoadState
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4683E79D0331_ME_4F9A6F66035C LoadState
+
+%%ImplementedBy ME_467C166B007B ME_4F9A6F66035C
+
+%%InheritedBy ME_4F9A57620120 ME_4F9A6F66035C
+
+ME ME_4F9A6F66035C
+ MEPROP UID '4F9A6F66035C'
+ MEPROP Name 'nsUnknownComponentWithIvcmState'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_53288DFA03A7' '53288DFA03A7.ms.model.script' // NewReminders
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F9A57620120' '4F9A57620120.ms.model.script' // nsUnknownComponent
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_467C166B007B' '467BAB7F021E.ms.model.script' // IvcmState
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4F9AB1780087 // DoLoadState
+ HWL ME_4F9AB19F020B // DoSaveState
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4683E75B01D8_ME_4F9A6F66035C // SaveState
+ ME_4683E79D0331_ME_4F9A6F66035C // LoadState
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'DesignTimeLibrary'
+ UP extprop:pas:TypeName '_nsUnknownComponentWithIvcmState_'
+ UP extprop:pas:UnitName 'nsUnknownComponentWithIvcmState.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\nsUnknownComponentWithIvcmState.imp.pas'
+
+ENDME // ME_4F9A6F66035C nsUnknownComponentWithIvcmState

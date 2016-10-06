@@ -2,62 +2,16 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AC9B15903E7
+%%Inner ME_4AC9C67300A2
+%%Inner ME_4AC9CB12015D
+%%Inner ME_4AC9DB95006B
+%%Inner ME_4ACA30C3014C
+%%Inner ME_4ACA39B902E9
+%%Inner ME_4AD59B96038C
+%%Inner ME_530495650309
+
 FORWARD ME_4AC9B14A02E3
-
-FORWARD ME_4AC9B15903E7
-
-ME ME_4AC9DA070125
- MEPROP UID '4AC9DA070125'
- MEPROP Name 'TnscArrangeGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC9B15903E7 // nscArrangeGrid
- ;
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ArrangeGrid'
-
-ENDME // ME_4AC9DA070125 TnscArrangeGrid
-
-ME ME_4AC9B17D0364
- MEPROP UID '4AC9B17D0364'
- MEPROP Name 'agArrangeGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AC9B15903E7 // nscArrangeGrid
- ;
-
-ENDME // ME_4AC9B17D0364 agArrangeGrid
-
-ME ME_4AC9B15903E7
- MEPROP UID '4AC9B15903E7'
- MEPROP Name 'nscArrangeGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AC9B14A02E3 // Grid
- ;
- MELIST Operations
-   Seq: ( HWL ME_4AC9B17D0364 // agArrangeGrid
- )
- ; // Operations
- MELIST Children
-   Seq: ( HWL ME_4AC9DA070125 // TnscArrangeGrid
- )
- ; // Children
- UP "finished" False
- UP extprop:rc:SelfName 'ArrangeGrid'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGrid.pas'
-
-ENDME // ME_4AC9B15903E7 nscArrangeGrid
 
 ME ME_4AC9CB12015D
  MEPROP UID '4AC9CB12015D'
@@ -77,100 +31,13 @@ ME ME_4AC9CB12015D
 
 ENDME // ME_4AC9CB12015D TnscTabTable
 
-FORWARD ME_4AC9DB95006B
-
-ME ME_4AC9D9F9028E
- MEPROP UID '4AC9D9F9028E'
- MEPROP Name 'TnscHideFieldCell'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC9DB95006B // nscArrangeGridCell
- ;
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'HideFieldCell'
-
-ENDME // ME_4AC9D9F9028E TnscHideFieldCell
-
-FORWARD ME_4ACA309200D3
-
-FORWARD ME_4ACA31830369
-
-ME ME_4ACA318803CB
- MEPROP Name 'aControl'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
- ;
-
-ENDME // ME_4ACA318803CB aControl
-
-ME ME_4ACA31830369
- MEPROP UID '4ACA31830369'
- MEPROP Name 'Create'
- MEPROP Class class_Operation
- MELINK Stereotype st_vctor::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4ACA309200D3 // TagControlCell
- ;
- MELIST Parameters
-   Seq: ( ME_4ACA318803CB // aControl
- )
- ; // Parameters
-
-ENDME // ME_4ACA31830369 Create
-
-ME ME_4ACA309200D3
- MEPROP UID '4ACA309200D3'
- MEPROP Name 'TagControlCell'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC9DB95006B // nscArrangeGridCell
- ;
- MELIST Operations
-   Seq: ( HWL ME_4ACA31830369 // Create
- )
- ; // Operations
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'agControlCell'
-
-ENDME // ME_4ACA309200D3 TagControlCell
-
-ME ME_4AC9DB95006B
- MEPROP UID '4AC9DB95006B'
- MEPROP Name 'nscArrangeGridCell'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Ячейки сетки контролов' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AC9B14A02E3 // Grid
- ;
- MELIST Children
-   Seq: ( HWL ME_4AC9D9F9028E // TnscHideFieldCell
- HWL ME_4ACA309200D3 // TagControlCell
- )
- ; // Children
- UP "finished" False
- UP extprop:rc:SelfName 'ArrangeGridCell'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGridCell.pas'
-
-ENDME // ME_4AC9DB95006B nscArrangeGridCell
-
 ME ME_4ACA31830369_ME_4ACA30C3014C
- MELINK Original HWL ME_4ACA31830369 // Create
+ MELINK Original WL 'ME_4ACA31830369' '4AC9DB95006B.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4ACA31830369_ME_4ACA30C3014C Create
+
+%%InheritedBy ME_4ACA309200D3 ME_4ACA30C3014C
 
 ME ME_4ACA30C3014C
  MEPROP UID '4ACA30C3014C'
@@ -184,7 +51,7 @@ ME ME_4ACA30C3014C
  MELINK Parent HWL ME_4AC9B14A02E3 // Grid
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4ACA309200D3 // TagControlCell
+   Seq: ( WL 'ME_4ACA309200D3' '4AC9DB95006B.ms.model.script' // TagControlCell
  )
  ; // Inherits
  MELIST Overridden
@@ -202,10 +69,12 @@ ME ME_4ACA30C3014C
 ENDME // ME_4ACA30C3014C TnscFixedHeightControlCell
 
 ME ME_4ACA31830369_ME_4ACA39B902E9
- MELINK Original HWL ME_4ACA31830369 // Create
+ MELINK Original WL 'ME_4ACA31830369' '4AC9DB95006B.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4ACA31830369_ME_4ACA39B902E9 Create
+
+%%InheritedBy ME_4ACA309200D3 ME_4ACA39B902E9
 
 ME ME_4ACA39B902E9
  MEPROP UID '4ACA39B902E9'
@@ -219,7 +88,7 @@ ME ME_4ACA39B902E9
  MELINK Parent HWL ME_4AC9B14A02E3 // Grid
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4ACA309200D3 // TagControlCell
+   Seq: ( WL 'ME_4ACA309200D3' '4AC9DB95006B.ms.model.script' // TagControlCell
  )
  ; // Inherits
  MELIST Overridden
@@ -236,436 +105,6 @@ ME ME_4ACA39B902E9
 
 ENDME // ME_4ACA39B902E9 TnscFixedWidthControlCell
 
-FORWARD ME_4AD59B96038C
-
-ME ME_4AD59BA401C1
- MEPROP UID '4AD59BA401C1'
- MEPROP Name 'TnscTreeViewTabCell'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AD59B96038C // nscTabTableCell
- ;
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'TreeViewTabCell'
-
-ENDME // ME_4AD59BA401C1 TnscTreeViewTabCell
-
-ME ME_4AD59B96038C
- MEPROP UID '4AD59B96038C'
- MEPROP Name 'nscTabTableCell'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AC9B14A02E3 // Grid
- ;
- MELIST Children
-   Seq: ( HWL ME_4AD59BA401C1 // TnscTreeViewTabCell
- )
- ; // Children
- UP "finished" False
- UP extprop:rc:SelfName 'TabTableCell'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscTabTableCell.pas'
-
-ENDME // ME_4AD59B96038C nscTabTableCell
-
-FORWARD ME_530495650309
-
-ME ME_5305A6C50214
- MEPROP UID '5305A6C50214'
- MEPROP Name 'THackControl'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'HackControl'
-
-ENDME // ME_5305A6C50214 THackControl
-
-ME ME_53049FA40023
- MEPROP UID '53049FA40023'
- MEPROP Name 'f_Grid'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELINK Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.ms.model.script' // InscArrangeGrid
- ;
-
-ENDME // ME_53049FA40023 f_Grid
-
-ME ME_5304ACA500F4
- MEPROP UID '5304ACA500F4'
- MEPROP Name 'f_ArrangeCount'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_5304ACA500F4 f_ArrangeCount
-
-ME ME_5304958A00B1
- MEPROP UID '5304958A00B1'
- MEPROP Name 'BuildGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
-
-ENDME // ME_5304958A00B1 BuildGrid
-
-ME ME_530495F40209
- MEPROP UID '530495F40209'
- MEPROP Name 'ArrangeGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
-
-ENDME // ME_530495F40209 ArrangeGrid
-
-ME ME_5304960402E1
- MEPROP UID '5304960402E1'
- MEPROP Name 'RecalcGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
-
-ENDME // ME_5304960402E1 RecalcGrid
-
-FORWARD ME_530496230291
-
-ME ME_530496A000F1
- MEPROP UID '530496A000F1'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_530496230291 // GridParentControl
- ;
- MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
- ;
-
-ENDME // ME_530496A000F1 DoIt
-
-ME ME_530496230291
- MEPROP UID '530496230291'
- MEPROP Name 'GridParentControl'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELIST Operations
-   Seq: ( HWL ME_530496A000F1 // DoIt
- )
- ; // Operations
-
-ENDME // ME_530496230291 GridParentControl
-
-FORWARD ME_530496BF0361
-
-ME ME_530496CE0178
- MEPROP UID '530496CE0178'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_530496BF0361 // DoBuildGrid
- ;
- MELINK Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.ms.model.script' // InscArrangeGrid
- ;
-
-ENDME // ME_530496CE0178 DoIt
-
-ME ME_530496BF0361
- MEPROP UID '530496BF0361'
- MEPROP Name 'DoBuildGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELIST Operations
-   Seq: ( HWL ME_530496CE0178 // DoIt
- )
- ; // Operations
-
-ENDME // ME_530496BF0361 DoBuildGrid
-
-FORWARD ME_5304972201A1
-
-FORWARD ME_53049F7A0085
-
-ME ME_53049F8301C2
- MEPROP Name 'aGrid'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.ms.model.script' // InscArrangeGrid
- ;
-
-ENDME // ME_53049F8301C2 aGrid
-
-ME ME_53049F7A0085
- MEPROP UID '53049F7A0085'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5304972201A1 // DoRecalcGrid
- ;
- MELIST Parameters
-   Seq: ( ME_53049F8301C2 // aGrid
- )
- ; // Parameters
-
-ENDME // ME_53049F7A0085 DoIt
-
-ME ME_5304972201A1
- MEPROP UID '5304972201A1'
- MEPROP Name 'DoRecalcGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELIST Operations
-   Seq: ( HWL ME_53049F7A0085 // DoIt
- )
- ; // Operations
-
-ENDME // ME_5304972201A1 DoRecalcGrid
-
-FORWARD ME_5304AC3C01D4
-
-FORWARD ME_5304AC51031E
-
-ME ME_5304AC580073
- MEPROP Name 'aSender'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
- ;
-
-ENDME // ME_5304AC580073 aSender
-
-ME ME_5304AC51031E
- MEPROP UID '5304AC51031E'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5304AC3C01D4 // GridSizeChanged
- ;
- MELIST Parameters
-   Seq: ( ME_5304AC580073 // aSender
- )
- ; // Parameters
-
-ENDME // ME_5304AC51031E DoIt
-
-ME ME_5304AC3C01D4
- MEPROP UID '5304AC3C01D4'
- MEPROP Name 'GridSizeChanged'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELIST Operations
-   Seq: ( HWL ME_5304AC51031E // DoIt
- )
- ; // Operations
-
-ENDME // ME_5304AC3C01D4 GridSizeChanged
-
-FORWARD ME_5305A79C02E4
-
-FORWARD ME_5305A7BB005C
-
-ME ME_5305A7C80035
- MEPROP Name 'aSender'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
- ;
-
-ENDME // ME_5305A7C80035 aSender
-
-ME ME_5305A7BB005C
- MEPROP UID '5305A7BB005C'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5305A79C02E4 // GridParentControlResize
- ;
- MELIST Parameters
-   Seq: ( ME_5305A7C80035 // aSender
- )
- ; // Parameters
-
-ENDME // ME_5305A7BB005C DoIt
-
-ME ME_5305A79C02E4
- MEPROP UID '5305A79C02E4'
- MEPROP Name 'GridParentControlResize'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELIST Operations
-   Seq: ( HWL ME_5305A7BB005C // DoIt
- )
- ; // Operations
-
-ENDME // ME_5305A79C02E4 GridParentControlResize
-
-ME ME_5304A46A0253
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELINK Target WL 'ME_4AC9AFDC013C' '4AC9AFCE00DC.ms.model.script' // InscArrangeGrid
- ;
-
-ENDME // ME_5304A46A0253 
-
-ME ME_5304A4E303BB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELINK Target HWL ME_4AC9B15903E7 // nscArrangeGrid
- ;
-
-ENDME // ME_5304A4E303BB 
-
-ME ME_5304A50600BB
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELINK Target WL 'ME_4E01D5E50001' '4AADF9450143.ms.model.script' // vcmUserInteractiveForm
- ;
-
-ENDME // ME_5304A50600BB 
-
-ME ME_5305A789012E
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_530495650309 // nscFormWithArrangeGrid
- ;
- MELINK Target WL 'ME_47E11FC3021E' '4799D29F033F.ms.model.script' // Controls
- ;
-
-ENDME // ME_5305A789012E 
-
-ME ME_479731C50290_ME_530495650309
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_479731C50290_ME_530495650309 Cleanup
-
-ME ME_4B0E845502C1_ME_530495650309
- MELINK Original WL 'ME_4B0E845502C1' '4799D29F033F.ms.model.script' // NeedAutoScroll
- ;
- MEPROP OpKind opkind_Overridden
- UP "ifdef" 'l3HackedVCL'
-ENDME // ME_4B0E845502C1_ME_530495650309 NeedAutoScroll
-
-ME ME_530495650309
- MEPROP UID '530495650309'
- MEPROP Name 'nscFormWithArrangeGrid'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AC9B14A02E3 // Grid
- ;
- MELIST Implements
-   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_53049FA40023 // f_Grid
- HWL ME_5304ACA500F4 // f_ArrangeCount
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_5304958A00B1 // BuildGrid
- HWL ME_530495F40209 // ArrangeGrid
- HWL ME_5304960402E1 // RecalcGrid
- HWL ME_530496230291 // GridParentControl
- HWL ME_530496BF0361 // DoBuildGrid
- HWL ME_5304972201A1 // DoRecalcGrid
- HWL ME_5304AC3C01D4 // GridSizeChanged
- HWL ME_5305A79C02E4 // GridParentControlResize
- )
- ; // Operations
- MELIST Overridden
-   Seq: ( ME_479731C50290_ME_530495650309 // Cleanup
- ME_4B0E845502C1_ME_530495650309 // NeedAutoScroll
- )
- ; // Overridden
- MELIST Children
-   Seq: ( HWL ME_5305A6C50214 // THackControl
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_5304A46A0253 // InscArrangeGrid
- ME_5304A4E303BB // nscArrangeGrid
- ME_5304A50600BB // vcmUserInteractiveForm
- ME_5305A789012E // Controls
- )
- ; // Dependencies
- UP extprop:pas:TypeName '_nscFormWithArrangeGrid_'
- UP extprop:pas:UnitName 'nscFormWithArrangeGrid.imp'
- UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscFormWithArrangeGrid.imp.pas'
-
-ENDME // ME_530495650309 nscFormWithArrangeGrid
-
 ME ME_4AC9B14A02E3
  MEPROP UID '4AC9B14A02E3'
  MEPROP Name 'Grid'
@@ -677,14 +116,14 @@ ME ME_4AC9B14A02E3
  MELINK Parent WL 'ME_490838AA02D0' '490838AA02D0.ms.model.script' // Nemesis
  ;
  MELIST Children
-   Seq: ( HWL ME_4AC9B15903E7 // nscArrangeGrid
+   Seq: ( WL 'ME_4AC9B15903E7' '4AC9B15903E7.ms.model.script' // nscArrangeGrid
  WL 'ME_4AC9C67300A2' '4AC9C67300A2.ms.model.script' // TnscHideField
  HWL ME_4AC9CB12015D // TnscTabTable
- HWL ME_4AC9DB95006B // nscArrangeGridCell
+ WL 'ME_4AC9DB95006B' '4AC9DB95006B.ms.model.script' // nscArrangeGridCell
  HWL ME_4ACA30C3014C // TnscFixedHeightControlCell
  HWL ME_4ACA39B902E9 // TnscFixedWidthControlCell
- HWL ME_4AD59B96038C // nscTabTableCell
- HWL ME_530495650309 // nscFormWithArrangeGrid
+ WL 'ME_4AD59B96038C' '4AD59B96038C.ms.model.script' // nscTabTableCell
+ WL 'ME_530495650309' '530495650309.ms.model.script' // nscFormWithArrangeGrid
  )
  ; // Children
  MELIST Depends
@@ -700,6 +139,9 @@ ME ME_4AC9B14A02E3
  WL 'ME_53288DFA03A7' '53288DFA03A7.ms.model.script' // NewReminders
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "UseNewGen" True
 
 ENDME // ME_4AC9B14A02E3 Grid

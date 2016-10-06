@@ -1,0 +1,88 @@
+// l3Notifier 47F07B3E02E4 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F07B3E02E4
+
+FORWARD ME_47F08013024E
+
+ME ME_47F08026027A
+ MEPROP Name 'aOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47F08026027A aOperation
+
+ME ME_47F0802602B4
+ MEPROP Name 'aIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47F0802602B4 aIndex
+
+ME ME_47F08013024E
+ MEPROP UID '47F08013024E'
+ MEPROP Name 'CallNotify'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F07B3E02E4 // l3Notifier
+ ;
+ MELIST Parameters
+   Seq: ( ME_47F08026027A // aOperation
+ ME_47F0802602B4 // aIndex
+ )
+ ; // Parameters
+
+ENDME // ME_47F08013024E CallNotify
+
+ME ME_501A1B94007B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F07B3E02E4 // l3Notifier
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_501A1B94007B 
+
+%%InheritedBy ME_47F07AE10156 ME_47F07B3E02E4
+
+ME ME_47F07B3E02E4
+ MEPROP UID '47F07B3E02E4'
+ MEPROP Name 'l3Notifier'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F07AE10156' '47F07AE10156.ms.model.script' // l3NotifierBase
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47F08013024E // CallNotify
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_501A1B94007B // l3System
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '31.03.2008 09:49'
+ UP extprop:pas:TypeName '_l3Notifier_'
+ UP extprop:pas:UnitName 'l3Notifier.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Notifier.imp.pas'
+
+ENDME // ME_47F07B3E02E4 l3Notifier

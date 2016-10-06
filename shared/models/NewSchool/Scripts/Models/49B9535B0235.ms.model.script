@@ -1,0 +1,173 @@
+// m3StgMgr 49B9535B0235 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FA4EF660273
+%%Inner ME_49B9537D0202
+%%Inner ME_49B95372024C
+
+FORWARD ME_49B9535B0235
+
+ME ME_4FA4EF660273
+ MEPROP UID '4FA4EF660273'
+ MEPROP Name 'Tm3StorageManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49B9535B0235 // m3StgMgr
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3StorageManager'
+
+ENDME // ME_4FA4EF660273 Tm3StorageManager
+
+FORWARD ME_49B9537D0202
+
+ME ME_4FA276B2015D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B9537D0202 // Tm3FullModeStorageManager
+ ;
+ MELINK Target WL 'ME_4FA276920090' '5485B0D1026C.ms.model.script' // Tm3FileStream
+ ;
+
+ENDME // ME_4FA276B2015D 
+
+ME ME_4FA278F703DB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B9537D0202 // Tm3FullModeStorageManager
+ ;
+ MELINK Target WL 'ME_4FA278B00247' '5485B0D1026C.ms.model.script' // Tm3SplittedFileStream
+ ;
+
+ENDME // ME_4FA278F703DB 
+
+%%InheritedBy ME_4FA4EF660273 ME_49B9537D0202
+
+ME ME_49B9537D0202
+ MEPROP UID '49B9537D0202'
+ MEPROP Name 'Tm3FullModeStorageManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49B9535B0235 // m3StgMgr
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FA4EF660273 // Tm3StorageManager
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4FA276B2015D // Tm3FileStream
+ ME_4FA278F703DB // Tm3SplittedFileStream
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3FullModeStorageManager'
+
+ENDME // ME_49B9537D0202 Tm3FullModeStorageManager
+
+FORWARD ME_49B95372024C
+
+ME ME_4FA276AE022F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B95372024C // Tm3ReadModeStorageManager
+ ;
+ MELINK Target WL 'ME_4FA276920090' '5485B0D1026C.ms.model.script' // Tm3FileStream
+ ;
+
+ENDME // ME_4FA276AE022F 
+
+ME ME_4FA278F40184
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B95372024C // Tm3ReadModeStorageManager
+ ;
+ MELINK Target WL 'ME_4FA278B00247' '5485B0D1026C.ms.model.script' // Tm3SplittedFileStream
+ ;
+
+ENDME // ME_4FA278F40184 
+
+%%InheritedBy ME_4FA4EF660273 ME_49B95372024C
+
+ME ME_49B95372024C
+ MEPROP UID '49B95372024C'
+ MEPROP Name 'Tm3ReadModeStorageManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49B9535B0235 // m3StgMgr
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4FA4EF660273 // Tm3StorageManager
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_4FA276AE022F // Tm3FileStream
+ ME_4FA278F40184 // Tm3SplittedFileStream
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm3ReadModeStorageManager'
+
+ENDME // ME_49B95372024C Tm3ReadModeStorageManager
+
+ME ME_5418137C0145
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B9535B0235 // m3StgMgr
+ ;
+ MELINK Target WL 'ME_541813A902DD' '5485BC6B01F7.ms.model.script' // Tm3ArchiveStorage
+ ;
+
+ENDME // ME_5418137C0145 
+
+ME ME_5551C8820101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B9535B0235 // m3StgMgr
+ ;
+ MELINK Target WL 'ME_5551C8670144' '4742C9DB033A.ms.model.script' // Tm3StorageService
+ ;
+
+ENDME // ME_5551C8820101 
+
+ME ME_49B9535B0235
+ MEPROP UID '49B9535B0235'
+ MEPROP Name 'm3StgMgr'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Классы-менеджеры для работы с IStorage' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4742C9DB033A' '4742C9DB033A.ms.model.script' // m3DB
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4FA4EF660273 // Tm3StorageManager
+ HWL ME_49B9537D0202 // Tm3FullModeStorageManager
+ HWL ME_49B95372024C // Tm3ReadModeStorageManager
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5418137C0145 // Tm3ArchiveStorage
+ ME_5551C8820101 // Tm3StorageService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3StgMgr.pas'
+
+ENDME // ME_49B9535B0235 m3StgMgr

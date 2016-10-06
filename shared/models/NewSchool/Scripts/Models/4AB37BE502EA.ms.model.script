@@ -2,11 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4AB37C3E00BA
+%%Inner ME_4AB37CFD0365
+%%Inner ME_4AB37F0D0301
+%%Inner ME_4AB37F2003B6
+%%Inner ME_4AB386100070
+%%Inner ME_4AB38D7F0007
+%%Inner ME_4F191E6C0189
+
 FORWARD ME_4AB37BE502EA
 
 FORWARD ME_4AB37C3E00BA
-
-FORWARD ME_4ABA246700B4
 
 ME ME_4AB38ADC008B
  MEPROP UID '4AB38ADC008B'
@@ -18,15 +24,13 @@ ME ME_4AB38ADC008B
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB37C3E00BA // Tm4WordIDStr
  ;
- MELINK Target HWL ME_4ABA246700B4 // Tm4DictItemAddr
+ MELINK Target WL 'ME_4ABA246700B4' '4AB38D7F0007.ms.model.script' // Tm4DictItemAddr
  ;
  UP "needs field" True
  UP "pm" True
  UP "reads field" True
 
 ENDME // ME_4AB38ADC008B ID
-
-FORWARD ME_4AB38B45023C
 
 ME ME_4AB38B5E0320
  MEPROP UID '4AB38B5E0320'
@@ -38,7 +42,7 @@ ME ME_4AB38B5E0320
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB37C3E00BA // Tm4WordIDStr
  ;
- MELINK Target HWL ME_4AB38B45023C // Tm4WordID
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
  ;
 
 ENDME // ME_4AB38B5E0320 ItemType
@@ -62,7 +66,7 @@ ME ME_4AB3856602A8
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4AB37C3E00BA // Tm4WordIDStr
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_4AB385790382 // anOther
@@ -77,7 +81,7 @@ ME ME_4ABA218F03B6
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target HWL ME_4ABA246700B4 // Tm4DictItemAddr
+ MELINK Target WL 'ME_4ABA246700B4' '4AB38D7F0007.ms.model.script' // Tm4DictItemAddr
  ;
 
 ENDME // ME_4ABA218F03B6 anID
@@ -103,7 +107,7 @@ ME ME_4AB3882501E1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB37C3E00BA // Tm4WordIDStr
  ;
- MELINK Target WL 'ME_47BF045E0138' '47BF042D029B.ms.model.script' // m2MemLib
+ MELINK Target WL 'ME_47BF045E0138' '47BF045E0138.ms.model.script' // m2MemLib
  ;
 
 ENDME // ME_4AB3882501E1 
@@ -113,10 +117,13 @@ ME ME_4AB3884A02C6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB37C3E00BA // Tm4WordIDStr
  ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
  ;
 
 ENDME // ME_4AB3884A02C6 
+
+%%InheritedBy ME_47A1B04702C2 ME_4AB37C3E00BA
+%%InheritedBy ME_4A54DD4E036F ME_4AB37C3E00BA
 
 ME ME_4AB37C3E00BA
  MEPROP UID '4AB37C3E00BA'
@@ -130,7 +137,7 @@ ME ME_4AB37C3E00BA
  MELINK Parent HWL ME_4AB37BE502EA // Dict
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47A1B04702C2' '47913B47006E.ms.model.script' // l3AtomicList
+   Seq: ( WL 'ME_47A1B04702C2' '47A1B04702C2.ms.model.script' // l3AtomicList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -149,6 +156,9 @@ ME ME_4AB37C3E00BA
  ME_4AB3884A02C6 // l3MinMax
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '18.09.2009 16:36'
@@ -177,7 +187,7 @@ ME ME_4AB37D1D01CE
 ENDME // ME_4AB37D1D01CE ItemType
 
 ME ME_47B2C42A0163_ME_4AB37CFD0365
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -185,22 +195,25 @@ ME ME_47B2C42A0163_ME_4AB37CFD0365
 ENDME // ME_47B2C42A0163_ME_4AB37CFD0365 AssignItem
 
 ME ME_47B935AF0066_ME_4AB37CFD0365
- MELINK Original WL 'ME_47B935AF0066' '47BB24D30205.ms.model.script' // FillItem
+ MELINK Original WL 'ME_47B935AF0066' '47B45152003F.ms.model.script' // FillItem
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B935AF0066_ME_4AB37CFD0365 FillItem
 
 ME ME_47B94A5C006E_ME_4AB37CFD0365
- MELINK Original WL 'ME_47B94A5C006E' '47BB24D30205.ms.model.script' // FreeItem
+ MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B94A5C006E_ME_4AB37CFD0365 FreeItem
 
 ME ME_47B99D4503A2_ME_4AB37CFD0365
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_4AB37CFD0365 CompareExistingItems
+
+%%InheritedBy ME_47B5A0AE03CC ME_4AB37CFD0365
+%%InheritedBy ME_4A54DD4E036F ME_4AB37CFD0365
 
 ME ME_4AB37CFD0365
  MEPROP UID '4AB37CFD0365'
@@ -214,7 +227,7 @@ ME ME_4AB37CFD0365
  MELINK Parent HWL ME_4AB37BE502EA // Dict
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B5A0AE03CC' '47913B47006E.ms.model.script' // l3ObjectRefListPrim
+   Seq: ( WL 'ME_47B5A0AE03CC' '47B5A0AE03CC.ms.model.script' // l3ObjectRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -250,7 +263,7 @@ ME ME_4AB37F9903CA
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB37F0D0301 // Tm4Word
  ;
- MELINK Target HWL ME_4AB38B45023C // Tm4WordID
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
  ;
 
 ENDME // ME_4AB37F9903CA f_ID
@@ -266,7 +279,7 @@ ME ME_4AB773690008
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB37F0D0301 // Tm4Word
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "needs field" True
  UP "pm" True
@@ -290,7 +303,7 @@ ME ME_4AB3917D0200
  MEPROP Name 'anID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target HWL ME_4AB38B45023C // Tm4WordID
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
  ;
 
 ENDME // ME_4AB3917D0200 anID
@@ -313,12 +326,14 @@ ME ME_4AB37FB103D8
 ENDME // ME_4AB37FB103D8 Create
 
 ME ME_47BC3BFD017F_ME_4AB37F0D0301
- MELINK Original WL 'ME_47BC3BFD017F' '47913B47006E.ms.model.script' // StringID
+ MELINK Original WL 'ME_47BC3BFD017F' '53317D14019D.ms.model.script' // StringID
  ;
  MEPROP OpKind opkind_Overridden
  UP "needs field" False
  UP "pm" True
 ENDME // ME_47BC3BFD017F_ME_4AB37F0D0301 StringID
+
+%%InheritedBy ME_4773DED9004C ME_4AB37F0D0301
 
 ME ME_4AB37F0D0301
  MEPROP UID '4AB37F0D0301'
@@ -348,6 +363,9 @@ ME ME_4AB37F0D0301
    Seq: ( ME_47BC3BFD017F_ME_4AB37F0D0301 // StringID
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '18.09.2009 12:57'
@@ -369,7 +387,7 @@ ME ME_4AB38F380358
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB37F2003B6 // Tm4WordList
  ;
- MELINK Target HWL ME_4AB38B45023C // Tm4WordID
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
  ;
 
 ENDME // ME_4AB38F380358 f_NextID
@@ -402,7 +420,7 @@ ME ME_4AB390A10104
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_4AB38FE40091 // AddWord
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "IsResult" False
 
@@ -427,7 +445,7 @@ ME ME_4AB38FEE0208
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4AB38FE40091 // AddWord
  ;
- MELINK Target HWL ME_4AB38B45023C // Tm4WordID
+ MELINK Target WL 'ME_4AB38B45023C' '4AB38D7F0007.ms.model.script' // Tm4WordID
  ;
  MELIST Parameters
    Seq: ( ME_4AB38FF400C3 // aStr
@@ -441,7 +459,7 @@ ME ME_4AB392A300D3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4AB38FE40091 // AddWord
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_4AB392A300D3 
@@ -505,10 +523,12 @@ ME ME_4AB73FA7010F
 ENDME // ME_4AB73FA7010F 
 
 ME ME_47A042E100E2_ME_4AB37F2003B6
- MELINK Original WL 'ME_47A042E100E2' '47913B47006E.ms.model.script' // InitFields
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47A042E100E2_ME_4AB37F2003B6 InitFields
+
+%%InheritedBy ME_4773DCE302FF ME_4AB37F2003B6
 
 ME ME_4AB37F2003B6
  MEPROP UID '4AB37F2003B6'
@@ -543,6 +563,9 @@ ME ME_4AB37F2003B6
  ME_4AB73FA7010F // Tl3SortIndex
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '18.09.2009 12:57'
@@ -552,6 +575,8 @@ ME ME_4AB37F2003B6
  UP intf.pas:Path 'common\components\rtl\Garant\m4\m4WordList.pas'
 
 ENDME // ME_4AB37F2003B6 Tm4WordList
+
+%%InheritedBy ME_4AB37CFD0365 ME_4AB386100070
 
 ME ME_4AB386100070
  MEPROP UID '4AB386100070'
@@ -574,156 +599,6 @@ ME ME_4AB386100070
  UP intf.pas:Path 'common\components\rtl\Garant\m4\m4WordIDStrList.pas'
 
 ENDME // ME_4AB386100070 Tm4WordIDStrList
-
-FORWARD ME_4AB38D7F0007
-
-ME ME_4AB38D9A0062
- MEPROP UID '4AB38D9A0062'
- MEPROP Name 'Tm4DictItemID'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Идентификатор элемента словаря' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AB38D7F0007 // m4DictTypes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
-
-ENDME // ME_4AB38D9A0062 Tm4DictItemID
-
-ME ME_4AB38B45023C
- MEPROP UID '4AB38B45023C'
- MEPROP Name 'Tm4WordID'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Буква в строке' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AB38D7F0007 // m4DictTypes
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- )
- ; // Inherits
- UP extprop:rc:isAcceptableForScripts True
-
-ENDME // ME_4AB38B45023C Tm4WordID
-
-ME ME_4ABA24A103E6
- MEPROP UID '4ABA24A103E6'
- MEPROP Name 'rID'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4ABA246700B4 // Tm4DictItemAddr
- ;
- MELINK Target HWL ME_4AB38D9A0062 // Tm4DictItemID
- ;
-
-ENDME // ME_4ABA24A103E6 rID
-
-ME ME_4ABA24AC017E
- MEPROP UID '4ABA24AC017E'
- MEPROP Name 'rDictionaryID'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4ABA246700B4 // Tm4DictItemAddr
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4ABA24AC017E rDictionaryID
-
-FORWARD ME_4ABA24E701F2
-
-ME ME_4ABA25080130
- MEPROP Name 'anID'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target HWL ME_4AB38D9A0062 // Tm4DictItemID
- ;
-
-ENDME // ME_4ABA25080130 anID
-
-ME ME_4ABA2508017C
- MEPROP Name 'aDictionaryID'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4ABA2508017C aDictionaryID
-
-ME ME_4ABA24E701F2
- MEPROP UID '4ABA24E701F2'
- MEPROP Name 'C'
- MEPROP Class class_Operation
- MELINK Stereotype st_ctor::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4ABA246700B4 // Tm4DictItemAddr
- ;
- MELIST Parameters
-   Seq: ( ME_4ABA25080130 // anID
- ME_4ABA2508017C // aDictionaryID
- )
- ; // Parameters
-
-ENDME // ME_4ABA24E701F2 C
-
-ME ME_4ABA246700B4
- MEPROP UID '4ABA246700B4'
- MEPROP Name 'Tm4DictItemAddr'
- MEPROP Class class_Class
- MELINK Stereotype st_Struct ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4AB38D7F0007 // m4DictTypes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_4ABA24A103E6 // rID
- HWL ME_4ABA24AC017E // rDictionaryID
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_4ABA24E701F2 // C
- )
- ; // Operations
-
-ENDME // ME_4ABA246700B4 Tm4DictItemAddr
-
-ME ME_4AB38D7F0007
- MEPROP UID '4AB38D7F0007'
- MEPROP Name 'm4DictTypes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4AB37BE502EA // Dict
- ;
- MELIST Children
-   Seq: ( HWL ME_4AB38D9A0062 // Tm4DictItemID
- HWL ME_4AB38B45023C // Tm4WordID
- HWL ME_4ABA246700B4 // Tm4DictItemAddr
- )
- ; // Children
- UP "author" 'Люлин А.В.'
- UP "no hands" True
- UP "started" '18.09.2009 17:40'
- UP intf.pas:Path 'common\components\rtl\Garant\m4\m4DictTypes.pas'
-
-ENDME // ME_4AB38D7F0007 m4DictTypes
 
 ME ME_4F191E6C0189
  MEPROP UID '4F191E6C0189'
@@ -759,7 +634,7 @@ ME ME_4AB37BE502EA
  HWL ME_4AB37F0D0301 // Tm4Word
  HWL ME_4AB37F2003B6 // Tm4WordList
  HWL ME_4AB386100070 // Tm4WordIDStrList
- HWL ME_4AB38D7F0007 // m4DictTypes
+ WL 'ME_4AB38D7F0007' '4AB38D7F0007.ms.model.script' // m4DictTypes
  HWL ME_4F191E6C0189 // Tm4DB
  )
  ; // Children
@@ -773,5 +648,8 @@ ME ME_4AB37BE502EA
  WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4AB37BE502EA Dict

@@ -202,6 +202,7 @@ type
    procedure DoEnter; virtual;
    procedure KeyDown(var Key: Word;
     Shift: TShiftState); virtual;
+   procedure AdjustSize; virtual;
    procedure KeyPress(var Key: Char); virtual;
    procedure CreateWindowHandle(const Params: TCreateParams); virtual;
     {* Creates a Windows control to represent the control }
@@ -644,6 +645,15 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *554CABC100AC_47E124E90272_impl*
 end;//TWinControl.KeyDown
+
+procedure TWinControl.AdjustSize;
+//#UC START# *57E12CDC0172_47E124E90272_var*
+//#UC END# *57E12CDC0172_47E124E90272_var*
+begin
+//#UC START# *57E12CDC0172_47E124E90272_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57E12CDC0172_47E124E90272_impl*
+end;//TWinControl.AdjustSize
 
 procedure TWinControl.KeyPress(var Key: Char);
 //#UC START# *482C4E0E01E4_47E124E90272_var*

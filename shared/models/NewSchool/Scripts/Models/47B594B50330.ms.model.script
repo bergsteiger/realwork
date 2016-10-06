@@ -1,0 +1,115 @@
+// l3StandardTypedList 47B594B50330 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47B594B50330
+
+ME ME_47B594ED0306
+ MEPROP UID '47B594ED0306'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47B594B50330 // l3StandardTypedList
+ ;
+ MELINK Target WL 'ME_47AB20F40050' '47AB1FDE03E4.ms.model.script' // Tl3Ptr
+ ;
+
+ENDME // ME_47B594ED0306 DataType
+
+FORWARD ME_47B5B269032B
+
+ME ME_47B5B2730086
+ MEPROP Name 'aDuplicates'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+ MEPROP Value 'l3_dupIgnore'
+ MELINK ValueType WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+ UP extprop:pas:Value 'l3Types.l3_dupIgnore'
+
+ENDME // ME_47B5B2730086 aDuplicates
+
+ME ME_47B5B27300B7
+ MEPROP Name 'aSortIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+ MEPROP Value 'l3_siNative'
+ MELINK ValueType WL 'ME_476F958501F2' '4678193C009C.ms.model.script' // Tl3SortIndex
+ ;
+ UP extprop:pas:Value 'l3_siNative'
+
+ENDME // ME_47B5B27300B7 aSortIndex
+
+ME ME_47B5B269032B
+ MEPROP UID '47B5B269032B'
+ MEPROP Name 'MakeSorted'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ %SUMMARY 'Создает сортированный список' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B594B50330 // l3StandardTypedList
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B5B2730086 // aDuplicates
+ ME_47B5B27300B7 // aSortIndex
+ )
+ ; // Parameters
+ UP "ifndef" 'l3Items_NoSort'
+
+ENDME // ME_47B5B269032B MakeSorted
+
+ME ME_47B9868C0046
+ MEPROP UID '47B9868C0046'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47B594B50330 // l3StandardTypedList
+ ;
+
+ENDME // ME_47B9868C0046 Make
+
+%%InheritedBy ME_47B5C2EA02CB ME_47B594B50330
+
+ME ME_47B594B50330
+ MEPROP UID '47B594B50330'
+ MEPROP Name 'l3StandardTypedList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Стандартный типизированный список с размером элемента в 4 байта' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B5C2EA02CB' '47B5C2EA02CB.ms.model.script' // l3FourByteItemList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47B594ED0306 // DataType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47B5B269032B // MakeSorted
+ HWL ME_47B9868C0046 // Make
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_l3StandardTypedList_'
+ UP extprop:pas:UnitName 'l3StandardTypedList.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3StandardTypedList.imp.pas'
+
+ENDME // ME_47B594B50330 l3StandardTypedList

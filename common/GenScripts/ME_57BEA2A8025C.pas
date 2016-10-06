@@ -11,7 +11,7 @@ interface
 
 uses
  l3IntfUses
- , csMessageWithReply_Const
+ , csPersonificatedMessage_Const
  , k2Long_Const
  , k2Bool_Const
  , FoundSelector_Const

@@ -1,0 +1,61 @@
+// CosNaming_int 4CA1CBA90131 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CA1C7DB0156
+%%Inner ME_4CA1CBF401AD
+
+FORWARD ME_4CA1CBA90131
+
+ME ME_4CA1C7DB0156
+ MEPROP UID '4CA1C7DB0156'
+ MEPROP GUID '0384D0BB-0399-4340-8D2D-1DDCEAFAE2D6'
+ MEPROP Name 'INamingContext'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1CBA90131 // CosNaming_int
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NamingContext'
+
+ENDME // ME_4CA1C7DB0156 INamingContext
+
+ME ME_4CA1CBF401AD
+ MEPROP UID '4CA1CBF401AD'
+ MEPROP Name 'TName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CA1CBA90131 // CosNaming_int
+ ;
+
+ENDME // ME_4CA1CBF401AD TName
+
+ME ME_4CA1CBA90131
+ MEPROP UID '4CA1CBA90131'
+ MEPROP Name 'CosNaming_int'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CA0D13D017F' '4CA0D13D017F.ms.model.script' // idl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4CA1C7DB0156 // INamingContext
+ HWL ME_4CA1CBF401AD // TName
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\MTDOrb\src\idl\NOT_FINISHED_CosNaming_int.pas'
+
+ENDME // ME_4CA1CBA90131 CosNaming_int

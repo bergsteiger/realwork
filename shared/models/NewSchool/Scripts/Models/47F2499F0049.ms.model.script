@@ -1,0 +1,118 @@
+// evSegLst 47F2499F0049 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47F2499F0049
+
+ME ME_55CB15DB03A7
+ MEPROP UID '55CB15DB03A7'
+ MEPROP Name 'evSegments_GetSegmentOnPos'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F2499F0049 // evSegLst
+ ;
+ UP extprop:rc:SelfName 'Segments_GetSegmentOnPos'
+
+ENDME // ME_55CB15DB03A7 evSegments_GetSegmentOnPos
+
+FORWARD ME_47F249E30352
+
+ME ME_4811D0E603B5
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4811D0E603B5 aPara
+
+ME ME_4811D0E603D4
+ MEPROP Name 'aSegments'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4811D0E603D4 aSegments
+
+ME ME_4811D0E7000C
+ MEPROP Name 'LayerHandle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4811D0E7000C LayerHandle
+
+ME ME_4811D0E7002E
+ MEPROP Name 'Seg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_4811D0E7002E Seg
+
+ME ME_4811D0E70050
+ MEPROP Name 'Container'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4811D0E70050 Container
+
+ME ME_47F249E30352
+ MEPROP UID '47F249E30352'
+ MEPROP Name 'evSegments_AddSegment'
+ MEPROP Class class_Operation
+ %SUMMARY 'добавляет отрезок выделения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F2499F0049 // evSegLst
+ ;
+ MELIST Parameters
+   Seq: ( ME_4811D0E603B5 // aPara
+ ME_4811D0E603D4 // aSegments
+ ME_4811D0E7000C // LayerHandle
+ ME_4811D0E7002E // Seg
+ ME_4811D0E70050 // Container
+ )
+ ; // Parameters
+
+ENDME // ME_47F249E30352 evSegments_AddSegment
+
+ME ME_47F2499F0049
+ MEPROP UID '47F2499F0049'
+ MEPROP Name 'evSegLst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объекты для работы со слоями сегментов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55CB15DB03A7 // evSegments_GetSegmentOnPos
+ HWL ME_47F249E30352 // evSegments_AddSegment
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '13.03.1997 16:39'
+ UP extprop:rc:SelfName 'SegLst'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evSegLst.pas'
+
+ENDME // ME_47F2499F0049 evSegLst

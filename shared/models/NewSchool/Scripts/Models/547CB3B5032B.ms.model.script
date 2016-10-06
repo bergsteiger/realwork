@@ -1,0 +1,211 @@
+// evToolPanel 547CB3B5032B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_547CB3C6025E
+
+FORWARD ME_547CB3C6025E
+
+FORWARD ME_547CB3B5032B
+
+ME ME_547CB49A021A
+ MEPROP UID '547CB49A021A'
+ MEPROP Name 'Orientation'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_547CB3C6025E // TevCustomToolPanel
+ ;
+ MELINK Target WL 'ME_46A47DE80309' '4677FBA70343.ms.model.script' // Tl3Orientation1
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_547CB49A021A Orientation
+
+FORWARD ME_547CB4C800EA
+
+ME ME_D73698249273
+ MEPROP UID 'D73698249273'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода OrientationChanged' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547CB4C800EA // OrientationChanged
+ ;
+
+ENDME // ME_D73698249273 DoIt
+
+ME ME_547CB4C800EA
+ MEPROP UID '547CB4C800EA'
+ MEPROP Name 'OrientationChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_547CB3C6025E // TevCustomToolPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_D73698249273 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_547CB4C800EA OrientationChanged
+
+FORWARD ME_547CC36E00D5
+
+FORWARD ME_547CC3A1015B
+
+ME ME_547CC3A20136
+ MEPROP Name 'iD'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A47F9302DA' '4677FBA70343.ms.model.script' // Tl3Inch
+ ;
+
+ENDME // ME_547CC3A20136 iD
+
+ME ME_547CC3A1015B
+ MEPROP UID '547CC3A1015B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_547CC36E00D5 // DoScroll
+ ;
+ MELIST Parameters
+   Seq: ( ME_547CC3A20136 // iD
+ )
+ ; // Parameters
+
+ENDME // ME_547CC3A1015B DoIt
+
+ME ME_547CC36E00D5
+ MEPROP UID '547CC36E00D5'
+ MEPROP Name 'DoScroll'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_547CB3C6025E // TevCustomToolPanel
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_547CC3A1015B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_547CC36E00D5 DoScroll
+
+ME ME_547CB58B0351
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_547CB3C6025E // TevCustomToolPanel
+ ;
+ MELINK Target WL 'ME_47E11FC3021E' '47E11FC3021E.ms.model.script' // Controls
+ ;
+
+ENDME // ME_547CB58B0351 
+
+ME ME_547CA089003C_ME_547CB3C6025E
+ MELINK Original WL 'ME_547CA089003C' '547C9F6D029C.ms.model.script' // Scroll
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_547CA089003C_ME_547CB3C6025E Scroll
+
+ME ME_547CA0940115_ME_547CB3C6025E
+ MELINK Original WL 'ME_547CA0940115' '547C9F6D029C.ms.model.script' // Invalidate
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_547CA0940115_ME_547CB3C6025E Invalidate
+
+ME ME_547CA0B40252_ME_547CB3C6025E
+ MELINK Original WL 'ME_547CA0B40252' '547C9F6D029C.ms.model.script' // Visible
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_547CA0B40252_ME_547CB3C6025E Visible
+
+%%ImplementedBy ME_547CA05403A0 ME_547CB3C6025E
+
+%%InheritedBy ME_50FD1AE5027A ME_547CB3C6025E
+
+ME ME_547CB3C6025E
+ MEPROP UID '547CB3C6025E'
+ MEPROP Name 'TevCustomToolPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовый класс для инструментальных панелей' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_547CB3B5032B // evToolPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_50FD1AE5027A' '4A7961A701CF.ms.model.script' // TvtCustomPanel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_547CA05403A0' '547C9F6D029C.ms.model.script' // IevToolWindow
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_547CB49A021A // Orientation
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_547CB4C800EA // OrientationChanged
+ HWL ME_547CC36E00D5 // DoScroll
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_547CA089003C_ME_547CB3C6025E // Scroll
+ ME_547CA0940115_ME_547CB3C6025E // Invalidate
+ ME_547CA0B40252_ME_547CB3C6025E // Visible
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_547CB58B0351 // Controls
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'uses' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ToolPanel'
+
+ENDME // ME_547CB3C6025E TevCustomToolPanel
+
+%%InheritedBy ME_547CB3C6025E ME_547CB3B5032B
+
+ME ME_547CB3B5032B
+ MEPROP UID '547CB3B5032B'
+ MEPROP Name 'evToolPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_547CB376012F' '547CB376012F.ms.model.script' // ToolPanel
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_547CB3C6025E // TevCustomToolPanel
+ )
+ ; // Inherits
+ MELIST Children
+   Seq: ( HWL ME_547CB3C6025E // TevCustomToolPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ToolPanel'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evToolPanel.pas'
+
+ENDME // ME_547CB3B5032B evToolPanel

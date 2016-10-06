@@ -1,0 +1,134 @@
+// tfwDictionaryListIteratorPrim 55E9A6C303B7 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55E9A72901EA
+
+FORWARD ME_55E9A6C303B7
+
+ME ME_55E9A72901EA
+ MEPROP UID '55E9A72901EA'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ UP extprop:pas:TypeName '_ListType_'
+
+ENDME // ME_55E9A72901EA ListType
+
+FORWARD ME_55AE64E00011
+
+ME ME_55AE64E901CC
+ MEPROP UID '55AE64E901CC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE64E00011 // ListToIterate
+ ;
+ MELINK Target HWL ME_55E9A72901EA // ListType
+ ;
+
+ENDME // ME_55AE64E901CC DoIt
+
+ME ME_55AE64E00011
+ MEPROP UID '55AE64E00011'
+ MEPROP Name 'ListToIterate'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55AE64E901CC // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55AE64E00011 ListToIterate
+
+ME ME_55E9A7E6008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55E9A6C303B7 // tfwDictionaryListIteratorPrim
+ ;
+ MELINK Target WL 'ME_4DAEECD90016' '4F2275C00012.ms.model.script' // TtfwDictionary
+ ;
+
+ENDME // ME_55E9A7E6008D 
+
+ME ME_52E23B7A00EC_ME_55E9A6C303B7
+ MELINK Original WL 'ME_52E23B7A00EC' '4DAF19F600C5.ms.model.script' // ForEach
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52E23B7A00EC_ME_55E9A6C303B7 ForEach
+
+ME ME_52E23BB102FA_ME_55E9A6C303B7
+ MELINK Original WL 'ME_52E23BB102FA' '4DAF19F600C5.ms.model.script' // ForEachBack
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_52E23BB102FA_ME_55E9A6C303B7 ForEachBack
+
+ME ME_55CDF40C03D4_ME_55E9A6C303B7
+ MELINK Original WL 'ME_55CDF40C03D4' '4DAF19F600C5.ms.model.script' // SetItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55CDF40C03D4_ME_55E9A6C303B7 SetItem
+
+ME ME_55E849210175_ME_55E9A6C303B7
+ MELINK Original WL 'ME_55E849210175' '4DAF19F600C5.ms.model.script' // ItemsCountInSlice
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_55E849210175_ME_55E9A6C303B7 ItemsCountInSlice
+
+%%ImplementedBy ME_4DCC12FC0125 ME_55E9A6C303B7
+%%ImplementedBy ME_55E9A65B0186 ME_55E9A6C303B7
+
+ME ME_55E9A6C303B7
+ MEPROP UID '55E9A6C303B7'
+ MEPROP Name 'tfwDictionaryListIteratorPrim'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F2275C00012' '4F2275C00012.ms.model.script' // ScriptingKeywordsCore
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4DCC12FC0125' '4DAF19F600C5.ms.model.script' // ItfwValueList
+ WL 'ME_55E9A65B0186' '54F0A4A302FF.ms.model.script' // MtfwIteratableParent
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55AE64E00011 // ListToIterate
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_52E23B7A00EC_ME_55E9A6C303B7 // ForEach
+ ME_52E23BB102FA_ME_55E9A6C303B7 // ForEachBack
+ ME_55CDF40C03D4_ME_55E9A6C303B7 // SetItem
+ ME_55E849210175_ME_55E9A6C303B7 // ItemsCountInSlice
+ )
+ ; // Implemented
+ MELIST Children
+   Seq: ( HWL ME_55E9A72901EA // ListType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55E9A7E6008D // TtfwDictionary
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_tfwDictionaryListIteratorPrim_'
+ UP extprop:pas:UnitName 'tfwDictionaryListIteratorPrim.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwDictionaryListIteratorPrim.imp.pas'
+
+ENDME // ME_55E9A6C303B7 tfwDictionaryListIteratorPrim

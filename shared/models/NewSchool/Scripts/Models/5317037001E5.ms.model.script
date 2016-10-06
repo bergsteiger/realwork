@@ -1,0 +1,51 @@
+// csAutoAnnoExport 5317037001E5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_531703820305
+
+FORWARD ME_5317037001E5
+
+%%InheritedBy ME_53BA72D102A5 ME_531703820305
+
+ME ME_531703820305
+ MEPROP UID '531703820305'
+ MEPROP Name 'TcsAutoAnnoExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5317037001E5 // csAutoAnnoExport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53BA72D102A5' '52F8C298005C.ms.model.script' // TcsAutoAnnoExportPrim
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csAutoAnnoExport'
+
+ENDME // ME_531703820305 TcsAutoAnnoExport
+
+ME ME_5317037001E5
+ MEPROP UID '5317037001E5'
+ MEPROP Name 'csAutoAnnoExport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_531703820305 // TcsAutoAnnoExport
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csAutoAnnoExport.pas'
+
+ENDME // ME_5317037001E5 csAutoAnnoExport

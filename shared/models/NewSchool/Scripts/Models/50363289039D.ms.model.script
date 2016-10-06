@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_503632AC03D9
+%%Inner ME_503632E400D2
+%%Inner ME_55AE3EAE00F3
+
 FORWARD ME_50363289039D
 
 FORWARD ME_503632AC03D9
@@ -34,7 +38,7 @@ ME ME_50363403022C
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_503633240255 // SomeFormatToXML
  ;
- MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
  ;
  UP "IsResult" False
 
@@ -55,10 +59,10 @@ ME ME_50363345009D
  MEPROP Name 'NeedCheck'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value True
 
@@ -99,6 +103,9 @@ ME ME_503633240255
    Seq: ( HWL ME_5036333D0023 // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_503633240255 SomeFormatToXML
 
@@ -126,7 +133,7 @@ ME ME_5036336402FD
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_5036336402FD aFileName
@@ -135,10 +142,10 @@ ME ME_50363364032C
  MEPROP Name 'NeedCheck'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MEPROP Value True
- MELINK ValueType WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP extprop:pas:Value True
 
@@ -165,7 +172,7 @@ ME ME_503634FB03DB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5036334B00AD // EVDtoXML
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_503634FB03DB 
@@ -192,8 +199,13 @@ ME ME_5036334B00AD
    Seq: ( ME_503634FB03DB // FreeAndNil
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_5036334B00AD EVDtoXML
+
+%%InheritedBy ME_4BACDDB500CE ME_503632AC03D9
 
 ME ME_503632AC03D9
  MEPROP UID '503632AC03D9'
@@ -214,6 +226,9 @@ ME ME_503632AC03D9
  HWL ME_5036334B00AD // EVDtoXML
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TXMLWriterTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'XMLWriterTest'
@@ -236,6 +251,8 @@ ME ME_5036347502D4
 
 ENDME // ME_5036347502D4 DoIt
 
+%%InheritedBy ME_503632AC03D9 ME_503632E400D2
+
 ME ME_503632E400D2
  MEPROP UID '503632E400D2'
  MEPROP Name 'EVDtoXMLWiterTest'
@@ -254,6 +271,9 @@ ME ME_503632E400D2
    Seq: ( HWL ME_5036347502D4 // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TEVDtoXMLWiterTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'EVDtoXMLWiterTest'
@@ -301,7 +321,7 @@ ME ME_55AE7B4C03C6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55AE3F340080 // BuildXML
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_55AE7B4C03C6 
@@ -311,7 +331,7 @@ ME ME_55AE7B7002BF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55AE3F340080 // BuildXML
  ;
- MELINK Target WL 'ME_53A05AFD02CC' '47913B47006E.ms.model.script' // Tl3DOSFiler
+ MELINK Target WL 'ME_53A05AFD02CC' '47A0686803A5.ms.model.script' // Tl3DOSFiler
  ;
 
 ENDME // ME_55AE7B7002BF 
@@ -364,6 +384,8 @@ ME ME_55AE76C10243
 
 ENDME // ME_55AE76C10243 DoIt
 
+%%InheritedBy ME_4B2A11BC0255 ME_55AE3EAE00F3
+
 ME ME_55AE3EAE00F3
  MEPROP UID '55AE3EAE00F3'
  MEPROP Name 'L3XMLWriterTest'
@@ -383,6 +405,9 @@ ME ME_55AE3EAE00F3
  HWL ME_55AE76C10243 // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TL3XMLWriterTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'L3XMLWriterTest'
@@ -420,6 +445,9 @@ ME ME_50363289039D
  WL 'ME_55AE44BA0133' '55AE44BA0133.ms.model.script' // XML
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP Version 0
 
 ENDME // ME_50363289039D XML

@@ -223,6 +223,9 @@ type
  end;//TInterfacedPersistent
 
  TBasicAction = class(TComponent)
+  protected
+   function Update: Boolean; virtual;
+   function Execute: Boolean; virtual;
  end;//TBasicAction
 
  TOwnedCollection = class(TCollection)
@@ -566,6 +569,24 @@ begin
  !!! Needs to be implemented !!!
 //#UC END# *560A9DEB0155_4D555B78015F_impl*
 end;//TCollection.GetItemAttr
+
+function TBasicAction.Update: Boolean;
+//#UC START# *57EB5BE402D1_47E762B6004C_var*
+//#UC END# *57EB5BE402D1_47E762B6004C_var*
+begin
+//#UC START# *57EB5BE402D1_47E762B6004C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57EB5BE402D1_47E762B6004C_impl*
+end;//TBasicAction.Update
+
+function TBasicAction.Execute: Boolean;
+//#UC START# *57EB5E6D011D_47E762B6004C_var*
+//#UC END# *57EB5E6D011D_47E762B6004C_var*
+begin
+//#UC START# *57EB5E6D011D_47E762B6004C_impl*
+ !!! Needs to be implemented !!!
+//#UC END# *57EB5E6D011D_47E762B6004C_impl*
+end;//TBasicAction.Execute
 
 procedure TBasicActionLink.AssignClient(AClient: TObject);
 //#UC START# *5339368F0001_52A088B20026_var*

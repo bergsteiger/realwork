@@ -1,0 +1,45 @@
+// D_PicSizeEdit 4F5760A80104 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F5760C202E6
+
+FORWARD ME_4F5760A80104
+
+ME ME_4F5760C202E6
+ MEPROP UID '4F5760C202E6'
+ MEPROP Name 'TPicSizeEditDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F5760A80104 // D_PicSizeEdit
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PicSizeEditDlg'
+
+ENDME // ME_4F5760C202E6 TPicSizeEditDlg
+
+ME ME_4F5760A80104
+ MEPROP UID '4F5760A80104'
+ MEPROP Name 'D_PicSizeEdit'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F5760C202E6 // TPicSizeEditDlg
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Common\Dialogs\NOT_FINISHED_D_PicSizeEdit.pas'
+
+ENDME // ME_4F5760A80104 D_PicSizeEdit

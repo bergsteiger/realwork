@@ -1,0 +1,45 @@
+// MailWin 4F8FEB5201C5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8FEB600171
+
+FORWARD ME_4F8FEB5201C5
+
+ME ME_4F8FEB600171
+ MEPROP UID '4F8FEB600171'
+ MEPROP Name 'TSendMailWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8FEB5201C5 // MailWin
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SendMailWin'
+
+ENDME // ME_4F8FEB600171 TSendMailWin
+
+ME ME_4F8FEB5201C5
+ MEPROP UID '4F8FEB5201C5'
+ MEPROP Name 'MailWin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E202A4A01B6' '4E202A4A01B6.ms.model.script' // ChildWindow
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8FEB600171 // TSendMailWin
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_MailWin.pas'
+
+ENDME // ME_4F8FEB5201C5 MailWin

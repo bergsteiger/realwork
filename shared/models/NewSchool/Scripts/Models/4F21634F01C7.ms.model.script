@@ -1,0 +1,106 @@
+// CodeFlowWordsPack 4F21634F01C7 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F21634F01C7
+
+FORWARD ME_553F9F73034D
+
+ME ME_553F9F9B03E2
+ MEPROP Name 'aBeforeModal'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_553F9F9B03E2 aBeforeModal
+
+ME ME_553F9F73034D
+ MEPROP UID '553F9F73034D'
+ MEPROP Name 'MODAL'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalwordworker::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_553F9F9B03E2 // aBeforeModal
+ )
+ ; // Parameters
+ UP "SupressNextImmediate" 'None'
+
+ENDME // ME_553F9F73034D MODAL
+
+ME ME_553FAAB10161
+ MEPROP UID '553FAAB10161'
+ MEPROP Name 'THREAD'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalwordworker::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ UP "SupressNextImmediate" 'None'
+
+ENDME // ME_553FAAB10161 THREAD
+
+ME ME_553F9FA100CA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ MELINK Target WL 'ME_4FC7541C02BA' '4FC7541C02BA.ms.model.script' // seModalSupport
+ ;
+
+ENDME // ME_553F9FA100CA 
+
+ME ME_553F9FBD035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ MELINK Target WL 'ME_4FC77244014D' '5507EB5803E7.ms.model.script' // El3TryEnterModalState
+ ;
+
+ENDME // ME_553F9FBD035A 
+
+ME ME_553FAAC90287
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F21634F01C7 // CodeFlowWordsPack
+ ;
+ MELINK Target WL 'ME_50BF049002DB' '50BF047001FA.ms.model.script' // TseWorkThreadList
+ ;
+
+ENDME // ME_553FAAC90287 
+
+ME ME_4F21634F01C7
+ MEPROP UID '4F21634F01C7'
+ MEPROP Name 'CodeFlowWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F2163250016' '4F2163250016.ms.model.script' // CodeFlowWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_553F9F73034D // MODAL
+ HWL ME_553FAAB10161 // THREAD
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_553F9FA100CA // seModalSupport
+ ME_553F9FBD035A // El3TryEnterModalState
+ ME_553FAAC90287 // TseWorkThreadList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CodeFlowWordsPack.pas'
+
+ENDME // ME_4F21634F01C7 CodeFlowWordsPack

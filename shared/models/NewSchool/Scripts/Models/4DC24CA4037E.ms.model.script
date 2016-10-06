@@ -1,0 +1,284 @@
+// CustomAutoTestsSuite 4DC24CA4037E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DC40A7E00C8
+
+FORWARD ME_4DC24CA4037E
+
+FORWARD ME_4DC40A7E00C8
+
+FORWARD ME_4EA50B95037D
+
+ME ME_4EA50BF00299
+ MEPROP UID '4EA50BF00299'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EA50B95037D // GetDataFolder
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4EA50BF00299 DoIt
+
+ME ME_4EA50B95037D
+ MEPROP UID '4EA50B95037D'
+ MEPROP Name 'GetDataFolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает папку с данными для создания тестов.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EA50BF00299 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EA50B95037D GetDataFolder
+
+FORWARD ME_4EA50C04021B
+
+ME ME_4EA50C2100BF
+ MEPROP UID '4EA50C2100BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EA50C04021B // GetExt
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4EA50C2100BF DoIt
+
+ME ME_4EA50C04021B
+ MEPROP UID '4EA50C04021B'
+ MEPROP Name 'GetExt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EA50C2100BF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EA50C04021B GetExt
+
+FORWARD ME_506D80B002A6
+
+FORWARD ME_506D81590085
+
+ME ME_506D816E00C1
+ MEPROP Name 'aDirName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_506D816E00C1 aDirName
+
+ME ME_506D81590085
+ MEPROP UID '506D81590085'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_506D80B002A6 // CheckExists
+ ;
+ MELIST Parameters
+   Seq: ( ME_506D816E00C1 // aDirName
+ )
+ ; // Parameters
+
+ENDME // ME_506D81590085 DoIt
+
+ME ME_506D80B002A6
+ MEPROP UID '506D80B002A6'
+ MEPROP Name 'CheckExists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_506D81590085 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_506D80B002A6 CheckExists
+
+FORWARD ME_506D8174020F
+
+FORWARD ME_506D81890103
+
+ME ME_506D818E03C9
+ MEPROP Name 'aTestName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_506D818E03C9 aTestName
+
+ME ME_506D81890103
+ MEPROP UID '506D81890103'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_506D8174020F // Try2FindTest
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_506D818E03C9 // aTestName
+ )
+ ; // Parameters
+
+ENDME // ME_506D81890103 DoIt
+
+ME ME_506D8174020F
+ MEPROP UID '506D8174020F'
+ MEPROP Name 'Try2FindTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_506D81890103 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_506D8174020F Try2FindTest
+
+ME ME_4DC40C22000B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELINK Target WL 'ME_4C44691E00D2' '4B2A6D4303A9.ms.model.script' // FileFromCurrent
+ ;
+
+ENDME // ME_4DC40C22000B 
+
+ME ME_4DC40C2600E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELINK Target WL 'ME_4DDA4CFE00E8' '47877EB202FB.ms.model.script' // ExtractFilePath
+ ;
+
+ENDME // ME_4DC40C2600E0 
+
+ME ME_4DC41B0A014B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELINK Target WL 'ME_4BA7BE3B0114' '4773D64E036C.ms.model.script' // l3LocalStub
+ ;
+
+ENDME // ME_4DC41B0A014B 
+
+ME ME_4DC42054007C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ ;
+ MELINK Target WL 'ME_4DC25D9502BB' '4B57004201BD.ms.model.script' // ProcessFilesWithMask
+ ;
+
+ENDME // ME_4DC42054007C 
+
+ME ME_4DC38C96018E_ME_4DC40A7E00C8
+ MELINK Original WL 'ME_4DC38C96018E' '4B2A0DCE03A9.ms.model.script' // AddTests
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DC38C96018E_ME_4DC40A7E00C8 AddTests
+
+ME ME_4DCCD004030E_ME_4DC40A7E00C8
+ MELINK Original WL 'ME_4DCCD004030E' '4B2A0DCE03A9.ms.model.script' // DoHasScriptChildren
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DCCD004030E_ME_4DC40A7E00C8 DoHasScriptChildren
+
+%%InheritedBy ME_4DC24566022C ME_4DC40A7E00C8
+
+ME ME_4DC40A7E00C8
+ MEPROP UID '4DC40A7E00C8'
+ MEPROP Name 'TCustomAutoTestSuite'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DC24CA4037E // CustomAutoTestsSuite
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DC24566022C' '4B2A0DCE03A9.ms.model.script' // TTestSuite
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4EA50B95037D // GetDataFolder
+ HWL ME_4EA50C04021B // GetExt
+ HWL ME_506D80B002A6 // CheckExists
+ HWL ME_506D8174020F // Try2FindTest
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4DC38C96018E_ME_4DC40A7E00C8 // AddTests
+ ME_4DCCD004030E_ME_4DC40A7E00C8 // DoHasScriptChildren
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DC40C22000B // FileFromCurrent
+ ME_4DC40C2600E0 // ExtractFilePath
+ ME_4DC41B0A014B // l3LocalStub
+ ME_4DC42054007C // ProcessFilesWithMask
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'AutoTestSuite'
+
+ENDME // ME_4DC40A7E00C8 TCustomAutoTestSuite
+
+ME ME_4DC24CA4037E
+ MEPROP UID '4DC24CA4037E'
+ MEPROP Name 'CustomAutoTestsSuite'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DC246E40002' '4DC246E40002.ms.model.script' // AutoTests
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DC40A7E00C8 // TCustomAutoTestSuite
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'AutoTestsSuite'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptTestLibrary\CustomAutoTestsSuite.pas'
+
+ENDME // ME_4DC24CA4037E CustomAutoTestsSuite

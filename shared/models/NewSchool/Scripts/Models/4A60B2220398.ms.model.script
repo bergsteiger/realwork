@@ -1,0 +1,108 @@
+// l3COMQueryInterface 4A60B2220398 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A60B2220398
+
+FORWARD ME_4A60B23E00C3
+
+ME ME_4A60B23E0113
+ MEPROP Name 'IID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8F202C7' '478CF8070260.ms.model.script' // Tl3GUID
+ ;
+
+ENDME // ME_4A60B23E0113 IID
+
+ME ME_4A60B23E0164
+ MEPROP Name 'Obj'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_4A60B23E0164 Obj
+
+ME ME_4A60B23E00C3
+ MEPROP UID '4A60B23E00C3'
+ MEPROP Name 'COMQueryInterface'
+ MEPROP Class class_Operation
+ %SUMMARY 'Реализация запроса интерфейса' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A60B2220398 // l3COMQueryInterface
+ ;
+ MELINK Target WL 'ME_49427DEE015B' '478CF8070260.ms.model.script' // Tl3HResult
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A60B23E0113 // IID
+ ME_4A60B23E0164 // Obj
+ )
+ ; // Parameters
+
+ENDME // ME_4A60B23E00C3 COMQueryInterface
+
+ME ME_4A60B5510347
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A60B2220398 // l3COMQueryInterface
+ ;
+ MELINK Target WL 'ME_49427DEE015B' '478CF8070260.ms.model.script' // Tl3HResult
+ ;
+
+ENDME // ME_4A60B5510347 
+
+ME ME_4B17E91B002A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A60B2220398 // l3COMQueryInterface
+ ;
+ MELINK Target WL 'ME_47CFE7F00221' '47CFE7F00221.ms.model.script' // l3InterfacesMisc
+ ;
+
+ENDME // ME_4B17E91B002A 
+
+ME ME_47A0AD3A01F7_ME_4A60B2220398
+ MELINK Original WL 'ME_47A0AD3A01F7' '47A0ACE90008.ms.model.script' // QueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "calling conventions" 'stdcall'
+ENDME // ME_47A0AD3A01F7_ME_4A60B2220398 QueryInterface
+
+%%ImplementedBy ME_4A60B2AB03CE ME_4A60B2220398
+
+ME ME_4A60B2220398
+ MEPROP UID '4A60B2220398'
+ MEPROP Name 'l3COMQueryInterface'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A60B2AB03CE' '47BB24D30205.ms.model.script' // Ml3Castable
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4A60B23E00C3 // COMQueryInterface
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A0AD3A01F7_ME_4A60B2220398 // QueryInterface
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A60B5510347 // Tl3HResult
+ ME_4B17E91B002A // l3InterfacesMisc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_l3COMQueryInterface_'
+ UP extprop:pas:UnitName 'l3COMQueryInterface.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3COMQueryInterface.imp.pas'
+
+ENDME // ME_4A60B2220398 l3COMQueryInterface

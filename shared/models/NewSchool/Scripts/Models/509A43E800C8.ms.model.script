@@ -1,0 +1,83 @@
+// FormUnits 509A43E800C8 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_509A43E800C8
+
+ME ME_509A443703A4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4D6CB4B7035F' '4D6CB4B7035F.ms.model.script' // F1LikeFormWithBS
+ ;
+
+ENDME // ME_509A443703A4 
+
+ME ME_509A443F002D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4C9B31190392' '4C9B31190392.ms.model.script' // F1LikeTextLoad
+ ;
+
+ENDME // ME_509A443F002D 
+
+ME ME_509A444203DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4CA090120212' '4CA090120212.ms.model.script' // QFLikeTextLoad
+ ;
+
+ENDME // ME_509A444203DF 
+
+ME ME_509A444700B1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4B30C7E800EE' '4B30C7E800EE.ms.model.script' // TextLoad
+ ;
+
+ENDME // ME_509A444700B1 
+
+ME ME_509A445B0038
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509A43E800C8 // FormUnits
+ ;
+ MELINK Target WL 'ME_4AD89C420296' '47F25BC801DB.ms.model.script' // vcmMakeParams
+ ;
+
+ENDME // ME_509A445B0038 
+
+ME ME_509A43E800C8
+ MEPROP UID '509A43E800C8'
+ MEPROP Name 'FormUnits'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2955E50377' '4E2955E50377.ms.model.script' // AutoTestSupport
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509A443703A4 // F1LikeFormWithBS
+ ME_509A443F002D // F1LikeTextLoad
+ ME_509A444203DF // QFLikeTextLoad
+ ME_509A444700B1 // TextLoad
+ ME_509A445B0038 // vcmMakeParams
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_FormUnits_'
+ UP extprop:pas:UnitName 'FormUnits.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\FormUnits.imp.pas'
+
+ENDME // ME_509A43E800C8 FormUnits

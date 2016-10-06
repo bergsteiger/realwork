@@ -1,0 +1,44 @@
+// hyiedefs 4ACDC4220115 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4ACDC43503CA
+
+FORWARD ME_4ACDC4220115
+
+ME ME_4ACDC43503CA
+ MEPROP UID '4ACDC43503CA'
+ MEPROP Name 'TResampleFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ACDC4220115 // hyiedefs
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4ACDC43503CA TResampleFilter
+
+ME ME_4ACDC4220115
+ MEPROP UID '4ACDC4220115'
+ MEPROP Name 'hyiedefs'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4ACDBC26003C' '4ACDBC26003C.ms.model.script' // Source
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4ACDC43503CA // TResampleFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\ImageEn\src\NOT_FINISHED_hyiedefs.pas'
+
+ENDME // ME_4ACDC4220115 hyiedefs

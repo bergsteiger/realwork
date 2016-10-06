@@ -1,0 +1,201 @@
+// nevParaListAnchorModify 4B1CFCBA0170 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B1CFCBA0170
+
+FORWARD ME_4B1D16510174
+
+ME ME_4B1D16690091
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1D16690091 aValue
+
+ME ME_4B1D16510174
+ MEPROP UID '4B1D16510174'
+ MEPROP Name 'SetPID'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1CFCBA0170 // nevParaListAnchorModify
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B1D16690091 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_4B1D16510174 SetPID
+
+ME ME_4B1D167302CD
+ MEPROP UID '4B1D167302CD'
+ MEPROP Name 'Limit'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B1CFCBA0170 // nevParaListAnchorModify
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1D167302CD Limit
+
+FORWARD ME_4B1D18650208
+
+ME ME_4B9667860225
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4B9667860225 aView
+
+ME ME_4B1D18890381
+ MEPROP Name 'theLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1D18890381 theLine
+
+ME ME_4B1D188A0016
+ MEPROP Name 'aSmall'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B1D188A0016 aSmall
+
+ME ME_4D6E71F5015C
+ MEPROP Name 'aChildrenInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4D6E716F014B' '4D6E722D0214.ms.model.script' // TnevChildrenInfo
+ ;
+
+ENDME // ME_4D6E71F5015C aChildrenInfo
+
+ME ME_4B1D18650208
+ MEPROP UID '4B1D18650208'
+ MEPROP Name 'DoIncLine'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B1CFCBA0170 // nevParaListAnchorModify
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B9667860225 // aView
+ ME_4B1D18890381 // theLine
+ ME_4B1D188A0016 // aSmall
+ ME_4D6E71F5015C // aChildrenInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4B1D18650208 DoIncLine
+
+ME ME_4B1D1957015A
+ MEPROP UID '4B1D1957015A'
+ MEPROP Name 'GetPID'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B1CFCBA0170 // nevParaListAnchorModify
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B1D1957015A GetPID
+
+ME ME_4B1D1A510058
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1CFCBA0170 // nevParaListAnchorModify
+ ;
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4B1D1A510058 
+
+ME ME_4BFCF9DF03B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1CFCBA0170 // nevParaListAnchorModify
+ ;
+ MELINK Target WL 'ME_4857D48E00F4' '48492FC0029D.ms.model.script' // Table
+ ;
+
+ENDME // ME_4BFCF9DF03B2 
+
+ME ME_4D6E725800CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B1CFCBA0170 // nevParaListAnchorModify
+ ;
+ MELINK Target WL 'ME_4D6E722D0214' '4D6E722D0214.ms.model.script' // nevParaListAnchorModifyTypes
+ ;
+
+ENDME // ME_4D6E725800CD 
+
+ME ME_4B1CFD7B0332_ME_4B1CFCBA0170
+ MELINK Original WL 'ME_4B1CFD7B0332' '4B1CFB8E0090.ms.model.script' // DoBottom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1CFD7B0332_ME_4B1CFCBA0170 DoBottom
+
+ME ME_4B1CFD9401A2_ME_4B1CFCBA0170
+ MELINK Original WL 'ME_4B1CFD9401A2' '4B1CFB8E0090.ms.model.script' // DoIncLinePrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1CFD9401A2_ME_4B1CFCBA0170 DoIncLinePrim
+
+%%ImplementedBy ME_4B1CFC5502D8 ME_4B1CFCBA0170
+
+ME ME_4B1CFCBA0170
+ MEPROP UID '4B1CFCBA0170'
+ MEPROP Name 'nevParaListAnchorModify'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4B1CFC5502D8' '47E3DF460095.ms.model.script' // MnevAnchorModifyPrim
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4B1D16510174 // SetPID
+ HWL ME_4B1D167302CD // Limit
+ HWL ME_4B1D18650208 // DoIncLine
+ HWL ME_4B1D1957015A // GetPID
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4B1CFD7B0332_ME_4B1CFCBA0170 // DoBottom
+ ME_4B1CFD9401A2_ME_4B1CFCBA0170 // DoIncLinePrim
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_4B1D1A510058 // l3MinMax
+ ME_4BFCF9DF03B2 // Table
+ ME_4D6E725800CD // nevParaListAnchorModifyTypes
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nevParaListAnchorModify_'
+ UP extprop:pas:UnitName 'nevParaListAnchorModify.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevParaListAnchorModify.imp.pas'
+
+ENDME // ME_4B1CFCBA0170 nevParaListAnchorModify

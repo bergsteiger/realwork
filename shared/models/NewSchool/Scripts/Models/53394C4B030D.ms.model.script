@@ -1,0 +1,44 @@
+// l3DwmApi 53394C4B030D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5339514F0334
+
+FORWARD ME_53394C4B030D
+
+ME ME_5339514F0334
+ MEPROP UID '5339514F0334'
+ MEPROP Name 'TElementMargins'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53394C4B030D // l3DwmApi
+ ;
+
+ENDME // ME_5339514F0334 TElementMargins
+
+ME ME_53394C4B030D
+ MEPROP UID '53394C4B030D'
+ MEPROP Name 'l3DwmApi'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53394BE8033C' '53394BE8033C.ms.model.script' // l3Dwm
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5339514F0334 // TElementMargins
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'DwmApi'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3DwmApi.pas'
+
+ENDME // ME_53394C4B030D l3DwmApi

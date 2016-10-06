@@ -1,0 +1,264 @@
+// ncsFileDescHelper 546EF5650026 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_546EF57803B0
+%%Inner ME_546EF62900AA
+
+FORWARD ME_546EF5650026
+
+FORWARD ME_546EF57803B0
+
+ME ME_546EF5C00189
+ MEPROP UID '546EF5C00189'
+ MEPROP Name 'Count'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_546EF57803B0 // FileDescHelper
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "pm" False
+
+ENDME // ME_546EF5C00189 Count
+
+FORWARD ME_546EF5CC0018
+
+ME ME_546EF5D300F7
+ MEPROP UID '546EF5D300F7'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546EF5CC0018 // Files
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_546EF5D300F7 anIndex
+
+ME ME_546EF5CC0018
+ MEPROP UID '546EF5CC0018'
+ MEPROP Name 'Files'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_546EF57803B0 // FileDescHelper
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_546EF5D300F7 // anIndex
+ )
+ ; // Attributes
+ UP "pm" False
+
+ENDME // ME_546EF5CC0018 Files
+
+FORWARD ME_546EF5F6032D
+
+FORWARD ME_546EF60F01ED
+
+ME ME_546EF612012D
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_546EF612012D anItem
+
+ME ME_546EF60F01ED
+ MEPROP UID '546EF60F01ED'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546EF5F6032D // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_546EF612012D // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_546EF60F01ED DoIt
+
+ME ME_546EF5F6032D
+ MEPROP UID '546EF5F6032D'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_546EF57803B0 // FileDescHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_546EF60F01ED // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_546EF5F6032D Add
+
+%%ImplementedBy ME_546C4EED0383 ME_546EF57803B0
+
+ME ME_546EF57803B0
+ MEPROP UID '546EF57803B0'
+ MEPROP GUID '80CB6FA6-C4E8-4EEC-B04A-F4EAA6DD7800'
+ MEPROP Name 'FileDescHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_546EF5650026 // ncsFileDescHelper
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_546C4EED0383' '484A470100DD.ms.model.script' // FileDesc
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_546EF5C00189 // Count
+ HWL ME_546EF5CC0018 // Files
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_546EF5F6032D // Add
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_546EF57803B0 FileDescHelper
+
+FORWARD ME_546EF62900AA
+
+%%ImplementedBy ME_546EF57803B0 ME_546F04DB0269
+
+%%InheritedBy ME_53BD1BCF010B ME_546F04DB0269
+
+ME ME_546F04DB0269
+ MEPROP UID '546F04DB0269'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_546EF62900AA // TFileDescHelper
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53BD1BCF010B' '53BD13B4023B.ms.model.script' // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_546EF57803B0 // FileDescHelper
+ )
+ ; // Implements
+
+ENDME // ME_546F04DB0269 Make
+
+ME ME_546EF6530068
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_546EF62900AA // TFileDescHelper
+ ;
+ MELINK Target WL 'ME_546C4EED0383' '484A470100DD.ms.model.script' // FileDesc
+ ;
+
+ENDME // ME_546EF6530068 
+
+ME ME_546EF5C00189_ME_546EF62900AA
+ MELINK Original HWL ME_546EF5C00189 // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_546EF5C00189_ME_546EF62900AA Count
+
+ME ME_546EF5CC0018_ME_546EF62900AA
+ MELINK Original HWL ME_546EF5CC0018 // Files
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_546EF5CC0018_ME_546EF62900AA Files
+
+ME ME_546EF5F6032D_ME_546EF62900AA
+ MELINK Original HWL ME_546EF5F6032D // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_546EF5F6032D_ME_546EF62900AA Add
+
+%%ImplementedBy ME_546EF57803B0 ME_546EF62900AA
+
+%%InheritedBy ME_53BFD54A01CC ME_546EF62900AA
+
+ME ME_546EF62900AA
+ MEPROP UID '546EF62900AA'
+ MEPROP Name 'TFileDescHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_546EF5650026 // ncsFileDescHelper
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53BFD54A01CC' '53BD13B4023B.ms.model.script' // TevdTagHelper
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_546EF57803B0 // FileDescHelper
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_546F04DB0269 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_546EF5C00189_ME_546EF62900AA // Count
+ ME_546EF5CC0018_ME_546EF62900AA // Files
+ ME_546EF5F6032D_ME_546EF62900AA // Add
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_546EF6530068 // FileDesc
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FileDescHelper'
+
+ENDME // ME_546EF62900AA TFileDescHelper
+
+ME ME_546EF5650026
+ MEPROP UID '546EF5650026'
+ MEPROP Name 'ncsFileDescHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_546457E203C0' '546457E203C0.ms.model.script' // ResultDelivery
+ ;
+ MELIST Children
+   Seq: ( HWL ME_546EF57803B0 // FileDescHelper
+ HWL ME_546EF62900AA // TFileDescHelper
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsFileDescHelper.pas'
+
+ENDME // ME_546EF5650026 ncsFileDescHelper

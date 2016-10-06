@@ -1,0 +1,546 @@
+// bsTypesNew 4BA763B0004B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_491B32C1015D
+%%Inner ME_491B329F0330
+
+FORWARD ME_4BA763B0004B
+
+FORWARD ME_491B32C1015D
+
+ME ME_4BA764960061
+ MEPROP UID '4BA764960061'
+ MEPROP Name 'None'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA764960061 None
+
+ME ME_4BA764A10126
+ MEPROP UID '4BA764A10126'
+ MEPROP Name 'Sub'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA764A10126 Sub
+
+ME ME_4BA764AA008A
+ MEPROP UID '4BA764AA008A'
+ MEPROP Name 'Marker'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA764AA008A Marker
+
+ME ME_4BA764B303D6
+ MEPROP UID '4BA764B303D6'
+ MEPROP Name 'Bookmark'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA764B303D6 Bookmark
+
+ME ME_4BA764BC0286
+ MEPROP UID '4BA764BC0286'
+ MEPROP Name 'Para'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA764BC0286 Para
+
+ME ME_4BA764C601B8
+ MEPROP UID '4BA764C601B8'
+ MEPROP Name 'Mark'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA764C601B8 Mark
+
+ME ME_4BA764CF0319
+ MEPROP UID '4BA764CF0319'
+ MEPROP Name 'DocumentPlace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA764CF0319 DocumentPlace
+
+ME ME_491B32C1015D
+ MEPROP UID '491B32C1015D'
+ MEPROP Name 'TDocumentPositionType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы позиционирования в документе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BA763B0004B // bsTypesNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BA764960061 // None
+ HWL ME_4BA764A10126 // Sub
+ HWL ME_4BA764AA008A // Marker
+ HWL ME_4BA764B303D6 // Bookmark
+ HWL ME_4BA764BC0286 // Para
+ HWL ME_4BA764C601B8 // Mark
+ HWL ME_4BA764CF0319 // DocumentPlace
+ )
+ ; // Attributes
+ UP "children prefix" 'dpt'
+ UP extprop:pas:ElementPrefix 'dpt'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_491B32C1015D TDocumentPositionType
+
+FORWARD ME_491B329F0330
+
+ME ME_4BA7644401DA
+ MEPROP UID '4BA7644401DA'
+ MEPROP Name 'rRefType'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELINK Target HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA7644401DA rRefType
+
+ME ME_4BA7646F0091
+ MEPROP UID '4BA7646F0091'
+ MEPROP Name 'rPos'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4BA7646F0091 rPos
+
+ME ME_4C066CEF00C3
+ MEPROP UID '4C066CEF00C3'
+ MEPROP Name 'rPara'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+
+ENDME // ME_4C066CEF00C3 rPara
+
+FORWARD ME_4BA782140193
+
+FORWARD ME_4BA7821C001E
+
+ME ME_4BA7821E0096
+ MEPROP Name 'aType'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_491B32C1015D // TDocumentPositionType
+ ;
+
+ENDME // ME_4BA7821E0096 aType
+
+ME ME_4BA7821E00B2
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4BA7821E00B2 aPos
+
+ME ME_4BA7821C001E
+ MEPROP UID '4BA7821C001E'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA782140193 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BA7821E0096 // aType
+ ME_4BA7821E00B2 // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_4BA7821C001E C
+
+ME ME_4C066F4401BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA782140193 // C
+ ;
+ MELINK Target WL 'ME_45EEB652030F' '4570511E038A.ms.model.script' // PositionInDocument
+ ;
+
+ENDME // ME_4C066F4401BE 
+
+ME ME_4C066F4600F8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4BA782140193 // C
+ ;
+ MELINK Target WL 'ME_47F2612701D0' '47F2612701D0.ms.model.script' // l3Bits
+ ;
+
+ENDME // ME_4C066F4600F8 
+
+ME ME_4BA782140193
+ MEPROP UID '4BA782140193'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BA7821C001E // C
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C066F4401BE // PositionInDocument
+ ME_4C066F4600F8 // l3Bits
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4BA782140193 C
+
+FORWARD ME_4BA7822703B2
+
+ME ME_4BA7823000B4
+ MEPROP UID '4BA7823000B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA7822703B2 // E
+ ;
+
+ENDME // ME_4BA7823000B4 DoIt
+
+ME ME_4BA7822703B2
+ MEPROP UID '4BA7822703B2'
+ MEPROP Name 'E'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пустая позиция' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BA7823000B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4BA7822703B2 E
+
+FORWARD ME_4BA7823901C7
+
+FORWARD ME_4BA782400080
+
+ME ME_4BA782450061
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4BA782450061 aPos
+
+ME ME_4BA782400080
+ MEPROP UID '4BA782400080'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA7823901C7 // S
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BA782450061 // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_4BA782400080 C
+
+ME ME_4BA7823901C7
+ MEPROP UID '4BA7823901C7'
+ MEPROP Name 'S'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Позиция указывающая на Sub' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BA782400080 // C
+ )
+ ; // Operations
+
+ENDME // ME_4BA7823901C7 S
+
+FORWARD ME_4BA789E200FF
+
+FORWARD ME_4BA789E803D4
+
+ME ME_4BA789EC00F9
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_495239F201D9' '4912DD020283.ms.model.script' // IeePara
+ ;
+
+ENDME // ME_4BA789EC00F9 aPos
+
+ME ME_4BA789E803D4
+ MEPROP UID '4BA789E803D4'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BA789E200FF // P
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BA789EC00F9 // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_4BA789E803D4 C
+
+ME ME_4BA789E200FF
+ MEPROP UID '4BA789E200FF'
+ MEPROP Name 'P'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BA789E803D4 // C
+ )
+ ; // Operations
+
+ENDME // ME_4BA789E200FF P
+
+FORWARD ME_4C064CB90097
+
+FORWARD ME_4C064CC4031E
+
+ME ME_4C064CD20060
+ MEPROP Name 'aPos'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48FD996601CE' '4807744200AA.ms.model.script' // Longword
+ ;
+
+ENDME // ME_4C064CD20060 aPos
+
+ME ME_4C064CC4031E
+ MEPROP UID '4C064CC4031E'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C064CB90097 // PID
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C064CD20060 // aPos
+ )
+ ; // Parameters
+
+ENDME // ME_4C064CC4031E C
+
+ME ME_4C064CB90097
+ MEPROP UID '4C064CB90097'
+ MEPROP Name 'PID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C064CC4031E // C
+ )
+ ; // Operations
+
+ENDME // ME_4C064CB90097 PID
+
+FORWARD ME_50103641035D
+
+FORWARD ME_5010364A00A2
+
+ME ME_5010365302F9
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_491B329F0330 // TbsDocPos
+ ;
+
+ENDME // ME_5010365302F9 anOther
+
+ME ME_5010364A00A2
+ MEPROP UID '5010364A00A2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50103641035D // EQ
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5010365302F9 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_5010364A00A2 DoIt
+
+ME ME_50103641035D
+ MEPROP UID '50103641035D'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5010364A00A2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_50103641035D EQ
+
+ME ME_4C066EFA0117
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELINK Target WL 'ME_45EEB652030F' '4570511E038A.ms.model.script' // PositionInDocument
+ ;
+
+ENDME // ME_4C066EFA0117 
+
+ME ME_4C066F3901CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_491B329F0330 // TbsDocPos
+ ;
+ MELINK Target WL 'ME_47F2612701D0' '47F2612701D0.ms.model.script' // l3Bits
+ ;
+
+ENDME // ME_4C066F3901CE 
+
+ME ME_491B329F0330
+ MEPROP UID '491B329F0330'
+ MEPROP Name 'TbsDocPos'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4BA763B0004B // bsTypesNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4BA7644401DA // rRefType
+ HWL ME_4BA7646F0091 // rPos
+ HWL ME_4C066CEF00C3 // rPara
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4BA782140193 // C
+ HWL ME_4BA7822703B2 // E
+ HWL ME_4BA7823901C7 // S
+ HWL ME_4BA789E200FF // P
+ HWL ME_4C064CB90097 // PID
+ HWL ME_50103641035D // EQ
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C066EFA0117 // PositionInDocument
+ ME_4C066F3901CE // l3Bits
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'bsDocPos'
+
+ENDME // ME_491B329F0330 TbsDocPos
+
+ME ME_4BA763B0004B
+ MEPROP UID '4BA763B0004B'
+ MEPROP Name 'bsTypesNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типы бизнес уровня. Кусок от bsTypes. На самом деле БОЛЬШАЯ ПОМОЙКА. Новые типы добавлять сюда нельзя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+ MELIST Children
+   Seq: ( HWL ME_491B32C1015D // TDocumentPositionType
+ HWL ME_491B329F0330 // TbsDocPos
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '22.03.2010 15:34'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\bsTypesNew.pas'
+
+ENDME // ME_4BA763B0004B bsTypesNew

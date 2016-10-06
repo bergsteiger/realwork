@@ -1,0 +1,151 @@
+// InsDWin 4E202A8502E6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E202ABC005B
+
+FORWARD ME_4E202A8502E6
+
+%%InheritedBy ME_4E202C090145 ME_4E202ABC005B
+
+ME ME_4E202ABC005B
+ MEPROP UID '4E202ABC005B'
+ MEPROP Name 'TInsertTextDictForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E202A8502E6 // InsDWin
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E202C090145' '4E202BD501B7.ms.model.script' // TDictMetaForm
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'InsertTextDictForm'
+
+ENDME // ME_4E202ABC005B TInsertTextDictForm
+
+FORWARD ME_4E202ADD0180
+
+FORWARD ME_4E202D3A0356
+
+ME ME_4E202D480123
+ MEPROP Name 'anInsText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_3DBFFE240068' '3DBFDB23006E.ms.model.script' // string
+ ;
+
+ENDME // ME_4E202D480123 anInsText
+
+ME ME_4E202D3A0356
+ MEPROP UID '4E202D3A0356'
+ MEPROP Name 'Doit'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202ADD0180 // GetInsTextNode
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E202D480123 // anInsText
+ )
+ ; // Parameters
+
+ENDME // ME_4E202D3A0356 Doit
+
+ME ME_4E202ADD0180
+ MEPROP UID '4E202ADD0180'
+ MEPROP Name 'GetInsTextNode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A8502E6 // InsDWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E202D3A0356 // Doit
+ )
+ ; // Operations
+
+ENDME // ME_4E202ADD0180 GetInsTextNode
+
+FORWARD ME_4E202AEC00C0
+
+FORWARD ME_4E202D8503E2
+
+ME ME_4E202DC901C3
+ MEPROP Name 'aNode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476BF22B03E1' '476BF10A0280.ms.model.script' // Il3Node
+ ;
+
+ENDME // ME_4E202DC901C3 aNode
+
+ME ME_4E202D8503E2
+ MEPROP UID '4E202D8503E2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202AEC00C0 // GetInsText
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E202DC901C3 // aNode
+ )
+ ; // Parameters
+
+ENDME // ME_4E202D8503E2 DoIt
+
+ME ME_4E202AEC00C0
+ MEPROP UID '4E202AEC00C0'
+ MEPROP Name 'GetInsText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E202A8502E6 // InsDWin
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E202D8503E2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E202AEC00C0 GetInsText
+
+ME ME_4E202A8502E6
+ MEPROP UID '4E202A8502E6'
+ MEPROP Name 'InsDWin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E202A4A01B6' '4E202A4A01B6.ms.model.script' // ChildWindow
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E202ADD0180 // GetInsTextNode
+ HWL ME_4E202AEC00C0 // GetInsText
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4E202ABC005B // TInsertTextDictForm
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_InsDWin.pas'
+
+ENDME // ME_4E202A8502E6 InsDWin

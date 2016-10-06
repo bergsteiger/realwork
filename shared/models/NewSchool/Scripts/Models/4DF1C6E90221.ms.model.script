@@ -1,0 +1,387 @@
+// PrintRowHeightsSpy 4DF1C6E90221 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DF1C87202AB
+%%Inner ME_4DF1C7F20336
+%%Inner ME_4DF1C7300012
+
+FORWARD ME_4DF1C6E90221
+
+FORWARD ME_4DF1C87202AB
+
+ME ME_4DF1C8AA0274
+ MEPROP UID '4DF1C8AA0274'
+ MEPROP Name 'rTableID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DF1C8AA0274 rTableID
+
+ME ME_4DF1C8BF0182
+ MEPROP UID '4DF1C8BF0182'
+ MEPROP Name 'rRowID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DF1C8BF0182 rRowID
+
+ME ME_4DF1C8CC029E
+ MEPROP UID '4DF1C8CC029E'
+ MEPROP Name 'rHeight'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DF1C8CC029E rHeight
+
+ME ME_4DF20A1C0308
+ MEPROP UID '4DF20A1C0308'
+ MEPROP Name 'rPage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DF20A1C0308 rPage
+
+ME ME_4DF86EDA02C6
+ MEPROP UID '4DF86EDA02C6'
+ MEPROP Name 'rTopAnchorID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C87202AB // TRowHeight
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DF86EDA02C6 rTopAnchorID
+
+ME ME_4DF1C87202AB
+ MEPROP UID '4DF1C87202AB'
+ MEPROP Name 'TRowHeight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DF1C6E90221 // PrintRowHeightsSpy
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DF1C8AA0274 // rTableID
+ HWL ME_4DF1C8BF0182 // rRowID
+ HWL ME_4DF1C8CC029E // rHeight
+ HWL ME_4DF20A1C0308 // rPage
+ HWL ME_4DF86EDA02C6 // rTopAnchorID
+ )
+ ; // Attributes
+
+ENDME // ME_4DF1C87202AB TRowHeight
+
+FORWARD ME_4DF1C7F20336
+
+ME ME_4DF1C9450332
+ MEPROP UID '4DF1C9450332'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C7F20336 // TRowHeightsList
+ ;
+ MELINK Target HWL ME_4DF1C87202AB // TRowHeight
+ ;
+
+ENDME // ME_4DF1C9450332 ItemType
+
+ME ME_47B07CF403D0_ME_4DF1C7F20336
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_4DF1C7F20336 IsSameItems
+
+ME ME_47B2C42A0163_ME_4DF1C7F20336
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_4DF1C7F20336 AssignItem
+
+ME ME_47B99D4503A2_ME_4DF1C7F20336
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_4DF1C7F20336 CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_4DF1C7F20336
+%%InheritedBy ME_4B223ADC02BF ME_4DF1C7F20336
+
+ME ME_4DF1C7F20336
+ MEPROP UID '4DF1C7F20336'
+ MEPROP Name 'TRowHeightsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DF1C6E90221 // PrintRowHeightsSpy
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DF1C9450332 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_4DF1C7F20336 // IsSameItems
+ ME_47B2C42A0163_ME_4DF1C7F20336 // AssignItem
+ ME_47B99D4503A2_ME_4DF1C7F20336 // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RowHeightsList'
+
+ENDME // ME_4DF1C7F20336 TRowHeightsList
+
+FORWARD ME_4DF1C7300012
+
+ME ME_4DF869DB00B6
+ MEPROP UID '4DF869DB00B6'
+ MEPROP Name 'f_Filer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+
+ENDME // ME_4DF869DB00B6 f_Filer
+
+ME ME_4DF1C96601D8
+ MEPROP UID '4DF1C96601D8'
+ MEPROP Name 'f_RowHeights'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+ MELINK Target HWL ME_4DF1C7F20336 // TRowHeightsList
+ ;
+
+ENDME // ME_4DF1C96601D8 f_RowHeights
+
+FORWARD ME_4DF1C9B1012D
+
+ME ME_4DF1D0B50160
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4DF1C87202AB // TRowHeight
+ ;
+
+ENDME // ME_4DF1D0B50160 aData
+
+ME ME_4DF1C9B1012D
+ MEPROP UID '4DF1C9B1012D'
+ MEPROP Name 'AddRowData'
+ MEPROP Class class_Operation
+ %SUMMARY 'Добавить данные о высоте строки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DF1D0B50160 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_4DF1C9B1012D AddRowData
+
+ME ME_4DF1CA0803E2
+ MEPROP UID '4DF1CA0803E2'
+ MEPROP Name 'ClearData'
+ MEPROP Class class_Operation
+ %SUMMARY 'Очистить данные о строках.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+
+ENDME // ME_4DF1CA0803E2 ClearData
+
+ME ME_4DF1DB350207
+ MEPROP UID '4DF1DB350207'
+ MEPROP Name 'ExistsAndValid'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4DF1DB350207 ExistsAndValid
+
+FORWARD ME_4DF8692C0010
+
+ME ME_4DF86BDB006C
+ MEPROP Name 'aLogName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DF86BDB006C aLogName
+
+ME ME_4DF8692C0010
+ MEPROP UID '4DF8692C0010'
+ MEPROP Name 'StartLogging'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DF86BDB006C // aLogName
+ )
+ ; // Parameters
+
+ENDME // ME_4DF8692C0010 StartLogging
+
+ME ME_4DF869520107
+ MEPROP UID '4DF869520107'
+ MEPROP Name 'StopLogging'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+
+ENDME // ME_4DF869520107 StopLogging
+
+ME ME_4DF207B1028A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4DF207B1028A 
+
+ME ME_479F2AFB0397_ME_4DF1C7300012
+ MELINK Original WL 'ME_479F2AFB0397' '51612ED700B4.ms.model.script' // Release
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479F2AFB0397_ME_4DF1C7300012 Release
+
+ME ME_479F2B3302C1_ME_4DF1C7300012
+ MELINK Original WL 'ME_479F2B3302C1' '47913F4E02E0.ms.model.script' // BeforeAddToCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479F2B3302C1_ME_4DF1C7300012 BeforeAddToCache
+
+%%InheritedBy ME_49E7754802A9 ME_4DF1C7300012
+
+ME ME_4DF1C7300012
+ MEPROP UID '4DF1C7300012'
+ MEPROP Name 'TPrintRowHeightsSpy'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Следилка за высотами строк на разных страницах' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DF1C6E90221 // PrintRowHeightsSpy
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DF869DB00B6 // f_Filer
+ HWL ME_4DF1C96601D8 // f_RowHeights
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4DF1C9B1012D // AddRowData
+ HWL ME_4DF1CA0803E2 // ClearData
+ HWL ME_4DF1DB350207 // ExistsAndValid
+ HWL ME_4DF8692C0010 // StartLogging
+ HWL ME_4DF869520107 // StopLogging
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479F2AFB0397_ME_4DF1C7300012 // Release
+ ME_479F2B3302C1_ME_4DF1C7300012 // BeforeAddToCache
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4DF207B1028A // evL3CoreConsts
+ )
+ ; // Dependencies
+ UP "singleton" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrintRowHeightsSpy'
+
+ENDME // ME_4DF1C7300012 TPrintRowHeightsSpy
+
+ME ME_4DF1C6E90221
+ MEPROP UID '4DF1C6E90221'
+ MEPROP Name 'PrintRowHeightsSpy'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяльщик высот строк на разных страницах' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DF1C87202AB // TRowHeight
+ HWL ME_4DF1C7F20336 // TRowHeightsList
+ HWL ME_4DF1C7300012 // TPrintRowHeightsSpy
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifdef" 'nsTest'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\PrintRowHeightsSpy.pas'
+
+ENDME // ME_4DF1C6E90221 PrintRowHeightsSpy

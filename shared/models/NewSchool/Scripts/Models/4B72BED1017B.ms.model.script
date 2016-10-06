@@ -1,0 +1,63 @@
+// jclDebug 4B72BED1017B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4CBD724403E7
+
+FORWARD ME_4B72BED1017B
+
+ME ME_4CBD724403E7
+ MEPROP UID '4CBD724403E7'
+ MEPROP Name 'TJclStackInfoList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B72BED1017B // jclDebug
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'JclStackInfoList'
+
+ENDME // ME_4CBD724403E7 TJclStackInfoList
+
+ME ME_4B72BEEB00CA
+ MEPROP UID '4B72BEEB00CA'
+ MEPROP Name 'JclLastExceptStackList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B72BED1017B // jclDebug
+ ;
+
+ENDME // ME_4B72BEEB00CA JclLastExceptStackList
+
+ME ME_4B72BED1017B
+ MEPROP UID '4B72BED1017B'
+ MEPROP Name 'jclDebug'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B72BEC80036' '4B72BEC80036.ms.model.script' // Windows
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B72BEEB00CA // JclLastExceptStackList
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4CBD724403E7 // TJclStackInfoList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "ifndef" 'notDebugStackTrace'
+ UP intf.pas:Path 'common\components\rtl\external\JEDI\source\windows\NOT_FINISHED_jclDebug.pas'
+
+ENDME // ME_4B72BED1017B jclDebug

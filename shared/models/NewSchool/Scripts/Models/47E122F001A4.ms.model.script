@@ -1,0 +1,373 @@
+// afwFont 47E122F001A4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47E15F2D00DB
+%%Inner ME_47E1231D0293
+%%Inner ME_47E1233D01CD
+%%Inner ME_47E1234E0368
+
+FORWARD ME_47E122F001A4
+
+%%InheritedBy ME_47A0ACE90008 ME_47E15F2D00DB
+%%InheritedBy ME_47E120930217 ME_47E15F2D00DB
+
+ME ME_47E15F2D00DB
+ MEPROP UID '47E15F2D00DB'
+ MEPROP Name 'TafwCastableFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Øðèôò ñ QueryInterface.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E122F001A4 // afwFont
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47A0ACE90008' '47A0ACE90008.ms.model.script' // l3Castable
+ WL 'ME_47E120930217' '47D15712022D.ms.model.script' // TFont
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwCastableFont'
+
+ENDME // ME_47E15F2D00DB TafwCastableFont
+
+FORWARD ME_47E1231D0293
+
+ME ME_47E159840335
+ MEPROP UID '47E159840335'
+ MEPROP Name 'f_BackColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E1231D0293 // TafwFontI
+ ;
+ MELINK Target WL 'ME_47E15924014F' '467823B7002C.ms.model.script' // TafwColor
+ ;
+
+ENDME // ME_47E159840335 f_BackColor
+
+ME ME_47E15992038C
+ MEPROP UID '47E15992038C'
+ MEPROP Name 'f_Index'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E1231D0293 // TafwFontI
+ ;
+ MELINK Target WL 'ME_47E1596B03DA' '467823B7002C.ms.model.script' // TafwFontIndex
+ ;
+
+ENDME // ME_47E15992038C f_Index
+
+ME ME_47E15C42028A
+ MEPROP UID '47E15C42028A'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_vctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E1231D0293 // TafwFontI
+ ;
+
+ENDME // ME_47E15C42028A Create
+
+ME ME_47E15C4F03BC
+ MEPROP UID '47E15C4F03BC'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E1231D0293 // TafwFontI
+ ;
+ MELINK Target WL 'ME_4683D6A002DE' '467823B7002C.ms.model.script' // IafwFont
+ ;
+
+ENDME // ME_47E15C4F03BC Make
+
+ME ME_46A610780340_ME_47E1231D0293
+ MELINK Original WL 'ME_46A610780340' '4677FBA70343.ms.model.script' // ForeColor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A610780340_ME_47E1231D0293 ForeColor
+
+ME ME_46A6108E017F_ME_47E1231D0293
+ MELINK Original WL 'ME_46A6108E017F' '4677FBA70343.ms.model.script' // BackColor
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A6108E017F_ME_47E1231D0293 BackColor
+
+ME ME_46A610AF012C_ME_47E1231D0293
+ MELINK Original WL 'ME_46A610AF012C' '4677FBA70343.ms.model.script' // Name
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A610AF012C_ME_47E1231D0293 Name
+
+ME ME_46A610E10084_ME_47E1231D0293
+ MELINK Original WL 'ME_46A610E10084' '4677FBA70343.ms.model.script' // Pitch
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A610E10084_ME_47E1231D0293 Pitch
+
+ME ME_46A6111000F9_ME_47E1231D0293
+ MELINK Original WL 'ME_46A6111000F9' '4677FBA70343.ms.model.script' // Size
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A6111000F9_ME_47E1231D0293 Size
+
+ME ME_46A61136020C_ME_47E1231D0293
+ MELINK Original WL 'ME_46A61136020C' '4677FBA70343.ms.model.script' // Index
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A61136020C_ME_47E1231D0293 Index
+
+ME ME_46A6127B0282_ME_47E1231D0293
+ MELINK Original WL 'ME_46A6127B0282' '4677FBA70343.ms.model.script' // Style
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A6127B0282_ME_47E1231D0293 Style
+
+ME ME_46A6129101E3_ME_47E1231D0293
+ MELINK Original WL 'ME_46A6129101E3' '4677FBA70343.ms.model.script' // Bold
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A6129101E3_ME_47E1231D0293 Bold
+
+ME ME_46A612AF0038_ME_47E1231D0293
+ MELINK Original WL 'ME_46A612AF0038' '4677FBA70343.ms.model.script' // Italic
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A612AF0038_ME_47E1231D0293 Italic
+
+ME ME_46A612C302D6_ME_47E1231D0293
+ MELINK Original WL 'ME_46A612C302D6' '4677FBA70343.ms.model.script' // Underline
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A612C302D6_ME_47E1231D0293 Underline
+
+ME ME_46A612DC01F5_ME_47E1231D0293
+ MELINK Original WL 'ME_46A612DC01F5' '4677FBA70343.ms.model.script' // Strikeout
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_46A612DC01F5_ME_47E1231D0293 Strikeout
+
+ME ME_473DAA0F01C7_ME_47E1231D0293
+ MELINK Original WL 'ME_473DAA0F01C7' '467823B7002C.ms.model.script' // Assign2Font
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_473DAA0F01C7_ME_47E1231D0293 Assign2Font
+
+%%ImplementedBy ME_4683D6A002DE ME_47E1231D0293
+
+%%InheritedBy ME_47913F970159 ME_47E1231D0293
+%%InheritedBy ME_47E15F2D00DB ME_47E1231D0293
+
+ME ME_47E1231D0293
+ MEPROP UID '47E1231D0293'
+ MEPROP Name 'TafwFontI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E122F001A4 // afwFont
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47913F970159' '47913F970159.ms.model.script' // l3Unknown
+ HWL ME_47E15F2D00DB // TafwCastableFont
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4683D6A002DE' '467823B7002C.ms.model.script' // IafwFont
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47E159840335 // f_BackColor
+ HWL ME_47E15992038C // f_Index
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47E15C42028A // Create
+ HWL ME_47E15C4F03BC // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A610780340_ME_47E1231D0293 // ForeColor
+ ME_46A6108E017F_ME_47E1231D0293 // BackColor
+ ME_46A610AF012C_ME_47E1231D0293 // Name
+ ME_46A610E10084_ME_47E1231D0293 // Pitch
+ ME_46A6111000F9_ME_47E1231D0293 // Size
+ ME_46A61136020C_ME_47E1231D0293 // Index
+ ME_46A6127B0282_ME_47E1231D0293 // Style
+ ME_46A6129101E3_ME_47E1231D0293 // Bold
+ ME_46A612AF0038_ME_47E1231D0293 // Italic
+ ME_46A612C302D6_ME_47E1231D0293 // Underline
+ ME_46A612DC01F5_ME_47E1231D0293 // Strikeout
+ ME_473DAA0F01C7_ME_47E1231D0293 // Assign2Font
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwFontI'
+
+ENDME // ME_47E1231D0293 TafwFontI
+
+FORWARD ME_47E1233D01CD
+
+ME ME_47E15C740102
+ MEPROP UID '47E15C740102'
+ MEPROP Name 'NameStored'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E1233D01CD // TafwFont
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47E15C740102 NameStored
+
+ME ME_47E15C7F03CD
+ MEPROP UID '47E15C7F03CD'
+ MEPROP Name 'HeightStored'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E1233D01CD // TafwFont
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_47E15C7F03CD HeightStored
+
+ME ME_497EEA78032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E1233D01CD // TafwFont
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_497EEA78032F 
+
+ME ME_47E15C42028A_ME_47E1233D01CD
+ MELINK Original HWL ME_47E15C42028A // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47E15C42028A_ME_47E1233D01CD Create
+
+%%InheritedBy ME_47E1231D0293 ME_47E1233D01CD
+
+ME ME_47E1233D01CD
+ MEPROP UID '47E1233D01CD'
+ MEPROP Name 'TafwFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E122F001A4 // afwFont
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E1231D0293 // TafwFontI
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_47E15C740102 // NameStored
+ HWL ME_47E15C7F03CD // HeightStored
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47E15C42028A_ME_47E1233D01CD // Create
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_497EEA78032F // Forms
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "need UC" True
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'afwFont'
+
+ENDME // ME_47E1233D01CD TafwFont
+
+%%InheritedBy ME_47E1233D01CD ME_47E1234E0368
+
+ME ME_47E1234E0368
+ MEPROP UID '47E1234E0368'
+ MEPROP Name 'RafwFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E122F001A4 // afwFont
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E1233D01CD // TafwFont
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_47E1234E0368 RafwFont
+
+ME ME_47E131BF017B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47E122F001A4 // afwFont
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_47E131BF017B 
+
+ME ME_47E122F001A4
+ MEPROP UID '47E122F001A4'
+ MEPROP Name 'afwFont'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47877A6F000A' '47877A6F000A.ms.model.script' // Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47E15F2D00DB // TafwCastableFont
+ HWL ME_47E1231D0293 // TafwFontI
+ HWL ME_47E1233D01CD // TafwFont
+ HWL ME_47E1234E0368 // RafwFont
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_47E131BF017B // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '04.12.2006 18:52'
+ UP "weak" True
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\Visual\afwFont.pas'
+
+ENDME // ME_47E122F001A4 afwFont

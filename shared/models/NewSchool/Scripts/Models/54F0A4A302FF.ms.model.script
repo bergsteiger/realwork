@@ -2,6 +2,16 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DCC11A10187
+%%Inner ME_4DCC173A026C
+%%Inner ME_57C81527030E
+%%Inner ME_52E29ED5016B
+%%Inner ME_55E9A65B0186
+%%Inner ME_52E270AE02EA
+%%Inner ME_57C820E80374
+%%Inner ME_4DB009CF0103
+%%Inner ME_4F49416600CB
+
 FORWARD ME_54F0A4A302FF
 
 FORWARD ME_4DCC11A10187
@@ -36,14 +46,14 @@ ME ME_4DCC11E10193
 ENDME // ME_4DCC11E10193 ItemType
 
 ME ME_47B07CF403D0_ME_4DCC11A10187
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_4DCC11A10187 IsSameItems
 
 ME ME_47B2C42A0163_ME_4DCC11A10187
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -51,17 +61,20 @@ ME ME_47B2C42A0163_ME_4DCC11A10187
 ENDME // ME_47B2C42A0163_ME_4DCC11A10187 AssignItem
 
 ME ME_47B99D4503A2_ME_4DCC11A10187
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_4DCC11A10187 CompareExistingItems
 
 ME ME_47A6FEE600FC_ME_4DCC11A10187
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
 ENDME // ME_47A6FEE600FC_ME_4DCC11A10187 IsCacheable
+
+%%InheritedBy ME_4A54DD4E036F ME_4DCC11A10187
+%%InheritedBy ME_4B223ADC02BF ME_4DCC11A10187
 
 ME ME_4DCC11A10187
  MEPROP UID '4DCC11A10187'
@@ -76,7 +89,7 @@ ME ME_4DCC11A10187
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -97,6 +110,9 @@ ME ME_4DCC11A10187
    Seq: ( HWL ME_4DCC124401A5 // l3Items_NoSort
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '12.05.2011 20:58'
@@ -138,6 +154,10 @@ ME ME_4DCC1E58031B
  ; // Operations
 
 ENDME // ME_4DCC1E58031B Create
+
+%%ImplementedBy ME_4DCC12FC0125 ME_4DCC1E770077
+
+%%InheritedBy ME_4DCC1E58031B ME_4DCC1E770077
 
 ME ME_4DCC1E770077
  MEPROP UID '4DCC1E770077'
@@ -250,6 +270,10 @@ ME ME_57C8213A0118_ME_4DCC173A026C
  MEPROP OpKind opkind_Implemented
 ENDME // ME_57C8213A0118_ME_4DCC173A026C SafeView
 
+%%ImplementedBy ME_4DCC12FC0125 ME_4DCC173A026C
+
+%%InheritedBy ME_4DCC11A10187 ME_4DCC173A026C
+
 ME ME_4DCC173A026C
  MEPROP UID '4DCC173A026C'
  MEPROP Name 'TtfwArray'
@@ -290,6 +314,9 @@ ME ME_4DCC173A026C
  ME_57C8213A0118_ME_4DCC173A026C // SafeView
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '12.05.2011 21:22'
@@ -312,7 +339,7 @@ ME ME_57C811B000D0
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57C811A30375 // GetCount
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_57C811B000D0 DoIt
@@ -342,7 +369,7 @@ ME ME_57C8148D01B2
  MEPROP Name 'anIndex'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_57C8148D01B2 anIndex
@@ -423,7 +450,7 @@ ME ME_57C9E8BA03D2
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57C9E8AC03C6 // GetIsView
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_57C9E8BA03D2 DoIt
@@ -466,7 +493,7 @@ ME ME_57E2B4CC0317
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_57E2B4C50080 // DoAdd
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MELIST Parameters
    Seq: ( ME_57E2B4D402EF // anItem
@@ -524,6 +551,8 @@ ME ME_57E2B5350153
 
 ENDME // ME_57E2B5350153 
 
+%%InheritedBy ME_49E7754802A9 ME_57C81527030E
+
 ME ME_57C81527030E
  MEPROP UID '57C81527030E'
  MEPROP Name 'TtfwIteratableParentPrim'
@@ -552,6 +581,9 @@ ME ME_57C81527030E
  ME_57E2B5350153 // EtfwConstantArray
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwIteratableParentPrim'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'IteratableParentPrim'
@@ -673,11 +705,16 @@ ME ME_57C8213A0118_ME_52E29ED5016B
 ENDME // ME_57C8213A0118_ME_52E29ED5016B SafeView
 
 ME ME_47A6FEE600FC_ME_52E29ED5016B
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
 ENDME // ME_47A6FEE600FC_ME_52E29ED5016B IsCacheable
+
+%%ImplementedBy ME_482955720131 ME_52E29ED5016B
+%%ImplementedBy ME_52E2755700CD ME_52E29ED5016B
+
+%%InheritedBy ME_57C81527030E ME_52E29ED5016B
 
 ME ME_52E29ED5016B
  MEPROP UID '52E29ED5016B'
@@ -725,12 +762,17 @@ ME ME_52E29ED5016B
  ME_57C8212B0367 // TtfwSafeArrayView
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwIteratableParent'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'IteratableParent'
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwIteratableParent.pas'
 
 ENDME // ME_52E29ED5016B TtfwIteratableParent
+
+%%InheritedBy ME_52E29ED5016B ME_55E9A65B0186
 
 ME ME_55E9A65B0186
  MEPROP UID '55E9A65B0186'
@@ -810,6 +852,10 @@ ME ME_52E2710E03D9
 
 ENDME // ME_52E2710E03D9 Create
 
+%%ImplementedBy ME_4DCC12FC0125 ME_52E27222008A
+
+%%InheritedBy ME_52E2710E03D9 ME_52E27222008A
+
 ME ME_52E27222008A
  MEPROP UID '52E27222008A'
  MEPROP Name 'Make'
@@ -871,6 +917,8 @@ ME ME_97C5D4877A59
  ; // Parameters
 
 ENDME // ME_97C5D4877A59 DoIt
+
+%%InheritedBy ME_52E23BB102FA ME_52E666F6036E
 
 ME ME_52E666F6036E
  MEPROP UID '52E666F6036E'
@@ -934,6 +982,8 @@ ME ME_D60B6FE2B7E3
 
 ENDME // ME_D60B6FE2B7E3 DoIt
 
+%%InheritedBy ME_52E23B7A00EC ME_52E666E80335
+
 ME ME_52E666E80335
  MEPROP UID '52E666E80335'
  MEPROP Name 'DoForEach'
@@ -965,7 +1015,7 @@ ME ME_55E84F680257
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55E84F5F00ED // GetItemsCountInSlice
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_55E84F680257 DoIt
@@ -1098,7 +1148,7 @@ ME ME_57C8213A0118_ME_52E270AE02EA
 ENDME // ME_57C8213A0118_ME_52E270AE02EA SafeView
 
 ME ME_47A6FEE600FC_ME_52E270AE02EA
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
@@ -1115,6 +1165,10 @@ ME ME_57C8146602DB_ME_52E270AE02EA
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_57C8146602DB_ME_52E270AE02EA GetItem
+
+%%ImplementedBy ME_4DCC12FC0125 ME_52E270AE02EA
+
+%%InheritedBy ME_57C81527030E ME_52E270AE02EA
 
 ME ME_52E270AE02EA
  MEPROP UID '52E270AE02EA'
@@ -1174,6 +1228,9 @@ ME ME_52E270AE02EA
  ME_57C8125D0042 // EtfwConstantArray
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwArrayView'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ArrayView'
@@ -1249,10 +1306,12 @@ ME ME_4DAEEDE10285_ME_57C82359026B
 ENDME // ME_4DAEEDE10285_ME_57C82359026B DoDoIt
 
 ME ME_479731C50290_ME_57C82359026B
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_57C82359026B Cleanup
+
+%%InheritedBy ME_4DAEED140007 ME_57C82359026B
 
 ME ME_57C82359026B
  MEPROP UID '57C82359026B'
@@ -1284,6 +1343,9 @@ ME ME_57C82359026B
    Seq: ( ME_479731C50290_ME_57C82359026B // Cleanup
  )
  ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'SafeArrayViewLambda'
 
@@ -1366,6 +1428,8 @@ ME ME_57E2B4C50080_ME_57C820E80374
  MEPROP OpKind opkind_Overridden
 ENDME // ME_57E2B4C50080_ME_57C820E80374 DoAdd
 
+%%InheritedBy ME_52E270AE02EA ME_57C820E80374
+
 ME ME_57C820E80374
  MEPROP UID '57C820E80374'
  MEPROP Name 'TtfwSafeArrayView'
@@ -1403,6 +1467,9 @@ ME ME_57C820E80374
  ME_57C842B1023D // TtfwStoredValuesStack
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwSafeArrayView'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'SafeArrayView'
@@ -1420,7 +1487,7 @@ ME ME_55F0288E028B
  MEPROP Name 'aDelta'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_55F0288E028B aDelta
@@ -1429,7 +1496,7 @@ ME ME_4DF080C303B1
  MEPROP Name 'aNeedPop'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4DF080C303B1 aNeedPop
@@ -1507,7 +1574,7 @@ ME ME_4DB048CA0024
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB009CF0103 // TtfwValueStack
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_4DB048CA0024 
@@ -1517,7 +1584,7 @@ ME ME_4DB048E70022
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB009CF0103 // TtfwValueStack
  ;
- MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
  ;
 
 ENDME // ME_4DB048E70022 
@@ -1527,7 +1594,7 @@ ME ME_54F9C30302C0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB009CF0103 // TtfwValueStack
  ;
- MELINK Target WL 'ME_51E8F2620130' '47913B47006E.ms.model.script' // Tl3Str
+ MELINK Target WL 'ME_51E8F2620130' '51E8F24303CC.ms.model.script' // Tl3Str
  ;
 
 ENDME // ME_54F9C30302C0 
@@ -1893,6 +1960,10 @@ ME ME_5613FA08013C_ME_4DB009CF0103
  MEPROP OpKind opkind_Implemented
 ENDME // ME_5613FA08013C_ME_4DB009CF0103 PushIntf
 
+%%ImplementedBy ME_4DB048620395 ME_4DB009CF0103
+
+%%InheritedBy ME_4DCC11A10187 ME_4DB009CF0103
+
 ME ME_4DB009CF0103
  MEPROP UID '4DB009CF0103'
  MEPROP Name 'TtfwValueStack'
@@ -1986,6 +2057,9 @@ ME ME_4DB009CF0103
  ME_54F9C30302C0 // Tl3Str
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwValueStack'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ValueStack'
@@ -2037,6 +2111,10 @@ ME ME_4F49438E0354
  ; // Operations
 
 ENDME // ME_4F49438E0354 Create
+
+%%ImplementedBy ME_4F4940D4029A ME_4F4943A902C5
+
+%%InheritedBy ME_4F49438E0354 ME_4F4943A902C5
 
 ME ME_4F4943A902C5
  MEPROP UID '4F4943A902C5'
@@ -2100,14 +2178,14 @@ ME ME_55A530FF00F8
 ENDME // ME_55A530FF00F8 
 
 ME ME_47B07CF403D0_ME_4F49416600CB
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_4F49416600CB IsSameItems
 
 ME ME_47B2C42A0163_ME_4F49416600CB
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -2115,7 +2193,7 @@ ME ME_47B2C42A0163_ME_4F49416600CB
 ENDME // ME_47B2C42A0163_ME_4F49416600CB AssignItem
 
 ME ME_47B99D4503A2_ME_4F49416600CB
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_4F49416600CB CompareExistingItems
@@ -2140,11 +2218,16 @@ ME ME_55A52ACE0238_ME_4F49416600CB
 ENDME // ME_55A52ACE0238_ME_4F49416600CB StoreDictionary
 
 ME ME_47A6FEE600FC_ME_4F49416600CB
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
 ENDME // ME_47A6FEE600FC_ME_4F49416600CB IsCacheable
+
+%%ImplementedBy ME_4F4940D4029A ME_4F49416600CB
+
+%%InheritedBy ME_47B9AF6E0228 ME_4F49416600CB
+%%InheritedBy ME_4A54DD4E036F ME_4F49416600CB
 
 ME ME_4F49416600CB
  MEPROP UID '4F49416600CB'
@@ -2157,7 +2240,7 @@ ME ME_4F49416600CB
  MELINK Parent HWL ME_54F0A4A302FF // Array
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.ms.model.script' // l3InterfaceRefListPrim
+   Seq: ( WL 'ME_47B9AF6E0228' '47B9AF6E0228.ms.model.script' // l3InterfaceRefListPrim
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -2194,6 +2277,9 @@ ME ME_4F49416600CB
  ME_55A530FF00F8 // TtfwArray
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwStoredValuesStack'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'StoredValuesStack'
@@ -2228,5 +2314,8 @@ ME ME_54F0A4A302FF
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_54F0A4A302FF Array

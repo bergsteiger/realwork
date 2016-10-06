@@ -1,0 +1,349 @@
+// GUIAppTester 52F21A610247 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52F21A610247
+
+ME ME_4DA478990164
+ MEPROP UID '4DA478990164'
+ MEPROP Name 'g_IsBatchMode'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4DA478990164 g_IsBatchMode
+
+ME ME_4DA478B5000C
+ MEPROP UID '4DA478B5000C'
+ MEPROP Name 'g_IsBatchModeValid'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4DA478B5000C g_IsBatchModeValid
+
+ME ME_52F21B18009E
+ MEPROP UID '52F21B18009E'
+ MEPROP Name 'g_Debugger'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_4DB14E0A029D' '4DB1629901E8.ms.model.script' // TtfwScriptDebugger_Form
+ ;
+
+ENDME // ME_52F21B18009E g_Debugger
+
+ME ME_52F21B3201DF
+ MEPROP UID '52F21B3201DF'
+ MEPROP Name 'g_TestsForm'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_4DA30F0F02C1' '4B2A0D9401CC.ms.model.script' // TGUITestRunner
+ ;
+
+ENDME // ME_52F21B3201DF g_TestsForm
+
+ME ME_52F21B3B012E
+ MEPROP UID '52F21B3B012E'
+ MEPROP Name 'g_InRun'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_52F21B3B012E g_InRun
+
+FORWARD ME_4F79BCC902C5
+
+ME ME_4F79BCDA0351
+ MEPROP UID '4F79BCDA0351'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F79BCC902C5 // CalcBatchMode
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F79BCDA0351 DoIt
+
+ME ME_4F79BCC902C5
+ MEPROP UID '4F79BCC902C5'
+ MEPROP Name 'CalcBatchMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F79BCDA0351 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4F79BCC902C5 CalcBatchMode
+
+FORWARD ME_4DA3361A0305
+
+FORWARD ME_4DA33626026D
+
+ME ME_4DA3362C0043
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_4DA3362C0043 Sender
+
+ME ME_4DA3362C00B5
+ MEPROP Name 'Done'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DA3362C00B5 Done
+
+ME ME_4DA33626026D
+ MEPROP UID '4DA33626026D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DA3361A0305 // DoIdle
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DA3362C0043 // Sender
+ ME_4DA3362C00B5 // Done
+ )
+ ; // Parameters
+
+ENDME // ME_4DA33626026D DoIt
+
+ME ME_4DA3361A0305
+ MEPROP UID '4DA3361A0305'
+ MEPROP Name 'DoIdle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DA33626026D // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4DA3361A0305 DoIdle
+
+FORWARD ME_4DA476580343
+
+ME ME_4DA4766801BC
+ MEPROP UID '4DA4766801BC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DA476580343 // IsBatchMode
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DA4766801BC DoIt
+
+ME ME_4DA476580343
+ MEPROP UID '4DA476580343'
+ MEPROP Name 'IsBatchMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DA4766801BC // DoIt
+ )
+ ; // Operations
+ UP "ifdef" 'InsiderTest'
+ UP "is static" True
+
+ENDME // ME_4DA476580343 IsBatchMode
+
+FORWARD ME_4F79B9D500D7
+
+ME ME_4F79B9E70001
+ MEPROP UID '4F79B9E70001'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F79B9D500D7 // ReadyToRun
+ ;
+
+ENDME // ME_4F79B9E70001 DoIt
+
+ME ME_4F79B9D500D7
+ MEPROP UID '4F79B9D500D7'
+ MEPROP Name 'ReadyToRun'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '¬ызываетс€ непосредственно перед запуском приложени€, например дл€ инициализации/запуска тестов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F79B9E70001 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4F79B9D500D7 ReadyToRun
+
+ME ME_52F22702013E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_4CDD241C0184' '4773D64E036C.ms.model.script' // l3System
+ ;
+
+ENDME // ME_52F22702013E 
+
+ME ME_52F259E0007D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_4B2A6D4303A9' '4B2A6D4303A9.ms.model.script' // KTestRunner
+ ;
+
+ENDME // ME_52F259E0007D 
+
+ME ME_52F25C7E009E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_4C8A2ADD01B1' '47E13C6B0341.ms.model.script' // Application
+ ;
+
+ENDME // ME_52F25C7E009E 
+
+ME ME_52F25F240290
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_4E03119F00B2' '4E03119F00B2.ms.model.script' // afwAnswer
+ ;
+
+ENDME // ME_52F25F240290 
+
+ME ME_52F2615A008E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_4B2A0DCE03A9' '4B2A0DCE03A9.ms.model.script' // TestFrameWork
+ ;
+
+ENDME // ME_52F2615A008E 
+
+ME ME_55099C0B00E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52F21A610247 // GUIAppTester
+ ;
+ MELINK Target WL 'ME_5507FDD203E1' '4E030FC801EB.ms.model.script' // Tl3BatchService
+ ;
+
+ENDME // ME_55099C0B00E4 
+
+ME ME_52F21A610247
+ MEPROP UID '52F21A610247'
+ MEPROP Name 'GUIAppTester'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ѕазовый тестер GUI-приложений' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_51309A4A02FB' '51309A4A02FB.ms.model.script' // Tests Res Common
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DA478990164 // g_IsBatchMode
+ HWL ME_4DA478B5000C // g_IsBatchModeValid
+ HWL ME_52F21B18009E // g_Debugger
+ HWL ME_52F21B3201DF // g_TestsForm
+ HWL ME_52F21B3B012E // g_InRun
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F79BCC902C5 // CalcBatchMode
+ HWL ME_4DA3361A0305 // DoIdle
+ HWL ME_4DA476580343 // IsBatchMode
+ HWL ME_4F79B9D500D7 // ReadyToRun
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52F22702013E // l3System
+ ME_52F259E0007D // KTestRunner
+ ME_52F25C7E009E // Application
+ ME_52F25F240290 // afwAnswer
+ ME_52F2615A008E // TestFrameWork
+ ME_55099C0B00E4 // Tl3BatchService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_GUIAppTester_'
+ UP extprop:pas:UnitName 'GUIAppTester.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\Shared_Delphi_Tests_Common\GUIAppTester.imp.pas'
+
+ENDME // ME_52F21A610247 GUIAppTester

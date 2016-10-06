@@ -1,0 +1,577 @@
+// evParaListPainter 481D6C300084 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_481D6C300084
+
+FORWARD ME_4D63E3490015
+
+FORWARD ME_4D63E36D0216
+
+ME ME_4D63E47A003C
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4D63E47A003C aChild
+
+ME ME_4D63E3740109
+ MEPROP Name 'aChildPainter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_4D63E3740109 aChildPainter
+
+ME ME_4D63E8CF027B
+ MEPROP Name 'aChildInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47FA3B72006E' '49D2080D020C.ms.model.script' // TnevShapeInfo
+ ;
+
+ENDME // ME_4D63E8CF027B aChildInfo
+
+ME ME_4D63E36D0216
+ MEPROP UID '4D63E36D0216'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D63E3490015 // AfterDrawChild
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D63E47A003C // aChild
+ ME_4D63E3740109 // aChildPainter
+ ME_4D63E8CF027B // aChildInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4D63E36D0216 DoIt
+
+ME ME_4D63E3490015
+ MEPROP UID '4D63E3490015'
+ MEPROP Name 'AfterDrawChild'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D63E36D0216 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4D63E3490015 AfterDrawChild
+
+FORWARD ME_4E82C51501A9
+
+FORWARD ME_4E82C576031A
+
+ME ME_4E82C6210070
+ MEPROP Name 'anInner'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E82C6210070 anInner
+
+ME ME_4E82C576031A
+ MEPROP UID '4E82C576031A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E82C51501A9 // MakeBottomAnchorInnerAfterEnd
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E82C6210070 // anInner
+ )
+ ; // Parameters
+
+ENDME // ME_4E82C576031A DoIt
+
+ME ME_4E82C51501A9
+ MEPROP UID '4E82C51501A9'
+ MEPROP Name 'MakeBottomAnchorInnerAfterEnd'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Метод сделан, чтобы не тащить связь от Cursors в ParaListPainters' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E82C576031A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E82C51501A9 MakeBottomAnchorInnerAfterEnd
+
+FORWARD ME_4FD97F890377
+
+FORWARD ME_4FD97FAA01C7
+
+ME ME_4FD98D5E00A3
+ MEPROP Name 'aPainterHolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C7DE24022A' '49D2080D020C.ms.model.script' // InevPaintersHolder
+ ;
+
+ENDME // ME_4FD98D5E00A3 aPainterHolder
+
+ME ME_4FD98D5E00C6
+ MEPROP Name 'aChildMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4FD98D5E00C6 aChildMap
+
+ME ME_4FD97FAA01C7
+ MEPROP UID '4FD97FAA01C7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FD97F890377 // CheckNeedLaterFilling
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FD98D5E00A3 // aPainterHolder
+ ME_4FD98D5E00C6 // aChildMap
+ )
+ ; // Parameters
+
+ENDME // ME_4FD97FAA01C7 DoIt
+
+ME ME_4FD97F890377
+ MEPROP UID '4FD97F890377'
+ MEPROP Name 'CheckNeedLaterFilling'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FD97FAA01C7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FD97F890377 CheckNeedLaterFilling
+
+FORWARD ME_481D6C56033A
+
+ME ME_481D6C8B0258
+ MEPROP Name 'ChildPainter'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C7DC2801FB' '49D2080D020C.ms.model.script' // IevPainter
+ ;
+
+ENDME // ME_481D6C8B0258 ChildPainter
+
+ME ME_481D6C56033A
+ MEPROP UID '481D6C56033A'
+ MEPROP Name 'BeforeDrawChild'
+ MEPROP Class class_Operation
+ %SUMMARY 'Вызывается перед рисованием каждого дочернего параграфа.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_481D6C8B0258 // ChildPainter
+ )
+ ; // Parameters
+
+ENDME // ME_481D6C56033A BeforeDrawChild
+
+FORWARD ME_481D6CB00337
+
+ME ME_481D6CBD0102
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_481D6CBD0102 aPara
+
+ME ME_481D6CB00337
+ MEPROP UID '481D6CB00337'
+ MEPROP Name 'ChildInSelection'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_481D6CBD0102 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_481D6CB00337 ChildInSelection
+
+ME ME_481D6CCF016D
+ MEPROP UID '481D6CCF016D'
+ MEPROP Name 'NeedCheckTopAnchor'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_481D6CCF016D NeedCheckTopAnchor
+
+ME ME_481D6CFA0047
+ MEPROP UID '481D6CFA0047'
+ MEPROP Name 'CheckCompleate'
+ MEPROP Class class_Operation
+ %SUMMARY '[$114950787]' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_481D6CFA0047 CheckCompleate
+
+FORWARD ME_49D30810030E
+
+ME ME_49DB42200081
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_49DB42200081 aPara
+
+ME ME_49D30810030E
+ MEPROP UID '49D30810030E'
+ MEPROP Name 'CheckChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DB42200081 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_49D30810030E CheckChild
+
+FORWARD ME_4A8122600201
+
+ME ME_4E1AD8D900DF
+ MEPROP Name 'aHeight'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E1AD8D900DF aHeight
+
+ME ME_4A8122600201
+ MEPROP UID '4A8122600201'
+ MEPROP Name 'Check4Printing'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E1AD8D900DF // aHeight
+ )
+ ; // Parameters
+
+ENDME // ME_4A8122600201 Check4Printing
+
+FORWARD ME_4BC5CECF025B
+
+ME ME_4CB467B7003A
+ MEPROP Name 'aSelRange'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B54401B2' '47C5207602D1.ms.model.script' // InevRange
+ ;
+
+ENDME // ME_4CB467B7003A aSelRange
+
+ME ME_4BC5CECF025B
+ MEPROP UID '4BC5CECF025B'
+ MEPROP Name 'UseSelRange'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB467B7003A // aSelRange
+ )
+ ; // Parameters
+
+ENDME // ME_4BC5CECF025B UseSelRange
+
+FORWARD ME_4C4570AE0113
+
+ME ME_4CB467BA02C3
+ MEPROP Name 'aChildInfo'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47FA3B72006E' '49D2080D020C.ms.model.script' // TnevShapeInfo
+ ;
+
+ENDME // ME_4CB467BA02C3 aChildInfo
+
+ME ME_4C4570AE0113
+ MEPROP UID '4C4570AE0113'
+ MEPROP Name 'InitInnerBottom'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB467BA02C3 // aChildInfo
+ )
+ ; // Parameters
+
+ENDME // ME_4C4570AE0113 InitInnerBottom
+
+FORWARD ME_4CB4024B010A
+
+ME ME_4CB467BE0141
+ MEPROP Name 'aChild'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4CB467BE0141 aChild
+
+ME ME_4CB4024B010A
+ MEPROP UID '4CB4024B010A'
+ MEPROP Name 'NeedPrintingChild'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CB467BE0141 // aChild
+ )
+ ; // Parameters
+
+ENDME // ME_4CB4024B010A NeedPrintingChild
+
+ME ME_481D7529000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_481D7529000F 
+
+ME ME_481D7542027D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_4727449A00A2' '467C0CAA02AB.ms.model.script' // Il3Canvas
+ ;
+
+ENDME // ME_481D7542027D 
+
+ME ME_481D755A02DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_473C4F1E01A1' '473C3BEE0334.ms.model.script' // Tl3VirtualCanvas
+ ;
+
+ENDME // ME_481D755A02DF 
+
+ME ME_481D757200C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_481213C903A2' '4811D4EC0237.ms.model.script' // TnevVirtualDrawView
+ ;
+
+ENDME // ME_481D757200C2 
+
+ME ME_481D768B0226
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_481D768B0226 
+
+ME ME_481D76F60302
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_481D76A4005D' '481D76A4005D.ms.model.script' // evParaDrawTools
+ ;
+
+ENDME // ME_481D76F60302 
+
+ME ME_481D78310189
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_47F6036500E3' '47E3DF460095.ms.model.script' // TnevAfterEndPoint
+ ;
+
+ENDME // ME_481D78310189 
+
+ME ME_481D784F03C7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_481D784F03C7 
+
+ME ME_481D78720318
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_47D00CC20108' '47D00CC20108.ms.model.script' // nevFacade
+ ;
+
+ENDME // ME_481D78720318 
+
+ME ME_481D78C10169
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_481D6C300084 // evParaListPainter
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_481D78C10169 
+
+ME ME_47A6FEE600FC_ME_481D6C300084
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_47A6FEE600FC_ME_481D6C300084 IsCacheable
+
+ME ME_4804BC2401C2_ME_481D6C300084
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4804BC2401C2_ME_481D6C300084 DoDraw
+
+ME ME_4804BC800172_ME_481D6C300084
+ MELINK Original WL 'ME_4804BC800172' '4804A2C101A5.ms.model.script' // InitBottom
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4804BC800172_ME_481D6C300084 InitBottom
+
+%%InheritedBy ME_4804A2C101A5 ME_481D6C300084
+
+ME ME_481D6C300084
+ MEPROP UID '481D6C300084'
+ MEPROP Name 'evParaListPainter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Рисователь списка параграфов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_49DCBC09029B' '49DCBC09029B.ms.model.script' // Drawing Framework
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4804A2C101A5' '4804A2C101A5.ms.model.script' // evParaPainter
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4D63E3490015 // AfterDrawChild
+ HWL ME_4E82C51501A9 // MakeBottomAnchorInnerAfterEnd
+ HWL ME_4FD97F890377 // CheckNeedLaterFilling
+ HWL ME_481D6C56033A // BeforeDrawChild
+ HWL ME_481D6CB00337 // ChildInSelection
+ HWL ME_481D6CCF016D // NeedCheckTopAnchor
+ HWL ME_481D6CFA0047 // CheckCompleate
+ HWL ME_49D30810030E // CheckChild
+ HWL ME_4A8122600201 // Check4Printing
+ HWL ME_4BC5CECF025B // UseSelRange
+ HWL ME_4C4570AE0113 // InitInnerBottom
+ HWL ME_4CB4024B010A // NeedPrintingChild
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A6FEE600FC_ME_481D6C300084 // IsCacheable
+ ME_4804BC2401C2_ME_481D6C300084 // DoDraw
+ ME_4804BC800172_ME_481D6C300084 // InitBottom
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_481D7529000F // Tk2TagID
+ ME_481D7542027D // Il3Canvas
+ ME_481D755A02DF // Tl3VirtualCanvas
+ ME_481D757200C2 // TnevVirtualDrawView
+ ME_481D768B0226 // Tl3Point
+ ME_481D76F60302 // evParaDrawTools
+ ME_481D78310189 // TnevAfterEndPoint
+ ME_481D784F03C7 // l3MinMax
+ ME_481D78720318 // nevFacade
+ ME_481D78C10169 // L3 Core Consts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '07.04.1997 17:45'
+ UP extprop:pas:TypeName '_evParaListPainter_'
+ UP extprop:pas:UnitName 'evParaListPainter.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evParaListPainter.imp.pas'
+
+ENDME // ME_481D6C300084 evParaListPainter

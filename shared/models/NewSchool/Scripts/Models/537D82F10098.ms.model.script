@@ -1,0 +1,82 @@
+// vcmChromeLikeTypes 537D82F10098 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_537D83140148
+
+FORWARD ME_537D82F10098
+
+FORWARD ME_537D83140148
+
+ME ME_537D832600C0
+ MEPROP UID '537D832600C0'
+ MEPROP Name 'MainMenu'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_537D83140148 // IvcmMenuHolder
+ ;
+ MELINK Target WL 'ME_47E7ABCB0296' '47E7ABAE0110.ms.model.script' // TMenuItem
+ ;
+ UP "pm" False
+
+ENDME // ME_537D832600C0 MainMenu
+
+ME ME_537D83140148
+ MEPROP UID '537D83140148'
+ MEPROP GUID '06E8AA85-09B4-4185-839F-66D5F1138AA0'
+ MEPROP Name 'IvcmMenuHolder'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537D82F10098 // vcmChromeLikeTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_537D832600C0 // MainMenu
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MenuHolder'
+
+ENDME // ME_537D83140148 IvcmMenuHolder
+
+ME ME_537D83C80169
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_537D82F10098 // vcmChromeLikeTypes
+ ;
+ MELINK Target WL 'ME_47E7ABAE0110' '47E7ABAE0110.ms.model.script' // Menus
+ ;
+
+ENDME // ME_537D83C80169 
+
+ME ME_537D82F10098
+ MEPROP UID '537D82F10098'
+ MEPROP Name 'vcmChromeLikeTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_537D82CB0161' '537D82CB0161.ms.model.script' // vcmChromeLikeSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_537D83140148 // IvcmMenuHolder
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_537D83C80169 // Menus
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ChromeLikeTypes'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\vcmChromeLikeTypes.pas'
+
+ENDME // ME_537D82F10098 vcmChromeLikeTypes

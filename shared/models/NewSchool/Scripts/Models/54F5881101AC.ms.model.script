@@ -1,0 +1,78 @@
+// ScrollingWinControlWordsPack 54F5881101AC ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54F5881101AC
+
+ME ME_54F878D80349
+ MEPROP UID '54F878D80349'
+ MEPROP Name 'VScrollerVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F5881101AC // ScrollingWinControlWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54F878D80349 VScrollerVisible
+
+ME ME_54F878EC0363
+ MEPROP UID '54F878EC0363'
+ MEPROP Name 'HScrollerVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54F5881101AC // ScrollingWinControlWordsPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_54F878EC0363 HScrollerVisible
+
+ME ME_54F86B4A0153
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54F5881101AC // ScrollingWinControlWordsPack
+ ;
+ MELINK Target WL 'ME_50222C8103A5' '48A41FF10094.ms.model.script' // TScrollInfo
+ ;
+
+ENDME // ME_54F86B4A0153 
+
+%%InheritedBy ME_47E124E90272 ME_54F5881101AC
+%%InheritedBy ME_495259490229 ME_54F5881101AC
+
+ME ME_54F5881101AC
+ MEPROP UID '54F5881101AC'
+ MEPROP Name 'ScrollingWinControlWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54F58741022C' '54F58741022C.ms.model.script' // ExtControlsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ WL 'ME_495259490229' '47E13C6B0341.ms.model.script' // TScrollingWinControl
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54F878D80349 // VScrollerVisible
+ HWL ME_54F878EC0363 // HScrollerVisible
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_54F86B4A0153 // TScrollInfo
+ )
+ ; // Dependencies
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ScrollingWinControlWordsPack.pas'
+
+ENDME // ME_54F5881101AC ScrollingWinControlWordsPack

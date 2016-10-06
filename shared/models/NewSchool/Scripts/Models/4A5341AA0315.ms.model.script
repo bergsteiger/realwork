@@ -1,0 +1,48 @@
+// k2BaseHack 4A5341AA0315 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A5341CF028F
+
+FORWARD ME_4A5341AA0315
+
+ME ME_4A5341CF028F
+ MEPROP UID '4A5341CF028F'
+ MEPROP Name 'Tk2ChildrenProperty'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A5341AA0315 // k2BaseHack
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ChildrenProperty'
+
+ENDME // ME_4A5341CF028F Tk2ChildrenProperty
+
+ME ME_4A5341AA0315
+ MEPROP UID '4A5341AA0315'
+ MEPROP Name 'k2BaseHack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Хак для разрешения циклических ссылок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A4DE16302A2' '4A4DE16302A2.ms.model.script' // k2Core
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A5341CF028F // Tk2ChildrenProperty
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'BaseHack'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2BaseHack.pas'
+
+ENDME // ME_4A5341AA0315 k2BaseHack

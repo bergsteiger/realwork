@@ -1,0 +1,105 @@
+// nscConst 4CFF747800AA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4CFF747800AA
+
+FORWARD ME_53FF09C9016B
+
+ME ME_53FF09E901A3
+ MEPROP UID '53FF09E901A3'
+ MEPROP Name 'cDefaultContextEmptyColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF09C9016B // nscConst
+ ;
+ MEPROP Value 'clGrayText'
+ MELINK ValueType WL 'ME_47D15712022D' '47D15712022D.ms.model.script' // Graphics
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'Graphics.clGrayText'
+
+ENDME // ME_53FF09E901A3 cDefaultContextEmptyColor
+
+ME ME_53FF09FA010E
+ MEPROP UID '53FF09FA010E'
+ MEPROP Name 'cPlusKeyCode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF09C9016B // nscConst
+ ;
+ MEPROP Value 188
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 188
+
+ENDME // ME_53FF09FA010E cPlusKeyCode
+
+ME ME_53FF0A020304
+ MEPROP UID '53FF0A020304'
+ MEPROP Name 'cMinusKeyCode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53FF09C9016B // nscConst
+ ;
+ MEPROP Value 189
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 189
+
+ENDME // ME_53FF0A020304 cMinusKeyCode
+
+ME ME_53FF09C9016B
+ MEPROP UID '53FF09C9016B'
+ MEPROP Name 'nscConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4CFF747800AA // nscConst
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53FF09E901A3 // cDefaultContextEmptyColor
+ HWL ME_53FF09FA010E // cPlusKeyCode
+ HWL ME_53FF0A020304 // cMinusKeyCode
+ )
+ ; // Attributes
+ UP "spell names" False
+ UP extprop:rc:SelfName 'Const'
+
+ENDME // ME_53FF09C9016B nscConst
+
+ME ME_4CFF747800AA
+ MEPROP UID '4CFF747800AA'
+ MEPROP Name 'nscConst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_49083E150027' '49083E150027.ms.model.script' // CoreObjects
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_53FF09C9016B // nscConst
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "no hands" True
+ UP extprop:rc:SelfName 'Const'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscConst.pas'
+
+ENDME // ME_4CFF747800AA nscConst

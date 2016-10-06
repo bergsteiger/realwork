@@ -2,44 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_5450CFDA02FF
-
-FORWARD ME_5450D0130072
-
-ME ME_5450D05B00F7
- MEPROP UID '5450D05B00F7'
- MEPROP Name 'TMailServer'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5450D0130072 // dt_Mail
- ;
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'MailServer'
-
-ENDME // ME_5450D05B00F7 TMailServer
-
-ME ME_5450D0130072
- MEPROP UID '5450D0130072'
- MEPROP Name 'dt_Mail'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5450CFDA02FF // Mail
- ;
- MELIST Children
-   Seq: ( HWL ME_5450D05B00F7 // TMailServer
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Mail.pas'
-
-ENDME // ME_5450D0130072 dt_Mail
+%%Inner ME_5450D0130072
 
 ME ME_5450CFDA02FF
  MEPROP UID '5450CFDA02FF'
@@ -52,8 +15,11 @@ ME ME_5450CFDA02FF
  MELINK Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.ms.model.script' // DT
  ;
  MELIST Children
-   Seq: ( HWL ME_5450D0130072 // dt_Mail
+   Seq: ( WL 'ME_5450D0130072' '5450D0130072.ms.model.script' // dt_Mail
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_5450CFDA02FF Mail

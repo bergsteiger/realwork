@@ -1,0 +1,51 @@
+// CustomFormProcessingPack 553252BF022D ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_553252BF022D
+
+ME ME_553252FA01E0
+ MEPROP UID '553252FA01E0'
+ MEPROP Name 'pop_form_FormStyle'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_553252BF022D // CustomFormProcessingPack
+ ;
+ MELINK Target WL 'ME_553252AE033C' '47E13C6B0341.ms.model.script' // TFormStyle
+ ;
+
+ENDME // ME_553252FA01E0 pop_form_FormStyle
+
+%%InheritedBy ME_484529DC0276 ME_553252BF022D
+
+ME ME_553252BF022D
+ MEPROP UID '553252BF022D'
+ MEPROP Name 'CustomFormProcessingPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_50741A080229' '50741A080229.ms.model.script' // FormsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_484529DC0276' '47E13C6B0341.ms.model.script' // TCustomForm
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_553252FA01E0 // pop_form_FormStyle
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "no class name" True
+ UP "no_pop" True
+ UP extprop:rc:SelfName 'FormProcessingPack'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\CustomFormProcessingPack.pas'
+
+ENDME // ME_553252BF022D CustomFormProcessingPack

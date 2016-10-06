@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_52F8D9000078
+%%Inner ME_5583D62701B8
+
 FORWARD ME_53D64A86016A
 
 ME ME_52F8D9000078
@@ -23,41 +26,6 @@ ME ME_52F8D9000078
 
 ENDME // ME_52F8D9000078 TalcuStrings
 
-FORWARD ME_5583D62701B8
-
-ME ME_5583D680016C
- MEPROP UID '5583D680016C'
- MEPROP Name 'TalcuStatus'
- MEPROP Class class_Class
- MELINK Stereotype st_Enum ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5583D62701B8 // alcuTypes
- ;
- UP extprop:rc:isAcceptableForScripts True
-
-ENDME // ME_5583D680016C TalcuStatus
-
-ME ME_5583D62701B8
- MEPROP UID '5583D62701B8'
- MEPROP Name 'alcuTypes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_53D64A86016A // Core
- ;
- MELIST Children
-   Seq: ( HWL ME_5583D680016C // TalcuStatus
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\PipeInAuto\Core\NOT_FINISHED_alcuTypes.pas'
-
-ENDME // ME_5583D62701B8 alcuTypes
-
 ME ME_53D64A86016A
  MEPROP UID '53D64A86016A'
  MEPROP Name 'Core'
@@ -70,7 +38,7 @@ ME ME_53D64A86016A
  ;
  MELIST Children
    Seq: ( HWL ME_52F8D9000078 // TalcuStrings
- HWL ME_5583D62701B8 // alcuTypes
+ WL 'ME_5583D62701B8' '5583D62701B8.ms.model.script' // alcuTypes
  )
  ; // Children
 

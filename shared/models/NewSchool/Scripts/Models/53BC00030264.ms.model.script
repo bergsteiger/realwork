@@ -2,9 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_53BA8FB5015D
+
 FORWARD ME_53BC00030264
 
 FORWARD ME_53BA8FB5015D
+
+%%InheritedBy ME_52FA49DF00EF ME_53BA988202FA
 
 ME ME_53BA988202FA
  MEPROP UID '53BA988202FA'
@@ -17,13 +21,15 @@ ME ME_53BA988202FA
  MELINK Parent HWL ME_53BA8FB5015D // TRegisteredTasksTest
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52FA49DF00EF' '52FA49B901D3.ms.model.script' // TddTaskItem
+   Seq: ( WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ddTaskItemFriend'
 
 ENDME // ME_53BA988202FA TddTaskItemFriend
+
+%%InheritedBy ME_53BA988202FA ME_53BA9FB70031
 
 ME ME_53BA9FB70031
  MEPROP UID '53BA9FB70031'
@@ -51,7 +57,7 @@ ME ME_53BA904A0344
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BA902B00C5 // DoIt
  ;
- MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
  ;
 
 ENDME // ME_53BA904A0344 
@@ -61,7 +67,7 @@ ME ME_53BA9071001B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BA902B00C5 // DoIt
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_53BA9071001B 
@@ -81,7 +87,7 @@ ME ME_53BA93920224
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BA902B00C5 // DoIt
  ;
- MELINK Target WL 'ME_52FA49DF00EF' '52FA49B901D3.ms.model.script' // TddTaskItem
+ MELINK Target WL 'ME_52FA49DF00EF' '52FA49C7022C.ms.model.script' // TddTaskItem
  ;
 
 ENDME // ME_53BA93920224 
@@ -101,7 +107,7 @@ ME ME_53BA9C72014F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BA902B00C5 // DoIt
  ;
- MELINK Target WL 'ME_47AC723D02DC' '49A58A1A03C4.ms.model.script' // Tk2Type
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
  ;
 
 ENDME // ME_53BA9C72014F 
@@ -143,10 +149,12 @@ ME ME_53BA901400B4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53BA8FB5015D // TRegisteredTasksTest
  ;
- MELINK Target WL 'ME_53A953FD016B' '484A470100DD.ms.model.script' // evdTaskTypes
+ MELINK Target WL 'ME_53A953FD016B' '53A953FD016B.ms.model.script' // evdTaskTypes
  ;
 
 ENDME // ME_53BA901400B4 
+
+%%InheritedBy ME_4B2A11BC0255 ME_53BA8FB5015D
 
 ME ME_53BA8FB5015D
  MEPROP UID '53BA8FB5015D'
@@ -176,6 +184,9 @@ ME ME_53BA8FB5015D
  ME_53BA901400B4 // evdTaskTypes
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'RegisteredTasksTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'RegisteredTasksTest'
@@ -207,6 +218,9 @@ ME ME_53BC00030264
  WL 'ME_52FA49B901D3' '52FA49B901D3.ms.model.script' // ArchiClientServer
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP Version 0
 
 ENDME // ME_53BC00030264 Registering

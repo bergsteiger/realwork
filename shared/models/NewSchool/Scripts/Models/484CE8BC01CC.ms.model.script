@@ -1,0 +1,79 @@
+// l3FontManager 484CE8BC01CC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B88F0E700A0
+%%Inner ME_5314729A02D2
+
+FORWARD ME_484CE8BC01CC
+
+%%InheritedBy ME_5314807A0393 ME_4B88F0E700A0
+
+ME ME_4B88F0E700A0
+ MEPROP UID '4B88F0E700A0'
+ MEPROP Name 'Tl3FontManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE8BC01CC // l3FontManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_5314807A0393' '473C3BEE0334.ms.model.script' // Tl3FontManagerPrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'FontManager'
+
+ENDME // ME_4B88F0E700A0 Tl3FontManager
+
+%%InheritedBy ME_484CE8FF0292 ME_5314729A02D2
+
+ME ME_5314729A02D2
+ MEPROP UID '5314729A02D2'
+ MEPROP Name 'Tl3LogFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_484CE8BC01CC // l3FontManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_484CE8FF0292' '473C3BEE0334.ms.model.script' // Tl3LogFont
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LogFont'
+
+ENDME // ME_5314729A02D2 Tl3LogFont
+
+ME ME_484CE8BC01CC
+ MEPROP UID '484CE8BC01CC'
+ MEPROP Name 'l3FontManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Классы для работы со шрифтами.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B88F0E700A0 // Tl3FontManager
+ HWL ME_5314729A02D2 // Tl3LogFont
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '11.10.1999 14:27'
+ UP extprop:rc:SelfName 'FontManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3FontManager.pas'
+
+ENDME // ME_484CE8BC01CC l3FontManager

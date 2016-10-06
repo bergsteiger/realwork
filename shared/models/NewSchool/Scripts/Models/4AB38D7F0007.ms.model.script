@@ -1,0 +1,167 @@
+// m4DictTypes 4AB38D7F0007 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AB38D9A0062
+%%Inner ME_4AB38B45023C
+%%Inner ME_4ABA246700B4
+
+FORWARD ME_4AB38D7F0007
+
+%%InheritedBy ME_46A606AC03B2 ME_4AB38D9A0062
+
+ME ME_4AB38D9A0062
+ MEPROP UID '4AB38D9A0062'
+ MEPROP Name 'Tm4DictItemID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Идентификатор элемента словаря' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB38D7F0007 // m4DictTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4AB38D9A0062 Tm4DictItemID
+
+%%InheritedBy ME_46A606AC03B2 ME_4AB38B45023C
+
+ME ME_4AB38B45023C
+ MEPROP UID '4AB38B45023C'
+ MEPROP Name 'Tm4WordID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Буква в строке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB38D7F0007 // m4DictTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4AB38B45023C Tm4WordID
+
+FORWARD ME_4ABA246700B4
+
+ME ME_4ABA24A103E6
+ MEPROP UID '4ABA24A103E6'
+ MEPROP Name 'rID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ABA246700B4 // Tm4DictItemAddr
+ ;
+ MELINK Target HWL ME_4AB38D9A0062 // Tm4DictItemID
+ ;
+
+ENDME // ME_4ABA24A103E6 rID
+
+ME ME_4ABA24AC017E
+ MEPROP UID '4ABA24AC017E'
+ MEPROP Name 'rDictionaryID'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4ABA246700B4 // Tm4DictItemAddr
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ABA24AC017E rDictionaryID
+
+FORWARD ME_4ABA24E701F2
+
+ME ME_4ABA25080130
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4AB38D9A0062 // Tm4DictItemID
+ ;
+
+ENDME // ME_4ABA25080130 anID
+
+ME ME_4ABA2508017C
+ MEPROP Name 'aDictionaryID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4ABA2508017C aDictionaryID
+
+ME ME_4ABA24E701F2
+ MEPROP UID '4ABA24E701F2'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4ABA246700B4 // Tm4DictItemAddr
+ ;
+ MELIST Parameters
+   Seq: ( ME_4ABA25080130 // anID
+ ME_4ABA2508017C // aDictionaryID
+ )
+ ; // Parameters
+
+ENDME // ME_4ABA24E701F2 C
+
+ME ME_4ABA246700B4
+ MEPROP UID '4ABA246700B4'
+ MEPROP Name 'Tm4DictItemAddr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AB38D7F0007 // m4DictTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4ABA24A103E6 // rID
+ HWL ME_4ABA24AC017E // rDictionaryID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ABA24E701F2 // C
+ )
+ ; // Operations
+
+ENDME // ME_4ABA246700B4 Tm4DictItemAddr
+
+ME ME_4AB38D7F0007
+ MEPROP UID '4AB38D7F0007'
+ MEPROP Name 'm4DictTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB37BE502EA' '4AB37BE502EA.ms.model.script' // Dict
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AB38D9A0062 // Tm4DictItemID
+ HWL ME_4AB38B45023C // Tm4WordID
+ HWL ME_4ABA246700B4 // Tm4DictItemAddr
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '18.09.2009 17:40'
+ UP intf.pas:Path 'common\components\rtl\Garant\m4\m4DictTypes.pas'
+
+ENDME // ME_4AB38D7F0007 m4DictTypes

@@ -1,0 +1,220 @@
+// k2InterfaceCache 531EF71800F9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_531EF73702F9
+
+FORWARD ME_531EF71800F9
+
+FORWARD ME_531EF73702F9
+
+FORWARD ME_531EF76E016B
+
+ME ME_531EF77500AA
+ MEPROP Name 'ID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8A20368' '478CF8070260.ms.model.script' // Tl3IID
+ ;
+
+ENDME // ME_531EF77500AA ID
+
+ME ME_531EF76E016B
+ MEPROP UID '531EF76E016B'
+ MEPROP Name 'GetInterface'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531EF73702F9 // Tk2InterfaceCache
+ ;
+ MELINK Target WL 'ME_47F5DAEB0007' '49A58A1A03C4.ms.model.script' // Tk2ToolPrim
+ ;
+ MELIST Parameters
+   Seq: ( ME_531EF77500AA // ID
+ )
+ ; // Parameters
+
+ENDME // ME_531EF76E016B GetInterface
+
+FORWARD ME_531EF77E0278
+
+ME ME_531EF785022A
+ MEPROP Name 'ID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8A20368' '478CF8070260.ms.model.script' // Tl3IID
+ ;
+
+ENDME // ME_531EF785022A ID
+
+ME ME_531EF785025A
+ MEPROP Name 'Item'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F5DAEB0007' '49A58A1A03C4.ms.model.script' // Tk2ToolPrim
+ ;
+
+ENDME // ME_531EF785025A Item
+
+ME ME_531EF77E0278
+ MEPROP UID '531EF77E0278'
+ MEPROP Name 'SetInterface'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531EF73702F9 // Tk2InterfaceCache
+ ;
+ MELIST Parameters
+   Seq: ( ME_531EF785022A // ID
+ ME_531EF785025A // Item
+ )
+ ; // Parameters
+
+ENDME // ME_531EF77E0278 SetInterface
+
+FORWARD ME_531EF7920193
+
+ME ME_531EF79A0311
+ MEPROP Name 'ID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_478CF8A20368' '478CF8070260.ms.model.script' // Tl3IID
+ ;
+
+ENDME // ME_531EF79A0311 ID
+
+ME ME_531EF79A0339
+ MEPROP Name 'Action'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469FA03900D4' '4678193C009C.ms.model.script' // Tl3IteratorAction
+ ;
+
+ENDME // ME_531EF79A0339 Action
+
+ME ME_531EF7920193
+ MEPROP UID '531EF7920193'
+ MEPROP Name 'IterateInterfaces'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_531EF73702F9 // Tk2InterfaceCache
+ ;
+ MELIST Parameters
+   Seq: ( ME_531EF79A0311 // ID
+ ME_531EF79A0339 // Action
+ )
+ ; // Parameters
+
+ENDME // ME_531EF7920193 IterateInterfaces
+
+ME ME_531EFD7901F7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531EF73702F9 // Tk2InterfaceCache
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_531EFD7901F7 
+
+ME ME_531EFF0300DC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531EF73702F9 // Tk2InterfaceCache
+ ;
+ MELINK Target WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ ;
+
+ENDME // ME_531EFF0300DC 
+
+ME ME_531EFF0D00F4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531EF73702F9 // Tk2InterfaceCache
+ ;
+ MELINK Target WL 'ME_4CE521C80107' '4A6D65B9022A.ms.model.script' // Tl3ProtoObjectRefList
+ ;
+
+ENDME // ME_531EFF0D00F4 
+
+%%InheritedBy ME_531EF6900385 ME_531EF73702F9
+
+ME ME_531EF73702F9
+ MEPROP UID '531EF73702F9'
+ MEPROP Name 'Tk2InterfaceCache'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531EF71800F9 // k2InterfaceCache
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_531EF6900385' '531EF67F0065.ms.model.script' // Tk2InterfaceList
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_531EF76E016B // GetInterface
+ HWL ME_531EF77E0278 // SetInterface
+ HWL ME_531EF7920193 // IterateInterfaces
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_531EFD7901F7 // FreeAndNil
+ ME_531EFF0300DC // Tl3ProtoObject
+ ME_531EFF0D00F4 // Tl3ProtoObjectRefList
+ )
+ ; // Dependencies
+ UP "not treat as record for XE4" True
+ UP extprop:rc:SelfName 'InterfaceCache'
+
+ENDME // ME_531EF73702F9 Tk2InterfaceCache
+
+ME ME_531EFB0E0094
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531EF71800F9 // k2InterfaceCache
+ ;
+ MELINK Target WL 'ME_531EFB040349' '49A58A1A03C4.ms.model.script' // Tk2ToolCacheList
+ ;
+
+ENDME // ME_531EFB0E0094 
+
+ME ME_53231CA7021B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_531EF71800F9 // k2InterfaceCache
+ ;
+ MELINK Target WL 'ME_53231C5401CE' '49A58A1A03C4.ms.model.script' // Tk2ToolPrimList
+ ;
+
+ENDME // ME_53231CA7021B 
+
+ME ME_531EF71800F9
+ MEPROP UID '531EF71800F9'
+ MEPROP Name 'k2InterfaceCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_531EF73702F9 // Tk2InterfaceCache
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_531EFB0E0094 // Tk2ToolCacheList
+ ME_53231CA7021B // Tk2ToolPrimList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'InterfaceCache'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2InterfaceCache.pas'
+
+ENDME // ME_531EF71800F9 k2InterfaceCache

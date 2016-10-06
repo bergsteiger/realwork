@@ -1,0 +1,41 @@
+// SynLZ 5549B8FF00EF UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5549B8FF00EF
+
+ME ME_5549C7D80326
+ MEPROP UID '5549C7D80326'
+ MEPROP Name 'CompressSynLZ'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5549B8FF00EF // SynLZ
+ ;
+
+ENDME // ME_5549C7D80326 CompressSynLZ
+
+ME ME_5549B8FF00EF
+ MEPROP UID '5549B8FF00EF'
+ MEPROP Name 'SynLZ'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_545CBCF1008C' '545CBCF1008C.ms.model.script' // SynPDF
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5549C7D80326 // CompressSynLZ
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\SynPDF\NOT_FINISHED_SynLZ.pas'
+
+ENDME // ME_5549B8FF00EF SynLZ

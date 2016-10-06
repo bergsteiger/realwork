@@ -2,23 +2,11 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F8BF8D40367
+%%Inner ME_55DDCF7C004A
+%%Inner ME_55DDD0110086
+
 FORWARD ME_55DDB8900080
-
-ME ME_4F8BF8D40367
- MEPROP UID '4F8BF8D40367'
- MEPROP Name 'vtVerInf'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_55DDB8900080 // VersionInfo
- ;
- UP "finished" False
- UP extprop:rc:SelfName 'VerInf'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_vtVerInf.pas'
-
-ENDME // ME_4F8BF8D40367 vtVerInf
 
 FORWARD ME_55DDCF7C004A
 
@@ -35,7 +23,7 @@ ME ME_30F5EA5AF6DF
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_9F707534EAE2 // Ml3VersionInfoService
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UPLINK Speller HWL ME_55DDCFBE0096 // VersionInfo
  ;
@@ -70,7 +58,7 @@ ME ME_55DDCFBE0096
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_55DDCFBE0096 VersionInfo
@@ -80,7 +68,7 @@ ME ME_55DDCFB403BB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
- MELINK Target HWL ME_4F8BF8D40367 // vtVerInf
+ MELINK Target WL 'ME_4F8BF8D40367' '4F8BF8D40367.ms.model.script' // vtVerInf
  ;
 
 ENDME // ME_55DDCFB403BB 
@@ -90,10 +78,12 @@ ME ME_55DDD84A00AB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55DDCF7C004A // Tl3VersionInfoService
  ;
- MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
  ;
 
 ENDME // ME_55DDD84A00AB 
+
+%%InheritedBy ME_49E7754802A9 ME_55DDCF7C004A
 
 ME ME_55DDCF7C004A
  MEPROP UID '55DDCF7C004A'
@@ -122,6 +112,9 @@ ME ME_55DDCF7C004A
  ME_55DDD84A00AB // Format
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "auto translate to alien" 'undefined'
  UP extprop:pas:UnitName 'l3VersionInfoService'
  UP extprop:rc:isAcceptableForScripts True
@@ -141,6 +134,8 @@ ME ME_55DDD05B0205
  ;
 
 ENDME // ME_55DDD05B0205 
+
+%%InheritedBy ME_49E7754802A9 ME_55DDD0110086
 
 ME ME_55DDD0110086
  MEPROP UID '55DDD0110086'
@@ -180,7 +175,7 @@ ME ME_55DDB8900080
  MELINK Parent WL 'ME_4790D09A0378' '4790D09A0378.ms.model.script' // L3
  ;
  MELIST Children
-   Seq: ( HWL ME_4F8BF8D40367 // vtVerInf
+   Seq: ( WL 'ME_4F8BF8D40367' '4F8BF8D40367.ms.model.script' // vtVerInf
  HWL ME_55DDCF7C004A // Tl3VersionInfoService
  HWL ME_55DDD0110086 // Tf1VersionInfoService
  )
@@ -189,5 +184,8 @@ ME ME_55DDB8900080
    Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_55DDB8900080 VersionInfo

@@ -1,0 +1,27 @@
+// l3RefList 47B5786C033A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%InheritedBy ME_47B594B50330 ME_47B5786C033A
+
+ME ME_47B5786C033A
+ MEPROP UID '47B5786C033A'
+ MEPROP Name 'l3RefList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь для списка ссылок. Список ВЛАДЕЕТ элементами и управляет их временем жизни.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B594B50330' '47B594B50330.ms.model.script' // l3StandardTypedList
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName '_l3RefList_'
+ UP extprop:pas:UnitName 'l3RefList.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3RefList.imp.pas'
+
+ENDME // ME_47B5786C033A l3RefList

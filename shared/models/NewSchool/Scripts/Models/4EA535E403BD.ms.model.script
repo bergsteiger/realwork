@@ -1,0 +1,101 @@
+// dd_lcTypeConverter 4EA535E403BD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EA535F902AE
+%%Inner ME_4EA53608038D
+%%Inner ME_4EA53618014C
+
+FORWARD ME_4EA535E403BD
+
+%%InheritedBy ME_4EA663F50123 ME_4EA535F902AE
+
+ME ME_4EA535F902AE
+ MEPROP UID '4EA535F902AE'
+ MEPROP Name 'Tdd_lcTypeConverter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA535E403BD // dd_lcTypeConverter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA663F50123' '4EA662DD02E1.ms.model.script' // Tdd_lcSynoFilter
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dd_lcTypeConverter'
+
+ENDME // ME_4EA535F902AE Tdd_lcTypeConverter
+
+%%InheritedBy ME_4EA664B0011D ME_4EA53608038D
+
+ME ME_4EA53608038D
+ MEPROP UID '4EA53608038D'
+ MEPROP Name 'Tdd_lcTypeConverterEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA535E403BD // dd_lcTypeConverter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA664B0011D' '4B324F930103.ms.model.script' // Tdd_lcBaseDocFilter
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dd_lcTypeConverterEx'
+
+ENDME // ME_4EA53608038D Tdd_lcTypeConverterEx
+
+%%InheritedBy ME_4EA6641200BA ME_4EA53618014C
+
+ME ME_4EA53618014C
+ MEPROP UID '4EA53618014C'
+ MEPROP Name 'Tdd_lcTypeConverter2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EA535E403BD // dd_lcTypeConverter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EA6641200BA' '4EA662DD02E1.ms.model.script' // Tdd_lcBaseHeaderFilter
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dd_lcTypeConverter2'
+
+ENDME // ME_4EA53618014C Tdd_lcTypeConverter2
+
+ME ME_4EA535E403BD
+ MEPROP UID '4EA535E403BD'
+ MEPROP Name 'dd_lcTypeConverter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ѕреобразование внешних типов во внутренние' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B324F930103' '4B324F930103.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EA535F902AE // Tdd_lcTypeConverter
+ HWL ME_4EA53608038D // Tdd_lcTypeConverterEx
+ HWL ME_4EA53618014C // Tdd_lcTypeConverter2
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcTypeConverter.pas'
+
+ENDME // ME_4EA535E403BD dd_lcTypeConverter

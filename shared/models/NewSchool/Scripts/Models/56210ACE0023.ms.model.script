@@ -1,0 +1,46 @@
+// Actions 56210ACE0023 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_56210AE80069
+
+FORWARD ME_56210ACE0023
+
+ME ME_56210AE80069
+ MEPROP UID '56210AE80069'
+ MEPROP Name 'TCustomShortCutList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56210ACE0023 // Actions
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ShortCutList'
+
+ENDME // ME_56210AE80069 TCustomShortCutList
+
+ME ME_56210ACE0023
+ MEPROP UID '56210ACE0023'
+ MEPROP Name 'Actions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ ;
+ MELIST Children
+   Seq: ( HWL ME_56210AE80069 // TCustomShortCutList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "ifdef" 'XE'
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\NOT_FINISHED_Actions.pas'
+
+ENDME // ME_56210ACE0023 Actions

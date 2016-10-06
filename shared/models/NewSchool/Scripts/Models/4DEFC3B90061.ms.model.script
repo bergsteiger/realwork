@@ -1,0 +1,76 @@
+// l3OtherTypedListView 4DEFC3B90061 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DEFC3B90061
+
+FORWARD ME_4DEFC3FF0116
+
+ME ME_4DEFC3FF0124
+ MEPROP UID '4DEFC3FF0124'
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4DEFC3FF0116 // Items
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4DEFC3FF0124 anIndex
+
+ME ME_4DEFC3FF0116
+ MEPROP UID '4DEFC3FF0116'
+ MEPROP Name 'Items'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4DEFC3B90061 // l3OtherTypedListView
+ ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFC3FF0124 // anIndex
+ )
+ ; // Attributes
+ UP "is default" True
+ UP "needs field" False
+ UP "pm" True
+
+ENDME // ME_4DEFC3FF0116 Items
+
+%%InheritedBy ME_4DEFB2450043 ME_4DEFC3B90061
+
+ME ME_4DEFC3B90061
+ MEPROP UID '4DEFC3B90061'
+ MEPROP Name 'l3OtherTypedListView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DEFB2450043' '4DEFB2450043.ms.model.script' // l3OtherListView
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4DEFC3FF0116 // Items
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '08.06.2011 22:47'
+ UP extprop:pas:TypeName '_l3OtherTypedListView_'
+ UP extprop:pas:UnitName 'l3OtherTypedListView.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3OtherTypedListView.imp.pas'
+
+ENDME // ME_4DEFC3B90061 l3OtherTypedListView

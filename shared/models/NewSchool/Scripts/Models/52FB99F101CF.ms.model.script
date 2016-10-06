@@ -1,0 +1,35 @@
+// CsClient 52FB99F101CF UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52FB99F101CF
+
+ME ME_52FB99FA0209
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52FB99F101CF // CsClient
+ ;
+ MELINK Target WL 'ME_52FB99AB03B8' '52F8C298005C.ms.model.script' // TcsNotifyObjList
+ ;
+
+ENDME // ME_52FB99FA0209 
+
+ME ME_52FB99F101CF
+ MEPROP UID '52FB99F101CF'
+ MEPROP Name 'CsClient'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Dependencies
+   Seq: ( ME_52FB99FA0209 // TcsNotifyObjList
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_CsClient.pas'
+
+ENDME // ME_52FB99F101CF CsClient

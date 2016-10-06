@@ -1,0 +1,36 @@
+// vg_extctrls 4D5EB3940388 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D5EB3940388
+
+ME ME_4D5EB39D03CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D5EB3940388 // vg_extctrls
+ ;
+ MELINK Target WL 'ME_4D5EA5E5035E' '4CFCE51A00B0.ms.model.script' // TvgVisualObjectList
+ ;
+
+ENDME // ME_4D5EB39D03CB 
+
+ME ME_4D5EB3940388
+ MEPROP UID '4D5EB3940388'
+ MEPROP Name 'vg_extctrls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4CFCE51A00B0' '4CFCE51A00B0.ms.model.script' // Impl
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4D5EB39D03CB // TvgVisualObjectList
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:SelfName '_extctrls'
+ UP intf.pas:Path 'common\components\rtl\external\VGScene\NOT_FINISHED_vg_extctrls.pas'
+
+ENDME // ME_4D5EB3940388 vg_extctrls

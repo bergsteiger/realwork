@@ -1,0 +1,44 @@
+// CheckLst 51F24E760273 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51F24E890269
+
+FORWARD ME_51F24E760273
+
+ME ME_51F24E890269
+ MEPROP UID '51F24E890269'
+ MEPROP Name 'TCheckListBox'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51F24E760273 // CheckLst
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CheckListBox'
+
+ENDME // ME_51F24E890269 TCheckListBox
+
+ME ME_51F24E760273
+ MEPROP UID '51F24E760273'
+ MEPROP Name 'CheckLst'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51F24E890269 // TCheckListBox
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\CheckLst.pas'
+
+ENDME // ME_51F24E760273 CheckLst

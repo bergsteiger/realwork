@@ -2,56 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_5226F7CC03C6
-
-ME ME_5226F85800FA
- MEPROP UID '5226F85800FA'
- MEPROP Name 'Spin'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5226F7CC03C6 // Samples
- ;
- UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Spin.pas'
-
-ENDME // ME_5226F85800FA Spin
-
-FORWARD ME_53E0F45F02B2
-
-ME ME_53E491DB0065
- MEPROP UID '53E491DB0065'
- MEPROP Name 'TGauge'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_53E0F45F02B2 // Gauges
- ;
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'Gauge'
-
-ENDME // ME_53E491DB0065 TGauge
-
-ME ME_53E0F45F02B2
- MEPROP UID '53E0F45F02B2'
- MEPROP Name 'Gauges'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5226F7CC03C6 // Samples
- ;
- MELIST Children
-   Seq: ( HWL ME_53E491DB0065 // TGauge
- )
- ; // Children
- UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Samples\Gauges.pas'
-
-ENDME // ME_53E0F45F02B2 Gauges
+%%Inner ME_5226F85800FA
+%%Inner ME_53E0F45F02B2
 
 ME ME_5226F7CC03C6
  MEPROP UID '5226F7CC03C6'
@@ -64,9 +16,12 @@ ME ME_5226F7CC03C6
  MELINK Parent WL 'ME_5226F61C0109' '5226F61C0109.ms.model.script' // Samples
  ;
  MELIST Children
-   Seq: ( HWL ME_5226F85800FA // Spin
- HWL ME_53E0F45F02B2 // Gauges
+   Seq: ( WL 'ME_5226F85800FA' '5226F85800FA.ms.model.script' // Spin
+ WL 'ME_53E0F45F02B2' '53E0F45F02B2.ms.model.script' // Gauges
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_5226F7CC03C6 Samples

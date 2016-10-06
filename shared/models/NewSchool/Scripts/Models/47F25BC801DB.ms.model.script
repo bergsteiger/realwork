@@ -1,0 +1,368 @@
+// vcmBase 47F25BC801DB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F25BEE0389
+%%Inner ME_502BC72401EC
+%%Inner ME_519A130C00B6
+%%Inner ME_52A1D97A009E
+%%Inner ME_52A82F500189
+%%Inner ME_577A5A8E02A8
+
+FORWARD ME_47F25BC801DB
+
+%%InheritedBy ME_49E7754802A9 ME_47F25BEE0389
+
+ME ME_47F25BEE0389
+ MEPROP UID '47F25BEE0389'
+ MEPROP Name 'TvcmBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Базовый класс библиотеки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_47F25BEE0389 TvcmBase
+
+ME ME_502BC72401EC
+ MEPROP UID '502BC72401EC'
+ MEPROP Name 'TvcmObjectList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ObjectList'
+
+ENDME // ME_502BC72401EC TvcmObjectList
+
+%%InheritedBy ME_4DD26D570378 ME_519A130C00B6
+
+ME ME_519A130C00B6
+ MEPROP UID '519A130C00B6'
+ MEPROP Name 'TvcmCacheableBase'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4DD26D570378' '47913B47006E.ms.model.script' // Tl3ProtoObjectWithCOMQI
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CacheableBase'
+
+ENDME // ME_519A130C00B6 TvcmCacheableBase
+
+FORWARD ME_52A1D97A009E
+
+FORWARD ME_52A1DC570309
+
+ME ME_52A1DC5F0092
+ MEPROP Name 'aParams'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47F2108E028C' '4683F37902CF.ms.model.script' // IvcmExecuteParams
+ ;
+
+ENDME // ME_52A1DC5F0092 aParams
+
+ME ME_52A1DC570309
+ MEPROP UID '52A1DC570309'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A1D97A009E // TvcmExecuteEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A1DC5F0092 // aParams
+ )
+ ; // Parameters
+
+ENDME // ME_52A1DC570309 DoIt
+
+ME ME_52A1D97A009E
+ MEPROP UID '52A1D97A009E'
+ MEPROP Name 'TvcmExecuteEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A1DC570309 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_52A1D97A009E TvcmExecuteEvent
+
+ME ME_52A82F500189
+ MEPROP UID '52A82F500189'
+ MEPROP Name 'TvcmLongintList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LongintList'
+
+ENDME // ME_52A82F500189 TvcmLongintList
+
+%%InheritedBy ME_4773DC3502A7 ME_577A5A8E02A8
+
+ME ME_577A5A8E02A8
+ MEPROP UID '577A5A8E02A8'
+ MEPROP Name 'TvcmClassList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4773DC3502A7' '47913B47006E.ms.model.script' // Tl3CClassList
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ClassList'
+
+ENDME // ME_577A5A8E02A8 TvcmClassList
+
+ME ME_4A8ADF9E0058
+ MEPROP UID '4A8ADF9E0058'
+ MEPROP Name 'vcmFmt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:SelfName 'Fmt'
+
+ENDME // ME_4A8ADF9E0058 vcmFmt
+
+ME ME_4A93BA1802CE
+ MEPROP UID '4A93BA1802CE'
+ MEPROP Name 'vcmParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:SelfName 'Params'
+
+ENDME // ME_4A93BA1802CE vcmParams
+
+ME ME_4AA7F1CB012C
+ MEPROP UID '4AA7F1CB012C'
+ MEPROP Name 'vcmConstString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:SelfName 'ConstString'
+
+ENDME // ME_4AA7F1CB012C vcmConstString
+
+ME ME_4AA936DC0154
+ MEPROP UID '4AA936DC0154'
+ MEPROP Name 'vcmDispatcher'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:SelfName 'Dispatcher'
+
+ENDME // ME_4AA936DC0154 vcmDispatcher
+
+ME ME_4AC0B9CF018A
+ MEPROP UID '4AC0B9CF018A'
+ MEPROP Name 'vcmCStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:SelfName 'CStr'
+
+ENDME // ME_4AC0B9CF018A vcmCStr
+
+FORWARD ME_4AD89C420296
+
+ME ME_4AD89C5C009D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4AD89C420296 // vcmMakeParams
+ ;
+ MELINK Target WL 'ME_4AD89C12030A' '47D0E1500033.ms.model.script' // TvcmMakeParams
+ ;
+
+ENDME // ME_4AD89C5C009D 
+
+ME ME_4AD89C420296
+ MEPROP UID '4AD89C420296'
+ MEPROP Name 'vcmMakeParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4AD89C5C009D // TvcmMakeParams
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'MakeParams'
+
+ENDME // ME_4AD89C420296 vcmMakeParams
+
+FORWARD ME_4B98E11603D6
+
+FORWARD ME_4B98E1260192
+
+ME ME_4B98E1490387
+ MEPROP Name 'aHelper'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B98D9FD038B' '55714DD30399.ms.model.script' // TvcmStringIDExHelper
+ ;
+
+ENDME // ME_4B98E1490387 aHelper
+
+ME ME_4B98E1260192
+ MEPROP UID '4B98E1260192'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ %SUMMARY 'Это чтобы добиться правильного порядка подключения модулей' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B98E11603D6 // DoNotCall
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B98E1490387 // aHelper
+ )
+ ; // Parameters
+
+ENDME // ME_4B98E1260192 DoIt
+
+ME ME_4B98E11603D6
+ MEPROP UID '4B98E11603D6'
+ MEPROP Name 'DoNotCall'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B98E1260192 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B98E11603D6 DoNotCall
+
+ME ME_508FEA3B02B0
+ MEPROP UID '508FEA3B02B0'
+ MEPROP Name 'vcmStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ UP extprop:rc:SelfName 'Str'
+
+ENDME // ME_508FEA3B02B0 vcmStr
+
+ME ME_4B98DA15023F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47F25BC801DB // vcmBase
+ ;
+ MELINK Target WL 'ME_4B98D9FD038B' '55714DD30399.ms.model.script' // TvcmStringIDExHelper
+ ;
+
+ENDME // ME_4B98DA15023F 
+
+ME ME_47F25BC801DB
+ MEPROP UID '47F25BC801DB'
+ MEPROP Name 'vcmBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '- базовые классы библиотеки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A8ADF9E0058 // vcmFmt
+ HWL ME_4A93BA1802CE // vcmParams
+ HWL ME_4AA7F1CB012C // vcmConstString
+ HWL ME_4AA936DC0154 // vcmDispatcher
+ HWL ME_4AC0B9CF018A // vcmCStr
+ HWL ME_4AD89C420296 // vcmMakeParams
+ HWL ME_4B98E11603D6 // DoNotCall
+ HWL ME_508FEA3B02B0 // vcmStr
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_47F25BEE0389 // TvcmBase
+ HWL ME_502BC72401EC // TvcmObjectList
+ HWL ME_519A130C00B6 // TvcmCacheableBase
+ HWL ME_52A1D97A009E // TvcmExecuteEvent
+ HWL ME_52A82F500189 // TvcmLongintList
+ HWL ME_577A5A8E02A8 // TvcmClassList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B98DA15023F // TvcmStringIDExHelper
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmBase.pas'
+
+ENDME // ME_47F25BC801DB vcmBase

@@ -2,61 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DB95922039B
+%%Inner ME_4F2148300318
+%%Inner ME_4F212C120371
+%%Inner ME_508527F30183
+%%Inner ME_4F212C680161
+%%Inner ME_4DB98B4B0382
+%%Inner ME_4EB25D530395
+
 FORWARD ME_54DB92D203C9
-
-FORWARD ME_4DB95922039B
-
-ME ME_4DB959410236
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DB95922039B // SystemWord
- ;
- MELINK Target WL 'ME_4DDE2C4C01CD' '4AB0C3F60375.ms.model.script' // GetFocus
- ;
-
-ENDME // ME_4DB959410236 
-
-ME ME_4DB9594F038D
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DB95922039B // SystemWord
- ;
- MELINK Target WL 'ME_4AAF9CFA0263' '4799D29F033F.ms.model.script' // FindControl
- ;
-
-ENDME // ME_4DB9594F038D 
-
-ME ME_4DB961430283
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4DB95922039B // SystemWord
- ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
- ;
-
-ENDME // ME_4DB961430283 
-
-ME ME_4DB95922039B
- MEPROP UID '4DB95922039B'
- MEPROP Name 'SystemWord'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_54DB92D203C9 // VCL bindings
- ;
- MELIST Dependencies
-   Seq: ( ME_4DB959410236 // GetFocus
- ME_4DB9594F038D // FindControl
- ME_4DB961430283 // Forms
- )
- ; // Dependencies
- UP extprop:pas:TypeName '_SystemWord_'
- UP extprop:pas:UnitName 'SystemWord.imp'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\SystemWord.imp.pas'
-
-ENDME // ME_4DB95922039B SystemWord
 
 FORWARD ME_4F2148300318
 
@@ -68,7 +22,7 @@ ME ME_4F2148780352
  MEPROP Name 'aComponent'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
  ;
 
 ENDME // ME_4F2148780352 aComponent
@@ -121,6 +75,10 @@ ME ME_4F212BD5010E_ME_4F2148300318
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4F212BD5010E_ME_4F2148300318 DoObject
 
+%%ImplementedBy ME_4DB95922039B ME_4F2148300318
+
+%%InheritedBy ME_4F212BA80137 ME_4F2148300318
+
 ME ME_4F2148300318
  MEPROP UID '4F2148300318'
  MEPROP Name 'TkwComponentFromStackWord'
@@ -136,7 +94,7 @@ ME ME_4F2148300318
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_4DB95922039B // SystemWord
+   Seq: ( WL 'ME_4DB95922039B' '4DB95922039B.ms.model.script' // SystemWord
  )
  ; // Implements
  MELIST Operations
@@ -147,107 +105,15 @@ ME ME_4F2148300318
    Seq: ( ME_4F212BD5010E_ME_4F2148300318 // DoObject
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'kwComponentFromStackWord'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ComponentFromStackWord'
  UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwComponentFromStackWord.pas'
 
 ENDME // ME_4F2148300318 TkwComponentFromStackWord
-
-FORWARD ME_4F212C120371
-
-FORWARD ME_4F212C3A015A
-
-FORWARD ME_4F212C5B0201
-
-ME ME_4F212C5E001D
- MEPROP Name 'aControl'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
- ;
-
-ENDME // ME_4F212C5E001D aControl
-
-ME ME_4F212C5E006E
- MEPROP Name 'aCtx'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
- ;
-
-ENDME // ME_4F212C5E006E aCtx
-
-ME ME_4F212C5B0201
- MEPROP UID '4F212C5B0201'
- MEPROP Name 'DoControl'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4F212C3A015A // DoControl
- ;
- MELIST Parameters
-   Seq: ( ME_4F212C5E001D // aControl
- ME_4F212C5E006E // aCtx
- )
- ; // Parameters
-
-ENDME // ME_4F212C5B0201 DoControl
-
-ME ME_4F212C3A015A
- MEPROP UID '4F212C3A015A'
- MEPROP Name 'DoControl'
- MEPROP Class class_Class
- MELINK Stereotype st_abstractmethod ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_4F212C120371 // kwControlFromStackWord
- ;
- MELIST Operations
-   Seq: ( HWL ME_4F212C5B0201 // DoControl
- )
- ; // Operations
-
-ENDME // ME_4F212C3A015A DoControl
-
-ME ME_4F21485E0184_ME_4F212C120371
- MELINK Original HWL ME_4F21485E0184 // DoComponent
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_4F21485E0184_ME_4F212C120371 DoComponent
-
-ME ME_4F212C120371
- MEPROP UID '4F212C120371'
- MEPROP Name 'kwControlFromStackWord'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_abstract
- MELINK Parent HWL ME_54DB92D203C9 // VCL bindings
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4F2148300318 // TkwComponentFromStackWord
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_4F212C3A015A // DoControl
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_4F21485E0184_ME_4F212C120371 // DoComponent
- )
- ; // Implemented
- UP "author" 'Ëþëèí À.Â.'
- UP "ifndef" 'NoVCL'
- UP "no hands" True
- UP "started" '26.01.2012 14:34'
- UP extprop:pas:TypeName '_kwControlFromStackWord_'
- UP extprop:pas:UnitName 'kwControlFromStackWord.imp'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwControlFromStackWord.imp.pas'
-
-ENDME // ME_4F212C120371 kwControlFromStackWord
 
 FORWARD ME_508527F30183
 
@@ -256,7 +122,7 @@ ME ME_50852885016F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_508527F30183 // TtfwControlString
  ;
- MELINK Target WL 'ME_4AA7888B0076' '47913B47006E.ms.model.script' // l3CStr
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
  ;
 
 ENDME // ME_50852885016F 
@@ -286,7 +152,7 @@ ME ME_508529BD0074
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_508527F30183 // TtfwControlString
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_508529BD0074 
@@ -296,7 +162,7 @@ ME ME_50853CC6007C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_508527F30183 // TtfwControlString
  ;
- MELINK Target WL 'ME_4B853D8301E9' '4AB0997B00A2.ms.model.script' // AnsiStartsStr
+ MELINK Target WL 'ME_4B853D8301E9' '483C378301CB.ms.model.script' // AnsiStartsStr
  ;
 
 ENDME // ME_50853CC6007C 
@@ -310,6 +176,8 @@ ME ME_54DB70CB02F2
  ;
 
 ENDME // ME_54DB70CB02F2 
+
+%%InheritedBy ME_4DDFD1430390 ME_508527F30183
 
 ME ME_508527F30183
  MEPROP UID '508527F30183'
@@ -335,6 +203,9 @@ ME ME_508527F30183
  ME_54DB70CB02F2 // TtfwClassRef
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwControlString'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ControlString'
@@ -352,7 +223,7 @@ ME ME_4F212CA80231
  MEPROP Name 'aControl'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
  ;
 
 ENDME // ME_4F212CA80231 aControl
@@ -400,10 +271,12 @@ ME ME_4F212C930149
 ENDME // ME_4F212C930149 DoWinControl
 
 ME ME_4F212C3A015A_ME_4F212C680161
- MELINK Original HWL ME_4F212C3A015A // DoControl
+ MELINK Original WL 'ME_4F212C3A015A' '4F212C120371.ms.model.script' // DoControl
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4F212C3A015A_ME_4F212C680161 DoControl
+
+%%InheritedBy ME_4F212C120371 ME_4F212C680161
 
 ME ME_4F212C680161
  MEPROP UID '4F212C680161'
@@ -416,7 +289,7 @@ ME ME_4F212C680161
  MELINK Parent HWL ME_54DB92D203C9 // VCL bindings
  ;
  MELIST Inherits
-   Seq: ( HWL ME_4F212C120371 // kwControlFromStackWord
+   Seq: ( WL 'ME_4F212C120371' '4F212C120371.ms.model.script' // kwControlFromStackWord
  )
  ; // Inherits
  MELIST Operations
@@ -427,6 +300,9 @@ ME ME_4F212C680161
    Seq: ( ME_4F212C3A015A_ME_4F212C680161 // DoControl
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "ifndef" 'NoVCL'
  UP "no hands" True
@@ -448,7 +324,7 @@ ME ME_4DB98BAE03CB
  MEPROP Name 'aControl'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
+ MELINK Target WL 'ME_47E1201703C3' '47E11FC3021E.ms.model.script' // TControl
  ;
 
 ENDME // ME_4DB98BAE03CB aControl
@@ -503,7 +379,7 @@ ME ME_5357B7230025
  MEPROP Name 'aControl'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
  ;
 
 ENDME // ME_5357B7230025 aControl
@@ -555,7 +431,7 @@ ME ME_4DE8978703B3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
  ;
- MELINK Target WL 'ME_479878FA0103' '4AB0997B00A2.ms.model.script' // TComponent
+ MELINK Target WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
  ;
 
 ENDME // ME_4DE8978703B3 
@@ -565,7 +441,7 @@ ME ME_4EF464BF0208
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB98B4B0382 // TkwControlWord
  ;
- MELINK Target WL 'ME_4DE89E560091' '4AB0C3C60310.ms.model.script' // Format
+ MELINK Target WL 'ME_4DE89E560091' '47877EB202FB.ms.model.script' // Format
  ;
 
 ENDME // ME_4EF464BF0208 
@@ -606,6 +482,10 @@ ME ME_4DAEEDE10285_ME_4DB98B4B0382
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4DAEEDE10285_ME_4DB98B4B0382 DoDoIt
 
+%%ImplementedBy ME_4DB95922039B ME_4DB98B4B0382
+
+%%InheritedBy ME_53EDC0E701BC ME_4DB98B4B0382
+
 ME ME_4DB98B4B0382
  MEPROP UID '4DB98B4B0382'
  MEPROP Name 'TkwControlWord'
@@ -621,7 +501,7 @@ ME ME_4DB98B4B0382
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( HWL ME_4DB95922039B // SystemWord
+   Seq: ( WL 'ME_4DB95922039B' '4DB95922039B.ms.model.script' // SystemWord
  )
  ; // Implements
  MELIST Operations
@@ -641,6 +521,9 @@ ME ME_4DB98B4B0382
  ME_5506D642024E // Tl3FormsService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "ifndef" 'NoVCL'
  UP "no hands" True
@@ -662,7 +545,7 @@ ME ME_4EB25E0B0206
  MEPROP Name 'aForm'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4952591E0263' '4799D29F033F.ms.model.script' // TForm
+ MELINK Target WL 'ME_4952591E0263' '47E13C6B0341.ms.model.script' // TForm
  ;
 
 ENDME // ME_4EB25E0B0206 aForm
@@ -714,7 +597,7 @@ ME ME_4EB265890130
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4EB25D530395 // TkwFormFromControlWord
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_4EB265890130 
@@ -734,6 +617,8 @@ ME ME_4DB98B990054_ME_4EB25D530395
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4DB98B990054_ME_4EB25D530395 DoControl
+
+%%InheritedBy ME_4DB98B4B0382 ME_4EB25D530395
 
 ME ME_4EB25D530395
  MEPROP UID '4EB25D530395'
@@ -762,6 +647,9 @@ ME ME_4EB25D530395
  ME_5506D69E01ED // Tl3FormsService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "ifndef" 'NoVCL'
  UP "no hands" True
@@ -784,9 +672,9 @@ ME ME_54DB92D203C9
  MELINK Parent WL 'ME_54DB92A80279' '54DB92A80279.ms.model.script' // ScriptEngine$RTLandVCL
  ;
  MELIST Children
-   Seq: ( HWL ME_4DB95922039B // SystemWord
+   Seq: ( WL 'ME_4DB95922039B' '4DB95922039B.ms.model.script' // SystemWord
  HWL ME_4F2148300318 // TkwComponentFromStackWord
- HWL ME_4F212C120371 // kwControlFromStackWord
+ WL 'ME_4F212C120371' '4F212C120371.ms.model.script' // kwControlFromStackWord
  HWL ME_508527F30183 // TtfwControlString
  HWL ME_4F212C680161 // TkwWinControlFromStackWord
  HWL ME_4DB98B4B0382 // TkwControlWord
@@ -801,6 +689,9 @@ ME ME_54DB92D203C9
  WL 'ME_5506D079035B' '5506D079035B.ms.model.script' // AFWServices
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_54DB92D203C9 VCL bindings

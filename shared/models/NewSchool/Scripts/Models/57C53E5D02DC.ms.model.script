@@ -2,42 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_57C53E5D02DC
-
-FORWARD ME_57C53E870361
-
-ME ME_57C53EC700C9
- MEPROP UID '57C53EC700C9'
- MEPROP Name 'Tm3DocumentAddress'
- MEPROP Class class_Class
- MELINK Stereotype st_StaticObject ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_57C53E870361 // m3DocumentAddress
- ;
- UP extprop:rc:SelfName 'm3DocumentAddress'
-
-ENDME // ME_57C53EC700C9 Tm3DocumentAddress
-
-ME ME_57C53E870361
- MEPROP UID '57C53E870361'
- MEPROP Name 'm3DocumentAddress'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_57C53E5D02DC // Addresses
- ;
- MELIST Children
-   Seq: ( HWL ME_57C53EC700C9 // Tm3DocumentAddress
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3DocumentAddress.pas'
-
-ENDME // ME_57C53E870361 m3DocumentAddress
+%%Inner ME_57C53E870361
 
 ME ME_57C53E5D02DC
  MEPROP UID '57C53E5D02DC'
@@ -50,8 +15,11 @@ ME ME_57C53E5D02DC
  MELINK Parent WL 'ME_472082480337' '472082480337.ms.model.script' // m3
  ;
  MELIST Children
-   Seq: ( HWL ME_57C53E870361 // m3DocumentAddress
+   Seq: ( WL 'ME_57C53E870361' '57C53E870361.ms.model.script' // m3DocumentAddress
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_57C53E5D02DC Addresses

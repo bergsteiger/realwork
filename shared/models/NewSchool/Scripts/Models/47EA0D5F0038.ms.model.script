@@ -1,0 +1,47 @@
+// afwConsts 47EA0D5F0038 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47EA0D5F0038
+
+ME ME_47EA0D860132
+ MEPROP UID '47EA0D860132'
+ MEPROP Name 'g_afwPathSep'
+ MEPROP Class class_Attribute
+ %SUMMARY 'разделитель, используется при формировании пути сохранения в настройки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47EA0D5F0038 // afwConsts
+ ;
+ MELINK Target WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+ MEPROP Value '''/'''
+ MELINK ValueType WL 'ME_4771179900D8' '4807744200AA.ms.model.script' // PChar
+ ;
+ UP extprop:pas:Value '''/'''
+
+ENDME // ME_47EA0D860132 g_afwPathSep
+
+ME ME_47EA0D5F0038
+ MEPROP UID '47EA0D5F0038'
+ MEPROP Name 'afwConsts'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47EA0C8D0351' '47EA0C8D0351.ms.model.script' // afwConsts
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47EA0D860132 // g_afwPathSep
+ )
+ ; // Attributes
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '23.06.2005 11:10'
+ UP "weak" True
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\afwConsts.pas'
+
+ENDME // ME_47EA0D5F0038 afwConsts

@@ -1,0 +1,127 @@
+// evTextParaMarkers 4A3911C50154 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A3911D80203
+
+FORWARD ME_4A3911C50154
+
+FORWARD ME_4A3911D80203
+
+ME ME_4F3DFFCF01E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A3911D80203 // TevTextParaRightIndentMarker
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4F3DFFCF01E4 
+
+ME ME_4F3E00890046
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A3911D80203 // TevTextParaRightIndentMarker
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4F3E00890046 
+
+ME ME_4F3E0100033B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A3911D80203 // TevTextParaRightIndentMarker
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4F3E0100033B 
+
+ME ME_4F3E022503E6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A3911D80203 // TevTextParaRightIndentMarker
+ ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_4F3E022503E6 
+
+ME ME_4E3A3F0D0388_ME_4A3911D80203
+ MELINK Original WL 'ME_4E3A3F0D0388' '47E3DF460095.ms.model.script' // SetClientValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E3A3F0D0388_ME_4A3911D80203 SetClientValue
+
+ME ME_4E3A4C4B03A0_ME_4A3911D80203
+ MELINK Original WL 'ME_4E3A4C4B03A0' '47E3DF460095.ms.model.script' // DoGetClientValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4E3A4C4B03A0_ME_4A3911D80203 DoGetClientValue
+
+ME ME_4ED31DEA0077_ME_4A3911D80203
+ MELINK Original WL 'ME_4ED31DEA0077' '47E3DF460095.ms.model.script' // DoSetValue
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4ED31DEA0077_ME_4A3911D80203 DoSetValue
+
+%%InheritedBy ME_4A38AB2A00E2 ME_4A3911D80203
+
+ME ME_4A3911D80203
+ MEPROP UID '4A3911D80203'
+ MEPROP Name 'TevTextParaRightIndentMarker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A3911C50154 // evTextParaMarkers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A38AB2A00E2' '47E3DF460095.ms.model.script' // TevMarker
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_4E3A3F0D0388_ME_4A3911D80203 // SetClientValue
+ ME_4E3A4C4B03A0_ME_4A3911D80203 // DoGetClientValue
+ ME_4ED31DEA0077_ME_4A3911D80203 // DoSetValue
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F3DFFCF01E4 // Tk2TagID
+ ME_4F3E00890046 // evL3CoreConsts
+ ME_4F3E0100033B // Tl3Point
+ ME_4F3E022503E6 // IndentType
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextParaRightIndentMarker'
+
+ENDME // ME_4A3911D80203 TevTextParaRightIndentMarker
+
+ME ME_4A3911C50154
+ MEPROP UID '4A3911C50154'
+ MEPROP Name 'evTextParaMarkers'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A3911D80203 // TevTextParaRightIndentMarker
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TextParaMarkers'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTextParaMarkers.pas'
+
+ENDME // ME_4A3911C50154 evTextParaMarkers

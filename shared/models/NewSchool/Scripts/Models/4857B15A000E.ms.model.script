@@ -1,0 +1,364 @@
+// evDocumentPart 4857B15A000E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4857B15A000E
+
+FORWARD ME_4857B1790330
+
+ME ME_4857B18702BF
+ MEPROP UID '4857B18702BF'
+ MEPROP Name 'evDocumentPartMargin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4857B1790330 // Defaults
+ ;
+ MEPROP Value 'evInchMul div 8'
+ MELINK ValueType WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'evConst.evInchMul div 8'
+
+ENDME // ME_4857B18702BF evDocumentPartMargin
+
+ME ME_5208B24F01B2
+ MEPROP UID '5208B24F01B2'
+ MEPROP Name 'evDocumentPartLineSpace'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4857B1790330 // Defaults
+ ;
+ MEPROP Value 'evDocumentPartMargin div 2'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 'evDocumentPartMargin div 2'
+
+ENDME // ME_5208B24F01B2 evDocumentPartLineSpace
+
+ME ME_4857B1790330
+ MEPROP UID '4857B1790330'
+ MEPROP Name 'Defaults'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4857B15A000E // evDocumentPart
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4857B18702BF // evDocumentPartMargin
+ HWL ME_5208B24F01B2 // evDocumentPartLineSpace
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4857B1790330 Defaults
+
+FORWARD ME_4DFF31800349
+
+FORWARD ME_4F7D70420140
+
+ME ME_4F7D75BC0260
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F7D75BC0260 aPara
+
+ME ME_4F7D70420140
+ MEPROP UID '4F7D70420140'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DFF31800349 // evGetBlockName
+ ;
+ MELINK Target WL 'ME_4773DEF0021B' '47913B47006E.ms.model.script' // Tl3CustomString
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7D75BC0260 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_4F7D70420140 DoIt
+
+ME ME_4F7D7839023B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFF31800349 // evGetBlockName
+ ;
+ MELINK Target WL 'ME_485683750360' '48492FC0029D.ms.model.script' // TextPara
+ ;
+
+ENDME // ME_4F7D7839023B 
+
+ME ME_533BF8D901EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DFF31800349 // evGetBlockName
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_533BF8D901EA 
+
+ME ME_4DFF31800349
+ MEPROP UID '4DFF31800349'
+ MEPROP Name 'evGetBlockName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4857B15A000E // evDocumentPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7D70420140 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F7D7839023B // TextPara
+ ME_533BF8D901EA // Tl3Variant
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'GetBlockName'
+
+ENDME // ME_4DFF31800349 evGetBlockName
+
+FORWARD ME_4F7D70BC039D
+
+FORWARD ME_4F7D70D803A5
+
+ME ME_4F7D70DB00F0
+ MEPROP Name 'aDocument'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F7D70DB00F0 aDocument
+
+ME ME_4F7D70DB011F
+ MEPROP Name 'aLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F7D70DB011F aLevel
+
+ME ME_533EE82801C7
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF270278' '4678209200A6.ms.model.script' // InevProcessor
+ ;
+
+ENDME // ME_533EE82801C7 aProcessor
+
+ME ME_4F7D70D803A5
+ MEPROP UID '4F7D70D803A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7D70BC039D // evDocumentPartSetShowLevel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7D70DB00F0 // aDocument
+ ME_4F7D70DB011F // aLevel
+ ME_533EE82801C7 // aProcessor
+ )
+ ; // Parameters
+
+ENDME // ME_4F7D70D803A5 DoIt
+
+ME ME_4F7D70BC039D
+ MEPROP UID '4F7D70BC039D'
+ MEPROP Name 'evDocumentPartSetShowLevel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4857B15A000E // evDocumentPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7D70D803A5 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'DocumentPartSetShowLevel'
+
+ENDME // ME_4F7D70BC039D evDocumentPartSetShowLevel
+
+FORWARD ME_4F7D72CD0155
+
+FORWARD ME_4F7D72DC024D
+
+ME ME_4F7D730E006F
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4F7D730E006F aList
+
+ME ME_4F7D730E008D
+ MEPROP Name 'aLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F7D730E008D aLevel
+
+ME ME_4F7D730E00A6
+ MEPROP Name 'aCurrentLevel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F7D730E00A6 aCurrentLevel
+
+ME ME_533EE81F018F
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_533EE81F018F anOpPack
+
+ME ME_4F7D72DC024D
+ MEPROP UID '4F7D72DC024D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F7D72CD0155 // evParaListSetLevel
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F7D730E006F // aList
+ ME_4F7D730E008D // aLevel
+ ME_4F7D730E00A6 // aCurrentLevel
+ ME_533EE81F018F // anOpPack
+ )
+ ; // Parameters
+
+ENDME // ME_4F7D72DC024D DoIt
+
+ME ME_4F7D77870231
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7D72CD0155 // evParaListSetLevel
+ ;
+ MELINK Target WL 'ME_4857A87D0337' '48492FC0029D.ms.model.script' // Block
+ ;
+
+ENDME // ME_4F7D77870231 
+
+ME ME_4F7D77940264
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7D72CD0155 // evParaListSetLevel
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_4F7D77940264 
+
+ME ME_4F7D77A40079
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F7D72CD0155 // evParaListSetLevel
+ ;
+ MELINK Target WL 'ME_48579E4A003C' '48492FC0029D.ms.model.script' // ParaList
+ ;
+
+ENDME // ME_4F7D77A40079 
+
+ME ME_4F7D72CD0155
+ MEPROP UID '4F7D72CD0155'
+ MEPROP Name 'evParaListSetLevel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4857B15A000E // evDocumentPart
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F7D72DC024D // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F7D77870231 // Block
+ ME_4F7D77940264 // Document
+ ME_4F7D77A40079 // ParaList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ParaListSetLevel'
+
+ENDME // ME_4F7D72CD0155 evParaListSetLevel
+
+ME ME_52BD3109034D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4857B15A000E // evDocumentPart
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD3109034D 
+
+ME ME_4857B15A000E
+ MEPROP UID '4857B15A000E'
+ MEPROP Name 'evDocumentPart'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DFF31800349 // evGetBlockName
+ HWL ME_4F7D70BC039D // evDocumentPartSetShowLevel
+ HWL ME_4F7D72CD0155 // evParaListSetLevel
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4857B1790330 // Defaults
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_52BD3109034D // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '18.10.2000 13:01'
+ UP extprop:rc:SelfName 'DocumentPart'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evDocumentPart.pas'
+
+ENDME // ME_4857B15A000E evDocumentPart

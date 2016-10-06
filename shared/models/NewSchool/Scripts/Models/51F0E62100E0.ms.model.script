@@ -1,0 +1,75 @@
+// ddHTMLTags 51F0E62100E0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_524179E002BB
+%%Inner ME_5242B0EE02ED
+%%Inner ME_5242C157001F
+
+FORWARD ME_51F0E62100E0
+
+ME ME_524179E002BB
+ MEPROP UID '524179E002BB'
+ MEPROP Name 'TddHTMLParamID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51F0E62100E0 // ddHTMLTags
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_524179E002BB TddHTMLParamID
+
+ME ME_5242B0EE02ED
+ MEPROP UID '5242B0EE02ED'
+ MEPROP Name 'TddHTMLParam'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51F0E62100E0 // ddHTMLTags
+ ;
+
+ENDME // ME_5242B0EE02ED TddHTMLParam
+
+ME ME_5242C157001F
+ MEPROP UID '5242C157001F'
+ MEPROP Name 'TddHTMLParamType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51F0E62100E0 // ddHTMLTags
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5242C157001F TddHTMLParamType
+
+ME ME_51F0E62100E0
+ MEPROP UID '51F0E62100E0'
+ MEPROP Name 'ddHTMLTags'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51F0E61101F9' '51F0E61101F9.ms.model.script' // HTMLSupport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_524179E002BB // TddHTMLParamID
+ HWL ME_5242B0EE02ED // TddHTMLParam
+ HWL ME_5242C157001F // TddHTMLParamType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddHTMLTags.pas'
+
+ENDME // ME_51F0E62100E0 ddHTMLTags

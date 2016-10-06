@@ -1,0 +1,54 @@
+// CursorMover 4C500D6101D8 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C500D6101D8
+
+ME ME_4C500DB2025B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C500D6101D8 // CursorMover
+ ;
+ MELINK Target WL 'ME_47ECAB310336' '47ECAB0B0265.ms.model.script' // Msg Codes
+ ;
+
+ENDME // ME_4C500DB2025B 
+
+ME ME_4C500DB90108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C500D6101D8 // CursorMover
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4C500DB90108 
+
+ME ME_4C500D6101D8
+ MEPROP UID '4C500D6101D8'
+ MEPROP Name 'CursorMover'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь упрощающая навигацию по редактору при помощи управления курсором' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4C500DB2025B // Msg Codes
+ ME_4C500DB90108 // Operations
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '28.07.2010 14:59'
+ UP extprop:pas:TypeName '_CursorMover_'
+ UP extprop:pas:UnitName 'CursorMover.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\CursorMover.imp.pas'
+
+ENDME // ME_4C500D6101D8 CursorMover

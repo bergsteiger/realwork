@@ -1,0 +1,163 @@
+// m3RootStream 54073B760302 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54073B760302
+
+ME ME_540F06CE030B
+ MEPROP UID '540F06CE030B'
+ MEPROP Name 'Logger'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54073B760302 // m3RootStream
+ ;
+ MELINK Target WL 'ME_540EE3000176' '47913B47006E.ms.model.script' // Tl3Logger
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_540F06CE030B Logger
+
+FORWARD ME_540F06F60288
+
+FORWARD ME_540F06FE00B6
+
+ME ME_540F070D0103
+ MEPROP Name 'aStream'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A5AFF103CA' '46A0E6C5023A.ms.model.script' // IStream
+ ;
+
+ENDME // ME_540F070D0103 aStream
+
+ME ME_540F070D0132
+ MEPROP Name 'aAccess'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_540F070D0132 aAccess
+
+ME ME_540F06FE00B6
+ MEPROP UID '540F06FE00B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_540F06F60288 // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_540F070D0103 // aStream
+ ME_540F070D0132 // aAccess
+ )
+ ; // Parameters
+
+ENDME // ME_540F06FE00B6 DoIt
+
+ME ME_540F06F60288
+ MEPROP UID '540F06F60288'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54073B760302 // m3RootStream
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_540F06FE00B6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_540F06F60288 Create
+
+ME ME_540F07A70101
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54073B760302 // m3RootStream
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_540F07A70101 
+
+ME ME_479731C50290_ME_54073B760302
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_54073B760302 Cleanup
+
+ME ME_53FDFD1D0164_ME_54073B760302
+ MELINK Original WL 'ME_53FDFD1D0164' '5485C15F0072.ms.model.script' // DefaultInitAction
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53FDFD1D0164_ME_54073B760302 DefaultInitAction
+
+ME ME_53FDFD34034B_ME_54073B760302
+ MELINK Original WL 'ME_53FDFD34034B' '5485C15F0072.ms.model.script' // DefaultDoneAction
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53FDFD34034B_ME_54073B760302 DefaultDoneAction
+
+ME ME_540F07260255_ME_54073B760302
+ MELINK Original WL 'ME_540F07260255' '5485C15F0072.ms.model.script' // DoLockHeader
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_540F07260255_ME_54073B760302 DoLockHeader
+
+ME ME_540F072F02B4_ME_54073B760302
+ MELINK Original WL 'ME_540F072F02B4' '5485C15F0072.ms.model.script' // DoUnlockHeader
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_540F072F02B4_ME_54073B760302 DoUnlockHeader
+
+%%InheritedBy ME_53FDCEC40006 ME_54073B760302
+
+ME ME_54073B760302
+ MEPROP UID '54073B760302'
+ MEPROP Name 'm3RootStream'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_48294AA903A6' '48294AA903A6.ms.model.script' // m3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53FDCEC40006' '53FDCEC40006.ms.model.script' // m3CustomHeaderStream
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_540F06CE030B // Logger
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_540F06F60288 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_54073B760302 // Cleanup
+ ME_53FDFD1D0164_ME_54073B760302 // DefaultInitAction
+ ME_53FDFD34034B_ME_54073B760302 // DefaultDoneAction
+ ME_540F07260255_ME_54073B760302 // DoLockHeader
+ ME_540F072F02B4_ME_54073B760302 // DoUnlockHeader
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_540F07A70101 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_m3RootStream_'
+ UP extprop:pas:UnitName 'm3RootStream.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3RootStream.imp.pas'
+
+ENDME // ME_54073B760302 m3RootStream

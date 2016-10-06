@@ -1,0 +1,349 @@
+// csTaskListening 5385C1C902F5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5385C20A0347
+%%Inner ME_5385C2D801D9
+
+FORWARD ME_5385C1C902F5
+
+FORWARD ME_5385C20A0347
+
+FORWARD ME_5385C23A0106
+
+FORWARD ME_5385C2490220
+
+ME ME_5385C25D026B
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53AC018900AE' '53C51B390355.ms.model.script' // TddTaskItemPrim
+ ;
+
+ENDME // ME_5385C25D026B aTask
+
+ME ME_5385C25D0283
+ MEPROP Name 'aStatus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53A9541803CB' '53A953FD016B.ms.model.script' // TcsTaskStatus
+ ;
+
+ENDME // ME_5385C25D0283 aStatus
+
+ME ME_5385C2490220
+ MEPROP UID '5385C2490220'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C23A0106 // TaskChanged
+ ;
+ MELIST Parameters
+   Seq: ( ME_5385C25D026B // aTask
+ ME_5385C25D0283 // aStatus
+ )
+ ; // Parameters
+
+ENDME // ME_5385C2490220 DoIt
+
+ME ME_5385C23A0106
+ MEPROP UID '5385C23A0106'
+ MEPROP Name 'TaskChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_5385C20A0347 // IcsTaskListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5385C2490220 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5385C23A0106 TaskChanged
+
+ME ME_5385C20A0347
+ MEPROP UID '5385C20A0347'
+ MEPROP GUID '5C9E51A0-4037-4900-A940-DAE56637982D'
+ MEPROP Name 'IcsTaskListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5385C1C902F5 // csTaskListening
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5385C23A0106 // TaskChanged
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csTaskListener'
+
+ENDME // ME_5385C20A0347 IcsTaskListener
+
+FORWARD ME_5385C2D801D9
+
+ME ME_56D0B0E30341
+ MEPROP UID '56D0B0E30341'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5385C2D801D9 // TcsTaskListeners
+ ;
+ MELINK Target HWL ME_5385C20A0347 // IcsTaskListener
+ ;
+
+ENDME // ME_56D0B0E30341 ItemType
+
+FORWARD ME_5385C33700DA
+
+FORWARD ME_5385C343023E
+
+ME ME_5385C853008F
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5385C20A0347 // IcsTaskListener
+ ;
+
+ENDME // ME_5385C853008F aListener
+
+ME ME_5385C343023E
+ MEPROP UID '5385C343023E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C33700DA // AddListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_5385C853008F // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_5385C343023E DoIt
+
+ME ME_5385C33700DA
+ MEPROP UID '5385C33700DA'
+ MEPROP Name 'AddListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C2D801D9 // TcsTaskListeners
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5385C343023E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5385C33700DA AddListener
+
+FORWARD ME_5385C35701F6
+
+FORWARD ME_5385C3650098
+
+ME ME_5385C84A0197
+ MEPROP Name 'aListener'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_5385C20A0347 // IcsTaskListener
+ ;
+
+ENDME // ME_5385C84A0197 aListener
+
+ME ME_5385C3650098
+ MEPROP UID '5385C3650098'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C35701F6 // RemoveListener
+ ;
+ MELIST Parameters
+   Seq: ( ME_5385C84A0197 // aListener
+ )
+ ; // Parameters
+
+ENDME // ME_5385C3650098 DoIt
+
+ME ME_5385C35701F6
+ MEPROP UID '5385C35701F6'
+ MEPROP Name 'RemoveListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C2D801D9 // TcsTaskListeners
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5385C3650098 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5385C35701F6 RemoveListener
+
+FORWARD ME_5385C372027A
+
+ME ME_5385C38B0169
+ MEPROP UID '5385C38B0169'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C372027A // Exists
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_5385C38B0169 DoIt
+
+ME ME_5385C372027A
+ MEPROP UID '5385C372027A'
+ MEPROP Name 'Exists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C2D801D9 // TcsTaskListeners
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5385C38B0169 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_5385C372027A Exists
+
+FORWARD ME_5385C3A60146
+
+FORWARD ME_5385C3B10330
+
+ME ME_5385C3B50381
+ MEPROP Name 'aTask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53AC018900AE' '53C51B390355.ms.model.script' // TddTaskItemPrim
+ ;
+
+ENDME // ME_5385C3B50381 aTask
+
+ME ME_5385C3B50398
+ MEPROP Name 'aStatus'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_53A9541803CB' '53A953FD016B.ms.model.script' // TcsTaskStatus
+ ;
+
+ENDME // ME_5385C3B50398 aStatus
+
+ME ME_5385C3B10330
+ MEPROP UID '5385C3B10330'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C3A60146 // TaskChanged
+ ;
+ MELIST Parameters
+   Seq: ( ME_5385C3B50381 // aTask
+ ME_5385C3B50398 // aStatus
+ )
+ ; // Parameters
+
+ENDME // ME_5385C3B10330 DoIt
+
+ME ME_5385C3A60146
+ MEPROP UID '5385C3A60146'
+ MEPROP Name 'TaskChanged'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5385C2D801D9 // TcsTaskListeners
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5385C3B10330 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5385C3A60146 TaskChanged
+
+%%InheritedBy ME_47B57D630029 ME_5385C2D801D9
+%%InheritedBy ME_4A54DD4E036F ME_5385C2D801D9
+
+ME ME_5385C2D801D9
+ MEPROP UID '5385C2D801D9'
+ MEPROP Name 'TcsTaskListeners'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5385C1C902F5 // csTaskListening
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D630029' '47B57D630029.ms.model.script' // l3InterfacePtrList
+ WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_56D0B0E30341 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5385C33700DA // AddListener
+ HWL ME_5385C35701F6 // RemoveListener
+ HWL ME_5385C372027A // Exists
+ HWL ME_5385C3A60146 // TaskChanged
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "singleton" True
+ UP cpp:Path 'common\components\rtl\Garant\EVD\TcsTaskListeners.cpp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csTaskListeners'
+ UP h:Path 'common\components\rtl\Garant\EVD\TcsTaskListeners.h'
+
+ENDME // ME_5385C2D801D9 TcsTaskListeners
+
+ME ME_5385C1C902F5
+ MEPROP UID '5385C1C902F5'
+ MEPROP Name 'csTaskListening'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53C51B390355' '53C51B390355.ms.model.script' // TasksTuning
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5385C20A0347 // IcsTaskListener
+ HWL ME_5385C2D801D9 // TcsTaskListeners
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "started" '15:00 28.05.2014'
+ UP "UseNewGen" True
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\csTaskListening.pas'
+
+ENDME // ME_5385C1C902F5 csTaskListening

@@ -1,0 +1,71 @@
+// DT_DbInfo 537F79160044 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_537F79270038
+
+FORWARD ME_537F79160044
+
+FORWARD ME_537F79270038
+
+ME ME_537F794303D7
+ MEPROP UID '537F794303D7'
+ MEPROP Name 'f_FamiliesData'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_537F79270038 // TDbInfo
+ ;
+ MELINK Target WL 'ME_537F78F50118' '537F78280242.ms.model.script' // TdtFamilyInfoList
+ ;
+
+ENDME // ME_537F794303D7 f_FamiliesData
+
+%%InheritedBy ME_49E7754802A9 ME_537F79270038
+
+ME ME_537F79270038
+ MEPROP UID '537F79270038'
+ MEPROP Name 'TDbInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537F79160044 // DT_DbInfo
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_537F794303D7 // f_FamiliesData
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DbInfo'
+
+ENDME // ME_537F79270038 TDbInfo
+
+ME ME_537F79160044
+ MEPROP UID '537F79160044'
+ MEPROP Name 'DT_DbInfo'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_537F78280242' '537F78280242.ms.model.script' // DbInfo
+ ;
+ MELIST Children
+   Seq: ( HWL ME_537F79270038 // TDbInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_DT_DbInfo.pas'
+
+ENDME // ME_537F79160044 DT_DbInfo

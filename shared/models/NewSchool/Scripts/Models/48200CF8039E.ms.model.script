@@ -2,6 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_48200F89020E
+%%Inner ME_4820112E00B7
+%%Inner ME_48201D2E0282
+%%Inner ME_484E539101BE
+%%Inner ME_484E5531000E
+%%Inner ME_4E7879AC00F6
+%%Inner ME_4F633BD400BA
+
 FORWARD ME_48200CF8039E
 
 FORWARD ME_48200F89020E
@@ -65,6 +73,9 @@ ME ME_48200F89020E
  HWL ME_4F66FFB601D8 // Не должно печататься оформление контекста наложенное при котекстном поиске
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_48200F89020E Печать
 
@@ -154,6 +165,8 @@ ME ME_4F633C0803B4
 
 ENDME // ME_4F633C0803B4 В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
 
+%%InheritedBy ME_48200F89020E ME_4F633BD400BA
+
 ME ME_4F633BD400BA
  MEPROP UID '4F633BD400BA'
  MEPROP Name 'Печать ОИД'
@@ -172,6 +185,9 @@ ME ME_4F633BD400BA
    Seq: ( HWL ME_4F633C0803B4 // В колонтитулах перед именем документа должна быть фраза "Обзор изменений документа"
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4F633BD400BA Печать ОИД
 
@@ -202,5 +218,8 @@ ME ME_48200CF8039E
  WL 'ME_4E3160C802DA' '4E3160C802DA.ms.model.script' // Печать документа
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_48200CF8039E Печать, Экспорт

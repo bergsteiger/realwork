@@ -1,0 +1,512 @@
+// l3Drawer 4739AF6301B6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4739AF7A0250
+%%Inner ME_4739ABDB029D
+
+FORWARD ME_4739AF6301B6
+
+FORWARD ME_4739AF7A0250
+
+ME ME_4739AFA2004E
+ MEPROP UID '4739AFA2004E'
+ MEPROP Name 'l3_dmGDIPlus'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739AF7A0250 // Tl3DrawerMode
+ ;
+
+ENDME // ME_4739AFA2004E l3_dmGDIPlus
+
+ME ME_4739AFA90333
+ MEPROP UID '4739AFA90333'
+ MEPROP Name 'l3_dmGDI'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739AF7A0250 // Tl3DrawerMode
+ ;
+
+ENDME // ME_4739AFA90333 l3_dmGDI
+
+ME ME_4739AF7A0250
+ MEPROP UID '4739AF7A0250'
+ MEPROP Name 'Tl3DrawerMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739AF6301B6 // l3Drawer
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4739AFA2004E // l3_dmGDIPlus
+ HWL ME_4739AFA90333 // l3_dmGDI
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4739AF7A0250 Tl3DrawerMode
+
+FORWARD ME_4739ABDB029D
+
+ME ME_4739AEE803E0
+ MEPROP UID '4739AEE803E0'
+ MEPROP Name 'Canvas'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Канва для рисования.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELINK Target WL 'ME_515581580039' '47D15712022D.ms.model.script' // TCanvas
+ ;
+
+ENDME // ME_4739AEE803E0 Canvas
+
+ME ME_4739AF1C02C3
+ MEPROP UID '4739AF1C02C3'
+ MEPROP Name 'PenColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELINK Target WL 'ME_46A44A9E0112' '4677FBA70343.ms.model.script' // Tl3Color
+ ;
+
+ENDME // ME_4739AF1C02C3 PenColor
+
+ME ME_4739AF29005E
+ MEPROP UID '4739AF29005E'
+ MEPROP Name 'BrushColor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELINK Target WL 'ME_46A44A9E0112' '4677FBA70343.ms.model.script' // Tl3Color
+ ;
+
+ENDME // ME_4739AF29005E BrushColor
+
+ME ME_4739AFBA039C
+ MEPROP UID '4739AFBA039C'
+ MEPROP Name 'Mode'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELINK Target HWL ME_4739AF7A0250 // Tl3DrawerMode
+ ;
+
+ENDME // ME_4739AFBA039C Mode
+
+FORWARD ME_4739AC0801D9
+
+ME ME_4739AC1A02F7
+ MEPROP Name 'X1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC1A02F7 X1
+
+ME ME_4739AC1A0315
+ MEPROP Name 'Y1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC1A0315 Y1
+
+ME ME_4739AC1A033E
+ MEPROP Name 'X2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC1A033E X2
+
+ME ME_4739AC1A035C
+ MEPROP Name 'Y2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC1A035C Y2
+
+ME ME_4739AC0801D9
+ MEPROP UID '4739AC0801D9'
+ MEPROP Name 'DrawLine'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4739AC1A02F7 // X1
+ ME_4739AC1A0315 // Y1
+ ME_4739AC1A033E // X2
+ ME_4739AC1A035C // Y2
+ )
+ ; // Parameters
+
+ENDME // ME_4739AC0801D9 DrawLine
+
+FORWARD ME_4739AC7E016B
+
+ME ME_4739AC8F02F6
+ MEPROP Name 'X1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC8F02F6 X1
+
+ME ME_4739AC8F0314
+ MEPROP Name 'Y1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC8F0314 Y1
+
+ME ME_4739AC8F033C
+ MEPROP Name 'X2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC8F033C X2
+
+ME ME_4739AC8F0364
+ MEPROP Name 'Y2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AC8F0364 Y2
+
+ME ME_4739AC7E016B
+ MEPROP UID '4739AC7E016B'
+ MEPROP Name 'DrawEllipse'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4739AC8F02F6 // X1
+ ME_4739AC8F0314 // Y1
+ ME_4739AC8F033C // X2
+ ME_4739AC8F0364 // Y2
+ )
+ ; // Parameters
+
+ENDME // ME_4739AC7E016B DrawEllipse
+
+FORWARD ME_4739AC99032C
+
+ME ME_4739ACAC0153
+ MEPROP Name 'X1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ACAC0153 X1
+
+ME ME_4739ACAC017B
+ MEPROP Name 'Y1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ACAC017B Y1
+
+ME ME_4739ACAC01A3
+ MEPROP Name 'X2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ACAC01A3 X2
+
+ME ME_4739ACAC01CB
+ MEPROP Name 'Y2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ACAC01CB Y2
+
+ME ME_4739AC99032C
+ MEPROP UID '4739AC99032C'
+ MEPROP Name 'DrawRect'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4739ACAC0153 // X1
+ ME_4739ACAC017B // Y1
+ ME_4739ACAC01A3 // X2
+ ME_4739ACAC01CB // Y2
+ )
+ ; // Parameters
+
+ENDME // ME_4739AC99032C DrawRect
+
+FORWARD ME_4739ACBB02E5
+
+ME ME_4739ACDC01AC
+ MEPROP Name 'Points'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_4739AD740178' '46A5E026007E.ms.model.script' // TPointsArray
+ ;
+
+ENDME // ME_4739ACDC01AC Points
+
+ME ME_4739ACBB02E5
+ MEPROP UID '4739ACBB02E5'
+ MEPROP Name 'DrawPolygon'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4739ACDC01AC // Points
+ )
+ ; // Parameters
+
+ENDME // ME_4739ACBB02E5 DrawPolygon
+
+FORWARD ME_4739ADEF01F7
+
+ME ME_4739ADFB024F
+ MEPROP Name 'X1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ADFB024F X1
+
+ME ME_4739ADFB0281
+ MEPROP Name 'Y1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ADFB0281 Y1
+
+ME ME_4739ADFB02A9
+ MEPROP Name 'X2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ADFB02A9 X2
+
+ME ME_4739ADFB02DB
+ MEPROP Name 'Y2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739ADFB02DB Y2
+
+ME ME_4739ADEF01F7
+ MEPROP UID '4739ADEF01F7'
+ MEPROP Name 'FillEllipse'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4739ADFB024F // X1
+ ME_4739ADFB0281 // Y1
+ ME_4739ADFB02A9 // X2
+ ME_4739ADFB02DB // Y2
+ )
+ ; // Parameters
+
+ENDME // ME_4739ADEF01F7 FillEllipse
+
+FORWARD ME_4739AE3300F1
+
+ME ME_4739AE43011C
+ MEPROP Name 'X1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AE43011C X1
+
+ME ME_4739AE43014E
+ MEPROP Name 'Y1'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AE43014E Y1
+
+ME ME_4739AE430180
+ MEPROP Name 'X2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AE430180 X2
+
+ME ME_4739AE4301B2
+ MEPROP Name 'Y2'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4739AE4301B2 Y2
+
+ME ME_4739AE3300F1
+ MEPROP UID '4739AE3300F1'
+ MEPROP Name 'FillRect'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4739AE43011C // X1
+ ME_4739AE43014E // Y1
+ ME_4739AE430180 // X2
+ ME_4739AE4301B2 // Y2
+ )
+ ; // Parameters
+
+ENDME // ME_4739AE3300F1 FillRect
+
+FORWARD ME_4739AE6C0279
+
+ME ME_47726974001F
+ MEPROP Name 'Points'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4739AD740178' '46A5E026007E.ms.model.script' // TPointsArray
+ ;
+
+ENDME // ME_47726974001F Points
+
+ME ME_4739AE6C0279
+ MEPROP UID '4739AE6C0279'
+ MEPROP Name 'FillPolygon'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739ABDB029D // Tl3Drawer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47726974001F // Points
+ )
+ ; // Parameters
+
+ENDME // ME_4739AE6C0279 FillPolygon
+
+%%InheritedBy ME_49E7754802A9 ME_4739ABDB029D
+
+ME ME_4739ABDB029D
+ MEPROP UID '4739ABDB029D'
+ MEPROP Name 'Tl3Drawer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '"Универсальный отрисовщик", использующий по возможности функции GDI+' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4739AF6301B6 // l3Drawer
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4739AEE803E0 // Canvas
+ HWL ME_4739AF1C02C3 // PenColor
+ HWL ME_4739AF29005E // BrushColor
+ HWL ME_4739AFBA039C // Mode
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4739AC0801D9 // DrawLine
+ HWL ME_4739AC7E016B // DrawEllipse
+ HWL ME_4739AC99032C // DrawRect
+ HWL ME_4739ACBB02E5 // DrawPolygon
+ HWL ME_4739ADEF01F7 // FillEllipse
+ HWL ME_4739AE3300F1 // FillRect
+ HWL ME_4739AE6C0279 // FillPolygon
+ )
+ ; // Operations
+ UP "author" 'Жучков А.Ю.'
+ UP "started" '2007/11/06 09:34:31'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Drawer'
+
+ENDME // ME_4739ABDB029D Tl3Drawer
+
+ME ME_4739AF6301B6
+ MEPROP UID '4739AF6301B6'
+ MEPROP Name 'l3Drawer'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4739AB8601AA' '4739AB8601AA.ms.model.script' // l3Drawer
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4739AF7A0250 // Tl3DrawerMode
+ HWL ME_4739ABDB029D // Tl3Drawer
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Жучков А.Ю.'
+ UP "finished" False
+ UP "started" '2007/11/06 09:34:31'
+ UP extprop:rc:SelfName 'Drawer'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Drawer.pas'
+
+ENDME // ME_4739AF6301B6 l3Drawer

@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_52A085CE03AC
+%%Inner ME_52A08684012E
+
 FORWARD ME_52A085CE03AC
 
 FORWARD ME_52A085A703D4
@@ -16,7 +19,7 @@ ME ME_52A08AFE012F
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_52A08AF5004B // HackCheck
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_52A08AFE012F DoIt
@@ -38,6 +41,8 @@ ME ME_52A08AF5004B
 
 ENDME // ME_52A08AF5004B HackCheck
 
+%%InheritedBy ME_4F69EF8C027C ME_52A085CE03AC
+
 ME ME_52A085CE03AC
  MEPROP UID '52A085CE03AC'
  MEPROP Name 'TevCustomButton'
@@ -49,17 +54,22 @@ ME ME_52A085CE03AC
  MELINK Parent HWL ME_52A085A703D4 // TevButton
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.ms.model.script' // TCustomToolbarButton97
+   Seq: ( WL 'ME_4F69EF8C027C' '4C43E892032F.ms.model.script' // TCustomToolbarButton97
  )
  ; // Inherits
  MELIST Operations
    Seq: ( HWL ME_52A08AF5004B // HackCheck
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'Button'
 
 ENDME // ME_52A085CE03AC TevCustomButton
+
+%%InheritedBy ME_52A087450138 ME_52A08684012E
 
 ME ME_52A08684012E
  MEPROP UID '52A08684012E'
@@ -72,13 +82,15 @@ ME ME_52A08684012E
  MELINK Parent HWL ME_52A085A703D4 // TevButton
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_52A087450138' '4C43E8750153.ms.model.script' // TToolbarButton97ActionLink
+   Seq: ( WL 'ME_52A087450138' '4C43E892032F.ms.model.script' // TToolbarButton97ActionLink
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ButtonActionLink'
 
 ENDME // ME_52A08684012E TevCustomButtonActionLink
+
+%%InheritedBy ME_52A085CE03AC ME_52A085A703D4
 
 ME ME_52A085A703D4
  MEPROP UID '52A085A703D4'
@@ -100,6 +112,9 @@ ME ME_52A085A703D4
  HWL ME_52A08684012E // TevCustomButtonActionLink
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "finished" False
  UP "register in scripts" True
  UP extprop:pas:UnitName 'evButton'

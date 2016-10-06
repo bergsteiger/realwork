@@ -1,0 +1,286 @@
+// vcmMainFormRes 51E7E79A0341 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_51E7E79A0341
+
+FORWARD ME_51E7F7590110
+
+FORWARD ME_51E7E80A0021
+
+FORWARD ME_51E7E8380021
+
+ME ME_51E7E85E00D9
+ MEPROP UID '51E7E85E00D9'
+ MEPROP Name 'First'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Открыть в текущем окне''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7E8380021 // Choices
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_51E7E85E00D9 First
+
+%%InheritedBy ME_51E7E85E00D9 ME_51E7E8680152
+
+ME ME_51E7E8680152
+ MEPROP UID '51E7E8680152'
+ MEPROP Name 'Second'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choice ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Отмена''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7E8380021 // Choices
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51E7E85E00D9 // First
+ )
+ ; // Inherits
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+
+ENDME // ME_51E7E8680152 Second
+
+ME ME_51E7E8380021
+ MEPROP UID '51E7E8380021'
+ MEPROP Name 'Choices'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Choices ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7E80A0021 // TooManyWindowsOpened
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51E7E85E00D9 // First
+ HWL ME_51E7E8680152 // Second
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_51E7E8380021 Choices
+
+ME ME_5239C8BC0182
+ MEPROP UID '5239C8BC0182'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_DefaultChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51E7E80A0021 // TooManyWindowsOpened
+ ;
+ MELINK Target HWL ME_51E7E85E00D9 // First
+ ;
+
+ENDME // ME_5239C8BC0182 
+
+ME ME_5239C8C60262
+ MEPROP UID '5239C8C60262'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_CustomChoice::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51E7E80A0021 // TooManyWindowsOpened
+ ;
+ MELINK Target HWL ME_51E7E8680152 // Second
+ ;
+
+ENDME // ME_5239C8C60262 
+
+ME ME_51E7E80A0021
+ MEPROP UID '51E7E80A0021'
+ MEPROP Name 'TooManyWindowsOpened'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Message ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '''Открыто максимальное количество окон системы ГАРАНТ. Закройте ненужные окна или продолжайте работу в текущем окне''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7F7590110 // Local
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5239C8BC0182 // 
+ HWL ME_5239C8C60262 // 
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_51E7E8380021 // Choices
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "AutoInc" False
+ UP "DlgType" 'Confirmation'
+ UP "forced type" 'none'
+ UP "is define" False
+ UP "NeedCheck" False
+
+ENDME // ME_51E7E80A0021 TooManyWindowsOpened
+
+ME ME_51E7F7590110
+ MEPROP UID '51E7F7590110'
+ MEPROP Name 'Local'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E7E79A0341 // vcmMainFormRes
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51E7E80A0021 // TooManyWindowsOpened
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+
+ENDME // ME_51E7F7590110 Local
+
+FORWARD ME_7CFCAC67FA0A
+
+ME ME_EA0CC30E0CA4
+ MEPROP UID 'EA0CC30E0CA4'
+ MEPROP Name 'TooManyWindowsOpened_Choice_First'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Открыть в текущем окне''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_7CFCAC67FA0A // LCImpl_TooManyWindowsOpened_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened_Choice_First''; rValue : ''Открыть в текущем окне'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened_Choice_First''; rValue : ''Открыть в текущем окне'')'
+ UPLINK Speller HWL ME_51E7E85E00D9 // First
+ ;
+
+ENDME // ME_EA0CC30E0CA4 TooManyWindowsOpened_Choice_First
+
+ME ME_EB70D2C01D24
+ MEPROP UID 'EB70D2C01D24'
+ MEPROP Name 'TooManyWindowsOpened_Choice_Second'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Отмена''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_7CFCAC67FA0A // LCImpl_TooManyWindowsOpened_Choices
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened_Choice_Second''; rValue : ''Отмена'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''TooManyWindowsOpened_Choice_Second''; rValue : ''Отмена'')'
+ UPLINK Speller HWL ME_51E7E8680152 // Second
+ ;
+
+ENDME // ME_EB70D2C01D24 TooManyWindowsOpened_Choice_Second
+
+ME ME_7CFCAC67FA0A
+ MEPROP UID '7CFCAC67FA0A'
+ MEPROP Name 'LCImpl_TooManyWindowsOpened_Choices'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Варианты выбора для диалога TooManyWindowsOpened' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7E79A0341 // vcmMainFormRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_EA0CC30E0CA4 // TooManyWindowsOpened_Choice_First
+ HWL ME_EB70D2C01D24 // TooManyWindowsOpened_Choice_Second
+ )
+ ; // Attributes
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_51E7E8380021 // Choices
+ ;
+
+ENDME // ME_7CFCAC67FA0A LCImpl_TooManyWindowsOpened_Choices
+
+ME ME_FD9E78948E77
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E7E79A0341 // vcmMainFormRes
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_FD9E78948E77 
+
+ME ME_A925439B53B1
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E7E79A0341 // vcmMainFormRes
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_A925439B53B1 
+
+ME ME_51E7E79A0341
+ MEPROP UID '51E7E79A0341'
+ MEPROP Name 'vcmMainFormRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_51E7F7590110 // Local
+ HWL ME_7CFCAC67FA0A // LCImpl_TooManyWindowsOpened_Choices
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_FD9E78948E77 // Tl3StringIDEx
+ ME_A925439B53B1 // Tl3MessageID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'MainFormRes'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMainFormRes.pas'
+
+ENDME // ME_51E7E79A0341 vcmMainFormRes

@@ -2,192 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4E732D5D02FE
-
-FORWARD ME_572318050295
-
-FORWARD ME_4E733DD801B0
-
-ME ME_5110D711023B
- MEPROP UID '5110D711023B'
- MEPROP Name 'hfoCanHide'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E733DD801B0 // ThfOption
- ;
-
-ENDME // ME_5110D711023B hfoCanHide
-
-ME ME_5110D719014A
- MEPROP UID '5110D719014A'
- MEPROP Name 'hfoHyperlink'
- MEPROP Class class_Attribute
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_4E733DD801B0 // ThfOption
- ;
-
-ENDME // ME_5110D719014A hfoHyperlink
-
-ME ME_4E733DD801B0
- MEPROP UID '4E733DD801B0'
- MEPROP Name 'ThfOption'
- MEPROP Class class_Class
- MELINK Stereotype st_Enum ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_572318050295 // vtHideFieldTypes
- ;
- MELIST Attributes
-   Seq: ( HWL ME_5110D711023B // hfoCanHide
- HWL ME_5110D719014A // hfoHyperlink
- )
- ; // Attributes
- UP extprop:rc:isAcceptableForScripts True
-
-ENDME // ME_4E733DD801B0 ThfOption
-
-ME ME_5110D73500ED
- MEPROP UID '5110D73500ED'
- MEPROP Name 'ThfOptions'
- MEPROP Class class_Class
- MELINK Stereotype st_SetOf ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_572318050295 // vtHideFieldTypes
- ;
- MELIST Inherits
-   Seq: ( HWL ME_4E733DD801B0 // ThfOption
- )
- ; // Inherits
-
-ENDME // ME_5110D73500ED ThfOptions
-
-ME ME_572318050295
- MEPROP UID '572318050295'
- MEPROP Name 'vtHideFieldTypes'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E732D5D02FE // HideFields
- ;
- MELIST Children
-   Seq: ( HWL ME_4E733DD801B0 // ThfOption
- HWL ME_5110D73500ED // ThfOptions
- )
- ; // Children
- UP extprop:rc:SelfName 'HideFieldTypes'
- UP intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldTypes.pas'
-
-ENDME // ME_572318050295 vtHideFieldTypes
-
-FORWARD ME_5110ED94010E
-
-ME ME_5110EE260146
- MEPROP UID '5110EE260146'
- MEPROP Name 'g_HideFieldCount'
- MEPROP Class class_Attribute
- %SUMMARY 'дл€ присвоени€ уникальных имен компонентам, дл€ назначени€ обработчиков событий на форме' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_5110ED94010E // vtHideFieldUtils
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_5110EE260146 g_HideFieldCount
-
-FORWARD ME_5110EDE70381
-
-FORWARD ME_5110EE0801B0
-
-ME ME_5110EE0B0228
- MEPROP Name 'aName'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
-
-ENDME // ME_5110EE0B0228 aName
-
-ME ME_5110EE0801B0
- MEPROP UID '5110EE0801B0'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5110EDE70381 // MakeName
- ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
- ;
- MELIST Parameters
-   Seq: ( ME_5110EE0B0228 // aName
- )
- ; // Parameters
-
-ENDME // ME_5110EE0801B0 DoIt
-
-ME ME_5110EDE70381
- MEPROP UID '5110EDE70381'
- MEPROP Name 'MakeName'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5110ED94010E // vtHideFieldUtils
- ;
- MELIST Operations
-   Seq: ( HWL ME_5110EE0801B0 // DoIt
- )
- ; // Operations
-
-ENDME // ME_5110EDE70381 MakeName
-
-ME ME_5111175C03A9
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_5110ED94010E // vtHideFieldUtils
- ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
- ;
-
-ENDME // ME_5111175C03A9 
-
-ME ME_5110ED94010E
- MEPROP UID '5110ED94010E'
- MEPROP Name 'vtHideFieldUtils'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E732D5D02FE // HideFields
- ;
- MELIST Attributes
-   Seq: ( HWL ME_5110EE260146 // g_HideFieldCount
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_5110EDE70381 // MakeName
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_5111175C03A9 // SysUtils
- )
- ; // Dependencies
- UP extprop:rc:SelfName 'HideFieldUtils'
- UP intf.pas:Path 'common\components\gui\Garant\VT\vtHideFieldUtils.pas'
-
-ENDME // ME_5110ED94010E vtHideFieldUtils
+%%Inner ME_572318050295
+%%Inner ME_5110ED94010E
+%%Inner ME_4E732D7F0082
 
 ME ME_4E732D5D02FE
  MEPROP UID '4E732D5D02FE'
@@ -200,8 +17,8 @@ ME ME_4E732D5D02FE
  MELINK Parent WL 'ME_467A75D90346' '467A75D90346.ms.model.script' // VT
  ;
  MELIST Children
-   Seq: ( HWL ME_572318050295 // vtHideFieldTypes
- HWL ME_5110ED94010E // vtHideFieldUtils
+   Seq: ( WL 'ME_572318050295' '572318050295.ms.model.script' // vtHideFieldTypes
+ WL 'ME_5110ED94010E' '5110ED94010E.ms.model.script' // vtHideFieldUtils
  WL 'ME_4E732D7F0082' '4E732D7F0082.ms.model.script' // TvtHideField
  )
  ; // Children
@@ -231,5 +48,8 @@ ME ME_4E732D5D02FE
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4E732D5D02FE HideFields

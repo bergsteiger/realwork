@@ -1,0 +1,604 @@
+// vcmToolbarMenuRes 4B9777000394 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B977802001D
+%%Inner ME_6882EB48F231
+
+FORWARD ME_4B9777000394
+
+FORWARD ME_4B977802001D
+
+ME ME_4B9778220022
+ MEPROP UID '4B9778220022'
+ MEPROP Name 'Automatic'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B977802001D // TvcmGlyphSize
+ ;
+
+ENDME // ME_4B9778220022 Automatic
+
+ME ME_4B97782C00C1
+ MEPROP UID '4B97782C00C1'
+ MEPROP Name '16x16'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B977802001D // TvcmGlyphSize
+ ;
+
+ENDME // ME_4B97782C00C1 16x16
+
+ME ME_4B9778350379
+ MEPROP UID '4B9778350379'
+ MEPROP Name '24x24'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B977802001D // TvcmGlyphSize
+ ;
+
+ENDME // ME_4B9778350379 24x24
+
+ME ME_4B97783F0301
+ MEPROP UID '4B97783F0301'
+ MEPROP Name '32x32'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B977802001D // TvcmGlyphSize
+ ;
+
+ENDME // ME_4B97783F0301 32x32
+
+ME ME_4B977802001D
+ MEPROP UID '4B977802001D'
+ MEPROP Name 'TvcmGlyphSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B9778220022 // Automatic
+ HWL ME_4B97782C00C1 // 16x16
+ HWL ME_4B9778350379 // 24x24
+ HWL ME_4B97783F0301 // 32x32
+ )
+ ; // Attributes
+ UP "children prefix" 'gs'
+ UP "elements prefix" 'vcm'
+ UP extprop:pas:ElementPrefix 'vcm_gs'
+ UP extprop:pas:ElementPrefixBase 'vcm'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4B977802001D TvcmGlyphSize
+
+FORWARD ME_0493A882BA7D
+
+FORWARD ME_6882EB48F231
+
+FORWARD ME_FB88C9F59624
+
+ME ME_EB523EA50C00
+ MEPROP Name 'aStrings'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4683CEE9034C' '467823B7002C.ms.model.script' // IafwStrings
+ ;
+
+ENDME // ME_EB523EA50C00 aStrings
+
+ME ME_FB88C9F59624
+ MEPROP UID 'FB88C9F59624'
+ MEPROP Name 'FillStrings'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Заполнение списка строк значениями' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_6882EB48F231 // vcmIconSizeMapHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_EB523EA50C00 // aStrings
+ )
+ ; // Parameters
+
+ENDME // ME_FB88C9F59624 FillStrings
+
+FORWARD ME_BC56D7E589F8
+
+ME ME_9C0EED7C5E71
+ MEPROP Name 'aDisplayName'
+ UP IsSummoned true
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_9C0EED7C5E71 aDisplayName
+
+ME ME_BC56D7E589F8
+ MEPROP UID 'BC56D7E589F8'
+ MEPROP Name 'DisplayNameToValue'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Преобразование строкового значения к порядковому' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_6882EB48F231 // vcmIconSizeMapHelper
+ ;
+ MELINK Target HWL ME_4B977802001D // TvcmGlyphSize
+ ;
+ MELIST Parameters
+   Seq: ( ME_9C0EED7C5E71 // aDisplayName
+ )
+ ; // Parameters
+
+ENDME // ME_BC56D7E589F8 DisplayNameToValue
+
+ME ME_6882EB48F231
+ MEPROP UID '6882EB48F231'
+ MEPROP Name 'vcmIconSizeMapHelper'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилитный класс для преобразования значений vcmIconSizeMap' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_FB88C9F59624 // FillStrings
+ HWL ME_BC56D7E589F8 // DisplayNameToValue
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IconSizeMapHelper'
+ UPLINK SpelledFor HWL ME_0493A882BA7D // vcmIconSizeMap
+ ;
+
+ENDME // ME_6882EB48F231 vcmIconSizeMapHelper
+
+FORWARD ME_4B9777220364
+
+ME ME_4B97776D0180
+ MEPROP UID '4B97776D0180'
+ MEPROP Name 'Automatic'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9777220364 // vcmIconSize
+ ;
+ MEPROP Value '''Автоматически'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Автоматически'''
+
+ENDME // ME_4B97776D0180 Automatic
+
+ME ME_4B977777034D
+ MEPROP UID '4B977777034D'
+ MEPROP Name '16x16'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9777220364 // vcmIconSize
+ ;
+ MEPROP Value '''Маленькие'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Маленькие'''
+
+ENDME // ME_4B977777034D 16x16
+
+ME ME_4B97778202BF
+ MEPROP UID '4B97778202BF'
+ MEPROP Name '24x24'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9777220364 // vcmIconSize
+ ;
+ MEPROP Value '''Средние'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Средние'''
+
+ENDME // ME_4B97778202BF 24x24
+
+ME ME_4B97778F003C
+ MEPROP UID '4B97778F003C'
+ MEPROP Name '32x32'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B9777220364 // vcmIconSize
+ ;
+ MEPROP Value '''Большие'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Большие'''
+
+ENDME // ME_4B97778F003C 32x32
+
+%%InheritedBy ME_4B977802001D ME_4B9777220364
+
+ME ME_4B9777220364
+ MEPROP UID '4B9777220364'
+ MEPROP Name 'vcmIconSize'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Размеры иконок' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B977802001D // TvcmGlyphSize
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B97776D0180 // Automatic
+ HWL ME_4B977777034D // 16x16
+ HWL ME_4B97778202BF // 24x24
+ HWL ME_4B97778F003C // 32x32
+ )
+ ; // Attributes
+ UP "children prefix" 'vcmgs'
+ UP "Need map interface" False
+ UP "Need mapping support" True
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'vcmgs'
+ UP extprop:rc:SelfName 'IconSize'
+
+ENDME // ME_4B9777220364 vcmIconSize
+
+FORWARD ME_1333F1537465
+
+ME ME_5A5CB54822E0
+ MEPROP UID '5A5CB54822E0'
+ MEPROP Name 'Automatic'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Автоматически''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgsAutomatic''; rValue : ''Автоматически'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgsAutomatic''; rValue : ''Автоматически'')'
+ UPLINK Speller HWL ME_4B97776D0180 // Automatic
+ ;
+
+ENDME // ME_5A5CB54822E0 Automatic
+
+ME ME_163AC987C7F2
+ MEPROP UID '163AC987C7F2'
+ MEPROP Name '16x16'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Маленькие''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgs16x16''; rValue : ''Маленькие'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs16x16''; rValue : ''Маленькие'')'
+ UPLINK Speller HWL ME_4B977777034D // 16x16
+ ;
+
+ENDME // ME_163AC987C7F2 16x16
+
+ME ME_9CAEB236A6D5
+ MEPROP UID '9CAEB236A6D5'
+ MEPROP Name '24x24'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Средние''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgs24x24''; rValue : ''Средние'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs24x24''; rValue : ''Средние'')'
+ UPLINK Speller HWL ME_4B97778202BF // 24x24
+ ;
+
+ENDME // ME_9CAEB236A6D5 24x24
+
+ME ME_C6677DECB4CE
+ MEPROP UID 'C6677DECB4CE'
+ MEPROP Name '32x32'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ %SUMMARY '''Большие''' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ MEPROP Value '(rS : -1; rLocalized : false; rKey : ''vcmgs32x32''; rValue : ''Большие'')'
+ MELINK ValueType WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(rS : -1; rLocalized : false; rKey : ''vcmgs32x32''; rValue : ''Большие'')'
+ UPLINK Speller HWL ME_4B97778F003C // 32x32
+ ;
+
+ENDME // ME_C6677DECB4CE 32x32
+
+ME ME_1333F1537465
+ MEPROP UID '1333F1537465'
+ MEPROP Name 'LCImplvcmIconSize'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Локализуемые строки vcmIconSize' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5A5CB54822E0 // Automatic
+ HWL ME_163AC987C7F2 // 16x16
+ HWL ME_9CAEB236A6D5 // 24x24
+ HWL ME_C6677DECB4CE // 32x32
+ )
+ ; // Attributes
+ UP "children prefix" 'vcmgs'
+ UP "elements prefix" 'str'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'str_vcmgs'
+ UP extprop:pas:ElementPrefixBase 'str'
+ UPLINK Speller HWL ME_4B9777220364 // vcmIconSize
+ ;
+
+ENDME // ME_1333F1537465 LCImplvcmIconSize
+
+ME ME_A2A05DE6F039
+ MEPROP UID 'A2A05DE6F039'
+ MEPROP Name 'Automatic'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_0493A882BA7D // vcmIconSizeMap
+ ;
+ MELINK Target WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+ ;
+ MEPROP Value 'Automatic'
+ MELINK ValueType HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ UP extprop:pas:Value 'str_vcmgsAutomatic'
+
+ENDME // ME_A2A05DE6F039 Automatic
+
+ME ME_8FC691C9EDD8
+ MEPROP UID '8FC691C9EDD8'
+ MEPROP Name '16x16'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_0493A882BA7D // vcmIconSizeMap
+ ;
+ MELINK Target WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+ ;
+ MEPROP Value '16x16'
+ MELINK ValueType HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ UP extprop:pas:Value 'str_vcmgs16x16'
+
+ENDME // ME_8FC691C9EDD8 16x16
+
+ME ME_4F7644AFAEA7
+ MEPROP UID '4F7644AFAEA7'
+ MEPROP Name '24x24'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_0493A882BA7D // vcmIconSizeMap
+ ;
+ MELINK Target WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+ ;
+ MEPROP Value '24x24'
+ MELINK ValueType HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ UP extprop:pas:Value 'str_vcmgs24x24'
+
+ENDME // ME_4F7644AFAEA7 24x24
+
+ME ME_BBE02D2BA2B0
+ MEPROP UID 'BBE02D2BA2B0'
+ MEPROP Name '32x32'
+ UP IsSummoned true
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_0493A882BA7D // vcmIconSizeMap
+ ;
+ MELINK Target WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+ ;
+ MEPROP Value '32x32'
+ MELINK ValueType HWL ME_1333F1537465 // LCImplvcmIconSize
+ ;
+ UP extprop:pas:Value 'str_vcmgs32x32'
+
+ENDME // ME_BBE02D2BA2B0 32x32
+
+%%ImplementedBy ME_4B977802001D ME_0493A882BA7D
+
+%%InheritedBy ME_4B3B49B40262 ME_0493A882BA7D
+
+ME ME_0493A882BA7D
+ MEPROP UID '0493A882BA7D'
+ MEPROP Name 'vcmIconSizeMap'
+ UP IsSummoned true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Карта преобразования локализованных строк vcmIconSize' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B3B49B40262' '4B3B36EC03B2.ms.model.script' // Pl3StringIDEx
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_4B977802001D // TvcmGlyphSize
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_A2A05DE6F039 // Automatic
+ HWL ME_8FC691C9EDD8 // 16x16
+ HWL ME_4F7644AFAEA7 // 24x24
+ HWL ME_BBE02D2BA2B0 // 32x32
+ )
+ ; // Attributes
+ UP "Need map interface" False
+ UP "Need mapping support" True
+ UP extprop:rc:SelfName 'IconSizeMap'
+
+ENDME // ME_0493A882BA7D vcmIconSizeMap
+
+ME ME_2552FFDCE4CC
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELINK Target WL 'ME_4B3B3728004C' '4B3B36EC03B2.ms.model.script' // Tl3StringIDEx
+ ;
+
+ENDME // ME_2552FFDCE4CC 
+
+ME ME_0A8828297B2D
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELINK Target WL 'ME_4E01D1E002AE' '4E01D1980071.ms.model.script' // Tl3MessageID
+ ;
+
+ENDME // ME_0A8828297B2D 
+
+ME ME_D823BF492716
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_D823BF492716 
+
+ME ME_7B82F3842A19
+ UP IsSummoned true
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B9777000394 // vcmToolbarMenuRes
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_7B82F3842A19 
+
+ME ME_4B9777000394
+ MEPROP UID '4B9777000394'
+ MEPROP Name 'vcmToolbarMenuRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B8E967100D5' '4B8E967100D5.ms.model.script' // vcmL10nImpl
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4B977802001D // TvcmGlyphSize
+ HWL ME_6882EB48F231 // vcmIconSizeMapHelper
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4B9777220364 // vcmIconSize
+ HWL ME_1333F1537465 // LCImplvcmIconSize
+ HWL ME_0493A882BA7D // vcmIconSizeMap
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_2552FFDCE4CC // Tl3StringIDEx
+ ME_0A8828297B2D // Tl3MessageID
+ ME_D823BF492716 // l3String
+ ME_7B82F3842A19 // Exception
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.03.2010 13:40'
+ UP extprop:rc:SelfName 'ToolbarMenuRes'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmToolbarMenuRes.pas'
+
+ENDME // ME_4B9777000394 vcmToolbarMenuRes

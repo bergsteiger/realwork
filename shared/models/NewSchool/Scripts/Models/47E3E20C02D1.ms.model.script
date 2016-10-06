@@ -1,0 +1,210 @@
+// evSavedCursor 47E3E20C02D1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47E3DFD00379
+%%Inner ME_47E3E26601EA
+
+FORWARD ME_47E3E20C02D1
+
+FORWARD ME_47E3DFD00379
+
+ME ME_47E3E0FC0098
+ MEPROP UID '47E3E0FC0098'
+ MEPROP Name 'Cursor'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'курсор, который изменялся.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E3DFD00379 // TevSavedCursor
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_47E3E0FC0098 Cursor
+
+ME ME_47E3E116003F
+ MEPROP UID '47E3E116003F'
+ MEPROP Name 'Old'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'старое значение курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E3DFD00379 // TevSavedCursor
+ ;
+ MELINK Target WL 'ME_47E3DF8500DC' '47C5207602D1.ms.model.script' // IevSavedCursor
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_47E3E116003F Old
+
+ME ME_47E3E1260258
+ MEPROP UID '47E3E1260258'
+ MEPROP Name 'New'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ %SUMMARY 'новое значение курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47E3DFD00379 // TevSavedCursor
+ ;
+ MELINK Target WL 'ME_47E3DF8500DC' '47C5207602D1.ms.model.script' // IevSavedCursor
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_47E3E1260258 New
+
+FORWARD ME_47E3E1DE01E5
+
+ME ME_47E3E48302D0
+ MEPROP Name 'aCursor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_47E3E48302D0 aCursor
+
+ME ME_47E3E48302F4
+ MEPROP Name 'aOld'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E3DF8500DC' '47C5207602D1.ms.model.script' // IevSavedCursor
+ ;
+
+ENDME // ME_47E3E48302F4 aOld
+
+ME ME_47E3E483031B
+ MEPROP Name 'aNew'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47E3DF8500DC' '47C5207602D1.ms.model.script' // IevSavedCursor
+ ;
+
+ENDME // ME_47E3E483031B aNew
+
+ME ME_47E3E1DE01E5
+ MEPROP UID '47E3E1DE01E5'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47E3DFD00379 // TevSavedCursor
+ ;
+ MELIST Parameters
+   Seq: ( ME_47E3E48302D0 // aCursor
+ ME_47E3E48302F4 // aOld
+ ME_47E3E483031B // aNew
+ )
+ ; // Parameters
+
+ENDME // ME_47E3E1DE01E5 Create
+
+ME ME_479731C50290_ME_47E3DFD00379
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47E3DFD00379 Cleanup
+
+%%InheritedBy ME_49E7754802A9 ME_47E3DFD00379
+
+ME ME_47E3DFD00379
+ MEPROP UID '47E3DFD00379'
+ MEPROP Name 'TevSavedCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект для сохранения курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E3E20C02D1 // evSavedCursor
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47E3E0FC0098 // Cursor
+ HWL ME_47E3E116003F // Old
+ HWL ME_47E3E1260258 // New
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47E3E1DE01E5 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47E3DFD00379 // Cleanup
+ )
+ ; // Overridden
+ UP "author" 'Люлин А.В.'
+ UP "started" '21.03.2008 19:09'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SavedCursor'
+
+ENDME // ME_47E3DFD00379 TevSavedCursor
+
+%%InheritedBy ME_47E3DFD00379 ME_47E3E26601EA
+
+ME ME_47E3E26601EA
+ MEPROP UID '47E3E26601EA'
+ MEPROP Name 'PevSavedCursor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E3E20C02D1 // evSavedCursor
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_47E3DFD00379 // TevSavedCursor
+ )
+ ; // Inherits
+ UP "isPointer" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_47E3E26601EA PevSavedCursor
+
+ME ME_47E3E20C02D1
+ MEPROP UID '47E3E20C02D1'
+ MEPROP Name 'evSavedCursor'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект для сохранения курсора.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47E3DFD00379 // TevSavedCursor
+ HWL ME_47E3E26601EA // PevSavedCursor
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '21.03.2008 19:09'
+ UP extprop:rc:SelfName 'SavedCursor'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evSavedCursor.pas'
+
+ENDME // ME_47E3E20C02D1 evSavedCursor

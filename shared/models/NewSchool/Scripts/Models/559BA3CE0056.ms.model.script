@@ -1,0 +1,158 @@
+// vcmTabsHistoryService 559BA3CE0056 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_559BA3E6014C
+
+FORWARD ME_559BA3CE0056
+
+FORWARD ME_559BA3E6014C
+
+ME ME_57AD96EF03CE
+ MEPROP UID '57AD96EF03CE'
+ MEPROP Name 'f_OrgContainer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_57AD96EF03CE f_OrgContainer
+
+ME ME_57AD96FF0378
+ MEPROP UID '57AD96FF0378'
+ MEPROP Name 'f_CloneContainer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_57AD96FF0378 f_CloneContainer
+
+ME ME_559BA40A0131
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_559BA19C0076' '553893E60323.ms.model.script' // TvcmHistoryService
+ ;
+
+ENDME // ME_559BA40A0131 
+
+ME ME_559BA45E03E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_553213D902E0' '553213B80041.ms.model.script' // Tl3TabbedContainersDispatcher
+ ;
+
+ENDME // ME_559BA45E03E4 
+
+ME ME_559CBC7C02AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_559CBC7C02AD 
+
+ME ME_559CBC9303E3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_559CBC9303E3 
+
+ME ME_559CC0E600C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_47F25BC801DB' '47F25BC801DB.ms.model.script' // vcmBase
+ ;
+
+ENDME // ME_559CC0E600C8 
+
+ME ME_55DAC27401A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ ;
+ MELINK Target WL 'ME_55A4AE2A01E5' '55A4AE2A01E5.ms.model.script' // vcmFormSetHistory
+ ;
+
+ENDME // ME_55DAC27401A9 
+
+%%InheritedBy ME_49E7754802A9 ME_559BA3E6014C
+
+ME ME_559BA3E6014C
+ MEPROP UID '559BA3E6014C'
+ MEPROP Name 'TvcmTabsHistoryService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BA3CE0056 // vcmTabsHistoryService
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57AD96EF03CE // f_OrgContainer
+ HWL ME_57AD96FF0378 // f_CloneContainer
+ )
+ ; // Attributes
+ MELIST Dependencies
+   Seq: ( ME_559BA40A0131 // TvcmHistoryService
+ ME_559BA45E03E4 // Tl3TabbedContainersDispatcher
+ ME_559CBC7C02AD // Forms
+ ME_559CBC9303E3 // SysUtils
+ ME_559CC0E600C8 // vcmBase
+ ME_55DAC27401A9 // vcmFormSetHistory
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TabsHistoryService'
+
+ENDME // ME_559BA3E6014C TvcmTabsHistoryService
+
+ME ME_559BA3CE0056
+ MEPROP UID '559BA3CE0056'
+ MEPROP Name 'vcmTabsHistoryService'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Children
+   Seq: ( HWL ME_559BA3E6014C // TvcmTabsHistoryService
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TabsHistoryService'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabsHistoryService.pas'
+
+ENDME // ME_559BA3CE0056 vcmTabsHistoryService

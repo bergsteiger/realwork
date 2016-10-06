@@ -1,0 +1,494 @@
+// l3UnitsTools 4A3918BB0114 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A3918BB0114
+
+FORWARD ME_4F2A39020075
+
+ME ME_4F2A39280146
+ MEPROP UID '4F2A39280146'
+ MEPROP Name 'cnMaxPredefChars'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4F2A39020075 // CharConst
+ ;
+ MEPROP Value 73
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 73
+
+ENDME // ME_4F2A39280146 cnMaxPredefChars
+
+ME ME_4F2A39020075
+ MEPROP UID '4F2A39020075'
+ MEPROP Name 'CharConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F2A39280146 // cnMaxPredefChars
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4F2A39020075 CharConst
+
+ME ME_4F2A40A302AF
+ MEPROP UID '4F2A40A302AF'
+ MEPROP Name 'g_CWEpsilon'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4F2A40A302AF g_CWEpsilon
+
+ME ME_4F2A40C100EA
+ MEPROP UID '4F2A40C100EA'
+ MEPROP Name 'g_CWEpsilon_div2'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4F2A40C100EA g_CWEpsilon_div2
+
+FORWARD ME_4F2A3430033F
+
+FORWARD ME_4F2A3443027C
+
+ME ME_4F2A384E03A2
+ MEPROP Name 'aPixel'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F2A384E03A2 aPixel
+
+ME ME_4F2A3443027C
+ MEPROP UID '4F2A3443027C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A3430033F // evInch2Char
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2A384E03A2 // aPixel
+ )
+ ; // Parameters
+
+ENDME // ME_4F2A3443027C DoIt
+
+ME ME_4F2A3D90018E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2A3430033F // evInch2Char
+ ;
+ MELINK Target WL 'ME_47E0C36201C7' '47E0C36201C7.ms.model.script' // l3Math
+ ;
+
+ENDME // ME_4F2A3D90018E 
+
+ME ME_4F2A3F5203DF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2A3430033F // evInch2Char
+ ;
+ MELINK Target WL 'ME_4799ED060093' '4799ED060093.ms.model.script' // l3Defaults
+ ;
+
+ENDME // ME_4F2A3F5203DF 
+
+ME ME_4F2A3430033F
+ MEPROP UID '4F2A3430033F'
+ MEPROP Name 'evInch2Char'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A3443027C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F2A3D90018E // l3Math
+ ME_4F2A3F5203DF // l3Defaults
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'Inch2Char'
+
+ENDME // ME_4F2A3430033F evInch2Char
+
+FORWARD ME_4F2A3451001B
+
+FORWARD ME_4F2A34630380
+
+ME ME_4F2A385C0396
+ MEPROP Name 'aChar'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F2A385C0396 aChar
+
+ME ME_4F2A34630380
+ MEPROP UID '4F2A34630380'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A3451001B // evChar2Inch
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2A385C0396 // aChar
+ )
+ ; // Parameters
+
+ENDME // ME_4F2A34630380 DoIt
+
+ME ME_4F2A3451001B
+ MEPROP UID '4F2A3451001B'
+ MEPROP Name 'evChar2Inch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A34630380 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Char2Inch'
+
+ENDME // ME_4F2A3451001B evChar2Inch
+
+FORWARD ME_4F2A348600F9
+
+FORWARD ME_4F2A349502F7
+
+ME ME_4F2A386B0079
+ MEPROP Name 'aCm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F2A386B0079 aCm
+
+ME ME_4F2A349502F7
+ MEPROP UID '4F2A349502F7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A348600F9 // l3Cm2Inch
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2A386B0079 // aCm
+ )
+ ; // Parameters
+
+ENDME // ME_4F2A349502F7 DoIt
+
+ME ME_4F2A3FEF0029
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F2A348600F9 // l3Cm2Inch
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_4F2A3FEF0029 
+
+ME ME_4F2A348600F9
+ MEPROP UID '4F2A348600F9'
+ MEPROP Name 'l3Cm2Inch'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A349502F7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F2A3FEF0029 // L3 Core Consts
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'Cm2Inch'
+
+ENDME // ME_4F2A348600F9 l3Cm2Inch
+
+FORWARD ME_4F2A34B20068
+
+FORWARD ME_4F2A34C101D4
+
+ME ME_4F2A38770010
+ MEPROP Name 'anInch'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_4F2A38770010 anInch
+
+ME ME_4F2A34C101D4
+ MEPROP UID '4F2A34C101D4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A34B20068 // evPixel2Cm
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F2A38770010 // anInch
+ )
+ ; // Parameters
+
+ENDME // ME_4F2A34C101D4 DoIt
+
+ME ME_4F2A34B20068
+ MEPROP UID '4F2A34B20068'
+ MEPROP Name 'evPixel2Cm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A34C101D4 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'Pixel2Cm'
+
+ENDME // ME_4F2A34B20068 evPixel2Cm
+
+FORWARD ME_4F2A40EA0064
+
+ME ME_4F2A40F60343
+ MEPROP UID '4F2A40F60343'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A40EA0064 // evCellWidthEpsilon
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2A40F60343 DoIt
+
+ME ME_4F2A40EA0064
+ MEPROP UID '4F2A40EA0064'
+ MEPROP Name 'evCellWidthEpsilon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Погрешность выравнивания ячеек в дюймах (соотвествует ширине символа).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A40F60343 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CellWidthEpsilon'
+
+ENDME // ME_4F2A40EA0064 evCellWidthEpsilon
+
+FORWARD ME_4F2A416E022B
+
+ME ME_4F2A41820290
+ MEPROP UID '4F2A41820290'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A416E022B // EvHalfCellWidthEpsilon
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2A41820290 DoIt
+
+ME ME_4F2A416E022B
+ MEPROP UID '4F2A416E022B'
+ MEPROP Name 'EvHalfCellWidthEpsilon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A41820290 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F2A416E022B EvHalfCellWidthEpsilon
+
+FORWARD ME_4F2A554B0360
+
+ME ME_4F2A558D008A
+ MEPROP UID '4F2A558D008A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F2A554B0360 // l3FrameLinesDelta
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4F2A558D008A DoIt
+
+ME ME_4F2A554B0360
+ MEPROP UID '4F2A554B0360'
+ MEPROP Name 'l3FrameLinesDelta'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Величина, используемая при выравнивании линий в FrameLines' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F2A558D008A // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'FrameLinesDelta'
+
+ENDME // ME_4F2A554B0360 l3FrameLinesDelta
+
+FORWARD ME_5119E20703B0
+
+ME ME_5119E23B02BD
+ MEPROP UID '5119E23B02BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5119E20703B0 // evGetMinimalCellWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5119E23B02BD DoIt
+
+ME ME_5119E20703B0
+ MEPROP UID '5119E20703B0'
+ MEPROP Name 'evGetMinimalCellWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает минимально допустимую ширину ячейки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5119E23B02BD // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'GetMinimalCellWidth'
+
+ENDME // ME_5119E20703B0 evGetMinimalCellWidth
+
+ME ME_4F2A42D00142
+ MEPROP UID '4F2A42D00142'
+ MEPROP Name 'CheckEpsilonParams'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A3918BB0114 // l3UnitsTools
+ ;
+
+ENDME // ME_4F2A42D00142 CheckEpsilonParams
+
+ME ME_4A3918BB0114
+ MEPROP UID '4A3918BB0114'
+ MEPROP Name 'l3UnitsTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4F2A40A302AF // g_CWEpsilon
+ HWL ME_4F2A40C100EA // g_CWEpsilon_div2
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4F2A3430033F // evInch2Char
+ HWL ME_4F2A3451001B // evChar2Inch
+ HWL ME_4F2A348600F9 // l3Cm2Inch
+ HWL ME_4F2A34B20068 // evPixel2Cm
+ HWL ME_4F2A40EA0064 // evCellWidthEpsilon
+ HWL ME_4F2A416E022B // EvHalfCellWidthEpsilon
+ HWL ME_4F2A554B0360 // l3FrameLinesDelta
+ HWL ME_5119E20703B0 // evGetMinimalCellWidth
+ HWL ME_4F2A42D00142 // CheckEpsilonParams
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4F2A39020075 // CharConst
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'UnitsTools'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3UnitsTools.pas'
+
+ENDME // ME_4A3918BB0114 l3UnitsTools

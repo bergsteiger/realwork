@@ -1,0 +1,53 @@
+// evEvdRd 4C1B2A94015D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4C1B2AB301B1
+
+FORWARD ME_4C1B2A94015D
+
+%%InheritedBy ME_483E80FA0312 ME_4C1B2AB301B1
+
+ME ME_4C1B2AB301B1
+ MEPROP UID '4C1B2AB301B1'
+ MEPROP Name 'TevCustomEvdReader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B2A94015D // evEvdRd
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_483E80FA0312' '483E80C9025F.ms.model.script' // TevdNativeReader
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'EvdReader'
+
+ENDME // ME_4C1B2AB301B1 TevCustomEvdReader
+
+ME ME_4C1B2A94015D
+ MEPROP UID '4C1B2A94015D'
+ MEPROP Name 'evEvdRd'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_482D6E13011F' '482D6E13011F.ms.model.script' // Readers
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C1B2AB301B1 // TevCustomEvdReader
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'EvdRd'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evEvdRd.pas'
+
+ENDME // ME_4C1B2A94015D evEvdRd

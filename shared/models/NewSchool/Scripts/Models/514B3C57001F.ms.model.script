@@ -1,0 +1,129 @@
+// vtHeader 514B3C57001F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_514B3E420328
+%%Inner ME_514B3E4D016E
+%%Inner ME_51506507008E
+
+FORWARD ME_514B3C57001F
+
+ME ME_514B3E420328
+ MEPROP UID '514B3E420328'
+ MEPROP Name 'TvtCustomHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_514B3C57001F // vtHeader
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Header'
+
+ENDME // ME_514B3E420328 TvtCustomHeader
+
+%%InheritedBy ME_514B3E420328 ME_514B3E4D016E
+
+ME ME_514B3E4D016E
+ MEPROP UID '514B3E4D016E'
+ MEPROP Name 'TvtHeader'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_514B3C57001F // vtHeader
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_514B3E420328 // TvtCustomHeader
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Header'
+
+ENDME // ME_514B3E4D016E TvtHeader
+
+FORWARD ME_51506507008E
+
+FORWARD ME_515065260173
+
+ME ME_515065300264
+ MEPROP Name 'Sender'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ ;
+
+ENDME // ME_515065300264 Sender
+
+ME ME_51506530027C
+ MEPROP Name 'Index'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_51506530027C Index
+
+ME ME_515065260173
+ MEPROP UID '515065260173'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51506507008E // TGetItemImageIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_515065300264 // Sender
+ ME_51506530027C // Index
+ )
+ ; // Parameters
+
+ENDME // ME_515065260173 DoIt
+
+ME ME_51506507008E
+ MEPROP UID '51506507008E'
+ MEPROP Name 'TGetItemImageIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_514B3C57001F // vtHeader
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_515065260173 // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_51506507008E TGetItemImageIndex
+
+ME ME_514B3C57001F
+ MEPROP UID '514B3C57001F'
+ MEPROP Name 'vtHeader'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B97E7FD006C' '4B97E7FD006C.ms.model.script' // Outliner
+ ;
+ MELIST Children
+   Seq: ( HWL ME_514B3E420328 // TvtCustomHeader
+ HWL ME_514B3E4D016E // TvtHeader
+ HWL ME_51506507008E // TGetItemImageIndex
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Header'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtHeader.pas'
+
+ENDME // ME_514B3C57001F vtHeader

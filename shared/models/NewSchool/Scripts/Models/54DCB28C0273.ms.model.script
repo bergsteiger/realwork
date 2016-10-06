@@ -1,0 +1,175 @@
+// VCMFormsProcessingPack 54DCB28C0273 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54DCB28C0273
+
+ME ME_55003B850144
+ MEPROP UID '55003B850144'
+ MEPROP Name 'IsFloatingStateAndParentNotVisible'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "mapped" True
+
+ENDME // ME_55003B850144 IsFloatingStateAndParentNotVisible
+
+ME ME_55003BA60133
+ MEPROP UID '55003BA60133'
+ MEPROP Name 'IsFloatingState'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "mapped" True
+
+ENDME // ME_55003BA60133 IsFloatingState
+
+ME ME_55003BCE02C3
+ MEPROP UID '55003BCE02C3'
+ MEPROP Name 'UserType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "mapped" True
+
+ENDME // ME_55003BCE02C3 UserType
+
+ME ME_55003BED00FC
+ MEPROP UID '55003BED00FC'
+ MEPROP Name 'FormID'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_55003BED00FC FormID
+
+FORWARD ME_57BACF5E010C
+
+ME ME_57BACF880141
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525AED007D' '47F4EED50062.ms.model.script' // TvcmForm
+ ;
+
+ENDME // ME_57BACF880141 aForm
+
+ME ME_57BACF5E010C
+ MEPROP UID '57BACF5E010C'
+ MEPROP Name 'vcm_Form_ManualUpdateActions'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57BACF880141 // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_57BACF5E010C vcm_Form_ManualUpdateActions
+
+FORWARD ME_57F365EB014D
+
+ME ME_57F3663F000E
+ MEPROP Name 'aForm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_57F3663F000E aForm
+
+ME ME_57F365EB014D
+ MEPROP UID '57F365EB014D'
+ MEPROP Name 'vcm_Form_ReloadToolbars'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F3663F000E // aForm
+ )
+ ; // Parameters
+
+ENDME // ME_57F365EB014D vcm_Form_ReloadToolbars
+
+ME ME_54DCB3050025
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_54DCB28C0273 // VCMFormsProcessingPack
+ ;
+ MELINK Target WL 'ME_4F22CB1E0009' '4F22CB1E0009.ms.model.script' // TvcmEntityFormModelPart
+ ;
+
+ENDME // ME_54DCB3050025 
+
+%%InjectedBy ME_4F22CB1E0009 ME_54DCB28C0273
+
+%%InheritedBy ME_49525B34022A ME_54DCB28C0273
+
+ME ME_54DCB28C0273
+ MEPROP UID '54DCB28C0273'
+ MEPROP Name 'VCMFormsProcessingPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54DCB32F019F' '54DCB32F019F.ms.model.script' // VCMFormsProcessing
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55003B850144 // IsFloatingStateAndParentNotVisible
+ HWL ME_55003BA60133 // IsFloatingState
+ HWL ME_55003BCE02C3 // UserType
+ HWL ME_55003BED00FC // FormID
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_57BACF5E010C // vcm_Form_ManualUpdateActions
+ HWL ME_57F365EB014D // vcm_Form_ReloadToolbars
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_54DCB3050025 // TvcmEntityFormModelPart
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\VCMFormsProcessingPack.pas'
+
+ENDME // ME_54DCB28C0273 VCMFormsProcessingPack

@@ -1,0 +1,64 @@
+// nscArrangeGrid 4AC9B15903E7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AC9DA070125
+
+FORWARD ME_4AC9B15903E7
+
+ME ME_4AC9DA070125
+ MEPROP UID '4AC9DA070125'
+ MEPROP Name 'TnscArrangeGrid'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4AC9B15903E7 // nscArrangeGrid
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArrangeGrid'
+
+ENDME // ME_4AC9DA070125 TnscArrangeGrid
+
+ME ME_4AC9B17D0364
+ MEPROP UID '4AC9B17D0364'
+ MEPROP Name 'agArrangeGrid'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4AC9B15903E7 // nscArrangeGrid
+ ;
+
+ENDME // ME_4AC9B17D0364 agArrangeGrid
+
+ME ME_4AC9B15903E7
+ MEPROP UID '4AC9B15903E7'
+ MEPROP Name 'nscArrangeGrid'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AC9B14A02E3' '4AC9B14A02E3.ms.model.script' // Grid
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AC9B17D0364 // agArrangeGrid
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4AC9DA070125 // TnscArrangeGrid
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'ArrangeGrid'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\NOT_FINISHED_nscArrangeGrid.pas'
+
+ENDME // ME_4AC9B15903E7 nscArrangeGrid

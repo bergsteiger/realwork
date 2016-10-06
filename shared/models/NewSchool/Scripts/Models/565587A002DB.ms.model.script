@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_56558873036B
+%%Inner ME_56558E340367
+%%Inner ME_56558EAC00D3
+%%Inner ME_56559282021D
+%%Inner ME_5656FD810153
+
 FORWARD ME_565587A002DB
 
 FORWARD ME_56558873036B
@@ -21,6 +27,10 @@ ME ME_56558C37001E
 
 ENDME // ME_56558C37001E ItemType
 
+%%ImplementedBy ME_47B57D830369 ME_56558873036B
+
+%%InheritedBy ME_4A54DD4E036F ME_56558873036B
+
 ME ME_56558873036B
  MEPROP UID '56558873036B'
  MEPROP Name 'TevSCSubList'
@@ -36,7 +46,7 @@ ME ME_56558873036B
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B57D830369' '47913B47006E.ms.model.script' // l3InterfaceRefList
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
  )
  ; // Implements
  MELIST Attributes
@@ -68,14 +78,14 @@ ME ME_56558E980059
 ENDME // ME_56558E980059 ItemType
 
 ME ME_47B07CF403D0_ME_56558E340367
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_56558E340367 IsSameItems
 
 ME ME_47B2C42A0163_ME_56558E340367
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -83,10 +93,14 @@ ME ME_47B2C42A0163_ME_56558E340367
 ENDME // ME_47B2C42A0163_ME_56558E340367 AssignItem
 
 ME ME_47B99D4503A2_ME_56558E340367
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_56558E340367 CompareExistingItems
+
+%%ImplementedBy ME_47B9AF6E0228 ME_56558E340367
+
+%%InheritedBy ME_4A54DD4E036F ME_56558E340367
 
 ME ME_56558E340367
  MEPROP UID '56558E340367'
@@ -103,7 +117,7 @@ ME ME_56558E340367
  )
  ; // Inherits
  MELIST Implements
-   Seq: ( WL 'ME_47B9AF6E0228' '47913B47006E.ms.model.script' // l3InterfaceRefListPrim
+   Seq: ( WL 'ME_47B9AF6E0228' '47B9AF6E0228.ms.model.script' // l3InterfaceRefListPrim
  )
  ; // Implements
  MELIST Attributes
@@ -148,7 +162,7 @@ ME ME_5655984903CA
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_56558EAC00D3 // TevSCSub
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5655984903CA f_ID
@@ -212,6 +226,10 @@ ME ME_56559EBB00B3
 
 ENDME // ME_56559EBB00B3 Create
 
+%%ImplementedBy ME_56558580035A ME_56559ED6012A
+
+%%InheritedBy ME_56559EBB00B3 ME_56559ED6012A
+
 ME ME_56559ED6012A
  MEPROP UID '56559ED6012A'
  MEPROP Name 'Make'
@@ -238,7 +256,7 @@ ME ME_5656F3A901B4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_56558EAC00D3 // TevSCSub
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_5656F3A901B4 
@@ -288,10 +306,14 @@ ME ME_565F158700B1_ME_56558EAC00D3
 ENDME // ME_565F158700B1_ME_56558EAC00D3 SubType
 
 ME ME_479731C50290_ME_56558EAC00D3
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_56558EAC00D3 Cleanup
+
+%%ImplementedBy ME_56558580035A ME_56558EAC00D3
+
+%%InheritedBy ME_49E7754802A9 ME_56558EAC00D3
 
 ME ME_56558EAC00D3
  MEPROP UID '56558EAC00D3'
@@ -339,6 +361,9 @@ ME ME_56558EAC00D3
  ME_5656F3CA02A6 // Tl3Duplicates
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'evSCSub'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'SCSub'
@@ -371,7 +396,7 @@ ME ME_565598FD0312
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_56559282021D // TevSCSubAttr
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_565598FD0312 f_ID
@@ -385,7 +410,7 @@ ME ME_5655990C02C2
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_56559282021D // TevSCSubAttr
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5655990C02C2 f_SubID
@@ -407,7 +432,7 @@ ME ME_56559D5D007A
  MEPROP Name 'aID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_56559D5D007A aID
@@ -416,10 +441,10 @@ ME ME_56559D5D00B4
  MEPROP Name 'aSubID'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  MEPROP Value 0
- MELINK ValueType WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP extprop:pas:Value 0
 
@@ -458,6 +483,10 @@ ME ME_56559CFC005F
  ; // Operations
 
 ENDME // ME_56559CFC005F Create
+
+%%ImplementedBy ME_56556E5B0080 ME_56559D6D03E3
+
+%%InheritedBy ME_56559CFC005F ME_56559D6D03E3
 
 ME ME_56559D6D03E3
  MEPROP UID '56559D6D03E3'
@@ -501,6 +530,10 @@ ME ME_565578A702AE_ME_56559282021D
  UP "pm" False
 ENDME // ME_565578A702AE_ME_56559282021D SubID
 
+%%ImplementedBy ME_56556E5B0080 ME_56559282021D
+
+%%InheritedBy ME_49E7754802A9 ME_56559282021D
+
 ME ME_56559282021D
  MEPROP UID '56559282021D'
  MEPROP Name 'TevSCSubAttr'
@@ -536,6 +569,9 @@ ME ME_56559282021D
  ME_565578A702AE_ME_56559282021D // SubID
  )
  ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'evSCSubAttr'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'SCSubAttr'
@@ -617,7 +653,7 @@ ME ME_5665494D00E0
  MEPROP Name 'aTag'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_532031160122' '47913B47006E.ms.model.script' // Tl3Variant
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
  ;
 
 ENDME // ME_5665494D00E0 aTag
@@ -661,7 +697,7 @@ ME ME_565C47A90238
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5656FD810153 // TevSCCollectFilter
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_565C47A90238 
@@ -747,46 +783,48 @@ ME ME_5668311103C8
 ENDME // ME_5668311103C8 
 
 ME ME_479731C50290_ME_5656FD810153
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_5656FD810153 Cleanup
 
 ME ME_4836D4650177_ME_5656FD810153
- MELINK Original WL 'ME_4836D4650177' '47ECA80B000D.ms.model.script' // StartChild
+ MELINK Original WL 'ME_4836D4650177' '47ECAA270135.ms.model.script' // StartChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4836D4650177_ME_5656FD810153 StartChild
 
 ME ME_4836D4C20059_ME_5656FD810153
- MELINK Original WL 'ME_4836D4C20059' '47ECA80B000D.ms.model.script' // CloseStructure
+ MELINK Original WL 'ME_4836D4C20059' '47ECAA270135.ms.model.script' // CloseStructure
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4836D4C20059_ME_5656FD810153 CloseStructure
 
 ME ME_4836D52400D9_ME_5656FD810153
- MELINK Original WL 'ME_4836D52400D9' '47ECA80B000D.ms.model.script' // AddAtomEx
+ MELINK Original WL 'ME_4836D52400D9' '47ECAA270135.ms.model.script' // AddAtomEx
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4836D52400D9_ME_5656FD810153 AddAtomEx
 
 ME ME_4C56D54B002A_ME_5656FD810153
- MELINK Original WL 'ME_4C56D54B002A' '47ECB8BD00A8.ms.model.script' // NeedStartBuffering
+ MELINK Original WL 'ME_4C56D54B002A' '49E496880120.ms.model.script' // NeedStartBuffering
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C56D54B002A_ME_5656FD810153 NeedStartBuffering
 
 ME ME_4D53D8BF00D5_ME_5656FD810153
- MELINK Original WL 'ME_4D53D8BF00D5' '47ECB8BD00A8.ms.model.script' // DoFlushBuffer
+ MELINK Original WL 'ME_4D53D8BF00D5' '49E496880120.ms.model.script' // DoFlushBuffer
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4D53D8BF00D5_ME_5656FD810153 DoFlushBuffer
 
 ME ME_538C1F9A00C7_ME_5656FD810153
- MELINK Original WL 'ME_538C1F9A00C7' '47ECA80B000D.ms.model.script' // Create
+ MELINK Original WL 'ME_538C1F9A00C7' '47ECAA270135.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_538C1F9A00C7_ME_5656FD810153 Create
+
+%%InheritedBy ME_49E4965202A1 ME_5656FD810153
 
 ME ME_5656FD810153
  MEPROP UID '5656FD810153'
@@ -799,7 +837,7 @@ ME ME_5656FD810153
  MELINK Parent HWL ME_565587A002DB // SubCompare
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_49E4965202A1' '47ECB8BD00A8.ms.model.script' // TevdBufferedFilter
+   Seq: ( WL 'ME_49E4965202A1' '49E496880120.ms.model.script' // TevdBufferedFilter
  )
  ; // Inherits
  MELIST Attributes
@@ -834,6 +872,9 @@ ME ME_5656FD810153
  ME_5668311103C8 // Document
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Uses' 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'evSCCollectFilter'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'SCCollectFilter'
@@ -872,5 +913,8 @@ ME ME_565587A002DB
  WL 'ME_56555BA603A8' '56555BA603A8.ms.model.script' // evSubCompareInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_565587A002DB SubCompare

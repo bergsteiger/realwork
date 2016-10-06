@@ -1,0 +1,109 @@
+// vcmMenuManagerUtils 52AB0A3703E2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52AB0A3703E2
+
+FORWARD ME_52AB0A580216
+
+FORWARD ME_52AB0A69000A
+
+ME ME_52AB0A6B0056
+ MEPROP Name 'aPopup'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49A5750A01E8' '47E7ABAE0110.ms.model.script' // TPopupMenu
+ ;
+
+ENDME // ME_52AB0A6B0056 aPopup
+
+ME ME_52AB0A69000A
+ MEPROP UID '52AB0A69000A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52AB0A580216 // RequestClearPopup
+ ;
+ MELIST Parameters
+   Seq: ( ME_52AB0A6B0056 // aPopup
+ )
+ ; // Parameters
+
+ENDME // ME_52AB0A69000A DoIt
+
+ME ME_52AB0A8001E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52AB0A580216 // RequestClearPopup
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_52AB0A8001E9 
+
+ME ME_52AB0A96003D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52AB0A580216 // RequestClearPopup
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_52AB0A96003D 
+
+ME ME_52AB0B1700D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52AB0A580216 // RequestClearPopup
+ ;
+ MELINK Target WL 'ME_52AB0AFE0049' '52AB0AFE0049.ms.model.script' // vcmMessages
+ ;
+
+ENDME // ME_52AB0B1700D7 
+
+ME ME_52AB0A580216
+ MEPROP UID '52AB0A580216'
+ MEPROP Name 'RequestClearPopup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52AB0A3703E2 // vcmMenuManagerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52AB0A69000A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52AB0A8001E9 // Forms
+ ME_52AB0A96003D // Windows
+ ME_52AB0B1700D7 // vcmMessages
+ )
+ ; // Dependencies
+
+ENDME // ME_52AB0A580216 RequestClearPopup
+
+ME ME_52AB0A3703E2
+ MEPROP UID '52AB0A3703E2'
+ MEPROP Name 'vcmMenuManagerUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52AB0A580216 // RequestClearPopup
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'MenuManagerUtils'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmMenuManagerUtils.pas'
+
+ENDME // ME_52AB0A3703E2 vcmMenuManagerUtils

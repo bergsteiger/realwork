@@ -1,0 +1,178 @@
+// nevTextParaViewBounds 4A5CD38B00C6 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A5CD8BA0381
+
+FORWARD ME_4A5CD38B00C6
+
+FORWARD ME_4A5CD8BA0381
+
+ME ME_4A5CD8CE00D7
+ MEPROP UID '4A5CD8CE00D7'
+ MEPROP Name 'rLine'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Строка' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A5CD8BA0381 // TnevLineCoord
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A5CD8CE00D7 rLine
+
+ME ME_4A5CD8E20304
+ MEPROP UID '4A5CD8E20304'
+ MEPROP Name 'rOfs'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Смещение в строке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A5CD8BA0381 // TnevLineCoord
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A5CD8E20304 rOfs
+
+ME ME_4A5CD8BA0381
+ MEPROP UID '4A5CD8BA0381'
+ MEPROP Name 'TnevLineCoord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Координаты строки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A5CD38B00C6 // nevTextParaViewBounds
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A5CD8CE00D7 // rLine
+ HWL ME_4A5CD8E20304 // rOfs
+ )
+ ; // Attributes
+
+ENDME // ME_4A5CD8BA0381 TnevLineCoord
+
+FORWARD ME_4A5CD65C01D4
+
+ME ME_4A5CD68E0136
+ MEPROP Name 'aSelf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4A5CD38B00C6 // nevTextParaViewBounds
+ ;
+
+ENDME // ME_4A5CD68E0136 aSelf
+
+ME ME_4A5CD68E0181
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4A5CD68E0181 aMap
+
+ME ME_4A5CD65C01D4
+ MEPROP UID '4A5CD65C01D4'
+ MEPROP Name 'GetLC'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_inline::Operation ;
+ %SUMMARY 'Возвращает текущую строку' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A5CD38B00C6 // nevTextParaViewBounds
+ ;
+ MELINK Target HWL ME_4A5CD8BA0381 // TnevLineCoord
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A5CD68E0136 // aSelf
+ ME_4A5CD68E0181 // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_4A5CD65C01D4 GetLC
+
+ME ME_4A5CD523000F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5CD38B00C6 // nevTextParaViewBounds
+ ;
+ MELINK Target WL 'ME_48D3AF8E024B' '48D3AF8E024B.ms.model.script' // evTextParaTools
+ ;
+
+ENDME // ME_4A5CD523000F 
+
+ME ME_4A5CD5360370
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5CD38B00C6 // nevTextParaViewBounds
+ ;
+ MELINK Target WL 'ME_47C6AAEF0157' '47C5207602D1.ms.model.script' // InevTextPara
+ ;
+
+ENDME // ME_4A5CD5360370 
+
+ME ME_4A5CD5970218
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A5CD38B00C6 // nevTextParaViewBounds
+ ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_4A5CD5970218 
+
+ME ME_4A5CCD9D028D_ME_4A5CD38B00C6
+ MELINK Original WL 'ME_4A5CCD9D028D' '4A5CCD5F00C1.ms.model.script' // GetViewBounds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4A5CCD9D028D_ME_4A5CD38B00C6 GetViewBounds
+
+%%ImplementedBy ME_4A5CD0B302BD ME_4A5CD38B00C6
+
+ME ME_4A5CD38B00C6
+ MEPROP UID '4A5CD38B00C6'
+ MEPROP Name 'nevTextParaViewBounds'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CD0B302BD' '47E3DF460095.ms.model.script' // MnevViewBounds
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4A5CD65C01D4 // GetLC
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4A5CCD9D028D_ME_4A5CD38B00C6 // GetViewBounds
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4A5CD8BA0381 // TnevLineCoord
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4A5CD523000F // evTextParaTools
+ ME_4A5CD5360370 // InevTextPara
+ ME_4A5CD5970218 // Tl3PCharLen
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nevTextParaViewBounds_'
+ UP extprop:pas:UnitName 'nevTextParaViewBounds.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevTextParaViewBounds.imp.pas'
+
+ENDME // ME_4A5CD38B00C6 nevTextParaViewBounds

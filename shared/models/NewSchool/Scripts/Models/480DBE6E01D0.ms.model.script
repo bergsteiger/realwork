@@ -1,0 +1,132 @@
+// evResultFont 480DBE6E01D0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_480DBEB7009D
+%%Inner ME_50220F9C02E7
+%%Inner ME_4E54CF0802A3
+%%Inner ME_4E54CF180391
+
+FORWARD ME_480DBE6E01D0
+
+FORWARD ME_480DBEB7009D
+
+ME ME_480DBEDB0202
+ MEPROP UID '480DBEDB0202'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_480DBEB7009D // TevFontArray
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_480DBEDB0202 
+
+%%InheritedBy ME_47C68D850105 ME_480DBEB7009D
+
+ME ME_480DBEB7009D
+ MEPROP UID '480DBEB7009D'
+ MEPROP Name 'TevFontArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DBE6E01D0 // evResultFont
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47C68D850105' '47AC75550330.ms.model.script' // Tk2FontParam
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_480DBEDB0202 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_480DBEB7009D TevFontArray
+
+ME ME_50220F9C02E7
+ MEPROP UID '50220F9C02E7'
+ MEPROP Name 'TevResultFont'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DBE6E01D0 // evResultFont
+ ;
+ UP extprop:rc:SelfName 'ResultFont'
+
+ENDME // ME_50220F9C02E7 TevResultFont
+
+%%InheritedBy ME_50220F9C02E7 ME_4E54CF0802A3
+
+ME ME_4E54CF0802A3
+ MEPROP UID '4E54CF0802A3'
+ MEPROP Name 'TevResultFontEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DBE6E01D0 // evResultFont
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_50220F9C02E7 // TevResultFont
+ )
+ ; // Inherits
+ UP extprop:rc:SelfName 'ResultFontEx'
+
+ENDME // ME_4E54CF0802A3 TevResultFontEx
+
+%%InheritedBy ME_4E54CF0802A3 ME_4E54CF180391
+
+ME ME_4E54CF180391
+ MEPROP UID '4E54CF180391'
+ MEPROP Name 'PevResultFontEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DBE6E01D0 // evResultFont
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E54CF0802A3 // TevResultFontEx
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_4E54CF180391 PevResultFontEx
+
+ME ME_480DBE6E01D0
+ MEPROP UID '480DBE6E01D0'
+ MEPROP Name 'evResultFont'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E56909E0240' '4E56909E0240.ms.model.script' // evResultFont
+ ;
+ MELIST Children
+   Seq: ( HWL ME_480DBEB7009D // TevFontArray
+ HWL ME_50220F9C02E7 // TevResultFont
+ HWL ME_4E54CF0802A3 // TevResultFontEx
+ HWL ME_4E54CF180391 // PevResultFontEx
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" False
+ UP "started" '17.05.2005 12:52'
+ UP extprop:rc:SelfName 'ResultFont'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evResultFont.pas'
+
+ENDME // ME_480DBE6E01D0 evResultFont

@@ -1,0 +1,81 @@
+// ArchiUserRequestManager 57CFC223011F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57CFC2BA02CC
+
+FORWARD ME_57CFC223011F
+
+ME ME_57CFC2BA02CC
+ MEPROP UID '57CFC2BA02CC'
+ MEPROP Name 'TArchiUserRequestManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CFC223011F // ArchiUserRequestManager
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ArchiUserRequestManager'
+
+ENDME // ME_57CFC2BA02CC TArchiUserRequestManager
+
+FORWARD ME_57CFC26A0059
+
+ME ME_57CFC2A8020D
+ MEPROP UID '57CFC2A8020D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CFC26A0059 // ArchiRequestManager
+ ;
+ MELINK Target HWL ME_57CFC2BA02CC // TArchiUserRequestManager
+ ;
+
+ENDME // ME_57CFC2A8020D DoIt
+
+ME ME_57CFC26A0059
+ MEPROP UID '57CFC26A0059'
+ MEPROP Name 'ArchiRequestManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CFC223011F // ArchiUserRequestManager
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CFC2A8020D // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57CFC26A0059 ArchiRequestManager
+
+ME ME_57CFC223011F
+ MEPROP UID '57CFC223011F'
+ MEPROP Name 'ArchiUserRequestManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57CFC1D401B7' '57CFC1D401B7.ms.model.script' // ClientServer
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CFC26A0059 // ArchiRequestManager
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_57CFC2BA02CC // TArchiUserRequestManager
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\NOT_FINISHED_ArchiUserRequestManager.pas'
+
+ENDME // ME_57CFC223011F ArchiUserRequestManager

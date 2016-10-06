@@ -1,0 +1,45 @@
+// m4DocumentAddress 57C5381E0221 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57C53849021C
+
+FORWARD ME_57C5381E0221
+
+ME ME_57C53849021C
+ MEPROP UID '57C53849021C'
+ MEPROP Name 'Tm4Addresses'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57C5381E0221 // m4DocumentAddress
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'm4Addresses'
+
+ENDME // ME_57C53849021C Tm4Addresses
+
+ME ME_57C5381E0221
+ MEPROP UID '57C5381E0221'
+ MEPROP Name 'm4DocumentAddress'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_57C537DE02D3' '57C537DE02D3.ms.model.script' // Addresses
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57C53849021C // Tm4Addresses
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\m4\NOT_FINISHED_m4DocumentAddress.pas'
+
+ENDME // ME_57C5381E0221 m4DocumentAddress

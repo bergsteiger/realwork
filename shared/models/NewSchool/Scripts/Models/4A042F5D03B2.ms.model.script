@@ -1,0 +1,45 @@
+// UrlMon 4A042F5D03B2 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4AD5D6190127
+
+FORWARD ME_4A042F5D03B2
+
+ME ME_4AD5D6190127
+ MEPROP UID '4AD5D6190127'
+ MEPROP GUID '8D318B3A-41DB-42F0-B386-E71555D7597E'
+ MEPROP Name 'IPersistMoniker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A042F5D03B2 // UrlMon
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PersistMoniker'
+
+ENDME // ME_4AD5D6190127 IPersistMoniker
+
+ME ME_4A042F5D03B2
+ MEPROP UID '4A042F5D03B2'
+ MEPROP Name 'UrlMon'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4AD5D6190127 // IPersistMoniker
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\UrlMon.pas'
+
+ENDME // ME_4A042F5D03B2 UrlMon

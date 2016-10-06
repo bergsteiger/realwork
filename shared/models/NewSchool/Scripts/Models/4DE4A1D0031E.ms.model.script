@@ -2,25 +2,31 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DE4A70402F1
+%%Inner ME_4DE3420B030C
+%%Inner ME_525FC3B4005D
+
 FORWARD ME_4DE4A1D0031E
 
 ME ME_4B7AB0B6016E_ME_4DE4A70402F1
- MELINK Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.ms.model.script' // CommandLineKey
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B7AB0B6016E_ME_4DE4A70402F1 CommandLineKey
 
 ME ME_4B7C0B43005B_ME_4DE4A70402F1
- MELINK Original WL 'ME_4B7C0B43005B' '4B2A112B011A.ms.model.script' // TimesPage
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B7C0B43005B_ME_4DE4A70402F1 TimesPage
 
 ME ME_4B7C0B670215_ME_4DE4A70402F1
- MELINK Original WL 'ME_4B7C0B670215' '4B2A112B011A.ms.model.script' // ResultsPage
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B7C0B670215_ME_4DE4A70402F1 ResultsPage
+
+%%InheritedBy ME_4B7AAC7A031D ME_4DE4A70402F1
 
 ME ME_4DE4A70402F1
  MEPROP UID '4DE4A70402F1'
@@ -33,7 +39,7 @@ ME ME_4DE4A70402F1
  MELINK Parent HWL ME_4DE4A1D0031E // Archi$Test
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.ms.model.script' // TTestResultsPlace
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
  )
  ; // Inherits
  MELIST Implemented
@@ -56,7 +62,7 @@ ME ME_4DE349A8027D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE3420B030C // TArchiTestRes
  ;
- MELINK Target WL 'ME_4B2A0D9401CC' '4B2A0D6A0077.ms.model.script' // GUITestRunner
+ MELINK Target WL 'ME_4B2A0D9401CC' '4B2A0D9401CC.ms.model.script' // GUITestRunner
  ;
 
 ENDME // ME_4DE349A8027D 
@@ -66,7 +72,7 @@ ME ME_4DE349ED0068
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE3420B030C // TArchiTestRes
  ;
- MELINK Target WL 'ME_4B2A6D4303A9' '4B2A112B011A.ms.model.script' // KTestRunner
+ MELINK Target WL 'ME_4B2A6D4303A9' '4B2A6D4303A9.ms.model.script' // KTestRunner
  ;
 
 ENDME // ME_4DE349ED0068 
@@ -76,7 +82,7 @@ ME ME_4DE35D6601DB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE3420B030C // TArchiTestRes
  ;
- MELINK Target WL 'ME_47E13C6B0341' '4799D29F033F.ms.model.script' // Forms
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
  ;
 
 ENDME // ME_4DE35D6601DB 
@@ -96,7 +102,7 @@ ME ME_4DE363EB0072
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE3420B030C // TArchiTestRes
  ;
- MELINK Target WL 'ME_4B2A0DCE03A9' '4B2A0D6A0077.ms.model.script' // TestFrameWork
+ MELINK Target WL 'ME_4B2A0DCE03A9' '4B2A0DCE03A9.ms.model.script' // TestFrameWork
  ;
 
 ENDME // ME_4DE363EB0072 
@@ -176,7 +182,7 @@ ME ME_4E031BB500FA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE3420B030C // TArchiTestRes
  ;
- MELINK Target WL 'ME_4E03119F00B2' '4E030FC801EB.ms.model.script' // afwAnswer
+ MELINK Target WL 'ME_4E03119F00B2' '4E03119F00B2.ms.model.script' // afwAnswer
  ;
 
 ENDME // ME_4E031BB500FA 
@@ -209,6 +215,8 @@ ME ME_52F264840382_ME_4DE3420B030C
  MEPROP OpKind opkind_Implemented
  UP "is static" True
 ENDME // ME_52F264840382_ME_4DE3420B030C GetResultsPlaces
+
+%%InheritedBy ME_52F255E702F0 ME_4DE3420B030C
 
 ME ME_4DE3420B030C
  MEPROP UID '4DE3420B030C'
@@ -246,6 +254,9 @@ ME ME_4DE3420B030C
  ME_525FC3C80260 // toKT
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'ArchiTestRes'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ArchiTestRes'
@@ -254,22 +265,24 @@ ME ME_4DE3420B030C
 ENDME // ME_4DE3420B030C TArchiTestRes
 
 ME ME_4B7AB0B6016E_ME_525FC3B4005D
- MELINK Original WL 'ME_4B7AB0B6016E' '4B2A112B011A.ms.model.script' // CommandLineKey
+ MELINK Original WL 'ME_4B7AB0B6016E' '4B2A6D4303A9.ms.model.script' // CommandLineKey
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B7AB0B6016E_ME_525FC3B4005D CommandLineKey
 
 ME ME_4B7C0B43005B_ME_525FC3B4005D
- MELINK Original WL 'ME_4B7C0B43005B' '4B2A112B011A.ms.model.script' // TimesPage
+ MELINK Original WL 'ME_4B7C0B43005B' '4B2A6D4303A9.ms.model.script' // TimesPage
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B7C0B43005B_ME_525FC3B4005D TimesPage
 
 ME ME_4B7C0B670215_ME_525FC3B4005D
- MELINK Original WL 'ME_4B7C0B670215' '4B2A112B011A.ms.model.script' // ResultsPage
+ MELINK Original WL 'ME_4B7C0B670215' '4B2A6D4303A9.ms.model.script' // ResultsPage
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4B7C0B670215_ME_525FC3B4005D ResultsPage
+
+%%InheritedBy ME_4B7AAC7A031D ME_525FC3B4005D
 
 ME ME_525FC3B4005D
  MEPROP UID '525FC3B4005D'
@@ -282,7 +295,7 @@ ME ME_525FC3B4005D
  MELINK Parent HWL ME_4DE4A1D0031E // Archi$Test
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A112B011A.ms.model.script' // TTestResultsPlace
+   Seq: ( WL 'ME_4B7AAC7A031D' '4B2A6D4303A9.ms.model.script' // TTestResultsPlace
  )
  ; // Inherits
  MELIST Implemented
@@ -349,6 +362,9 @@ ME ME_4DE4A1D0031E
  WL 'ME_550012C403C4' '550012C403C4.ms.model.script' // L3$AFW
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "is insider test" True
  UP "need UC in project" True
  UP extprop:pas:UnitName 'ArchiTest'

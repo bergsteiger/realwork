@@ -1,0 +1,46 @@
+// ddAppConfigWFrame 5214B05E0142 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52149BC80206
+
+FORWARD ME_5214B05E0142
+
+ME ME_52149BC80206
+ MEPROP UID '52149BC80206'
+ MEPROP Name 'TWorkFrame'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5214B05E0142 // ddAppConfigWFrame
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'WorkFrame'
+
+ENDME // ME_52149BC80206 TWorkFrame
+
+ME ME_5214B05E0142
+ MEPROP UID '5214B05E0142'
+ MEPROP Name 'ddAppConfigWFrame'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B990EDE031A' '4B990EDE031A.ms.model.script' // AppConfig
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52149BC80206 // TWorkFrame
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddAppConfigWFrame.pas'
+
+ENDME // ME_5214B05E0142 ddAppConfigWFrame

@@ -1,0 +1,69 @@
+// evRuler 4F8EAF8B0259 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8EAFA1026D
+%%Inner ME_4F8EAFB102A9
+
+FORWARD ME_4F8EAF8B0259
+
+ME ME_4F8EAFA1026D
+ MEPROP UID '4F8EAFA1026D'
+ MEPROP Name 'TevCustomRuler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EAF8B0259 // evRuler
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Ruler'
+
+ENDME // ME_4F8EAFA1026D TevCustomRuler
+
+%%InheritedBy ME_4F8EAFA1026D ME_4F8EAFB102A9
+
+ME ME_4F8EAFB102A9
+ MEPROP UID '4F8EAFB102A9'
+ MEPROP Name 'TevRuler'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8EAF8B0259 // evRuler
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4F8EAFA1026D // TevCustomRuler
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Ruler'
+
+ENDME // ME_4F8EAFB102A9 TevRuler
+
+ME ME_4F8EAF8B0259
+ MEPROP UID '4F8EAF8B0259'
+ MEPROP Name 'evRuler'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F8EAF64033F' '4F8EAF64033F.ms.model.script' // Ruler
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8EAFA1026D // TevCustomRuler
+ HWL ME_4F8EAFB102A9 // TevRuler
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Ruler'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evRuler.pas'
+
+ENDME // ME_4F8EAF8B0259 evRuler

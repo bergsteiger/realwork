@@ -1,0 +1,52 @@
+// csClientMessageRequest 52FA504602B0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52FA505600C7
+
+FORWARD ME_52FA504602B0
+
+%%InheritedBy ME_53B24355031B ME_52FA505600C7
+
+ME ME_52FA505600C7
+ MEPROP UID '52FA505600C7'
+ MEPROP Name 'TddClientMessage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FA504602B0 // csClientMessageRequest
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53B24355031B' '52F8C298005C.ms.model.script' // TddClientMessagePrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddClientMessage'
+
+ENDME // ME_52FA505600C7 TddClientMessage
+
+ME ME_52FA504602B0
+ MEPROP UID '52FA504602B0'
+ MEPROP Name 'csClientMessageRequest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_52FA505600C7 // TddClientMessage
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csClientMessageRequest.pas'
+
+ENDME // ME_52FA504602B0 csClientMessageRequest

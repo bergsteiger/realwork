@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_47542EDE038A
+%%Inner ME_47542F360372
+
 FORWARD ME_47542EA70394
 
 FORWARD ME_47542EDE038A
@@ -14,7 +17,7 @@ ME ME_51C1A4B10115
  MEPROP Name 'Sender'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_4807745602C8' '4AB0C3C60310.ms.model.script' // TObject
+ MELINK Target WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
  ;
 
 ENDME // ME_51C1A4B10115 Sender
@@ -74,6 +77,8 @@ ME ME_4683E79D0331_ME_47542EDE038A
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4683E79D0331_ME_47542EDE038A LoadState
 
+%%ImplementedBy ME_467C166B007B ME_47542EDE038A
+
 ME ME_47542EDE038A
  MEPROP UID '47542EDE038A'
  MEPROP Name 'TeeTextSourceExport'
@@ -97,6 +102,9 @@ ME ME_47542EDE038A
    Seq: ( HWL ME_51C1A49003E5 // TeeMakeDocumentContainerEvent
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" False
  UP extprop:pas:UnitName 'eeTextSourceExport'
  UP extprop:rc:isAcceptableForScripts True
@@ -104,6 +112,8 @@ ME ME_47542EDE038A
  UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeTextSourceExport.pas'
 
 ENDME // ME_47542EDE038A TeeTextSourceExport
+
+%%InheritedBy ME_47542EDE038A ME_47542F360372
 
 ME ME_47542F360372
  MEPROP UID '47542F360372'
@@ -149,6 +159,9 @@ ME ME_47542EA70394
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifdef" 'Nemesis'
  UP "UseNewGen" True
 

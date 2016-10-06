@@ -1,0 +1,609 @@
+// ServerAdapterConverters 460B956502AF UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_460B956502AF
+
+FORWARD ME_460B95A600CB
+
+ME ME_460B95C103B9
+ MEPROP Name 'adap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_456EA676037A' '456EA56002BF.ms.model.script' // PId
+ ;
+
+ENDME // ME_460B95C103B9 adap
+
+ME ME_460B95A600CB
+ MEPROP UID '460B95A600CB'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_460B95C103B9 // adap
+ )
+ ; // Parameters
+
+ENDME // ME_460B95A600CB adapter_to_server
+
+FORWARD ME_460BAC17029F
+
+ME ME_460CC99F00DA
+ MEPROP Name 'serv'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_460CC99F00DA serv
+
+ME ME_460CC99F0119
+ MEPROP Name 'adap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EEB65202D4' '4570511E038A.ms.model.script' // Position
+ ;
+
+ENDME // ME_460CC99F0119 adap
+
+ME ME_460BAC17029F
+ MEPROP UID '460BAC17029F'
+ MEPROP Name 'server_to_adapter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_460CC99F00DA // serv
+ ME_460CC99F0119 // adap
+ )
+ ; // Parameters
+
+ENDME // ME_460BAC17029F server_to_adapter
+
+FORWARD ME_460CCAA201E4
+
+ME ME_460CCC9C01E4
+ MEPROP Name 'adap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB65202D4' '4570511E038A.ms.model.script' // Position
+ ;
+
+ENDME // ME_460CCC9C01E4 adap
+
+ME ME_460CCC9C0222
+ MEPROP Name 'serv'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_460CCC9C0222 serv
+
+ME ME_460CCAA201E4
+ MEPROP UID '460CCAA201E4'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_460CCC9C01E4 // adap
+ ME_460CCC9C0222 // serv
+ )
+ ; // Parameters
+
+ENDME // ME_460CCAA201E4 adapter_to_server
+
+FORWARD ME_460BADAA00EA
+
+ME ME_460CCFEF00DA
+ MEPROP Name 'serv'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_460CCFEF00DA serv
+
+ME ME_460CCFEF0128
+ MEPROP Name 'adap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_45EEB65202EF' '4570511E038A.ms.model.script' // PositionList
+ ;
+
+ENDME // ME_460CCFEF0128 adap
+
+ME ME_460BADAA00EA
+ MEPROP UID '460BADAA00EA'
+ MEPROP Name 'server_to_adapter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_460CCFEF00DA // serv
+ ME_460CCFEF0128 // adap
+ )
+ ; // Parameters
+
+ENDME // ME_460BADAA00EA server_to_adapter
+
+FORWARD ME_460BAE0903B9
+
+ME ME_460BAE70035B
+ MEPROP Name 'adap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB65202EF' '4570511E038A.ms.model.script' // PositionList
+ ;
+
+ENDME // ME_460BAE70035B adap
+
+ME ME_460CD027005D
+ MEPROP Name 'serv'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_460CD027005D serv
+
+ME ME_460BAE0903B9
+ MEPROP UID '460BAE0903B9'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST CanRaise
+   Seq: ( WL 'ME_456EB454018A' '456EA56002BF.ms.model.script' // Unsupported
+ )
+ ; // CanRaise
+ MELIST Parameters
+   Seq: ( ME_460BAE70035B // adap
+ ME_460CD027005D // serv
+ )
+ ; // Parameters
+
+ENDME // ME_460BAE0903B9 adapter_to_server
+
+FORWARD ME_460BB2AF01C5
+
+ME ME_460BB2D101F4
+ MEPROP Name 'serv'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_460BB2D101F4 serv
+
+ME ME_4631B6BC0283
+ MEPROP Name 'adap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_456EE8920119' '456EA56002BF.ms.model.script' // LanguagesList
+ ;
+
+ENDME // ME_4631B6BC0283 adap
+
+ME ME_460BB2AF01C5
+ MEPROP UID '460BB2AF01C5'
+ MEPROP Name 'server_to_adapter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_460BB2D101F4 // serv
+ ME_4631B6BC0283 // adap
+ )
+ ; // Parameters
+
+ENDME // ME_460BB2AF01C5 server_to_adapter
+
+FORWARD ME_460BB2E5036B
+
+ME ME_460CD398032C
+ MEPROP Name 'category'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEB95901C5' '457450470167.ms.model.script' // NodeBase
+ ;
+
+ENDME // ME_460CD398032C category
+
+ME ME_462DF56E000F
+ MEPROP Name 'query'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_462DF56E000F query
+
+ME ME_460BB2E5036B
+ MEPROP UID '460BB2E5036B'
+ MEPROP Name 'category_to_query'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_460CD398032C // category
+ ME_462DF56E000F // query
+ )
+ ; // Parameters
+
+ENDME // ME_460BB2E5036B category_to_query
+
+FORWARD ME_46151F7E0399
+
+ME ME_46151F87004E
+ MEPROP Name 'adapter_from'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC90D00FA' '457450470167.ms.model.script' // NodePosition
+ ;
+
+ENDME // ME_46151F87004E adapter_from
+
+ME ME_4615210C00FA
+ MEPROP Name 'srv_from'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+
+ENDME // ME_4615210C00FA srv_from
+
+ME ME_46151F7E0399
+ MEPROP UID '46151F7E0399'
+ MEPROP Name 'convert'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_46151F87004E // adapter_from
+ ME_4615210C00FA // srv_from
+ )
+ ; // Parameters
+
+ENDME // ME_46151F7E0399 convert
+
+FORWARD ME_47B6D48902FA
+
+ME ME_47B6D50F00B7
+ MEPROP Name 'adapter_index_path'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC8680109' '457450470167.ms.model.script' // NodeIndexPath
+ ;
+
+ENDME // ME_47B6D50F00B7 adapter_index_path
+
+ME ME_47B6D48902FA
+ MEPROP UID '47B6D48902FA'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B6D50F00B7 // adapter_index_path
+ )
+ ; // Parameters
+
+ENDME // ME_47B6D48902FA adapter_to_server
+
+FORWARD ME_47B6D5B502D3
+
+ME ME_47B6D746012F
+ MEPROP Name 'index_path'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_47B6D746012F index_path
+
+ME ME_47B6D746015E
+ MEPROP Name 'adap_path'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EEC8680109' '457450470167.ms.model.script' // NodeIndexPath
+ ;
+
+ENDME // ME_47B6D746015E adap_path
+
+ME ME_47B6D5B502D3
+ MEPROP UID '47B6D5B502D3'
+ MEPROP Name 'server_to_adapter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_47B6D746012F // index_path
+ ME_47B6D746015E // adap_path
+ )
+ ; // Parameters
+
+ENDME // ME_47B6D5B502D3 server_to_adapter
+
+FORWARD ME_486B36420166
+
+ME ME_486B36C00202
+ MEPROP Name 'adapter_status'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4868F286004D' '457007DB002E.ms.model.script' // ConsultationStatus
+ ;
+
+ENDME // ME_486B36C00202 adapter_status
+
+ME ME_486B36420166
+ MEPROP UID '486B36420166'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_486B36C00202 // adapter_status
+ )
+ ; // Parameters
+
+ENDME // ME_486B36420166 adapter_to_server
+
+FORWARD ME_486B3685024C
+
+ME ME_486B36B8023C
+ MEPROP Name 'server_status'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_486B36B8023C server_status
+
+ME ME_486B3685024C
+ MEPROP UID '486B3685024C'
+ MEPROP Name 'server_to_adapter'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELINK Target WL 'ME_4868F286004D' '457007DB002E.ms.model.script' // ConsultationStatus
+ ;
+ MELIST Parameters
+   Seq: ( ME_486B36B8023C // server_status
+ )
+ ; // Parameters
+
+ENDME // ME_486B3685024C server_to_adapter
+
+FORWARD ME_486B4C8900FE
+
+ME ME_486B4C960170
+ MEPROP Name 'server_status'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_486B4C960170 server_status
+
+ME ME_486B4C8900FE
+ MEPROP UID '486B4C8900FE'
+ MEPROP Name 'consultation_status_to_folders_flag'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELINK Target WL 'ME_3DBFFDE101CA' '3DBFDB23006E.ms.model.script' // unsigned long
+ ;
+ MELIST Parameters
+   Seq: ( ME_486B4C960170 // server_status
+ )
+ ; // Parameters
+
+ENDME // ME_486B4C8900FE consultation_status_to_folders_flag
+
+FORWARD ME_4D3EABF5008B
+
+ME ME_4D3EAC0B012A
+ MEPROP Name 'adapter_order'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEC3260222' '457450470167.ms.model.script' // FindOrder
+ ;
+
+ENDME // ME_4D3EAC0B012A adapter_order
+
+ME ME_4D3EABF5008B
+ MEPROP UID '4D3EABF5008B'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EAC0B012A // adapter_order
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EABF5008B adapter_to_server
+
+FORWARD ME_4D3EACE502A5
+
+ME ME_4D3EACF400BE
+ MEPROP Name 'adapter_area'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EECCFE0251' '457450470167.ms.model.script' // SearchArea
+ ;
+
+ENDME // ME_4D3EACF400BE adapter_area
+
+ME ME_4D3EACE502A5
+ MEPROP UID '4D3EACE502A5'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EACF400BE // adapter_area
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EACE502A5 adapter_to_server
+
+FORWARD ME_4D3EAD0C00A5
+
+ME ME_4D3EAD1A0075
+ MEPROP Name 'adapter_place'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EEBBE501D4' '457450470167.ms.model.script' // ContextPlace
+ ;
+
+ENDME // ME_4D3EAD1A0075 adapter_place
+
+ME ME_4D3EAD0C00A5
+ MEPROP UID '4D3EAD0C00A5'
+ MEPROP Name 'adapter_to_server'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D3EAD1A0075 // adapter_place
+ )
+ ; // Parameters
+
+ENDME // ME_4D3EAD0C00A5 adapter_to_server
+
+FORWARD ME_4DCCD8970014
+
+ME ME_4DCCD8DD009E
+ MEPROP Name 'serv'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+
+ENDME // ME_4DCCD8DD009E serv
+
+ME ME_4DCCD8DD0117
+ MEPROP Name 'adap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4DCBBAEF025F' '4570511E038A.ms.model.script' // DocPointList
+ ;
+
+ENDME // ME_4DCCD8DD0117 adap
+
+ME ME_4DCCD8970014
+ MEPROP UID '4DCCD8970014'
+ MEPROP Name 'server_to_adapter'
+ MEPROP Class class_Operation
+ %SUMMARY 'Преобразование серверного списка вида Документ, Саб в адаптерный' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DCCD8DD009E // serv
+ ME_4DCCD8DD0117 // adap
+ )
+ ; // Parameters
+
+ENDME // ME_4DCCD8970014 server_to_adapter
+
+ME ME_462DCF09033C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+
+ENDME // ME_462DCF09033C 
+
+ME ME_462DF44100CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELINK Target WL 'ME_460BB097038A' '460B8FB00186.ms.model.script' // LanguagesTranslator
+ ;
+
+ENDME // ME_462DF44100CB 
+
+ME ME_462DFB550177
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_460B956502AF // ServerAdapterConverters
+ ;
+ MELINK Target WL 'ME_45EEE145027B' '45EEAA8E034E.ms.model.script' // Query
+ ;
+
+ENDME // ME_462DFB550177 
+
+ME ME_460B956502AF
+ MEPROP UID '460B956502AF'
+ MEPROP Name 'ServerAdapterConverters'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_460B8FB00186' '460B8FB00186.ms.model.script' // Convertors
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_460B95A600CB // adapter_to_server
+ HWL ME_460BAC17029F // server_to_adapter
+ HWL ME_460CCAA201E4 // adapter_to_server
+ HWL ME_460BADAA00EA // server_to_adapter
+ HWL ME_460BAE0903B9 // adapter_to_server
+ HWL ME_460BB2AF01C5 // server_to_adapter
+ HWL ME_460BB2E5036B // category_to_query
+ HWL ME_46151F7E0399 // convert
+ HWL ME_47B6D48902FA // adapter_to_server
+ HWL ME_47B6D5B502D3 // server_to_adapter
+ HWL ME_486B36420166 // adapter_to_server
+ HWL ME_486B3685024C // server_to_adapter
+ HWL ME_486B4C8900FE // consultation_status_to_folders_flag
+ HWL ME_4D3EABF5008B // adapter_to_server
+ HWL ME_4D3EACE502A5 // adapter_to_server
+ HWL ME_4D3EAD0C00A5 // adapter_to_server
+ HWL ME_4DCCD8970014 // server_to_adapter
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_462DCF09033C // 
+ ME_462DF44100CB // LanguagesTranslator
+ ME_462DFB550177 // Query
+ )
+ ; // Dependencies
+ UP "is namespace" True
+ UP "need UC" True
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\ServerAdapterConverters.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\Convertors\ServerAdapterConverters.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\ServerAdapterConverters.pas'
+
+ENDME // ME_460B956502AF ServerAdapterConverters

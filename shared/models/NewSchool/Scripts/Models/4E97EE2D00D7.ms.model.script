@@ -1,0 +1,108 @@
+// CellSelectionByMouse 4E97EE2D00D7 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E97EE2D00D7
+
+FORWARD ME_4E97EEAA0320
+
+FORWARD ME_4E97EEE903B0
+
+ME ME_4E97EF1D0049
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4E97EF1D0049 aText
+
+ME ME_4E97EEE903B0
+ MEPROP UID '4E97EEE903B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E97EEAA0320 // SelectCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E97EF1D0049 // aText
+ )
+ ; // Parameters
+
+ENDME // ME_4E97EEE903B0 DoIt
+
+ME ME_4E97EEAA0320
+ MEPROP UID '4E97EEAA0320'
+ MEPROP Name 'SelectCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E97EE2D00D7 // CellSelectionByMouse
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E97EEE903B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4E97EEAA0320 SelectCell
+
+ME ME_4E980EBE010C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E97EE2D00D7 // CellSelectionByMouse
+ ;
+ MELINK Target WL 'ME_49C22CE30210' '476BEA0B0103.ms.model.script' // evL3CoreConsts
+ ;
+
+ENDME // ME_4E980EBE010C 
+
+ME ME_4C3C927B027E_ME_4E97EE2D00D7
+ MELINK Original WL 'ME_4C3C927B027E' '4CED0194038A.ms.model.script' // GetPoint
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4C3C927B027E_ME_4E97EE2D00D7 GetPoint
+
+%%InheritedBy ME_4CED0194038A ME_4E97EE2D00D7
+%%InheritedBy ME_4D53D342026E ME_4E97EE2D00D7
+
+ME ME_4E97EE2D00D7
+ MEPROP UID '4E97EE2D00D7'
+ MEPROP Name 'CellSelectionByMouse'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4CED0194038A' '4CED0194038A.ms.model.script' // Para2Point
+ WL 'ME_4D53D342026E' '4D53D342026E.ms.model.script' // HotSpotTools
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_4E97EEAA0320 // SelectCell
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4C3C927B027E_ME_4E97EE2D00D7 // GetPoint
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4E980EBE010C // evL3CoreConsts
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_CellSelectionByMouse_'
+ UP extprop:pas:UnitName 'CellSelectionByMouse.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\CellSelectionByMouse.imp.pas'
+
+ENDME // ME_4E97EE2D00D7 CellSelectionByMouse

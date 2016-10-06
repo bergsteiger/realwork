@@ -1,0 +1,45 @@
+// IniShop 4E8309E100D5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E8309F600F8
+
+FORWARD ME_4E8309E100D5
+
+ME ME_4E8309F600F8
+ MEPROP UID '4E8309F600F8'
+ MEPROP Name 'TIniRecord'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E8309E100D5 // IniShop
+ ;
+ UP "finished" False
+ UP extprop:rc:SelfName 'IniRecord'
+
+ENDME // ME_4E8309F600F8 TIniRecord
+
+ME ME_4E8309E100D5
+ MEPROP UID '4E8309E100D5'
+ MEPROP Name 'IniShop'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B607802DB' '4E4B607802DB.ms.model.script' // Utils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E8309F600F8 // TIniRecord
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Main\NOT_FINISHED_IniShop.pas'
+
+ENDME // ME_4E8309E100D5 IniShop

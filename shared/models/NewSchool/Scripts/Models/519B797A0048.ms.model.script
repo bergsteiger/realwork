@@ -2,175 +2,65 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_519B79940228
+%%Inner ME_51B1B8BD018E
+%%Inner ME_51B6C800005F
+%%Inner ME_51B6CE6100D8
+%%Inner ME_5406A83E013E
+%%Inner ME_5540E6D302BE
+%%Inner ME_57EB6297000B
+
 FORWARD ME_519B797A0048
 
-FORWARD ME_519B79940228
+FORWARD ME_57EB6297000B
 
-ME ME_52E8BA5101A7
- MEPROP UID '52E8BA5101A7'
- MEPROP Name 'LinkServer'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_519B79940228 // dt_LinkServ
+ME ME_57EB62B302CB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57EB6297000B // Tdt_LinkServerService
+ ;
+ MELINK Target WL 'ME_519B79940228' '519B79940228.ms.model.script' // dt_LinkServ
  ;
 
-ENDME // ME_52E8BA5101A7 LinkServer
+ENDME // ME_57EB62B302CB 
 
-ME ME_519B79940228
- MEPROP UID '519B79940228'
- MEPROP Name 'dt_LinkServ'
+ME ME_57EB665E0252
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_57EB6297000B // Tdt_LinkServerService
+ ;
+ MELINK Target WL 'ME_57EB5FD6006A' '5437B26200BF.ms.model.script' // TdaLinkServerService
+ ;
+
+ENDME // ME_57EB665E0252 
+
+%%InheritedBy ME_49E7754802A9 ME_57EB6297000B
+
+ME ME_57EB6297000B
+ MEPROP UID '57EB6297000B'
+ MEPROP Name 'Tdt_LinkServerService'
  MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
+ MELINK Stereotype st_ServiceImplementation ;
  MEPROP Kind kind_NormalClass
  MEPROP Visibility PublicAccess
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_519B797A0048 // Servers
  ;
- MELIST Operations
-   Seq: ( HWL ME_52E8BA5101A7 // LinkServer
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
  )
- ; // Operations
- UP "finished" False
- UP "ifdef" 'Archi'
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_LinkServ.pas'
-
-ENDME // ME_519B79940228 dt_LinkServ
-
-ME ME_51B1B8BD018E
- MEPROP UID '51B1B8BD018E'
- MEPROP Name 'dt_Lock'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_519B797A0048 // Servers
- ;
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Lock.pas'
-
-ENDME // ME_51B1B8BD018E dt_Lock
-
-FORWARD ME_51B6C800005F
-
-ME ME_51B6C83A03E4
- MEPROP UID '51B6C83A03E4'
- MEPROP Name 'TAbstractJournal'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51B6C800005F // dt_Jour
- ;
- UP "finished" False
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_57EB62B302CB // dt_LinkServ
+ ME_57EB665E0252 // TdaLinkServerService
+ )
+ ; // Dependencies
+ UP extprop:pas:UnitName 'dt_LinkServerService'
  UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'AbstractJournal'
+ UP extprop:rc:SelfName 'dt_LinkServerService'
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\dt_LinkServerService.pas'
 
-ENDME // ME_51B6C83A03E4 TAbstractJournal
-
-ME ME_5281F3A90273
- MEPROP UID '5281F3A90273'
- MEPROP Name 'EdtBrokenFileLock'
- MEPROP Class class_Class
- MELINK Stereotype st_Exception ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51B6C800005F // dt_Jour
- ;
-
-ENDME // ME_5281F3A90273 EdtBrokenFileLock
-
-ME ME_51B6C800005F
- MEPROP UID '51B6C800005F'
- MEPROP Name 'dt_Jour'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_519B797A0048 // Servers
- ;
- MELIST Children
-   Seq: ( HWL ME_51B6C83A03E4 // TAbstractJournal
- HWL ME_5281F3A90273 // EdtBrokenFileLock
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Jour.pas'
-
-ENDME // ME_51B6C800005F dt_Jour
-
-ME ME_51B6CE6100D8
- MEPROP UID '51B6CE6100D8'
- MEPROP Name 'dt_Doc'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_519B797A0048 // Servers
- ;
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Doc.pas'
-
-ENDME // ME_51B6CE6100D8 dt_Doc
-
-ME ME_5406A83E013E
- MEPROP UID '5406A83E013E'
- MEPROP Name 'dt_Serv'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_519B797A0048 // Servers
- ;
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Serv.pas'
-
-ENDME // ME_5406A83E013E dt_Serv
-
-FORWARD ME_5540E6D302BE
-
-ME ME_5549F31C03AC
- MEPROP UID '5549F31C03AC'
- MEPROP Name 'TBigBrotherTbl'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_5540E6D302BE // dt_BBLog
- ;
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'BigBrotherTbl'
-
-ENDME // ME_5549F31C03AC TBigBrotherTbl
-
-ME ME_5540E6D302BE
- MEPROP UID '5540E6D302BE'
- MEPROP Name 'dt_BBLog'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_519B797A0048 // Servers
- ;
- MELIST Children
-   Seq: ( HWL ME_5549F31C03AC // TBigBrotherTbl
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_BBLog.pas'
-
-ENDME // ME_5540E6D302BE dt_BBLog
+ENDME // ME_57EB6297000B Tdt_LinkServerService
 
 ME ME_519B797A0048
  MEPROP UID '519B797A0048'
@@ -183,13 +73,22 @@ ME ME_519B797A0048
  MELINK Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.ms.model.script' // DT
  ;
  MELIST Children
-   Seq: ( HWL ME_519B79940228 // dt_LinkServ
- HWL ME_51B1B8BD018E // dt_Lock
- HWL ME_51B6C800005F // dt_Jour
- HWL ME_51B6CE6100D8 // dt_Doc
- HWL ME_5406A83E013E // dt_Serv
- HWL ME_5540E6D302BE // dt_BBLog
+   Seq: ( WL 'ME_519B79940228' '519B79940228.ms.model.script' // dt_LinkServ
+ WL 'ME_51B1B8BD018E' '51B1B8BD018E.ms.model.script' // dt_Lock
+ WL 'ME_51B6C800005F' '51B6C800005F.ms.model.script' // dt_Jour
+ WL 'ME_51B6CE6100D8' '51B6CE6100D8.ms.model.script' // dt_Doc
+ WL 'ME_5406A83E013E' '5406A83E013E.ms.model.script' // dt_Serv
+ WL 'ME_5540E6D302BE' '5540E6D302BE.ms.model.script' // dt_BBLog
+ HWL ME_57EB6297000B // Tdt_LinkServerService
  )
  ; // Children
+ MELIST Depends
+   Seq: ( WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ WL 'ME_5437B26200BF' '5437B26200BF.ms.model.script' // Utils
+ )
+ ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_519B797A0048 Servers

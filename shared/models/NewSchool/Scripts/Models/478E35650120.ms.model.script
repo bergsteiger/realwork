@@ -1,0 +1,266 @@
+// l3IntegerValueMapManager 478E35650120 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47A1CF1F00D4
+%%Inner ME_47A1CCD50059
+
+FORWARD ME_478E35650120
+
+FORWARD ME_47A1CF1F00D4
+
+ME ME_47A1CF3E019C
+ MEPROP UID '47A1CF3E019C'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A1CF1F00D4 // Tl3IntegerValueMapFactories
+ ;
+ MELINK Target WL 'ME_46A5FD330314' '4677FBA70343.ms.model.script' // Il3IntegerValueMapFactory
+ ;
+
+ENDME // ME_47A1CF3E019C ItemType
+
+%%InheritedBy ME_47B57D830369 ME_47A1CF1F00D4
+%%InheritedBy ME_47BC3A07027F ME_47A1CF1F00D4
+
+ME ME_47A1CF1F00D4
+ MEPROP UID '47A1CF1F00D4'
+ MEPROP Name 'Tl3IntegerValueMapFactories'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E35650120 // l3IntegerValueMapManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A1CF3E019C // ItemType
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerValueMapFactories'
+
+ENDME // ME_47A1CF1F00D4 Tl3IntegerValueMapFactories
+
+FORWARD ME_47A1CCD50059
+
+ME ME_47A1CFC002DA
+ MEPROP UID '47A1CFC002DA'
+ MEPROP Name 'f_Factories'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A1CCD50059 // Tl3IntegerValueMapManager
+ ;
+ MELINK Target HWL ME_47A1CF1F00D4 // Tl3IntegerValueMapFactories
+ ;
+
+ENDME // ME_47A1CFC002DA f_Factories
+
+ME ME_47A1CD6603D4
+ MEPROP UID '47A1CD6603D4'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A1CCD50059 // Tl3IntegerValueMapManager
+ ;
+ MELINK Target WL 'ME_46A5FD6C008B' '4677FBA70343.ms.model.script' // Il3IntegerValueMapManager
+ ;
+
+ENDME // ME_47A1CD6603D4 Make
+
+ME ME_47A1D1C10189
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47A1CCD50059 // Tl3IntegerValueMapManager
+ ;
+ MELINK Target WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+
+ENDME // ME_47A1D1C10189 
+
+ME ME_47A74BBF01FB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47A1CCD50059 // Tl3IntegerValueMapManager
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_47A74BBF01FB 
+
+ME ME_46A5FDC600BD_ME_47A1CCD50059
+ MELINK Original WL 'ME_46A5FDC600BD' '4677FBA70343.ms.model.script' // RegisterFactory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5FDC600BD_ME_47A1CCD50059 RegisterFactory
+
+ME ME_46A5FEBA024E_ME_47A1CCD50059
+ MELINK Original WL 'ME_46A5FEBA024E' '4677FBA70343.ms.model.script' // UnRegisterFactory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5FEBA024E_ME_47A1CCD50059 UnRegisterFactory
+
+ME ME_46A5FF470229_ME_47A1CCD50059
+ MELINK Original WL 'ME_46A5FF470229' '4677FBA70343.ms.model.script' // Map
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_46A5FF470229_ME_47A1CCD50059 Map
+
+ME ME_479731C50290_ME_47A1CCD50059
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47A1CCD50059 Cleanup
+
+ME ME_47A042E100E2_ME_47A1CCD50059
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_47A1CCD50059 InitFields
+
+ME ME_47A1C42301B5_ME_47A1CCD50059
+ MELINK Original WL 'ME_47A1C42301B5' '47913B47006E.ms.model.script' // MakeDefaultMap
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A1C42301B5_ME_47A1CCD50059 MakeDefaultMap
+
+%%ImplementedBy ME_46A5FD6C008B ME_47A1CCD50059
+
+%%InheritedBy ME_478E372C025D ME_47A1CCD50059
+
+ME ME_47A1CCD50059
+ MEPROP UID '47A1CCD50059'
+ MEPROP Name 'Tl3IntegerValueMapManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E35650120 // l3IntegerValueMapManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_478E372C025D' '47913B47006E.ms.model.script' // Tl3ValueMapManager
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46A5FD6C008B' '4677FBA70343.ms.model.script' // Il3IntegerValueMapManager
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47A1CFC002DA // f_Factories
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47A1CD6603D4 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A5FDC600BD_ME_47A1CCD50059 // RegisterFactory
+ ME_46A5FEBA024E_ME_47A1CCD50059 // UnRegisterFactory
+ ME_46A5FF470229_ME_47A1CCD50059 // Map
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47A1CCD50059 // Cleanup
+ ME_47A042E100E2_ME_47A1CCD50059 // InitFields
+ ME_47A1C42301B5_ME_47A1CCD50059 // MakeDefaultMap
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47A1D1C10189 // Tl3Duplicates
+ ME_47A74BBF01FB // l3Base
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IntegerValueMapManager'
+
+ENDME // ME_47A1CCD50059 Tl3IntegerValueMapManager
+
+ME ME_47A1D8C70355
+ MEPROP UID '47A1D8C70355'
+ MEPROP Name 'g_l3IntegerMapManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_478E35650120 // l3IntegerValueMapManager
+ ;
+ MELINK Target HWL ME_47A1CCD50059 // Tl3IntegerValueMapManager
+ ;
+
+ENDME // ME_47A1D8C70355 g_l3IntegerMapManager
+
+ME ME_47A1D86D015C
+ MEPROP UID '47A1D86D015C'
+ MEPROP Name 'l3IntegerMapManager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478E35650120 // l3IntegerValueMapManager
+ ;
+ MELINK Target WL 'ME_46A5FD6C008B' '4677FBA70343.ms.model.script' // Il3IntegerValueMapManager
+ ;
+
+ENDME // ME_47A1D86D015C l3IntegerMapManager
+
+ME ME_47A1D8BA002F
+ MEPROP UID '47A1D8BA002F'
+ MEPROP Name 'DoneManager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478E35650120 // l3IntegerValueMapManager
+ ;
+
+ENDME // ME_47A1D8BA002F DoneManager
+
+ME ME_478E35650120
+ MEPROP UID '478E35650120'
+ MEPROP Name 'l3IntegerValueMapManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'реализация менеджера мап "строка"-"число"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47A1D8C70355 // g_l3IntegerMapManager
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47A1D86D015C // l3IntegerMapManager
+ HWL ME_47A1D8BA002F // DoneManager
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_47A1CF1F00D4 // Tl3IntegerValueMapFactories
+ HWL ME_47A1CCD50059 // Tl3IntegerValueMapManager
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р.В. / Люлин А.В. ©'
+ UP "no hands" True
+ UP "started" '30.03.2006 10:37'
+ UP extprop:rc:SelfName 'IntegerValueMapManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3IntegerValueMapManager.pas'
+
+ENDME // ME_478E35650120 l3IntegerValueMapManager

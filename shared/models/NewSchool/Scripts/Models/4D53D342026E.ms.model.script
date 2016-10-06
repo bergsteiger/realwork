@@ -1,0 +1,104 @@
+// HotSpotTools 4D53D342026E Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D53D342026E
+
+FORWARD ME_4D53D37F00AE
+
+ME ME_4E3786CF010B
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4E3786CF010B aText
+
+ME ME_4E3786CF0149
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4E3786CF0149 aPoint
+
+ME ME_4E3786CF0178
+ MEPROP Name 'aMoveLeft'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4E3786CF0178 aMoveLeft
+
+ME ME_4D53D37F00AE
+ MEPROP UID '4D53D37F00AE'
+ MEPROP Name 'GetHotSpot'
+ MEPROP Class class_Operation
+ %SUMMARY 'Получить курсор по точке.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D53D342026E // HotSpotTools
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E3786CF010B // aText
+ ME_4E3786CF0149 // aPoint
+ ME_4E3786CF0178 // aMoveLeft
+ )
+ ; // Parameters
+
+ENDME // ME_4D53D37F00AE GetHotSpot
+
+ME ME_4D53DE4F0273
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D53D342026E // HotSpotTools
+ ;
+ MELINK Target WL 'ME_47C5B63D033A' '47C5207602D1.ms.model.script' // InevMap
+ ;
+
+ENDME // ME_4D53DE4F0273 
+
+ME ME_4D53E0710297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D53D342026E // HotSpotTools
+ ;
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
+ ;
+
+ENDME // ME_4D53E0710297 
+
+ME ME_4D53D342026E
+ MEPROP UID '4D53D342026E'
+ MEPROP Name 'HotSpotTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Работа с хотспотом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D53D37F00AE // GetHotSpot
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D53DE4F0273 // InevMap
+ ME_4D53E0710297 // l3FillChar
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_HotSpotTools_'
+ UP extprop:pas:UnitName 'HotSpotTools.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\HotSpotTools.imp.pas'
+
+ENDME // ME_4D53D342026E HotSpotTools

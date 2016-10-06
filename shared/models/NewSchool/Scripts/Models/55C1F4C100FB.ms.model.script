@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_55C1F539010F
+
 FORWARD ME_55C1F4C100FB
 
 FORWARD ME_55C1F539010F
@@ -24,7 +26,7 @@ ME ME_55C2041B028C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_55C1F54A0327 // Run
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_55C2041B028C 
@@ -79,6 +81,9 @@ ME ME_55C1F539010F
    Seq: ( ME_55C1F6070030 // TtfwCOMaker
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "UseNewGen" True
  UP extprop:pas:UnitName 'MakeCORunner'
  UP extprop:rc:isAcceptableForScripts True
@@ -109,6 +114,9 @@ ME ME_55C1F4C100FB
  WL 'ME_55C1F58400F6' '55C1F58400F6.ms.model.script' // Tools
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "console" True
  UP "defines" 'MakeCO.inc'
  UP "need UC in project" True

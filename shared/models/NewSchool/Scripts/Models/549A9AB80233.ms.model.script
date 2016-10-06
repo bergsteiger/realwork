@@ -1,0 +1,170 @@
+// arResultDeliveryInterfaces 549A9AB80233 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_549A9A51038D
+
+FORWARD ME_549A9AB80233
+
+FORWARD ME_549A9A51038D
+
+FORWARD ME_549A9AE800C6
+
+ME ME_549A9B0E004D
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B0E004D aTaskID
+
+ME ME_549A9AE800C6
+ MEPROP UID '549A9AE800C6'
+ MEPROP Name 'CheckTaskExistance'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B0E004D // aTaskID
+ )
+ ; // Parameters
+
+ENDME // ME_549A9AE800C6 CheckTaskExistance
+
+FORWARD ME_549A9B150284
+
+ME ME_549A9B2A0154
+ MEPROP Name 'aMessage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B2A0154 aMessage
+
+ME ME_549A9B150284
+ MEPROP UID '549A9B150284'
+ MEPROP Name 'RequestSendMessage'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B2A0154 // aMessage
+ )
+ ; // Parameters
+
+ENDME // ME_549A9B150284 RequestSendMessage
+
+FORWARD ME_549A9B310008
+
+ME ME_549A9B5D001B
+ MEPROP Name 'aFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B5D001B aFolder
+
+ME ME_549A9B310008
+ MEPROP UID '549A9B310008'
+ MEPROP Name 'RequestNewFolder'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B5D001B // aFolder
+ )
+ ; // Parameters
+
+ENDME // ME_549A9B310008 RequestNewFolder
+
+FORWARD ME_549A9B630197
+
+ME ME_549A9B8E029F
+ MEPROP Name 'aTaskID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B8E029F aTaskID
+
+ME ME_549A9B8E02BA
+ MEPROP Name 'aNewFolder'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_549A9B8E02BA aNewFolder
+
+ME ME_549A9B630197
+ MEPROP UID '549A9B630197'
+ MEPROP Name 'ChangeResultFolder'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_549A9A51038D // IarResultDelivererListner
+ ;
+ MELIST Parameters
+   Seq: ( ME_549A9B8E029F // aTaskID
+ ME_549A9B8E02BA // aNewFolder
+ )
+ ; // Parameters
+
+ENDME // ME_549A9B630197 ChangeResultFolder
+
+ME ME_549A9A51038D
+ MEPROP UID '549A9A51038D'
+ MEPROP GUID 'E71B8A5D-E73D-4FA6-B569-41304F6F79EE'
+ MEPROP Name 'IarResultDelivererListner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_549A9AB80233 // arResultDeliveryInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_549A9AE800C6 // CheckTaskExistance
+ HWL ME_549A9B150284 // RequestSendMessage
+ HWL ME_549A9B310008 // RequestNewFolder
+ HWL ME_549A9B630197 // ChangeResultFolder
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'arResultDelivererListner'
+
+ENDME // ME_549A9A51038D IarResultDelivererListner
+
+ME ME_549A9AB80233
+ MEPROP UID '549A9AB80233'
+ MEPROP Name 'arResultDeliveryInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_545C74760255' '545C74760255.ms.model.script' // ExportDelivery
+ ;
+ MELIST Children
+   Seq: ( HWL ME_549A9A51038D // IarResultDelivererListner
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'archi\source\projects\Archi\Processing\arResultDeliveryInterfaces.pas'
+
+ENDME // ME_549A9AB80233 arResultDeliveryInterfaces

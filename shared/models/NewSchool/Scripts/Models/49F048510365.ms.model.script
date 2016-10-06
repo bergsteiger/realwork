@@ -1,0 +1,39 @@
+// evStyleTableTools 49F048510365 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49F048510365
+
+ME ME_4A263C1900C1
+ MEPROP UID '4A263C1900C1'
+ MEPROP Name 'evGetDefaultZoom'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49F048510365 // evStyleTableTools
+ ;
+ MELINK Target WL 'ME_475EA27A0131' '4807744200AA.ms.model.script' // Double
+ ;
+
+ENDME // ME_4A263C1900C1 evGetDefaultZoom
+
+ME ME_49F048510365
+ MEPROP UID '49F048510365'
+ MEPROP Name 'evStyleTableTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECB2870309' '47ECB2870309.ms.model.script' // StyleTable
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A263C1900C1 // evGetDefaultZoom
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:rc:SelfName 'StyleTableTools'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evStyleTableTools.pas'
+
+ENDME // ME_49F048510365 evStyleTableTools

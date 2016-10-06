@@ -1,0 +1,74 @@
+// m2MemLib 47BF045E0138 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47BF045E0138
+
+FORWARD ME_47BF05230001
+
+ME ME_47BF053D022C
+ MEPROP Name 'ADest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47BF053D022C ADest
+
+ME ME_47BF053D0244
+ MEPROP Name 'ASour'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_47BF053D0244 ASour
+
+ME ME_47BF053D025D
+ MEPROP Name 'ASize'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_47BF053D025D ASize
+
+ME ME_47BF05230001
+ MEPROP UID '47BF05230001'
+ MEPROP Name 'm2MEMCompare'
+ MEPROP Class class_Operation
+ %SUMMARY 'сравнивает два куска памяти.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BF045E0138 // m2MemLib
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_47BF053D022C // ADest
+ ME_47BF053D0244 // ASour
+ ME_47BF053D025D // ASize
+ )
+ ; // Parameters
+
+ENDME // ME_47BF05230001 m2MEMCompare
+
+ME ME_47BF045E0138
+ MEPROP UID '47BF045E0138'
+ MEPROP Name 'm2MemLib'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47BF042D029B' '47BF042D029B.ms.model.script' // m2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47BF05230001 // m2MEMCompare
+ )
+ ; // Operations
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2MemLib.pas'
+
+ENDME // ME_47BF045E0138 m2MemLib

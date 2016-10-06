@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4857FECB0092
+
 FORWARD ME_4CD01B2F0046
 
 FORWARD ME_4857FECB0092
@@ -91,7 +93,7 @@ ME ME_4CD01BB103B8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857FECB0092 // WevControlPara
  ;
- MELINK Target WL 'ME_47F1F3BC0330' '47F1F38601A3.ms.model.script' // evParaTools
+ MELINK Target WL 'ME_47F1F3BC0330' '47F1F3BC0330.ms.model.script' // evParaTools
  ;
 
 ENDME // ME_4CD01BB103B8 
@@ -101,7 +103,7 @@ ME ME_4CD02A340281
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4857FECB0092 // WevControlPara
  ;
- MELINK Target WL 'ME_4ADEE49C02DF' '4AB0C3C60310.ms.model.script' // Supports
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
  ;
 
 ENDME // ME_4CD02A340281 
@@ -117,16 +119,20 @@ ME ME_4D6634E5018D
 ENDME // ME_4D6634E5018D 
 
 ME ME_4857A995029E_ME_4857FECB0092
- MELINK Original WL 'ME_4857A995029E' '49A58A1A03C4.ms.model.script' // GetAtomData
+ MELINK Original WL 'ME_4857A995029E' '47AC6F0B025E.ms.model.script' // GetAtomData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4857A995029E_ME_4857FECB0092 GetAtomData
 
 ME ME_48DD0CE60313_ME_4857FECB0092
- MELINK Original WL 'ME_48DD0CE60313' '49A58A1A03C4.ms.model.script' // PreGetAtomData
+ MELINK Original WL 'ME_48DD0CE60313' '47AC6F0B025E.ms.model.script' // PreGetAtomData
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_48DD0CE60313_ME_4857FECB0092 PreGetAtomData
+
+%%ImplementedBy ME_4857923F0186 ME_4857FECB0092
+
+%%InheritedBy ME_48577704034C ME_4857FECB0092
 
 ME ME_4857FECB0092
  MEPROP UID '4857FECB0092'
@@ -165,6 +171,9 @@ ME ME_4857FECB0092
  ME_4D6634E5018D // ReqGroup
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '02.11.2004 16:59'
@@ -202,6 +211,9 @@ ME ME_4CD01B2F0046
  WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifdef" 'k2ForEditor'
 
 ENDME // ME_4CD01B2F0046 EVDTuning

@@ -1,0 +1,694 @@
+// evAlignBySeparatorUtils 4E3BB8760238 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4E3BB8760238
+
+FORWARD ME_4E3BBF1B0337
+
+ME ME_4E3BBF5802E6
+ MEPROP UID '4E3BBF5802E6'
+ MEPROP Name 'evAllowJustify4DecimalIndent'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3BBF1B0337 // evAlignBySeparatorConst
+ ;
+ MEPROP Value '[ev_itLeft, ev_itWidth]'
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '[ev_itLeft, ev_itWidth]'
+
+ENDME // ME_4E3BBF5802E6 evAllowJustify4DecimalIndent
+
+ME ME_4E3BBF1B0337
+ MEPROP UID '4E3BBF1B0337'
+ MEPROP Name 'evAlignBySeparatorConst'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E3BBF5802E6 // evAllowJustify4DecimalIndent
+ )
+ ; // Attributes
+ UP "spell names" False
+ UP extprop:rc:SelfName 'AlignBySeparatorConst'
+
+ENDME // ME_4E3BBF1B0337 evAlignBySeparatorConst
+
+ME ME_5090D0F002A6
+ MEPROP UID '5090D0F002A6'
+ MEPROP Name 'g_AllowChars'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELINK Target WL 'ME_46A615C70021' '4677FBA70343.ms.model.script' // TCharSet
+ ;
+
+ENDME // ME_5090D0F002A6 g_AllowChars
+
+FORWARD ME_4E3A50710388
+
+FORWARD ME_4E3BB8DE016C
+
+ME ME_52BD41E40062
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_52BD41E40062 aPara
+
+ME ME_4E3BB93001EB
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4E3BB93001EB aTag
+
+ME ME_4E3BB8DE016C
+ MEPROP UID '4E3BB8DE016C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3A50710388 // evGetDecimalTabIndentTag
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD41E40062 // aPara
+ ME_4E3BB93001EB // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_4E3BB8DE016C DoIt
+
+ME ME_4E3BBD9B036E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3A50710388 // evGetDecimalTabIndentTag
+ ;
+ MELINK Target WL 'ME_468A69990133' '4677FBA70343.ms.model.script' // Tl3TabStopStyle
+ ;
+
+ENDME // ME_4E3BBD9B036E 
+
+ME ME_4E3A50710388
+ MEPROP UID '4E3A50710388'
+ MEPROP Name 'evGetDecimalTabIndentTag'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3BB8DE016C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E3BBD9B036E // Tl3TabStopStyle
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'GetDecimalTabIndentTag'
+
+ENDME // ME_4E3A50710388 evGetDecimalTabIndentTag
+
+FORWARD ME_4E3BB9360103
+
+FORWARD ME_4E3BB94A01D7
+
+ME ME_52BD41ED0140
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_52BD41ED0140 aPara
+
+ME ME_4E3BB94A01D7
+ MEPROP UID '4E3BB94A01D7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB9360103 // evHasDecimalTabIndent
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD41ED0140 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_4E3BB94A01D7 DoIt
+
+ME ME_4E3BB9360103
+ MEPROP UID '4E3BB9360103'
+ MEPROP Name 'evHasDecimalTabIndent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3BB94A01D7 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'HasDecimalTabIndent'
+
+ENDME // ME_4E3BB9360103 evHasDecimalTabIndent
+
+FORWARD ME_4E3BB95C01B5
+
+FORWARD ME_4E3BB96C006D
+
+ME ME_52BD355B03AD
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_52BD355B03AD aPara
+
+ME ME_52BD355B03D1
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_52BD355B03D1 anOpPack
+
+ME ME_4E3BB96C006D
+ MEPROP UID '4E3BB96C006D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB95C01B5 // evDeleteIndentMarker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD355B03AD // aPara
+ ME_52BD355B03D1 // anOpPack
+ )
+ ; // Parameters
+
+ENDME // ME_4E3BB96C006D DoIt
+
+ME ME_4E3BB95C01B5
+ MEPROP UID '4E3BB95C01B5'
+ MEPROP Name 'evDeleteIndentMarker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3BB96C006D // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'DeleteIndentMarker'
+
+ENDME // ME_4E3BB95C01B5 evDeleteIndentMarker
+
+FORWARD ME_4E3BB98B003F
+
+FORWARD ME_4E3BB99702BF
+
+ME ME_52BD42020075
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_52BD42020075 aView
+
+ME ME_4E3BB9BC0111
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E3BB9BC0111 aValue
+
+ME ME_52BD420200B1
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_52BD420200B1 aPara
+
+ME ME_52BD420200D4
+ MEPROP Name 'anOpPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_52BD420200D4 anOpPack
+
+ME ME_4E3BB99702BF
+ MEPROP UID '4E3BB99702BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB98B003F // evNewIndentMarker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD42020075 // aView
+ ME_4E3BB9BC0111 // aValue
+ ME_52BD420200B1 // aPara
+ ME_52BD420200D4 // anOpPack
+ )
+ ; // Parameters
+
+ENDME // ME_4E3BB99702BF DoIt
+
+ME ME_4E3BBED2018F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3BB98B003F // evNewIndentMarker
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_4E3BBED2018F 
+
+ME ME_4E3BC13003D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3BB98B003F // evNewIndentMarker
+ ;
+ MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
+ ;
+
+ENDME // ME_4E3BC13003D2 
+
+ME ME_4E3BB98B003F
+ MEPROP UID '4E3BB98B003F'
+ MEPROP Name 'evNewIndentMarker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3BB99702BF // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E3BBED2018F // Tk2Type
+ ME_4E3BC13003D2 // Tl3Point
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'NewIndentMarker'
+
+ENDME // ME_4E3BB98B003F evNewIndentMarker
+
+FORWARD ME_4E3BB9C7005A
+
+FORWARD ME_4E3BB9D1007C
+
+ME ME_52BD420B0217
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C6AAEF0157' '47C5207602D1.ms.model.script' // InevTextPara
+ ;
+
+ENDME // ME_52BD420B0217 aPara
+
+ME ME_52BD42200389
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47209E670266' '4678193C009C.ms.model.script' // Tl3PCharLen
+ ;
+
+ENDME // ME_52BD42200389 aText
+
+ME ME_4E3BBCB300F6
+ MEPROP Name 'aJustification'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_4E3BBCB300F6 aJustification
+
+ME ME_4E3BBCB30187
+ MEPROP Name 'aLineCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4E3BBCB30187 aLineCount
+
+ME ME_52BD42210019
+ MEPROP Name 'aCanvas'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_52BD42210019 aCanvas
+
+ME ME_52BD42210066
+ MEPROP Name 'aGen'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4A5359BD03BE' '4678137501EA.ms.model.script' // Ik2TagGenerator
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_52BD42210066 aGen
+
+ME ME_4E3BB9D1007C
+ MEPROP UID '4E3BB9D1007C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB9C7005A // evCalcDecimalTabIndent
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD420B0217 // aPara
+ ME_52BD42200389 // aText
+ ME_4E3BBCB300F6 // aJustification
+ ME_4E3BBCB30187 // aLineCount
+ ME_52BD42210019 // aCanvas
+ ME_52BD42210066 // aGen
+ )
+ ; // Parameters
+
+ENDME // ME_4E3BB9D1007C DoIt
+
+ME ME_4E3BC18A03D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3BB9C7005A // evCalcDecimalTabIndent
+ ;
+ MELINK Target WL 'ME_4AA7888B0076' '4773D64E036C.ms.model.script' // l3CStr
+ ;
+
+ENDME // ME_4E3BC18A03D7 
+
+ME ME_4E3BC1D60064
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3BB9C7005A // evCalcDecimalTabIndent
+ ;
+ MELINK Target WL 'ME_4BED2ED101EF' '47878E0E0191.ms.model.script' // l3Pos
+ ;
+
+ENDME // ME_4E3BC1D60064 
+
+ME ME_4E3BC5070282
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3BB9C7005A // evCalcDecimalTabIndent
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4E3BC5070282 
+
+ME ME_4E3BB9C7005A
+ MEPROP UID '4E3BB9C7005A'
+ MEPROP Name 'evCalcDecimalTabIndent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4E3BB9D1007C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4E3BC18A03D7 // l3CStr
+ ME_4E3BC1D60064 // l3Pos
+ ME_4E3BC5070282 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'CalcDecimalTabIndent'
+
+ENDME // ME_4E3BB9C7005A evCalcDecimalTabIndent
+
+FORWARD ME_508FC8CA018C
+
+FORWARD ME_508FC8EF02A8
+
+ME ME_52BD35840048
+ MEPROP Name 'aTextPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_52BD35840048 aTextPara
+
+ME ME_52BD3584006D
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_52BD3584006D aMap
+
+ME ME_508FC8EF02A8
+ MEPROP UID '508FC8EF02A8'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_508FC8CA018C // evGetSeparatorPos
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD35840048 // aTextPara
+ ME_52BD3584006D // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_508FC8EF02A8 DoIt
+
+ME ME_508FD4830013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_508FC8CA018C // evGetSeparatorPos
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_508FD4830013 
+
+ME ME_5299C1270022
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_508FC8CA018C // evGetSeparatorPos
+ ;
+ MELINK Target WL 'ME_48D3AF8E024B' '48D3AF8E024B.ms.model.script' // evTextParaTools
+ ;
+
+ENDME // ME_5299C1270022 
+
+ME ME_508FC8CA018C
+ MEPROP UID '508FC8CA018C'
+ MEPROP Name 'evGetSeparatorPos'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_508FC8EF02A8 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_508FD4830013 // Ext Chars
+ ME_5299C1270022 // evTextParaTools
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'GetSeparatorPos'
+
+ENDME // ME_508FC8CA018C evGetSeparatorPos
+
+FORWARD ME_5090CDD80266
+
+FORWARD ME_5090CDFB0375
+
+ME ME_52BD357701EA
+ MEPROP Name 'aTextPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_52BD357701EA aTextPara
+
+ME ME_52BD35770209
+ MEPROP Name 'aMap'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_52BD35770209 aMap
+
+ME ME_5090CDFB0375
+ MEPROP UID '5090CDFB0375'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5090CDD80266 // evCanInsertSeparator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52BD357701EA // aTextPara
+ ME_52BD35770209 // aMap
+ )
+ ; // Parameters
+
+ENDME // ME_5090CDFB0375 DoIt
+
+ME ME_5090CDD80266
+ MEPROP UID '5090CDD80266'
+ MEPROP Name 'evCanInsertSeparator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5090CDFB0375 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'CanInsertSeparator'
+
+ENDME // ME_5090CDD80266 evCanInsertSeparator
+
+ME ME_5090C942039A
+ MEPROP UID '5090C942039A'
+ MEPROP Name 'InitVar'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ini::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+
+ENDME // ME_5090C942039A InitVar
+
+ME ME_52BD3547021F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E3BB8760238 // evAlignBySeparatorUtils
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD3547021F 
+
+ME ME_4E3BB8760238
+ MEPROP UID '4E3BB8760238'
+ MEPROP Name 'evAlignBySeparatorUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилиты работы с выравниванием по точке.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5090D0F002A6 // g_AllowChars
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4E3A50710388 // evGetDecimalTabIndentTag
+ HWL ME_4E3BB9360103 // evHasDecimalTabIndent
+ HWL ME_4E3BB95C01B5 // evDeleteIndentMarker
+ HWL ME_4E3BB98B003F // evNewIndentMarker
+ HWL ME_4E3BB9C7005A // evCalcDecimalTabIndent
+ HWL ME_508FC8CA018C // evGetSeparatorPos
+ HWL ME_5090CDD80266 // evCanInsertSeparator
+ HWL ME_5090C942039A // InitVar
+ )
+ ; // Operations
+ MELIST Constants
+   Seq: ( HWL ME_4E3BBF1B0337 // evAlignBySeparatorConst
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_52BD3547021F // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'AlignBySeparatorUtils'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evAlignBySeparatorUtils.pas'
+
+ENDME // ME_4E3BB8760238 evAlignBySeparatorUtils

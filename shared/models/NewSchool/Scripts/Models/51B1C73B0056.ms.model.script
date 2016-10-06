@@ -2,75 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_51B1C73B0056
-
-FORWARD ME_51B1C74F010F
-
-ME ME_57D140200240
- MEPROP UID '57D140200240'
- MEPROP Name 'TdtOnEraseAttrRecords'
- MEPROP Class class_Class
- MELINK Stereotype st_Function ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51B1C74F010F // dt_IFltr
- ;
- UP "finished" False
- UP "of object" False
-
-ENDME // ME_57D140200240 TdtOnEraseAttrRecords
-
-ME ME_57DF8DC702C4
- MEPROP UID '57DF8DC702C4'
- MEPROP Name 'TGroupOpFilter'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_51B1C74F010F // dt_IFltr
- ;
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'GroupOpFilter'
-
-ENDME // ME_57DF8DC702C4 TGroupOpFilter
-
-ME ME_51B1C74F010F
- MEPROP UID '51B1C74F010F'
- MEPROP Name 'dt_IFltr'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_51B1C73B0056 // ImportExport
- ;
- MELIST Children
-   Seq: ( HWL ME_57D140200240 // TdtOnEraseAttrRecords
- HWL ME_57DF8DC702C4 // TGroupOpFilter
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_IFltr.pas'
-
-ENDME // ME_51B1C74F010F dt_IFltr
-
-ME ME_57C56B3302FE
- MEPROP UID '57C56B3302FE'
- MEPROP Name 'dt_EFltr'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_51B1C73B0056 // ImportExport
- ;
- UP "finished" False
- UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_EFltr.pas'
-
-ENDME // ME_57C56B3302FE dt_EFltr
+%%Inner ME_51B1C74F010F
+%%Inner ME_57C56B3302FE
 
 ME ME_51B1C73B0056
  MEPROP UID '51B1C73B0056'
@@ -83,9 +16,12 @@ ME ME_51B1C73B0056
  MELINK Parent WL 'ME_47BC4FCB0115' '47BC4FCB0115.ms.model.script' // DT
  ;
  MELIST Children
-   Seq: ( HWL ME_51B1C74F010F // dt_IFltr
- HWL ME_57C56B3302FE // dt_EFltr
+   Seq: ( WL 'ME_51B1C74F010F' '51B1C74F010F.ms.model.script' // dt_IFltr
+ WL 'ME_57C56B3302FE' '57C56B3302FE.ms.model.script' // dt_EFltr
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_51B1C73B0056 ImportExport

@@ -1,0 +1,144 @@
+// vtNavigatorRes 4B8D2783018D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B8D2783018D
+
+FORWARD ME_4B8D27AF02CD
+
+ME ME_4B8D27EA0254
+ MEPROP UID '4B8D27EA0254'
+ MEPROP Name 'AutoHideOffHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8D27AF02CD // TvtNavigatorHints
+ ;
+ MEPROP Value '''Зафиксировать панель навигации'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Зафиксировать панель навигации'''
+
+ENDME // ME_4B8D27EA0254 AutoHideOffHint
+
+ME ME_4B8D281402A0
+ MEPROP UID '4B8D281402A0'
+ MEPROP Name 'AutoHideOnHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8D27AF02CD // TvtNavigatorHints
+ ;
+ MEPROP Value '''Сворачивать панель навигации'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Сворачивать панель навигации'''
+
+ENDME // ME_4B8D281402A0 AutoHideOnHint
+
+ME ME_4B8D2848016D
+ MEPROP UID '4B8D2848016D'
+ MEPROP Name 'MinimizedOnHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8D27AF02CD // TvtNavigatorHints
+ ;
+ MEPROP Value '''Свернуть'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Свернуть'''
+
+ENDME // ME_4B8D2848016D MinimizedOnHint
+
+ME ME_4B8D287C0394
+ MEPROP UID '4B8D287C0394'
+ MEPROP Name 'MinimizedOffHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8D27AF02CD // TvtNavigatorHints
+ ;
+ MEPROP Value '''Развернуть'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Развернуть'''
+
+ENDME // ME_4B8D287C0394 MinimizedOffHint
+
+ME ME_4B8D28B803B7
+ MEPROP UID '4B8D28B803B7'
+ MEPROP Name 'BtnCloseHint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B8D27AF02CD // TvtNavigatorHints
+ ;
+ MEPROP Value '''Прикрепить навигатор'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Прикрепить навигатор'''
+
+ENDME // ME_4B8D28B803B7 BtnCloseHint
+
+ME ME_4B8D27AF02CD
+ MEPROP UID '4B8D27AF02CD'
+ MEPROP Name 'TvtNavigatorHints'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B8D2783018D // vtNavigatorRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B8D27EA0254 // AutoHideOffHint
+ HWL ME_4B8D281402A0 // AutoHideOnHint
+ HWL ME_4B8D2848016D // MinimizedOnHint
+ HWL ME_4B8D287C0394 // MinimizedOffHint
+ HWL ME_4B8D28B803B7 // BtnCloseHint
+ )
+ ; // Attributes
+ UP "children prefix" 'vt'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'vt'
+
+ENDME // ME_4B8D27AF02CD TvtNavigatorHints
+
+ME ME_4B8D2783018D
+ MEPROP UID '4B8D2783018D'
+ MEPROP Name 'vtNavigatorRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47CD07B900E0' '47CD07B900E0.ms.model.script' // vtNavigator
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B8D27AF02CD // TvtNavigatorHints
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '02.03.2010 17:58'
+ UP extprop:rc:SelfName 'NavigatorRes'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtNavigatorRes.pas'
+
+ENDME // ME_4B8D2783018D vtNavigatorRes

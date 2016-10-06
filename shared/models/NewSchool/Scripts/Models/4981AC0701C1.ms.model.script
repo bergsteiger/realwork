@@ -1,0 +1,88 @@
+// ComObj 4981AC0701C1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4981AC530096
+%%Inner ME_4981AC2F0294
+
+FORWARD ME_4981AC0701C1
+
+%%InheritedBy ME_4787A405013D ME_4981AC530096
+
+ME ME_4981AC530096
+ MEPROP UID '4981AC530096'
+ MEPROP Name 'EOleError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'EOleError is the exception class for low-level OLE errors' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4981AC0701C1 // ComObj
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4981AC530096 EOleError
+
+%%InheritedBy ME_4981AC530096 ME_4981AC2F0294
+
+ME ME_4981AC2F0294
+ MEPROP UID '4981AC2F0294'
+ MEPROP Name 'EOleSysError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'EOleSysError is the exception class for errors specific to the OLE IDispatch interface' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4981AC0701C1 // ComObj
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4981AC530096 // EOleError
+ )
+ ; // Inherits
+
+ENDME // ME_4981AC2F0294 EOleSysError
+
+ME ME_4D186F8401C5
+ MEPROP UID '4D186F8401C5'
+ MEPROP Name 'OleCheck'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4981AC0701C1 // ComObj
+ ;
+
+ENDME // ME_4D186F8401C5 OleCheck
+
+ME ME_4981AC0701C1
+ MEPROP UID '4981AC0701C1'
+ MEPROP Name 'ComObj'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D186F8401C5 // OleCheck
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4981AC530096 // EOleError
+ HWL ME_4981AC2F0294 // EOleSysError
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\ComObj.pas'
+
+ENDME // ME_4981AC0701C1 ComObj

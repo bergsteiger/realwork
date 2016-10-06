@@ -1,0 +1,442 @@
+// vcmTabbedContainerFormDispatcherUtils 558163840015 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55824ED3027A
+%%Inner ME_55815E1A0227
+
+FORWARD ME_558163840015
+
+FORWARD ME_55824ED3027A
+
+ME ME_55824EDE018A
+ MEPROP UID '55824EDE018A'
+ MEPROP Name 'rContainer'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55824ED3027A // TvcmContainerLockCountItem
+ ;
+ MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ ;
+
+ENDME // ME_55824EDE018A rContainer
+
+ME ME_55824F0400ED
+ MEPROP UID '55824F0400ED'
+ MEPROP Name 'rLockCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_55824ED3027A // TvcmContainerLockCountItem
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55824F0400ED rLockCount
+
+FORWARD ME_55824F0F01C2
+
+ME ME_55824F1D004F
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55824ED3027A // TvcmContainerLockCountItem
+ ;
+
+ENDME // ME_55824F1D004F anOther
+
+ME ME_55824F0F01C2
+ MEPROP UID '55824F0F01C2'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55824ED3027A // TvcmContainerLockCountItem
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_55824F1D004F // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_55824F0F01C2 EQ
+
+FORWARD ME_55824F260248
+
+ME ME_55824F300399
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ ;
+
+ENDME // ME_55824F300399 aContainer
+
+ME ME_55824F260248
+ MEPROP UID '55824F260248'
+ MEPROP Name 'C'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55824ED3027A // TvcmContainerLockCountItem
+ ;
+ MELIST Parameters
+   Seq: ( ME_55824F300399 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_55824F260248 C
+
+ME ME_55824ED3027A
+ MEPROP UID '55824ED3027A'
+ MEPROP Name 'TvcmContainerLockCountItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_558163840015 // vcmTabbedContainerFormDispatcherUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55824EDE018A // rContainer
+ HWL ME_55824F0400ED // rLockCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55824F0F01C2 // EQ
+ HWL ME_55824F260248 // C
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ContainerLockCountItem'
+
+ENDME // ME_55824ED3027A TvcmContainerLockCountItem
+
+FORWARD ME_55815E1A0227
+
+ME ME_55824F5301A0
+ MEPROP UID '55824F5301A0'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_55815E1A0227 // TvcmContainersLockCountList
+ ;
+ MELINK Target HWL ME_55824ED3027A // TvcmContainerLockCountItem
+ ;
+
+ENDME // ME_55824F5301A0 ItemType
+
+FORWARD ME_5582543B0147
+
+FORWARD ME_558254640060
+
+ME ME_5582546F0175
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ ;
+
+ENDME // ME_5582546F0175 aContainer
+
+ME ME_558254640060
+ MEPROP UID '558254640060'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5582543B0147 // IsContainerLocked
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5582546F0175 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_558254640060 DoIt
+
+ME ME_5582543B0147
+ MEPROP UID '5582543B0147'
+ MEPROP Name 'IsContainerLocked'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55815E1A0227 // TvcmContainersLockCountList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_558254640060 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5582543B0147 IsContainerLocked
+
+FORWARD ME_558254440303
+
+FORWARD ME_5582547402D0
+
+ME ME_5582547C03C7
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ ;
+
+ENDME // ME_5582547C03C7 aContainer
+
+ME ME_5582547402D0
+ MEPROP UID '5582547402D0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558254440303 // LockContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5582547C03C7 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_5582547402D0 DoIt
+
+ME ME_558254440303
+ MEPROP UID '558254440303'
+ MEPROP Name 'LockContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55815E1A0227 // TvcmContainersLockCountList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5582547402D0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_558254440303 LockContainer
+
+FORWARD ME_558254500372
+
+FORWARD ME_55825481005B
+
+ME ME_5582548A02E6
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ ;
+
+ENDME // ME_5582548A02E6 aContainer
+
+ME ME_55825481005B
+ MEPROP UID '55825481005B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558254500372 // UnlockContainer
+ ;
+ MELIST Parameters
+   Seq: ( ME_5582548A02E6 // aContainer
+ )
+ ; // Parameters
+
+ENDME // ME_55825481005B DoIt
+
+ME ME_558254500372
+ MEPROP UID '558254500372'
+ MEPROP Name 'UnlockContainer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55815E1A0227 // TvcmContainersLockCountList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55825481005B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_558254500372 UnlockContainer
+
+FORWARD ME_558259BC02E8
+
+FORWARD ME_558259E80393
+
+ME ME_558259ED017C
+ MEPROP Name 'aContainer'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ ;
+
+ENDME // ME_558259ED017C aContainer
+
+ME ME_558259ED01AE
+ MEPROP Name 'aDelta'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_558259ED01AE aDelta
+
+ME ME_558259E80393
+ MEPROP UID '558259E80393'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_558259BC02E8 // ChangeLockCount
+ ;
+ MELIST Parameters
+   Seq: ( ME_558259ED017C // aContainer
+ ME_558259ED01AE // aDelta
+ )
+ ; // Parameters
+
+ENDME // ME_558259E80393 DoIt
+
+ME ME_558259BC02E8
+ MEPROP UID '558259BC02E8'
+ MEPROP Name 'ChangeLockCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55815E1A0227 // TvcmContainersLockCountList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_558259E80393 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_558259BC02E8 ChangeLockCount
+
+ME ME_47B2C42A0163_ME_55815E1A0227
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_55815E1A0227 AssignItem
+
+ME ME_47B99D4503A2_ME_55815E1A0227
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_55815E1A0227 CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_55815E1A0227
+%%InheritedBy ME_4B223DB5024B ME_55815E1A0227
+
+ME ME_55815E1A0227
+ MEPROP UID '55815E1A0227'
+ MEPROP Name 'TvcmContainersLockCountList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_558163840015 // vcmTabbedContainerFormDispatcherUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223DB5024B' '4B223DB5024B.ms.model.script' // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_55824F5301A0 // ItemType
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5582543B0147 // IsContainerLocked
+ HWL ME_558254440303 // LockContainer
+ HWL ME_558254500372 // UnlockContainer
+ HWL ME_558259BC02E8 // ChangeLockCount
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_55815E1A0227 // AssignItem
+ ME_47B99D4503A2_ME_55815E1A0227 // CompareExistingItems
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ContainersLockCountList'
+
+ENDME // ME_55815E1A0227 TvcmContainersLockCountList
+
+ME ME_55816427024D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_558163840015 // vcmTabbedContainerFormDispatcherUtils
+ ;
+ MELINK Target WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ ;
+
+ENDME // ME_55816427024D 
+
+ME ME_558164300015
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_558163840015 // vcmTabbedContainerFormDispatcherUtils
+ ;
+ MELINK Target WL 'ME_4B223DB5024B' '4B223DB5024B.ms.model.script' // l3RecordWithEQList
+ ;
+
+ENDME // ME_558164300015 
+
+ME ME_55824F400160
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_558163840015 // vcmTabbedContainerFormDispatcherUtils
+ ;
+ MELINK Target WL 'ME_534F69E702D9' '534F69E702D9.ms.model.script' // TvcmTabbedContainerForm
+ ;
+
+ENDME // ME_55824F400160 
+
+ME ME_558163840015
+ MEPROP UID '558163840015'
+ MEPROP Name 'vcmTabbedContainerFormDispatcherUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55824ED3027A // TvcmContainerLockCountItem
+ HWL ME_55815E1A0227 // TvcmContainersLockCountList
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_55816427024D // Tl3ProtoDataContainer
+ ME_558164300015 // l3RecordWithEQList
+ ME_55824F400160 // TvcmTabbedContainerForm
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TabbedContainerFormDispatcherUtils'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmTabbedContainerFormDispatcherUtils.pas'
+
+ENDME // ME_558163840015 vcmTabbedContainerFormDispatcherUtils

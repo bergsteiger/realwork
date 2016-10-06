@@ -1,0 +1,122 @@
+// afwSettingChanged 47EA85E7005B Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47EA85E7005B
+
+FORWARD ME_47EA863A035C
+
+ME ME_47EA864402EB
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_47EA864402EB aSettingId
+
+ME ME_47EA863A035C
+ MEPROP UID '47EA863A035C'
+ MEPROP Name 'DoSettingChanged'
+ MEPROP Class class_Operation
+ %SUMMARY 'Обработчик изменения указанной настройки' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47EA85E7005B // afwSettingChanged
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47EA864402EB // aSettingId
+ )
+ ; // Parameters
+
+ENDME // ME_47EA863A035C DoSettingChanged
+
+ME ME_47ECA5DC02AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EA85E7005B // afwSettingChanged
+ ;
+ MELINK Target WL 'ME_477515240332' '47752AF90375.ms.model.script' // Tafw
+ ;
+
+ENDME // ME_47ECA5DC02AC 
+
+ME ME_5242FEB20013
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47EA85E7005B // afwSettingChanged
+ ;
+ MELINK Target WL 'ME_5242FE0C02ED' '4F6C5511015F.ms.model.script' // TafwSettingsChangePublisher
+ ;
+
+ENDME // ME_5242FEB20013 
+
+ME ME_475E8C33036C_ME_47EA85E7005B
+ MELINK Original WL 'ME_475E8C33036C' '467823B7002C.ms.model.script' // SettingChanged
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_475E8C33036C_ME_47EA85E7005B SettingChanged
+
+ME ME_479731C50290_ME_47EA85E7005B
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47EA85E7005B Cleanup
+
+ME ME_47A042E100E2_ME_47EA85E7005B
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_47EA85E7005B InitFields
+
+%%ImplementedBy ME_475E8C230253 ME_47EA85E7005B
+%%ImplementedBy ME_4A5CB93700CF ME_47EA85E7005B
+
+ME ME_47EA85E7005B
+ MEPROP UID '47EA85E7005B'
+ MEPROP Name 'afwSettingChanged'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Примесь, реализующая IafwSettingListener.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47EA4BB502F9' '47EA4BB502F9.ms.model.script' // afwMixIns
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_475E8C230253' '467823B7002C.ms.model.script' // IafwSettingListener
+ WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_47EA863A035C // DoSettingChanged
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_475E8C33036C_ME_47EA85E7005B // SettingChanged
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47EA85E7005B // Cleanup
+ ME_47A042E100E2_ME_47EA85E7005B // InitFields
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47ECA5DC02AC // Tafw
+ ME_5242FEB20013 // TafwSettingsChangePublisher
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Морозов М.А.'
+ UP "no hands" True
+ UP "started" '06.12.2007'
+ UP extprop:pas:TypeName '_afwSettingChanged_'
+ UP extprop:pas:UnitName 'afwSettingChanged.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\AFW\implementation\afwSettingChanged.imp.pas'
+
+ENDME // ME_47EA85E7005B afwSettingChanged

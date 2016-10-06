@@ -1,0 +1,69 @@
+// l3Parser 4C1B475101C5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4C1B47600258
+%%Inner ME_52EF740F00AE
+
+FORWARD ME_4C1B475101C5
+
+%%InheritedBy ME_49E7725102DA ME_4C1B47600258
+
+ME ME_4C1B47600258
+ MEPROP UID '4C1B47600258'
+ MEPROP Name 'Tl3CustomParser'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B475101C5 // l3Parser
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7725102DA' '47913B47006E.ms.model.script' // Tl3ProtoPersistent
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Parser'
+
+ENDME // ME_4C1B47600258 Tl3CustomParser
+
+ME ME_52EF740F00AE
+ MEPROP UID '52EF740F00AE'
+ MEPROP Name 'Tl3TokenType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C1B475101C5 // l3Parser
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_52EF740F00AE Tl3TokenType
+
+ME ME_4C1B475101C5
+ MEPROP UID '4C1B475101C5'
+ MEPROP Name 'l3Parser'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4C1B474600AD' '4C1B474600AD.ms.model.script' // Parser
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C1B47600258 // Tl3CustomParser
+ HWL ME_52EF740F00AE // Tl3TokenType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Parser'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Parser.pas'
+
+ENDME // ME_4C1B475101C5 l3Parser

@@ -1,0 +1,51 @@
+// nscRemindersLine 535E3A7703B5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DA8339901A7
+
+FORWARD ME_535E3A7703B5
+
+%%InheritedBy ME_533BF7030112 ME_4DA8339901A7
+
+ME ME_4DA8339901A7
+ MEPROP UID '4DA8339901A7'
+ MEPROP Name 'TnscRemindersLine'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_535E3A7703B5 // nscRemindersLine
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_533BF7030112' '53288DFA03A7.ms.model.script' // TvgRemindersLineWithState
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'RemindersLine'
+
+ENDME // ME_4DA8339901A7 TnscRemindersLine
+
+ME ME_535E3A7703B5
+ MEPROP UID '535E3A7703B5'
+ MEPROP Name 'nscRemindersLine'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4C52A6610123' '4C52A6610123.ms.model.script' // Reminders
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DA8339901A7 // TnscRemindersLine
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'RemindersLine'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscRemindersLine.pas'
+
+ENDME // ME_535E3A7703B5 nscRemindersLine

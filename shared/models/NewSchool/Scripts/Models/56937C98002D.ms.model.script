@@ -1,0 +1,224 @@
+// l3MemoryUtils 56937C98002D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_56A9D1D6039F
+
+FORWARD ME_56937C98002D
+
+FORWARD ME_56A9D1D6039F
+
+ME ME_56A9D1ED0263
+ MEPROP UID '56A9D1ED0263'
+ MEPROP Name 'l3_mkFree'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56A9D1D6039F // Tl3MemKind
+ ;
+
+ENDME // ME_56A9D1ED0263 l3_mkFree
+
+ME ME_56A9D2080008
+ MEPROP UID '56A9D2080008'
+ MEPROP Name 'l3_mkReserved'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_56A9D1D6039F // Tl3MemKind
+ ;
+
+ENDME // ME_56A9D2080008 l3_mkReserved
+
+ME ME_56A9D1D6039F
+ MEPROP UID '56A9D1D6039F'
+ MEPROP Name 'Tl3MemKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_56937C98002D // l3MemoryUtils
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56A9D1ED0263 // l3_mkFree
+ HWL ME_56A9D2080008 // l3_mkReserved
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_56A9D1D6039F Tl3MemKind
+
+FORWARD ME_56937CAF0279
+
+FORWARD ME_56937D34008C
+
+ME ME_56A9D2440165
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_56A9D1D6039F // Tl3MemKind
+ ;
+ MEPROP Value 'l3_mkFree'
+ MELINK ValueType HWL ME_56A9D1D6039F // Tl3MemKind
+ ;
+ UP extprop:pas:Value 'l3_mkFree'
+
+ENDME // ME_56A9D2440165 aKind
+
+ME ME_56937D34008C
+ MEPROP UID '56937D34008C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56937CAF0279 // l3GetMaxMemoryAvail
+ ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+ MELIST Parameters
+   Seq: ( ME_56A9D2440165 // aKind
+ )
+ ; // Parameters
+
+ENDME // ME_56937D34008C DoIt
+
+ME ME_56937D260295
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56937CAF0279 // l3GetMaxMemoryAvail
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_56937D260295 
+
+ME ME_569387E70185
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_56937CAF0279 // l3GetMaxMemoryAvail
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_569387E70185 
+
+ME ME_56937CAF0279
+ MEPROP UID '56937CAF0279'
+ MEPROP Name 'l3GetMaxMemoryAvail'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '–азмер максимального непрерывного куска пам€ти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56937C98002D // l3MemoryUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56937D34008C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_56937D260295 // Windows
+ ME_569387E70185 // SysUtils
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'GetMaxMemoryAvail'
+
+ENDME // ME_56937CAF0279 l3GetMaxMemoryAvail
+
+FORWARD ME_56A9E4250177
+
+FORWARD ME_56A9E44402BD
+
+ME ME_56A9E46703BF
+ MEPROP Name 'aKind'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_56A9D1D6039F // Tl3MemKind
+ ;
+
+ENDME // ME_56A9E46703BF aKind
+
+ME ME_56A9E46703CE
+ MEPROP Name 'theMax'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_56A9E46703CE theMax
+
+ME ME_56A9E46703DE
+ MEPROP Name 'theAll'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target WL 'ME_49B1535A0116' '48A41FF10094.ms.model.script' // DWORD
+ ;
+
+ENDME // ME_56A9E46703DE theAll
+
+ME ME_56A9E44402BD
+ MEPROP UID '56A9E44402BD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56A9E4250177 // l3GetMemoryAvail
+ ;
+ MELIST Parameters
+   Seq: ( ME_56A9E46703BF // aKind
+ ME_56A9E46703CE // theMax
+ ME_56A9E46703DE // theAll
+ )
+ ; // Parameters
+
+ENDME // ME_56A9E44402BD DoIt
+
+ME ME_56A9E4250177
+ MEPROP UID '56A9E4250177'
+ MEPROP Name 'l3GetMemoryAvail'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56937C98002D // l3MemoryUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56A9E44402BD // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'GetMemoryAvail'
+
+ENDME // ME_56A9E4250177 l3GetMemoryAvail
+
+ME ME_56937C98002D
+ MEPROP UID '56937C98002D'
+ MEPROP Name 'l3MemoryUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56937CAF0279 // l3GetMaxMemoryAvail
+ HWL ME_56A9E4250177 // l3GetMemoryAvail
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_56A9D1D6039F // Tl3MemKind
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'MemoryUtils'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MemoryUtils.pas'
+
+ENDME // ME_56937C98002D l3MemoryUtils

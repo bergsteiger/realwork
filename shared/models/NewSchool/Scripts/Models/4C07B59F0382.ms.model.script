@@ -2,6 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4C07B5C100E8
+%%Inner ME_4C07B5E300F2
+%%Inner ME_4C07BE700180
+%%Inner ME_4C10D6820047
+%%Inner ME_4C3FEDDA034A
+%%Inner ME_4D909F2701A6
+%%Inner ME_51C8347903A2
+%%Inner ME_561E7EAF0288
+
 FORWARD ME_4C07B59F0382
 
 FORWARD ME_4C07B5C100E8
@@ -30,7 +39,7 @@ ME ME_4C07B6AC0181
  MEPROP Name 'aFileName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4C07B6AC0181 aFileName
@@ -55,7 +64,7 @@ ME ME_4C07BF4C0276
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4C07BF4C0276 
@@ -65,7 +74,7 @@ ME ME_4C1B2AEA0195
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
- MELINK Target WL 'ME_4C1B2AB301B1' '482D6E13011F.ms.model.script' // TevCustomEvdReader
+ MELINK Target WL 'ME_4C1B2AB301B1' '4C1B2A94015D.ms.model.script' // TevCustomEvdReader
  ;
 
 ENDME // ME_4C1B2AEA0195 
@@ -75,7 +84,7 @@ ME ME_4C1B47A9014B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C07B67A02C1 // EVDtoEVD
  ;
- MELINK Target WL 'ME_4C1B47600258' '4C1B474600AD.ms.model.script' // Tl3CustomParser
+ MELINK Target WL 'ME_4C1B47600258' '4C1B475101C5.ms.model.script' // Tl3CustomParser
  ;
 
 ENDME // ME_4C1B47A9014B 
@@ -104,6 +113,9 @@ ME ME_4C07B67A02C1
  ME_4C1B47A9014B // Tl3CustomParser
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
 
 ENDME // ME_4C07B67A02C1 EVDtoEVD
 
@@ -116,7 +128,7 @@ ME ME_4C1B2B0203A2
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4C07B5C100E8 // EVDWriterTest
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4C1B2B0203A2 UseFullEVDReader
@@ -130,10 +142,12 @@ ME ME_4C1B47BA03AC
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_4C07B5C100E8 // EVDWriterTest
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4C1B47BA03AC DisableParserLog
+
+%%InheritedBy ME_4BACDDB500CE ME_4C07B5C100E8
 
 ME ME_4C07B5C100E8
  MEPROP UID '4C07B5C100E8'
@@ -155,6 +169,9 @@ ME ME_4C07B5C100E8
  HWL ME_4C1B47BA03AC // DisableParserLog
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TEVDWriterTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'EVDWriterTest'
@@ -177,6 +194,8 @@ ME ME_4C07B5F90205
 
 ENDME // ME_4C07B5F90205 DoIt
 
+%%InheritedBy ME_4C07B5C100E8 ME_4C07B5E300F2
+
 ME ME_4C07B5E300F2
  MEPROP UID '4C07B5E300F2'
  MEPROP Name 'EVDtoEVDWriterTest'
@@ -195,6 +214,9 @@ ME ME_4C07B5E300F2
    Seq: ( HWL ME_4C07B5F90205 // DoIt
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TEVDtoEVDWriterTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'EVDtoEVDWriterTest'
@@ -220,6 +242,8 @@ ME ME_4C07BCBE01F2_ME_4C07BE700180
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C07BCBE01F2_ME_4C07BE700180 SetFilters
 
+%%InheritedBy ME_4C07B5E300F2 ME_4C07BE700180
+
 ME ME_4C07BE700180
  MEPROP UID '4C07BE700180'
  MEPROP Name 'EVDtoEVDEmptyRowTest'
@@ -242,6 +266,9 @@ ME ME_4C07BE700180
    Seq: ( ME_4C07BE910271 // TevdEmptyRowFilter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TEVDtoEVDEmptyRowTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'EVDtoEVDEmptyRowTest'
@@ -256,7 +283,7 @@ ME ME_4C10D6DD0160
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C10D6820047 // EVDtoEVDSectionRepairTest
  ;
- MELINK Target WL 'ME_4B324FA20278' '4B324F930103.ms.model.script' // TddSectionRepairFilter
+ MELINK Target WL 'ME_4B324FA20278' '4B32594C008B.ms.model.script' // TddSectionRepairFilter
  ;
 
 ENDME // ME_4C10D6DD0160 
@@ -266,7 +293,7 @@ ME ME_4C2DD44B0183
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4C10D6820047 // EVDtoEVDSectionRepairTest
  ;
- MELINK Target WL 'ME_4C2DD432039C' '4B324F930103.ms.model.script' // TddSectionWithSub2ParaFilter
+ MELINK Target WL 'ME_4C2DD432039C' '4C2DD5F60044.ms.model.script' // TddSectionWithSub2ParaFilter
  ;
 
 ENDME // ME_4C2DD44B0183 
@@ -276,6 +303,8 @@ ME ME_4C07BCBE01F2_ME_4C10D6820047
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C07BCBE01F2_ME_4C10D6820047 SetFilters
+
+%%InheritedBy ME_4C07B5E300F2 ME_4C10D6820047
 
 ME ME_4C10D6820047
  MEPROP UID '4C10D6820047'
@@ -301,6 +330,9 @@ ME ME_4C10D6820047
  ME_4C2DD44B0183 // TddSectionWithSub2ParaFilter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '10.06.2010 16:12'
@@ -329,6 +361,8 @@ ME ME_4C07BCBE01F2_ME_4C3FEDDA034A
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C07BCBE01F2_ME_4C3FEDDA034A SetFilters
 
+%%InheritedBy ME_4C07B5E300F2 ME_4C3FEDDA034A
+
 ME ME_4C3FEDDA034A
  MEPROP UID '4C3FEDDA034A'
  MEPROP Name 'EVDtoEVDOEMTableFlagTest'
@@ -352,6 +386,9 @@ ME ME_4C3FEDDA034A
    Seq: ( ME_4C3FEE340175 // TevOEMTableFlagFilter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TEVDtoEVDOEMTableFlagTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'EVDtoEVDOEMTableFlagTest'
@@ -377,6 +414,8 @@ ME ME_4C07BCBE01F2_ME_4D909F2701A6
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C07BCBE01F2_ME_4D909F2701A6 SetFilters
 
+%%InheritedBy ME_4C07B5E300F2 ME_4D909F2701A6
+
 ME ME_4D909F2701A6
  MEPROP UID '4D909F2701A6'
  MEPROP Name 'EVDtoEVDBlockNameAdderTest'
@@ -399,6 +438,9 @@ ME ME_4D909F2701A6
    Seq: ( ME_4D909F94034D // TevdBlockNameAdder
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '28.03.2011 18:45'
@@ -427,6 +469,8 @@ ME ME_4C07BCBE01F2_ME_51C8347903A2
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C07BCBE01F2_ME_51C8347903A2 SetFilters
 
+%%InheritedBy ME_4C07BE700180 ME_51C8347903A2
+
 ME ME_51C8347903A2
  MEPROP UID '51C8347903A2'
  MEPROP Name 'EVDtoEVDEmptyRowAndEmptyTableTest'
@@ -449,6 +493,9 @@ ME ME_51C8347903A2
    Seq: ( ME_51C834E0006D // TevEmptyTableEliminator
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TEVDtoEVDEmptyRowAndEmptyTableTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'EVDtoEVDEmptyRowAndEmptyTableTest'
@@ -474,6 +521,8 @@ ME ME_4C07BCBE01F2_ME_561E7EAF0288
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C07BCBE01F2_ME_561E7EAF0288 SetFilters
 
+%%InheritedBy ME_4C07B5E300F2 ME_561E7EAF0288
+
 ME ME_561E7EAF0288
  MEPROP UID '561E7EAF0288'
  MEPROP Name 'UnicodeFormulasToUnicodeConverterTest'
@@ -496,6 +545,9 @@ ME ME_561E7EAF0288
    Seq: ( ME_561E7EEA02AD // TevUnicodeFormulasToUnicodeConverter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TUnicodeFormulasToUnicodeConverterTest'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'UnicodeFormulasToUnicodeConverterTest'
@@ -538,6 +590,9 @@ ME ME_4C07B59F0382
  WL 'ME_4C407B410029' '4C407B410029.ms.model.script' // Generators
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP Version 0
 
 ENDME // ME_4C07B59F0382 EVD

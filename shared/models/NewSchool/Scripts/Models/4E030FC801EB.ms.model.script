@@ -2,272 +2,15 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4E03119F00B2
+%%Inner ME_5507FDD203E1
+%%Inner ME_553F71BE03E0
+
 FORWARD ME_4E030FC801EB
 
-FORWARD ME_4E03119F00B2
-
-ME ME_5507EB89020D
- MEPROP UID '5507EB89020D'
- MEPROP Name 'EafwTryEnterModalState'
- MEPROP Class class_Class
- MELINK Stereotype st_Typedef ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4FC77244014D' '5507EB5803E7.ms.model.script' // El3TryEnterModalState
- )
- ; // Inherits
-
-ENDME // ME_5507EB89020D EafwTryEnterModalState
-
-FORWARD ME_5507FE0A0095
-
-ME ME_55099BAF026D
- MEPROP UID '55099BAF026D'
- MEPROP Name 'f_BatchMode'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_5507FE0A0095 // TafwBatchService
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_55099BAF026D f_BatchMode
-
-ME ME_553F4303012B
- MEPROP UID '553F4303012B'
- MEPROP Name 'f_WasDialog'
- MEPROP Class class_Attribute
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_5507FE0A0095 // TafwBatchService
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_553F4303012B f_WasDialog
+FORWARD ME_553F84500218
 
 FORWARD ME_5507FDD203E1
-
-ME ME_5507FE1D0222
- MEPROP Class class_Dependency
- MELINK Stereotype st_implements::Dependency ;
- MELINK Parent HWL ME_5507FE0A0095 // TafwBatchService
- ;
- MELINK Target HWL ME_5507FDD203E1 // Tl3BatchService
- ;
-
-ENDME // ME_5507FE1D0222 
-
-ME ME_5507FE0A0095
- MEPROP UID '5507FE0A0095'
- MEPROP Name 'TafwBatchService'
- MEPROP Class class_Class
- MELINK Stereotype st_ServiceImplementation ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55099BAF026D // f_BatchMode
- HWL ME_553F4303012B // f_WasDialog
- )
- ; // Attributes
- MELIST Dependencies
-   Seq: ( ME_5507FE1D0222 // Tl3BatchService
- )
- ; // Dependencies
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'afwBatchService'
-
-ENDME // ME_5507FE0A0095 TafwBatchService
-
-FORWARD ME_553E013F0125
-
-FORWARD ME_4E0321910152
-
-ME ME_4E0321D50088
- MEPROP UID '4E0321D50088'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E0321910152 // GetAnswer
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4E0321D50088 DoIt
-
-ME ME_4E0324980239
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4E0321910152 // GetAnswer
- ;
- MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
- ;
-
-ENDME // ME_4E0324980239 
-
-ME ME_4E0321910152
- MEPROP UID '4E0321910152'
- MEPROP Name 'GetAnswer'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_553E013F0125 // TafwAnswers
- ;
- MELIST Operations
-   Seq: ( HWL ME_4E0321D50088 // DoIt
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_4E0324980239 // ModalResults
- )
- ; // Dependencies
- UP "is static" True
-
-ENDME // ME_4E0321910152 GetAnswer
-
-FORWARD ME_4E0312C70245
-
-FORWARD ME_4E0312E70097
-
-ME ME_4E0312FF03D0
- MEPROP Name 'anAnswer'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_4E0312FF03D0 anAnswer
-
-ME ME_4E0312E70097
- MEPROP UID '4E0312E70097'
- MEPROP Name 'DoIt'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E0312C70245 // SetAnswer
- ;
- MELIST Parameters
-   Seq: ( ME_4E0312FF03D0 // anAnswer
- )
- ; // Parameters
-
-ENDME // ME_4E0312E70097 DoIt
-
-ME ME_4E0312C70245
- MEPROP UID '4E0312C70245'
- MEPROP Name 'SetAnswer'
- MEPROP Class class_Class
- MELINK Stereotype st_method ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_553E013F0125 // TafwAnswers
- ;
- MELIST Operations
-   Seq: ( HWL ME_4E0312E70097 // DoIt
- )
- ; // Operations
- UP "is static" True
-
-ENDME // ME_4E0312C70245 SetAnswer
-
-ME ME_553E013F0125
- MEPROP UID '553E013F0125'
- MEPROP Name 'TafwAnswers'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4CA9A2EB01E4' '47913B47006E.ms.model.script' // Tl3ProtoIntegerList
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_4E0321910152 // GetAnswer
- HWL ME_4E0312C70245 // SetAnswer
- )
- ; // Operations
- UP "singleton" True
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'afwAnswers'
-
-ENDME // ME_553E013F0125 TafwAnswers
-
-ME ME_4EF20BF702EE
- MEPROP UID '4EF20BF702EE'
- MEPROP Name 'EkwWaitBracketsBalance'
- MEPROP Class class_Class
- MELINK Stereotype st_Exception ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
- )
- ; // Inherits
-
-ENDME // ME_4EF20BF702EE EkwWaitBracketsBalance
-
-ME ME_4E0316E60288
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_4E03119F00B2 // afwAnswer
- ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
- ;
-
-ENDME // ME_4E0316E60288 
-
-ME ME_4E03119F00B2
- MEPROP UID '4E03119F00B2'
- MEPROP Name 'afwAnswer'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- %SUMMARY 'Хак для диалогов для скриптов.' ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E030FC801EB // BatchServices
- ;
- MELIST Children
-   Seq: ( HWL ME_5507EB89020D // EafwTryEnterModalState
- HWL ME_5507FE0A0095 // TafwBatchService
- HWL ME_553E013F0125 // TafwAnswers
- HWL ME_4EF20BF702EE // EkwWaitBracketsBalance
- )
- ; // Children
- MELIST Dependencies
-   Seq: ( ME_4E0316E60288 // FreeAndNil
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'common\components\rtl\Garant\L3\afwAnswer.pas'
-
-ENDME // ME_4E03119F00B2 afwAnswer
-
-FORWARD ME_553F84500218
 
 FORWARD ME_5509AAAC0313
 
@@ -280,6 +23,8 @@ ME ME_5509AAC00331
  ;
 
 ENDME // ME_5509AAC00331 
+
+%%InheritedBy ME_49E7754802A9 ME_5509AAAC0313
 
 ME ME_5509AAAC0313
  MEPROP UID '5509AAAC0313'
@@ -317,7 +62,7 @@ ME ME_8A081B195E08
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UPLINK Speller HWL ME_5507FDED0373 // IsBatchMode
  ;
@@ -365,7 +110,7 @@ ME ME_3BBB07EEB463
  UP IsSummoned true
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_3BBB07EEB463 aValue
@@ -399,7 +144,7 @@ ME ME_FE26372CAD8B
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UPLINK Speller HWL ME_553F3424010C // PopAnswer
  ;
@@ -433,7 +178,7 @@ ME ME_217998C234EE
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_61A12D8261F1 // Ml3BatchService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UPLINK Speller HWL ME_553F429502D1 // CheckWasDialog
  ;
@@ -491,7 +236,7 @@ ME ME_5507FDED0373
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5507FDED0373 IsBatchMode
@@ -524,7 +269,7 @@ ME ME_553F341F03E3
  MEPROP Name 'aValue'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_553F341F03E3 aValue
@@ -554,7 +299,7 @@ ME ME_553F3424010C
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_553F3424010C PopAnswer
@@ -580,7 +325,7 @@ ME ME_553F429502D1
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_553F429502D1 CheckWasDialog
@@ -602,7 +347,7 @@ ME ME_553F33E200B6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
  ;
- MELINK Target HWL ME_4E03119F00B2 // afwAnswer
+ MELINK Target WL 'ME_4E03119F00B2' '4E03119F00B2.ms.model.script' // afwAnswer
  ;
 
 ENDME // ME_553F33E200B6 
@@ -612,7 +357,7 @@ ME ME_553F34080180
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507FDD203E1 // Tl3BatchService
  ;
- MELINK Target WL 'ME_4A980B37006B' '4799D29F033F.ms.model.script' // ModalResults
+ MELINK Target WL 'ME_4A980B37006B' '47E11FC3021E.ms.model.script' // ModalResults
  ;
 
 ENDME // ME_553F34080180 
@@ -644,6 +389,10 @@ ME ME_553F8EA30300_ME_5507FDD203E1
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_553F8EA30300_ME_5507FDD203E1 ExecuteCurrentModalWorker
+
+%%ImplementedBy ME_553F84500218 ME_5507FDD203E1
+
+%%InheritedBy ME_49E7754802A9 ME_5507FDD203E1
 
 ME ME_5507FDD203E1
  MEPROP UID '5507FDD203E1'
@@ -690,6 +439,9 @@ ME ME_5507FDD203E1
  ME_553F71DE029D // Tl3ModalService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "auto translate to alien" 'undefined'
  UP extprop:pas:UnitName 'l3BatchService'
  UP extprop:rc:isAcceptableForScripts True
@@ -768,7 +520,7 @@ ME ME_553F7345032E
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_553F84500218 // Ml3ModalService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_553F7345032E HasModalWorker
@@ -794,7 +546,7 @@ ME ME_553F8EA30300
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_553F84500218 // Ml3ModalService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_553F8EB603A2 // aModalExecute
@@ -821,6 +573,8 @@ ME ME_553F84500218
 
 ENDME // ME_553F84500218 Ml3ModalService
 
+%%InheritedBy ME_49E7754802A9 ME_553F71BE03E0
+
 ME ME_553F71BE03E0
  MEPROP UID '553F71BE03E0'
  MEPROP Name 'Tl3ModalService'
@@ -840,6 +594,9 @@ ME ME_553F71BE03E0
  HWL ME_553F84500218 // Ml3ModalService
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "auto translate to alien" 'undefined'
  UP extprop:pas:UnitName 'l3ModalService'
  UP extprop:rc:isAcceptableForScripts True
@@ -860,7 +617,7 @@ ME ME_4E030FC801EB
  MELINK Parent WL 'ME_550012C403C4' '550012C403C4.ms.model.script' // L3$AFW
  ;
  MELIST Children
-   Seq: ( HWL ME_4E03119F00B2 // afwAnswer
+   Seq: ( WL 'ME_4E03119F00B2' '4E03119F00B2.ms.model.script' // afwAnswer
  HWL ME_5507FDD203E1 // Tl3BatchService
  HWL ME_553F71BE03E0 // Tl3ModalService
  )
@@ -874,5 +631,8 @@ ME ME_4E030FC801EB
  WL 'ME_5507EB5803E7' '5507EB5803E7.ms.model.script' // l3AFWExceptions
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4E030FC801EB BatchServices

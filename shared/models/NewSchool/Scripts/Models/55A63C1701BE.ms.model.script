@@ -1,0 +1,414 @@
+// tfwNamedDictionaryList 55A63C1701BE Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A63C1701BE
+
+FORWARD ME_55A3DF6602FC
+
+FORWARD ME_55A3DF7000D9
+
+ME ME_55A3DF7803DE
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_55A3DF7803DE anIndex
+
+ME ME_55A3DF790028
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_55A3DF790028 anItem
+
+ME ME_55A3DF7000D9
+ MEPROP UID '55A3DF7000D9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A3DF6602FC // Insert
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A3DF7803DE // anIndex
+ ME_55A3DF790028 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_55A3DF7000D9 DoIt
+
+ME ME_55A3DF6602FC
+ MEPROP UID '55A3DF6602FC'
+ MEPROP Name 'Insert'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A3DF7000D9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A3DF6602FC Insert
+
+FORWARD ME_55A3DF510076
+
+FORWARD ME_55A3DF5800DB
+
+ME ME_55A3DF610001
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_55A3DF610001 anItem
+
+ME ME_55A3DF5800DB
+ MEPROP UID '55A3DF5800DB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A3DF510076 // Add
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A3DF610001 // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_55A3DF5800DB DoIt
+
+ME ME_55A3DF510076
+ MEPROP UID '55A3DF510076'
+ MEPROP Name 'Add'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A3DF5800DB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A3DF510076 Add
+
+FORWARD ME_559E857A037A
+
+FORWARD ME_559E85860327
+
+ME ME_559E85960074
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_559E85960074 aFileName
+
+ME ME_559E85860327
+ MEPROP UID '559E85860327'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559E857A037A // FindDictionary
+ ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+ MELIST Parameters
+   Seq: ( ME_559E85960074 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_559E85860327 DoIt
+
+ME ME_559E91B8030C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_559E857A037A // FindDictionary
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_559E91B8030C 
+
+ME ME_559E857A037A
+ MEPROP UID '559E857A037A'
+ MEPROP Name 'FindDictionary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_559E85860327 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_559E91B8030C // l3String
+ )
+ ; // Dependencies
+
+ENDME // ME_559E857A037A FindDictionary
+
+FORWARD ME_55A663000019
+
+FORWARD ME_55A6630B003C
+
+ME ME_55A6630E006B
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47A1B1500302' '47BB24D30205.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_55A6630E006B anItem
+
+ME ME_55A6630B003C
+ MEPROP UID '55A6630B003C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A663000019 // Remove
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A6630E006B // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_55A6630B003C DoIt
+
+ME ME_55A663000019
+ MEPROP UID '55A663000019'
+ MEPROP Name 'Remove'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A6630B003C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A663000019 Remove
+
+FORWARD ME_55A66DCF00D9
+
+FORWARD ME_55A66DE6039F
+
+ME ME_55A66DEA033F
+ MEPROP Name 'anItem'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_55A4FCDC01B8' '4F2275C00012.ms.model.script' // TtfwDictionaryExPrim
+ ;
+
+ENDME // ME_55A66DEA033F anItem
+
+ME ME_55A66DE6039F
+ MEPROP UID '55A66DE6039F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A66DCF00D9 // RemoveUsersOf
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A66DEA033F // anItem
+ )
+ ; // Parameters
+
+ENDME // ME_55A66DE6039F DoIt
+
+ME ME_55A66DCF00D9
+ MEPROP UID '55A66DCF00D9'
+ MEPROP Name 'RemoveUsersOf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A66DE6039F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A66DCF00D9 RemoveUsersOf
+
+FORWARD ME_55AE379002EB
+
+FORWARD ME_55AE37B400CB
+
+ME ME_55AE37BD00BE
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+
+ENDME // ME_55AE37BD00BE anOther
+
+ME ME_55AE37B400CB
+ MEPROP UID '55AE37B400CB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AE379002EB // CollectNotValidTo
+ ;
+ MELIST Parameters
+   Seq: ( ME_55AE37BD00BE // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_55AE37B400CB DoIt
+
+ME ME_55AE379002EB
+ MEPROP UID '55AE379002EB'
+ MEPROP Name 'CollectNotValidTo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55AE37B400CB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55AE379002EB CollectNotValidTo
+
+FORWARD ME_55AFA4930133
+
+FORWARD ME_55AFA4B4012A
+
+ME ME_55AFA4B901A2
+ MEPROP Name 'aList'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+
+ENDME // ME_55AFA4B901A2 aList
+
+ME ME_55AFA4B4012A
+ MEPROP UID '55AFA4B4012A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AFA4930133 // RemoveElementsOf
+ ;
+ MELIST Parameters
+   Seq: ( ME_55AFA4B901A2 // aList
+ )
+ ; // Parameters
+
+ENDME // ME_55AFA4B4012A DoIt
+
+ME ME_55AFA4930133
+ MEPROP UID '55AFA4930133'
+ MEPROP Name 'RemoveElementsOf'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55AFA4B4012A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55AFA4930133 RemoveElementsOf
+
+FORWARD ME_55AFAA59009E
+
+ME ME_55AFAA6602D1
+ MEPROP UID '55AFAA6602D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55AFAA59009E // RemoveNotValid
+ ;
+
+ENDME // ME_55AFAA6602D1 DoIt
+
+ME ME_55AFAA59009E
+ MEPROP UID '55AFAA59009E'
+ MEPROP Name 'RemoveNotValid'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A63C1701BE // tfwNamedDictionaryList
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55AFAA6602D1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55AFAA59009E RemoveNotValid
+
+%%ImplementedBy ME_57C5572B036F ME_55A63C1701BE
+
+ME ME_55A63C1701BE
+ MEPROP UID '55A63C1701BE'
+ MEPROP Name 'tfwNamedDictionaryList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4F2275C00012' '4F2275C00012.ms.model.script' // ScriptingKeywordsCore
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_57C5572B036F' '57C5572B036F.ms.model.script' // seCriticalSectionHolder
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_55A3DF6602FC // Insert
+ HWL ME_55A3DF510076 // Add
+ HWL ME_559E857A037A // FindDictionary
+ HWL ME_55A663000019 // Remove
+ HWL ME_55A66DCF00D9 // RemoveUsersOf
+ HWL ME_55AE379002EB // CollectNotValidTo
+ HWL ME_55AFA4930133 // RemoveElementsOf
+ HWL ME_55AFAA59009E // RemoveNotValid
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" True
+ UP extprop:pas:TypeName '_tfwNamedDictionaryList_'
+ UP extprop:pas:UnitName 'tfwNamedDictionaryList.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwNamedDictionaryList.imp.pas'
+
+ENDME // ME_55A63C1701BE tfwNamedDictionaryList

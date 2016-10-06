@@ -1,0 +1,93 @@
+// ItfwKeywordFinderWordsPack 559BCED301F0 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_559BCED301F0
+
+ME ME_559BCF500182
+ MEPROP UID '559BCF500182'
+ MEPROP Name 'ParentFinder'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_559BCED301F0 // ItfwKeywordFinderWordsPack
+ ;
+ MELINK Target WL 'ME_559D5D4400D3' '4DAF19F600C5.ms.model.script' // TtfwKeywordFinder
+ ;
+ UP "mapped" False
+
+ENDME // ME_559BCF500182 ParentFinder
+
+FORWARD ME_559BCEFC0315
+
+ME ME_559BCF230376
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_559BCF230376 aName
+
+ME ME_559BCEFC0315
+ MEPROP UID '559BCEFC0315'
+ MEPROP Name 'KeywordByName'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_559BCED301F0 // ItfwKeywordFinderWordsPack
+ ;
+ MELINK Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.ms.model.script' // TtfwKeyWord
+ ;
+ MELIST Parameters
+   Seq: ( ME_559BCF230376 // aName
+ )
+ ; // Parameters
+
+ENDME // ME_559BCEFC0315 KeywordByName
+
+ME ME_4DAEEDE10285_ME_559BCED301F0
+ MELINK Original WL 'ME_4DAEEDE10285' '4DAF19F600C5.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4DAEEDE10285_ME_559BCED301F0 DoDoIt
+
+%%InheritedBy ME_559D5D4400D3 ME_559BCED301F0
+
+ME ME_559BCED301F0
+ MEPROP UID '559BCED301F0'
+ MEPROP Name 'ItfwKeywordFinderWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F43A0A401E6' '4F43A0A401E6.ms.model.script' // Basics
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_559D5D4400D3' '4DAF19F600C5.ms.model.script' // TtfwKeywordFinder
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_559BCF500182 // ParentFinder
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_559BCEFC0315 // KeywordByName
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4DAEEDE10285_ME_559BCED301F0 // DoDoIt
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\ItfwKeywordFinderWordsPack.pas'
+
+ENDME // ME_559BCED301F0 ItfwKeywordFinderWordsPack

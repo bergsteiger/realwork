@@ -2,37 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_517C0F37039A
-
-ME ME_4CC847800383_ME_517C0F4B027C
- MELINK Original WL 'ME_4CC847800383' '4CC81FAC02D6.ms.model.script' // TuneRegion
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_4CC847800383_ME_517C0F4B027C TuneRegion
-
-ME ME_517C0F4B027C
- MEPROP UID '517C0F4B027C'
- MEPROP Name 'RoundedControl'
- MEPROP Class class_Class
- MELINK Stereotype st_GUIControlMixIn ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_517C0F37039A // Rounded
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4CC81FB7008B' '4CC81FAC02D6.ms.model.script' // RegionableControl
- )
- ; // Inherits
- MELIST Overridden
-   Seq: ( ME_4CC847800383_ME_517C0F4B027C // TuneRegion
- )
- ; // Overridden
- UP extprop:pas:TypeName '_RoundedControl_'
- UP extprop:pas:UnitName 'RoundedControl.imp'
- UP intf.pas:Path 'common\components\SandBox\RoundedControl.imp.pas'
-
-ENDME // ME_517C0F4B027C RoundedControl
+%%Inner ME_517C0F4B027C
+%%Inner ME_517C0F9C03C3
+%%Inner ME_517C102F03B5
 
 ME ME_517C0F37039A
  MEPROP UID '517C0F37039A'
@@ -45,7 +17,7 @@ ME ME_517C0F37039A
  MELINK Parent WL 'ME_4861FFCA02CE' '4861FFCA02CE.ms.model.script' // SandBox
  ;
  MELIST Children
-   Seq: ( HWL ME_517C0F4B027C // RoundedControl
+   Seq: ( WL 'ME_517C0F4B027C' '517C0F4B027C.ms.model.script' // RoundedControl
  WL 'ME_517C0F9C03C3' '517C0F9C03C3.ms.model.script' // TRoundedButton
  WL 'ME_517C102F03B5' '517C102F03B5.ms.model.script' // TRoundedEdit
  )
@@ -56,5 +28,8 @@ ME ME_517C0F37039A
  WL 'ME_51612EBB02F5' '51612EBB02F5.ms.model.script' // Ref Counting
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_517C0F37039A Rounded

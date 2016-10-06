@@ -1,0 +1,53 @@
+// dd_lcCityNameFormatter 4EBB9E5801AF UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4EBB9AC100DD
+
+FORWARD ME_4EBB9E5801AF
+
+%%InheritedBy ME_4EBB99990388 ME_4EBB9AC100DD
+
+ME ME_4EBB9AC100DD
+ MEPROP UID '4EBB9AC100DD'
+ MEPROP Name 'Tdd_lcCityFormatter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Форматирование названия города' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4EBB9E5801AF // dd_lcCityNameFormatter
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4EBB99990388' '4EBB9983014C.ms.model.script' // Tdd_lcBaseFormatter
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'dd_lcCityFormatter'
+
+ENDME // ME_4EBB9AC100DD Tdd_lcCityFormatter
+
+ME ME_4EBB9E5801AF
+ MEPROP UID '4EBB9E5801AF'
+ MEPROP Name 'dd_lcCityNameFormatter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B324F930103' '4B324F930103.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4EBB9AC100DD // Tdd_lcCityFormatter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_dd_lcCityNameFormatter.pas'
+
+ENDME // ME_4EBB9E5801AF dd_lcCityNameFormatter

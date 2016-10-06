@@ -1,0 +1,269 @@
+// nsTypesNew 4D4161F5012E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4D41621B01DE
+%%Inner ME_573359B1010D
+%%Inner ME_47F21723038D
+
+FORWARD ME_4D4161F5012E
+
+FORWARD ME_4D41621B01DE
+
+ME ME_4D416242028A
+ MEPROP UID '4D416242028A'
+ MEPROP Name 'rIl3CString'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D41621B01DE // TnsStringPair
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4D416242028A rIl3CString
+
+ME ME_4D4162630190
+ MEPROP UID '4D4162630190'
+ MEPROP Name 'rIString'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D41621B01DE // TnsStringPair
+ ;
+ MELINK Target WL 'ME_431841610361' '4423F94903C8.ms.model.script' // String
+ ;
+
+ENDME // ME_4D4162630190 rIString
+
+ME ME_4D41621B01DE
+ MEPROP UID '4D41621B01DE'
+ MEPROP Name 'TnsStringPair'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D4161F5012E // nsTypesNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D416242028A // rIl3CString
+ HWL ME_4D4162630190 // rIString
+ )
+ ; // Attributes
+
+ENDME // ME_4D41621B01DE TnsStringPair
+
+FORWARD ME_573359B1010D
+
+ME ME_573359C502E9
+ MEPROP UID '573359C502E9'
+ MEPROP Name 'LLO_AND'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573359B1010D // TListLogicOperation
+ ;
+
+ENDME // ME_573359C502E9 LLO_AND
+
+ME ME_573359D30114
+ MEPROP UID '573359D30114'
+ MEPROP Name 'LLO_OR'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573359B1010D // TListLogicOperation
+ ;
+
+ENDME // ME_573359D30114 LLO_OR
+
+ME ME_573359DA0251
+ MEPROP UID '573359DA0251'
+ MEPROP Name 'LLO_AND_NOT'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573359B1010D // TListLogicOperation
+ ;
+
+ENDME // ME_573359DA0251 LLO_AND_NOT
+
+ME ME_573359F900FF
+ MEPROP UID '573359F900FF'
+ MEPROP Name 'LLO_NONE'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_573359B1010D // TListLogicOperation
+ ;
+
+ENDME // ME_573359F900FF LLO_NONE
+
+ME ME_573359B1010D
+ MEPROP UID '573359B1010D'
+ MEPROP Name 'TListLogicOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D4161F5012E // nsTypesNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_573359C502E9 // LLO_AND
+ HWL ME_573359D30114 // LLO_OR
+ HWL ME_573359DA0251 // LLO_AND_NOT
+ HWL ME_573359F900FF // LLO_NONE
+ )
+ ; // Attributes
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_573359B1010D TListLogicOperation
+
+FORWARD ME_47F21723038D
+
+ME ME_4A2000B20292
+ MEPROP UID '4A2000B20292'
+ MEPROP Name 'ns_ffRTF'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F21723038D // TnsFileFormat
+ ;
+
+ENDME // ME_4A2000B20292 ns_ffRTF
+
+ME ME_4A2000BB03AB
+ MEPROP UID '4A2000BB03AB'
+ MEPROP Name 'ns_ffTxt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F21723038D // TnsFileFormat
+ ;
+
+ENDME // ME_4A2000BB03AB ns_ffTxt
+
+ME ME_4A2000C202EC
+ MEPROP UID '4A2000C202EC'
+ MEPROP Name 'ns_ffHTML'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F21723038D // TnsFileFormat
+ ;
+
+ENDME // ME_4A2000C202EC ns_ffHTML
+
+ME ME_4A2000CB03DC
+ MEPROP UID '4A2000CB03DC'
+ MEPROP Name 'ns_ffXML'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F21723038D // TnsFileFormat
+ ;
+
+ENDME // ME_4A2000CB03DC ns_ffXML
+
+ME ME_4A2000D20208
+ MEPROP UID '4A2000D20208'
+ MEPROP Name 'ns_ffEvd'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F21723038D // TnsFileFormat
+ ;
+
+ENDME // ME_4A2000D20208 ns_ffEvd
+
+ME ME_4A2000D8036E
+ MEPROP UID '4A2000D8036E'
+ MEPROP Name 'ns_ffNull'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F21723038D // TnsFileFormat
+ ;
+
+ENDME // ME_4A2000D8036E ns_ffNull
+
+ME ME_57335B4B01D5
+ MEPROP UID '57335B4B01D5'
+ MEPROP Name 'ns_ffPDF'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F21723038D // TnsFileFormat
+ ;
+
+ENDME // ME_57335B4B01D5 ns_ffPDF
+
+ME ME_47F21723038D
+ MEPROP UID '47F21723038D'
+ MEPROP Name 'TnsFileFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY '- форматы файла.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4D4161F5012E // nsTypesNew
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A2000B20292 // ns_ffRTF
+ HWL ME_4A2000BB03AB // ns_ffTxt
+ HWL ME_4A2000C202EC // ns_ffHTML
+ HWL ME_4A2000CB03DC // ns_ffXML
+ HWL ME_4A2000D20208 // ns_ffEvd
+ HWL ME_4A2000D8036E // ns_ffNull
+ HWL ME_57335B4B01D5 // ns_ffPDF
+ )
+ ; // Attributes
+ UP "register in scripts" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_47F21723038D TnsFileFormat
+
+ME ME_4D4161F5012E
+ MEPROP UID '4D4161F5012E'
+ MEPROP Name 'nsTypesNew'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4D41621B01DE // TnsStringPair
+ HWL ME_573359B1010D // TListLogicOperation
+ HWL ME_47F21723038D // TnsFileFormat
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '27.11.2011 15:16'
+ UP extprop:rc:SelfName 'TypesNew'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\nsTypesNew.pas'
+
+ENDME // ME_4D4161F5012E nsTypesNew

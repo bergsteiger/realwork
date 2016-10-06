@@ -1,0 +1,53 @@
+// eeParaTools 49523C160394 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49523C160394
+
+ME ME_4AEEFE46025F
+ MEPROP UID '4AEEFE46025F'
+ MEPROP Name 'eeFindNumberedPara'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49523C160394 // eeParaTools
+ ;
+
+ENDME // ME_4AEEFE46025F eeFindNumberedPara
+
+ME ME_49523C240249
+ MEPROP UID '49523C240249'
+ MEPROP Name 'eeFindNumberedPara'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49523C160394 // eeParaTools
+ ;
+
+ENDME // ME_49523C240249 eeFindNumberedPara
+
+ME ME_49523C160394
+ MEPROP UID '49523C160394'
+ MEPROP Name 'eeParaTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4912E16B01B4' '4912E16B01B4.ms.model.script' // Engine Core
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AEEFE46025F // eeFindNumberedPara
+ HWL ME_49523C240249 // eeFindNumberedPara
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\NOT_FINISHED_eeParaTools.pas'
+
+ENDME // ME_49523C160394 eeParaTools

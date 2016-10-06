@@ -1,0 +1,46 @@
+// evStandardActions 552BAA150205 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_552BAA4B0206
+
+FORWARD ME_552BAA150205
+
+ME ME_552BAA4B0206
+ MEPROP UID '552BAA4B0206'
+ MEPROP Name 'TevOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_552BAA150205 // evStandardActions
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_552BAA4B0206 TevOperation
+
+ME ME_552BAA150205
+ MEPROP UID '552BAA150205'
+ MEPROP Name 'evStandardActions'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECB04A01F8' '47ECB04A01F8.ms.model.script' // Processors
+ ;
+ MELIST Children
+   Seq: ( HWL ME_552BAA4B0206 // TevOperation
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "ifdef" 'evNeedDisp'
+ UP extprop:rc:SelfName 'StandardActions'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_evStandardActions.pas'
+
+ENDME // ME_552BAA150205 evStandardActions

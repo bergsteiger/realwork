@@ -1,0 +1,295 @@
+// SynPDF 545CBD310006 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_545CBD8C00E0
+%%Inner ME_545CBDA50100
+%%Inner ME_5549C74702C5
+%%Inner ME_5549C81A008D
+%%Inner ME_5549C83700BF
+
+FORWARD ME_545CBD310006
+
+FORWARD ME_545CBD8C00E0
+
+ME ME_56B470F10230
+ MEPROP UID '56B470F10230'
+ MEPROP Name 'ForEtalon'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_545CBD8C00E0 // TPdfDocument
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_56B470F10230 ForEtalon
+
+FORWARD ME_56B471530132
+
+FORWARD ME_56B4716B0007
+
+ME ME_56B47173026D
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_56B47173026D aValue
+
+ME ME_56B4716B0007
+ MEPROP UID '56B4716B0007'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_56B471530132 // DoSet4Etalon
+ ;
+ MELIST Parameters
+   Seq: ( ME_56B47173026D // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_56B4716B0007 DoIt
+
+ME ME_56B471530132
+ MEPROP UID '56B471530132'
+ MEPROP Name 'DoSet4Etalon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545CBD8C00E0 // TPdfDocument
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_56B4716B0007 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_56B471530132 DoSet4Etalon
+
+ME ME_5549C33A0017
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545CBD8C00E0 // TPdfDocument
+ ;
+ MELINK Target WL 'ME_5549C319004B' '5549B8ED02D0.ms.model.script' // RawUTF8
+ ;
+
+ENDME // ME_5549C33A0017 
+
+ME ME_5549C398001F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_545CBD8C00E0 // TPdfDocument
+ ;
+ MELINK Target WL 'ME_5549C38402D3' '5549B9210256.ms.model.script' // TRC4InternalKey
+ ;
+
+ENDME // ME_5549C398001F 
+
+ME ME_545CBD8C00E0
+ MEPROP UID '545CBD8C00E0'
+ MEPROP Name 'TPdfDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545CBD310006 // SynPDF
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_56B470F10230 // ForEtalon
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_56B471530132 // DoSet4Etalon
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5549C33A0017 // RawUTF8
+ ME_5549C398001F // TRC4InternalKey
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PdfDocument'
+
+ENDME // ME_545CBD8C00E0 TPdfDocument
+
+ME ME_545CBDA50100
+ MEPROP UID '545CBDA50100'
+ MEPROP Name 'TPdfCanvas'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545CBD310006 // SynPDF
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PdfCanvas'
+
+ENDME // ME_545CBDA50100 TPdfCanvas
+
+FORWARD ME_5549C74702C5
+
+ME ME_5549C75E00BC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5549C74702C5 // TPdfStream
+ ;
+ MELINK Target WL 'ME_5549C72B02C0' '5549B90B0223.ms.model.script' // CompressStream
+ ;
+
+ENDME // ME_5549C75E00BC 
+
+ME ME_5549C74702C5
+ MEPROP UID '5549C74702C5'
+ MEPROP Name 'TPdfStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545CBD310006 // SynPDF
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5549C75E00BC // CompressStream
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PdfStream'
+
+ENDME // ME_5549C74702C5 TPdfStream
+
+FORWARD ME_5549C81A008D
+
+ME ME_5549C829001A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5549C81A008D // TPdfImage
+ ;
+ MELINK Target WL 'ME_5549C7FF02FA' '5549B934015D.ms.model.script' // TJpegImage
+ ;
+
+ENDME // ME_5549C829001A 
+
+ME ME_5549C81A008D
+ MEPROP UID '5549C81A008D'
+ MEPROP Name 'TPdfImage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545CBD310006 // SynPDF
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5549C829001A // TJpegImage
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PdfImage'
+
+ENDME // ME_5549C81A008D TPdfImage
+
+FORWARD ME_5549C83700BF
+
+ME ME_5549C846021B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5549C83700BF // TPdfPageGDI
+ ;
+ MELINK Target WL 'ME_5549C7D80326' '5549B8FF00EF.ms.model.script' // CompressSynLZ
+ ;
+
+ENDME // ME_5549C846021B 
+
+ME ME_5549C83700BF
+ MEPROP UID '5549C83700BF'
+ MEPROP Name 'TPdfPageGDI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545CBD310006 // SynPDF
+ ;
+ MELIST Dependencies
+   Seq: ( ME_5549C846021B // CompressSynLZ
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PdfPageGDI'
+
+ENDME // ME_5549C83700BF TPdfPageGDI
+
+ME ME_54B4DF3C00FD
+ MEPROP UID '54B4DF3C00FD'
+ MEPROP Name 'GDICommentStatAAC'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CBD310006 // SynPDF
+ ;
+
+ENDME // ME_54B4DF3C00FD GDICommentStatAAC
+
+ME ME_54B4DF5101C2
+ MEPROP UID '54B4DF5101C2'
+ MEPROP Name 'GDICommentEndAAC'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_545CBD310006 // SynPDF
+ ;
+
+ENDME // ME_54B4DF5101C2 GDICommentEndAAC
+
+ME ME_545CBD310006
+ MEPROP UID '545CBD310006'
+ MEPROP Name 'SynPDF'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_545CBCF1008C' '545CBCF1008C.ms.model.script' // SynPDF
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54B4DF3C00FD // GDICommentStatAAC
+ HWL ME_54B4DF5101C2 // GDICommentEndAAC
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_545CBD8C00E0 // TPdfDocument
+ HWL ME_545CBDA50100 // TPdfCanvas
+ HWL ME_5549C74702C5 // TPdfStream
+ HWL ME_5549C81A008D // TPdfImage
+ HWL ME_5549C83700BF // TPdfPageGDI
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\SynPDF\NOT_FINISHED_SynPDF.pas'
+
+ENDME // ME_545CBD310006 SynPDF

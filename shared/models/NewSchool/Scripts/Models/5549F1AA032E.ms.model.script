@@ -1,0 +1,134 @@
+// evGeneratorUtils 5549F1AA032E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5549F1AA032E
+
+FORWARD ME_5549F1C50037
+
+FORWARD ME_5549F2150160
+
+ME ME_5549F4A503B1
+ MEPROP Name 'aGenerator'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47ECAA5B0394' '47ECAA270135.ms.model.script' // Tk2TagGenerator
+ ;
+
+ENDME // ME_5549F4A503B1 aGenerator
+
+ME ME_5549F4A503C0
+ MEPROP Name 'aHiddenStyles'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BE38D01B0' '476BE0350329.ms.model.script' // StandardStyles
+ ;
+
+ENDME // ME_5549F4A503C0 aHiddenStyles
+
+ME ME_5549F2150160
+ MEPROP UID '5549F2150160'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5549F1C50037 // evSetFilters4PDF
+ ;
+ MELIST Parameters
+   Seq: ( ME_5549F4A503B1 // aGenerator
+ ME_5549F4A503C0 // aHiddenStyles
+ )
+ ; // Parameters
+
+ENDME // ME_5549F2150160 DoIt
+
+ME ME_5549F863039A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5549F1C50037 // evSetFilters4PDF
+ ;
+ MELINK Target WL 'ME_47ECBAA30322' '47ECACA70141.ms.model.script' // TevHiddenFilter
+ ;
+
+ENDME // ME_5549F863039A 
+
+ME ME_5549F868003D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5549F1C50037 // evSetFilters4PDF
+ ;
+ MELINK Target WL 'ME_47ECB8E402B4' '47ECB8BD00A8.ms.model.script' // TevdPageParamsFilter
+ ;
+
+ENDME // ME_5549F868003D 
+
+ME ME_5549F86B02EE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5549F1C50037 // evSetFilters4PDF
+ ;
+ MELINK Target WL 'ME_49E496CA00DE' '47ECACA70141.ms.model.script' // TevUserCommentFilter
+ ;
+
+ENDME // ME_5549F86B02EE 
+
+ME ME_5549F88C0100
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5549F1C50037 // evSetFilters4PDF
+ ;
+ MELINK Target WL 'ME_4E85A869034E' '47ECACA70141.ms.model.script' // TevStyleHeaderAdder
+ ;
+
+ENDME // ME_5549F88C0100 
+
+ME ME_5549F1C50037
+ MEPROP UID '5549F1C50037'
+ MEPROP Name 'evSetFilters4PDF'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5549F1AA032E // evGeneratorUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5549F2150160 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5549F863039A // TevHiddenFilter
+ ME_5549F868003D // TevdPageParamsFilter
+ ME_5549F86B02EE // TevUserCommentFilter
+ ME_5549F88C0100 // TevStyleHeaderAdder
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'SetFilters4PDF'
+
+ENDME // ME_5549F1C50037 evSetFilters4PDF
+
+ME ME_5549F1AA032E
+ MEPROP UID '5549F1AA032E'
+ MEPROP Name 'evGeneratorUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5549F1C50037 // evSetFilters4PDF
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'GeneratorUtils'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evGeneratorUtils.pas'
+
+ENDME // ME_5549F1AA032E evGeneratorUtils

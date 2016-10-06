@@ -1,0 +1,53 @@
+// vtForm 4F0C23870303 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F0C239A01E1
+
+FORWARD ME_4F0C23870303
+
+%%InheritedBy ME_49525A0F034B ME_4F0C239A01E1
+
+ME ME_4F0C239A01E1
+ MEPROP UID '4F0C239A01E1'
+ MEPROP Name 'TvtForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F0C23870303 // vtForm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49525A0F034B' '495259ED005C.ms.model.script' // Tl3Form
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Form'
+
+ENDME // ME_4F0C239A01E1 TvtForm
+
+ME ME_4F0C23870303
+ MEPROP UID '4F0C23870303'
+ MEPROP Name 'vtForm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F485150151' '47F485150151.ms.model.script' // vtCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F0C239A01E1 // TvtForm
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Form'
+ UP intf.pas:Path 'common\components\gui\Garant\VT\NOT_FINISHED_vtForm.pas'
+
+ENDME // ME_4F0C23870303 vtForm

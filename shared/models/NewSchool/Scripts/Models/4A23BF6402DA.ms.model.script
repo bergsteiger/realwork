@@ -1,0 +1,37 @@
+// evRangeTools 4A23BF6402DA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4A23BF6402DA
+
+ME ME_4A263CAD0337
+ MEPROP UID '4A263CAD0337'
+ MEPROP Name 'evCompareBlocks'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A23BF6402DA // evRangeTools
+ ;
+
+ENDME // ME_4A263CAD0337 evCompareBlocks
+
+ME ME_4A23BF6402DA
+ MEPROP UID '4A23BF6402DA'
+ MEPROP Name 'evRangeTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A263CAD0337 // evCompareBlocks
+ )
+ ; // Operations
+ UP "finished" False
+ UP extprop:rc:SelfName 'RangeTools'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\NOT_FINISHED_evRangeTools.pas'
+
+ENDME // ME_4A23BF6402DA evRangeTools

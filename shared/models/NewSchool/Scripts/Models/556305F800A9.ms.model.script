@@ -1,0 +1,107 @@
+// tfwOtherWordRunner 556305F800A9 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_556305F800A9
+
+FORWARD ME_5563064D0054
+
+FORWARD ME_5563065A03A1
+
+ME ME_5563065F038E
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_5563065F038E aCtx
+
+ME ME_5563065A03A1
+ MEPROP UID '5563065A03A1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5563064D0054 // RunOther
+ ;
+ MELIST Parameters
+   Seq: ( ME_5563065F038E // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_5563065A03A1 DoIt
+
+ME ME_5563064D0054
+ MEPROP UID '5563064D0054'
+ MEPROP Name 'RunOther'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_556305F800A9 // tfwOtherWordRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5563065A03A1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5563064D0054 RunOther
+
+FORWARD ME_55630CB40207
+
+ME ME_55630CC00089
+ MEPROP UID '55630CC00089'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55630CB40207 // GetWordToRun
+ ;
+ MELINK Target WL 'ME_4DB9BB43017B' '54F079B5035C.ms.model.script' // TtfwAnonimousWord
+ ;
+
+ENDME // ME_55630CC00089 DoIt
+
+ME ME_55630CB40207
+ MEPROP UID '55630CB40207'
+ MEPROP Name 'GetWordToRun'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_556305F800A9 // tfwOtherWordRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55630CC00089 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55630CB40207 GetWordToRun
+
+ME ME_556305F800A9
+ MEPROP UID '556305F800A9'
+ MEPROP Name 'tfwOtherWordRunner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_54F079B5035C' '54F079B5035C.ms.model.script' // CompiledWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5563064D0054 // RunOther
+ HWL ME_55630CB40207 // GetWordToRun
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_tfwOtherWordRunner_'
+ UP extprop:pas:UnitName 'tfwOtherWordRunner.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwOtherWordRunner.imp.pas'
+
+ENDME // ME_556305F800A9 tfwOtherWordRunner

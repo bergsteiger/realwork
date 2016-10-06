@@ -2,7 +2,14 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_509A5CCB022A
+%%Inner ME_509A5D0D0141
+%%Inner ME_509B8C5A0200
+%%Inner ME_509B9A8A0270
+
 FORWARD ME_509A5CB50110
+
+%%ImplementedBy ME_509B4CC20221 ME_509A5CCB022A
 
 ME ME_509A5CCB022A
  MEPROP UID '509A5CCB022A'
@@ -16,9 +23,12 @@ ME ME_509A5CCB022A
  MELINK Parent HWL ME_509A5CB50110 // SupportWords
  ;
  MELIST Implements
-   Seq: ( WL 'ME_509B4CC20221' '4E2955E50377.ms.model.script' // LoadUnits
+   Seq: ( WL 'ME_509B4CC20221' '509B4CC20221.ms.model.script' // LoadUnits
  )
  ; // Implements
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TkwLoadFromFile'
  UP extprop:pas:UnitName 'kwLoadFromFile'
  UP extprop:rc:isAcceptableForScripts True
@@ -27,62 +37,7 @@ ME ME_509A5CCB022A
 
 ENDME // ME_509A5CCB022A LoadFromFile
 
-FORWARD ME_509A5D0D0141
-
-ME ME_509A5D18026B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
- ;
- MELINK Target HWL ME_509A5CCB022A // LoadFromFile
- ;
-
-ENDME // ME_509A5D18026B 
-
 FORWARD ME_509B8C5A0200
-
-ME ME_509B8C6B00EE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
- ;
- MELINK Target HWL ME_509B8C5A0200 // SetFontSize
- ;
-
-ENDME // ME_509B8C6B00EE 
-
-FORWARD ME_509B9A8A0270
-
-ME ME_509B9A9F02E3
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_509A5D0D0141 // SupportKeyWords
- ;
- MELINK Target HWL ME_509B9A8A0270 // GetFontSize
- ;
-
-ENDME // ME_509B9A9F02E3 
-
-ME ME_509A5D0D0141
- MEPROP UID '509A5D0D0141'
- MEPROP Name 'SupportKeyWords'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_509A5CB50110 // SupportWords
- ;
- MELIST Dependencies
-   Seq: ( ME_509A5D18026B // LoadFromFile
- ME_509B8C6B00EE // SetFontSize
- ME_509B9A9F02E3 // GetFontSize
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\SupportKeyWords.pas'
-
-ENDME // ME_509A5D0D0141 SupportKeyWords
 
 ME ME_509B92AC027B
  MEPROP Class class_Dependency
@@ -99,7 +54,7 @@ ME ME_509B9AEC03D3
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_509B8C5A0200 // SetFontSize
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_509B9AEC03D3 
@@ -120,6 +75,9 @@ ME ME_509B8C5A0200
  ME_509B9AEC03D3 // FreeAndNil
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TkwSetFontSize'
  UP extprop:pas:UnitName 'kwSetFontSize'
  UP extprop:rc:isAcceptableForScripts True
@@ -127,6 +85,8 @@ ME ME_509B8C5A0200
  UP intf.pas:Path 'common\components\rtl\Garant\Keywords4Daily\kwSetFontSize.pas'
 
 ENDME // ME_509B8C5A0200 SetFontSize
+
+FORWARD ME_509B9A8A0270
 
 ME ME_509B9AC5027F
  MEPROP Class class_Dependency
@@ -143,7 +103,7 @@ ME ME_509B9AE3017C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_509B9A8A0270 // GetFontSize
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_509B9AE3017C 
@@ -164,6 +124,9 @@ ME ME_509B9A8A0270
  ME_509B9AE3017C // FreeAndNil
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:TypeName 'TkwGetFontSize'
  UP extprop:pas:UnitName 'kwGetFontSize'
  UP extprop:rc:isAcceptableForScripts True
@@ -184,7 +147,7 @@ ME ME_509A5CB50110
  ;
  MELIST Children
    Seq: ( HWL ME_509A5CCB022A // LoadFromFile
- HWL ME_509A5D0D0141 // SupportKeyWords
+ WL 'ME_509A5D0D0141' '509A5D0D0141.ms.model.script' // SupportKeyWords
  HWL ME_509B8C5A0200 // SetFontSize
  HWL ME_509B9A8A0270 // GetFontSize
  )
@@ -195,6 +158,9 @@ ME ME_509A5CB50110
  WL 'ME_4E2955E50377' '4E2955E50377.ms.model.script' // AutoTestSupport
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_509A5CB50110 SupportWords

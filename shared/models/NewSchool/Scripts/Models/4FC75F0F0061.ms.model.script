@@ -1,0 +1,171 @@
+// seModalWorker 4FC75F0F0061 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4FC7557C0082
+
+FORWARD ME_4FC75F0F0061
+
+FORWARD ME_4FC7557C0082
+
+ME ME_4FC755A00150
+ MEPROP UID '4FC755A00150'
+ MEPROP Name 'rWord'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4FC7557C0082 // TseModalWorker
+ ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4FC755A00150 rWord
+
+ME ME_4FC755A80170
+ MEPROP UID '4FC755A80170'
+ MEPROP Name 'rContext'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4FC7557C0082 // TseModalWorker
+ ;
+ MELINK Target WL 'ME_4DCACEA0005A' '4DAF19F600C5.ms.model.script' // PtfwContext
+ ;
+
+ENDME // ME_4FC755A80170 rContext
+
+FORWARD ME_4FC755BA022E
+
+ME ME_4FC755C70112
+ MEPROP UID '4FC755C70112'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC755BA022E // Free
+ ;
+
+ENDME // ME_4FC755C70112 DoIt
+
+ME ME_4FC755BA022E
+ MEPROP UID '4FC755BA022E'
+ MEPROP Name 'Free'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7557C0082 // TseModalWorker
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC755C70112 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC755BA022E Free
+
+FORWARD ME_4FC755E000C9
+
+FORWARD ME_4FC755E702B0
+
+ME ME_4FC755FE02EC
+ MEPROP Name 'aWord'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4FC755FE02EC aWord
+
+ME ME_4FC755FE0327
+ MEPROP Name 'aContext'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4FC755FE0327 aContext
+
+ME ME_4FC755E702B0
+ MEPROP UID '4FC755E702B0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC755E000C9 // C
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC755FE02EC // aWord
+ ME_4FC755FE0327 // aContext
+ )
+ ; // Parameters
+
+ENDME // ME_4FC755E702B0 DoIt
+
+ME ME_4FC755E000C9
+ MEPROP UID '4FC755E000C9'
+ MEPROP Name 'C'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7557C0082 // TseModalWorker
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC755E702B0 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC755E000C9 C
+
+ME ME_4FC7557C0082
+ MEPROP UID '4FC7557C0082'
+ MEPROP Name 'TseModalWorker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4FC75F0F0061 // seModalWorker
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4FC755A00150 // rWord
+ HWL ME_4FC755A80170 // rContext
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4FC755BA022E // Free
+ HWL ME_4FC755E000C9 // C
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'seModalWorker'
+
+ENDME // ME_4FC7557C0082 TseModalWorker
+
+ME ME_4FC75F0F0061
+ MEPROP UID '4FC75F0F0061'
+ MEPROP Name 'seModalWorker'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F2163250016' '4F2163250016.ms.model.script' // CodeFlowWords
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4FC7557C0082 // TseModalWorker
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalWorker.pas'
+
+ENDME // ME_4FC75F0F0061 seModalWorker

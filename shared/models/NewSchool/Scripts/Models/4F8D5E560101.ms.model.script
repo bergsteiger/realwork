@@ -1,0 +1,160 @@
+// SrchWin 4F8D5E560101 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8D5E6B0120
+
+FORWARD ME_4F8D5E560101
+
+FORWARD ME_4F8D5E6B0120
+
+ME ME_4F8D742F024C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_4F8D73AD0139' '4F8D739701F7.ms.model.script' // TDocumentList
+ ;
+
+ENDME // ME_4F8D742F024C 
+
+ME ME_57DBBC0A0128
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57E2548A0223' '57E2336703B0.ms.model.script' // TarCustomMultiModifyDocsHelper
+ ;
+
+ENDME // ME_57DBBC0A0128 
+
+ME ME_57E25F43000A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57DBBB3500CE' '57E2336703B0.ms.model.script' // TarDirectMultiModifyDocsHelper
+ ;
+
+ENDME // ME_57E25F43000A 
+
+ME ME_57E3AD32020C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57E3A9690059' '57CFC13E033D.ms.model.script' // TarRemoteMultiModifyDocsHelper
+ ;
+
+ENDME // ME_57E3AD32020C 
+
+ME ME_57EA65C301A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57EA22400306' '57E2336703B0.ms.model.script' // TarCustomMultiClearAttributesHelper
+ ;
+
+ENDME // ME_57EA65C301A0 
+
+ME ME_57EA65C80188
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57EA225C02AA' '57E2336703B0.ms.model.script' // TarDirectMultiClearAttributesHelper
+ ;
+
+ENDME // ME_57EA65C80188 
+
+ME ME_57EBA36D01CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57EBA2190344' '57CFC13E033D.ms.model.script' // TarRemoteMultiClearAttributesHelper
+ ;
+
+ENDME // ME_57EBA36D01CF 
+
+ME ME_57EE36C701CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57ED151F00AA' '57E2336703B0.ms.model.script' // TarCustomMultiOperationHelper
+ ;
+
+ENDME // ME_57EE36C701CD 
+
+ME ME_57EE36D00019
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57ED158F01BB' '57E2336703B0.ms.model.script' // TarDirectMultiOperationHelper
+ ;
+
+ENDME // ME_57EE36D00019 
+
+ME ME_57EE4A62036B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F8D5E6B0120 // TSearchWin
+ ;
+ MELINK Target WL 'ME_57EE4A3201F3' '57CFC13E033D.ms.model.script' // TarRemoteMultiOperationHelper
+ ;
+
+ENDME // ME_57EE4A62036B 
+
+ME ME_4F8D5E6B0120
+ MEPROP UID '4F8D5E6B0120'
+ MEPROP Name 'TSearchWin'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D5E560101 // SrchWin
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4F8D742F024C // TDocumentList
+ ME_57DBBC0A0128 // TarCustomMultiModifyDocsHelper
+ ME_57E25F43000A // TarDirectMultiModifyDocsHelper
+ ME_57E3AD32020C // TarRemoteMultiModifyDocsHelper
+ ME_57EA65C301A0 // TarCustomMultiClearAttributesHelper
+ ME_57EA65C80188 // TarDirectMultiClearAttributesHelper
+ ME_57EBA36D01CF // TarRemoteMultiClearAttributesHelper
+ ME_57EE36C701CD // TarCustomMultiOperationHelper
+ ME_57EE36D00019 // TarDirectMultiOperationHelper
+ ME_57EE4A62036B // TarRemoteMultiOperationHelper
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SearchWin'
+
+ENDME // ME_4F8D5E6B0120 TSearchWin
+
+ME ME_4F8D5E560101
+ MEPROP UID '4F8D5E560101'
+ MEPROP Name 'SrchWin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E202A4A01B6' '4E202A4A01B6.ms.model.script' // ChildWindow
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D5E6B0120 // TSearchWin
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_SrchWin.pas'
+
+ENDME // ME_4F8D5E560101 SrchWin

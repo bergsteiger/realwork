@@ -2,89 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_4E4B61B000D4
-
-FORWARD ME_4E4B61CC0291
-
-ME ME_4E4B61E40216
- MEPROP UID '4E4B61E40216'
- MEPROP Name 'TChangeDocWizardDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E4B61CC0291 // D_WizChangeDoc
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4E4B62A40251' '4E202BD501B7.ms.model.script' // TBottomBtnDlg
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ChangeDocWizardDlg'
-
-ENDME // ME_4E4B61E40216 TChangeDocWizardDlg
-
-ME ME_4E4B61CC0291
- MEPROP UID '4E4B61CC0291'
- MEPROP Name 'D_WizChangeDoc'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E4B61B000D4 // Wizards
- ;
- MELIST Children
-   Seq: ( HWL ME_4E4B61E40216 // TChangeDocWizardDlg
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_WizChangeDoc.pas'
-
-ENDME // ME_4E4B61CC0291 D_WizChangeDoc
-
-FORWARD ME_4E4B61FC00CF
-
-ME ME_4E4B6214019B
- MEPROP UID '4E4B6214019B'
- MEPROP Name 'TIzmWizardDlg'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_4E4B61FC00CF // D_WizIzm
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4E4B6244039A' '4E202BD501B7.ms.model.script' // TTabBBtnDlg
- )
- ; // Inherits
- UP "finished" False
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'IzmWizardDlg'
-
-ENDME // ME_4E4B6214019B TIzmWizardDlg
-
-ME ME_4E4B61FC00CF
- MEPROP UID '4E4B61FC00CF'
- MEPROP Name 'D_WizIzm'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_4E4B61B000D4 // Wizards
- ;
- MELIST Children
-   Seq: ( HWL ME_4E4B6214019B // TIzmWizardDlg
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_WizIzm.pas'
-
-ENDME // ME_4E4B61FC00CF D_WizIzm
+%%Inner ME_4E4B61CC0291
+%%Inner ME_4E4B61FC00CF
 
 ME ME_4E4B61B000D4
  MEPROP UID '4E4B61B000D4'
@@ -97,14 +16,17 @@ ME ME_4E4B61B000D4
  MELINK Parent WL 'ME_4DE803840174' '4DE803840174.ms.model.script' // Dlg
  ;
  MELIST Children
-   Seq: ( HWL ME_4E4B61CC0291 // D_WizChangeDoc
- HWL ME_4E4B61FC00CF // D_WizIzm
+   Seq: ( WL 'ME_4E4B61CC0291' '4E4B61CC0291.ms.model.script' // D_WizChangeDoc
+ WL 'ME_4E4B61FC00CF' '4E4B61FC00CF.ms.model.script' // D_WizIzm
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_4E202BD501B7' '4E202BD501B7.ms.model.script' // BaseForms
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "finished" False
 
 ENDME // ME_4E4B61B000D4 Wizards

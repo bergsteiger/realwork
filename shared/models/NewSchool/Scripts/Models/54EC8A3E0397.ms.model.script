@@ -2,144 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_54EC8A3E0397
-
-FORWARD ME_54EC8A6F01D7
-
-ME ME_552FAFAA0226
- MEPROP UID '552FAFAA0226'
- MEPROP Name 'application_CancelHint'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
-
-ENDME // ME_552FAFAA0226 application_CancelHint
-
-ME ME_552FAFB6009F
- MEPROP UID '552FAFB6009F'
- MEPROP Name 'application_IsHintVisible'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_552FAFB6009F application_IsHintVisible
-
-ME ME_552FAFDC0324
- MEPROP UID '552FAFDC0324'
- MEPROP Name 'application_GetLastHint'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
- ;
-
-ENDME // ME_552FAFDC0324 application_GetLastHint
-
-ME ME_577E436B026F
- MEPROP UID '577E436B026F'
- MEPROP Name 'application_GetHintFontInfo'
- MEPROP Class class_Operation
- MELINK Stereotype st_globalkeyword::Operation ;
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_46A60B17028B' '4677FBA70343.ms.model.script' // Il3FontInfo
- ;
-
-ENDME // ME_577E436B026F application_GetHintFontInfo
-
-ME ME_54EC8AD103D2
- MEPROP Class class_Dependency
- MELINK Stereotype st_injects::Dependency ;
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_50C6241B0355' '50C61A7F0303.ms.model.script' // TvtHintManager
- ;
-
-ENDME // ME_54EC8AD103D2 
-
-ME ME_552FAF9B0244
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_50C6241B0355' '50C61A7F0303.ms.model.script' // TvtHintManager
- ;
-
-ENDME // ME_552FAF9B0244 
-
-ME ME_552FC20E01E2
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
- ;
-
-ENDME // ME_552FC20E01E2 
-
-ME ME_577E4C520192
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_556F25860097' '55001317029B.ms.model.script' // Tl3ControlFontInfo
- ;
-
-ENDME // ME_577E4C520192 
-
-ME ME_5786574600BE
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_54EC8A6F01D7 // vtHintWordsPack
- ;
- MELINK Target WL 'ME_5786531B02BD' '473C3BEE0334.ms.model.script' // Tl3FontInfo
- ;
-
-ENDME // ME_5786574600BE 
-
-ME ME_54EC8A6F01D7
- MEPROP UID '54EC8A6F01D7'
- MEPROP Name 'vtHintWordsPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54EC8A3E0397 // vtHintWords
- ;
- MELIST Operations
-   Seq: ( HWL ME_552FAFAA0226 // application_CancelHint
- HWL ME_552FAFB6009F // application_IsHintVisible
- HWL ME_552FAFDC0324 // application_GetLastHint
- HWL ME_577E436B026F // application_GetHintFontInfo
- )
- ; // Operations
- MELIST Dependencies
-   Seq: ( ME_54EC8AD103D2 // TvtHintManager
- ME_552FAF9B0244 // TvtHintManager
- ME_552FC20E01E2 // Windows
- ME_577E4C520192 // Tl3ControlFontInfo
- ME_5786574600BE // Tl3FontInfo
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP extprop:rc:SelfName 'HintWordsPack'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\vtHintWordsPack.pas'
-
-ENDME // ME_54EC8A6F01D7 vtHintWordsPack
+%%Inner ME_54EC8A6F01D7
 
 ME ME_54EC8A3E0397
  MEPROP UID '54EC8A3E0397'
@@ -152,7 +15,7 @@ ME ME_54EC8A3E0397
  MELINK Parent WL 'ME_54EC57FA0285' '54EC57FA0285.ms.model.script' // ScriptEngine$VT
  ;
  MELIST Children
-   Seq: ( HWL ME_54EC8A6F01D7 // vtHintWordsPack
+   Seq: ( WL 'ME_54EC8A6F01D7' '54EC8A6F01D7.ms.model.script' // vtHintWordsPack
  )
  ; // Children
  MELIST Depends
@@ -165,6 +28,9 @@ ME ME_54EC8A3E0397
  WL 'ME_55001317029B' '55001317029B.ms.model.script' // VCLHelpers
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_54EC8A3E0397 vtHintWords

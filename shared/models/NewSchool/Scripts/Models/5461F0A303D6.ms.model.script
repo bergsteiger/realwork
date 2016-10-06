@@ -1,0 +1,165 @@
+// evdNcsTypes 5461F0A303D6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5461CFB8002C
+%%Inner ME_54996019037A
+
+FORWARD ME_5461F0A303D6
+
+FORWARD ME_5461CFB8002C
+
+ME ME_5461CFCE022B
+ MEPROP UID '5461CFCE022B'
+ MEPROP Name 'ncs_mkMessage'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Сообщение на которое ожидается ответ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461CFB8002C // TncsMessageKind
+ ;
+
+ENDME // ME_5461CFCE022B ncs_mkMessage
+
+ME ME_5461CFE502D6
+ MEPROP UID '5461CFE502D6'
+ MEPROP Name 'ncs_mkReply'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Ответ на сообщение' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461CFB8002C // TncsMessageKind
+ ;
+
+ENDME // ME_5461CFE502D6 ncs_mkReply
+
+ME ME_5461D00001B2
+ MEPROP UID '5461D00001B2'
+ MEPROP Name 'ncs_mkSignal'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Сообщение на которое НЕ ожидается ответ' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_5461CFB8002C // TncsMessageKind
+ ;
+
+ENDME // ME_5461D00001B2 ncs_mkSignal
+
+ME ME_5461CFB8002C
+ MEPROP UID '5461CFB8002C'
+ MEPROP Name 'TncsMessageKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5461F0A303D6 // evdNcsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5461CFCE022B // ncs_mkMessage
+ HWL ME_5461CFE502D6 // ncs_mkReply
+ HWL ME_5461D00001B2 // ncs_mkSignal
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5461CFB8002C TncsMessageKind
+
+FORWARD ME_54996019037A
+
+ME ME_549960290342
+ MEPROP UID '549960290342'
+ MEPROP Name 'ncs_rkOk'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54996019037A // TncsResultKind
+ ;
+
+ENDME // ME_549960290342 ncs_rkOk
+
+ME ME_549960430169
+ MEPROP UID '549960430169'
+ MEPROP Name 'ncs_rkFail'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54996019037A // TncsResultKind
+ ;
+
+ENDME // ME_549960430169 ncs_rkFail
+
+ME ME_549960550239
+ MEPROP UID '549960550239'
+ MEPROP Name 'ncs_rkRetry'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54996019037A // TncsResultKind
+ ;
+
+ENDME // ME_549960550239 ncs_rkRetry
+
+ME ME_5501ABCA0064
+ MEPROP UID '5501ABCA0064'
+ MEPROP Name 'ncs_rkEmpty'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54996019037A // TncsResultKind
+ ;
+
+ENDME // ME_5501ABCA0064 ncs_rkEmpty
+
+ME ME_54996019037A
+ MEPROP UID '54996019037A'
+ MEPROP Name 'TncsResultKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5461F0A303D6 // evdNcsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_549960290342 // ncs_rkOk
+ HWL ME_549960430169 // ncs_rkFail
+ HWL ME_549960550239 // ncs_rkRetry
+ HWL ME_5501ABCA0064 // ncs_rkEmpty
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_54996019037A TncsResultKind
+
+ME ME_5461F0A303D6
+ MEPROP UID '5461F0A303D6'
+ MEPROP Name 'evdNcsTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_484A470100DD' '484A470100DD.ms.model.script' // Standard
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5461CFB8002C // TncsMessageKind
+ HWL ME_54996019037A // TncsResultKind
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "UseNewGen" True
+ UP extprop:rc:SelfName 'dNcsTypes'
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\evdNcsTypes.pas'
+
+ENDME // ME_5461F0A303D6 evdNcsTypes

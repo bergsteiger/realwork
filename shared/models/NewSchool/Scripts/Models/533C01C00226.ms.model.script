@@ -1,0 +1,51 @@
+// l3PrimString 533C01C00226 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_533C01D80210
+
+FORWARD ME_533C01C00226
+
+%%InheritedBy ME_47A8693601A1 ME_533C01D80210
+
+ME ME_533C01D80210
+ MEPROP UID '533C01D80210'
+ MEPROP Name 'Tl3PrimString'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533C01C00226 // l3PrimString
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47A8693601A1' '53317D14019D.ms.model.script' // Tl3PrimString
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PrimString'
+
+ENDME // ME_533C01D80210 Tl3PrimString
+
+ME ME_533C01C00226
+ MEPROP UID '533C01C00226'
+ MEPROP Name 'l3PrimString'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_533C01D80210 // Tl3PrimString
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'PrimString'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PrimString.pas'
+
+ENDME // ME_533C01C00226 l3PrimString

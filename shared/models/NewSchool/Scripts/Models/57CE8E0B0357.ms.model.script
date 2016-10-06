@@ -1,0 +1,86 @@
+// l3PointerUtils 57CE8E0B0357 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57CE8E0B0357
+
+FORWARD ME_57CE8E2403E7
+
+FORWARD ME_57CE8E46015F
+
+ME ME_57CE8E5601A7
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_57CE8E5601A7 A
+
+ME ME_57CE8E5601CF
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_57CE8E5601CF B
+
+ME ME_57CE8E46015F
+ MEPROP UID '57CE8E46015F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CE8E2403E7 // l3ComparePointers
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_57CE8E5601A7 // A
+ ME_57CE8E5601CF // B
+ )
+ ; // Parameters
+
+ENDME // ME_57CE8E46015F DoIt
+
+ME ME_57CE8E2403E7
+ MEPROP UID '57CE8E2403E7'
+ MEPROP Name 'l3ComparePointers'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CE8E0B0357 // l3PointerUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CE8E46015F // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'ComparePointers'
+
+ENDME // ME_57CE8E2403E7 l3ComparePointers
+
+ME ME_57CE8E0B0357
+ MEPROP UID '57CE8E0B0357'
+ MEPROP Name 'l3PointerUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57CE8E2403E7 // l3ComparePointers
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'PointerUtils'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3PointerUtils.pas'
+
+ENDME // ME_57CE8E0B0357 l3PointerUtils

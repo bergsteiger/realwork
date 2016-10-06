@@ -1,0 +1,84 @@
+// PrintViewDecorationRules 4F4B4B10001B Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F4B4B10001B
+
+ME ME_4F4B4D6E03C5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4B4B10001B // PrintViewDecorationRules
+ ;
+ MELINK Target WL 'ME_4E677FA10009' '48492FC0029D.ms.model.script' // FooterForChangesInfo
+ ;
+
+ENDME // ME_4F4B4D6E03C5 
+
+ME ME_4F4B4D7303C2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4B4B10001B // PrintViewDecorationRules
+ ;
+ MELINK Target WL 'ME_4E1C5F2700BE' '48492FC0029D.ms.model.script' // HeaderForChangesInfo
+ ;
+
+ENDME // ME_4F4B4D7303C2 
+
+ME ME_4F4B680A01CD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F4B4B10001B // PrintViewDecorationRules
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_4F4B680A01CD 
+
+ME ME_4F33E3A20056_ME_4F4B4B10001B
+ MELINK Original WL 'ME_4F33E3A20056' '4F33E5FD009E.ms.model.script' // GetAllowsThisDecor
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F33E3A20056_ME_4F4B4B10001B GetAllowsThisDecor
+
+%%ImplementedBy ME_4F4B4800034D ME_4F4B4B10001B
+
+%%InheritedBy ME_4F33E7CF0393 ME_4F4B4B10001B
+
+ME ME_4F4B4B10001B
+ MEPROP UID '4F4B4B10001B'
+ MEPROP Name 'PrintViewDecorationRules'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ѕравила вывода декораций на печать' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4F4B48E5029E' '4F4B48E5029E.ms.model.script' // Aspects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F33E7CF0393' '4F33E7CF0393.ms.model.script' // nsEditionsDecorationRules
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4F4B4800034D' '4E3160C802DA.ms.model.script' // Ќе должны печататьс€ декоративные элементы баллонов про изменени€ документа
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_4F33E3A20056_ME_4F4B4B10001B // GetAllowsThisDecor
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4F4B4D6E03C5 // FooterForChangesInfo
+ ME_4F4B4D7303C2 // HeaderForChangesInfo
+ ME_4F4B680A01CD // Tk2TagID
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_PrintViewDecorationRules_'
+ UP extprop:pas:UnitName 'PrintViewDecorationRules.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\PrintViewDecorationRules.imp.pas'
+
+ENDME // ME_4F4B4B10001B PrintViewDecorationRules

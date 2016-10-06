@@ -1,0 +1,162 @@
+// k2OpMisc 48CF8F160109 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_48CF8F160109
+
+FORWARD ME_48CF8F3C02C9
+
+ME ME_48CF8F500217
+ MEPROP Name 'aProcessorSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_48CF8F500217 aProcessorSource
+
+ME ME_48CF8F50027A
+ MEPROP Name 'anOpCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_48CF8F50027A anOpCode
+
+ME ME_48CF8F3C02C9
+ MEPROP UID '48CF8F3C02C9'
+ MEPROP Name 'k2StartOp'
+ MEPROP Class class_Operation
+ %SUMMARY 'открывает пачку операций. aProcessorSource может поддерживать Il3Processor' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CF8F160109 // k2OpMisc
+ ;
+ MELINK Target WL 'ME_469F7AC50332' '53317D14019D.ms.model.script' // Il3OpPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CF8F500217 // aProcessorSource
+ ME_48CF8F50027A // anOpCode
+ )
+ ; // Parameters
+
+ENDME // ME_48CF8F3C02C9 k2StartOp
+
+FORWARD ME_48CF8F6103E5
+
+ME ME_48CF8F7803CF
+ MEPROP Name 'aProcessor'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
+ ;
+
+ENDME // ME_48CF8F7803CF aProcessor
+
+ME ME_48CF8F79002A
+ MEPROP Name 'anOpCode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MEPROP Value 0
+ MELINK ValueType WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_48CF8F79002A anOpCode
+
+ME ME_48CF8F6103E5
+ MEPROP UID '48CF8F6103E5'
+ MEPROP Name 'k2StartOp'
+ MEPROP Class class_Operation
+ %SUMMARY 'открывает пачку операций. aProcessorSource может поддерживать Il3Processor' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CF8F160109 // k2OpMisc
+ ;
+ MELINK Target WL 'ME_469F7AC50332' '53317D14019D.ms.model.script' // Il3OpPack
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CF8F7803CF // aProcessor
+ ME_48CF8F79002A // anOpCode
+ )
+ ; // Parameters
+
+ENDME // ME_48CF8F6103E5 k2StartOp
+
+FORWARD ME_48CF8F8B0388
+
+ME ME_48CF8F9702AC
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F7AC50332' '53317D14019D.ms.model.script' // Il3OpPack
+ ;
+
+ENDME // ME_48CF8F9702AC anOp
+
+ME ME_48CF8F8B0388
+ MEPROP UID '48CF8F8B0388'
+ MEPROP Name 'k2Proc'
+ MEPROP Class class_Operation
+ %SUMMARY 'возвращает процессор операций в контексте которого выполняется данная пачка или nil - если пачка = nil' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_48CF8F160109 // k2OpMisc
+ ;
+ MELINK Target WL 'ME_469F6BF0009D' '53317D14019D.ms.model.script' // Ik2Processor
+ ;
+ MELIST Parameters
+   Seq: ( ME_48CF8F9702AC // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_48CF8F8B0388 k2Proc
+
+ME ME_48CF920E0104
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_48CF8F160109 // k2OpMisc
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_48CF920E0104 
+
+ME ME_48CF8F160109
+ MEPROP UID '48CF8F160109'
+ MEPROP Name 'k2OpMisc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилитные методы для работы с пачками операций' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_49A58A1A03C4' '49A58A1A03C4.ms.model.script' // k2PrimObjects
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_48CF8F3C02C9 // k2StartOp
+ HWL ME_48CF8F6103E5 // k2StartOp
+ HWL ME_48CF8F8B0388 // k2Proc
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_48CF920E0104 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "started" '19.09.2001 18:44'
+ UP extprop:rc:SelfName 'OpMisc'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2OpMisc.pas'
+
+ENDME // ME_48CF8F160109 k2OpMisc

@@ -1,0 +1,43 @@
+// Variants 48088D6800F9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_48088D850398
+
+FORWARD ME_48088D6800F9
+
+ME ME_48088D850398
+ MEPROP UID '48088D850398'
+ MEPROP Name 'EVariantTypeCastError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_48088D6800F9 // Variants
+ ;
+ UP "force usage" True
+
+ENDME // ME_48088D850398 EVariantTypeCastError
+
+ME ME_48088D6800F9
+ MEPROP UID '48088D6800F9'
+ MEPROP Name 'Variants'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ ;
+ MELIST Children
+   Seq: ( HWL ME_48088D850398 // EVariantTypeCastError
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\Variants.pas'
+
+ENDME // ME_48088D6800F9 Variants

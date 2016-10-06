@@ -1,0 +1,91 @@
+// ddAutoLinkServices 552BF78902EE UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_552BF7B201EE
+
+FORWARD ME_552BF78902EE
+
+FORWARD ME_552BF7B201EE
+
+ME ME_552BF7BB011A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_552BF7B201EE // TddAutolinkService
+ ;
+ MELINK Target WL 'ME_552BF69B039B' '552BF68E0188.ms.model.script' // Tl3AutolinkService
+ ;
+
+ENDME // ME_552BF7BB011A 
+
+ME ME_552BF7C8008A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552BF7B201EE // TddAutolinkService
+ ;
+ MELINK Target WL 'ME_505C064A02A4' '505C064A02A4.ms.model.script' // ddAutoLinkFilter
+ ;
+
+ENDME // ME_552BF7C8008A 
+
+%%InheritedBy ME_49E7754802A9 ME_552BF7B201EE
+
+ME ME_552BF7B201EE
+ MEPROP UID '552BF7B201EE'
+ MEPROP Name 'TddAutolinkService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552BF78902EE // ddAutoLinkServices
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_552BF7BB011A // Tl3AutolinkService
+ ME_552BF7C8008A // ddAutoLinkFilter
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddAutolinkService'
+
+ENDME // ME_552BF7B201EE TddAutolinkService
+
+ME ME_552BF79C0244
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_552BF78902EE // ddAutoLinkServices
+ ;
+ MELINK Target WL 'ME_505C064A02A4' '505C064A02A4.ms.model.script' // ddAutoLinkFilter
+ ;
+
+ENDME // ME_552BF79C0244 
+
+ME ME_552BF78902EE
+ MEPROP UID '552BF78902EE'
+ MEPROP Name 'ddAutoLinkServices'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5069A3DE03D5' '5069A3DE03D5.ms.model.script' // Autolink
+ ;
+ MELIST Children
+   Seq: ( HWL ME_552BF7B201EE // TddAutolinkService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_552BF79C0244 // ddAutoLinkFilter
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\ddAutoLinkServices.pas'
+
+ENDME // ME_552BF78902EE ddAutoLinkServices

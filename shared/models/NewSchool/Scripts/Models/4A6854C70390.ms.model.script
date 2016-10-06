@@ -1,0 +1,671 @@
+// nsTypes 4A6854C70390 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47F2791D019A
+%%Inner ME_48FF63BC0129
+%%Inner ME_490200F300DD
+%%Inner ME_490B011B02DB
+%%Inner ME_490C3BB20118
+%%Inner ME_4921865D0256
+%%Inner ME_4921866C01A1
+%%Inner ME_49522F6C0324
+%%Inner ME_498C7D1A035D
+%%Inner ME_4AA11E600367
+%%Inner ME_4AE7093402CF
+%%Inner ME_4AE7370403CB
+%%Inner ME_4AE9E3B40320
+%%Inner ME_53A4046B00C7
+%%Inner ME_57335B010093
+
+FORWARD ME_4A6854C70390
+
+%%InheritedBy ME_573359B1010D ME_47F2791D019A
+
+ME ME_47F2791D019A
+ MEPROP UID '47F2791D019A'
+ MEPROP Name 'TListLogicOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Логические операции со списком.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_573359B1010D' '4D4161F5012E.ms.model.script' // TListLogicOperation
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_47F2791D019A TListLogicOperation
+
+FORWARD ME_48FF63BC0129
+
+ME ME_48FF63C500E2
+ MEPROP UID '48FF63C500E2'
+ MEPROP Name 'rtsNone'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF63BC0129 // TnsResetTreeStatus
+ ;
+
+ENDME // ME_48FF63C500E2 rtsNone
+
+ME ME_48FF63CD00F0
+ MEPROP UID '48FF63CD00F0'
+ MEPROP Name 'rtsRoot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF63BC0129 // TnsResetTreeStatus
+ ;
+
+ENDME // ME_48FF63CD00F0 rtsRoot
+
+ME ME_48FF63D501AF
+ MEPROP UID '48FF63D501AF'
+ MEPROP Name 'rtsFullRoot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF63BC0129 // TnsResetTreeStatus
+ ;
+
+ENDME // ME_48FF63D501AF rtsFullRoot
+
+ME ME_48FF63DF00B1
+ MEPROP UID '48FF63DF00B1'
+ MEPROP Name 'rtsOneLevel'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_48FF63BC0129 // TnsResetTreeStatus
+ ;
+
+ENDME // ME_48FF63DF00B1 rtsOneLevel
+
+ME ME_48FF63BC0129
+ MEPROP UID '48FF63BC0129'
+ MEPROP Name 'TnsResetTreeStatus'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_48FF63C500E2 // rtsNone
+ HWL ME_48FF63CD00F0 // rtsRoot
+ HWL ME_48FF63D501AF // rtsFullRoot
+ HWL ME_48FF63DF00B1 // rtsOneLevel
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_48FF63BC0129 TnsResetTreeStatus
+
+FORWARD ME_490200F300DD
+
+ME ME_490201000142
+ MEPROP UID '490201000142'
+ MEPROP Name 'ns_ftNone'
+ MEPROP Class class_Attribute
+ %SUMMARY 'никаких дополнительных фильтров' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490200F300DD // TnsFilterType
+ ;
+
+ENDME // ME_490201000142 ns_ftNone
+
+ME ME_4902010A0055
+ MEPROP UID '4902010A0055'
+ MEPROP Name 'ns_ftTrim'
+ MEPROP Class class_Attribute
+ %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр ITrimFilter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490200F300DD // TnsFilterType
+ ;
+
+ENDME // ME_4902010A0055 ns_ftTrim
+
+ME ME_490201130195
+ MEPROP UID '490201130195'
+ MEPROP Name 'ns_ftTrimLeaf'
+ MEPROP Class class_Attribute
+ %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр ITrimLeafFilter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490200F300DD // TnsFilterType
+ ;
+
+ENDME // ME_490201130195 ns_ftTrimLeaf
+
+ME ME_4902011E0151
+ MEPROP UID '4902011E0151'
+ MEPROP Name 'ns_ftBlocks'
+ MEPROP Class class_Attribute
+ %SUMMARY 'При создании дерева атрибутов нужно накладывать дополнительный фильтр IBlocksFilter' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490200F300DD // TnsFilterType
+ ;
+
+ENDME // ME_4902011E0151 ns_ftBlocks
+
+ME ME_4A8BE3F00024
+ MEPROP UID '4A8BE3F00024'
+ MEPROP Name 'ns_ftInpharm'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Для фильтрации узла инфарама' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_490200F300DD // TnsFilterType
+ ;
+
+ENDME // ME_4A8BE3F00024 ns_ftInpharm
+
+ME ME_490200F300DD
+ MEPROP UID '490200F300DD'
+ MEPROP Name 'TnsFilterType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'дополнительный тип фильтрации для деревьев атрибутов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_490201000142 // ns_ftNone
+ HWL ME_4902010A0055 // ns_ftTrim
+ HWL ME_490201130195 // ns_ftTrimLeaf
+ HWL ME_4902011E0151 // ns_ftBlocks
+ HWL ME_4A8BE3F00024 // ns_ftInpharm
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_490200F300DD TnsFilterType
+
+ME ME_490B011B02DB
+ MEPROP UID '490B011B02DB'
+ MEPROP Name 'TnsNavigatorItemParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+
+ENDME // ME_490B011B02DB TnsNavigatorItemParams
+
+ME ME_490C3BB20118
+ MEPROP UID '490C3BB20118'
+ MEPROP Name 'TnsMedicMainMenuNodeType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_490C3BB20118 TnsMedicMainMenuNodeType
+
+ME ME_4921865D0256
+ MEPROP UID '4921865D0256'
+ MEPROP Name 'TWarningType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4921865D0256 TWarningType
+
+%%InheritedBy ME_4921865D0256 ME_4921866C01A1
+
+ME ME_4921866C01A1
+ MEPROP UID '4921866C01A1'
+ MEPROP Name 'TWarningTypeSet'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SetOf ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4921865D0256 // TWarningType
+ )
+ ; // Inherits
+
+ENDME // ME_4921866C01A1 TWarningTypeSet
+
+FORWARD ME_49522F6C0324
+
+ME ME_49522F770385
+ MEPROP UID '49522F770385'
+ MEPROP Name 'ekDisk'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49522F6C0324 // TnsExportKind
+ ;
+
+ENDME // ME_49522F770385 ekDisk
+
+ME ME_49522F7F018B
+ MEPROP UID '49522F7F018B'
+ MEPROP Name 'ekShell'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49522F6C0324 // TnsExportKind
+ ;
+
+ENDME // ME_49522F7F018B ekShell
+
+ME ME_49522F860033
+ MEPROP UID '49522F860033'
+ MEPROP Name 'ekEMail'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49522F6C0324 // TnsExportKind
+ ;
+
+ENDME // ME_49522F860033 ekEMail
+
+ME ME_49522F6C0324
+ MEPROP UID '49522F6C0324'
+ MEPROP Name 'TnsExportKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49522F770385 // ekDisk
+ HWL ME_49522F7F018B // ekShell
+ HWL ME_49522F860033 // ekEMail
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_49522F6C0324 TnsExportKind
+
+ME ME_498C7D1A035D
+ MEPROP UID '498C7D1A035D'
+ MEPROP Name 'TnsLongProcessType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_498C7D1A035D TnsLongProcessType
+
+ME ME_4AA11E600367
+ MEPROP UID '4AA11E600367'
+ MEPROP Name 'ETryOpenMissingDocument'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+
+ENDME // ME_4AA11E600367 ETryOpenMissingDocument
+
+ME ME_4AE7093402CF
+ MEPROP UID '4AE7093402CF'
+ MEPROP Name 'TnsDeleteResult'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4AE7093402CF TnsDeleteResult
+
+ME ME_4AE7370403CB
+ MEPROP UID '4AE7370403CB'
+ MEPROP Name 'TnsChangeRedactionType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4AE7370403CB TnsChangeRedactionType
+
+ME ME_4AE9E3B40320
+ MEPROP UID '4AE9E3B40320'
+ MEPROP Name 'TnsShowSynchroForm'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4AE9E3B40320 TnsShowSynchroForm
+
+FORWARD ME_53A4046B00C7
+
+ME ME_53A404710299
+ MEPROP UID '53A404710299'
+ MEPROP Name 'okInCurrentTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ ;
+
+ENDME // ME_53A404710299 okInCurrentTab
+
+ME ME_53A4047C017A
+ MEPROP UID '53A4047C017A'
+ MEPROP Name 'okInNewTab'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ ;
+
+ENDME // ME_53A4047C017A okInNewTab
+
+ME ME_53A4048D000E
+ MEPROP UID '53A4048D000E'
+ MEPROP Name 'okInNewWindow'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ ;
+
+ENDME // ME_53A4048D000E okInNewWindow
+
+ME ME_53A4046B00C7
+ MEPROP UID '53A4046B00C7'
+ MEPROP Name 'TnsDocumentAndLinkOpenKind'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_53A404710299 // okInCurrentTab
+ HWL ME_53A4047C017A // okInNewTab
+ HWL ME_53A4048D000E // okInNewWindow
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53A4046B00C7 TnsDocumentAndLinkOpenKind
+
+%%InheritedBy ME_47F21723038D ME_57335B010093
+
+ME ME_57335B010093
+ MEPROP UID '57335B010093'
+ MEPROP Name 'TnsFileFormat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F21723038D' '4D4161F5012E.ms.model.script' // TnsFileFormat
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_57335B010093 TnsFileFormat
+
+FORWARD ME_47F244C1009A
+
+ME ME_47F2488F02D0
+ MEPROP UID '47F2488F02D0'
+ MEPROP Name 'nne_ResetChildrenCount'
+ MEPROP Class class_Attribute
+ %SUMMARY '- событие сброса детей.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F244C1009A // TreeConstants
+ ;
+ MEPROP Value 1000
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1000
+
+ENDME // ME_47F2488F02D0 nne_ResetChildrenCount
+
+ME ME_47F244C1009A
+ MEPROP UID '47F244C1009A'
+ MEPROP Name 'TreeConstants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константы для работы с деревом' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47F2488F02D0 // nne_ResetChildrenCount
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_47F244C1009A TreeConstants
+
+ME ME_48FF569700F6
+ MEPROP UID '48FF569700F6'
+ MEPROP Name 'StringRoutines'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP "spell names" False
+
+ENDME // ME_48FF569700F6 StringRoutines
+
+ME ME_491C0E4503A2
+ MEPROP UID '491C0E4503A2'
+ MEPROP Name 'DateTimeRoutines'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP "spell names" False
+
+ENDME // ME_491C0E4503A2 DateTimeRoutines
+
+ME ME_4988427E020A
+ MEPROP UID '4988427E020A'
+ MEPROP Name 'DocPosTypeToEdtSubType Etc'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP "spell names" False
+
+ENDME // ME_4988427E020A DocPosTypeToEdtSubType Etc
+
+ME ME_4AAF9718001D
+ MEPROP UID '4AAF9718001D'
+ MEPROP Name 'nsAStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:SelfName 'AStr'
+
+ENDME // ME_4AAF9718001D nsAStr
+
+ME ME_4AB882990057
+ MEPROP UID '4AB882990057'
+ MEPROP Name 'nsCStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:SelfName 'CStr'
+
+ENDME // ME_4AB882990057 nsCStr
+
+ME ME_4ADEE542029C
+ MEPROP UID '4ADEE542029C'
+ MEPROP Name 'nsWStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:SelfName 'WStr'
+
+ENDME // ME_4ADEE542029C nsWStr
+
+ME ME_4CF4DE5F0071
+ MEPROP UID '4CF4DE5F0071'
+ MEPROP Name 'nsEStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ UP extprop:rc:SelfName 'EStr'
+
+ENDME // ME_4CF4DE5F0071 nsEStr
+
+ME ME_4D4162C70077
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A6854C70390 // nsTypes
+ ;
+ MELINK Target WL 'ME_4D4161F5012E' '4D4161F5012E.ms.model.script' // nsTypesNew
+ ;
+
+ENDME // ME_4D4162C70077 
+
+ME ME_4A6854C70390
+ MEPROP UID '4A6854C70390'
+ MEPROP Name 'nsTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F2170002B2' '47F2170002B2.ms.model.script' // nsTypes
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4AAF9718001D // nsAStr
+ HWL ME_4AB882990057 // nsCStr
+ HWL ME_4ADEE542029C // nsWStr
+ HWL ME_4CF4DE5F0071 // nsEStr
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_47F2791D019A // TListLogicOperation
+ HWL ME_48FF63BC0129 // TnsResetTreeStatus
+ HWL ME_490200F300DD // TnsFilterType
+ HWL ME_490B011B02DB // TnsNavigatorItemParams
+ HWL ME_490C3BB20118 // TnsMedicMainMenuNodeType
+ HWL ME_4921865D0256 // TWarningType
+ HWL ME_4921866C01A1 // TWarningTypeSet
+ HWL ME_49522F6C0324 // TnsExportKind
+ HWL ME_498C7D1A035D // TnsLongProcessType
+ HWL ME_4AA11E600367 // ETryOpenMissingDocument
+ HWL ME_4AE7093402CF // TnsDeleteResult
+ HWL ME_4AE7370403CB // TnsChangeRedactionType
+ HWL ME_4AE9E3B40320 // TnsShowSynchroForm
+ HWL ME_53A4046B00C7 // TnsDocumentAndLinkOpenKind
+ HWL ME_57335B010093 // TnsFileFormat
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_47F244C1009A // TreeConstants
+ HWL ME_48FF569700F6 // StringRoutines
+ HWL ME_491C0E4503A2 // DateTimeRoutines
+ HWL ME_4988427E020A // DocPosTypeToEdtSubType Etc
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4D4162C70077 // nsTypesNew
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'Types'
+ UP intf.pas:Path 'garant6x\implementation\Garant\GbaNemesis\Model\NOT_FINISHED_nsTypes.pas'
+
+ENDME // ME_4A6854C70390 nsTypes

@@ -1,0 +1,694 @@
+// SysUtils 47877EB202FB UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4807861D0118
+%%Inner ME_477113FB020B
+%%Inner ME_4787A405013D
+%%Inner ME_4787A45401C5
+%%Inner ME_47B19F69027A
+%%Inner ME_4808B68300D5
+%%Inner ME_47BB2FD7022D
+%%Inner ME_4AA7E2060118
+%%Inner ME_4F56262B01E8
+%%Inner ME_502550E80220
+%%Inner ME_5485794702B0
+
+FORWARD ME_47877EB202FB
+
+ME ME_4807861D0118
+ MEPROP UID '4807861D0118'
+ MEPROP Name 'TMultiReadExclusiveWriteSynchronizer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TMultiReadExclusiveWriteSynchronizer protects memory in a multi-threaded application.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MultiReadExclusiveWriteSynchronizer'
+
+ENDME // ME_4807861D0118 TMultiReadExclusiveWriteSynchronizer
+
+%%InheritedBy ME_476136D3010B ME_477113FB020B
+
+ME ME_477113FB020B
+ MEPROP UID '477113FB020B'
+ MEPROP Name 'TFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TFileName is a string that represents a file name.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ )
+ ; // Inherits
+ UP "newRTTI" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_477113FB020B TFileName
+
+FORWARD ME_4787A405013D
+
+ME ME_4787A41F02C5
+ MEPROP UID '4787A41F02C5'
+ MEPROP Name 'Message'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4787A405013D // Exception
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "needs field" False
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4787A41F02C5 Message
+
+ME ME_4787A43A016A
+ MEPROP UID '4787A43A016A'
+ MEPROP Name 'HelpContext'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4787A405013D // Exception
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" False
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_4787A43A016A HelpContext
+
+%%InheritedBy ME_4807745602C8 ME_4787A405013D
+
+ME ME_4787A405013D
+ MEPROP UID '4787A405013D'
+ MEPROP Name 'Exception'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Base Exception.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4807745602C8' '4807744200AA.ms.model.script' // TObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4787A41F02C5 // Message
+ HWL ME_4787A43A016A // HelpContext
+ )
+ ; // Attributes
+ UP "force usage" True
+ UP "register in scripts" True
+
+ENDME // ME_4787A405013D Exception
+
+%%InheritedBy ME_4787A405013D ME_4787A45401C5
+
+ME ME_4787A45401C5
+ MEPROP UID '4787A45401C5'
+ MEPROP Name 'ExceptClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787A405013D // Exception
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4787A45401C5 ExceptClass
+
+%%InheritedBy ME_4787A405013D ME_47B19F69027A
+
+ME ME_47B19F69027A
+ MEPROP UID '47B19F69027A'
+ MEPROP Name 'EOSError'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787A405013D // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_47B19F69027A EOSError
+
+ME ME_4808B68300D5
+ MEPROP UID '4808B68300D5'
+ MEPROP Name 'TFormatSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TFormatSettings defines a thread-safe string formatting context.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4808B68300D5 TFormatSettings
+
+FORWARD ME_47BB2FD7022D
+
+ME ME_47BB2FEC03B9
+ MEPROP UID '47BB2FEC03B9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47BB2FD7022D // TProcedure
+ ;
+
+ENDME // ME_47BB2FEC03B9 DoIt
+
+ME ME_47BB2FD7022D
+ MEPROP UID '47BB2FD7022D'
+ MEPROP Name 'TProcedure'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TProcedure is used as the type for generic procedures that do not have arguments.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47BB2FEC03B9 // DoIt
+ )
+ ; // Operations
+ UP "of object" False
+
+ENDME // ME_47BB2FD7022D TProcedure
+
+ME ME_4AA7E2060118
+ MEPROP UID '4AA7E2060118'
+ MEPROP Name 'EAbort'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4AA7E2060118 EAbort
+
+%%InheritedBy ME_4787A405013D ME_4F56262B01E8
+
+ME ME_4F56262B01E8
+ MEPROP UID '4F56262B01E8'
+ MEPROP Name 'EAssertionFailed'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4787A405013D // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_4F56262B01E8 EAssertionFailed
+
+ME ME_502550E80220
+ MEPROP UID '502550E80220'
+ MEPROP Name 'TSearchRec'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TSearchRec defines file information searched for by FindFirst or FindNext.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_502550E80220 TSearchRec
+
+ME ME_5485794702B0
+ MEPROP UID '5485794702B0'
+ MEPROP Name 'EOutOfMemory'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_5485794702B0 EOutOfMemory
+
+ME ME_4E3BC43B021E
+ MEPROP UID '4E3BC43B021E'
+ MEPROP Name 'DecimalSeparator'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELINK Target WL 'ME_482C48430205' '4807744200AA.ms.model.script' // Char
+ ;
+
+ENDME // ME_4E3BC43B021E DecimalSeparator
+
+ME ME_4ADC58F703CF
+ MEPROP UID '4ADC58F703CF'
+ MEPROP Name 'FreeAndNil'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4ADC58F703CF FreeAndNil
+
+ME ME_4ADEE49C02DF
+ MEPROP UID '4ADEE49C02DF'
+ MEPROP Name 'Supports'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4ADEE49C02DF Supports
+
+ME ME_4B2A12BA0288
+ MEPROP UID '4B2A12BA0288'
+ MEPROP Name 'IntToStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4B2A12BA0288 IntToStr
+
+ME ME_4B2F575E03BA
+ MEPROP UID '4B2F575E03BA'
+ MEPROP Name 'CompareStr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4B2F575E03BA CompareStr
+
+ME ME_4BCED67800F1
+ MEPROP UID '4BCED67800F1'
+ MEPROP Name 'ANSISameText'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4BCED67800F1 ANSISameText
+
+ME ME_4D6BC8D102C0
+ MEPROP UID '4D6BC8D102C0'
+ MEPROP Name 'StrToInt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4D6BC8D102C0 StrToInt
+
+ME ME_4DDA4CFE00E8
+ MEPROP UID '4DDA4CFE00E8'
+ MEPROP Name 'ExtractFilePath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4DDA4CFE00E8 ExtractFilePath
+
+ME ME_4DE89E560091
+ MEPROP UID '4DE89E560091'
+ MEPROP Name 'Format'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4DE89E560091 Format
+
+ME ME_4DF870EA0062
+ MEPROP UID '4DF870EA0062'
+ MEPROP Name 'ChangeFileExt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4DF870EA0062 ChangeFileExt
+
+ME ME_4E1DDD650025
+ MEPROP UID '4E1DDD650025'
+ MEPROP Name 'IsEqualGUID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4E1DDD650025 IsEqualGUID
+
+ME ME_4E4A3ABD032F
+ MEPROP UID '4E4A3ABD032F'
+ MEPROP Name 'FileExists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4E4A3ABD032F FileExists
+
+ME ME_4F7957C203E7
+ MEPROP UID '4F7957C203E7'
+ MEPROP Name 'GetClassName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4F7957C203E7 GetClassName
+
+ME ME_4FACFFF103DB
+ MEPROP UID '4FACFFF103DB'
+ MEPROP Name 'Trim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_4FACFFF103DB Trim
+
+ME ME_50195DC90360
+ MEPROP UID '50195DC90360'
+ MEPROP Name 'AnsiStrLIComp'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_50195DC90360 AnsiStrLIComp
+
+ME ME_509116F601C3
+ MEPROP UID '509116F601C3'
+ MEPROP Name 'RenameFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_509116F601C3 RenameFile
+
+ME ME_5091520A024F
+ MEPROP UID '5091520A024F'
+ MEPROP Name 'DeleteFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_5091520A024F DeleteFile
+
+ME ME_51D299D903CE
+ MEPROP UID '51D299D903CE'
+ MEPROP Name 'StrToIntDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_51D299D903CE StrToIntDef
+
+ME ME_52F8DC08020F
+ MEPROP UID '52F8DC08020F'
+ MEPROP Name 'FormatDateTime'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_52F8DC08020F FormatDateTime
+
+ME ME_52F8EEFA01C4
+ MEPROP UID '52F8EEFA01C4'
+ MEPROP Name 'Sleep'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+
+ENDME // ME_52F8EEFA01C4 Sleep
+
+ME ME_549A76510063
+ MEPROP UID '549A76510063'
+ MEPROP Name 'ForceDirectories'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ UP "finished" False
+
+ENDME // ME_549A76510063 ForceDirectories
+
+ME ME_5511283A02C9
+ MEPROP UID '5511283A02C9'
+ MEPROP Name 'IntToHex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ UP "finished" False
+
+ENDME // ME_5511283A02C9 IntToHex
+
+ME ME_5559A8820011
+ MEPROP UID '5559A8820011'
+ MEPROP Name 'AllocMem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ UP "finished" False
+
+ENDME // ME_5559A8820011 AllocMem
+
+ME ME_5721C96F0083
+ MEPROP UID '5721C96F0083'
+ MEPROP Name 'CompareMem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ UP "finished" False
+
+ENDME // ME_5721C96F0083 CompareMem
+
+FORWARD ME_47877EF503B1
+
+ME ME_47877F3902AD
+ MEPROP Name 'Instance'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ ;
+
+ENDME // ME_47877F3902AD Instance
+
+ME ME_47877F3902C6
+ MEPROP Name 'IID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F3EEF0024' '4807744200AA.ms.model.script' // TGUID
+ ;
+
+ENDME // ME_47877F3902C6 IID
+
+ME ME_47877F3902DE
+ MEPROP Name 'Intf'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+
+ENDME // ME_47877F3902DE Intf
+
+ME ME_47877EF503B1
+ MEPROP UID '47877EF503B1'
+ MEPROP Name 'Supports'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47877EB202FB // SysUtils
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_47877F3902AD // Instance
+ ME_47877F3902C6 // IID
+ ME_47877F3902DE // Intf
+ )
+ ; // Parameters
+
+ENDME // ME_47877EF503B1 Supports
+
+ME ME_47877EB202FB
+ MEPROP UID '47877EB202FB'
+ MEPROP Name 'SysUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'System Utilities Unit' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0C3C60310' '4AB0C3C60310.ms.model.script' // Sys
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E3BC43B021E // DecimalSeparator
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4ADC58F703CF // FreeAndNil
+ HWL ME_4ADEE49C02DF // Supports
+ HWL ME_4B2A12BA0288 // IntToStr
+ HWL ME_4B2F575E03BA // CompareStr
+ HWL ME_4BCED67800F1 // ANSISameText
+ HWL ME_4D6BC8D102C0 // StrToInt
+ HWL ME_4DDA4CFE00E8 // ExtractFilePath
+ HWL ME_4DE89E560091 // Format
+ HWL ME_4DF870EA0062 // ChangeFileExt
+ HWL ME_4E1DDD650025 // IsEqualGUID
+ HWL ME_4E4A3ABD032F // FileExists
+ HWL ME_4F7957C203E7 // GetClassName
+ HWL ME_4FACFFF103DB // Trim
+ HWL ME_50195DC90360 // AnsiStrLIComp
+ HWL ME_509116F601C3 // RenameFile
+ HWL ME_5091520A024F // DeleteFile
+ HWL ME_51D299D903CE // StrToIntDef
+ HWL ME_52F8DC08020F // FormatDateTime
+ HWL ME_52F8EEFA01C4 // Sleep
+ HWL ME_549A76510063 // ForceDirectories
+ HWL ME_5511283A02C9 // IntToHex
+ HWL ME_5559A8820011 // AllocMem
+ HWL ME_5721C96F0083 // CompareMem
+ HWL ME_47877EF503B1 // Supports
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4807861D0118 // TMultiReadExclusiveWriteSynchronizer
+ HWL ME_477113FB020B // TFileName
+ HWL ME_4787A405013D // Exception
+ HWL ME_4787A45401C5 // ExceptClass
+ HWL ME_47B19F69027A // EOSError
+ HWL ME_4808B68300D5 // TFormatSettings
+ HWL ME_47BB2FD7022D // TProcedure
+ HWL ME_4AA7E2060118 // EAbort
+ HWL ME_4F56262B01E8 // EAssertionFailed
+ HWL ME_502550E80220 // TSearchRec
+ HWL ME_5485794702B0 // EOutOfMemory
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Sys\SysUtils.pas'
+
+ENDME // ME_47877EB202FB SysUtils

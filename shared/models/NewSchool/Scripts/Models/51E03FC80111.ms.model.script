@@ -1,0 +1,206 @@
+// AtomicListTest 51E03FC80111 TestCaseMixIn Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51E03FE602DF
+
+FORWARD ME_51E03FC80111
+
+ME ME_51E03FE602DF
+ MEPROP UID '51E03FE602DF'
+ MEPROP Name 'ListType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+ UP extprop:pas:TypeName '_ListType_'
+
+ENDME // ME_51E03FE602DF ListType
+
+ME ME_51DEB319037C
+ MEPROP UID '51DEB319037C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+
+ENDME // ME_51DEB319037C DoIt
+
+ME ME_51DED6FC03C1
+ MEPROP UID '51DED6FC03C1'
+ MEPROP Name 'TestTwoLists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+
+ENDME // ME_51DED6FC03C1 TestTwoLists
+
+ME ME_51E6AC74038B
+ MEPROP UID '51E6AC74038B'
+ MEPROP Name 'TestInsert'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+
+ENDME // ME_51E6AC74038B TestInsert
+
+FORWARD ME_51E6ADE0016E
+
+ME ME_51E6ADED001F
+ MEPROP UID '51E6ADED001F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E6ADE0016E // RandomItem
+ ;
+ MELINK Target WL 'ME_51DEB1B30171' '51DEB06A03CB.ms.model.script' // ItemType
+ ;
+
+ENDME // ME_51E6ADED001F DoIt
+
+ME ME_51E6ADE0016E
+ MEPROP UID '51E6ADE0016E'
+ MEPROP Name 'RandomItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_51E6ADED001F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_51E6ADE0016E RandomItem
+
+ME ME_51E6B4260008
+ MEPROP UID '51E6B4260008'
+ MEPROP Name 'TestInsertAt0'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+
+ENDME // ME_51E6B4260008 TestInsertAt0
+
+ME ME_51E7F6EF0285
+ MEPROP UID '51E7F6EF0285'
+ MEPROP Name 'DeleteTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест удаления элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+
+ENDME // ME_51E7F6EF0285 DeleteTest
+
+ME ME_51E80DC50154
+ MEPROP UID '51E80DC50154'
+ MEPROP Name 'AddTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест добавления элемента' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+
+ENDME // ME_51E80DC50154 AddTest
+
+ME ME_51E8127802AF
+ MEPROP UID '51E8127802AF'
+ MEPROP Name 'RemoveTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Test ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест удаления элемента по значению' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+
+ENDME // ME_51E8127802AF RemoveTest
+
+ME ME_51DEB33D01CF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51E03FC80111 // AtomicListTest
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_51DEB33D01CF 
+
+%%InheritedBy ME_4B2A0DDE028B ME_51E03FC80111
+%%InheritedBy ME_51E80DD30125 ME_51E03FC80111
+
+ME ME_51E03FC80111
+ MEPROP UID '51E03FC80111'
+ MEPROP Name 'AtomicListTest'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCaseMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51DEB2C70024' '51DEB2C70024.ms.model.script' // FinalContainersTests
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A0DDE028B' '4B2A0DCE03A9.ms.model.script' // TTestCase
+ WL 'ME_51E80DD30125' '51E80DD30125.ms.model.script' // ListTest
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_51DEB319037C // DoIt
+ HWL ME_51DED6FC03C1 // TestTwoLists
+ HWL ME_51E6AC74038B // TestInsert
+ HWL ME_51E6ADE0016E // RandomItem
+ HWL ME_51E6B4260008 // TestInsertAt0
+ HWL ME_51E7F6EF0285 // DeleteTest
+ HWL ME_51E80DC50154 // AddTest
+ HWL ME_51E8127802AF // RemoveTest
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_51E03FE602DF // ListType
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_51DEB33D01CF // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" False
+ UP extprop:pas:TypeName '_AtomicListTest_'
+ UP extprop:pas:UnitName 'AtomicListTest.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\SandBox\AtomicListTest.imp.pas'
+
+ENDME // ME_51E03FC80111 AtomicListTest

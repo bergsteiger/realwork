@@ -1,0 +1,166 @@
+// k2TaggedDataHolder 53B24E23037A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53B24E23037A
+
+ME ME_53B24E3D00DF
+ MEPROP UID '53B24E3D00DF'
+ MEPROP Name 'TaggedData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_53B24E23037A // k2TaggedDataHolder
+ ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_53B24E3D00DF TaggedData
+
+FORWARD ME_53AC03EE01FD
+
+ME ME_53AC03FE0362
+ MEPROP UID '53AC03FE0362'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53AC03EE01FD // GetTaggedDataType
+ ;
+ MELINK Target WL 'ME_47AC723D02DC' '47AC6F0B025E.ms.model.script' // Tk2Type
+ ;
+
+ENDME // ME_53AC03FE0362 DoIt
+
+ME ME_53AC03EE01FD
+ MEPROP UID '53AC03EE01FD'
+ MEPROP Name 'GetTaggedDataType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_abstractmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_53B24E23037A // k2TaggedDataHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53AC03FE0362 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_53AC03EE01FD GetTaggedDataType
+
+FORWARD ME_53BFF56D0348
+
+FORWARD ME_53BFF5780158
+
+ME ME_53BFF581008B
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_53BFF581008B aData
+
+ME ME_53BFF5780158
+ MEPROP UID '53BFF5780158'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53BFF56D0348 // SetTaggedData
+ ;
+ MELIST Parameters
+   Seq: ( ME_53BFF581008B // aData
+ )
+ ; // Parameters
+
+ENDME // ME_53BFF5780158 DoIt
+
+ME ME_53BFF56D0348
+ MEPROP UID '53BFF56D0348'
+ MEPROP Name 'SetTaggedData'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53B24E23037A // k2TaggedDataHolder
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53BFF5780158 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53BFF56D0348 SetTaggedData
+
+ME ME_53B24E5000AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53B24E23037A // k2TaggedDataHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53B24E5000AC 
+
+ME ME_52BC2B9401F3_ME_53B24E23037A
+ MELINK Original WL 'ME_52BC2B9401F3' '47913F4E02E0.ms.model.script' // AfterDestroyCalled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52BC2B9401F3_ME_53B24E23037A AfterDestroyCalled
+
+ME ME_53AC02B602E3_ME_53B24E23037A
+ MELINK Original WL 'ME_53AC02B602E3' '47913F4E02E0.ms.model.script' // InitAfterAlloc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53AC02B602E3_ME_53B24E23037A InitAfterAlloc
+
+%%ImplementedBy ME_4A5CB93700CF ME_53B24E23037A
+
+ME ME_53B24E23037A
+ MEPROP UID '53B24E23037A'
+ MEPROP Name 'k2TaggedDataHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_53B24DFD01FF' '53B24DFD01FF.ms.model.script' // TagHolder
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_53B24E3D00DF // TaggedData
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_53AC03EE01FD // GetTaggedDataType
+ HWL ME_53BFF56D0348 // SetTaggedData
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_52BC2B9401F3_ME_53B24E23037A // AfterDestroyCalled
+ ME_53AC02B602E3_ME_53B24E23037A // InitAfterAlloc
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53B24E5000AC // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_k2TaggedDataHolder_'
+ UP extprop:pas:UnitName 'k2TaggedDataHolder.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\k2TaggedDataHolder.imp.pas'
+
+ENDME // ME_53B24E23037A k2TaggedDataHolder

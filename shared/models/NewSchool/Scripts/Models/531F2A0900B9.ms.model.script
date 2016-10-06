@@ -1,0 +1,50 @@
+// eeCustomTreeView 531F2A0900B9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_499C0B9C01E2
+
+FORWARD ME_531F2A0900B9
+
+%%InheritedBy ME_531F287D025D ME_499C0B9C01E2
+
+ME ME_499C0B9C01E2
+ MEPROP UID '499C0B9C01E2'
+ MEPROP Name 'TeeCustomTreeView'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_531F2A0900B9 // eeCustomTreeView
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_531F287D025D' '494B949E022B.ms.model.script' // TeeCustomTreeView
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'eeCustomTreeView'
+
+ENDME // ME_499C0B9C01E2 TeeCustomTreeView
+
+ME ME_531F2A0900B9
+ MEPROP UID '531F2A0900B9'
+ MEPROP Name 'eeCustomTreeView'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_494B947D0127' '494B947D0127.ms.model.script' // Tree
+ ;
+ MELIST Children
+   Seq: ( HWL ME_499C0B9C01E2 // TeeCustomTreeView
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\Everest_Engine\eeCustomTreeView.pas'
+
+ENDME // ME_531F2A0900B9 eeCustomTreeView

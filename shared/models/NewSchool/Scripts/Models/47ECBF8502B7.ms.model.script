@@ -1,0 +1,131 @@
+// l3Prg 47ECBF8502B7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47ECBFAE0299
+
+FORWARD ME_47ECBF8502B7
+
+ME ME_476F75DE01E9_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F75DE01E9' '4677FBA70343.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F75DE01E9_ME_47ECBFAE0299 Start
+
+ME ME_476F75F60302_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F75F60302' '4677FBA70343.ms.model.script' // Start
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F75F60302_ME_47ECBFAE0299 Start
+
+ME ME_476F7608002D_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F7608002D' '4677FBA70343.ms.model.script' // Finish
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F7608002D_ME_47ECBFAE0299 Finish
+
+ME ME_476F76160143_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F76160143' '4677FBA70343.ms.model.script' // Progress
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F76160143_ME_47ECBFAE0299 Progress
+
+ME ME_476F7637011A_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F7637011A' '4677FBA70343.ms.model.script' // Progress
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F7637011A_ME_47ECBFAE0299 Progress
+
+ME ME_476F76450378_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F76450378' '4677FBA70343.ms.model.script' // ProgressEx
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F76450378_ME_47ECBFAE0299 ProgressEx
+
+ME ME_476F76550369_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F76550369' '4677FBA70343.ms.model.script' // ChangeIO
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F76550369_ME_47ECBFAE0299 ChangeIO
+
+ME ME_476F76660313_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F76660313' '4677FBA70343.ms.model.script' // InIO
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F76660313_ME_47ECBFAE0299 InIO
+
+ME ME_476F767601FC_ME_47ECBFAE0299
+ MELINK Original WL 'ME_476F767601FC' '4677FBA70343.ms.model.script' // InUse
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_476F767601FC_ME_47ECBFAE0299 InUse
+
+%%ImplementedBy ME_4754205E002C ME_47ECBFAE0299
+
+%%InheritedBy ME_47879856035F ME_47ECBFAE0299
+
+ME ME_47ECBFAE0299
+ MEPROP UID '47ECBFAE0299'
+ MEPROP Name 'Tl3ProgressIndicator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Индикатор прогресса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47ECBF8502B7 // l3Prg
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47879856035F' '47913B47006E.ms.model.script' // Tl3_Base
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4754205E002C' '4677FBA70343.ms.model.script' // Il3Progress
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_476F75DE01E9_ME_47ECBFAE0299 // Start
+ ME_476F75F60302_ME_47ECBFAE0299 // Start
+ ME_476F7608002D_ME_47ECBFAE0299 // Finish
+ ME_476F76160143_ME_47ECBFAE0299 // Progress
+ ME_476F7637011A_ME_47ECBFAE0299 // Progress
+ ME_476F76450378_ME_47ECBFAE0299 // ProgressEx
+ ME_476F76550369_ME_47ECBFAE0299 // ChangeIO
+ ME_476F76660313_ME_47ECBFAE0299 // InIO
+ ME_476F767601FC_ME_47ECBFAE0299 // InUse
+ )
+ ; // Implemented
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '13.10.1999 17:04'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ProgressIndicator'
+
+ENDME // ME_47ECBFAE0299 Tl3ProgressIndicator
+
+ME ME_47ECBF8502B7
+ MEPROP UID '47ECBF8502B7'
+ MEPROP Name 'l3Prg'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Индикатор прогресса.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47EA946A0315' '47EA946A0315.ms.model.script' // l3Misc
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47ECBFAE0299 // Tl3ProgressIndicator
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '13.10.1999 17:04'
+ UP extprop:rc:SelfName 'Prg'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Prg.pas'
+
+ENDME // ME_47ECBF8502B7 l3Prg

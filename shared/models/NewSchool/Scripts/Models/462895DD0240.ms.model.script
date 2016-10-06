@@ -1,0 +1,230 @@
+// RedactionInfoListHelper 462895DD0240 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_462895DD0240
+
+FORWARD ME_462896090184
+
+ME ME_462896540184
+ MEPROP Name 'redaction_info_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED8DE0121' '4570511E038A.ms.model.script' // RedactionInfoList
+ ;
+
+ENDME // ME_462896540184 redaction_info_list
+
+ME ME_4628965401C2
+ MEPROP Name 'to_find'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED84C01FD' '4570511E038A.ms.model.script' // RedactionID
+ ;
+
+ENDME // ME_4628965401C2 to_find
+
+ME ME_462896090184
+ MEPROP UID '462896090184'
+ MEPROP Name 'find_redaction'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_462895DD0240 // RedactionInfoListHelper
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_462896540184 // redaction_info_list
+ ME_4628965401C2 // to_find
+ )
+ ; // Parameters
+
+ENDME // ME_462896090184 find_redaction
+
+FORWARD ME_46289660023F
+
+ME ME_4628969300E7
+ MEPROP Name 'redaction_info_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED8DE0121' '4570511E038A.ms.model.script' // RedactionInfoList
+ ;
+
+ENDME // ME_4628969300E7 redaction_info_list
+
+ME ME_462896930135
+ MEPROP Name 'to_find'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED83A00C4' '4570511E038A.ms.model.script' // RedactionInfo
+ ;
+
+ENDME // ME_462896930135 to_find
+
+ME ME_46289660023F
+ MEPROP UID '46289660023F'
+ MEPROP Name 'find_redaction'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_462895DD0240 // RedactionInfoListHelper
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4628969300E7 // redaction_info_list
+ ME_462896930135 // to_find
+ )
+ ; // Parameters
+
+ENDME // ME_46289660023F find_redaction
+
+FORWARD ME_4628969F03E4
+
+ME ME_462896CB0377
+ MEPROP Name 'redaction_info_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED8DE0121' '4570511E038A.ms.model.script' // RedactionInfoList
+ ;
+
+ENDME // ME_462896CB0377 redaction_info_list
+
+ME ME_4628969F03E4
+ MEPROP UID '4628969F03E4'
+ MEPROP Name 'find_actual_redaction'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_462895DD0240 // RedactionInfoListHelper
+ ;
+ MELINK Target WL 'ME_450A61050251' '3DBFDB23006E.ms.model.script' // integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_462896CB0377 // redaction_info_list
+ )
+ ; // Parameters
+
+ENDME // ME_4628969F03E4 find_actual_redaction
+
+FORWARD ME_4A8145520247
+
+ME ME_4A8145B9001D
+ MEPROP Name 'redaction_info_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED8DE0121' '4570511E038A.ms.model.script' // RedactionInfoList
+ ;
+
+ENDME // ME_4A8145B9001D redaction_info_list
+
+ME ME_4A8145B9003F
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED84C01FD' '4570511E038A.ms.model.script' // RedactionID
+ ;
+
+ENDME // ME_4A8145B9003F id
+
+ME ME_4A8145B90062
+ MEPROP Name 'prev_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EED8DE0121' '4570511E038A.ms.model.script' // RedactionInfoList
+ ;
+
+ENDME // ME_4A8145B90062 prev_list
+
+ME ME_4A8145520247
+ MEPROP UID '4A8145520247'
+ MEPROP Name 'prev_redactions'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_462895DD0240 // RedactionInfoListHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A8145B9001D // redaction_info_list
+ ME_4A8145B9003F // id
+ ME_4A8145B90062 // prev_list
+ )
+ ; // Parameters
+
+ENDME // ME_4A8145520247 prev_redactions
+
+FORWARD ME_4B556E69014E
+
+ME ME_4B556E6F025C
+ MEPROP Name 'redaction_info_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED8DE0121' '4570511E038A.ms.model.script' // RedactionInfoList
+ ;
+
+ENDME // ME_4B556E6F025C redaction_info_list
+
+ME ME_4B556E6F0285
+ MEPROP Name 'id'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_45EED84C01FD' '4570511E038A.ms.model.script' // RedactionID
+ ;
+
+ENDME // ME_4B556E6F0285 id
+
+ME ME_4B55733E030F
+ MEPROP Name 'next_list'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_45EED8DE0121' '4570511E038A.ms.model.script' // RedactionInfoList
+ ;
+
+ENDME // ME_4B55733E030F next_list
+
+ME ME_4B556E69014E
+ MEPROP UID '4B556E69014E'
+ MEPROP Name 'cur_and_next_redactions'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_462895DD0240 // RedactionInfoListHelper
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B556E6F025C // redaction_info_list
+ ME_4B556E6F0285 // id
+ ME_4B55733E030F // next_list
+ )
+ ; // Parameters
+
+ENDME // ME_4B556E69014E cur_and_next_redactions
+
+ME ME_462895DD0240
+ MEPROP UID '462895DD0240'
+ MEPROP Name 'RedactionInfoListHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4628939B0216' '4628939B0216.ms.model.script' // DocumentHelper
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_462896090184 // find_redaction
+ HWL ME_46289660023F // find_redaction
+ HWL ME_4628969F03E4 // find_actual_redaction
+ HWL ME_4A8145520247 // prev_redactions
+ HWL ME_4B556E69014E // cur_and_next_redactions
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is namespace" True
+ UP cpp:Path 'garant6x\implementation\Garant\GblAdapterLib\DocumentHelper\RedactionInfoListHelper.cpp'
+ UP h:Path 'garant6x\implementation\Garant\GblAdapterLib\DocumentHelper\RedactionInfoListHelper.h'
+ UP intf.pas:Path 'garant6x\implementation\Garant\tie\Garant\GblAdapterLib\RedactionInfoListHelper.pas'
+
+ENDME // ME_462895DD0240 RedactionInfoListHelper

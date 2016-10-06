@@ -1,0 +1,105 @@
+// l3MinMax 47A066980016 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47A066980016
+
+FORWARD ME_47A066C301D4
+
+ME ME_47A066CC01A6
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066CC01A6 A
+
+ME ME_47A066CC01C6
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066CC01C6 B
+
+ME ME_47A066C301D4
+ MEPROP UID '47A066C301D4'
+ MEPROP Name 'Max'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A066980016 // l3MinMax
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A066CC01A6 // A
+ ME_47A066CC01C6 // B
+ )
+ ; // Parameters
+
+ENDME // ME_47A066C301D4 Max
+
+FORWARD ME_47A066D40062
+
+ME ME_47A066DC0120
+ MEPROP Name 'A'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066DC0120 A
+
+ME ME_47A066DC013F
+ MEPROP Name 'B'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+
+ENDME // ME_47A066DC013F B
+
+ME ME_47A066D40062
+ MEPROP UID '47A066D40062'
+ MEPROP Name 'Min'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A066980016 // l3MinMax
+ ;
+ MELINK Target WL 'ME_3DBFFD7002C2' '3DBFDB23006E.ms.model.script' // long
+ ;
+ MELIST Parameters
+   Seq: ( ME_47A066DC0120 // A
+ ME_47A066DC013F // B
+ )
+ ; // Parameters
+
+ENDME // ME_47A066D40062 Min
+
+ME ME_47A066980016
+ MEPROP UID '47A066980016'
+ MEPROP Name 'l3MinMax'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_537B83AD01F0' '537B83AD01F0.ms.model.script' // l3Math
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_47A066C301D4 // Max
+ HWL ME_47A066D40062 // Min
+ )
+ ; // Operations
+ UP "author" 'Ëþëèí À.Â.'
+ UP "finished" False
+ UP "started" '01.12.95 16:28'
+ UP extprop:rc:SelfName 'MinMax'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3MinMax.pas'
+
+ENDME // ME_47A066980016 l3MinMax

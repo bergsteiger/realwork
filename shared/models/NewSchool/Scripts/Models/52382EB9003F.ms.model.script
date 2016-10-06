@@ -1,0 +1,133 @@
+// AppConfigTestMixin 52382EB9003F TestCaseMixIn Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_52382EB9003F
+
+ME ME_52382FA5035C
+ MEPROP UID '52382FA5035C'
+ MEPROP Name 'f_Config'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
+ ;
+ MELINK Target WL 'ME_51D547F700AB' '52161F2B00C4.ms.model.script' // TddAppConfigNode
+ ;
+
+ENDME // ME_52382FA5035C f_Config
+
+ME ME_52382FBC011A
+ MEPROP UID '52382FBC011A'
+ MEPROP Name 'f_ConfigStorage'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
+ ;
+ MELINK Target WL 'ME_51D519310249' '5214AEF201AE.ms.model.script' // IddConfigStorage
+ ;
+
+ENDME // ME_52382FBC011A f_ConfigStorage
+
+ME ME_52382F4E03C0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
+ ;
+ MELINK Target WL 'ME_52307F8F0103' '51D559ED033C.ms.model.script' // MakeNode
+ ;
+
+ENDME // ME_52382F4E03C0 
+
+ME ME_52382F560230
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
+ ;
+ MELINK Target WL 'ME_4D6E60D6024F' '48A41FF10094.ms.model.script' // SendMessage
+ ;
+
+ENDME // ME_52382F560230 
+
+ME ME_52382F620118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
+ ;
+ MELINK Target WL 'ME_51D54BCD02DA' '51D54BB60329.ms.model.script' // TConfigStorageStub
+ ;
+
+ENDME // ME_52382F620118 
+
+ME ME_52382F6602D7
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_52382F6602D7 
+
+ME ME_523839FD00D5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52382EB9003F // AppConfigTestMixin
+ ;
+ MELINK Target WL 'ME_4B990F100126' '4B990EF000AA.ms.model.script' // TddAppConfiguration
+ ;
+
+ENDME // ME_523839FD00D5 
+
+ME ME_479731C50290_ME_52382EB9003F
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_52382EB9003F Cleanup
+
+%%ImplementedBy ME_4A5CB93700CF ME_52382EB9003F
+
+ME ME_52382EB9003F
+ MEPROP UID '52382EB9003F'
+ MEPROP Name 'AppConfigTestMixin'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_TestCaseMixIn ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_51D52B240123' '51D52B240123.ms.model.script' // AppConfig
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_52382FA5035C // f_Config
+ HWL ME_52382FBC011A // f_ConfigStorage
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_52382EB9003F // Cleanup
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_52382F4E03C0 // MakeNode
+ ME_52382F560230 // SendMessage
+ ME_52382F620118 // TConfigStorageStub
+ ME_52382F6602D7 // FreeAndNil
+ ME_523839FD00D5 // TddAppConfiguration
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_AppConfigTestMixin_'
+ UP extprop:pas:UnitName 'AppConfigTestMixin.imp'
+ UP extprop:rc:isAcceptableForScripts True
+ UP intf.pas:Path 'common\components\rtl\Garant\Daily\AppConfigTestMixin.imp.pas'
+
+ENDME // ME_52382EB9003F AppConfigTestMixin

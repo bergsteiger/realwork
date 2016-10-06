@@ -2,6 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4F49408A03C0
+
 FORWARD ME_54F0735F0179
 
 FORWARD ME_4F49408A03C0
@@ -51,6 +53,10 @@ ME ME_4F4947D50241
 
 ENDME // ME_4F4947D50241 Create
 
+%%ImplementedBy ME_4F494729028E ME_4F4947F30251
+
+%%InheritedBy ME_4F4947D50241 ME_4F4947F30251
+
 ME ME_4F4947F30251
  MEPROP UID '4F4947F30251'
  MEPROP Name 'Make'
@@ -83,14 +89,14 @@ ME ME_4F494F6D0304
 ENDME // ME_4F494F6D0304 
 
 ME ME_47B07CF403D0_ME_4F49408A03C0
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_4F49408A03C0 IsSameItems
 
 ME ME_47B2C42A0163_ME_4F49408A03C0
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -98,13 +104,13 @@ ME ME_47B2C42A0163_ME_4F49408A03C0
 ENDME // ME_47B2C42A0163_ME_4F49408A03C0 AssignItem
 
 ME ME_47B94A5C006E_ME_4F49408A03C0
- MELINK Original WL 'ME_47B94A5C006E' '47BB24D30205.ms.model.script' // FreeItem
+ MELINK Original WL 'ME_47B94A5C006E' '47B45152003F.ms.model.script' // FreeItem
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B94A5C006E_ME_4F49408A03C0 FreeItem
 
 ME ME_47B99D4503A2_ME_4F49408A03C0
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_4F49408A03C0 CompareExistingItems
@@ -122,11 +128,16 @@ ME ME_56012ACE02B2_ME_4F49408A03C0
 ENDME // ME_56012ACE02B2_ME_4F49408A03C0 Grow
 
 ME ME_47A6FEE600FC_ME_4F49408A03C0
- MELINK Original WL 'ME_47A6FEE600FC' '47913B47006E.ms.model.script' // IsCacheable
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
  ;
  MEPROP OpKind opkind_Overridden
  UP "ifndef" 'DesignTimeLibrary'
 ENDME // ME_47A6FEE600FC_ME_4F49408A03C0 IsCacheable
+
+%%ImplementedBy ME_4F494729028E ME_4F49408A03C0
+
+%%InheritedBy ME_4A54DD4E036F ME_4F49408A03C0
+%%InheritedBy ME_4E5506F6007E ME_4F49408A03C0
 
 ME ME_4F49408A03C0
  MEPROP UID '4F49408A03C0'
@@ -140,7 +151,7 @@ ME ME_4F49408A03C0
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4E5506F6007E' '47913B47006E.ms.model.script' // l3RecordListPrimPrim
+ WL 'ME_4E5506F6007E' '4E5506F6007E.ms.model.script' // l3RecordListPrimPrim
  )
  ; // Inherits
  MELIST Implements
@@ -173,6 +184,9 @@ ME ME_4F49408A03C0
    Seq: ( ME_4F494F6D0304 // TkwCompiledVar
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'tfwStoredValues'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'StoredValues'
@@ -199,5 +213,8 @@ ME ME_54F0735F0179
  WL 'ME_4DAF19F600C5' '4DAF19F600C5.ms.model.script' // tfwScriptingInterfaces
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_54F0735F0179 StoredValues

@@ -1,0 +1,204 @@
+// nevStringCache 4E71FB8302C6 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E568ED60085
+%%Inner ME_4E568EE902FB
+
+FORWARD ME_4E71FB8302C6
+
+FORWARD ME_4E568ED60085
+
+ME ME_4E56995A01E7
+ MEPROP UID '4E56995A01E7'
+ MEPROP Name 'first'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E568ED60085 // TevParaStringsRange
+ ;
+ MEPROP Value 1
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1
+
+ENDME // ME_4E56995A01E7 first
+
+ME ME_4E56996200E4
+ MEPROP UID '4E56996200E4'
+ MEPROP Name 'last'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4E568ED60085 // TevParaStringsRange
+ ;
+ MEPROP Value 3
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 3
+
+ENDME // ME_4E56996200E4 last
+
+ME ME_4E568ED60085
+ MEPROP UID '4E568ED60085'
+ MEPROP Name 'TevParaStringsRange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E71FB8302C6 // nevStringCache
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4E56995A01E7 // first
+ HWL ME_4E56996200E4 // last
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4E568ED60085 TevParaStringsRange
+
+FORWARD ME_4E568EE902FB
+
+ME ME_4E568EF7020E
+ MEPROP UID '4E568EF7020E'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4E568EE902FB // TevParaStrings
+ ;
+ MELINK Target WL 'ME_4773DEF0021B' '47913B47006E.ms.model.script' // Tl3CustomString
+ ;
+
+ENDME // ME_4E568EF7020E 
+
+%%InheritedBy ME_4E568ED60085 ME_4E568EE902FB
+
+ME ME_4E568EE902FB
+ MEPROP UID '4E568EE902FB'
+ MEPROP Name 'TevParaStrings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E71FB8302C6 // nevStringCache
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4E568ED60085 // TevParaStringsRange
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4E568EF7020E // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_4E568EE902FB TevParaStrings
+
+ME ME_4E71FBBC035A
+ MEPROP UID '4E71FBBC035A'
+ MEPROP Name 'f_S'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4E71FB8302C6 // nevStringCache
+ ;
+ MELINK Target HWL ME_4E568EE902FB // TevParaStrings
+ ;
+
+ENDME // ME_4E71FBBC035A f_S
+
+ME ME_4E71FC8302E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E71FB8302C6 // nevStringCache
+ ;
+ MELINK Target WL 'ME_4E5689DF037B' '529F102E0065.ms.model.script' // TevParaString
+ ;
+
+ENDME // ME_4E71FC8302E9 
+
+ME ME_4E71FD580124
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4E71FB8302C6 // nevStringCache
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_4E71FD580124 
+
+ME ME_4E5690220216_ME_4E71FB8302C6
+ MELINK Original WL 'ME_4E5690220216' '4678209200A6.ms.model.script' // CheckS
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4E5690220216_ME_4E71FB8302C6 CheckS
+
+ME ME_479F2AFB0397_ME_4E71FB8302C6
+ MELINK Original WL 'ME_479F2AFB0397' '51612ED700B4.ms.model.script' // Release
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479F2AFB0397_ME_4E71FB8302C6 Release
+
+%%ImplementedBy ME_4A5CB93700CF ME_4E71FB8302C6
+%%ImplementedBy ME_4E71F79000F7 ME_4E71FB8302C6
+
+%%InheritedBy ME_4E71FF0D011C ME_4E71FB8302C6
+
+ME ME_4E71FB8302C6
+ MEPROP UID '4E71FB8302C6'
+ MEPROP Name 'nevStringCache'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_529F102E0065' '529F102E0065.ms.model.script' // StringCache
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E71FF0D011C' '4E71FF0D011C.ms.model.script' // nevStringCacheHackBecauseMl3Uknown
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ WL 'ME_4E71F79000F7' '4678209200A6.ms.model.script' // MnevStringCache
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4E71FBBC035A // f_S
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_4E5690220216_ME_4E71FB8302C6 // CheckS
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479F2AFB0397_ME_4E71FB8302C6 // Release
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4E568ED60085 // TevParaStringsRange
+ HWL ME_4E568EE902FB // TevParaStrings
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4E71FC8302E9 // TevParaString
+ ME_4E71FD580124 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nevStringCache_'
+ UP extprop:pas:UnitName 'nevStringCache.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevStringCache.imp.pas'
+
+ENDME // ME_4E71FB8302C6 nevStringCache

@@ -1,0 +1,185 @@
+// ncsTaskSendReg 54855CA501E1 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_54855CA501E1
+
+FORWARD ME_54855CCF019F
+
+ME ME_54855D0301EA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CCF019F // ncsServerRegister
+ ;
+ MELINK Target WL 'ME_54539F4702B1' '544E0148010D.ms.model.script' // TncsMessageFactory
+ ;
+
+ENDME // ME_54855D0301EA 
+
+ME ME_54855D090203
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CCF019F // ncsServerRegister
+ ;
+ MELINK Target WL 'ME_547C34E902C1' '547C34C500F7.ms.model.script' // ncsServerRegister
+ ;
+
+ENDME // ME_54855D090203 
+
+ME ME_54855D3403D2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CCF019F // ncsServerRegister
+ ;
+ MELINK Target WL 'ME_54855C2F0088' '54855BDB033D.ms.model.script' // TncsSendTask
+ ;
+
+ENDME // ME_54855D3403D2 
+
+ME ME_54B66E210162
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CCF019F // ncsServerRegister
+ ;
+ MELINK Target WL 'ME_546B442D0343' '546457E203C0.ms.model.script' // TncsGetTaskDescriptionReply
+ ;
+
+ENDME // ME_54B66E210162 
+
+ME ME_54BF8DF900D4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CCF019F // ncsServerRegister
+ ;
+ MELINK Target WL 'ME_548940970391' '546457E203C0.ms.model.script' // TncsPushFilePart
+ ;
+
+ENDME // ME_54BF8DF900D4 
+
+ME ME_54BF90D4008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CCF019F // ncsServerRegister
+ ;
+ MELINK Target WL 'ME_547583540319' '546457E203C0.ms.model.script' // TncsGetFilePartReply
+ ;
+
+ENDME // ME_54BF90D4008D 
+
+ME ME_54855CCF019F
+ MEPROP UID '54855CCF019F'
+ MEPROP Name 'ncsServerRegister'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54855CA501E1 // ncsTaskSendReg
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54855D0301EA // TncsMessageFactory
+ ME_54855D090203 // ncsServerRegister
+ ME_54855D3403D2 // TncsSendTask
+ ME_54B66E210162 // TncsGetTaskDescriptionReply
+ ME_54BF8DF900D4 // TncsPushFilePart
+ ME_54BF90D4008D // TncsGetFilePartReply
+ )
+ ; // Dependencies
+
+ENDME // ME_54855CCF019F ncsServerRegister
+
+FORWARD ME_54855CE1027C
+
+ME ME_54855D0D0113
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CE1027C // ncsClientRegister
+ ;
+ MELINK Target WL 'ME_54539F4702B1' '544E0148010D.ms.model.script' // TncsMessageFactory
+ ;
+
+ENDME // ME_54855D0D0113 
+
+ME ME_54855D110273
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CE1027C // ncsClientRegister
+ ;
+ MELINK Target WL 'ME_547C350000AA' '547C34C500F7.ms.model.script' // ncsClientRegister
+ ;
+
+ENDME // ME_54855D110273 
+
+ME ME_54855D3B02ED
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CE1027C // ncsClientRegister
+ ;
+ MELINK Target WL 'ME_54855C4200D7' '54855BDB033D.ms.model.script' // TncsSendTaskReply
+ ;
+
+ENDME // ME_54855D3B02ED 
+
+ME ME_54B66DF0024A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CE1027C // ncsClientRegister
+ ;
+ MELINK Target WL 'ME_54B66DB30346' '54855BDB033D.ms.model.script' // TncsGetPartialTaskDescription
+ ;
+
+ENDME // ME_54B66DF0024A 
+
+ME ME_54BF8C4A03BA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_54855CE1027C // ncsClientRegister
+ ;
+ MELINK Target WL 'ME_547583330291' '546457E203C0.ms.model.script' // TncsGetFilePart
+ ;
+
+ENDME // ME_54BF8C4A03BA 
+
+ME ME_54855CE1027C
+ MEPROP UID '54855CE1027C'
+ MEPROP Name 'ncsClientRegister'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_54855CA501E1 // ncsTaskSendReg
+ ;
+ MELIST Dependencies
+   Seq: ( ME_54855D0D0113 // TncsMessageFactory
+ ME_54855D110273 // ncsClientRegister
+ ME_54855D3B02ED // TncsSendTaskReply
+ ME_54B66DF0024A // TncsGetPartialTaskDescription
+ ME_54BF8C4A03BA // TncsGetFilePart
+ )
+ ; // Dependencies
+
+ENDME // ME_54855CE1027C ncsClientRegister
+
+ME ME_54855CA501E1
+ MEPROP UID '54855CA501E1'
+ MEPROP Name 'ncsTaskSendReg'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_54855BDB033D' '54855BDB033D.ms.model.script' // TaskSend
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_54855CCF019F // ncsServerRegister
+ HWL ME_54855CE1027C // ncsClientRegister
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\ncsTaskSendReg.pas'
+
+ENDME // ME_54855CA501E1 ncsTaskSendReg

@@ -1,0 +1,36 @@
+// m2COMLib 49B952CD03A6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49B952CD03A6
+
+ME ME_49B952D90216
+ MEPROP UID '49B952D90216'
+ MEPROP Name 'm2COMGetSize'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49B952CD03A6 // m2COMLib
+ ;
+
+ENDME // ME_49B952D90216 m2COMGetSize
+
+ME ME_49B952CD03A6
+ MEPROP UID '49B952CD03A6'
+ MEPROP Name 'm2COMLib'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47BF042D029B' '47BF042D029B.ms.model.script' // m2
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49B952D90216 // m2COMGetSize
+ )
+ ; // Operations
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\m2\NOT_FINISHED_m2COMLib.pas'
+
+ENDME // ME_49B952CD03A6 m2COMLib

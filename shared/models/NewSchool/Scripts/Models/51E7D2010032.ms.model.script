@@ -1,0 +1,283 @@
+// ddRTFProperties 51E7D2010032 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51E7D225023C
+%%Inner ME_51E7D21B0068
+%%Inner ME_54E19074022B
+%%Inner ME_54E3061B01D4
+
+FORWARD ME_51E7D2010032
+
+ME ME_51E7D225023C
+ MEPROP UID '51E7D225023C'
+ MEPROP Name 'TddCustomStyleEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7D2010032 // ddRTFProperties
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddCustomStyleEntry'
+
+ENDME // ME_51E7D225023C TddCustomStyleEntry
+
+%%InheritedBy ME_51E7D225023C ME_51E7D21B0068
+
+ME ME_51E7D21B0068
+ MEPROP UID '51E7D21B0068'
+ MEPROP Name 'TddStyleEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7D2010032 // ddRTFProperties
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_51E7D225023C // TddCustomStyleEntry
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddStyleEntry'
+
+ENDME // ME_51E7D21B0068 TddStyleEntry
+
+FORWARD ME_54E19074022B
+
+ME ME_54E192720250
+ MEPROP UID '54E192720250'
+ MEPROP Name 'FontType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19074022B // TddFontEntry
+ ;
+ MELINK Target WL 'ME_54E1921C028C' '518A1E9F0274.ms.model.script' // TFontType
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_54E192720250 FontType
+
+ME ME_54E192970288
+ MEPROP UID '54E192970288'
+ MEPROP Name 'Family'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19074022B // TddFontEntry
+ ;
+ MELINK Target WL 'ME_54E191970286' '518A1E9F0274.ms.model.script' // TFontFamily
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_54E192970288 Family
+
+ME ME_54E192E80071
+ MEPROP UID '54E192E80071'
+ MEPROP Name 'Alternate'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19074022B // TddFontEntry
+ ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_54E192E80071 Alternate
+
+ME ME_54E1930E017A
+ MEPROP UID '54E1930E017A'
+ MEPROP Name 'Panose'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19074022B // TddFontEntry
+ ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_54E1930E017A Panose
+
+ME ME_54E1937103CC
+ MEPROP UID '54E1937103CC'
+ MEPROP Name 'Pitch'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19074022B // TddFontEntry
+ ;
+ MELINK Target WL 'ME_476130E5023C' '4807744200AA.ms.model.script' // Byte
+ ;
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_54E1937103CC Pitch
+
+ME ME_54E193920386
+ MEPROP UID '54E193920386'
+ MEPROP Name 'Number'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19074022B // TddFontEntry
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_54E193920386 Number
+
+ME ME_54E193BD0206
+ MEPROP UID '54E193BD0206'
+ MEPROP Name 'CharSet'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_54E19074022B // TddFontEntry
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+ UP "writes field" True
+
+ENDME // ME_54E193BD0206 CharSet
+
+ME ME_478CF34E02CE_ME_54E19074022B
+ MELINK Original WL 'ME_478CF34E02CE' '478CF30500C1.ms.model.script' // Assign
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_478CF34E02CE_ME_54E19074022B Assign
+
+ME ME_479731C50290_ME_54E19074022B
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_54E19074022B Cleanup
+
+ME ME_479F2B3302C1_ME_54E19074022B
+ MELINK Original WL 'ME_479F2B3302C1' '47913F4E02E0.ms.model.script' // BeforeAddToCache
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479F2B3302C1_ME_54E19074022B BeforeAddToCache
+
+ME ME_47A042E100E2_ME_54E19074022B
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_54E19074022B InitFields
+
+%%InheritedBy ME_47BC50F5038E ME_54E19074022B
+
+ME ME_54E19074022B
+ MEPROP UID '54E19074022B'
+ MEPROP Name 'TddFontEntry'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7D2010032 // ddRTFProperties
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47BC50F5038E' '47913B47006E.ms.model.script' // Tl3NCString
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_54E192720250 // FontType
+ HWL ME_54E192970288 // Family
+ HWL ME_54E192E80071 // Alternate
+ HWL ME_54E1930E017A // Panose
+ HWL ME_54E1937103CC // Pitch
+ HWL ME_54E193920386 // Number
+ HWL ME_54E193BD0206 // CharSet
+ )
+ ; // Attributes
+ MELIST Overridden
+   Seq: ( ME_478CF34E02CE_ME_54E19074022B // Assign
+ ME_479731C50290_ME_54E19074022B // Cleanup
+ ME_479F2B3302C1_ME_54E19074022B // BeforeAddToCache
+ ME_47A042E100E2_ME_54E19074022B // InitFields
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddFontEntry'
+
+ENDME // ME_54E19074022B TddFontEntry
+
+ME ME_54E3061B01D4
+ MEPROP UID '54E3061B01D4'
+ MEPROP Name 'TddRTFInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51E7D2010032 // ddRTFProperties
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddRTFInfo'
+
+ENDME // ME_54E3061B01D4 TddRTFInfo
+
+ME ME_51E7D2010032
+ MEPROP UID '51E7D2010032'
+ MEPROP Name 'ddRTFProperties'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6843C101D1' '4F6843C101D1.ms.model.script' // ddCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51E7D225023C // TddCustomStyleEntry
+ HWL ME_51E7D21B0068 // TddStyleEntry
+ HWL ME_54E19074022B // TddFontEntry
+ HWL ME_54E3061B01D4 // TddRTFInfo
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddRTFProperties.pas'
+
+ENDME // ME_51E7D2010032 ddRTFProperties

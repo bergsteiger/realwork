@@ -1,0 +1,109 @@
+// Masks 502549AF030B UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_502549BF02C2
+%%Inner ME_50254A0700F8
+
+FORWARD ME_502549AF030B
+
+%%InheritedBy ME_4787A405013D ME_502549BF02C2
+
+ME ME_502549BF02C2
+ MEPROP UID '502549BF02C2'
+ MEPROP Name 'EMaskException'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Exception ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502549AF030B // Masks
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ )
+ ; // Inherits
+
+ENDME // ME_502549BF02C2 EMaskException
+
+ME ME_50254A0700F8
+ MEPROP UID '50254A0700F8'
+ MEPROP Name 'TMask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TMask allows the comparison of strings containing wildcards to a file mask.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_502549AF030B // Masks
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Mask'
+
+ENDME // ME_50254A0700F8 TMask
+
+FORWARD ME_50254A2603D3
+
+ME ME_50254AA70268
+ MEPROP Name 'Filename'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50254AA70268 Filename
+
+ME ME_50254AA70297
+ MEPROP Name 'Mask'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_50254AA70297 Mask
+
+ME ME_50254A2603D3
+ MEPROP UID '50254A2603D3'
+ MEPROP Name 'MatchesMask'
+ MEPROP Class class_Operation
+ %SUMMARY 'Indicates whether a file name conforms to the format specified by a filter string.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_502549AF030B // Masks
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_50254AA70268 // Filename
+ ME_50254AA70297 // Mask
+ )
+ ; // Parameters
+
+ENDME // ME_50254A2603D3 MatchesMask
+
+ME ME_502549AF030B
+ MEPROP UID '502549AF030B'
+ MEPROP Name 'Masks'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0997B00A2' '4AB0997B00A2.ms.model.script' // Common
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50254A2603D3 // MatchesMask
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_502549BF02C2 // EMaskException
+ HWL ME_50254A0700F8 // TMask
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Common\Masks.pas'
+
+ENDME // ME_502549AF030B Masks

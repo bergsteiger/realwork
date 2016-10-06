@@ -1,0 +1,3490 @@
+// KTestRunner 4B2A6D4303A9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4B7AAC7A031D
+%%Inner ME_4B2A6CEB0377
+
+FORWARD ME_4B2A6D4303A9
+
+FORWARD ME_4B7AAC7A031D
+
+%%InheritedBy ME_4B7AAC7A031D ME_4B7AAF1203B4
+
+ME ME_4B7AAF1203B4
+ MEPROP UID '4B7AAF1203B4'
+ MEPROP Name 'RTestResultsPlace'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4B7AAC7A031D // TTestResultsPlace
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4B7AAF1203B4 RTestResultsPlace
+
+FORWARD ME_4B7AAF5C0096
+
+ME ME_4B7AAF680364
+ MEPROP UID '4B7AAF680364'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B7AAF5C0096 // array of RTestResultsPlace
+ ;
+ MELINK Target HWL ME_4B7AAF1203B4 // RTestResultsPlace
+ ;
+
+ENDME // ME_4B7AAF680364 
+
+ME ME_4B7AAF5C0096
+ MEPROP UID '4B7AAF5C0096'
+ MEPROP Name 'array of RTestResultsPlace'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B7AAF680364 // 
+ )
+ ; // Attributes
+ UP "array type" 'open'
+
+ENDME // ME_4B7AAF5C0096 array of RTestResultsPlace
+
+FORWARD ME_4B7AAF3101B0
+
+ME ME_4B7AAF400111
+ MEPROP UID '4B7AAF400111'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4B7AAF3101B0 // TTestResultsPlaces
+ ;
+ MELINK Target HWL ME_4B7AAF1203B4 // RTestResultsPlace
+ ;
+
+ENDME // ME_4B7AAF400111 
+
+ME ME_4B7AAF3101B0
+ MEPROP UID '4B7AAF3101B0'
+ MEPROP Name 'TTestResultsPlaces'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B7AAF400111 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_4B7AAF3101B0 TTestResultsPlaces
+
+FORWARD ME_555EF157016F
+
+ME ME_555EF1630385
+ MEPROP UID '555EF1630385'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_555EF157016F // HasTabs
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_555EF1630385 DoIt
+
+ME ME_555EF157016F
+ MEPROP UID '555EF157016F'
+ MEPROP Name 'HasTabs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555EF1630385 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_555EF157016F HasTabs
+
+ME ME_4B7AB0B6016E
+ MEPROP UID '4B7AB0B6016E'
+ MEPROP Name 'CommandLineKey'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Ключ командной строки при указании которого будет выбрано данное место расположения результатов' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B7AB0B6016E CommandLineKey
+
+ME ME_4B7C0B43005B
+ MEPROP UID '4B7C0B43005B'
+ MEPROP Name 'TimesPage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Страница для вывода замеров времени' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4B7C0B43005B TimesPage
+
+ME ME_4B7C0B670215
+ MEPROP UID '4B7C0B670215'
+ MEPROP Name 'ResultsPage'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Страница для вывода результатов тестов' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP extprop:pas:Value 0
+
+ENDME // ME_4B7C0B670215 ResultsPage
+
+ME ME_4BEA9969001B
+ MEPROP UID '4BEA9969001B'
+ MEPROP Name 'IsGK'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ %SUMMARY 'Тесты запущены ГК' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4BEA9969001B IsGK
+
+ME ME_4C35A6DA02E9
+ MEPROP UID '4C35A6DA02E9'
+ MEPROP Name 'IsLAW'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_static::Operation ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B7AAC7A031D // TTestResultsPlace
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4C35A6DA02E9 IsLAW
+
+ME ME_4B7AAC7A031D
+ MEPROP UID '4B7AAC7A031D'
+ MEPROP Name 'TTestResultsPlace'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Место для складывания результатов тестов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_555EF157016F // HasTabs
+ HWL ME_4B7AB0B6016E // CommandLineKey
+ HWL ME_4B7C0B43005B // TimesPage
+ HWL ME_4B7C0B670215 // ResultsPage
+ HWL ME_4BEA9969001B // IsGK
+ HWL ME_4C35A6DA02E9 // IsLAW
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B7AAF1203B4 // RTestResultsPlace
+ HWL ME_4B7AAF5C0096 // array of RTestResultsPlace
+ HWL ME_4B7AAF3101B0 // TTestResultsPlaces
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TestResultsPlace'
+
+ENDME // ME_4B7AAC7A031D TTestResultsPlace
+
+FORWARD ME_4B2A6CEB0377
+
+FORWARD ME_4B2F92860054
+
+ME ME_4B2F92A1037F
+ MEPROP UID '4B2F92A1037F'
+ MEPROP Name 'foGet'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Прочитать файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ENDME // ME_4B2F92A1037F foGet
+
+ME ME_4B2F92B2030E
+ MEPROP UID '4B2F92B2030E'
+ MEPROP Name 'foSet'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Записать файл' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ENDME // ME_4B2F92B2030E foSet
+
+ME ME_4BFD417300C1
+ MEPROP UID '4BFD417300C1'
+ MEPROP Name 'foGetLabel'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Получить метки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ENDME // ME_4BFD417300C1 foGetLabel
+
+ME ME_4BFD418002DF
+ MEPROP UID '4BFD418002DF'
+ MEPROP Name 'foSetLabel'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Установить метки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ENDME // ME_4BFD418002DF foSetLabel
+
+ME ME_4EB2C7F20025
+ MEPROP UID '4EB2C7F20025'
+ MEPROP Name 'foAttach'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ENDME // ME_4EB2C7F20025 foAttach
+
+ME ME_4B2F92860054
+ MEPROP UID '4B2F92860054'
+ MEPROP Name 'TKFileOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Операция с файлом в К' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B2F92A1037F // foGet
+ HWL ME_4B2F92B2030E // foSet
+ HWL ME_4BFD417300C1 // foGetLabel
+ HWL ME_4BFD418002DF // foSetLabel
+ HWL ME_4EB2C7F20025 // foAttach
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4B2F92860054 TKFileOperation
+
+ME ME_4B2B6D0F0045
+ MEPROP UID '4B2B6D0F0045'
+ MEPROP Name 'f_File'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B2B6CB403B7' '4807744200AA.ms.model.script' // TextFile
+ ;
+
+ENDME // ME_4B2B6D0F0045 f_File
+
+ME ME_4B2F5D0C023C
+ MEPROP UID '4B2F5D0C023C'
+ MEPROP Name 'f_TimeInfo'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B2F5BB102A4' '4B2A112B011A.ms.model.script' // TTimeInfoList
+ ;
+
+ENDME // ME_4B2F5D0C023C f_TimeInfo
+
+ME ME_4B589B0A00A8
+ MEPROP UID '4B589B0A00A8'
+ MEPROP Name 'f_IsFakeK'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4B589B0A00A8 f_IsFakeK
+
+ME ME_4B589B1302AE
+ MEPROP UID '4B589B1302AE'
+ MEPROP Name 'f_FakeKValid'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4B589B1302AE f_FakeKValid
+
+ME ME_4CA9DFB50249
+ MEPROP UID '4CA9DFB50249'
+ MEPROP Name 'f_FakeCVSValid'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4CA9DFB50249 f_FakeCVSValid
+
+ME ME_4CA9DFDE035F
+ MEPROP UID '4CA9DFDE035F'
+ MEPROP Name 'f_IsFakeCVS'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_static::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4CA9DFDE035F f_IsFakeCVS
+
+ME ME_4D0BA7440021
+ MEPROP UID '4D0BA7440021'
+ MEPROP Name 'f_FailedTests'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B2B6CB403B7' '4807744200AA.ms.model.script' // TextFile
+ ;
+
+ENDME // ME_4D0BA7440021 f_FailedTests
+
+ME ME_4F16C00701CF
+ MEPROP UID '4F16C00701CF'
+ MEPROP Name 'f_AllRunnedTests'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Список всех прошедших тестов' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B2B6CB403B7' '4807744200AA.ms.model.script' // TextFile
+ ;
+
+ENDME // ME_4F16C00701CF f_AllRunnedTests
+
+ME ME_5374DB6C02EF
+ MEPROP UID '5374DB6C02EF'
+ MEPROP Name 'f_RunnedCount'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5374DB6C02EF f_RunnedCount
+
+FORWARD ME_4B2B6F740014
+
+ME ME_4B2B6F8900C1
+ MEPROP UID '4B2B6F8900C1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2B6F740014 // PutResultsToK
+ ;
+
+ENDME // ME_4B2B6F8900C1 DoIt
+
+ME ME_4B2B7A7B0228
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2B6F740014 // PutResultsToK
+ ;
+ MELINK Target WL 'ME_4B2B7A6C004E' '48A41FF10094.ms.model.script' // CreateProcess
+ ;
+
+ENDME // ME_4B2B7A7B0228 
+
+ME ME_4B2B6F740014
+ MEPROP UID '4B2B6F740014'
+ MEPROP Name 'PutResultsToK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2B6F8900C1 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2B7A7B0228 // CreateProcess
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B2B6F740014 PutResultsToK
+
+FORWARD ME_4B2B93A4002D
+
+FORWARD ME_4B2B93AB00BF
+
+ME ME_4B2B93B30259
+ MEPROP Name 'aSt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B2B93B30259 aSt
+
+ME ME_4B2B93AB00BF
+ MEPROP UID '4B2B93AB00BF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2B93A4002D // ToLog
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2B93B30259 // aSt
+ )
+ ; // Parameters
+
+ENDME // ME_4B2B93AB00BF DoIt
+
+ME ME_4B2B93A4002D
+ MEPROP UID '4B2B93A4002D'
+ MEPROP Name 'ToLog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2B93AB00BF // DoIt
+ )
+ ; // Operations
+ UP "is static" False
+
+ENDME // ME_4B2B93A4002D ToLog
+
+FORWARD ME_4B2B954502BE
+
+FORWARD ME_4B2B9583032C
+
+ME ME_4B2B959602F6
+ MEPROP Name 'aPageID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B2B959602F6 aPageID
+
+ME ME_4B2B95960327
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B2B95960327 aFileName
+
+ME ME_4B2B9583032C
+ MEPROP UID '4B2B9583032C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2B954502BE // PutFileToK
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2B959602F6 // aPageID
+ ME_4B2B95960327 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4B2B9583032C DoIt
+
+FORWARD ME_4B2F92D20307
+
+ME ME_4B2B956303E4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2B954502BE // PutFileToK
+ ;
+ MELINK Target HWL ME_4B2F92D20307 // CommunicateWithK
+ ;
+
+ENDME // ME_4B2B956303E4 
+
+ME ME_4B2FC4080306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2B954502BE // PutFileToK
+ ;
+ MELINK Target WL 'ME_4B2FC528001C' '47A080670100.ms.model.script' // l3CompareFiles
+ ;
+
+ENDME // ME_4B2FC4080306 
+
+ME ME_4B2B954502BE
+ MEPROP UID '4B2B954502BE'
+ MEPROP Name 'PutFileToK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2B9583032C // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2B956303E4 // CommunicateWithK
+ ME_4B2FC4080306 // l3CompareFiles
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B2B954502BE PutFileToK
+
+FORWARD ME_4B2F51C3008F
+
+FORWARD ME_4B2F51D203CE
+
+ME ME_4B2F51D50309
+ MEPROP Name 'aTime'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A618AF0053' '4807744200AA.ms.model.script' // Cardinal
+ ;
+
+ENDME // ME_4B2F51D50309 aTime
+
+ME ME_4B2F51D5032A
+ MEPROP Name 'aSt'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B2F51D5032A aSt
+
+ME ME_4B588D920358
+ MEPROP Name 'aSubName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B588D920358 aSubName
+
+ME ME_4B2F51D203CE
+ MEPROP UID '4B2F51D203CE'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F51C3008F // TimeToLog
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2F51D50309 // aTime
+ ME_4B2F51D5032A // aSt
+ ME_4B588D920358 // aSubName
+ )
+ ; // Parameters
+
+ENDME // ME_4B2F51D203CE DoIt
+
+ME ME_4B2F51C3008F
+ MEPROP UID '4B2F51C3008F'
+ MEPROP Name 'TimeToLog'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2F51D203CE // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" False
+
+ENDME // ME_4B2F51C3008F TimeToLog
+
+FORWARD ME_4B2F60140143
+
+ME ME_4B2F617F0344
+ MEPROP UID '4B2F617F0344'
+ MEPROP Name 'Index'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B2F617F0344 Index
+
+ME ME_4B2F61AC0042
+ MEPROP UID '4B2F61AC0042'
+ MEPROP Name 'F'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B2F61AC0042 F
+
+ME ME_4B2F641E00AC
+ MEPROP UID '4B2F641E00AC'
+ MEPROP Name 'N'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B2F641E00AC N
+
+ME ME_4B2F643F02C2
+ MEPROP UID '4B2F643F02C2'
+ MEPROP Name 'Info'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ MELINK Target WL 'ME_4B2F565002FD' '4B2A112B011A.ms.model.script' // TTimeInfo
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B2F643F02C2 Info
+
+FORWARD ME_4B7C16A10288
+
+ME ME_4B7C16FB0077
+ MEPROP UID '4B7C16FB0077'
+ MEPROP Name 'KPos'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B7C16A10288 // OutTaskLink
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B7C16FB0077 KPos
+
+FORWARD ME_4B7C16BA02A4
+
+ME ME_4B7C16BF0285
+ MEPROP Name 'aN'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B7C16BF0285 aN
+
+ME ME_4B7C16BA02A4
+ MEPROP UID '4B7C16BA02A4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B7C16A10288 // OutTaskLink
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7C16BF0285 // aN
+ )
+ ; // Parameters
+
+ENDME // ME_4B7C16BA02A4 DoIt
+
+ME ME_4B7C16A10288
+ MEPROP UID '4B7C16A10288'
+ MEPROP Name 'OutTaskLink'
+ MEPROP Class class_Class
+ MELINK Stereotype st_localmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B7C16FB0077 // KPos
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7C16BA02A4 // DoIt
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B7C16A10288 OutTaskLink
+
+ME ME_4B2F60340106
+ MEPROP UID '4B2F60340106'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+
+ENDME // ME_4B2F60340106 DoIt
+
+ME ME_4B2F61C003AF
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4B2F61C003AF 
+
+ME ME_4B5892FF0367
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F60140143 // PutTimesToK
+ ;
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
+ ;
+
+ENDME // ME_4B5892FF0367 
+
+ME ME_4B2F60140143
+ MEPROP UID '4B2F60140143'
+ MEPROP Name 'PutTimesToK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Выводит в К замеры времени' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B2F617F0344 // Index
+ HWL ME_4B2F61AC0042 // F
+ HWL ME_4B2F641E00AC // N
+ HWL ME_4B2F643F02C2 // Info
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B7C16A10288 // OutTaskLink
+ HWL ME_4B2F60340106 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2F61C003AF // Tl3FileMode
+ ME_4B5892FF0367 // l3MinMax
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B2F60140143 PutTimesToK
+
+FORWARD ME_4B2F92EF0171
+
+ME ME_4B2F92FC00A1
+ MEPROP Name 'aPageID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B2F92FC00A1 aPageID
+
+ME ME_4B2F92FC00EE
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B2F92FC00EE aFileName
+
+ME ME_4B2F92FC0118
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B2F92860054 // TKFileOperation
+ ;
+
+ENDME // ME_4B2F92FC0118 anOp
+
+ME ME_4B2F92EF0171
+ MEPROP UID '4B2F92EF0171'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F92D20307 // CommunicateWithK
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2F92FC00A1 // aPageID
+ ME_4B2F92FC00EE // aFileName
+ ME_4B2F92FC0118 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4B2F92EF0171 DoIt
+
+ME ME_4B2F931A01C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F92D20307 // CommunicateWithK
+ ;
+ MELINK Target WL 'ME_4B2B7A6C004E' '48A41FF10094.ms.model.script' // CreateProcess
+ ;
+
+ENDME // ME_4B2F931A01C3 
+
+ME ME_4B2F92D20307
+ MEPROP UID '4B2F92D20307'
+ MEPROP Name 'CommunicateWithK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2F92EF0171 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2F931A01C3 // CreateProcess
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "is static" True
+
+ENDME // ME_4B2F92D20307 CommunicateWithK
+
+FORWARD ME_4B2F95810108
+
+FORWARD ME_4B2F959402AD
+
+ME ME_4B2F959802D1
+ MEPROP Name 'aPageID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B2F959802D1 aPageID
+
+ME ME_4B2F959802F9
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B2F959802F9 aFileName
+
+ME ME_4B2F959402AD
+ MEPROP UID '4B2F959402AD'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F95810108 // GetFileFromK
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B2F959802D1 // aPageID
+ ME_4B2F959802F9 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4B2F959402AD DoIt
+
+ME ME_4B2F95D200B2
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F95810108 // GetFileFromK
+ ;
+ MELINK Target HWL ME_4B2F92D20307 // CommunicateWithK
+ ;
+
+ENDME // ME_4B2F95D200B2 
+
+ME ME_4B2F95810108
+ MEPROP UID '4B2F95810108'
+ MEPROP Name 'GetFileFromK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает файл из К' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2F959402AD // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2F95D200B2 // CommunicateWithK
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B2F95810108 GetFileFromK
+
+FORWARD ME_4B2F9BAE023F
+
+ME ME_4B2F9C1901C3
+ MEPROP UID '4B2F9C1901C3'
+ MEPROP Name 'F'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9BAE023F // GetTimesFromK
+ ;
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B2F9C1901C3 F
+
+ME ME_4B2F9C2001EC
+ MEPROP UID '4B2F9C2001EC'
+ MEPROP Name 'N'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9BAE023F // GetTimesFromK
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B2F9C2001EC N
+
+ME ME_4B2F9C6803D1
+ MEPROP UID '4B2F9C6803D1'
+ MEPROP Name 'L'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9BAE023F // GetTimesFromK
+ ;
+ MELINK Target WL 'ME_46780D0003AF' '4677FBA70343.ms.model.script' // Tl3WString
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4B2F9C6803D1 L
+
+ME ME_4B2F9BD50138
+ MEPROP UID '4B2F9BD50138'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2F9BAE023F // GetTimesFromK
+ ;
+
+ENDME // ME_4B2F9BD50138 DoIt
+
+ME ME_4B2F9BEE035A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F9BAE023F // GetTimesFromK
+ ;
+ MELINK Target HWL ME_4B2F95810108 // GetFileFromK
+ ;
+
+ENDME // ME_4B2F9BEE035A 
+
+ME ME_4B2F9C3702AC
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F9BAE023F // GetTimesFromK
+ ;
+ MELINK Target WL 'ME_48F4BE400154' '4678193C009C.ms.model.script' // Tl3FileMode
+ ;
+
+ENDME // ME_4B2F9C3702AC 
+
+ME ME_4B2F9ECF028F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2F9BAE023F // GetTimesFromK
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_4B2F9ECF028F 
+
+ME ME_4B2F9BAE023F
+ MEPROP UID '4B2F9BAE023F'
+ MEPROP Name 'GetTimesFromK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Получает из К замеры времени' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B2F9C1901C3 // F
+ HWL ME_4B2F9C2001EC // N
+ HWL ME_4B2F9C6803D1 // L
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B2F9BD50138 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2F9BEE035A // GetFileFromK
+ ME_4B2F9C3702AC // Tl3FileMode
+ ME_4B2F9ECF028F // l3String
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4B2F9BAE023F GetTimesFromK
+
+FORWARD ME_4B2FA99E03C3
+
+ME ME_4B2FA9BB028A
+ MEPROP UID '4B2FA9BB028A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2FA99E03C3 // CheckTimeInfo
+ ;
+
+ENDME // ME_4B2FA9BB028A DoIt
+
+ME ME_4B2FA99E03C3
+ MEPROP UID '4B2FA99E03C3'
+ MEPROP Name 'CheckTimeInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет, что список времён создан' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2FA9BB028A // DoIt
+ )
+ ; // Operations
+ UP "is static" False
+
+ENDME // ME_4B2FA99E03C3 CheckTimeInfo
+
+FORWARD ME_4B4DC8DD0087
+
+ME ME_4B4DC8E80378
+ MEPROP UID '4B4DC8E80378'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4DC8DD0087 // TimesPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B4DC8E80378 DoIt
+
+ME ME_4B4DC8DD0087
+ MEPROP UID '4B4DC8DD0087'
+ MEPROP Name 'TimesPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B4DC8E80378 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B4DC8DD0087 TimesPage
+
+FORWARD ME_4B4DC923001A
+
+ME ME_4B4DC92E03D2
+ MEPROP UID '4B4DC92E03D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B4DC923001A // ResultsPage
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4B4DC92E03D2 DoIt
+
+ME ME_4B4DC923001A
+ MEPROP UID '4B4DC923001A'
+ MEPROP Name 'ResultsPage'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B4DC92E03D2 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4B4DC923001A ResultsPage
+
+FORWARD ME_4B58989D02ED
+
+ME ME_4B5898AC02EA
+ MEPROP UID '4B5898AC02EA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B58989D02ED // TimesFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B5898AC02EA DoIt
+
+ME ME_4B58989D02ED
+ MEPROP UID '4B58989D02ED'
+ MEPROP Name 'TimesFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B5898AC02EA // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B58989D02ED TimesFileName
+
+FORWARD ME_4B589976028C
+
+ME ME_4B5899840129
+ MEPROP UID '4B5899840129'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B589976028C // ResultsFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4B5899840129 DoIt
+
+ME ME_4B589976028C
+ MEPROP UID '4B589976028C'
+ MEPROP Name 'ResultsFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B5899840129 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B589976028C ResultsFileName
+
+FORWARD ME_4B589ABD02C3
+
+ME ME_4B589ACB0015
+ MEPROP UID '4B589ACB0015'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B589ABD02C3 // IsFakeK
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4B589ACB0015 DoIt
+
+ME ME_4B589ABD02C3
+ MEPROP UID '4B589ABD02C3'
+ MEPROP Name 'IsFakeK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B589ACB0015 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4B589ABD02C3 IsFakeK
+
+FORWARD ME_4C359E6E02F6
+
+ME ME_4C359E89027A
+ MEPROP UID '4C359E89027A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C359E6E02F6 // GetLabels
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4C359E89027A DoIt
+
+ME ME_4C359E6E02F6
+ MEPROP UID '4C359E6E02F6'
+ MEPROP Name 'GetLabels'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает метки страницы с тестами' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C359E89027A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C359E6E02F6 GetLabels
+
+FORWARD ME_4C359EBF0304
+
+ME ME_4C359EE101D1
+ MEPROP UID '4C359EE101D1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C359EBF0304 // GetLabelsFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4C359EE101D1 DoIt
+
+ME ME_4C359EBF0304
+ MEPROP UID '4C359EBF0304'
+ MEPROP Name 'GetLabelsFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает имя файла с метками страницы тестов' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C359EE101D1 // DoIt
+ )
+ ; // Operations
+ UP "ifndef" 'NoKPageTool'
+
+ENDME // ME_4C359EBF0304 GetLabelsFileName
+
+FORWARD ME_4CA9DEBE020F
+
+ME ME_4CA9DF0E001F
+ MEPROP UID '4CA9DF0E001F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA9DEBE020F // IsFakeCVS
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CA9DF0E001F DoIt
+
+ME ME_4CA9DEBE020F
+ MEPROP UID '4CA9DEBE020F'
+ MEPROP Name 'IsFakeCVS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Не класть эталоны в CVS' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA9DF0E001F // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4CA9DEBE020F IsFakeCVS
+
+FORWARD ME_4D0BA93103C6
+
+ME ME_4D0BA93F008C
+ MEPROP UID '4D0BA93F008C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D0BA93103C6 // FailedTestsFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D0BA93F008C DoIt
+
+ME ME_4D0BA93103C6
+ MEPROP UID '4D0BA93103C6'
+ MEPROP Name 'FailedTestsFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D0BA93F008C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D0BA93103C6 FailedTestsFileName
+
+FORWARD ME_4DD65F780370
+
+FORWARD ME_4DD65F8F0243
+
+ME ME_4DD65F9902B3
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DD65F9902B3 aStr
+
+ME ME_4DD65F8F0243
+ MEPROP UID '4DD65F8F0243'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DD65F780370 // WriteMsg
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DD65F9902B3 // aStr
+ )
+ ; // Parameters
+
+ENDME // ME_4DD65F8F0243 DoIt
+
+ME ME_4DD65F780370
+ MEPROP UID '4DD65F780370'
+ MEPROP Name 'WriteMsg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DD65F8F0243 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4DD65F780370 WriteMsg
+
+FORWARD ME_4EB2C81101FB
+
+FORWARD ME_4EB2C8250113
+
+ME ME_4EB2C8320285
+ MEPROP Name 'aPage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4EB2C8320285 aPage
+
+ME ME_4EB2C8320328
+ MEPROP Name 'aFile'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4EB2C8320328 aFile
+
+ME ME_4EB2C8250113
+ MEPROP UID '4EB2C8250113'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EB2C81101FB // AttachFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EB2C8320285 // aPage
+ ME_4EB2C8320328 // aFile
+ )
+ ; // Parameters
+
+ENDME // ME_4EB2C8250113 DoIt
+
+ME ME_4EB2C81101FB
+ MEPROP UID '4EB2C81101FB'
+ MEPROP Name 'AttachFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EB2C8250113 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4EB2C81101FB AttachFile
+
+FORWARD ME_4F16BFB0026E
+
+FORWARD ME_4F16BFCD02B4
+
+ME ME_4F16BFDF003A
+ MEPROP Name 'aTest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B2F420202F4' '4B2A0DCE03A9.ms.model.script' // ITest
+ ;
+
+ENDME // ME_4F16BFDF003A aTest
+
+ME ME_4F16BFCD02B4
+ MEPROP UID '4F16BFCD02B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F16BFB0026E // TestNameForOutputInTestLists
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F16BFDF003A // aTest
+ )
+ ; // Parameters
+
+ENDME // ME_4F16BFCD02B4 DoIt
+
+ME ME_4F16BFB0026E
+ MEPROP UID '4F16BFB0026E'
+ MEPROP Name 'TestNameForOutputInTestLists'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Имя теста для вывода в список неудачных тестов и в полный список прогнанных тестов' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F16BFCD02B4 // DoIt
+ )
+ ; // Operations
+ UP "is static" True
+
+ENDME // ME_4F16BFB0026E TestNameForOutputInTestLists
+
+FORWARD ME_4F16C0470089
+
+ME ME_4F16C0590287
+ MEPROP UID '4F16C0590287'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F16C0470089 // AllRunnedTestsFileName
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F16C0590287 DoIt
+
+ME ME_4F16C0470089
+ MEPROP UID '4F16C0470089'
+ MEPROP Name 'AllRunnedTestsFileName'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F16C0590287 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F16C0470089 AllRunnedTestsFileName
+
+FORWARD ME_4F16C8890222
+
+FORWARD ME_4F16C8A10390
+
+ME ME_4F16C8A601B1
+ MEPROP Name 'aTest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B2F420202F4' '4B2A0DCE03A9.ms.model.script' // ITest
+ ;
+
+ENDME // ME_4F16C8A601B1 aTest
+
+ME ME_4F16C8A10390
+ MEPROP UID '4F16C8A10390'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F16C8890222 // WriteTestToAllRunnedTests
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F16C8A601B1 // aTest
+ )
+ ; // Parameters
+
+ENDME // ME_4F16C8A10390 DoIt
+
+ME ME_4F16C8890222
+ MEPROP UID '4F16C8890222'
+ MEPROP Name 'WriteTestToAllRunnedTests'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F16C8A10390 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4F16C8890222 WriteTestToAllRunnedTests
+
+FORWARD ME_5374DB31018E
+
+FORWARD ME_5374DB4A00A7
+
+ME ME_5374DB5601A6
+ MEPROP Name 'aTestName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5374DB5601A6 aTestName
+
+ME ME_5374DB4A00A7
+ MEPROP UID '5374DB4A00A7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5374DB31018E // AddMemoryStat
+ ;
+ MELIST Parameters
+   Seq: ( ME_5374DB5601A6 // aTestName
+ )
+ ; // Parameters
+
+ENDME // ME_5374DB4A00A7 DoIt
+
+ME ME_5374DB31018E
+ MEPROP UID '5374DB31018E'
+ MEPROP Name 'AddMemoryStat'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5374DB4A00A7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5374DB31018E AddMemoryStat
+
+ME ME_4B2B6D38027A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_47A082F101DB' '476BE98C01B8.ms.model.script' // Ext Chars
+ ;
+
+ENDME // ME_4B2B6D38027A 
+
+ME ME_4B2B6D9C0164
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4B2B6D9C0164 
+
+ME ME_4B4DCDD20108
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B4DCDA1023B' '4B4DCD220000.ms.model.script' // CPUID
+ ;
+
+ENDME // ME_4B4DCDD20108 
+
+ME ME_4B570081036A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B57005201FC' '4B57004201BD.ms.model.script' // FileDateTime
+ ;
+
+ENDME // ME_4B570081036A 
+
+ME ME_4B5700F400CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B5700DD0069' '4B5700C301E3.ms.model.script' // l3DateTimeToStr
+ ;
+
+ENDME // ME_4B5700F400CE 
+
+ME ME_4B570B270117
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B570AFF0023' '483C378301CB.ms.model.script' // AnsiReplaceStr
+ ;
+
+ENDME // ME_4B570B270117 
+
+ME ME_4C937E7B0181
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B2A0DCE03A9' '4B2A0DCE03A9.ms.model.script' // TestFrameWork
+ ;
+
+ENDME // ME_4C937E7B0181 
+
+ME ME_4C98BA7E0242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_47880AFE0139' '47E13C6B0341.ms.model.script' // TScreen
+ ;
+
+ENDME // ME_4C98BA7E0242 
+
+ME ME_4C99C0FD0048
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4C99C0CC0015' '48C6811302CB.ms.model.script' // l3IsRemoteSession
+ ;
+
+ENDME // ME_4C99C0FD0048 
+
+ME ME_4CA0BBEF0366
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4CA0BB8600CF' '4CA0BB31027B.ms.model.script' // TKBridge
+ ;
+
+ENDME // ME_4CA0BBEF0366 
+
+ME ME_4CACAAC40020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4CA1C00E03B3' '4CA1BFF9036D.ms.model.script' // IServerGate_Contents_KPage
+ ;
+
+ENDME // ME_4CACAAC40020 
+
+ME ME_4D0BAA5F0199
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4B57004201BD' '4B57004201BD.ms.model.script' // l3FileUtils
+ ;
+
+ENDME // ME_4D0BAA5F0199 
+
+ME ME_4DF79CF6035C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6CEB0377 // TKTestListener
+ ;
+ MELINK Target WL 'ME_4DF79C8702EF' '4DF79C0F03A9.ms.model.script' // Nemesis
+ ;
+
+ENDME // ME_4DF79CF6035C 
+
+ME ME_4B2A6CBC008B_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4B2A6CBC008B' '4B2A0D8A03A0.ms.model.script' // write
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A6CBC008B_ME_4B2A6CEB0377 write
+
+ME ME_4B2A6CCF00BB_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4B2A6CCF00BB' '4B2A0D8A03A0.ms.model.script' // writeln
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2A6CCF00BB_ME_4B2A6CEB0377 writeln
+
+ME ME_4B2B6B800265_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4B2B6B800265' '4B2A0D8A03A0.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2B6B800265_ME_4B2A6CEB0377 Cleanup
+
+ME ME_4B2B6BA1037F_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4B2B6BA1037F' '4B2A0D8A03A0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2B6BA1037F_ME_4B2A6CEB0377 InitFields
+
+ME ME_4B2FBFA903C9_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4B2FBFA903C9' '4B2A0D8A03A0.ms.model.script' // NeedsMilliseconds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4B2FBFA903C9_ME_4B2A6CEB0377 NeedsMilliseconds
+
+ME ME_4CACA6980207_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4CACA6980207' '4B2A0D8A03A0.ms.model.script' // PrintErrorItem
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CACA6980207_ME_4B2A6CEB0377 PrintErrorItem
+
+ME ME_4F16BEF60233_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4F16BEF60233' '4B2A0D8A03A0.ms.model.script' // AddSuccess
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F16BEF60233_ME_4B2A6CEB0377 AddSuccess
+
+ME ME_4F16BF26031B_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4F16BF26031B' '4B2A0D8A03A0.ms.model.script' // AddError
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F16BF26031B_ME_4B2A6CEB0377 AddError
+
+ME ME_4F16BF430163_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_4F16BF430163' '4B2A0D8A03A0.ms.model.script' // AddFailure
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F16BF430163_ME_4B2A6CEB0377 AddFailure
+
+ME ME_5374DA8103BC_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_5374DA8103BC' '4B2A0D8A03A0.ms.model.script' // TestingStarts
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5374DA8103BC_ME_4B2A6CEB0377 TestingStarts
+
+ME ME_5374DA9401BF_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_5374DA9401BF' '4B2A0D8A03A0.ms.model.script' // TestingEnds
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5374DA9401BF_ME_4B2A6CEB0377 TestingEnds
+
+ME ME_5374DAC503BB_ME_4B2A6CEB0377
+ MELINK Original WL 'ME_5374DAC503BB' '4B2A0D8A03A0.ms.model.script' // StartTest
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5374DAC503BB_ME_4B2A6CEB0377 StartTest
+
+%%InheritedBy ME_4B2A6CAD036B ME_4B2A6CEB0377
+
+ME ME_4B2A6CEB0377
+ MEPROP UID '4B2A6CEB0377'
+ MEPROP Name 'TKTestListener'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тест, выводящий результаты в К' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B2A6CAD036B' '4B2A0D8A03A0.ms.model.script' // TTextTestListener
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4B2B6D0F0045 // f_File
+ HWL ME_4B2F5D0C023C // f_TimeInfo
+ HWL ME_4B589B0A00A8 // f_IsFakeK
+ HWL ME_4B589B1302AE // f_FakeKValid
+ HWL ME_4CA9DFB50249 // f_FakeCVSValid
+ HWL ME_4CA9DFDE035F // f_IsFakeCVS
+ HWL ME_4D0BA7440021 // f_FailedTests
+ HWL ME_4F16C00701CF // f_AllRunnedTests
+ HWL ME_5374DB6C02EF // f_RunnedCount
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B2B6F740014 // PutResultsToK
+ HWL ME_4B2B93A4002D // ToLog
+ HWL ME_4B2B954502BE // PutFileToK
+ HWL ME_4B2F51C3008F // TimeToLog
+ HWL ME_4B2F60140143 // PutTimesToK
+ HWL ME_4B2F92D20307 // CommunicateWithK
+ HWL ME_4B2F95810108 // GetFileFromK
+ HWL ME_4B2F9BAE023F // GetTimesFromK
+ HWL ME_4B2FA99E03C3 // CheckTimeInfo
+ HWL ME_4B4DC8DD0087 // TimesPage
+ HWL ME_4B4DC923001A // ResultsPage
+ HWL ME_4B58989D02ED // TimesFileName
+ HWL ME_4B589976028C // ResultsFileName
+ HWL ME_4B589ABD02C3 // IsFakeK
+ HWL ME_4C359E6E02F6 // GetLabels
+ HWL ME_4C359EBF0304 // GetLabelsFileName
+ HWL ME_4CA9DEBE020F // IsFakeCVS
+ HWL ME_4D0BA93103C6 // FailedTestsFileName
+ HWL ME_4DD65F780370 // WriteMsg
+ HWL ME_4EB2C81101FB // AttachFile
+ HWL ME_4F16BFB0026E // TestNameForOutputInTestLists
+ HWL ME_4F16C0470089 // AllRunnedTestsFileName
+ HWL ME_4F16C8890222 // WriteTestToAllRunnedTests
+ HWL ME_5374DB31018E // AddMemoryStat
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_4B2A6CBC008B_ME_4B2A6CEB0377 // write
+ ME_4B2A6CCF00BB_ME_4B2A6CEB0377 // writeln
+ ME_4B2B6B800265_ME_4B2A6CEB0377 // Cleanup
+ ME_4B2B6BA1037F_ME_4B2A6CEB0377 // InitFields
+ ME_4B2FBFA903C9_ME_4B2A6CEB0377 // NeedsMilliseconds
+ ME_4CACA6980207_ME_4B2A6CEB0377 // PrintErrorItem
+ ME_4F16BEF60233_ME_4B2A6CEB0377 // AddSuccess
+ ME_4F16BF26031B_ME_4B2A6CEB0377 // AddError
+ ME_4F16BF430163_ME_4B2A6CEB0377 // AddFailure
+ ME_5374DA8103BC_ME_4B2A6CEB0377 // TestingStarts
+ ME_5374DA9401BF_ME_4B2A6CEB0377 // TestingEnds
+ ME_5374DAC503BB_ME_4B2A6CEB0377 // StartTest
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_4B2F92860054 // TKFileOperation
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4B2B6D38027A // Ext Chars
+ ME_4B2B6D9C0164 // SysUtils
+ ME_4B4DCDD20108 // CPUID
+ ME_4B570081036A // FileDateTime
+ ME_4B5700F400CE // l3DateTimeToStr
+ ME_4B570B270117 // AnsiReplaceStr
+ ME_4C937E7B0181 // TestFrameWork
+ ME_4C98BA7E0242 // TScreen
+ ME_4C99C0FD0048 // l3IsRemoteSession
+ ME_4CA0BBEF0366 // TKBridge
+ ME_4CACAAC40020 // IServerGate_Contents_KPage
+ ME_4D0BAA5F0199 // l3FileUtils
+ ME_4DF79CF6035C // Nemesis
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '17.12.2009 20:40'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'KTestListener'
+
+ENDME // ME_4B2A6CEB0377 TKTestListener
+
+FORWARD ME_4B2F9F9F00EC
+
+ME ME_4B2F9FAE0193
+ MEPROP UID '4B2F9FAE0193'
+ MEPROP Name 'Header'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9F9F00EC // Tokens
+ ;
+ MEPROP Value '''h4. '''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''h4. '''
+
+ENDME // ME_4B2F9FAE0193 Header
+
+ME ME_4B2F9FD1006A
+ MEPROP UID '4B2F9FD1006A'
+ MEPROP Name 'Chart'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9F9F00EC // Tokens
+ ;
+ MEPROP Value '''{chart'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''{chart'''
+
+ENDME // ME_4B2F9FD1006A Chart
+
+ME ME_4B2FA00001D9
+ MEPROP UID '4B2FA00001D9'
+ MEPROP Name 'Columns'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9F9F00EC // Tokens
+ ;
+ MEPROP Value '''|| Day || '''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''|| Day || '''
+
+ENDME // ME_4B2FA00001D9 Columns
+
+ME ME_4B7A95EC01C4
+ MEPROP UID '4B7A95EC01C4'
+ MEPROP Name 'Anchor'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9F9F00EC // Tokens
+ ;
+ MEPROP Value '''{anchor:'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''{anchor:'''
+
+ENDME // ME_4B7A95EC01C4 Anchor
+
+ME ME_4B7C13640154
+ MEPROP UID '4B7C13640154'
+ MEPROP Name 'Task'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2F9F9F00EC // Tokens
+ ;
+ MEPROP Value '''Запрос - '''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Запрос - '''
+
+ENDME // ME_4B7C13640154 Task
+
+ME ME_4B2F9F9F00EC
+ MEPROP UID '4B2F9F9F00EC'
+ MEPROP Name 'Tokens'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B2F9FAE0193 // Header
+ HWL ME_4B2F9FD1006A // Chart
+ HWL ME_4B2FA00001D9 // Columns
+ HWL ME_4B7A95EC01C4 // Anchor
+ HWL ME_4B7C13640154 // Task
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_4B2F9F9F00EC Tokens
+
+ME ME_4B7C0A220226
+ MEPROP UID '4B7C0A220226'
+ MEPROP Name 'g_ResultsPlace'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Информация о месте вывода результатов теста' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target HWL ME_4B7AAF1203B4 // RTestResultsPlace
+ ;
+
+ENDME // ME_4B7C0A220226 g_ResultsPlace
+
+ME ME_4BB37736010F
+ MEPROP UID '4BB37736010F'
+ MEPROP Name 'g_CVSPath'
+ MEPROP Class class_Attribute
+ %SUMMARY 'Путь к тестам в CVS' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4BB37736010F g_CVSPath
+
+ME ME_4D199BD102D3
+ MEPROP UID '4D199BD102D3'
+ MEPROP Name 'g_CVSTestSetPath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D199BD102D3 g_CVSTestSetPath
+
+ME ME_4D199C1D00CA
+ MEPROP UID '4D199C1D00CA'
+ MEPROP Name 'g_AppTestSetPath'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D199C1D00CA g_AppTestSetPath
+
+ME ME_4EFC52A602CF
+ MEPROP UID '4EFC52A602CF'
+ MEPROP Name 'g_Random'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EFC52A602CF g_Random
+
+ME ME_52F2240801FE
+ MEPROP UID '52F2240801FE'
+ MEPROP Name 'g_IgnoreCVS'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_52F2240801FE g_IgnoreCVS
+
+FORWARD ME_4B2A6D840279
+
+ME ME_4B2A6D8F01B7
+ MEPROP UID '4B2A6D8F01B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D840279 // RunRegisteredTests
+ ;
+
+ENDME // ME_4B2A6D8F01B7 DoIt
+
+ME ME_4B2B93980139
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D840279 // RunRegisteredTests
+ ;
+ MELINK Target WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ ;
+
+ENDME // ME_4B2B93980139 
+
+ME ME_4B2A6D840279
+ MEPROP UID '4B2A6D840279'
+ MEPROP Name 'RunRegisteredTests'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2A6D8F01B7 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4B2B93980139 // TBaseTest
+ )
+ ; // Dependencies
+ UP "is static" False
+
+ENDME // ME_4B2A6D840279 RunRegisteredTests
+
+FORWARD ME_4B2A6DAE039F
+
+FORWARD ME_4B2A6DC702CF
+
+ME ME_4B7C08BB01FD
+ MEPROP Name 'aPlaces'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_4B7AAF5C0096 // array of RTestResultsPlace
+ ;
+
+ENDME // ME_4B7C08BB01FD aPlaces
+
+ME ME_4B2A6DC702CF
+ MEPROP UID '4B2A6DC702CF'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6DAE039F // NeedKTestRunner
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4B7C08BB01FD // aPlaces
+ )
+ ; // Parameters
+
+ENDME // ME_4B2A6DC702CF DoIt
+
+ME ME_4B2A6DAE039F
+ MEPROP UID '4B2A6DAE039F'
+ MEPROP Name 'NeedKTestRunner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2A6DC702CF // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4B2A6DAE039F NeedKTestRunner
+
+FORWARD ME_4BB376F00348
+
+ME ME_4BB3770A02EB
+ MEPROP UID '4BB3770A02EB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BB376F00348 // IsWritingToK
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BB3770A02EB DoIt
+
+ME ME_4BB376F00348
+ MEPROP UID '4BB376F00348'
+ MEPROP Name 'IsWritingToK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Пишем результаты тестов в К' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BB3770A02EB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4BB376F00348 IsWritingToK
+
+FORWARD ME_4BEA99B1033C
+
+ME ME_4BEA99D601B3
+ MEPROP UID '4BEA99D601B3'
+ MEPROP Name 'IsGK'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BEA99B1033C // IsGK
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4BEA99D601B3 IsGK
+
+ME ME_4BEA99B1033C
+ MEPROP UID '4BEA99B1033C'
+ MEPROP Name 'IsGK'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тесты запущены ГК' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4BEA99D601B3 // IsGK
+ )
+ ; // Operations
+
+ENDME // ME_4BEA99B1033C IsGK
+
+FORWARD ME_4C35A6FB027C
+
+ME ME_4C35A70801C2
+ MEPROP UID '4C35A70801C2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C35A6FB027C // IsLAW
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4C35A70801C2 DoIt
+
+ME ME_4C35A6FB027C
+ MEPROP UID '4C35A6FB027C'
+ MEPROP Name 'IsLAW'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C35A70801C2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C35A6FB027C IsLAW
+
+FORWARD ME_4C4467E300C2
+
+FORWARD ME_4C446809035A
+
+ME ME_4C44681500B7
+ MEPROP Name 'aTest'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ ;
+
+ENDME // ME_4C44681500B7 aTest
+
+ME ME_4C446809035A
+ MEPROP UID '4C446809035A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C4467E300C2 // IsTestExcluded
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C44681500B7 // aTest
+ )
+ ; // Parameters
+
+ENDME // ME_4C446809035A DoIt
+
+ME ME_4C98A7F40006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C4467E300C2 // IsTestExcluded
+ ;
+ MELINK Target WL 'ME_4C98A7AB00F5' '4C98A79C011D.ms.model.script' // WTSGetActiveConsoleSessionId
+ ;
+
+ENDME // ME_4C98A7F40006 
+
+ME ME_4C4467E300C2
+ MEPROP UID '4C4467E300C2'
+ MEPROP Name 'IsTestExcluded'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ислючён ли тест из запуска' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C446809035A // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C98A7F40006 // WTSGetActiveConsoleSessionId
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4C4467E300C2 IsTestExcluded
+
+FORWARD ME_4C44691E00D2
+
+FORWARD ME_4C446951038A
+
+ME ME_4EA56D6000B1
+ MEPROP Name 'aStr'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4EA56D6000B1 aStr
+
+ME ME_4EA56D6000E0
+ MEPROP Name 'anFolderScript'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EA56D6000E0 anFolderScript
+
+ME ME_4FA1535B02A2
+ MEPROP Name 'aCheckFolderOnly'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FA1535B02A2 aCheckFolderOnly
+
+ME ME_4C446951038A
+ MEPROP UID '4C446951038A'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C44691E00D2 // FileFromCurrent
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4EA56D6000B1 // aStr
+ ME_4EA56D6000E0 // anFolderScript
+ ME_4FA1535B02A2 // aCheckFolderOnly
+ )
+ ; // Parameters
+
+ENDME // ME_4C446951038A DoIt
+
+ME ME_4C44691E00D2
+ MEPROP UID '4C44691E00D2'
+ MEPROP Name 'FileFromCurrent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Файл из текущей директории с эталонами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C446951038A // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4C44691E00D2 FileFromCurrent
+
+FORWARD ME_4CA9DF26032E
+
+ME ME_4CA9DF3B00BB
+ MEPROP UID '4CA9DF3B00BB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CA9DF26032E // IsFakeCVS
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4CA9DF3B00BB DoIt
+
+ME ME_4CA9DF26032E
+ MEPROP UID '4CA9DF26032E'
+ MEPROP Name 'IsFakeCVS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Не класть эталоны в CVS' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CA9DF3B00BB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CA9DF26032E IsFakeCVS
+
+FORWARD ME_4CFDD3FE01F7
+
+FORWARD ME_4CFDD4D401FB
+
+ME ME_4CFDD6DF025E
+ MEPROP Name 'aTestName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4CFDD6DF025E aTestName
+
+ME ME_4CFDD6DF027E
+ MEPROP Name 'aFolderName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4CFDD6DF027E aFolderName
+
+ME ME_4CFDD4D401FB
+ MEPROP UID '4CFDD4D401FB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFDD3FE01F7 // CheckTestExcluded
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CFDD6DF025E // aTestName
+ ME_4CFDD6DF027E // aFolderName
+ )
+ ; // Parameters
+
+ENDME // ME_4CFDD4D401FB DoIt
+
+ME ME_4CFDD3FE01F7
+ MEPROP UID '4CFDD3FE01F7'
+ MEPROP Name 'CheckTestExcluded'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет находилтся ли тест в списках выключенных.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CFDD4D401FB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CFDD3FE01F7 CheckTestExcluded
+
+FORWARD ME_4CFDD9AA0156
+
+FORWARD ME_4CFDD9EE007F
+
+ME ME_4CFDD9FE0115
+ MEPROP Name 'aFolderName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4CFDD9FE0115 aFolderName
+
+ME ME_4CFDD9EE007F
+ MEPROP UID '4CFDD9EE007F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4CFDD9AA0156 // CheckFolderExcluded
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4CFDD9FE0115 // aFolderName
+ )
+ ; // Parameters
+
+ENDME // ME_4CFDD9EE007F DoIt
+
+ME ME_4CFDD9AA0156
+ MEPROP UID '4CFDD9AA0156'
+ MEPROP Name 'CheckFolderExcluded'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверить папку на исключенные.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4CFDD9EE007F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4CFDD9AA0156 CheckFolderExcluded
+
+FORWARD ME_4D189B760354
+
+FORWARD ME_4D189BAD0365
+
+ME ME_4F9A4E4E0227
+ MEPROP Name 'aTestName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F9A4E4E0227 aTestName
+
+ME ME_4F9A4E4E024C
+ MEPROP Name 'aSubFiler'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4F9A4E4E024C aSubFiler
+
+ME ME_4F9A4E4E0271
+ MEPROP Name 'anIsScript'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4F9A4E4E0271 anIsScript
+
+ME ME_4D189BAD0365
+ MEPROP UID '4D189BAD0365'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D189B760354 // DeleteEtalons
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F9A4E4E0227 // aTestName
+ ME_4F9A4E4E024C // aSubFiler
+ ME_4F9A4E4E0271 // anIsScript
+ )
+ ; // Parameters
+
+ENDME // ME_4D189BAD0365 DoIt
+
+ME ME_4D189B760354
+ MEPROP UID '4D189B760354'
+ MEPROP Name 'DeleteEtalons'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Удаляет эталоны для теста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D189BAD0365 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D189B760354 DeleteEtalons
+
+FORWARD ME_4D1993F70157
+
+FORWARD ME_4D19943E0312
+
+ME ME_4DD0E12C0306
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DD0E12C0306 aFileName
+
+ME ME_4D19943E0312
+ MEPROP UID '4D19943E0312'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D1993F70157 // LoadExcludedFromFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DD0E12C0306 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4D19943E0312 DoIt
+
+ME ME_4D1993F70157
+ MEPROP UID '4D1993F70157'
+ MEPROP Name 'LoadExcludedFromFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Загрузка исключенных тестов из файла.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D19943E0312 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D1993F70157 LoadExcludedFromFile
+
+FORWARD ME_4D199AE40101
+
+ME ME_4D199B18009F
+ MEPROP UID '4D199B18009F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D199AE40101 // GetCVSTestSetPath
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D199B18009F DoIt
+
+ME ME_4D199AE40101
+ MEPROP UID '4D199AE40101'
+ MEPROP Name 'GetCVSTestSetPath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает путь к хранилищу тестов из CVS' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D199B18009F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D199AE40101 GetCVSTestSetPath
+
+FORWARD ME_4D199B3302E4
+
+ME ME_4D199B690331
+ MEPROP UID '4D199B690331'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D199B3302E4 // GetAppTestSetPath
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4D199B690331 DoIt
+
+ME ME_4D199B3302E4
+ MEPROP UID '4D199B3302E4'
+ MEPROP Name 'GetAppTestSetPath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Возвращает путь к хранилищу тестов приложения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D199B690331 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D199B3302E4 GetAppTestSetPath
+
+FORWARD ME_4D19A727015E
+
+ME ME_4D19A77203B4
+ MEPROP UID '4D19A77203B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D19A727015E // CheckExcludedTests
+ ;
+
+ENDME // ME_4D19A77203B4 DoIt
+
+ME ME_4D19A727015E
+ MEPROP UID '4D19A727015E'
+ MEPROP Name 'CheckExcludedTests'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет был ли загружен список исключенных тестов.' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D19A77203B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D19A727015E CheckExcludedTests
+
+FORWARD ME_4D1AEDA90114
+
+FORWARD ME_4D1AEDCD02A5
+
+ME ME_52452C5C0306
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52452C5C0306 aFileName
+
+ME ME_52452C5C0325
+ MEPROP Name 'anOperation'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_524513D603C3' '4B2A112B011A.ms.model.script' // TLoadOperation
+ ;
+
+ENDME // ME_52452C5C0325 anOperation
+
+ME ME_4D1AEDCD02A5
+ MEPROP UID '4D1AEDCD02A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D1AEDA90114 // LoadTestNamesFromFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_52452C5C0306 // aFileName
+ ME_52452C5C0325 // anOperation
+ )
+ ; // Parameters
+
+ENDME // ME_4D1AEDCD02A5 DoIt
+
+ME ME_4D1AEDA90114
+ MEPROP UID '4D1AEDA90114'
+ MEPROP Name 'LoadTestNamesFromFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Загрузка имен тестов для выполнения из файла.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D1AEDCD02A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D1AEDA90114 LoadTestNamesFromFile
+
+FORWARD ME_4D1AF4DC0002
+
+FORWARD ME_4D1AF52C028C
+
+ME ME_4DD0DED30045
+ MEPROP Name 'aTestName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DD0DED30045 aTestName
+
+ME ME_4D1AF52C028C
+ MEPROP UID '4D1AF52C028C'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D1AF4DC0002 // NeedRunTest
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DD0DED30045 // aTestName
+ )
+ ; // Parameters
+
+ENDME // ME_4D1AF52C028C DoIt
+
+ME ME_4D1AF4DC0002
+ MEPROP UID '4D1AF4DC0002'
+ MEPROP Name 'NeedRunTest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет нужно ли запускать тест (наличие его названия в списке загруженных).' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D1AF52C028C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D1AF4DC0002 NeedRunTest
+
+FORWARD ME_4D1AFEBF00A5
+
+ME ME_4D1AFF3F01D5
+ MEPROP UID '4D1AFF3F01D5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D1AFEBF00A5 // CheckFileParam
+ ;
+
+ENDME // ME_4D1AFF3F01D5 DoIt
+
+ME ME_4D1AFEBF00A5
+ MEPROP UID '4D1AFEBF00A5'
+ MEPROP Name 'CheckFileParam'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет есть ли параметр для загрузки непрошедших тестов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D1AFF3F01D5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4D1AFEBF00A5 CheckFileParam
+
+FORWARD ME_4EFC531803DA
+
+ME ME_4EFC53280008
+ MEPROP UID '4EFC53280008'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EFC531803DA // CheckNeedRandom
+ ;
+
+ENDME // ME_4EFC53280008 DoIt
+
+ME ME_4EFC531803DA
+ MEPROP UID '4EFC531803DA'
+ MEPROP Name 'CheckNeedRandom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EFC53280008 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EFC531803DA CheckNeedRandom
+
+FORWARD ME_4EFC533C020F
+
+ME ME_4EFC534F01F1
+ MEPROP UID '4EFC534F01F1'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4EFC533C020F // NeedRandom
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4EFC534F01F1 DoIt
+
+ME ME_4EFC533C020F
+ MEPROP UID '4EFC533C020F'
+ MEPROP Name 'NeedRandom'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4EFC534F01F1 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4EFC533C020F NeedRandom
+
+FORWARD ME_506D62750048
+
+ME ME_506D628C0235
+ MEPROP UID '506D628C0235'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_506D62750048 // CheckIgnoreCVS
+ ;
+
+ENDME // ME_506D628C0235 DoIt
+
+ME ME_506D62750048
+ MEPROP UID '506D62750048'
+ MEPROP Name 'CheckIgnoreCVS'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_506D628C0235 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_506D62750048 CheckIgnoreCVS
+
+FORWARD ME_506D653C0185
+
+ME ME_506D654F033B
+ MEPROP UID '506D654F033B'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_506D653C0185 // IgnoreCVSPath
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_506D654F033B DoIt
+
+ME ME_506D653C0185
+ MEPROP UID '506D653C0185'
+ MEPROP Name 'IgnoreCVSPath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_506D654F033B // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_506D653C0185 IgnoreCVSPath
+
+FORWARD ME_525CFD5E010C
+
+ME ME_525CFD6E03D2
+ MEPROP UID '525CFD6E03D2'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_525CFD5E010C // ClearTestNamesList
+ ;
+
+ENDME // ME_525CFD6E03D2 DoIt
+
+ME ME_525CFD5E010C
+ MEPROP UID '525CFD5E010C'
+ MEPROP Name 'ClearTestNamesList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_525CFD6E03D2 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_525CFD5E010C ClearTestNamesList
+
+FORWARD ME_5279D73902C8
+
+ME ME_5279D76F01CB
+ MEPROP UID '5279D76F01CB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279D73902C8 // LoadDocumentIDList
+ ;
+
+ENDME // ME_5279D76F01CB DoIt
+
+ME ME_5279D73902C8
+ MEPROP UID '5279D73902C8'
+ MEPROP Name 'LoadDocumentIDList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Загружает список тестов и номеров документов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5279D76F01CB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5279D73902C8 LoadDocumentIDList
+
+FORWARD ME_5279D7860187
+
+FORWARD ME_5279D79E0019
+
+ME ME_5279D7AB03D1
+ MEPROP Name 'aTestName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_5279D7AB03D1 aTestName
+
+ME ME_5279D79E0019
+ MEPROP UID '5279D79E0019'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5279D7860187 // FindDocID
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_5279D7AB03D1 // aTestName
+ )
+ ; // Parameters
+
+ENDME // ME_5279D79E0019 DoIt
+
+ME ME_5279D7860187
+ MEPROP UID '5279D7860187'
+ MEPROP Name 'FindDocID'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ищет номер доукумента по номеру теста.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5279D79E0019 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5279D7860187 FindDocID
+
+ME ME_4C4467B1011F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_4C44675A0269' '4B2A112B011A.ms.model.script' // TExcludedTests
+ ;
+
+ENDME // ME_4C4467B1011F 
+
+ME ME_4C9387800124
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_4C9386230151' '4B2A112B011A.ms.model.script' // TExcludedTestsFolders
+ ;
+
+ENDME // ME_4C9387800124 
+
+ME ME_4D1AEC1E03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_4D1AEAC80371' '4B2A112B011A.ms.model.script' // TTestNameList
+ ;
+
+ENDME // ME_4D1AEC1E03A0 
+
+ME ME_51237ED90246
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_4B2A11BC0255' '4B2A112B011A.ms.model.script' // TBaseTest
+ ;
+
+ENDME // ME_51237ED90246 
+
+ME ME_5279D3180306
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_5279D2EA02DE' '4B2A112B011A.ms.model.script' // TTestDocumentList
+ ;
+
+ENDME // ME_5279D3180306 
+
+ME ME_55DDB8E9002D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_4F8BF8D40367' '4F8BF8D40367.ms.model.script' // vtVerInf
+ ;
+
+ENDME // ME_55DDB8E9002D 
+
+ME ME_55DDCFE400AD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_55DDCF7C004A' '55DDB8900080.ms.model.script' // Tl3VersionInfoService
+ ;
+
+ENDME // ME_55DDCFE400AD 
+
+ME ME_5790DF8D01E0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4B2A6D4303A9 // KTestRunner
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5790DF8D01E0 
+
+ME ME_4B2A6D4303A9
+ MEPROP UID '4B2A6D4303A9'
+ MEPROP Name 'KTestRunner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B2A112B011A' '4B2A112B011A.ms.model.script' // Source
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B7C0A220226 // g_ResultsPlace
+ HWL ME_4BB37736010F // g_CVSPath
+ HWL ME_4D199BD102D3 // g_CVSTestSetPath
+ HWL ME_4D199C1D00CA // g_AppTestSetPath
+ HWL ME_4EFC52A602CF // g_Random
+ HWL ME_52F2240801FE // g_IgnoreCVS
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4B2A6D840279 // RunRegisteredTests
+ HWL ME_4B2A6DAE039F // NeedKTestRunner
+ HWL ME_4BB376F00348 // IsWritingToK
+ HWL ME_4BEA99B1033C // IsGK
+ HWL ME_4C35A6FB027C // IsLAW
+ HWL ME_4C4467E300C2 // IsTestExcluded
+ HWL ME_4C44691E00D2 // FileFromCurrent
+ HWL ME_4CA9DF26032E // IsFakeCVS
+ HWL ME_4CFDD3FE01F7 // CheckTestExcluded
+ HWL ME_4CFDD9AA0156 // CheckFolderExcluded
+ HWL ME_4D189B760354 // DeleteEtalons
+ HWL ME_4D1993F70157 // LoadExcludedFromFile
+ HWL ME_4D199AE40101 // GetCVSTestSetPath
+ HWL ME_4D199B3302E4 // GetAppTestSetPath
+ HWL ME_4D19A727015E // CheckExcludedTests
+ HWL ME_4D1AEDA90114 // LoadTestNamesFromFile
+ HWL ME_4D1AF4DC0002 // NeedRunTest
+ HWL ME_4D1AFEBF00A5 // CheckFileParam
+ HWL ME_4EFC531803DA // CheckNeedRandom
+ HWL ME_4EFC533C020F // NeedRandom
+ HWL ME_506D62750048 // CheckIgnoreCVS
+ HWL ME_506D653C0185 // IgnoreCVSPath
+ HWL ME_525CFD5E010C // ClearTestNamesList
+ HWL ME_5279D73902C8 // LoadDocumentIDList
+ HWL ME_5279D7860187 // FindDocID
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4B7AAC7A031D // TTestResultsPlace
+ HWL ME_4B2A6CEB0377 // TKTestListener
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_4B2F9F9F00EC // Tokens
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_4C4467B1011F // TExcludedTests
+ ME_4C9387800124 // TExcludedTestsFolders
+ ME_4D1AEC1E03A0 // TTestNameList
+ ME_51237ED90246 // TBaseTest
+ ME_5279D3180306 // TTestDocumentList
+ ME_55DDB8E9002D // vtVerInf
+ ME_55DDCFE400AD // Tl3VersionInfoService
+ ME_5790DF8D01E0 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "need UC" True
+ UP "no hands" True
+ UP "started" '17.12.2009 20:41'
+ UP intf.pas:Path 'common\components\rtl\Garant\DUnitTuning\KTestRunner.pas'
+
+ENDME // ME_4B2A6D4303A9 KTestRunner

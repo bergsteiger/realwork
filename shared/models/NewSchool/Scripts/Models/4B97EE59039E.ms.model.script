@@ -1,0 +1,73 @@
+// nscCustomTreeComboWithHistoryRes 4B97EE59039E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4B97EE59039E
+
+FORWARD ME_4B97EE8B032F
+
+ME ME_4B97EEB7015F
+ MEPROP UID '4B97EEB7015F'
+ MEPROP Name 'CloseHyperlinkText'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4B97EE8B032F // MiscMessages
+ ;
+ MEPROP Value '''Закрыть'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''Закрыть'''
+
+ENDME // ME_4B97EEB7015F CloseHyperlinkText
+
+ME ME_4B97EE8B032F
+ MEPROP UID '4B97EE8B032F'
+ MEPROP Name 'MiscMessages'
+ MEPROP Class class_Class
+ MELINK Stereotype st_LocalConst ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B97EE59039E // nscCustomTreeComboWithHistoryRes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4B97EEB7015F // CloseHyperlinkText
+ )
+ ; // Attributes
+ UP "children prefix" 'nsc_'
+ UP "Need map interface" False
+ UP "Need mapping support" False
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'nsc_'
+
+ENDME // ME_4B97EE8B032F MiscMessages
+
+ME ME_4B97EE59039E
+ MEPROP UID '4B97EE59039E'
+ MEPROP Name 'nscCustomTreeComboWithHistoryRes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Ресурсы для TnscCustomTreeComboWithHistory' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_495119A901CE' '495119A901CE.ms.model.script' // Editor
+ ;
+ MELIST Constants
+   Seq: ( HWL ME_4B97EE8B032F // MiscMessages
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '10.03.2010 22:09'
+ UP extprop:rc:SelfName 'TreeComboWithHistoryRes'
+ UP intf.pas:Path 'common\components\gui\Garant\Nemesis\nscCustomTreeComboWithHistoryRes.pas'
+
+ENDME // ME_4B97EE59039E nscCustomTreeComboWithHistoryRes

@@ -1,0 +1,34 @@
+// l3Map 5609096C03BE Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%ImplementedBy ME_560907E00134 ME_5609096C03BE
+
+%%InheritedBy ME_4A54DD4E036F ME_5609096C03BE
+
+ME ME_5609096C03BE
+ MEPROP UID '5609096C03BE'
+ MEPROP Name 'l3Map'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Словарь (ключ-значение)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4A6D65B9022A' '4A6D65B9022A.ms.model.script' // Containers
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_560907E00134' '560907E00134.ms.model.script' // l3MapPrim
+ )
+ ; // Implements
+ UP "need UC" True
+ UP extprop:pas:TypeName '_l3Map_'
+ UP extprop:pas:UnitName 'l3Map.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3Map.imp.pas'
+
+ENDME // ME_5609096C03BE l3Map

@@ -1,0 +1,47 @@
+// d_edMSub 4DFB50900299 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DFB50A6024F
+
+FORWARD ME_4DFB50900299
+
+ME ME_4DFB50A6024F
+ MEPROP UID '4DFB50A6024F'
+ MEPROP Name 'TNewSubDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Диалог редакторования саба.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DFB50900299 // d_edMSub
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NewSubDlg'
+
+ENDME // ME_4DFB50A6024F TNewSubDlg
+
+ME ME_4DFB50900299
+ MEPROP UID '4DFB50900299'
+ MEPROP Name 'd_edMSub'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DFB501A00F4' '4DFB501A00F4.ms.model.script' // CommonDialogs
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4DFB50A6024F // TNewSubDlg
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Common\Dialogs\NOT_FINISHED_d_edMSub.pas'
+
+ENDME // ME_4DFB50900299 d_edMSub

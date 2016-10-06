@@ -1,0 +1,230 @@
+// vcmUserTypeDescr 51EF7EEB01E5 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51EF7F380042
+%%Inner ME_51EF80BE0105
+
+FORWARD ME_51EF7EEB01E5
+
+FORWARD ME_51EF7F380042
+
+ME ME_51EF800F02E7
+ MEPROP UID '51EF800F02E7'
+ MEPROP Name 'SettingsCaption'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_51EF800F02E7 SettingsCaption
+
+ME ME_51EF80540017
+ MEPROP UID '51EF80540017'
+ MEPROP Name 'FormClass'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+ MELINK Target WL 'ME_476775CB036A' '4807744200AA.ms.model.script' // TClass
+ ;
+
+ENDME // ME_51EF80540017 FormClass
+
+ME ME_51FF72DE01DE
+ MEPROP UID '51FF72DE01DE'
+ MEPROP Name 'IsCustomizationInternal'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_51FF72DE01DE IsCustomizationInternal
+
+FORWARD ME_51EF904803AE
+
+ME ME_51EF90740107
+ MEPROP Name 'anOther'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+
+ENDME // ME_51EF90740107 anOther
+
+ME ME_51EF904803AE
+ MEPROP UID '51EF904803AE'
+ MEPROP Name 'EQ'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_51EF90740107 // anOther
+ )
+ ; // Parameters
+
+ENDME // ME_51EF904803AE EQ
+
+ME ME_51EF80080006
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_51EF80080006 
+
+ME ME_51EF804C039D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+ MELINK Target WL 'ME_476775CB036A' '4807744200AA.ms.model.script' // TClass
+ ;
+
+ENDME // ME_51EF804C039D 
+
+ME ME_51EF7F380042
+ MEPROP UID '51EF7F380042'
+ MEPROP Name 'TvcmUserTypeDescr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_StaticObject ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51EF7EEB01E5 // vcmUserTypeDescr
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_51EF800F02E7 // SettingsCaption
+ HWL ME_51EF80540017 // FormClass
+ HWL ME_51FF72DE01DE // IsCustomizationInternal
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_51EF904803AE // EQ
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_51EF80080006 // String
+ ME_51EF804C039D // TClass
+ )
+ ; // Dependencies
+ UP extprop:rc:SelfName 'UserTypeDescr'
+
+ENDME // ME_51EF7F380042 TvcmUserTypeDescr
+
+FORWARD ME_51EF80BE0105
+
+ME ME_51EF819D03A6
+ MEPROP UID '51EF819D03A6'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51EF80BE0105 // TvcmUserTypeDescrList
+ ;
+ MELINK Target HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ ;
+
+ENDME // ME_51EF819D03A6 ItemType
+
+ME ME_51EF8240018A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_51EF80BE0105 // TvcmUserTypeDescrList
+ ;
+ MELINK Target WL 'ME_49930DA10146' '4683F37902CF.ms.model.script' // IvcmUserTypeDef
+ ;
+
+ENDME // ME_51EF8240018A 
+
+ME ME_47B2C42A0163_ME_51EF80BE0105
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_51EF80BE0105 AssignItem
+
+ME ME_47B99D4503A2_ME_51EF80BE0105
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_51EF80BE0105 CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_51EF80BE0105
+%%InheritedBy ME_4B223DB5024B ME_51EF80BE0105
+
+ME ME_51EF80BE0105
+ MEPROP UID '51EF80BE0105'
+ MEPROP Name 'TvcmUserTypeDescrList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51EF7EEB01E5 // vcmUserTypeDescr
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
+ WL 'ME_4B223DB5024B' '4B223DB5024B.ms.model.script' // l3RecordWithEQList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51EF819D03A6 // ItemType
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_47B2C42A0163_ME_51EF80BE0105 // AssignItem
+ ME_47B99D4503A2_ME_51EF80BE0105 // CompareExistingItems
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_51EF8240018A // IvcmUserTypeDef
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'UserTypeDescrList'
+
+ENDME // ME_51EF80BE0105 TvcmUserTypeDescrList
+
+ME ME_51EF7EEB01E5
+ MEPROP UID '51EF7EEB01E5'
+ MEPROP Name 'vcmUserTypeDescr'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51EF7F380042 // TvcmUserTypeDescr
+ HWL ME_51EF80BE0105 // TvcmUserTypeDescrList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'UserTypeDescr'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmUserTypeDescr.pas'
+
+ENDME // ME_51EF7EEB01E5 vcmUserTypeDescr

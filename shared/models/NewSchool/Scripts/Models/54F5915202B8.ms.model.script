@@ -2,48 +2,7 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_54F5915202B8
-
-FORWARD ME_54F591820236
-
-ME ME_55DB2781018F
- MEPROP UID '55DB2781018F'
- MEPROP Name 'Down'
- MEPROP Class class_Attribute
- MELINK Stereotype st_readonly::Attribute ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_54F591820236 // tb97WordsPack
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
- UP "mapped" True
-
-ENDME // ME_55DB2781018F Down
-
-ME ME_54F591820236
- MEPROP UID '54F591820236'
- MEPROP Name 'tb97WordsPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54F5915202B8 // tb97Words
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4F69EF8C027C' '4C43E8750153.ms.model.script' // TCustomToolbarButton97
- )
- ; // Inherits
- MELIST Attributes
-   Seq: ( HWL ME_55DB2781018F // Down
- )
- ; // Attributes
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tb97WordsPack.pas'
-
-ENDME // ME_54F591820236 tb97WordsPack
+%%Inner ME_54F591820236
 
 ME ME_54F5915202B8
  MEPROP UID '54F5915202B8'
@@ -56,7 +15,7 @@ ME ME_54F5915202B8
  MELINK Parent WL 'ME_54F5911700DB' '54F5911700DB.ms.model.script' // ScriptEngine$tb97
  ;
  MELIST Children
-   Seq: ( HWL ME_54F591820236 // tb97WordsPack
+   Seq: ( WL 'ME_54F591820236' '54F591820236.ms.model.script' // tb97WordsPack
  )
  ; // Children
  MELIST Depends
@@ -65,6 +24,9 @@ ME ME_54F5915202B8
  WL 'ME_54DB92D203C9' '54DB92D203C9.ms.model.script' // VCL bindings
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts'
 
 ENDME // ME_54F5915202B8 tb97Words

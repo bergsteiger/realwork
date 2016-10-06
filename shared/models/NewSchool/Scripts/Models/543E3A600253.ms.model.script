@@ -1,0 +1,190 @@
+// vcmChromeLikeTabIconUpdater 543E3A600253 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_543E3A600253
+
+FORWARD ME_543E3AA801D0
+
+ME ME_543E3AC80361
+ MEPROP UID '543E3AC80361'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_543E3AA801D0 // DoGetTabImageIndex
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_543E3AC80361 DoIt
+
+ME ME_543E3AA801D0
+ MEPROP UID '543E3AA801D0'
+ MEPROP Name 'DoGetTabImageIndex'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_543E3A600253 // vcmChromeLikeTabIconUpdater
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_543E3AC80361 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_543E3AA801D0 DoGetTabImageIndex
+
+FORWARD ME_543E466602DF
+
+ME ME_543E46780246
+ MEPROP UID '543E46780246'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_543E466602DF // UpdateTabIcon
+ ;
+
+ENDME // ME_543E46780246 DoIt
+
+ME ME_543E466602DF
+ MEPROP UID '543E466602DF'
+ MEPROP Name 'UpdateTabIcon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_543E3A600253 // vcmChromeLikeTabIconUpdater
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_543E46780246 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_543E466602DF UpdateTabIcon
+
+FORWARD ME_544609B9032D
+
+ME ME_544609CC0205
+ MEPROP UID '544609CC0205'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_544609B9032D // DoGetCanDefineFormSetIcon
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_544609CC0205 DoIt
+
+ME ME_544609B9032D
+ MEPROP UID '544609B9032D'
+ MEPROP Name 'DoGetCanDefineFormSetIcon'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_543E3A600253 // vcmChromeLikeTabIconUpdater
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_544609CC0205 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_544609B9032D DoGetCanDefineFormSetIcon
+
+ME ME_543E3B0600BD
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_543E3A600253 // vcmChromeLikeTabIconUpdater
+ ;
+ MELINK Target WL 'ME_537AEB96006C' '537AEB96006C.ms.model.script' // vcmTabbedContainerFormDispatcher
+ ;
+
+ENDME // ME_543E3B0600BD 
+
+ME ME_53B649240001_ME_543E3A600253
+ MELINK Original WL 'ME_53B649240001' '4683F37902CF.ms.model.script' // FormSetImageIndex
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_53B649240001_ME_543E3A600253 FormSetImageIndex
+
+ME ME_54460951001B_ME_543E3A600253
+ MELINK Original WL 'ME_54460951001B' '4683F37902CF.ms.model.script' // CanDefineFormSetIcon
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_54460951001B_ME_543E3A600253 CanDefineFormSetIcon
+
+ME ME_49803F5503AA_ME_543E3A600253
+ MELINK Original WL 'ME_49803F5503AA' '4AADF9450143.ms.model.script' // DoInit
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_49803F5503AA_ME_543E3A600253 DoInit
+
+ME ME_4F7C65380244_ME_543E3A600253
+ MELINK Original WL 'ME_4F7C65380244' '4F22CB1E0009.ms.model.script' // FormInsertedIntoContainer
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4F7C65380244_ME_543E3A600253 FormInsertedIntoContainer
+
+ME ME_5000109C01F9_ME_543E3A600253
+ MELINK Original WL 'ME_5000109C01F9' '500004240202.ms.model.script' // SignalDataSourceChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5000109C01F9_ME_543E3A600253 SignalDataSourceChanged
+
+%%ImplementedBy ME_4A82BCFA02EF ME_543E3A600253
+%%ImplementedBy ME_53B648E000D9 ME_543E3A600253
+
+ME ME_543E3A600253
+ MEPROP UID '543E3A600253'
+ MEPROP Name 'vcmChromeLikeTabIconUpdater'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A82BCFA02EF' '4AADF9450143.ms.model.script' // MvcmEntityForm
+ WL 'ME_53B648E000D9' '4683F37902CF.ms.model.script' // IvcmFormSetIconProvider
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_543E3AA801D0 // DoGetTabImageIndex
+ HWL ME_543E466602DF // UpdateTabIcon
+ HWL ME_544609B9032D // DoGetCanDefineFormSetIcon
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53B649240001_ME_543E3A600253 // FormSetImageIndex
+ ME_54460951001B_ME_543E3A600253 // CanDefineFormSetIcon
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_49803F5503AA_ME_543E3A600253 // DoInit
+ ME_4F7C65380244_ME_543E3A600253 // FormInsertedIntoContainer
+ ME_5000109C01F9_ME_543E3A600253 // SignalDataSourceChanged
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_543E3B0600BD // vcmTabbedContainerFormDispatcher
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_vcmChromeLikeTabIconUpdater_'
+ UP extprop:pas:UnitName 'vcmChromeLikeTabIconUpdater.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\vcmChromeLikeTabIconUpdater.imp.pas'
+
+ENDME // ME_543E3A600253 vcmChromeLikeTabIconUpdater

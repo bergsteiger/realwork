@@ -1,0 +1,71 @@
+// csMessageManager 52FB9F99018D UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53A2EF4001B8
+
+FORWARD ME_52FB9F99018D
+
+ME ME_53A2EF4001B8
+ MEPROP UID '53A2EF4001B8'
+ MEPROP Name 'TcsMessageManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_52FB9F99018D // csMessageManager
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'csMessageManager'
+
+ENDME // ME_53A2EF4001B8 TcsMessageManager
+
+ME ME_52FB9FA2011F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52FB9F99018D // csMessageManager
+ ;
+ MELINK Target WL 'ME_52FB9F5A0077' '52F8C298005C.ms.model.script' // TcsMessageRecepientListPrim
+ ;
+
+ENDME // ME_52FB9FA2011F 
+
+ME ME_53A2D3C601B4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52FB9F99018D // csMessageManager
+ ;
+ MELINK Target WL 'ME_53A2D3BC030A' '53A2D88202E3.ms.model.script' // TcsMessageRecepientList
+ ;
+
+ENDME // ME_53A2D3C601B4 
+
+ME ME_52FB9F99018D
+ MEPROP UID '52FB9F99018D'
+ MEPROP Name 'csMessageManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52F8C298005C' '52F8C298005C.ms.model.script' // Tasks
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53A2EF4001B8 // TcsMessageManager
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_52FB9FA2011F // TcsMessageRecepientListPrim
+ ME_53A2D3C601B4 // TcsMessageRecepientList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP "ifdef" 'AppServerSide'
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\NOT_FINISHED_csMessageManager.pas'
+
+ENDME // ME_52FB9F99018D csMessageManager

@@ -1,0 +1,88 @@
+// vcmFormSetDataSourceWithFlexFormSetType 52F8A8330237 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52F8A8A5010D
+
+FORWARD ME_52F8A8330237
+
+ME ME_52F8A8A5010D
+ MEPROP UID '52F8A8A5010D'
+ MEPROP Name 'FormSetType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
+ ;
+ UP extprop:pas:TypeName '_FormSetType_'
+
+ENDME // ME_52F8A8A5010D FormSetType
+
+ME ME_52F8A8D0021F
+ MEPROP UID '52F8A8D0021F'
+ MEPROP Name 'FormSetType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
+ ;
+ MELINK Target HWL ME_52F8A8A5010D // FormSetType
+ ;
+
+ENDME // ME_52F8A8D0021F FormSetType
+
+ME ME_52F8A952021E
+ MEPROP UID '52F8A952021E'
+ MEPROP Name 'UCFormSet'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52F8A8330237 // vcmFormSetDataSourceWithFlexFormSetType
+ ;
+ MELINK Target HWL ME_52F8A8A5010D // FormSetType
+ ;
+ UP "pm" True
+
+ENDME // ME_52F8A952021E UCFormSet
+
+%%InheritedBy ME_47F37723017A ME_52F8A8330237
+
+ME ME_52F8A8330237
+ MEPROP UID '52F8A8330237'
+ MEPROP Name 'vcmFormSetDataSourceWithFlexFormSetType'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Бизнес-объект сборки, параметризуемый типом сборки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47F37723017A' '47F37723017A.ms.model.script' // vcmFormSetDataSource
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52F8A8D0021F // FormSetType
+ HWL ME_52F8A952021E // UCFormSet
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_52F8A8A5010D // FormSetType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_vcmFormSetDataSourceWithFlexFormSetType_'
+ UP extprop:pas:UnitName 'vcmFormSetDataSourceWithFlexFormSetType.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormSetDataSourceWithFlexFormSetType.imp.pas'
+
+ENDME // ME_52F8A8330237 vcmFormSetDataSourceWithFlexFormSetType

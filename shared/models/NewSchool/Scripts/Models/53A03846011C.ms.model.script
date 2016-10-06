@@ -1,0 +1,69 @@
+// l3CriticalSectionHolder 53A03846011C Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53A03846011C
+
+ME ME_53A038E300F9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53A03846011C // l3CriticalSectionHolder
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_53A038E300F9 
+
+ME ME_52BC2B9401F3_ME_53A03846011C
+ MELINK Original WL 'ME_52BC2B9401F3' '47913F4E02E0.ms.model.script' // AfterDestroyCalled
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52BC2B9401F3_ME_53A03846011C AfterDestroyCalled
+
+ME ME_53AC02B602E3_ME_53A03846011C
+ MELINK Original WL 'ME_53AC02B602E3' '47913F4E02E0.ms.model.script' // InitAfterAlloc
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53AC02B602E3_ME_53A03846011C InitAfterAlloc
+
+%%ImplementedBy ME_4A5CB93700CF ME_53A03846011C
+
+%%InheritedBy ME_54B6852C0241 ME_53A03846011C
+
+ME ME_53A03846011C
+ MEPROP UID '53A03846011C'
+ MEPROP Name 'l3CriticalSectionHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_53A038340371' '53A038340371.ms.model.script' // MultiThread
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_54B6852C0241' '54B6852C0241.ms.model.script' // l3CriticalSectionHolderPrim
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Overridden
+   Seq: ( ME_52BC2B9401F3_ME_53A03846011C // AfterDestroyCalled
+ ME_53AC02B602E3_ME_53A03846011C // InitAfterAlloc
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_53A038E300F9 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'l3CriticalSectionHolder_Off'
+ UP extprop:pas:TypeName '_l3CriticalSectionHolder_'
+ UP extprop:pas:UnitName 'l3CriticalSectionHolder.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3CriticalSectionHolder.imp.pas'
+
+ENDME // ME_53A03846011C l3CriticalSectionHolder

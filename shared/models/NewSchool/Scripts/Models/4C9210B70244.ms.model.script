@@ -1,0 +1,63 @@
+// Navigator 4C9210B70244 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C9210B70244
+
+FORWARD ME_4C4FE56300FB
+
+ME ME_4C4FE6AF0398
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4C4FE6AF0398 aText
+
+ME ME_4C4FE8FA0069
+ MEPROP Name 'anOp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_469F7AC50332' '53317D14019D.ms.model.script' // Il3OpPack
+ ;
+
+ENDME // ME_4C4FE8FA0069 anOp
+
+ME ME_4C4FE56300FB
+ MEPROP UID '4C4FE56300FB'
+ MEPROP Name 'Navigate'
+ MEPROP Class class_Operation
+ %SUMMARY 'Устанавливает курсор или выделение' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4C9210B70244 // Navigator
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C4FE6AF0398 // aText
+ ME_4C4FE8FA0069 // anOp
+ )
+ ; // Parameters
+
+ENDME // ME_4C4FE56300FB Navigate
+
+ME ME_4C9210B70244
+ MEPROP UID '4C9210B70244'
+ MEPROP Name 'Navigator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4C4FE56300FB // Navigate
+ )
+ ; // Operations
+ UP extprop:pas:TypeName '_Navigator_'
+ UP extprop:pas:UnitName 'Navigator.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\Navigator.imp.pas'
+
+ENDME // ME_4C9210B70244 Navigator

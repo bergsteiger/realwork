@@ -1,0 +1,79 @@
+// GUITestRunner 4B2A0D9401CC UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4DA30F0F02C1
+
+FORWARD ME_4B2A0D9401CC
+
+FORWARD ME_4DA30F0F02C1
+
+ME ME_515AE7A101F3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DA30F0F02C1 // TGUITestRunner
+ ;
+ MELINK Target WL 'ME_4A83EE2702B6' '4A83EE2702B6.ms.model.script' // TvtComboBoxQS
+ ;
+
+ENDME // ME_515AE7A101F3 
+
+ME ME_4DA30F0F02C1
+ MEPROP UID '4DA30F0F02C1'
+ MEPROP Name 'TGUITestRunner'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4B2A0D9401CC // GUITestRunner
+ ;
+ MELIST Dependencies
+   Seq: ( ME_515AE7A101F3 // TvtComboBoxQS
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GUITestRunner'
+
+ENDME // ME_4DA30F0F02C1 TGUITestRunner
+
+ME ME_4B2A0DAC0037
+ MEPROP UID '4B2A0DAC0037'
+ MEPROP Name 'RunRegisteredTests'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4B2A0D9401CC // GUITestRunner
+ ;
+
+ENDME // ME_4B2A0DAC0037 RunRegisteredTests
+
+ME ME_4B2A0D9401CC
+ MEPROP UID '4B2A0D9401CC'
+ MEPROP Name 'GUITestRunner'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B2A0D6A0077' '4B2A0D6A0077.ms.model.script' // Source
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B2A0DAC0037 // RunRegisteredTests
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4DA30F0F02C1 // TGUITestRunner
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\DUnit\src\NOT_FINISHED_GUITestRunner.pas'
+
+ENDME // ME_4B2A0D9401CC GUITestRunner

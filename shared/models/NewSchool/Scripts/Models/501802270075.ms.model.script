@@ -1,0 +1,219 @@
+// vcmFormDataSourceWithData 501802270075 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_491B1E8D0051
+
+FORWARD ME_501802270075
+
+%%InheritedBy ME_46A451250363 ME_491B1E8D0051
+
+ME ME_491B1E8D0051
+ MEPROP UID '491B1E8D0051'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Данные, которыми инициализируется контроллер ввода' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_501802270075 // vcmFormDataSourceWithData
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_46A451250363' '4807744200AA.ms.model.script' // IUnknown
+ )
+ ; // Inherits
+ UP extprop:pas:TypeName '_InitDataType_'
+
+ENDME // ME_491B1E8D0051 InitDataType
+
+ME ME_501802610283
+ MEPROP UID '501802610283'
+ MEPROP Name 'InitDataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_param::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_501802270075 // vcmFormDataSourceWithData
+ ;
+ MELINK Target HWL ME_491B1E8D0051 // InitDataType
+ ;
+
+ENDME // ME_501802610283 InitDataType
+
+ME ME_5018027003D3
+ MEPROP UID '5018027003D3'
+ MEPROP Name 'PartData'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_501802270075 // vcmFormDataSourceWithData
+ ;
+ MELINK Target HWL ME_491B1E8D0051 // InitDataType
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_5018027003D3 PartData
+
+FORWARD ME_492ACF1E01C2
+
+ME ME_492ACF1E0201
+ MEPROP Name 'aDataSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5017EC5602B0' '5017EAF4027D.ms.model.script' // UseCaseControllerType
+ ;
+
+ENDME // ME_492ACF1E0201 aDataSource
+
+ME ME_492ACF1E024B
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49479A050026' '47F37723017A.ms.model.script' // InitDataType
+ ;
+
+ENDME // ME_492ACF1E024B aData
+
+ME ME_492ACF1E01C2
+ MEPROP UID '492ACF1E01C2'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ %SUMMARY 'Конструктор' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_501802270075 // vcmFormDataSourceWithData
+ ;
+ MELIST Parameters
+   Seq: ( ME_492ACF1E0201 // aDataSource
+ ME_492ACF1E024B // aData
+ )
+ ; // Parameters
+
+ENDME // ME_492ACF1E01C2 Create
+
+FORWARD ME_492ACEE90252
+
+ME ME_492ACEE90294
+ MEPROP Name 'aDataSource'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5017EC5602B0' '5017EAF4027D.ms.model.script' // UseCaseControllerType
+ ;
+
+ENDME // ME_492ACEE90294 aDataSource
+
+ME ME_492ACEE902D9
+ MEPROP Name 'aData'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_49479A050026' '47F37723017A.ms.model.script' // InitDataType
+ ;
+
+ENDME // ME_492ACEE902D9 aData
+
+ME ME_492ACEE90252
+ MEPROP UID '492ACEE90252'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_501802270075 // vcmFormDataSourceWithData
+ ;
+ MELINK Target WL 'ME_491C1E280368' '5017EAF4027D.ms.model.script' // FormDataSourceType
+ ;
+ MELIST Parameters
+   Seq: ( ME_492ACEE90294 // aDataSource
+ ME_492ACEE902D9 // aData
+ )
+ ; // Parameters
+
+ENDME // ME_492ACEE90252 Make
+
+ME ME_492BF7900310
+ MEPROP UID '492BF7900310'
+ MEPROP Name 'DoInit'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501802270075 // vcmFormDataSourceWithData
+ ;
+
+ENDME // ME_492BF7900310 DoInit
+
+ME ME_492ACF630072
+ MEPROP UID '492ACF630072'
+ MEPROP Name 'GotData'
+ MEPROP Class class_Operation
+ %SUMMARY '- данные изменились.' ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_501802270075 // vcmFormDataSourceWithData
+ ;
+
+ENDME // ME_492ACF630072 GotData
+
+ME ME_479731C50290_ME_501802270075
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_501802270075 Cleanup
+
+ME ME_47A042E100E2_ME_501802270075
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_501802270075 InitFields
+
+%%ImplementedBy ME_4A5CB93700CF ME_501802270075
+
+ME ME_501802270075
+ MEPROP UID '501802270075'
+ MEPROP Name 'vcmFormDataSourceWithData'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_501802610283 // InitDataType
+ HWL ME_5018027003D3 // PartData
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_492ACF1E01C2 // Create
+ HWL ME_492ACEE90252 // Make
+ HWL ME_492BF7900310 // DoInit
+ HWL ME_492ACF630072 // GotData
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_501802270075 // Cleanup
+ ME_47A042E100E2_ME_501802270075 // InitFields
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_491B1E8D0051 // InitDataType
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_vcmFormDataSourceWithData_'
+ UP extprop:pas:UnitName 'vcmFormDataSourceWithData.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\vcmFormDataSourceWithData.imp.pas'
+
+ENDME // ME_501802270075 vcmFormDataSourceWithData

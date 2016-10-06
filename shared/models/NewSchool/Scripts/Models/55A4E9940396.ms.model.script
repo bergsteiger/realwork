@@ -1,0 +1,168 @@
+// tfwCodeCompiler 55A4E9940396 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_55A4E9940396
+
+ME ME_52D55DF500C4
+ MEPROP UID '52D55DF500C4'
+ MEPROP Name 'Code'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55A4E9940396 // tfwCodeCompiler
+ ;
+ MELINK Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.ms.model.script' // TtfwWordRefList
+ ;
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_52D55DF500C4 Code
+
+FORWARD ME_55A4EA4402A7
+
+FORWARD ME_55A4EA4B03C3
+
+ME ME_55A4EA5101B7
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_55A4EA5101B7 aCtx
+
+ME ME_55A4EA4B03C3
+ MEPROP UID '55A4EA4B03C3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A4EA4402A7 // RunCode
+ ;
+ MELIST Parameters
+   Seq: ( ME_55A4EA5101B7 // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_55A4EA4B03C3 DoIt
+
+ME ME_55A4EA4402A7
+ MEPROP UID '55A4EA4402A7'
+ MEPROP Name 'RunCode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55A4E9940396 // tfwCodeCompiler
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_55A4EA4B03C3 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_55A4EA4402A7 RunCode
+
+ME ME_55A4E9D80212
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55A4E9940396 // tfwCodeCompiler
+ ;
+ MELINK Target WL 'ME_4F4BC6DB02F4' '54F079B5035C.ms.model.script' // TkwForwardDeclarationHolder
+ ;
+
+ENDME // ME_55A4E9D80212 
+
+ME ME_55A4E9E00152
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_55A4E9940396 // tfwCodeCompiler
+ ;
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
+ ;
+
+ENDME // ME_55A4E9E00152 
+
+ME ME_479731C50290_ME_55A4E9940396
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_55A4E9940396 Cleanup
+
+ME ME_4DB6CB1703AD_ME_55A4E9940396
+ MELINK Original WL 'ME_4DB6CB1703AD' '4DAF19F600C5.ms.model.script' // DoAddCodePart
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4DB6CB1703AD_ME_55A4E9940396 DoAddCodePart
+
+ME ME_52D40F640308_ME_55A4E9940396
+ MELINK Original WL 'ME_52D40F640308' '4DAF19F600C5.ms.model.script' // HasCode
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52D40F640308_ME_55A4E9940396 HasCode
+
+ME ME_52D4191402A2_ME_55A4E9940396
+ MELINK Original WL 'ME_52D4191402A2' '4DAF19F600C5.ms.model.script' // CodeCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52D4191402A2_ME_55A4E9940396 CodeCount
+
+ME ME_52D523A40118_ME_55A4E9940396
+ MELINK Original WL 'ME_52D523A40118' '4DAF19F600C5.ms.model.script' // GetCompiler
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_52D523A40118_ME_55A4E9940396 GetCompiler
+
+%%ImplementedBy ME_4A5CB93700CF ME_55A4E9940396
+%%ImplementedBy ME_528F7E620313 ME_55A4E9940396
+%%ImplementedBy ME_55A3BD6B03AE ME_55A4E9940396
+
+ME ME_55A4E9940396
+ MEPROP UID '55A4E9940396'
+ MEPROP Name 'tfwCodeCompiler'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_54F079B5035C' '54F079B5035C.ms.model.script' // CompiledWords
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4A5CB93700CF' '47913B47006E.ms.model.script' // Ml3Unknown
+ WL 'ME_528F7E620313' '54F079B5035C.ms.model.script' // MtfwWord
+ WL 'ME_55A3BD6B03AE' '4DAF19F600C5.ms.model.script' // MtfwCodeCompiler
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_52D55DF500C4 // Code
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_55A4EA4402A7 // RunCode
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_55A4E9940396 // Cleanup
+ ME_4DB6CB1703AD_ME_55A4E9940396 // DoAddCodePart
+ ME_52D40F640308_ME_55A4E9940396 // HasCode
+ ME_52D4191402A2_ME_55A4E9940396 // CodeCount
+ ME_52D523A40118_ME_55A4E9940396 // GetCompiler
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_55A4E9D80212 // TkwForwardDeclarationHolder
+ ME_55A4E9E00152 // FreeAndNil
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_tfwCodeCompiler_'
+ UP extprop:pas:UnitName 'tfwCodeCompiler.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwCodeCompiler.imp.pas'
+
+ENDME // ME_55A4E9940396 tfwCodeCompiler

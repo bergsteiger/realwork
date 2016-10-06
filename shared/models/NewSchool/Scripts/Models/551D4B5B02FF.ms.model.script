@@ -1,0 +1,125 @@
+// VGComboBoxPack 551D4B5B02FF ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_551D4B5B02FF
+
+ME ME_551D4BD8016D
+ MEPROP UID '551D4BD8016D'
+ MEPROP Name 'vg_ComboBox_GetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551D4B5B02FF // VGComboBoxPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_551D4BD8016D vg_ComboBox_GetText
+
+ME ME_551D4BFD035D
+ MEPROP UID '551D4BFD035D'
+ MEPROP Name 'vg_ComboBox_ItemHeight'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551D4B5B02FF // VGComboBoxPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D4BFD035D vg_ComboBox_ItemHeight
+
+ME ME_551D4C2C037F
+ MEPROP UID '551D4C2C037F'
+ MEPROP Name 'vg_ComboBox_ItemIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551D4B5B02FF // VGComboBoxPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_551D4C2C037F vg_ComboBox_ItemIndex
+
+FORWARD ME_552BC81F01C4
+
+ME ME_552BC83C0064
+ MEPROP Name 'anIndex'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552BC83C0064 anIndex
+
+ME ME_552BC81F01C4
+ MEPROP UID '552BC81F01C4'
+ MEPROP Name 'vg_ComboBox_GetItem'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551D4B5B02FF // VGComboBoxPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_552BC83C0064 // anIndex
+ )
+ ; // Parameters
+
+ENDME // ME_552BC81F01C4 vg_ComboBox_GetItem
+
+ME ME_552BD85E001F
+ MEPROP UID '552BD85E001F'
+ MEPROP Name 'vg_ComboBox_GetHighLightItemIndex'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_551D4B5B02FF // VGComboBoxPack
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_552BD85E001F vg_ComboBox_GetHighLightItemIndex
+
+%%InheritedBy ME_4D3D71CE0254 ME_551D4B5B02FF
+
+ME ME_551D4B5B02FF
+ MEPROP UID '551D4B5B02FF'
+ MEPROP Name 'VGComboBoxPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_506AC2F00283' '506AC2F00283.ms.model.script' // VGSceneWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4D3D71CE0254' '4CFE0E330363.ms.model.script' // TvgComboBox
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_551D4BD8016D // vg_ComboBox_GetText
+ HWL ME_551D4BFD035D // vg_ComboBox_ItemHeight
+ HWL ME_551D4C2C037F // vg_ComboBox_ItemIndex
+ HWL ME_552BC81F01C4 // vg_ComboBox_GetItem
+ HWL ME_552BD85E001F // vg_ComboBox_GetHighLightItemIndex
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP "no class name" True
+ UP "no_pop" True
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\VGComboBoxPack.pas'
+
+ENDME // ME_551D4B5B02FF VGComboBoxPack

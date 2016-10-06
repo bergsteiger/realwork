@@ -1,0 +1,46 @@
+// dt_Mail 5450D0130072 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5450D05B00F7
+
+FORWARD ME_5450D0130072
+
+ME ME_5450D05B00F7
+ MEPROP UID '5450D05B00F7'
+ MEPROP Name 'TMailServer'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5450D0130072 // dt_Mail
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MailServer'
+
+ENDME // ME_5450D05B00F7 TMailServer
+
+ME ME_5450D0130072
+ MEPROP UID '5450D0130072'
+ MEPROP Name 'dt_Mail'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5450CFDA02FF' '5450CFDA02FF.ms.model.script' // Mail
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5450D05B00F7 // TMailServer
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_Mail.pas'
+
+ENDME // ME_5450D0130072 dt_Mail

@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DE34290028F
+%%Inner ME_4E5C937F00B2
+
 FORWARD ME_4E5B891C01DE
 
 FORWARD ME_4DE34290028F
@@ -11,7 +14,7 @@ ME ME_4DFB4117021C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE34290028F // TArchiScriptEngine
  ;
- MELINK Target WL 'ME_4DFB406602B7' '4DE629810132.ms.model.script' // arEditorUtils
+ MELINK Target WL 'ME_4DFB406602B7' '4DFB406602B7.ms.model.script' // arEditorUtils
  ;
 
 ENDME // ME_4DFB4117021C 
@@ -21,7 +24,7 @@ ME ME_4E244CDD0017
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE34290028F // TArchiScriptEngine
  ;
- MELINK Target WL 'ME_4E244C8400D2' '4DE629810132.ms.model.script' // arDialogsPack
+ MELINK Target WL 'ME_4E244C8400D2' '4E244C8400D2.ms.model.script' // arDialogsPack
  ;
 
 ENDME // ME_4E244CDD0017 
@@ -31,7 +34,7 @@ ME ME_4E4A19EA0246
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE34290028F // TArchiScriptEngine
  ;
- MELINK Target WL 'ME_4E4A1982012A' '4DE629810132.ms.model.script' // CommonArchiWords
+ MELINK Target WL 'ME_4E4A1982012A' '4E4A1982012A.ms.model.script' // CommonArchiWords
  ;
 
 ENDME // ME_4E4A19EA0246 
@@ -83,7 +86,7 @@ ME ME_4F5DA17F0065
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE34290028F // TArchiScriptEngine
  ;
- MELINK Target WL 'ME_4F5DA0BF025A' '4F5DA07B02CD.ms.model.script' // kwEditorKeyWordsPack
+ MELINK Target WL 'ME_4F5DA0BF025A' '4F5DA0BF025A.ms.model.script' // kwEditorKeyWordsPack
  ;
 
 ENDME // ME_4F5DA17F0065 
@@ -93,10 +96,12 @@ ME ME_4F61983F0193
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DE34290028F // TArchiScriptEngine
  ;
- MELINK Target WL 'ME_4F619597030C' '4F6195640184.ms.model.script' // kwCommonArchiWords
+ MELINK Target WL 'ME_4F619597030C' '4F619597030C.ms.model.script' // kwCommonArchiWords
  ;
 
 ENDME // ME_4F61983F0193 
+
+%%InheritedBy ME_4DEF306102FF ME_4DE34290028F
 
 ME ME_4DE34290028F
  MEPROP UID '4DE34290028F'
@@ -124,6 +129,9 @@ ME ME_4DE34290028F
  ME_4F61983F0193 // kwCommonArchiWords
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'ArchiScriptEngine'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ArchiScriptEngine'
@@ -136,7 +144,7 @@ ME ME_4E5C948602EE
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E5C937F00B2 // TkwDocumentSpravka
  ;
- MELINK Target WL 'ME_4DFB4D5E0084' '4DFB49C40350.ms.model.script' // TMainForm
+ MELINK Target WL 'ME_4DFB4D5E0084' '4DFB4D3C01B5.ms.model.script' // TMainForm
  ;
 
 ENDME // ME_4E5C948602EE 
@@ -146,7 +154,7 @@ ME ME_4E5C9A0F007F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4E5C937F00B2 // TkwDocumentSpravka
  ;
- MELINK Target WL 'ME_4DFB4B01001D' '4DFB49C40350.ms.model.script' // TDocEditorWindow
+ MELINK Target WL 'ME_4DFB4B01001D' '4DFB4AD800BA.ms.model.script' // TDocEditorWindow
  ;
 
 ENDME // ME_4E5C9A0F007F 
@@ -166,6 +174,9 @@ ME ME_4E5C937F00B2
  ME_4E5C9A0F007F // TDocEditorWindow
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "NameForScript" 'оп::Документ_Справка_к_документу'
  UP extprop:pas:UnitName 'kwDocumentSpravka'
  UP extprop:rc:isAcceptableForScripts True
@@ -202,5 +213,8 @@ ME ME_4E5B891C01DE
  WL 'ME_54F079B5035C' '54F079B5035C.ms.model.script' // CompiledWords
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_4E5B891C01DE ScriptEngine

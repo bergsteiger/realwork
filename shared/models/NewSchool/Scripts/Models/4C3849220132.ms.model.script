@@ -1,0 +1,738 @@
+// evTableCellUtils 4C3849220132 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C3849220132
+
+FORWARD ME_4F44B12A0166
+
+FORWARD ME_4F44B17E02F3
+
+ME ME_4F44B18600D1
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4F44B18600D1 aPoint
+
+ME ME_4F44B17E02F3
+ MEPROP UID '4F44B17E02F3'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F44B12A0166 // evIsPointTextInCell
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4F44B18600D1 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4F44B17E02F3 DoIt
+
+ME ME_4F44B12A0166
+ MEPROP UID '4F44B12A0166'
+ MEPROP Name 'evIsPointTextInCell'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Проверяет находится ли точка, указывающая на текст в ячейке таблицы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F44B17E02F3 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'IsPointTextInCell'
+
+ENDME // ME_4F44B12A0166 evIsPointTextInCell
+
+FORWARD ME_50F5119003E5
+
+FORWARD ME_50F511D603E4
+
+ME ME_50F512AD02F9
+ MEPROP Name 'aFirst'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50F512AD02F9 aFirst
+
+ME ME_50F512AD0309
+ MEPROP Name 'aSecond'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50F512AD0309 aSecond
+
+ME ME_50F511D603E4
+ MEPROP UID '50F511D603E4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F5119003E5 // evMoreOrEqualOffset
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F512AD02F9 // aFirst
+ ME_50F512AD0309 // aSecond
+ )
+ ; // Parameters
+
+ENDME // ME_50F511D603E4 DoIt
+
+ME ME_50F5119003E5
+ MEPROP UID '50F5119003E5'
+ MEPROP Name 'evMoreOrEqualOffset'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50F511D603E4 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'MoreOrEqualOffset'
+
+ENDME // ME_50F5119003E5 evMoreOrEqualOffset
+
+FORWARD ME_50F516FA010B
+
+FORWARD ME_50F5170801F0
+
+ME ME_50F51719009A
+ MEPROP Name 'aFirst'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50F51719009A aFirst
+
+ME ME_50F5171900C9
+ MEPROP Name 'aSecond'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_50F5171900C9 aSecond
+
+ME ME_50F5170801F0
+ MEPROP UID '50F5170801F0'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_50F516FA010B // evEqualOffset
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_50F51719009A // aFirst
+ ME_50F5171900C9 // aSecond
+ )
+ ; // Parameters
+
+ENDME // ME_50F5170801F0 DoIt
+
+ME ME_50F516FA010B
+ MEPROP UID '50F516FA010B'
+ MEPROP Name 'evEqualOffset'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_50F5170801F0 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'EqualOffset'
+
+ENDME // ME_50F516FA010B evEqualOffset
+
+FORWARD ME_5379A05600E1
+
+FORWARD ME_5379A06203BA
+
+ME ME_537B3E700272
+ MEPROP Name 'aRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_534572370056' '53317D14019D.ms.model.script' // Tl3Tag
+ ;
+
+ENDME // ME_537B3E700272 aRow
+
+ME ME_537B3E700282
+ MEPROP Name 'anIgnoreEmtpyRow'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_537B3E700282 anIgnoreEmtpyRow
+
+ME ME_5379A06203BA
+ MEPROP UID '5379A06203BA'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5379A05600E1 // evCanDeleteRow
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_537B3E700272 // aRow
+ ME_537B3E700282 // anIgnoreEmtpyRow
+ )
+ ; // Parameters
+
+ENDME // ME_5379A06203BA DoIt
+
+ME ME_5379CFDD023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5379A05600E1 // evCanDeleteRow
+ ;
+ MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
+ ;
+
+ENDME // ME_5379CFDD023C 
+
+ME ME_5379A05600E1
+ MEPROP UID '5379A05600E1'
+ MEPROP Name 'evCanDeleteRow'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5379A06203BA // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5379CFDD023C // Tl3LongintList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'CanDeleteRow'
+
+ENDME // ME_5379A05600E1 evCanDeleteRow
+
+FORWARD ME_4C38498D00D0
+
+ME ME_4C384A3D02B8
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C384A3D02B8 aValue
+
+ME ME_4C384A3D02CF
+ MEPROP Name 'aOnlySymbol'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value False
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value False
+
+ENDME // ME_4C384A3D02CF aOnlySymbol
+
+ME ME_4C38498D00D0
+ MEPROP UID '4C38498D00D0'
+ MEPROP Name 'evCheckCellWidth'
+ MEPROP Class class_Operation
+ %SUMMARY 'Корректирует ширину/изменение ширины ячейки, чтобы она была кратна ширине символов, aOnlySymbol - возвращаемая ширина не может быть меньше одного символа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C384A3D02B8 // aValue
+ ME_4C384A3D02CF // aOnlySymbol
+ )
+ ; // Parameters
+
+ENDME // ME_4C38498D00D0 evCheckCellWidth
+
+FORWARD ME_4C384A440171
+
+ME ME_4C384A9701FB
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C384A9701FB aValue
+
+ME ME_4C384A970216
+ MEPROP Name 'aOuterWidth'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4C384A970216 aOuterWidth
+
+ME ME_4C384A440171
+ MEPROP UID '4C384A440171'
+ MEPROP Name 'evCheckCellWidth'
+ MEPROP Class class_Operation
+ %SUMMARY 'Корректирует ширину ячейки, чтобы она была кратна ширине символов, Если полученная ширина меньше aOuterWidth, то возвращается aOuterWidth.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4C384A9701FB // aValue
+ ME_4C384A970216 // aOuterWidth
+ )
+ ; // Parameters
+
+ENDME // ME_4C384A440171 evCheckCellWidth
+
+FORWARD ME_4C77545B0230
+
+ME ME_4E31A25902D3
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4E31A25902D3 aPara
+
+ME ME_4E31A25A001E
+ MEPROP Name 'aFI'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_480F377B0271' '4678209200A6.ms.model.script' // TnevFormatInfoPrim
+ ;
+
+ENDME // ME_4E31A25A001E aFI
+
+ME ME_4C77545B0230
+ MEPROP UID '4C77545B0230'
+ MEPROP Name 'evHasFormulaOnly'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E31A25902D3 // aPara
+ ME_4E31A25A001E // aFI
+ )
+ ; // Parameters
+
+ENDME // ME_4C77545B0230 evHasFormulaOnly
+
+FORWARD ME_4C7E0ABF0116
+
+ME ME_4E31A261039E
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E31A261039E aStart
+
+ME ME_4E31A2620036
+ MEPROP Name 'aFinish'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E31A2620036 aFinish
+
+ME ME_4C7E0ABF0116
+ MEPROP UID '4C7E0ABF0116'
+ MEPROP Name 'evInEmptyTableCell'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет попадают ли точки в пустую ячейку.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E31A261039E // aStart
+ ME_4E31A2620036 // aFinish
+ )
+ ; // Parameters
+
+ENDME // ME_4C7E0ABF0116 evInEmptyTableCell
+
+FORWARD ME_4C8DF2F600EA
+
+ME ME_4E31A26802D2
+ MEPROP Name 'aPack'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476BEF7B0378' '4678209200A6.ms.model.script' // InevOp
+ ;
+
+ENDME // ME_4E31A26802D2 aPack
+
+ME ME_4E31A2680372
+ MEPROP Name 'aCell'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4E31A2680372 aCell
+
+ME ME_4C8DF2F600EA
+ MEPROP UID '4C8DF2F600EA'
+ MEPROP Name 'evCloneCell'
+ MEPROP Class class_Operation
+ %SUMMARY 'Создает копию ячейки.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_5346BD53015A' '53317D14019D.ms.model.script' // Il3TagRef
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E31A26802D2 // aPack
+ ME_4E31A2680372 // aCell
+ )
+ ; // Parameters
+
+ENDME // ME_4C8DF2F600EA evCloneCell
+
+FORWARD ME_4CA1ECEB001A
+
+ME ME_4E31A26D0084
+ MEPROP Name 'aPara'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C520D80305' '47C5207602D1.ms.model.script' // InevPara
+ ;
+
+ENDME // ME_4E31A26D0084 aPara
+
+ME ME_4CA1ECEB001A
+ MEPROP UID '4CA1ECEB001A'
+ MEPROP Name 'evCheckSingleContinueCell'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет содержит ли строка одну ячейку и эта ячейка часть объединения MergeStatus = ev_msContinue.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E31A26D0084 // aPara
+ )
+ ; // Parameters
+
+ENDME // ME_4CA1ECEB001A evCheckSingleContinueCell
+
+FORWARD ME_4D38236B03AD
+
+ME ME_4E31A273026D
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4E31A273026D aView
+
+ME ME_4E31A27302E8
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E31A27302E8 aPoint
+
+ME ME_4D38236B03AD
+ MEPROP UID '4D38236B03AD'
+ MEPROP Name 'evIsPointHeadCell'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет указывает ли точка на начальную ячейку объединения.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E31A273026D // aView
+ ME_4E31A27302E8 // aPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4D38236B03AD evIsPointHeadCell
+
+FORWARD ME_4D3823BB00DA
+
+ME ME_4D38246301EF
+ MEPROP Name 'aStart'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4D38246301EF aStart
+
+ME ME_4E31A2860376
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B97302B2' '47C5207602D1.ms.model.script' // InevView
+ ;
+
+ENDME // ME_4E31A2860376 aView
+
+ME ME_4E31A28603DB
+ MEPROP Name 'aPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E31A28603DB aPoint
+
+ME ME_4E31A287005C
+ MEPROP Name 'aPointCopy'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E31A287005C aPointCopy
+
+ME ME_4E31A28700D9
+ MEPROP Name 'aHeadPoint'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_4E31A28700D9 aHeadPoint
+
+ME ME_4D3823BB00DA
+ MEPROP UID '4D3823BB00DA'
+ MEPROP Name 'evCorrectTablePoint'
+ MEPROP Class class_Operation
+ %SUMMARY 'Корректирует точку при необходимости' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D38246301EF // aStart
+ ME_4E31A2860376 // aView
+ ME_4E31A28603DB // aPoint
+ ME_4E31A287005C // aPointCopy
+ ME_4E31A28700D9 // aHeadPoint
+ )
+ ; // Parameters
+
+ENDME // ME_4D3823BB00DA evCorrectTablePoint
+
+ME ME_4C384FD10118
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_4808A20402DC' '4808A20402DC.ms.model.script' // Math
+ ;
+
+ENDME // ME_4C384FD10118 
+
+ME ME_4C38503C03D6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_4A3918BB0114' '4A3918BB0114.ms.model.script' // l3UnitsTools
+ ;
+
+ENDME // ME_4C38503C03D6 
+
+ME ME_4C7756720336
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_48564C5800DD' '484A470100DD.ms.model.script' // ObjectSegment
+ ;
+
+ENDME // ME_4C7756720336 
+
+ME ME_4C77569A00C4
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_4857926501CB' '48492FC0029D.ms.model.script' // Formula
+ ;
+
+ENDME // ME_4C77569A00C4 
+
+ME ME_4C775A710377
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
+ ;
+
+ENDME // ME_4C775A710377 
+
+ME ME_4C7E0C630385
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_4857CD8D0093' '48492FC0029D.ms.model.script' // TableCell
+ ;
+
+ENDME // ME_4C7E0C630385 
+
+ME ME_4CA1EDB70170
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_468E49730365' '469D0AC7005E.ms.model.script' // MergeStatus
+ ;
+
+ENDME // ME_4CA1EDB70170 
+
+ME ME_4D38256300C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_48453A750156' '48453A40017C.ms.model.script' // Operations
+ ;
+
+ENDME // ME_4D38256300C3 
+
+ME ME_4F2A44EF0214
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_4F2A40EA0064' '4A3918BB0114.ms.model.script' // evCellWidthEpsilon
+ ;
+
+ENDME // ME_4F2A44EF0214 
+
+ME ME_52BD351603E5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_52BD351603E5 
+
+ME ME_5346A1F20020
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C3849220132 // evTableCellUtils
+ ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_5346A1F20020 
+
+ME ME_4C3849220132
+ MEPROP UID '4C3849220132'
+ MEPROP Name 'evTableCellUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Различные вспомогательные функции для работы с ячейками таблицы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47F1F38601A3' '47F1F38601A3.ms.model.script' // ParaUtils
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4F44B12A0166 // evIsPointTextInCell
+ HWL ME_50F5119003E5 // evMoreOrEqualOffset
+ HWL ME_50F516FA010B // evEqualOffset
+ HWL ME_5379A05600E1 // evCanDeleteRow
+ HWL ME_4C38498D00D0 // evCheckCellWidth
+ HWL ME_4C384A440171 // evCheckCellWidth
+ HWL ME_4C77545B0230 // evHasFormulaOnly
+ HWL ME_4C7E0ABF0116 // evInEmptyTableCell
+ HWL ME_4C8DF2F600EA // evCloneCell
+ HWL ME_4CA1ECEB001A // evCheckSingleContinueCell
+ HWL ME_4D38236B03AD // evIsPointHeadCell
+ HWL ME_4D3823BB00DA // evCorrectTablePoint
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4C384FD10118 // Math
+ ME_4C38503C03D6 // l3UnitsTools
+ ME_4C7756720336 // ObjectSegment
+ ME_4C77569A00C4 // Formula
+ ME_4C775A710377 // k2Base
+ ME_4C7E0C630385 // TableCell
+ ME_4CA1EDB70170 // MergeStatus
+ ME_4D38256300C3 // Operations
+ ME_4F2A44EF0214 // evCellWidthEpsilon
+ ME_52BD351603E5 // Tk2TagID
+ ME_5346A1F20020 // Tl3Variant
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Инишев Д.А.'
+ UP extprop:rc:SelfName 'TableCellUtils'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evTableCellUtils.pas'
+
+ENDME // ME_4C3849220132 evTableCellUtils

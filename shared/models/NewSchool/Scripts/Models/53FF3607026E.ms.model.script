@@ -1,0 +1,35 @@
+// m3IdxCla 53FF3607026E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_53FF3607026E
+
+ME ME_53FF361402C8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53FF3607026E // m3IdxCla
+ ;
+ MELINK Target WL 'ME_53FF322603A8' '5485BB9703CE.ms.model.script' // Tm3BaseHashInfoStream
+ ;
+
+ENDME // ME_53FF361402C8 
+
+ME ME_53FF3607026E
+ MEPROP UID '53FF3607026E'
+ MEPROP Name 'm3IdxCla'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5485BB9703CE' '5485BB9703CE.ms.model.script' // Indexer
+ ;
+ MELIST Dependencies
+   Seq: ( ME_53FF361402C8 // Tm3BaseHashInfoStream
+ )
+ ; // Dependencies
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\NOT_FINISHED_m3IdxCla.pas'
+
+ENDME // ME_53FF3607026E m3IdxCla

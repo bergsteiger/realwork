@@ -1,0 +1,78 @@
+// vcmFormsUtils 511389AC0205 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51138A1B0106
+
+FORWARD ME_511389AC0205
+
+FORWARD ME_51138A1B0106
+
+ME ME_51138B2E003F
+ MEPROP UID '51138B2E003F'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_51138A1B0106 // TvcmSlayedEntityFormsList
+ ;
+ MELINK Target WL 'ME_49525B34022A' '4AADF9450143.ms.model.script' // TvcmEntityForm
+ ;
+
+ENDME // ME_51138B2E003F ItemType
+
+%%InheritedBy ME_47B57B7800A7 ME_51138A1B0106
+%%InheritedBy ME_47BC3A07027F ME_51138A1B0106
+
+ME ME_51138A1B0106
+ MEPROP UID '51138A1B0106'
+ MEPROP Name 'TvcmSlayedEntityFormsList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_511389AC0205 // vcmFormsUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57B7800A7' '47B57B7800A7.ms.model.script' // l3ObjectPtrList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_51138B2E003F // ItemType
+ )
+ ; // Attributes
+ UP "author" 'Костицын'
+ UP "no hands" True
+ UP "singleton" True
+ UP "started" '07.02.13'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SlayedEntityFormsList'
+
+ENDME // ME_51138A1B0106 TvcmSlayedEntityFormsList
+
+ME ME_511389AC0205
+ MEPROP UID '511389AC0205'
+ MEPROP Name 'vcmFormsUtils'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AADF9450143' '4AADF9450143.ms.model.script' // Visual
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51138A1B0106 // TvcmSlayedEntityFormsList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'FormsUtils'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\vcmFormsUtils.pas'
+
+ENDME // ME_511389AC0205 vcmFormsUtils

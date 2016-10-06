@@ -1,0 +1,43 @@
+// nevBreakParaAnchorModify 4B1D1CE30270 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_4B1CFD7B0332_ME_4B1D1CE30270
+ MELINK Original WL 'ME_4B1CFD7B0332' '4B1CFB8E0090.ms.model.script' // DoBottom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1CFD7B0332_ME_4B1D1CE30270 DoBottom
+
+ME ME_4B1CFD9401A2_ME_4B1D1CE30270
+ MELINK Original WL 'ME_4B1CFD9401A2' '4B1CFB8E0090.ms.model.script' // DoIncLinePrim
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4B1CFD9401A2_ME_4B1D1CE30270 DoIncLinePrim
+
+%%ImplementedBy ME_4B1CFC5502D8 ME_4B1D1CE30270
+
+ME ME_4B1D1CE30270
+ MEPROP UID '4B1D1CE30270'
+ MEPROP Name 'nevBreakParaAnchorModify'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4B1CFC5502D8' '47E3DF460095.ms.model.script' // MnevAnchorModifyPrim
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_4B1CFD7B0332_ME_4B1D1CE30270 // DoBottom
+ ME_4B1CFD9401A2_ME_4B1D1CE30270 // DoIncLinePrim
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName '_nevBreakParaAnchorModify_'
+ UP extprop:pas:UnitName 'nevBreakParaAnchorModify.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevBreakParaAnchorModify.imp.pas'
+
+ENDME // ME_4B1D1CE30270 nevBreakParaAnchorModify

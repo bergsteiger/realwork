@@ -1,0 +1,43 @@
+// vcmFormSetRefreshParams 49312C5F0078 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49312C5F0078
+
+ME ME_4B6870EE00C4
+ MEPROP UID '4B6870EE00C4'
+ MEPROP Name 'vcmMakeDataRefreshParams'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49312C5F0078 // vcmFormSetRefreshParams
+ ;
+ UP extprop:rc:SelfName 'MakeDataRefreshParams'
+
+ENDME // ME_4B6870EE00C4 vcmMakeDataRefreshParams
+
+ME ME_49312C5F0078
+ MEPROP UID '49312C5F0078'
+ MEPROP Name 'vcmFormSetRefreshParams'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0E1500033' '47D0E1500033.ms.model.script' // Implementation
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4B6870EE00C4 // vcmMakeDataRefreshParams
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'FormSetRefreshParams'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\NOT_FINISHED_vcmFormSetRefreshParams.pas'
+
+ENDME // ME_49312C5F0078 vcmFormSetRefreshParams

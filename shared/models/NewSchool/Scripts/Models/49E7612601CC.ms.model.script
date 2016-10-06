@@ -1,0 +1,140 @@
+// nevTinyParaXTool 49E7612601CC Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49E762F90213
+
+FORWARD ME_49E7612601CC
+
+ME ME_49E762F90213
+ MEPROP UID '49E762F90213'
+ MEPROP Name 'X'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ImpurityParamType ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Тип параграфа' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
+ ;
+ UP extprop:pas:TypeName '_X_'
+
+ENDME // ME_49E762F90213 X
+
+ME ME_49E763090291
+ MEPROP UID '49E763090291'
+ MEPROP Name 'ParaX'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
+ ;
+ MELINK Target HWL ME_49E762F90213 // X
+ ;
+ UP "needs field" True
+ UP "pm" True
+ UP "reads field" True
+
+ENDME // ME_49E763090291 ParaX
+
+FORWARD ME_49E7692B0058
+
+ME ME_49E769300380
+ MEPROP Name 'aTag'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_49E769300380 aTag
+
+ME ME_49E7692B0058
+ MEPROP UID '49E7692B0058'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
+ ;
+ MELIST Parameters
+   Seq: ( ME_49E769300380 // aTag
+ )
+ ; // Parameters
+
+ENDME // ME_49E7692B0058 Create
+
+ME ME_49E765150393
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49E7612601CC // nevTinyParaXTool
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_49E765150393 
+
+ME ME_479731C50290_ME_49E7612601CC
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_49E7612601CC Cleanup
+
+ME ME_47A6FEE600FC_ME_49E7612601CC
+ MELINK Original WL 'ME_47A6FEE600FC' '47913F4E02E0.ms.model.script' // IsCacheable
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "ifndef" 'DesignTimeLibrary'
+ENDME // ME_47A6FEE600FC_ME_49E7612601CC IsCacheable
+
+%%InheritedBy ME_49E7754802A9 ME_49E7612601CC
+
+ME ME_49E7612601CC
+ MEPROP UID '49E7612601CC'
+ MEPROP Name 'nevTinyParaXTool'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47C52679006D' '47C52679006D.ms.model.script' // nevUtils
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49E763090291 // ParaX
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49E7692B0058 // Create
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_49E7612601CC // Cleanup
+ ME_47A6FEE600FC_ME_49E7612601CC // IsCacheable
+ )
+ ; // Overridden
+ MELIST Children
+   Seq: ( HWL ME_49E762F90213 // X
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_49E765150393 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '16.04.2009 20:48'
+ UP extprop:pas:TypeName '_nevTinyParaXTool_'
+ UP extprop:pas:UnitName 'nevTinyParaXTool.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\new\nevTinyParaXTool.imp.pas'
+
+ENDME // ME_49E7612601CC nevTinyParaXTool

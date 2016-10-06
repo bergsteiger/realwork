@@ -1,0 +1,191 @@
+// csDecisionPhrasesHelper 53EDECDF01AA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_53EDDC0402AA
+%%Inner ME_53EDE216017A
+
+FORWARD ME_53EDECDF01AA
+
+ME ME_53BFCD4C03BF_ME_53EDDC0402AA
+ MELINK Original WL 'ME_53BFCD4C03BF' '53BD13B4023B.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" False
+ENDME // ME_53BFCD4C03BF_ME_53EDDC0402AA Count
+
+ME ME_53BFCD5501FC_ME_53EDDC0402AA
+ MELINK Original WL 'ME_53BFCD5501FC' '53BD13B4023B.ms.model.script' // Strings
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "is default" True
+ UP "pm" False
+ENDME // ME_53BFCD5501FC_ME_53EDDC0402AA Strings
+
+ME ME_53BFCD800222_ME_53EDDC0402AA
+ MELINK Original WL 'ME_53BFCD800222' '53BD13B4023B.ms.model.script' // Add
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53BFCD800222_ME_53EDDC0402AA Add
+
+ME ME_53BFCDAA0388_ME_53EDDC0402AA
+ MELINK Original WL 'ME_53BFCDAA0388' '53BD13B4023B.ms.model.script' // CopyTo
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53BFCDAA0388_ME_53EDDC0402AA CopyTo
+
+ME ME_53BFCE310249_ME_53EDDC0402AA
+ MELINK Original WL 'ME_53BFCE310249' '53BD13B4023B.ms.model.script' // CopyFrom
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53BFCE310249_ME_53EDDC0402AA CopyFrom
+
+%%ImplementedBy ME_53ECACE50004 ME_53EDDC0402AA
+
+%%InheritedBy ME_53BFCCE800ED ME_53EDDC0402AA
+
+ME ME_53EDDC0402AA
+ MEPROP UID '53EDDC0402AA'
+ MEPROP GUID '346E9451-D5D3-4B6F-B24E-34E87B721E5D'
+ MEPROP Name 'DecisionPhrasesHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53EDECDF01AA // csDecisionPhrasesHelper
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53BFCCE800ED' '53BD13B4023B.ms.model.script' // StringListHelper
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_53ECACE50004' '484A470100DD.ms.model.script' // CourtDecisionPhrase
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_53BFCD4C03BF_ME_53EDDC0402AA // Count
+ ME_53BFCD5501FC_ME_53EDDC0402AA // Strings
+ ME_53BFCD800222_ME_53EDDC0402AA // Add
+ ME_53BFCDAA0388_ME_53EDDC0402AA // CopyTo
+ ME_53BFCE310249_ME_53EDDC0402AA // CopyFrom
+ )
+ ; // Implemented
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53EDDC0402AA DecisionPhrasesHelper
+
+FORWARD ME_53EDE216017A
+
+%%ImplementedBy ME_53EDDC0402AA ME_53EDE46500ED
+
+%%InheritedBy ME_53BD1BCF010B ME_53EDE46500ED
+
+ME ME_53EDE46500ED
+ MEPROP UID '53EDE46500ED'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53EDE216017A // TDecisionPhrasesHelper
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53BD1BCF010B' '53BD13B4023B.ms.model.script' // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53EDDC0402AA // DecisionPhrasesHelper
+ )
+ ; // Implements
+
+ENDME // ME_53EDE46500ED Make
+
+ME ME_53EDE7B9024E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_53EDE216017A // TDecisionPhrasesHelper
+ ;
+ MELINK Target WL 'ME_53ECACE50004' '484A470100DD.ms.model.script' // CourtDecisionPhrase
+ ;
+
+ENDME // ME_53EDE7B9024E 
+
+ME ME_53EDDCE10317_ME_53EDE216017A
+ MELINK Original WL 'ME_53EDDCE10317' '53BD13B4023B.ms.model.script' // DoAdd
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53EDDCE10317_ME_53EDE216017A DoAdd
+
+ME ME_53F1FD130157_ME_53EDE216017A
+ MELINK Original WL 'ME_53F1FD130157' '53BD13B4023B.ms.model.script' // DoGetStrings
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_53F1FD130157_ME_53EDE216017A DoGetStrings
+
+%%ImplementedBy ME_53EDDC0402AA ME_53EDE216017A
+
+%%InheritedBy ME_53EDDCC203B4 ME_53EDE216017A
+
+ME ME_53EDE216017A
+ MEPROP UID '53EDE216017A'
+ MEPROP Name 'TDecisionPhrasesHelper'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53EDECDF01AA // csDecisionPhrasesHelper
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53EDDCC203B4' '53BD13B4023B.ms.model.script' // TAbstractStringListHelper
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( HWL ME_53EDDC0402AA // DecisionPhrasesHelper
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_53EDE46500ED // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_53EDDCE10317_ME_53EDE216017A // DoAdd
+ ME_53F1FD130157_ME_53EDE216017A // DoGetStrings
+ )
+ ; // Implemented
+ MELIST Dependencies
+   Seq: ( ME_53EDE7B9024E // CourtDecisionPhrase
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DecisionPhrasesHelper'
+
+ENDME // ME_53EDE216017A TDecisionPhrasesHelper
+
+ME ME_53EDECDF01AA
+ MEPROP UID '53EDECDF01AA'
+ MEPROP Name 'csDecisionPhrasesHelper'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_53EDB01E0287' '53EDB01E0287.ms.model.script' // CourtDecisionSabCheckerParams
+ ;
+ MELIST Children
+   Seq: ( HWL ME_53EDDC0402AA // DecisionPhrasesHelper
+ HWL ME_53EDE216017A // TDecisionPhrasesHelper
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\cs\csDecisionPhrasesHelper.pas'
+
+ENDME // ME_53EDECDF01AA csDecisionPhrasesHelper

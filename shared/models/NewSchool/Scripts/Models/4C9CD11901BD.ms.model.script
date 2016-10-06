@@ -1,0 +1,104 @@
+// ddNSRC_r 4C9CD11901BD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4C9CD11901BD
+
+ME ME_4C9CD12A0116
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_4C9CD0E8038A' '4C9CD0E8038A.ms.model.script' // dt_AttrSchema
+ ;
+
+ENDME // ME_4C9CD12A0116 
+
+ME ME_55DC6B43007E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DC6B2E0347' '55DC6B2E0347.ms.model.script' // ddNSRCSegments
+ ;
+
+ENDME // ME_55DC6B43007E 
+
+ME ME_55DEE585032F
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEE5100096' '55DC6B0D020D.ms.model.script' // TddNSRCSub
+ ;
+
+ENDME // ME_55DEE585032F 
+
+ME ME_55DEE58902CE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEE52F00AC' '55DC6B0D020D.ms.model.script' // TddNSRCSubList
+ ;
+
+ENDME // ME_55DEE58902CE 
+
+ME ME_55DEF44201A9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEF41D03C4' '55DEF41D03C4.ms.model.script' // ddNSRCConst
+ ;
+
+ENDME // ME_55DEF44201A9 
+
+ME ME_55DEF45200C9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DEEAFF0079' '55DC6B0D020D.ms.model.script' // TddTk2TypeList
+ ;
+
+ENDME // ME_55DEF45200C9 
+
+ME ME_55DF02000346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C9CD11901BD // ddNSRC_r
+ ;
+ MELINK Target WL 'ME_55DF01D8011D' '55DC6B0D020D.ms.model.script' // TddDoc2DocLinkRecList
+ ;
+
+ENDME // ME_55DF02000346 
+
+ME ME_4C9CD11901BD
+ MEPROP UID '4C9CD11901BD'
+ MEPROP Name 'ddNSRC_r'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48EA3D1F0232' '48EA3D1F0232.ms.model.script' // Readers
+ ;
+ MELIST Dependencies
+   Seq: ( ME_4C9CD12A0116 // dt_AttrSchema
+ ME_55DC6B43007E // ddNSRCSegments
+ ME_55DEE585032F // TddNSRCSub
+ ME_55DEE58902CE // TddNSRCSubList
+ ME_55DEF44201A9 // ddNSRCConst
+ ME_55DEF45200C9 // TddTk2TypeList
+ ME_55DF02000346 // TddDoc2DocLinkRecList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddNSRC_r.pas'
+
+ENDME // ME_4C9CD11901BD ddNSRC_r

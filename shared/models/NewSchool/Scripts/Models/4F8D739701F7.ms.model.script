@@ -1,0 +1,45 @@
+// F_DocList 4F8D739701F7 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4F8D73AD0139
+
+FORWARD ME_4F8D739701F7
+
+ME ME_4F8D73AD0139
+ MEPROP UID '4F8D73AD0139'
+ MEPROP Name 'TDocumentList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F8D739701F7 // F_DocList
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'DocumentList'
+
+ENDME // ME_4F8D73AD0139 TDocumentList
+
+ME ME_4F8D739701F7
+ MEPROP UID '4F8D739701F7'
+ MEPROP Name 'F_DocList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F8D7381019D' '4F8D7381019D.ms.model.script' // Frames
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4F8D73AD0139 // TDocumentList
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Frames\NOT_FINISHED_F_DocList.pas'
+
+ENDME // ME_4F8D739701F7 F_DocList

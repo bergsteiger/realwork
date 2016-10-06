@@ -2,6 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_523006F7004A
+%%Inner ME_4DDBBDB00019
+%%Inner ME_5230072D031A
+%%Inner ME_52A73D1701B9
+%%Inner ME_4DB060930263
+%%Inner ME_5770F145022B
+
 FORWARD ME_4E200FED0213
 
 FORWARD ME_523006F7004A
@@ -160,6 +167,8 @@ ME ME_4DAEEDE10285_ME_523006F7004A
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4DAEEDE10285_ME_523006F7004A DoDoIt
 
+%%InheritedBy ME_54D229E702B6 ME_523006F7004A
+
 ME ME_523006F7004A
  MEPROP UID '523006F7004A'
  MEPROP Name 'TkwEntityOperationPrim'
@@ -192,6 +201,9 @@ ME ME_523006F7004A
    Seq: ( ME_5230086A0164 // TvcmOPID
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'kwEntityOperationPrim'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'EntityOperationPrim'
@@ -244,7 +256,7 @@ ME ME_4DDBC01E010A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDBBF790154 // Register
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4DDBC01E010A 
@@ -254,7 +266,7 @@ ME ME_4DDBC7400205
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDBBF790154 // Register
  ;
- MELINK Target WL 'ME_483C378301CB' '4AB0997B00A2.ms.model.script' // StrUtils
+ MELINK Target WL 'ME_483C378301CB' '483C378301CB.ms.model.script' // StrUtils
  ;
 
 ENDME // ME_4DDBC7400205 
@@ -298,7 +310,7 @@ ME ME_4DDBBF15020E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
  ;
- MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
  ;
 
 ENDME // ME_4DDBBF15020E 
@@ -318,7 +330,7 @@ ME ME_4E201EF90191
  MELINK Stereotype st_injects::Dependency ;
  MELINK Parent HWL ME_4DDBBDB00019 // TkwEntityOperation
  ;
- MELINK Target WL 'ME_4AD5DBBD0147' '4AADF9450143.ms.model.script' // TvcmBaseMenuManagerPrim
+ MELINK Target WL 'ME_4AD5DBBD0147' '4AB24EF502BB.ms.model.script' // TvcmBaseMenuManagerPrim
  ;
  UP "injects as" 'interface'
 
@@ -384,6 +396,10 @@ ME ME_523008BC0096_ME_4DDBBDB00019
  MEPROP OpKind opkind_Implemented
 ENDME // ME_523008BC0096_ME_4DDBBDB00019 DoOp
 
+%%InjectedBy ME_4AD5DBBD0147 ME_4DDBBDB00019
+
+%%InheritedBy ME_523006F7004A ME_4DDBBDB00019
+
 ME ME_4DDBBDB00019
  MEPROP UID '4DDBBDB00019'
  MEPROP Name 'TkwEntityOperation'
@@ -417,6 +433,9 @@ ME ME_4DDBBDB00019
  ME_52A74A7D0134 // TkwOperationsRegistrar
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "no hands" True
  UP "started" '24.05.2011 18:15'
@@ -432,7 +451,7 @@ ME ME_5230073B0196
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5230072D031A // TkwEntityOperationTest
  ;
- MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
  ;
 
 ENDME // ME_5230073B0196 
@@ -482,6 +501,8 @@ ME ME_523008BC0096_ME_5230072D031A
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_523008BC0096_ME_5230072D031A DoOp
+
+%%InheritedBy ME_523006F7004A ME_5230072D031A
 
 ME ME_5230072D031A
  MEPROP UID '5230072D031A'
@@ -543,7 +564,7 @@ ME ME_54E7496D03D7
  MELINK Stereotype st_injects::Dependency ;
  MELINK Parent HWL ME_52A73D1701B9 // TkwOperationsRegistrar
  ;
- MELINK Target WL 'ME_4AD5DBBD0147' '4AADF9450143.ms.model.script' // TvcmBaseMenuManagerPrim
+ MELINK Target WL 'ME_4AD5DBBD0147' '4AB24EF502BB.ms.model.script' // TvcmBaseMenuManagerPrim
  ;
  UP "injects as" 'interface'
 
@@ -554,6 +575,12 @@ ME ME_52A73C7103C7_ME_52A73D1701B9
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_52A73C7103C7_ME_52A73D1701B9 Register
+
+%%InjectedBy ME_4AD5DBBD0147 ME_52A73D1701B9
+
+%%ImplementedBy ME_52A73AE40326 ME_52A73D1701B9
+
+%%InheritedBy ME_49E7754802A9 ME_52A73D1701B9
 
 ME ME_52A73D1701B9
  MEPROP UID '52A73D1701B9'
@@ -614,7 +641,7 @@ ME ME_4DB060EE029C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
  ;
- MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
  ;
 
 ENDME // ME_4DB060EE029C 
@@ -664,7 +691,7 @@ ME ME_52A0A2780007
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
  ;
- MELINK Target WL 'ME_4AB24EF502BB' '4AADF9450143.ms.model.script' // vcmBaseMenuManager
+ MELINK Target WL 'ME_4AB24EF502BB' '4AB24EF502BB.ms.model.script' // vcmBaseMenuManager
  ;
 
 ENDME // ME_52A0A2780007 
@@ -674,7 +701,7 @@ ME ME_535E8B0702EB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB060930263 // TtfwModuleOperationWord
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_535E8B0702EB 
@@ -684,6 +711,8 @@ ME ME_4DAEEDE10285_ME_4DB060930263
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_4DAEEDE10285_ME_4DB060930263 DoDoIt
+
+%%InheritedBy ME_54D229E702B6 ME_4DB060930263
 
 ME ME_4DB060930263
  MEPROP UID '4DB060930263'
@@ -718,6 +747,9 @@ ME ME_4DB060930263
  ME_535E8B0702EB // FreeAndNil
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "ifndef" 'NoVCM'
  UP "no hands" True
@@ -816,7 +848,7 @@ ME ME_5770F31B00A8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
  ;
- MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
  ;
 
 ENDME // ME_5770F31B00A8 
@@ -856,7 +888,7 @@ ME ME_5770F32A00BD
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
  ;
- MELINK Target WL 'ME_4AB24EF502BB' '4AADF9450143.ms.model.script' // vcmBaseMenuManager
+ MELINK Target WL 'ME_4AB24EF502BB' '4AB24EF502BB.ms.model.script' // vcmBaseMenuManager
  ;
 
 ENDME // ME_5770F32A00BD 
@@ -876,7 +908,7 @@ ME ME_5770F331028C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5770F145022B // TtfwModuleOperationWordEx
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_5770F331028C 
@@ -904,6 +936,10 @@ ME ME_4DC2E05B03DD_ME_5770F145022B
  MEPROP OpKind opkind_Overridden
  UP "is static" True
 ENDME // ME_4DC2E05B03DD_ME_5770F145022B ReallyNeedRegister
+
+%%InjectedBy ME_4AB34044026A ME_5770F145022B
+
+%%InheritedBy ME_4DB060930263 ME_5770F145022B
 
 ME ME_5770F145022B
  MEPROP UID '5770F145022B'
@@ -943,6 +979,9 @@ ME ME_5770F145022B
  ME_5770FF8C03B5 // TvcmModulesCollection
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" True
  UP extprop:pas:UnitName 'tfwModuleOperationWordEx'
  UP extprop:rc:isAcceptableForScripts True
@@ -988,6 +1027,9 @@ ME ME_4E200FED0213
  WL 'ME_52A73A4401B9' '52A73A4401B9.ms.model.script' // Operations
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "path prefix" '/implementation/Scripting'
  UP intf.pas:PathOnly '\common\components\gui\Garant\VCM\implementation\Scripting'
 

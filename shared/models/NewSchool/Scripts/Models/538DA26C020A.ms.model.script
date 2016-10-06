@@ -2,6 +2,17 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_537F6306025B
+%%Inner ME_537F63D60108
+%%Inner ME_537F645C01D1
+%%Inner ME_538DEBDF0374
+%%Inner ME_538DEBEA032D
+%%Inner ME_5395C8DC03A7
+%%Inner ME_5395BF930007
+%%Inner ME_5395BFCE0389
+%%Inner ME_5395B29D0177
+%%Inner ME_5507E70200AF
+
 FORWARD ME_538DA26C020A
 
 FORWARD ME_537F6306025B
@@ -61,7 +72,7 @@ ME ME_537F639102DF
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_537F6306025B // TCsProcWithId
  ;
- MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
  ;
 
 ENDME // ME_537F639102DF QueryId
@@ -88,7 +99,7 @@ ME ME_537F63C5009E
  MEPROP Name 'aQueryId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
  ;
 
 ENDME // ME_537F63C5009E aQueryId
@@ -135,6 +146,8 @@ ME ME_537F63B40386
 
 ENDME // ME_537F63B40386 Create
 
+%%InheritedBy ME_52FBB30A01C6 ME_537F6306025B
+
 ME ME_537F6306025B
  MEPROP UID '537F6306025B'
  MEPROP Name 'TCsProcWithId'
@@ -162,6 +175,9 @@ ME ME_537F6306025B
    Seq: ( HWL ME_537F63170355 // TCsReplyProc
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'CsProcWithId'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'CsProcWithId'
@@ -187,7 +203,7 @@ ME ME_537F63EC035D
 ENDME // ME_537F63EC035D ItemType
 
 ME ME_47B2C42A0163_ME_537F63D60108
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -195,10 +211,13 @@ ME ME_47B2C42A0163_ME_537F63D60108
 ENDME // ME_47B2C42A0163_ME_537F63D60108 AssignItem
 
 ME ME_47B99D4503A2_ME_537F63D60108
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_537F63D60108 CompareExistingItems
+
+%%InheritedBy ME_47B99E920196 ME_537F63D60108
+%%InheritedBy ME_4A54DD4E036F ME_537F63D60108
 
 ME ME_537F63D60108
  MEPROP UID '537F63D60108'
@@ -211,7 +230,7 @@ ME ME_537F63D60108
  MELINK Parent HWL ME_538DA26C020A // ServerSide
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_47B99E920196' '47913B47006E.ms.model.script' // l3UncomparabeObjectRefList
+   Seq: ( WL 'ME_47B99E920196' '47B99E920196.ms.model.script' // l3UncomparabeObjectRefList
  WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
  )
  ; // Inherits
@@ -256,7 +275,7 @@ ME ME_53959A4900AA
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
- MELINK Target WL 'ME_4807861D0118' '4AB0C3C60310.ms.model.script' // TMultiReadExclusiveWriteSynchronizer
+ MELINK Target WL 'ME_4807861D0118' '47877EB202FB.ms.model.script' // TMultiReadExclusiveWriteSynchronizer
  ;
 
 ENDME // ME_53959A4900AA f_Synchronizer
@@ -299,7 +318,7 @@ ME ME_53959AD20374
  MEPROP Name 'aQueryId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
  ;
 
 ENDME // ME_53959AD20374 aQueryId
@@ -346,7 +365,7 @@ ME ME_53959B3000BB
  MEPROP Name 'aQueryId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
  ;
 
 ENDME // ME_53959B3000BB aQueryId
@@ -390,7 +409,7 @@ ME ME_53959AA3034F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_53959AA3034F 
@@ -410,16 +429,18 @@ ME ME_53959B740196
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_537F645C01D1 // TCsReplyProceduresPrim
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_53959B740196 
 
 ME ME_479731C50290_ME_537F645C01D1
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_537F645C01D1 Cleanup
+
+%%InheritedBy ME_52FBB30A01C6 ME_537F645C01D1
 
 ME ME_537F645C01D1
  MEPROP UID '537F645C01D1'
@@ -457,6 +478,9 @@ ME ME_537F645C01D1
  ME_53959B740196 // l3Base
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'CsReplyProceduresPrim'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'CsReplyProceduresPrim'
@@ -508,7 +532,7 @@ ME ME_538DEC740276
  MEPROP Name 'aQueryId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
  ;
 
 ENDME // ME_538DEC740276 aQueryId
@@ -521,7 +545,7 @@ ME ME_538DEC6C027B
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_538DEC3F03C7 // TcsProcessQueryProc
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_538DEC740276 // aQueryId
@@ -583,7 +607,7 @@ ME ME_538DECF00223
  MEPROP Name 'aLogMessages'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_538DECF00223 aLogMessages
@@ -592,7 +616,7 @@ ME ME_538DF003015A
  MEPROP Name 'theClientId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_out ;
- MELINK Target WL 'ME_537F4A04037C' '52FBB2FC0386.ms.model.script' // TCsClientId
+ MELINK Target WL 'ME_537F4A04037C' '537F49C801FE.ms.model.script' // TCsClientId
  ;
 
 ENDME // ME_538DF003015A theClientId
@@ -621,7 +645,7 @@ ME ME_538DED02009C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_538DED02009C 
@@ -641,7 +665,7 @@ ME ME_538DED7400B8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
- MELINK Target WL 'ME_538DED5F0011' '52FBB2FC0386.ms.model.script' // CsErrors
+ MELINK Target WL 'ME_538DED5F0011' '538DED5F0011.ms.model.script' // CsErrors
  ;
 
 ENDME // ME_538DED7400B8 
@@ -651,7 +675,7 @@ ME ME_538DED88026C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
- MELINK Target WL 'ME_538DA49902A4' '52FBB2FC0386.ms.model.script' // CsConst
+ MELINK Target WL 'ME_538DA49902A4' '538DA49902A4.ms.model.script' // CsConst
  ;
 
 ENDME // ME_538DED88026C 
@@ -661,7 +685,7 @@ ME ME_538DEDFE017A
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_538DEC9601CC // ProcessQuery
  ;
- MELINK Target WL 'ME_4787A405013D' '4AB0C3C60310.ms.model.script' // Exception
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
  ;
 
 ENDME // ME_538DEDFE017A 
@@ -721,6 +745,9 @@ ME ME_538DEBEA032D
    Seq: ( HWL ME_538DEC3F03C7 // TcsProcessQueryProc
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'CsReplyTool'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'CsReplyTool'
@@ -738,7 +765,7 @@ ME ME_53959AFD012B
  MEPROP Name 'aQueryId'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_537F63760334' '52FBB2FC0386.ms.model.script' // TCsQueryId
+ MELINK Target WL 'ME_537F63760334' '537F63590169.ms.model.script' // TCsQueryId
  ;
 
 ENDME // ME_53959AFD012B aQueryId
@@ -783,7 +810,7 @@ ME ME_5395CA1F025B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53959AE3018D // Register
  ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
  ;
 
 ENDME // ME_5395CA1F025B 
@@ -803,7 +830,7 @@ ME ME_5395CCF9011D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_53959AE3018D // Register
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_5395CCF9011D 
@@ -862,6 +889,8 @@ ME ME_53BFBB81029F
 
 ENDME // ME_53BFBB81029F UnregisterAll
 
+%%InheritedBy ME_537F645C01D1 ME_5395C8DC03A7
+
 ME ME_5395C8DC03A7
  MEPROP UID '5395C8DC03A7'
  MEPROP Name 'TCsReplyProceduresWithRegistering'
@@ -881,6 +910,9 @@ ME ME_5395C8DC03A7
  HWL ME_53BFBB81029F // UnregisterAll
  )
  ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'CsReplyProceduresWithRegistering'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'CsReplyProceduresWithRegistering'
@@ -901,6 +933,8 @@ ME ME_5395BFA90075
  ;
 
 ENDME // ME_5395BFA90075 
+
+%%InheritedBy ME_52FBB30A01C6 ME_5395BF930007
 
 ME ME_5395BF930007
  MEPROP UID '5395BF930007'
@@ -940,6 +974,8 @@ ME ME_5395BFDE00E3
 
 ENDME // ME_5395BFDE00E3 
 
+%%InheritedBy ME_52FBB30A01C6 ME_5395BFCE0389
+
 ME ME_5395BFCE0389
  MEPROP UID '5395BFCE0389'
  MEPROP Name 'TCsServer'
@@ -966,6 +1002,8 @@ ME ME_5395BFCE0389
 
 ENDME // ME_5395BFCE0389 TCsServer
 
+%%InheritedBy ME_5395C8DC03A7 ME_5395B29D0177
+
 ME ME_5395B29D0177
  MEPROP UID '5395B29D0177'
  MEPROP Name 'TCsReplyProcedures'
@@ -991,6 +1029,10 @@ ENDME // ME_5395B29D0177 TCsReplyProcedures
 
 FORWARD ME_5507E70200AF
 
+%%ImplementedBy ME_5507D90F00D2 ME_550806D90113
+
+%%InheritedBy ME_516D582B011F ME_550806D90113
+
 ME ME_550806D90113
  MEPROP UID '550806D90113'
  MEPROP Name 'Make'
@@ -1002,7 +1044,7 @@ ME ME_550806D90113
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_516D582B011F' '4AB0C3C60310.ms.model.script' // Create
+   Seq: ( WL 'ME_516D582B011F' '4807744200AA.ms.model.script' // Create
  )
  ; // Inherits
  MELIST Implements
@@ -1017,7 +1059,7 @@ ME ME_55093AF703A8
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_4B990EF000AA' '4B990EDE031A.ms.model.script' // ddAppConfig
+ MELINK Target WL 'ME_4B990EF000AA' '4B990EF000AA.ms.model.script' // ddAppConfig
  ;
 
 ENDME // ME_55093AF703A8 
@@ -1027,7 +1069,7 @@ ME ME_550979E70256
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_4F191FDD0358' '47D0290B016D.ms.model.script' // ConcatDirName
+ MELINK Target WL 'ME_4F191FDD0358' '4B57004201BD.ms.model.script' // ConcatDirName
  ;
 
 ENDME // ME_550979E70256 
@@ -1037,7 +1079,7 @@ ME ME_55097F35022D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_55097F16032A' '4AB0997B00A2.ms.model.script' // IfThen
+ MELINK Target WL 'ME_55097F16032A' '483C378301CB.ms.model.script' // IfThen
  ;
 
 ENDME // ME_55097F35022D 
@@ -1047,7 +1089,7 @@ ME ME_55099066031E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_5214B1470139' '4F6843C101D1.ms.model.script' // ddUtils
+ MELINK Target WL 'ME_5214B1470139' '5214B1470139.ms.model.script' // ddUtils
  ;
 
 ENDME // ME_55099066031E 
@@ -1057,7 +1099,7 @@ ME ME_55099079038B
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_4B2A12BA0288' '4AB0C3C60310.ms.model.script' // IntToStr
+ MELINK Target WL 'ME_4B2A12BA0288' '47877EB202FB.ms.model.script' // IntToStr
  ;
 
 ENDME // ME_55099079038B 
@@ -1067,7 +1109,7 @@ ME ME_550A7FDF0301
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_550A7FA50320' '484A470100DD.ms.model.script' // TcsPredefinedUserIDs
+ MELINK Target WL 'ME_550A7FA50320' '53A953FD016B.ms.model.script' // TcsPredefinedUserIDs
  ;
 
 ENDME // ME_550A7FDF0301 
@@ -1077,7 +1119,7 @@ ME ME_55151B02028E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_4E304DE50368' '4B990EDE031A.ms.model.script' // TddConfigValue
+ MELINK Target WL 'ME_4E304DE50368' '4E304DD10316.ms.model.script' // TddConfigValue
  ;
 
 ENDME // ME_55151B02028E 
@@ -1087,7 +1129,7 @@ ME ME_55151B2000A9
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_523038DB01A5' '4B990EDE031A.ms.model.script' // TddFolderNameConfigItem
+ MELINK Target WL 'ME_523038DB01A5' '4B9E62980158.ms.model.script' // TddFolderNameConfigItem
  ;
 
 ENDME // ME_55151B2000A9 
@@ -1097,7 +1139,7 @@ ME ME_55151B2C019F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_5225E4F80224' '4B990EDE031A.ms.model.script' // TddBooleanConfigItem
+ MELINK Target WL 'ME_5225E4F80224' '52161F2B00C4.ms.model.script' // TddBooleanConfigItem
  ;
 
 ENDME // ME_55151B2C019F 
@@ -1107,7 +1149,7 @@ ME ME_55151E410236
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5507E70200AF // TncsServerParamsStorage
  ;
- MELINK Target WL 'ME_4AC1F98A0155' '47913B47006E.ms.model.script' // l3FillChar
+ MELINK Target WL 'ME_4AC1F98A0155' '4773D64E036C.ms.model.script' // l3FillChar
  ;
 
 ENDME // ME_55151E410236 
@@ -1256,6 +1298,11 @@ ME ME_5756BD40014A_ME_5507E70200AF
  UP "pm" False
 ENDME // ME_5756BD40014A_ME_5507E70200AF DocImageCachePath
 
+%%ImplementedBy ME_5507D90F00D2 ME_5507E70200AF
+%%ImplementedBy ME_550981CC01F6 ME_5507E70200AF
+
+%%InheritedBy ME_49E7754802A9 ME_5507E70200AF
+
 ME ME_5507E70200AF
  MEPROP UID '5507E70200AF'
  MEPROP Name 'TncsServerParamsStorage'
@@ -1315,6 +1362,9 @@ ME ME_5507E70200AF
  ME_55DF03AF0015 // ThtDataProviderFactory
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'ncsServerParamsStorage'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ncsServerParamsStorage'
@@ -1362,6 +1412,9 @@ ME ME_538DA26C020A
  WL 'ME_55D6CF3B014B' '55D6CF3B014B.ms.model.script' // Provider
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifdef" 'AppServerSide'
 
 ENDME // ME_538DA26C020A ServerSide

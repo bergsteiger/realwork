@@ -1,0 +1,44 @@
+// vcmMainMenuForChromeLikeTypes 545C53AA026E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5477697F0366
+
+FORWARD ME_545C53AA026E
+
+ME ME_5477697F0366
+ MEPROP UID '5477697F0366'
+ MEPROP Name 'TvcmMenuForChromeLikeItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_545C53AA026E // vcmMainMenuForChromeLikeTypes
+ ;
+
+ENDME // ME_5477697F0366 TvcmMenuForChromeLikeItem
+
+ME ME_545C53AA026E
+ MEPROP UID '545C53AA026E'
+ MEPROP Name 'vcmMainMenuForChromeLikeTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_533D53FF00C2' '533D53FF00C2.ms.model.script' // Visual$ChromeLike
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5477697F0366 // TvcmMenuForChromeLikeItem
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'MainMenuForChromeLikeTypes'
+ UP intf.pas:Path 'common\components\gui\Garant\VCM\implementation\Visual\ChromeLike\NOT_FINISHED_vcmMainMenuForChromeLikeTypes.pas'
+
+ENDME // ME_545C53AA026E vcmMainMenuForChromeLikeTypes

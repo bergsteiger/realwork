@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_4DB1A01E01F4
+%%Inner ME_50195665016F
+%%Inner ME_501956850225
+%%Inner ME_5220A3ED0104
+%%Inner ME_5220A3FC021A
+
 FORWARD ME_5019517A022F
 
 FORWARD ME_4DB1A01E01F4
@@ -11,7 +17,7 @@ ME ME_4DB1A0660303
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB1A01E01F4 // Key
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
  ;
 
 ENDME // ME_4DB1A0660303 
@@ -21,7 +27,7 @@ ME ME_4DB1A0900097
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB1A01E01F4 // Key
  ;
- MELINK Target WL 'ME_47E7ABAE0110' '4799D29F033F.ms.model.script' // Menus
+ MELINK Target WL 'ME_47E7ABAE0110' '47E7ABAE0110.ms.model.script' // Menus
  ;
 
 ENDME // ME_4DB1A0900097 
@@ -31,7 +37,7 @@ ME ME_4DB1A0EF0161
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4DB1A01E01F4 // Key
  ;
- MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ MELINK Target WL 'ME_478CF30500C1' '478CF30500C1.ms.model.script' // Classes
  ;
 
 ENDME // ME_4DB1A0EF0161 
@@ -75,6 +81,9 @@ ME ME_4DB1A01E01F4
  ME_5507EA22015B // Tl3MessagesService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Ëþëèí À.Â.'
  UP "NameForScript" 'key'
  UP "no hands" True
@@ -87,76 +96,7 @@ ME ME_4DB1A01E01F4
 
 ENDME // ME_4DB1A01E01F4 Key
 
-FORWARD ME_50195665016F
-
-ME ME_501956770078
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_50195665016F // KeyboardInputPack
- ;
- MELINK Target HWL ME_4DB1A01E01F4 // Key
- ;
-
-ENDME // ME_501956770078 
-
 FORWARD ME_501956850225
-
-ME ME_50195691015A
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_50195665016F // KeyboardInputPack
- ;
- MELINK Target HWL ME_501956850225 // HardKey
- ;
-
-ENDME // ME_50195691015A 
-
-FORWARD ME_5220A3ED0104
-
-ME ME_5220A473029B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_50195665016F // KeyboardInputPack
- ;
- MELINK Target HWL ME_5220A3ED0104 // KeyDown
- ;
-
-ENDME // ME_5220A473029B 
-
-FORWARD ME_5220A3FC021A
-
-ME ME_5220A4770079
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_50195665016F // KeyboardInputPack
- ;
- MELINK Target HWL ME_5220A3FC021A // KeyUp
- ;
-
-ENDME // ME_5220A4770079 
-
-ME ME_50195665016F
- MEPROP UID '50195665016F'
- MEPROP Name 'KeyboardInputPack'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_5019517A022F // KeyBoardInput
- ;
- MELIST Dependencies
-   Seq: ( ME_501956770078 // Key
- ME_50195691015A // HardKey
- ME_5220A473029B // KeyDown
- ME_5220A4770079 // KeyUp
- )
- ; // Dependencies
- UP "ifndef" 'NoScripts'
- UP "needs script" True
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\KeyboardInputPack.pas'
-
-ENDME // ME_50195665016F KeyboardInputPack
 
 FORWARD ME_50195C750318
 
@@ -169,7 +109,7 @@ ME ME_50195C8702F3
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_50195C750318 // TInputKeyRecord
  ;
- MELINK Target WL 'ME_476F71A701AB' '4AB0C3C60310.ms.model.script' // Word
+ MELINK Target WL 'ME_476F71A701AB' '4807744200AA.ms.model.script' // Word
  ;
 
 ENDME // ME_50195C8702F3 aKey
@@ -183,7 +123,7 @@ ME ME_50195C9401BC
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_50195C750318 // TInputKeyRecord
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_50195C9401BC aHold
@@ -249,7 +189,7 @@ ME ME_50196939001B
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_50195D48017A // TInputArray
  ;
- MELINK Target WL 'ME_4F7197540233' '4AB0C3F60375.ms.model.script' // TInput
+ MELINK Target WL 'ME_4F7197540233' '48A41FF10094.ms.model.script' // TInput
  ;
 
 ENDME // ME_50196939001B 
@@ -277,7 +217,7 @@ ME ME_50195C3B00E5
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_501956850225 // HardKey
  ;
- MELINK Target WL 'ME_5019588700F7' '4799D29F033F.ms.model.script' // TMenuKeyCap
+ MELINK Target WL 'ME_5019588700F7' '47E7ABAE0110.ms.model.script' // TMenuKeyCap
  ;
 
 ENDME // ME_50195C3B00E5 
@@ -287,7 +227,7 @@ ME ME_50195C3F03E0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_501956850225 // HardKey
  ;
- MELINK Target WL 'ME_501958A100CF' '4799D29F033F.ms.model.script' // MenuKeyCaps
+ MELINK Target WL 'ME_501958A100CF' '47E7ABAE0110.ms.model.script' // MenuKeyCaps
  ;
 
 ENDME // ME_50195C3F03E0 
@@ -297,7 +237,7 @@ ME ME_50195DDC039F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_501956850225 // HardKey
  ;
- MELINK Target WL 'ME_50195DC90360' '4AB0C3C60310.ms.model.script' // AnsiStrLIComp
+ MELINK Target WL 'ME_50195DC90360' '47877EB202FB.ms.model.script' // AnsiStrLIComp
  ;
 
 ENDME // ME_50195DDC039F 
@@ -307,7 +247,7 @@ ME ME_50195F43020D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_501956850225 // HardKey
  ;
- MELINK Target WL 'ME_4C2D9FF00326' '55C4AF3F02EE.ms.model.script' // Consts
+ MELINK Target WL 'ME_4C2D9FF00326' '4C2D9FF00326.ms.model.script' // Consts
  ;
 
 ENDME // ME_50195F43020D 
@@ -346,6 +286,9 @@ ME ME_501956850225
  ME_5507EA3D015C // Tl3MessagesService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'NoVCL'
  UP extprop:pas:TypeName 'TkwHardKey'
  UP extprop:pas:UnitName 'kwHardKey'
@@ -355,12 +298,14 @@ ME ME_501956850225
 
 ENDME // ME_501956850225 HardKey
 
+FORWARD ME_5220A3ED0104
+
 ME ME_5220A4110125
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3ED0104 // KeyDown
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
  ;
 
 ENDME // ME_5220A4110125 
@@ -370,7 +315,7 @@ ME ME_5220A41300FA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3ED0104 // KeyDown
  ;
- MELINK Target WL 'ME_47E7ABAE0110' '4799D29F033F.ms.model.script' // Menus
+ MELINK Target WL 'ME_47E7ABAE0110' '47E7ABAE0110.ms.model.script' // Menus
  ;
 
 ENDME // ME_5220A41300FA 
@@ -380,7 +325,7 @@ ME ME_5220A41500B6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3ED0104 // KeyDown
  ;
- MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ MELINK Target WL 'ME_478CF30500C1' '478CF30500C1.ms.model.script' // Classes
  ;
 
 ENDME // ME_5220A41500B6 
@@ -400,7 +345,7 @@ ME ME_5220B6AF017E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3ED0104 // KeyDown
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_5220B6AF017E 
@@ -435,6 +380,9 @@ ME ME_5220A3ED0104
  ME_5507EA4F03B4 // Tl3MessagesService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'NoVCL'
  UP extprop:pas:TypeName 'TkwKeyDown'
  UP extprop:pas:UnitName 'kwKeyDown'
@@ -444,12 +392,14 @@ ME ME_5220A3ED0104
 
 ENDME // ME_5220A3ED0104 KeyDown
 
+FORWARD ME_5220A3FC021A
+
 ME ME_5220A458024E
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3FC021A // KeyUp
  ;
- MELINK Target WL 'ME_48A41FF10094' '4AB0C3F60375.ms.model.script' // Windows
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
  ;
 
 ENDME // ME_5220A458024E 
@@ -459,7 +409,7 @@ ME ME_5220A45A0041
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3FC021A // KeyUp
  ;
- MELINK Target WL 'ME_47E7ABAE0110' '4799D29F033F.ms.model.script' // Menus
+ MELINK Target WL 'ME_47E7ABAE0110' '47E7ABAE0110.ms.model.script' // Menus
  ;
 
 ENDME // ME_5220A45A0041 
@@ -469,7 +419,7 @@ ME ME_5220A45B02F1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3FC021A // KeyUp
  ;
- MELINK Target WL 'ME_478CF30500C1' '4AB0997B00A2.ms.model.script' // Classes
+ MELINK Target WL 'ME_478CF30500C1' '478CF30500C1.ms.model.script' // Classes
  ;
 
 ENDME // ME_5220A45B02F1 
@@ -489,7 +439,7 @@ ME ME_5220B6D601BA
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5220A3FC021A // KeyUp
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_5220B6D601BA 
@@ -524,6 +474,9 @@ ME ME_5220A3FC021A
  ME_5507EA6600A3 // Tl3MessagesService
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "ifndef" 'NoVCL'
  UP extprop:pas:TypeName 'TkwKeyUp'
  UP extprop:pas:UnitName 'kwKeyUp'
@@ -545,7 +498,7 @@ ME ME_5019517A022F
  ;
  MELIST Children
    Seq: ( HWL ME_4DB1A01E01F4 // Key
- HWL ME_50195665016F // KeyboardInputPack
+ WL 'ME_50195665016F' '50195665016F.ms.model.script' // KeyboardInputPack
  HWL ME_501956850225 // HardKey
  HWL ME_5220A3ED0104 // KeyDown
  HWL ME_5220A3FC021A // KeyUp
@@ -561,6 +514,9 @@ ME ME_5019517A022F
  WL 'ME_55C4AF3F02EE' '55C4AF3F02EE.ms.model.script' // Consts
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifndef" 'NoScripts,NoVCL'
  UP "UseNewGen" True
 

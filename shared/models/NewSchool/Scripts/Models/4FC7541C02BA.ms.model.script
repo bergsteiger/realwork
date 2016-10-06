@@ -1,0 +1,317 @@
+// seModalSupport 4FC7541C02BA UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_553F737A02D6
+
+FORWARD ME_4FC7541C02BA
+
+FORWARD ME_553F737A02D6
+
+ME ME_553F7384030B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_553F737A02D6 // TseModalService
+ ;
+ MELINK Target WL 'ME_553F71BE03E0' '4E030FC801EB.ms.model.script' // Tl3ModalService
+ ;
+
+ENDME // ME_553F7384030B 
+
+%%InheritedBy ME_49E7754802A9 ME_553F737A02D6
+
+ME ME_553F737A02D6
+ MEPROP UID '553F737A02D6'
+ MEPROP Name 'TseModalService'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_553F7384030B // Tl3ModalService
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'seModalService'
+
+ENDME // ME_553F737A02D6 TseModalService
+
+FORWARD ME_4FC7549A03B6
+
+FORWARD ME_4FC754AA030E
+
+ME ME_4FC754B900F6
+ MEPROP Name 'aWorker'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DAEED140007' '4DAF19F600C5.ms.model.script' // TtfwWord
+ ;
+
+ENDME // ME_4FC754B900F6 aWorker
+
+ME ME_4FC75511029A
+ MEPROP Name 'aCtx'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DB0091E033E' '4DAF19F600C5.ms.model.script' // TtfwContext
+ ;
+
+ENDME // ME_4FC75511029A aCtx
+
+ME ME_4FC754AA030E
+ MEPROP UID '4FC754AA030E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7549A03B6 // seAddModalWorker
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_4FC754B900F6 // aWorker
+ ME_4FC75511029A // aCtx
+ )
+ ; // Parameters
+
+ENDME // ME_4FC754AA030E DoIt
+
+ME ME_4FC7549A03B6
+ MEPROP UID '4FC7549A03B6'
+ MEPROP Name 'seAddModalWorker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC754AA030E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC7549A03B6 seAddModalWorker
+
+FORWARD ME_4FC754C20096
+
+FORWARD ME_4FC754ED01A6
+
+ME ME_552631A303A5
+ MEPROP Name 'aModalExecute'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_5526316402F9' '4E030FC801EB.ms.model.script' // TseModalExecute
+ ;
+
+ENDME // ME_552631A303A5 aModalExecute
+
+ME ME_4FC754ED01A6
+ MEPROP UID '4FC754ED01A6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC754C20096 // seExecuteCurrentModalWorker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_552631A303A5 // aModalExecute
+ )
+ ; // Parameters
+
+ENDME // ME_4FC754ED01A6 DoIt
+
+ME ME_5507EA98008B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC754C20096 // seExecuteCurrentModalWorker
+ ;
+ MELINK Target WL 'ME_5506D3B202FA' '5506D079035B.ms.model.script' // Tl3MessagesService
+ ;
+
+ENDME // ME_5507EA98008B 
+
+ME ME_4FC754C20096
+ MEPROP UID '4FC754C20096'
+ MEPROP Name 'seExecuteCurrentModalWorker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC754ED01A6 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_5507EA98008B // Tl3MessagesService
+ )
+ ; // Dependencies
+
+ENDME // ME_4FC754C20096 seExecuteCurrentModalWorker
+
+FORWARD ME_4FC7749201E0
+
+ME ME_4FC774AB0041
+ MEPROP UID '4FC774AB0041'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7749201E0 // seHasModalWorker
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4FC774AB0041 DoIt
+
+ME ME_4FC7749201E0
+ MEPROP UID '4FC7749201E0'
+ MEPROP Name 'seHasModalWorker'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC774AB0041 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4FC7749201E0 seHasModalWorker
+
+FORWARD ME_5193915002D8
+
+FORWARD ME_5193916B0370
+
+ME ME_5193917C0187
+ MEPROP Name 'aCount'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_5193917C0187 aCount
+
+ME ME_5193916B0370
+ MEPROP UID '5193916B0370'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5193915002D8 // seIsValidModalWorkersCount
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5193917C0187 // aCount
+ )
+ ; // Parameters
+
+ENDME // ME_5193916B0370 DoIt
+
+ME ME_5193915002D8
+ MEPROP UID '5193915002D8'
+ MEPROP Name 'seIsValidModalWorkersCount'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5193916B0370 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5193915002D8 seIsValidModalWorkersCount
+
+ME ME_4FC7568E03C3
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELINK Target WL 'ME_4FC756830111' '4F2163250016.ms.model.script' // TseModalWorkerList
+ ;
+
+ENDME // ME_4FC7568E03C3 
+
+ME ME_4FC7678C032A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELINK Target WL 'ME_4FC7557C0082' '4FC75F0F0061.ms.model.script' // TseModalWorker
+ ;
+
+ENDME // ME_4FC7678C032A 
+
+ME ME_5507EB35024A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELINK Target WL 'ME_4FC77244014D' '5507EB5803E7.ms.model.script' // El3TryEnterModalState
+ ;
+
+ENDME // ME_5507EB35024A 
+
+ME ME_5507FE3C03A0
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4FC7541C02BA // seModalSupport
+ ;
+ MELINK Target WL 'ME_5507FDD203E1' '4E030FC801EB.ms.model.script' // Tl3BatchService
+ ;
+
+ENDME // ME_5507FE3C03A0 
+
+ME ME_4FC7541C02BA
+ MEPROP UID '4FC7541C02BA'
+ MEPROP Name 'seModalSupport'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F2163250016' '4F2163250016.ms.model.script' // CodeFlowWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4FC7549A03B6 // seAddModalWorker
+ HWL ME_4FC754C20096 // seExecuteCurrentModalWorker
+ HWL ME_4FC7749201E0 // seHasModalWorker
+ HWL ME_5193915002D8 // seIsValidModalWorkersCount
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_553F737A02D6 // TseModalService
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4FC7568E03C3 // TseModalWorkerList
+ ME_4FC7678C032A // TseModalWorker
+ ME_5507EB35024A // El3TryEnterModalState
+ ME_5507FE3C03A0 // Tl3BatchService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\seModalSupport.pas'
+
+ENDME // ME_4FC7541C02BA seModalSupport

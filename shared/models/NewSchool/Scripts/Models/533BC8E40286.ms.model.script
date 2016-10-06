@@ -1,0 +1,43 @@
+// UxTheme 533BC8E40286 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_533D08DE039A
+
+FORWARD ME_533BC8E40286
+
+ME ME_533D08DE039A
+ MEPROP UID '533D08DE039A'
+ MEPROP Name 'HTHEME'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_533BC8E40286 // UxTheme
+ ;
+
+ENDME // ME_533D08DE039A HTHEME
+
+ME ME_533BC8E40286
+ MEPROP UID '533BC8E40286'
+ MEPROP Name 'UxTheme'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4AB0C3F60375' '4AB0C3F60375.ms.model.script' // Win
+ ;
+ MELIST Children
+   Seq: ( HWL ME_533D08DE039A // HTHEME
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Rtl\Win\NOT_FINISHED_UxTheme.pas'
+
+ENDME // ME_533BC8E40286 UxTheme

@@ -1,0 +1,351 @@
+// Menus 47E7ABAE0110 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47E7ABCB0296
+%%Inner ME_49A3EC9F01DC
+%%Inner ME_49A5750A01E8
+%%Inner ME_5019588700F7
+%%Inner ME_537D83690313
+
+FORWARD ME_47E7ABAE0110
+
+FORWARD ME_47E7ABCB0296
+
+FORWARD ME_57CECDB70264
+
+ME ME_730FBE7252D6
+ MEPROP UID '730FBE7252D6'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода Click' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57CECDB70264 // Click
+ ;
+
+ENDME // ME_730FBE7252D6 DoIt
+
+ME ME_57CECDB70264
+ MEPROP UID '57CECDB70264'
+ MEPROP Name 'Click'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABCB0296 // TMenuItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_730FBE7252D6 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57CECDB70264 Click
+
+FORWARD ME_57EB857E015E
+
+ME ME_2A7B366AD2F9
+ MEPROP UID '2A7B366AD2F9'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода InitiateAction' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57EB857E015E // InitiateAction
+ ;
+
+ENDME // ME_2A7B366AD2F9 DoIt
+
+ME ME_57EB857E015E
+ MEPROP UID '57EB857E015E'
+ MEPROP Name 'InitiateAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABCB0296 // TMenuItem
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_2A7B366AD2F9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57EB857E015E InitiateAction
+
+%%InheritedBy ME_479878FA0103 ME_47E7ABCB0296
+
+ME ME_47E7ABCB0296
+ MEPROP UID '47E7ABCB0296'
+ MEPROP Name 'TMenuItem'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TMenuItem describes the properties of an item in a menu.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABAE0110 // Menus
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57CECDB70264 // Click
+ HWL ME_57EB857E015E // InitiateAction
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MenuItem'
+
+ENDME // ME_47E7ABCB0296 TMenuItem
+
+FORWARD ME_49A3EC9F01DC
+
+FORWARD ME_52A0905E002D
+
+FORWARD ME_52A09066009F
+
+ME ME_52A0906803E7
+ MEPROP Name 'Message'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_482C45D3015C' '476F78840219.ms.model.script' // TWMKey
+ ;
+
+ENDME // ME_52A0906803E7 Message
+
+ME ME_52A09066009F
+ MEPROP UID '52A09066009F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A0905E002D // IsShortCut
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A0906803E7 // Message
+ )
+ ; // Parameters
+
+ENDME // ME_52A09066009F DoIt
+
+ME ME_52A0905E002D
+ MEPROP UID '52A0905E002D'
+ MEPROP Name 'IsShortCut'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A3EC9F01DC // TMenu
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A09066009F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A0905E002D IsShortCut
+
+%%InheritedBy ME_479878FA0103 ME_49A3EC9F01DC
+
+ME ME_49A3EC9F01DC
+ MEPROP UID '49A3EC9F01DC'
+ MEPROP Name 'TMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TMenu is the base type for menu components such as TMainMenu and TPopupMenu.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABAE0110 // Menus
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_479878FA0103' '478CF30500C1.ms.model.script' // TComponent
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52A0905E002D // IsShortCut
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'Menu'
+
+ENDME // ME_49A3EC9F01DC TMenu
+
+FORWARD ME_49A5750A01E8
+
+FORWARD ME_52A090A90317
+
+FORWARD ME_52A090BB00AB
+
+ME ME_52A090C101A2
+ MEPROP Name 'X'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A090C101A2 X
+
+ME ME_52A090C101BC
+ MEPROP Name 'Y'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52A090C101BC Y
+
+ME ME_52A090BB00AB
+ MEPROP UID '52A090BB00AB'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52A090A90317 // Popup
+ ;
+ MELIST Parameters
+   Seq: ( ME_52A090C101A2 // X
+ ME_52A090C101BC // Y
+ )
+ ; // Parameters
+
+ENDME // ME_52A090BB00AB DoIt
+
+ME ME_52A090A90317
+ MEPROP UID '52A090A90317'
+ MEPROP Name 'Popup'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49A5750A01E8 // TPopupMenu
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52A090BB00AB // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52A090A90317 Popup
+
+%%InheritedBy ME_49A3EC9F01DC ME_49A5750A01E8
+
+ME ME_49A5750A01E8
+ MEPROP UID '49A5750A01E8'
+ MEPROP Name 'TPopupMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'TPopupMenu encapsulates the properties, methods, and events of a pop-up menu.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABAE0110 // Menus
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49A3EC9F01DC // TMenu
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_52A090A90317 // Popup
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'PopupMenu'
+
+ENDME // ME_49A5750A01E8 TPopupMenu
+
+ME ME_5019588700F7
+ MEPROP UID '5019588700F7'
+ MEPROP Name 'TMenuKeyCap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABAE0110 // Menus
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_5019588700F7 TMenuKeyCap
+
+%%InheritedBy ME_49A3EC9F01DC ME_537D83690313
+
+ME ME_537D83690313
+ MEPROP UID '537D83690313'
+ MEPROP Name 'TMainMenu'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABAE0110 // Menus
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_49A3EC9F01DC // TMenu
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MainMenu'
+
+ENDME // ME_537D83690313 TMainMenu
+
+ME ME_501958A100CF
+ MEPROP UID '501958A100CF'
+ MEPROP Name 'MenuKeyCaps'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ConstantArray ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47E7ABAE0110 // Menus
+ ;
+ UP "Need map interface" False
+ UP "Need mapping support" False
+
+ENDME // ME_501958A100CF MenuKeyCaps
+
+ME ME_47E7ABAE0110
+ MEPROP UID '47E7ABAE0110'
+ MEPROP Name 'Menus'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47E7ABCB0296 // TMenuItem
+ HWL ME_49A3EC9F01DC // TMenu
+ HWL ME_49A5750A01E8 // TPopupMenu
+ HWL ME_5019588700F7 // TMenuKeyCap
+ HWL ME_537D83690313 // TMainMenu
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_501958A100CF // MenuKeyCaps
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\Menus.pas'
+
+ENDME // ME_47E7ABAE0110 Menus

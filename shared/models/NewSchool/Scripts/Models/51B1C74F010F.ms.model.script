@@ -1,0 +1,63 @@
+// dt_IFltr 51B1C74F010F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_57D140200240
+%%Inner ME_57DF8DC702C4
+
+FORWARD ME_51B1C74F010F
+
+ME ME_57D140200240
+ MEPROP UID '57D140200240'
+ MEPROP Name 'TdtOnEraseAttrRecords'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51B1C74F010F // dt_IFltr
+ ;
+ UP "finished" False
+ UP "of object" False
+
+ENDME // ME_57D140200240 TdtOnEraseAttrRecords
+
+ME ME_57DF8DC702C4
+ MEPROP UID '57DF8DC702C4'
+ MEPROP Name 'TGroupOpFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51B1C74F010F // dt_IFltr
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'GroupOpFilter'
+
+ENDME // ME_57DF8DC702C4 TGroupOpFilter
+
+ME ME_51B1C74F010F
+ MEPROP UID '51B1C74F010F'
+ MEPROP Name 'dt_IFltr'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_51B1C73B0056' '51B1C73B0056.ms.model.script' // ImportExport
+ ;
+ MELIST Children
+   Seq: ( HWL ME_57D140200240 // TdtOnEraseAttrRecords
+ HWL ME_57DF8DC702C4 // TGroupOpFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\DT\NOT_FINISHED_dt_IFltr.pas'
+
+ENDME // ME_51B1C74F010F dt_IFltr

@@ -2,6 +2,9 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_5538940C00DD
+%%Inner ME_559BA19C0076
+
 FORWARD ME_553893E60323
 
 FORWARD ME_5538940C00DD
@@ -16,7 +19,7 @@ ME ME_5538B77B0192
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_5538B7640154 // MvcmTabbedContainersService
  ;
- MELINK Target WL 'ME_47E124E90272' '4799D29F033F.ms.model.script' // TWinControl
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
  ;
 
 ENDME // ME_5538B77B0192 GetCurrentMainForm
@@ -201,6 +204,8 @@ ME ME_F550802110EC_ME_5538B7640154
  MEPROP OpKind opkind_Implemented
 ENDME // ME_F550802110EC_ME_5538B7640154 CloseAll
 
+%%InheritedBy ME_553886F600CF ME_5538B7640154
+
 ME ME_5538B7640154
  MEPROP UID '5538B7640154'
  MEPROP Name 'MvcmTabbedContainersService'
@@ -267,6 +272,8 @@ ME ME_5539E92602C9
 
 ENDME // ME_5539E92602C9 
 
+%%InheritedBy ME_49E7754802A9 ME_5539E9010272
+
 ME ME_5539E9010272
  MEPROP UID '5539E9010272'
  MEPROP Name 'TvcmTabbedContainersDispatcher'
@@ -305,7 +312,7 @@ ME ME_5538C60B032F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_5538C60B032F 
@@ -315,7 +322,7 @@ ME ME_5538CC270261
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
- MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ MELINK Target WL 'ME_47F25BC801DB' '47F25BC801DB.ms.model.script' // vcmBase
  ;
 
 ENDME // ME_5538CC270261 
@@ -325,10 +332,12 @@ ME ME_5538D0350105
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_5538940C00DD // TvcmTabbedContainersService
  ;
- MELINK Target WL 'ME_4AA936DC0154' '47D0E1500033.ms.model.script' // vcmDispatcher
+ MELINK Target WL 'ME_4AA936DC0154' '47F25BC801DB.ms.model.script' // vcmDispatcher
  ;
 
 ENDME // ME_5538D0350105 
+
+%%InheritedBy ME_49E7754802A9 ME_5538940C00DD
 
 ME ME_5538940C00DD
  MEPROP UID '5538940C00DD'
@@ -357,9 +366,12 @@ ME ME_5538940C00DD
  )
  ; // Dependencies
  MELIST Injected
-   Seq: ( WL 'ME_55C8A9BA007E' '55AE409701EA.ms.model.script' // vcmTabsWordsPack
+   Seq: ( WL 'ME_55C8A9BA007E' '55AE40B600B7.ms.model.script' // vcmTabsWordsPack
  )
  ; // Injected
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "auto translate to alien" 'undefined'
  UP extprop:pas:UnitName 'vcmTabbedContainersService'
  UP extprop:rc:isAcceptableForScripts True
@@ -495,7 +507,7 @@ ME ME_A872A2AAB575
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_F7A0DB6ABDCF // aForm
@@ -529,7 +541,7 @@ ME ME_18FC3BA729CF
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_3361EEC787AF // aForm
@@ -670,7 +682,7 @@ ME ME_BB06F1B944C6
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_401DD96F3E52 // MvcmHistoryService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_BE62725471DD // aContainer
@@ -805,7 +817,7 @@ ME ME_55B8A6460123
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_55B8A65200C1 // aForm
@@ -832,7 +844,7 @@ ME ME_569E01920150
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_569E019A000B // aForm
@@ -944,7 +956,7 @@ ME ME_57AD88DC01F7
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_57AD88FD0310 // aContainer
@@ -958,7 +970,7 @@ ME ME_559BA1F00004
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
- MELINK Target WL 'ME_47752AF90375' '47750CE700D0.ms.model.script' // afwFacade
+ MELINK Target WL 'ME_47752AF90375' '47752AF90375.ms.model.script' // afwFacade
  ;
 
 ENDME // ME_559BA1F00004 
@@ -968,10 +980,12 @@ ME ME_559BA2950341
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_559BA19C0076 // TvcmHistoryService
  ;
- MELINK Target WL 'ME_47F25BC801DB' '47D0E1500033.ms.model.script' // vcmBase
+ MELINK Target WL 'ME_47F25BC801DB' '47F25BC801DB.ms.model.script' // vcmBase
  ;
 
 ENDME // ME_559BA2950341 
+
+%%InheritedBy ME_49E7754802A9 ME_559BA19C0076
 
 ME ME_559BA19C0076
  MEPROP UID '559BA19C0076'
@@ -1008,6 +1022,9 @@ ME ME_559BA19C0076
  ME_559BA2950341 // vcmBase
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "auto translate to alien" 'undefined'
  UP extprop:pas:UnitName 'vcmHistoryService'
  UP extprop:rc:isAcceptableForScripts True
@@ -1044,5 +1061,8 @@ ME ME_553893E60323
  WL 'ME_553213B80041' '553213B80041.ms.model.script' // TabbedInterfaceServices
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_553893E60323 Services

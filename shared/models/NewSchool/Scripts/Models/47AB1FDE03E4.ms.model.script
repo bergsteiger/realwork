@@ -1,0 +1,515 @@
+// l3Memory 47AB1FDE03E4 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47AB20F40050
+%%Inner ME_48F4737B0211
+%%Inner ME_48F473650362
+%%Inner ME_530B3AAE01E8
+%%Inner ME_530B3AB701B4
+%%Inner ME_499D47A502DE
+%%Inner ME_499D4888012B
+%%Inner ME_499D489C00D6
+%%Inner ME_499D48AC024B
+%%Inner ME_4DAEF5AA0084
+%%Inner ME_4EDE545C0288
+%%Inner ME_530B3F3301D4
+%%Inner ME_53076BFC02F2
+%%Inner ME_48451D410179
+%%Inner ME_484AA21A03BD
+%%Inner ME_541315AB0074
+%%Inner ME_541315C10016
+%%Inner ME_548065D9005C
+
+FORWARD ME_47AB1FDE03E4
+
+ME ME_47AB20F40050
+ MEPROP UID '47AB20F40050'
+ MEPROP Name 'Tl3Ptr'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Smart-указатель на память.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+
+ENDME // ME_47AB20F40050 Tl3Ptr
+
+%%InheritedBy ME_48F4748E0192 ME_48F4737B0211
+
+ME ME_48F4737B0211
+ MEPROP UID '48F4737B0211'
+ MEPROP Name 'Tl3CustomMemoryStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MemoryStream'
+
+ENDME // ME_48F4737B0211 Tl3CustomMemoryStream
+
+%%InheritedBy ME_48F4737B0211 ME_48F473650362
+
+ME ME_48F473650362
+ MEPROP UID '48F473650362'
+ MEPROP Name 'Tl3MemoryStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4737B0211 // Tl3CustomMemoryStream
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MemoryStream'
+
+ENDME // ME_48F473650362 Tl3MemoryStream
+
+%%InheritedBy ME_49E7754802A9 ME_530B3AAE01E8
+
+ME ME_530B3AAE01E8
+ MEPROP UID '530B3AAE01E8'
+ MEPROP Name 'Tl3MemoryPoolAdapter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MemoryPoolAdapter'
+
+ENDME // ME_530B3AAE01E8 Tl3MemoryPoolAdapter
+
+%%InheritedBy ME_530B3AAE01E8 ME_530B3AB701B4
+
+ME ME_530B3AB701B4
+ MEPROP UID '530B3AB701B4'
+ MEPROP Name 'Rl3MemoryPoolAdapter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_530B3AAE01E8 // Tl3MemoryPoolAdapter
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_530B3AB701B4 Rl3MemoryPoolAdapter
+
+%%InheritedBy ME_48F4737B0211 ME_499D47A502DE
+
+ME ME_499D47A502DE
+ MEPROP UID '499D47A502DE'
+ MEPROP Name 'Tl3ConstMemoryStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константный поток в памяти (без перераспределения памяти)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4737B0211 // Tl3CustomMemoryStream
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ConstMemoryStream'
+
+ENDME // ME_499D47A502DE Tl3ConstMemoryStream
+
+%%InheritedBy ME_499D47A502DE ME_499D4888012B
+
+ME ME_499D4888012B
+ MEPROP UID '499D4888012B'
+ MEPROP Name 'Tl3HMemoryStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константный поток в глобальной памяти (без перераспределения памяти)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499D47A502DE // Tl3ConstMemoryStream
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HMemoryStream'
+
+ENDME // ME_499D4888012B Tl3HMemoryStream
+
+%%InheritedBy ME_499D4888012B ME_499D489C00D6
+
+ME ME_499D489C00D6
+ MEPROP UID '499D489C00D6'
+ MEPROP Name 'Tl3HPCharStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константный поток в глобальной памяти оканчивающийся нулем (#0)' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499D4888012B // Tl3HMemoryStream
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HPCharStream'
+
+ENDME // ME_499D489C00D6 Tl3HPCharStream
+
+%%InheritedBy ME_499D4888012B ME_499D48AC024B
+
+ME ME_499D48AC024B
+ MEPROP UID '499D48AC024B'
+ MEPROP Name 'Tl3HPWideCharStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Константный поток в глобальной памяти оканчивающийся нулем (#0) в кодировке Unicode' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_499D4888012B // Tl3HMemoryStream
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HPWideCharStream'
+
+ENDME // ME_499D48AC024B Tl3HPWideCharStream
+
+%%InheritedBy ME_48F4737B0211 ME_4DAEF5AA0084
+
+ME ME_4DAEF5AA0084
+ MEPROP UID '4DAEF5AA0084'
+ MEPROP Name 'Tl3StringStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F4737B0211 // Tl3CustomMemoryStream
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringStream'
+
+ENDME // ME_4DAEF5AA0084 Tl3StringStream
+
+%%InheritedBy ME_48F4748E0192 ME_4EDE545C0288
+
+ME ME_4EDE545C0288
+ MEPROP UID '4EDE545C0288'
+ MEPROP Name 'Tl3IStreamAdapter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_48F4748E0192' '48F4745E0023.ms.model.script' // Tl3Stream
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IStreamAdapter'
+
+ENDME // ME_4EDE545C0288 Tl3IStreamAdapter
+
+%%InheritedBy ME_48F473650362 ME_530B3F3301D4
+
+ME ME_530B3F3301D4
+ MEPROP UID '530B3F3301D4'
+ MEPROP Name 'Rl3MemoryStream'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48F473650362 // Tl3MemoryStream
+ )
+ ; // Inherits
+ UP "isClassRef" True
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_530B3F3301D4 Rl3MemoryStream
+
+FORWARD ME_53076BFC02F2
+
+FORWARD ME_530B3ADB014E
+
+ME ME_530B3AF2026F
+ MEPROP UID '530B3AF2026F'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_530B3ADB014E // GetMemoryPoolAdapterClass
+ ;
+ MELINK Target HWL ME_530B3AB701B4 // Rl3MemoryPoolAdapter
+ ;
+
+ENDME // ME_530B3AF2026F DoIt
+
+ME ME_530B3ADB014E
+ MEPROP UID '530B3ADB014E'
+ MEPROP Name 'GetMemoryPoolAdapterClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53076BFC02F2 // Tl3MemoryPoolPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_530B3AF2026F // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_530B3ADB014E GetMemoryPoolAdapterClass
+
+FORWARD ME_530B3F560201
+
+ME ME_530B3F66028E
+ MEPROP UID '530B3F66028E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_530B3F560201 // GetMemoryStreamClass
+ ;
+ MELINK Target HWL ME_530B3F3301D4 // Rl3MemoryStream
+ ;
+
+ENDME // ME_530B3F66028E DoIt
+
+ME ME_530B3F560201
+ MEPROP UID '530B3F560201'
+ MEPROP Name 'GetMemoryStreamClass'
+ MEPROP Class class_Class
+ MELINK Stereotype st_virtualmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_53076BFC02F2 // Tl3MemoryPoolPrim
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_530B3F66028E // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_530B3F560201 GetMemoryStreamClass
+
+%%InheritedBy ME_4B277EE00256 ME_53076BFC02F2
+
+ME ME_53076BFC02F2
+ MEPROP UID '53076BFC02F2'
+ MEPROP Name 'Tl3MemoryPoolPrim'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4B277EE00256' '47913B47006E.ms.model.script' // Tl3ProtoDataContainerWithCOMQI
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_530B3ADB014E // GetMemoryPoolAdapterClass
+ HWL ME_530B3F560201 // GetMemoryStreamClass
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MemoryPoolPrim'
+
+ENDME // ME_53076BFC02F2 Tl3MemoryPoolPrim
+
+%%InheritedBy ME_53076BFC02F2 ME_48451D410179
+
+ME ME_48451D410179
+ MEPROP UID '48451D410179'
+ MEPROP Name 'Tl3MemoryPool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53076BFC02F2 // Tl3MemoryPoolPrim
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'MemoryPool'
+
+ENDME // ME_48451D410179 Tl3MemoryPool
+
+%%InheritedBy ME_48451D410179 ME_484AA21A03BD
+
+ME ME_484AA21A03BD
+ MEPROP UID '484AA21A03BD'
+ MEPROP Name 'Tl3SizedMemoryPool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_48451D410179 // Tl3MemoryPool
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'SizedMemoryPool'
+
+ENDME // ME_484AA21A03BD Tl3SizedMemoryPool
+
+ME ME_541315AB0074
+ MEPROP UID '541315AB0074'
+ MEPROP Name 'Tl3MemoryChain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+
+ENDME // ME_541315AB0074 Tl3MemoryChain
+
+%%InheritedBy ME_541315AB0074 ME_541315C10016
+
+ME ME_541315C10016
+ MEPROP UID '541315C10016'
+ MEPROP Name 'Pl3MemoryChain'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_541315AB0074 // Tl3MemoryChain
+ )
+ ; // Inherits
+ UP "isPointer" True
+
+ENDME // ME_541315C10016 Pl3MemoryChain
+
+%%InheritedBy ME_53076BFC02F2 ME_548065D9005C
+
+ME ME_548065D9005C
+ MEPROP UID '548065D9005C'
+ MEPROP Name 'Tl3BufferStreamMemoryPool'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47AB1FDE03E4 // l3Memory
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53076BFC02F2 // Tl3MemoryPoolPrim
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'BufferStreamMemoryPool'
+
+ENDME // ME_548065D9005C Tl3BufferStreamMemoryPool
+
+ME ME_47AB1FDE03E4
+ MEPROP UID '47AB1FDE03E4'
+ MEPROP Name 'l3Memory'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объекты, классы и функции для работы с памятью.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Children
+   Seq: ( HWL ME_47AB20F40050 // Tl3Ptr
+ HWL ME_48F4737B0211 // Tl3CustomMemoryStream
+ HWL ME_48F473650362 // Tl3MemoryStream
+ HWL ME_530B3AAE01E8 // Tl3MemoryPoolAdapter
+ HWL ME_530B3AB701B4 // Rl3MemoryPoolAdapter
+ HWL ME_499D47A502DE // Tl3ConstMemoryStream
+ HWL ME_499D4888012B // Tl3HMemoryStream
+ HWL ME_499D489C00D6 // Tl3HPCharStream
+ HWL ME_499D48AC024B // Tl3HPWideCharStream
+ HWL ME_4DAEF5AA0084 // Tl3StringStream
+ HWL ME_4EDE545C0288 // Tl3IStreamAdapter
+ HWL ME_530B3F3301D4 // Rl3MemoryStream
+ HWL ME_53076BFC02F2 // Tl3MemoryPoolPrim
+ HWL ME_48451D410179 // Tl3MemoryPool
+ HWL ME_484AA21A03BD // Tl3SizedMemoryPool
+ HWL ME_541315AB0074 // Tl3MemoryChain
+ HWL ME_541315C10016 // Pl3MemoryChain
+ HWL ME_548065D9005C // Tl3BufferStreamMemoryPool
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '20.10.1998 17:24'
+ UP extprop:rc:SelfName 'Memory'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3Memory.pas'
+
+ENDME // ME_47AB1FDE03E4 l3Memory

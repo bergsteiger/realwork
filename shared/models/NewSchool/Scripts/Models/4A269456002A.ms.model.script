@@ -1,0 +1,561 @@
+// evHotSpotMisc 4A269456002A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A43869A02C2
+
+FORWARD ME_4A269456002A
+
+FORWARD ME_4A43869A02C2
+
+ME ME_4A4387650266
+ MEPROP UID '4A4387650266'
+ MEPROP Name 'f_HotSpot'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELINK Target WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ ;
+
+ENDME // ME_4A4387650266 f_HotSpot
+
+ME ME_4A4387710204
+ MEPROP UID '4A4387710204'
+ MEPROP Name 'f_HotSpotSink'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELINK Target WL 'ME_4A23CC4D02F6' '4A1FCBA0014C.ms.model.script' // IevHotSpotSink
+ ;
+
+ENDME // ME_4A4387710204 f_HotSpotSink
+
+FORWARD ME_4D66245B02FA
+
+FORWARD ME_4D662463009E
+
+ME ME_4D66247B00C3
+ MEPROP Name 'aHotSpot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ ;
+
+ENDME // ME_4D66247B00C3 aHotSpot
+
+ME ME_4D66247B00E4
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_4D66247B00E4 aView
+
+ME ME_4D662463009E
+ MEPROP UID '4D662463009E'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4D66245B02FA // Create
+ ;
+ MELIST Parameters
+   Seq: ( ME_4D66247B00C3 // aHotSpot
+ ME_4D66247B00E4 // aView
+ )
+ ; // Parameters
+
+ENDME // ME_4D662463009E DoIt
+
+ME ME_4D6624C90242
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4D66245B02FA // Create
+ ;
+ MELINK Target WL 'ME_4ADEE49C02DF' '47877EB202FB.ms.model.script' // Supports
+ ;
+
+ENDME // ME_4D6624C90242 
+
+ME ME_4D66245B02FA
+ MEPROP UID '4D66245B02FA'
+ MEPROP Name 'Create'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constructor ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4D662463009E // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4D6624C90242 // Supports
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_4D66245B02FA Create
+
+%%ImplementedBy ME_48E2665A0259 ME_4D662494003E
+
+%%InheritedBy ME_4D66245B02FA ME_4D662494003E
+
+ME ME_4D662494003E
+ MEPROP UID '4D662494003E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_4D66245B02FA // Create
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ )
+ ; // Implements
+
+ENDME // ME_4D662494003E Make
+
+FORWARD ME_4A4387070198
+
+ME ME_4A438710032C
+ MEPROP Name 'aHotSpot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ ;
+
+ENDME // ME_4A438710032C aHotSpot
+
+ME ME_4A438710034C
+ MEPROP Name 'aHotSpotSink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A23CC4D02F6' '4A1FCBA0014C.ms.model.script' // IevHotSpotSink
+ ;
+
+ENDME // ME_4A438710034C aHotSpotSink
+
+ME ME_4A4387070198
+ MEPROP UID '4A4387070198'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_ctor::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A438710032C // aHotSpot
+ ME_4A438710034C // aHotSpotSink
+ )
+ ; // Parameters
+
+ENDME // ME_4A4387070198 Create
+
+FORWARD ME_4A4387180094
+
+ME ME_4A43872000F4
+ MEPROP Name 'aHotSpot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ ;
+
+ENDME // ME_4A43872000F4 aHotSpot
+
+ME ME_4A438720011A
+ MEPROP Name 'aHotSpotSink'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A23CC4D02F6' '4A1FCBA0014C.ms.model.script' // IevHotSpotSink
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4A23CC4D02F6' '4A1FCBA0014C.ms.model.script' // IevHotSpotSink
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4A438720011A aHotSpotSink
+
+ME ME_4A4387180094
+ MEPROP UID '4A4387180094'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A43872000F4 // aHotSpot
+ ME_4A438720011A // aHotSpotSink
+ )
+ ; // Parameters
+
+ENDME // ME_4A4387180094 Make
+
+ME ME_4A4387490102
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4A4387490102 
+
+ME ME_4A4389670250
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELINK Target WL 'ME_4728CE680258' '478CF30500C1.ms.model.script' // TShiftState
+ ;
+
+ENDME // ME_4A4389670250 
+
+ME ME_4DD252AB0375
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A43869A02C2 // TevHotSpotWrap
+ ;
+ MELINK Target WL 'ME_4B17E8F10299' '47CFE7F00221.ms.model.script' // l3IFail
+ ;
+
+ENDME // ME_4DD252AB0375 
+
+ME ME_48E2622A03C4_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E2622A03C4' '4A1FCBA0014C.ms.model.script' // HitTest
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E2622A03C4_ME_4A43869A02C2 HitTest
+
+ME ME_48E263CD01BD_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E263CD01BD' '4A1FCBA0014C.ms.model.script' // MouseAction
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E263CD01BD_ME_4A43869A02C2 MouseAction
+
+ME ME_48E266730188_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E266730188' '4A1FCBA0014C.ms.model.script' // MouseMove
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E266730188_ME_4A43869A02C2 MouseMove
+
+ME ME_48E266AA00A4_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E266AA00A4' '4A1FCBA0014C.ms.model.script' // LButtonDown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E266AA00A4_ME_4A43869A02C2 LButtonDown
+
+ME ME_48E266C70128_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E266C70128' '4A1FCBA0014C.ms.model.script' // LButtonUp
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E266C70128_ME_4A43869A02C2 LButtonUp
+
+ME ME_48E266DE026B_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E266DE026B' '4A1FCBA0014C.ms.model.script' // LButtonDoubleClick
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E266DE026B_ME_4A43869A02C2 LButtonDoubleClick
+
+ME ME_48E266FB01FC_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E266FB01FC' '4A1FCBA0014C.ms.model.script' // RButtonDown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E266FB01FC_ME_4A43869A02C2 RButtonDown
+
+ME ME_48E267150266_ME_4A43869A02C2
+ MELINK Original WL 'ME_48E267150266' '4A1FCBA0014C.ms.model.script' // RButtonUp
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_48E267150266_ME_4A43869A02C2 RButtonUp
+
+ME ME_49DB4675025E_ME_4A43869A02C2
+ MELINK Original WL 'ME_49DB4675025E' '4A1FCBA0014C.ms.model.script' // MButtonDown
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49DB4675025E_ME_4A43869A02C2 MButtonDown
+
+ME ME_49DB468302A5_ME_4A43869A02C2
+ MELINK Original WL 'ME_49DB468302A5' '4A1FCBA0014C.ms.model.script' // MButtonUp
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_49DB468302A5_ME_4A43869A02C2 MButtonUp
+
+ME ME_4ECCD6840014_ME_4A43869A02C2
+ MELINK Original WL 'ME_4ECCD6840014' '4A1FCBA0014C.ms.model.script' // CanDrag
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_4ECCD6840014_ME_4A43869A02C2 CanDrag
+
+ME ME_479731C50290_ME_4A43869A02C2
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_4A43869A02C2 Cleanup
+
+ME ME_47A0AD3A01F7_ME_4A43869A02C2
+ MELINK Original WL 'ME_47A0AD3A01F7' '47A0ACE90008.ms.model.script' // QueryInterface
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "calling conventions" 'stdcall'
+ENDME // ME_47A0AD3A01F7_ME_4A43869A02C2 QueryInterface
+
+%%ImplementedBy ME_48E263B60071 ME_4A43869A02C2
+%%ImplementedBy ME_48E2665A0259 ME_4A43869A02C2
+
+%%InheritedBy ME_49E7754802A9 ME_4A43869A02C2
+
+ME ME_4A43869A02C2
+ MEPROP UID '4A43869A02C2'
+ MEPROP Name 'TevHotSpotWrap'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A269456002A // evHotSpotMisc
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_48E263B60071' '4A1FCBA0014C.ms.model.script' // IevAdvancedHotSpot
+ WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_4A4387650266 // f_HotSpot
+ HWL ME_4A4387710204 // f_HotSpotSink
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4D66245B02FA // Create
+ HWL ME_4D662494003E // Make
+ HWL ME_4A4387070198 // Create
+ HWL ME_4A4387180094 // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_48E2622A03C4_ME_4A43869A02C2 // HitTest
+ ME_48E263CD01BD_ME_4A43869A02C2 // MouseAction
+ ME_48E266730188_ME_4A43869A02C2 // MouseMove
+ ME_48E266AA00A4_ME_4A43869A02C2 // LButtonDown
+ ME_48E266C70128_ME_4A43869A02C2 // LButtonUp
+ ME_48E266DE026B_ME_4A43869A02C2 // LButtonDoubleClick
+ ME_48E266FB01FC_ME_4A43869A02C2 // RButtonDown
+ ME_48E267150266_ME_4A43869A02C2 // RButtonUp
+ ME_49DB4675025E_ME_4A43869A02C2 // MButtonDown
+ ME_49DB468302A5_ME_4A43869A02C2 // MButtonUp
+ ME_4ECCD6840014_ME_4A43869A02C2 // CanDrag
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_4A43869A02C2 // Cleanup
+ ME_47A0AD3A01F7_ME_4A43869A02C2 // QueryInterface
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_4A4387490102 // l3Base
+ ME_4A4389670250 // TShiftState
+ ME_4DD252AB0375 // l3IFail
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '09.10.2000 11:37'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HotSpotWrap'
+
+ENDME // ME_4A43869A02C2 TevHotSpotWrap
+
+FORWARD ME_4A4384E70140
+
+ME ME_4A43857F0104
+ MEPROP UID '4A43857F0104'
+ MEPROP Name 'HotSpotSink'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_var::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4A4384E70140 // evTranslateMouseAction
+ ;
+ MELINK Target WL 'ME_4A23CC4D02F6' '4A1FCBA0014C.ms.model.script' // IevHotSpotSink
+ ;
+ UP "IsResult" False
+
+ENDME // ME_4A43857F0104 HotSpotSink
+
+FORWARD ME_4A4384FB02FC
+
+ME ME_4A43851D029D
+ MEPROP Name 'aView'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5C1AC02CA' '47C5207602D1.ms.model.script' // InevControlView
+ ;
+
+ENDME // ME_4A43851D029D aView
+
+ME ME_4A43851D02C2
+ MEPROP Name 'aHotSpot'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_48E2665A0259' '4A1FCBA0014C.ms.model.script' // IevHotSpot
+ ;
+
+ENDME // ME_4A43851D02C2 aHotSpot
+
+ME ME_4A43851D02E3
+ MEPROP Name 'aButton'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A26276401B0' '47F088300159.ms.model.script' // TevMouseButton
+ ;
+
+ENDME // ME_4A43851D02E3 aButton
+
+ME ME_4A43851D0319
+ MEPROP Name 'anAction'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4A2627750007' '47F088300159.ms.model.script' // TevMouseAction
+ ;
+
+ENDME // ME_4A43851D0319 anAction
+
+ME ME_4A43851D0388
+ MEPROP Name 'Keys'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5ABD80282' '47C5207602D1.ms.model.script' // TevMouseState
+ ;
+
+ENDME // ME_4A43851D0388 Keys
+
+ME ME_4A43851E0018
+ MEPROP Name 'Effect'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_47C5AEF10322' '47C5207602D1.ms.model.script' // TevMouseEffect
+ ;
+
+ENDME // ME_4A43851E0018 Effect
+
+ME ME_4A4384FB02FC
+ MEPROP UID '4A4384FB02FC'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A4384E70140 // evTranslateMouseAction
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A43851D029D // aView
+ ME_4A43851D02C2 // aHotSpot
+ ME_4A43851D02E3 // aButton
+ ME_4A43851D0319 // anAction
+ ME_4A43851D0388 // Keys
+ ME_4A43851E0018 // Effect
+ )
+ ; // Parameters
+
+ENDME // ME_4A4384FB02FC DoIt
+
+ME ME_4A43854E0260
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4A4384E70140 // evTranslateMouseAction
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_4A43854E0260 
+
+ME ME_4A4384E70140
+ MEPROP UID '4A4384E70140'
+ MEPROP Name 'evTranslateMouseAction'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4A269456002A // evHotSpotMisc
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A43857F0104 // HotSpotSink
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4A4384FB02FC // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4A43854E0260 // SysUtils
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'TranslateMouseAction'
+
+ENDME // ME_4A4384E70140 evTranslateMouseAction
+
+ME ME_4A269456002A
+ MEPROP UID '4A269456002A'
+ MEPROP Name 'evHotSpotMisc'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Вспомогательные объекты для работы с горячими точками' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4A267EE3017B' '4A267EE3017B.ms.model.script' // HotSpots
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A4384E70140 // evTranslateMouseAction
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_4A43869A02C2 // TevHotSpotWrap
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '09.10.2000 11:37'
+ UP extprop:rc:SelfName 'HotSpotMisc'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evHotSpotMisc.pas'
+
+ENDME // ME_4A269456002A evHotSpotMisc

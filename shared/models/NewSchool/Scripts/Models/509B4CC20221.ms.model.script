@@ -1,0 +1,50 @@
+// LoadUnits 509B4CC20221 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_509B4CC20221
+
+ME ME_509B4D0502BE
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B4CC20221 // LoadUnits
+ ;
+ MELINK Target WL 'ME_4C9B20790302' '4C9B20790302.ms.model.script' // PrimTextLoad
+ ;
+
+ENDME // ME_509B4D0502BE 
+
+ME ME_509B506A0297
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_509B4CC20221 // LoadUnits
+ ;
+ MELINK Target WL 'ME_4857B5260267' '48492FC0029D.ms.model.script' // Document
+ ;
+
+ENDME // ME_509B506A0297 
+
+ME ME_509B4CC20221
+ MEPROP UID '509B4CC20221'
+ MEPROP Name 'LoadUnits'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4E2955E50377' '4E2955E50377.ms.model.script' // AutoTestSupport
+ ;
+ MELIST Dependencies
+   Seq: ( ME_509B4D0502BE // PrimTextLoad
+ ME_509B506A0297 // Document
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_LoadUnits_'
+ UP extprop:pas:UnitName 'LoadUnits.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Daily\LoadUnits.imp.pas'
+
+ENDME // ME_509B4CC20221 LoadUnits

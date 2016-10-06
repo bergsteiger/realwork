@@ -2,6 +2,12 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_578F46D3027D
+%%Inner ME_57BEB06902A1
+%%Inner ME_57D265550389
+%%Inner ME_57DA6B2C03C0
+%%Inner ME_57ED10DC019F
+
 FORWARD ME_57BEAF780201
 
 FORWARD ME_578F46D3027D
@@ -370,6 +376,77 @@ ME ME_57DA6B2C03C0
 
 ENDME // ME_57DA6B2C03C0 TOperActionType
 
+FORWARD ME_57ED10DC019F
+
+ME ME_57ED10EA00FD
+ MEPROP UID '57ED10EA00FD'
+ MEPROP Name 'ar_moGroupTouch'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED10DC019F // TarMultiOperation
+ ;
+
+ENDME // ME_57ED10EA00FD ar_moGroupTouch
+
+ME ME_57ED110102DB
+ MEPROP UID '57ED110102DB'
+ MEPROP Name 'ar_moTouchIZM'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED10DC019F // TarMultiOperation
+ ;
+
+ENDME // ME_57ED110102DB ar_moTouchIZM
+
+ME ME_57ED111C01F4
+ MEPROP UID '57ED111C01F4'
+ MEPROP Name 'ar_moChangeKeywords'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED10DC019F // TarMultiOperation
+ ;
+
+ENDME // ME_57ED111C01F4 ar_moChangeKeywords
+
+ME ME_57ED113502F5
+ MEPROP UID '57ED113502F5'
+ MEPROP Name 'ar_moSetClonePublishedin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57ED10DC019F // TarMultiOperation
+ ;
+
+ENDME // ME_57ED113502F5 ar_moSetClonePublishedin
+
+ME ME_57ED10DC019F
+ MEPROP UID '57ED10DC019F'
+ MEPROP Name 'TarMultiOperation'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57BEAF780201 // l3MarshalledTypes
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_57ED10EA00FD // ar_moGroupTouch
+ HWL ME_57ED110102DB // ar_moTouchIZM
+ HWL ME_57ED111C01F4 // ar_moChangeKeywords
+ HWL ME_57ED113502F5 // ar_moSetClonePublishedin
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_57ED10DC019F TarMultiOperation
+
 ME ME_57BEAF780201
  MEPROP UID '57BEAF780201'
  MEPROP Name 'l3MarshalledTypes'
@@ -385,12 +462,16 @@ ME ME_57BEAF780201
  HWL ME_57BEB06902A1 // TDocPartSelector
  HWL ME_57D265550389 // TDocType
  HWL ME_57DA6B2C03C0 // TOperActionType
+ HWL ME_57ED10DC019F // TarMultiOperation
  )
  ; // Children
  MELIST Depends
    Seq: ( WL 'ME_3DBFDB23006E' '3DBFDB23006E.ms.model.script' // Primitives
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "is namespace" True
  UP intf.pas:Path 'common\components\rtl\Garant\L3\l3MarshalledTypes.pas'
 

@@ -1,0 +1,76 @@
+// ctTypes 4A8432960266 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A8432AC00AF
+%%Inner ME_53ECD04101B3
+%%Inner ME_53F34A330195
+
+FORWARD ME_4A8432960266
+
+ME ME_4A8432AC00AF
+ MEPROP UID '4A8432AC00AF'
+ MEPROP Name 'TComboStyle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8432960266 // ctTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_4A8432AC00AF TComboStyle
+
+ME ME_53ECD04101B3
+ MEPROP UID '53ECD04101B3'
+ MEPROP Name 'TCurrentMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8432960266 // ctTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53ECD04101B3 TCurrentMode
+
+ME ME_53F34A330195
+ MEPROP UID '53F34A330195'
+ MEPROP Name 'TAutoWidthMode'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Enum ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A8432960266 // ctTypes
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_53F34A330195 TAutoWidthMode
+
+ME ME_4A8432960266
+ MEPROP UID '4A8432960266'
+ MEPROP Name 'ctTypes'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_48297E42011A' '48297E42011A.ms.model.script' // ComboTree
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A8432AC00AF // TComboStyle
+ HWL ME_53ECD04101B3 // TCurrentMode
+ HWL ME_53F34A330195 // TAutoWidthMode
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\gui\Garant\VT\ComboTree\NOT_FINISHED_ctTypes.pas'
+
+ENDME // ME_4A8432960266 ctTypes

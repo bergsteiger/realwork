@@ -1,0 +1,146 @@
+// l3ScreenIC 4799F84900DD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_556EE661021E
+
+FORWARD ME_4799F84900DD
+
+FORWARD ME_556EE661021E
+
+ME ME_556EE66A0176
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_implements::Dependency ;
+ MELINK Parent HWL ME_556EE661021E // Tl3ScreenServiceDef
+ ;
+ MELINK Target WL 'ME_556EE57803CD' '556EE5640169.ms.model.script' // Tl3ScreenService
+ ;
+
+ENDME // ME_556EE66A0176 
+
+%%InheritedBy ME_49E7754802A9 ME_556EE661021E
+
+ME ME_556EE661021E
+ MEPROP UID '556EE661021E'
+ MEPROP Name 'Tl3ScreenServiceDef'
+ MEPROP Class class_Class
+ MELINK Stereotype st_ServiceImplementation ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_49E7754802A9' '47913B47006E.ms.model.script' // Tl3ProtoObject
+ )
+ ; // Inherits
+ MELIST Dependencies
+   Seq: ( ME_556EE66A0176 // Tl3ScreenService
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ScreenServiceDef'
+
+ENDME // ME_556EE661021E Tl3ScreenServiceDef
+
+ME ME_4799F886030A
+ MEPROP UID '4799F886030A'
+ MEPROP Name 'f_CrtIC'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4799F886030A f_CrtIC
+
+ME ME_4799F86A0356
+ MEPROP UID '4799F86A0356'
+ MEPROP Name 'l3CrtIC'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
+ ;
+ MELINK Target WL 'ME_47274316023E' '467C0CAA02AB.ms.model.script' // Il3InfoCanvas
+ ;
+
+ENDME // ME_4799F86A0356 l3CrtIC
+
+ME ME_4799F8A402EA
+ MEPROP UID '4799F8A402EA'
+ MEPROP Name 'FreeInfoCanvas'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
+ ;
+
+ENDME // ME_4799F8A402EA FreeInfoCanvas
+
+ME ME_4799F896039C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
+ ;
+ MELINK Target WL 'ME_478E3C97021E' '473C3BEE0334.ms.model.script' // Tl3Canvas
+ ;
+
+ENDME // ME_4799F896039C 
+
+ME ME_4799FAF80346
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4799F84900DD // l3ScreenIC
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_4799FAF80346 
+
+ME ME_4799F84900DD
+ MEPROP UID '4799F84900DD'
+ MEPROP Name 'l3ScreenIC'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_473C3BEE0334' '473C3BEE0334.ms.model.script' // l3Canvas
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4799F886030A // f_CrtIC
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_4799F86A0356 // l3CrtIC
+ HWL ME_4799F8A402EA // FreeInfoCanvas
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_556EE661021E // Tl3ScreenServiceDef
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_4799F896039C // Tl3Canvas
+ ME_4799FAF80346 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '26.05.2005 16:12'
+ UP extprop:rc:SelfName 'ScreenIC'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3ScreenIC.pas'
+
+ENDME // ME_4799F84900DD l3ScreenIC

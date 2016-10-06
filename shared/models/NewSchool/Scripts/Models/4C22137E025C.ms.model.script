@@ -1,0 +1,470 @@
+// evHAFPainterEx 4C22137E025C UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4C22153801DC
+%%Inner ME_4C22149F02C9
+%%Inner ME_47F352A30004
+
+FORWARD ME_4C22137E025C
+
+FORWARD ME_4C22153801DC
+
+ME ME_4C22155A004B
+ MEPROP UID '4C22155A004B'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_4C22153801DC // TevColontituls
+ ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_4C22155A004B 
+
+%%InheritedBy ME_4991678A008A ME_4C22153801DC
+
+ME ME_4C22153801DC
+ MEPROP UID '4C22153801DC'
+ MEPROP Name 'TevColontituls'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4991678A008A' '47C695A10172.ms.model.script' // TevPageColontituls
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_4C22155A004B // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_4C22153801DC TevColontituls
+
+FORWARD ME_4C22149F02C9
+
+FORWARD ME_5243EF3A014D
+
+ME ME_5243EF4100BE
+ MEPROP Name 'theColontituls'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target HWL ME_4C22153801DC // TevColontituls
+ ;
+
+ENDME // ME_5243EF4100BE theColontituls
+
+ME ME_5243EF3A014D
+ MEPROP UID '5243EF3A014D'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4C22149F02C9 // TevReadColontitulsEvent
+ ;
+ MELIST Parameters
+   Seq: ( ME_5243EF4100BE // theColontituls
+ )
+ ; // Parameters
+
+ENDME // ME_5243EF3A014D DoIt
+
+ME ME_4C22149F02C9
+ MEPROP UID '4C22149F02C9'
+ MEPROP Name 'TevReadColontitulsEvent'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Function ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243EF3A014D // DoIt
+ )
+ ; // Operations
+ UP "of object" True
+
+ENDME // ME_4C22149F02C9 TevReadColontitulsEvent
+
+FORWARD ME_47F352A30004
+
+ME ME_5243E92502D8
+ MEPROP UID '5243E92502D8'
+ MEPROP Name 'f_Colontituls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47F352A30004 // TevHAFPainterEx
+ ;
+ MELINK Target HWL ME_4C22153801DC // TevColontituls
+ ;
+
+ENDME // ME_5243E92502D8 f_Colontituls
+
+FORWARD ME_5243E95503E4
+
+FORWARD ME_5243E95E0128
+
+ME ME_5243E961032D
+ MEPROP Name 'aSettingId'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_473D9E950032' '467823B7002C.ms.model.script' // TafwSettingId
+ ;
+
+ENDME // ME_5243E961032D aSettingId
+
+ME ME_5243E95E0128
+ MEPROP UID '5243E95E0128'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5243E95503E4 // IsSettingAffectsUs
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_5243E961032D // aSettingId
+ )
+ ; // Parameters
+
+ENDME // ME_5243E95E0128 DoIt
+
+ME ME_5243E95503E4
+ MEPROP UID '5243E95503E4'
+ MEPROP Name 'IsSettingAffectsUs'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F352A30004 // TevHAFPainterEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5243E95E0128 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5243E95503E4 IsSettingAffectsUs
+
+FORWARD ME_5243E9AE0230
+
+ME ME_6F40C99C268C
+ MEPROP UID '6F40C99C268C'
+ MEPROP Name 'DoIt'
+ UP IsSummoned true
+ MEPROP Class class_Operation
+ %SUMMARY 'Сигнатура метода ReadColontitulSettings' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5243E9AE0230 // ReadColontitulSettings
+ ;
+
+ENDME // ME_6F40C99C268C DoIt
+
+ME ME_5243E9AE0230
+ MEPROP UID '5243E9AE0230'
+ MEPROP Name 'ReadColontitulSettings'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F352A30004 // TevHAFPainterEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_6F40C99C268C // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_5243E9AE0230 ReadColontitulSettings
+
+FORWARD ME_53EDC0B8024A
+
+ME ME_53EDC0E300B9
+ MEPROP UID '53EDC0E300B9'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_53EDC0B8024A // GetAppTitle
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_53EDC0E300B9 DoIt
+
+ME ME_53EDC0B8024A
+ MEPROP UID '53EDC0B8024A'
+ MEPROP Name 'GetAppTitle'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_47F352A30004 // TevHAFPainterEx
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_53EDC0E300B9 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_53EDC0B8024A GetAppTitle
+
+ME ME_5243CD850286_ME_47F352A30004
+ MELINK Original WL 'ME_5243CD850286' '47EA968D0155.ms.model.script' // TuneHeader
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_5243CD850286_ME_47F352A30004 TuneHeader
+
+ME ME_479731C50290_ME_47F352A30004
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47F352A30004 Cleanup
+
+ME ME_47EA863A035C_ME_47F352A30004
+ MELINK Original WL 'ME_47EA863A035C' '47EA85E7005B.ms.model.script' // DoSettingChanged
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA863A035C_ME_47F352A30004 DoSettingChanged
+
+ME ME_47EA8B9601FE_ME_47F352A30004
+ MELINK Original WL 'ME_47EA8B9601FE' '47EA8AEF0077.ms.model.script' // SettingsReplaceFinish
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47EA8B9601FE_ME_47F352A30004 SettingsReplaceFinish
+
+ME ME_5243CCEE0271_ME_47F352A30004
+ MELINK Original WL 'ME_5243CCEE0271' '47EA968D0155.ms.model.script' // Create
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5243CCEE0271_ME_47F352A30004 Create
+
+ME ME_5243DA2102ED_ME_47F352A30004
+ MELINK Original WL 'ME_5243DA2102ED' '47EA968D0155.ms.model.script' // DoNeedPagesCount
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_5243DA2102ED_ME_47F352A30004 DoNeedPagesCount
+
+%%ImplementedBy ME_47EA85E7005B ME_47F352A30004
+%%ImplementedBy ME_47EA8AEF0077 ME_47F352A30004
+
+%%InheritedBy ME_4C22178C0102 ME_47F352A30004
+
+ME ME_47F352A30004
+ MEPROP UID '47F352A30004'
+ MEPROP Name 'TevHAFPainterEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4C22178C0102' '47EA968D0155.ms.model.script' // TevHAFPainter
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47EA85E7005B' '47EA85E7005B.ms.model.script' // afwSettingChanged
+ WL 'ME_47EA8AEF0077' '47EA8AEF0077.ms.model.script' // afwSettingsReplace
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_5243E92502D8 // f_Colontituls
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_5243E95503E4 // IsSettingAffectsUs
+ HWL ME_5243E9AE0230 // ReadColontitulSettings
+ HWL ME_53EDC0B8024A // GetAppTitle
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_5243CD850286_ME_47F352A30004 // TuneHeader
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47F352A30004 // Cleanup
+ ME_47EA863A035C_ME_47F352A30004 // DoSettingChanged
+ ME_47EA8B9601FE_ME_47F352A30004 // SettingsReplaceFinish
+ ME_5243CCEE0271_ME_47F352A30004 // Create
+ ME_5243DA2102ED_ME_47F352A30004 // DoNeedPagesCount
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '28.12.2004 19:02'
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'HAFPainterEx'
+
+ENDME // ME_47F352A30004 TevHAFPainterEx
+
+ME ME_5243E9D90327
+ MEPROP UID '5243E9D90327'
+ MEPROP Name 'g_OnReadColontituls'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target HWL ME_4C22149F02C9 // TevReadColontitulsEvent
+ ;
+
+ENDME // ME_5243E9D90327 g_OnReadColontituls
+
+ME ME_5243F1EE010D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_5243F1EE010D 
+
+ME ME_5243F1F202E9
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_4C88DA310019' '4C88DA310019.ms.model.script' // evHAFPainterMacros
+ ;
+
+ENDME // ME_5243F1F202E9 
+
+ME ME_5243F1F9010B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_47C69EBC00A8' '47AC75550330.ms.model.script' // Tk2TagID
+ ;
+
+ENDME // ME_5243F1F9010B 
+
+ME ME_5243F1FC009A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_5243E47602D9' '5243E47602D9.ms.model.script' // evSBSPar
+ ;
+
+ENDME // ME_5243F1FC009A 
+
+ME ME_5243F2AC0126
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_49A6A0110126' '47A1D4C201E8.ms.model.script' // Strings
+ ;
+
+ENDME // ME_5243F2AC0126 
+
+ME ME_5243F3870057
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_476BE0660328' '476BE0350329.ms.model.script' // Standard
+ ;
+
+ENDME // ME_5243F3870057 
+
+ME ME_5243F38A0040
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_4B8BA52200D8' '4B8BA52200D8.ms.model.script' // nevInterfaces
+ ;
+
+ENDME // ME_5243F38A0040 
+
+ME ME_5243F38C03A6
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_47E13C6B0341' '47E13C6B0341.ms.model.script' // Forms
+ ;
+
+ENDME // ME_5243F38C03A6 
+
+ME ME_5243F39001AB
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
+ ;
+
+ENDME // ME_5243F39001AB 
+
+ME ME_5243F39301A8
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4C22137E025C // evHAFPainterEx
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_5243F39301A8 
+
+ME ME_4C22137E025C
+ MEPROP UID '4C22137E025C'
+ MEPROP Name 'evHAFPainterEx'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47EA968D0155' '47EA968D0155.ms.model.script' // Printing
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_5243E9D90327 // g_OnReadColontituls
+ )
+ ; // Attributes
+ MELIST Children
+   Seq: ( HWL ME_4C22153801DC // TevColontituls
+ HWL ME_4C22149F02C9 // TevReadColontitulsEvent
+ HWL ME_47F352A30004 // TevHAFPainterEx
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_5243F1EE010D // l3String
+ ME_5243F1F202E9 // evHAFPainterMacros
+ ME_5243F1F9010B // Tk2TagID
+ ME_5243F1FC009A // evSBSPar
+ ME_5243F2AC0126 // Strings
+ ME_5243F3870057 // Standard
+ ME_5243F38A0040 // nevInterfaces
+ ME_5243F38C03A6 // Forms
+ ME_5243F39001AB // SysUtils
+ ME_5243F39301A8 // l3Base
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'HAFPainterEx'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evHAFPainterEx.pas'
+
+ENDME // ME_4C22137E025C evHAFPainterEx

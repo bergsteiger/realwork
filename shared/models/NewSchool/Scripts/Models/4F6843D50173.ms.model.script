@@ -1,0 +1,430 @@
+// ddBase 4F6843D50173 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_52D36E7C02C8
+%%Inner ME_52D36F7702E3
+
+FORWARD ME_4F6843D50173
+
+FORWARD ME_52D36E7C02C8
+
+ME ME_52D36ED90158
+ MEPROP UID '52D36ED90158'
+ MEPROP Name 'first'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52D36E7C02C8 // TddColorSetRange
+ ;
+ MEPROP Value 1
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 1
+
+ENDME // ME_52D36ED90158 first
+
+ME ME_52D36EE5013D
+ MEPROP UID '52D36EE5013D'
+ MEPROP Name 'last'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52D36E7C02C8 // TddColorSetRange
+ ;
+ MEPROP Value 16
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value 16
+
+ENDME // ME_52D36EE5013D last
+
+ME ME_52D36E7C02C8
+ MEPROP UID '52D36E7C02C8'
+ MEPROP Name 'TddColorSetRange'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Range ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52D36ED90158 // first
+ HWL ME_52D36EE5013D // last
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52D36E7C02C8 TddColorSetRange
+
+FORWARD ME_52D36F7702E3
+
+ME ME_52D36FD302D2
+ MEPROP UID '52D36FD302D2'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_52D36F7702E3 // TddColorArray
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_52D36FD302D2 
+
+%%InheritedBy ME_52D36E7C02C8 ME_52D36F7702E3
+
+ME ME_52D36F7702E3
+ MEPROP UID '52D36F7702E3'
+ MEPROP Name 'TddColorArray'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_52D36E7C02C8 // TddColorSetRange
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_52D36FD302D2 // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+
+ENDME // ME_52D36F7702E3 TddColorArray
+
+FORWARD ME_52D36FEA02F7
+
+ME ME_52D36FF90068
+ MEPROP UID '52D36FF90068'
+ MEPROP Name 'cddColorSet'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_52D36FEA02F7 // ddInternalConts
+ ;
+ MELINK Target HWL ME_52D36F7702E3 // TddColorArray
+ ;
+ MEPROP Value '(clBlack, clBlue, clAqua, clLime, clFuchsia, clRed, clYellow, clWhite, clNavy,clTeal, clGreen, clPurple,clMaroon, clOlive, clGray, clSilver)'
+ MELINK ValueType HWL ME_52D36F7702E3 // TddColorArray
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(clBlack, clBlue, clAqua, clLime, clFuchsia, clRed, clYellow, clWhite, clNavy,clTeal, clGreen, clPurple,clMaroon, clOlive, clGray, clSilver)'
+
+ENDME // ME_52D36FF90068 cddColorSet
+
+ME ME_52D36FEA02F7
+ MEPROP UID '52D36FEA02F7'
+ MEPROP Name 'ddInternalConts'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_52D36FF90068 // cddColorSet
+ )
+ ; // Attributes
+ UP "spell names" False
+
+ENDME // ME_52D36FEA02F7 ddInternalConts
+
+FORWARD ME_5111FEEE0291
+
+FORWARD ME_52CFE4270069
+
+ME ME_52CFE71A00CE
+ MEPROP Name 'Just'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4688D85301B2' '469D0AC7005E.ms.model.script' // IndentType
+ ;
+
+ENDME // ME_52CFE71A00CE Just
+
+ME ME_52CFE4270069
+ MEPROP UID '52CFE4270069'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5111FEEE0291 // k2JustToJust
+ ;
+ MELINK Target WL 'ME_51F0DB1A03C4' '52CFA9D5031E.ms.model.script' // TJust
+ ;
+ MELIST Parameters
+   Seq: ( ME_52CFE71A00CE // Just
+ )
+ ; // Parameters
+
+ENDME // ME_52CFE4270069 DoIt
+
+ME ME_5111FEEE0291
+ MEPROP UID '5111FEEE0291'
+ MEPROP Name 'k2JustToJust'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52CFE4270069 // DoIt
+ )
+ ; // Operations
+ UP extprop:rc:SelfName 'JustToJust'
+
+ENDME // ME_5111FEEE0291 k2JustToJust
+
+FORWARD ME_52CFB420035C
+
+ME ME_52CFB43700B6
+ MEPROP UID '52CFB43700B6'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52CFB420035C // ddGetMinimalCellWidth
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52CFB43700B6 DoIt
+
+ME ME_52D37F040107
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52CFB420035C // ddGetMinimalCellWidth
+ ;
+ MELINK Target WL 'ME_5119E20703B0' '4A3918BB0114.ms.model.script' // evGetMinimalCellWidth
+ ;
+
+ENDME // ME_52D37F040107 
+
+ME ME_52CFB420035C
+ MEPROP UID '52CFB420035C'
+ MEPROP Name 'ddGetMinimalCellWidth'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52CFB43700B6 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52D37F040107 // evGetMinimalCellWidth
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+
+ENDME // ME_52CFB420035C ddGetMinimalCellWidth
+
+FORWARD ME_52CFE5490025
+
+FORWARD ME_52CFE5520270
+
+ME ME_52CFE56400B2
+ MEPROP Name 'Color'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_52CFE56400B2 Color
+
+ME ME_52CFE5520270
+ MEPROP UID '52CFE5520270'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52CFE5490025 // ColorToHighlight
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52CFE56400B2 // Color
+ )
+ ; // Parameters
+
+ENDME // ME_52CFE5520270 DoIt
+
+ME ME_52CFE5490025
+ MEPROP UID '52CFE5490025'
+ MEPROP Name 'ColorToHighlight'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52CFE5520270 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52CFE5490025 ColorToHighlight
+
+FORWARD ME_52CFE56D0247
+
+FORWARD ME_52CFE57C0073
+
+ME ME_52CFE5830335
+ MEPROP Name 'No'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52CFE5830335 No
+
+ME ME_52CFE57C0073
+ MEPROP UID '52CFE57C0073'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52CFE56D0247 // HighlightToColor
+ ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+ MELIST Parameters
+   Seq: ( ME_52CFE5830335 // No
+ )
+ ; // Parameters
+
+ENDME // ME_52CFE57C0073 DoIt
+
+ME ME_52D37516024A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_52CFE56D0247 // HighlightToColor
+ ;
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
+ ;
+
+ENDME // ME_52D37516024A 
+
+ME ME_52CFE56D0247
+ MEPROP UID '52CFE56D0247'
+ MEPROP Name 'HighlightToColor'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52CFE57C0073 // DoIt
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_52D37516024A // Colors
+ )
+ ; // Dependencies
+
+ENDME // ME_52CFE56D0247 HighlightToColor
+
+FORWARD ME_52CFE5DC02E2
+
+FORWARD ME_52CFE5E503A5
+
+ME ME_52CFE6D602A1
+ MEPROP Name 'aNum'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4DE60F5E00A6' '4807744200AA.ms.model.script' // LongInt
+ ;
+
+ENDME // ME_52CFE6D602A1 aNum
+
+ME ME_52CFE5E503A5
+ MEPROP UID '52CFE5E503A5'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_52CFE5DC02E2 // ConvertStyleNumber
+ ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+ MELIST Parameters
+   Seq: ( ME_52CFE6D602A1 // aNum
+ )
+ ; // Parameters
+
+ENDME // ME_52CFE5E503A5 DoIt
+
+ME ME_52CFE5DC02E2
+ MEPROP UID '52CFE5DC02E2'
+ MEPROP Name 'ConvertStyleNumber'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6843D50173 // ddBase
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52CFE5E503A5 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_52CFE5DC02E2 ConvertStyleNumber
+
+ME ME_4F6843D50173
+ MEPROP UID '4F6843D50173'
+ MEPROP Name 'ddBase'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6843C101D1' '4F6843C101D1.ms.model.script' // ddCommon
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_5111FEEE0291 // k2JustToJust
+ HWL ME_52CFB420035C // ddGetMinimalCellWidth
+ HWL ME_52CFE5490025 // ColorToHighlight
+ HWL ME_52CFE56D0247 // HighlightToColor
+ HWL ME_52CFE5DC02E2 // ConvertStyleNumber
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_52D36E7C02C8 // TddColorSetRange
+ HWL ME_52D36F7702E3 // TddColorArray
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_52D36FEA02F7 // ddInternalConts
+ )
+ ; // Constants
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\ddBase.pas'
+
+ENDME // ME_4F6843D50173 ddBase

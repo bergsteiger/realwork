@@ -1,0 +1,424 @@
+// evGeneratorsInterfaces 4A253C760202 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4A253CBC015E
+%%Inner ME_4A253D28023D
+%%Inner ME_52AAD445007E
+
+FORWARD ME_4A253C760202
+
+FORWARD ME_4A253CBC015E
+
+FORWARD ME_4A253CCA0015
+
+ME ME_4A253CF5026F
+ MEPROP Name 'ParaVisible'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A253CF5026F ParaVisible
+
+ME ME_4A253CF5028C
+ MEPROP Name 'ParaStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_4A253CF5028C ParaStyle
+
+ME ME_4A253CF502A9
+ MEPROP Name 'S'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_4A253CF502A9 S
+
+ME ME_4A253CF502C7
+ MEPROP Name 'Ob'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_532031160122' '53317D14019D.ms.model.script' // Tl3Variant
+ ;
+
+ENDME // ME_4A253CF502C7 Ob
+
+ME ME_4A253CF502E6
+ MEPROP Name 'First'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A253CF502E6 First
+
+ME ME_4A253CF50336
+ MEPROP Name 'Last'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4A253CF50336 Last
+
+ME ME_4A253CCA0015
+ MEPROP UID '4A253CCA0015'
+ MEPROP Name 'PaintLine'
+ MEPROP Class class_Operation
+ %SUMMARY 'Процедура для "покраски" сегментов текста' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A253CBC015E // IevTextPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A253CF5026F // ParaVisible
+ ME_4A253CF5028C // ParaStyle
+ ME_4A253CF502A9 // S
+ ME_4A253CF502C7 // Ob
+ ME_4A253CF502E6 // First
+ ME_4A253CF50336 // Last
+ )
+ ; // Parameters
+
+ENDME // ME_4A253CCA0015 PaintLine
+
+FORWARD ME_4A253D00021A
+
+ME ME_4A253D0A039A
+ MEPROP Name 'aLine'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_4A253D0A039A aLine
+
+ME ME_561D0D700120
+ MEPROP Name 'aCodePage'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_561D0D700120 aCodePage
+
+ME ME_4A253D00021A
+ MEPROP UID '4A253D00021A'
+ MEPROP Name 'ValidateLine'
+ MEPROP Class class_Operation
+ %SUMMARY 'Процедура для проверки корректности строки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A253CBC015E // IevTextPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4A253D0A039A // aLine
+ ME_561D0D700120 // aCodePage
+ )
+ ; // Parameters
+
+ENDME // ME_4A253D00021A ValidateLine
+
+FORWARD ME_4BEAC1200187
+
+ME ME_4BEAC22C02D1
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+
+ENDME // ME_4BEAC22C02D1 aText
+
+ME ME_4BEAC22C02F4
+ MEPROP Name 'aValidateText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+ MEPROP Value 'nil'
+ MELINK ValueType WL 'ME_4773DF5703C9' '4773D64E036C.ms.model.script' // Tl3String
+ ;
+ UP extprop:pas:Value 'nil'
+
+ENDME // ME_4BEAC22C02F4 aValidateText
+
+ME ME_4BEAC1200187
+ MEPROP UID '4BEAC1200187'
+ MEPROP Name 'ValidateText'
+ MEPROP Class class_Operation
+ %SUMMARY 'Проверяет строку на наличие одинаковых сегментов "утратил силу" и "Не вступил в силу" и если возможно объединяет их (пририсовывая ко всему тексту). Если aValidateText <> nil проверяем по этой строке, а aText только изменяем.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A253CBC015E // IevTextPainter
+ ;
+ MELIST Parameters
+   Seq: ( ME_4BEAC22C02D1 // aText
+ ME_4BEAC22C02F4 // aValidateText
+ )
+ ; // Parameters
+
+ENDME // ME_4BEAC1200187 ValidateText
+
+FORWARD ME_537B23080057
+
+ME ME_537B234100EA
+ MEPROP Name 'aParaStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_537B234100EA aParaStyle
+
+ME ME_537B234100FA
+ MEPROP Name 'aSegmentStyle'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_537B234100FA aSegmentStyle
+
+ME ME_537B23080057
+ MEPROP UID '537B23080057'
+ MEPROP Name 'IsStyleEqual'
+ MEPROP Class class_Operation
+ %SUMMARY 'Сравнивает два стиля с точки зрения выливки в NSRC.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_4A253CBC015E // IevTextPainter
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_537B234100EA // aParaStyle
+ ME_537B234100FA // aSegmentStyle
+ )
+ ; // Parameters
+
+ENDME // ME_537B23080057 IsStyleEqual
+
+ME ME_4A253CBC015E
+ MEPROP UID '4A253CBC015E'
+ MEPROP GUID '4840242F-084A-4805-9EB0-90C1126C5137'
+ MEPROP Name 'IevTextPainter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A253C760202 // evGeneratorsInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4A253CCA0015 // PaintLine
+ HWL ME_4A253D00021A // ValidateLine
+ HWL ME_4BEAC1200187 // ValidateText
+ HWL ME_537B23080057 // IsStyleEqual
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'TextPainter'
+
+ENDME // ME_4A253CBC015E IevTextPainter
+
+FORWARD ME_4A253D28023D
+
+ME ME_4A253D5102D2
+ MEPROP UID '4A253D5102D2'
+ MEPROP Name 'NeedJoin'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Свойство определяющее надо ли объединять параграфы при вставке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A253D28023D // IevJoinGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_4A253D5102D2 NeedJoin
+
+ME ME_4A253D76025F
+ MEPROP UID '4A253D76025F'
+ MEPROP Name 'AtEnd'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A253D28023D // IevJoinGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_4A253D76025F AtEnd
+
+ME ME_4A253D8700C8
+ MEPROP UID '4A253D8700C8'
+ MEPROP Name 'NeedSkipSubDocuments'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A253D28023D // IevJoinGenerator
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "pm" True
+
+ENDME // ME_4A253D8700C8 NeedSkipSubDocuments
+
+ME ME_4A8BBC390385
+ MEPROP UID '4A8BBC390385'
+ MEPROP Name 'LoadFlags'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_writeonly::Attribute ;
+ %SUMMARY 'Флаги загрузки' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_4A253D28023D // IevJoinGenerator
+ ;
+ MELINK Target WL 'ME_476BED630189' '4678209200A6.ms.model.script' // TevLoadFlags
+ ;
+ UP "pm" False
+
+ENDME // ME_4A8BBC390385 LoadFlags
+
+ME ME_4A253D28023D
+ MEPROP UID '4A253D28023D'
+ MEPROP GUID '8772A98D-28F8-446E-9879-9B32BE75D08D'
+ MEPROP Name 'IevJoinGenerator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Объект определяющий надо ли объединять параграфы при вставке' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A253C760202 // evGeneratorsInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4A253D5102D2 // NeedJoin
+ HWL ME_4A253D76025F // AtEnd
+ HWL ME_4A253D8700C8 // NeedSkipSubDocuments
+ HWL ME_4A8BBC390385 // LoadFlags
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'JoinGenerator'
+
+ENDME // ME_4A253D28023D IevJoinGenerator
+
+FORWARD ME_52AAD445007E
+
+FORWARD ME_52AAD457013C
+
+ME ME_52AAD46B0199
+ MEPROP Name 'aDirName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_const ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_52AAD46B0199 aDirName
+
+ME ME_52AAD457013C
+ MEPROP UID '52AAD457013C'
+ MEPROP Name 'SetExportDirectory'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52AAD445007E // IevNSRCExport
+ ;
+ MELIST Parameters
+   Seq: ( ME_52AAD46B0199 // aDirName
+ )
+ ; // Parameters
+
+ENDME // ME_52AAD457013C SetExportDirectory
+
+FORWARD ME_52F38B8D0355
+
+ME ME_52F38B9B0356
+ MEPROP Name 'anID'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
+ ;
+
+ENDME // ME_52F38B9B0356 anID
+
+ME ME_52F38B8D0355
+ MEPROP UID '52F38B8D0355'
+ MEPROP Name 'SetExternalDocHandle'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_52AAD445007E // IevNSRCExport
+ ;
+ MELIST Parameters
+   Seq: ( ME_52F38B9B0356 // anID
+ )
+ ; // Parameters
+
+ENDME // ME_52F38B8D0355 SetExternalDocHandle
+
+ME ME_52AAD445007E
+ MEPROP UID '52AAD445007E'
+ MEPROP GUID 'E627D909-251B-410E-95CF-C8BAD64F222A'
+ MEPROP Name 'IevNSRCExport'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4A253C760202 // evGeneratorsInterfaces
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_52AAD457013C // SetExportDirectory
+ HWL ME_52F38B8D0355 // SetExternalDocHandle
+ )
+ ; // Operations
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'NSRCExport'
+
+ENDME // ME_52AAD445007E IevNSRCExport
+
+ME ME_4A253C760202
+ MEPROP UID '4A253C760202'
+ MEPROP Name 'evGeneratorsInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейсы для поддержки работы генераторов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47ECACA70141' '47ECACA70141.ms.model.script' // Generators
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4A253CBC015E // IevTextPainter
+ HWL ME_4A253D28023D // IevJoinGenerator
+ HWL ME_52AAD445007E // IevNSRCExport
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "no hands" True
+ UP "started" '02.06.2009 18:52'
+ UP extprop:rc:SelfName 'GeneratorsInterfaces'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evGeneratorsInterfaces.pas'
+
+ENDME // ME_4A253C760202 evGeneratorsInterfaces

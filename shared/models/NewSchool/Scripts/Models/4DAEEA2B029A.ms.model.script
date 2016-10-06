@@ -1,0 +1,193 @@
+// Scripter 4DAEEA2B029A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DAEEA2B029A
+
+FORWARD ME_4DAEEE87019A
+
+FORWARD ME_4DAEEE9E03B4
+
+ME ME_4DAEEEA40193
+ MEPROP Name 'aString'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DAEEEA40193 aString
+
+ME ME_4DAEEE9E03B4
+ MEPROP UID '4DAEEE9E03B4'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEE87019A // Script
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DAEEEA40193 // aString
+ )
+ ; // Parameters
+
+ENDME // ME_4DAEEE9E03B4 DoIt
+
+ME ME_4DAEEE87019A
+ MEPROP UID '4DAEEE87019A'
+ MEPROP Name 'Script'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEA2B029A // Scripter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DAEEE9E03B4 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DAEEE87019A Script
+
+FORWARD ME_4DB02B310185
+
+FORWARD ME_4DB02B3E0267
+
+ME ME_4DB02B4603C3
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DB02B4603C3 aFileName
+
+ME ME_4DB02B3E0267
+ MEPROP UID '4DB02B3E0267'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB02B310185 // ScriptFromFile
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB02B4603C3 // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4DB02B3E0267 DoIt
+
+ME ME_4DB02B310185
+ MEPROP UID '4DB02B310185'
+ MEPROP Name 'ScriptFromFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DAEEA2B029A // Scripter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DB02B3E0267 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DB02B310185 ScriptFromFile
+
+FORWARD ME_4DB03121022B
+
+FORWARD ME_4DB0313E01B7
+
+ME ME_4DB034CD008C
+ MEPROP Name 'aFileName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_4DB034CD008C aFileName
+
+ME ME_4DB0313E01B7
+ MEPROP UID '4DB0313E01B7'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4DB03121022B // ResolveScriptFilePath
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ MELIST Parameters
+   Seq: ( ME_4DB034CD008C // aFileName
+ )
+ ; // Parameters
+
+ENDME // ME_4DB0313E01B7 DoIt
+
+ME ME_4DB03121022B
+ MEPROP UID '4DB03121022B'
+ MEPROP Name 'ResolveScriptFilePath'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DAEEA2B029A // Scripter
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_4DB0313E01B7 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4DB03121022B ResolveScriptFilePath
+
+ME ME_4F734D920373
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4DAEEA2B029A // Scripter
+ ;
+ MELINK Target WL 'ME_4DAEEA9E0049' '4DAEEA14018A.ms.model.script' // TtfwScriptEngine
+ ;
+
+ENDME // ME_4F734D920373 
+
+%%ImplementedBy ME_4DAF1AAA0133 ME_4DAEEA2B029A
+
+ME ME_4DAEEA2B029A
+ MEPROP UID '4DAEEA2B029A'
+ MEPROP Name 'Scripter'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Парень умеющий выполнять скрипты' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4DAF1AAA0133' '4DAF19F600C5.ms.model.script' // ScriptCaller
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4DAEEE87019A // Script
+ HWL ME_4DB02B310185 // ScriptFromFile
+ HWL ME_4DB03121022B // ResolveScriptFilePath
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_4F734D920373 // TtfwScriptEngine
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "needs InstanceR" True
+ UP "no hands" True
+ UP "started" '20.04.2011 18:14'
+ UP extprop:pas:TypeName '_Scripter_'
+ UP extprop:pas:UnitName 'Scripter.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\Scripter.imp.pas'
+
+ENDME // ME_4DAEEA2B029A Scripter

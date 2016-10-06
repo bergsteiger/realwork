@@ -1,0 +1,52 @@
+// D_WizIzm 4E4B61FC00CF UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4E4B6214019B
+
+FORWARD ME_4E4B61FC00CF
+
+%%InheritedBy ME_4E4B6244039A ME_4E4B6214019B
+
+ME ME_4E4B6214019B
+ MEPROP UID '4E4B6214019B'
+ MEPROP Name 'TIzmWizardDlg'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4E4B61FC00CF // D_WizIzm
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4E4B6244039A' '4E202BD501B7.ms.model.script' // TTabBBtnDlg
+ )
+ ; // Inherits
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IzmWizardDlg'
+
+ENDME // ME_4E4B6214019B TIzmWizardDlg
+
+ME ME_4E4B61FC00CF
+ MEPROP UID '4E4B61FC00CF'
+ MEPROP Name 'D_WizIzm'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4E4B61B000D4' '4E4B61B000D4.ms.model.script' // Wizards
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4E4B6214019B // TIzmWizardDlg
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\Archi\Dlg\NOT_FINISHED_D_WizIzm.pas'
+
+ENDME // ME_4E4B61FC00CF D_WizIzm

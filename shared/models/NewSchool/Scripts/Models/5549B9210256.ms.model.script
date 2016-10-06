@@ -1,0 +1,58 @@
+// SynCrypto 5549B9210256 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5549C38402D3
+%%Inner ME_5549C3F0039D
+
+FORWARD ME_5549B9210256
+
+ME ME_5549C38402D3
+ MEPROP UID '5549C38402D3'
+ MEPROP Name 'TRC4InternalKey'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5549B9210256 // SynCrypto
+ ;
+
+ENDME // ME_5549C38402D3 TRC4InternalKey
+
+ME ME_5549C3F0039D
+ MEPROP UID '5549C3F0039D'
+ MEPROP Name 'TMD5Digest'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Typedef ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5549B9210256 // SynCrypto
+ ;
+
+ENDME // ME_5549C3F0039D TMD5Digest
+
+ME ME_5549B9210256
+ MEPROP UID '5549B9210256'
+ MEPROP Name 'SynCrypto'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_545CBCF1008C' '545CBCF1008C.ms.model.script' // SynPDF
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5549C38402D3 // TRC4InternalKey
+ HWL ME_5549C3F0039D // TMD5Digest
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\external\SynPDF\NOT_FINISHED_SynCrypto.pas'
+
+ENDME // ME_5549B9210256 SynCrypto

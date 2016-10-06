@@ -1,0 +1,50 @@
+// OleCtrls 49EEFA91008E UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49EEFABF023A
+
+FORWARD ME_49EEFA91008E
+
+%%InheritedBy ME_47E124E90272 ME_49EEFABF023A
+
+ME ME_49EEFABF023A
+ MEPROP UID '49EEFABF023A'
+ MEPROP Name 'TOleControl'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49EEFA91008E // OleCtrls
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'OleControl'
+
+ENDME // ME_49EEFABF023A TOleControl
+
+ME ME_49EEFA91008E
+ MEPROP UID '49EEFA91008E'
+ MEPROP Name 'OleCtrls'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4799D29F033F' '4799D29F033F.ms.model.script' // Implementation
+ ;
+ MELIST Children
+   Seq: ( HWL ME_49EEFABF023A // TOleControl
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\rtl\external\NotFinished\Borland\Delphi\Vcl\OleCtrls.pas'
+
+ENDME // ME_49EEFA91008E OleCtrls

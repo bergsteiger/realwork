@@ -2,15 +2,20 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_54C26D790097
+%%Inner ME_54C27E9C0222
+
 FORWARD ME_54C26D790097
 
 FORWARD ME_4AC5D3DB0371
 
 ME ME_47D1602000C6_ME_54C26D790097
- MELINK Original WL 'ME_47D1602000C6' '4AB0997B00A2.ms.model.script' // Create
+ MELINK Original WL 'ME_47D1602000C6' '478CF30500C1.ms.model.script' // Create
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47D1602000C6_ME_54C26D790097 Create
+
+%%InheritedBy ME_4829D81D02E5 ME_54C26D790097
 
 ME ME_54C26D790097
  MEPROP UID '54C26D790097'
@@ -36,6 +41,8 @@ ME ME_54C26D790097
 
 ENDME // ME_54C26D790097 TeeCustomMemo
 
+%%InheritedBy ME_54C27E8C0136 ME_54C27E9C0222
+
 ME ME_54C27E9C0222
  MEPROP UID '54C27E9C0222'
  MEPROP Name 'TBevelKind'
@@ -47,12 +54,14 @@ ME ME_54C27E9C0222
  MELINK Parent HWL ME_4AC5D3DB0371 // TeeMemo
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_54C27E8C0136' '4799D29F033F.ms.model.script' // TBevelKind
+   Seq: ( WL 'ME_54C27E8C0136' '47E11FC3021E.ms.model.script' // TBevelKind
  )
  ; // Inherits
  UP extprop:rc:isAcceptableForScripts True
 
 ENDME // ME_54C27E9C0222 TBevelKind
+
+%%InheritedBy ME_54C26D790097 ME_4AC5D3DB0371
 
 ME ME_4AC5D3DB0371
  MEPROP UID '4AC5D3DB0371'
@@ -74,6 +83,9 @@ ME ME_4AC5D3DB0371
  HWL ME_54C27E9C0222 // TBevelKind
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "need UC" True
  UP extprop:pas:UnitName 'eeMemo'
  UP extprop:rc:isAcceptableForScripts True

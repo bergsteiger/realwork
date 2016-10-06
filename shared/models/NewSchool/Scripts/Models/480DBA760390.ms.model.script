@@ -1,0 +1,50 @@
+// k2Facade 480DBA760390 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_480DBAAB02AD
+
+FORWARD ME_480DBA760390
+
+ME ME_480DBAAB02AD
+ MEPROP UID '480DBAAB02AD'
+ MEPROP Name 'Tk2'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_480DBA760390 // k2Facade
+ ;
+ UP "author" 'Люлин А.В.'
+ UP "started" '01.04.2005 17:36'
+ UP extprop:rc:isAcceptableForScripts True
+
+ENDME // ME_480DBAAB02AD Tk2
+
+ME ME_480DBA760390
+ MEPROP UID '480DBA760390'
+ MEPROP Name 'k2Facade'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Интерфейсы библиотеки K2, предназначенные для унифицированного общения с таблицами тегов.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_480DBA6900E6' '480DBA6900E6.ms.model.script' // k2Facade
+ ;
+ MELIST Children
+   Seq: ( HWL ME_480DBAAB02AD // Tk2
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "finished" False
+ UP "started" '01.04.2005 17:36'
+ UP extprop:rc:SelfName 'Facade'
+ UP intf.pas:Path 'common\components\rtl\Garant\K2\NOT_FINISHED_k2Facade.pas'
+
+ENDME // ME_480DBA760390 k2Facade

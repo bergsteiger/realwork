@@ -1,0 +1,74 @@
+// MouseClickOnPoint 4DDF61B503D1 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4DDF61B503D1
+
+FORWARD ME_4DDF64120066
+
+ME ME_4E2EDFDC028C
+ MEPROP Name 'aText'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4829D92A037B' '4829D92A037B.ms.model.script' // TevCustomEditorWindow
+ ;
+
+ENDME // ME_4E2EDFDC028C aText
+
+ME ME_4DDF77C20357
+ MEPROP Name 'aNeedMouseUp'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_4DDF77C20357 aNeedMouseUp
+
+ME ME_4DDF64120066
+ MEPROP UID '4DDF64120066'
+ MEPROP Name 'ClickOnPoint'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4DDF61B503D1 // MouseClickOnPoint
+ ;
+ MELIST Parameters
+   Seq: ( ME_4E2EDFDC028C // aText
+ ME_4DDF77C20357 // aNeedMouseUp
+ )
+ ; // Parameters
+
+ENDME // ME_4DDF64120066 ClickOnPoint
+
+%%ImplementedBy ME_4CED0194038A ME_4DDF61B503D1
+%%ImplementedBy ME_4D53D342026E ME_4DDF61B503D1
+
+ME ME_4DDF61B503D1
+ MEPROP UID '4DDF61B503D1'
+ MEPROP Name 'MouseClickOnPoint'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'ўелчок мышью на точке в редакторе' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_4C500D470030' '4C500D470030.ms.model.script' // MixIns
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_4CED0194038A' '4CED0194038A.ms.model.script' // Para2Point
+ WL 'ME_4D53D342026E' '4D53D342026E.ms.model.script' // HotSpotTools
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4DDF64120066 // ClickOnPoint
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_MouseClickOnPoint_'
+ UP extprop:pas:UnitName 'MouseClickOnPoint.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\EditorUsers\MouseClickOnPoint.imp.pas'
+
+ENDME // ME_4DDF61B503D1 MouseClickOnPoint

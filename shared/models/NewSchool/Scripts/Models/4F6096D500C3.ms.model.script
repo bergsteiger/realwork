@@ -1,0 +1,71 @@
+// kwVTControlsPack 4F6096D500C3 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4F6096D500C3
+
+ME ME_552E449000E2
+ MEPROP UID '552E449000E2'
+ MEPROP Name 'DDSupport_GetState'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_globalkeyword::Operation ;
+ %SUMMARY 'Возвращает текщее состояние DDSupport'#13#10'Формат: '#13#10'{code}'#13#10'DDSupport:GetState'#13#10'{code}' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4F6096D500C3 // kwVTControlsPack
+ ;
+ MELINK Target WL 'ME_552E443E0209' '4F0C0B6801C7.ms.model.script' // TDragDataState
+ ;
+
+ENDME // ME_552E449000E2 DDSupport_GetState
+
+ME ME_552E446F01A5
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_4F6096D500C3 // kwVTControlsPack
+ ;
+ MELINK Target WL 'ME_4F0C0B870141' '4F0C0B6801C7.ms.model.script' // TDragDataSupport
+ ;
+
+ENDME // ME_552E446F01A5 
+
+ME ME_552E4473008D
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_injects::Dependency ;
+ MELINK Parent HWL ME_4F6096D500C3 // kwVTControlsPack
+ ;
+ MELINK Target WL 'ME_4F0C0B870141' '4F0C0B6801C7.ms.model.script' // TDragDataSupport
+ ;
+
+ENDME // ME_552E4473008D 
+
+%%InjectedBy ME_4F0C0B870141 ME_4F6096D500C3
+
+ME ME_4F6096D500C3
+ MEPROP UID '4F6096D500C3'
+ MEPROP Name 'kwVTControlsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6094D80196' '4F6094D80196.ms.model.script' // vtControlsFromStackWords
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_552E449000E2 // DDSupport_GetState
+ )
+ ; // Operations
+ MELIST Dependencies
+   Seq: ( ME_552E446F01A5 // TDragDataSupport
+ ME_552E4473008D // TDragDataSupport
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP extprop:rc:SelfName 'VTControlsPack'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwVTControlsPack.pas'
+
+ENDME // ME_4F6096D500C3 kwVTControlsPack

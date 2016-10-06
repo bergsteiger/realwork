@@ -1,0 +1,101 @@
+// nevParentPointHolder 49D269880299 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_49D269880299
+
+ME ME_49D269E201B8
+ MEPROP UID '49D269E201B8'
+ MEPROP Name 'f_ParentPoint'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49D269880299 // nevParentPointHolder
+ ;
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
+ ;
+
+ENDME // ME_49D269E201B8 f_ParentPoint
+
+FORWARD ME_49DE1C6903E1
+
+ME ME_49DE1DA30320
+ MEPROP Name 'aValue'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47C5B57E0390' '47C5207602D1.ms.model.script' // InevBasePoint
+ ;
+
+ENDME // ME_49DE1DA30320 aValue
+
+ME ME_49DE1C6903E1
+ MEPROP UID '49DE1C6903E1'
+ MEPROP Name 'SetParentPoint'
+ MEPROP Class class_Operation
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49D269880299 // nevParentPointHolder
+ ;
+ MELIST Parameters
+   Seq: ( ME_49DE1DA30320 // aValue
+ )
+ ; // Parameters
+
+ENDME // ME_49DE1C6903E1 SetParentPoint
+
+ME ME_49D266AC032F_ME_49D269880299
+ MELINK Original WL 'ME_49D266AC032F' '47C5207602D1.ms.model.script' // Outer
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49D266AC032F_ME_49D269880299 Outer
+
+ME ME_49D2687002C7_ME_49D269880299
+ MELINK Original WL 'ME_49D2687002C7' '47C5207602D1.ms.model.script' // ParentPoint
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_49D2687002C7_ME_49D269880299 ParentPoint
+
+%%ImplementedBy ME_49D26690013A ME_49D269880299
+%%ImplementedBy ME_49D2684702F8 ME_49D269880299
+
+ME ME_49D269880299
+ MEPROP UID '49D269880299'
+ MEPROP Name 'nevParentPointHolder'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Реализация точки, имеющей родителя' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47E3DF460095' '47E3DF460095.ms.model.script' // Cursors
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_49D26690013A' '47C5207602D1.ms.model.script' // MnevOuter
+ WL 'ME_49D2684702F8' '47C5207602D1.ms.model.script' // MnevParentPoint
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_49D269E201B8 // f_ParentPoint
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_49DE1C6903E1 // SetParentPoint
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_49D266AC032F_ME_49D269880299 // Outer
+ ME_49D2687002C7_ME_49D269880299 // ParentPoint
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_nevParentPointHolder_'
+ UP extprop:pas:UnitName 'nevParentPointHolder.imp'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\nevParentPointHolder.imp.pas'
+
+ENDME // ME_49D269880299 nevParentPointHolder

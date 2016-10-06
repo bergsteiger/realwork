@@ -11,11 +11,12 @@ interface
 
 uses
  l3IntfUses
- , csMessageWithReply_Const
+ , csPersonificatedMessage_Const
  , k2RawData_Const
  , k2Long_Const
  , Address_Const
  , l3MarshalledTypes
+ , DateTime_Const
 ;
 
  // csMultiModifyDocsTag

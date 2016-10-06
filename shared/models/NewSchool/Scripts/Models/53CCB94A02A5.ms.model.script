@@ -2,6 +2,10 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_53CCB9880360
+%%Inner ME_53D0E2B3036C
+%%Inner ME_53D0EC410161
+
 FORWARD ME_53CCB94A02A5
 
 FORWARD ME_53CCB9880360
@@ -16,7 +20,7 @@ ME ME_53CCB9F20088
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
  UP "pm" False
 
@@ -32,7 +36,7 @@ ME ME_53CCBA0D01C7
  MEPROP LinkType lt_lnk
  MELINK Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
  UP "pm" False
 
@@ -53,7 +57,7 @@ ME ME_53CCBA8E0389
  MEPROP Name 'theName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_out ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_53CCBA8E0389 theName
@@ -62,7 +66,7 @@ ME ME_53CCBA8E03A0
  MEPROP Name 'thePassword'
  MEPROP Class class_Parameter
  MELINK Stereotype st_out ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_53CCBA8E03A0 thePassword
@@ -145,7 +149,7 @@ ME ME_53D0AB74029B
  MEPROP Name 'aTask'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
  ;
 
 ENDME // ME_53D0AB74029B aTask
@@ -158,7 +162,7 @@ ME ME_53D0AB57028E
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_53CCB9880360 // IalcuAsyncSubmitterManager
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  MELIST Parameters
    Seq: ( ME_53D0AB74029B // aTask
@@ -173,7 +177,7 @@ ME ME_53D0AB8801DF
  MEPROP Name 'aTask'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
  ;
 
 ENDME // ME_53D0AB8801DF aTask
@@ -231,7 +235,7 @@ ME ME_53D0E2E100EF
  MEPROP Name 'aTask'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_52F8C2BF0110' '52F8C298005C.ms.model.script' // TddProcessTask
+ MELINK Target WL 'ME_52F8C2BF0110' '52F8C2AE0042.ms.model.script' // TddProcessTask
  ;
 
 ENDME // ME_53D0E2E100EF aTask
@@ -270,6 +274,8 @@ ME ME_53D0E2B3036C
  UP extprop:rc:SelfName 'alcuAsyncTaskFinishedNotifier'
 
 ENDME // ME_53D0E2B3036C IalcuAsyncTaskFinishedNotifier
+
+%%InheritedBy ME_53D0E2B3036C ME_53D0EC410161
 
 ME ME_53D0EC410161
  MEPROP UID '53D0EC410161'
@@ -313,6 +319,9 @@ ME ME_53CCB94A02A5
  WL 'ME_5432448401BC' '5432448401BC.ms.model.script' // daTypes
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifdef" 'AppServerSide'
  UP "is namespace" True
  UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\alcuServerAsyncExecutionInterfaces.pas'

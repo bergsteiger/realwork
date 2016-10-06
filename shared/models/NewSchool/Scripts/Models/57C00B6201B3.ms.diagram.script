@@ -44,6 +44,42 @@ MEDIAGRAMS ME_57C00B6201B3_diagrams
    MEPROP Y 40
   ENDMEVIEW // ME_57D659B902A8_view
 
+  MEVIEW ME_57E4EE570331_view
+   MELINK Original WL 'ME_57E4EE570331' '57C00B6201B3.ms.model.script' ; // TalcuMultiModifyDocsRequest
+   MEPROP X 1000
+   MEPROP Y 40
+  ENDMEVIEW // ME_57E4EE570331_view
+
+  MEVIEW ME_57E4EEC200D1_view
+   MELINK Original WL 'ME_57E4EEC200D1' '57C00B6201B3.ms.model.script' ; // TalcuMultiModifyDocsExecutor
+   MEPROP X 40
+   MEPROP Y 180
+  ENDMEVIEW // ME_57E4EEC200D1_view
+
+  MEVIEW ME_57EBC0C00362_view
+   MELINK Original WL 'ME_57EBC0C00362' '57C00B6201B3.ms.model.script' ; // TalcuMultiClearAttributesExecutor
+   MEPROP X 200
+   MEPROP Y 180
+  ENDMEVIEW // ME_57EBC0C00362_view
+
+  MEVIEW ME_57ECC59F00D4_view
+   MELINK Original WL 'ME_57ECC59F00D4' '57C00B6201B3.ms.model.script' ; // TalcuMultiClearAttributesRequest
+   MEPROP X 360
+   MEPROP Y 180
+  ENDMEVIEW // ME_57ECC59F00D4_view
+
+  MEVIEW ME_57EE6E97018D_view
+   MELINK Original WL 'ME_57EE6E97018D' '57C00B6201B3.ms.model.script' ; // TalcuMultiOperationExecutor
+   MEPROP X 520
+   MEPROP Y 180
+  ENDMEVIEW // ME_57EE6E97018D_view
+
+  MEVIEW ME_57F206DC02EB_view
+   MELINK Original WL 'ME_57F206DC02EB' '57C00B6201B3.ms.model.script' ; // TalcuMultiOperationRequest
+   MEPROP X 680
+   MEPROP Y 180
+  ENDMEVIEW // ME_57F206DC02EB_view
+
   MEVIEWLINK ME_57C3FAF20200_ME_57D29F210256_Inherits
    MELINK From ME_57C3FAF20200_view ;
    MELINK To ME_57D29F210256_view ;
@@ -80,6 +116,60 @@ MEDIAGRAMS ME_57C00B6201B3_diagrams
    MEPROP Class class_Inherits
   ENDMEVIEWLINK // ME_57D659B902A8_ME_57D29F210256_Inherits
 
+  MEVIEWLINK ME_57E4EE570331_ME_57D29F210256_Inherits
+   MELINK From ME_57E4EE570331_view ;
+   MELINK To ME_57D29F210256_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57E4EE570331_ME_57D29F210256_Inherits
+
+  MEVIEWLINK ME_57E4EEC200D1_ME_57D2A6A70025_Inherits
+   MELINK From ME_57E4EEC200D1_view ;
+   MELINK To ME_57D2A6A70025_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57E4EEC200D1_ME_57D2A6A70025_Inherits
+
+  MEVIEWLINK ME_57E4F36D024D_viewlink
+   MELINK Original WL 'ME_57E4F36D024D' '57C00B6201B3.ms.model.script' ;
+   MELINK From ME_57E4EEC200D1_view ;
+   MELINK To ME_57E4EE570331_view ;
+  ENDMEVIEWLINK // ME_57E4F36D024D_viewlink
+
+  MEVIEWLINK ME_57EBC0C00362_ME_57D2A6A70025_Inherits
+   MELINK From ME_57EBC0C00362_view ;
+   MELINK To ME_57D2A6A70025_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57EBC0C00362_ME_57D2A6A70025_Inherits
+
+  MEVIEWLINK ME_57ECCA280387_viewlink
+   MELINK Original WL 'ME_57ECCA280387' '57C00B6201B3.ms.model.script' ;
+   MELINK From ME_57EBC0C00362_view ;
+   MELINK To ME_57ECC59F00D4_view ;
+  ENDMEVIEWLINK // ME_57ECCA280387_viewlink
+
+  MEVIEWLINK ME_57ECC59F00D4_ME_57D29F210256_Inherits
+   MELINK From ME_57ECC59F00D4_view ;
+   MELINK To ME_57D29F210256_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57ECC59F00D4_ME_57D29F210256_Inherits
+
+  MEVIEWLINK ME_57EE6E97018D_ME_57D2A6A70025_Inherits
+   MELINK From ME_57EE6E97018D_view ;
+   MELINK To ME_57D2A6A70025_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57EE6E97018D_ME_57D2A6A70025_Inherits
+
+  MEVIEWLINK ME_57F207E90054_viewlink
+   MELINK Original WL 'ME_57F207E90054' '57C00B6201B3.ms.model.script' ;
+   MELINK From ME_57EE6E97018D_view ;
+   MELINK To ME_57F206DC02EB_view ;
+  ENDMEVIEWLINK // ME_57F207E90054_viewlink
+
+  MEVIEWLINK ME_57F206DC02EB_ME_57D29F210256_Inherits
+   MELINK From ME_57F206DC02EB_view ;
+   MELINK To ME_57D29F210256_view ;
+   MEPROP Class class_Inherits
+  ENDMEVIEWLINK // ME_57F206DC02EB_ME_57D29F210256_Inherits
+
   MELIST Views
    Seq: ( ME_57D2A6A70025_view // TalcuDocTransferRequestExecutor
    ME_57D29F210256_view // TalcuWaitableRequest
@@ -87,12 +177,27 @@ MEDIAGRAMS ME_57C00B6201B3_diagrams
    ME_57C00B9700F2_view // TalcuDownloadDocStreamExecutor
    ME_57D6592F0210_view // TalcuUploadDocStreamExecutor
    ME_57D659B902A8_view // TalcuUploadDocRequest
+   ME_57E4EE570331_view // TalcuMultiModifyDocsRequest
+   ME_57E4EEC200D1_view // TalcuMultiModifyDocsExecutor
+   ME_57EBC0C00362_view // TalcuMultiClearAttributesExecutor
+   ME_57ECC59F00D4_view // TalcuMultiClearAttributesRequest
+   ME_57EE6E97018D_view // TalcuMultiOperationExecutor
+   ME_57F206DC02EB_view // TalcuMultiOperationRequest
    ME_57C3FAF20200_ME_57D29F210256_Inherits // TalcuDownloadDocRequest -> TalcuWaitableRequest
    ME_57C00B9700F2_ME_57D2A6A70025_Inherits // TalcuDownloadDocStreamExecutor -> TalcuDocTransferRequestExecutor
    ME_57C3FB6E01CC_viewlink // TalcuDownloadDocStreamExecutor -> TalcuDownloadDocRequest
    ME_57D6592F0210_ME_57D2A6A70025_Inherits // TalcuUploadDocStreamExecutor -> TalcuDocTransferRequestExecutor
    ME_57D67275018E_viewlink // TalcuUploadDocStreamExecutor -> TalcuUploadDocRequest
    ME_57D659B902A8_ME_57D29F210256_Inherits // TalcuUploadDocRequest -> TalcuWaitableRequest
+   ME_57E4EE570331_ME_57D29F210256_Inherits // TalcuMultiModifyDocsRequest -> TalcuWaitableRequest
+   ME_57E4EEC200D1_ME_57D2A6A70025_Inherits // TalcuMultiModifyDocsExecutor -> TalcuDocTransferRequestExecutor
+   ME_57E4F36D024D_viewlink // TalcuMultiModifyDocsExecutor -> TalcuMultiModifyDocsRequest
+   ME_57EBC0C00362_ME_57D2A6A70025_Inherits // TalcuMultiClearAttributesExecutor -> TalcuDocTransferRequestExecutor
+   ME_57ECCA280387_viewlink // TalcuMultiClearAttributesExecutor -> TalcuMultiClearAttributesRequest
+   ME_57ECC59F00D4_ME_57D29F210256_Inherits // TalcuMultiClearAttributesRequest -> TalcuWaitableRequest
+   ME_57EE6E97018D_ME_57D2A6A70025_Inherits // TalcuMultiOperationExecutor -> TalcuDocTransferRequestExecutor
+   ME_57F207E90054_viewlink // TalcuMultiOperationExecutor -> TalcuMultiOperationRequest
+   ME_57F206DC02EB_ME_57D29F210256_Inherits // TalcuMultiOperationRequest -> TalcuWaitableRequest
    )
   ; // Views
  ENDMEDIAGRAM // ME_57C00B6201B3_main

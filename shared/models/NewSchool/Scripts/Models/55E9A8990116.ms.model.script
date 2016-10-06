@@ -1,0 +1,119 @@
+// tfwScriptEngineExInterfaces 55E9A8990116 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_55E9A8DB03A4
+
+FORWARD ME_55E9A8990116
+
+FORWARD ME_55E9A8DB03A4
+
+ME ME_55E9A95F027B
+ MEPROP UID '55E9A95F027B'
+ MEPROP Name 'Dictionaries'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
+ ;
+ MELINK Target WL 'ME_55A4E71403B3' '4F2275C00012.ms.model.script' // TtfwDictionaryList
+ ;
+ UP "pm" False
+
+ENDME // ME_55E9A95F027B Dictionaries
+
+ME ME_55E9A993038B
+ MEPROP UID '55E9A993038B'
+ MEPROP Name 'InitedDictionaries'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
+ ;
+ MELINK Target WL 'ME_55A53B44029F' '4F2275C00012.ms.model.script' // TtfwInitedDictionariesList
+ ;
+ UP "pm" False
+
+ENDME // ME_55E9A993038B InitedDictionaries
+
+ME ME_55E9A9BA02AD
+ MEPROP UID '55E9A9BA02AD'
+ MEPROP Name 'MainDictionary'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
+ ;
+ MELINK Target WL 'ME_55A0005D02CC' '4F2275C00012.ms.model.script' // TtfwMainDictionary
+ ;
+ UP "pm" False
+
+ENDME // ME_55E9A9BA02AD MainDictionary
+
+ME ME_55ED597602F4
+ MEPROP UID '55ED597602F4'
+ MEPROP Name 'DisabledForHelp'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_lnk
+ MELINK Parent HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
+ ;
+ MELINK Target WL 'ME_4DB6CAC402B4' '54F07F0302C2.ms.model.script' // TtfwWordRefList
+ ;
+ UP "pm" False
+
+ENDME // ME_55ED597602F4 DisabledForHelp
+
+ME ME_55E9A8DB03A4
+ MEPROP UID '55E9A8DB03A4'
+ MEPROP GUID 'E6A6471F-967A-49B5-B0AB-E86FDFC44EB4'
+ MEPROP Name 'ItfwScriptEngineEx'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Facet ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_55E9A8990116 // tfwScriptEngineExInterfaces
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_55E9A95F027B // Dictionaries
+ HWL ME_55E9A993038B // InitedDictionaries
+ HWL ME_55E9A9BA02AD // MainDictionary
+ HWL ME_55ED597602F4 // DisabledForHelp
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ScriptEngineEx'
+
+ENDME // ME_55E9A8DB03A4 ItfwScriptEngineEx
+
+ME ME_55E9A8990116
+ MEPROP UID '55E9A8990116'
+ MEPROP Name 'tfwScriptEngineExInterfaces'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F7338A800A7' '4F7338A800A7.ms.model.script' // ScriptEngineCore
+ ;
+ MELIST Children
+   Seq: ( HWL ME_55E9A8DB03A4 // ItfwScriptEngineEx
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'ScriptEngineExInterfaces'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\tfwScriptEngineExInterfaces.pas'
+
+ENDME // ME_55E9A8990116 tfwScriptEngineExInterfaces

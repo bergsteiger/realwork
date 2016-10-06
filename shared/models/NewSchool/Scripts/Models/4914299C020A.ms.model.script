@@ -1,0 +1,51 @@
+// l3StandardMemTypedList 4914299C020A Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4914299C020A
+
+ME ME_491429F502E7
+ MEPROP UID '491429F502E7'
+ MEPROP Name 'DataType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4914299C020A // l3StandardMemTypedList
+ ;
+ MELINK Target WL 'ME_47AB20F40050' '47AB1FDE03E4.ms.model.script' // Tl3Ptr
+ ;
+
+ENDME // ME_491429F502E7 DataType
+
+%%InheritedBy ME_47B084190028 ME_4914299C020A
+
+ME ME_4914299C020A
+ MEPROP UID '4914299C020A'
+ MEPROP Name 'l3StandardMemTypedList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Типизированный список со стандартной функцией распределения памяти' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B084190028' '47B084190028.ms.model.script' // l3TypedList
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_491429F502E7 // DataType
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:pas:TypeName '_l3StandardMemTypedList_'
+ UP extprop:pas:UnitName 'l3StandardMemTypedList.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3StandardMemTypedList.imp.pas'
+
+ENDME // ME_4914299C020A l3StandardMemTypedList

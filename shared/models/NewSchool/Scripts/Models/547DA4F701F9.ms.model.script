@@ -1,0 +1,107 @@
+// evLinkedToolPanel 547DA4F701F9 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_547DA51401F2
+
+FORWARD ME_547DA4F701F9
+
+FORWARD ME_547DA51401F2
+
+ME ME_547DA57802CD
+ MEPROP UID '547DA57802CD'
+ MEPROP Name 'Control'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_property::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_547DA51401F2 // TevCustomLinkedToolPanel
+ ;
+ MELINK Target WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
+ ;
+ UP "inherits getter from some ancestor" True
+ UP "inherits setter from some ancestor" True
+ UP "needs field" True
+ UP "pm" True
+
+ENDME // ME_547DA57802CD Control
+
+ME ME_547CA11F002F_ME_547DA51401F2
+ MELINK Original WL 'ME_547CA11F002F' '547C9F6D029C.ms.model.script' // Control
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_547CA11F002F_ME_547DA51401F2 Control
+
+ME ME_515317860183_ME_547DA51401F2
+ MELINK Original WL 'ME_515317860183' '47E11FC3021E.ms.model.script' // MouseWheelHandler
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_515317860183_ME_547DA51401F2 MouseWheelHandler
+
+%%ImplementedBy ME_547CA0E40341 ME_547DA51401F2
+
+%%InheritedBy ME_547CB3C6025E ME_547DA51401F2
+
+ME ME_547DA51401F2
+ MEPROP UID '547DA51401F2'
+ MEPROP Name 'TevCustomLinkedToolPanel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'базовый класс для инструментальных панелей, привязанных к Control''ам' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_547DA4F701F9 // evLinkedToolPanel
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_547CB3C6025E' '547CB3B5032B.ms.model.script' // TevCustomToolPanel
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_547CA0E40341' '547C9F6D029C.ms.model.script' // IevLinkedToolWindow
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_547DA57802CD // Control
+ )
+ ; // Attributes
+ MELIST Implemented
+   Seq: ( ME_547CA11F002F_ME_547DA51401F2 // Control
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_515317860183_ME_547DA51401F2 // MouseWheelHandler
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'LinkedToolPanel'
+
+ENDME // ME_547DA51401F2 TevCustomLinkedToolPanel
+
+ME ME_547DA4F701F9
+ MEPROP UID '547DA4F701F9'
+ MEPROP Name 'evLinkedToolPanel'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_547CB376012F' '547CB376012F.ms.model.script' // ToolPanel
+ ;
+ MELIST Children
+   Seq: ( HWL ME_547DA51401F2 // TevCustomLinkedToolPanel
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP extprop:rc:SelfName 'LinkedToolPanel'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evLinkedToolPanel.pas'
+
+ENDME // ME_547DA4F701F9 evLinkedToolPanel

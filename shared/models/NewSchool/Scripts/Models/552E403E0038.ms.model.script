@@ -1,0 +1,50 @@
+// StatusPanelWordsPack 552E403E0038 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_552E403E0038
+
+ME ME_552E40740003
+ MEPROP UID '552E40740003'
+ MEPROP Name 'GetText'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ %SUMMARY '*Описание:* Возвращает текст панели'#13#10'*Формат:* '#13#10'{code}'#13#10'aPanel pop:vtStatusPanel:GetText'#13#10'{code}'#13#10'aPanel - объект класса TvtStatusPanel, который можно получить с помощью pop:vtStatusPanel:GetText' ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_552E403E0038 // StatusPanelWordsPack
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+ UP "NameForScript" 'pop:vtStatusPanel:GetText'
+
+ENDME // ME_552E40740003 GetText
+
+%%InheritedBy ME_53F7021D0257 ME_552E403E0038
+
+ME ME_552E403E0038
+ MEPROP UID '552E403E0038'
+ MEPROP Name 'StatusPanelWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6094D80196' '4F6094D80196.ms.model.script' // vtControlsFromStackWords
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53F7021D0257' '4E15A00502A3.ms.model.script' // TvtStatusPanel
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_552E40740003 // GetText
+ )
+ ; // Operations
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "ifndef" 'NoScripts'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusPanelWordsPack.pas'
+
+ENDME // ME_552E403E0038 StatusPanelWordsPack

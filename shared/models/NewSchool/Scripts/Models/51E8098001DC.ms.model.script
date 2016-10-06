@@ -1,0 +1,44 @@
+// InterfacePtrList 51E8098001DC Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_51DEC20B01D7_ME_51E8098001DC
+ MELINK Original WL 'ME_51DEC20B01D7' '51DEB07E03E4.ms.model.script' // FreeItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_51DEC20B01D7_ME_51E8098001DC FreeItem
+
+ME ME_51DECB440087_ME_51E8098001DC
+ MELINK Original WL 'ME_51DECB440087' '51DEB07E03E4.ms.model.script' // FillItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_51DECB440087_ME_51E8098001DC FillItem
+
+%%InheritedBy ME_51E81D74001D ME_51E8098001DC
+
+ME ME_51E8098001DC
+ MEPROP UID '51E8098001DC'
+ MEPROP Name 'InterfacePtrList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список УКАЗАТЕЛЕЙ на интерфейсы. Не владеет своими элементами' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_51DEB06A03CB' '51DEB06A03CB.ms.model.script' // STLLike
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_51E81D74001D' '51E81D74001D.ms.model.script' // InterfaceList
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_51DEC20B01D7_ME_51E8098001DC // FreeItem
+ ME_51DECB440087_ME_51E8098001DC // FillItem
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName '_InterfacePtrList_'
+ UP extprop:pas:UnitName 'InterfacePtrList.imp'
+ UP intf.pas:Path 'common\components\SandBox\InterfacePtrList.imp.pas'
+
+ENDME // ME_51E8098001DC InterfacePtrList

@@ -1,0 +1,114 @@
+// rtfListTable 51DD4C5301CD UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_51DD4C7600E0
+%%Inner ME_51DD4DB6034E
+%%Inner ME_51DD50BC016D
+%%Inner ME_51DD57A001EF
+%%Inner ME_51DD57AC02F7
+
+FORWARD ME_51DD4C5301CD
+
+ME ME_51DD4C7600E0
+ MEPROP UID '51DD4C7600E0'
+ MEPROP Name 'TrtfListLevel'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DD4C5301CD // rtfListTable
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'rtfListLevel'
+
+ENDME // ME_51DD4C7600E0 TrtfListLevel
+
+ME ME_51DD4DB6034E
+ MEPROP UID '51DD4DB6034E'
+ MEPROP Name 'TrtfList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DD4C5301CD // rtfListTable
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'rtfList'
+
+ENDME // ME_51DD4DB6034E TrtfList
+
+ME ME_51DD50BC016D
+ MEPROP UID '51DD50BC016D'
+ MEPROP Name 'TrtfListTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DD4C5301CD // rtfListTable
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'rtfListTable'
+
+ENDME // ME_51DD50BC016D TrtfListTable
+
+ME ME_51DD57A001EF
+ MEPROP UID '51DD57A001EF'
+ MEPROP Name 'TrtfListOverride'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DD4C5301CD // rtfListTable
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'rtfListOverride'
+
+ENDME // ME_51DD57A001EF TrtfListOverride
+
+ME ME_51DD57AC02F7
+ MEPROP UID '51DD57AC02F7'
+ MEPROP Name 'TrtfListOverrideTable'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51DD4C5301CD // rtfListTable
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'rtfListOverrideTable'
+
+ENDME // ME_51DD57AC02F7 TrtfListOverrideTable
+
+ME ME_51DD4C5301CD
+ MEPROP UID '51DD4C5301CD'
+ MEPROP Name 'rtfListTable'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Таблица списков для чтения из RTF' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4F6843C101D1' '4F6843C101D1.ms.model.script' // ddCommon
+ ;
+ MELIST Children
+   Seq: ( HWL ME_51DD4C7600E0 // TrtfListLevel
+ HWL ME_51DD4DB6034E // TrtfList
+ HWL ME_51DD50BC016D // TrtfListTable
+ HWL ME_51DD57A001EF // TrtfListOverride
+ HWL ME_51DD57AC02F7 // TrtfListOverrideTable
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_rtfListTable.pas'
+
+ENDME // ME_51DD4C5301CD rtfListTable

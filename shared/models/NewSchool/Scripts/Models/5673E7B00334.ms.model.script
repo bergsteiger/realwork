@@ -1,0 +1,44 @@
+// kwCompiledProcedureWordsPack 5673E7B00334 ScriptKeywordsPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_5673E7B00334
+
+ME ME_5673E7D50121
+ MEPROP UID '5673E7D50121'
+ MEPROP Name 'Create'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_creator::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_5673E7B00334 // kwCompiledProcedureWordsPack
+ ;
+
+ENDME // ME_5673E7D50121 Create
+
+%%InheritedBy ME_4F216D8D01A0 ME_5673E7B00334
+
+ME ME_5673E7B00334
+ MEPROP UID '5673E7B00334'
+ MEPROP Name 'kwCompiledProcedureWordsPack'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_ScriptKeywordsPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4DAEEA14018A' '4DAEEA14018A.ms.model.script' // Scripting Axiomatics
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_4F216D8D01A0' '4DAEEA14018A.ms.model.script' // TkwCompiledProcedure
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_5673E7D50121 // Create
+ )
+ ; // Operations
+ UP "ifndef" 'NoScripts'
+ UP extprop:rc:SelfName 'CompiledProcedureWordsPack'
+ UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\kwCompiledProcedureWordsPack.pas'
+
+ENDME // ME_5673E7B00334 kwCompiledProcedureWordsPack

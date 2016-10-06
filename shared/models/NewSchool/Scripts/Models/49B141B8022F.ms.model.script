@@ -1,0 +1,471 @@
+// m3BackupTools 49B141B8022F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_49B141FD028B
+%%Inner ME_49B931DB03BD
+
+FORWARD ME_49B141B8022F
+
+FORWARD ME_49B141FD028B
+
+ME ME_49B1421B0101
+ MEPROP UID '49B1421B0101'
+ MEPROP Name 'rMin'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49B141FD028B // BaseSummary
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_49B1421B0101 rMin
+
+ME ME_49B14223019E
+ MEPROP UID '49B14223019E'
+ MEPROP Name 'rMax'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49B141FD028B // BaseSummary
+ ;
+ MELINK Target WL 'ME_47208C70028B' '4807744200AA.ms.model.script' // Int64
+ ;
+
+ENDME // ME_49B14223019E rMax
+
+ME ME_49B141FD028B
+ MEPROP UID '49B141FD028B'
+ MEPROP Name 'BaseSummary'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Struct ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Информация о диапазоне номеров долкументов' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49B1421B0101 // rMin
+ HWL ME_49B14223019E // rMax
+ )
+ ; // Attributes
+ UP extprop:pas:ElementPrefix 'm3_'
+ UP extprop:pas:ElementPrefixBase 'm3'
+ UP extprop:pas:TypeName 'Tm3BaseSummary'
+
+ENDME // ME_49B141FD028B BaseSummary
+
+FORWARD ME_49B931DB03BD
+
+ME ME_49B93214003D
+ MEPROP UID '49B93214003D'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_ref
+ MELINK Parent HWL ME_49B931DB03BD // DocPartSelector_Names_Array
+ ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_49B93214003D 
+
+%%InheritedBy ME_472083770011 ME_49B931DB03BD
+
+ME ME_49B931DB03BD
+ MEPROP UID '49B931DB03BD'
+ MEPROP Name 'DocPartSelector_Names_Array'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Vector ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Массив Tm3DocPartSelector' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_472083770011' '4720831F012D.ms.model.script' // Tm3DocPartSelector
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_49B93214003D // 
+ )
+ ; // Attributes
+ UP "array type" 'dynamic'
+ UP "elements prefix" '<none>'
+ UP extprop:pas:TypeName 'Tm3DocPartSelector_Names_Array'
+
+ENDME // ME_49B931DB03BD DocPartSelector_Names_Array
+
+FORWARD ME_49B9323603E5
+
+ME ME_49B9324603DD
+ MEPROP UID '49B9324603DD'
+ MEPROP Name 'ExchangeExt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49B9323603E5 // Constants
+ ;
+ MEPROP Value '''.sav'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''.sav'''
+
+ENDME // ME_49B9324603DD ExchangeExt
+
+ME ME_49B9324E006D
+ MEPROP UID '49B9324E006D'
+ MEPROP Name 'MainExt'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49B9323603E5 // Constants
+ ;
+ MEPROP Value '''.stg'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''.stg'''
+
+ENDME // ME_49B9324E006D MainExt
+
+ME ME_49B9325401A9
+ MEPROP UID '49B9325401A9'
+ MEPROP Name 'Summary'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49B9323603E5 // Constants
+ ;
+ MEPROP Value '''summary'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''summary'''
+
+ENDME // ME_49B9325401A9 Summary
+
+ME ME_49B9325A0173
+ MEPROP UID '49B9325A0173'
+ MEPROP Name 'Object'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49B9323603E5 // Constants
+ ;
+ MEPROP Value '''object'''
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '''object'''
+
+ENDME // ME_49B9325A0173 Object
+
+ME ME_49B9326302DC
+ MEPROP UID '49B9326302DC'
+ MEPROP Name 'DocPartName'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_49B9323603E5 // Constants
+ ;
+ MELINK Target HWL ME_49B931DB03BD // DocPartSelector_Names_Array
+ ;
+ MEPROP Value '(''main'', ''anno'', m3_cSummary, m3_cObject)'
+ MELINK ValueType HWL ME_49B931DB03BD // DocPartSelector_Names_Array
+ ;
+ UP "AutoInc" False
+ UP "forced type" 'none'
+ UP "is define" False
+ UP extprop:pas:Value '(''main'', ''anno'', m3_cSummary, m3_cObject)'
+
+ENDME // ME_49B9326302DC DocPartName
+
+ME ME_49B9323603E5
+ MEPROP UID '49B9323603E5'
+ MEPROP Name 'Constants'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Constants ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_49B9324603DD // ExchangeExt
+ HWL ME_49B9324E006D // MainExt
+ HWL ME_49B9325401A9 // Summary
+ HWL ME_49B9325A0173 // Object
+ HWL ME_49B9326302DC // DocPartName
+ )
+ ; // Attributes
+ UP "children prefix" 'c'
+ UP "spell names" False
+ UP extprop:pas:ElementPrefix 'm3_c'
+ UP extprop:pas:ElementPrefixBase 'm3'
+ UP extprop:pas:TypeName 'Tm3Constants'
+
+ENDME // ME_49B9323603E5 Constants
+
+FORWARD ME_49B92E2D02CD
+
+ME ME_49B92E3E00AF
+ MEPROP Name 'aBase'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4720937500A4' '4720862F0238.ms.model.script' // Im3IndexedStorage
+ ;
+
+ENDME // ME_49B92E3E00AF aBase
+
+ME ME_49B92E3E0100
+ MEPROP Name 'theSumm'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_out ;
+ MELINK Target HWL ME_49B141FD028B // BaseSummary
+ ;
+
+ENDME // ME_49B92E3E0100 theSumm
+
+ME ME_49B92E2D02CD
+ MEPROP UID '49B92E2D02CD'
+ MEPROP Name 'GetBaseSummary'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить информациею об основном хранилище' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MELIST Parameters
+   Seq: ( ME_49B92E3E00AF // aBase
+ ME_49B92E3E0100 // theSumm
+ )
+ ; // Parameters
+
+ENDME // ME_49B92E2D02CD GetBaseSummary
+
+FORWARD ME_49B92E450104
+
+ME ME_49B92E500175
+ MEPROP Name 'aBase'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_4720937500A4' '4720862F0238.ms.model.script' // Im3IndexedStorage
+ ;
+
+ENDME // ME_49B92E500175 aBase
+
+ME ME_49B92E5001CC
+ MEPROP Name 'aMode'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_47208653003B' '4720862F0238.ms.model.script' // Tm3StoreAccess
+ ;
+
+ENDME // ME_49B92E5001CC aMode
+
+ME ME_49B92E450104
+ MEPROP UID '49B92E450104'
+ MEPROP Name 'GetBaseSummary'
+ MEPROP Class class_Operation
+ %SUMMARY 'получить поток с информацией об основном хранилище' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_46A5B0060013' '4677FBA70343.ms.model.script' // IStream
+ ;
+ MELIST Parameters
+   Seq: ( ME_49B92E500175 // aBase
+ ME_49B92E5001CC // aMode
+ )
+ ; // Parameters
+
+ENDME // ME_49B92E450104 GetBaseSummary
+
+ME ME_49B950C20096
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_4787A405013D' '47877EB202FB.ms.model.script' // Exception
+ ;
+
+ENDME // ME_49B950C20096 
+
+ME ME_49B951D10155
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_49B951B40141' '49B951B40141.ms.model.script' // m3StorageTools
+ ;
+
+ENDME // ME_49B951D10155 
+
+ME ME_49B9526F0171
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_4981AC2F0294' '4981AC0701C1.ms.model.script' // EOleSysError
+ ;
+
+ENDME // ME_49B9526F0171 
+
+ME ME_49B9528402D1
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
+ ;
+
+ENDME // ME_49B9528402D1 
+
+ME ME_49B9528C0133
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_49B9528C0133 
+
+ME ME_49B952C10045
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_47AC7CF90230' '47A1D4C201E8.ms.model.script' // L3 Core Consts
+ ;
+
+ENDME // ME_49B952C10045 
+
+ME ME_49B952F4015B
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_49B952CD03A6' '49B952CD03A6.ms.model.script' // m2COMLib
+ ;
+
+ENDME // ME_49B952F4015B 
+
+ME ME_49B953920237
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_49B95372024C' '49B9535B0235.ms.model.script' // Tm3ReadModeStorageManager
+ ;
+
+ENDME // ME_49B953920237 
+
+ME ME_49B953990237
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_49B9537D0202' '49B9535B0235.ms.model.script' // Tm3FullModeStorageManager
+ ;
+
+ENDME // ME_49B953990237 
+
+ME ME_49B954730249
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_48A41FF10094' '48A41FF10094.ms.model.script' // Windows
+ ;
+
+ENDME // ME_49B954730249 
+
+ME ME_49B9555D029A
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_47D02918035D' '47D02918035D.ms.model.script' // l3Date
+ ;
+
+ENDME // ME_49B9555D029A 
+
+ME ME_49B955980216
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_49B141B8022F // m3BackupTools
+ ;
+ MELINK Target WL 'ME_48294B450060' '548701CB01C1.ms.model.script' // Tm3StorageElementIDList
+ ;
+
+ENDME // ME_49B955980216 
+
+ME ME_49B141B8022F
+ MEPROP UID '49B141B8022F'
+ MEPROP Name 'm3BackupTools'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Утилиты для работы с хранилищем документов Архивариуса' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4742C9DB033A' '4742C9DB033A.ms.model.script' // m3DB
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_49B92E2D02CD // GetBaseSummary
+ HWL ME_49B92E450104 // GetBaseSummary
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_49B141FD028B // BaseSummary
+ HWL ME_49B931DB03BD // DocPartSelector_Names_Array
+ )
+ ; // Children
+ MELIST Constants
+   Seq: ( HWL ME_49B9323603E5 // Constants
+ )
+ ; // Constants
+ MELIST Dependencies
+   Seq: ( ME_49B950C20096 // Exception
+ ME_49B951D10155 // m3StorageTools
+ ME_49B9526F0171 // EOleSysError
+ ME_49B9528402D1 // l3String
+ ME_49B9528C0133 // l3Base
+ ME_49B952C10045 // L3 Core Consts
+ ME_49B952F4015B // m2COMLib
+ ME_49B953920237 // Tm3ReadModeStorageManager
+ ME_49B953990237 // Tm3FullModeStorageManager
+ ME_49B954730249 // Windows
+ ME_49B9555D029A // l3Date
+ ME_49B955980216 // Tm3StorageElementIDList
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Люлин А.В.'
+ UP "elements prefix" 'm3'
+ UP "no hands" True
+ UP "started" '01.12.2002 15:07'
+ UP extprop:pas:ElementPrefix 'm3_'
+ UP extprop:pas:ElementPrefixBase 'm3'
+ UP intf.pas:Path 'common\components\rtl\Garant\m3\m3BackupTools.pas'
+
+ENDME // ME_49B141B8022F m3BackupTools

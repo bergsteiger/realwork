@@ -1,0 +1,266 @@
+// l3StringValueMapManager 478E359802F6 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_47A1ECB00002
+%%Inner ME_47A1E9B503DD
+
+FORWARD ME_478E359802F6
+
+FORWARD ME_47A1ECB00002
+
+ME ME_47A1ECD80204
+ MEPROP UID '47A1ECD80204'
+ MEPROP Name 'ItemType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_impurity_value::Attribute ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_abstract
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A1ECB00002 // Tl3StringValueMapFactories
+ ;
+ MELINK Target WL 'ME_46A5F18B03D4' '4677FBA70343.ms.model.script' // Il3StringValueMapFactory
+ ;
+
+ENDME // ME_47A1ECD80204 ItemType
+
+%%InheritedBy ME_47B57D830369 ME_47A1ECB00002
+%%InheritedBy ME_47BC3A07027F ME_47A1ECB00002
+
+ME ME_47A1ECB00002
+ MEPROP UID '47A1ECB00002'
+ MEPROP Name 'Tl3StringValueMapFactories'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E359802F6 // l3StringValueMapManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B57D830369' '47B57D830369.ms.model.script' // l3InterfaceRefList
+ WL 'ME_47BC3A07027F' '47913B47006E.ms.model.script' // Tl3SimpleDataContainer
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_47A1ECD80204 // ItemType
+ )
+ ; // Attributes
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringValueMapFactories'
+
+ENDME // ME_47A1ECB00002 Tl3StringValueMapFactories
+
+FORWARD ME_47A1E9B503DD
+
+ME ME_47A1ED000076
+ MEPROP UID '47A1ED000076'
+ MEPROP Name 'f_Factories'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_47A1E9B503DD // Tl3StringValueMapManager
+ ;
+ MELINK Target HWL ME_47A1ECB00002 // Tl3StringValueMapFactories
+ ;
+
+ENDME // ME_47A1ED000076 f_Factories
+
+ME ME_47A1EA26025E
+ MEPROP UID '47A1EA26025E'
+ MEPROP Name 'Make'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_factory::Operation ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47A1E9B503DD // Tl3StringValueMapManager
+ ;
+ MELINK Target WL 'ME_46A5F1C800ED' '4677FBA70343.ms.model.script' // Il3StringValueMapManager
+ ;
+
+ENDME // ME_47A1EA26025E Make
+
+ME ME_47A1EDFA00AA
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47A1E9B503DD // Tl3StringValueMapManager
+ ;
+ MELINK Target WL 'ME_47614B2901AE' '4678193C009C.ms.model.script' // Tl3Duplicates
+ ;
+
+ENDME // ME_47A1EDFA00AA 
+
+ME ME_47A74C1F023C
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_47A1E9B503DD // Tl3StringValueMapManager
+ ;
+ MELINK Target WL 'ME_4773D64E036C' '4773D64E036C.ms.model.script' // l3Base
+ ;
+
+ENDME // ME_47A74C1F023C 
+
+ME ME_46A5F1EC031F_ME_47A1E9B503DD
+ MELINK Original WL 'ME_46A5F1EC031F' '4677FBA70343.ms.model.script' // RegisterFactory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F1EC031F_ME_47A1E9B503DD RegisterFactory
+
+ME ME_46A5F21F02DD_ME_47A1E9B503DD
+ MELINK Original WL 'ME_46A5F21F02DD' '4677FBA70343.ms.model.script' // UnRegisterFactory
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_46A5F21F02DD_ME_47A1E9B503DD UnRegisterFactory
+
+ME ME_46A5F24B03B2_ME_47A1E9B503DD
+ MELINK Original WL 'ME_46A5F24B03B2' '4677FBA70343.ms.model.script' // Map
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_46A5F24B03B2_ME_47A1E9B503DD Map
+
+ME ME_479731C50290_ME_47A1E9B503DD
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_479731C50290_ME_47A1E9B503DD Cleanup
+
+ME ME_47A042E100E2_ME_47A1E9B503DD
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_47A1E9B503DD InitFields
+
+ME ME_47A1C42301B5_ME_47A1E9B503DD
+ MELINK Original WL 'ME_47A1C42301B5' '47913B47006E.ms.model.script' // MakeDefaultMap
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A1C42301B5_ME_47A1E9B503DD MakeDefaultMap
+
+%%ImplementedBy ME_46A5F1C800ED ME_47A1E9B503DD
+
+%%InheritedBy ME_478E372C025D ME_47A1E9B503DD
+
+ME ME_47A1E9B503DD
+ MEPROP UID '47A1E9B503DD'
+ MEPROP Name 'Tl3StringValueMapManager'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_478E359802F6 // l3StringValueMapManager
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_478E372C025D' '47913B47006E.ms.model.script' // Tl3ValueMapManager
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_46A5F1C800ED' '4677FBA70343.ms.model.script' // Il3StringValueMapManager
+ )
+ ; // Implements
+ MELIST Attributes
+   Seq: ( HWL ME_47A1ED000076 // f_Factories
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47A1EA26025E // Make
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_46A5F1EC031F_ME_47A1E9B503DD // RegisterFactory
+ ME_46A5F21F02DD_ME_47A1E9B503DD // UnRegisterFactory
+ ME_46A5F24B03B2_ME_47A1E9B503DD // Map
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_479731C50290_ME_47A1E9B503DD // Cleanup
+ ME_47A042E100E2_ME_47A1E9B503DD // InitFields
+ ME_47A1C42301B5_ME_47A1E9B503DD // MakeDefaultMap
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_47A1EDFA00AA // Tl3Duplicates
+ ME_47A74C1F023C // l3Base
+ )
+ ; // Dependencies
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'StringValueMapManager'
+
+ENDME // ME_47A1E9B503DD Tl3StringValueMapManager
+
+ME ME_47A1E9990024
+ MEPROP UID '47A1E9990024'
+ MEPROP Name 'g_l3StringMapManager'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_478E359802F6 // l3StringValueMapManager
+ ;
+ MELINK Target HWL ME_47A1E9B503DD // Tl3StringValueMapManager
+ ;
+
+ENDME // ME_47A1E9990024 g_l3StringMapManager
+
+ME ME_47A1E96201B4
+ MEPROP UID '47A1E96201B4'
+ MEPROP Name 'l3StringMapManager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478E359802F6 // l3StringValueMapManager
+ ;
+ MELINK Target WL 'ME_46A5F1C800ED' '4677FBA70343.ms.model.script' // Il3StringValueMapManager
+ ;
+
+ENDME // ME_47A1E96201B4 l3StringMapManager
+
+ME ME_47A1E97500BB
+ MEPROP UID '47A1E97500BB'
+ MEPROP Name 'DoneManager'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_478E359802F6 // l3StringValueMapManager
+ ;
+
+ENDME // ME_47A1E97500BB DoneManager
+
+ME ME_478E359802F6
+ MEPROP UID '478E359802F6'
+ MEPROP Name 'l3StringValueMapManager'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'реализация менеджера мап "строка"-"строка"' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_47A1E9990024 // g_l3StringMapManager
+ )
+ ; // Attributes
+ MELIST Operations
+   Seq: ( HWL ME_47A1E96201B4 // l3StringMapManager
+ HWL ME_47A1E97500BB // DoneManager
+ )
+ ; // Operations
+ MELIST Children
+   Seq: ( HWL ME_47A1ECB00002 // Tl3StringValueMapFactories
+ HWL ME_47A1E9B503DD // Tl3StringValueMapManager
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Лукьянец Р.В. / Люлин А.В. ©'
+ UP "no hands" True
+ UP "started" '30.03.2006 10:37'
+ UP extprop:rc:SelfName 'StringValueMapManager'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3StringValueMapManager.pas'
+
+ENDME // ME_478E359802F6 l3StringValueMapManager

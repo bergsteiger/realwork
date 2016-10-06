@@ -1,0 +1,70 @@
+// l3IniFile 51BAE2BF011A UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_5433C1D30101
+%%Inner ME_574E9DD80366
+
+FORWARD ME_51BAE2BF011A
+
+ME ME_5433C1D30101
+ MEPROP UID '5433C1D30101'
+ MEPROP Name 'TCfgList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51BAE2BF011A // l3IniFile
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'CfgList'
+
+ENDME // ME_5433C1D30101 TCfgList
+
+%%InheritedBy ME_5433C1D30101 ME_574E9DD80366
+
+ME ME_574E9DD80366
+ MEPROP UID '574E9DD80366'
+ MEPROP Name 'Tl3IniFile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_51BAE2BF011A // l3IniFile
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_5433C1D30101 // TCfgList
+ )
+ ; // Inherits
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'IniFile'
+
+ENDME // ME_574E9DD80366 Tl3IniFile
+
+ME ME_51BAE2BF011A
+ MEPROP UID '51BAE2BF011A'
+ MEPROP Name 'l3IniFile'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47D0290B016D' '47D0290B016D.ms.model.script' // l3Utils
+ ;
+ MELIST Children
+   Seq: ( HWL ME_5433C1D30101 // TCfgList
+ HWL ME_574E9DD80366 // Tl3IniFile
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP extprop:rc:SelfName 'IniFile'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\NOT_FINISHED_l3IniFile.pas'
+
+ENDME // ME_51BAE2BF011A l3IniFile

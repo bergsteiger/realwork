@@ -2,6 +2,13 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_482ACC330173
+%%Inner ME_482C468C00F7
+%%Inner ME_482ACFA703C2
+%%Inner ME_482AE8CA0176
+%%Inner ME_520A3AF602AD
+%%Inner ME_5298DAD101A6
+
 FORWARD ME_48342A280198
 
 ME ME_482C468C00F7
@@ -24,57 +31,6 @@ ME ME_482C468C00F7
 
 ENDME // ME_482C468C00F7 TCustomElGraphicButton
 
-FORWARD ME_520A3AF602AD
-
-ME ME_520A3B0702A0
- MEPROP UID '520A3B0702A0'
- MEPROP Name 'TElPopupButton'
- MEPROP Class class_Class
- MELINK Stereotype st_SimpleClass ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_520A3AF602AD // ElPopBtn
- ;
- UP extprop:rc:isAcceptableForScripts True
- UP extprop:rc:SelfName 'ElPopupButton'
-
-ENDME // ME_520A3B0702A0 TElPopupButton
-
-ME ME_520A3AF602AD
- MEPROP UID '520A3AF602AD'
- MEPROP Name 'ElPopBtn'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48342A280198 // elClone
- ;
- MELIST Children
-   Seq: ( HWL ME_520A3B0702A0 // TElPopupButton
- )
- ; // Children
- UP "finished" False
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_ElPopBtn.pas'
-
-ENDME // ME_520A3AF602AD ElPopBtn
-
-ME ME_5298DAD101A6
- MEPROP UID '5298DAD101A6'
- MEPROP Name 'ElVclUtils'
- MEPROP Class class_Class
- MELINK Stereotype st_UtilityPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48342A280198 // elClone
- ;
- UP "finished" False
- UP intf.pas:Path 'common\components\gui\Garant\Everest\NOT_FINISHED_ElVclUtils.pas'
-
-ENDME // ME_5298DAD101A6 ElVclUtils
-
 ME ME_48342A280198
  MEPROP UID '48342A280198'
  MEPROP Name 'elClone'
@@ -90,8 +46,8 @@ ME ME_48342A280198
  HWL ME_482C468C00F7 // TCustomElGraphicButton
  WL 'ME_482ACFA703C2' '482ACFA703C2.ms.model.script' // TelCustomButtonEdit
  WL 'ME_482AE8CA0176' '482AE8CA0176.ms.model.script' // TctButtonEdit
- HWL ME_520A3AF602AD // ElPopBtn
- HWL ME_5298DAD101A6 // ElVclUtils
+ WL 'ME_520A3AF602AD' '520A3AF602AD.ms.model.script' // ElPopBtn
+ WL 'ME_5298DAD101A6' '5298DAD101A6.ms.model.script' // ElVclUtils
  )
  ; // Children
  MELIST Depends
@@ -120,5 +76,8 @@ ME ME_48342A280198
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
 
 ENDME // ME_48342A280198 elClone

@@ -1,0 +1,46 @@
+// evPreviewForTestsTuning 4D1893A20013 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_4D1893A20013
+
+ME ME_4D18943C033F
+ MEPROP UID '4D18943C033F'
+ MEPROP Name 'OldBehaviourForK235875079'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_4D1893A20013 // evPreviewForTestsTuning
+ ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP "ifdef" 'nsTest'
+
+ENDME // ME_4D18943C033F OldBehaviourForK235875079
+
+ME ME_4D1893A20013
+ MEPROP UID '4D1893A20013'
+ MEPROP Name 'evPreviewForTestsTuning'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_47EA968D0155' '47EA968D0155.ms.model.script' // Printing
+ ;
+ MELIST Attributes
+   Seq: ( HWL ME_4D18943C033F // OldBehaviourForK235875079
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "author" 'Ëþëèí À.Â.'
+ UP "no hands" True
+ UP "started" '27.12.2010 16:25'
+ UP extprop:rc:SelfName 'PreviewForTestsTuning'
+ UP intf.pas:Path 'common\components\gui\Garant\Everest\evPreviewForTestsTuning.pas'
+
+ENDME // ME_4D1893A20013 evPreviewForTestsTuning

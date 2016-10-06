@@ -1,0 +1,91 @@
+// l3InterfacedList 47CED1980057 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_47CED1980057
+
+FORWARD ME_4BB09A40008E
+
+ME ME_4BB09A4A0311
+ MEPROP UID '4BB09A4A0311'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_4BB09A40008E // MakeI
+ ;
+
+ENDME // ME_4BB09A4A0311 DoIt
+
+%%ImplementedBy ME_47BB26C70176 ME_4BB09A40008E
+
+ME ME_4BB09A40008E
+ MEPROP UID '4BB09A40008E'
+ MEPROP Name 'MakeI'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Factory ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_47CED1980057 // l3InterfacedList
+ ;
+ MELIST Implements
+   Seq: ( WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4BB09A4A0311 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_4BB09A40008E MakeI
+
+ME ME_4BB08B8902F2_ME_47CED1980057
+ MELINK Original WL 'ME_4BB08B8902F2' '47D810610398.ms.model.script' // Count
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "pm" True
+ENDME // ME_4BB08B8902F2_ME_47CED1980057 Count
+
+%%ImplementedBy ME_47BB26C70176 ME_47CED1980057
+%%ImplementedBy ME_4BB08B690185 ME_47CED1980057
+
+%%InheritedBy ME_47CEC8860198 ME_47CED1980057
+
+ME ME_47CED1980057
+ MEPROP UID '47CED1980057'
+ MEPROP Name 'l3InterfacedList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47BB24D30205' '47BB24D30205.ms.model.script' // Стандартные примеси
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47CEC8860198' '47CEC8860198.ms.model.script' // l3ListAssign
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_47BB26C70176' '47BB24D30205.ms.model.script' // ListType
+ WL 'ME_4BB08B690185' '47D810610398.ms.model.script' // Ml3CountHolder
+ )
+ ; // Implements
+ MELIST Operations
+   Seq: ( HWL ME_4BB09A40008E // MakeI
+ )
+ ; // Operations
+ MELIST Implemented
+   Seq: ( ME_4BB08B8902F2_ME_47CED1980057 // Count
+ )
+ ; // Implemented
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "needs InstanceR" True
+ UP extprop:pas:TypeName '_l3InterfacedList_'
+ UP extprop:pas:UnitName 'l3InterfacedList.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3InterfacedList.imp.pas'
+
+ENDME // ME_47CED1980057 l3InterfacedList

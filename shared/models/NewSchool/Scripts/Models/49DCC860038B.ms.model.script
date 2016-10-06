@@ -2,6 +2,23 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
+%%Inner ME_49DB5FEF01D8
+%%Inner ME_49DA417B010F
+%%Inner ME_48C7E98600AB
+%%Inner ME_481D6D3F003F
+%%Inner ME_49DA43AA01B9
+%%Inner ME_49DB1B70013F
+%%Inner ME_49DB2E390053
+%%Inner ME_49DB469F01B8
+%%Inner ME_48C911C702A4
+%%Inner ME_48C928EE0282
+%%Inner ME_48C9300A02EF
+%%Inner ME_48C9377502A0
+%%Inner ME_48C9390D0155
+%%Inner ME_4D63C57601A4
+%%Inner ME_4D6F3F42007C
+%%Inner ME_50D3F54E00A8
+
 FORWARD ME_49DCC860038B
 
 FORWARD ME_49DB5FEF01D8
@@ -56,6 +73,10 @@ ME ME_53D780420372
 
 ENDME // ME_53D780420372 
 
+%%InjectedBy ME_48579EA1011D ME_49DB5FEF01D8
+
+%%InheritedBy ME_481D6C300084 ME_49DB5FEF01D8
+
 ME ME_49DB5FEF01D8
  MEPROP UID '49DB5FEF01D8'
  MEPROP Name 'TevParaListPainter'
@@ -68,7 +89,7 @@ ME ME_49DB5FEF01D8
  MELINK Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_481D6C300084' '49DCBC09029B.ms.model.script' // evParaListPainter
+   Seq: ( WL 'ME_481D6C300084' '481D6C300084.ms.model.script' // evParaListPainter
  )
  ; // Inherits
  MELIST Attributes
@@ -84,6 +105,9 @@ ME ME_49DB5FEF01D8
  ME_53D780420372 // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '07.04.2009 18:15'
@@ -105,7 +129,7 @@ ME ME_5098F71901D0
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_49DA417B010F // TevDocumentPainter
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_5098F71901D0 f_ArrowWasDrawn
@@ -162,16 +186,22 @@ ME ME_53D26E190193
 ENDME // ME_53D26E190193 
 
 ME ME_4804BC2401C2_ME_49DA417B010F
- MELINK Original WL 'ME_4804BC2401C2' '49DCBC09029B.ms.model.script' // DoDraw
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC2401C2_ME_49DA417B010F DoDraw
 
 ME ME_4804C35B00B2_ME_49DA417B010F
- MELINK Original WL 'ME_4804C35B00B2' '49DCBC09029B.ms.model.script' // DoDrawFrameText
+ MELINK Original WL 'ME_4804C35B00B2' '4804A2C101A5.ms.model.script' // DoDrawFrameText
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804C35B00B2_ME_49DA417B010F DoDrawFrameText
+
+%%InjectedBy ME_4857B637007C ME_49DA417B010F
+
+%%ImplementedBy ME_4E6A1C160365 ME_49DA417B010F
+
+%%InheritedBy ME_49DB5FEF01D8 ME_49DA417B010F
 
 ME ME_49DA417B010F
  MEPROP UID '49DA417B010F'
@@ -209,6 +239,9 @@ ME ME_49DA417B010F
  ME_53D26E190193 // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '10.11.97 12:18'
@@ -230,7 +263,7 @@ ME ME_50A234810143
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_46A608F00301' '4AB0C3C60310.ms.model.script' // Pointer
+ MELINK Target WL 'ME_46A608F00301' '4807744200AA.ms.model.script' // Pointer
  ;
 
 ENDME // ME_50A234810143 f_DrawView
@@ -243,7 +276,7 @@ ME ME_4B3B2F63033D
  MEPROP Name 'l_Height'
  MEPROP Class class_Parameter
  MELINK Stereotype st_inout ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_4B3B2F63033D l_Height
@@ -288,7 +321,7 @@ ME ME_5579555B0292
  MEPROP Name 'aMaxIndex'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_5579555B0292 aMaxIndex
@@ -342,7 +375,7 @@ ME ME_48C7EBB30324
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_48C7EBB30324 
@@ -372,7 +405,7 @@ ME ME_48DC9EBB00A1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
  ;
 
 ENDME // ME_48DC9EBB00A1 
@@ -422,7 +455,7 @@ ME ME_4C07955601F1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_47D00CC20108' '47C52679006D.ms.model.script' // nevFacade
+ MELINK Target WL 'ME_47D00CC20108' '47D00CC20108.ms.model.script' // nevFacade
  ;
 
 ENDME // ME_4C07955601F1 
@@ -432,7 +465,7 @@ ME ME_4C0FB439014D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_479F1C5600EA' '4AB0997B00A2.ms.model.script' // EListError
+ MELINK Target WL 'ME_479F1C5600EA' '478CF30500C1.ms.model.script' // EListError
  ;
 
 ENDME // ME_4C0FB439014D 
@@ -442,7 +475,7 @@ ME ME_4C775B730244
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_4C3849220132' '47F1F38601A3.ms.model.script' // evTableCellUtils
+ MELINK Target WL 'ME_4C3849220132' '4C3849220132.ms.model.script' // evTableCellUtils
  ;
 
 ENDME // ME_4C775B730244 
@@ -463,7 +496,7 @@ ME ME_4DF2075C00A0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_4DF1C6E90221' '47C52679006D.ms.model.script' // PrintRowHeightsSpy
+ MELINK Target WL 'ME_4DF1C6E90221' '4DF1C6E90221.ms.model.script' // PrintRowHeightsSpy
  ;
 
 ENDME // ME_4DF2075C00A0 
@@ -483,7 +516,7 @@ ME ME_4FD99FD603C1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C7E98600AB // TevTableRowPainter
  ;
- MELINK Target WL 'ME_4FBDEF6A019B' '47F1F38601A3.ms.model.script' // evHasOwnStyle
+ MELINK Target WL 'ME_4FBDEF6A019B' '47F1F3BC0330.ms.model.script' // evHasOwnStyle
  ;
 
 ENDME // ME_4FD99FD603C1 
@@ -533,82 +566,88 @@ ME ME_50A2210D0105_ME_48C7E98600AB
 ENDME // ME_50A2210D0105_ME_48C7E98600AB GetTopAnchor4Row
 
 ME ME_479731C50290_ME_48C7E98600AB
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_48C7E98600AB Cleanup
 
 ME ME_4804B86403BE_ME_48C7E98600AB
- MELINK Original WL 'ME_4804B86403BE' '49DCBC09029B.ms.model.script' // DoFillSelection
+ MELINK Original WL 'ME_4804B86403BE' '4804A2C101A5.ms.model.script' // DoFillSelection
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B86403BE_ME_48C7E98600AB DoFillSelection
 
 ME ME_4804B8890228_ME_48C7E98600AB
- MELINK Original WL 'ME_4804B8890228' '49DCBC09029B.ms.model.script' // CheckAlignment
+ MELINK Original WL 'ME_4804B8890228' '4804A2C101A5.ms.model.script' // CheckAlignment
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B8890228_ME_48C7E98600AB CheckAlignment
 
 ME ME_4804B9BB0383_ME_48C7E98600AB
- MELINK Original WL 'ME_4804B9BB0383' '49DCBC09029B.ms.model.script' // GetFramePartPrim
+ MELINK Original WL 'ME_4804B9BB0383' '4804A2C101A5.ms.model.script' // GetFramePartPrim
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B9BB0383_ME_48C7E98600AB GetFramePartPrim
 
 ME ME_4804BC2401C2_ME_48C7E98600AB
- MELINK Original WL 'ME_4804BC2401C2' '49DCBC09029B.ms.model.script' // DoDraw
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC2401C2_ME_48C7E98600AB DoDraw
 
 ME ME_4804BC800172_ME_48C7E98600AB
- MELINK Original WL 'ME_4804BC800172' '49DCBC09029B.ms.model.script' // InitBottom
+ MELINK Original WL 'ME_4804BC800172' '4804A2C101A5.ms.model.script' // InitBottom
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC800172_ME_48C7E98600AB InitBottom
 
 ME ME_481D6CB00337_ME_48C7E98600AB
- MELINK Original WL 'ME_481D6CB00337' '49DCBC09029B.ms.model.script' // ChildInSelection
+ MELINK Original WL 'ME_481D6CB00337' '481D6C300084.ms.model.script' // ChildInSelection
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_481D6CB00337_ME_48C7E98600AB ChildInSelection
 
 ME ME_49D30810030E_ME_48C7E98600AB
- MELINK Original WL 'ME_49D30810030E' '49DCBC09029B.ms.model.script' // CheckChild
+ MELINK Original WL 'ME_49D30810030E' '481D6C300084.ms.model.script' // CheckChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49D30810030E_ME_48C7E98600AB CheckChild
 
 ME ME_4C4570AE0113_ME_48C7E98600AB
- MELINK Original WL 'ME_4C4570AE0113' '49DCBC09029B.ms.model.script' // InitInnerBottom
+ MELINK Original WL 'ME_4C4570AE0113' '481D6C300084.ms.model.script' // InitInnerBottom
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C4570AE0113_ME_48C7E98600AB InitInnerBottom
 
 ME ME_4C77512E00AD_ME_48C7E98600AB
- MELINK Original WL 'ME_4C77512E00AD' '49DCBC09029B.ms.model.script' // GetTableRowPainter
+ MELINK Original WL 'ME_4C77512E00AD' '4804A2C101A5.ms.model.script' // GetTableRowPainter
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C77512E00AD_ME_48C7E98600AB GetTableRowPainter
 
 ME ME_4CAF3D530327_ME_48C7E98600AB
- MELINK Original WL 'ME_4CAF3D530327' '49DCBC09029B.ms.model.script' // NeedsHackK235870994
+ MELINK Original WL 'ME_4CAF3D530327' '4804A2C101A5.ms.model.script' // NeedsHackK235870994
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4CAF3D530327_ME_48C7E98600AB NeedsHackK235870994
 
 ME ME_4CB4024B010A_ME_48C7E98600AB
- MELINK Original WL 'ME_4CB4024B010A' '49DCBC09029B.ms.model.script' // NeedPrintingChild
+ MELINK Original WL 'ME_4CB4024B010A' '481D6C300084.ms.model.script' // NeedPrintingChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4CB4024B010A_ME_48C7E98600AB NeedPrintingChild
 
 ME ME_4FD97F890377_ME_48C7E98600AB
- MELINK Original WL 'ME_4FD97F890377' '49DCBC09029B.ms.model.script' // CheckNeedLaterFilling
+ MELINK Original WL 'ME_4FD97F890377' '481D6C300084.ms.model.script' // CheckNeedLaterFilling
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4FD97F890377_ME_48C7E98600AB CheckNeedLaterFilling
+
+%%InjectedBy ME_4857D32B011E ME_48C7E98600AB
+
+%%ImplementedBy ME_4C774E380004 ME_48C7E98600AB
+
+%%InheritedBy ME_49DB5FEF01D8 ME_48C7E98600AB
 
 ME ME_48C7E98600AB
  MEPROP UID '48C7E98600AB'
@@ -681,6 +720,9 @@ ME ME_48C7E98600AB
  ME_53D675E8030C // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '06.06.2007 11:44'
@@ -775,7 +817,7 @@ ME ME_48C907B502BC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_481D6D3F003F // TevTableCellPainter
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_48C907B502BC 
@@ -822,7 +864,7 @@ ME ME_53D2442501A7
 ENDME // ME_53D2442501A7 
 
 ME ME_4804AA7A003A_ME_481D6D3F003F
- MELINK Original WL 'ME_4804AA7A003A' '49DCBC09029B.ms.model.script' // VerticalAlignmentMargin
+ MELINK Original WL 'ME_4804AA7A003A' '4804A2C101A5.ms.model.script' // VerticalAlignmentMargin
  ;
  MEPROP OpKind opkind_Overridden
  UP "needs field" False
@@ -830,64 +872,68 @@ ME ME_4804AA7A003A_ME_481D6D3F003F
 ENDME // ME_4804AA7A003A_ME_481D6D3F003F VerticalAlignmentMargin
 
 ME ME_4804B86403BE_ME_481D6D3F003F
- MELINK Original WL 'ME_4804B86403BE' '49DCBC09029B.ms.model.script' // DoFillSelection
+ MELINK Original WL 'ME_4804B86403BE' '4804A2C101A5.ms.model.script' // DoFillSelection
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B86403BE_ME_481D6D3F003F DoFillSelection
 
 ME ME_4804B9BB0383_ME_481D6D3F003F
- MELINK Original WL 'ME_4804B9BB0383' '49DCBC09029B.ms.model.script' // GetFramePartPrim
+ MELINK Original WL 'ME_4804B9BB0383' '4804A2C101A5.ms.model.script' // GetFramePartPrim
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B9BB0383_ME_481D6D3F003F GetFramePartPrim
 
 ME ME_4804BC2401C2_ME_481D6D3F003F
- MELINK Original WL 'ME_4804BC2401C2' '49DCBC09029B.ms.model.script' // DoDraw
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC2401C2_ME_481D6D3F003F DoDraw
 
 ME ME_4804BC800172_ME_481D6D3F003F
- MELINK Original WL 'ME_4804BC800172' '49DCBC09029B.ms.model.script' // InitBottom
+ MELINK Original WL 'ME_4804BC800172' '4804A2C101A5.ms.model.script' // InitBottom
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC800172_ME_481D6D3F003F InitBottom
 
 ME ME_481D6C56033A_ME_481D6D3F003F
- MELINK Original WL 'ME_481D6C56033A' '49DCBC09029B.ms.model.script' // BeforeDrawChild
+ MELINK Original WL 'ME_481D6C56033A' '481D6C300084.ms.model.script' // BeforeDrawChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_481D6C56033A_ME_481D6D3F003F BeforeDrawChild
 
 ME ME_481D6CFA0047_ME_481D6D3F003F
- MELINK Original WL 'ME_481D6CFA0047' '49DCBC09029B.ms.model.script' // CheckCompleate
+ MELINK Original WL 'ME_481D6CFA0047' '481D6C300084.ms.model.script' // CheckCompleate
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_481D6CFA0047_ME_481D6D3F003F CheckCompleate
 
 ME ME_49182FE60081_ME_481D6D3F003F
- MELINK Original WL 'ME_49182FE60081' '49DCBC09029B.ms.model.script' // DoDrawFramePrim
+ MELINK Original WL 'ME_49182FE60081' '4804A2C101A5.ms.model.script' // DoDrawFramePrim
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49182FE60081_ME_481D6D3F003F DoDrawFramePrim
 
 ME ME_4BC5CECF025B_ME_481D6D3F003F
- MELINK Original WL 'ME_4BC5CECF025B' '49DCBC09029B.ms.model.script' // UseSelRange
+ MELINK Original WL 'ME_4BC5CECF025B' '481D6C300084.ms.model.script' // UseSelRange
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4BC5CECF025B_ME_481D6D3F003F UseSelRange
 
 ME ME_4CAF3D530327_ME_481D6D3F003F
- MELINK Original WL 'ME_4CAF3D530327' '49DCBC09029B.ms.model.script' // NeedsHackK235870994
+ MELINK Original WL 'ME_4CAF3D530327' '4804A2C101A5.ms.model.script' // NeedsHackK235870994
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4CAF3D530327_ME_481D6D3F003F NeedsHackK235870994
 
 ME ME_4D9AF3680146_ME_481D6D3F003F
- MELINK Original WL 'ME_4D9AF3680146' '49DCBC09029B.ms.model.script' // IsTopAnchorAtStart
+ MELINK Original WL 'ME_4D9AF3680146' '4804A2C101A5.ms.model.script' // IsTopAnchorAtStart
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4D9AF3680146_ME_481D6D3F003F IsTopAnchorAtStart
+
+%%InjectedBy ME_4857CDBF0197 ME_481D6D3F003F
+
+%%InheritedBy ME_481D6C300084 ME_481D6D3F003F
 
 ME ME_481D6D3F003F
  MEPROP UID '481D6D3F003F'
@@ -901,7 +947,7 @@ ME ME_481D6D3F003F
  MELINK Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_481D6C300084' '49DCBC09029B.ms.model.script' // evParaListPainter
+   Seq: ( WL 'ME_481D6C300084' '481D6C300084.ms.model.script' // evParaListPainter
  )
  ; // Inherits
  MELIST Attributes
@@ -937,6 +983,9 @@ ME ME_481D6D3F003F
  ME_53D2442501A7 // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '06.06.2007 11:44'
@@ -971,7 +1020,7 @@ ME ME_53D0D11800CC
 ENDME // ME_53D0D11800CC 
 
 ME ME_4804A83F030B_ME_49DA43AA01B9
- MELINK Original WL 'ME_4804A83F030B' '49DCBC09029B.ms.model.script' // InvisibleFrameColor
+ MELINK Original WL 'ME_4804A83F030B' '4804A2C101A5.ms.model.script' // InvisibleFrameColor
  ;
  MEPROP OpKind opkind_Overridden
  UP "needs field" False
@@ -979,10 +1028,14 @@ ME ME_4804A83F030B_ME_49DA43AA01B9
 ENDME // ME_4804A83F030B_ME_49DA43AA01B9 InvisibleFrameColor
 
 ME ME_4CAF3D530327_ME_49DA43AA01B9
- MELINK Original WL 'ME_4CAF3D530327' '49DCBC09029B.ms.model.script' // NeedsHackK235870994
+ MELINK Original WL 'ME_4CAF3D530327' '4804A2C101A5.ms.model.script' // NeedsHackK235870994
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4CAF3D530327_ME_49DA43AA01B9 NeedsHackK235870994
+
+%%InjectedBy ME_4857D1860221 ME_49DA43AA01B9
+
+%%InheritedBy ME_481D6D3F003F ME_49DA43AA01B9
 
 ME ME_49DA43AA01B9
  MEPROP UID '49DA43AA01B9'
@@ -1009,6 +1062,9 @@ ME ME_49DA43AA01B9
  ME_53D0D11800CC // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '30.01.2006 15:22'
@@ -1171,7 +1227,7 @@ ME ME_4EB92E2E0126
  MEPROP Name 'aDrawText'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4EB92E2E0126 aDrawText
@@ -1220,7 +1276,7 @@ ME ME_55150DD1025F
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_55150D6300DE // FirstParaAsHeader
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_55150DD1025F DoIt
@@ -1293,7 +1349,7 @@ ME ME_49DB1BF30312
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_49DB1BF30312 NeedDrawPlus
@@ -1303,7 +1359,7 @@ ME ME_49DB1D6600D6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_4857B15A000E' '47F1F38601A3.ms.model.script' // evDocumentPart
+ MELINK Target WL 'ME_4857B15A000E' '4857B15A000E.ms.model.script' // evDocumentPart
  ;
 
 ENDME // ME_49DB1D6600D6 
@@ -1313,7 +1369,7 @@ ME ME_49DB1D8B02A0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_4799ECBF00D6' '4799EC9300AF.ms.model.script' // Defaults
+ MELINK Target WL 'ME_4799ECBF00D6' '4799ED060093.ms.model.script' // Defaults
  ;
 
 ENDME // ME_49DB1D8B02A0 
@@ -1323,7 +1379,7 @@ ME ME_49DB1DA501BC
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
  ;
 
 ENDME // ME_49DB1DA501BC 
@@ -1404,7 +1460,7 @@ ME ME_4EB935280176
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
  ;
 
 ENDME // ME_4EB935280176 
@@ -1434,7 +1490,7 @@ ME ME_4FBCD252032E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_4ADF0823017C' '54B90AC6014B.ms.model.script' // l3IsNil
+ MELINK Target WL 'ME_4ADF0823017C' '47878E0E0191.ms.model.script' // l3IsNil
  ;
 
 ENDME // ME_4FBCD252032E 
@@ -1454,7 +1510,7 @@ ME ME_4FBCD32100DB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_47E0C36201C7' '537B83AD01F0.ms.model.script' // l3Math
+ MELINK Target WL 'ME_47E0C36201C7' '47E0C36201C7.ms.model.script' // l3Math
  ;
 
 ENDME // ME_4FBCD32100DB 
@@ -1464,7 +1520,7 @@ ME ME_4FBDF1E001E6
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB1B70013F // TevDocumentPartPainter
  ;
- MELINK Target WL 'ME_4FBDEF6A019B' '47F1F38601A3.ms.model.script' // evHasOwnStyle
+ MELINK Target WL 'ME_4FBDEF6A019B' '47F1F3BC0330.ms.model.script' // evHasOwnStyle
  ;
 
 ENDME // ME_4FBDF1E001E6 
@@ -1510,70 +1566,75 @@ ME ME_5617927F00A5
 ENDME // ME_5617927F00A5 
 
 ME ME_5062C0650076_ME_49DB1B70013F
- MELINK Original WL 'ME_5062C0650076' '49DCBC09029B.ms.model.script' // NeedCalcSpace
+ MELINK Original WL 'ME_5062C0650076' '5062BFDB025E.ms.model.script' // NeedCalcSpace
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_5062C0650076_ME_49DB1B70013F NeedCalcSpace
 
 ME ME_51FF6BC10266_ME_49DB1B70013F
- MELINK Original WL 'ME_51FF6BC10266' '49DCBC09029B.ms.model.script' // HeaderOwnSpace
+ MELINK Original WL 'ME_51FF6BC10266' '5062BFDB025E.ms.model.script' // HeaderOwnSpace
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_51FF6BC10266_ME_49DB1B70013F HeaderOwnSpace
 
 ME ME_5208B63400C1_ME_49DB1B70013F
- MELINK Original WL 'ME_5208B63400C1' '49DCBC09029B.ms.model.script' // GetSpaceTop
+ MELINK Original WL 'ME_5208B63400C1' '5062BFDB025E.ms.model.script' // GetSpaceTop
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_5208B63400C1_ME_49DB1B70013F GetSpaceTop
 
 ME ME_4804B5FC02A3_ME_49DB1B70013F
- MELINK Original WL 'ME_4804B5FC02A3' '49DCBC09029B.ms.model.script' // DoInitAlignObjects
+ MELINK Original WL 'ME_4804B5FC02A3' '4804A2C101A5.ms.model.script' // DoInitAlignObjects
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B5FC02A3_ME_49DB1B70013F DoInitAlignObjects
 
 ME ME_4804B76803D5_ME_49DB1B70013F
- MELINK Original WL 'ME_4804B76803D5' '49DCBC09029B.ms.model.script' // DrawFrame
+ MELINK Original WL 'ME_4804B76803D5' '4804A2C101A5.ms.model.script' // DrawFrame
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B76803D5_ME_49DB1B70013F DrawFrame
 
 ME ME_4804B78B0397_ME_49DB1B70013F
- MELINK Original WL 'ME_4804B78B0397' '49DCBC09029B.ms.model.script' // InfiniteFrame
+ MELINK Original WL 'ME_4804B78B0397' '4804A2C101A5.ms.model.script' // InfiniteFrame
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B78B0397_ME_49DB1B70013F InfiniteFrame
 
 ME ME_4804B9BB0383_ME_49DB1B70013F
- MELINK Original WL 'ME_4804B9BB0383' '49DCBC09029B.ms.model.script' // GetFramePartPrim
+ MELINK Original WL 'ME_4804B9BB0383' '4804A2C101A5.ms.model.script' // GetFramePartPrim
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B9BB0383_ME_49DB1B70013F GetFramePartPrim
 
 ME ME_4804C35B00B2_ME_49DB1B70013F
- MELINK Original WL 'ME_4804C35B00B2' '49DCBC09029B.ms.model.script' // DoDrawFrameText
+ MELINK Original WL 'ME_4804C35B00B2' '4804A2C101A5.ms.model.script' // DoDrawFrameText
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804C35B00B2_ME_49DB1B70013F DoDrawFrameText
 
 ME ME_481D6C56033A_ME_49DB1B70013F
- MELINK Original WL 'ME_481D6C56033A' '49DCBC09029B.ms.model.script' // BeforeDrawChild
+ MELINK Original WL 'ME_481D6C56033A' '481D6C300084.ms.model.script' // BeforeDrawChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_481D6C56033A_ME_49DB1B70013F BeforeDrawChild
 
 ME ME_4E2702FE01EA_ME_49DB1B70013F
- MELINK Original WL 'ME_4E2702FE01EA' '49DCBC09029B.ms.model.script' // FillUnfilled
+ MELINK Original WL 'ME_4E2702FE01EA' '4804A2C101A5.ms.model.script' // FillUnfilled
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4E2702FE01EA_ME_49DB1B70013F FillUnfilled
 
 ME ME_5062C3470289_ME_49DB1B70013F
- MELINK Original WL 'ME_5062C3470289' '49DCBC09029B.ms.model.script' // CorrectByTextHeight
+ MELINK Original WL 'ME_5062C3470289' '5062BFDB025E.ms.model.script' // CorrectByTextHeight
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_5062C3470289_ME_49DB1B70013F CorrectByTextHeight
+
+%%InjectedBy ME_4857AA550220 ME_49DB1B70013F
+
+%%InheritedBy ME_49DB5FEF01D8 ME_49DB1B70013F
+%%InheritedBy ME_5062BFDB025E ME_49DB1B70013F
 
 ME ME_49DB1B70013F
  MEPROP UID '49DB1B70013F'
@@ -1588,7 +1649,7 @@ ME ME_49DB1B70013F
  ;
  MELIST Inherits
    Seq: ( HWL ME_49DB5FEF01D8 // TevParaListPainter
- WL 'ME_5062BFDB025E' '49DCBC09029B.ms.model.script' // AACSpaceDrawing
+ WL 'ME_5062BFDB025E' '5062BFDB025E.ms.model.script' // AACSpaceDrawing
  )
  ; // Inherits
  MELIST Operations
@@ -1645,6 +1706,9 @@ ME ME_49DB1B70013F
  ME_5617927F00A5 // InevPara
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '15.12.96 01:55'
@@ -1662,7 +1726,7 @@ ME ME_49DB300A016F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
- MELINK Target WL 'ME_4857B15A000E' '47F1F38601A3.ms.model.script' // evDocumentPart
+ MELINK Target WL 'ME_4857B15A000E' '4857B15A000E.ms.model.script' // evDocumentPart
  ;
 
 ENDME // ME_49DB300A016F 
@@ -1702,7 +1766,7 @@ ME ME_49DB3D03035F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
- MELINK Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.ms.model.script' // k2Base
+ MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
  ;
 
 ENDME // ME_49DB3D03035F 
@@ -1712,7 +1776,7 @@ ME ME_49DB3D100184
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
- MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
  ;
 
 ENDME // ME_49DB3D100184 
@@ -1732,7 +1796,7 @@ ME ME_49DB4028019D
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
  ;
 
 ENDME // ME_49DB4028019D 
@@ -1742,7 +1806,7 @@ ME ME_49DB40320257
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_49DB40320257 
@@ -1752,7 +1816,7 @@ ME ME_49DB406002DB
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB2E390053 // TevCommentParaPainter
  ;
- MELINK Target WL 'ME_47CD3486030A' '47CD3441002F.ms.model.script' // TnevMiscMessages
+ MELINK Target WL 'ME_47CD3486030A' '4B8BA52200D8.ms.model.script' // TnevMiscMessages
  ;
 
 ENDME // ME_49DB406002DB 
@@ -1779,19 +1843,19 @@ ME ME_53D247C80021
 ENDME // ME_53D247C80021 
 
 ME ME_4804B78B0397_ME_49DB2E390053
- MELINK Original WL 'ME_4804B78B0397' '49DCBC09029B.ms.model.script' // InfiniteFrame
+ MELINK Original WL 'ME_4804B78B0397' '4804A2C101A5.ms.model.script' // InfiniteFrame
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B78B0397_ME_49DB2E390053 InfiniteFrame
 
 ME ME_4804B9BB0383_ME_49DB2E390053
- MELINK Original WL 'ME_4804B9BB0383' '49DCBC09029B.ms.model.script' // GetFramePartPrim
+ MELINK Original WL 'ME_4804B9BB0383' '4804A2C101A5.ms.model.script' // GetFramePartPrim
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B9BB0383_ME_49DB2E390053 GetFramePartPrim
 
 ME ME_4804C35B00B2_ME_49DB2E390053
- MELINK Original WL 'ME_4804C35B00B2' '49DCBC09029B.ms.model.script' // DoDrawFrameText
+ MELINK Original WL 'ME_4804C35B00B2' '4804A2C101A5.ms.model.script' // DoDrawFrameText
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804C35B00B2_ME_49DB2E390053 DoDrawFrameText
@@ -1807,6 +1871,10 @@ ME ME_49DB1BF30312_ME_49DB2E390053
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49DB1BF30312_ME_49DB2E390053 NeedDrawPlus
+
+%%InjectedBy ME_4857C9F90189 ME_49DB2E390053
+
+%%InheritedBy ME_49DB1B70013F ME_49DB2E390053
 
 ME ME_49DB2E390053
  MEPROP UID '49DB2E390053'
@@ -1846,6 +1914,9 @@ ME ME_49DB2E390053
  ME_53D247C80021 // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "started" '10.11.2004 19:56'
  UP extprop:pas:UnitName 'evCommentParaPainter'
@@ -1892,7 +1963,7 @@ ME ME_49DB48EF017C
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
- MELINK Target WL 'ME_4857B15A000E' '47F1F38601A3.ms.model.script' // evDocumentPart
+ MELINK Target WL 'ME_4857B15A000E' '4857B15A000E.ms.model.script' // evDocumentPart
  ;
 
 ENDME // ME_49DB48EF017C 
@@ -1932,7 +2003,7 @@ ME ME_49DB49E70367
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
- MELINK Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.ms.model.script' // k2Base
+ MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
  ;
 
 ENDME // ME_49DB49E70367 
@@ -1952,7 +2023,7 @@ ME ME_49DB4ABA01D4
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
- MELINK Target WL 'ME_47CFFEDE0215' '47CEBC900123.ms.model.script' // evControlParaTools
+ MELINK Target WL 'ME_47CFFEDE0215' '47CFFEDE0215.ms.model.script' // evControlParaTools
  ;
 
 ENDME // ME_49DB4ABA01D4 
@@ -1972,7 +2043,7 @@ ME ME_4D7240C2006F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
- MELINK Target WL 'ME_4799ED060093' '4799EC9300AF.ms.model.script' // l3Defaults
+ MELINK Target WL 'ME_4799ED060093' '4799ED060093.ms.model.script' // l3Defaults
  ;
 
 ENDME // ME_4D7240C2006F 
@@ -1982,7 +2053,7 @@ ME ME_4D7240DF02BF
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
- MELINK Target WL 'ME_47CBD5980343' '55C4AEC801CA.ms.model.script' // Colors
+ MELINK Target WL 'ME_47CBD5980343' '47D15712022D.ms.model.script' // Colors
  ;
 
 ENDME // ME_4D7240DF02BF 
@@ -2013,7 +2084,7 @@ ME ME_4E1431F100C1
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
- MELINK Target WL 'ME_47E0C36201C7' '537B83AD01F0.ms.model.script' // l3Math
+ MELINK Target WL 'ME_47E0C36201C7' '47E0C36201C7.ms.model.script' // l3Math
  ;
 
 ENDME // ME_4E1431F100C1 
@@ -2053,7 +2124,7 @@ ME ME_4E85CB490292
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_49DB469F01B8 // TevControlsBlockPainter
  ;
- MELINK Target WL 'ME_47878E0E0191' '54B90AC6014B.ms.model.script' // l3String
+ MELINK Target WL 'ME_47878E0E0191' '47878E0E0191.ms.model.script' // l3String
  ;
 
 ENDME // ME_4E85CB490292 
@@ -2099,25 +2170,25 @@ ME ME_53D6367E008F
 ENDME // ME_53D6367E008F 
 
 ME ME_4804B78B0397_ME_49DB469F01B8
- MELINK Original WL 'ME_4804B78B0397' '49DCBC09029B.ms.model.script' // InfiniteFrame
+ MELINK Original WL 'ME_4804B78B0397' '4804A2C101A5.ms.model.script' // InfiniteFrame
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B78B0397_ME_49DB469F01B8 InfiniteFrame
 
 ME ME_4804B9BB0383_ME_49DB469F01B8
- MELINK Original WL 'ME_4804B9BB0383' '49DCBC09029B.ms.model.script' // GetFramePartPrim
+ MELINK Original WL 'ME_4804B9BB0383' '4804A2C101A5.ms.model.script' // GetFramePartPrim
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B9BB0383_ME_49DB469F01B8 GetFramePartPrim
 
 ME ME_4804C35B00B2_ME_49DB469F01B8
- MELINK Original WL 'ME_4804C35B00B2' '49DCBC09029B.ms.model.script' // DoDrawFrameText
+ MELINK Original WL 'ME_4804C35B00B2' '4804A2C101A5.ms.model.script' // DoDrawFrameText
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804C35B00B2_ME_49DB469F01B8 DoDrawFrameText
 
 ME ME_481D6CCF016D_ME_49DB469F01B8
- MELINK Original WL 'ME_481D6CCF016D' '49DCBC09029B.ms.model.script' // NeedCheckTopAnchor
+ MELINK Original WL 'ME_481D6CCF016D' '481D6C300084.ms.model.script' // NeedCheckTopAnchor
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_481D6CCF016D_ME_49DB469F01B8 NeedCheckTopAnchor
@@ -2129,10 +2200,16 @@ ME ME_49DB1B9E0191_ME_49DB469F01B8
 ENDME // ME_49DB1B9E0191_ME_49DB469F01B8 DrawFrameName
 
 ME ME_4D9AF3680146_ME_49DB469F01B8
- MELINK Original WL 'ME_4D9AF3680146' '49DCBC09029B.ms.model.script' // IsTopAnchorAtStart
+ MELINK Original WL 'ME_4D9AF3680146' '4804A2C101A5.ms.model.script' // IsTopAnchorAtStart
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4D9AF3680146_ME_49DB469F01B8 IsTopAnchorAtStart
+
+%%InjectedBy ME_485807480091 ME_49DB469F01B8
+
+%%ImplementedBy ME_4E85C86300AC ME_49DB469F01B8
+
+%%InheritedBy ME_49DB1B70013F ME_49DB469F01B8
 
 ME ME_49DB469F01B8
  MEPROP UID '49DB469F01B8'
@@ -2189,6 +2266,9 @@ ME ME_49DB469F01B8
  ME_53D6367E008F // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "no hands" True
  UP extprop:pas:UnitName 'evControlsBlockPainter'
  UP extprop:rc:isAcceptableForScripts True
@@ -2210,7 +2290,7 @@ ME ME_48C914380253
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C91428029E // TevSelectedPart
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_48C914380253 rRowIndex
@@ -2224,7 +2304,7 @@ ME ME_48C9144101BB
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C91428029E // TevSelectedPart
  ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
+ MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
 ENDME // ME_48C9144101BB rWidth
@@ -2238,7 +2318,7 @@ ME ME_4FD8731A039E
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_48C91428029E // TevSelectedPart
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4FD8731A039E rSelection
@@ -2293,14 +2373,14 @@ ME ME_48C9181101C3
 ENDME // ME_48C9181101C3 ItemType
 
 ME ME_47B07CF403D0_ME_48C911C702A4
- MELINK Original WL 'ME_47B07CF403D0' '47913B47006E.ms.model.script' // IsSameItems
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifndef" 'l3Items_IsAtomic'
 ENDME // ME_47B07CF403D0_ME_48C911C702A4 IsSameItems
 
 ME ME_47B2C42A0163_ME_48C911C702A4
- MELINK Original WL 'ME_47B2C42A0163' '47913B47006E.ms.model.script' // AssignItem
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
  ;
  MEPROP OpKind opkind_Implemented
  UP "ifdef" 'l3Items_NeedsAssignItem'
@@ -2308,10 +2388,13 @@ ME ME_47B2C42A0163_ME_48C911C702A4
 ENDME // ME_47B2C42A0163_ME_48C911C702A4 AssignItem
 
 ME ME_47B99D4503A2_ME_48C911C702A4
- MELINK Original WL 'ME_47B99D4503A2' '47BB24D30205.ms.model.script' // CompareExistingItems
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
  ;
  MEPROP OpKind opkind_Implemented
 ENDME // ME_47B99D4503A2_ME_48C911C702A4 CompareExistingItems
+
+%%InheritedBy ME_4A54DD4E036F ME_48C911C702A4
+%%InheritedBy ME_4B223ADC02BF ME_48C911C702A4
 
 ME ME_48C911C702A4
  MEPROP UID '48C911C702A4'
@@ -2326,7 +2409,7 @@ ME ME_48C911C702A4
  ;
  MELIST Inherits
    Seq: ( WL 'ME_4A54DD4E036F' '47913B47006E.ms.model.script' // Tl3ProtoDataContainer
- WL 'ME_4B223ADC02BF' '47913B47006E.ms.model.script' // l3RecordListPrim
+ WL 'ME_4B223ADC02BF' '4B223ADC02BF.ms.model.script' // l3RecordListPrim
  )
  ; // Inherits
  MELIST Attributes
@@ -2343,6 +2426,9 @@ ME ME_48C911C702A4
    Seq: ( HWL ME_48C91428029E // TevSelectedPart
  )
  ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '11.09.2008 14:39'
@@ -2352,179 +2438,6 @@ ME ME_48C911C702A4
  UP intf.pas:Path 'common\components\gui\Garant\Everest\evSelectedParts.pas'
 
 ENDME // ME_48C911C702A4 TevSelectedParts
-
-FORWARD ME_48C928EE0282
-
-ME ME_48C9291B03C6
- MEPROP UID '48C9291B03C6'
- MEPROP Name 'f_SelectedList'
- MEPROP Class class_Attribute
- %SUMMARY 'Список кусочков выделения' ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- MELINK Target HWL ME_48C911C702A4 // TevSelectedParts
- ;
-
-ENDME // ME_48C9291B03C6 f_SelectedList
-
-ME ME_48C929410274
- MEPROP UID '48C929410274'
- MEPROP Name 'f_RowHeights'
- MEPROP Class class_Attribute
- %SUMMARY 'Массив высот строк' ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_regular
- MEPROP LinkType lt_agr
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
- ;
-
-ENDME // ME_48C929410274 f_RowHeights
-
-ME ME_48C9294D0370
- MEPROP UID '48C9294D0370'
- MEPROP Name 'GetRowHeights'
- MEPROP Class class_Operation
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- MELINK Target WL 'ME_47BB29D40117' '47913B47006E.ms.model.script' // Tl3LongintList
- ;
-
-ENDME // ME_48C9294D0370 GetRowHeights
-
-ME ME_48C929A40284
- MEPROP UID '48C929A40284'
- MEPROP Name 'PaintSelectionParts'
- MEPROP Class class_Operation
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
-
-ENDME // ME_48C929A40284 PaintSelectionParts
-
-ME ME_4A56234C0060
- MEPROP UID '4A56234C0060'
- MEPROP Name 'Release'
- MEPROP Class class_Operation
- MELINK Stereotype st_override::Operation ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- UP "is static" False
-
-ENDME // ME_4A56234C0060 Release
-
-ME ME_4A56235D01C9
- MEPROP UID '4A56235D01C9'
- MEPROP Name 'BeforeAddToCache'
- MEPROP Class class_Operation
- MELINK Stereotype st_override::Operation ;
- MEPROP Visibility ProtectedAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- UP "is static" False
-
-ENDME // ME_4A56235D01C9 BeforeAddToCache
-
-ME ME_48C92A90037B
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- MELINK Target WL 'ME_4727456300E7' '472745450206.ms.model.script' // Tl3Point
- ;
-
-ENDME // ME_48C92A90037B 
-
-ME ME_48C92B8F0121
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- MELINK Target WL 'ME_4773D64E036C' '47913B47006E.ms.model.script' // l3Base
- ;
-
-ENDME // ME_48C92B8F0121 
-
-FORWARD ME_4D6F3F42007C
-
-ME ME_4D6F3F9E0228
- MEPROP Class class_Dependency
- MELINK Stereotype st_uses::Dependency ;
- MELINK Parent HWL ME_48C928EE0282 // evDelayedPainters
- ;
- MELINK Target HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
- ;
- UP "ifdef" 'nsTest'
-
-ENDME // ME_4D6F3F9E0228 
-
-ME ME_47C7DE3200E4_ME_48C928EE0282
- MELINK Original WL 'ME_47C7DE3200E4' '49D2080D020C.ms.model.script' // RemeberSelPart
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_47C7DE3200E4_ME_48C928EE0282 RemeberSelPart
-
-ME ME_47C7DE42020F_ME_48C928EE0282
- MELINK Original WL 'ME_47C7DE42020F' '49D2080D020C.ms.model.script' // SetHeight
- ;
- MEPROP OpKind opkind_Implemented
-ENDME // ME_47C7DE42020F_ME_48C928EE0282 SetHeight
-
-ME ME_48C928EE0282
- MEPROP UID '48C928EE0282'
- MEPROP Name 'evDelayedPainters'
- MEPROP Class class_Class
- MELINK Stereotype st_Impurity ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_regular
- MELINK Parent HWL ME_49DCC860038B // ParaList Painters
- ;
- MELIST Implements
-   Seq: ( WL 'ME_47C7DE24022A' '49D2080D020C.ms.model.script' // InevPaintersHolder
- )
- ; // Implements
- MELIST Attributes
-   Seq: ( HWL ME_48C9291B03C6 // f_SelectedList
- HWL ME_48C929410274 // f_RowHeights
- )
- ; // Attributes
- MELIST Operations
-   Seq: ( HWL ME_48C9294D0370 // GetRowHeights
- HWL ME_48C929A40284 // PaintSelectionParts
- HWL ME_4A56234C0060 // Release
- HWL ME_4A56235D01C9 // BeforeAddToCache
- )
- ; // Operations
- MELIST Implemented
-   Seq: ( ME_47C7DE3200E4_ME_48C928EE0282 // RemeberSelPart
- ME_47C7DE42020F_ME_48C928EE0282 // SetHeight
- )
- ; // Implemented
- MELIST Dependencies
-   Seq: ( ME_48C92A90037B // Tl3Point
- ME_48C92B8F0121 // l3Base
- ME_4D6F3F9E0228 // TevDelayedPaintersSpy
- )
- ; // Dependencies
- UP "author" 'Инишев Д.А.'
- UP "no hands" True
- UP "started" '06.06.2007 11:44'
- UP extprop:pas:TypeName '_evDelayedPainters_'
- UP extprop:pas:UnitName 'evDelayedPainters.imp'
- UP intf.pas:Path 'common\components\gui\Garant\Everest\evDelayedPainters.imp.pas'
-
-ENDME // ME_48C928EE0282 evDelayedPainters
 
 FORWARD ME_48C9300A02EF
 
@@ -2582,7 +2495,7 @@ ME ME_4D0203AA016F
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
  UP "ifdef" 'nsTest'
 
@@ -2593,7 +2506,7 @@ ME ME_48C9335D0133
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_48C9335D0133 
@@ -2603,7 +2516,7 @@ ME ME_48C934420187
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
- MELINK Target WL 'ME_47D15712022D' '55C4AEC801CA.ms.model.script' // Graphics
+ MELINK Target WL 'ME_47D15712022D' '47D15712022D.ms.model.script' // Graphics
  ;
 
 ENDME // ME_48C934420187 
@@ -2613,7 +2526,7 @@ ME ME_527A46A402F2
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C9300A02EF // TevFramedParaListPainter
  ;
- MELINK Target WL 'ME_47AC6F0B025E' '49A58A1A03C4.ms.model.script' // k2Base
+ MELINK Target WL 'ME_47AC6F0B025E' '47AC6F0B025E.ms.model.script' // k2Base
  ;
 
 ENDME // ME_527A46A402F2 
@@ -2629,34 +2542,37 @@ ME ME_52BD340C0308
 ENDME // ME_52BD340C0308 
 
 ME ME_4804B5FC02A3_ME_48C9300A02EF
- MELINK Original WL 'ME_4804B5FC02A3' '49DCBC09029B.ms.model.script' // DoInitAlignObjects
+ MELINK Original WL 'ME_4804B5FC02A3' '4804A2C101A5.ms.model.script' // DoInitAlignObjects
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B5FC02A3_ME_48C9300A02EF DoInitAlignObjects
 
 ME ME_4804B60E033E_ME_48C9300A02EF
- MELINK Original WL 'ME_4804B60E033E' '49DCBC09029B.ms.model.script' // DoFinisAlignObjects
+ MELINK Original WL 'ME_4804B60E033E' '4804A2C101A5.ms.model.script' // DoFinisAlignObjects
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B60E033E_ME_48C9300A02EF DoFinisAlignObjects
 
 ME ME_4804B86403BE_ME_48C9300A02EF
- MELINK Original WL 'ME_4804B86403BE' '49DCBC09029B.ms.model.script' // DoFillSelection
+ MELINK Original WL 'ME_4804B86403BE' '4804A2C101A5.ms.model.script' // DoFillSelection
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804B86403BE_ME_48C9300A02EF DoFillSelection
 
 ME ME_4804BC2401C2_ME_48C9300A02EF
- MELINK Original WL 'ME_4804BC2401C2' '49DCBC09029B.ms.model.script' // DoDraw
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC2401C2_ME_48C9300A02EF DoDraw
 
 ME ME_49DB948303B9_ME_48C9300A02EF
- MELINK Original WL 'ME_49DB948303B9' '49DCBC09029B.ms.model.script' // GetPaintersHolder
+ MELINK Original WL 'ME_49DB948303B9' '4804A2C101A5.ms.model.script' // GetPaintersHolder
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49DB948303B9_ME_48C9300A02EF GetPaintersHolder
+
+%%InheritedBy ME_48C928EE0282 ME_48C9300A02EF
+%%InheritedBy ME_49DB5FEF01D8 ME_48C9300A02EF
 
 ME ME_48C9300A02EF
  MEPROP UID '48C9300A02EF'
@@ -2670,7 +2586,7 @@ ME ME_48C9300A02EF
  MELINK Parent HWL ME_49DCC860038B // ParaList Painters
  ;
  MELIST Inherits
-   Seq: ( HWL ME_48C928EE0282 // evDelayedPainters
+   Seq: ( WL 'ME_48C928EE0282' '48C928EE0282.ms.model.script' // evDelayedPainters
  HWL ME_49DB5FEF01D8 // TevParaListPainter
  )
  ; // Inherits
@@ -2695,6 +2611,9 @@ ME ME_48C9300A02EF
  ME_52BD340C0308 // Tk2TagID
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '20.02.2008 10:18'
@@ -2759,7 +2678,7 @@ ME ME_49CB808701F0
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
- MELINK Target WL 'ME_47877EB202FB' '4AB0C3C60310.ms.model.script' // SysUtils
+ MELINK Target WL 'ME_47877EB202FB' '47877EB202FB.ms.model.script' // SysUtils
  ;
 
 ENDME // ME_49CB808701F0 
@@ -2780,7 +2699,7 @@ ME ME_52B158D20205
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_48C9377502A0 // TevTablePainter
  ;
- MELINK Target WL 'ME_4FBDEF6A019B' '47F1F38601A3.ms.model.script' // evHasOwnStyle
+ MELINK Target WL 'ME_4FBDEF6A019B' '47F1F3BC0330.ms.model.script' // evHasOwnStyle
  ;
 
 ENDME // ME_52B158D20205 
@@ -2827,52 +2746,58 @@ ME ME_52B2EF99032C_ME_48C9377502A0
 ENDME // ME_52B2EF99032C_ME_48C9377502A0 HasOwnStyle
 
 ME ME_479731C50290_ME_48C9377502A0
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_48C9377502A0 Cleanup
 
 ME ME_4804BC2401C2_ME_48C9377502A0
- MELINK Original WL 'ME_4804BC2401C2' '49DCBC09029B.ms.model.script' // DoDraw
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC2401C2_ME_48C9377502A0 DoDraw
 
 ME ME_4804BC800172_ME_48C9377502A0
- MELINK Original WL 'ME_4804BC800172' '49DCBC09029B.ms.model.script' // InitBottom
+ MELINK Original WL 'ME_4804BC800172' '4804A2C101A5.ms.model.script' // InitBottom
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC800172_ME_48C9377502A0 InitBottom
 
 ME ME_481D6C56033A_ME_48C9377502A0
- MELINK Original WL 'ME_481D6C56033A' '49DCBC09029B.ms.model.script' // BeforeDrawChild
+ MELINK Original WL 'ME_481D6C56033A' '481D6C300084.ms.model.script' // BeforeDrawChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_481D6C56033A_ME_48C9377502A0 BeforeDrawChild
 
 ME ME_49DCA7F3011C_ME_48C9377502A0
- MELINK Original WL 'ME_49DCA7F3011C' '49DCBC09029B.ms.model.script' // GetTablePainter
+ MELINK Original WL 'ME_49DCA7F3011C' '4804A2C101A5.ms.model.script' // GetTablePainter
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_49DCA7F3011C_ME_48C9377502A0 GetTablePainter
 
 ME ME_4C4570AE0113_ME_48C9377502A0
- MELINK Original WL 'ME_4C4570AE0113' '49DCBC09029B.ms.model.script' // InitInnerBottom
+ MELINK Original WL 'ME_4C4570AE0113' '481D6C300084.ms.model.script' // InitInnerBottom
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4C4570AE0113_ME_48C9377502A0 InitInnerBottom
 
 ME ME_4CAF3D530327_ME_48C9377502A0
- MELINK Original WL 'ME_4CAF3D530327' '49DCBC09029B.ms.model.script' // NeedsHackK235870994
+ MELINK Original WL 'ME_4CAF3D530327' '4804A2C101A5.ms.model.script' // NeedsHackK235870994
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4CAF3D530327_ME_48C9377502A0 NeedsHackK235870994
 
 ME ME_4D63E3490015_ME_48C9377502A0
- MELINK Original WL 'ME_4D63E3490015' '49DCBC09029B.ms.model.script' // AfterDrawChild
+ MELINK Original WL 'ME_4D63E3490015' '481D6C300084.ms.model.script' // AfterDrawChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4D63E3490015_ME_48C9377502A0 AfterDrawChild
+
+%%InjectedBy ME_4857E163036B ME_48C9377502A0
+
+%%ImplementedBy ME_49CB6B81028D ME_48C9377502A0
+
+%%InheritedBy ME_48C9300A02EF ME_48C9377502A0
 
 ME ME_48C9377502A0
  MEPROP UID '48C9377502A0'
@@ -2929,6 +2854,9 @@ ME ME_48C9377502A0
  ME_53D6744000AF // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '06.06.2007 11:44'
@@ -2969,7 +2897,7 @@ ME ME_48C9339E0013_ME_48C9390D0155
 ENDME // ME_48C9339E0013_ME_48C9390D0155 GetColorArray
 
 ME ME_4CAF3D530327_ME_48C9390D0155
- MELINK Original WL 'ME_4CAF3D530327' '49DCBC09029B.ms.model.script' // NeedsHackK235870994
+ MELINK Original WL 'ME_4CAF3D530327' '4804A2C101A5.ms.model.script' // NeedsHackK235870994
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4CAF3D530327_ME_48C9390D0155 NeedsHackK235870994
@@ -2986,6 +2914,10 @@ ME ME_51B96E5A0285_ME_48C9390D0155
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_51B96E5A0285_ME_48C9390D0155 GetFameObjectBehaviur
+
+%%InjectedBy ME_4857E36301AD ME_48C9390D0155
+
+%%InheritedBy ME_48C9377502A0 ME_48C9390D0155
 
 ME ME_48C9390D0155
  MEPROP UID '48C9390D0155'
@@ -3014,6 +2946,9 @@ ME ME_48C9390D0155
  ME_53D0D88801FF // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "no hands" True
  UP "started" '03.07.2001 14:48'
@@ -3061,7 +2996,7 @@ ME ME_4D63FAB5015E
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D63C57601A4 // TevReqGroupPainter
  ;
- MELINK Target WL 'ME_47A066980016' '537B83AD01F0.ms.model.script' // l3MinMax
+ MELINK Target WL 'ME_47A066980016' '47A066980016.ms.model.script' // l3MinMax
  ;
 
 ENDME // ME_4D63FAB5015E 
@@ -3098,16 +3033,20 @@ ME ME_53CE5F570291
 ENDME // ME_53CE5F570291 
 
 ME ME_4804BC2401C2_ME_4D63C57601A4
- MELINK Original WL 'ME_4804BC2401C2' '49DCBC09029B.ms.model.script' // DoDraw
+ MELINK Original WL 'ME_4804BC2401C2' '4804A2C101A5.ms.model.script' // DoDraw
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4804BC2401C2_ME_4D63C57601A4 DoDraw
 
 ME ME_4D63E3490015_ME_4D63C57601A4
- MELINK Original WL 'ME_4D63E3490015' '49DCBC09029B.ms.model.script' // AfterDrawChild
+ MELINK Original WL 'ME_4D63E3490015' '481D6C300084.ms.model.script' // AfterDrawChild
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_4D63E3490015_ME_4D63C57601A4 AfterDrawChild
+
+%%InjectedBy ME_4D63C1860228 ME_4D63C57601A4
+
+%%InheritedBy ME_48C9377502A0 ME_4D63C57601A4
 
 ME ME_4D63C57601A4
  MEPROP UID '4D63C57601A4'
@@ -3138,6 +3077,9 @@ ME ME_4D63C57601A4
  ME_53CE5F570291 // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Люлин А.В.'
  UP "ifdef" 'evReqGroupNeedsRadio'
  UP "no hands" True
@@ -3149,6 +3091,8 @@ ME ME_4D63C57601A4
 
 ENDME // ME_4D63C57601A4 TevReqGroupPainter
 
+FORWARD ME_4D6F3F42007C
+
 FORWARD ME_4D6F41500130
 
 ME ME_4D6F66820158
@@ -3159,7 +3103,7 @@ ME ME_4D6F66820158
  MEPROP Abstraction at_abstract
  MELINK Parent HWL ME_4D6F41500130 // IevDelayedPainterLogger
  ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4D6F66820158 OpenSelectionLog
@@ -3170,7 +3114,7 @@ ME ME_4D6F66CE0320
  MEPROP Name 'aLogName'
  MEPROP Class class_Parameter
  MELINK Stereotype st_const ;
- MELINK Target WL 'ME_476136D3010B' '4AB0C3C60310.ms.model.script' // String
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
 ENDME // ME_4D6F66CE0320 aLogName
@@ -3234,7 +3178,7 @@ ME ME_4D6F4B7700AB
  MEPROP LinkType lt_ref
  MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
- MELINK Target WL 'ME_47A0679D00E4' '47913B47006E.ms.model.script' // Tl3CustomFiler
+ MELINK Target WL 'ME_47A0679D00E4' '47A0686803A5.ms.model.script' // Tl3CustomFiler
  ;
 
 ENDME // ME_4D6F4B7700AB f_Filer
@@ -3339,7 +3283,7 @@ ME ME_4D6F4424024D
  MEPROP Abstraction at_final
  MELINK Parent HWL ME_4D6F440500EE // Exists
  ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
 ENDME // ME_4D6F4424024D DoIt
@@ -3422,7 +3366,7 @@ ME ME_4D6F5B22038F
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_4D6F3F42007C // TevDelayedPaintersSpy
  ;
- MELINK Target WL 'ME_4ADC58F703CF' '4AB0C3C60310.ms.model.script' // FreeAndNil
+ MELINK Target WL 'ME_4ADC58F703CF' '47877EB202FB.ms.model.script' // FreeAndNil
  ;
 
 ENDME // ME_4D6F5B22038F 
@@ -3438,10 +3382,12 @@ ME ME_4D6F7AB200D9
 ENDME // ME_4D6F7AB200D9 
 
 ME ME_479731C50290_ME_4D6F3F42007C
- MELINK Original WL 'ME_479731C50290' '51612EBB02F5.ms.model.script' // Cleanup
+ MELINK Original WL 'ME_479731C50290' '51612ED700B4.ms.model.script' // Cleanup
  ;
  MEPROP OpKind opkind_Overridden
 ENDME // ME_479731C50290_ME_4D6F3F42007C Cleanup
+
+%%InheritedBy ME_49E7754802A9 ME_4D6F3F42007C
 
 ME ME_4D6F3F42007C
  MEPROP UID '4D6F3F42007C'
@@ -3482,6 +3428,9 @@ ME ME_4D6F3F42007C
  ME_4D6F7AB200D9 // Tl3FileMode
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP "author" 'Инишев Д.А.'
  UP "singleton" True
  UP extprop:pas:UnitName 'evDelayedPaintersSpy'
@@ -3514,6 +3463,10 @@ ME ME_53D668150164
 
 ENDME // ME_53D668150164 
 
+%%InjectedBy ME_4857EAD30281 ME_50D3F54E00A8
+
+%%InheritedBy ME_48C7E98600AB ME_50D3F54E00A8
+
 ME ME_50D3F54E00A8
  MEPROP UID '50D3F54E00A8'
  MEPROP Name 'TevReqRowPainter'
@@ -3533,6 +3486,9 @@ ME ME_50D3F54E00A8
  ME_53D668150164 // IevPainter
  )
  ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
  UP extprop:pas:UnitName 'evReqRowPainter'
  UP extprop:rc:isAcceptableForScripts True
  UP extprop:rc:SelfName 'ReqRowPainter'
@@ -3561,7 +3517,7 @@ ME ME_49DCC860038B
  HWL ME_49DB2E390053 // TevCommentParaPainter
  HWL ME_49DB469F01B8 // TevControlsBlockPainter
  HWL ME_48C911C702A4 // TevSelectedParts
- HWL ME_48C928EE0282 // evDelayedPainters
+ WL 'ME_48C928EE0282' '48C928EE0282.ms.model.script' // evDelayedPainters
  HWL ME_48C9300A02EF // TevFramedParaListPainter
  HWL ME_48C9377502A0 // TevTablePainter
  HWL ME_48C9390D0155 // TevSBSPainter
@@ -3610,6 +3566,9 @@ ME ME_49DCC860038B
  WL 'ME_55C4AEC801CA' '55C4AEC801CA.ms.model.script' // Graphics
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifdef" 'evNeedPainters'
 
 ENDME // ME_49DCC860038B ParaList Painters

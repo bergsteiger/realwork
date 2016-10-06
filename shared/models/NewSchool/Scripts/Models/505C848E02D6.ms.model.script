@@ -2,147 +2,8 @@
 
 INCLUDE 'ElementsRTTI.ms.dict'
 
-FORWARD ME_505C848E02D6
-
-FORWARD ME_505C855C024A
-
-FORWARD ME_552FC8E1023A
-
-ME ME_552FC9080065
- MEPROP Name 'anIndex'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_552FC9080065 anIndex
-
-ME ME_552FC8E1023A
- MEPROP UID '552FC8E1023A'
- MEPROP Name 'OrderedControl'
- MEPROP Class class_Operation
- MELINK Stereotype st_keyword::Operation ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_505C855C024A // StatusBarWords
- ;
- MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
- ;
- MELIST Parameters
-   Seq: ( ME_552FC9080065 // anIndex
- )
- ; // Parameters
-
-ENDME // ME_552FC8E1023A OrderedControl
-
-ME ME_552FC91301BD
- MEPROP UID '552FC91301BD'
- MEPROP Name 'OrderedControlsCount'
- MEPROP Class class_Operation
- MELINK Stereotype st_keyword::Operation ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_505C855C024A // StatusBarWords
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
-
-ENDME // ME_552FC91301BD OrderedControlsCount
-
-FORWARD ME_552FC94F0188
-
-ME ME_552FC96B007C
- MEPROP Name 'aControl'
- MEPROP Class class_Parameter
- MELINK Stereotype st_in ;
- MELINK Target WL 'ME_47E1201703C3' '4799D29F033F.ms.model.script' // TControl
- ;
-
-ENDME // ME_552FC96B007C aControl
-
-ME ME_552FC94F0188
- MEPROP UID '552FC94F0188'
- MEPROP Name 'OrderIndex'
- MEPROP Class class_Operation
- MELINK Stereotype st_keyword::Operation ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_505C855C024A // StatusBarWords
- ;
- MELINK Target WL 'ME_46A606AC03B2' '4AB0C3C60310.ms.model.script' // Integer
- ;
- MELIST Parameters
-   Seq: ( ME_552FC96B007C // aControl
- )
- ; // Parameters
-
-ENDME // ME_552FC94F0188 OrderIndex
-
-ME ME_505C855C024A
- MEPROP UID '505C855C024A'
- MEPROP Name 'StatusBarWords'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_505C848E02D6 // StatusBarWords
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_4E15A08E030D' '4E15A08E030D.ms.model.script' // TnscStatusBar
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_552FC8E1023A // OrderedControl
- HWL ME_552FC91301BD // OrderedControlsCount
- HWL ME_552FC94F0188 // OrderIndex
- )
- ; // Operations
- UP "ifndef" 'NoScripts'
- UP "no class name" False
- UP "no_pop" True
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarWords.pas'
-
-ENDME // ME_505C855C024A StatusBarWords
-
-FORWARD ME_54DB6FD1016A
-
-ME ME_552FC9C10154
- MEPROP UID '552FC9C10154'
- MEPROP Name 'IsDown'
- MEPROP Class class_Operation
- MELINK Stereotype st_keyword::Operation ;
- MEPROP Visibility PrivateAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_54DB6FD1016A // StatusBarButtonWords
- ;
- MELINK Target WL 'ME_46A603BB0391' '4AB0C3C60310.ms.model.script' // Boolean
- ;
-
-ENDME // ME_552FC9C10154 IsDown
-
-ME ME_54DB6FD1016A
- MEPROP UID '54DB6FD1016A'
- MEPROP Name 'StatusBarButtonWords'
- MEPROP Class class_Class
- MELINK Stereotype st_ScriptKeywordsPack ;
- MEPROP Kind kind_NormalClass
- MEPROP Visibility PublicAccess
- MEPROP Abstraction at_final
- MELINK Parent HWL ME_505C848E02D6 // StatusBarWords
- ;
- MELIST Inherits
-   Seq: ( WL 'ME_503DE6F30027' '503DE6F30027.ms.model.script' // TnscStatusBarButton
- )
- ; // Inherits
- MELIST Operations
-   Seq: ( HWL ME_552FC9C10154 // IsDown
- )
- ; // Operations
- UP "ifndef" 'NoScripts'
- UP intf.pas:Path 'common\components\rtl\Garant\ScriptEngine\StatusBarButtonWords.pas'
-
-ENDME // ME_54DB6FD1016A StatusBarButtonWords
+%%Inner ME_505C855C024A
+%%Inner ME_54DB6FD1016A
 
 ME ME_505C848E02D6
  MEPROP UID '505C848E02D6'
@@ -155,8 +16,8 @@ ME ME_505C848E02D6
  MELINK Parent WL 'ME_54DB83140023' '54DB83140023.ms.model.script' // ScriptEngine$F1
  ;
  MELIST Children
-   Seq: ( HWL ME_505C855C024A // StatusBarWords
- HWL ME_54DB6FD1016A // StatusBarButtonWords
+   Seq: ( WL 'ME_505C855C024A' '505C855C024A.ms.model.script' // StatusBarWords
+ WL 'ME_54DB6FD1016A' '54DB6FD1016A.ms.model.script' // StatusBarButtonWords
  )
  ; // Children
  MELIST Depends
@@ -167,6 +28,9 @@ ME ME_505C848E02D6
  WL 'ME_4F69DF560034' '4F69DF560034.ms.model.script' // ControlsProcessing
  )
  ; // Depends
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' 'Uses' )
+ ; // DiagramsNames
  UP "ifdef" 'Nemesis'
  UP "ifndef" 'NoScripts'
 

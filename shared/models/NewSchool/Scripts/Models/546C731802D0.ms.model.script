@@ -1,0 +1,45 @@
+// ddFileIterator 546C731802D0 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_546C734403DC
+
+FORWARD ME_546C731802D0
+
+ME ME_546C734403DC
+ MEPROP UID '546C734403DC'
+ MEPROP Name 'TddFileIterator'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_546C731802D0 // ddFileIterator
+ ;
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddFileIterator'
+
+ENDME // ME_546C734403DC TddFileIterator
+
+ME ME_546C731802D0
+ MEPROP UID '546C731802D0'
+ MEPROP Name 'ddFileIterator'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_5279FD600133' '5279FD600133.ms.model.script' // Misc
+ ;
+ MELIST Children
+   Seq: ( HWL ME_546C734403DC // TddFileIterator
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddFileIterator.pas'
+
+ENDME // ME_546C731802D0 ddFileIterator

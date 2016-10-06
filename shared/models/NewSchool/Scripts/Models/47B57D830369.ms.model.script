@@ -1,0 +1,54 @@
+// l3InterfaceRefList 47B57D830369 Impurity Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+ME ME_47B07CF403D0_ME_47B57D830369
+ MELINK Original WL 'ME_47B07CF403D0' '47A74A5F0123.ms.model.script' // IsSameItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifndef" 'l3Items_IsAtomic'
+ENDME // ME_47B07CF403D0_ME_47B57D830369 IsSameItems
+
+ME ME_47B2C42A0163_ME_47B57D830369
+ MELINK Original WL 'ME_47B2C42A0163' '47A74A5F0123.ms.model.script' // AssignItem
+ ;
+ MEPROP OpKind opkind_Implemented
+ UP "ifdef" 'l3Items_NeedsAssignItem'
+ UP "ifndef" 'l3Items_NoSort'
+ENDME // ME_47B2C42A0163_ME_47B57D830369 AssignItem
+
+ME ME_47B99D4503A2_ME_47B57D830369
+ MELINK Original WL 'ME_47B99D4503A2' '47B45152003F.ms.model.script' // CompareExistingItems
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_47B99D4503A2_ME_47B57D830369 CompareExistingItems
+
+%%InheritedBy ME_47B9AF6E0228 ME_47B57D830369
+
+ME ME_47B57D830369
+ MEPROP UID '47B57D830369'
+ MEPROP Name 'l3InterfaceRefList'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_Impurity ;
+ MEPROP Kind kind_NormalClass
+ %SUMMARY 'Список ссылок на интерфейсы.' ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_47913B47006E' '47913B47006E.ms.model.script' // l3CoreObjects
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_47B9AF6E0228' '47B9AF6E0228.ms.model.script' // l3InterfaceRefListPrim
+ )
+ ; // Inherits
+ MELIST Implemented
+   Seq: ( ME_47B07CF403D0_ME_47B57D830369 // IsSameItems
+ ME_47B2C42A0163_ME_47B57D830369 // AssignItem
+ ME_47B99D4503A2_ME_47B57D830369 // CompareExistingItems
+ )
+ ; // Implemented
+ UP extprop:pas:TypeName '_l3InterfaceRefList_'
+ UP extprop:pas:UnitName 'l3InterfaceRefList.imp'
+ UP intf.pas:Path 'common\components\rtl\Garant\L3\l3InterfaceRefList.imp.pas'
+
+ENDME // ME_47B57D830369 l3InterfaceRefList

@@ -1,0 +1,85 @@
+// alcuAutoClassifier 5303549A038F UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_530354C00376
+
+FORWARD ME_5303549A038F
+
+ME ME_53E0D9150023_ME_530354C00376
+ MELINK Original WL 'ME_53E0D9150023' '52F8C2AE0042.ms.model.script' // TaskResult
+ ;
+ MEPROP OpKind opkind_Overridden
+ UP "pm" True
+ UP "reads field" True
+ENDME // ME_53E0D9150023_ME_530354C00376 TaskResult
+
+ME ME_53E1CB0C03C9_ME_530354C00376
+ MELINK Original WL 'ME_53E1CB0C03C9' '52F8C2AE0042.ms.model.script' // GetTaskResultClass : TcsClassResultClass
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_53E1CB0C03C9_ME_530354C00376 GetTaskResultClass : TcsClassResultClass
+
+%%InheritedBy ME_53F46C710363 ME_530354C00376
+
+ME ME_530354C00376
+ MEPROP UID '530354C00376'
+ MEPROP Name 'TalcuAutoClassTask'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_5303549A038F // alcuAutoClassifier
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_53F46C710363' '52F8C298005C.ms.model.script' // TcsAutoClassTask
+ )
+ ; // Inherits
+ MELIST Overridden
+   Seq: ( ME_53E0D9150023_ME_530354C00376 // TaskResult
+ ME_53E1CB0C03C9_ME_530354C00376 // GetTaskResultClass : TcsClassResultClass
+ )
+ ; // Overridden
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'alcuAutoClassTask'
+
+ENDME // ME_530354C00376 TalcuAutoClassTask
+
+ME ME_53F47244008E
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_5303549A038F // alcuAutoClassifier
+ ;
+ MELINK Target WL 'ME_53F472280036' '52FA3DD30094.ms.model.script' // TalcuAutoClassTaskResult
+ ;
+
+ENDME // ME_53F47244008E 
+
+ME ME_5303549A038F
+ MEPROP UID '5303549A038F'
+ MEPROP Name 'alcuAutoClassifier'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_52FA3DD30094' '52FA3DD30094.ms.model.script' // Lists
+ ;
+ MELIST Children
+   Seq: ( HWL ME_530354C00376 // TalcuAutoClassTask
+ )
+ ; // Children
+ MELIST Dependencies
+   Seq: ( ME_53F47244008E // TalcuAutoClassTaskResult
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'archi\source\projects\PipeInAuto\Tasks\NOT_FINISHED_alcuAutoClassifier.pas'
+
+ENDME // ME_5303549A038F alcuAutoClassifier

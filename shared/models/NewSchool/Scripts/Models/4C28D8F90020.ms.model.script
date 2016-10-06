@@ -1,0 +1,46 @@
+// ddMisspellCorrect 4C28D8F90020 UtilityPack Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+%%Inner ME_4C28D90B0318
+
+FORWARD ME_4C28D8F90020
+
+ME ME_4C28D90B0318
+ MEPROP UID '4C28D90B0318'
+ MEPROP Name 'TddMisspellCorrectFilter'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_4C28D8F90020 // ddMisspellCorrect
+ ;
+ UP "finished" False
+ UP extprop:rc:isAcceptableForScripts True
+ UP extprop:rc:SelfName 'ddMisspellCorrectFilter'
+
+ENDME // ME_4C28D90B0318 TddMisspellCorrectFilter
+
+ME ME_4C28D8F90020
+ MEPROP UID '4C28D8F90020'
+ MEPROP Name 'ddMisspellCorrect'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_UtilityPack ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MELINK Parent WL 'ME_4B324F930103' '4B324F930103.ms.model.script' // Filters
+ ;
+ MELIST Children
+   Seq: ( HWL ME_4C28D90B0318 // TddMisspellCorrectFilter
+ )
+ ; // Children
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "finished" False
+ UP intf.pas:Path 'common\components\rtl\Garant\dd\NOT_FINISHED_ddMisspellCorrect.pas'
+
+ENDME // ME_4C28D8F90020 ddMisspellCorrect
