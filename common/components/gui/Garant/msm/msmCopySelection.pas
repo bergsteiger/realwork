@@ -62,6 +62,7 @@ begin
 //#UC START# *57EBADA9033E_57E2607203E3_impl*
  inherited;
  theParams.rImageIndex := 9;
+ theParams.SetShortCut('Ctrl+C');
 //#UC END# *57EBADA9033E_57E2607203E3_impl*
 end;//TmsmCopySelection.InitOperationParams
 

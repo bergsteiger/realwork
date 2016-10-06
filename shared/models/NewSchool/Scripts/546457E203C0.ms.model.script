@@ -373,19 +373,19 @@ ME ME_5489482402E9
 
 ENDME // ME_5489482402E9 f_Progressor
 
-ME ME_57F3A8C9029F
- MEPROP UID '57F3A8C9029F'
- MEPROP Name 'f_Watch'
+ME ME_57F4B3110303
+ MEPROP UID '57F4B3110303'
+ MEPROP Name 'f_Counter'
  MEPROP Class class_Attribute
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
  ;
- MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
+ MELINK Target WL 'ME_57F3829802BA' '57F3833101A7.ms.model.script' // IncsTrafficCounter
  ;
 
-ENDME // ME_57F3A8C9029F f_Watch
+ENDME // ME_57F4B3110303 f_Counter
 
 FORWARD ME_546F389A0156
 
@@ -839,15 +839,15 @@ ME ME_5494061A03BD
 
 ENDME // ME_5494061A03BD 
 
-ME ME_57F3A88502FD
+ME ME_57F4A74A007B
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
  MELINK Parent HWL ME_546F3804032D // TncsOneFileDeliverer
  ;
- MELINK Target WL 'ME_57F3829802BA' '57F3833101A7.ms.model.script' // IncsTrafficCounter
+ MELINK Target WL 'ME_548007530030' '5480073300B1.ms.model.script' // Tl3StopWatch
  ;
 
-ENDME // ME_57F3A88502FD 
+ENDME // ME_57F4A74A007B 
 
 ME ME_54607DDC0159_ME_546F3804032D
  MELINK Original WL 'ME_54607DDC0159' '5460A4DB018A.ms.model.script' // Execute
@@ -899,7 +899,7 @@ ME ME_546F3804032D
  HWL ME_547588AA019E // f_TaskID
  HWL ME_5489456000B9 // f_Stream
  HWL ME_5489482402E9 // f_Progressor
- HWL ME_57F3A8C9029F // f_Watch
+ HWL ME_57F4B3110303 // f_Counter
  )
  ; // Attributes
  MELIST Operations
@@ -940,7 +940,7 @@ ME ME_546F3804032D
  ME_548940EC036A // TncsMessageExecutorFactory
  ME_548AC8E0026C // ncsProfile
  ME_5494061A03BD // l3System
- ME_57F3A88502FD // IncsTrafficCounter
+ ME_57F4A74A007B // Tl3StopWatch
  )
  ; // Dependencies
  MESTRINGLIST DiagramsNames
@@ -1042,6 +1042,23 @@ ME ME_5472D9D7003A
  ; // Inherits
 
 ENDME // ME_5472D9D7003A EncsEmptyResults
+
+ME ME_57F4A9820296
+ MEPROP UID '57F4A9820296'
+ MEPROP Name 'ReceiveTime'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_readonly::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_546F398E0203 // TncsFileListDeliverer
+ ;
+ MELINK Target WL 'ME_475EA27A0131' '4807744200AA.ms.model.script' // Double
+ ;
+ UP "pm" true
+ UP "reads field" true
+
+ENDME // ME_57F4A9820296 ReceiveTime
 
 ME ME_546F39A50114
  MEPROP UID '546F39A50114'
@@ -1359,7 +1376,8 @@ ME ME_546F398E0203
  )
  ; // Inherits
  MELIST Attributes
-   Seq: ( HWL ME_546F39A50114 // f_Data
+   Seq: ( HWL ME_57F4A9820296 // ReceiveTime
+ HWL ME_546F39A50114 // f_Data
  HWL ME_5472DC560362 // f_Transporter
  HWL ME_5472EA7D01F5 // f_LocalPath
  HWL ME_5472FF89034D // f_TaskID

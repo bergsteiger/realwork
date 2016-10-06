@@ -2,9 +2,12 @@ unit alcuConfig;
 
 { Модуль для хранения настроек программы }
 
-{ $Id: alcuConfig.pas,v 1.46 2016/06/03 09:28:30 fireton Exp $ }
+{ $Id: alcuConfig.pas,v 1.47 2016/10/05 10:22:30 lukyanets Exp $ }
 
 // $Log: alcuConfig.pas,v $
+// Revision 1.47  2016/10/05 10:22:30  lukyanets
+// Расставляем секундомеры
+//
 // Revision 1.46  2016/06/03 09:28:30  fireton
 // - вычищаем старую интеграцию с Гардоком
 //
@@ -1188,7 +1191,7 @@ begin
     AddIntegerItem(l3CStr('l3LogLevel'), l3CStr('Уровень логирования'), alcuMessageLevel);
      Hint:= 'Минимальный - 0, самый подробный - 10';
      MinValue := 0;
-     MaxValue := 10;
+     MaxValue := 11;
 
    AddUserTasksChild(aConfig);
 

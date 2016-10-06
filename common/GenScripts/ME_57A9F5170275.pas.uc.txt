@@ -125,21 +125,24 @@ w:\common\components\gui\Garant\msm\msmModelElement.pas
  Result := TmsmModelElementMethodCaller.Call(tfwCatValueArray([TtfwStackValue_C(MainWord)], aParameters), aMethodName);
 //#UC END# *57E3F2E600D8_57A9F5170275_impl*
 //#UC START# *57E3F2E600D8_57A9F5170275_var*
-
- function tfwCatValueArray(const A: array of TtfwStackValue;
-                           const B: array of TtfwStackValue): TtfwStackValuesArray;
- var
-  l_ALen  : Integer;
-  l_BLen  : Integer;
-  l_Index : Integer;
- begin//tfwCatValueArray
-  l_ALen := Succ(High(A));
-  l_BLen := Succ(High(B));
-  SetLength(Result, l_ALen + l_BLen);
-  for l_Index := 0 to Pred(l_ALen) do
-   Result[l_Index] := A[l_Index];
-  for l_Index := 0 to Pred(l_BLen) do
-   Result[l_ALen + l_Index] := B[l_Index];
- end;//tfwCatValueArray
- 
 //#UC END# *57E3F2E600D8_57A9F5170275_var*
+//#UC START# *57F4E3E001E9_57A9F5170275_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetList(tfwCatValueArray([TtfwStackValue_C(MainWord)], aParameters), aMethodName);
+//#UC END# *57F4E3E001E9_57A9F5170275_impl*
+//#UC START# *57F4E3E001E9_57A9F5170275_var*
+//#UC END# *57F4E3E001E9_57A9F5170275_var*
+//#UC START# *57F4E41301BA_57A9F5170275_impl*
+ l_ALen := Succ(High(A));
+ l_BLen := Succ(High(B));
+ SetLength(Result, l_ALen + l_BLen);
+ for l_Index := 0 to Pred(l_ALen) do
+  Result[l_Index] := A[l_Index];
+ for l_Index := 0 to Pred(l_BLen) do
+  Result[l_ALen + l_Index] := B[l_Index];
+//#UC END# *57F4E41301BA_57A9F5170275_impl*
+//#UC START# *57F4E41301BA_57A9F5170275_var*
+var
+ l_ALen  : Integer;
+ l_BLen  : Integer;
+ l_Index : Integer;
+//#UC END# *57F4E41301BA_57A9F5170275_var*

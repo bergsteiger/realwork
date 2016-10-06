@@ -11,6 +11,7 @@ interface
 uses
  l3IntfUses
  , msmEvents
+ , Classes
  {$If NOT Defined(NoVCL)}
  , ActnList
  {$IfEnd} // NOT Defined(NoVCL)
@@ -22,6 +23,9 @@ type
    rCaption: AnsiString;
    rEnabled: Boolean;
    rImageIndex: Integer;
+   rShortCut: TShortCut;
+  public
+   procedure SetShortCut(const aString: AnsiString);
  end;//TmsmOperationParams
 
  ImsmOperation = interface
@@ -65,6 +69,9 @@ implementation
 
 uses
  l3ImplUses
+ {$If NOT Defined(NoVCL)}
+ , Menus
+ {$IfEnd} // NOT Defined(NoVCL)
 ;
 
 function TmsmOperationParams_C(const aCaption: AnsiString;
@@ -78,6 +85,7 @@ begin
  Result.rCaption := aCaption;
  Result.rEnabled := anEnabled;
  Result.rImageIndex := -1;
+ Result.rShortCut := 0;
 //#UC END# *57EBAD6A0303_57EBACBA00FA_impl*
 end;//TmsmOperationParams_C
 
@@ -91,5 +99,14 @@ begin
  Result := TmsmOperationParams_C(aCaption, true);
 //#UC END# *57EBBC4903B7_57EBACBA00FA_impl*
 end;//TmsmOperationParams_C
+
+procedure TmsmOperationParams.SetShortCut(const aString: AnsiString);
+//#UC START# *57F4F67103C4_57EBACBA00FA_var*
+//#UC END# *57F4F67103C4_57EBACBA00FA_var*
+begin
+//#UC START# *57F4F67103C4_57EBACBA00FA_impl*
+ Self.rShortCut := TextToShortCut(aString);
+//#UC END# *57F4F67103C4_57EBACBA00FA_impl*
+end;//TmsmOperationParams.SetShortCut
 
 end.

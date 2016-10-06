@@ -86,6 +86,33 @@ ME ME_5613A27E03D0
 
 ENDME // ME_5613A27E03D0 OwnKeywordByName
 
+ME ME_57F53527013F
+ MEPROP Name 'aName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46780DA40383' '4677FBA70343.ms.model.script' // Il3CString
+ ;
+
+ENDME // ME_57F53527013F aName
+
+ME ME_57F5350E025B
+ MEPROP UID '57F5350E025B'
+ MEPROP Name 'CheckWord'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_keyword::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_55E727F40334 // tfwDictionaryWordsPack
+ ;
+ MELINK Target WL 'ME_4DAEF23D00EE' '4DAF19F600C5.ms.model.script' // TtfwKeyWord
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F53527013F // aName
+ )
+ ; // Parameters
+
+ENDME // ME_57F5350E025B CheckWord
+
 ME ME_55E7283B0087
  MEPROP Class class_Dependency
  MELINK Stereotype st_uses::Dependency ;
@@ -138,6 +165,7 @@ ME ME_55E727F40334
  HWL ME_55E728580305 // KeywordByName
  HWL ME_55ED4C2503C3 // KeyWordsIterator
  HWL ME_5613A27E03D0 // OwnKeywordByName
+ HWL ME_57F5350E025B // CheckWord
  )
  ; // Operations
  MELIST Dependencies

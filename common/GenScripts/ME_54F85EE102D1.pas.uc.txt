@@ -68,8 +68,12 @@ w:\common\components\rtl\Garant\DA\daDataProviderFactory.pas
   try
    l_Provider.Start;
   except
+   l_Provider.Stop;
    Result := da_leConnectionError;
-   Exit;
+   if SuppressExceptions then
+    Exit
+   else
+    raise; 
   end;
   try
    Result := l_Provider.CheckLogin(aLogin, aPassword, IsRequireAdminRights);

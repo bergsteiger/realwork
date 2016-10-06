@@ -489,6 +489,61 @@ ME ME_57E3F2E600D8
 
 ENDME // ME_57E3F2E600D8 Call
 
+FORWARD ME_57F4E3E001E9
+
+ME ME_57F4E3F202D9
+ MEPROP Name 'aParameters'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_57DFF5AD03C7' '57AB4243034B.ms.model.script' // array of TtfwStackValue
+ ;
+
+ENDME // ME_57F4E3F202D9 aParameters
+
+ME ME_57F4E3F20306
+ MEPROP Name 'aMethodName'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
+ ;
+
+ENDME // ME_57F4E3F20306 aMethodName
+
+ME ME_57F4E3EB0241
+ MEPROP UID '57F4E3EB0241'
+ MEPROP Name 'DoIt'
+ MEPROP Class class_Operation
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F4E3E001E9 // CallAndGetList
+ ;
+ MELINK Target WL 'ME_57E3F88C00BB' '4DAF19F600C5.ms.model.script' // ItfwArray
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F4E3F202D9 // aParameters
+ ME_57F4E3F20306 // aMethodName
+ )
+ ; // Parameters
+
+ENDME // ME_57F4E3EB0241 DoIt
+
+ME ME_57F4E3E001E9
+ MEPROP UID '57F4E3E001E9'
+ MEPROP Name 'CallAndGetList'
+ MEPROP Class class_Class
+ MELINK Stereotype st_facetmethod ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_abstract
+ MELINK Parent HWL ME_57A9F4D30086 // ImsmModelElement
+ ;
+ MELIST Operations
+   Seq: ( HWL ME_57F4E3EB0241 // DoIt
+ )
+ ; // Operations
+
+ENDME // ME_57F4E3E001E9 CallAndGetList
+
 ME ME_57A9FE9400E7_ME_57A9F4D30086
  MELINK Original HWL ME_57A9FE9400E7 // Name
  ;
@@ -537,6 +592,7 @@ ME ME_57A9F4D30086
  HWL ME_57E3F150013E // IsSameElementView
  HWL ME_57E3F1660281 // IsViewLink
  HWL ME_57E3F2E600D8 // Call
+ HWL ME_57F4E3E001E9 // CallAndGetList
  )
  ; // Operations
  MELIST Implemented

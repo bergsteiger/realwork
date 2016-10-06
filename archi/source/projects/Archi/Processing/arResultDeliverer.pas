@@ -176,7 +176,7 @@ begin
     l_TryCount := 0;
     repeat
      l_ResultMsg.ResultKind := l_Deliverer.Execute;
-//     l_ReceiveTime := l_ReceiveTime + l_Deliverer.ReseiveTime;
+     l_ReceiveTime := l_ReceiveTime + l_Deliverer.ReceiveTime;
      inc(l_TryCount);
      if (l_ResultMsg.ResultKind = ncs_rkRetry) and (l_TryCount < cMaxTryCount) then
      begin
@@ -238,11 +238,10 @@ begin
  finally
   l_Watch.Stop;
  end;
- l3System.Msg2Log('Доставка задачи %s завершена', [aTaskID]);
- l3System.Msg2Log('  - общее время %s ms', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
- l3System.Msg2Log('    - прием %s ms', [FormatFloat('#,###.000', l_ReceiveTime * 1000)]);
- l3System.Msg2Log('    - объем %s kb', [FormatFloat('#,###.000', f_Counter.BytesProcessed / 1024)]);
-// l3System.Msg2Log('    - скорость приема %s kb/s', [FormatFloat('#,###.000', f_Counter.BytesProcessed / 1024 / l_ReceiveTime)]);
+ l3System.Msg2Log('Доставка задачи %s завершена - общее время %s ms', [aTaskID, FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
+ l3System.Msg2Log('  - прием %s ms', [FormatFloat('#,##0.000', l_ReceiveTime * 1000)], 3);
+ l3System.Msg2Log('  - объем %s kb', [FormatFloat('#,##0', f_Counter.BytesProcessed / 1024)], 3);
+ l3System.Msg2Log('  - скорость приема %s kb/s', [FormatFloat('#,##0.000', f_Counter.BytesProcessed / 1024 / l_ReceiveTime)], 3);
 //#UC END# *5465FDD1009D_545C749003C2_impl*
 end;//TarResultDeliverer.ReceiveTaskResult
 
@@ -308,10 +307,19 @@ var
  l_IDX: Integer;
  l_Watch: Tl3StopWatch;
  l_TotalSize: Int64;
+
+
+ l_Connect: Tl3StopWatch;
+ l_GetList: Tl3StopWatch;
+ l_Disconnect: Tl3StopWatch;
 //#UC END# *4911B69E037D_545C749003C2_var*
 begin
 //#UC START# *4911B69E037D_545C749003C2_impl*
  l_Watch.Reset;
+ l_Connect.Reset;
+ l_GetList.Reset;
+ l_Disconnect.Reset;
+
 
  g_SaveMessage.ReSet;
  g_LoadMessage.ReSet;
@@ -323,12 +331,14 @@ begin
  g_WriteFile.ReSet;
 
  l_TotalSize := 0;
- l_Watch.Start;
  try
+  l_Watch.Start;
   try
    l3System.Msg2Log('Начало проверки результатов экспорта');
    l_OldValue := f_RequestCounter;
+ l_Connect.Start;
    f_Transporter.Connect(ServerHost, ServerPort, l3CreateStringGUID);
+ l_Connect.Stop;
    try
     if not f_Transporter.Connected then
     begin
@@ -344,8 +354,11 @@ begin
      try
       l_TaskListMsg.UserID := ClientID;
       f_Transporter.Send(l_TaskListMsg);
+
+ l_GetList.Start;
       if f_Transporter.WaitForReply(l_TaskListMsg, l_Reply) then
       begin
+ l_GetList.Stop;
        l_TaskListReply := l_Reply as TncsGetReadyToDeliveryTasksReply;
        for l_IDX := 0 to l_TaskListReply.TasksIDList.Count - 1 do
        begin
@@ -357,7 +370,9 @@ begin
         l_TotalSize := l_TotalSize + f_Counter.BytesProcessed;
        end;
        l3InterlockedExchangeAdd(f_RequestCounter, -l_OldValue);
-      end;
+      end
+      else
+ l_GetList.Stop;
      finally
       FreeAndNil(l_TaskListMsg);
      end;
@@ -365,36 +380,38 @@ begin
      FreeAndNil(l_TaskListReply);
     end;
    finally
+ l_Disconnect.Start;
     f_Transporter.Disconnect;
+ l_Disconnect.Stop;
    end;
-   l3System.Msg2Log('Проверка результатов экспорта успешно завершена');
-  except
-   on E: Exception do
-   begin
-    l3InterlockedExchange(f_RequestCounter, 0);
-    l3System.Msg2Log('Проверка результатов экспорта завершилась с ошибкой');
-    l3System.Exception2Log(E);
-    raise;
-   end;
+  finally
+   l_Watch.Stop;
   end;
- finally
-  l_Watch.Stop;
+  l3System.Msg2Log('Доставка завершена - общее время %s ms', [FormatFloat('#,##0.000', l_Watch.Time * 1000)]);
+  l3System.Msg2Log('    - Соединение %s ms', [FormatFloat('#,##0.000', l_Connect.Time * 1000)], 5);
+  l3System.Msg2Log('    - Получение списка задач %s ms', [FormatFloat('#,##0.000', l_GetList.Time * 1000)], 5);
+  l3System.Msg2Log('    - Отключение %s ms', [FormatFloat('#,##0.000', l_Disconnect.Time * 1000)], 5);
+  l3System.Msg2Log('  - общий объем %s kb', [FormatFloat('#,##0', l_TotalSize / 1024)]);
+  l3System.Msg2Log('  - общая скорость %s kb/s', [FormatFloat('#,##0.000', l_TotalSize / 1024 / l_Watch.Time)]);
+  l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,##0.000', g_SaveMessage.Time * 1000)], 11);
+  l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,##0.000', g_SendMessage.Time * 1000)], 11);
+  l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,##0.000', g_LoadMessage.Time * 1000)], 11);
+  l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,##0.000', g_ReveiveMessage.Time * 1000)], 11);
+  l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,##0.000', g_WaitFile.Time * 1000)], 11);
+  l3System.Msg2Log('RECEIVE FILE = %s', [FormatFloat('#,##0.000', g_ReceivePartFile.Time * 1000)], 11);
+  l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,##0.000', g_WriteFile.Time * 1000)], 11);
+  l3System.Msg2Log('WRITE CONTROL = %s', [FormatFloat('#,##0.000', g_SaveControl.Time * 1000)], 11);
+  l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,##0.000', l_Watch.Time * 1000)], 11);
+  l3System.Msg2Log('Проверка результатов экспорта успешно завершена');
+ except
+  on E: Exception do
+  begin
+   l3InterlockedExchange(f_RequestCounter, 0);
+   l3System.Msg2Log('Проверка результатов экспорта завершилась с ошибкой');
+   l3System.Exception2Log(E);
+   raise;
+  end;
  end;
- l3System.Msg2Log('Доставка завершена');
- l3System.Msg2Log('  - общее время %s ms', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
- l3System.Msg2Log('  - общий объем %s kb', [FormatFloat('#,###.000', l_TotalSize / 1024)]);
- l3System.Msg2Log('  - общая скорость %s kb/s', [FormatFloat('#,###.000', l_TotalSize / 1024 / l_Watch.Time)]);
-{$IFDEF ncsProfile}
- l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,###.000', g_SaveMessage.Time * 1000)]);
- l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,###.000', g_SendMessage.Time * 1000)]);
- l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,###.000', g_LoadMessage.Time * 1000)]);
- l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,###.000', g_ReveiveMessage.Time * 1000)]);
- l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,###.000', g_WaitFile.Time * 1000)]);
- l3System.Msg2Log('RECEIVE FILE = %s', [FormatFloat('#,###.000', g_ReceivePartFile.Time * 1000)]);
- l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,###.000', g_WriteFile.Time * 1000)]);
- l3System.Msg2Log('WRITE CONTROL = %s', [FormatFloat('#,###.000', g_SaveControl.Time * 1000)]);
- l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
-{$ENDIF ncsProfile}
 //#UC END# *4911B69E037D_545C749003C2_impl*
 end;//TarResultDeliverer.DoExecute
 

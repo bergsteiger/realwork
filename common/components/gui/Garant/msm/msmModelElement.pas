@@ -12,11 +12,11 @@ uses
  l3IntfUses
  , msmBaseModelElement
  , msmModelElements
+ , msmModelElementMethodCaller
  {$If NOT Defined(NoScripts)}
  , tfwScriptingInterfaces
  {$IfEnd} // NOT Defined(NoScripts)
  , l3Interfaces
- , msmModelElementMethodCaller
 ;
 
 type
@@ -38,6 +38,8 @@ type
    function IsViewLink: Boolean;
    function Call(const aParameters: array of TtfwStackValue;
     const aMethodName: AnsiString): TtfwStackValue;
+   function CallAndGetList(const aParameters: array of TtfwStackValue;
+    const aMethodName: AnsiString): ItfwArray;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
   public
@@ -45,6 +47,8 @@ type
    class function MakeFromWord(aWord: TtfwWord): ImsmModelElement;
    class function MakeFromObj(anObject: TObject): ImsmModelElement;
    class function MakeFromValue(const aValue: TtfwStackValue): ImsmModelElement;
+   class function tfwCatValueArray(const A: array of TtfwStackValue;
+    const B: array of TtfwStackValue): TtfwStackValuesArray;
  end;//TmsmModelElement
 
 implementation
@@ -102,6 +106,26 @@ begin
  Result := MakeFromObj(aValue.AsObject);
 //#UC END# *57E30FCD03DF_57A9F5170275_impl*
 end;//TmsmModelElement.MakeFromValue
+
+class function TmsmModelElement.tfwCatValueArray(const A: array of TtfwStackValue;
+ const B: array of TtfwStackValue): TtfwStackValuesArray;
+//#UC START# *57F4E41301BA_57A9F5170275_var*
+var
+ l_ALen  : Integer;
+ l_BLen  : Integer;
+ l_Index : Integer;
+//#UC END# *57F4E41301BA_57A9F5170275_var*
+begin
+//#UC START# *57F4E41301BA_57A9F5170275_impl*
+ l_ALen := Succ(High(A));
+ l_BLen := Succ(High(B));
+ SetLength(Result, l_ALen + l_BLen);
+ for l_Index := 0 to Pred(l_ALen) do
+  Result[l_Index] := A[l_Index];
+ for l_Index := 0 to Pred(l_BLen) do
+  Result[l_ALen + l_Index] := B[l_Index];
+//#UC END# *57F4E41301BA_57A9F5170275_impl*
+end;//TmsmModelElement.tfwCatValueArray
 
 function TmsmModelElement.Get_Parent: ImsmModelElement;
 //#UC START# *57AA0B890200_57A9F5170275get_var*
@@ -243,29 +267,22 @@ end;//TmsmModelElement.IsViewLink
 function TmsmModelElement.Call(const aParameters: array of TtfwStackValue;
  const aMethodName: AnsiString): TtfwStackValue;
 //#UC START# *57E3F2E600D8_57A9F5170275_var*
-
- function tfwCatValueArray(const A: array of TtfwStackValue;
-                           const B: array of TtfwStackValue): TtfwStackValuesArray;
- var
-  l_ALen  : Integer;
-  l_BLen  : Integer;
-  l_Index : Integer;
- begin//tfwCatValueArray
-  l_ALen := Succ(High(A));
-  l_BLen := Succ(High(B));
-  SetLength(Result, l_ALen + l_BLen);
-  for l_Index := 0 to Pred(l_ALen) do
-   Result[l_Index] := A[l_Index];
-  for l_Index := 0 to Pred(l_BLen) do
-   Result[l_ALen + l_Index] := B[l_Index];
- end;//tfwCatValueArray
- 
 //#UC END# *57E3F2E600D8_57A9F5170275_var*
 begin
 //#UC START# *57E3F2E600D8_57A9F5170275_impl*
  Result := TmsmModelElementMethodCaller.Call(tfwCatValueArray([TtfwStackValue_C(MainWord)], aParameters), aMethodName);
 //#UC END# *57E3F2E600D8_57A9F5170275_impl*
 end;//TmsmModelElement.Call
+
+function TmsmModelElement.CallAndGetList(const aParameters: array of TtfwStackValue;
+ const aMethodName: AnsiString): ItfwArray;
+//#UC START# *57F4E3E001E9_57A9F5170275_var*
+//#UC END# *57F4E3E001E9_57A9F5170275_var*
+begin
+//#UC START# *57F4E3E001E9_57A9F5170275_impl*
+ Result := TmsmModelElementMethodCaller.CallAndGetList(tfwCatValueArray([TtfwStackValue_C(MainWord)], aParameters), aMethodName);
+//#UC END# *57F4E3E001E9_57A9F5170275_impl*
+end;//TmsmModelElement.CallAndGetList
 
 procedure TmsmModelElement.Cleanup;
  {* Функция очистки полей объекта. }

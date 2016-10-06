@@ -42,6 +42,7 @@ type
   function IsElementSelectedOrCurrent(const anElement: ImsmModelElement): Boolean;
   function Clone: ImsmElementSelection;
   function AsArray: ItfwArray;
+  procedure SelectElements(const anElements: ItfwArray);
   property CurrentElement: ImsmModelElement
    read Get_CurrentElement
    write Set_CurrentElement;
@@ -65,6 +66,9 @@ type
   function Drop(const anElement: ImsmModelElement;
    const aPoint: Tl3SPoint): Boolean; overload;
   function CanPaste(const aSelection: ImsmElementSelection): Boolean;
+  function CanAddNewElement: Boolean;
+  procedure AddNewElement(const anElementName: AnsiString;
+   const anElementStereotype: ImsmModelElement);
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -98,6 +102,9 @@ type
   function Drop(const anElement: ImsmModelElement;
    const aPoint: Tl3SPoint): Boolean; overload;
   function CanPaste(const aSelection: ImsmElementSelection): Boolean;
+  function CanAddNewElement: Boolean;
+  procedure AddNewElement(const anElementName: AnsiString;
+   const anElementStereotype: ImsmModelElement);
   property List: ImsmModelElementStringList
    read Get_List;
   property ElementToAction: ImsmModelElement
@@ -129,6 +136,9 @@ type
   function Drop(const anElement: ImsmModelElement;
    const aPoint: Tl3SPoint): Boolean; overload;
   function CanPaste(const aSelection: ImsmElementSelection): Boolean;
+  function CanAddNewElement: Boolean;
+  procedure AddNewElement(const anElementName: AnsiString;
+   const anElementStereotype: ImsmModelElement);
   property ElementToAction: ImsmModelElement
    read Get_ElementToAction
    write Set_ElementToAction;
@@ -158,6 +168,9 @@ type
   function Drop(const anElement: ImsmModelElement;
    const aPoint: Tl3SPoint): Boolean; overload;
   function CanPaste(const aSelection: ImsmElementSelection): Boolean;
+  function CanAddNewElement: Boolean;
+  procedure AddNewElement(const anElementName: AnsiString;
+   const anElementStereotype: ImsmModelElement);
   property Tree: ImsmModelElementTree
    read Get_Tree;
   property ElementToAction: ImsmModelElement

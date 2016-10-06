@@ -148,8 +148,26 @@ BOOLEAN elem_func UPisTrue
  Self aName |N false .ElemMember true ?== >>> Result  
 ; // UPisTrue
 
+USES
+ MDProcess_Templates.tpi.script
+;
+
+USES
+ IsNil.ms.dict
+;
+
 ModelElement STRING elem_func StereotypeInModel
- Self 'StereotypeInModel' .ElemWord >>> Result
+ RULES
+  //( Self .IsStereotype st_MDACategory )
+  // Self
+  //( Self .IsStereotype st_MDAClass )
+  // Self
+  ( Self 'StereotypeInModel' .ElemWord .IsNil )
+   Self
+  DEFAULT
+   ( Self 'StereotypeInModel' .ElemWord )
+ ; // RULES  
+ >>> Result
 ; // StereotypeInModel
 
 USES
@@ -215,10 +233,6 @@ ModelElement elem_func Parent
 ModelElement elem_func Original
  Self 'Original' .ElemWord >>> Result
 ; // Original
-
-USES
- IsNil.ms.dict
-;
 
 ModelElement elem_func Viewed
  RULES
@@ -465,10 +479,6 @@ USES
 
 USES
  MDProcess_CoreTemplates.tpi.script
-;
-
-USES
- MDProcess_Templates.tpi.script
 ;
 
 USES

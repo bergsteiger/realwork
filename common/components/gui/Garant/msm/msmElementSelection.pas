@@ -47,6 +47,7 @@ type
    function IsElementSelectedOrCurrent(const anElement: ImsmModelElement): Boolean;
    function Clone: ImsmElementSelection;
    function AsArray: ItfwArray;
+   procedure SelectElements(const anElements: ItfwArray);
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
    procedure ClearFields; override;
@@ -75,6 +76,7 @@ uses
  , l3MinMax
  , RTLConsts
  //#UC START# *57D8F2850376impl_uses*
+ , msmModelElement
  //#UC END# *57D8F2850376impl_uses*
 ;
 
@@ -327,6 +329,26 @@ begin
  end;//try..finally
 //#UC END# *57E3F8490205_57D8F2850376_impl*
 end;//TmsmElementSelection.AsArray
+
+procedure TmsmElementSelection.SelectElements(const anElements: ItfwArray);
+//#UC START# *57F4E7E40351_57D8F2850376_var*
+var
+ l_Index : Integer;
+//#UC END# *57F4E7E40351_57D8F2850376_var*
+begin
+//#UC START# *57F4E7E40351_57D8F2850376_impl*
+ Self.Clear;
+ if (anElements <> nil) then
+ begin
+  for l_Index := 0 to Pred(anElements.Count) do
+   Self.Add(TmsmModelElement.MakeFromValue(anElements.Items[l_Index]));
+  if (Model <> nil) then
+   Model.Fire(SelectionChangedEvent.Instance);
+  if not Self.Empty then
+   Self.Set_CurrentElement(Self.Last);
+ end;//anElements <> nil
+//#UC END# *57F4E7E40351_57D8F2850376_impl*
+end;//TmsmElementSelection.SelectElements
 
 procedure TmsmElementSelection.Cleanup;
  {* Функция очистки полей объекта. }

@@ -9439,6 +9439,87 @@ ME ME_57BEA2A8025C
 
 ENDME // ME_57BEA2A8025C csDownloadDocStream
 
+FORWARD ME_57F4D8850205
+
+ME ME_57F4D89C00D7
+ MEPROP UID '57F4D89C00D7'
+ MEPROP Name 'TaskType'
+ MEPROP Class class_Attribute
+ MELINK Stereotype st_override::Attribute ;
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F4D8850205 // DeliveryProfile
+ ;
+ MEPROP Value 'Ord(cs_ttDeliveryProfile)'
+ UP extprop:evd:NewTypeName 'DeliveryProfile_TaskType'
+ UP extprop:pas:Value 'Ord(cs_ttDeliveryProfile)'
+
+ENDME // ME_57F4D89C00D7 TaskType
+
+ME ME_57F4D8F30136
+ MEPROP UID '57F4D8F30136'
+ MEPROP Name 'TargetFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F4D8850205 // DeliveryProfile
+ ;
+ MELINK Target WL 'ME_48492AC1023B' '52669BFC024E.ms.model.script' // String
+ ;
+ UP extprop:evd:NewTypeName 'DeliveryProfile_TargetFolder'
+
+ENDME // ME_57F4D8F30136 TargetFolder
+
+ME ME_57F4D901039F
+ MEPROP UID '57F4D901039F'
+ MEPROP Name 'SourceFolder'
+ MEPROP Class class_Attribute
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_final
+ MEPROP LinkType lt_agr
+ MELINK Parent HWL ME_57F4D8850205 // DeliveryProfile
+ ;
+ MELINK Target WL 'ME_48492AC1023B' '52669BFC024E.ms.model.script' // String
+ ;
+ UP extprop:evd:NewTypeName 'DeliveryProfile_SourceFolder'
+
+ENDME // ME_57F4D901039F SourceFolder
+
+%%InheritedBy ME_53A95D9F02E9 ME_57F4D8850205
+
+ME ME_57F4D8850205
+ MEPROP UID '57F4D8850205'
+ MEPROP Name 'DeliveryProfile'
+ MEPROP Class class_Class
+ MELINK Stereotype st_Tag ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_537DFE740339 // evdTasks
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_53A95D9F02E9 // ProcessTask
+ )
+ ; // Inherits
+ MELIST Attributes
+   Seq: ( HWL ME_57F4D89C00D7 // TaskType
+ HWL ME_57F4D8F30136 // TargetFolder
+ HWL ME_57F4D901039F // SourceFolder
+ )
+ ; // Attributes
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP "Defines CompareTagWithInt" false
+ UP "Defines CompareTags" false
+ UP intf.pas:Path 'common\components\rtl\Garant\EVD\DeliveryProfile_Const.pas'
+ UP extprop:pas:TypeName 'DeliveryProfileTag'
+ UP extprop:pas:UnitName 'DeliveryProfile_Const'
+
+ENDME // ME_57F4D8850205 DeliveryProfile
+
 %%InheritedBy ME_4849288E0078 ME_537DFE740339
 
 ME ME_537DFE740339
@@ -9558,6 +9639,7 @@ ME ME_537DFE740339
  HWL ME_57EE4F6402C7 // csMultiOperation
  HWL ME_57F2070C002F // MultiOperationRequest
  HWL ME_57BEA2A8025C // csDownloadDocStream
+ HWL ME_57F4D8850205 // DeliveryProfile
  )
  ; // Children
  MELIST Injected

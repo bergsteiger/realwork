@@ -31,6 +31,7 @@ type
    f_ProgressDescription: AnsiString;
    f_ProgressPercent: Integer;
    f_Progressor: TddProgressObject;
+   f_ReceiveTime: Double;
   private
    procedure ProgressUpdate(Sender: TObject;
     aTotalPercent: Integer);
@@ -47,6 +48,8 @@ type
   public
    property TargetFolder: AnsiString
     read pm_GetTargetFolder;
+   property ReceiveTime: Double
+    read f_ReceiveTime;
  end;//TarOneTaskDeliverer
 {$IfEnd} // Defined(AppClientSide)
 
@@ -97,6 +100,7 @@ begin
  f_Progressor := TddProgressObject.Create;
  f_Progressor.AllowProgressDecrement := True;
  f_Progressor.OnUpdate := ProgressUpdate;
+ f_ReceiveTime := 0;
 //#UC END# *546AFEF1001C_546AFE0D01CB_impl*
 end;//TarOneTaskDeliverer.Create
 
@@ -185,6 +189,7 @@ begin
        Result := ncs_rkEmpty;
      end;
     finally
+     f_ReceiveTime := f_ReceiveTime + l_Deliverer.ReceiveTime;
      FreeAndNil(l_Deliverer);
     end;
    end;

@@ -80,10 +80,7 @@ var
 //#UC END# *57E12CDC0172_57E125C801C4_var*
 //#UC START# *57E14EBD0128_57E125C801C4set_impl*
  if (f_AllowResize <> aValue) then
- begin
   f_AllowResize := aValue;
-  //RecreateWindow;
- end;
 //#UC END# *57E14EBD0128_57E125C801C4set_impl*
 //#UC START# *57E14EBD0128_57E125C801C4set_var*
 //#UC END# *57E14EBD0128_57E125C801C4set_var*
@@ -276,10 +273,6 @@ var
  dc: HDC;
 //#UC END# *57E53C0803A3_57E125C801C4_var*
 //#UC START# *57E53C6D0303_57E125C801C4_impl*
- f_Canvas.Pen.Style := psClear;
- f_Canvas.Brush.Style := bsSolid;
- f_Canvas.Brush.Color := clRed;
- f_Canvas.FillRect(ClientRect);
 //#UC END# *57E53C6D0303_57E125C801C4_impl*
 //#UC START# *57E53C6D0303_57E125C801C4_var*
 //#UC END# *57E53C6D0303_57E125C801C4_var*
@@ -456,7 +449,7 @@ var
 //#UC END# *57ED30370037_57E125C801C4_var*
 //#UC START# *57ED30620029_57E125C801C4_impl*
  SetCapture(GetOwnerHandle);
- f_ResizePoint := Point(X, Y);
+ f_ResizePoint := Point(PosX, PosY);
  f_ResizeDirection := aResizeDirection;
  f_Resize := True;
  f_InitialBounds := BoundsRect;
@@ -473,11 +466,11 @@ var
  begin
   B := BoundsRect;
   case f_ResizeDirection of
-   rdRight: B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-   rdBottom: B.Bottom := Y + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+   rdRight: B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+   rdBottom: B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
    rdTop:
     begin
-     B.Top := Y - f_ResizePoint.Y;
+     B.Top := PosY - f_ResizePoint.Y;
      if B.Top < B.Bottom - Constraints.MaxHeight then
       B.Top := B.Bottom - Constraints.MaxHeight;
      if B.Top > B.Bottom - Constraints.MinHeight then
@@ -485,13 +478,13 @@ var
     end;
    rdBottomRight:
     begin
-     B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-     B.Bottom := Y + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
     end;
    rdTopRight:
     begin
-     B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-     B.Top := Y - f_ResizePoint.Y;
+     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Top := PosY - f_ResizePoint.Y;
      if B.Top < B.Bottom - Constraints.MaxHeight then
       B.Top := B.Bottom - Constraints.MaxHeight;
      if B.Top > B.Bottom - Constraints.MinHeight then

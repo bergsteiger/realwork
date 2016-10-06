@@ -507,7 +507,9 @@ elem_generator model.script
     ( [ 'MEPROP LinkType lt_' Self .LinkTypeString ] .Out )
    Self .OpKind opkind_Normal != ?
     ( [ 'MEPROP OpKind opkind_' Self .OpKindString ] .Out )
-   Self .Parent .NotIsNil ?
+   Self .Parent .NotIsNil 
+   AND ( Self .Parent .IsProjectGroup ! )
+   ?
     ( [ 'MELINK Parent ' Self .Parent .pas_script_Reference ' ;' ] .Out )
    Self .Target .NotIsNil ?
     ( [ 'MELINK Target ' Self .Target .pas_script_Reference ' ;' ] .Out )

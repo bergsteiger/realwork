@@ -24,7 +24,7 @@ type
    procedure ClearFields; override;
   public
    constructor Create(const anElement: TmsmModelElementView); reintroduce;
-  protected
+  public
    property Element: TmsmModelElementView
     read f_Element;
  end;//TmsmViewOfModelElement

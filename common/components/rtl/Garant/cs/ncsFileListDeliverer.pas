@@ -30,6 +30,7 @@ type
    f_LocalPath: AnsiString;
    f_TaskID: AnsiString;
    f_Progressor: TddProgressObject;
+   f_ReceiveTime: Double;
   private
    procedure PrepareDescription(const aList: FileDescHelper);
   protected
@@ -42,6 +43,9 @@ type
     const aTaskID: AnsiString;
     const aLocalPath: AnsiString); reintroduce;
    function Execute(const aList: FileDescHelper): Boolean;
+  public
+   property ReceiveTime: Double
+    read f_ReceiveTime;
  end;//TncsFileListDeliverer
 {$IfEnd} // NOT Defined(Nemesis)
 
@@ -112,6 +116,7 @@ begin
  aProgressor.SetRefTo(f_Progressor);
  f_TaskID := aTaskID;
  f_LocalPath := aLocalPath;
+ f_ReceiveTime := 0;
 //#UC END# *5472DC690380_546F398E0203_impl*
 end;//TncsFileListDeliverer.Create
 
@@ -142,8 +147,12 @@ begin
     l3System.Msg2Log('Ошибка доставки - обрыв связи');
     Exit;
    end;
-   if not f_Data[l_IDX].DoProcess(f_Progressor) then
-    Exit;
+   try
+    if not f_Data[l_IDX].DoProcess(f_Progressor) then
+     Exit;
+   finally
+    f_ReceiveTime := f_ReceiveTime + f_Data[l_IDX].ReceiveTime;
+   end;
   end;
   Result := aList.Count > 0;
   if Result then

@@ -991,41 +991,50 @@ ENDME // ME_551904FC039A LoadDBVersion
 
 FORWARD ME_551BE3520031
 
-ME ME_5566FD16030A
+ME ME_57F4F0220131
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target HWL ME_54F9A60200A8 // TdaDataProviderParams
  ;
 
-ENDME // ME_5566FD16030A aParams
+ENDME // ME_57F4F0220131 aParams
 
-ME ME_5566FD160319
+ME ME_57F4F0220141
  MEPROP Name 'aLogin'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
-ENDME // ME_5566FD160319 aLogin
+ENDME // ME_57F4F0220141 aLogin
 
-ME ME_5566FD16031A
+ME ME_57F4F0220142
  MEPROP Name 'aPassword'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
-ENDME // ME_5566FD16031A aPassword
+ENDME // ME_57F4F0220142 aPassword
 
-ME ME_5566FD160329
+ME ME_57F4F0220150
  MEPROP Name 'IsRequireAdminRights'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
-ENDME // ME_5566FD160329 IsRequireAdminRights
+ENDME // ME_57F4F0220150 IsRequireAdminRights
+
+ME ME_57F4F0220160
+ MEPROP Name 'SuppressExceptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+
+ENDME // ME_57F4F0220160 SuppressExceptions
 
 ME ME_551BE3630016
  MEPROP UID '551BE3630016'
@@ -1038,10 +1047,11 @@ ME ME_551BE3630016
  MELINK Target WL 'ME_551BE28600E9' '5432448401BC.ms.model.script' // TdaLoginError
  ;
  MELIST Parameters
-   Seq: ( ME_5566FD16030A // aParams
- ME_5566FD160319 // aLogin
- ME_5566FD16031A // aPassword
- ME_5566FD160329 // IsRequireAdminRights
+   Seq: ( ME_57F4F0220131 // aParams
+ ME_57F4F0220141 // aLogin
+ ME_57F4F0220142 // aPassword
+ ME_57F4F0220150 // IsRequireAdminRights
+ ME_57F4F0220160 // SuppressExceptions
  )
  ; // Parameters
 
@@ -1951,41 +1961,54 @@ ENDME // ME_551904D300A1 LoadDBVersion
 
 FORWARD ME_551BE37C0396
 
-ME ME_5566FD02025F
+ME ME_57F4F03F0227
  MEPROP Name 'aParams'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target HWL ME_54F9A60200A8 // TdaDataProviderParams
  ;
 
-ENDME // ME_5566FD02025F aParams
+ENDME // ME_57F4F03F0227 aParams
 
-ME ME_5566FD020260
+ME ME_57F4F03F0237
  MEPROP Name 'aLogin'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
-ENDME // ME_5566FD020260 aLogin
+ENDME // ME_57F4F03F0237 aLogin
 
-ME ME_5566FD02026E
+ME ME_57F4F03F0247
  MEPROP Name 'aPassword'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_476136D3010B' '4807744200AA.ms.model.script' // String
  ;
 
-ENDME // ME_5566FD02026E aPassword
+ENDME // ME_57F4F03F0247 aPassword
 
-ME ME_5566FD02027E
+ME ME_57F4F03F0248
  MEPROP Name 'IsRequireAdminRights'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
  ;
 
-ENDME // ME_5566FD02027E IsRequireAdminRights
+ENDME // ME_57F4F03F0248 IsRequireAdminRights
+
+ME ME_57F4F03F0256
+ MEPROP Name 'SuppressExceptions'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_in ;
+ MELINK Target WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ MEPROP Value true
+ MELINK ValueType WL 'ME_46A603BB0391' '4807744200AA.ms.model.script' // Boolean
+ ;
+ UP extprop:pas:Value true
+
+ENDME // ME_57F4F03F0256 SuppressExceptions
 
 ME ME_551BE38C00CE
  MEPROP UID '551BE38C00CE'
@@ -1998,10 +2021,11 @@ ME ME_551BE38C00CE
  MELINK Target WL 'ME_551BE28600E9' '5432448401BC.ms.model.script' // TdaLoginError
  ;
  MELIST Parameters
-   Seq: ( ME_5566FD02025F // aParams
- ME_5566FD020260 // aLogin
- ME_5566FD02026E // aPassword
- ME_5566FD02027E // IsRequireAdminRights
+   Seq: ( ME_57F4F03F0227 // aParams
+ ME_57F4F03F0237 // aLogin
+ ME_57F4F03F0247 // aPassword
+ ME_57F4F03F0248 // IsRequireAdminRights
+ ME_57F4F03F0256 // SuppressExceptions
  )
  ; // Parameters
 

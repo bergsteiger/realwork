@@ -35,6 +35,7 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
  , msmParentedViewController
  , msmModelElement
  , msmConcreteModels
+ , msmListOwnerShowAsListBinding
 //#UC END# *57D2DF7E00CEimpl_uses*
 //#UC START# *57D2DF7E00CEintf_uses*
 //#UC END# *57D2DF7E00CEintf_uses*
@@ -126,18 +127,6 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
     aUseCase.FloatingNavigator
    )
   );
-  
-(*  l_AllWords := TmsmLoadedWordsListModel.Make;
-  AddController(
-   AddReadonlyListOperations(
-    DisableActionElementEvent
-    (
-     TmsmListViewController.Make(l_AllWords, aFloatingZone)
-    )
-    , l_AllWords
-   )
-  );
-  Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));*)
 
   AddController(
    AddReadonlyListOperations(
@@ -148,6 +137,44 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
     , aUseCase.FoundElements
    )
   );
+
+  if false then
+  begin
+   l_AllWords := TmsmLoadedWordsListModel.Make;
+   AddController(
+    AddReadonlyListOperations(
+     DisableActionElementEvent
+     (
+      TmsmListViewController.Make(l_AllWords, aFloatingZone)
+     )
+     , l_AllWords
+    )
+   );
+   Bind(TmsmListOpener.Make(l_AllWords, aUseCase.MainList));
+  end;//false
+  
+  if true then
+  begin
+   Assert(aUseCase.Drawing.List <> nil);
+   //l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
+   l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.MainList.List.Owner, 'AllowedElements'));
+   // - иначе туда дают сделать Add element
+   l_ListContext := TmsmListViewtInitContext_C;
+   l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
+   AddController(
+    AddReadonlyListOperations(
+     DisableActionElementEvent
+     (
+      TmsmListViewController.Make(l_AllowedElements, aFloatingZone, l_ListContext)
+     )
+     , l_AllowedElements
+    )
+   );
+   Bind(TmsmListOpener.Make(l_AllowedElements, aUseCase.MainList));
+   //Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
+   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.MainList, l_AllowedElements));
+   // - иначе туда дают сделать Add element
+  end;//true
  end;//aFloatingZone <> nil
 
  if (aTopZone <> nil) then
@@ -167,6 +194,8 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
   aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmCopySelection.Make('Copy', aModel));
   aController.AddOperation(TmsmPaste.Make('Paste', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmAddElement.Make('Add element', aModel));
   Result := aController;
  end;//AddNavigatorOperations
 
@@ -242,7 +271,8 @@ w:\common\components\gui\Garant\msm\msmDrawingUseCaseView.pas
 var
  l_ListContext : TmsmListViewtInitContext;
  l_DrawingZone : ImsmViewParent;
-(* l_AllWords : ImsmListModel;*)
+ l_AllWords : ImsmListModel;
+ l_AllowedElements : ImsmListModel;
  l_NavigatorZone : ImsmViewParent;
 //#UC END# *57D2DFA70064_57D2DF7E00CE_var*
 //#UC START# *57DAB38900EF_57D2DF7E00CE_impl*

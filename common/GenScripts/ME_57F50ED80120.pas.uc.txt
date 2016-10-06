@@ -1,0 +1,106 @@
+//#UC START# *48077504027E_57F50ED80120_impl*
+ f_UseCase := nil;
+ f_Selector := nil;
+ inherited;
+//#UC END# *48077504027E_57F50ED80120_impl*
+//#UC START# *48077504027E_57F50ED80120_var*
+//#UC END# *48077504027E_57F50ED80120_var*
+//#UC START# *4980403E021E_57F50ED80120_impl*
+ Result := inherited CloseQuery;
+//#UC END# *4980403E021E_57F50ED80120_impl*
+//#UC START# *4980403E021E_57F50ED80120_var*
+//#UC END# *4980403E021E_57F50ED80120_var*
+//#UC START# *5576E05C0204_57F50ED80120_impl*
+ inherited;
+//#UC END# *5576E05C0204_57F50ED80120_impl*
+//#UC START# *5576E05C0204_57F50ED80120_var*
+//#UC END# *5576E05C0204_57F50ED80120_var*
+//#UC START# *57F50ED80120_ext:FileName
+w:\common\components\gui\Garant\msm\msmSelectElementForm.pas
+//#UC END# *57F50ED80120_ext:FileName
+//#UC START# *57F50ED80120ci*
+//#UC END# *57F50ED80120ci*
+//#UC START# *57F50ED80120cit*
+//#UC END# *57F50ED80120cit*
+//#UC START# *57F50ED80120impl*
+{$R *.dfm}
+//#UC END# *57F50ED80120impl*
+//#UC START# *57F50ED80120impl_uses*
+ , SysUtils
+ , Controls
+ //, Forms
+ , msmUseCase
+ , msmListViewController
+ , msmSingleViewParent
+ , msmControllers
+ //, msmListAndTreeInterfaces
+//#UC END# *57F50ED80120impl_uses*
+//#UC START# *57F50ED80120intf_uses*
+ , evEdit
+ , msmPanel
+//#UC END# *57F50ED80120intf_uses*
+//#UC START# *57F50ED80120publ*
+  private
+   f_Selector : ImsmElementSelector;
+   f_List : ImsmListModel;
+   f_Edit : TevEdit;
+   f_BottomPanel : TmsmPanel;
+//#UC END# *57F50ED80120publ*
+//#UC START# *57F50F400051_57F50ED80120_impl*
+ l_F := TmsmSelectElementForm.Create(Application);
+ try
+  l_F.Width := 800;
+  l_F.Height := 700;
+  l_F.Position := poScreenCenter;
+  l_F.Caption := 'Select element';
+  l_F.f_Edit := TevEdit.Create(l_F);
+  l_F.f_Edit.Align := alTop;
+  l_F.f_Edit.Parent := l_F;
+
+  l_F.f_BottomPanel := TmsmPanel.Create(l_F);
+  l_F.f_BottomPanel.Height := 40;
+  l_F.f_BottomPanel.Align := alBottom;
+  l_F.f_BottomPanel.Parent := l_F;
+
+  l_F.f_Selector := aSelector;
+  l_F.f_List := aList;
+
+  SetupUseCase;
+  l_F.ShowModal;
+  l_F.f_UseCase := nil;
+  l_F.f_Selector := nil;
+  l_F.f_List := nil;
+ finally
+  FreeAndNil(l_F);
+ end;//try..finally
+//#UC END# *57F50F400051_57F50ED80120_impl*
+//#UC START# *57F50F400051_57F50ED80120_var*
+
+ function DisableActionElementEvent(const aController: ImsmController): ImsmController;
+ begin//DisableActionElementEvent
+  aController.DisableEvent(ActionElementEvent.Instance);
+  Result := aController;
+ end;//DisableActionElementEvent
+
+var
+ l_F : TmsmSelectElementForm;
+
+ procedure SetupUseCase;
+ begin//SetupUseCase
+  l_F.f_UseCase := TmsmUseCase.Make;
+  l_F.f_UseCase.AddController(
+   DisableActionElementEvent
+   (
+    TmsmListViewController.Make(aList, TmsmSingleViewParent.Make(l_F), aListContext)
+   )
+  );
+  l_F.f_UseCase.Bind(TmsmElementSelectBinding.Make(l_F, aList));
+  l_F.f_UseCase.Activate;
+ end;//SetupUseCase
+
+//#UC END# *57F50F400051_57F50ED80120_var*
+//#UC START# *57F51FDF012B_57B2B0C602DF_57F51FDF012B_impl*
+ (View As TmsmSelectElementForm).ModalResult := mrOk;
+//#UC END# *57F51FDF012B_57B2B0C602DF_57F51FDF012B_impl*
+//#UC START# *57F51FDF012B_57B2B0C602DF_57F51FDF012B_var*
+//#UC END# *57F51FDF012B_57B2B0C602DF_57F51FDF012B_var*

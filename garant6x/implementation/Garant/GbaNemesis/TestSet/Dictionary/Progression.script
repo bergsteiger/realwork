@@ -7289,11 +7289,15 @@ WordAlias "Убедиться, что находимся не в начале ОИД" "Убедиться, что находимся н
 VOID WORDWORKER "Вытащить кнопку 'Правовой навигатор' на тулбар главного окна и выполнить"
  TRY
   True 'opOpenRubricator' 'mo_Common' 'tbnsMainWindowTop' 'utMainWindow' vcm:ToolbarButton:SetVisible
+  "Текущая активная вкладка" vcm:Form:ReloadToolbars
   "Текущая активная вкладка" vcm:Form:ManualUpdateActions 
+  "##Дать тесту время для отрисовки контролов"
   ( WordToWork DO ) 
  FINALLY
   False 'opOpenRubricator' 'mo_Common' 'tbnsMainWindowTop' 'utMainWindow' vcm:ToolbarButton:SetVisible
+  "Текущая активная вкладка" vcm:Form:ReloadToolbars
   "Текущая активная вкладка" vcm:Form:ManualUpdateActions 
+  "##Дать тесту время для отрисовки контролов"
  END
 ;
 

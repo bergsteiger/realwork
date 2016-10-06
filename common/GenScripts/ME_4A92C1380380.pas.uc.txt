@@ -5,6 +5,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\View\Common\PrimF1Common_Module.pas
  , StdRes
  , StartUnit
  , Search_Services
+ , afwInterfaces
 //#UC END# *4A92C1380380impl_uses*
 //#UC START# *4A93F1F200B0_4A92C1380380_impl*
  Result := TefProgressIndicator.Make(aProgress, aCaption, aMaxCount);
@@ -439,9 +440,10 @@ var
 //#UC START# *4BD162890088_4A92C1380380exec_var*
 //#UC END# *4BD162890088_4A92C1380380exec_var*
 //#UC START# *4BD162890088_4A92C1380380test_impl*
- aParams.Op.Flag[vcm_ofEnabled] := (defDataAdapter.RevisionCheckEnabled and
-                                   (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
-                                   or DefDataAdapter.CommonInterfaces.IsEarlyInstalled;
+ aParams.Op.Flag[vcm_ofEnabled] := (afw.Application.LocaleInfo.Language = afw_lngRussian) and (
+          (defDataAdapter.RevisionCheckEnabled and (DefDataAdapter.CommonInterfaces.GetProductType = PT_SUPERMOBILE))
+          or DefDataAdapter.CommonInterfaces.IsEarlyInstalled
+         );
  aParams.Op.Flag[vcm_ofVisible] := aParams.Op.Flag[vcm_ofEnabled];
 //#UC END# *4BD162890088_4A92C1380380test_impl*
 //#UC START# *4BD162890088_4A92C1380380test_var*

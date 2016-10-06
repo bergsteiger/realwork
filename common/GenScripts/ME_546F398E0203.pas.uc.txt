@@ -38,8 +38,12 @@ w:\common\components\rtl\Garant\cs\ncsFileListDeliverer.pas
     l3System.Msg2Log('Ошибка доставки - обрыв связи');
     Exit;
    end;
-   if not f_Data[l_IDX].DoProcess(f_Progressor) then
-    Exit;
+   try
+    if not f_Data[l_IDX].DoProcess(f_Progressor) then
+     Exit;
+   finally
+    f_ReceiveTime := f_ReceiveTime + f_Data[l_IDX].ReceiveTime;
+   end;
   end;
   Result := aList.Count > 0;
   if Result then
@@ -97,6 +101,7 @@ var
  aProgressor.SetRefTo(f_Progressor);
  f_TaskID := aTaskID;
  f_LocalPath := aLocalPath;
+ f_ReceiveTime := 0;
 //#UC END# *5472DC690380_546F398E0203_impl*
 //#UC START# *5472DC690380_546F398E0203_var*
 //#UC END# *5472DC690380_546F398E0203_var*

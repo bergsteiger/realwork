@@ -1,7 +1,13 @@
 unit alcuTaskManager;
-{ $Id: alcuTaskManager.pas,v 1.171 2016/10/04 13:26:52 lukyanets Exp $ }
+{ $Id: alcuTaskManager.pas,v 1.173 2016/10/05 12:04:40 lukyanets Exp $ }
 
 // $Log: alcuTaskManager.pas,v $
+// Revision 1.173  2016/10/05 12:04:40  lukyanets
+// Заготовка задачи
+//
+// Revision 1.172  2016/10/05 10:22:30  lukyanets
+// Расставляем секундомеры
+//
 // Revision 1.171  2016/10/04 13:26:52  lukyanets
 // Расставляем секундомеры
 //
@@ -1495,7 +1501,7 @@ const
    cs_ttDossierMake, cs_ttCaseCode, cs_ttSpellCheck, cs_ttAutoSpellCheck,
    cs_ttAACImport, cs_ttUnregistered, cs_ttRelPublish, cs_ttAnoncedExport,
    cs_ttHavanskyExport, cs_ttMdpSyncDicts, cs_ttMdpImportDocs, cs_ttContainer,
-   cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport];
+   cs_ttSchedulerProxy, cs_ttMdpSyncStages, cs_ttMdpSyncImport, cs_ttDeliveryProfile];
  alcuRequests = [cs_ttUserEdit, cs_ttDictEdit, cs_ttDeleteDocs, cs_ttRunCommand,
    cs_ttUserDefinedExport, cs_ttDownloadDoc, cs_ttUploadDoc, cs_ttMultiModifyDocs,
    cs_ttMultiClearAttributes, cs_ttMultiOperation];
@@ -3224,19 +3230,17 @@ begin
   end;
 
   l3System.Msg2Log('Доставка результатов для %s(%d). Затраченное время - %s ms. Объем - %s kb. Скорость - %s kb/s',
-    [GlobalDataProvider.UserManager.GetUserName(aPipe.ClientID), aPipe.ClientID, FormatFloat('#,###.000', l_Watch.Time * 1000),
-    FormatFloat('#,###', l_Counter.BytesProcessed / 1024), FormatFloat('#,###', l_Counter.BytesProcessed / 1024 / (l_Watch.Time))]);
- {$IFDEF ncsProfile}
-  l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,###.000', g_SaveMessage.Time * 1000)]);
-  l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,###.000', g_SendMessage.Time * 1000)]);
-  l3System.Msg2Log('SEND MESSAGE FLUSH = %s', [FormatFloat('#,###.000', g_SaveControl.Time * 1000)]);
-  l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,###.000', g_LoadMessage.Time * 1000)]);
-  l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,###.000', g_ReveiveMessage.Time * 1000)]);
-  l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,###.000', g_WaitFile.Time * 1000)]);
-  l3System.Msg2Log('SEND FILE = %s', [FormatFloat('#,###.000', g_ReceivePartFile.Time * 1000)]);
-  l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,###.000', g_WriteFile.Time * 1000)]);
-  l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,###.000', l_Watch.Time * 1000)]);
- {$ENDIF ncsProfile}
+    [GlobalDataProvider.UserManager.GetUserName(aPipe.ClientID), aPipe.ClientID, FormatFloat('#,##0.000', l_Watch.Time * 1000),
+    FormatFloat('#,##0', l_Counter.BytesProcessed / 1024), FormatFloat('#,##0.000', l_Counter.BytesProcessed / 1024 / (l_Watch.Time))]);
+  l3System.Msg2Log('SAVE MESSAGE = %s', [FormatFloat('#,##0.000', g_SaveMessage.Time * 1000)], 11);
+  l3System.Msg2Log('SEND MESSAGE = %s', [FormatFloat('#,##0.000', g_SendMessage.Time * 1000)], 11);
+  l3System.Msg2Log('SEND MESSAGE FLUSH = %s', [FormatFloat('#,##0.000', g_SaveControl.Time * 1000)], 11);
+  l3System.Msg2Log('LOAD MESSAGE = %s', [FormatFloat('#,##0.000', g_LoadMessage.Time * 1000)], 11);
+  l3System.Msg2Log('RECEIVE MESSAGE = %s', [FormatFloat('#,##0.000', g_ReveiveMessage.Time * 1000)], 11);
+  l3System.Msg2Log('WAIT FILE = %s', [FormatFloat('#,##0.000', g_WaitFile.Time * 1000)], 11);
+  l3System.Msg2Log('SEND FILE = %s', [FormatFloat('#,##0.000', g_ReceivePartFile.Time * 1000)], 11);
+  l3System.Msg2Log('WRITE FILE = %s', [FormatFloat('#,##0.000', g_WriteFile.Time * 1000)], 11);
+  l3System.Msg2Log('TOTAL = %s', [FormatFloat('#,##0.000', l_Watch.Time * 1000)], 11);
  finally
   l_Counter := nil;
  end;

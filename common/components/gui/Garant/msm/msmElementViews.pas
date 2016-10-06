@@ -23,6 +23,8 @@ type
    rListName: AnsiString;
    rTextName: AnsiString;
    rIsDir: Boolean;
+  public
+   function CompareListKey(const anOther: TmsmModelElementView): Integer;
  end;//TmsmModelElementView
 
  ImsmStringList = interface
@@ -77,6 +79,8 @@ implementation
 
 uses
  l3ImplUses
+ , l3PointerUtils
+ , l3String
 ;
 
 function TmsmModelElementView_C(const anElement: ImsmModelElement;
@@ -139,5 +143,19 @@ begin
  Result := TmsmModelElementView_C(anElement, 'Inner');
 //#UC END# *57B43CFB03A4_57B3262B00D2_impl*
 end;//TmsmModelElementView_C
+
+function TmsmModelElementView.CompareListKey(const anOther: TmsmModelElementView): Integer;
+//#UC START# *57F4ED230163_57B3262B00D2_var*
+//#UC END# *57F4ED230163_57B3262B00D2_var*
+begin
+//#UC START# *57F4ED230163_57B3262B00D2_impl*
+ if (Self.rElement = nil) OR not Self.rElement.IsSameElement(anOther.rElement) then
+  Result := l3ComparePointers(Pointer(Self.rElement), Pointer(anOther.rElement))
+ else
+  Result := 0;
+ if (Result = 0) then
+  Result := l3Compare(Self.rListName, anOther.rListName);  
+//#UC END# *57F4ED230163_57B3262B00D2_impl*
+end;//TmsmModelElementView.CompareListKey
 
 end.

@@ -8,6 +8,7 @@
 w:\garant6x\implementation\Garant\GbaNemesis\Search\deList.pas
 //#UC END# *47F33E9E03C8_ext:FileName
 //#UC START# *47F33E9E03C8impl_uses*
+ , DataAdapter
 //#UC END# *47F33E9E03C8impl_uses*
 //#UC START# *4B1D0FB101BA_47F33E9E03C8get_impl*
  Result := f_List;
@@ -44,6 +45,7 @@ w:\garant6x\implementation\Garant\GbaNemesis\Search\deList.pas
  f_AllDocumentsFiltered := aAllDocumentsFiltered;
  f_NeedApplyPermanentFilters := aNeedApplyPermanentFilters;
  f_IsChanged := aIsChanged;
+ f_ActiveFilters := DefDataAdapter.NativeAdapter.MakeFiltersFromQuery; 
 //#UC END# *4B1F76940201_47F33E9E03C8_impl*
 //#UC START# *4B1F76940201_47F33E9E03C8_var*
 //#UC END# *4B1F76940201_47F33E9E03C8_var*
@@ -62,3 +64,8 @@ w:\garant6x\implementation\Garant\GbaNemesis\Search\deList.pas
 //#UC END# *569DDAE500DD_47F33E9E03C8get_impl*
 //#UC START# *569DDAE500DD_47F33E9E03C8get_var*
 //#UC END# *569DDAE500DD_47F33E9E03C8get_var*
+//#UC START# *57EE27F30169_47F33E9E03C8get_impl*
+ Result := f_ActiveFilters;
+//#UC END# *57EE27F30169_47F33E9E03C8get_impl*
+//#UC START# *57EE27F30169_47F33E9E03C8get_var*
+//#UC END# *57EE27F30169_47F33E9E03C8get_var*

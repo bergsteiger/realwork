@@ -16,7 +16,7 @@ uses
  , ncsTaskedFileDesc
  , Classes
  , ddProgressObj
- , l3StopWatch
+ , ncsTrafficCounter
  , ncsFileDesc
  , ncsMessage
 ;
@@ -29,7 +29,7 @@ type
    f_TaskID: AnsiString;
    f_Stream: TStream;
    f_Progressor: TddProgressObject;
-   f_Watch: Tl3StopWatch;
+   f_Counter: IncsTrafficCounter;
    f_ReceiveTime: Double;
    f_LocalDesc: TncsTaskedFileDesc;
   private
@@ -75,7 +75,7 @@ uses
  , ncsMessageExecutorFactory
  , ncsProfile
  , l3Base
- , ncsTrafficCounter
+ , l3StopWatch
  , l3FileUtils
  //#UC START# *546F3804032Dimpl_uses*
  //#UC END# *546F3804032Dimpl_uses*
@@ -101,6 +101,8 @@ begin
  f_TaskID := aTaskID;
  if not CheckContinue(aRemoteDesc) then
   InitNew(aRemoteDesc);
+ f_ReceiveTime := 0;
+ Supports(f_Transporter, IncsTrafficCounter, f_Counter);
 //#UC END# *546F389A0156_546F3804032D_impl*
 end;//TncsOneFileDeliverer.Create
 
@@ -222,14 +224,15 @@ function TncsOneFileDeliverer.DoProcess(aProgressor: TddProgressObject): Boolean
 var
  l_Message: TncsGetFilePart;
  l_RawReply: TncsMessage;
- l_Counter: IncsTrafficCounter;
+ l_Watch: Tl3StopWatch;
 
 const
  cPartSize = 31*1024;
 //#UC END# *5472E6E201EE_546F3804032D_var*
 begin
 //#UC START# *5472E6E201EE_546F3804032D_impl*
- Supports(f_Transporter, IncsTrafficCounter, l_Counter);
+ l_Watch.Reset;
+ l_Watch.Start;
  try
   aProgressor.SetRefTo(f_Progressor);
   try
@@ -248,7 +251,7 @@ begin
       repeat
        if not f_Transporter.Processing then
        begin
-        l3System.Msg2Log('Обшика доставки - обрыв связи');
+        l3System.Msg2Log('Ошибка доставки - обрыв связи');
         Exit;
        end;
        l_Message := TncsGetFilePart.Create;
@@ -257,8 +260,6 @@ begin
         l_Message.FileName := LocalDesc.Name;
         l_Message.Offset := LocalDesc.CopiedSize;
         l_Message.PartSize := Min(cPartSize, LocalDesc.Size - LocalDesc.CopiedSize);
-        if Assigned(l_Counter) then
-         l_Counter.DoProgress(l_Message.PartSize);
         f_Transporter.Send(l_Message);
         FreeAndNil(l_RawReply);
         try
@@ -266,7 +267,7 @@ begin
          try
           if not f_Transporter.WaitForReply(l_Message, l_RawReply) then
           begin
-           l3System.Msg2Log('Обшика доставки - не дождались ответа на запрос файла');
+           l3System.Msg2Log('Ошибка доставки - не дождались ответа на запрос файла');
            Exit;
           end;
          finally
@@ -274,12 +275,12 @@ begin
          end;
          if not (l_RawReply is TncsGetFilePartReply) then
          begin
-          l3System.Msg2Log('Обшика доставки - нераспознанный ответ на запрос файла');
+          l3System.Msg2Log('Ошибка доставки - нераспознанный ответ на запрос файла');
           Exit;
          end;
          if not TncsGetFilePartReply(l_RawReply).IsSuccess then
          begin
-          l3System.Msg2Log('Обшика доставки - неуспешный ответ на запрос файла');
+          l3System.Msg2Log('Ошибка доставки - неуспешный ответ на запрос файла');
           Exit;
          end;
         finally
@@ -318,7 +319,8 @@ begin
    FreeAndNil(f_Progressor);
   end;
  finally
-  l_Counter := nil;
+  l_Watch.Stop;
+  f_ReceiveTime := f_ReceiveTime + l_Watch.Time;
  end;
 //#UC END# *5472E6E201EE_546F3804032D_impl*
 end;//TncsOneFileDeliverer.DoProcess
@@ -337,6 +339,8 @@ begin
  g_WriteFile.Start;
   l_Message.Data.CopyTo(f_Stream, l_Message.PartSize);
  g_WriteFile.Stop;
+  if Assigned(f_Counter) then
+   f_Counter.DoProgress(l_Message.PartSize);
   LocalDesc.CopiedSize := LocalDesc.CopiedSize + l_Message.PartSize;
 //  SaveControl;
   if Assigned(f_Progressor) then

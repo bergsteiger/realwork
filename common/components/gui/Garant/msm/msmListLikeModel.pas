@@ -55,6 +55,9 @@ type
    function Drop(const anElement: ImsmModelElement;
     const aPoint: Tl3SPoint): Boolean; overload;
    function CanPaste(const aSelection: ImsmElementSelection): Boolean;
+   function CanAddNewElement: Boolean;
+   procedure AddNewElement(const anElementName: AnsiString;
+    const anElementStereotype: ImsmModelElement);
   public
    property Selection: ImsmElementSelection
     read f_Selection;
@@ -83,6 +86,7 @@ uses
  , l3TreeInterfaces
  , msmModelElementNode
  , msmModelElement
+ , l3String
  //#UC END# *57B57EDB003Fimpl_uses*
 ;
 
@@ -239,16 +243,19 @@ end;//TmsmListLikeModel.Paste
 
 procedure TmsmListLikeModel.Paste(const anArray: ItfwArray);
 //#UC START# *57E3FC26029F_57B57EDB003F_var*
+var
+ l_A : ItfwArray;
 //#UC END# *57E3FC26029F_57B57EDB003F_var*
 begin
 //#UC START# *57E3FC26029F_57B57EDB003F_impl*
  Assert(Self.Get_List <> nil);
  Assert(Self.Get_List.Owner <> nil);
  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
-  Self.Get_List.Owner.Call([TtfwStackValue_C(anArray)], 'msm:Diagram:PasteElements')
+  l_A := Self.Get_List.Owner.CallAndGetList([TtfwStackValue_C(anArray)], 'msm:Diagram:PasteElements')
  else
   Assert(false);
- Fire(ListContentChangedEvent.Instance); 
+ Fire(ListContentChangedEvent.Instance);
+ Selection.SelectElements(l_A); 
 //#UC END# *57E3FC26029F_57B57EDB003F_impl*
 end;//TmsmListLikeModel.Paste
 
@@ -336,6 +343,53 @@ begin
  Result := true;
 //#UC END# *57EB7E79022F_57B57EDB003F_impl*
 end;//TmsmListLikeModel.CanPaste
+
+function TmsmListLikeModel.CanAddNewElement: Boolean;
+//#UC START# *57F4FE6D0164_57B57EDB003F_var*
+//#UC END# *57F4FE6D0164_57B57EDB003F_var*
+begin
+//#UC START# *57F4FE6D0164_57B57EDB003F_impl*
+ Result := false;
+ if (Self.Get_List = nil) then
+  Exit; 
+ if (Self.Get_List.Owner = nil) then
+  Exit; 
+ if not Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  Exit;
+ if (Self.Get_List.Owner.MEList['AllowedElements'].Count <= 0) then
+  Exit;
+ Result := true;
+//#UC END# *57F4FE6D0164_57B57EDB003F_impl*
+end;//TmsmListLikeModel.CanAddNewElement
+
+procedure TmsmListLikeModel.AddNewElement(const anElementName: AnsiString;
+ const anElementStereotype: ImsmModelElement);
+//#UC START# *57F4FE8F022B_57B57EDB003F_var*
+var
+ l_E : ImsmModelElement;
+//#UC END# *57F4FE8F022B_57B57EDB003F_var*
+begin
+//#UC START# *57F4FE8F022B_57B57EDB003F_impl*
+ Assert(anElementName <> '');
+ Assert(anElementStereotype <> nil);
+ if Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  l_E :=
+   TmsmModelElement.MakeFromValue(
+    Self.Get_List.Owner.Call(
+     [TtfwStackValue_C(TtfwCStringFactory.C(anElementName)),
+      TtfwStackValue_C(anElementStereotype.MainWord)],
+     'msm:Diagram:AddElement'
+    )
+   )
+ else
+  Assert(false);  
+ if (l_E <> nil) then
+ begin
+  Selection.Clear;
+  Selection.CurrentElement := l_E;
+ end;//l_E <> nil
+//#UC END# *57F4FE8F022B_57B57EDB003F_impl*
+end;//TmsmListLikeModel.AddNewElement
 
 procedure TmsmListLikeModel.InitFields;
 //#UC START# *47A042E100E2_57B57EDB003F_var*

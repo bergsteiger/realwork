@@ -25,7 +25,7 @@ type
     {* Функция очистки полей объекта. }
   public
    constructor Create(const anElement: TmsmModelElementView); reintroduce;
-   class function Make(const anElement: TmsmModelElementView): ImsmModelElementList; reintroduce;
+   class function Make(const anElement: TmsmModelElementView): ImsmModelElementList;
    function IndexOfElementView(const anElement: ImsmModelElement): Integer;
  end;//TmsmModelElementList
 
@@ -34,6 +34,7 @@ implementation
 uses
  l3ImplUses
  , msmModelElement
+ , msmModelElementListFactory
  //#UC START# *57AADABA0154impl_uses*
  //#UC END# *57AADABA0154impl_uses*
 ;
@@ -43,20 +44,18 @@ constructor TmsmModelElementList.Create(const anElement: TmsmModelElementView);
 //#UC END# *57AADC1802AE_57AADABA0154_var*
 begin
 //#UC START# *57AADC1802AE_57AADABA0154_impl*
+ Assert(anElement.rElement <> nil);
  inherited Create(anElement);
 //#UC END# *57AADC1802AE_57AADABA0154_impl*
 end;//TmsmModelElementList.Create
 
 class function TmsmModelElementList.Make(const anElement: TmsmModelElementView): ImsmModelElementList;
-var
- l_Inst : TmsmModelElementList;
+//#UC START# *57AADC3E007E_57AADABA0154_var*
+//#UC END# *57AADC3E007E_57AADABA0154_var*
 begin
- l_Inst := Create(anElement);
- try
-  Result := l_Inst;
- finally
-  l_Inst.Free;
- end;//try..finally
+//#UC START# *57AADC3E007E_57AADABA0154_impl*
+ Result := TmsmModelElementListFactory.Make(anElement);
+//#UC END# *57AADC3E007E_57AADABA0154_impl*
 end;//TmsmModelElementList.Make
 
 function TmsmModelElementList.Get_Item(anIndex: Integer): ImsmModelElement;

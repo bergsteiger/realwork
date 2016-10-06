@@ -97,6 +97,22 @@ type
    function ParamsTypes: PTypeInfoArray; override;
  end;//TkwPopDictionaryOwnKeywordByName
 
+ TkwPopDictionaryCheckWord = {final} class(TtfwClassLike)
+  {* Слово скрипта pop:Dictionary:CheckWord }
+  private
+   function CheckWord(const aCtx: TtfwContext;
+    aDictionary: TtfwDictionary;
+    const aName: Il3CString): TtfwKeyWord;
+    {* Реализация слова скрипта pop:Dictionary:CheckWord }
+  protected
+   class function GetWordNameForRegister: AnsiString; override;
+   procedure DoDoIt(const aCtx: TtfwContext); override;
+  public
+   function GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo; override;
+   function GetAllParamsCount(const aCtx: TtfwContext): Integer; override;
+   function ParamsTypes: PTypeInfoArray; override;
+ end;//TkwPopDictionaryCheckWord
+
 function TkwPopDictionaryWordsIterator.WordsIterator(const aCtx: TtfwContext;
  aDictionary: TtfwDictionary): ItfwValueList;
  {* Реализация слова скрипта pop:Dictionary:WordsIterator }
@@ -303,6 +319,63 @@ begin
  aCtx.rEngine.PushObj(OwnKeywordByName(aCtx, l_aDictionary, l_aName));
 end;//TkwPopDictionaryOwnKeywordByName.DoDoIt
 
+function TkwPopDictionaryCheckWord.CheckWord(const aCtx: TtfwContext;
+ aDictionary: TtfwDictionary;
+ const aName: Il3CString): TtfwKeyWord;
+ {* Реализация слова скрипта pop:Dictionary:CheckWord }
+//#UC START# *57F5350E025B_57F5350E025B_4DAEECD90016_Word_var*
+//#UC END# *57F5350E025B_57F5350E025B_4DAEECD90016_Word_var*
+begin
+//#UC START# *57F5350E025B_57F5350E025B_4DAEECD90016_Word_impl*
+ Result := aDictionary.CheckWord(aName);
+//#UC END# *57F5350E025B_57F5350E025B_4DAEECD90016_Word_impl*
+end;//TkwPopDictionaryCheckWord.CheckWord
+
+class function TkwPopDictionaryCheckWord.GetWordNameForRegister: AnsiString;
+begin
+ Result := 'pop:Dictionary:CheckWord';
+end;//TkwPopDictionaryCheckWord.GetWordNameForRegister
+
+function TkwPopDictionaryCheckWord.GetResultTypeInfo(const aCtx: TtfwContext): PTypeInfo;
+begin
+ Result := TypeInfo(TtfwKeyWord);
+end;//TkwPopDictionaryCheckWord.GetResultTypeInfo
+
+function TkwPopDictionaryCheckWord.GetAllParamsCount(const aCtx: TtfwContext): Integer;
+begin
+ Result := 2;
+end;//TkwPopDictionaryCheckWord.GetAllParamsCount
+
+function TkwPopDictionaryCheckWord.ParamsTypes: PTypeInfoArray;
+begin
+ Result := OpenTypesToTypes([TypeInfo(TtfwDictionary), @tfw_tiString]);
+end;//TkwPopDictionaryCheckWord.ParamsTypes
+
+procedure TkwPopDictionaryCheckWord.DoDoIt(const aCtx: TtfwContext);
+var l_aDictionary: TtfwDictionary;
+var l_aName: Il3CString;
+begin
+ try
+  l_aDictionary := TtfwDictionary(aCtx.rEngine.PopObjAs(TtfwDictionary));
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aDictionary: TtfwDictionary : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ try
+  l_aName := Il3CString(aCtx.rEngine.PopString);
+ except
+  on E: Exception do
+  begin
+   RunnerError('Ошибка при получении параметра aName: Il3CString : ' + E.Message, aCtx);
+   Exit;
+  end;//on E: Exception
+ end;//try..except
+ aCtx.rEngine.PushObj(CheckWord(aCtx, l_aDictionary, l_aName));
+end;//TkwPopDictionaryCheckWord.DoDoIt
+
 initialization
  TkwPopDictionaryWordsIterator.RegisterInEngine;
  {* Регистрация pop_Dictionary_WordsIterator }
@@ -312,6 +385,8 @@ initialization
  {* Регистрация pop_Dictionary_KeyWordsIterator }
  TkwPopDictionaryOwnKeywordByName.RegisterInEngine;
  {* Регистрация pop_Dictionary_OwnKeywordByName }
+ TkwPopDictionaryCheckWord.RegisterInEngine;
+ {* Регистрация pop_Dictionary_CheckWord }
  TtfwTypeRegistrator.RegisterType(TypeInfo(TtfwDictionary));
  {* Регистрация типа TtfwDictionary }
  TtfwTypeRegistrator.RegisterType(TypeInfo(ItfwValueList));

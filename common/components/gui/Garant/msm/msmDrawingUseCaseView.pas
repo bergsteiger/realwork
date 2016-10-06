@@ -69,6 +69,7 @@ uses
  , msmMultiPanelViewParentVert
  , msmMultiPanelViewParent
  , msmButtonEditViewController
+ , msmAddElement
  , l3Memory
  //#UC START# *57D2DF7E00CEimpl_uses*
  , SysUtils
@@ -114,6 +115,8 @@ constructor TmsmDrawingUseCaseView.Create(const aUseCase: ImsmDrawingUseCase;
   aController.AddOperation(TmsmOperationsSeparator.Make);
   aController.AddOperation(TmsmCopySelection.Make('Copy', aModel));
   aController.AddOperation(TmsmPaste.Make('Paste', aModel));
+  aController.AddOperation(TmsmOperationsSeparator.Make);
+  aController.AddOperation(TmsmAddElement.Make('Add element', aModel));
   Result := aController;
  end;//AddNavigatorOperations
 
@@ -309,7 +312,9 @@ begin
   if true then
   begin
    Assert(aUseCase.Drawing.List <> nil);
-   l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
+   //l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.Drawing.List.Owner, 'AllowedElements'));
+   l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(aUseCase.MainList.List.Owner, 'AllowedElements'));
+   // - иначе туда дают сделать Add element
    l_ListContext := TmsmListViewtInitContext_C;
    l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
    AddController(
@@ -322,7 +327,9 @@ begin
     )
    );
    Bind(TmsmListOpener.Make(l_AllowedElements, aUseCase.MainList));
-   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
+   //Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.Drawing, l_AllowedElements));
+   Bind(TmsmListOwnerShowAsListBinding.Make(aUseCase.MainList, l_AllowedElements));
+   // - иначе туда дают сделать Add element
   end;//true
  end;//aFloatingZone <> nil
 

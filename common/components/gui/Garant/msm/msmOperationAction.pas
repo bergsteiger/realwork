@@ -81,6 +81,7 @@ begin
  l_P := ImsmOperation(f_Operation).Params;
  Self.Caption := l_P.rCaption;
  Self.Enabled := l_P.rEnabled;
+ Self.ShortCut := l_P.rShortCut;
  Self.ImageIndex := TmsmImages.Instance.GetImageForOperation(l_P.rImageIndex{9}{opCopy});
 //#UC END# *57EB5BE402D1_57EB5D9D002B_impl*
 end;//TmsmOperationAction.Update

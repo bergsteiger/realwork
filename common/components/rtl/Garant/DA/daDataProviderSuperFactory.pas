@@ -59,7 +59,8 @@ type
    function CheckLogin(aParams: TdaDataProviderParams;
     const aLogin: AnsiString;
     const aPassword: AnsiString;
-    IsRequireAdminRights: Boolean): TdaLoginError;
+    IsRequireAdminRights: Boolean;
+    SuppressExceptions: Boolean = True): TdaLoginError;
    procedure Register(aFactory: TdaDataProviderFactory);
    procedure UnRegister(aFactory: TdaDataProviderFactory);
    function MakeFromConfig: TdaDataProviderParams;
@@ -318,12 +319,13 @@ end;//TdaDataProviderSuperFactory.LoadDBVersion
 function TdaDataProviderSuperFactory.CheckLogin(aParams: TdaDataProviderParams;
  const aLogin: AnsiString;
  const aPassword: AnsiString;
- IsRequireAdminRights: Boolean): TdaLoginError;
+ IsRequireAdminRights: Boolean;
+ SuppressExceptions: Boolean = True): TdaLoginError;
 //#UC START# *551BE37C0396_54F85B590251_var*
 //#UC END# *551BE37C0396_54F85B590251_var*
 begin
 //#UC START# *551BE37C0396_54F85B590251_impl*
- Result := FindFactoryByParamType(aParams.ParamsKey).CheckLogin(aParams, aLogin, aPassword, IsRequireAdminRights);
+ Result := FindFactoryByParamType(aParams.ParamsKey).CheckLogin(aParams, aLogin, aPassword, IsRequireAdminRights, SuppressExceptions);
 //#UC END# *551BE37C0396_54F85B590251_impl*
 end;//TdaDataProviderSuperFactory.CheckLogin
 

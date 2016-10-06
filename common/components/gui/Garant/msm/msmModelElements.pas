@@ -50,6 +50,8 @@ type
   function IsViewLink: Boolean;
   function Call(const aParameters: array of TtfwStackValue;
    const aMethodName: AnsiString): TtfwStackValue;
+  function CallAndGetList(const aParameters: array of TtfwStackValue;
+   const aMethodName: AnsiString): ItfwArray;
   property Parent: ImsmModelElement
    read Get_Parent;
   property MEList[const aName: AnsiString]: ImsmModelElementList

@@ -506,56 +506,63 @@ USES
  WordsRTTI.ms.dict
 ;
 
-INTEGER elem_func msm:View:BackColor
-
- INTEGER elem_func StereotypeBackColor
-  Cached:
-  (
-   VAR l_Color
-   Self .GetUP "visualization bg color" >>> l_Color
-   RULES
-    ( l_Color IsInt )
-     l_Color
-    DEFAULT
-     begin 
-      Self .StereotypeInModel .GetUP "visualization bg color" >>> l_Color
-      RULES
-       ( l_Color IsInt )
-        l_Color
-       DEFAULT
-        begin
-         TColor::clDefault >>> l_Color
-         Self .Inherited.Words .for> (
-           IN anAncestor
-          VAR l_AncestorColor 
-          anAncestor call.me >>> l_AncestorColor
-          RULES
-           (
-            ( l_AncestorColor IsInt )
-            AND ( l_AncestorColor TColor::clDefault != )
-           ) 
-            ( 
-             l_AncestorColor >>> l_Color 
-             BREAK-ITERATOR
-            )
-          ; // RULES
-         ) // Self .Inherited.Words .for>
-         l_Color
-        end // DEFAULT
-      ; // RULES
-     end // DEFAULT
-   ; // RULES  
+elem_iterator StereotypeAncestors
+ Cached:
+ (
+  Self .Implements
+  .filter> ( .NameInModel Self .NameInModel SameStr )
+  // - вытаскиваем вперёд переопределения
+  .join> (
+   Self .Inherits
+   .join> ( Self .Implements ) 
   )
-  >>> Result
- ; // StereotypeBackColor
+  array:CopyWithoutDuplicates
+ ) 
+ >>> Result
+; // StereotypeAncestors
+
+INTEGER elem_func StereotypeBackColor
+ Cached:
+ (
+  VAR l_Color
+  Self .StereotypeInModel .GetUP "visualization bg color" >>> l_Color
+  RULES
+   ( l_Color IsInt )
+    l_Color
+   DEFAULT
+    begin
+     TColor::clDefault >>> l_Color
+     Self .StereotypeAncestors
+     .for> (
+       IN anAncestor
+      VAR l_AncestorColor 
+      anAncestor call.me >>> l_AncestorColor
+      RULES
+       (
+        ( l_AncestorColor IsInt )
+        AND ( l_AncestorColor TColor::clDefault != )
+       ) 
+        ( 
+         l_AncestorColor >>> l_Color 
+         BREAK-ITERATOR
+        )
+      ; // RULES
+     ) // Self .Inherited.Words .for>
+     l_Color
+    end // DEFAULT
+  ; // RULES
+ )
+ >>> Result
+; // StereotypeBackColor
  
+INTEGER elem_func msm:View:BackColor
  RULES
   ( Self .Parent .Viewed Self .Viewed .Parent ?!= )
    TColor::clWhite
   DEFAULT
    begin
     VAR l_Color
-    Self .Stereotype .StereotypeBackColor >>> l_Color
+    Self .Stereotype .StereotypeInModel .StereotypeBackColor >>> l_Color
     RULES
      ( l_Color IsInt )
       RULES
@@ -588,8 +595,7 @@ STRING elem_func StereotypeLabelName
        ()
       DEFAULT
        begin
-        Self .Inherits
-        .join> ( Self .Implements ) 
+        Self .StereotypeAncestors
         .for> (
           IN anAncestor
          VAR l_AncestorLabel 
@@ -644,27 +650,27 @@ USES
 ;
 
 elem_iterator StereotypeAllowedElements
- RULES
-  ( Self .IsNil )
-   [empty]
-  DEFAULT
-   begin
-    Self .Dependencies
-    .filter> ( .IsStereotype st_include::Dependency )
-    .map> .Target
-    
-    if ( Self .GetUP "inherite constraints" false ?!= ) then
+ Cached:
+ (
+  RULES
+   ( Self .IsNil )
+    [empty]
+   DEFAULT
     begin
-     .joinWithLambded> 
-     (
-      ( Self .Inherits ) 
-      .join> ( Self .Implements ) 
-     ) 
-     call.me
-    end // ( Self .GetUP "inherite constraints" false ?!= )
-   end // DEFAULT
- ; // RULES
- array:CopyWithoutDuplicates
+     Self .Dependencies
+     .filter> ( .IsStereotype st_include::Dependency )
+     .map> .Target
+     
+     if ( Self .GetUP "inherite constraints" false ?!= ) then
+     begin
+      .joinWithLambded> 
+      ( Self .StereotypeAncestors ) 
+      call.me
+     end // ( Self .GetUP "inherite constraints" false ?!= )
+    end // DEFAULT
+  ; // RULES
+  array:CopyWithoutDuplicates
+ ) 
  >>> Result  
 ; // StereotypeAllowedElements
 
@@ -742,10 +748,6 @@ INTEGER elem_func msm:View:LinkLineStyle
     TPenStyle::psSolid
    ( Self .MDAClass class_Implements ?== )
     TPenStyle::psDash
-   ( Self .LinkViewType 'Inherits' ?== )
-    TPenStyle::psSolid
-   ( Self .LinkViewType 'Implements' ?== )
-    TPenStyle::psDash
    DEFAULT
     TPenStyle::psDash
   ; // RULES  
@@ -763,10 +765,6 @@ INTEGER elem_func msm:View:LinkLineColor
     TColor::clBlack
    ( Self .MDAClass class_Implements ?== )
     TColor::clBlack
-   ( Self .LinkViewType 'Inherits' ?== )
-    TColor::clBlack
-   ( Self .LinkViewType 'Implements' ?== )
-    TColor::clBlack
    DEFAULT
     TColor::clDefault
   ; // RULES  
@@ -783,10 +781,6 @@ BOOLEAN elem_func msm:View:LinkArrowIsPolygon
    ( Self .MDAClass class_Inherits ?== )
     true
    ( Self .MDAClass class_Implements ?== )
-    true
-   ( Self .LinkViewType 'Inherits' ?== )
-    true
-   ( Self .LinkViewType 'Implements' ?== )
     true
    DEFAULT
     false
@@ -944,6 +938,10 @@ elem_proc SaveDiagrams
  Self @ .diagram.save.script .Save
 ; // SaveDiagrams
 
+elem_proc SaveModel
+ Self @ .model.script .Save
+; // SaveModel
+
 PROCEDURE .SaveElements
   ARRAY IN anElements
  ARRAY VAR l_SavedElements 
@@ -961,13 +959,14 @@ PROCEDURE .SaveElements
    RULES
     ( anElementToSave .IsDiagram )
      begin
-      if ( anElementToSave .Viewed .AddToArray?: l_SavedElements ) then
+      if ( anElementToSave /*{.Viewed}*/ .AddToArray?: l_SavedElements ) then
        ( anElementToSave .Viewed .SaveDiagrams )
      end // ( anElementToSave .IsDiagram )
     DEFAULT
      begin
       if ( anElementToSave .AddToArray?: l_SavedElements ) then
-       ( anElementToSave pop:Word:Producer pop:Word:Name Msg ) 
+       ( anElementToSave .SaveModel ) 
+       //( anElementToSave pop:Word:Producer pop:Word:Name Msg ) 
      end // DEFAULT
    ; // RULES
   end // ( anElementToSave .AddToArray?: l_SavedElements )
@@ -1004,8 +1003,10 @@ ModelElement elem_func msm:Diagram:PasteElement
    ( ERROR [ 'Вставка View от связей пока не поддерживается' ] )
   ( Self .IsDiagram )
    begin
+    VAR l_UID
+    CreateUID >>> l_UID
     VAR l_ViewName 
-    [ 'ME_' CreateUID ] strings:Cat >>> l_ViewName 
+    [ 'ME_' l_UID ] strings:Cat >>> l_ViewName 
     
     VAR l_KeyWord
     l_ViewName Self pop:NewWordDefinitor:CheckWord >>> l_KeyWord
@@ -1035,8 +1036,72 @@ ModelElement elem_func msm:Diagram:PasteElement
  ; // RULES  
 ; // msm:Diagram:PasteElement
 
-elem_proc msm:Diagram:PasteElements
+ModelElement elem_func msm:Diagram:AddElement
+  STRING IN aName
+  ModelElement IN aStereotype
+ nil >>> Result
+ RULES  
+  ( Self .IsDiagram )
+   begin
+//    aName Msg
+//    aStereotype .Name Msg
+    VAR l_UID
+    CreateUID >>> l_UID
+    VAR l_ViewName 
+    [ 'ME_' CreateUID ] strings:Cat >>> l_ViewName 
+    
+    VAR l_Original
+    Self .Viewed >>> l_Original
+    VAR l_Dict
+    l_Original pop:Word:KeyWord pop:KeyWord:Dictionary >>> l_Dict
+    l_Dict Is class::TtfwDictionaryEx ?ASSURE [ 'Несовместимый тип словаря: ' l_Dict pop:Object:ClassName ]
+    VAR l_KeyWord
+    //l_ViewName l_Original pop:NewWordDefinitor:CheckWord >>> l_KeyWord
+    l_ViewName l_Dict pop:Dictionary:CheckWord >>> l_KeyWord
+    if ( l_KeyWord pop:KeyWord:Word IsNil ) then
+    begin
+     KeyValuesCreateAndDo: (
+       IN aMade
+      @ ME aMade pop:Word:SetProducer 
+      aMade l_KeyWord pop:KeyWord:SetWord 
+      l_KeyWord aMade pop:Word:SetKey 
+      RULES
+       ( aStereotype .IsStereotype st_MDACategory )
+        ( aMade -> Class := class_Category )
+       ( aStereotype .IsStereotype st_MDAClass )
+        ( aMade -> Class := class_Class )
+       DEFAULT
+        begin
+         ERROR [ 'Непонятный стереотип' aStereotype .Stereotype .Name ]
+        end // DEFAULT
+      ; // RULES
+      aMade -> UID := l_UID
+      aMade -> Name := aName
+      aMade -> Stereotype := aStereotype
+      //aMade -> Original := ( aView .Viewed )
+      aMade -> Parent := l_Original
+      aMade l_Original .Children Array:Add
+      aMade >>> Result
+     ) // KeyValuesCreateAndDo:
+    end // ( l_KeyWord pop:KeyWord:Word IsNil )
+    else
+    begin
+     ERROR [ 'Слово ' l_ViewName ' уже есть' ]
+    end // ( l_KeyWord pop:KeyWord:Word IsNil )
+    l_Original msm:AddChangedElement
+    // - надо сохранять и родителя
+    Result msm:AddChangedElement
+    // - и ребёнка
+    Self Result 10 10 .msm:Diagram:PasteElement >>> Result
+   end // ( Self .IsDiagram )
+  DEFAULT
+   ( Self pop:Word:Producer pop:Word:Name Msg )
+ ; // RULES  
+; // msm:Diagram:AddElement
+
+elem_iterator msm:Diagram:PasteElements
   ARRAY IN anElements
+ [] >>> Result 
  RULES  
   ( Self .IsDiagram )
    begin
@@ -1048,7 +1113,7 @@ elem_proc msm:Diagram:PasteElements
      aView 
      aView .X 10 +
      aView .Y 10 +
-     .msm:Diagram:PasteElement DROP
+     .msm:Diagram:PasteElement .AddToArray: Result
     ) // .for>
    end // ( Self .IsDiagram )
   DEFAULT

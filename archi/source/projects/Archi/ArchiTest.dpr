@@ -2079,6 +2079,9 @@ uses
  , csUploadDocStream in 'w:\common\components\rtl\Garant\cs\csUploadDocStream.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  {$If NOT Defined(Nemesis)}
+ , csPersonificatedMessage in 'w:\common\components\rtl\Garant\cs\csPersonificatedMessage.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
  , ncsMessage in 'w:\common\components\rtl\Garant\cs\ncsMessage.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , evdNcsTypes in 'w:\common\components\rtl\Garant\EVD\evdNcsTypes.pas'
@@ -2088,6 +2091,8 @@ uses
  , csMessageWithReply_Const in 'w:\common\components\rtl\Garant\EVD\csMessageWithReply_Const.pas'
  , csDisconnectReply_Const in 'w:\common\components\rtl\Garant\EVD\csDisconnectReply_Const.pas'
  , csReply_Const in 'w:\common\components\rtl\Garant\EVD\csReply_Const.pas'
+ , csPersonificatedMessage_Const in 'w:\common\components\rtl\Garant\EVD\csPersonificatedMessage_Const.pas'
+ , ULong_Const in 'w:\common\components\rtl\Garant\EVD\ULong_Const.pas'
  , k2SizedMemoryPool in 'w:\common\components\rtl\Garant\K2\k2SizedMemoryPool.pas'
  , k2MemoryPoolAdapter in 'w:\common\components\rtl\Garant\K2\k2MemoryPoolAdapter.pas'
  , k2MemoryStream in 'w:\common\components\rtl\Garant\K2\k2MemoryStream.pas'
@@ -2891,7 +2896,6 @@ uses
  , csTaskListening in 'w:\common\components\rtl\Garant\EVD\csTaskListening.pas'
  , Task_Const in 'w:\common\components\rtl\Garant\EVD\Task_Const.pas'
  , DateTimeNotNull_Const in 'w:\common\components\rtl\Garant\EVD\DateTimeNotNull_Const.pas'
- , ULong_Const in 'w:\common\components\rtl\Garant\EVD\ULong_Const.pas'
  {$If NOT Defined(Nemesis)}
  , ddTaskClassManager in 'w:\common\components\rtl\Garant\cs\ddTaskClassManager.pas'
  {$IfEnd} // NOT Defined(Nemesis)

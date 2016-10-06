@@ -64,8 +64,9 @@ uses
  {$IfEnd} // NOT Defined(Nemesis)
  , daDataProvider
  //#UC START# *57E3A9690059impl_uses*
+ , daInterfaces
  //#UC END# *57E3A9690059impl_uses*
-, daInterfaces;
+;
 
 constructor TarRemoteMultiModifyDocsHelper.Create(OperType: TOperActionType;
  aFamily: TdaFamilyID;

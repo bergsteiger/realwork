@@ -11,16 +11,13 @@ interface
 uses
  l3IntfUses
  {$If NOT Defined(NoVCL)}
- , Forms
+ , Controls
  {$IfEnd} // NOT Defined(NoVCL)
  , Graphics
  , Types
  , Windows
  , Messages
  , Classes
- {$If NOT Defined(NoVCL)}
- , Controls
- {$IfEnd} // NOT Defined(NoVCL)
  , l3PureMixIns
  //#UC START# *57E125C801C4intf_uses*
  //#UC END# *57E125C801C4intf_uses*
@@ -43,7 +40,7 @@ type
 
  //#UC START# *57E125C801C4ci*
  //#UC END# *57E125C801C4ci*
- _l3Unknown_Parent_ = TScrollingWinControl;
+ _l3Unknown_Parent_ = TWinControl;
  {$Include w:\common\components\rtl\Garant\L3\l3Unknown.imp.pas}
  //#UC START# *57E125C801C4cit*
  //#UC END# *57E125C801C4cit*
@@ -85,16 +82,15 @@ type
    procedure CloseUp;
    procedure Paint; virtual;
    procedure BeginResize(aResizeDirection: TvtResizeDirection;
-    X: Integer;
-    Y: Integer); virtual;
-   procedure ProcessResize(X: Integer;
-    Y: Integer); virtual;
+    PosX: Integer;
+    PosY: Integer); virtual;
+    {* (PosX, PosY) - точка окна, за которую схватились мышью }
+   procedure ProcessResize(PosX: Integer;
+    PosY: Integer); virtual;
+    {* (PosX, PosY) - позиция мыши в экранных координатах }
    procedure FinishResize; virtual;
    procedure Cleanup; override;
     {* Функция очистки полей объекта. }
-   {$If NOT Defined(NoVCL)}
-   procedure WndProc(var Message: TMessage); override;
-   {$IfEnd} // NOT Defined(NoVCL)
    {$If NOT Defined(NoVCL)}
    procedure PaintWindow(DC: hDC); override;
     {* Renders the image of a windowed control }
@@ -154,10 +150,7 @@ procedure TvtAbstractDropDownWindow.pm_SetAllowResize(aValue: Boolean);
 begin
 //#UC START# *57E14EBD0128_57E125C801C4set_impl*
  if (f_AllowResize <> aValue) then
- begin
   f_AllowResize := aValue;
-  //RecreateWindow;
- end;
 //#UC END# *57E14EBD0128_57E125C801C4set_impl*
 end;//TvtAbstractDropDownWindow.pm_SetAllowResize
 
@@ -358,30 +351,28 @@ procedure TvtAbstractDropDownWindow.Paint;
 //#UC END# *57E53C6D0303_57E125C801C4_var*
 begin
 //#UC START# *57E53C6D0303_57E125C801C4_impl*
- f_Canvas.Pen.Style := psClear;
- f_Canvas.Brush.Style := bsSolid;
- f_Canvas.Brush.Color := clRed;
- f_Canvas.FillRect(ClientRect);
 //#UC END# *57E53C6D0303_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.Paint
 
 procedure TvtAbstractDropDownWindow.BeginResize(aResizeDirection: TvtResizeDirection;
- X: Integer;
- Y: Integer);
+ PosX: Integer;
+ PosY: Integer);
+ {* (PosX, PosY) - точка окна, за которую схватились мышью }
 //#UC START# *57ED30620029_57E125C801C4_var*
 //#UC END# *57ED30620029_57E125C801C4_var*
 begin
 //#UC START# *57ED30620029_57E125C801C4_impl*
  SetCapture(GetOwnerHandle);
- f_ResizePoint := Point(X, Y);
+ f_ResizePoint := Point(PosX, PosY);
  f_ResizeDirection := aResizeDirection;
  f_Resize := True;
  f_InitialBounds := BoundsRect;
 //#UC END# *57ED30620029_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.BeginResize
 
-procedure TvtAbstractDropDownWindow.ProcessResize(X: Integer;
- Y: Integer);
+procedure TvtAbstractDropDownWindow.ProcessResize(PosX: Integer;
+ PosY: Integer);
+ {* (PosX, PosY) - позиция мыши в экранных координатах }
 //#UC START# *57EE6C32020D_57E125C801C4_var*
 var
  B: TRect;
@@ -392,11 +383,11 @@ begin
  begin
   B := BoundsRect;
   case f_ResizeDirection of
-   rdRight: B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-   rdBottom: B.Bottom := Y + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+   rdRight: B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+   rdBottom: B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
    rdTop:
     begin
-     B.Top := Y - f_ResizePoint.Y;
+     B.Top := PosY - f_ResizePoint.Y;
      if B.Top < B.Bottom - Constraints.MaxHeight then
       B.Top := B.Bottom - Constraints.MaxHeight;
      if B.Top > B.Bottom - Constraints.MinHeight then
@@ -404,13 +395,13 @@ begin
     end;
    rdBottomRight:
     begin
-     B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-     B.Bottom := Y + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
+     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Bottom := PosY + (f_InitialBounds.Bottom - f_InitialBounds.Top) - f_ResizePoint.Y;
     end;
    rdTopRight:
     begin
-     B.Right := X + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
-     B.Top := Y - f_ResizePoint.Y;
+     B.Right := PosX + (f_InitialBounds.Right - f_InitialBounds.Left) - f_ResizePoint.X;
+     B.Top := PosY - f_ResizePoint.Y;
      if B.Top < B.Bottom - Constraints.MaxHeight then
       B.Top := B.Bottom - Constraints.MaxHeight;
      if B.Top > B.Bottom - Constraints.MinHeight then
@@ -697,15 +688,6 @@ begin
  TControlCanvas(f_Canvas).Control := Self;
 //#UC END# *47D1602000C6_57E125C801C4_impl*
 end;//TvtAbstractDropDownWindow.Create
-
-procedure TvtAbstractDropDownWindow.WndProc(var Message: TMessage);
-//#UC START# *47E136A80191_57E125C801C4_var*
-//#UC END# *47E136A80191_57E125C801C4_var*
-begin
-//#UC START# *47E136A80191_57E125C801C4_impl*
- inherited;
-//#UC END# *47E136A80191_57E125C801C4_impl*
-end;//TvtAbstractDropDownWindow.WndProc
 
 procedure TvtAbstractDropDownWindow.PaintWindow(DC: hDC);
  {* Renders the image of a windowed control }

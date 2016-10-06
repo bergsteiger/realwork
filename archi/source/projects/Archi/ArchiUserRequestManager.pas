@@ -1,7 +1,10 @@
 unit ArchiUserRequestManager;
-{ $Id: ArchiUserRequestManager.pas,v 1.122 2016/09/26 11:50:49 lukyanets Exp $ }
+{ $Id: ArchiUserRequestManager.pas,v 1.123 2016/10/05 12:04:41 lukyanets Exp $ }
 
 // $Log: ArchiUserRequestManager.pas,v $
+// Revision 1.123  2016/10/05 12:04:41  lukyanets
+// Заготовка задачи
+//
 // Revision 1.122  2016/09/26 11:50:49  lukyanets
 // Отладка
 //
@@ -687,7 +690,7 @@ Uses
   csCommandsManager, csAutoAnnoExport, csAACImport, csAutoClassTask, csAnnotationTask,
   csAutoSpell, arDeliveryList, csRelPublishTask, l3StopWatch, csMdpSyncDicts, csMdpImportDocs,
   csContainerTask, csSchedulerProxyTask, csMdpSyncStages, csMdpSyncImport,
-  csUploadDocStreamReply,
+  csUploadDocStreamReply, csDeliveryProfileTask,
  StrShop,
  AutoClassTask_Const,
  k2Base,
@@ -1061,6 +1064,7 @@ begin
  RegisterTaskClass(cs_ttMdpImportDocs, TcsMdpImportDocs, 'Импорт документов из Гардока');
  RegisterTaskClass(cs_ttContainer, TcsContainerTask, 'Групповая задача');
  RegisterTaskClass(cs_ttSchedulerProxy, TcsSchedulerProxyTask, 'Задание планировщика');
+ RegisterTaskClass(cs_ttDeliveryProfile, TcsDeliveryProfileTask, 'Проверка скорости доставки');
 end;
 
 procedure TArchiUserRequestManager.RequestUsersList;

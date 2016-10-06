@@ -2401,6 +2401,9 @@ uses
  , ncsProfile in 'w:\common\components\rtl\Garant\cs\ncsProfile.pas'
  {$IfEnd} // NOT Defined(Nemesis)
  , l3StopWatch in 'w:\common\components\rtl\Garant\L3\l3StopWatch.pas'
+ {$If NOT Defined(Nemesis)}
+ , ncsTrafficCounter in 'w:\common\components\rtl\Garant\cs\ncsTrafficCounter.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
  {$If Defined(ServerTasks)}
  , alcuSendTaskExecutor in 'w:\archi\source\projects\PipeInAuto\Tasks\alcuSendTaskExecutor.pas'
  {$IfEnd} // Defined(ServerTasks)
@@ -2471,6 +2474,10 @@ uses
  {$If NOT Defined(Nemesis)}
  , csDownloadDocStream in 'w:\common\components\rtl\Garant\cs\csDownloadDocStream.pas'
  {$IfEnd} // NOT Defined(Nemesis)
+ {$If NOT Defined(Nemesis)}
+ , csPersonificatedMessage in 'w:\common\components\rtl\Garant\cs\csPersonificatedMessage.pas'
+ {$IfEnd} // NOT Defined(Nemesis)
+ , csPersonificatedMessage_Const in 'w:\common\components\rtl\Garant\EVD\csPersonificatedMessage_Const.pas'
  , csDownloadDocStream_Const in 'w:\common\components\rtl\Garant\EVD\csDownloadDocStream_Const.pas'
  {$If NOT Defined(Nemesis)}
  , csDownloadDocStreamReply in 'w:\common\components\rtl\Garant\cs\csDownloadDocStreamReply.pas'
@@ -3206,7 +3213,8 @@ uses
   alcuRegionImportTaskResult in 'Tasks\alcuRegionImportTaskResult.pas',
   alcuRegionImportTaskPrim in 'Tasks\alcuRegionImportTaskPrim.pas',
   alcuRegionImportTask in 'Tasks\alcuRegionImportTask.pas',
-  alcuSpellCorrectTask in 'Tasks\alcuSpellCorrectTask.pas'
+  alcuSpellCorrectTask in 'Tasks\alcuSpellCorrectTask.pas',
+  alcuDeliveryProfileTask in 'Tasks\alcuDeliveryProfileTask.pas'
  //#UC END# *52F24F6103ABmanualuses*
 ;
 {$IfEnd} // Defined(AppServerSide)

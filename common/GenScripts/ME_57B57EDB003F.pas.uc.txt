@@ -54,6 +54,7 @@ w:\common\components\gui\Garant\msm\msmListLikeModel.pas
  , l3TreeInterfaces
  , msmModelElementNode
  , msmModelElement
+ , l3String
 //#UC END# *57B57EDB003Fimpl_uses*
 //#UC START# *57B6A4550271_57B57EDB003Fget_impl*
  Result := DoGetList;
@@ -108,12 +109,15 @@ var
  Assert(Self.Get_List <> nil);
  Assert(Self.Get_List.Owner <> nil);
  if Self.Get_List.Owner.BoolProp['IsDiagram'] then
-  Self.Get_List.Owner.Call([TtfwStackValue_C(anArray)], 'msm:Diagram:PasteElements')
+  l_A := Self.Get_List.Owner.CallAndGetList([TtfwStackValue_C(anArray)], 'msm:Diagram:PasteElements')
  else
   Assert(false);
- Fire(ListContentChangedEvent.Instance); 
+ Fire(ListContentChangedEvent.Instance);
+ Selection.SelectElements(l_A); 
 //#UC END# *57E3FC26029F_57B57EDB003F_impl*
 //#UC START# *57E3FC26029F_57B57EDB003F_var*
+var
+ l_A : ItfwArray;
 //#UC END# *57E3FC26029F_57B57EDB003F_var*
 //#UC START# *57E410A500DD_57B57EDB003F_impl*
  f_ElementView := anElementView;
@@ -190,3 +194,24 @@ var
 //#UC END# *57EB7E79022F_57B57EDB003F_impl*
 //#UC START# *57EB7E79022F_57B57EDB003F_var*
 //#UC END# *57EB7E79022F_57B57EDB003F_var*
+//#UC START# *57F4FE6D0164_57B57EDB003F_impl*
+ Result := false;
+ if (Self.Get_List = nil) then
+  Exit; 
+ if (Self.Get_List.Owner = nil) then
+  Exit; 
+ if not Self.Get_List.Owner.BoolProp['IsDiagram'] then
+  Exit;
+ if (Self.Get_List.Owner.MEList['AllowedElements'].Count <= 0) then
+  Exit;
+ Result := true;
+//#UC END# *57F4FE6D0164_57B57EDB003F_impl*
+//#UC START# *57F4FE6D0164_57B57EDB003F_var*
+//#UC END# *57F4FE6D0164_57B57EDB003F_var*
+//#UC START# *57F4FE8F022B_57B57EDB003F_impl*
+ Assert(anElementName <> '');
+ Assert(anElementStereotype <> nil);
+ Assert(false, 'Add element: ' + anElementName + ' : ' + l3Str(anElementStereotype.Name));
+//#UC END# *57F4FE8F022B_57B57EDB003F_impl*
+//#UC START# *57F4FE8F022B_57B57EDB003F_var*
+//#UC END# *57F4FE8F022B_57B57EDB003F_var*

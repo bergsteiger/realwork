@@ -41,12 +41,13 @@ var
 w:\archi\source\projects\Archi\Processing\arRemoteMultiModifyDocsHelper.pas
 //#UC END# *57E3A9690059_ext:FileName
 //#UC START# *57E3A9690059impl_uses*
+ , daInterfaces
 //#UC END# *57E3A9690059impl_uses*
 //#UC START# *57E3A9AB035A_57E3A9690059_impl*
  inherited Create(aFamily, anAnouncedDate);
  f_Reply := nil;
  f_Message := TcsMultiModifyDocs.Create;
- f_Message.UserID := GlobalDataProvider.CurrentUserID;
+ f_Message.UserID := GlobalDataProvider.UserID;
  f_Message.FamilyID := aFamily;
  f_Message.ActionType := OperType;
  f_Message.AnouncedDate := anAnouncedDate;

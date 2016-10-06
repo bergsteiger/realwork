@@ -68,6 +68,7 @@ begin
 //#UC START# *57EBADA9033E_57D175C401BD_impl*
  inherited;
  theParams.rImageIndex := 36;
+ theParams.SetShortCut('Ctrl+PgUp');
 //#UC END# *57EBADA9033E_57D175C401BD_impl*
 end;//TmsmUpToParent.InitOperationParams
 

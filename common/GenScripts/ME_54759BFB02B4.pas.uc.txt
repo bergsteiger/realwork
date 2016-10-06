@@ -64,7 +64,7 @@ var
        l_PushMessage.Offset := l_Stream.Position;
        l_PushMessage.PartSize := Min(l_Message.PartSize, l_ToCopyCount);
        if Assigned(l_Counter) then
-        l_Counter.DoProcess(l_PushMessage.PartSize);
+        l_Counter.DoProgress(l_PushMessage.PartSize);
        g_WriteFile.Start;
        try
         l_PushMessage.Data.CopyFrom(l_Stream, l_PushMessage.PartSize);

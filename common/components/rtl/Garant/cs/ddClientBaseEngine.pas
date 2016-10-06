@@ -1,9 +1,15 @@
 //..........................................................................................................................................................................................................................................................
 unit ddClientBaseEngine;
 
-// $Id: ddClientBaseEngine.pas,v 1.45 2016/09/08 09:15:44 lukyanets Exp $
+// $Id: ddClientBaseEngine.pas,v 1.47 2016/10/05 13:09:13 lukyanets Exp $
 
 // $Log: ddClientBaseEngine.pas,v $
+// Revision 1.47  2016/10/05 13:09:13  lukyanets
+// ¬ыводим сообщение от оригинального исключени€
+//
+// Revision 1.46  2016/10/05 12:05:21  lukyanets
+// «аготовка задачи
+//
 // Revision 1.45  2016/09/08 09:15:44  lukyanets
 // Executor умеет подстраивать временный каталог
 //
@@ -875,11 +881,15 @@ var
     TdaDataProviderSuperFactory.Instance.LoadDBVersion(aLoginParam.rDataParams);
     if (aLoginParam.rDataParams.DocBaseVersion <> 0) and (aLoginParam.rDataParams.AdminBaseVersion <> 0) then
     try
-     aLoginParam.rError := cMap[TdaDataProviderSuperFactory.Instance.CheckLogin(aLoginParam.rDataParams, aLoginParam.rLogin, aLoginParam.rPassword, IsRequireAdminRights)];
+     aLoginParam.rError := cMap[TdaDataProviderSuperFactory.Instance.CheckLogin(aLoginParam.rDataParams, aLoginParam.rLogin, aLoginParam.rPassword, IsRequireAdminRights, False)];
      Result := aLoginParam.rError = beOk;
     except
      on E: Exception do
+     begin
       f_LastError:= E.Message;
+      aLoginParam.rError := beInvalidProocolVersion;
+      aLoginParam.rErrorMsg := E.Message;
+     end;
     end
     else
      aLoginParam.rError := beBaseNotFound;

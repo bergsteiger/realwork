@@ -340,7 +340,7 @@ function TvtScrollBar.InUpdating: Boolean;
 //#UC END# *505894EC0371_50220B0E0061_var*
 begin
 //#UC START# *505894EC0371_50220B0E0061_impl*
- Result := HandleAllocated AND Visible AND afw.IsObjectLocked(Self);
+ Result := HandleAllocated and Visible and afw.IsObjectLocked(Self);
  // без проверки на видимость, WM_PAINT'ы приходят невидимым контролам, в результате
  // имеем прогрузку дерева при ненужной отрисовке, например.
 //#UC END# *505894EC0371_50220B0E0061_impl*

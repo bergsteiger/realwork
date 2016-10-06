@@ -1,0 +1,154 @@
+// TvtAbstractScrollingDropDownWindow 57F4D92C029E GuiControl Class
+
+INCLUDE 'ElementsRTTI.ms.dict'
+
+FORWARD ME_57F4D92C029E
+
+ME ME_57F3C62D038B
+ MEPROP UID '57F3C62D038B'
+ MEPROP Name 'UpdateScrollInfo'
+ MEPROP Class class_Class
+ MELINK Stereotype st_method ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility ProtectedAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F4D92C029E // TvtAbstractScrollingDropDownWindow
+ ;
+
+ENDME // ME_57F3C62D038B UpdateScrollInfo
+
+ME ME_57F3C84902DA
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_4E9574A2008E' '476F78840219.ms.model.script' // TWMSize
+ ;
+
+ENDME // ME_57F3C84902DA Msg
+
+ME ME_57F3C8350020
+ MEPROP UID '57F3C8350020'
+ MEPROP Name 'WMSize'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F4D92C029E // TvtAbstractScrollingDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F3C84902DA // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_SIZE'
+
+ENDME // ME_57F3C8350020 WMSize
+
+ME ME_57F4DAF1004B
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_5022119A010F' '476F78840219.ms.model.script' // TWMHScroll
+ ;
+
+ENDME // ME_57F4DAF1004B Msg
+
+ME ME_57F4DAEA00FB
+ MEPROP UID '57F4DAEA00FB'
+ MEPROP Name 'WMHScroll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F4D92C029E // TvtAbstractScrollingDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F4DAF1004B // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_HSCROLL'
+
+ENDME // ME_57F4DAEA00FB WMHScroll
+
+ME ME_57F4DB030196
+ MEPROP Name 'Msg'
+ MEPROP Class class_Parameter
+ MELINK Stereotype st_inout ;
+ MELINK Target WL 'ME_502211A50263' '476F78840219.ms.model.script' // TWMVScroll
+ ;
+
+ENDME // ME_57F4DB030196 Msg
+
+ME ME_57F4DAFC0079
+ MEPROP UID '57F4DAFC0079'
+ MEPROP Name 'WMVScroll'
+ MEPROP Class class_Operation
+ MELINK Stereotype st_message::Operation ;
+ MEPROP Visibility PrivateAccess
+ MEPROP Abstraction at_final
+ MELINK Parent HWL ME_57F4D92C029E // TvtAbstractScrollingDropDownWindow
+ ;
+ MELIST Parameters
+   Seq: ( ME_57F4DB030196 // Msg
+ )
+ ; // Parameters
+ UP "Message ID" 'WM_VSCROLL'
+
+ENDME // ME_57F4DAFC0079 WMVScroll
+
+ME ME_47A042E100E2_ME_57F4D92C029E
+ MELINK Original WL 'ME_47A042E100E2' '47913F4E02E0.ms.model.script' // InitFields
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_47A042E100E2_ME_57F4D92C029E InitFields
+
+ME ME_48C7925A02E5_ME_57F4D92C029E
+ MELINK Original WL 'ME_48C7925A02E5' '47E11FC3021E.ms.model.script' // CreateParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_48C7925A02E5_ME_57F4D92C029E CreateParams
+
+ME ME_4CC8414403B8_ME_57F4D92C029E
+ MELINK Original WL 'ME_4CC8414403B8' '47E11FC3021E.ms.model.script' // CreateWnd
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_4CC8414403B8_ME_57F4D92C029E CreateWnd
+
+%%InheritedBy ME_57E125C801C4 ME_57F4D92C029E
+
+ME ME_57F4D92C029E
+ MEPROP UID '57F4D92C029E'
+ MEPROP Name 'TvtAbstractScrollingDropDownWindow'
+ MEPROP IsSubRoot true
+ MEPROP Class class_Class
+ MELINK Stereotype st_GuiControl ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent WL 'ME_57E1256601B2' '57E1256601B2.ms.model.script' // DropDown
+ ;
+ MELIST Inherits
+   Seq: ( WL 'ME_57E125C801C4' '57E125C801C4.ms.model.script' // TvtAbstractDropDownWindow
+ )
+ ; // Inherits
+ MELIST Operations
+   Seq: ( HWL ME_57F3C62D038B // UpdateScrollInfo
+ HWL ME_57F3C8350020 // WMSize
+ HWL ME_57F4DAEA00FB // WMHScroll
+ HWL ME_57F4DAFC0079 // WMVScroll
+ )
+ ; // Operations
+ MELIST Overridden
+   Seq: ( ME_47A042E100E2_ME_57F4D92C029E // InitFields
+ ME_48C7925A02E5_ME_57F4D92C029E // CreateParams
+ ME_4CC8414403B8_ME_57F4D92C029E // CreateWnd
+ )
+ ; // Overridden
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\VT\vtAbstractScrollingDropDownWindow.pas'
+ UP extprop:rc:SelfName 'AbstractScrollingDropDownWindow'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'vtAbstractScrollingDropDownWindow'
+
+ENDME // ME_57F4D92C029E TvtAbstractScrollingDropDownWindow

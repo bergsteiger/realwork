@@ -33,7 +33,7 @@ type
    class function CallAndGetString(aWord: TtfwWord;
     const aMethodName: AnsiString): Il3CString;
    class function CallAndGetList(aWord: TtfwWord;
-    const aMethodName: AnsiString): ItfwValueList;
+    const aMethodName: AnsiString): ItfwValueList; overload;
    class function CallAndGetInt(aWord: TtfwWord;
     const aMethodName: AnsiString): Integer;
    class function CallAndGetBool(aWord: TtfwWord;
@@ -49,6 +49,8 @@ type
    class procedure CallIntSetter(aWord: TtfwWord;
     const aMethodName: AnsiString;
     aValue: Integer);
+   class function CallAndGetList(const aParameters: array of TtfwStackValue;
+    const aMethodName: AnsiString): ItfwArray; overload;
  end;//TmsmModelElementMethodCaller
 
 implementation
@@ -449,5 +451,15 @@ begin
  CallSetter(aWord, aMethodName, TtfwStackValue_C(aValue));
 //#UC END# *57D6815802B8_57AA00BD022E_impl*
 end;//TmsmModelElementMethodCaller.CallIntSetter
+
+class function TmsmModelElementMethodCaller.CallAndGetList(const aParameters: array of TtfwStackValue;
+ const aMethodName: AnsiString): ItfwArray;
+//#UC START# *57F4E39D0252_57AA00BD022E_var*
+//#UC END# *57F4E39D0252_57AA00BD022E_var*
+begin
+//#UC START# *57F4E39D0252_57AA00BD022E_impl*
+ Result := ItfwValueList(Call(aParameters, aMethodName).AsIntf);
+//#UC END# *57F4E39D0252_57AA00BD022E_impl*
+end;//TmsmModelElementMethodCaller.CallAndGetList
 
 end.

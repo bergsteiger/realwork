@@ -468,11 +468,11 @@ procedure ThtDataProvider.Stop;
 //#UC END# *5526538202A5_5519351D01BE_var*
 begin
 //#UC START# *5526538202A5_5519351D01BE_impl*
- if not f_IsStarted then
-  Exit;
  g_HTDataProvider := nil;
  if f_NeedClearGlobalDataProvider then
   SetGlobalDataProvider(nil);
+ if not f_IsStarted then
+  Exit;
  if Assigned(f_Journal) then
   f_Journal.SessionDone;
  f_Journal := nil;

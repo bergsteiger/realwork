@@ -13,6 +13,7 @@ INCLUDE 'ElementsRTTI.ms.dict'
 %%Inner ME_57CEBB9200EA
 %%Inner ME_57CEBB9200EA
 %%Inner ME_57CEBB9200EA
+%%Inner ME_57CEBB9200EA
 
 FORWARD ME_57CEBB9200EA
 
@@ -818,6 +819,88 @@ ME ME_57E28018005C
 
 ENDME // ME_57E28018005C TmsmPaste
 
+FORWARD ME_57F50186039F
+
+ME ME_57F5042B0086
+ MEPROP Class class_Dependency
+ MELINK Stereotype st_uses::Dependency ;
+ MELINK Parent HWL ME_57F50186039F // TmsmAddElement
+ ;
+ MELINK Target WL 'ME_57F5040203B0' '57CED450035C.ms.model.script' // TmsmModelElementSelectService
+ ;
+
+ENDME // ME_57F5042B0086 
+
+ME ME_57CEB1F602D1_ME_57F50186039F
+ MELINK Original WL 'ME_57CEB1F602D1' '57CEB008027D.ms.model.script' // DoDoIt
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57CEB1F602D1_ME_57F50186039F DoDoIt
+
+ME ME_57EB6D020381_ME_57F50186039F
+ MELINK Original WL 'ME_57EB6D020381' '57CEB008027D.ms.model.script' // GetEnabled
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57EB6D020381_ME_57F50186039F GetEnabled
+
+ME ME_57F509AC007F_ME_57F50186039F
+ MELINK Original WL 'ME_57F509AC007F' '57CED450035C.ms.model.script' // SelectElement
+ ;
+ MEPROP OpKind opkind_Implemented
+ENDME // ME_57F509AC007F_ME_57F50186039F SelectElement
+
+ME ME_57EBADA9033E_ME_57F50186039F
+ MELINK Original WL 'ME_57EBADA9033E' '57CEB008027D.ms.model.script' // InitOperationParams
+ ;
+ MEPROP OpKind opkind_Overridden
+ENDME // ME_57EBADA9033E_ME_57F50186039F InitOperationParams
+
+%%ImplementedBy ME_57F5098E01B5 ME_57F50186039F
+
+%%InheritedBy ME_57CED27203D3 ME_57F50186039F
+
+ME ME_57F50186039F
+ MEPROP UID '57F50186039F'
+ MEPROP Name 'TmsmAddElement'
+ MEPROP Class class_Class
+ MELINK Stereotype st_SimpleClass ;
+ MEPROP Kind kind_NormalClass
+ MEPROP Visibility PublicAccess
+ MEPROP Abstraction at_regular
+ MELINK Parent HWL ME_57CEBB9200EA // ConcreteOperations
+ ;
+ MELIST Inherits
+   Seq: ( HWL ME_57CED27203D3 // TmsmListLikeOperation
+ )
+ ; // Inherits
+ MELIST Implements
+   Seq: ( WL 'ME_57F5098E01B5' '57CED450035C.ms.model.script' // ImsmElementSelector
+ )
+ ; // Implements
+ MELIST Implemented
+   Seq: ( ME_57CEB1F602D1_ME_57F50186039F // DoDoIt
+ ME_57EB6D020381_ME_57F50186039F // GetEnabled
+ ME_57F509AC007F_ME_57F50186039F // SelectElement
+ )
+ ; // Implemented
+ MELIST Overridden
+   Seq: ( ME_57EBADA9033E_ME_57F50186039F // InitOperationParams
+ )
+ ; // Overridden
+ MELIST Dependencies
+   Seq: ( ME_57F5042B0086 // TmsmModelElementSelectService
+ )
+ ; // Dependencies
+ MESTRINGLIST DiagramsNames
+   Seq: ( 'Main' )
+ ; // DiagramsNames
+ UP intf.pas:Path 'common\components\gui\Garant\msm\msmAddElement.pas'
+ UP extprop:rc:SelfName 'msmAddElement'
+ UP extprop:rc:isAcceptableForScripts true
+ UP extprop:pas:UnitName 'msmAddElement'
+
+ENDME // ME_57F50186039F TmsmAddElement
+
 ME ME_57CEBB9200EA
  MEPROP UID '57CEBB9200EA'
  MEPROP Name 'ConcreteOperations'
@@ -840,6 +923,7 @@ ME ME_57CEBB9200EA
  HWL ME_57E2605E0153 // TmsmElementSelectionDataObject
  HWL ME_57E2607203E3 // TmsmCopySelection
  HWL ME_57E28018005C // TmsmPaste
+ HWL ME_57F50186039F // TmsmAddElement
  )
  ; // Children
  MELIST Depends

@@ -87,6 +87,7 @@ begin
 //#UC START# *57EBADA9033E_57E28018005C_impl*
  inherited;
  theParams.rImageIndex := 10;
+ theParams.SetShortCut('Ctrl+V');
 //#UC END# *57EBADA9033E_57E28018005C_impl*
 end;//TmsmPaste.InitOperationParams
 

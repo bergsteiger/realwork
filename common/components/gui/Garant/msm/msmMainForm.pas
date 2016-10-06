@@ -69,6 +69,9 @@ uses
  , afwInterfaces
  , l3Core
  , l3Filer
+ , msmModelElementSelectService
+ , msmConcreteModels
+ , msmListAndTreeViewUtils
  , msmModelLoader
  , msmTreeViewController
  , msmListViewController
@@ -78,7 +81,6 @@ uses
  , msmTreeModel
  , msmMultiPanelViewParent
  , msmSingleViewParent
- , msmListAndTreeViewUtils
  , msmTabbedViewParent
  , msmNavigatorForm
  {$If Defined(seThreadSafe)}
@@ -107,6 +109,7 @@ uses
  {$IfEnd} // NOT Defined(NoScripts)
  , SysUtils
  , l3Base
+ , msmSelectElementForm
  //#UC START# *57A9C16601B9impl_uses*
  , Windows
  , Controls
@@ -114,7 +117,7 @@ uses
  //, Forms
  , msmViewController
  , msmElementViews
- , msmConcreteModels
+ //, msmConcreteModels
  , tfwParserService
  , msmControllers
  , msmConcreteUseCases
@@ -165,10 +168,23 @@ type
  //#UC END# *57EE7F1302F9publ*
  end;//TmsmParserProgressServiceImpl
 
+ TmsmModelElementSelectServiceImp = {final} class(Tl3ProtoObject, ImsmModelElementSelectService)
+  public
+   procedure SelectElement(const aList: ImsmListModel;
+    const aListContext: TmsmListViewtInitContext;
+    const aSelector: ImsmElementSelector);
+   class function Instance: TmsmModelElementSelectServiceImp;
+    {* Метод получения экземпляра синглетона TmsmModelElementSelectServiceImp }
+   class function Exists: Boolean;
+    {* Проверяет создан экземпляр синглетона или нет }
+ end;//TmsmModelElementSelectServiceImp
+
 var g_TmsmOpenServiceImpl: TmsmOpenServiceImpl = nil;
  {* Экземпляр синглетона TmsmOpenServiceImpl }
 var g_TmsmParserProgressServiceImpl: TmsmParserProgressServiceImpl = nil;
  {* Экземпляр синглетона TmsmParserProgressServiceImpl }
+var g_TmsmModelElementSelectServiceImp: TmsmModelElementSelectServiceImp = nil;
+ {* Экземпляр синглетона TmsmModelElementSelectServiceImp }
 
 procedure TmsmOpenServiceImplFree;
  {* Метод освобождения экземпляра синглетона TmsmOpenServiceImpl }
@@ -181,6 +197,12 @@ procedure TmsmParserProgressServiceImplFree;
 begin
  l3Free(g_TmsmParserProgressServiceImpl);
 end;//TmsmParserProgressServiceImplFree
+
+procedure TmsmModelElementSelectServiceImpFree;
+ {* Метод освобождения экземпляра синглетона TmsmModelElementSelectServiceImp }
+begin
+ l3Free(g_TmsmModelElementSelectServiceImp);
+end;//TmsmModelElementSelectServiceImpFree
 
 procedure TmsmOpenServiceImpl.OpenListInNewWindow(const anElementForList: ImsmModelElement);
 //#UC START# *5077A5E39FAB_57CED5100343_var*
@@ -306,6 +328,34 @@ end;//TmsmParserProgressServiceImpl.ClearFields
 
 //#UC START# *57EE7F1302F9impl*
 //#UC END# *57EE7F1302F9impl*
+
+procedure TmsmModelElementSelectServiceImp.SelectElement(const aList: ImsmListModel;
+ const aListContext: TmsmListViewtInitContext;
+ const aSelector: ImsmElementSelector);
+//#UC START# *BBCBB8731EE0_57F50B110031_var*
+//#UC END# *BBCBB8731EE0_57F50B110031_var*
+begin
+//#UC START# *BBCBB8731EE0_57F50B110031_impl*
+ TmsmSelectElementForm.SelectElement(aList, aListContext, aSelector);
+//#UC END# *BBCBB8731EE0_57F50B110031_impl*
+end;//TmsmModelElementSelectServiceImp.SelectElement
+
+class function TmsmModelElementSelectServiceImp.Instance: TmsmModelElementSelectServiceImp;
+ {* Метод получения экземпляра синглетона TmsmModelElementSelectServiceImp }
+begin
+ if (g_TmsmModelElementSelectServiceImp = nil) then
+ begin
+  l3System.AddExitProc(TmsmModelElementSelectServiceImpFree);
+  g_TmsmModelElementSelectServiceImp := Create;
+ end;
+ Result := g_TmsmModelElementSelectServiceImp;
+end;//TmsmModelElementSelectServiceImp.Instance
+
+class function TmsmModelElementSelectServiceImp.Exists: Boolean;
+ {* Проверяет создан экземпляр синглетона или нет }
+begin
+ Result := g_TmsmModelElementSelectServiceImp <> nil;
+end;//TmsmModelElementSelectServiceImp.Exists
 
 procedure TmsmMainForm.Init;
 //#UC START# *57A9C19A01CE_57A9C16601B9_var*
@@ -604,6 +654,8 @@ initialization
  {* Регистрация TmsmOpenServiceImpl }
  TtfwParserProgressService.Instance.Alien := TmsmParserProgressServiceImpl.Instance;
  {* Регистрация TmsmParserProgressServiceImpl }
+ TmsmModelElementSelectService.Instance.Alien := TmsmModelElementSelectServiceImp.Instance;
+ {* Регистрация TmsmModelElementSelectServiceImp }
 {$If NOT Defined(NoScripts)}
  TtfwClassRef.Register(TmsmMainForm);
  {* Регистрация TmsmMainForm }

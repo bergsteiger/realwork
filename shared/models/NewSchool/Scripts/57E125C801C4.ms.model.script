@@ -262,18 +262,18 @@ ENDME // ME_57ED316801CF f_ResizePoint
 
 ME ME_57F23C65019F
  MEPROP UID '57F23C65019F'
- MEPROP Name 'f_InitialSize'
+ MEPROP Name 'f_InitialBounds'
  MEPROP Class class_Attribute
- %SUMMARY '–азмеры окна перед началом ресайза' ;
+ %SUMMARY 'ѕоложение окна перед началом процесса изменени€ размеров' ;
  MEPROP Visibility PrivateAccess
  MEPROP Abstraction at_regular
  MEPROP LinkType lt_agr
  MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
  ;
- MELINK Target WL 'ME_4739AD110072' '4728A7020026.ms.model.script' // TPoint
+ MELINK Target WL 'ME_4728A7190065' '4728A7020026.ms.model.script' // TRect
  ;
 
-ENDME // ME_57F23C65019F f_InitialSize
+ENDME // ME_57F23C65019F f_InitialBounds
 
 FORWARD ME_57E2474902DE
 
@@ -508,23 +508,23 @@ ME ME_57ED30710157
 
 ENDME // ME_57ED30710157 aResizeDirection
 
-ME ME_57ED30710193
- MEPROP Name 'X'
+ME ME_57F4C7FD0331
+ MEPROP Name 'PosX'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
-ENDME // ME_57ED30710193 X
+ENDME // ME_57F4C7FD0331 PosX
 
-ME ME_57ED307101E3
- MEPROP Name 'Y'
+ME ME_57F4C7FD0359
+ MEPROP Name 'PosY'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
-ENDME // ME_57ED307101E3 Y
+ENDME // ME_57F4C7FD0359 PosY
 
 ME ME_57ED306B020B
  MEPROP UID '57ED306B020B'
@@ -536,8 +536,8 @@ ME ME_57ED306B020B
  ;
  MELIST Parameters
    Seq: ( ME_57ED30710157 // aResizeDirection
- ME_57ED30710193 // X
- ME_57ED307101E3 // Y
+ ME_57F4C7FD0331 // PosX
+ ME_57F4C7FD0359 // PosY
  )
  ; // Parameters
 
@@ -549,6 +549,7 @@ ME ME_57ED30620029
  MEPROP Class class_Class
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
+ %SUMMARY '(PosX, PosY) - точка окна, за которую схватились мышью' ;
  MEPROP Visibility ProtectedAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
@@ -562,23 +563,23 @@ ENDME // ME_57ED30620029 BeginResize
 
 FORWARD ME_57EE6C32020D
 
-ME ME_57EE6C95027D
- MEPROP Name 'X'
+ME ME_57F4C8350075
+ MEPROP Name 'PosX'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
-ENDME // ME_57EE6C95027D X
+ENDME // ME_57F4C8350075 PosX
 
-ME ME_57EE6C95029B
- MEPROP Name 'Y'
+ME ME_57F4C8350093
+ MEPROP Name 'PosY'
  MEPROP Class class_Parameter
  MELINK Stereotype st_in ;
  MELINK Target WL 'ME_46A606AC03B2' '4807744200AA.ms.model.script' // Integer
  ;
 
-ENDME // ME_57EE6C95029B Y
+ENDME // ME_57F4C8350093 PosY
 
 ME ME_57EE6C8403BF
  MEPROP UID '57EE6C8403BF'
@@ -589,8 +590,8 @@ ME ME_57EE6C8403BF
  MELINK Parent HWL ME_57EE6C32020D // ProcessResize
  ;
  MELIST Parameters
-   Seq: ( ME_57EE6C95027D // X
- ME_57EE6C95029B // Y
+   Seq: ( ME_57F4C8350075 // PosX
+ ME_57F4C8350093 // PosY
  )
  ; // Parameters
 
@@ -602,6 +603,7 @@ ME ME_57EE6C32020D
  MEPROP Class class_Class
  MELINK Stereotype st_method ;
  MEPROP Kind kind_NormalClass
+ %SUMMARY '(PosX, PosY) - позици€ мыши в экранных координатах' ;
  MEPROP Visibility ProtectedAccess
  MEPROP Abstraction at_regular
  MELINK Parent HWL ME_57E125C801C4 // TvtAbstractDropDownWindow
@@ -891,12 +893,6 @@ ME ME_47D1602000C6_ME_57E125C801C4
  MEPROP OpKind opkind_Overridden
 ENDME // ME_47D1602000C6_ME_57E125C801C4 Create
 
-ME ME_47E136A80191_ME_57E125C801C4
- MELINK Original WL 'ME_47E136A80191' '47E11FC3021E.ms.model.script' // WndProc
- ;
- MEPROP OpKind opkind_Overridden
-ENDME // ME_47E136A80191_ME_57E125C801C4 WndProc
-
 ME ME_48C6BFF80313_ME_57E125C801C4
  MELINK Original WL 'ME_48C6BFF80313' '47E11FC3021E.ms.model.script' // PaintWindow
  ;
@@ -923,7 +919,7 @@ ENDME // ME_57E12CDC0172_ME_57E125C801C4 AdjustSize
 
 %%ImplementedBy ME_47913F970159 ME_57E125C801C4
 
-%%InheritedBy ME_495259490229 ME_57E125C801C4
+%%InheritedBy ME_47E124E90272 ME_57E125C801C4
 
 ME ME_57E125C801C4
  MEPROP UID '57E125C801C4'
@@ -937,7 +933,7 @@ ME ME_57E125C801C4
  MELINK Parent WL 'ME_57E1256601B2' '57E1256601B2.ms.model.script' // DropDown
  ;
  MELIST Inherits
-   Seq: ( WL 'ME_495259490229' '47E13C6B0341.ms.model.script' // TScrollingWinControl
+   Seq: ( WL 'ME_47E124E90272' '47E11FC3021E.ms.model.script' // TWinControl
  )
  ; // Inherits
  MELIST Implements
@@ -953,7 +949,7 @@ ME ME_57E125C801C4
  HWL ME_57ED310D022C // f_ResizeDirection
  HWL ME_57ED312D0013 // f_Resize
  HWL ME_57ED316801CF // f_ResizePoint
- HWL ME_57F23C65019F // f_InitialSize
+ HWL ME_57F23C65019F // f_InitialBounds
  )
  ; // Attributes
  MELIST Operations
@@ -982,7 +978,6 @@ ME ME_57E125C801C4
  MELIST Overridden
    Seq: ( ME_479731C50290_ME_57E125C801C4 // Cleanup
  ME_47D1602000C6_ME_57E125C801C4 // Create
- ME_47E136A80191_ME_57E125C801C4 // WndProc
  ME_48C6BFF80313_ME_57E125C801C4 // PaintWindow
  ME_48C7925A02E5_ME_57E125C801C4 // CreateParams
  ME_4E1350DE0094_ME_57E125C801C4 // CanFocus

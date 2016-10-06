@@ -2173,6 +2173,22 @@ type
    function DoMakeTag(aRef : Integer): Il3TagRef; override;
  end;//csDownloadDocStream_DocPartSel_Tag
 
+ DeliveryProfileTagClass = class(Tk2ParentedTypedSmallLeafTag)
+  {* Класс реализации тега "DeliveryProfile" }
+ protected
+ // realized methods
+   function GetTagType: Tl3Type; override;
+     {* Тип параграфа }
+ end;//DeliveryProfileTagClass
+
+ DeliveryProfileTag = class(Tk2AutoType)
+ protected
+   function GetAsPCharLen: Tl3PCharLenPrim; override;
+   function GetIsKindOf(anAtomType: Tk2TypePrim): Boolean; override;
+ public
+   function DoMakeTag(aRef: Integer): Il3TagRef; override;
+ end;//DeliveryProfileTag
+
  TevdTasksSchema = class(Tk2NativeSchema)
  public
  // типы, определённые в данной схеме:
@@ -2335,6 +2351,7 @@ type
    t_csDownloadDocStream_FoundSelector : csDownloadDocStream_FoundSelector_Tag;
    t_csDownloadDocStream_DocPart : csDownloadDocStream_DocPart_Tag;
    t_csDownloadDocStream_DocPartSel : csDownloadDocStream_DocPartSel_Tag;
+   t_DeliveryProfile : DeliveryProfileTag;
  protected
  // определяем стандартные методы схемы
    procedure Cleanup; override;
@@ -2446,6 +2463,7 @@ uses
   csMultiOperation_Const,
   MultiOperationRequest_Const,
   csDownloadDocStream_Const,
+  DeliveryProfile_Const,
   SysUtils {a},
   TypInfo {a},
   k2Const {a},
@@ -5547,6 +5565,27 @@ begin
  Result := csDownloadDocStreamTagClass.Make(Self);
 end;
 
+function DeliveryProfileTagClass.GetTagType: Tl3Type;
+begin
+ Result := k2_typDeliveryProfile;
+end;//DeliveryProfileTagClass.TagType
+
+function DeliveryProfileTag.GetAsPCharLen: Tl3PCharLenPrim;
+begin
+ Result := l3PCharLen(AnsiString('DeliveryProfile'));
+end;
+
+function DeliveryProfileTag.GetIsKindOf(anAtomType: Tk2TypePrim): Boolean;
+begin
+ Result := (Self = anAtomType) OR 
+           TevdTasksSchema(TypeTable).t_ProcessTask.IsKindOf(anAtomType);
+end;
+
+function DeliveryProfileTag.DoMakeTag(aRef: Integer): Il3TagRef;
+begin
+ Result := DeliveryProfileTagClass.Make(Self);
+end;
+
 constructor TevdTasksSchema.Create;
 begin
  inherited;
@@ -7784,6 +7823,22 @@ begin
   begin
   end;//DocumentType
  end;//csDownloadDocStream
+ // DeliveryProfile
+ t_DeliveryProfile := DefineAutoType([t_ProcessTask], '', DeliveryProfileTag) As DeliveryProfileTag;
+ with t_DeliveryProfile do
+ begin
+  AtomClass := DeliveryProfileTagClass;
+  with Tk2CustomProperty(Prop[k2_attrTaskType]) do
+  begin
+   DefaultValue := Ord(cs_ttDeliveryProfile);
+  end;//TaskType
+  with DefineProperty(k2_attrTargetFolder, t_String, '') do
+  begin
+  end;//TargetFolder
+  with DefineProperty(k2_attrSourceFolder, t_String, '') do
+  begin
+  end;//SourceFolder
+ end;//DeliveryProfile
  t_ULong.Recalc;
  t_DateTime.Recalc;
  t_DateTimeNotNull.Recalc;
@@ -7885,6 +7940,7 @@ begin
  t_csMultiOperation.Recalc;
  t_MultiOperationRequest.Recalc;
  t_csDownloadDocStream.Recalc;
+ t_DeliveryProfile.Recalc;
 end;
 
 // определяем стандартные методы схемы
@@ -8051,6 +8107,7 @@ begin
  t_csDownloadDocStream_FoundSelector.InterfaceFactory := nil;
  t_csDownloadDocStream_DocPart.InterfaceFactory := nil;
  t_csDownloadDocStream_DocPartSel.InterfaceFactory := nil;
+ t_DeliveryProfile.InterfaceFactory := nil;
  FreeAndNil(t_ULong);
  FreeAndNil(t_DateTime);
  FreeAndNil(t_DateTimeNotNull);
@@ -8210,6 +8267,7 @@ begin
  FreeAndNil(t_csDownloadDocStream_FoundSelector);
  FreeAndNil(t_csDownloadDocStream_DocPart);
  FreeAndNil(t_csDownloadDocStream_DocPartSel);
+ FreeAndNil(t_DeliveryProfile);
  inherited;
 end;
 

@@ -50,7 +50,8 @@ type
    function CheckLogin(aParams: TdaDataProviderParams;
     const aLogin: AnsiString;
     const aPassword: AnsiString;
-    IsRequireAdminRights: Boolean): TdaLoginError;
+    IsRequireAdminRights: Boolean;
+    SuppressExceptions: Boolean): TdaLoginError;
    function DoMakeProvider(aParams: TdaDataProviderParams;
     ForCheckLogin: Boolean;
     AllowClearLocks: Boolean;
@@ -147,7 +148,8 @@ end;//TdaDataProviderFactory.MakeProvider
 function TdaDataProviderFactory.CheckLogin(aParams: TdaDataProviderParams;
  const aLogin: AnsiString;
  const aPassword: AnsiString;
- IsRequireAdminRights: Boolean): TdaLoginError;
+ IsRequireAdminRights: Boolean;
+ SuppressExceptions: Boolean): TdaLoginError;
 //#UC START# *551BE3520031_54F85EE102D1_var*
 var
  l_Provider: IdaDataProvider;
@@ -159,8 +161,12 @@ begin
   try
    l_Provider.Start;
   except
+   l_Provider.Stop;
    Result := da_leConnectionError;
-   Exit;
+   if SuppressExceptions then
+    Exit
+   else
+    raise; 
   end;
   try
    Result := l_Provider.CheckLogin(aLogin, aPassword, IsRequireAdminRights);

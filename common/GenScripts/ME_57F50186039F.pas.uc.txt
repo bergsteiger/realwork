@@ -1,0 +1,31 @@
+//#UC START# *57CEB1F602D1_57F50186039F_impl*
+ l_AllowedElements := TmsmListModel.MakeList(TmsmModelElementView_C(Model.List.Owner, 'AllowedElements'));
+ l_ListContext := TmsmListViewtInitContext_C;
+ l_ListContext.rImageNameProp := 'msm:View:StereotypeImageFileName';
+ TmsmModelElementSelectService.Instance.SelectElement(l_AllowedElements, l_ListContext);
+ Model.AddNewElement('', nil);
+//#UC END# *57CEB1F602D1_57F50186039F_impl*
+//#UC START# *57CEB1F602D1_57F50186039F_var*
+var
+ l_AllowedElements : ImsmListModel;
+ l_ListContext : TmsmListViewtInitContext;
+//#UC END# *57CEB1F602D1_57F50186039F_var*
+//#UC START# *57EB6D020381_57F50186039F_impl*
+ Result := Model.CanAddNewElement;
+//#UC END# *57EB6D020381_57F50186039F_impl*
+//#UC START# *57EB6D020381_57F50186039F_var*
+//#UC END# *57EB6D020381_57F50186039F_var*
+//#UC START# *57EBADA9033E_57F50186039F_impl*
+ inherited;
+//#UC END# *57EBADA9033E_57F50186039F_impl*
+//#UC START# *57EBADA9033E_57F50186039F_var*
+//#UC END# *57EBADA9033E_57F50186039F_var*
+//#UC START# *57F50186039F_ext:FileName
+w:\common\components\gui\Garant\msm\msmAddElement.pas
+//#UC END# *57F50186039F_ext:FileName
+//#UC START# *57F50186039Fimpl_uses*
+ , msmConcreteModels
+ , msmListAndTreeViewUtils
+ , msmListModel
+ , msmElementViews
+//#UC END# *57F50186039Fimpl_uses*

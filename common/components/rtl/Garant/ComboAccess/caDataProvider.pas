@@ -512,10 +512,10 @@ procedure TcaDataProvider.Stop;
 //#UC END# *5526538202A5_56A86BCE01EE_var*
 begin
 //#UC START# *5526538202A5_56A86BCE01EE_impl*
- if not f_IsStarted then
-  Exit;
  if f_NeedClearGlobalDataProvider then
   SetGlobalDataProvider(nil);
+ if not f_IsStarted then
+  Exit;
  f_Journal := nil;
  f_UserManager := nil;
  f_HTProvider.Stop;
